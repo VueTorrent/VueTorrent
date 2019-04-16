@@ -1,26 +1,15 @@
-# todo-ninja
+# Vuetorrent
 
 ## Project setup
 ```
-npm install
-```
+- development
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+npm install & npm run serve 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- production
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+npm install & npm run build
+then copy dist to server/dist
+rename config.example.json to config.json
+run node server/src/server.js
 ```
