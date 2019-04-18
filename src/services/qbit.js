@@ -1,11 +1,11 @@
-import {timingSafeEqual} from 'crypto';
-
 const axios = require('axios');
+
+const info = require('./config/config.json');
 
 class Qbit {
   constructor() {
     this._axios = axios.create({
-      baseURL: 'http://localhost:3009',
+      baseURL: info.web_host,
       timeout: 1000
     });
   }

@@ -23,3 +23,4 @@ yarn-error.log*
 
 #config files
 server/config/config.json
+src/config/config.json
