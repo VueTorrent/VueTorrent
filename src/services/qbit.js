@@ -5,7 +5,7 @@ const axios = require('axios');
 class Qbit {
   constructor() {
     this._axios = axios.create({
-      baseURL: 'http://localhost:3000',
+      baseURL: 'http://localhost:3009',
       timeout: 1000
     });
   }
