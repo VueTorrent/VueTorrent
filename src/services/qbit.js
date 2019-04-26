@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const info = require('./config/config.json');
+const info = require('../config/config.json');
 
 class Qbit {
   constructor() {
@@ -45,13 +45,17 @@ class Qbit {
   }
 
   async remove_torrents(torrents) {
-    let res = await this._axios.post('/remove', torrents);
+    let res = await this._axios.post('/remove', torrents)
     return res.data;
   }
 
   async login(credentials) {
-    let res = await this._axios.post('/login', credentials);
-    return res.data;
+    let timeout = false;
+    let res = await this._axios.post('/login', credentials).catch(error => {
+      if (error.code === 'ECONNABORTED') timeout = true;
+      else throw error;
+    });
+     return timeout ? 'timeout' : res.data;
   }
 }
 

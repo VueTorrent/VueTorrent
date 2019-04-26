@@ -16,8 +16,15 @@
           @keyup.enter.native="sortBy"
         ></v-text-field>
       </v-flex>
-
-      <div v-if="torrents.length >= 1">
+      <v-container v-if="!init_torrents" fill-height>
+        <div style="margin: 150px auto;">
+          <v-progress-circular :size="100" indeterminate color="green_accent"></v-progress-circular>
+        </div>
+      </v-container>
+      <div v-if="torrents.length === 0 && init_torrents" class="mt-5 text-xs-center">
+        <p class="grey--text">No active Torrents!</p>
+      </div>
+      <div v-else>
         <v-card
           ripple
           flat
@@ -108,11 +115,6 @@
           <v-divider></v-divider>
         </v-card>
       </div>
-      <v-container v-else fill-height>
-        <div style="margin: 150px auto;">
-          <v-progress-circular :size="100" indeterminate color="green_accent"></v-progress-circular>
-        </div>
-      </v-container>
     </v-container>
   </div>
 </template>
@@ -127,7 +129,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["torrents"])
+    ...mapState(["torrents", "init_torrents"])
   },
   methods: {
     ...mapMutations(["SORT_TORRENTS"]),

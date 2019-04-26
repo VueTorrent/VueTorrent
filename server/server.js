@@ -18,7 +18,7 @@ const upload = multer({
 const app = express();
 
 app.use(express.json());
-app.use(express.static('./src/dist'));
+app.use(express.static('dist'));
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -119,7 +119,7 @@ app.delete('/upload', upload.single('file'), (req, res) => {
   return res.send('deleted file');
 });
 
-app.listen(3000, () => console.log(`Server listening on port 3000!`));
+app.listen(3009, () => console.log(`Server listening on port 3009!`));
 
 //clear the tmp directory on every boot
 const directory = path.resolve(__dirname + '/tmp');

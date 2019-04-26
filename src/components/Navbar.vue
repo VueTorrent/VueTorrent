@@ -3,9 +3,7 @@
     <!--title-->
     <v-toolbar flat app>
       <v-toolbar-side-icon @click="drawer = !drawer" class="grey--text"></v-toolbar-side-icon>
-      <v-toolbar-title
-        :class="['grey--text', {'subheading ml-0': $vuetify.breakpoint.smAndDown}]"
-      >
+      <v-toolbar-title :class="['grey--text', {'subheading ml-0': $vuetify.breakpoint.smAndDown}]">
         <span class="font-weight-light">Vue</span>
         <span>Torrent</span>
       </v-toolbar-title>
@@ -22,7 +20,7 @@
       <v-btn small fab flat class="mr-0 ml-0" @click="pauseTorrents">
         <v-icon color="grey">pause</v-icon>
       </v-btn>
-      <v-btn small fab flat class="mr-0 ml-0" @click="REFRESH_TORRENTS">
+      <v-btn small fab flat class="mr-0 ml-0" @click="refreshTorrents">
         <v-icon color="grey">autorenew</v-icon>
       </v-btn>
     </v-toolbar>
@@ -186,6 +184,10 @@ export default {
     },
     removeTorrents() {
       this.$store.dispatch("REMOVE_TORRENTS");
+    },
+    refreshTorrents() {
+      this.$store.state.init_torrents = false;
+      this.$store.dispatch("REFRESH_TORRENTS");
     },
     closeSnackbar() {
       this.$store.state.snackbar = false;

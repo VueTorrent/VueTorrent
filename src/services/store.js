@@ -18,6 +18,7 @@ export default new Vuex.Store({
     upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     torrents: [],
+    init_torrents : false,
     selected_torrents: [],
     network_error: false,
     snackbar_error: false,
@@ -40,7 +41,8 @@ export default new Vuex.Store({
         state.error_msg = 'Lost connection with server, reload page';
         state.snackbar_error = true;
       });
-      state.torrents = torrents.map(a => ({...a}));
+      state.torrents = torrents.map(a => ({ ...a }));
+      state.init_torrents = true;
     },
     REFRESH_SESSION_STATS: async state => {
       let _stats = await qbit.get_sessions_stats();
@@ -122,38 +124,47 @@ export default new Vuex.Store({
     },
     LOGIN: async (state, payload) => {
       let res = await qbit.login(payload);
-      switch (res) {
-        case 'No such user':
-          state.snackbar_error = true;
-          state.error_msg = 'No such user!';
-          setTimeout(() => {
-            state.snackbar_error = false;
-          }, 4000);
-          break;
-        case 'Wrong password!':
-          state.snackbar_error = true;
-          state.error_msg = 'Wrong password!';
-          setTimeout(() => {
-            state.snackbar_error = false;
-          }, 4000);
-          break;
-        case 'SUCCES':
-          state.snackbar = true;
-          state.succes_msg = 'Succesfully logged in!';
-          state.authenticated = true;
-          setTimeout(() => {
-            state.snackbar = false;
-          }, 4000);
-          break;
-        default:
-          state.snackbar_error = true;
-          state.error_msg = 'Something went wrong';
-          setTimeout(() => {
-            state.snackbar_error = false;
-          }, 4000);
-          break;
+      if (res == 'timeout') {
+        state.loading = false;
+        state.snackbar_error = true;
+        state.error_msg = 'Express server timed out!';
+        setTimeout(() => {
+          state.snackbar_error = false;
+        }, 4000);
+      } else {
+        switch (res) {
+          case 'No such user':
+            state.snackbar_error = true;
+            state.error_msg = 'No such user!';
+            setTimeout(() => {
+              state.snackbar_error = false;
+            }, 4000);
+            break;
+          case 'Wrong password!':
+            state.snackbar_error = true;
+            state.error_msg = 'Wrong password!';
+            setTimeout(() => {
+              state.snackbar_error = false;
+            }, 4000);
+            break;
+          case 'SUCCES':
+            state.snackbar = true;
+            state.succes_msg = 'Succesfully logged in!';
+            state.authenticated = true;
+            setTimeout(() => {
+              state.snackbar = false;
+            }, 4000);
+            break;
+          default:
+            state.snackbar_error = true;
+            state.error_msg = 'Something went wrong';
+            setTimeout(() => {
+              state.snackbar_error = false;
+            }, 4000);
+            break;
+        }
+        state.loading = false;
       }
-      state.loading = false;
     }
   },
   actions: {
