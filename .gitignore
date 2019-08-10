@@ -6,6 +6,7 @@ server/dist
 # local env files
 .env.local
 .env.*.local
+.env
 
 # Log files
 npm-debug.log*
@@ -20,7 +21,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-
-#config files
-server/config/config.json
-src/config/config.json

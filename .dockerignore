@@ -1,6 +1,7 @@
 nodemodules
 src
 LICENSE.md
-package-lock.json
-package.json
 README.md
+babel.config.js
+.gitignore
+.env

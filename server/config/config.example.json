@@ -1,8 +1,0 @@
-{
-  "qbit_user": "admin",
-  "qbit_pass": "adminadmin",
-  "qbit_host": "https://qbittorrent.mydomain.com",
-  "web_user": "username",
-  "web_pass": " password",
-  "web_host": "https://vuetorrent.mydomain.com"
-}

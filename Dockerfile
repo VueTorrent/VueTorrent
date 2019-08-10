@@ -1,15 +1,14 @@
 FROM node:10-slim
 
-WORKDIR /app
+# Create app directory
+WORKDIR /usr/src/app
 
-COPY package.json /app
+COPY package*.json ./
 
 RUN npm install
 
-COPY server /app
+COPY . .
 
-COPY dist /app
+EXPOSE 3001
 
-EXPOSE 3009
-
-CMD ["npm", "start"]
+CMD ["node", "server/server.js"]
