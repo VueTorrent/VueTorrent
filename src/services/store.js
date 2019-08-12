@@ -28,12 +28,9 @@ export default new Vuex.Store({
     authenticated: false,
     loading: false,
     sort_options: { sort: 'name', reverse: false },
-    serverdomain: process.env.VUE_APP_DOMAIN,
   },
   getters: {
     CONTAINS_TORRENT: (state) => (hash) => state.selected_torrents.includes(hash),
-    GET_DOMAIN: (state) => state.serverdomain,
-    GET_UPLOAD_DOMAIN: (state) => `${state.serverdomain}/upload`,
   },
   mutations: {
     REFRESH_TORRENTS: async (state) => {

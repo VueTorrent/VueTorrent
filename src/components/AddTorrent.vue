@@ -15,7 +15,7 @@
             label-idle="Drop file here..."
             accepted-file-types="application/x-bittorrent"
             data-max-file-size="1MB"
-            :server="uploaddomain"
+            server="/upload"
             v-model="Files"
           />
         </div>
@@ -81,8 +81,7 @@ export default {
       ],
       loading: false,
       dialog: false,
-      Files: [],
-      uploaddomain: this.$store.getters["GET_UPLOAD_DOMAIN"]
+      Files: []
     };
   },
   methods: {
