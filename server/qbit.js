@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const Torrent = require('./models/torrent.class.js')
 const Stat = require('./models/stat.class.js')
 
-dotenv.config()
+dotenv.config({ path: '../.env' })
 
 // server
 const qbt = api.connect(process.env.QBIT_HOST, process.env.QBIT_USER, process.env.QBIT_PASS)

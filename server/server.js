@@ -2,7 +2,11 @@ const express = require('express')
 const multer = require('multer')
 const fs = require('fs')
 const path = require('path')
+const dotenv = require('dotenv')
 const qbit = require('./qbit')
+
+
+dotenv.config({ path: '../.env' })
 
 const PORT = process.env.PORT || 3000
 
@@ -24,6 +28,8 @@ app.use(express.static('dist'))
 // requests
 // login
 app.post('/login', (req, res) => {
+  console.log(req.body)
+  console.log(process.env.VUE_APP_WEB_USE)
   if (req.body.username !== process.env.VUE_APP_WEB_USER) {
     return res.send('No such user')
   } if (

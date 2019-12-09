@@ -35,7 +35,6 @@ Easiest way is with docker-compose:
 	    ports:
 	      - "4000:4000"
 	    environment:
-	      - VUE_APP_DOMAIN=http://172.18.0.4:4000
 	      - VUE_APP_WEB_USER=vuetr
 	      - VUE_APP_WEB_PASS=vuetr
 	      - QBIT_USER=qbit

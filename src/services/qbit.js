@@ -3,7 +3,6 @@ const axios = require('axios')
 class Qbit {
   constructor() {
     this._axios = axios.create({
-      // baseURL: process.env.VUE_APP_DOMAIN,
       timeout: 1000,
     })
   }
