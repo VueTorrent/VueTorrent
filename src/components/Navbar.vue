@@ -106,10 +106,11 @@
 </template>
 
 <script>
-import AddTorrent from "./AddTorrent";
-import Settings from "./Settings";
-import { mapMutations, mapGetters, mapState } from "vuex";
-import { setInterval } from "timers";
+import { mapMutations, mapGetters, mapState } from 'vuex'
+import { setInterval } from 'timers'
+import AddTorrent from './AddTorrent'
+import Settings from './Settings'
+
 export default {
   components: { AddTorrent, Settings },
   data() {
@@ -117,89 +118,89 @@ export default {
       drawer: false,
       paused: false,
       links: [
-        { icon: "dashboard", text: "Dashboard", route: "/" },
-        { icon: "settings", text: "Settings", route: "/settings" }
+        { icon: 'dashboard', text: 'Dashboard', route: '/' },
+        { icon: 'settings', text: 'Settings', route: '/settings' },
       ],
       chartOptions: {
         chart: {
           sparkline: {
-            enabled: true
+            enabled: true,
           },
           animations: {
             enabled: false,
             dynamicAnimation: {
-              speed: 2000
-            }
-          }
+              speed: 2000,
+            },
+          },
         },
-        colors: ["#00b3fa", "#64CEAA"],
+        colors: ['#00b3fa', '#64CEAA'],
         stroke: {
           show: true,
-          curve: "smooth",
-          lineCap: "round",
-          width: 4
+          curve: 'smooth',
+          lineCap: 'round',
+          width: 4,
         },
         fill: {
-          type: "gradient",
+          type: 'gradient',
           gradient: {
-            shade: "dark",
-            type: "vertical",
+            shade: 'dark',
+            type: 'vertical',
             shadeIntensity: 0.5,
             opacityFrom: 0.6,
             opacityTo: 0.5,
-            stops: [0, 50, 100]
-          }
-        }
+            stops: [0, 50, 100],
+          },
+        },
       },
       series: [
         {
-          name: "upload",
-          type: "area",
-          data: this.$store.state.upload_data
+          name: 'upload',
+          type: 'area',
+          data: this.$store.state.upload_data,
         },
         {
-          name: "download",
-          type: "area",
-          data: this.$store.state.download_data
-        }
-      ]
-    };
-  },
-  methods: {
-    ...mapMutations(["REFRESH_TORRENTS", "CLEAR_INTERVALS"]),
-    clearInterval() {
-      this.$store.commit("CLEAR_INTERVALS");
-      this.$data.paused = !this.$data.paused;
-    },
-    startInterval() {
-      this.$store.dispatch("REFRESH_TORRENTS");
-      this.$store.dispatch("REFRESH_SESSION_STATS");
-      this.$data.paused = !this.$data.paused;
-    },
-    pauseTorrents() {
-      this.$store.dispatch("PAUSE_TORRENTS");
-    },
-    resumeTorrents() {
-      this.$store.dispatch("RESUME_TORRENTS");
-    },
-    removeTorrents() {
-      this.$store.dispatch("REMOVE_TORRENTS");
-    },
-    refreshTorrents() {
-      this.$store.state.init_torrents = false;
-      this.$store.dispatch("REFRESH_TORRENTS");
-    },
-    closeSnackbar() {
-      this.$store.state.snackbar = false;
+          name: 'download',
+          type: 'area',
+          data: this.$store.state.download_data,
+        },
+      ],
     }
   },
-  created: function() {
-    this.$store.dispatch("REFRESH_SESSION_STATS");
+  methods: {
+    ...mapMutations(['REFRESH_TORRENTS', 'CLEAR_INTERVALS']),
+    clearInterval() {
+      this.$store.commit('CLEAR_INTERVALS')
+      this.$data.paused = !this.$data.paused
+    },
+    startInterval() {
+      this.$store.dispatch('REFRESH_TORRENTS')
+      this.$store.dispatch('REFRESH_SESSION_STATS')
+      this.$data.paused = !this.$data.paused
+    },
+    pauseTorrents() {
+      this.$store.dispatch('PAUSE_TORRENTS')
+    },
+    resumeTorrents() {
+      this.$store.dispatch('RESUME_TORRENTS')
+    },
+    removeTorrents() {
+      this.$store.dispatch('REMOVE_TORRENTS')
+    },
+    refreshTorrents() {
+      this.$store.state.init_torrents = false
+      this.$store.dispatch('REFRESH_TORRENTS')
+    },
+    closeSnackbar() {
+      this.$store.state.snackbar = false
+    },
+  },
+  created() {
+    this.$store.dispatch('REFRESH_SESSION_STATS')
   },
   computed: {
-    ...mapState(["stats", "snackbar_error", "error_msg", "snackbar"])
-  }
-};
+    ...mapState(['stats', 'snackbar_error', 'error_msg', 'snackbar']),
+  },
+}
 </script>
 <style>
 .project.nav_upload {

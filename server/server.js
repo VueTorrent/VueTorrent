@@ -5,8 +5,7 @@ const path = require('path')
 const dotenv = require('dotenv')
 const qbit = require('./qbit')
 
-
-dotenv.config({ path: '../.env' })
+dotenv.config()
 
 const PORT = process.env.PORT || 3000
 

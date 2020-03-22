@@ -120,124 +120,125 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from "vuex";
+import { mapState, mapMutations, mapGetters } from 'vuex'
 
 export default {
   data() {
     return {
-      sort_input: ""
-    };
+      sort_input: '',
+    }
   },
   computed: {
-    ...mapState(["torrents", "init_torrents"])
+    ...mapState(['torrents', 'init_torrents']),
   },
   methods: {
-    ...mapMutations(["SORT_TORRENTS"]),
+    ...mapMutations(['SORT_TORRENTS']),
     sortBy() {
-      let name, reverse;
-      //search if order was presented
-      const index = this.sort_input.indexOf(" ");
+      let name; let
+        reverse
+      // search if order was presented
+      const index = this.sort_input.indexOf(' ')
       if (index > -1) {
-        name = this.sort_input.substring(0, index);
-        let temp = this.sort_input.substring(index);
-        if (temp.indexOf("asc") > -1) {
-          reverse = false;
-        } else if (temp.indexOf("desc") > -1) {
-          reverse = true;
+        name = this.sort_input.substring(0, index)
+        const temp = this.sort_input.substring(index)
+        if (temp.indexOf('asc') > -1) {
+          reverse = false
+        } else if (temp.indexOf('desc') > -1) {
+          reverse = true
         }
       } else {
-        //no order so we assume input is propname
-        name = this.sort_input;
-        reverse = false;
+        // no order so we assume input is propname
+        name = this.sort_input
+        reverse = false
       }
-      //prop names
+      // prop names
       switch (name) {
-        case "title":
-        case "name":
-        case "Name":
-        case "Title":
-          name = "name";
-          break;
-        case "size":
-        case "Size":
-          name = "size";
-          break;
-        case "dlspeed":
-        case "Dlspeed":
-        case "Download":
-        case "download":
-        case "downloadspeed":
-          name = "dlspeed";
-          break;
-        case "upspeed":
-        case "upload":
-        case "Upload":
-        case "Upspeed":
-        case "uploadspeed":
-          name = "upspeed";
-          break;
-        case "leechs":
-        case "leechers":
-        case "leech":
-        case "peers":
-        case "Leechs":
-        case "Leechers":
-        case "Leech":
-        case "Peers":
-          name = "num_leechs";
-          break;
-        case "seeds":
-        case "seeders":
-        case "Seeds":
-        case "Seeders":
-          name = "num_seeds";
-          break;
-        case "remaining":
-        case "time":
-        case "Time":
-        case "ETA":
-        case "eta":
-          name = "eta";
-          break;
-        case "done":
-        case "downloaded":
-        case "dloaded":
-        case "Done":
-        case "Downloaded":
-        case "Dloaded":
-          name = "downloaded";
-          break;
-        case "state":
-        case "status":
-        case "State":
-        case "Status":
-          name = "state";
-          break;
+        case 'title':
+        case 'name':
+        case 'Name':
+        case 'Title':
+          name = 'name'
+          break
+        case 'size':
+        case 'Size':
+          name = 'size'
+          break
+        case 'dlspeed':
+        case 'Dlspeed':
+        case 'Download':
+        case 'download':
+        case 'downloadspeed':
+          name = 'dlspeed'
+          break
+        case 'upspeed':
+        case 'upload':
+        case 'Upload':
+        case 'Upspeed':
+        case 'uploadspeed':
+          name = 'upspeed'
+          break
+        case 'leechs':
+        case 'leechers':
+        case 'leech':
+        case 'peers':
+        case 'Leechs':
+        case 'Leechers':
+        case 'Leech':
+        case 'Peers':
+          name = 'num_leechs'
+          break
+        case 'seeds':
+        case 'seeders':
+        case 'Seeds':
+        case 'Seeders':
+          name = 'num_seeds'
+          break
+        case 'remaining':
+        case 'time':
+        case 'Time':
+        case 'ETA':
+        case 'eta':
+          name = 'eta'
+          break
+        case 'done':
+        case 'downloaded':
+        case 'dloaded':
+        case 'Done':
+        case 'Downloaded':
+        case 'Dloaded':
+          name = 'downloaded'
+          break
+        case 'state':
+        case 'status':
+        case 'State':
+        case 'Status':
+          name = 'state'
+          break
         default:
-          name = "name";
-          break;
+          name = 'name'
+          break
       }
 
-      this.$store.state.sort_options = { name, reverse };
+      this.$store.state.sort_options = { name, reverse }
     },
     selectTorrent(hash) {
       if (this.containsTorrent(hash)) {
-        this.$store.dispatch("REMOVE_SELECTED", hash);
+        this.$store.dispatch('REMOVE_SELECTED', hash)
       } else {
-        this.$store.dispatch("ADD_SELECTED", hash);
+        this.$store.dispatch('ADD_SELECTED', hash)
       }
     },
     containsTorrent(hash) {
-      return this.$store.getters["CONTAINS_TORRENT"](hash);
+      return this.$store.getters.CONTAINS_TORRENT(hash)
     },
     resetSelected() {
-      this.$store.dispatch("RESET_SELECTED");
-    }
+      this.$store.dispatch('RESET_SELECTED')
+    },
   },
-  created: function() {
-    this.$store.dispatch("REFRESH_TORRENTS");
-  }
-};
+  created() {
+    this.$store.dispatch('REFRESH_TORRENTS')
+  },
+}
 </script>
 
 <style>

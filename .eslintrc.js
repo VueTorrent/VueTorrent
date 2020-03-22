@@ -15,14 +15,15 @@ module.exports = {
   plugins: ['vue'],
   rules: {
     semi: ['warn', 'never'],
-    'no-console' : 0,
+    'no-console': 0,
     camelcase: 0,
     'no-restricted-syntax': 0,
     'no-shadow': 0,
     'class-methods-use-this': 0,
     'prefer-promise-reject-errors': 0,
     'no-underscore-dangle': 0,
-    'no-param-reassign' : 0,
-    'no-unused-vars': 0
+    'no-param-reassign': 0,
+    'no-unused-vars': 0,
+    'indent': 4
   },
 }

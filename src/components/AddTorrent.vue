@@ -47,71 +47,70 @@
 
 <script>
 // Import Vue FilePond
-import vueFilePond from "vue-filepond";
+import vueFilePond from 'vue-filepond'
 
 // Import FilePond styles
-import "filepond/dist/filepond.min.css";
+import 'filepond/dist/filepond.min.css'
 
 // Import image preview plugin styles
-import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css'
 
 // Import image preview and file type validation plugins
-import FilePondPluginFileValidateType from "filepond-plugin-file-validate-type";
-import FilePondPluginImagePreview from "filepond-plugin-image-preview";
-import FilePondPluginFileValidateSize from "filepond-plugin-file-validate-size";
+import FilePondPluginFileValidateType from 'filepond-plugin-file-validate-type'
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview'
+import FilePondPluginFileValidateSize from 'filepond-plugin-file-validate-size'
 
 // Create component
 const FilePond = vueFilePond(
   FilePondPluginFileValidateType,
   FilePondPluginImagePreview,
-  FilePondPluginFileValidateSize
-);
+  FilePondPluginFileValidateSize,
+)
 
 export default {
   data() {
     return {
-      filename: "",
-      directory: "",
+      filename: '',
+      directory: '',
       inputRules: [
-        v =>
-          v.indexOf("magnet") > -1 ||
-          v.indexOf("http") > -1 ||
-          this.validFile ||
-          "Not a valid magnet link"
+        (v) => v.indexOf('magnet') > -1
+          || v.indexOf('http') > -1
+          || this.validFile
+          || 'Not a valid magnet link',
       ],
       loading: false,
       dialog: false,
-      Files: []
-    };
+      Files: [],
+    }
   },
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        this.loading = true;
+        this.loading = true
 
-        this.$store.dispatch("ADD_TORRENT", {
+        this.$store.dispatch('ADD_TORRENT', {
           name: this.filename,
-          dir: this.directory
-        });
+          dir: this.directory,
+        })
 
-        //reset input
-        this.$refs.form.reset();
-        this.filename = "";
-        this.directory = "";
+        // reset input
+        this.$refs.form.reset()
+        this.filename = ''
+        this.directory = ''
 
-        this.$refs.pond.removeFiles();
-        this.dialog = false;
-        this.loading = false;
+        this.$refs.pond.removeFiles()
+        this.dialog = false
+        this.loading = false
       }
-    }
+    },
   },
   computed: {
     validFile() {
-      return this.Files.length > 0;
-    }
+      return this.Files.length > 0
+    },
   },
   components: {
-    vueFilePond
-  }
-};
+    vueFilePond,
+  },
+}
 </script>

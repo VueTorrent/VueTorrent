@@ -32,32 +32,32 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
-import Login from "./components/Login";
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
+import Navbar from './components/Navbar'
+import Login from './components/Login'
 
 export default {
   components: { Navbar, Login },
-  name: "App",
+  name: 'App',
   data() {
-    return {};
+    return {}
   },
   computed: {
     ...mapState([
-      "authenticated",
-      "snackbar_error",
-      "error_msg",
-      "snackbar",
-      "succes_msg"
-    ])
+      'authenticated',
+      'snackbar_error',
+      'error_msg',
+      'snackbar',
+      'succes_msg',
+    ]),
   },
   methods: {
     snackbar_errorClose() {
-      this.$store.state.snackbar_error = false;
+      this.$store.state.snackbar_error = false
     },
     snackbarClose() {
-      this.$store.state.snackbar = false;
-    }
-  }
-};
+      this.$store.state.snackbar = false
+    },
+  },
+}
 </script>

@@ -46,26 +46,27 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState } from 'vuex'
+
 export default {
   data() {
     return {
-      username: "",
-      password: "",
-      inputRules: [v => v.length >= 1 || "At least 1 character"]
-    };
+      username: '',
+      password: '',
+      inputRules: [(v) => v.length >= 1 || 'At least 1 character'],
+    }
   },
   methods: {
     Login() {
-      this.$store.state.loading = true;
-      this.$store.dispatch("LOGIN", {
+      this.$store.state.loading = true
+      this.$store.dispatch('LOGIN', {
         username: this.username,
-        password: this.password
-      });
-    }
+        password: this.password,
+      })
+    },
   },
   computed: {
-    ...mapState(["loading"])
-  }
-};
+    ...mapState(['loading']),
+  },
+}
 </script>
