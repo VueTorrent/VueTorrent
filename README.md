@@ -39,14 +39,13 @@ Easiest way is with docker-compose:
 	    container_name: vuetorrent
 	    restart: always
 	    ports:
-	      - "4000:4000"
+	      - "4000:3000"
 	    environment:
 	      - VUE_APP_WEB_USER=vuetr
 	      - VUE_APP_WEB_PASS=vuetr
 	      - QBIT_USER=qbit
 	      - QBIT_PASS=qbit
-	      - QBIT_HOST=http://10.0.0.8:8080
-	      - PORT=4000 
+	      - QBIT_HOST=https://qbit.example.com
  ``` 
 
 ## Development

@@ -24,6 +24,6 @@ module.exports = {
     'no-underscore-dangle': 0,
     'no-param-reassign': 0,
     'no-unused-vars': 0,
-    'indent': 4
+    'indent': 0
   },
 }
