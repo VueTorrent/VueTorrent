@@ -11,7 +11,7 @@ A modern looking WEBUI for qBittorrent made with Vuejs & express!
 
 ## Update
 
-now using this 'https://github.com/TheFlow95/node-qbittorrent-api-v2/blob/master/src/qbt.js' qbittorrent-api
+now using this 'https://github.com/TheFlow95/node-qbittorrent-api-v2' qbittorrent-api
 
 & deleting & adding don't quite work yet :/
 
