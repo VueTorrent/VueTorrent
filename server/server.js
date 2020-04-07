@@ -28,7 +28,6 @@ app.use(express.static('dist'))
 // login
 app.post('/login', (req, res) => {
   console.log(req.body)
-  console.log(process.env.VUE_APP_WEB_USE)
   if (req.body.username !== process.env.VUE_APP_WEB_USER) {
     return res.send('No such user')
   } if (
@@ -114,13 +113,6 @@ app.delete('/upload', upload.single('file'), (req, res) => {
 })
 
 app.listen(PORT, () => console.log(`Server listening on port ${PORT}!`))
-
-
-app.get('/test', (req, res) => {
-  res.set('Content-Type', 'application/json')
-  res.send('test')
-})
-
 
 // clear the tmp directory on every boot
 const directory = path.resolve(`${__dirname}/tmp`)

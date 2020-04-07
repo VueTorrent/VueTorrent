@@ -5,7 +5,7 @@ const Stat = require('./models/stat.class.js')
 
 dotenv.config()
 
-const connection= api.connect(process.env.QBIT_HOST, process.env.QBIT_USER, process.env.QBIT_PASS)
+const connection = api.connect(process.env.QBIT_HOST, process.env.QBIT_USER, process.env.QBIT_PASS)
 
 
 class Qbit {
@@ -18,8 +18,7 @@ class Qbit {
           torrents.push(t)
         })
     return torrents
-    }
-    catch(err){
+    } catch (err) {
       return `something went wrong:${err}`
     }
   }
@@ -28,44 +27,40 @@ class Qbit {
     try {
     const res = await (await connection).transferInfo()
     return new Stat(res)
-    }
-    catch(err){
+    } catch (err) {
       return `something went wrong:${err}`
     }
   }
 
   async pause_torrents(torrents) {
-    let _torrents  = ''
-    torrents.forEach(el=> {
-      _torrents += el + '|'
+    let _torrents = ''
+    torrents.forEach((el) => {
+      _torrents += `${el}|`
     })
     try {
       return await (await connection).pauseTorrents(_torrents)
-      }
-      catch(err){
+      } catch (err) {
         return `something went wrong:${err}`
       }
   }
 
   async pause_all() {
     try {
-      return  await (await connection).pauseTorrents('all')
-      }
-      catch(err){
+      return await (await connection).pauseTorrents('all')
+      } catch (err) {
         return `something went wrong:${err}`
       }
   }
 
   async resume_torrents(torrents) {
-    let _torrents  = ''
-    torrents.forEach(el=> {
-      _torrents += el + '|'
+    let _torrents = ''
+    torrents.forEach((el) => {
+      _torrents += `${el}|`
     })
-    console.log(_torrents);
+    console.log(_torrents)
     try {
       return await (await connection).resumeTorrents(_torrents)
-      }
-      catch(err){
+      } catch (err) {
         return `something went wrong:${err}`
       }
   }
@@ -73,22 +68,20 @@ class Qbit {
   async resume_all() {
     try {
       return await (await connection).resumeTorrents('all')
-      }
-      catch(err){
+      } catch (err) {
         return `something went wrong:${err}`
       }
   }
 
   async remove_torrents(torrents) {
-    let _torrents  = ''
-    torrents.forEach(el=> {
-      _torrents += el + '|'
+    let _torrents = ''
+    torrents.forEach((el) => {
+      _torrents += `${el}|`
     })
-    console.log(_torrents);
+    console.log(_torrents)
     try {
       return await (await connection).deleteTorrents(_torrents, 'true')
-      }
-      catch(err){
+      } catch (err) {
         return `something went wrong:${err}`
       }
   }
@@ -103,6 +96,6 @@ class Qbit {
   }
 }
 
-const qbit = new Qbit();
+const qbit = new Qbit()
 
 module.exports = qbit

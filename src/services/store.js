@@ -39,8 +39,10 @@ export default new Vuex.Store({
         state.error_msg = 'Lost connection with server, reload page'
         state.snackbar_error = true
       })
+      if (torrents) {
       state.torrents = torrents.map((a) => ({ ...a }))
       state.init_torrents = true
+      }
     },
     REFRESH_SESSION_STATS: async (state) => {
       const _stats = await qbit.get_sessions_stats()
