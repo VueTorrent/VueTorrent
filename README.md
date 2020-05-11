@@ -32,6 +32,7 @@ now using this 'https://github.com/TheFlow95/node-qbittorrent-api-v2' qbittorren
 & deleting & adding don't quite work yet :/
 
   
+### With the updates it has become too unstable to use unfortunately, I'll update it when I find a fully working library or maybe write one myself if I find the time.  
 
 ## Screenshots
 
