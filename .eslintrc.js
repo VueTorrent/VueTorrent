@@ -1,30 +1,25 @@
 module.exports = {
+    root: true,
     env: {
-        browser: true,
-        commonjs: true,
-        es6: true
+        node: true
     },
-    extends: ['plugin:vue/essential', 'airbnb-base'],
-    globals: {
-        Atomics: 'readonly',
-        SharedArrayBuffer: 'readonly'
-    },
+    extends: ['plugin:vue/essential', 'eslint:recommended', '@vue/prettier'],
     parserOptions: {
-        ecmaVersion: 2018
+        parser: 'babel-eslint'
     },
-    plugins: ['vue', 'prettier'],
     rules: {
-        semi: ['warn', 'never'],
-        'no-console': 0,
-        camelcase: 0,
-        'no-restricted-syntax': 0,
-        'no-shadow': 0,
-        'class-methods-use-this': 0,
-        'prefer-promise-reject-errors': 0,
-        'no-underscore-dangle': 0,
-        'no-param-reassign': 0,
-        'no-unused-vars': 0,
-        indent: 0,
-        'comma-dangle': 0
-    }
+        'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    },
+    overrides: [
+        {
+            files: [
+                '**/__tests__/*.{j,t}s?(x)',
+                '**/tests/unit/**/*.spec.{j,t}s?(x)'
+            ],
+            env: {
+                jest: true
+            }
+        }
+    ]
 }

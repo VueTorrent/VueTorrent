@@ -62,7 +62,7 @@ class Qbit {
         } else {
             data = new URLSearchParams(params)
         }
-        return this.axios.post('/torrents/add', data).then(Api.handleResponse)
+        return this.axios.post('/torrents/add', data)
     }
 
     switchToOldUi() {
@@ -90,9 +90,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios
-            .post('/torrents/filePrio', data)
-            .then(Api.handleResponse)
+        return this.axios.post('/torrents/filePrio', data)
     }
 
     getLogs(lastId) {
@@ -100,11 +98,9 @@ class Qbit {
             last_known_id: lastId
         }
 
-        return this.axios
-            .get('/log/main', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/log/main', {
+            params
+        })
     }
 
     toggleSpeedLimitsMode() {
@@ -140,11 +136,9 @@ class Qbit {
             hash
         }
 
-        return this.axios
-            .get('/torrents/trackers', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/torrents/trackers', {
+            params
+        })
     }
 
     getTorrentPeers(hash, rid) {
@@ -153,11 +147,9 @@ class Qbit {
             rid
         }
 
-        return this.axios
-            .get('/sync/torrentPeers', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/sync/torrentPeers', {
+            params
+        })
     }
 
     editTracker(hash, origUrl, newUrl) {
@@ -173,11 +165,9 @@ class Qbit {
             hash
         }
 
-        return this.axios
-            .get('/torrents/properties', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/torrents/properties', {
+            params
+        })
     }
 
     getTorrentPieceStates(hash) {
@@ -185,11 +175,9 @@ class Qbit {
             hash
         }
 
-        return this.axios
-            .get('/torrents/pieceStates', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/torrents/pieceStates', {
+            params
+        })
     }
 
     getTorrentFiles(hash) {
@@ -197,11 +185,9 @@ class Qbit {
             hash
         }
 
-        return this.axios
-            .get('/torrents/files', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/torrents/files', {
+            params
+        })
     }
 
     getRssItems() {
@@ -209,11 +195,9 @@ class Qbit {
             withData: true
         }
 
-        return this.axios
-            .get('/rss/items', {
-                params
-            })
-            .then(Api.handleResponse)
+        return this.axios.get('/rss/items', {
+            params
+        })
     }
 
     addRssFeed(url, path = '') {
@@ -223,7 +207,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/addFeed', data).then(Api.handleResponse)
+        return this.axios.post('/rss/addFeed', data)
     }
 
     removeRssFeed(path) {
@@ -232,7 +216,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/removeItem', data).then(Api.handleResponse)
+        return this.axios.post('/rss/removeItem', data)
     }
 
     refreshRssFeed(path) {
@@ -241,9 +225,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios
-            .post('/rss/refreshItem', data)
-            .then(Api.handleResponse)
+        return this.axios.post('/rss/refreshItem', data)
     }
 
     moveRssFeed(path, newPath) {
@@ -253,11 +235,11 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/moveItem', data).then(Api.handleResponse)
+        return this.axios.post('/rss/moveItem', data)
     }
 
     getRssRules() {
-        return this.axios.get('/rss/rules').then(Api.handleResponse)
+        return this.axios.get('/rss/rules')
     }
 
     setRssRule(name, def) {
@@ -267,7 +249,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/setRule', data).then(Api.handleResponse)
+        return this.axios.post('/rss/setRule', data)
     }
 
     removeRssRule(name) {
@@ -276,7 +258,7 @@ class Qbit {
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/removeRule', data).then(Api.handleResponse)
+        return this.axios.post('/rss/removeRule', data)
     }
 
     actionTorrents(action, hashes, extra) {
@@ -285,9 +267,7 @@ class Qbit {
             ...extra
         }
         const data = new URLSearchParams(params)
-        return this.axios
-            .post(`/torrents/${action}`, data)
-            .then(Api.handleResponse)
+        return this.axios.post(`/torrents/${action}`, data)
     }
 }
 

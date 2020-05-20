@@ -9,69 +9,44 @@
         "format": "pretty-quick"
     },
     "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "core-js": "^3.6.4",
         "apexcharts": "^3.5.0",
         "axios": "^0.18.1",
-        "cors": "^2.8.5",
         "date-fns": "^1.30.1",
-        "dotenv": "^8.2.0",
         "eslint-plugin-prettier": "^3.1.3",
-        "express": "^4.17.1",
-        "filepond": "^4.13.6",
-        "filepond-plugin-file-validate-size": "^2.2.1",
-        "filepond-plugin-file-validate-type": "^1.2.5",
-        "filepond-plugin-image-preview": "^4.6.4",
-        "lodash": "^4.17.15",
         "multer": "^1.4.2",
-        "prettier": "^2.0.5",
-        "pretty-quick": "^2.0.1",
-        "qbittorrent-api-v2": "^1.2.0",
         "register-service-worker": "^1.7.1",
         "vue": "^2.6.11",
         "vue-apexcharts": "^1.3.0",
-        "vue-filepond": "^5.1.3",
+        "vue-context": "^5.1.0",
         "vue-router": "^3.2.0",
         "vue-toastification": "^1.7.1",
-        "vuetify": "^1.5.24",
-        "vuex": "^3.4.0"
+        "vuetify": "^2.2.11",
+        "vuex": "^3.4.0",
+        "vuex-persist": "^2.2.0"
     },
     "devDependencies": {
-        "@vue/cli-plugin-babel": "^3.12.1",
-        "@vue/cli-plugin-eslint": "^3.12.1",
-        "@vue/cli-plugin-pwa": "^3.12.1",
-        "@vue/cli-service": "^3.12.1",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb-base": "^14.1.0",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-vue": "^5.2.3",
-        "stylus": "^0.54.7",
-        "stylus-loader": "^3.0.1",
-        "vue-cli-plugin-vuetify": "^0.4.6",
+        "@vue/cli-plugin-babel": "~4.3.0",
+        "@vue/cli-plugin-eslint": "~4.3.0",
+        "@vue/cli-plugin-pwa": "~4.3.0",
+        "@vue/cli-plugin-router": "~4.3.0",
+        "@vue/cli-plugin-unit-jest": "~4.3.0",
+        "@vue/cli-plugin-vuex": "~4.3.0",
+        "@vue/cli-service": "~4.3.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "@vue/test-utils": "1.0.0-beta.31",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.1.1",
+        "eslint-plugin-vue": "^6.2.2",
+        "laravel-mix": "^5.0.4",
+        "prettier": "^1.19.1",
+        "pretty-quick": "^2.0.1",
+        "sass-loader": "^8.0.2",
+        "tailwindcss": "^1.4.2",
+        "vue-cli-plugin-vuetify": "~2.0.5",
         "vue-template-compiler": "^2.6.11",
-        "vuetify-loader": "^1.4.3",
-        "webpack": "^4.43.0",
-        "webpack-cli": "^3.3.11"
-    },
-    "eslintConfig": {
-        "root": true,
-        "env": {
-            "node": true
-        },
-        "extends": [
-            "plugin:vue/essential"
-        ],
-        "rules": {},
-        "parserOptions": {
-            "parser": "babel-eslint"
-        }
-    },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+        "vuetify-loader": "^1.4.3"
+    }
 }

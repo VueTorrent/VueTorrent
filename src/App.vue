@@ -1,5 +1,5 @@
 <template>
-    <v-app class="grey lighten-4">
+    <v-app :style="{ background: $vuetify.theme.themes[theme].background }">
         <div v-if="authenticated">
             <Navbar />
             <v-content class="mx-4 mb-4">
@@ -29,10 +29,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Navbar from './components/Navbar.vue'
 import Login from './components/Login.vue'
-import qbit from './services/qbit'
 
 export default {
     components: { Navbar, Login },
@@ -41,7 +40,11 @@ export default {
         return {}
     },
     computed: {
-        ...mapState(['authenticated', 'rid', 'mainData', 'preferences'])
+        ...mapState(['authenticated', 'rid', 'mainData', 'preferences']),
+        ...mapGetters(['getTheme']),
+        theme() {
+            return this.getTheme() ? 'dark' : 'light'
+        }
     }
 }
 </script>

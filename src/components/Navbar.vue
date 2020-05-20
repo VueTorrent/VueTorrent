@@ -1,11 +1,11 @@
 <template>
     <nav>
         <!--title-->
-        <v-toolbar flat app>
-            <v-toolbar-side-icon
+        <v-app-bar flat>
+            <v-app-bar-nav-icon
                 @click="drawer = !drawer"
-                class="grey--text"
-            ></v-toolbar-side-icon>
+                class="grey--text text--darken-5"
+            ></v-app-bar-nav-icon>
             <v-toolbar-title
                 :class="[
                     'grey--text',
@@ -18,20 +18,29 @@
             <v-spacer></v-spacer>
 
             <!--right corner functions-->
-            <AddTorrent @torrentAdded="snackbar = true" />
-            <v-btn small fab flat class="mr-0 ml-0" @click="removeTorrents">
+            <v-btn
+                text
+                small
+                fab
+                color="grey"
+                class="mr-0 ml-0"
+                @click="toggleModal('addmodal')"
+            >
+                <v-icon color="grey">add</v-icon>
+            </v-btn>
+            <v-btn small fab text class="mr-0 ml-0" @click="removeTorrents">
                 <v-icon color="grey">remove</v-icon>
             </v-btn>
-            <v-btn small fab flat class="mr-0 ml-0" @click="resumeTorrents">
+            <v-btn small fab text class="mr-0 ml-0" @click="resumeTorrents">
                 <v-icon color="grey">play_arrow</v-icon>
             </v-btn>
-            <v-btn small fab flat class="mr-0 ml-0" @click="pauseTorrents">
+            <v-btn small fab text class="mr-0 ml-0" @click="pauseTorrents">
                 <v-icon color="grey">pause</v-icon>
             </v-btn>
-            <v-btn small fab flat class="mr-0 ml-0" @click="refreshTorrents">
+            <v-btn small fab text class="mr-0 ml-0" @click="refreshTorrents">
                 <v-icon color="grey">autorenew</v-icon>
             </v-btn>
-        </v-toolbar>
+        </v-app-bar>
         <!--navigation drawer itself -->
         <v-navigation-drawer app v-model="drawer" class="primary allow-spacer">
             <!--current download speeds -->
@@ -135,51 +144,17 @@
                     </v-layout>
                 </v-card>
             </v-flex>
-            <v-spacer></v-spacer>
-            <v-layout class="align-end">
-                <Settings />
-                <v-spacer></v-spacer>
-                <v-tooltip top v-if="paused">
-                    <v-btn
-                        small
-                        fab
-                        flat
-                        class="mr-4"
-                        @click="startInterval"
-                        slot="activator"
-                    >
-                        <v-icon color="green_accent">play_arrow</v-icon>
-                    </v-btn>
-                    <span>Resumes connection to client</span>
-                </v-tooltip>
-                <v-tooltip top v-else>
-                    <v-btn
-                        small
-                        fab
-                        flat
-                        class="mr-4"
-                        @click="clearInterval"
-                        slot="activator"
-                    >
-                        <v-icon color="green_accent">pause</v-icon>
-                    </v-btn>
-                    <span>Pauses connection to client</span>
-                </v-tooltip>
-            </v-layout>
         </v-navigation-drawer>
     </nav>
 </template>
 
 <script>
-import { mapMutations, mapGetters, mapState } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import { setInterval } from 'timers'
 import VueApexCharts from 'vue-apexcharts'
-import ApexCharts from 'apexcharts'
-import AddTorrent from './AddTorrent'
-import Settings from './Settings'
 
 export default {
-    components: { AddTorrent, Settings, apexcharts: VueApexCharts },
+    components: { apexcharts: VueApexCharts },
     data() {
         return {
             drawer: false,
@@ -244,6 +219,9 @@ export default {
         refreshTorrents() {},
         updateChart() {
             this.$refs.chart.updateSeries(this.series, true)
+        },
+        toggleModal(name) {
+            this.$store.commit('TOGGLE_MODAL', name)
         }
     },
     computed: {

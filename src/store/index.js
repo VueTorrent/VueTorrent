@@ -1,15 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { cloneDeep, merge, map, groupBy, sortBy } from 'lodash'
+import VuexPersist from 'vuex-persist'
+
 import Torrent from '../models/torrent'
 import Stat from '../models/sessionStat'
+import qbit from '../services/qbit'
 
-import qbit from './qbit'
+const vuexPersist = new VuexPersist({
+    key: 'vuetorrent',
+    storage: window.localStorage
+})
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+    plugins: [vuexPersist.plugin],
     state: {
+        darkTheme: false,
         intervals: [],
         stats: null,
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,15 +29,28 @@ export default new Vuex.Store({
         rid: 0,
         mainData: undefined,
         preferences: null,
-        pasteUrl: null
+        pasteUrl: null,
+        modals: {
+            addmodal: false,
+            deletemodal: false,
+            settingsmodal: false
+        }
     },
     getters: {
         CONTAINS_TORRENT: state => hash =>
-            state.selected_torrents.includes(hash)
+            state.selected_torrents.includes(hash),
+        getTheme: state => () => state.darkTheme,
+        getModalState: state => name => state.modals[name.toLowerCase()]
     },
+
     mutations: {
         REMOVE_INTERVALS: state => {
             state.intervals.forEach(el => clearInterval(el))
+        },
+        TOGGLE_MODAL(state, modal) {
+            state.modals[modal.toLowerCase()] = !state.modals[
+                modal.toLowerCase()
+            ]
         },
         ADD_SELECTED: (state, payload) => {
             state.selected_torrents.push(payload)
@@ -45,19 +65,17 @@ export default new Vuex.Store({
             state.selected_torrents = []
         },
         PAUSE_TORRENTS: async state => {
-            let res
             if (state.selected_torrents.length === 0) {
-                res = await qbit.pause_all()
+                qbit.pause_all()
             } else {
-                res = await qbit.pause_torrents(state.selected_torrents)
+                qbit.pause_torrents(state.selected_torrents)
             }
         },
         RESUME_TORRENTS: async state => {
-            let res
             if (state.selected_torrents.length === 0) {
-                res = await qbit.resume_all()
+                await qbit.resume_all()
             } else {
-                res = await qbit.resume_torrents(state.selected_torrents)
+                await qbit.resume_torrents(state.selected_torrents)
             }
         },
         ADD_TORRENT: async (state, payload) => {
@@ -78,7 +96,7 @@ export default new Vuex.Store({
         },
         REMOVE_TORRENTS: async state => {
             if (state.selected_torrents.length !== 0) {
-                const res = await qbit.remove_torrents(state.selected_torrents)
+                qbit.remove_torrents(state.selected_torrents)
             }
         },
         LOGIN: async (state, payload) => {

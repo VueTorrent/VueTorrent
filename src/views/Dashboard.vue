@@ -126,7 +126,9 @@
                             <div class="right">
                                 <v-chip
                                     small
-                                    :class="`${torrent.state} white--text my-2 caption`"
+                                    :class="
+                                        `${torrent.state} white--text my-2 caption`
+                                    "
                                     >{{ torrent.state }}</v-chip
                                 >
                             </div>
@@ -148,7 +150,7 @@
 </template>
 
 <script>
-import { mapState, mapMutations, mapGetters } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
     data() {
@@ -249,8 +251,12 @@ export default {
 
             this.$store.state.sort_options = { name, reverse }
         },
-        selectTorrent(hash) {},
-        containsTorrent(hash) {},
+        selectTorrent(hash) {
+            return hash
+        },
+        containsTorrent(hash) {
+            return hash
+        },
         resetSelected() {}
     },
     created() {
@@ -262,7 +268,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .project.done {
     border-left: 4px solid #3cd1c2;
 }
@@ -291,4 +297,5 @@ export default {
 .pointer {
     cursor: pointer;
 }
+
 </style>
