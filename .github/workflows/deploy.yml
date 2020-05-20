@@ -1,8 +1,9 @@
 name: Build & Release
 runs-on: ubuntu-latest
-on:[push]
-       branches:
-          - develop
+on:
+  push:
+    branches:
+      - develop
 jobs:
   github-release:
     runs-on: ubuntu-latest
