@@ -37,7 +37,7 @@ export default new Vuex.Store({
         }
     },
     getters: {
-        CONTAINS_TORRENT: state => hash =>
+        containsTorrent: state => hash =>
             state.selected_torrents.includes(hash),
         getTheme: state => () => state.darkTheme,
         getModalState: state => name => state.modals[name.toLowerCase()]
@@ -52,14 +52,15 @@ export default new Vuex.Store({
                 modal.toLowerCase()
             ]
         },
-        ADD_SELECTED: (state, payload) => {
-            state.selected_torrents.push(payload)
-        },
-        REMOVE_SELECTED: (state, payload) => {
-            state.selected_torrents.splice(
-                state.selected_torrents.indexOf(payload),
-                1
-            )
+        SET_SELECTED: (state, payload) => {
+            if(payload.type === 'add')
+                state.selected_torrents.push(payload.hash)
+                if(payload.type === 'remove')
+                state.selected_torrents.splice(
+                    state.selected_torrents.indexOf(payload.hash),
+                    1
+                )
+
         },
         RESET_SELECTED: state => {
             state.selected_torrents = []
@@ -114,7 +115,7 @@ export default new Vuex.Store({
             // torrents
             state.torrents = []
             for (const [key, value] of Object.entries(data.torrents)) {
-                state.torrents.push(new Torrent({ id: key, ...value }))
+                state.torrents.push(new Torrent({ hash: key, ...value }))
             }
 
             // stats

@@ -41,9 +41,6 @@
             <v-btn small fab text class="mr-0 ml-0" @click="pauseTorrents">
                 <v-icon color="grey">pause</v-icon>
             </v-btn>
-            <v-btn small fab text class="mr-0 ml-0" @click="refreshTorrents">
-                <v-icon color="grey">autorenew</v-icon>
-            </v-btn>
         </v-app-bar>
         <!--navigation drawer itself -->
         <v-navigation-drawer app v-model="drawer" class="primary">
@@ -156,6 +153,7 @@
 import { mapMutations, mapState } from 'vuex'
 import { setInterval } from 'timers'
 import VueApexCharts from 'vue-apexcharts'
+import qbit from '@/services/qbit'
 
 export default {
     components: { apexcharts: VueApexCharts },
@@ -215,12 +213,13 @@ export default {
     },
     methods: {
         ...mapMutations(['REFRESH_TORRENTS', 'CLEAR_INTERVALS']),
-        clearInterval() {},
-        startInterval() {},
-        pauseTorrents() {},
-        resumeTorrents() {},
+       pauseTorrents() {
+            qbit.pauseTorrents(this.selected_torrents)
+        },
+        resumeTorrents(){
+             qbit.resumeTorrents(this.selected_torrents)
+        },
         removeTorrents() {},
-        refreshTorrents() {},
         updateChart() {
             this.$refs.chart.updateSeries(this.series, true)
         },
@@ -229,7 +228,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['stats'])
+        ...mapState(['stats', 'selected_torrents'])
     },
     created() {
         this.chartInterval = setInterval(async () => {

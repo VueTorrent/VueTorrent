@@ -2,6 +2,8 @@ import Vue from "vue";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 
+import colors from "vuetify/lib/util/colors";
+
 Vue.use(Vuetify);
 
 export default new Vuetify({
@@ -23,7 +25,7 @@ export default new Vuetify({
         green_accent: "#3cd1c2",
         download: "#64CEAA",
         upload: "#00b3fa",
-        background: "#0000",
+        background: colors.grey.lighten4,
       },
       dark: {
         primary: "#35495e",
