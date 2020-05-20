@@ -29,7 +29,7 @@ export default new Vuex.Store({
             state.selected_torrents.includes(hash)
     },
     mutations: {
-       REMOVE_INTERVALS: state => {
+        REMOVE_INTERVALS: state => {
             state.intervals.forEach(el => clearInterval(el))
         },
         ADD_SELECTED: (state, payload) => {
@@ -99,12 +99,44 @@ export default new Vuex.Store({
                 state.torrents.push(new Torrent({ id: key, ...value }))
             }
 
-            // download speed
+            // stats
             state.stats = new Stat(data.server_state)
+
+            // graph
+
+            state.download_data.splice(0, 1)
+            if (state.stats.dlspeed.indexOf('KB' > -1)) {
+                state.download_data.push(
+                    state.stats.dlspeed.substring(
+                        0,
+                        state.stats.dlspeed.indexOf(' ')
+                    ) / 1000
+                )
+            } else {
+                state.download_data.push(
+                    state.stats.dlspeed(0, state.stats.dlspeed.indexOf(' '))
+                )
+            }
+            state.upload_data.splice(0, 1)
+            if (state.stats.upspeed.indexOf('KB' > -1)) {
+                state.upload_data.push(
+                    state.stats.upspeed.substring(
+                        0,
+                        state.stats.upspeed.indexOf(' ')
+                    ) / 1000
+                )
+            } else {
+                state.upload_data.push(
+                    state.stats.upspeed.substring(
+                        0,
+                        state.stats.upspeed.indexOf(' ')
+                    )
+                )
+            }
         }
     },
     actions: {
-      INIT_INTERVALS: async (context) => {
+        INIT_INTERVALS: async context => {
             context.state.intervals[0] = setInterval(() => {
                 context.commit('updateMainData')
             }, 2000)
@@ -113,8 +145,5 @@ export default new Vuex.Store({
             context.commit('LOGIN', payload)
             context.commit('updateMainData')
         }
-    },
-    getters: {
-      getStats: state => () => state.stats
     }
 })

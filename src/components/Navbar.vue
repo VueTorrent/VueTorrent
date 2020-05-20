@@ -35,14 +35,14 @@
         <!--navigation drawer itself -->
         <v-navigation-drawer app v-model="drawer" class="primary allow-spacer">
             <!--current download speeds -->
-            <v-flex class="mt-3">
+            <v-flex class="mt-3" v-if="stats">
                 <div
                     class="secondary_lighter--text text-uppercase caption ml-4"
                 >
                     current speed
                 </div>
                 <v-card color="secondary" flat class="mr-2 ml-2">
-                    <v-layout v-if="stats" row wrap :class="`pa-3 project nav_download`">
+                    <v-layout row wrap :class="`pa-3 project nav_download`">
                         <v-icon color="download">keyboard_arrow_down</v-icon>
                         <span class="download--text title">
                             {{
@@ -77,12 +77,12 @@
                 </v-card>
                 <!--speeds graph -->
                 <div class="mt-4">
-                    <apexchart
+                    <apexcharts
                         ref="chart"
                         type="line"
                         :options="chartOptions"
                         :series="series"
-                    ></apexchart>
+                    ></apexcharts>
                 </div>
                 <div class="mt-4"></div>
                 <div
@@ -90,7 +90,7 @@
                 >
                     session stats
                 </div>
-                <v-card v-if="stats" flat color="secondary" class="mr-2 ml-2">
+                <v-card flat color="secondary" class="mr-2 ml-2">
                     <v-layout row wrap :class="`pa-3 project nav_download`">
                         <v-flex md6>
                             <div class="download--text">Total downloaded</div>
@@ -112,7 +112,7 @@
                         </v-flex>
                     </v-layout>
                 </v-card>
-                <v-card v-if="stats" flat color="secondary" class="mr-2 ml-2 mt-1">
+                <v-card flat color="secondary" class="mr-2 ml-2 mt-1">
                     <v-layout row wrap :class="`pa-3 project nav_upload`">
                         <v-flex md6>
                             <div class="upload--text">Total uploaded</div>
@@ -173,11 +173,13 @@
 <script>
 import { mapMutations, mapGetters, mapState } from 'vuex'
 import { setInterval } from 'timers'
+import VueApexCharts from 'vue-apexcharts'
+import ApexCharts from 'apexcharts'
 import AddTorrent from './AddTorrent'
 import Settings from './Settings'
 
 export default {
-    components: { AddTorrent, Settings },
+    components: { AddTorrent, Settings, apexcharts: VueApexCharts },
     data() {
         return {
             drawer: false,
@@ -228,35 +230,32 @@ export default {
                     type: 'area',
                     data: this.$store.state.download_data
                 }
-            ]
+            ],
+            chartInterval: null
         }
     },
     methods: {
         ...mapMutations(['REFRESH_TORRENTS', 'CLEAR_INTERVALS']),
-        clearInterval() {
-           
-        },
-        startInterval() {
-           
-        },
-        pauseTorrents() {
-           
-        },
-        resumeTorrents() {
-            
-        },
-        removeTorrents() {
-            
-        },
-        refreshTorrents() {
-           
+        clearInterval() {},
+        startInterval() {},
+        pauseTorrents() {},
+        resumeTorrents() {},
+        removeTorrents() {},
+        refreshTorrents() {},
+        updateChart() {
+            this.$refs.chart.updateSeries(this.series, true)
         }
     },
     computed: {
-        ...mapGetters(['getStats']),
-        stats() {
-            return this.getStats()
-        }
+        ...mapState(['stats'])
+    },
+    created() {
+        this.chartInterval = setInterval(async () => {
+            this.updateChart()
+        }, 2000)
+    },
+    beforeDestroy() {
+        clearInterval(this.chartInterval)
     }
 }
 </script>
