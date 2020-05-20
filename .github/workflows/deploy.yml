@@ -7,20 +7,17 @@ jobs:
   github-release:
     runs-on: ubuntu-latest
     steps:
-        - name: Build
         - uses: actions/checkout@master
         - uses: actions/setup-node@master
         - run: npm install
         - run: npm run build
-        - name: Zip
         - uses: montudor/action-zip@v0.1.0
           with:
             args: zip -qq -r ./release.zip ./dist
-        - name: Release
         - uses: "marvinpinto/action-automatic-releases@latest"
           with:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"
             automatic_release_tag: "latest"
             prerelease: true
             title: "Development Build"
-            files: dist
+            files: release.zip
