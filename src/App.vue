@@ -1,6 +1,6 @@
 <template>
     <v-app class="background">
-        <AddModal/>
+        <AddModal />
         <div v-if="authenticated" class="background">
             <keep-alive><Navbar /></keep-alive>
             <v-content class="mx-4 mb-4">

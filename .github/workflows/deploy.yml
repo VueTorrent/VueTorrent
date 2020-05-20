@@ -1,0 +1,20 @@
+name: Build & Release
+runs-on: ubuntu-latest
+on:[push]
+       branches:
+          - develop
+jobs:
+  github-release:
+    runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@master
+        - uses: actions/setup-node@master
+        - run: npm install
+        - run: npm run build
+        - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: true
+          title: "Development Build"
+          files: dist

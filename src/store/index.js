@@ -68,22 +68,6 @@ export default new Vuex.Store({
         TOGGLE_THEME(state) {
             state.darkTheme = !state.darkTheme
         },
-        ADD_TORRENT: async (state, payload) => {
-            const res = await qbit.add_torrent(payload)
-            if (res.statusText === 'OK') {
-                state.snackbar = true
-                state.succes_msg = 'Awesome! You added a new Torrent.'
-                setTimeout(() => {
-                    state.snackbar = false
-                }, 4000)
-            } else {
-                state.snackbar_error = true
-                state.error_msg = 'Something went wrong'
-                setTimeout(() => {
-                    state.snackbar_error = false
-                }, 4000)
-            }
-        },
         REMOVE_TORRENTS: async state => {
             if (state.selected_torrents.length !== 0) {
                 qbit.remove_torrents(state.selected_torrents)

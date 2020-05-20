@@ -4,6 +4,9 @@ import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
 import '@babel/polyfill'
+import VueObserveVisibility from 'vue-observe-visibility'
+ 
+Vue.use(VueObserveVisibility)
 
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'

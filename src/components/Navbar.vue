@@ -228,7 +228,9 @@ export default {
         resumeTorrents(){
              qbit.resumeTorrents(this.selected_torrents)
         },
-        removeTorrents() {},
+        removeTorrents() {
+            qbit.deleteTorrents(this.selected_torrents, false)
+        },
         updateChart() {
             this.$refs.chart.updateSeries(this.series, true)
         },
