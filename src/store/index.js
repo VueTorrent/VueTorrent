@@ -65,19 +65,8 @@ export default new Vuex.Store({
         RESET_SELECTED: state => {
             state.selected_torrents = []
         },
-        PAUSE_TORRENTS: async state => {
-            if (state.selected_torrents.length === 0) {
-                qbit.pause_all()
-            } else {
-                qbit.pause_torrents(state.selected_torrents)
-            }
-        },
-        RESUME_TORRENTS: async state => {
-            if (state.selected_torrents.length === 0) {
-                await qbit.resume_all()
-            } else {
-                await qbit.resume_torrents(state.selected_torrents)
-            }
+        TOGGLE_THEME(state) {
+            state.darkTheme = !state.darkTheme
         },
         ADD_TORRENT: async (state, payload) => {
             const res = await qbit.add_torrent(payload)
@@ -102,11 +91,12 @@ export default new Vuex.Store({
         },
         LOGIN: async (state, payload) => {
             const res = await qbit.login(payload)
+            console.log(res)
             if (res === 'Ok.') {
-                state.loading = false
                 Vue.$toast.success('Successfully logged in!')
                 state.authenticated = true
             }
+            state.loading = false
         },
         updateMainData: async state => {
             const rid = state.rid ? state.rid : undefined

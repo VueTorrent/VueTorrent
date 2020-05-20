@@ -14,6 +14,7 @@ export default new Vuetify({
     options: {
       customProperties: true,
     },
+    dark: false,
     themes: {
       light: {
         primary: "#35495e",
@@ -25,7 +26,10 @@ export default new Vuetify({
         green_accent: "#3cd1c2",
         download: "#64CEAA",
         upload: "#00b3fa",
+        torrent: '#fff',
+        torrent_selected: colors.grey.lighten2,
         background: colors.grey.lighten4,
+        search: colors.grey.darken1
       },
       dark: {
         primary: "#35495e",
@@ -37,7 +41,10 @@ export default new Vuetify({
         green_accent: "#3cd1c2",
         download: "#64CEAA",
         upload: "#00b3fa",
-        background: "#0000",
+        torrent: colors.grey.darken3,
+        torrent_selected: colors.grey,
+        background: colors.grey.darken4,
+        search: colors.grey.darken3
       },
     },
   },

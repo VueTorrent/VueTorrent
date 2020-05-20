@@ -1,8 +1,8 @@
 <template>
-    <v-app :style="{ background: $vuetify.theme.themes[theme].background }">
+    <v-app class="background">
         <AddModal/>
-        <div v-if="authenticated">
-            <Navbar />
+        <div v-if="authenticated" class="background">
+            <keep-alive><Navbar /></keep-alive>
             <v-content class="mx-4 mb-4">
                 <router-view></router-view>
             </v-content>
@@ -20,12 +20,11 @@
                 </div>
             </v-layout>
         </v-container>
-        <v-spacer></v-spacer>
-        <p
-            class="grey--text caption text-sm-center text-md-center text-xs-center"
-        >
-            Made by Daan Wijns
-        </p>
+        <div class="background">
+            <p class="grey--text caption text-center">
+                Made by Daan Wijns
+            </p>
+        </div>
     </v-app>
 </template>
 

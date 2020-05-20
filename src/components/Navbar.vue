@@ -1,7 +1,7 @@
 <template>
     <nav>
         <!--title-->
-        <v-app-bar flat>
+        <v-app-bar flat color="background">
             <v-btn
                 @click="drawer = !drawer"
                 text
@@ -43,7 +43,7 @@
             </v-btn>
         </v-app-bar>
         <!--navigation drawer itself -->
-        <v-navigation-drawer app v-model="drawer" class="primary">
+        <v-navigation-drawer app v-model="drawer" class="primary" style="position:fixed;">
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="stats">
                 <div
@@ -145,12 +145,25 @@
                     </v-layout>
                 </v-card>
             </v-flex>
+            <v-flex style="position:fixed; bottom: 15px; right: 15px;" >
+                <v-list>
+                    <v-list-item @click="toggleTheme" link>
+                        <v-icon v-if="theme === 'Light'" class="pr-2 white--text"
+                            >brightness_7</v-icon
+                        >
+                        <v-icon v-else class="pr-2 white--text">brightness_2</v-icon>
+                        <v-list-item-title class="white--text" style="font-size:15px">{{
+                            theme
+                        }}</v-list-item-title>
+                    </v-list-item>       
+                </v-list>        
+            </v-flex>
         </v-navigation-drawer>
     </nav>
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex'
+import { mapMutations, mapState, mapGetters } from 'vuex'
 import { setInterval } from 'timers'
 import VueApexCharts from 'vue-apexcharts'
 import qbit from '@/services/qbit'
@@ -161,10 +174,6 @@ export default {
         return {
             drawer: false,
             paused: false,
-            links: [
-                { icon: 'dashboard', text: 'Dashboard', route: '/' },
-                { icon: 'settings', text: 'Settings', route: '/settings' }
-            ],
             chartOptions: {
                 chart: {
                     sparkline: {
@@ -225,15 +234,24 @@ export default {
         },
         toggleModal(name) {
             this.$store.commit('TOGGLE_MODAL', name)
-        }
+        },
+         toggleTheme() {
+            this.$store.commit('TOGGLE_THEME')
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+        },
     },
     computed: {
-        ...mapState(['stats', 'selected_torrents'])
+        ...mapState(['stats', 'selected_torrents']),  
+        ...mapGetters(['getTheme']),
+        theme() {
+            return this.getTheme() ? 'Dark' : 'Light'
+        }
     },
     created() {
         this.chartInterval = setInterval(async () => {
             this.updateChart()
         }, 2000)
+        this.$vuetify.theme.dark = this.getTheme()
     },
     beforeDestroy() {
         clearInterval(this.chartInterval)

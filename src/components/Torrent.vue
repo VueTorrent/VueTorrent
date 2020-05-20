@@ -1,4 +1,10 @@
 <template>
+<v-card ripple
+                    flat  class="pointer torrent"
+                     :class="
+                        containsTorrent(torrent.hash) ? 'torrent_selected' : ''
+                    "
+                    @click.native="selectTorrent(torrent.hash)">
     <v-layout row wrap :class="`pa-4 ml-0 project ${torrent.state}`">
                         <v-flex xs12 sm2 md3>
                             <div class="caption grey--text">Torrent title</div>
@@ -110,6 +116,8 @@
                             ></v-progress-linear>
                         </v-flex>
                     </v-layout>
+                      <v-divider></v-divider>
+                </v-card>
 </template>
 
 <script>
@@ -117,7 +125,17 @@ export default {
     name:'Torrent',
     props: {
         torrent: Object
-    }
+    },
+    methods: {selectTorrent(hash) {
+           if (this.containsTorrent(hash)) {
+        this.$store.commit('SET_SELECTED', {type:"remove", hash})
+      } else {
+        this.$store.commit('SET_SELECTED', {type:"add", hash})
+      }
+        },
+        containsTorrent(hash) {
+            return this.$store.getters.containsTorrent(hash)
+        },}
 }
 </script>
 

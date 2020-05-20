@@ -35,7 +35,7 @@
                         <v-card-actions class="justify-center">
                             <v-btn
                                 :loading="loading"
-                                flat
+                                text
                                 @click="Login"
                                 class="blue_accent white--text mx-0 mt-3"
                                 >Login</v-btn

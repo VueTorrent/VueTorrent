@@ -1,7 +1,7 @@
 <template>
-    <div style="height: 89vh" class="dashboard" @click.self="resetSelected">
+    <div style="height: 89vh" color="background" @click.self="resetSelected">
         <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">Dashboard</h1>
-        <v-container  class="my-4" @click.self="resetSelected">
+        <v-container color="background" class="my-4" @click.self="resetSelected">
             <!-- justify-center here in layout to center!! -->
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field
@@ -11,7 +11,7 @@
                     clearable
                     solo
                     hint="eg `size desc` + enter"
-                    background-color="grey lighten-3"
+                    color="search"
                     v-model="sort_input"
                     @keyup.enter.native="sortBy"
                 ></v-text-field>
@@ -20,20 +20,14 @@
                 <p class="grey--text">No active Torrents!</p>
             </div>
             <div v-else>
-                <v-card
-                    ripple
-                    flat
+                <div
+
                     v-for="torrent in torrents"
                     :key="torrent.name"
-                    class="pointer"
-                    :class="
-                        containsTorrent(torrent.hash) ? 'grey lighten-3' : ''
-                    "
-                    @click.native="selectTorrent(torrent.hash)"
                 >
                     <Torrent :torrent="torrent"/>
-                    <v-divider></v-divider>
-                </v-card>
+            
+                </div>
             </div>
         </v-container>
     </div>
@@ -143,16 +137,6 @@ export default {
             }
 
             this.$store.state.sort_options = { name, reverse }
-        },
-        selectTorrent(hash) {
-           if (this.containsTorrent(hash)) {
-        this.$store.commit('SET_SELECTED', {type:"remove", hash})
-      } else {
-        this.$store.commit('SET_SELECTED', {type:"add", hash})
-      }
-        },
-        containsTorrent(hash) {
-            return this.$store.getters.containsTorrent(hash)
         },
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
