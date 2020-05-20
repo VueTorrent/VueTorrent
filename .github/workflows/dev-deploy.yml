@@ -4,7 +4,7 @@ on:
     branches:
       - development
 jobs:
-  github-release:
+  github-release-development:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@master
@@ -13,7 +13,7 @@ jobs:
         - run: npm run build
         - uses: montudor/action-zip@v0.1.0
           with:
-            args: zip -qq -r ./release.zip ./dist
+            args: zip -qq -r ./release.zip ./vuetorrent
         - uses: "marvinpinto/action-automatic-releases@latest"
           with:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"

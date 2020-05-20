@@ -1,5 +1,5 @@
 module.exports = {
-    outputDir: 'dist/public',
+    outputDir: 'vuetorrent/public',
     publicPath: './',
 
     devServer: {
