@@ -2,7 +2,7 @@ name: Build & Release
 on:
   push:
     branches:
-      - develop
+      - development
 jobs:
   github-release:
     runs-on: ubuntu-latest
