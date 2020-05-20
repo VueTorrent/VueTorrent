@@ -1,5 +1,6 @@
 <template>
     <v-app :style="{ background: $vuetify.theme.themes[theme].background }">
+        <AddModal/>
         <div v-if="authenticated">
             <Navbar />
             <v-content class="mx-4 mb-4">

@@ -2,10 +2,14 @@
     <nav>
         <!--title-->
         <v-app-bar flat>
-            <v-app-bar-nav-icon
+            <v-btn
                 @click="drawer = !drawer"
-                class="grey--text text--darken-5"
-            ></v-app-bar-nav-icon>
+                text
+                fab
+                class="grey--text text--lighten-1" 
+            >
+            <v-icon>menu</v-icon>
+            </v-btn>
             <v-toolbar-title
                 :class="[
                     'grey--text',
@@ -42,7 +46,7 @@
             </v-btn>
         </v-app-bar>
         <!--navigation drawer itself -->
-        <v-navigation-drawer app v-model="drawer" class="primary allow-spacer">
+        <v-navigation-drawer app v-model="drawer" class="primary">
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="stats">
                 <div
@@ -51,7 +55,7 @@
                     current speed
                 </div>
                 <v-card color="secondary" flat class="mr-2 ml-2">
-                    <v-layout row wrap :class="`pa-3 project nav_download`">
+                    <v-layout row wrap class="pa-3 project nav_download mx-auto">
                         <v-icon color="download">keyboard_arrow_down</v-icon>
                         <span class="download--text title">
                             {{
@@ -100,12 +104,12 @@
                     session stats
                 </div>
                 <v-card flat color="secondary" class="mr-2 ml-2">
-                    <v-layout row wrap :class="`pa-3 project nav_download`">
+                    <v-layout row wrap class="pa-3 project nav_download mx-auto">
                         <v-flex md6>
-                            <div class="download--text">Total downloaded</div>
+                            <div style="font-size: 0.95em; margin-top: 6px;" class="download--text">Downloaded</div>
                         </v-flex>
-                        <v-flex md5 class="mr-2">
-                            <span class="download--text title pl-3">
+                        <v-flex md5 class="ml-4">
+                            <span class="download--text title">
                                 {{
                                     stats.downloaded.substring(
                                         0,
@@ -121,13 +125,13 @@
                         </v-flex>
                     </v-layout>
                 </v-card>
-                <v-card flat color="secondary" class="mr-2 ml-2 mt-1">
-                    <v-layout row wrap :class="`pa-3 project nav_upload`">
+                <v-card flat color="secondary" class="ml-2 mr-2 mt-1">
+                    <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
-                            <div class="upload--text">Total uploaded</div>
+                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Uploaded</div>
                         </v-flex>
-                        <v-flex md5 class="mr-2">
-                            <span class="upload--text title pl-3">
+                        <v-flex md5 class="ml-4">
+                            <span class="upload--text title">
                                 {{
                                     stats.uploaded.substring(
                                         0,

@@ -1,10 +1,7 @@
 import { mapGetters } from 'vuex'
 export default {
     computed: {
-        ...mapGetters(['getAvailableTiles', 'getModalState']),
-        availableTiles() {
-            return this.getAvailableTiles()
-        },
+        ...mapGetters(['getModalState']),
         dialog: {
             get() {
                 return this.getModalState(this.$options.name)

@@ -3,12 +3,11 @@ import App from '@/App.vue'
 import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
-import vuetify from '@/plugins/vuetify'
 import '@babel/polyfill'
 
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
-
+import vuetify from './plugins/vuetify'
 Vue.use(Toast)
 
 Vue.config.productionTip = false
