@@ -1,8 +1,7 @@
 <template>
   <v-dialog
-    max-width="400px"
+    max-width="500px"
     v-model="dialog"
-    v-observe-visibility="visibilityChanged"
   >
     <v-card>
       <v-container :class="`pa-0 project done`">
@@ -10,31 +9,48 @@
           <h2>Add a new Torrent</h2>
         </v-card-title>
         <v-card-text>
-          <v-form ref="form">
+          <v-form v-model="valid" ref="form">
             <v-container>
+               
               <v-row no-gutters>
                 <v-col ref="fileZone">
                   <v-file-input
-                    v-show="files.length"
                     v-model="files"
-                    ref="file"
+                    color="deep-purple accent-4"
+                    counter
+                    label="File input"
                     multiple
-                    chips
+                    placeholder="Select your files"
+                    prepend-icon="mdi-paperclip"
                     outlined
-                    label="files"
-                  />
-                  <v-textarea
-                    v-show="!files.length"
-                    label="URL"
-                    placeholder="dag 'n drop or paste a url"
+                    :show-size="1000"
+                  >
+                    <template v-slot:selection="{ index, text }">
+                      <v-chip
+                        v-if="index < 2"
+                        color="deep-purple accent-4"
+                        dark
+                        label
+                        small
+                      >
+                        {{ text }}
+                      </v-chip>
+
+                      <span
+                        v-else-if="index === 2"
+                        class="overline grey--text text--darken-3 mx-2"
+                      >
+                        +{{ files.length - 2 }} File(s)
+                      </span>
+                    </template>
+                  </v-file-input>
+                  <v-text-field       
+                   label="URL"                
                     prepend-icon="mdi-link"
-                    append-outer-icon="mdi-attachment"
-                    :rules="[(v) => !!files.length || !!v]"
                     :rows="$vuetify.breakpoint.xsOnly ? 1 : 3"
                     required
                     :autofocus="!phoneLayout"
-                    :value="params.urls"
-                    @input="setParams('urls', $event)"
+                    v-model="url"
                   />
                 </v-col>
               </v-row>
@@ -55,6 +71,7 @@
               :loading="loading"
               text
               @click="submit"
+              :disabled="!valid"
               class="blue_accent white--text mx-0 mt-3"
               >Add Torrent</v-btn
             >
@@ -67,6 +84,7 @@
 
 <script>
 import Modal from "@/mixins/Modal";
+import qbit from '@/services/qbit'
 export default {
   name: "AddModal",
   mixins: [Modal],
@@ -82,51 +100,24 @@ export default {
           "Not a valid magnet link",
       ],
       loading: false,
-      params: {},
-      file: null,
+      url: null,
+      valid: false
     };
   },
   methods: {
     submit() {
-      if (this.$refs.form.validate()) {
-        this.loading = true;
+      if(this.files.length || this.url){
+        let torrents = []
+        let params=  { urls: null};
+        if(this.files.length) torrents.push(...this.files)
+        if(this.url) params.urls = this.url
+        
+        qbit.addTorrents(params, torrents)
 
-        this.$store.dispatch("ADD_TORRENT", {
-          name: this.filename,
-          dir: this.directory,
-        });
+        this.url = null
 
-        // reset input
-        this.$refs.form.reset();
-        this.filename = "";
-        this.directory = "";
-
-        this.$refs.pond.removeFiles();
-        this.dialog = false;
-        this.loading = false;
+        this.$store.commit('TOGGLE_MODAL', 'addmodal')
       }
-    },
-
-    selectFiles() {
-      const input = this.$refs.file.$el.querySelector("input[type=file]");
-      input.click();
-    },
-
-    onDrop(e) {
-      const transfer = e.dataTransfer;
-      const { files } = transfer;
-      if (!files.length) {
-        return;
-      }
-
-      e.preventDefault();
-      this.files = files;
-    },
-    visibilityChanged(isVisible) {
-      if (this.$refs.fileZone)
-        isVisible
-          ? this.$refs.fileZone.addEventListener("drop", this.onDrop, true)
-          : this.$refs.fileZone.removeEventListener("drop", this.onDrop, true);
     },
   },
   computed: {

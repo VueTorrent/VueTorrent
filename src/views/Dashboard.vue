@@ -23,7 +23,7 @@
                 <div
 
                     v-for="torrent in torrents"
-                    :key="torrent.name"
+                    :key="torrent.hash"
                 >
                     <Torrent :torrent="torrent"/>
             

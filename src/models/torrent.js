@@ -37,7 +37,7 @@ export default class Torrent {
             case 'stalledUP':
                 return 'done'
             default:
-                return undefined
+                return 'fail'
         }
     }
 

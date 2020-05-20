@@ -49,9 +49,10 @@ class Qbit {
         let data
         if (torrents) {
             const formData = new FormData()
-            for (const [key, value] of Object.entries(params)) {
-                // eslint-disable-next-line
-                formData.append(key, value)
+            if(params){
+                for (const [key, value] of Object.entries(params)) {
+                    formData.append(key, value)
+                }
             }
 
             for (const torrent of torrents) {
