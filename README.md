@@ -1,220 +1,71 @@
-
-  
-
 # VueTorrent
 
-  
+The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
-  
-
-A modern looking WEBUI for qBittorrent made with Vuejs & express!
-
-  
-
-(support for more clients coming in the future)
-
-  
-
-> Vue, Node, Express, qBitorrent
-
-  
-  PS : This is NOT an alternate WEBUI, this is a webapp that interacts with your existing qBitorrent client.
-  
-
-## Update
-
-  
-
-now using this 'https://github.com/TheFlow95/node-qbittorrent-api-v2' qbittorrent-api
-
-  
-
-& deleting & adding don't quite work yet :/
-
-  
-### With the updates it has become too unstable to use unfortunately, I'll update it when I find a fully working library or maybe write one myself if I find the time.  
+> Vue, qBitorrent, Vuetify
 
 ## Screenshots
 
-  
-
 <p  align="center">
-
-  
 
 <a  href="https://i.imgur.com/vPBcrK4.png"><img  src="https://i.imgur.com/vPBcrK4.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
 
-  
-
 </p>
-
-  
 
 <p  align="center">
 
-  
-
 <a  href="https://i.imgur.com/SUOEyy9.png"><img  src="https://i.imgur.com/SUOEyy9.png"  title="Mobile"  alt="Mobile Screenshot"  width="320"  height="540"></a>
-
-  
 
 </p>
 
-  
-
-  
-
 ## Installation
 
-Easiest way is with docker-compose:
+-   Download & Unzip the latest release
 
-```
-
-vuetorrent:
-
-image: wdaan/vuetorrent
-
-container_name: vuetorrent
-
-restart: always
-
-ports:
-
-- "4000:3000"
-
-environment:
-
-- VUE_APP_WEB_USER=vuetr
-
-- VUE_APP_WEB_PASS=vuetr
-
-- QBIT_USER=qbit
-
-- QBIT_PASS=qbit
-
-- QBIT_HOST=https://qbit.example.com
-
-```
-
-  
-
-With Docker run
-
-  
-
-```
-
-docker run --name=vuetorrent -d --env VUE_APP_WEB_USER=vuetr --env VUE_APP_WEB_PASS=vuetr --env QBIT_USER=admin --env QBIT_PASS=adminadmin --env QBIT_HOST=http://10.0.0.10:8080 --restart unless-stopped -p 3000:3000 wdaan/vuetorrent:latest
-
-```
-
-  
+-   Point your Alternate WEBUI location to it
 
 ## Development
 
-  
+-   clone the repo
 
-FRONTEND : Git clone & npm run serve!
+-   npm install
 
-  
-
-SERVER : npm run build & npm run start!
-
-  
-  
+-   npm run serve
 
 ## Features
 
-  
+-   viewing sessions stats ( down / upload speed, session uploaded / downloaded )
+-   adding / removing / pausing / resuming torrents
 
-- viewing sessions stats ( down / upload speed, session uploaded / downloaded )
+-   sorting by every property shown!
 
-  
+*   mobile friendly! (maybe not for thousands of torrents...)
 
-- adding / removing / pausing / resuming torrents
-
-  
-
-- sorting by every property shown!
-
-  
-
-- mobile friendly! (maybe not for thousands of torrents...)
-
-  
-- works on QBittorrent V4.2 and later
-  
+-   works on QBittorrent V4.2 and later
 
 ## Contributing
 
-  
-
-  
-
 I'll gladly accept help/pull requests & advice! (this is my first project of this nature, pls be kind 😛 ).
-
-  
-
-  
 
 ## FAQ
 
-  
+-   **Why build this??**
 
-  
-
--  **Why build this??**
-
-  
-
-- Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
-
-  
-
-  
+*   Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
 
 ## Support
 
-  
-
-  
-
 Reach out to me at one of the following places!
 
-  
+-   <a  href="https://m.me/WijnsDaan"  target="_blank">`Facebook Messenger`</a>
 
-  
+*   Open up an issue 😛
 
--  <a  href="https://m.me/WijnsDaan"  target="_blank">`Facebook Messenger`</a>
-
-  
-
-- Open up an issue 😛
-
-  
-
-  
+[<img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="drawing" width="180"/>](https://www.buymeacoffee.com/wdaan 'Buy me a coffee')
 
 ## Credits
 
-  
+-   Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
+    Also check out The Net Ninja's Youtube Channel.
 
-  
-
-Dashboard design heavily inspired by: 'https://github.com/iamshaunjp/vuetify-playlist'
-
-  
-
-Also check out The Net Ninja's Youtube Channel.
-
-  
-
-  
-
----
-
-  
-
-  
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+*   This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
