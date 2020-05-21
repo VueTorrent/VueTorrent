@@ -8,16 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@master
-        - uses: actions/setup-node@master
+        - name: Install & build
+          uses: actions/setup-node@master
         - run: npm install
         - run: npm run build
-        - uses: montudor/action-zip@v0.1.0
+        - name: Zip it
+          uses: montudor/action-zip@v0.1.0
           with:
             args: zip -qq -r ./release.zip ./vuetorrent
-        - uses: "marvinpinto/action-automatic-releases@latest"
+        - run: VERSION=$(sed 's/.*"version": "\(.*\)".*/\1/;t;d' package.json)
+        - name: Push release
+          uses: "marvinpinto/action-automatic-releases@latest"
           with:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"
-            automatic_release_tag: "dev-latest"
+            automatic_release_tag: "dev-v$VERSION"
             prerelease: true
-            title: "Development Build"
+            title: "Development Build v$VERSION"
             files: release.zip
