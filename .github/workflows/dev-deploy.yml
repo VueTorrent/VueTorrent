@@ -17,8 +17,7 @@ jobs:
           with:
             args: zip -qq -r ./release.zip ./vuetorrent
         - name: Get Version
-          with: 
-            VERSION: $(jq -r .version package.json)
+          run: echo ::set-env name=VERSION::$(jq -r .version package.json)
         - name: Push release
           uses: "marvinpinto/action-automatic-releases@latest"
           with:
