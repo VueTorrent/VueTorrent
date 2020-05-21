@@ -22,7 +22,7 @@ jobs:
           uses: "marvinpinto/action-automatic-releases@latest"
           with:
             repo_token: "${{ secrets.GITHUB_TOKEN }}"
-            automatic_release_tag: "dev-v$VERSION"
+            automatic_release_tag: "dev-v${{ env.VERSION }}"
             prerelease: true
-            title: "Development Build v$VERSION"
+            title: "Development Build v${{ env.VERSION }}"
             files: release.zip
