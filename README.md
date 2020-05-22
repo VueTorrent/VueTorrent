@@ -20,9 +20,13 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Installation
 
--   Download & Unzip the latest STABLE release
+-   Visit the releases page!
 
--   Point your Alternate WEBUI location to it
+-   Download the latest STABLE release.zip
+
+-   Unzip this folder
+
+-   Point your Alternate WEBUI location to the 'vuetorrent' folder
 
 ## Development
 
