@@ -28,6 +28,10 @@ class Qbit {
         return data
     }
 
+    async logout(){
+        this.axios.post('/auth/logout')
+    }
+
     getGlobalTransferInfo() {
         return this.axios.get('/transfer/info')
     }

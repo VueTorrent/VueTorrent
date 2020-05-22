@@ -144,6 +144,29 @@
                         </v-flex>
                     </v-layout>
                 </v-card>
+
+                <v-card flat style="margin-top: 30px;" color="secondary" class="ml-2 mr-2">
+                    <v-layout row wrap class="pa-3 project nav_upload mx-auto">
+                        <v-flex md6>
+                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Diskspace</div>
+                        </v-flex>
+                        <v-flex md5 class="ml-4">
+                            <span class="upload--text title">
+                                {{
+                                    stats.freeDiskSpace.substring(
+                                        0,
+                                        stats.freeDiskSpace.indexOf(' ')
+                                    )
+                                }}
+                                <span class="font-weight-light caption">{{
+                                    stats.freeDiskSpace.substring(
+                                        stats.freeDiskSpace.indexOf(' ')
+                                    )
+                                }}</span>
+                            </span>
+                        </v-flex>
+                    </v-layout>
+                </v-card>
             </v-flex>
             <v-container>
              <v-row justify="space-between" style="position:fixed; bottom: 0px; right: 15px;">

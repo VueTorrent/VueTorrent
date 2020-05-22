@@ -20,6 +20,7 @@
                                     :rules="inputRules"
                                     @keyup.enter.native="Login"
                                     autocomplete="current email"
+                                    name="username"
                                 ></v-text-field>
                                 <v-text-field
                                     flat
@@ -32,6 +33,7 @@
                                     :rules="inputRules"
                                     @keyup.enter.native="Login"
                                     autocomplete="current password"
+                                    name="password"
                                 ></v-text-field>
                                 <v-spacer></v-spacer>
                                 <v-card-actions class="justify-center">

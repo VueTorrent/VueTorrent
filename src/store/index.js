@@ -34,13 +34,15 @@ export default new Vuex.Store({
             addmodal: false,
             deletemodal: false,
             settingsmodal: false
-        }
+        },
+        settings : {}
     },
     getters: {
         containsTorrent: state => hash =>
             state.selected_torrents.includes(hash),
         getTheme: state => () => state.darkTheme,
-        getModalState: state => name => state.modals[name.toLowerCase()]
+        getModalState: state => name => state.modals[name.toLowerCase()],
+        getSettings: state => () => state.settings
     },
 
     mutations: {
@@ -69,6 +71,7 @@ export default new Vuex.Store({
             state.darkTheme = !state.darkTheme
         },
         LOGOUT: state => {
+            qbit.logout()
             state.authenticated = false
         },
         LOGIN: async (state, payload) => {
@@ -118,7 +121,11 @@ export default new Vuex.Store({
                     )
                 )
             }
-        }
+        },
+        SET_SETTINGS: async state => {
+            const {data} = await qbit.getAppPreferences()
+            state.settings.savePath = data.save_path;
+        }   
     },
     actions: {
         INIT_INTERVALS: async context => {
@@ -133,9 +140,11 @@ export default new Vuex.Store({
                 Vue.$toast.success('Successfully logged in!')
                 context.commit('LOGIN', true)
                 context.commit('updateMainData')   
+                context.commit('SET_SETTINGS')   
                 return true;
                 
             }
+            Vue.$toast.error('Log in failed 😕')
             return false;
         }
     }

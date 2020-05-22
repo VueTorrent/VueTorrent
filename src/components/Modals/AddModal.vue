@@ -57,6 +57,7 @@
 
               <v-text-field
                 v-model="directory"
+                :placeholder="savepath"
                 label="Download Directory"
                 prepend-icon="folder"
               ></v-text-field>
@@ -83,6 +84,7 @@
 </template>
 
 <script>
+import {  mapGetters  } from 'vuex'
 import Modal from "@/mixins/Modal";
 import qbit from '@/services/qbit'
 export default {
@@ -111,6 +113,7 @@ export default {
         let params=  { urls: null};
         if(this.files.length) torrents.push(...this.files)
         if(this.url) params.urls = this.url
+        if(this.directory) params.savepath = this.directory
         
         qbit.addTorrents(params, torrents)
 
@@ -121,12 +124,16 @@ export default {
     },
   },
   computed: {
+    ...mapGetters(['getSettings']),
     validFile() {
       return this.Files.length > 0;
     },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly;
     },
+    savepath(){
+      return this.getSettings().savePath
+    }
   },
 };
 </script>

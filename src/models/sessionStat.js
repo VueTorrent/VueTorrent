@@ -6,6 +6,7 @@ export default class Stat {
             this.uploaded = this.formatBytes(data.up_info_data, 1)
             this.dlspeed = this.formatBytes(data.dl_info_speed, 1)
             this.upspeed = this.formatBytes(data.up_info_speed, 1)
+            this.freeDiskSpace =  this.formatBytes(data.free_space_on_disk)
         }
     }
 
