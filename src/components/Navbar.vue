@@ -148,7 +148,7 @@
                 <v-card flat style="margin-top: 30px;" color="secondary" class="ml-2 mr-2">
                     <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
-                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Diskspace</div>
+                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Free Space</div>
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
@@ -171,19 +171,35 @@
             <v-container>
              <v-row justify="space-between" style="position:fixed; bottom: 0px; right: 15px;">
                 <v-col>
-                     <v-list-item @click="logout" link>
-                        <v-icon  class="pr-2 white--text">exit_to_app</v-icon>
-                         <v-list-item-title class="white--text" style="font-size:14px">Log out</v-list-item-title>
-                    </v-list-item>   
+                     <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                            <v-list-item v-on="on" @click="logout" link>
+                                <v-icon  class="pr-2 white--text">exit_to_app</v-icon>
+                            </v-list-item>  
+                        </template>
+                        <span>Log out</span>
+                        </v-tooltip> 
                 </v-col>
                 <v-col>
-                    <v-list-item @click="toggleTheme" link>
-                        <v-icon v-if="theme === 'Light'" class="pr-2 white--text">brightness_7</v-icon>
-                        <v-icon v-else class="pr-2 white--text">brightness_2</v-icon>
-                        <v-list-item-title class="white--text" style="font-size:14px">
-                            {{theme}}
-                        </v-list-item-title>
-                    </v-list-item>       
+                     <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                            <v-list-item  v-on="on" @click="toggleSpeed" link>
+                                <v-icon :color="altSpeed ? 'download' : ''" class="pr-2 white--text">speed</v-icon>
+                            </v-list-item>  
+                        </template>
+                        <span>Alt speeds</span>
+                        </v-tooltip> 
+                </v-col>
+                <v-col>
+                    <v-tooltip top>
+                        <template v-slot:activator="{ on }">
+                            <v-list-item v-on="on" @click="toggleTheme" link>
+                                <v-icon v-if="theme === 'Light'" class="pr-2 white--text">brightness_7</v-icon>
+                                <v-icon v-else class="pr-2 white--text">brightness_2</v-icon>
+                            </v-list-item>
+                        </template>
+                        <span>{{theme}}</span>
+                    </v-tooltip>       
                 </v-col>
             </v-row>
             </v-container>
@@ -272,13 +288,19 @@ export default {
         logout(){
             this.$store.commit('LOGOUT')
             this.$router.push('/login')
+        },
+        toggleSpeed(){
+            qbit.toggleSpeedLimitsMode()
         }
     },
     computed: {
         ...mapState(['stats', 'selected_torrents']),  
-        ...mapGetters(['getTheme']),
+        ...mapGetters(['getTheme', 'getStats']),
         theme() {
             return this.getTheme() ? 'Dark' : 'Light'
+        },
+        altSpeed(){
+            return this.getStats().altSpeed
         }
     },
     created() {

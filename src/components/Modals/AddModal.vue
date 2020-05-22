@@ -117,11 +117,16 @@ export default {
         
         qbit.addTorrents(params, torrents)
 
-        this.url = null
+        this.resetForm()
 
         this.$store.commit('TOGGLE_MODAL', 'addmodal')
       }
     },
+    resetForm(){
+      this.url = null
+      this.files = [],
+      this.directory = null
+    }
   },
   computed: {
     ...mapGetters(['getSettings']),

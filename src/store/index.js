@@ -42,7 +42,8 @@ export default new Vuex.Store({
             state.selected_torrents.includes(hash),
         getTheme: state => () => state.darkTheme,
         getModalState: state => name => state.modals[name.toLowerCase()],
-        getSettings: state => () => state.settings
+        getSettings: state => () => state.settings,
+        getStats: state => () => state.stats
     },
 
     mutations: {
