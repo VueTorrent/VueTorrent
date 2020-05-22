@@ -145,26 +145,31 @@
                     </v-layout>
                 </v-card>
             </v-flex>
-            <v-flex style="position:fixed; bottom: 15px; right: 15px;" >
-                <v-list>
+            <v-container>
+             <v-row justify="space-between" style="position:fixed; bottom: 0px; right: 15px;">
+                <v-col>
+                     <v-list-item @click="logout" link>
+                        <v-icon  class="pr-2 white--text">exit_to_app</v-icon>
+                         <v-list-item-title class="white--text" style="font-size:14px">Log out</v-list-item-title>
+                    </v-list-item>   
+                </v-col>
+                <v-col>
                     <v-list-item @click="toggleTheme" link>
-                        <v-icon v-if="theme === 'Light'" class="pr-2 white--text"
-                            >brightness_7</v-icon
-                        >
+                        <v-icon v-if="theme === 'Light'" class="pr-2 white--text">brightness_7</v-icon>
                         <v-icon v-else class="pr-2 white--text">brightness_2</v-icon>
-                        <v-list-item-title class="white--text" style="font-size:15px">{{
-                            theme
-                        }}</v-list-item-title>
+                        <v-list-item-title class="white--text" style="font-size:14px">
+                            {{theme}}
+                        </v-list-item-title>
                     </v-list-item>       
-                </v-list>        
-            </v-flex>
+                </v-col>
+            </v-row>
+            </v-container>
         </v-navigation-drawer>
     </nav>
 </template>
 
 <script>
 import { mapMutations, mapState, mapGetters } from 'vuex'
-import { setInterval } from 'timers'
 import VueApexCharts from 'vue-apexcharts'
 import qbit from '@/services/qbit'
 
@@ -241,6 +246,10 @@ export default {
             this.$store.commit('TOGGLE_THEME')
             this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
         },
+        logout(){
+            this.$store.commit('LOGOUT')
+            this.$router.push('/login')
+        }
     },
     computed: {
         ...mapState(['stats', 'selected_torrents']),  

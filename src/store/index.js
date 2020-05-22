@@ -68,19 +68,11 @@ export default new Vuex.Store({
         TOGGLE_THEME(state) {
             state.darkTheme = !state.darkTheme
         },
-        REMOVE_TORRENTS: async state => {
-            if (state.selected_torrents.length !== 0) {
-                qbit.remove_torrents(state.selected_torrents)
-            }
+        LOGOUT: state => {
+            state.authenticated = false
         },
         LOGIN: async (state, payload) => {
-            const res = await qbit.login(payload)
-            console.log(res)
-            if (res === 'Ok.') {
-                Vue.$toast.success('Successfully logged in!')
-                state.authenticated = true
-            }
-            state.loading = false
+            state.authenticated = payload
         },
         updateMainData: async state => {
             const rid = state.rid ? state.rid : undefined
@@ -135,8 +127,16 @@ export default new Vuex.Store({
             }, 2000)
         },
         LOGIN: async (context, payload) => {
-            context.commit('LOGIN', payload)
-            context.commit('updateMainData')
+            const res = await qbit.login(payload)
+            console.log(res)
+            if (res === 'Ok.') {
+                Vue.$toast.success('Successfully logged in!')
+                context.commit('LOGIN', true)
+                context.commit('updateMainData')   
+                return true;
+                
+            }
+            return false;
         }
     }
 })
