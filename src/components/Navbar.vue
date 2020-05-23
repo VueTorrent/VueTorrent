@@ -45,7 +45,7 @@
         <!--navigation drawer itself -->
         <v-navigation-drawer app v-model="drawer" class="primary" style="position:fixed;">
             <!--current download speeds -->
-            <v-flex class="mt-3" v-if="stats">
+            <v-flex class="mt-3" v-if="status">
                 <div
                     class="secondary_lighter--text text-uppercase caption ml-4"
                 >
@@ -56,14 +56,14 @@
                         <v-icon color="download">keyboard_arrow_down</v-icon>
                         <span class="download--text title">
                             {{
-                                stats.dlspeed.substring(
+                                status.dlspeed.substring(
                                     0,
-                                    stats.dlspeed.indexOf(' ')
+                                    status.dlspeed.indexOf(' ')
                                 )
                             }}
                             <span class="font-weight-light caption">{{
-                                stats.dlspeed.substring(
-                                    stats.dlspeed.indexOf(' ')
+                                status.dlspeed.substring(
+                                    status.dlspeed.indexOf(' ')
                                 )
                             }}</span>
                         </span>
@@ -72,14 +72,14 @@
                         >
                         <span class="upload--text title">
                             {{
-                                stats.upspeed.substring(
+                                status.upspeed.substring(
                                     0,
-                                    stats.upspeed.indexOf(' ')
+                                    status.upspeed.indexOf(' ')
                                 )
                             }}
                             <span class="font-weight-light caption">{{
-                                stats.upspeed.substring(
-                                    stats.upspeed.indexOf(' ')
+                                status.upspeed.substring(
+                                    status.upspeed.indexOf(' ')
                                 )
                             }}</span>
                         </span>
@@ -98,7 +98,7 @@
                 <div
                     class="secondary_lighter--text text-uppercase caption ml-4"
                 >
-                    session stats
+                    session status
                 </div>
                 <v-card flat color="secondary" class="mr-2 ml-2">
                     <v-layout row wrap class="pa-3 project nav_download mx-auto">
@@ -108,14 +108,14 @@
                         <v-flex md5 class="ml-4">
                             <span class="download--text title">
                                 {{
-                                    stats.downloaded.substring(
+                                    status.downloaded.substring(
                                         0,
-                                        stats.downloaded.indexOf(' ')
+                                        status.downloaded.indexOf(' ')
                                     )
                                 }}
                                 <span class="font-weight-light caption">{{
-                                    stats.downloaded.substring(
-                                        stats.downloaded.indexOf(' ')
+                                    status.downloaded.substring(
+                                        status.downloaded.indexOf(' ')
                                     )
                                 }}</span>
                             </span>
@@ -130,14 +130,14 @@
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
                                 {{
-                                    stats.uploaded.substring(
+                                    status.uploaded.substring(
                                         0,
-                                        stats.uploaded.indexOf(' ')
+                                        status.uploaded.indexOf(' ')
                                     )
                                 }}
                                 <span class="font-weight-light caption">{{
-                                    stats.uploaded.substring(
-                                        stats.uploaded.indexOf(' ')
+                                    status.uploaded.substring(
+                                        status.uploaded.indexOf(' ')
                                     )
                                 }}</span>
                             </span>
@@ -153,14 +153,14 @@
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
                                 {{
-                                    stats.freeDiskSpace.substring(
+                                    status.freeDiskSpace.substring(
                                         0,
-                                        stats.freeDiskSpace.indexOf(' ')
+                                        status.freeDiskSpace.indexOf(' ')
                                     )
                                 }}
                                 <span class="font-weight-light caption">{{
-                                    stats.freeDiskSpace.substring(
-                                        stats.freeDiskSpace.indexOf(' ')
+                                    status.freeDiskSpace.substring(
+                                        status.freeDiskSpace.indexOf(' ')
                                     )
                                 }}</span>
                             </span>
@@ -294,13 +294,13 @@ export default {
         }
     },
     computed: {
-        ...mapState(['stats', 'selected_torrents']),  
-        ...mapGetters(['getTheme', 'getStats']),
+        ...mapState(['status', 'selected_torrents']),  
+        ...mapGetters(['getTheme', 'getStatus']),
         theme() {
             return this.getTheme() ? 'Dark' : 'Light'
         },
         altSpeed(){
-            return this.getStats().altSpeed
+            return this.getStatus().altSpeed
         }
     },
     created() {

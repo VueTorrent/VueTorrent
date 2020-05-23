@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import Login from '@/views/Login.vue'
-import store from '@/store'
+import {isAuthenticated} from '@/services/auth.js'
 
 Vue.use(Router)
 
@@ -28,12 +28,12 @@ const router =  new Router({
 })
 
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
     const isPublic = to.matched.some(record => record.meta.public)
     const onlyWhenLoggedOut = to.matched.some(record => record.meta.onlyWhenLoggedOut)
-    const loggedIn =  store.state.authenticated
+    const authenticated = await isAuthenticated();
   
-    if (!isPublic && !loggedIn) {
+    if (!isPublic && !authenticated) {
       return next({
         path:'/login',
         query: {redirect: to.fullPath}  // Store the full path to redirect the user to after login
@@ -41,7 +41,7 @@ router.beforeEach((to, from, next) => {
     }
   
     // Do not allow user to visit login page or register page if they are logged in
-    if (loggedIn && onlyWhenLoggedOut) {
+    if (authenticated && onlyWhenLoggedOut) {
       return next('/')
     }
   

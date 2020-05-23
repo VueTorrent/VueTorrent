@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 
 import Torrent from '../models/torrent'
-import Stat from '../models/sessionStat'
+import Status from '../models/Status'
 import qbit from '../services/qbit'
 
 const vuexPersist = new VuexPersist({
@@ -18,7 +18,7 @@ export default new Vuex.Store({
     state: {
         darkTheme: false,
         intervals: [],
-        stats: null,
+        status: null,
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         torrents: [],
@@ -43,7 +43,7 @@ export default new Vuex.Store({
         getTheme: state => () => state.darkTheme,
         getModalState: state => name => state.modals[name.toLowerCase()],
         getSettings: state => () => state.settings,
-        getStats: state => () => state.stats
+        getStatus: state => () => state.status
     },
 
     mutations: {
@@ -88,37 +88,37 @@ export default new Vuex.Store({
                 state.torrents.push(new Torrent({ hash: key, ...value }))
             }
 
-            // stats
-            state.stats = new Stat(data.server_state)
+            // status
+            state.status = new Status(data.server_state)
 
             // graph
 
             state.download_data.splice(0, 1)
-            if (state.stats.dlspeed.indexOf('KB' > -1)) {
+            if (state.status.dlspeed.indexOf('KB' > -1)) {
                 state.download_data.push(
-                    state.stats.dlspeed.substring(
+                    state.status.dlspeed.substring(
                         0,
-                        state.stats.dlspeed.indexOf(' ')
+                        state.status.dlspeed.indexOf(' ')
                     ) / 1000
                 )
             } else {
                 state.download_data.push(
-                    state.stats.dlspeed(0, state.stats.dlspeed.indexOf(' '))
+                    state.status.dlspeed(0, state.status.dlspeed.indexOf(' '))
                 )
             }
             state.upload_data.splice(0, 1)
-            if (state.stats.upspeed.indexOf('KB' > -1)) {
+            if (state.status.upspeed.indexOf('KB' > -1)) {
                 state.upload_data.push(
-                    state.stats.upspeed.substring(
+                    state.status.upspeed.substring(
                         0,
-                        state.stats.upspeed.indexOf(' ')
+                        state.status.upspeed.indexOf(' ')
                     ) / 1000
                 )
             } else {
                 state.upload_data.push(
-                    state.stats.upspeed.substring(
+                    state.status.upspeed.substring(
                         0,
-                        state.stats.upspeed.indexOf(' ')
+                        state.status.upspeed.indexOf(' ')
                     )
                 )
             }

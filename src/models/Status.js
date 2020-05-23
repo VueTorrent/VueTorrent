@@ -1,4 +1,4 @@
-export default class Stat {
+export default class Status {
     constructor(data) {
         if (data != undefined && data != null) {
             this.status = data.connection_status

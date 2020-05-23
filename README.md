@@ -20,28 +20,28 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Installation
 
--   Download & Unzip the latest release
+- Download & Unzip the latest release
 
--   Point your Alternate WEBUI location to it
+- Point your Alternate WEBUI location to it
 
 ## Development
 
--   clone the repo
+- clone the repo
 
--   npm install
+- npm install
 
--   npm run serve
+- npm run serve
 
 ## Features
 
--   viewing sessions stats ( down / upload speed, session uploaded / downloaded )
--   adding / removing / pausing / resuming torrents
+- viewing sessions status ( down / upload speed, session uploaded / downloaded )
+- adding / removing / pausing / resuming torrents
 
--   sorting by every property shown!
+- sorting by every property shown!
 
-*   mobile friendly! (maybe not for thousands of torrents...)
+* mobile friendly! (maybe not for thousands of torrents...)
 
--   works on QBittorrent V4.2 and later
+- works on QBittorrent V4.2 and later
 
 ## Contributing
 
@@ -49,23 +49,23 @@ I'll gladly accept help/pull requests & advice! (this is my first project of thi
 
 ## FAQ
 
--   **Why build this??**
+- **Why build this??**
 
-*   Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
+* Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
 
 ## Support
 
 Reach out to me at one of the following places!
 
--   <a  href="https://m.me/WijnsDaan"  target="_blank">`Facebook Messenger`</a>
+- <a  href="https://m.me/WijnsDaan"  target="_blank">`Facebook Messenger`</a>
 
-*   Open up an issue 😛
+* Open up an issue 😛
 
-[<img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="drawing" width="180"/>](https://www.buymeacoffee.com/wdaan 'Buy me a coffee')
+[<img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="drawing" width="180"/>](https://www.buymeacoffee.com/wdaan "Buy me a coffee")
 
 ## Credits
 
--   Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
-    Also check out The Net Ninja's Youtube Channel.
+- Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
+  Also check out The Net Ninja's Youtube Channel.
 
-*   This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+* This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
