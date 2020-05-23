@@ -19,6 +19,7 @@
     "vue-observe-visibility": "^0.4.6",
     "vue-router": "^3.2.0",
     "vue-toastification": "^1.7.1",
+    "vue2-perfect-scrollbar": "^1.5.0",
     "vuetify": "^2.2.11",
     "vuex": "^3.4.0",
     "vuex-persist": "^2.2.0"

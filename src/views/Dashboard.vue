@@ -1,7 +1,7 @@
 <template>
-    <div style="height: 89vh" color="background" @click.self="resetSelected">
+    <div color="background" @click.self="resetSelected">
         <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">Dashboard</h1>
-        <v-container color="background" class="my-4" @click.self="resetSelected">
+        <v-container color="background" class="my-4 pa-0" @click.self="resetSelected">
             <!-- justify-center here in layout to center!! -->
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field

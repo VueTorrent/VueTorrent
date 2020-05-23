@@ -89,9 +89,10 @@
           <v-flex xs12 sm12 md12>
             <v-progress-linear
               height="3"
+              rounded
               color="cyan darken-1"
               background-color="cyan lighten-3"
-              :value="(torrent.dloaded / torrent.size) * 100"
+              :value="torrent.progress"
             ></v-progress-linear>
           </v-flex>
         </v-layout>
@@ -99,7 +100,6 @@
       <span>{{ torrent.name }}</span>
     </v-tooltip>
     <v-divider></v-divider>
-
     <vue-context ref="menu">
       <torrentRightClickMenu :hash="torrent.hash" />
     </vue-context>

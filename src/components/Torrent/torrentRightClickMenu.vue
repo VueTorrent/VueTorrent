@@ -6,6 +6,11 @@
         :dark="dark"
       >
         <v-list dense rounded>
+          <v-list-item @click="showInfo" link>
+            <v-icon>info</v-icon>
+            <v-list-item-title class="ml-2" style="font-size:15px;">Show Info</v-list-item-title>
+          </v-list-item>
+          <v-divider/>
           <v-list-item @click="resume" link>
             <v-icon>play_arrow</v-icon>
             <v-list-item-title class="ml-2" style="font-size:15px;">Resume</v-list-item-title>
@@ -54,6 +59,10 @@ export default {
     },
      deleteWithFiles(){
       qbit.deleteTorrents([this.hash], true)
+    },
+    showInfo(){
+      this.$store.commit('TOGGLE_MODAL', 'TorrentDetailModal')
+      this.$store.commit('SET_SELECTED_TORRENT_DETAIL', this.hash)
     }
   },
   computed: {

@@ -226,7 +226,7 @@ export default {
                     animations: {
                         enabled: false,
                         dynamicAnimation: {
-                            speed: 2000
+                            speed: 1000
                         }
                     }
                 },
@@ -249,18 +249,6 @@ export default {
                     }
                 }
             },
-            series: [
-                {
-                    name: 'upload',
-                    type: 'area',
-                    data: this.$store.state.upload_data
-                },
-                {
-                    name: 'download',
-                    type: 'area',
-                    data: this.$store.state.download_data
-                }
-            ],
             chartInterval: null
         }
     },
@@ -301,16 +289,24 @@ export default {
         },
         altSpeed(){
             return this.getStatus().altSpeed
+        },
+        series(){
+           return [
+                {
+                    name: 'upload',
+                    type: 'area',
+                    data: this.$store.state.upload_data
+                },
+                {
+                    name: 'download',
+                    type: 'area',
+                    data: this.$store.state.download_data
+                }
+            ]
         }
     },
     created() {
-        this.chartInterval = setInterval(async () => {
-            this.updateChart()
-        }, 2000)
         this.$vuetify.theme.dark = this.getTheme()
-    },
-    beforeDestroy() {
-        clearInterval(this.chartInterval)
     }
 }
 </script>

@@ -33,9 +33,11 @@ export default new Vuex.Store({
         modals: {
             addmodal: false,
             deletemodal: false,
-            settingsmodal: false
+            settingsmodal: false,
+            torrentdetailmodal: false
         },
-        settings : {}
+        settings : {},
+        selectedDetailTorrent: null
     },
     getters: {
         containsTorrent: state => hash =>
@@ -43,7 +45,8 @@ export default new Vuex.Store({
         getTheme: state => () => state.darkTheme,
         getModalState: state => name => state.modals[name.toLowerCase()],
         getSettings: state => () => state.settings,
-        getStatus: state => () => state.status
+        getStatus: state => () => state.status,
+        getTorrent: state => hash => state.torrents.filter(el => el.hash === hash)[0]
     },
 
     mutations: {
@@ -92,40 +95,17 @@ export default new Vuex.Store({
             state.status = new Status(data.server_state)
 
             // graph
-
             state.download_data.splice(0, 1)
-            if (state.status.dlspeed.indexOf('KB' > -1)) {
-                state.download_data.push(
-                    state.status.dlspeed.substring(
-                        0,
-                        state.status.dlspeed.indexOf(' ')
-                    ) / 1000
-                )
-            } else {
-                state.download_data.push(
-                    state.status.dlspeed(0, state.status.dlspeed.indexOf(' '))
-                )
-            }
+            state.download_data.push(state.status.dlspeedRaw)
             state.upload_data.splice(0, 1)
-            if (state.status.upspeed.indexOf('KB' > -1)) {
-                state.upload_data.push(
-                    state.status.upspeed.substring(
-                        0,
-                        state.status.upspeed.indexOf(' ')
-                    ) / 1000
-                )
-            } else {
-                state.upload_data.push(
-                    state.status.upspeed.substring(
-                        0,
-                        state.status.upspeed.indexOf(' ')
-                    )
-                )
-            }
+            state.upload_data.push(state.status.upspeedRaw)
         },
         SET_SETTINGS: async state => {
             const {data} = await qbit.getAppPreferences()
             state.settings.savePath = data.save_path;
+        },
+        SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
+            state.selectedDetailTorrent =  hash
         }   
     },
     actions: {

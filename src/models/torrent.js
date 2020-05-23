@@ -1,6 +1,5 @@
 export default class Torrent {
     constructor(data) {
-        this.id = data.id
         this.name = data.name
         this.size = this.formatBytes(data.size)
         this.birth = new Date(data.added_on * 1000).toLocaleString()
@@ -20,6 +19,9 @@ export default class Torrent {
         // available seeds
         this.available_seeds = data.num_complete
         this.available_peers = data.num_incomplete
+        this.savePath = data.save_path
+        this.progress = Math.round(data.downloaded / data.size * 100)
+        this.ratio = Math.round(data.ratio * 100)
     }
 
     formatState(state) {

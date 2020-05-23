@@ -11,7 +11,16 @@ Vue.use(VueObserveVisibility)
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 import vuetify from './plugins/vuetify'
-Vue.use(Toast)
+Vue.use(Toast, {
+    maxToasts: 5,
+    timeout: 2000
+})
+
+import PerfectScrollbar from 'vue2-perfect-scrollbar'
+import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
+
+Vue.use(PerfectScrollbar)
+
 
 Vue.config.productionTip = false
 
