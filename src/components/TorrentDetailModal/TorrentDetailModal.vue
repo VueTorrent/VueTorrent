@@ -9,7 +9,10 @@
             v-if="torrent"
             style="min-height: 400px; overflow: hidden !important;"
         >
-            <div :class="`pa-0 project ${torrent.state}`">
+            <div
+                :class="`pa-0 project ${torrent.state}`"
+                :style="{ height: phoneLayout ? '100vh' : '' }"
+            >
                 <v-card-title class="pb-0 justify-center primary">
                     <h2 class="white--text">Torrent Detail</h2>
                 </v-card-title>

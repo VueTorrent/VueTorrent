@@ -126,7 +126,7 @@ export default {
                 case 'Done':
                 case 'Downloaded':
                 case 'Dloaded':
-                    name = 'downloaded'
+                    name = 'progress'
                     break
                 case 'state':
                 case 'status':
@@ -138,8 +138,7 @@ export default {
                     name = 'name'
                     break
             }
-
-            this.$store.state.sort_options = { name, reverse }
+            this.$store.commit('UPDATE_SORT_OPTIONS', { name, reverse })
         },
         resetSelected() {
             this.$store.commit('RESET_SELECTED')

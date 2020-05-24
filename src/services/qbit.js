@@ -112,6 +112,16 @@ class Qbit {
         return this.axios.post('/transfer/toggleSpeedLimitsMode')
     }
 
+    getTorrents(payload) {
+        let params = {
+            sort: payload.sort,
+            reverse: payload.reverse
+        }
+        const data = new URLSearchParams(params)
+        console.log(data.toString())
+        return this.axios.get(`/torrents/info?${data.toString()}`)
+    }
+
     deleteTorrents(hashes, deleteFiles) {
         return this.actionTorrents('delete', hashes, { deleteFiles })
     }

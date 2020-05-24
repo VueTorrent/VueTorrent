@@ -83,22 +83,23 @@ export default new Vuex.Store({
         },
         updateMainData: async state => {
             const rid = state.rid ? state.rid : undefined
-            const { data } = await qbit.getMainData(rid)
-
-            // torrents
-            state.torrents = []
-            for (const [key, value] of Object.entries(data.torrents)) {
-                state.torrents.push(new Torrent({ hash: key, ...value }))
-            }
+            const res = await qbit.getMainData(rid)
 
             // status
-            state.status = new Status(data.server_state)
+            state.status = new Status(res.data.server_state)
 
             // graph
             state.download_data.splice(0, 1)
             state.download_data.push(state.status.dlspeedRaw)
             state.upload_data.splice(0, 1)
             state.upload_data.push(state.status.upspeedRaw)
+
+            const { data } = await qbit.getTorrents(state.sort_options)
+            // torrents
+            state.torrents = []
+            for (const [key, value] of Object.entries(data)) {
+                state.torrents.push(new Torrent({ hash: key, ...value }))
+            }
         },
         SET_SETTINGS: async state => {
             const { data } = await qbit.getAppPreferences()
@@ -106,6 +107,10 @@ export default new Vuex.Store({
         },
         SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
             state.selectedDetailTorrent = hash
+        },
+        UPDATE_SORT_OPTIONS: (state, payload) => {
+            state.sort_options.sort = payload.name
+            state.sort_options.reverse = payload.reverse
         }
     },
     actions: {
