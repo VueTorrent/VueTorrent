@@ -118,7 +118,6 @@ class Qbit {
             reverse: payload.reverse
         }
         const data = new URLSearchParams(params)
-        console.log(data.toString())
         return this.axios.get(`/torrents/info?${data.toString()}`)
     }
 

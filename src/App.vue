@@ -2,11 +2,9 @@
     <v-app :style="{ backgroundColor: background }">
         <AddModal />
         <Navbar v-if="isAuthenticated" />
-        <v-container class="pa-4">
-            <v-content fill-height fill-width>
-                <router-view></router-view>
-            </v-content>
-        </v-container>
+        <v-content fill-height fill-width>
+            <router-view></router-view>
+        </v-content>
     </v-app>
 </template>
 

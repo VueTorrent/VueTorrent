@@ -1,6 +1,6 @@
 <template>
     <v-layout row wrap align-center class="justify-center">
-        <div style="margin: 0 auto;">
+        <div style="margin: 100px auto;">
             <v-container class="grey lighten-4 pa-0">
                 <v-card max-width="400" flat>
                     <v-container :class="`pa-3 project done`">

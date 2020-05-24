@@ -1,11 +1,11 @@
 <template>
-    <div color="background" @click.self="resetSelected">
+    <div class="pl-5 pr-5" color="background" @click.self="resetSelected">
         <h1 style="font-size: 1.1em !important;" class="subtitle-1 grey--text">
             Dashboard
         </h1>
         <v-container
             color="background"
-            class="my-4 pa-0"
+            class="my-4 pt-5 pa-0"
             @click.self="resetSelected"
         >
             <!-- justify-center here in layout to center!! -->
