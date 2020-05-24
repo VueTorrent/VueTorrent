@@ -20,7 +20,7 @@ export default class Torrent {
         this.available_seeds = data.num_complete
         this.available_peers = data.num_incomplete
         this.savePath = data.save_path
-        this.progress = Math.round(data.downloaded / data.size * 100)
+        this.progress = Math.round((data.downloaded / data.size) * 100)
         this.ratio = Math.round(data.ratio * 100)
     }
 

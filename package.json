@@ -1,57 +1,53 @@
 {
-  "name": "vuetorrent",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@babel/polyfill": "^7.4.4",
-    "apexcharts": "^3.19.2",
-    "axios": "^0.19.2",
-    "core-js": "^3.6.4",
-    "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11",
-    "vue-apexcharts": "^1.5.3",
-    "vue-context": "^5.1.0",
-    "vue-observe-visibility": "^0.4.6",
-    "vue-router": "^3.2.0",
-    "vue-toastification": "^1.7.1",
-    "vue2-perfect-scrollbar": "^1.5.0",
-    "vuetify": "^2.2.11",
-    "vuex": "^3.4.0",
-    "vuex-persist": "^2.2.0"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.3.0",
-    "@vue/cli-plugin-eslint": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "vue-cli-plugin-vuetify": "~2.0.5",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
+    "name": "vuetorrent",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "format": "pretty-quick"
     },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "apexcharts": "^3.19.2",
+        "axios": "^0.19.2",
+        "core-js": "^3.6.4",
+        "dayjs": "^1.8.27",
+        "register-service-worker": "^1.7.1",
+        "vue": "^2.6.11",
+        "vue-apexcharts": "^1.5.3",
+        "vue-context": "^5.1.0",
+        "vue-observe-visibility": "^0.4.6",
+        "vue-router": "^3.2.0",
+        "vue-toastification": "^1.7.1",
+        "vue2-perfect-scrollbar": "^1.5.0",
+        "vuetify": "^2.2.29",
+        "vuex": "^3.4.0",
+        "vuex-persist": "^2.2.0"
     },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead",
-    "not ie <= 10"
-  ]
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "~4.3.0",
+        "@vue/cli-plugin-eslint": "~4.3.0",
+        "@vue/cli-service": "~4.3.0",
+        "@vue/eslint-config-prettier": "^6.0.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "^6.7.2",
+        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-vue": "^6.2.2",
+        "fibers": "^5.0.0",
+        "node-sass": "^4.14.1",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1",
+        "sass": "^1.26.5",
+        "sass-loader": "^8.0.2",
+        "vue-cli-plugin-vuetify": "~2.0.5",
+        "vue-template-compiler": "^2.6.11"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead",
+        "not ie <= 10"
+    ]
 }

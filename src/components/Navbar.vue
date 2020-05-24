@@ -6,9 +6,9 @@
                 @click="drawer = !drawer"
                 text
                 fab
-                class="grey--text text--lighten-1" 
+                class="grey--text text--lighten-1"
             >
-            <v-icon>menu</v-icon>
+                <v-icon>menu</v-icon>
             </v-btn>
             <v-toolbar-title
                 :class="[
@@ -43,7 +43,12 @@
             </v-btn>
         </v-app-bar>
         <!--navigation drawer itself -->
-        <v-navigation-drawer app v-model="drawer" class="primary" style="position:fixed;">
+        <v-navigation-drawer
+            app
+            v-model="drawer"
+            class="primary"
+            style="position: fixed;"
+        >
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="status">
                 <div
@@ -52,7 +57,11 @@
                     current speed
                 </div>
                 <v-card color="secondary" flat class="mr-2 ml-2">
-                    <v-layout row wrap class="pa-3 project nav_download mx-auto">
+                    <v-layout
+                        row
+                        wrap
+                        class="pa-3 project nav_download mx-auto"
+                    >
                         <v-icon color="download">keyboard_arrow_down</v-icon>
                         <span class="download--text title">
                             {{
@@ -101,9 +110,18 @@
                     session status
                 </div>
                 <v-card flat color="secondary" class="mr-2 ml-2">
-                    <v-layout row wrap class="pa-3 project nav_download mx-auto">
+                    <v-layout
+                        row
+                        wrap
+                        class="pa-3 project nav_download mx-auto"
+                    >
                         <v-flex md6>
-                            <div style="font-size: 0.95em; margin-top: 6px;" class="download--text">Downloaded</div>
+                            <div
+                                style="font-size: 0.95em; margin-top: 6px;"
+                                class="download--text"
+                            >
+                                Downloaded
+                            </div>
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="download--text title">
@@ -125,7 +143,12 @@
                 <v-card flat color="secondary" class="ml-2 mr-2 mt-1">
                     <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
-                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Uploaded</div>
+                            <div
+                                style="font-size: 0.95em; margin-top: 6px;"
+                                class="upload--text"
+                            >
+                                Uploaded
+                            </div>
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
@@ -145,10 +168,20 @@
                     </v-layout>
                 </v-card>
 
-                <v-card flat style="margin-top: 30px;" color="secondary" class="ml-2 mr-2">
+                <v-card
+                    flat
+                    style="margin-top: 30px;"
+                    color="secondary"
+                    class="ml-2 mr-2"
+                >
                     <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
-                            <div style="font-size: 0.95em; margin-top: 6px;"  class="upload--text">Free Space</div>
+                            <div
+                                style="font-size: 0.95em; margin-top: 6px;"
+                                class="upload--text"
+                            >
+                                Free Space
+                            </div>
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
@@ -169,39 +202,62 @@
                 </v-card>
             </v-flex>
             <v-container>
-             <v-row justify="space-between" style="position:fixed; bottom: 0px; right: 15px;">
-                <v-col>
-                     <v-tooltip top>
-                        <template v-slot:activator="{ on }">
-                            <v-list-item v-on="on" @click="logout" link>
-                                <v-icon  class="pr-2 white--text">exit_to_app</v-icon>
-                            </v-list-item>  
-                        </template>
-                        <span>Log out</span>
-                        </v-tooltip> 
-                </v-col>
-                <v-col>
-                     <v-tooltip top>
-                        <template v-slot:activator="{ on }">
-                            <v-list-item  v-on="on" @click="toggleSpeed" link>
-                                <v-icon :color="altSpeed ? 'download' : ''" class="pr-2 white--text">speed</v-icon>
-                            </v-list-item>  
-                        </template>
-                        <span>Alt speeds</span>
-                        </v-tooltip> 
-                </v-col>
-                <v-col>
-                    <v-tooltip top>
-                        <template v-slot:activator="{ on }">
-                            <v-list-item v-on="on" @click="toggleTheme" link>
-                                <v-icon v-if="theme === 'Light'" class="pr-2 white--text">brightness_7</v-icon>
-                                <v-icon v-else class="pr-2 white--text">brightness_2</v-icon>
-                            </v-list-item>
-                        </template>
-                        <span>{{theme}}</span>
-                    </v-tooltip>       
-                </v-col>
-            </v-row>
+                <v-row
+                    justify="space-between"
+                    style="position: fixed; bottom: 0px; right: 15px;"
+                >
+                    <v-col>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-list-item v-on="on" @click="logout" link>
+                                    <v-icon class="pr-2 white--text"
+                                        >exit_to_app</v-icon
+                                    >
+                                </v-list-item>
+                            </template>
+                            <span>Log out</span>
+                        </v-tooltip>
+                    </v-col>
+                    <v-col>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-list-item
+                                    v-on="on"
+                                    @click="toggleSpeed"
+                                    link
+                                >
+                                    <v-icon
+                                        :color="altSpeed ? 'download' : ''"
+                                        class="pr-2 white--text"
+                                        >speed</v-icon
+                                    >
+                                </v-list-item>
+                            </template>
+                            <span>Alt speeds</span>
+                        </v-tooltip>
+                    </v-col>
+                    <v-col>
+                        <v-tooltip top>
+                            <template v-slot:activator="{ on }">
+                                <v-list-item
+                                    v-on="on"
+                                    @click="toggleTheme"
+                                    link
+                                >
+                                    <v-icon
+                                        v-if="theme === 'Light'"
+                                        class="pr-2 white--text"
+                                        >brightness_7</v-icon
+                                    >
+                                    <v-icon v-else class="pr-2 white--text"
+                                        >brightness_2</v-icon
+                                    >
+                                </v-list-item>
+                            </template>
+                            <span>{{ theme }}</span>
+                        </v-tooltip>
+                    </v-col>
+                </v-row>
             </v-container>
         </v-navigation-drawer>
     </nav>
@@ -254,11 +310,11 @@ export default {
     },
     methods: {
         ...mapMutations(['REFRESH_TORRENTS', 'CLEAR_INTERVALS']),
-       pauseTorrents() {
+        pauseTorrents() {
             qbit.pauseTorrents(this.selected_torrents)
         },
-        resumeTorrents(){
-             qbit.resumeTorrents(this.selected_torrents)
+        resumeTorrents() {
+            qbit.resumeTorrents(this.selected_torrents)
         },
         removeTorrents() {
             qbit.deleteTorrents(this.selected_torrents, false)
@@ -269,29 +325,29 @@ export default {
         toggleModal(name) {
             this.$store.commit('TOGGLE_MODAL', name)
         },
-         toggleTheme() {
+        toggleTheme() {
             this.$store.commit('TOGGLE_THEME')
-            this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+            this.$vuetify.theme.dark = !this.$vuetify.theme.dark
         },
-        logout(){
+        logout() {
             this.$store.commit('LOGOUT')
             this.$router.push('/login')
         },
-        toggleSpeed(){
+        toggleSpeed() {
             qbit.toggleSpeedLimitsMode()
         }
     },
     computed: {
-        ...mapState(['status', 'selected_torrents']),  
+        ...mapState(['status', 'selected_torrents']),
         ...mapGetters(['getTheme', 'getStatus']),
         theme() {
             return this.getTheme() ? 'Dark' : 'Light'
         },
-        altSpeed(){
+        altSpeed() {
             return this.getStatus().altSpeed
         },
-        series(){
-           return [
+        series() {
+            return [
                 {
                     name: 'upload',
                     type: 'area',

@@ -1,28 +1,28 @@
 name: Build & Release
 on:
-  push:
-    branches:
-      - development
+    push:
+        branches:
+            - development
 jobs:
-  github-release-development:
-    runs-on: ubuntu-latest
-    steps:
-        - uses: actions/checkout@master
-        - name: Install & build
-          uses: actions/setup-node@master
-        - run: npm install
-        - run: npm run build
-        - name: Zip it
-          uses: montudor/action-zip@v0.1.0
-          with:
-            args: zip -qq -r ./release.zip ./vuetorrent
-        - name: Get Version
-          run: echo ::set-env name=VERSION::$(jq -r .version package.json)
-        - name: Push release
-          uses: "marvinpinto/action-automatic-releases@latest"
-          with:
-            repo_token: "${{ secrets.GITHUB_TOKEN }}"
-            automatic_release_tag: "dev-v${{ env.VERSION }}"
-            prerelease: true
-            title: "Development Build v${{ env.VERSION }}"
-            files: release.zip
+    github-release-development:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: Install & build
+              uses: actions/setup-node@master
+            - run: npm install
+            - run: npm run build
+            - name: Zip it
+              uses: montudor/action-zip@v0.1.0
+              with:
+                  args: zip -qq -r ./release.zip ./vuetorrent
+            - name: Get Version
+              run: echo ::set-env name=VERSION::$(jq -r .version package.json)
+            - name: Push release
+              uses: 'marvinpinto/action-automatic-releases@latest'
+              with:
+                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
+                  automatic_release_tag: 'dev-v${{ env.VERSION }}'
+                  prerelease: true
+                  title: 'Development Build v${{ env.VERSION }}'
+                  files: release.zip

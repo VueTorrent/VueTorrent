@@ -1,7 +1,13 @@
 <template>
     <div color="background" @click.self="resetSelected">
-        <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">Dashboard</h1>
-        <v-container color="background" class="my-4 pa-0" @click.self="resetSelected">
+        <h1 style="font-size: 1.1em !important;" class="subtitle-1 grey--text">
+            Dashboard
+        </h1>
+        <v-container
+            color="background"
+            class="my-4 pa-0"
+            @click.self="resetSelected"
+        >
             <!-- justify-center here in layout to center!! -->
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field
@@ -20,27 +26,23 @@
                 <p class="grey--text">No active Torrents!</p>
             </div>
             <div v-else>
-                <div
-
-                    v-for="torrent in torrents"
-                    :key="torrent.hash"
-                >
-                    <Torrent :torrent="torrent"/>
-            
+                <div v-for="torrent in torrents" :key="torrent.hash">
+                    <Torrent :torrent="torrent" />
                 </div>
             </div>
         </v-container>
+        <TorrentDetailModal />
     </div>
 </template>
 
 <script>
-import { mapState, mapMutations} from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import Torrent from '@/components/Torrent'
-
+import TorrentDetailModal from '@/components/TorrentDetailModal/TorrentDetailModal'
 
 export default {
-    name:'Dashboard', 
-    components: {Torrent},
+    name: 'Dashboard',
+    components: { Torrent, TorrentDetailModal },
     data() {
         return {
             sort_input: ''
@@ -151,5 +153,3 @@ export default {
     }
 }
 </script>
-
-

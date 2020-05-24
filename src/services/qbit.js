@@ -28,7 +28,7 @@ class Qbit {
         return data
     }
 
-    async logout(){
+    async logout() {
         this.axios.post('/auth/logout')
     }
 
@@ -53,7 +53,7 @@ class Qbit {
         let data
         if (torrents) {
             const formData = new FormData()
-            if(params){
+            if (params) {
                 for (const [key, value] of Object.entries(params)) {
                     formData.append(key, value)
                 }
@@ -136,7 +136,7 @@ class Qbit {
         return this.actionTorrents('setCategory', hashes, { category })
     }
 
-    getTorrentTracker(hash) {
+    getTorrentTrackers(hash) {
         const params = {
             hash
         }

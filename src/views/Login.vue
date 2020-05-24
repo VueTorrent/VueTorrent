@@ -1,5 +1,5 @@
 <template>
- <v-layout row wrap align-center class="justify-center"             >
+    <v-layout row wrap align-center class="justify-center">
         <div style="margin: 0 auto;">
             <v-container class="grey lighten-4 pa-0">
                 <v-card max-width="400" flat>
@@ -50,7 +50,7 @@
                 </v-card>
             </v-container>
         </div>
- </v-layout>
+    </v-layout>
 </template>
 
 <script>
@@ -70,8 +70,8 @@ export default {
                 password: this.password
             })
 
-            if(authenticated){
-                 this.$router.push('/');
+            if (authenticated) {
+                this.$router.push('/')
             }
         }
     }

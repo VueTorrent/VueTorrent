@@ -36,7 +36,7 @@ export default new Vuex.Store({
             settingsmodal: false,
             torrentdetailmodal: false
         },
-        settings : {},
+        settings: {},
         selectedDetailTorrent: null
     },
     getters: {
@@ -46,7 +46,8 @@ export default new Vuex.Store({
         getModalState: state => name => state.modals[name.toLowerCase()],
         getSettings: state => () => state.settings,
         getStatus: state => () => state.status,
-        getTorrent: state => hash => state.torrents.filter(el => el.hash === hash)[0]
+        getTorrent: state => hash =>
+            state.torrents.filter(el => el.hash === hash)[0]
     },
 
     mutations: {
@@ -59,14 +60,13 @@ export default new Vuex.Store({
             ]
         },
         SET_SELECTED: (state, payload) => {
-            if(payload.type === 'add')
+            if (payload.type === 'add')
                 state.selected_torrents.push(payload.hash)
-                if(payload.type === 'remove')
+            if (payload.type === 'remove')
                 state.selected_torrents.splice(
                     state.selected_torrents.indexOf(payload.hash),
                     1
                 )
-
         },
         RESET_SELECTED: state => {
             state.selected_torrents = []
@@ -101,12 +101,12 @@ export default new Vuex.Store({
             state.upload_data.push(state.status.upspeedRaw)
         },
         SET_SETTINGS: async state => {
-            const {data} = await qbit.getAppPreferences()
-            state.settings.savePath = data.save_path;
+            const { data } = await qbit.getAppPreferences()
+            state.settings.savePath = data.save_path
         },
         SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
-            state.selectedDetailTorrent =  hash
-        }   
+            state.selectedDetailTorrent = hash
+        }
     },
     actions: {
         INIT_INTERVALS: async context => {
@@ -120,13 +120,12 @@ export default new Vuex.Store({
             if (res === 'Ok.') {
                 Vue.$toast.success('Successfully logged in!')
                 context.commit('LOGIN', true)
-                context.commit('updateMainData')   
-                context.commit('SET_SETTINGS')   
-                return true;
-                
+                context.commit('updateMainData')
+                context.commit('SET_SETTINGS')
+                return true
             }
             Vue.$toast.error('Log in failed 😕')
-            return false;
+            return false
         }
     }
 })
