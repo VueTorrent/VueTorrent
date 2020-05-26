@@ -41,6 +41,15 @@
             <v-btn small fab text class="mr-0 ml-0" @click="pauseTorrents">
                 <v-icon color="grey">pause</v-icon>
             </v-btn>
+            <v-btn
+                small
+                fab
+                text
+                class="mr-0 ml-0"
+                @click="toggleModal('settingsmodal')"
+            >
+                <v-icon color="grey">settings</v-icon>
+            </v-btn>
         </v-app-bar>
         <!--navigation drawer itself -->
         <v-navigation-drawer

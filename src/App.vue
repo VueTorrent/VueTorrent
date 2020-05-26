@@ -1,6 +1,7 @@
 <template>
     <v-app :style="{ backgroundColor: background }">
         <AddModal />
+        <SettingsModal />
         <Navbar v-if="isAuthenticated" />
         <v-content fill-height fill-width>
             <router-view></router-view>

@@ -69,7 +69,6 @@
                 <v-form>
                     <v-card-actions class="justify-center">
                         <v-btn
-                            :loading="loading"
                             text
                             @click="submit"
                             :disabled="!valid"
