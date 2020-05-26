@@ -40,6 +40,16 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 *   works on QBittorrent V4.2 and later
 
+### Sorting/Filtring
+
+example queries:
+
+-   s name asc => sort by name ascending
+-   sort size desc => sort by size descending
+-   f ubuntu => filter by torrent-name that contains 'ubuntu'
+-   f done => filter all completed torrents
+-   f busy => filter all downloading torrents
+
 ## Contributing
 
 I'll gladly accept help/pull requests & advice! (this is my first project of this nature, pls be kind 😛 ).

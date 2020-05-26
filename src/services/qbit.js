@@ -115,9 +115,18 @@ class Qbit {
     getTorrents(payload) {
         let params = {
             sort: payload.sort,
-            reverse: payload.reverse
+            reverse: payload.reverse,
+            hashes: payload.hashes ? payload.hashes.join('|') : null,
+            filter: payload.filter ? payload.filter : null
         }
+
+        //clean
+        Object.keys(params).forEach(
+            key => params[key] == null && delete params[key]
+        )
+
         const data = new URLSearchParams(params)
+
         return this.axios.get(`/torrents/info?${data.toString()}`)
     }
 

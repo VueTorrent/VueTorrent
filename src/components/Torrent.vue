@@ -137,7 +137,7 @@
 
 <script>
 import { VueContext } from 'vue-context'
-import torrentRightClickMenu from '@/components/Torrent/torrentRightClickMenu.vue'
+import torrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 export default {
     name: 'Torrent',

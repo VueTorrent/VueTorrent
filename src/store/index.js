@@ -25,7 +25,7 @@ export default new Vuex.Store({
         selected_torrents: [],
         authenticated: false,
         loading: false,
-        sort_options: { sort: 'name', reverse: false },
+        sort_options: { sort: 'name', reverse: false, hashes: [], filter: null },
         rid: 0,
         mainData: undefined,
         preferences: null,
@@ -111,6 +111,8 @@ export default new Vuex.Store({
         UPDATE_SORT_OPTIONS: (state, payload) => {
             state.sort_options.sort = payload.name
             state.sort_options.reverse = payload.reverse
+            state.sort_options.hashes = payload.hashes ? payload.hashes : null
+            state.sort_options.filter = payload.filter ? payload.filter : null
         }
     },
     actions: {
