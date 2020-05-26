@@ -62,7 +62,7 @@
 <script>
 import qbit from '@/services/qbit'
 export default {
-    name: 'torrentRightClickMenu',
+    name: 'TorrentRightClickMenu',
     props: {
         hash: String
     },
