@@ -130,20 +130,20 @@
         </v-tooltip>
         <v-divider></v-divider>
         <vue-context ref="menu">
-            <torrentRightClickMenu :hash="torrent.hash" />
+            <TorrentRightClickMenu :hash="torrent.hash" />
         </vue-context>
     </v-card>
 </template>
 
 <script>
 import { VueContext } from 'vue-context'
-import torrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 export default {
     name: 'Torrent',
     components: {
         VueContext,
-        torrentRightClickMenu
+        TorrentRightClickMenu
     },
     props: {
         torrent: Object
