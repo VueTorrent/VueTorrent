@@ -13,7 +13,7 @@
                                 <v-text-field
                                     flat
                                     solo
-                                    background-color="grey lighten-4"
+                                    background-color="torrent"
                                     label="username"
                                     prepend-icon="person"
                                     v-model="username"
@@ -25,7 +25,7 @@
                                 <v-text-field
                                     flat
                                     solo
-                                    background-color="grey lighten-4"
+                                    background-color="torrent"
                                     type="password"
                                     label="password"
                                     prepend-icon="lock"

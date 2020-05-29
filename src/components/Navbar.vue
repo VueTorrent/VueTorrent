@@ -211,15 +211,12 @@
                 </v-card>
             </v-flex>
             <v-container>
-                <v-row
-                    justify="space-between"
-                    style="position: fixed; bottom: 0px; right: 15px;"
-                >
+                <v-row justify="space-between">
                     <v-col>
                         <v-tooltip top>
                             <template v-slot:activator="{ on }">
                                 <v-list-item v-on="on" @click="logout" link>
-                                    <v-icon class="pr-2 white--text"
+                                    <v-icon class="white--text"
                                         >exit_to_app</v-icon
                                     >
                                 </v-list-item>
@@ -237,7 +234,7 @@
                                 >
                                     <v-icon
                                         :color="altSpeed ? 'download' : ''"
-                                        class="pr-2 white--text"
+                                        class="white--text"
                                         >speed</v-icon
                                     >
                                 </v-list-item>
@@ -255,7 +252,7 @@
                                 >
                                     <v-icon
                                         v-if="theme === 'Light'"
-                                        class="pr-2 white--text"
+                                        class="white--text"
                                         >brightness_7</v-icon
                                     >
                                     <v-icon v-else class="pr-2 white--text"
@@ -375,6 +372,15 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.justify-space-between {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+</style>
+
 <style>
 .project.nav_upload {
     border-left: 4px solid #00b3fa;
