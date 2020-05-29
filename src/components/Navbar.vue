@@ -309,6 +309,9 @@ export default {
                         opacityTo: 0.5,
                         stops: [0, 50, 100]
                     }
+                },
+                tooltip: {
+                    theme: 'light'
                 }
             },
             chartInterval: null
@@ -341,6 +344,10 @@ export default {
         },
         toggleSpeed() {
             qbit.toggleSpeedLimitsMode()
+        },
+        setChartTooltipTheme(theme) {
+            this.chartOptions.tooltip.theme = theme.toLowerCase()
+            this.$refs.chart.updateOptions(this.chartOptions)
         }
     },
     computed: {
@@ -369,6 +376,14 @@ export default {
     },
     created() {
         this.$vuetify.theme.dark = this.getTheme()
+    },
+    mounted() {
+        this.setChartTooltipTheme(this.theme)
+    },
+    watch: {
+        theme(newValue) {
+            this.setChartTooltipTheme(newValue)
+        }
     }
 }
 </script>
