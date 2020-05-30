@@ -8,7 +8,6 @@
                     activatable
                     item-key="name"
                     open-on-click
-                    
                 >
                     <template v-slot:prepend="{ item, open }">
                         <v-icon v-if="!item.icon">

@@ -16,7 +16,6 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     plugins: [vuexPersist.plugin],
     state: {
-        darkTheme: false,
         intervals: [],
         status: null,
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -24,11 +23,14 @@ export default new Vuex.Store({
         torrents: [],
         selected_torrents: [],
         authenticated: false,
-        loading: false,
-        sort_options: { sort: 'name', reverse: false, hashes: [], filter: null },
+        sort_options: {
+            sort: 'name',
+            reverse: false,
+            hashes: [],
+            filter: null
+        },
         rid: 0,
         mainData: undefined,
-        preferences: null,
         pasteUrl: null,
         modals: {
             addmodal: false,
@@ -37,17 +39,22 @@ export default new Vuex.Store({
             torrentdetailmodal: false
         },
         settings: {},
+        webuiSettings: {
+            darkTheme: false,
+            showFreeSpace: true
+        },
         selectedDetailTorrent: null
     },
     getters: {
         containsTorrent: state => hash =>
             state.selected_torrents.includes(hash),
-        getTheme: state => () => state.darkTheme,
+        getTheme: state => () => state.webuiSettings.darkTheme,
         getModalState: state => name => state.modals[name.toLowerCase()],
         getSettings: state => () => state.settings,
         getStatus: state => () => state.status,
         getTorrent: state => hash =>
-            state.torrents.filter(el => el.hash === hash)[0]
+            state.torrents.filter(el => el.hash === hash)[0],
+        getWebuiSettings: state => () => state.webuiSettings
     },
 
     mutations: {
@@ -72,7 +79,7 @@ export default new Vuex.Store({
             state.selected_torrents = []
         },
         TOGGLE_THEME(state) {
-            state.darkTheme = !state.darkTheme
+            state.webuiSettings.darkTheme = !state.webuiSettings.darkTheme
         },
         LOGOUT: state => {
             qbit.logout()

@@ -1,7 +1,7 @@
 <template>
     <nav>
         <!--title-->
-        <v-app-bar flat color="background">
+        <v-toolbar flat color="background">
             <v-btn
                 @click="drawer = !drawer"
                 text
@@ -16,8 +16,10 @@
                     { 'subheading ml-0': $vuetify.breakpoint.smAndDown }
                 ]"
             >
-                <span class="font-weight-light">Vue</span>
-                <span>Torrent</span>
+                <div v-if="!$vuetify.breakpoint.xs">
+                    <span class="font-weight-light">Vue</span>
+                    <span>Torrent</span>
+                </div>
             </v-toolbar-title>
             <v-spacer></v-spacer>
 
@@ -50,7 +52,7 @@
             >
                 <v-icon color="grey">settings</v-icon>
             </v-btn>
-        </v-app-bar>
+        </v-toolbar>
         <!--navigation drawer itself -->
         <v-navigation-drawer
             app
@@ -178,6 +180,7 @@
                 </v-card>
 
                 <v-card
+                    v-if="webuiSettings.showFreeSpace"
                     flat
                     style="margin-top: 30px;"
                     color="secondary"
@@ -352,7 +355,7 @@ export default {
     },
     computed: {
         ...mapState(['status', 'selected_torrents']),
-        ...mapGetters(['getTheme', 'getStatus']),
+        ...mapGetters(['getTheme', 'getStatus', 'getWebuiSettings']),
         theme() {
             return this.getTheme() ? 'Dark' : 'Light'
         },
@@ -372,6 +375,9 @@ export default {
                     data: this.$store.state.download_data
                 }
             ]
+        },
+        webuiSettings() {
+            return this.getWebuiSettings()
         }
     },
     created() {
