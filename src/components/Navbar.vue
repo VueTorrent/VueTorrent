@@ -1,15 +1,11 @@
 <template>
     <nav>
         <!--title-->
-        <v-toolbar flat color="background">
-            <v-btn
-                @click="drawer = !drawer"
-                text
-                fab
+        <v-app-bar app flat color="background">
+            <v-app-bar-nav-icon
+                @click.stop="drawer = !drawer"
                 class="grey--text text--lighten-1"
-            >
-                <v-icon>menu</v-icon>
-            </v-btn>
+            ></v-app-bar-nav-icon>
             <v-toolbar-title
                 :class="[
                     'grey--text',
@@ -52,13 +48,14 @@
             >
                 <v-icon color="grey">settings</v-icon>
             </v-btn>
-        </v-toolbar>
+        </v-app-bar>
         <!--navigation drawer itself -->
         <v-navigation-drawer
             app
             v-model="drawer"
             class="primary"
             style="position: fixed;"
+            disable-resize-watcher
         >
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="status">
