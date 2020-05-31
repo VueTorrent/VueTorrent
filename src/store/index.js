@@ -30,7 +30,6 @@ export default new Vuex.Store({
             filter: null
         },
         rid: 0,
-        mainData: undefined,
         pasteUrl: null,
         modals: {
             addmodal: false,

@@ -115,6 +115,12 @@
                             >
                         </div>
                     </v-flex>
+                    <!-- labels -->
+                    <v-flex v-for="tag in torrent.tags" :key="tag" xs3 sm1 md1>
+                        <v-chip small class="download white--text my-2 caption">
+                            {{ tag }}
+                        </v-chip>
+                    </v-flex>
                     <v-flex xs12 sm12 md12>
                         <v-progress-linear
                             height="3"

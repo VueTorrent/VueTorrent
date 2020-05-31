@@ -21,6 +21,7 @@
                     <v-tab href="#trackers">Trackers</v-tab>
                     <v-tab href="#peers">Peers</v-tab>
                     <v-tab href="#content">Content</v-tab>
+                    <v-tab href="#tags">Tags</v-tab>
                 </v-tabs>
                 <v-tabs-items v-model="tab" touchless>
                     <v-tab-item value="info">
@@ -37,6 +38,9 @@
                     </v-tab-item>
                     <v-tab-item value="content">
                         <Content :is-active="tab === 'content'" :hash="hash" />
+                    </v-tab-item>
+                    <v-tab-item value="tags">
+                        <Tags :is-active="tab === 'tags'" :hash="hash" />
                     </v-tab-item>
                 </v-tabs-items>
             </div>
@@ -58,11 +62,12 @@ import Content from '@/components/TorrentDetailModal/Content'
 import Info from '@/components/TorrentDetailModal/Info'
 import Peers from '@/components/TorrentDetailModal/Peers'
 import Trackers from '@/components/TorrentDetailModal/Trackers'
+import Tags from '@/components/TorrentDetailModal/Tags'
 
 export default {
     name: 'TorrentDetailModal',
     mixins: [Modal],
-    components: { Content, Info, Peers, Trackers },
+    components: { Content, Info, Peers, Trackers,Tags },
     data() {
         return {
             tab: null,

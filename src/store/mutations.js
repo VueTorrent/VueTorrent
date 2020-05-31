@@ -35,7 +35,7 @@ export default {
         const res = await qbit.getMainData(rid)
 
         // status
-        state.status = new Status(res.data.server_state)
+        state.status = new Status(res.data.server_state, res.data.tags)
 
         // graph
         state.download_data.splice(0, 1)

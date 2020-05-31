@@ -17,6 +17,7 @@
         "register-service-worker": "^1.7.1",
         "vue": "^2.6.11",
         "vue-apexcharts": "^1.5.3",
+        "vue-async-computed": "^3.8.2",
         "vue-context": "^5.1.0",
         "vue-observe-visibility": "^0.4.6",
         "vue-router": "^3.2.0",

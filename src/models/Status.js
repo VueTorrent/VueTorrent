@@ -1,5 +1,5 @@
 export default class Status {
-    constructor(data) {
+    constructor(data, tags) {
         if (data != undefined && data != null) {
             this.status = data.connection_status
             this.downloaded = this.formatBytes(data.dl_info_data, 1)
@@ -10,6 +10,7 @@ export default class Status {
             this.altSpeed = data.use_alt_speed_limits
             this.dlspeedRaw = Math.round(data.dl_info_speed / 1000)
             this.upspeedRaw = Math.round(data.up_info_speed / 1000)
+            this.tags = tags
         }
     }
 

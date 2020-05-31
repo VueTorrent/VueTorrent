@@ -6,5 +6,6 @@ export default {
     getStatus: state => () => state.status,
     getTorrent: state => hash =>
         state.torrents.filter(el => el.hash === hash)[0],
-    getWebuiSettings: state => () => state.webuiSettings
+    getWebuiSettings: state => () => state.webuiSettings,
+    getAvailableTags: state => () => state.status.tags
 }

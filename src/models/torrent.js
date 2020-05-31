@@ -22,6 +22,7 @@ export default class Torrent {
         this.savePath = data.save_path
         this.progress = Math.round((data.downloaded / data.size) * 100)
         this.ratio = Math.round(data.ratio * 100)
+        this.tags = data.tags.length > 0 ? data.tags.split(',') : null
     }
 
     formatState(state) {
