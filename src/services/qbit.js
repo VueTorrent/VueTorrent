@@ -237,6 +237,22 @@ class Qbit {
         return this.axios.post('/torrents/addTags ', data)
     }
 
+    createTag(tag) {
+        const params = {
+            tags: tag
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/createTags  ', data)
+    }
+
+    deleteTag(tag) {
+        const params = {
+            tags: tag
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/deleteTags   ', data)
+    }
+
     actionTorrents(action, hashes, extra) {
         const params = {
             hashes: hashes.join('|'),
