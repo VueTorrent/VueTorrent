@@ -28,6 +28,10 @@ class Qbit {
         return data
     }
 
+    async logout() {
+        this.axios.post('/auth/logout')
+    }
+
     getGlobalTransferInfo() {
         return this.axios.get('/transfer/info')
     }
@@ -49,7 +53,7 @@ class Qbit {
         let data
         if (torrents) {
             const formData = new FormData()
-            if(params){
+            if (params) {
                 for (const [key, value] of Object.entries(params)) {
                     formData.append(key, value)
                 }
@@ -108,6 +112,24 @@ class Qbit {
         return this.axios.post('/transfer/toggleSpeedLimitsMode')
     }
 
+    getTorrents(payload) {
+        let params = {
+            sort: payload.sort,
+            reverse: payload.reverse,
+            hashes: payload.hashes ? payload.hashes.join('|') : null,
+            filter: payload.filter ? payload.filter : null
+        }
+
+        //clean
+        Object.keys(params).forEach(
+            key => params[key] == null && delete params[key]
+        )
+
+        const data = new URLSearchParams(params)
+
+        return this.axios.get(`/torrents/info?${data.toString()}`)
+    }
+
     deleteTorrents(hashes, deleteFiles) {
         return this.actionTorrents('delete', hashes, { deleteFiles })
     }
@@ -132,7 +154,7 @@ class Qbit {
         return this.actionTorrents('setCategory', hashes, { category })
     }
 
-    getTorrentTracker(hash) {
+    getTorrentTrackers(hash) {
         const params = {
             hash
         }
@@ -191,75 +213,44 @@ class Qbit {
         })
     }
 
-    getRssItems() {
-        const params = {
-            withData: true
-        }
-
-        return this.axios.get('/rss/items', {
-            params
-        })
+    getAvailableTags() {
+        return this.axios.get('/torrents/tags')
     }
 
-    addRssFeed(url, path = '') {
+    removeTorrentTag(hash, tag) {
         const params = {
-            url,
-            path
+            hashes: hash,
+            tags: tag
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/addFeed', data)
+        return this.axios.post('/torrents/removeTags', data)
     }
 
-    removeRssFeed(path) {
+    addTorrentTag(hash, tag) {
         const params = {
-            path
+            hashes: hash,
+            tags: tag
         }
 
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/removeItem', data)
+        return this.axios.post('/torrents/addTags ', data)
     }
 
-    refreshRssFeed(path) {
+    createTag(tag) {
         const params = {
-            itemPath: path
+            tags: tag
         }
-
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/refreshItem', data)
+        return this.axios.post('/torrents/createTags  ', data)
     }
 
-    moveRssFeed(path, newPath) {
+    deleteTag(tag) {
         const params = {
-            itemPath: path,
-            destPath: newPath
+            tags: tag
         }
-
         const data = new URLSearchParams(params)
-        return this.axios.post('/rss/moveItem', data)
-    }
-
-    getRssRules() {
-        return this.axios.get('/rss/rules')
-    }
-
-    setRssRule(name, def) {
-        const params = {
-            ruleName: name,
-            ruleDef: JSON.stringify(def)
-        }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/rss/setRule', data)
-    }
-
-    removeRssRule(name) {
-        const params = {
-            ruleName: name
-        }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/rss/removeRule', data)
+        return this.axios.post('/torrents/deleteTags   ', data)
     }
 
     actionTorrents(action, hashes, extra) {

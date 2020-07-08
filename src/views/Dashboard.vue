@@ -1,7 +1,13 @@
 <template>
-    <div style="height: 89vh" color="background" @click.self="resetSelected">
-        <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">Dashboard</h1>
-        <v-container color="background" class="my-4" @click.self="resetSelected">
+    <div class="pl-5 pr-5" color="background" @click.self="resetSelected">
+        <h1 style="font-size: 1.1em !important;" class="subtitle-1 grey--text">
+            Dashboard
+        </h1>
+        <v-container
+            color="background"
+            class="my-4 pt-5 pa-0"
+            @click.self="resetSelected"
+        >
             <!-- justify-center here in layout to center!! -->
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field
@@ -10,7 +16,7 @@
                     height="50"
                     clearable
                     solo
-                    hint="eg `size desc` + enter"
+                    hint="eg `s size desc` + enter"
                     color="search"
                     v-model="sort_input"
                     @keyup.enter.native="sortBy"
@@ -20,26 +26,130 @@
                 <p class="grey--text">No active Torrents!</p>
             </div>
             <div v-else>
-                <div
-
-                    v-for="torrent in torrents"
-                    :key="torrent.hash"
-                >
-                    <Torrent :torrent="torrent"/>
-            
+                <div v-for="torrent in torrents" :key="torrent.hash">
+                    <Torrent :torrent="torrent" />
                 </div>
             </div>
         </v-container>
+        <TorrentDetailModal />
     </div>
 </template>
 
 <script>
-import { mapState, mapMutations} from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import Torrent from '@/components/Torrent'
+import TorrentDetailModal from '@/components/TorrentDetailModal/TorrentDetailModal'
+
+function getPropName(prop) {
+    switch (prop) {
+        case 'title':
+        case 'name':
+        case 'Name':
+        case 'Title':
+            return 'name'
+        case 'size':
+        case 'Size':
+            return 'size'
+        case 'dlspeed':
+        case 'Dlspeed':
+        case 'Download':
+        case 'download':
+        case 'downloadspeed':
+            return 'dlspeed'
+        case 'upspeed':
+        case 'upload':
+        case 'Upload':
+        case 'Upspeed':
+        case 'uploadspeed':
+            return 'upspeed'
+        case 'leechs':
+        case 'leechers':
+        case 'leech':
+        case 'peers':
+        case 'Leechs':
+        case 'Leechers':
+        case 'Leech':
+        case 'Peers':
+            return 'num_leechs'
+        case 'seeds':
+        case 'seeders':
+        case 'Seeds':
+        case 'Seeders':
+            return 'num_seeds'
+        case 'remaining':
+        case 'time':
+        case 'Time':
+        case 'ETA':
+        case 'eta':
+            return 'eta'
+        case 'done':
+        case 'downloaded':
+        case 'dloaded':
+        case 'Done':
+        case 'Downloaded':
+        case 'Dloaded':
+            return 'progress'
+        case 'state':
+        case 'status':
+        case 'State':
+        case 'Status':
+            return 'state'
+        default:
+            return 'name'
+    }
+}
+
+function sortOrFilter(word) {
+    switch (word) {
+        case 'sort':
+        case 's':
+        case 'srt':
+            return 'sort'
+        case 'f':
+        case 'filter':
+        case 'filtr':
+        case 'fltr':
+        case 'filt':
+            return 'filter'
+        default:
+            return 'sort'
+    }
+}
+
+function filterOption(word) {
+    switch (word) {
+        case 'Done':
+        case 'done':
+        case 'completed':
+        case 'complete':
+            return 'completed'
+        case 'Busy':
+        case 'busy':
+        case 'downl':
+        case 'download':
+        case 'downloading':
+        case 'act':
+        case 'active':
+        case 'resumed':
+            return 'active'
+        case 'fail':
+        case 'failed':
+        case 'faild':
+        case 'stalled':
+        case 'stalld':
+        case 'stall':
+            return 'stalled'
+        case 'pause':
+        case 'paused':
+            return 'paused'
+        default:
+            return null
+    }
+}
 
 export default {
-    name:'Dashboard', 
-    components: {Torrent},
+    name: 'Dashboard',
+    components: { Torrent, TorrentDetailModal },
     data() {
         return {
             sort_input: ''
@@ -51,92 +161,81 @@ export default {
     methods: {
         ...mapMutations(['SORT_TORRENTS']),
         sortBy() {
-            let name
-            let reverse
-            // search if order was presented
-            const index = this.sort_input.indexOf(' ')
-            if (index > -1) {
-                name = this.sort_input.substring(0, index)
-                const temp = this.sort_input.substring(index)
-                if (temp.indexOf('asc') > -1) {
-                    reverse = false
-                } else if (temp.indexOf('desc') > -1) {
-                    reverse = true
-                }
-            } else {
-                // no order so we assume input is propname
-                name = this.sort_input
-                reverse = false
+            let parts = this.sort_input.split(' ')
+
+            if (parts.length === 0) {
+                let name = 'name'
+                let reverse = false
+                return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                    name,
+                    reverse
+                })
             }
-            // prop names
-            switch (name) {
-                case 'title':
-                case 'name':
-                case 'Name':
-                case 'Title':
-                    name = 'name'
-                    break
-                case 'size':
-                case 'Size':
-                    name = 'size'
-                    break
-                case 'dlspeed':
-                case 'Dlspeed':
-                case 'Download':
-                case 'download':
-                case 'downloadspeed':
-                    name = 'dlspeed'
-                    break
-                case 'upspeed':
-                case 'upload':
-                case 'Upload':
-                case 'Upspeed':
-                case 'uploadspeed':
-                    name = 'upspeed'
-                    break
-                case 'leechs':
-                case 'leechers':
-                case 'leech':
-                case 'peers':
-                case 'Leechs':
-                case 'Leechers':
-                case 'Leech':
-                case 'Peers':
-                    name = 'num_leechs'
-                    break
-                case 'seeds':
-                case 'seeders':
-                case 'Seeds':
-                case 'Seeders':
-                    name = 'num_seeds'
-                    break
-                case 'remaining':
-                case 'time':
-                case 'Time':
-                case 'ETA':
-                case 'eta':
-                    name = 'eta'
-                    break
-                case 'done':
-                case 'downloaded':
-                case 'dloaded':
-                case 'Done':
-                case 'Downloaded':
-                case 'Dloaded':
-                    name = 'downloaded'
-                    break
-                case 'state':
-                case 'status':
-                case 'State':
-                case 'Status':
-                    name = 'state'
-                    break
-                default:
-                    name = 'name'
-                    break
+            //basic sort
+            if (parts.length === 1) {
+                let name = getPropName(parts[0])
+                let reverse = false
+
+                return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                    name,
+                    reverse
+                })
             }
 
-            this.$store.state.sort_options = { name, reverse }
+            // could be sort OR filter
+            if (parts.length === 2) {
+                let type = sortOrFilter(parts[0])
+                if (type === 'sort') {
+                    let name = getPropName(parts[1])
+                    let reverse = false
+
+                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                        name,
+                        reverse
+                    })
+                }
+
+                if (type === 'filter') {
+                    let ftype = filterOption(parts[1])
+                    //filter state
+                    if (ftype) {
+                        let name = 'name'
+                        let reverse = false
+                        return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                            name,
+                            reverse,
+                            filter: ftype
+                        })
+                    }
+
+                    //filter name
+                    let filtered = this.torrents.filter(t =>
+                        t.name.toLowerCase().includes(parts[1].toLowerCase())
+                    )
+                    let name = 'name'
+                    let reverse = false
+                    let hashes = filtered.map(t => t.hash)
+                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                        name,
+                        reverse,
+                        hashes
+                    })
+                }
+            }
+
+            //sort with asc/desc
+            if (parts.length === 3) {
+                let type = sortOrFilter(parts[0])
+                if (type === 'sort') {
+                    let name = getPropName(parts[1])
+                    let reverse = parts[2] === 'desc'
+
+                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
+                        name,
+                        reverse
+                    })
+                }
+            }
         },
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
@@ -150,5 +249,3 @@ export default {
     }
 }
 </script>
-
-

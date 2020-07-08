@@ -1,49 +1,41 @@
 <template>
-    <v-app class="background">
+    <v-app :style="{ backgroundColor: background }">
         <AddModal />
-        <div v-if="authenticated" class="background">
-            <keep-alive><Navbar /></keep-alive>
-            <v-content class="mx-4 mb-4">
-                <router-view></router-view>
-            </v-content>
-        </div>
-        <v-container v-else fill-height>
-            <v-layout
-                row
-                wrap
-                align-center
-                class="justify-center"
-                justify-center
-            >
-                <div style="margin: 0 auto;">
-                    <Login />
-                </div>
-            </v-layout>
-        </v-container>
-        <div class="background">
-            <p class="grey--text caption text-center">
-                Made by Daan Wijns
-            </p>
-        </div>
+        <SettingsModal />
+        <Navbar v-if="isAuthenticated" />
+        <v-content fill-height fill-width>
+            <router-view></router-view>
+        </v-content>
     </v-app>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Navbar from './components/Navbar.vue'
-import Login from './components/Login.vue'
+import Navbar from '@/components/Navbar.vue'
+import { isAuthenticated } from '@/services/auth.js'
 
 export default {
-    components: { Navbar, Login },
+    components: { Navbar },
     name: 'App',
     data() {
         return {}
     },
+    methods: {
+        async getAuth() {
+            return await isAuthenticated()
+        }
+    },
     computed: {
-        ...mapState(['authenticated', 'rid', 'mainData', 'preferences']),
+        ...mapState(['rid', 'mainData', 'preferences']),
         ...mapGetters(['getTheme']),
         theme() {
             return this.getTheme() ? 'dark' : 'light'
+        },
+        background() {
+            return this.$vuetify.theme.themes[this.theme].background
+        },
+        isAuthenticated() {
+            return this.getAuth()
         }
     }
 }
