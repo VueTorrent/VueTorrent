@@ -26,6 +26,16 @@
                 fab
                 color="grey"
                 class="mr-0 ml-0"
+                @click="toggleModal('searchmodal')"
+            >
+                <v-icon color="grey">search</v-icon>
+            </v-btn>
+            <v-btn
+                text
+                small
+                fab
+                color="grey"
+                class="mr-0 ml-0"
                 @click="toggleModal('addmodal')"
             >
                 <v-icon color="grey">add</v-icon>
@@ -78,11 +88,13 @@
                                     status.dlspeed.indexOf(' ')
                                 )
                             }}
-                            <span class="font-weight-light caption">{{
-                                status.dlspeed.substring(
-                                    status.dlspeed.indexOf(' ')
-                                )
-                            }}</span>
+                            <span class="font-weight-light caption">
+                                {{
+                                    status.dlspeed.substring(
+                                        status.dlspeed.indexOf(' ')
+                                    )
+                                }}
+                            </span>
                         </span>
                         <v-icon class="pl-5" color="upload"
                             >keyboard_arrow_up</v-icon
@@ -94,11 +106,13 @@
                                     status.upspeed.indexOf(' ')
                                 )
                             }}
-                            <span class="font-weight-light caption">{{
-                                status.upspeed.substring(
-                                    status.upspeed.indexOf(' ')
-                                )
-                            }}</span>
+                            <span class="font-weight-light caption">
+                                {{
+                                    status.upspeed.substring(
+                                        status.upspeed.indexOf(' ')
+                                    )
+                                }}
+                            </span>
                         </span>
                     </v-layout>
                 </v-card>
@@ -139,11 +153,13 @@
                                         status.downloaded.indexOf(' ')
                                     )
                                 }}
-                                <span class="font-weight-light caption">{{
-                                    status.downloaded.substring(
-                                        status.downloaded.indexOf(' ')
-                                    )
-                                }}</span>
+                                <span class="font-weight-light caption">
+                                    {{
+                                        status.downloaded.substring(
+                                            status.downloaded.indexOf(' ')
+                                        )
+                                    }}
+                                </span>
                             </span>
                         </v-flex>
                     </v-layout>
@@ -166,11 +182,13 @@
                                         status.uploaded.indexOf(' ')
                                     )
                                 }}
-                                <span class="font-weight-light caption">{{
-                                    status.uploaded.substring(
-                                        status.uploaded.indexOf(' ')
-                                    )
-                                }}</span>
+                                <span class="font-weight-light caption">
+                                    {{
+                                        status.uploaded.substring(
+                                            status.uploaded.indexOf(' ')
+                                        )
+                                    }}
+                                </span>
                             </span>
                         </v-flex>
                     </v-layout>
@@ -200,11 +218,13 @@
                                         status.freeDiskSpace.indexOf(' ')
                                     )
                                 }}
-                                <span class="font-weight-light caption">{{
-                                    status.freeDiskSpace.substring(
-                                        status.freeDiskSpace.indexOf(' ')
-                                    )
-                                }}</span>
+                                <span class="font-weight-light caption">
+                                    {{
+                                        status.freeDiskSpace.substring(
+                                            status.freeDiskSpace.indexOf(' ')
+                                        )
+                                    }}
+                                </span>
                             </span>
                         </v-flex>
                     </v-layout>

@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
@@ -9,22 +9,22 @@
         "format": "pretty-quick"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.4.4",
-        "apexcharts": "^3.19.2",
+        "@babel/polyfill": "^7.10.4",
+        "apexcharts": "^3.19.3",
         "axios": "^0.19.2",
         "core-js": "^3.6.4",
-        "dayjs": "^1.8.27",
+        "dayjs": "^1.8.29",
         "register-service-worker": "^1.7.1",
         "vue": "^2.6.11",
-        "vue-apexcharts": "^1.5.3",
+        "vue-apexcharts": "^1.6.0",
         "vue-async-computed": "^3.8.2",
-        "vue-context": "^5.1.0",
+        "vue-context": "^5.2.0",
         "vue-observe-visibility": "^0.4.6",
-        "vue-router": "^3.2.0",
-        "vue-toastification": "^1.7.1",
+        "vue-router": "^3.3.4",
+        "vue-toastification": "^1.7.6",
         "vue2-perfect-scrollbar": "^1.5.0",
-        "vuetify": "^2.2.29",
-        "vuex": "^3.4.0",
+        "vuetify": "^2.3.4",
+        "vuex": "^3.5.1",
         "vuex-persist": "^2.2.0"
     },
     "devDependencies": {
@@ -34,15 +34,15 @@
         "@vue/eslint-config-prettier": "^6.0.0",
         "babel-eslint": "^10.1.0",
         "eslint": "^6.7.2",
-        "eslint-plugin-prettier": "^3.1.3",
+        "eslint-plugin-prettier": "^3.1.4",
         "eslint-plugin-vue": "^6.2.2",
         "fibers": "^5.0.0",
         "node-sass": "^4.14.1",
         "prettier": "^2.0.5",
         "pretty-quick": "^2.0.1",
-        "sass": "^1.26.5",
+        "sass": "^1.26.10",
         "sass-loader": "^8.0.2",
-        "vue-cli-plugin-vuetify": "~2.0.5",
+        "vue-cli-plugin-vuetify": "^2.0.7",
         "vue-template-compiler": "^2.6.11"
     },
     "browserslist": [

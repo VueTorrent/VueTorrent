@@ -2,6 +2,7 @@
     <v-app :style="{ backgroundColor: background }">
         <AddModal />
         <SettingsModal />
+        <SearchModal />
         <Navbar v-if="isAuthenticated" />
         <v-content fill-height fill-width>
             <router-view></router-view>
