@@ -261,6 +261,35 @@ class Qbit {
         const data = new URLSearchParams(params)
         return this.axios.post(`/torrents/${action}`, data)
     }
+
+    // Search
+
+    startSearch(pattern, category = null) {
+        const params = {
+            pattern,
+            plugins: 'all',
+            category: category ? category : 'all'
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/search/start', data)
+    }
+
+    getSearchStatus(id) {
+        const params = {
+            id
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/search/status', data)
+    }
+
+    getSearchResults(id) {
+        const params = {
+            id,
+            limit: 30
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/search/results', data)
+    }
 }
 
 export default new Qbit()

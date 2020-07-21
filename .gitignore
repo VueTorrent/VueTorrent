@@ -21,3 +21,4 @@ yarn-error.log*
 *.sw?
 
 vuetorrent
+config
