@@ -26,11 +26,12 @@ export default class Torrent {
     }
 
     formatState(state) {
+
         switch (state) {
             case 'pausedDL':
                 return 'paused'
             case 'downloading':
-                return 'busy'
+                return 'downloading'
             case 'stalledDL':
                 return 'fail'
             case 'pausedUP':
@@ -39,6 +40,8 @@ export default class Torrent {
                 return 'fail'
             case 'stalledUP':
                 return 'done'
+            case 'queuedUP':
+                return 'busy'
             default:
                 return 'fail'
         }

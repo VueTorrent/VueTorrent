@@ -175,7 +175,10 @@ export default {
 
 <style>
 .project.done {
-    border-left: 4px solid #3cd1c2;
+    border-left: 4px solid #2E5EAA;
+}
+.project.downloading {
+    border-left: 4px solid #1FC176;
 }
 .project.busy {
     border-left: 4px solid #ffaa2c;
@@ -184,10 +187,13 @@ export default {
     border-left: 4px solid #f83e70;
 }
 .project.paused {
-    border-left: 4px solid #cfd8dc;
+    border-left: 4px solid #EB8A90;
 }
 .v-chip.done {
-    background: #3cd1c2 !important;
+    background: #2E5EAA !important;
+}
+.v-chip.downloading {
+    background: #1FC176 !important;
 }
 .v-chip.busy {
     background: #ffaa2c !important;
@@ -196,7 +202,7 @@ export default {
     background: #f83e70 !important;
 }
 .v-chip.paused {
-    background: #cfd8dc !important;
+    background: #EB8A90 !important;
 }
 .pointer {
     cursor: pointer;
