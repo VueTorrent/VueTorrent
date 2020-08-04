@@ -2,7 +2,7 @@
     <v-card
         ripple
         flat
-        class="pointer torrent"
+        class="pointer torrent noselect"
         :class="containsTorrent(torrent.hash) ? 'torrent_selected' : ''"
         @click.native="selectTorrent(torrent.hash)"
         @dblclick.prevent="showInfo(torrent.hash)"
@@ -203,6 +203,15 @@ export default {
 }
 .v-chip.paused {
     background: #EB8A90 !important;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 .pointer {
     cursor: pointer;
