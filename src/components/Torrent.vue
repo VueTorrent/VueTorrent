@@ -189,6 +189,9 @@ export default {
 .project.paused {
     border-left: 4px solid #eb8a90;
 }
+.project.queued {
+    border-left: 4px solid #2e5eaa;
+}
 .v-chip.done {
     background: #2e5eaa !important;
 }
@@ -204,6 +207,19 @@ export default {
 .v-chip.paused {
     background: #eb8a90 !important;
 }
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.v-chip.queued {
+    background: #2e5eaa !important;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

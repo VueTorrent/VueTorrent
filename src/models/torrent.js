@@ -40,7 +40,7 @@ export default class Torrent {
             case 'stalledUP':
                 return 'done'
             case 'queuedUP':
-                return 'busy'
+                return 'queued'
             default:
                 return 'fail'
         }
