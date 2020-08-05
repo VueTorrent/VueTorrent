@@ -67,7 +67,7 @@ import Tags from '@/components/TorrentDetailModal/Tags'
 export default {
     name: 'TorrentDetailModal',
     mixins: [Modal],
-    components: { Content, Info, Peers, Trackers,Tags },
+    components: { Content, Info, Peers, Trackers, Tags },
     data() {
         return {
             tab: null,
