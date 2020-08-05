@@ -52,7 +52,7 @@ import { mapState } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 export default {
-    name: 'SettingsModal',
+    name: 'OldUIModal',
     mixins: [Modal],
     methods: {
         async switchOldUI() {
@@ -61,7 +61,7 @@ export default {
             window.location.reload(true)
         },
         save() {
-            this.$store.commit('TOGGLE_MODAL', 'settingsmodal')
+            this.$store.commit('TOGGLE_MODAL', 'olduimodal')
         }
     },
     computed: {

@@ -49,13 +49,7 @@
             <v-btn small fab text class="mr-0 ml-0" @click="pauseTorrents">
                 <v-icon color="grey">pause</v-icon>
             </v-btn>
-            <v-btn
-                small
-                fab
-                text
-                class="mr-0 ml-0"
-                @click="toggleModal('settingsmodal')"
-            >
+            <v-btn small fab text class="mr-0 ml-0" @click="toggleModal('settingsmodal')">
                 <v-icon color="grey">settings</v-icon>
             </v-btn>
         </v-app-bar>
@@ -69,9 +63,7 @@
         >
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="status">
-                <div
-                    class="secondary_lighter--text text-uppercase caption ml-4"
-                >
+                <div class="secondary_lighter--text text-uppercase caption ml-4">
                     current speed
                 </div>
                 <v-card color="secondary" flat class="mr-2 ml-2">
