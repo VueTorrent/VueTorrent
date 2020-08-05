@@ -1,9 +1,7 @@
 <template>
-    <v-dialog max-width="500px" v-model="dialog">
+    <v-dialog max-width="750px" v-model="dialog">
         <v-card>
-            <div
-                :style="{ height: phoneLayout ? '100vh' : '' }"
-            >
+            <div :style="{ height: phoneLayout ? '100vh' : '' }">
                 <v-card-title class="pb-0 justify-center primary">
                     <h2 class="white--text">Settings</h2>
                 </v-card-title>
@@ -12,7 +10,7 @@
                 </v-tabs>
                 <v-tabs-items v-model="tab" touchless>
                     <v-tab-item value="webui">
-                        <WebUI :is-active="tab === 'webui'"/>
+                        <WebUI :is-active="tab === 'webui'" />
                     </v-tab-item>
                 </v-tabs-items>
             </div>
@@ -47,13 +45,14 @@ export default {
             this.$store.commit('TOGGLE_MODAL', 'SettingsModal')
         }
     },
-    computed: {
-        
-    },
+    computed: {},
     watch: {
         dialog(visible) {
             if (!visible) {
                 this.tab = null
+            } else {
+                // Grab the settings from qbittorrent again
+                this.$store.commit('SET_SETTINGS')
             }
         }
     }

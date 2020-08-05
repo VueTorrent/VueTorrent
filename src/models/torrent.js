@@ -26,7 +26,6 @@ export default class Torrent {
     }
 
     formatState(state) {
-
         switch (state) {
             case 'pausedDL':
                 return 'paused'

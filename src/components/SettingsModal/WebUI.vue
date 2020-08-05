@@ -4,23 +4,72 @@
             <v-card-text class="pa-0" style="font-size: 1.1em;">
                 <div class="box">
                     <v-subheader>Use Alternative WebUI</v-subheader>
-                    <v-checkbox dense :label="`Use Alternative WebUI`" />
-                    <v-text-field dense solo :label="`Files location`" />
+                    <v-checkbox
+                        dense
+                        :label="`Use Alternative WebUI`"
+                        v-model="settings.alternative_webui_enabled"
+                    />
+                    <v-text-field
+                        dense
+                        flat
+                        filled
+                        :label="`Files location`"
+                        v-model="settings.alternative_webui_path"
+                    />
+                </div>
+                <div class="box">
+                    <v-subheader
+                        >Web User Interface (Remote Control)</v-subheader
+                    >
+                    <v-row class="ma-5">
+                        <v-col cols="10">
+                            <v-text-field
+                                class="mr-1"
+                                dense
+                                flat
+                                filled
+                                :label="`IP Address:`"
+                                v-model="settings.web_ui_address"
+                            />
+                        </v-col>
+                        <v-col>
+                            <v-text-field
+                                class="ml-1"
+                                dense
+                                flat
+                                filled
+                                :label="`Port`"
+                                v-model="settings.web_ui_port"
+                            />
+                        </v-col>
+                    </v-row>
                 </div>
             </v-card-text>
+            <v-card-actions class="d-flex justify-center">
+                <v-btn color="success" @click="save_settings">Save</v-btn>
+            </v-card-actions>
         </v-card>
     </v-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import qbit from '@/services/qbit'
+
 export default {
     name: 'WebUI',
-    props: { },
+    props: {
+        // localSettings: {}
+    },
+    methods: {
+        async save_settings() {
+            await qbit.setPreferences(this.getSettings())
+        }
+    },
     computed: {
-        ...mapGetters(['getTorrent']),
-        torrent() {
-            return this.getTorrent(this.hash)
+        ...mapGetters(['getSettings']),
+        settings() {
+            return this.getSettings()
         }
     }
 }
@@ -32,5 +81,4 @@ export default {
     border-radius: 4px;
     border: 1px solid black;
 }
-
 </style>

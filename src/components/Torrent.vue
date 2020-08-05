@@ -175,10 +175,10 @@ export default {
 
 <style>
 .project.done {
-    border-left: 4px solid #2E5EAA;
+    border-left: 4px solid #2e5eaa;
 }
 .project.downloading {
-    border-left: 4px solid #1FC176;
+    border-left: 4px solid #1fc176;
 }
 .project.busy {
     border-left: 4px solid #ffaa2c;
@@ -187,13 +187,13 @@ export default {
     border-left: 4px solid #f83e70;
 }
 .project.paused {
-    border-left: 4px solid #EB8A90;
+    border-left: 4px solid #eb8a90;
 }
 .v-chip.done {
-    background: #2E5EAA !important;
+    background: #2e5eaa !important;
 }
 .v-chip.downloading {
-    background: #1FC176 !important;
+    background: #1fc176 !important;
 }
 .v-chip.busy {
     background: #ffaa2c !important;
@@ -202,15 +202,15 @@ export default {
     background: #f83e70 !important;
 }
 .v-chip.paused {
-    background: #EB8A90 !important;
+    background: #eb8a90 !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
 .pointer {
