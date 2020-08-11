@@ -4,30 +4,33 @@
             <v-card-text class="pa-0" style="font-size: 1.1em;">
                 <div class="box">
                     <v-subheader>Use Alternative WebUI</v-subheader>
-                    <v-checkbox
-                        dense
-                        :label="`Use Alternative WebUI`"
-                        v-model="settings.alternative_webui_enabled"
-                    />
-                    <v-text-field
-                        dense
-                        flat
-                        filled
-                        :label="`Files location`"
-                        v-model="settings.alternative_webui_path"
-                    />
+                    <div class="ml-5 mr-5">
+                        <v-checkbox
+                            dense
+                            :label="`Use Alternative WebUI`"
+                            v-model="settings.alternative_webui_enabled"
+                        />
+                        <v-text-field
+                            outlined
+                            dense
+                            hide-details="true"
+                            :label="`Files location`"
+                            :disabled="!settings.alternative_webui_enabled"
+                            v-model="settings.alternative_webui_path"
+                        />
+                    </div>
                 </div>
                 <div class="box">
                     <v-subheader
                         >Web User Interface (Remote Control)</v-subheader
                     >
-                    <v-row class="ma-5">
+                    <v-row class="ml-5 mr-5">
                         <v-col cols="10">
                             <v-text-field
                                 class="mr-1"
+                                outlined
                                 dense
-                                flat
-                                filled
+                                hide-details="true"
                                 :label="`IP Address:`"
                                 v-model="settings.web_ui_address"
                             />
@@ -35,9 +38,9 @@
                         <v-col>
                             <v-text-field
                                 class="ml-1"
+                                outlined
                                 dense
-                                flat
-                                filled
+                                hide-details="true"
                                 :label="`Port`"
                                 v-model="settings.web_ui_port"
                             />
@@ -77,6 +80,7 @@ export default {
 
 <style lang="scss" scoped>
 .box {
+    margin: 2px;
     padding: 5px;
     border-radius: 4px;
     border: 1px solid black;

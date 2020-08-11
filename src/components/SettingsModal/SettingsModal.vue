@@ -6,11 +6,15 @@
                     <h2 class="white--text">Settings</h2>
                 </v-card-title>
                 <v-tabs v-model="tab" background-color="primary" center-active>
+                    <v-tab href="#bittorrent">BitTorrent</v-tab>
                     <v-tab href="#webui">WebUI</v-tab>
                 </v-tabs>
                 <v-tabs-items v-model="tab" touchless>
                     <v-tab-item value="webui">
                         <WebUI :is-active="tab === 'webui'" />
+                    </v-tab-item>
+                    <v-tab-item value="bittorrent">
+                        <BitTorrent :is-active="tab === 'bittorrent'" />
                     </v-tab-item>
                 </v-tabs-items>
             </div>
@@ -28,11 +32,12 @@
 import Modal from '@/mixins/Modal'
 // import { mapGetters } from 'vuex'
 import WebUI from '@/components/SettingsModal/WebUI.vue'
+import BitTorrent from '@/components/SettingsModal/BitTorrent.vue'
 
 export default {
     name: 'SettingsModal',
     mixins: [Modal],
-    components: { WebUI },
+    components: { WebUI, BitTorrent },
     data() {
         return {
             tab: null,
@@ -45,7 +50,11 @@ export default {
             this.$store.commit('TOGGLE_MODAL', 'SettingsModal')
         }
     },
-    computed: {},
+    computed: {
+        phoneLayout() {
+            return this.$vuetify.breakpoint.xsOnly
+        },
+    },
     watch: {
         dialog(visible) {
             if (!visible) {
