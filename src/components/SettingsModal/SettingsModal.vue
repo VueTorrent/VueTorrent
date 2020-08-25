@@ -58,7 +58,7 @@ export default {
     computed: {
         phoneLayout() {
             return this.$vuetify.breakpoint.xsOnly
-        },
+        }
     },
     watch: {
         dialog(visible) {

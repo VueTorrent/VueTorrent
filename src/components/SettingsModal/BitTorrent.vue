@@ -2,10 +2,9 @@
     <v-container>
         <v-card flat>
             <v-card-text>
-                
                 <h3>Privacy</h3>
                 <div class="settings_content ml-5 mr-5">
-                   <v-checkbox
+                    <v-checkbox
                         dense
                         :label="`Enable DHT (decentralized network) to find more peers`"
                         v-model="settings.dht"
@@ -33,7 +32,6 @@
                     v-model="settings.queueing_enabled"
                 />
                 <div class="settings_content ml-5 mr-5">
-                    
                     <v-text-field
                         class="mb-2"
                         outlined
@@ -103,8 +101,8 @@
                 <div class="settings_content ml-5 mr-5">
                     <v-row dense>
                         <v-col cols="10">
-                            <v-checkbox 
-                                dense 
+                            <v-checkbox
+                                dense
                                 :label="`When ratio reaches`"
                                 v-model="settings.max_ratio_enabled"
                             />
@@ -122,8 +120,8 @@
                     </v-row>
                     <v-row dense>
                         <v-col cols="10">
-                            <v-checkbox 
-                                dense 
+                            <v-checkbox
+                                dense
                                 :label="`When seeding time reaches`"
                                 v-model="settings.max_seeding_time_enabled"
                             />
@@ -163,7 +161,7 @@ export default {
         ...mapGetters(['getSettings']),
         settings() {
             return this.getSettings()
-        },
+        }
     }
 }
 </script>

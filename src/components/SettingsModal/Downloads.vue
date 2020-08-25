@@ -2,10 +2,9 @@
     <v-container>
         <v-card flat>
             <v-card-text>
-                
                 <h3>When adding a torrent</h3>
                 <div class="settings_content ml-5 mr-5">
-                   <v-checkbox
+                    <v-checkbox
                         dense
                         :label="`Create subfolder for torrents with multiple files`"
                         v-model="settings.create_subfolder_enabled"
@@ -51,8 +50,8 @@
                     </v-row>
                     <v-row dense>
                         <v-col cols="5">
-                            <v-checkbox 
-                                dense 
+                            <v-checkbox
+                                dense
                                 :label="`Keep incomplete torrents in:`"
                                 v-model="settings.temp_path_enabled"
                             />
@@ -92,7 +91,7 @@ export default {
         ...mapGetters(['getSettings']),
         settings() {
             return this.getSettings()
-        },
+        }
     }
 }
 </script>
