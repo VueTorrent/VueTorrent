@@ -6,6 +6,7 @@
                     <h2 class="white--text">Settings</h2>
                 </v-card-title>
                 <v-tabs v-model="tab" background-color="primary" center-active>
+                    <v-tab href="#downloads">Downloads</v-tab>
                     <v-tab href="#bittorrent">BitTorrent</v-tab>
                     <v-tab href="#webui">WebUI</v-tab>
                 </v-tabs>
@@ -15,6 +16,9 @@
                     </v-tab-item>
                     <v-tab-item value="bittorrent">
                         <BitTorrent :is-active="tab === 'bittorrent'" />
+                    </v-tab-item>
+                    <v-tab-item value="downloads">
+                        <Downloads :is-active="tab === 'downloads'" />
                     </v-tab-item>
                 </v-tabs-items>
             </div>
@@ -33,11 +37,12 @@ import Modal from '@/mixins/Modal'
 // import { mapGetters } from 'vuex'
 import WebUI from '@/components/SettingsModal/WebUI.vue'
 import BitTorrent from '@/components/SettingsModal/BitTorrent.vue'
+import Downloads from '@/components/SettingsModal/Downloads.vue'
 
 export default {
     name: 'SettingsModal',
     mixins: [Modal],
-    components: { WebUI, BitTorrent },
+    components: { WebUI, BitTorrent, Downloads },
     data() {
         return {
             tab: null,
