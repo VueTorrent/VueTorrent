@@ -2,6 +2,31 @@
     <v-container>
         <v-card flat>
             <v-card-text>
+                
+                <h3>Privacy</h3>
+                <div class="settings_content ml-5 mr-5">
+                   <v-checkbox
+                        dense
+                        :label="`Enable DHT (decentralized network) to find more peers`"
+                        v-model="settings.dht"
+                    />
+                    <v-checkbox
+                        dense
+                        :label="`Enable Peer Exchange (PeX) to find more peers`"
+                        v-model="settings.dht"
+                    />
+                    <v-checkbox
+                        dense
+                        :label="`Enable Local Peer Discovery to find more peers`"
+                        v-model="settings.dht"
+                    />
+                    <v-checkbox
+                        dense
+                        :label="`Enable anonymous mode`"
+                        v-model="settings.dht"
+                    />
+                </div>
+
                 <v-checkbox
                     dense
                     :label="`Torrent Queueing`"
@@ -125,14 +150,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import qbit from '@/services/qbit'
 
 export default {
     name: 'BitTorrent',
+    methods: {
+        async save_settings() {
+            await qbit.setPreferences(this.getSettings())
+        }
+    },
     computed: {
         ...mapGetters(['getSettings']),
         settings() {
             return this.getSettings()
-        }
+        },
     }
 }
 </script>
