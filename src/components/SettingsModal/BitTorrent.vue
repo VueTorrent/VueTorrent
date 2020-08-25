@@ -13,17 +13,17 @@
                     <v-checkbox
                         dense
                         :label="`Enable Peer Exchange (PeX) to find more peers`"
-                        v-model="settings.dht"
+                        v-model="settings.pex"
                     />
                     <v-checkbox
                         dense
                         :label="`Enable Local Peer Discovery to find more peers`"
-                        v-model="settings.dht"
+                        v-model="settings.lsd"
                     />
                     <v-checkbox
                         dense
                         :label="`Enable anonymous mode`"
-                        v-model="settings.dht"
+                        v-model="settings.anonymous_mode"
                     />
                 </div>
 
