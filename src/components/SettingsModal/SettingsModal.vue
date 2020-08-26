@@ -24,6 +24,7 @@
             </div>
             <v-fab-transition v-if="phoneLayout">
                 <v-btn @click="close" color="red" dark absolute bottom right>
+                    
                     <v-icon>close</v-icon>
                 </v-btn>
             </v-fab-transition>
