@@ -6,7 +6,7 @@
             :items="peers"
             :items-per-page="-1"
             :hide-default-footer="true"
-            style="max-height: 500px; min-height: 400px;"
+            style="max-height: 500px; min-height: 400px"
         >
             <template v-slot:item="row">
                 <tr>
@@ -45,7 +45,6 @@
 <script>
 import { map, merge, cloneDeep } from 'lodash'
 import qbit from '@/services/qbit'
-// eslint-disable-next-line no-unused-vars
 import { codeToFlag, isWindows } from '@/helpers'
 
 export default {
