@@ -1,4 +1,4 @@
-# VueTorrent
+# VueTorrent [under construction]
 
 The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
@@ -16,9 +16,13 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Installation
 
--   Download & Unzip the latest release
+-   Visit the releases page!
 
-*   Point your Alternate WEBUI location to it
+-   Download the latest STABLE release.zip
+
+-   Unzip this folder
+
+-   Point your Alternate WEBUI location to the 'vuetorrent' folder
 
 ## Development
 
@@ -78,6 +82,4 @@ Reach out to me at one of the following places!
 
 -   Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
 
-Also check out The Net Ninja's Youtube Channel.
-
--   This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'3.0)
+*   This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
