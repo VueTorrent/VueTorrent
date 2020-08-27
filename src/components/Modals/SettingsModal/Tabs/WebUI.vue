@@ -1,7 +1,7 @@
 <template>
     <v-container>
         <v-card flat>
-            <v-card-text class="pa-0" style="font-size: 1.1em;">
+            <v-card-text class="pa-0" style="font-size: 1.1em">
                 <div class="box">
                     <v-subheader>Use Alternative WebUI</v-subheader>
                     <div class="ml-5 mr-5">
@@ -48,33 +48,16 @@
                     </v-row>
                 </div>
             </v-card-text>
-            <v-card-actions class="d-flex justify-center">
-                <v-btn color="success" @click="save_settings">Save</v-btn>
-            </v-card-actions>
         </v-card>
     </v-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import qbit from '@/services/qbit'
+import SettingsTab from '@/mixins/SettingsTab'
 
 export default {
     name: 'WebUI',
-    props: {
-        // localSettings: {}
-    },
-    methods: {
-        async save_settings() {
-            await qbit.setPreferences(this.getSettings())
-        }
-    },
-    computed: {
-        ...mapGetters(['getSettings']),
-        settings() {
-            return this.getSettings()
-        }
-    }
+    mixins: [SettingsTab]
 }
 </script>
 

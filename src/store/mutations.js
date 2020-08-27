@@ -53,9 +53,6 @@ export default {
     SET_SETTINGS: async state => {
         const { data } = await qbit.getAppPreferences()
         state.settings = data
-        // state.settings.savePath = data.save_path
-        // state.settings.alternative_webui_enabled = data.alternative_webui_enabled
-        // state.settings.alternative_webui_path = data.alternative_webui_path
     },
     SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
         state.selectedDetailTorrent = hash

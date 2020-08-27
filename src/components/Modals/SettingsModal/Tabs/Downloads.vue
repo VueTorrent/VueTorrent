@@ -69,30 +69,16 @@
                     </v-row>
                 </div>
             </v-card-text>
-            <v-card-actions class="d-flex justify-center">
-                <v-btn color="success" @click="save_settings">Save</v-btn>
-            </v-card-actions>
         </v-card>
     </v-container>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import qbit from '@/services/qbit'
+import SettingsTab from '@/mixins/SettingsTab'
 
 export default {
     name: 'BitTorrent',
-    methods: {
-        async save_settings() {
-            await qbit.setPreferences(this.getSettings())
-        }
-    },
-    computed: {
-        ...mapGetters(['getSettings']),
-        settings() {
-            return this.getSettings()
-        }
-    }
+    mixins: [SettingsTab]
 }
 </script>
 

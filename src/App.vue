@@ -1,7 +1,6 @@
 <template>
     <v-app :style="{ backgroundColor: background }">
         <AddModal />
-        <OldUIModal />
         <SettingsModal />
         <SearchModal />
         <Navbar v-if="isAuthenticated" />
@@ -14,11 +13,10 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar.vue'
-import SettingsModal from '@/components/SettingsModal/SettingsModal.vue'
 import { isAuthenticated } from '@/services/auth.js'
 
 export default {
-    components: { Navbar, SettingsModal },
+    components: { Navbar },
     name: 'App',
     data() {
         return {}
