@@ -1,4 +1,4 @@
-# VueTorrent [under construction]
+# VueTorrent
 
 The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
