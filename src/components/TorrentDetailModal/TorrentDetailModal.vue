@@ -7,7 +7,7 @@
     >
         <v-card
             v-if="torrent"
-            style="min-height: 400px; overflow: hidden !important;"
+            style="min-height: 400px; overflow: hidden !important"
         >
             <div
                 :class="`pa-0 project ${torrent.state}`"
@@ -54,20 +54,15 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
-import Modal from '@/mixins/Modal'
 import { mapGetters } from 'vuex'
 
-import Content from '@/components/TorrentDetailModal/Content'
-import Info from '@/components/TorrentDetailModal/Info'
-import Peers from '@/components/TorrentDetailModal/Peers'
-import Trackers from '@/components/TorrentDetailModal/Trackers'
-import Tags from '@/components/TorrentDetailModal/Tags'
+import { Modal, FullScreenModal } from '@/mixins'
+import { Content, Info, Peers, Trackers, Tags } from './Tabs'
 
 export default {
     name: 'TorrentDetailModal',
-    mixins: [Modal],
-    components: { Content, Info, Peers, Trackers,Tags },
+    mixins: [Modal, FullScreenModal],
+    components: { Content, Info, Peers, Trackers, Tags },
     data() {
         return {
             tab: null,
@@ -87,19 +82,6 @@ export default {
         },
         torrent() {
             return this.getTorrent(this.hash)
-        },
-        phoneLayout() {
-            return this.$vuetify.breakpoint.xsOnly
-        },
-        dialogWidth() {
-            return this.phoneLayout ? '100%' : '80%'
-        }
-    },
-    watch: {
-        dialog(visible) {
-            if (!visible) {
-                this.tab = null
-            }
         }
     }
 }

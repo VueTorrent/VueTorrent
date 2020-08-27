@@ -52,7 +52,7 @@ export default {
     },
     SET_SETTINGS: async state => {
         const { data } = await qbit.getAppPreferences()
-        state.settings.savePath = data.save_path
+        state.settings = data
     },
     SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
         state.selectedDetailTorrent = hash

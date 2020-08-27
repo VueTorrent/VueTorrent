@@ -35,6 +35,7 @@ export default new Vuex.Store({
             addmodal: false,
             deletemodal: false,
             settingsmodal: false,
+            olduimodal: false,
             torrentdetailmodal: false
         },
         settings: {},

@@ -46,6 +46,8 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   searching for new torrents straight from the WEBUI!
 
+-   changing the most common settings
+
 *   works on QBittorrent V4.2 and later
 
 ### Sorting/Filtring
