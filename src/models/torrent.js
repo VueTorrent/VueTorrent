@@ -30,7 +30,7 @@ export default class Torrent {
             case 'pausedDL':
                 return 'paused'
             case 'downloading':
-                return 'downloading'
+                return 'busy'
             case 'stalledDL':
                 return 'fail'
             case 'pausedUP':

@@ -142,8 +142,22 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { VueContext } from 'vue-context'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+
+function getNumber(value) {
+    if (!value) return ''
+    return value.substring(0, value.indexOf(' '))
+}
+
+function getUnit(value) {
+    if (!value) return ''
+    return value.substring(value.indexOf(' '))
+}
+
+Vue.filter('getNumber', getNumber)
+Vue.filter('getUnit', getUnit)
 
 export default {
     name: 'Torrent',
@@ -174,65 +188,5 @@ export default {
 </script>
 
 <style>
-.project.done {
-    border-left: 4px solid #2e5eaa;
-}
-.project.downloading {
-    border-left: 4px solid #1fc176;
-}
-.project.busy {
-    border-left: 4px solid #ffaa2c;
-}
-.project.fail {
-    border-left: 4px solid #f83e70;
-}
-.project.paused {
-    border-left: 4px solid #eb8a90;
-}
-.project.queued {
-    border-left: 4px solid #2e5eaa;
-}
-.v-chip.done {
-    background: #2e5eaa !important;
-}
-.v-chip.downloading {
-    background: #1fc176 !important;
-}
-.v-chip.busy {
-    background: #ffaa2c !important;
-}
-.v-chip.fail {
-    background: #f83e70 !important;
-}
-.v-chip.paused {
-    background: #eb8a90 !important;
-}
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-.v-chip.queued {
-    background: #2e5eaa !important;
-}
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-.pointer {
-    cursor: pointer;
-}
-.truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
 </style>
