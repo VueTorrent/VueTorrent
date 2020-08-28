@@ -19,13 +19,6 @@ jobs:
                   args: zip -qq -r ./release.zip ./vuetorrent
             - name: Get Version
               run: echo ::set-env name=VERSION::$(jq -r .version package.json)
-            - name: Push release
-              uses: 'marvinpinto/action-automatic-releases@latest'
-              with:
-                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
-                  automatic_release_tag: 'dev-v${{ env.VERSION }}'
-                  title: 'Development Build v${{ env.VERSION }}'
-                  files: release.zip
             - name: Upload
               uses: actions/upload-release-asset@v1.0.1
               env:
