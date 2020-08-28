@@ -15,6 +15,7 @@ export default class Status {
     }
 
     formatBytes(a, b) {
+        if (!a) return '0 Bytes'
         if (a == 0) return '0 Bytes'
         const c = 1024
         const d = b || 2
