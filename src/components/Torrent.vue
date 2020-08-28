@@ -23,64 +23,36 @@
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Size</div>
                         <div>
-                            {{
-                                torrent.size.substring(
-                                    0,
-                                    torrent.size.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.size | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.size.substring(
-                                    torrent.size.indexOf(' ')
-                                )
+                                torrent.size | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Done</div>
                         <div>
-                            {{
-                                torrent.dloaded.substring(
-                                    0,
-                                    torrent.dloaded.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.dloaded | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.dloaded.substring(
-                                    torrent.dloaded.indexOf(' ')
-                                )
+                                torrent.dloaded | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Download</div>
                         <div>
-                            {{
-                                torrent.dlspeed.substring(
-                                    0,
-                                    torrent.dlspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.dlspeed | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.dlspeed.substring(
-                                    torrent.dlspeed.indexOf(' ')
-                                )
+                                torrent.dlspeed | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Upload</div>
                         <div>
-                            {{
-                                torrent.upspeed.substring(
-                                    0,
-                                    torrent.upspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.upspeed | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.upspeed.substring(
-                                    torrent.upspeed.indexOf(' ')
-                                )
+                                torrent.upspeed | getUnit
                             }}</span>
                         </div>
                     </v-flex>
@@ -187,6 +159,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
