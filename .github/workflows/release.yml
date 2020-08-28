@@ -1,8 +1,8 @@
 name: Build release
 on:
-  release:
-    types:
-      - created
+    release:
+        types:
+            - created
 
 jobs:
     github-release-development:
@@ -27,10 +27,10 @@ jobs:
                   title: 'Development Build v${{ env.VERSION }}'
                   files: release.zip
             - name: Upload
-                uses: actions/upload-release-asset@v1.0.1
-                env:
+              uses: actions/upload-release-asset@v1.0.1
+              env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                with:
+              with:
                   upload_url: ${{ github.event.release.upload_url }}
                   asset_path: ./release.zip
                   asset_name: release.zip

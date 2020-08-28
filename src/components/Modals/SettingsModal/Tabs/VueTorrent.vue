@@ -15,11 +15,7 @@
                                 v-model="freeSpace"
                                 color="green_accent"
                             >
-                                <template #label>
-                                    <span class="grey--text">
-                                        Show Free Space
-                                    </span>
-                                </template>
+                                <template #label> Show Free Space </template>
                             </v-switch>
                         </v-container>
                     </v-form>
@@ -46,6 +42,10 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/SettingsTab.scss';
+</style>
 
 <style lang="scss" scoped>
 // Reversed input variant
