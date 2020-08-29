@@ -1,7 +1,7 @@
 name: Build release
 on:
     release:
-        types: [published, edited, released]
+        types: [published, edited]
 
 jobs:
     build-release:
