@@ -23,8 +23,8 @@ export default {
     TOGGLE_THEME(state) {
         state.webuiSettings.darkTheme = !state.webuiSettings.darkTheme
     },
-    LOGOUT: state => {
-        qbit.logout()
+    LOGOUT: async state => {
+        await qbit.logout()
         state.authenticated = false
     },
     LOGIN: async (state, payload) => {
