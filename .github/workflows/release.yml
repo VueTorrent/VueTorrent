@@ -2,10 +2,11 @@ name: Build release
 on:
     release:
         types:
-            - created
+            - published
+            - edited
 
 jobs:
-    github-release-development:
+    build-release:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master

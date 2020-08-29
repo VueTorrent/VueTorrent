@@ -7,9 +7,7 @@ export default class Torrent {
         this.dloaded = this.formatBytes(data.downloaded)
         this.upspeed = this.formatBytes(data.upspeed, 1)
         this.uploaded = this.formatBytes(data.uploaded)
-        this.eta = `${new Date(data.eta).getHours()}h ${new Date(
-            data.eta
-        ).getMinutes()}min`
+        this.eta = data.eta
         this.num_leechs = data.num_leechs
         this.num_seeds = data.num_seeds
         this.path = data.path === undefined ? '/downloads' : data.path
