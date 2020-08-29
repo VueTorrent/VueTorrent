@@ -8,10 +8,18 @@ export default class Status {
             this.upspeed = this.formatBytes(data.up_info_speed, 1)
             this.freeDiskSpace = this.formatBytes(data.free_space_on_disk)
             this.altSpeed = data.use_alt_speed_limits
-            this.dlspeedRaw = Math.round(data.dl_info_speed / 1000)
-            this.upspeedRaw = Math.round(data.up_info_speed / 1000)
+            this.dlspeedRaw = this.formatSpeed(data.dl_info_speed)
+            this.upspeedRaw = this.formatSpeed(data.up_info_speed)
             this.tags = tags
         }
+    }
+
+    formatSpeed(value) {
+        if (!value) {
+            return 0
+        }
+
+        return Math.round(value / 1000)
     }
 
     formatBytes(a, b) {
