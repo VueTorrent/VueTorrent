@@ -4,12 +4,10 @@ export default class Torrent {
         this.size = this.formatBytes(data.size)
         this.birth = new Date(data.added_on * 1000).toLocaleString()
         this.dlspeed = this.formatBytes(data.dlspeed, 1)
-        this.dloaded = this.formatBytes(data.downloaded)
+        this.dloaded = this.formatBytes(data.completed)
         this.upspeed = this.formatBytes(data.upspeed, 1)
         this.uploaded = this.formatBytes(data.uploaded)
-        this.eta = `${new Date(data.eta).getHours()}h ${new Date(
-            data.eta
-        ).getMinutes()}min`
+        this.eta = data.eta
         this.num_leechs = data.num_leechs
         this.num_seeds = data.num_seeds
         this.path = data.path === undefined ? '/downloads' : data.path
@@ -20,7 +18,7 @@ export default class Torrent {
         this.available_seeds = data.num_complete
         this.available_peers = data.num_incomplete
         this.savePath = data.save_path
-        this.progress = Math.round((data.downloaded / data.size) * 100)
+        this.progress = data.progress * 100
         this.ratio = Math.round(data.ratio * 100)
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
     }
@@ -30,7 +28,7 @@ export default class Torrent {
             case 'pausedDL':
                 return 'paused'
             case 'downloading':
-                return 'downloading'
+                return 'busy'
             case 'stalledDL':
                 return 'fail'
             case 'pausedUP':

@@ -23,70 +23,44 @@
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Size</div>
                         <div>
-                            {{
-                                torrent.size.substring(
-                                    0,
-                                    torrent.size.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.size | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.size.substring(
-                                    torrent.size.indexOf(' ')
-                                )
+                                torrent.size | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Done</div>
                         <div>
-                            {{
-                                torrent.dloaded.substring(
-                                    0,
-                                    torrent.dloaded.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.dloaded | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.dloaded.substring(
-                                    torrent.dloaded.indexOf(' ')
-                                )
+                                torrent.dloaded | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Download</div>
                         <div>
-                            {{
-                                torrent.dlspeed.substring(
-                                    0,
-                                    torrent.dlspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.dlspeed | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.dlspeed.substring(
-                                    torrent.dlspeed.indexOf(' ')
-                                )
+                                torrent.dlspeed | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Upload</div>
                         <div>
-                            {{
-                                torrent.upspeed.substring(
-                                    0,
-                                    torrent.upspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ torrent.upspeed | getNumber }}
                             <span class="caption grey--text">{{
-                                torrent.upspeed.substring(
-                                    torrent.upspeed.indexOf(' ')
-                                )
+                                torrent.upspeed | getUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">ETA</div>
-                        <div>{{ torrent.eta }}</div>
+                        <div>
+                            {{ torrent.eta | formatEta({ dayLimit: 100 }) }}
+                        </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Peers</div>
@@ -144,7 +118,6 @@
 <script>
 import { VueContext } from 'vue-context'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
-
 export default {
     name: 'Torrent',
     components: {
@@ -169,70 +142,74 @@ export default {
             this.$store.commit('TOGGLE_MODAL', 'TorrentDetailModal')
             this.$store.commit('SET_SELECTED_TORRENT_DETAIL', hash)
         }
+    },
+    filters: {
+        getUnit(value) {
+            if (!value) return ''
+            return value.substring(value.indexOf(' '))
+        },
+        getNumber(value) {
+            if (!value) return ''
+            return value.substring(0, value.indexOf(' '))
+        },
+        formatEta(value, options) {
+            const minute = 60
+            const hour = minute * 60
+            const day = hour * 24
+            const year = day * 365
+
+            const durations = [year, day, hour, minute, 1]
+            const units = 'ydhms'
+
+            let index = 0
+            let unitSize = 0
+            const parts = []
+
+            const defaultOptions = {
+                maxUnitSize: 2,
+                dayLimit: 0,
+                minUnit: 0
+            }
+
+            const opt = options
+                ? Object.assign(defaultOptions, options)
+                : defaultOptions
+
+            if (opt.dayLimit && value >= opt.dayLimit * day) {
+                return '∞'
+            }
+
+            while (
+                (!opt.maxUnitSize || unitSize !== opt.maxUnitSize) &&
+                index !== durations.length
+            ) {
+                const duration = durations[index]
+                if (value < duration) {
+                    index++
+                    continue
+                } else if (
+                    opt.minUnit &&
+                    durations.length - index <= opt.minUnit
+                ) {
+                    break
+                }
+
+                const result = Math.floor(value / duration)
+                parts.push(result + units[index])
+
+                value %= duration
+                index++
+                unitSize++
+            }
+
+            if (!parts.length) {
+                return '0' + units[durations.length - 1 - opt.minUnit]
+            }
+
+            return parts.join(' ')
+        }
     }
 }
 </script>
 
-<style>
-.project.done {
-    border-left: 4px solid #2e5eaa;
-}
-.project.downloading {
-    border-left: 4px solid #1fc176;
-}
-.project.busy {
-    border-left: 4px solid #ffaa2c;
-}
-.project.fail {
-    border-left: 4px solid #f83e70;
-}
-.project.paused {
-    border-left: 4px solid #eb8a90;
-}
-.project.queued {
-    border-left: 4px solid #2e5eaa;
-}
-.v-chip.done {
-    background: #2e5eaa !important;
-}
-.v-chip.downloading {
-    background: #1fc176 !important;
-}
-.v-chip.busy {
-    background: #ffaa2c !important;
-}
-.v-chip.fail {
-    background: #f83e70 !important;
-}
-.v-chip.paused {
-    background: #eb8a90 !important;
-}
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-.v-chip.queued {
-    background: #2e5eaa !important;
-}
-.noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-.pointer {
-    cursor: pointer;
-}
-.truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-</style>
+<style></style>

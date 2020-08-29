@@ -1,10 +1,10 @@
-name: Build & Release
+name: Build release
 on:
-    push:
-        branches:
-            - master
+    release:
+        types: [published, edited]
+
 jobs:
-    github-release-production:
+    build-release:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
@@ -18,11 +18,12 @@ jobs:
                   args: zip -qq -r ./release.zip ./vuetorrent
             - name: Get Version
               run: echo ::set-env name=VERSION::$(jq -r .version package.json)
-            - name: Push release
-              uses: 'marvinpinto/action-automatic-releases@latest'
+            - name: Upload
+              uses: actions/upload-release-asset@v1.0.1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  repo_token: '${{ secrets.GITHUB_TOKEN }}'
-                  automatic_release_tag: 'prod-v${{ env.VERSION }}'
-                  prerelease: true
-                  title: 'Stable Build v${{ env.VERSION }}'
-                  files: release.zip
+                  upload_url: ${{ github.event.release.upload_url }}
+                  asset_path: ./release.zip
+                  asset_name: release.zip
+                  asset_content_type: application/zip

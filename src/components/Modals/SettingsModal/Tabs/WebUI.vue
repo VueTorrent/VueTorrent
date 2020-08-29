@@ -62,10 +62,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box {
-    margin: 2px;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid black;
-}
+@import '@/assets/styles/SettingsTab.scss';
 </style>

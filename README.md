@@ -6,7 +6,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Screenshots
 
-<p  align="center">
+<p  align="center">w
 <a  href="https://imgur.com/xgwECT2.png"><img  src="https://imgur.com/xgwECT2.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
 </p>
 

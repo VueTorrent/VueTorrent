@@ -15,9 +15,9 @@
         "core-js": "^3.6.4",
         "dayjs": "^1.8.29",
         "register-service-worker": "^1.7.1",
-        "vue": "^2.6.11",
+        "vue": "^2.6.12",
         "vue-apexcharts": "^1.6.0",
-        "vue-async-computed": "^3.8.2",
+        "vue-async-computed": "^3.9.0",
         "vue-context": "^5.2.0",
         "vue-observe-visibility": "^0.4.6",
         "vue-router": "^3.3.4",
@@ -38,12 +38,12 @@
         "eslint-plugin-vue": "^6.2.2",
         "fibers": "^5.0.0",
         "node-sass": "^4.14.1",
-        "prettier": "^2.0.5",
-        "pretty-quick": "^2.0.1",
+        "prettier": "^2.1.1",
+        "pretty-quick": "^2.0.2",
         "sass": "^1.26.10",
         "sass-loader": "^8.0.2",
         "vue-cli-plugin-vuetify": "^2.0.7",
-        "vue-template-compiler": "^2.6.11"
+        "vue-template-compiler": "^2.6.12"
     },
     "browserslist": [
         "> 1%",

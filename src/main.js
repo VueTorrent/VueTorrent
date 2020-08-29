@@ -4,8 +4,11 @@ import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
 import '@babel/polyfill'
-// eslint-disable-next-line no-unused-vars
+
+/* eslint-disable no-unused-vars */
 import filters from '@/filters'
+import styles from '@/assets/styles.scss'
+/* eslint-enable no-unused-vars */
 
 import VueObserveVisibility from 'vue-observe-visibility'
 

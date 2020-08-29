@@ -14,11 +14,6 @@
                         :label="`Do not start the download automatically`"
                         v-model="settings.start_paused_enabled"
                     />
-                    <!-- <v-checkbox
-                        dense
-                        :label="`Delete .torrent files afterwards`"
-                        v-model="settings.lsd"
-                    /> -->
                 </div>
 
                 <v-checkbox
@@ -83,19 +78,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-input--selection-controls {
-    padding-top: 0px;
-}
-
-.settings_content {
-    border-left: 2px solid black;
-    padding-left: 8px;
-}
-
-.box {
-    margin: 2px;
-    padding: 5px;
-    border-radius: 4px;
-    border: 1px solid black;
-}
+@import '@/assets/styles/SettingsTab.scss';
 </style>

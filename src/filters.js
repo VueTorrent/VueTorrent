@@ -45,7 +45,6 @@ export function formatTimestamp(timestamp) {
 Vue.filter('formatTimestamp', formatTimestamp)
 
 export function formatProgress(progress) {
-    // eslint-disable-next-line
     progress *= 100
     return `${toPrecision(progress, 3)}%`
 }
