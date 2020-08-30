@@ -1,10 +1,7 @@
 <template>
     <v-dialog max-width="500px" v-model="dialog">
         <v-card min-height="400px">
-            <v-container
-                style="min-height: 400px;"
-                :class="`pa-0 project done`"
-            >
+            <v-container style="min-height: 400px" :class="`pa-0 project done`">
                 <v-card-title class="justify-center">
                     <h2>Search Torrent</h2>
                 </v-card-title>
@@ -43,48 +40,64 @@
                             class="blue_accent white--text"
                             >Search</v-btn
                         >
-                        <!-- <v-btn text @click="getStatus" class="blue_accent white--text ml-6">Status</v-btn> -->
                     </v-card-actions>
                 </div>
-                <div class="text-center mt-10" v-if="results.length">
-                    <h2>Results</h2>
-                    <perfect-scrollbar>
-                        <v-list
-                            rounded
-                            style="max-height: 500px; min-height: 400px;"
-                        >
-                            <v-list-item>
-                                <v-list-item-title>FileName</v-list-item-title>
-                                <v-list-item-subtitle style="max-width: 20%;"
-                                    >Size</v-list-item-subtitle
-                                >
-                                <v-list-item-subtitle style="max-width: 20%;"
-                                    >Seeders</v-list-item-subtitle
-                                >
-                                <v-list-item-subtitle style="max-width: 20%;"
-                                    >Leechers</v-list-item-subtitle
-                                >
-                            </v-list-item>
-                            <v-list-item
-                                @click="addTorrent(res.fileUrl)"
-                                v-for="res in results"
-                                :key="res.title"
+                <div class="text-center mt-6">
+                    <p
+                        v-if="noResults"
+                        class="red--text"
+                        style="font-size: 1.3em"
+                    >
+                        No results could be found
+                    </p>
+                    <div v-if="results.length">
+                        <h2>Results</h2>
+                        <perfect-scrollbar>
+                            <v-list
+                                rounded
+                                style="max-height: 500px; min-height: 400px"
                             >
-                                <v-list-item-title>
-                                    {{ res.fileName }}
-                                </v-list-item-title>
-                                <v-list-item-subtitle style="max-width: 20%;">
-                                    {{ res.fileSize | size }}
-                                </v-list-item-subtitle>
-                                <v-list-item-subtitle style="max-width: 20%;">
-                                    {{ res.nbSeeders }}
-                                </v-list-item-subtitle>
-                                <v-list-item-subtitle style="max-width: 20%;">
-                                    {{ res.nbLeechers }}
-                                </v-list-item-subtitle>
-                            </v-list-item>
-                        </v-list>
-                    </perfect-scrollbar>
+                                <v-list-item>
+                                    <v-list-item-title
+                                        >FileName</v-list-item-title
+                                    >
+                                    <v-list-item-subtitle style="max-width: 20%"
+                                        >Size</v-list-item-subtitle
+                                    >
+                                    <v-list-item-subtitle style="max-width: 20%"
+                                        >Seeders</v-list-item-subtitle
+                                    >
+                                    <v-list-item-subtitle style="max-width: 20%"
+                                        >Leechers</v-list-item-subtitle
+                                    >
+                                </v-list-item>
+                                <v-list-item
+                                    @click="addTorrent(res.fileUrl)"
+                                    v-for="res in results"
+                                    :key="res.title"
+                                >
+                                    <v-list-item-title>
+                                        {{ res.fileName }}
+                                    </v-list-item-title>
+                                    <v-list-item-subtitle
+                                        style="max-width: 20%"
+                                    >
+                                        {{ res.fileSize | size }}
+                                    </v-list-item-subtitle>
+                                    <v-list-item-subtitle
+                                        style="max-width: 20%"
+                                    >
+                                        {{ res.nbSeeders }}
+                                    </v-list-item-subtitle>
+                                    <v-list-item-subtitle
+                                        style="max-width: 20%"
+                                    >
+                                        {{ res.nbLeechers }}
+                                    </v-list-item-subtitle>
+                                </v-list-item>
+                            </v-list>
+                        </perfect-scrollbar>
+                    </div>
                 </div>
             </v-container>
             <v-fab-transition v-if="phoneLayout">
@@ -109,11 +122,13 @@ export default {
             searchId: null,
             status: null,
             searchInterval: null,
-            results: []
+            results: [],
+            noResults: false
         }
     },
     methods: {
         async search() {
+            this.noResults = false
             if (this.searchTerm && !this.searchInterval) {
                 this.status = 'Running'
                 this.results = []
@@ -126,6 +141,7 @@ export default {
                     let status = await this.getStatus()
                     if (status === 'Stopped') {
                         clearInterval(this.searchInterval)
+                        this.searchInterval = null
                         this.getResults()
                     }
                 }, 2000)
@@ -133,13 +149,14 @@ export default {
         },
         async getStatus() {
             if (this.searchId) {
-                let response = await qbit.getSearchStatus(this.searchId)
-                return (this.status = response.data[0].status)
+                const { data } = await qbit.getSearchStatus(this.searchId)
+                return (this.status = data[0].status)
             }
         },
         async getResults() {
-            let response = await qbit.getSearchResults(this.searchId)
-            this.results = response.data.results
+            const { data } = await qbit.getSearchResults(this.searchId)
+            this.results = data.results
+            if (data.results.length === 0) this.noResults = true
         },
         addTorrent(torrent) {
             let params = { urls: null }
