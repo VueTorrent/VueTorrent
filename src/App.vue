@@ -13,7 +13,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar.vue'
-import SettingsModal from '@/components/Modals/SettingsModal/SettingsModal'
+import SettingsModal from '@/components/SettingsModal/SettingsModal'
 import { isAuthenticated } from '@/services/auth.js'
 
 export default {

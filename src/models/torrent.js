@@ -21,6 +21,7 @@ export default class Torrent {
         this.progress = data.progress * 100
         this.ratio = Math.round(data.ratio * 100)
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
+        this.category = data.category
     }
 
     formatState(state) {

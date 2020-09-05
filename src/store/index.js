@@ -43,7 +43,8 @@ export default new Vuex.Store({
             darkTheme: false,
             showFreeSpace: true
         },
-        selectedDetailTorrent: null
+        selectedDetailTorrent: null,
+        selectedCategory: null
     },
     getters: {
         ...getters

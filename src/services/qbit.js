@@ -253,6 +253,42 @@ class Qbit {
         return this.axios.post('/torrents/deleteTags   ', data)
     }
 
+    // Begin Categories
+
+    getCategories() {
+        return this.axios.get('/torrents/categories')
+    }
+
+    deleteCategory(cat) {
+        const params = {
+            categories: cat
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/removeCategories   ', data)
+    }
+
+    createCategory(cat) {
+        console.log(cat)
+        const params = {
+            category: cat.name,
+            savePath: cat.savePath
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/createCategory   ', data)
+    }
+
+    setCategory(hash, cat) {
+        const params = {
+            hashes: hash,
+            category: cat
+        }
+
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/setCategory ', data)
+    }
+
+    // End Categories
+
     actionTorrents(action, hashes, extra) {
         const params = {
             hashes: hashes.join('|'),

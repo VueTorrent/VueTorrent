@@ -7,5 +7,6 @@ export default {
     getTorrent: state => hash =>
         state.torrents.filter(el => el.hash === hash)[0],
     getWebuiSettings: state => () => state.webuiSettings,
-    getAvailableTags: state => () => state.status.tags
+    getAvailableTags: state => () => state.status.tags,
+    getSelectedCategory: state => () => state.selectedCategory
 }

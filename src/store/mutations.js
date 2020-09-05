@@ -62,5 +62,8 @@ export default {
         state.sort_options.reverse = payload.reverse
         state.sort_options.hashes = payload.hashes ? payload.hashes : null
         state.sort_options.filter = payload.filter ? payload.filter : null
+    },
+    SET_SELECT_CATEGORY: (state, category) => {
+        state.selectedCategory = category
     }
 }

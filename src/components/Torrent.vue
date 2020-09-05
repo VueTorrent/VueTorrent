@@ -90,9 +90,20 @@
                         </div>
                     </v-flex>
                     <!-- labels -->
-                    <v-flex v-for="tag in torrent.tags" :key="tag" xs3 sm1 md1>
+                    <v-flex
+                        v-for="tag in torrent.tags.slice(0, 3)"
+                        :key="tag"
+                        xs3
+                        sm1
+                        md1
+                    >
                         <v-chip small class="download white--text my-2 caption">
                             {{ tag }}
+                        </v-chip>
+                    </v-flex>
+                    <v-flex v-if="torrent.category" xs3 sm1 md1>
+                        <v-chip small class="upload white--text my-2 caption">
+                            {{ torrent.category }}
                         </v-chip>
                     </v-flex>
                     <v-flex xs12 sm12 md12>
@@ -126,6 +137,17 @@ export default {
     },
     props: {
         torrent: Object
+    },
+    computed: {
+        chips() {
+            let chips = []
+
+            if (this.torrent.category.length > 0) {
+                chips.push(this.torrent.category)
+            }
+
+            return chips
+        }
     },
     methods: {
         selectTorrent(hash) {

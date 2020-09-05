@@ -15,6 +15,7 @@
                     <v-tab href="#bittorrent">BitTorrent</v-tab>
                     <v-tab href="#webui">WebUI</v-tab>
                     <v-tab href="#vuetorrent">VueTorrent</v-tab>
+                    <v-tab href="#tagsAndCategories">Tags & Categories</v-tab>
                 </v-tabs>
                 <perfect-scrollbar>
                     <v-tabs-items
@@ -33,6 +34,11 @@
                         </v-tab-item>
                         <v-tab-item value="vuetorrent">
                             <VueTorrent :is-active="tab === 'vuetorrent'" />
+                        </v-tab-item>
+                        <v-tab-item value="tagsAndCategories">
+                            <TagsAndCategories
+                                :is-active="tab === 'tagsAndCategories'"
+                            />
                         </v-tab-item>
                     </v-tabs-items>
                 </perfect-scrollbar>
@@ -62,12 +68,18 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 
 import { Modal, FullScreenModal } from '@/mixins'
-import { WebUI, BitTorrent, Downloads, VueTorrent } from './Tabs'
+import {
+    WebUI,
+    BitTorrent,
+    Downloads,
+    VueTorrent,
+    TagsAndCategories
+} from './Tabs'
 
 export default {
     name: 'SettingsModal',
     mixins: [Modal, FullScreenModal],
-    components: { WebUI, BitTorrent, Downloads, VueTorrent },
+    components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories },
     data() {
         return {
             tab: null,
@@ -83,6 +95,7 @@ export default {
             qbit.setPreferences(this.getSettings()).then(() => {
                 Vue.$toast.success('Settings saved successfully!')
             })
+            this.close()
         }
     },
     computed: {
