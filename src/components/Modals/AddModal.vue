@@ -119,7 +119,7 @@ export default {
 
                 this.resetForm()
 
-                this.$store.commit('TOGGLE_MODAL', 'addmodal')
+                this.$store.commit('DELETE_MODAL', this.guid)
             }
         },
         resetForm() {

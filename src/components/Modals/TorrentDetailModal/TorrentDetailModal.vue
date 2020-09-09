@@ -66,6 +66,9 @@ export default {
     name: 'TorrentDetailModal',
     mixins: [Modal, FullScreenModal],
     components: { Content, Info, Peers, Trackers, TagsAndCategories },
+    props: {
+        hash: String
+    },
     data() {
         return {
             tab: null,
@@ -75,14 +78,11 @@ export default {
     },
     methods: {
         close() {
-            this.$store.commit('TOGGLE_MODAL', 'TorrentDetailModal')
+            this.deleteModal()
         }
     },
     computed: {
         ...mapGetters(['getTorrent']),
-        hash() {
-            return this.$store.state.selectedDetailTorrent
-        },
         torrent() {
             return this.getTorrent(this.hash)
         }

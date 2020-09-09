@@ -1,14 +1,23 @@
 import { mapGetters } from 'vuex'
 export default {
+    props: ['guid'],
     computed: {
         ...mapGetters(['getModalState']),
         dialog: {
             get() {
-                return this.getModalState(this.$options.name)
+                return this.getModalState(this.guid)
             },
             set() {
-                this.$store.commit('TOGGLE_MODAL', this.$options.name)
+                this.deleteModal()
             }
         }
+    },
+    methods: {
+        deleteModal() {
+            setTimeout(() => this.$store.commit('DELETE_MODAL', this.guid), 100)
+        }
+    },
+    beforeDestroy() {
+        this.deleteModal()
     }
 }

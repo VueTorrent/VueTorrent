@@ -164,7 +164,7 @@ export default {
             qbit.addTorrents(params)
         },
         close() {
-            this.$store.commit('TOGGLE_MODAL', 'SearchModal')
+            this.$store.commit('DELETE_MODAL', this.guid)
         }
     },
     computed: {

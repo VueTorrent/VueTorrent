@@ -26,7 +26,7 @@
                 fab
                 color="grey"
                 class="mr-0 ml-0"
-                @click="toggleModal('searchmodal')"
+                @click="addModal('SearchModal')"
             >
                 <v-icon color="grey">search</v-icon>
             </v-btn>
@@ -36,7 +36,7 @@
                 fab
                 color="grey"
                 class="mr-0 ml-0"
-                @click="toggleModal('addmodal')"
+                @click="addModal('AddModal')"
             >
                 <v-icon color="grey">add</v-icon>
             </v-btn>
@@ -54,7 +54,7 @@
                 fab
                 text
                 class="mr-0 ml-0"
-                @click="toggleModal('settingsmodal')"
+                @click="addModal('SettingsModal')"
             >
                 <v-icon color="grey">settings</v-icon>
             </v-btn>
@@ -64,7 +64,7 @@
             app
             v-model="drawer"
             class="primary"
-            style="position: fixed;"
+            style="position: fixed"
             disable-resize-watcher
         >
             <!--current download speeds -->
@@ -139,7 +139,7 @@
                     >
                         <v-flex md6>
                             <div
-                                style="font-size: 0.95em; margin-top: 6px;"
+                                style="font-size: 0.95em; margin-top: 6px"
                                 class="download--text"
                             >
                                 Downloaded
@@ -147,18 +147,9 @@
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="download--text title">
-                                {{
-                                    status.downloaded.substring(
-                                        0,
-                                        status.downloaded.indexOf(' ')
-                                    )
-                                }}
+                                {{ status.downloaded | getDataValue }}
                                 <span class="font-weight-light caption">
-                                    {{
-                                        status.downloaded.substring(
-                                            status.downloaded.indexOf(' ')
-                                        )
-                                    }}
+                                    {{ status.downloaded | getDataUnit }}
                                 </span>
                             </span>
                         </v-flex>
@@ -168,7 +159,7 @@
                     <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
                             <div
-                                style="font-size: 0.95em; margin-top: 6px;"
+                                style="font-size: 0.95em; margin-top: 6px"
                                 class="upload--text"
                             >
                                 Uploaded
@@ -176,18 +167,9 @@
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
-                                {{
-                                    status.uploaded.substring(
-                                        0,
-                                        status.uploaded.indexOf(' ')
-                                    )
-                                }}
+                                {{ status.uploaded | getDataValue }}
                                 <span class="font-weight-light caption">
-                                    {{
-                                        status.uploaded.substring(
-                                            status.uploaded.indexOf(' ')
-                                        )
-                                    }}
+                                    {{ status.uploaded | getDataUnit }}
                                 </span>
                             </span>
                         </v-flex>
@@ -197,14 +179,14 @@
                 <v-card
                     v-if="webuiSettings.showFreeSpace"
                     flat
-                    style="margin-top: 30px;"
+                    style="margin-top: 30px"
                     color="secondary"
                     class="ml-2 mr-2"
                 >
                     <v-layout row wrap class="pa-3 project nav_upload mx-auto">
                         <v-flex md6>
                             <div
-                                style="font-size: 0.95em; margin-top: 6px;"
+                                style="font-size: 0.95em; margin-top: 6px"
                                 class="upload--text"
                             >
                                 Free Space
@@ -212,18 +194,9 @@
                         </v-flex>
                         <v-flex md5 class="ml-4">
                             <span class="upload--text title">
-                                {{
-                                    status.freeDiskSpace.substring(
-                                        0,
-                                        status.freeDiskSpace.indexOf(' ')
-                                    )
-                                }}
+                                {{ status.freeDiskSpace | getDataValue }}
                                 <span class="font-weight-light caption">
-                                    {{
-                                        status.freeDiskSpace.substring(
-                                            status.freeDiskSpace.indexOf(' ')
-                                        )
-                                    }}
+                                    {{ status.freeDiskSpace | getDataUnit }}
                                 </span>
                             </span>
                         </v-flex>
@@ -293,9 +266,12 @@
 import { mapMutations, mapState, mapGetters } from 'vuex'
 import VueApexCharts from 'vue-apexcharts'
 import qbit from '@/services/qbit'
+import { General } from '@/mixins'
 
 export default {
+    name: 'Navbar',
     components: { apexcharts: VueApexCharts },
+    mixins: [General],
     data() {
         return {
             drawer: false,
@@ -331,7 +307,13 @@ export default {
                     }
                 },
                 tooltip: {
-                    theme: 'light'
+                    theme: 'light',
+                    x: {
+                        formatter: value => {
+                            let val = 32 - value * 2
+                            return val + ' seconds ago'
+                        }
+                    }
                 }
             },
             chartInterval: null
@@ -351,8 +333,8 @@ export default {
         updateChart() {
             this.$refs.chart.updateSeries(this.series, true)
         },
-        toggleModal(name) {
-            this.$store.commit('TOGGLE_MODAL', name)
+        addModal(name) {
+            this.createModal(name)
         },
         toggleTheme() {
             this.$store.commit('TOGGLE_THEME')

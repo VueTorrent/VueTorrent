@@ -8,7 +8,7 @@
 
                 <v-list
                     rounded
-                    v-if="categories && categories.length"
+                    v-if="categories"
                     class="text-center mx-auto"
                     style="max-width: 200px"
                 >
@@ -45,34 +45,23 @@
 import qbit from '@/services/qbit'
 export default {
     name: 'DeleteCategoryDialog',
-    computed: {
-        categories() {
-            return this.tempCategories
-        }
-    },
-    data: () => ({ tempCategories: [], dialog: false }),
+    data: () => ({ categories: [], dialog: false }),
     methods: {
         deleteCategory(cat) {
             qbit.deleteCategory(cat.name)
             this.cancel()
         },
         cancel() {
-             this.dialog = false
-            this.$emit('close')
+            this.dialog = false
+            this.deleteModal()
         },
         async fetchCategories() {
             const { data } = await qbit.getCategories()
-            this.tempCategories = data
-        }
-    },
-    watch: {
-        dialog() {
-            console.log(this.categories)
-            this.fetchCategories()
+            this.categories = data
         }
     },
     created() {
-        console.log('hello')
+        this.fetchCategories()
         this.dialog = true
     }
 }

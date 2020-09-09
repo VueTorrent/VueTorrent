@@ -83,12 +83,10 @@
                 closeAndRefetch('CreateNewCategoryDialog', 'fetchCategories')
             "
         />
-
     </v-card>
 </template>
 
 <script>
-import Vue from 'vue'
 import { mapGetters } from 'vuex'
 
 import qbit from '@/services/qbit'
@@ -97,14 +95,12 @@ import { Tab } from '@/mixins'
 import {
     CreateNewTagDialog,
     DeleteTagDialog,
-    DeleteCategoryDialog,
     CreateNewCategoryDialog
-} from './TagsAndCategories/index'
+} from './TagsAndCategories'
 
 export default {
     name: 'TagsAndCategories',
     components: {
-
         CreateNewTagDialog,
         DeleteTagDialog,
         CreateNewCategoryDialog
@@ -148,15 +144,7 @@ export default {
             this.CreateNewCategoryDialog = true
         },
         deleteCategory() {
-            let newItem = new Vue(
-                Object.assign({}, DeleteCategoryDialog, {
-                    parent: this,
-                    propsData: {
-                        whatever: 'some value'
-                    }
-                })
-            )
-          document.getElementById('app').appendChild(newItem.$el)
+            this.createDynamicComponent('DeleteCategoryDialog')
         }
     }
 }

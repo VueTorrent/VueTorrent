@@ -6,8 +6,11 @@ export default {
     REMOVE_INTERVALS: state => {
         state.intervals.forEach(el => clearInterval(el))
     },
-    TOGGLE_MODAL(state, modal) {
-        state.modals[modal.toLowerCase()] = !state.modals[modal.toLowerCase()]
+    ADD_MODAL(state, modal) {
+        state.modals.push(modal)
+    },
+    DELETE_MODAL(state, guid) {
+        state.modals = state.modals.filter(m => m.guid !== guid)
     },
     SET_SELECTED: (state, payload) => {
         if (payload.type === 'add') state.selected_torrents.push(payload.hash)

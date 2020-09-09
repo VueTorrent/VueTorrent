@@ -23,36 +23,36 @@
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Size</div>
                         <div>
-                            {{ torrent.size | getNumber }}
+                            {{ torrent.size | getDataValue }}
                             <span class="caption grey--text">{{
-                                torrent.size | getUnit
+                                torrent.size | getDataUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Done</div>
                         <div>
-                            {{ torrent.dloaded | getNumber }}
+                            {{ torrent.dloaded | getDataValue }}
                             <span class="caption grey--text">{{
-                                torrent.dloaded | getUnit
+                                torrent.dloaded | getDataUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs6 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Download</div>
                         <div>
-                            {{ torrent.dlspeed | getNumber }}
+                            {{ torrent.dlspeed | getDataValue }}
                             <span class="caption grey--text">{{
-                                torrent.dlspeed | getUnit
+                                torrent.dlspeed | getDataUnit
                             }}</span>
                         </div>
                     </v-flex>
                     <v-flex xs5 sm1 md1 class="mr-2">
                         <div class="caption grey--text">Upload</div>
                         <div>
-                            {{ torrent.upspeed | getNumber }}
+                            {{ torrent.upspeed | getDataValue }}
                             <span class="caption grey--text">{{
-                                torrent.upspeed | getUnit
+                                torrent.upspeed | getDataUnit
                             }}</span>
                         </div>
                     </v-flex>
@@ -129,12 +129,16 @@
 <script>
 import { VueContext } from 'vue-context'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import { General } from '@/mixins'
+
 export default {
     name: 'Torrent',
     components: {
         VueContext,
         TorrentRightClickMenu
     },
+    mixins: [General],
+
     props: {
         torrent: Object
     },
@@ -161,19 +165,10 @@ export default {
             return this.$store.getters.containsTorrent(hash)
         },
         showInfo(hash) {
-            this.$store.commit('TOGGLE_MODAL', 'TorrentDetailModal')
-            this.$store.commit('SET_SELECTED_TORRENT_DETAIL', hash)
+            this.createModal('TorrentDetailModal', { hash })
         }
     },
     filters: {
-        getUnit(value) {
-            if (!value) return ''
-            return value.substring(value.indexOf(' '))
-        },
-        getNumber(value) {
-            if (!value) return ''
-            return value.substring(0, value.indexOf(' '))
-        },
         formatEta(value, options) {
             const minute = 60
             const hour = minute * 60

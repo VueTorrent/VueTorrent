@@ -31,20 +31,18 @@
                 </div>
             </div>
         </v-container>
-        <TorrentDetailModal />
     </div>
 </template>
 
 <script>
 import { mapState, mapMutations } from 'vuex'
 import Torrent from '@/components/Torrent'
-import TorrentDetailModal from '@/components/TorrentDetailModal/TorrentDetailModal'
 
 import { getPropName, sortOrFilter, filterOption } from '@/helpers'
 
 export default {
     name: 'Dashboard',
-    components: { Torrent, TorrentDetailModal },
+    components: { Torrent },
     data() {
         return {
             sort_input: ''
