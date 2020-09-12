@@ -34,10 +34,18 @@
                     >Cancel</v-btn
                 >
                 <v-btn
+                    v-if="!hasInitialCategory"
                     text
                     @click="create"
                     class="green_accent white--text mt-3"
                     >Save</v-btn
+                >
+                <v-btn
+                    v-else
+                    text
+                    @click="edit"
+                    class="green_accent white--text mt-3"
+                    >Edit</v-btn
                 >
             </v-card-actions>
         </v-card>
@@ -56,7 +64,14 @@ export default {
     },
     mixins: [Modal],
     computed: {
-        ...mapGetters(['getSelectedCategory'])
+        ...mapGetters(['getSelectedCategory']),
+        hasInitialCategory() {
+            return (
+                this.initialCategory &&
+                this.initialCategory.name &&
+                this.initialCategory.savePath
+            )
+        }
     },
     data: () => ({
         nameRules: [
@@ -82,15 +97,15 @@ export default {
             this.$refs.categoryForm.reset()
             this.$store.commit('FETCH_CATEGORIES')
             this.deleteModal()
+        },
+        edit() {
+            qbit.editCategory(this.category)
+            this.cancel()
         }
     },
     created() {
         this.$store.commit('FETCH_CATEGORIES')
-        if (
-            this.initialCategory &&
-            this.initialCategory.name &&
-            this.initialCategory.savePath
-        ) {
+        if (this.hasInitialCategory) {
             this.category = this.initialCategory
         }
     }

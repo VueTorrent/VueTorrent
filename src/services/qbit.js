@@ -268,7 +268,6 @@ class Qbit {
     }
 
     createCategory(cat) {
-        console.log(cat)
         const params = {
             category: cat.name,
             savePath: cat.savePath
@@ -285,6 +284,15 @@ class Qbit {
 
         const data = new URLSearchParams(params)
         return this.axios.post('/torrents/setCategory ', data)
+    }
+
+    editCategory(cat) {
+        const params = {
+            category: cat.name,
+            savePath: cat.savePath
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/editCategory   ', data)
     }
 
     // End Categories
