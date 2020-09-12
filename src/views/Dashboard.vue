@@ -49,7 +49,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['mainData', 'torrents', 'selected_torrents'])
+        ...mapState(['mainData', 'torrents'])
     },
     methods: {
         ...mapMutations(['SORT_TORRENTS']),

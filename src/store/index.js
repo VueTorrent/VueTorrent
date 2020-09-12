@@ -37,6 +37,7 @@ export default new Vuex.Store({
             darkTheme: false,
             showFreeSpace: true
         },
+
         categories: []
     },
     getters: {

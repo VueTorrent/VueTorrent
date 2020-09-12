@@ -40,7 +40,7 @@ export default new Vuetify({
                 download: '#64CEAA',
                 upload: '#00b3fa',
                 torrent: colors.grey.darken3,
-                torrent_selected: colors.grey,
+                torrent_selected: colors.blueGrey.darken1,
                 background: colors.grey.darken4,
                 search: colors.grey.darken3,
                 torrentmodaltext: colors.grey.lighten4

@@ -84,20 +84,28 @@
                         <div class="right">
                             <v-chip
                                 small
-                                :class="`${torrent.state} white--text my-2 caption`"
+                                class="my-2 caption"
+                                :class="
+                                    theme === 'light'
+                                        ? `${torrent.state} white--text `
+                                        : `${torrent.state} black--text`
+                                "
                                 >{{ torrent.state }}</v-chip
                             >
                         </div>
                     </v-flex>
                     <!-- labels -->
-                    <v-flex
-                        v-for="tag in torrent.tags.slice(0, 3)"
-                        :key="tag"
-                        xs3
-                        sm1
-                        md1
-                    >
-                        <v-chip small class="download white--text my-2 caption">
+
+                    <v-flex v-for="tag in torrent.tags" :key="tag" xs3 sm1 md1>
+                        <v-chip
+                            small
+                            :class="
+                                theme === 'light'
+                                    ? 'white--text'
+                                    : 'black--text'
+                            "
+                            class="download my-2 caption"
+                        >
                             {{ tag }}
                         </v-chip>
                     </v-flex>
@@ -129,7 +137,10 @@
 <script>
 import { VueContext } from 'vue-context'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+
 import { General } from '@/mixins'
+
+import { mapGetters } from 'vuex'
 
 export default {
     name: 'Torrent',
@@ -151,6 +162,10 @@ export default {
             }
 
             return chips
+        },
+        ...mapGetters(['getTheme']),
+        theme() {
+            return this.getTheme() ? 'dark' : 'light'
         }
     },
     methods: {
