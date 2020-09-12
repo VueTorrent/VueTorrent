@@ -21,7 +21,7 @@
                     <v-tab href="#trackers">Trackers</v-tab>
                     <v-tab href="#peers">Peers</v-tab>
                     <v-tab href="#content">Content</v-tab>
-                    <v-tab href="#tags">Tags</v-tab>
+                    <v-tab href="#tagsAndCategories">Tags & Categories</v-tab>
                 </v-tabs>
                 <v-tabs-items v-model="tab" touchless>
                     <v-tab-item value="info">
@@ -39,8 +39,11 @@
                     <v-tab-item value="content">
                         <Content :is-active="tab === 'content'" :hash="hash" />
                     </v-tab-item>
-                    <v-tab-item value="tags">
-                        <Tags :is-active="tab === 'tags'" :hash="hash" />
+                    <v-tab-item value="tagsAndCategories">
+                        <TagsAndCategories
+                            :is-active="tab === 'tagsAndCategories'"
+                            :hash="hash"
+                        />
                     </v-tab-item>
                 </v-tabs-items>
             </div>
@@ -57,12 +60,15 @@
 import { mapGetters } from 'vuex'
 
 import { Modal, FullScreenModal } from '@/mixins'
-import { Content, Info, Peers, Trackers, Tags } from './Tabs'
+import { Content, Info, Peers, Trackers, TagsAndCategories } from './Tabs'
 
 export default {
     name: 'TorrentDetailModal',
     mixins: [Modal, FullScreenModal],
-    components: { Content, Info, Peers, Trackers, Tags },
+    components: { Content, Info, Peers, Trackers, TagsAndCategories },
+    props: {
+        hash: String
+    },
     data() {
         return {
             tab: null,
@@ -72,14 +78,11 @@ export default {
     },
     methods: {
         close() {
-            this.$store.commit('TOGGLE_MODAL', 'TorrentDetailModal')
+            this.deleteModal()
         }
     },
     computed: {
         ...mapGetters(['getTorrent']),
-        hash() {
-            return this.$store.state.selectedDetailTorrent
-        },
         torrent() {
             return this.getTorrent(this.hash)
         }

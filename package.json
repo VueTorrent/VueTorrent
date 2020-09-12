@@ -9,12 +9,14 @@
         "format": "pretty-quick"
     },
     "dependencies": {
-        "@babel/polyfill": "^7.10.4",
-        "apexcharts": "^3.19.3",
+        "@babel/polyfill": "^7.11.5",
+        "apexcharts": "^3.20.1",
         "axios": "^0.19.2",
         "core-js": "^3.6.4",
-        "dayjs": "^1.8.29",
+        "dayjs": "^1.8.35",
+        "lodash": "^4.17.20",
         "register-service-worker": "^1.7.1",
+        "uuid": "^8.3.0",
         "vue": "^2.6.12",
         "vue-apexcharts": "^1.6.0",
         "vue-async-computed": "^3.9.0",

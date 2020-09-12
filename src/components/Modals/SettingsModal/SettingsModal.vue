@@ -15,6 +15,7 @@
                     <v-tab href="#bittorrent">BitTorrent</v-tab>
                     <v-tab href="#webui">WebUI</v-tab>
                     <v-tab href="#vuetorrent">VueTorrent</v-tab>
+                    <v-tab href="#tagsAndCategories">Tags & Categories</v-tab>
                 </v-tabs>
                 <perfect-scrollbar>
                     <v-tabs-items
@@ -34,11 +35,16 @@
                         <v-tab-item value="vuetorrent">
                             <VueTorrent :is-active="tab === 'vuetorrent'" />
                         </v-tab-item>
+                        <v-tab-item value="tagsAndCategories">
+                            <TagsAndCategories
+                                :is-active="tab === 'tagsAndCategories'"
+                            />
+                        </v-tab-item>
                     </v-tabs-items>
                 </perfect-scrollbar>
             </div>
             <v-card-actions class="d-flex justify-center">
-                <v-btn color="success" @click="save_settings">Save</v-btn>
+                <v-btn color="success" @click="saveSettings">Save</v-btn>
                 <v-fab-transition v-if="phoneLayout">
                     <v-btn
                         @click="close"
@@ -62,12 +68,18 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 
 import { Modal, FullScreenModal } from '@/mixins'
-import { WebUI, BitTorrent, Downloads, VueTorrent } from './Tabs'
+import {
+    WebUI,
+    BitTorrent,
+    Downloads,
+    VueTorrent,
+    TagsAndCategories
+} from './Tabs'
 
 export default {
     name: 'SettingsModal',
     mixins: [Modal, FullScreenModal],
-    components: { WebUI, BitTorrent, Downloads, VueTorrent },
+    components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories },
     data() {
         return {
             tab: null,
@@ -77,12 +89,14 @@ export default {
     },
     methods: {
         close() {
-            this.$store.commit('TOGGLE_MODAL', 'SettingsModal')
+            this.deleteModal()
         },
-        save_settings() {
+        saveSettings() {
             qbit.setPreferences(this.getSettings()).then(() => {
                 Vue.$toast.success('Settings saved successfully!')
             })
+            this.$store.commit('FETCH_SETTINGS')
+            this.close()
         }
     },
     computed: {
@@ -92,11 +106,6 @@ export default {
         },
         dialogHeight() {
             return this.phoneLayout ? '79vh' : '70vh'
-        }
-    },
-    watch: {
-        dialog(visible) {
-            !visible ? (this.tab = null) : this.$store.commit('SET_SETTINGS')
         }
     }
 }

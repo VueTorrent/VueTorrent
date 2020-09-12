@@ -6,8 +6,11 @@ export default {
     REMOVE_INTERVALS: state => {
         state.intervals.forEach(el => clearInterval(el))
     },
-    TOGGLE_MODAL(state, modal) {
-        state.modals[modal.toLowerCase()] = !state.modals[modal.toLowerCase()]
+    ADD_MODAL(state, modal) {
+        state.modals.push(modal)
+    },
+    DELETE_MODAL(state, guid) {
+        state.modals = state.modals.filter(m => m.guid !== guid)
     },
     SET_SELECTED: (state, payload) => {
         if (payload.type === 'add') state.selected_torrents.push(payload.hash)
@@ -50,17 +53,18 @@ export default {
             state.torrents.push(new Torrent({ hash: key, ...value }))
         }
     },
-    SET_SETTINGS: async state => {
+    FETCH_SETTINGS: async state => {
         const { data } = await qbit.getAppPreferences()
         state.settings = data
-    },
-    SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
-        state.selectedDetailTorrent = hash
     },
     UPDATE_SORT_OPTIONS: (state, payload) => {
         state.sort_options.sort = payload.name
         state.sort_options.reverse = payload.reverse
         state.sort_options.hashes = payload.hashes ? payload.hashes : null
         state.sort_options.filter = payload.filter ? payload.filter : null
+    },
+    FETCH_CATEGORIES: async state => {
+        const { data } = await qbit.getCategories()
+        state.categories = data
     }
 }

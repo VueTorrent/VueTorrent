@@ -31,19 +31,13 @@ export default new Vuex.Store({
         },
         rid: 0,
         pasteUrl: null,
-        modals: {
-            addmodal: false,
-            deletemodal: false,
-            settingsmodal: false,
-            olduimodal: false,
-            torrentdetailmodal: false
-        },
+        modals: [],
         settings: {},
         webuiSettings: {
             darkTheme: false,
             showFreeSpace: true
         },
-        selectedDetailTorrent: null
+        categories: []
     },
     getters: {
         ...getters

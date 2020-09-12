@@ -1,8 +1,11 @@
 <template>
     <v-app :style="{ backgroundColor: background }">
-        <AddModal />
-        <SettingsModal />
-        <SearchModal />
+        <component
+            v-for="modal in modals"
+            :key="modal.guid"
+            :is="modal.component"
+            v-bind="{ guid: modal.guid, ...modal.props }"
+        />
         <Navbar v-if="isAuthenticated" />
         <v-main fill-height fill-width>
             <router-view></router-view>
@@ -13,11 +16,10 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar.vue'
-import SettingsModal from '@/components/Modals/SettingsModal/SettingsModal'
 import { isAuthenticated } from '@/services/auth.js'
 
 export default {
-    components: { Navbar, SettingsModal },
+    components: { Navbar },
     name: 'App',
     data() {
         return {}
@@ -28,8 +30,12 @@ export default {
         }
     },
     computed: {
-        ...mapState(['rid', 'mainData', 'preferences']),
-        ...mapGetters(['getTheme']),
+        ...mapState(['rid', 'mainData', 'preferences', 'modals']),
+        ...mapGetters([
+            'getTheme',
+            'getDynamicComponent',
+            'getDynamicComponent'
+        ]),
         theme() {
             return this.getTheme() ? 'dark' : 'light'
         },

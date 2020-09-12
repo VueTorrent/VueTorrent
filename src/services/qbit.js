@@ -40,6 +40,14 @@ class Qbit {
         return this.axios.get('/app/preferences')
     }
 
+    setPreferences(params) {
+        const data = new URLSearchParams({
+            json: JSON.stringify(params)
+        })
+
+        return this.axios.post('/app/setPreferences', data)
+    }
+
     getMainData(rid) {
         const params = {
             rid
@@ -76,14 +84,6 @@ class Qbit {
         }
 
         return this.setPreferences(params)
-    }
-
-    setPreferences(params) {
-        const data = new URLSearchParams({
-            json: JSON.stringify(params)
-        })
-
-        return this.axios.post('/app/setPreferences', data)
     }
 
     setTorrentFilePriority(hash, idList, priority) {
@@ -252,6 +252,50 @@ class Qbit {
         const data = new URLSearchParams(params)
         return this.axios.post('/torrents/deleteTags   ', data)
     }
+
+    // Begin Categories
+
+    getCategories() {
+        return this.axios.get('/torrents/categories')
+    }
+
+    deleteCategory(cat) {
+        const params = {
+            categories: cat
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/removeCategories   ', data)
+    }
+
+    createCategory(cat) {
+        const params = {
+            category: cat.name,
+            savePath: cat.savePath
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/createCategory   ', data)
+    }
+
+    setCategory(hash, cat) {
+        const params = {
+            hashes: hash,
+            category: cat
+        }
+
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/setCategory ', data)
+    }
+
+    editCategory(cat) {
+        const params = {
+            category: cat.name,
+            savePath: cat.savePath
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/editCategory   ', data)
+    }
+
+    // End Categories
 
     actionTorrents(action, hashes, extra) {
         const params = {

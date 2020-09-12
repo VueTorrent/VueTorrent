@@ -1,10 +1,7 @@
 <template>
     <v-dialog v-model="dialog" max-width="600px">
         <v-card>
-            <v-container
-                style="min-height: 200px;"
-                :class="`pa-0 project done`"
-            >
+            <v-container style="min-height: 200px" :class="`pa-0 project done`">
                 <v-card-title class="justify-center">
                     <h2>Create New Tag</h2>
                 </v-card-title>
@@ -13,7 +10,7 @@
                     <v-container>
                         <v-text-field
                             class="mx-auto"
-                            style="max-width: 200px;"
+                            style="max-width: 200px"
                             v-model="tagname"
                             :rules="rules"
                             :counter="10"
@@ -40,11 +37,10 @@
 
 <script>
 import qbit from '@/services/qbit'
+import { Modal } from '@/mixins'
 export default {
-    name: 'createNewTagDialog',
-    props: {
-        dialog: Boolean
-    },
+    name: 'createTagDialog',
+    mixins: [Modal],
     data: () => ({
         tagname: '',
         rules: [
@@ -59,7 +55,7 @@ export default {
         },
         cancel() {
             this.tagname = ''
-            this.$emit('close')
+            this.deleteModal()
         }
     }
 }

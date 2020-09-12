@@ -1,7 +1,7 @@
 <template>
     <v-card flat>
         <perfect-scrollbar>
-            <v-card-text style="max-height: 500px; min-height: 400px;">
+            <v-card-text style="max-height: 500px; min-height: 400px">
                 <v-treeview
                     v-model="tree"
                     :items="fileTree"
@@ -68,5 +68,3 @@ export default {
     }
 }
 </script>
-
-<style></style>

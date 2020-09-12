@@ -80,3 +80,17 @@ export function networkSize(size) {
 }
 
 Vue.filter('networkSize', networkSize)
+
+function getDataUnit(value) {
+    if (!value) return ''
+    return value.substring(value.indexOf(' '))
+}
+
+Vue.filter('getDataUnit', getDataUnit)
+
+function getDataValue(value) {
+    if (!value) return ''
+    return value.substring(0, value.indexOf(' '))
+}
+
+Vue.filter('getDataValue', getDataValue)

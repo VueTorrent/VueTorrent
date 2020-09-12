@@ -1,5 +1,7 @@
-import FullScreenModal from '@/mixins/FullScreenModal'
-import Modal from '@/mixins/Modal'
-import SettingsTab from '@/mixins/SettingsTab'
+import FullScreenModal from './FullScreenModal'
+import Modal from './Modal'
+import SettingsTab from './SettingsTab'
+import Tab from './Tab'
+import General from './General'
 
-export { FullScreenModal, Modal, SettingsTab }
+export { FullScreenModal, Modal, SettingsTab, Tab, General }
