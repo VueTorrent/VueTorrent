@@ -107,6 +107,9 @@ export default {
         dialogHeight() {
             return this.phoneLayout ? '79vh' : '70vh'
         }
+    },
+    created() {
+        this.$store.commit('FETCH_SETTINGS')
     }
 }
 </script>
