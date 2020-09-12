@@ -40,6 +40,14 @@ class Qbit {
         return this.axios.get('/app/preferences')
     }
 
+    setPreferences(params) {
+        const data = new URLSearchParams({
+            json: JSON.stringify(params)
+        })
+
+        return this.axios.post('/app/setPreferences', data)
+    }
+
     getMainData(rid) {
         const params = {
             rid
@@ -76,14 +84,6 @@ class Qbit {
         }
 
         return this.setPreferences(params)
-    }
-
-    setPreferences(params) {
-        const data = new URLSearchParams({
-            json: JSON.stringify(params)
-        })
-
-        return this.axios.post('/app/setPreferences', data)
     }
 
     setTorrentFilePriority(hash, idList, priority) {

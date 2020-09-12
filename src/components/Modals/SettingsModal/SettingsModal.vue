@@ -95,7 +95,7 @@ export default {
             qbit.setPreferences(this.getSettings()).then(() => {
                 Vue.$toast.success('Settings saved successfully!')
             })
-            this.$store.commit('SET_SETTINGS')
+            this.$store.commit('FETCH_SETTINGS')
             this.close()
         }
     },

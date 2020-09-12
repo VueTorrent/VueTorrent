@@ -14,7 +14,7 @@ export default {
             Vue.$toast.success('Successfully logged in!')
             context.commit('LOGIN', true)
             context.commit('updateMainData')
-            context.commit('SET_SETTINGS')
+            context.commit('FETCH_SETTINGS')
             return true
         }
         Vue.$toast.error('Log in failed 😕')

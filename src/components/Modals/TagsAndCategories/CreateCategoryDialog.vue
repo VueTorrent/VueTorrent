@@ -56,6 +56,7 @@
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
+import Vue from 'vue'
 
 export default {
     name: 'createNewCategoryDialog',
@@ -100,6 +101,7 @@ export default {
         },
         edit() {
             qbit.editCategory(this.category)
+            Vue.$toast.success('Category edited successfully!')
             this.cancel()
         }
     },

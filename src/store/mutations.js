@@ -53,7 +53,7 @@ export default {
             state.torrents.push(new Torrent({ hash: key, ...value }))
         }
     },
-    SET_SETTINGS: async state => {
+    FETCH_SETTINGS: async state => {
         const { data } = await qbit.getAppPreferences()
         state.settings = data
     },
@@ -63,7 +63,8 @@ export default {
         state.sort_options.hashes = payload.hashes ? payload.hashes : null
         state.sort_options.filter = payload.filter ? payload.filter : null
     },
-    FETCH_CATEGORIES: state => {
-        qbit.getCategories().then(res => (state.categories = res.data))
+    FETCH_CATEGORIES: async state => {
+        const { data } = await qbit.getCategories()
+        state.categories = data
     }
 }
