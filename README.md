@@ -6,7 +6,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Screenshots
 
-<p  align="center">w
+<p  align="center">
 <a  href="https://imgur.com/xgwECT2.png"><img  src="https://imgur.com/xgwECT2.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
 </p>
 
@@ -38,7 +38,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   adding / removing / pausing / resuming torrents
 
-*   sorting by every property shown!
+-   sorting by every property shown!
 
 -   mobile friendly! (maybe not for thousands of torrents...)
 
@@ -48,7 +48,9 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   changing the most common settings
 
-*   works on QBittorrent V4.2 and later
+-   tag & category support
+
+-   works on QBittorrent V4.2 and later
 
 ### Sorting/Filtring
 
