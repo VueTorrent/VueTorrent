@@ -47,11 +47,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
+import { Modal } from '@/mixins'
+
 export default {
     name: 'createNewCategoryDialog',
     props: {
-        dialog: Boolean
+        initialCategory: Object
     },
+    mixins: [Modal],
     computed: {
         ...mapGetters(['getSelectedCategory'])
     },
@@ -70,7 +73,6 @@ export default {
     }),
     methods: {
         create() {
-            console.log(this.category)
             qbit.createCategory(this.category)
             this.cancel()
         },
@@ -78,15 +80,18 @@ export default {
             this.category.name = ''
             this.category.savePath = ''
             this.$refs.categoryForm.reset()
-            this.$emit('close')
+            this.$store.commit('FETCH_CATEGORIES')
+            this.deleteModal()
         }
     },
-    watch: {
-        dialog() {
-            let cat = this.getSelectedCategory()
-            if (cat && cat.name && cat.savePath) {
-                this.category = cat
-            }
+    created() {
+        this.$store.commit('FETCH_CATEGORIES')
+        if (
+            this.initialCategory &&
+            this.initialCategory.name &&
+            this.initialCategory.savePath
+        ) {
+            this.category = this.initialCategory
         }
     }
 }

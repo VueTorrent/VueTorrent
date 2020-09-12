@@ -82,36 +82,18 @@
                     >
                         <v-icon color="download">keyboard_arrow_down</v-icon>
                         <span class="download--text title">
-                            {{
-                                status.dlspeed.substring(
-                                    0,
-                                    status.dlspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ status.dlspeed | getDataValue }}
                             <span class="font-weight-light caption">
-                                {{
-                                    status.dlspeed.substring(
-                                        status.dlspeed.indexOf(' ')
-                                    )
-                                }}
+                                {{ status.dlspeed | getDataUnit }}
                             </span>
                         </span>
                         <v-icon class="pl-5" color="upload"
                             >keyboard_arrow_up</v-icon
                         >
                         <span class="upload--text title">
-                            {{
-                                status.upspeed.substring(
-                                    0,
-                                    status.upspeed.indexOf(' ')
-                                )
-                            }}
+                            {{ status.upspeed | getDataValue }}
                             <span class="font-weight-light caption">
-                                {{
-                                    status.upspeed.substring(
-                                        status.upspeed.indexOf(' ')
-                                    )
-                                }}
+                                {{ status.upspeed | getDataUnit }}
                             </span>
                         </span>
                     </v-layout>

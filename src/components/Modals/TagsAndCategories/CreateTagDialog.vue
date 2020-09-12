@@ -37,11 +37,10 @@
 
 <script>
 import qbit from '@/services/qbit'
+import { Modal } from '@/mixins'
 export default {
-    name: 'createNewTagDialog',
-    props: {
-        dialog: Boolean
-    },
+    name: 'createTagDialog',
+    mixins: [Modal],
     data: () => ({
         tagname: '',
         rules: [
@@ -56,7 +55,7 @@ export default {
         },
         cancel() {
             this.tagname = ''
-            this.$emit('close')
+            this.deleteModal()
         }
     }
 }

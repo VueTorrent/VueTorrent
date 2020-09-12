@@ -43,26 +43,26 @@
 
 <script>
 import qbit from '@/services/qbit'
+import { Modal } from '@/mixins'
+import { mapGetters } from 'vuex'
 export default {
     name: 'DeleteCategoryDialog',
-    data: () => ({ categories: [], dialog: false }),
+    mixins: [Modal],
+    computed: {
+        ...mapGetters(['getCategories']),
+        categories() {
+            return this.getCategories()
+        }
+    },
     methods: {
         deleteCategory(cat) {
             qbit.deleteCategory(cat.name)
             this.cancel()
         },
         cancel() {
-            this.dialog = false
+            this.$store.commit('FETCH_CATEGORIES')
             this.deleteModal()
-        },
-        async fetchCategories() {
-            const { data } = await qbit.getCategories()
-            this.categories = data
         }
-    },
-    created() {
-        this.fetchCategories()
-        this.dialog = true
     }
 }
 </script>

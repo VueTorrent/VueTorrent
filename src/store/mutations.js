@@ -57,16 +57,13 @@ export default {
         const { data } = await qbit.getAppPreferences()
         state.settings = data
     },
-    SET_SELECTED_TORRENT_DETAIL: (state, hash) => {
-        state.selectedDetailTorrent = hash
-    },
     UPDATE_SORT_OPTIONS: (state, payload) => {
         state.sort_options.sort = payload.name
         state.sort_options.reverse = payload.reverse
         state.sort_options.hashes = payload.hashes ? payload.hashes : null
         state.sort_options.filter = payload.filter ? payload.filter : null
     },
-    SET_SELECT_CATEGORY: (state, category) => {
-        state.selectedCategory = category
+    FETCH_CATEGORIES: state => {
+        qbit.getCategories().then(res => (state.categories = res.data))
     }
 }

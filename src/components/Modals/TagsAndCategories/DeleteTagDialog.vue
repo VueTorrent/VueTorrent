@@ -8,13 +8,13 @@
 
                 <v-list
                     rounded
-                    v-if="tags && tags.length"
+                    v-if="availableTags && availableTags.length"
                     class="text-center mx-auto"
                     style="max-width: 200px"
                 >
                     <v-list-item
                         @click="deleteTag(t)"
-                        v-for="(t, i) in tags"
+                        v-for="(t, i) in availableTags"
                         :key="i"
                     >
                         <v-list-item-content>
@@ -41,11 +41,16 @@
 
 <script>
 import qbit from '@/services/qbit'
+import { Modal } from '@/mixins'
+import { mapGetters } from 'vuex'
 export default {
     name: 'DeleteTagDialog',
-    props: {
-        dialog: Boolean,
-        tags: Array
+    mixins: [Modal],
+    computed: {
+        ...mapGetters(['getTorrent', 'getAvailableTags']),
+        availableTags() {
+            return this.getAvailableTags()
+        }
     },
     methods: {
         deleteTag(tag) {
@@ -53,8 +58,7 @@ export default {
             this.cancel()
         },
         cancel() {
-            this.tagname = ''
-            this.$emit('close')
+            this.deleteModal()
         }
     }
 }

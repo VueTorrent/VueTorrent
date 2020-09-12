@@ -21,16 +21,13 @@
                 </v-flex>
             </v-layout>
             <v-card-actions class="justify-center pb-5">
-                <v-btn
-                    text
-                    class="error white--text mt-3"
-                    @click="DeleteTagDialog = true"
+                <v-btn text class="error white--text mt-3" @click="deleteTag"
                     >Delete</v-btn
                 >
                 <v-btn
                     text
                     class="green_accent white--text mt-3"
-                    @click="CreateNewTagDialog = true"
+                    @click="createTag"
                     >Create new</v-btn
                 >
             </v-card-actions>
@@ -62,27 +59,11 @@
                 <v-btn
                     text
                     class="green_accent white--text mt-3"
-                    @click="CreateNewCategoryDialog = true"
+                    @click="createCategory"
                     >Create new</v-btn
                 >
             </v-card-actions>
         </v-card-text>
-
-        <CreateNewTagDialog
-            :dialog="CreateNewTagDialog"
-            @close="CreateNewTagDialog = false"
-        />
-        <DeleteTagDialog
-            :dialog="DeleteTagDialog"
-            @close="DeleteTagDialog = false"
-            :tags="availableTags"
-        />
-        <CreateNewCategoryDialog
-            :dialog="CreateNewCategoryDialog"
-            @close="
-                closeAndRefetch('CreateNewCategoryDialog', 'fetchCategories')
-            "
-        />
     </v-card>
 </template>
 
@@ -91,40 +72,25 @@ import { mapGetters } from 'vuex'
 
 import qbit from '@/services/qbit'
 
-import { Tab } from '@/mixins'
-import {
-    CreateNewTagDialog,
-    DeleteTagDialog,
-    CreateNewCategoryDialog
-} from './TagsAndCategories'
+import { Tab, General } from '@/mixins'
 
 export default {
     name: 'TagsAndCategories',
-    components: {
-        CreateNewTagDialog,
-        DeleteTagDialog,
-        CreateNewCategoryDialog
-    },
-    mixins: [Tab],
+    mixins: [Tab, General],
     props: {
         hash: String
     },
     data: () => ({
-        CreateNewTagDialog: false,
-        DeleteTagDialog: false,
-        DeleteCategoryDialog: false,
-        CreateNewCategoryDialog: false,
-        categories: [],
         selectedCategory: null
     }),
     computed: {
-        ...mapGetters(['getTorrent', 'getAvailableTags']),
+        ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
 
         availableTags() {
             return this.getAvailableTags()
         },
         availableCategories() {
-            return this.categories
+            return this.getCategories()
         }
     },
     methods: {
@@ -135,17 +101,24 @@ export default {
             const { data } = await qbit.getCategories()
             this.categories = data
         },
-        closeAndRefetch(dialog, fetch) {
-            if (this[dialog]) this[dialog] = false
-            if (this[fetch] && this[fetch] instanceof Function) this[fetch]()
+        deleteTag() {
+            this.createModal('DeleteTagDialog')
         },
-        editCategory(cat) {
-            this.$store.commit('SET_SELECT_CATEGORY', cat)
-            this.CreateNewCategoryDialog = true
+        createTag() {
+            this.createModal('CreateTagDialog')
+        },
+        createCategory() {
+            this.createModal('CreateCategoryDialog')
         },
         deleteCategory() {
-            this.createDynamicComponent('DeleteCategoryDialog')
+            this.createModal('DeleteCategoryDialog')
+        },
+        editCategory(cat) {
+            this.createModal('CreateCategoryDialog', { initialCategory: cat })
         }
+    },
+    created() {
+        this.$store.commit('FETCH_CATEGORIES')
     }
 }
 </script>

@@ -44,7 +44,7 @@
                 </perfect-scrollbar>
             </div>
             <v-card-actions class="d-flex justify-center">
-                <v-btn color="success" @click="save_settings">Save</v-btn>
+                <v-btn color="success" @click="saveSettings">Save</v-btn>
                 <v-fab-transition v-if="phoneLayout">
                     <v-btn
                         @click="close"
@@ -89,12 +89,13 @@ export default {
     },
     methods: {
         close() {
-            this.$store.commit('TOGGLE_MODAL', 'SettingsModal')
+            this.deleteModal()
         },
-        save_settings() {
+        saveSettings() {
             qbit.setPreferences(this.getSettings()).then(() => {
                 Vue.$toast.success('Settings saved successfully!')
             })
+            this.$store.commit('SET_SETTINGS')
             this.close()
         }
     },
@@ -105,11 +106,6 @@ export default {
         },
         dialogHeight() {
             return this.phoneLayout ? '79vh' : '70vh'
-        }
-    },
-    watch: {
-        dialog(visible) {
-            !visible ? (this.tab = null) : this.$store.commit('SET_SETTINGS')
         }
     }
 }

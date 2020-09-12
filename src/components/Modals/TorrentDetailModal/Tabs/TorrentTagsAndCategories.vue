@@ -101,7 +101,7 @@ import qbit from '@/services/qbit'
 import { Tab } from '@/mixins'
 
 export default {
-    name: 'TagsAndCategories',
+    name: 'TorrentTagsAndCategories',
     props: {
         hash: String
     },
@@ -110,7 +110,7 @@ export default {
         categories: []
     }),
     computed: {
-        ...mapGetters(['getTorrent', 'getAvailableTags']),
+        ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
         torrent() {
             return this.getTorrent(this.hash)
         },
@@ -120,7 +120,7 @@ export default {
             return difference(availableTags, currentTags)
         },
         availableCategories() {
-            return this.categories
+            return this.getCategories()
         }
     },
     methods: {
@@ -135,14 +135,10 @@ export default {
         },
         deleteCategory() {
             qbit.setCategory(this.hash, '')
-        },
-        async fetchCategories() {
-            const { data } = await qbit.getCategories()
-            this.categories = data
-        },
-        activeMethod() {
-            this.fetchCategories()
         }
+    },
+    created() {
+        this.$store.commit('FETCH_CATEGORIES')
     }
 }
 </script>

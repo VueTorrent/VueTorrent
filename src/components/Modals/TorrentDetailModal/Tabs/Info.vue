@@ -1,6 +1,6 @@
 <template>
     <v-card flat>
-        <v-card-text class="pa-0" style="font-size: 1.1em;">
+        <v-card-text class="pa-0" style="font-size: 1.1em">
             <v-simple-table>
                 <tbody>
                     <tr>
@@ -9,7 +9,7 @@
                             {{ torrent.name }}
                         </td>
                     </tr>
-                    <tr style="margin-top: 10px !important;">
+                    <tr style="margin-top: 10px !important">
                         <td class="grey--text">hash</td>
                         <td class="torrentmodaltext--text">
                             {{ torrent.hash }}

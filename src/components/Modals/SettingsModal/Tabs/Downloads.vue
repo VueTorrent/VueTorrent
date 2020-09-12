@@ -72,7 +72,7 @@
 import SettingsTab from '@/mixins/SettingsTab'
 
 export default {
-    name: 'BitTorrent',
+    name: 'Downloads',
     mixins: [SettingsTab]
 }
 </script>

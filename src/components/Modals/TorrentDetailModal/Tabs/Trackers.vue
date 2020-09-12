@@ -5,7 +5,7 @@
             :headers="headers"
             :items="trackers"
             :hide-default-footer="true"
-            style="max-height: 500px; min-height: 400px;"
+            style="max-height: 500px; min-height: 400px"
         >
             <template v-slot:item="row">
                 <tr>
