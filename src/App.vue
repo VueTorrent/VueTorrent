@@ -17,6 +17,7 @@
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar.vue'
 import { isAuthenticated } from '@/services/auth.js'
+import { version } from '../package.json'
 
 export default {
     components: { Navbar },
@@ -45,6 +46,9 @@ export default {
         isAuthenticated() {
             return this.getAuth()
         }
+    },
+    created() {
+        this.$store.commit('SET_APP_VERSION', version)
     }
 }
 </script>

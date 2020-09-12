@@ -1,4 +1,5 @@
 export default {
+    getAppVersion: state => () => state.version,
     containsTorrent: state => hash => state.selected_torrents.includes(hash),
     getTheme: state => () => state.webuiSettings.darkTheme,
     getModalState: state => guid =>

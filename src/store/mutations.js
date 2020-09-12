@@ -3,6 +3,9 @@ import Status from '../models/Status'
 import qbit from '../services/qbit'
 
 export default {
+    SET_APP_VERSION(state, version) {
+        state.version = version
+    },
     REMOVE_INTERVALS: state => {
         state.intervals.forEach(el => clearInterval(el))
     },

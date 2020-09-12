@@ -17,6 +17,14 @@
                             >
                                 <template #label> Show Free Space </template>
                             </v-switch>
+                            <v-row dense>
+                                <v-col cols="10" sm="10" md="11">
+                                    <p class="subtitle-1">Current Version:</p>
+                                </v-col>
+                                <v-col cols="2" sm="2" md="1">
+                                    <p class="mb-2">{{ version }}</p>
+                                </v-col>
+                            </v-row>
                         </v-container>
                     </v-form>
                 </div>
@@ -26,11 +34,12 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 export default {
     name: 'VueTorrent',
     computed: {
         ...mapState(['webuiSettings']),
+        ...mapGetters(['getAppVersion']),
         freeSpace: {
             get() {
                 return this.webuiSettings.showFreeSpace
@@ -38,6 +47,9 @@ export default {
             set(val) {
                 this.webuiSettings.showFreeSpace = val
             }
+        },
+        version() {
+            return this.getAppVersion()
         }
     }
 }

@@ -122,7 +122,7 @@
                         <v-col cols="10">
                             <v-checkbox
                                 dense
-                                :label="`When seeding time reaches`"
+                                label="When seeding time reache`"
                                 v-model="settings.max_seeding_time_enabled"
                             />
                         </v-col>

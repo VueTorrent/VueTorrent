@@ -16,6 +16,7 @@ import actions from './actions'
 export default new Vuex.Store({
     plugins: [vuexPersist.plugin],
     state: {
+        version: 0,
         intervals: [],
         status: null,
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -37,7 +38,6 @@ export default new Vuex.Store({
             darkTheme: false,
             showFreeSpace: true
         },
-
         categories: []
     },
     getters: {
