@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.11.5",
-        "apexcharts": "^3.20.1",
+        "apexcharts": "^3.20.2",
         "axios": "^0.19.2",
         "core-js": "^3.6.4",
         "dayjs": "^1.8.35",
@@ -23,7 +23,7 @@
         "vue-context": "^5.2.0",
         "vue-observe-visibility": "^0.4.6",
         "vue-router": "^3.3.4",
-        "vue-toastification": "^1.7.6",
+        "vue-toastification": "^1.7.7",
         "vue2-perfect-scrollbar": "^1.5.0",
         "vuetify": "^2.3.4",
         "vuex": "^3.5.1",

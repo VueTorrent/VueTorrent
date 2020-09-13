@@ -136,6 +136,7 @@
 
 <script>
 import { VueContext } from 'vue-context'
+import 'vue-context/src/sass/vue-context.scss'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 import { General } from '@/mixins'
@@ -244,4 +245,12 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.v-context {
+    &,
+    & ul {
+        border-radius: 0.3rem;
+        padding: 0;
+    }
+}
+</style>

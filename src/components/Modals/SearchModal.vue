@@ -1,7 +1,15 @@
 <template>
-    <v-dialog max-width="500px" v-model="dialog">
+    <v-dialog
+        v-model="dialog"
+        scrollable
+        :width="dialogWidth"
+        :fullscreen="phoneLayout"
+    >
         <v-card min-height="400px">
-            <v-container style="min-height: 400px" :class="`pa-0 project done`">
+            <v-container
+                :style="{ height: phoneLayout ? '100vh' : '' }"
+                :class="`pa-0 project done`"
+            >
                 <v-card-title class="justify-center">
                     <h2>Search Torrent</h2>
                 </v-card-title>
@@ -110,11 +118,11 @@
 </template>
 
 <script>
-import Modal from '@/mixins/Modal'
+import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
     name: 'SearchModal',
-    mixins: [Modal],
+    mixins: [Modal, FullScreenModal],
     data() {
         return {
             searchTerm: null,
@@ -165,11 +173,6 @@ export default {
         },
         close() {
             this.$store.commit('DELETE_MODAL', this.guid)
-        }
-    },
-    computed: {
-        phoneLayout() {
-            return this.$vuetify.breakpoint.xsOnly
         }
     }
 }
