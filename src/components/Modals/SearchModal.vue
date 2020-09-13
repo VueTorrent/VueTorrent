@@ -5,7 +5,7 @@
         :width="dialogWidth"
         :fullscreen="phoneLayout"
     >
-        <v-card min-height="400px">
+        <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
             <v-container
                 :style="{ height: phoneLayout ? '100vh' : '' }"
                 :class="`pa-0 project done`"
@@ -132,6 +132,11 @@ export default {
             searchInterval: null,
             results: [],
             noResults: false
+        }
+    },
+    computed: {
+        dialogWidth() {
+            return this.phoneLayout ? '100%' : '750px'
         }
     },
     methods: {
