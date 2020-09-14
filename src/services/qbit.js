@@ -117,7 +117,8 @@ class Qbit {
             sort: payload.sort,
             reverse: payload.reverse,
             hashes: payload.hashes ? payload.hashes.join('|') : null,
-            filter: payload.filter ? payload.filter : null
+            filter: payload.filter ? payload.filter : null,
+            category: payload.category !== null ? payload.category : null
         }
 
         //clean

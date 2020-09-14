@@ -33,10 +33,16 @@
     border-left: 4px solid #2e5eaa;
 }
 .project.seeding {
-    border-left: 4px solid #26A69A;
+    border-left: 4px solid #26a69a;
 }
 .project.checking {
-    border-left: 4px solid #FF7043;
+    border-left: 4px solid #ff7043;
+}
+.project.stalled {
+    border-left: 4px solid #81c784;
+}
+.project.metadata {
+    border-left: 4px solid #7e57c2;
 }
 .v-chip.done {
     background: #3cd1c2 !important;
@@ -54,10 +60,16 @@
     background: #2e5eaa !important;
 }
 .v-chip.seeding {
-    background: #26A69A!important;
+    background: #26a69a !important;
 }
 .v-chip.checking {
-    background: #FF7043!important;
+    background: #ff7043 !important;
+}
+.v-chip.stalled {
+    background: #81c784 !important;
+}
+.v-chip.metadata {
+    background: #7e57c2 !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

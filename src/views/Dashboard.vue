@@ -16,10 +16,8 @@
                     height="50"
                     clearable
                     solo
-                    hint="eg `s size desc` + enter"
                     color="search"
                     v-model="sort_input"
-                    @keyup.enter.native="sortBy"
                 ></v-text-field>
             </v-flex>
             <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
@@ -35,10 +33,9 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Torrent from '@/components/Torrent'
-
-import { getPropName, sortOrFilter, filterOption } from '@/helpers'
+import Fuse from 'fuse.js'
 
 export default {
     name: 'Dashboard',
@@ -49,93 +46,35 @@ export default {
         }
     },
     computed: {
-        ...mapState(['mainData', 'torrents'])
+        ...mapState(['mainData']),
+        ...mapGetters(['getTorrents']),
+        torrents() {
+            if (this.sort_input.length === 0) return this.getTorrents()
+
+            const options = {
+                threshold: 0.3,
+                keys: [
+                    'name',
+                    'size',
+                    'state',
+                    'hash',
+                    'savePath',
+                    'tags',
+                    'category'
+                ]
+            }
+            const fuse = new Fuse(this.getTorrents(), options)
+            return fuse.search(this.sort_input).map(el => el.item)
+        }
     },
     methods: {
-        ...mapMutations(['SORT_TORRENTS']),
-        sortBy() {
-            let parts = this.sort_input.split(' ')
-
-            if (parts.length === 0) {
-                let name = 'name'
-                let reverse = false
-                return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                    name,
-                    reverse
-                })
-            }
-            //basic sort
-            if (parts.length === 1) {
-                let name = getPropName(parts[0])
-                let reverse = false
-
-                return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                    name,
-                    reverse
-                })
-            }
-
-            // could be sort OR filter
-            if (parts.length === 2) {
-                let type = sortOrFilter(parts[0])
-                if (type === 'sort') {
-                    let name = getPropName(parts[1])
-                    let reverse = false
-
-                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                        name,
-                        reverse
-                    })
-                }
-
-                if (type === 'filter') {
-                    let ftype = filterOption(parts[1])
-                    //filter state
-                    if (ftype) {
-                        let name = 'name'
-                        let reverse = false
-                        return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                            name,
-                            reverse,
-                            filter: ftype
-                        })
-                    }
-
-                    //filter name
-                    let filtered = this.torrents.filter(t =>
-                        t.name.toLowerCase().includes(parts[1].toLowerCase())
-                    )
-                    let name = 'name'
-                    let reverse = false
-                    let hashes = filtered.map(t => t.hash)
-                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                        name,
-                        reverse,
-                        hashes
-                    })
-                }
-            }
-
-            //sort with asc/desc
-            if (parts.length === 3) {
-                let type = sortOrFilter(parts[0])
-                if (type === 'sort') {
-                    let name = getPropName(parts[1])
-                    let reverse = parts[2] === 'desc'
-
-                    return this.$store.commit('UPDATE_SORT_OPTIONS', {
-                        name,
-                        reverse
-                    })
-                }
-            }
-        },
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
         }
     },
     created() {
         this.$store.dispatch('INIT_INTERVALS')
+        this.$store.commit('FETCH_CATEGORIES')
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')

@@ -15,7 +15,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/Navbar/Navbar.vue'
 import { isAuthenticated } from '@/services/auth.js'
 import { version } from '../package.json'
 

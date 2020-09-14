@@ -61,10 +61,12 @@ export default {
         state.settings = data
     },
     UPDATE_SORT_OPTIONS: (state, payload) => {
-        state.sort_options.sort = payload.name
-        state.sort_options.reverse = payload.reverse
+        state.sort_options.sort = payload.name ? payload.name : null
+        state.sort_options.reverse = payload.reverse ? payload.reverse : null
         state.sort_options.hashes = payload.hashes ? payload.hashes : null
         state.sort_options.filter = payload.filter ? payload.filter : null
+        state.sort_options.category =
+            payload.category !== null ? payload.category : null
     },
     FETCH_CATEGORIES: async state => {
         const { data } = await qbit.getCategories()
