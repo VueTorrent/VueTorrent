@@ -32,6 +32,12 @@
 .project.queued {
     border-left: 4px solid #2e5eaa;
 }
+.project.seeding {
+    border-left: 4px solid #00897B;
+}
+.project.checking {
+    border-left: 4px solid #FF7043;
+}
 .v-chip.done {
     background: #3cd1c2 !important;
 }
@@ -46,6 +52,12 @@
 }
 .v-chip.queued {
     background: #2e5eaa !important;
+}
+.v-chip.seeding {
+    background: #00897B!important;
+}
+.v-chip.checking {
+    background: #FF7043!important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
