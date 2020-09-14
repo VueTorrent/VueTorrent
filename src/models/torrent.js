@@ -30,7 +30,7 @@ export default class Torrent {
             case 'downloading':
                 return 'busy'
             case 'metaDL':
-                return 'meta'
+                return 'metadata'
             case 'forcedUP':
             case 'uploading':
                 return 'seeding'
