@@ -38,7 +38,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   adding / removing / pausing / resuming torrents
 
--   sorting by every property shown!
+-   filtering powered by Fuse.js!
 
 -   mobile friendly! (maybe not for thousands of torrents...)
 
@@ -51,16 +51,6 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 -   tag & category support
 
 -   works on QBittorrent V4.2 and later
-
-### Sorting/Filtring
-
-example queries:
-
--   s name asc => sort by name ascending
--   sort size desc => sort by size descending
--   f ubuntu => filter by torrent-name that contains 'ubuntu'
--   filter done => filter all completed torrents
--   filt busy => filter all downloading torrents
 
 ## Contributing
 
