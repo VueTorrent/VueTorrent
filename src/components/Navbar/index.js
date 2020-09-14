@@ -5,6 +5,7 @@ import SpeedGraph from './SpeedGraph.vue'
 import FreeSpace from './FreeSpace.vue'
 import SessionStats from './SessionStats.vue'
 import CurrentSpeed from './CurrentSpeed.vue'
+import FilterSelect from './FilterSelect.vue'
 
 export {
     Navbar,
@@ -13,5 +14,6 @@ export {
     SpeedGraph,
     FreeSpace,
     SessionStats,
-    CurrentSpeed
+    CurrentSpeed,
+    FilterSelect
 }

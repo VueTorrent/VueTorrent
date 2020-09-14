@@ -42,6 +42,7 @@
                     v-if="webuiSettings.showFreeSpace"
                     :space="status.freeDiskSpace"
                 />
+                <FilterSelect />
             </v-flex>
             <v-container>
                 <BottomActions />
@@ -58,7 +59,8 @@ import {
     SpeedGraph,
     FreeSpace,
     SessionStats,
-    CurrentSpeed
+    CurrentSpeed,
+    FilterSelect
 } from './index'
 
 export default {
@@ -69,7 +71,8 @@ export default {
         TopActions,
         SpeedGraph,
         SessionStats,
-        CurrentSpeed
+        CurrentSpeed,
+        FilterSelect
     },
 
     computed: {
@@ -83,7 +86,7 @@ export default {
     },
     data() {
         return {
-            drawer: false
+            drawer: true
         }
     },
 
