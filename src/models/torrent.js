@@ -31,6 +31,8 @@ export default class Torrent {
             case 'downloading':
                 return 'busy'
             case 'forcedUP':
+            case 'stalledUP':
+            case 'uploading':
                 return 'seeding'
             case 'pausedDL':
                 return 'paused'
