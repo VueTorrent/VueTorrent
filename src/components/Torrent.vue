@@ -10,7 +10,6 @@
         <v-tooltip top>
             <template v-slot:activator="{ on }">
                 <v-layout
-                    @contextmenu.prevent="$refs.menu.open"
                     v-on="on"
                     row
                     wrap
@@ -128,27 +127,16 @@
             <span>{{ torrent.name }}</span>
         </v-tooltip>
         <v-divider></v-divider>
-        <vue-context ref="menu">
-            <TorrentRightClickMenu :hash="torrent.hash" />
-        </vue-context>
     </v-card>
 </template>
 
 <script>
-import { VueContext } from 'vue-context'
-import 'vue-context/src/sass/vue-context.scss'
-import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
-
 import { General } from '@/mixins'
 
 import { mapGetters } from 'vuex'
 
 export default {
     name: 'Torrent',
-    components: {
-        VueContext,
-        TorrentRightClickMenu
-    },
     mixins: [General],
 
     props: {
@@ -244,13 +232,3 @@ export default {
     }
 }
 </script>
-
-<style scoped lang="scss">
-.v-context {
-    &,
-    & ul {
-        border-radius: 0.3rem;
-        padding: 0;
-    }
-}
-</style>

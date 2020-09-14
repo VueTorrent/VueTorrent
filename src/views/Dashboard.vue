@@ -8,7 +8,6 @@
             class="my-4 pt-5 pa-0"
             @click.self="resetSelected"
         >
-            <!-- justify-center here in layout to center!! -->
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field
                     flat
@@ -24,11 +23,18 @@
                 <p class="grey--text">No active Torrents!</p>
             </div>
             <div v-else>
-                <div v-for="torrent in torrents" :key="torrent.hash">
+                <div
+                    @contextmenu.prevent="$refs.menu.open($event, { torrent })"
+                    v-for="torrent in torrents"
+                    :key="torrent.hash"
+                >
                     <Torrent :torrent="torrent" />
                 </div>
             </div>
         </v-container>
+        <vue-context ref="menu" v-slot="{ data }">
+            <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
+        </vue-context>
     </div>
 </template>
 
@@ -36,10 +42,13 @@
 import { mapState, mapGetters } from 'vuex'
 import Torrent from '@/components/Torrent'
 import Fuse from 'fuse.js'
+import { VueContext } from 'vue-context'
+import 'vue-context/src/sass/vue-context.scss'
+import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 export default {
     name: 'Dashboard',
-    components: { Torrent },
+    components: { Torrent, VueContext, TorrentRightClickMenu },
     data() {
         return {
             input: ''
@@ -81,3 +90,13 @@ export default {
     }
 }
 </script>
+
+<style scoped lang="scss">
+.v-context {
+    &,
+    & ul {
+        border-radius: 0.3rem;
+        padding: 0;
+    }
+}
+</style>
