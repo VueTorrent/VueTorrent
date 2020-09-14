@@ -64,14 +64,19 @@ export default {
     computed: {
         ...mapGetters(['getCategories']),
         availableCategories() {
-            const categories = ['Uncategorized']
+            const categories = ['All', 'Uncategorized']
             categories.push(...Object.keys(this.getCategories()))
             return categories
         },
         categoryFilter() {
-            return this.selectedCategory === 'Uncategorized'
-                ? ''
-                : this.selectedCategory
+            switch (this.selectedCategory) {
+                case 'All':
+                    return null
+                case 'Uncategorized':
+                    return ''
+                default:
+                    return this.selectedCategory
+            }
         }
     },
     methods: {
