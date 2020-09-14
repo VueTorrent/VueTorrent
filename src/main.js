@@ -27,9 +27,7 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 
 Vue.use(PerfectScrollbar)
 
-import AsyncComputed from 'vue-async-computed'
-
-Vue.use(AsyncComputed)
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
