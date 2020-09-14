@@ -41,6 +41,9 @@
 .project.stalled {
     border-left: 4px solid #81c784;
 }
+.project.meta {
+    border-left: 4px solid #7E57C2;
+}
 .v-chip.done {
     background: #3cd1c2 !important;
 }
@@ -64,6 +67,9 @@
 }
 .v-chip.stalled {
     background: #81c784 !important;
+}
+.v-chip.meta {
+    background: #7E57C2 !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

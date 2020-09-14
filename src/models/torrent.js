@@ -27,9 +27,10 @@ export default class Torrent {
     formatState(state) {
         switch (state) {
             case 'forcedDL':
-            case 'metaDL':
             case 'downloading':
                 return 'busy'
+            case 'metaDL':
+                return 'meta'
             case 'forcedUP':
             case 'uploading':
                 return 'seeding'
