@@ -8,12 +8,12 @@
                 <v-flex xs12 sm12>
                     <h3>Available Tags:</h3>
                 </v-flex>
-                <v-flex xs12 sm12 class="mt-3">
+                <v-flex xs12 sm12 class="mt-3 d-flex flex-wrap">
                     <v-chip
                         v-for="tag in availableTags"
                         :key="tag"
                         small
-                        class="download white--text caption mx-2"
+                        class="download white--text caption mx-2 my-1"
                         style="font-size: 0.95em !important"
                     >
                         {{ tag }}
@@ -35,12 +35,12 @@
                 <v-flex xs12 sm12>
                     <h3>Available Categories:</h3>
                 </v-flex>
-                <v-flex xs12 sm12 class="mt-3">
+                <v-flex class="d-flex flex-wrap  mt-3" xs12 sm12>
                     <v-chip
                         v-for="cat in availableCategories"
                         :key="cat.name"
                         small
-                        class="upload white--text caption mx-2"
+                        class="upload white--text caption mx-2 my-1"
                         style="font-size: 0.95em !important"
                         @click="editCategory(cat)"
                         @click:close="editCategory(cat)"

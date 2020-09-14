@@ -10,12 +10,12 @@
                         <v-flex xs12 sm12>
                             <h3>Available Tags:</h3>
                         </v-flex>
-                        <v-flex class="mt-3 d-flex justify-center" xs12 sm12>
+                        <v-flex class="mt-3 d-flex flex-wrap justify-center" xs12 sm12>
                             <v-chip
                                 v-for="tag in availableTags"
                                 :key="tag"
                                 small
-                                class="download white--text caption mx-2"
+                                class="download white--text caption mx-2 my-1"
                                 style="font-size: 0.95em !important"
                                 @click="addTag(tag)"
                             >
@@ -27,14 +27,14 @@
                         <v-flex xs12 sm12>
                             <h3>Current Tags:</h3>
                         </v-flex>
-                        <v-flex class="mt-3 d-flex justify-center" xs12 sm12>
+                        <v-flex class="mt-3 d-flex flex-wrap justify-center" xs12 sm12>
                             <div v-if="torrent.tags">
                                 <v-chip
                                     v-for="tag in torrent.tags"
                                     :key="tag"
                                     small
                                     close
-                                    class="download white--text caption mx-2"
+                                    class="download white--text caption mx-2 my-1"
                                     style="font-size: 0.95em !important"
                                     @click="deleteTag(tag)"
                                     @click:close="deleteTag(tag)"
@@ -57,12 +57,12 @@
                         <v-flex xs12 sm12>
                             <h3>Available Categories:</h3>
                         </v-flex>
-                        <v-flex class="mt-3 d-flex justify-center" xs12 sm12>
+                        <v-flex class="mt-3 d-flex flex-wrap justify-center" xs12 sm12>
                             <v-chip
                                 v-for="cat in availableCategories"
                                 :key="cat.name"
                                 small
-                                class="upload white--text caption mx-2"
+                                class="upload white--text caption mx-2 my-1"
                                 style="font-size: 0.95em !important"
                                 @click="setCategory(cat.name)"
                             >
