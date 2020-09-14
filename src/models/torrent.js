@@ -26,7 +26,7 @@ export default class Torrent {
 
     formatState(state) {
         switch (state) {
-            case 'forcedDL':
+            case 'forceDL':
             case 'downloading':
                 return 'busy'
             case 'metaDL':
@@ -44,7 +44,6 @@ export default class Torrent {
             case 'allocating':
             case 'checkingDL':
             case 'checkingUP':
-            case 'queuedForChecking':
             case 'checkingResumeData':
             case 'moving':
                 return 'checking'

@@ -15,6 +15,7 @@ export default {
             context.commit('LOGIN', true)
             context.commit('updateMainData')
             context.commit('FETCH_SETTINGS')
+            context.commit('FETCH_CATEGORIES')
             return true
         }
         Vue.$toast.error('Log in failed 😕')

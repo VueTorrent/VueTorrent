@@ -136,6 +136,7 @@ export default {
     },
     created() {
         this.$store.dispatch('INIT_INTERVALS')
+        this.$store.commit('FETCH_CATEGORIES')
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')

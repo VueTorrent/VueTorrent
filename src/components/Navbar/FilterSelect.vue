@@ -4,22 +4,43 @@
             Status
         </div>
         <v-select
-            v-model="select"
-            color="secondary"
+            :value="selectedState"
+            v-model="selectedState"
             flat
             class="ml-2 mr-2"
             :items="options"
-            label="State"
             item-text="name"
             item-value="value"
             dense
             solo
-            @input="setFilter"
+            color="download"
+            background-color="secondary"
+            item-color="download"
+            @input="setStatusFilter"
+            height="55"
+        ></v-select>
+        <div class="secondary_lighter--text text-uppercase caption ml-4">
+            Category
+        </div>
+        <v-select
+            :value="selectedCategory"
+            v-model="selectedCategory"
+            flat
+            class="ml-2 mr-2"
+            :items="availableCategories"
+            dense
+            solo
+            color="download"
+            background-color="secondary"
+            item-color="download"
+            @input="setCategoryFilter"
+            height="55"
         ></v-select>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     name: 'FilterSelect',
     data: () => ({
@@ -37,16 +58,45 @@ export default {
             { value: 'stalled_downloading', name: 'Stalled Downloading' },
             { value: 'errored', name: 'Erorred' }
         ],
-        select: { value: 'all', name: 'All' }
+        selectedState: { value: 'all', name: 'All' },
+        selectedCategory: null
     }),
-    methods: {
-        setFilter(value) {
-            this.$store.commit('UPDATE_SORT_OPTIONS', { filter: value })
+    computed: {
+        ...mapGetters(['getCategories']),
+        availableCategories() {
+            const categories = ['Uncategorized']
+            categories.push(...Object.keys(this.getCategories()))
+            return categories
+        },
+        categoryFilter() {
+            return this.selectedCategory === 'Uncategorized'
+                ? ''
+                : this.selectedCategory
         }
+    },
+    methods: {
+        setStatusFilter(value) {
+            this.$store.commit('UPDATE_SORT_OPTIONS', {
+                filter: value,
+                category: this.categoryFilter
+            })
+        },
+        setCategoryFilter() {
+            this.$store.commit('UPDATE_SORT_OPTIONS', {
+                filter: this.selectedState.value,
+                category: this.categoryFilter
+            })
+        }
+    },
+    mounted() {
+        this.selectedCategory = this.availableCategories[0]
     }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.v-select__selection,
+.v-input__icon i {
+    color: #64ceaa !important;
+}
 </style>
