@@ -50,6 +50,7 @@ export default {
         state.upload_data.push(state.status.upspeedRaw)
 
         const { data } = await qbit.getTorrents(state.sort_options)
+        console.log(data)
         // torrents
         state.torrents = []
         for (const [key, value] of Object.entries(data)) {
