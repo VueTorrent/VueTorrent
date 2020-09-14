@@ -12,12 +12,12 @@
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
                 <v-text-field
                     flat
-                    label="type to sort..."
+                    label="type to filter..."
                     height="50"
                     clearable
                     solo
                     color="search"
-                    v-model="sort_input"
+                    v-model="input"
                 ></v-text-field>
             </v-flex>
             <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
@@ -42,14 +42,14 @@ export default {
     components: { Torrent },
     data() {
         return {
-            sort_input: ''
+            input: ''
         }
     },
     computed: {
         ...mapState(['mainData']),
         ...mapGetters(['getTorrents']),
         torrents() {
-            if (this.sort_input.length === 0) return this.getTorrents()
+            if (this.input.length === 0) return this.getTorrents()
 
             const options = {
                 threshold: 0.3,
@@ -64,7 +64,7 @@ export default {
                 ]
             }
             const fuse = new Fuse(this.getTorrents(), options)
-            return fuse.search(this.sort_input).map(el => el.item)
+            return fuse.search(this.input).map(el => el.item)
         }
     },
     methods: {
