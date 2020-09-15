@@ -19,7 +19,7 @@
             </v-toolbar-title>
             <v-spacer></v-spacer>
 
-            <TopActions />
+            <TopActions :showAll="webuiSettings.showGlobalRemoveResumePause" />
         </v-app-bar>
         <!--navigation drawer itself -->
         <v-navigation-drawer

@@ -41,6 +41,16 @@
                             >
                                 <template #label> Show Free Space </template>
                             </v-switch>
+                            <v-switch
+                                class="v-input--reverse v-input--expand pa-0 ma-0"
+                                inset
+                                v-model="showGlobalRemoveResumePause"
+                                color="green_accent"
+                            >
+                                <template #label>
+                                    Global Remove/Resume/Pause Buttons</template
+                                >
+                            </v-switch>
                             <v-row dense>
                                 <v-col cols="10" sm="10" md="11">
                                     <p class="subtitle-1">Current Version:</p>
@@ -94,6 +104,14 @@ export default {
             },
             set(val) {
                 this.webuiSettings.showSessionStat = val
+            }
+        },
+        showGlobalRemoveResumePause: {
+            get() {
+                return this.webuiSettings.showGlobalRemoveResumePause
+            },
+            set(val) {
+                this.webuiSettings.showGlobalRemoveResumePause = val
             }
         },
         version() {

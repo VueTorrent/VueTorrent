@@ -39,7 +39,8 @@ export default new Vuex.Store({
             showFreeSpace: true,
             showSpeedGraph: true,
             showSessionStat: true,
-            showCurrentSpeed: true
+            showCurrentSpeed: true,
+            showGlobalRemoveResumePause: true
         },
         categories: []
     },

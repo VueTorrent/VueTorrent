@@ -20,13 +20,34 @@
         >
             <v-icon color="grey">add</v-icon>
         </v-btn>
-        <v-btn small fab text class="mr-0 ml-0" @click="removeTorrents">
+        <v-btn
+            v-if="showAll"
+            small
+            fab
+            text
+            class="mr-0 ml-0"
+            @click="removeTorrents"
+        >
             <v-icon color="grey">remove</v-icon>
         </v-btn>
-        <v-btn small fab text class="mr-0 ml-0" @click="resumeTorrents">
+        <v-btn
+            v-if="showAll"
+            small
+            fab
+            text
+            class="mr-0 ml-0"
+            @click="resumeTorrents"
+        >
             <v-icon color="grey">play_arrow</v-icon>
         </v-btn>
-        <v-btn small fab text class="mr-0 ml-0" @click="pauseTorrents">
+        <v-btn
+            v-if="showAll"
+            small
+            fab
+            text
+            class="mr-0 ml-0"
+            @click="pauseTorrents"
+        >
             <v-icon color="grey">pause</v-icon>
         </v-btn>
         <v-btn
@@ -49,6 +70,7 @@ import { General } from '@/mixins'
 export default {
     name: 'TopActions',
     mixins: [General],
+    props: ['showAll'],
     computed: {
         ...mapState(['selected_torrents'])
     },
