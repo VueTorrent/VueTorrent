@@ -33,6 +33,7 @@ export default class Torrent {
                 return 'metadata'
             case 'forcedUP':
             case 'uploading':
+            case 'stalledUP':
                 return 'seeding'
             case 'pausedDL':
                 return 'paused'
@@ -51,7 +52,6 @@ export default class Torrent {
             case 'missingFiles':
                 return 'fail'
             case 'stalledDL':
-            case 'stalledUP':
                 return 'stalled'
             default:
                 return 'fail'
