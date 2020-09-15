@@ -36,7 +36,10 @@ export default new Vuex.Store({
         settings: {},
         webuiSettings: {
             darkTheme: false,
-            showFreeSpace: true
+            showFreeSpace: true,
+            showSpeedGraph: true,
+            showSessionStat: true,
+            showCurrentSpeed: true
         },
         categories: []
     },

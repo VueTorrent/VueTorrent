@@ -31,12 +31,18 @@
         >
             <!--current download speeds -->
             <v-flex class="mt-3" v-if="status">
-                <CurrentSpeed :status="status" />
+                <CurrentSpeed
+                    v-if="webuiSettings.showCurrentSpeed"
+                    :status="status"
+                />
 
-                <SpeedGraph />
+                <SpeedGraph v-if="webuiSettings.showSpeedGraph" />
 
                 <div class="mt-4"></div>
-                <SessionStats :status="status" />
+                <SessionStats
+                    v-if="webuiSettings.showSessionStat"
+                    :status="status"
+                />
 
                 <FreeSpace
                     v-if="webuiSettings.showFreeSpace"

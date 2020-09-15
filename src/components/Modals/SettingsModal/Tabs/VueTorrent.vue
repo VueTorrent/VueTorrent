@@ -10,7 +10,31 @@
                     <v-form class="px-6 mt-3">
                         <v-container>
                             <v-switch
-                                class="v-input--reverse v-input--expand"
+                                class="v-input--reverse v-input--expand pa-0 ma-0"
+                                inset
+                                v-model="showCurrentSpeed"
+                                color="green_accent"
+                            >
+                                <template #label> Show Current Speed </template>
+                            </v-switch>
+                            <v-switch
+                                class="v-input--reverse v-input--expand pa-0 ma-0"
+                                inset
+                                v-model="showSpeedGraph"
+                                color="green_accent"
+                            >
+                                <template #label> Show Speed Graph</template>
+                            </v-switch>
+                            <v-switch
+                                class="v-input--reverse v-input--expand pa-0 ma-0"
+                                inset
+                                v-model="showSessionStat"
+                                color="green_accent"
+                            >
+                                <template #label> Show Session Stats </template>
+                            </v-switch>
+                            <v-switch
+                                class="v-input--reverse v-input--expand pa-0 ma-0"
                                 inset
                                 v-model="freeSpace"
                                 color="green_accent"
@@ -46,6 +70,30 @@ export default {
             },
             set(val) {
                 this.webuiSettings.showFreeSpace = val
+            }
+        },
+        showCurrentSpeed: {
+            get() {
+                return this.webuiSettings.showCurrentSpeed
+            },
+            set(val) {
+                this.webuiSettings.showCurrentSpeed = val
+            }
+        },
+        showSpeedGraph: {
+            get() {
+                return this.webuiSettings.showSpeedGraph
+            },
+            set(val) {
+                this.webuiSettings.showSpeedGraph = val
+            }
+        },
+        showSessionStat: {
+            get() {
+                return this.webuiSettings.showSessionStat
+            },
+            set(val) {
+                this.webuiSettings.showSessionStat = val
             }
         },
         version() {
