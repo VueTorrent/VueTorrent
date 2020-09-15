@@ -35,7 +35,7 @@
                 <v-flex xs12 sm12>
                     <h3>Available Categories:</h3>
                 </v-flex>
-                <v-flex class="d-flex flex-wrap  mt-3" xs12 sm12>
+                <v-flex class="d-flex flex-wrap mt-3" xs12 sm12>
                     <v-chip
                         v-for="cat in availableCategories"
                         :key="cat.name"
@@ -122,3 +122,7 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@import '@/assets/styles/SettingsTab.scss';
+</style>

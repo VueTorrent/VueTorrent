@@ -6,6 +6,16 @@
             fab
             color="grey"
             class="mr-0 ml-0"
+            @click="addModal('SortModal')"
+        >
+            <v-icon color="grey">sort</v-icon>
+        </v-btn>
+        <v-btn
+            text
+            small
+            fab
+            color="grey"
+            class="mr-0 ml-0"
             @click="addModal('SearchModal')"
         >
             <v-icon color="grey">search</v-icon>

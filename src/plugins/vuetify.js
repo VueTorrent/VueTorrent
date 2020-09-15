@@ -27,7 +27,8 @@ export default new Vuetify({
                 torrent_selected: colors.grey.lighten2,
                 background: colors.grey.lighten4,
                 search: colors.grey.darken1,
-                torrentmodaltext: colors.grey.darken4
+                torrentmodaltext: colors.grey.darken4,
+                select: colors.grey.lighten4
             },
             dark: {
                 primary: '#35495e',
@@ -43,7 +44,8 @@ export default new Vuetify({
                 torrent_selected: colors.blueGrey.darken1,
                 background: colors.grey.darken4,
                 search: colors.grey.darken3,
-                torrentmodaltext: colors.grey.lighten4
+                torrentmodaltext: colors.grey.lighten4,
+                select: colors.grey.darken3
             }
         }
     }
