@@ -1,6 +1,5 @@
-import qbit from '@/services/qbit'
+import store from '../store'
 
-export async function isAuthenticated() {
-    const res = await qbit.login()
-    return res === 'Ok.'
+export function isAuthenticated() {
+    return store.state.authenticated
 }

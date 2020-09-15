@@ -16,8 +16,8 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
-import { isAuthenticated } from '@/services/auth.js'
 import { version } from '../package.json'
+import qbit from '@/services/qbit'
 
 export default {
     components: { Navbar },
@@ -26,17 +26,14 @@ export default {
         return {}
     },
     methods: {
-        async getAuth() {
-            return await isAuthenticated()
+        async checkAuthenticated() {
+            const res = await qbit.login()
+            this.$store.commit('LOGIN', res === 'Ok.')
         }
     },
     computed: {
         ...mapState(['rid', 'mainData', 'preferences', 'modals']),
-        ...mapGetters([
-            'getTheme',
-            'getDynamicComponent',
-            'getDynamicComponent'
-        ]),
+        ...mapGetters(['getTheme', 'getAuthenticated']),
         theme() {
             return this.getTheme() ? 'dark' : 'light'
         },
@@ -44,11 +41,12 @@ export default {
             return this.$vuetify.theme.themes[this.theme].background
         },
         isAuthenticated() {
-            return this.getAuth()
+            return this.getAuthenticated()
         }
     },
     created() {
         this.$store.commit('SET_APP_VERSION', version)
+        this.checkAuthenticated()
     }
 }
 </script>

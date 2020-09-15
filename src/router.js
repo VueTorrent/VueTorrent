@@ -32,7 +32,7 @@ router.beforeEach(async (to, from, next) => {
     const onlyWhenLoggedOut = to.matched.some(
         record => record.meta.onlyWhenLoggedOut
     )
-    const authenticated = await isAuthenticated()
+    const authenticated = isAuthenticated()
 
     if (!isPublic && !authenticated) {
         return next({

@@ -12,5 +12,6 @@ export default {
     getAvailableTags: state => () => state.status.tags,
     getCategories: state => () => state.categories,
     getModals: state => () => state.modals,
-    getTorrents: state => () => state.torrents
+    getTorrents: state => () => state.torrents,
+    getAuthenticated: state => () => state.authenticated
 }
