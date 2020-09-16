@@ -26,7 +26,7 @@
             app
             v-model="drawer"
             class="primary"
-            style="position: fixed"
+            style="position: fixed; height: 100%"
             disable-resize-watcher
         >
             <!--current download speeds -->
