@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.f7b925826bfff19dc723768802ff676d.js"
+  "precache-manifest.b427125a5f0a7155086397850f76e7bd.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vuetorrent"});
