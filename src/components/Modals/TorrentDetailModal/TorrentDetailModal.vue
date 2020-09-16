@@ -23,18 +23,18 @@
                     <v-tab href="#content">Content</v-tab>
                     <v-tab href="#tagsAndCategories">Tags & Categories</v-tab>
                 </v-tabs>
-                <v-tabs-items v-model="tab" touchless>
+                <v-tabs-items v-model="tab" :touch="updateTab(tab)">
                     <v-tab-item value="info">
                         <info :is-active="tab === 'info'" :hash="hash" />
-                    </v-tab-item>
-                    <v-tab-item value="peers">
-                        <Peers :is-active="tab === 'peers'" :hash="hash" />
                     </v-tab-item>
                     <v-tab-item value="trackers">
                         <Trackers
                             :is-active="tab === 'trackers'"
                             :hash="hash"
                         />
+                    </v-tab-item>
+                    <v-tab-item value="peers">
+                        <Peers :is-active="tab === 'peers'" :hash="hash" />
                     </v-tab-item>
                     <v-tab-item value="content">
                         <Content :is-active="tab === 'content'" :hash="hash" />

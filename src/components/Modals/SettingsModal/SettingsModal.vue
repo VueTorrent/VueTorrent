@@ -20,18 +20,19 @@
                 <perfect-scrollbar>
                     <v-tabs-items
                         v-model="tab"
-                        touchless
+                        :touch="updateTab(tab)"
                         :style="{ maxHeight: dialogHeight }"
                     >
-                        <v-tab-item value="webui">
-                            <WebUI :is-active="tab === 'webui'" />
+                        <v-tab-item value="downloads">
+                            <Downloads :is-active="tab === 'downloads'" />
                         </v-tab-item>
                         <v-tab-item value="bittorrent">
                             <BitTorrent :is-active="tab === 'bittorrent'" />
                         </v-tab-item>
-                        <v-tab-item value="downloads">
-                            <Downloads :is-active="tab === 'downloads'" />
+                        <v-tab-item value="webui">
+                            <WebUI :is-active="tab === 'webui'" />
                         </v-tab-item>
+
                         <v-tab-item value="vuetorrent">
                             <VueTorrent :is-active="tab === 'vuetorrent'" />
                         </v-tab-item>
