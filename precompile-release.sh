@@ -7,6 +7,7 @@ build_and_copy(){
     git clone git@github.com:WDaan/VueTorrent.git ../vuetorrent-release
     cd ../vuetorrent-release
     git checkout latest-release
+    git pull
     sudo rm -r public
     cp -r ../vuetorrent/vuetorrent/* ./
     
