@@ -67,7 +67,10 @@ export default {
             return this.getTheme() ? 'Dark' : 'Light'
         },
         altSpeed() {
-            return this.getStatus().altSpeed
+            const status = this.getStatus()
+            if (status && status.altSpeed) return status.altSpeed
+
+            return null
         }
     }
 }

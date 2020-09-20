@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.3.3",
+    "version": "0.3.4",
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",
@@ -13,22 +13,21 @@
         "apexcharts": "^3.20.2",
         "axios": "^0.19.2",
         "core-js": "^3.6.4",
-        "dayjs": "^1.8.35",
+        "dayjs": "^1.8.36",
         "fuse.js": "^6.4.1",
         "lodash": "^4.17.20",
         "register-service-worker": "^1.7.1",
         "uuid": "^8.3.0",
         "vue": "^2.6.12",
         "vue-apexcharts": "^1.6.0",
-        "vue-async-computed": "^3.9.0",
         "vue-context": "^5.2.0",
         "vue-observe-visibility": "^0.4.6",
         "vue-router": "^3.3.4",
-        "vue-toastification": "^1.7.7",
+        "vue-toastification": "^1.7.8",
         "vue2-perfect-scrollbar": "^1.5.0",
         "vuetify": "^2.3.4",
         "vuex": "^3.5.1",
-        "vuex-persist": "^2.2.0"
+        "vuex-persist": "^3.1.0"
     },
     "devDependencies": {
         "@vue/cli-plugin-babel": "~4.3.0",
@@ -44,7 +43,7 @@
         "node-sass": "^4.14.1",
         "prettier": "^2.1.2",
         "pretty-quick": "^2.0.2",
-        "sass": "^1.26.10",
+        "sass": "^1.26.11",
         "sass-loader": "^8.0.2",
         "vue-cli-plugin-vuetify": "^2.0.7",
         "vue-template-compiler": "^2.6.12"

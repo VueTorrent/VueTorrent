@@ -4,7 +4,13 @@ import VuexPersist from 'vuex-persist'
 
 const vuexPersist = new VuexPersist({
     key: 'vuetorrent',
-    storage: window.localStorage
+    storage: window.localStorage,
+    reducer: state => ({
+        sort_options: state.sort_options,
+        webuiSettings: state.webuiSettings,
+        authenticated: state.authenticated,
+        torrents: state.torrents
+    })
 })
 
 Vue.use(Vuex)
