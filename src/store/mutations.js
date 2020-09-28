@@ -71,5 +71,6 @@ export default {
     FETCH_CATEGORIES: async state => {
         const { data } = await qbit.getCategories()
         state.categories = data
-    }
+    },
+    SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count)
 }

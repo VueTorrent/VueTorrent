@@ -2,7 +2,14 @@
     <div class="pl-5 pr-5" color="background" @click.self="resetSelected">
         <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">
             Dashboard
+            <p
+                style="float: right; font-size: 0.7em"
+                class="grey--text text-uppercase"
+            >
+                {{ torrentCountString }}
+            </p>
         </h1>
+
         <v-container
             color="background"
             class="my-4 pt-5 pa-0"
@@ -20,7 +27,7 @@
                 ></v-text-field>
             </v-flex>
             <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-                <p class="grey--text">No active Torrents!</p>
+                <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
                 <div
@@ -56,7 +63,7 @@ export default {
     },
     computed: {
         ...mapState(['mainData']),
-        ...mapGetters(['getTorrents']),
+        ...mapGetters(['getTorrents', 'getTorrentCountString']),
         torrents() {
             if (this.input.length === 0) return this.getTorrents()
 
@@ -74,6 +81,9 @@ export default {
             }
             const fuse = new Fuse(this.getTorrents(), options)
             return fuse.search(this.input).map(el => el.item)
+        },
+        torrentCountString() {
+            return this.getTorrentCountString()
         }
     },
     methods: {
@@ -87,6 +97,11 @@ export default {
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')
+    },
+    watch: {
+        torrents: function (torrents) {
+            this.$store.commit('SET_CURRENT_ITEM_COUNT', torrents.length)
+        }
     }
 }
 </script>

@@ -50,7 +50,7 @@
                 />
                 <FilterSelect />
             </v-flex>
-            <v-container>
+            <v-container class="mt-12">
                 <BottomActions />
             </v-container>
         </v-navigation-drawer>

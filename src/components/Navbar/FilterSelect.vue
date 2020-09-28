@@ -36,6 +36,12 @@
             @input="setCategoryFilter"
             height="55"
         ></v-select>
+        <div
+            style="font-size: 0.9em"
+            class="download--text text-uppercase text-center"
+        >
+            {{ torrentCountString }}
+        </div>
     </div>
 </template>
 
@@ -62,7 +68,7 @@ export default {
         selectedCategory: null
     }),
     computed: {
-        ...mapGetters(['getCategories']),
+        ...mapGetters(['getCategories', 'getTorrentCountString']),
         availableCategories() {
             const categories = ['All', 'Uncategorized']
             categories.push(...Object.keys(this.getCategories()))
@@ -77,6 +83,9 @@ export default {
                 default:
                     return this.selectedCategory
             }
+        },
+        torrentCountString() {
+            return this.getTorrentCountString()
         }
     },
     methods: {

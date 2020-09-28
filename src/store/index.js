@@ -48,7 +48,8 @@ export default new Vuex.Store({
             showCurrentSpeed: true,
             showGlobalRemoveResumePause: true
         },
-        categories: []
+        categories: [],
+        filteredTorrentsCount: 0
     },
     getters: {
         ...getters

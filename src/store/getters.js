@@ -13,5 +13,12 @@ export default {
     getCategories: state => () => state.categories,
     getModals: state => () => state.modals,
     getTorrents: state => () => state.torrents,
-    getAuthenticated: state => () => state.authenticated
+    getAuthenticated: state => () => state.authenticated,
+    getTorrentCountString: state => () => {
+        if (state.selected_torrents && state.selected_torrents.length) {
+            return `${state.selected_torrents.length} of ${state.filteredTorrentsCount} torrents`
+        }
+
+        return `${state.filteredTorrentsCount} torrents`
+    }
 }
