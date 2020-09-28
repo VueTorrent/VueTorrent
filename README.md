@@ -7,18 +7,26 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 ## Screenshots
 
 <p  align="center">
-<a  href="https://imgur.com/xgwECT2.png"><img  src="https://imgur.com/xgwECT2.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
+
+<a  href="https://imgur.com/kEqGvem.jng"><img  src="https://imgur.com/kEqGvem.jpg"  title="Desktop"  alt="Desktop Screenshot" ></a>
+
 </p>
 
+|                                                                                                    |                                                                                                    |                                                                                                    |
+| :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/eN8qAM9.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/T1A2Bng.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/V83NMPg.png"> |
+
 <p  align="center">
-<a  href="https://i.imgur.com/SUOEyy9.png"><img  src="https://i.imgur.com/SUOEyy9.png"  title="Mobile"  alt="Mobile Screenshot"  width="320"  height="540"></a>
+<a  href="https://imgur.com/kEqGvem.jpg"><img  src="https://imgur.com/c5i63Yz.jpg"  title="Desktop" width="300"  alt="Mobile" >
+</a>
 </p>
+
 
 ## Installation
 
 -   Visit the releases page!
 
--   Download the latest STABLE release.zip
+-   Download the latest release.zip
 
 -   Unzip this folder
 
@@ -70,7 +78,7 @@ Reach out to me at one of the following places!
 
 *   Open up an issue 😛
 
-[<img src="https://cdn.buymeacoffee.com/buttons/lato-blue.png" alt="drawing" width="180"/>](https://www.buymeacoffee.com/wdaan 'Buy me a coffee')
+[<img  src="https://cdn.buymeacoffee.com/buttons/lato-blue.png"  alt="drawing"  width="180"/>](https://www.buymeacoffee.com/wdaan 'Buy me a coffee')
 
 ## Credits
 
