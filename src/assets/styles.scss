@@ -17,31 +17,31 @@
     }
 }
 
-.project.done {
+.sideborder.done {
     border-left: 4px solid #3cd1c2;
 }
-.project.busy {
+.sideborder.busy {
     border-left: 4px solid #ffaa2c;
 }
-.project.fail {
+.sideborder.fail {
     border-left: 4px solid #f83e70;
 }
-.project.paused {
+.sideborder.paused {
     border-left: 4px solid #cfd8dc;
 }
-.project.queued {
+.sideborder.queued {
     border-left: 4px solid #2e5eaa;
 }
-.project.seeding {
+.sideborder.seeding {
     border-left: 4px solid #26a69a;
 }
-.project.checking {
+.sideborder.checking {
     border-left: 4px solid #ff7043;
 }
-.project.stalled {
+.sideborder.stalled {
     border-left: 4px solid #81c784;
 }
-.project.metadata {
+.sideborder.metadata {
     border-left: 4px solid #7e57c2;
 }
 .v-chip.done {

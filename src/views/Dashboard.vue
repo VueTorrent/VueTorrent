@@ -32,10 +32,20 @@
             <div v-else>
                 <div
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-                    v-for="torrent in torrents"
+                    v-for="(torrent, index) in torrents"
                     :key="torrent.hash"
                 >
-                    <Torrent :torrent="torrent" />
+                    <Torrent
+                        :class="{
+                            topBorderRadius: index === 0,
+                            noBorderRadius:
+                                index !== 0 && index !== torrent.length - 1,
+                            bottomBorderRadius: index === torrents.length - 1
+                        }"
+                        :torrent="torrent"
+                        :index="index"
+                        :length="torrents.length - 1"
+                    />
                 </div>
             </div>
         </v-container>
@@ -113,5 +123,17 @@ export default {
         border-radius: 0.3rem;
         padding: 0;
     }
+}
+.topBorderRadius {
+    border-top-left-radius: 3px !important;
+    border-top-right-radius: 3px !important;
+    border-bottom-right-radius: 0px !important;
+}
+.noBorderRadius {
+    border-radius: 0 !important;
+}
+.bottomBorderRadius {
+    border-bottom-left-radius: 3px !important;
+    border-bottom-right-radius: 3px !important;
 }
 </style>

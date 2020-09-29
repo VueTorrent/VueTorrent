@@ -3,18 +3,13 @@
         ripple
         flat
         class="pointer torrent noselect"
-        :class="containsTorrent(torrent.hash) ? 'torrent_selected' : ''"
+        :class="{ torrent_selected: containsTorrent(torrent.hash) }"
         @click.native="selectTorrent(torrent.hash)"
         @dblclick.prevent="showInfo(torrent.hash)"
     >
         <v-tooltip top>
             <template v-slot:activator="{ on }">
-                <v-layout
-                    v-on="on"
-                    row
-                    wrap
-                    :class="`pa-4 ml-0 project ${torrent.state}`"
-                >
+                <v-layout v-on="on" row wrap :class="style">
                     <v-flex xs12 sm2 md3>
                         <div class="caption grey--text">Torrent title</div>
                         <div class="truncate">{{ torrent.name }}</div>
@@ -126,7 +121,7 @@
             </template>
             <span>{{ torrent.name }}</span>
         </v-tooltip>
-        <v-divider></v-divider>
+        <v-divider v-if="index !== length"></v-divider>
     </v-card>
 </template>
 
@@ -140,7 +135,9 @@ export default {
     mixins: [General],
 
     props: {
-        torrent: Object
+        torrent: Object,
+        index: Number,
+        length: Number
     },
     computed: {
         chips() {
@@ -155,6 +152,12 @@ export default {
         ...mapGetters(['getTheme']),
         theme() {
             return this.getTheme() ? 'dark' : 'light'
+        },
+        style() {
+            let base = `pa-4 ml-0 sideborder ${this.torrent.state} `
+            if (this.index === this.length) base += ' bottomBorderRadius'
+            if (this.index === 0) base += ' topBorderRadius'
+            return base
         }
     },
     methods: {
@@ -232,3 +235,12 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.topBorderRadius {
+    border-top-left-radius: 3px;
+}
+.bottomBorderRadius {
+    border-bottom-left-radius: 3px;
+}
+</style>
