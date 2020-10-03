@@ -65,6 +65,9 @@ export default {
                 this.getTorrentFiles()
             }
         }
+    },
+    created() {
+        this.getTorrentFiles()
     }
 }
 </script>

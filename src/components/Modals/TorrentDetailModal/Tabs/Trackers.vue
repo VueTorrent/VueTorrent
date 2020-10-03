@@ -78,6 +78,9 @@ export default {
         trackers() {
             return this.tempTrackers
         }
+    },
+    created() {
+        this.getTorrentTrackers()
     }
 }
 </script>

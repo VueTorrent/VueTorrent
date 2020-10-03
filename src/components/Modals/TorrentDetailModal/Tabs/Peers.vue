@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { map, merge, cloneDeep } from 'lodash'
+import { map, merge } from 'lodash'
 import qbit from '@/services/qbit'
 import { codeToFlag, isWindows } from '@/helpers'
 
@@ -76,22 +76,12 @@ export default {
         async getTorrentPeers() {
             const { data } = await qbit.getTorrentPeers(
                 this.hash,
-                this.rid || undefined
+                this.rid + 1 || undefined
             )
 
             this.rid = data.rid
 
-            if (data.full_update) {
-                this.peersObj = data.peers
-            } else {
-                const tmp = cloneDeep(this.peersObj)
-                if (data.peers_removed) {
-                    for (const key of data.peers_removed) {
-                        delete tmp[key]
-                    }
-                }
-                this.peersObj = merge(tmp, data.peers)
-            }
+            this.peersObj = data.peers
         }
     },
     watch: {
@@ -113,6 +103,9 @@ export default {
         peers() {
             return map(this.peersObj, (value, key) => merge({}, value, { key }))
         }
+    },
+    created() {
+        this.getTorrentPeers()
     }
 }
 </script>

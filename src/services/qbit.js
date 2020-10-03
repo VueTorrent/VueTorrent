@@ -300,7 +300,7 @@ class Qbit {
 
     actionTorrents(action, hashes, extra) {
         const params = {
-            hashes: hashes.join('|'),
+            hashes: hashes.length ? hashes.join('|') : 'all',
             ...extra
         }
         const data = new URLSearchParams(params)
