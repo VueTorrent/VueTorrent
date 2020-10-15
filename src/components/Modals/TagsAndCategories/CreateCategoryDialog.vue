@@ -69,8 +69,7 @@ export default {
         hasInitialCategory() {
             return (
                 this.initialCategory &&
-                this.initialCategory.name &&
-                this.initialCategory.savePath
+                this.initialCategory.name
             )
         }
     },
