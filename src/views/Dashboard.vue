@@ -23,6 +23,7 @@
                     clearable
                     solo
                     color="search"
+                    @click:clear="resetInput()"
                     v-model="input"
                 ></v-text-field>
             </v-flex>
@@ -99,6 +100,9 @@ export default {
     methods: {
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
+        },
+        resetInput(){
+            this.input = ''
         }
     },
     created() {
