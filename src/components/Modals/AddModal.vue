@@ -62,6 +62,11 @@
                                 label="Download Directory"
                                 prepend-icon="folder"
                             ></v-text-field>
+
+                            <v-checkbox
+                                v-model="skip_checking"
+                                label="Skip hash check"
+                            ></v-checkbox>
                         </v-container>
                     </v-form>
                 </v-card-text>
@@ -113,7 +118,11 @@ export default {
                 let params = { urls: null }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.url) params.urls = this.url
-                if (this.directory) params.savepath = this.directory
+                if (this.directory) {
+                    params.savepath = this.directory
+                    params.autoTMM = false
+                }
+                if (this.skip_checking) params.skip_checking = this.skip_checking
 
                 qbit.addTorrents(params, torrents)
 
@@ -126,6 +135,7 @@ export default {
             this.url = null
             this.files = []
             this.directory = null
+            this.skip_checking = null
         }
     },
     computed: {
