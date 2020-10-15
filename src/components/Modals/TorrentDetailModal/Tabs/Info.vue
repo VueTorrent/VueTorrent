@@ -13,6 +13,12 @@
                                 {{ torrent.name }}
                             </td>
                         </tr>
+                        <tr>
+                            <td class="grey--text">Directory</td>
+                            <td class="torrentmodaltext--text">
+                                {{ torrent.savePath }}
+                            </td>
+                        </tr>
                         <tr style="margin-top: 10px !important">
                             <td class="grey--text">hash</td>
                             <td class="torrentmodaltext--text">
@@ -32,13 +38,25 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="grey--text">Download</td>
+                            <td class="grey--text">Uploaded:</td>
+                            <td class="torrentmodaltext--text">
+                                {{ torrent.uploaded }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="grey--text">Ratio</td>
+                            <td class="torrentmodaltext--text">
+                                {{ torrent.ratio }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="grey--text">Download Speed</td>
                             <td class="torrentmodaltext--text">
                                 {{ torrent.dlspeed }}
                             </td>
                         </tr>
                         <tr>
-                            <td class="grey--text">Upload</td>
+                            <td class="grey--text">Upload Speed</td>
                             <td class="torrentmodaltext--text">
                                 {{ torrent.upspeed }}
                             </td>
@@ -68,39 +86,21 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="grey--text">Ratio</td>
+                            <td class="grey--text">Added on</td>
                             <td class="torrentmodaltext--text">
-                                {{ torrent.ratio }}%
+                                {{ torrent.added_on }}
                             </td>
-                        </tr>
-                        <tr>
-                            <td class="grey--text">Tags</td>
-                            <td v-if="torrent.tags">
-                                {{ torrent.tags.join(',') }}
-                            </td>
-                            <td v-else>None</td>
                         </tr>
                         <tr>
                             <td class="grey--text">Status</td>
                             <v-chip
                                 small
-                                :class="`${torrent.state} white--text my-2 caption`"
+                                :class="`${torrent.state.toLowerCase()} white--text my-2 caption`"
                                 >{{ torrent.state }}</v-chip
                             >
                         </tr>
                     </tbody>
                 </v-simple-table>
-
-                <v-flex class="pt-3 pb-4">
-                    <v-progress-linear
-                        height="5"
-                        stream
-                        rounded
-                        color="cyan darken-1"
-                        background-color="cyan lighten-3"
-                        :buffer-value="torrent.progress"
-                    ></v-progress-linear>
-                </v-flex>
             </v-card-text>
         </perfect-scrollbar>
     </v-card>
