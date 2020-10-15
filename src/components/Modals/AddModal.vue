@@ -56,12 +56,13 @@
                                 </v-col>
                             </v-row>
 
-                            <v-select
+                            <v-combobox
                                 v-model="category"
                                 :items="availableCategories"
+                                clearable
                                 label="Category"
                                 prepend-icon="tag"
-                            ></v-select>
+                            ></v-combobox>
 
                             <v-text-field
                                 v-model="directory"
@@ -159,7 +160,11 @@ export default {
         },
         savepath() {
             let savePath = this.getSettings().save_path
-            if (this.category) savePath = this.getCategories()[this.category].savePath
+            if (this.category) {
+                savePath += this.category
+                let category_path = this.getCategories()[this.category].savePath
+                if (category_path) savePath = category_path
+            }
             return savePath
         },
         availableCategories() {
@@ -168,6 +173,7 @@ export default {
     },
     created() {
         this.$store.commit('FETCH_SETTINGS')
+        this.$store.commit('FETCH_CATEGORIES')
     }
 }
 </script>
