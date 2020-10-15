@@ -56,6 +56,13 @@
                                 </v-col>
                             </v-row>
 
+                            <v-select
+                                v-model="category"
+                                :items="availableCategories"
+                                label="Category"
+                                prepend-icon="tag"
+                            ></v-select>
+
                             <v-text-field
                                 v-model="directory"
                                 :placeholder="savepath"
@@ -98,7 +105,9 @@ export default {
     data() {
         return {
             files: [],
+            category: null,
             directory: '',
+            skip_checking: false,
             inputRules: [
                 v =>
                     v.indexOf('magnet') > -1 ||
@@ -115,9 +124,10 @@ export default {
         submit() {
             if (this.files.length || this.url) {
                 let torrents = []
-                let params = { urls: null }
+                let params = { urls: null, autoTMM: true }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.url) params.urls = this.url
+                if (this.category) params.category = this.category
                 if (this.directory) {
                     params.savepath = this.directory
                     params.autoTMM = false
@@ -134,12 +144,13 @@ export default {
         resetForm() {
             this.url = null
             this.files = []
+            this.category = null
             this.directory = null
             this.skip_checking = null
         }
     },
     computed: {
-        ...mapGetters(['getSettings']),
+        ...mapGetters(['getSettings', 'getCategories']),
         validFile() {
             return this.Files.length > 0
         },
@@ -147,8 +158,16 @@ export default {
             return this.$vuetify.breakpoint.xsOnly
         },
         savepath() {
-            return this.getSettings().savePath
+            let savePath = this.getSettings().save_path
+            if (this.category) savePath = this.getCategories()[this.category].savePath
+            return savePath
+        },
+        availableCategories() {
+            return Object.keys(this.getCategories())
         }
+    },
+    created() {
+        this.$store.commit('FETCH_SETTINGS')
     }
 }
 </script>
