@@ -299,6 +299,7 @@ class Qbit {
     // End Categories
 
     actionTorrents(action, hashes, extra) {
+        if (action == 'delete' && !hashes.length) return
         const params = {
             hashes: hashes.length ? hashes.join('|') : 'all',
             ...extra
