@@ -56,12 +56,25 @@
                                 </v-col>
                             </v-row>
 
+                            <v-combobox
+                                v-model="category"
+                                :items="availableCategories"
+                                clearable
+                                label="Category"
+                                prepend-icon="tag"
+                            ></v-combobox>
+
                             <v-text-field
                                 v-model="directory"
                                 :placeholder="savepath"
                                 label="Download Directory"
                                 prepend-icon="folder"
                             ></v-text-field>
+
+                            <v-checkbox
+                                v-model="skip_checking"
+                                label="Skip hash check"
+                            ></v-checkbox>
                         </v-container>
                     </v-form>
                 </v-card-text>
@@ -93,7 +106,9 @@ export default {
     data() {
         return {
             files: [],
+            category: null,
             directory: '',
+            skip_checking: false,
             inputRules: [
                 v =>
                     v.indexOf('magnet') > -1 ||
@@ -110,10 +125,15 @@ export default {
         submit() {
             if (this.files.length || this.url) {
                 let torrents = []
-                let params = { urls: null }
+                let params = { urls: null, autoTMM: true }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.url) params.urls = this.url
-                if (this.directory) params.savepath = this.directory
+                if (this.category) params.category = this.category
+                if (this.directory) {
+                    params.savepath = this.directory
+                    params.autoTMM = false
+                }
+                if (this.skip_checking) params.skip_checking = this.skip_checking
 
                 qbit.addTorrents(params, torrents)
 
@@ -125,11 +145,13 @@ export default {
         resetForm() {
             this.url = null
             this.files = []
+            this.category = null
             this.directory = null
+            this.skip_checking = null
         }
     },
     computed: {
-        ...mapGetters(['getSettings']),
+        ...mapGetters(['getSettings', 'getCategories']),
         validFile() {
             return this.Files.length > 0
         },
@@ -137,8 +159,21 @@ export default {
             return this.$vuetify.breakpoint.xsOnly
         },
         savepath() {
-            return this.getSettings().savePath
+            let savePath = this.getSettings().save_path
+            if (this.category) {
+                savePath += this.category
+                let category_path = this.getCategories()[this.category].savePath
+                if (category_path) savePath = category_path
+            }
+            return savePath
+        },
+        availableCategories() {
+            return Object.keys(this.getCategories())
         }
+    },
+    created() {
+        this.$store.commit('FETCH_SETTINGS')
+        this.$store.commit('FETCH_CATEGORIES')
     }
 }
 </script>
