@@ -26,35 +26,35 @@ export default class Torrent {
 
     formatState(state) {
         switch (state) {
-            case 'forceDL':
-            case 'downloading':
-                return 'busy'
-            case 'metaDL':
-                return 'metadata'
-            case 'forcedUP':
-            case 'uploading':
-            case 'stalledUP':
-                return 'seeding'
-            case 'pausedDL':
-                return 'paused'
-            case 'pausedUP':
-                return 'done'
-            case 'queuedDL':
-            case 'queuedUP':
-                return 'queued'
-            case 'allocating':
-            case 'checkingDL':
-            case 'checkingUP':
-            case 'checkingResumeData':
-            case 'moving':
-                return 'checking'
-            case 'unknown':
-            case 'missingFiles':
-                return 'fail'
-            case 'stalledDL':
-                return 'stalled'
-            default:
-                return 'fail'
+        case 'forceDL':
+        case 'downloading':
+            return 'busy'
+        case 'metaDL':
+            return 'metadata'
+        case 'forcedUP':
+        case 'uploading':
+        case 'stalledUP':
+            return 'seeding'
+        case 'pausedDL':
+            return 'paused'
+        case 'pausedUP':
+            return 'done'
+        case 'queuedDL':
+        case 'queuedUP':
+            return 'queued'
+        case 'allocating':
+        case 'checkingDL':
+        case 'checkingUP':
+        case 'checkingResumeData':
+        case 'moving':
+            return 'checking'
+        case 'unknown':
+        case 'missingFiles':
+            return 'fail'
+        case 'stalledDL':
+            return 'stalled'
+        default:
+            return 'fail'
         }
     }
 
