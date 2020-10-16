@@ -76,12 +76,12 @@ export default {
         },
         categoryFilter() {
             switch (this.selectedCategory) {
-                case 'All':
-                    return null
-                case 'Uncategorized':
-                    return ''
-                default:
-                    return this.selectedCategory
+            case 'All':
+                return null
+            case 'Uncategorized':
+                return ''
+            default:
+                return this.selectedCategory
             }
         },
         torrentCountString() {
