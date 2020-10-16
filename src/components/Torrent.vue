@@ -28,7 +28,7 @@
                     <span class="caption grey--text">%</span>
                 </div>
             </v-flex>
-            <v-flex xs6 sm2 md1>
+            <v-flex xs6 sm1 md1 :class="phoneLayout ? '' : 'mr-4'">
                 <div class="caption grey--text">Status</div>
                 <div>
                     <v-chip
@@ -54,7 +54,7 @@
                     {{ torrent.eta }}
                 </div>
             </v-flex>
-            <v-flex xs5 sm1 md1>
+            <v-flex xs6 sm1 md1>
                 <div class="caption grey--text">Download Speed</div>
                 <div>
                     {{ torrent.dlspeed | getDataValue }}
@@ -72,7 +72,7 @@
                     }}</span>
                 </div>
             </v-flex>
-            <v-flex xs5 sm1 md1>
+            <v-flex xs6 sm1 md1>
                 <div class="caption grey--text">Peers</div>
                 <div>
                     {{ torrent.num_leechs }}
@@ -152,6 +152,9 @@ export default {
             if (this.index === this.length) base += ' bottomBorderRadius'
             if (this.index === 0) base += ' topBorderRadius'
             return base
+        },
+        phoneLayout() {
+            return this.$vuetify.breakpoint.xsOnly
         }
     },
     methods: {

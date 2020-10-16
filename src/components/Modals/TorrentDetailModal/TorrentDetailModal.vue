@@ -16,7 +16,7 @@
                 <v-card-title class="pb-0 justify-center primary">
                     <h2 class="white--text">Torrent Detail</h2>
                 </v-card-title>
-                <v-tabs v-model="tab" background-color="primary" center-active>
+                <v-tabs v-model="tab" background-color="primary" dark fixed-tabs>
                     <v-tab href="#info">Info</v-tab>
                     <v-tab href="#trackers">Trackers</v-tab>
                     <v-tab href="#peers">Peers</v-tab>

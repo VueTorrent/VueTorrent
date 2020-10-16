@@ -2,8 +2,8 @@
     <v-card flat>
         <perfect-scrollbar>
             <v-card-text
-                class="pa-0"
-                style="font-size: 1.1em; max-height: 500px; min-height: 400px"
+                style="font-size: 1.1em; min-height: 400px;"
+                :style="{ maxHeight: phoneLayout ? '' : '500px' }"
             >
                 <v-simple-table>
                     <tbody>
@@ -117,6 +117,9 @@ export default {
         ...mapGetters(['getTorrent']),
         torrent() {
             return this.getTorrent(this.hash)
+        },
+        phoneLayout() {
+            return this.$vuetify.breakpoint.xsOnly
         }
     }
 }

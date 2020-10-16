@@ -92,13 +92,12 @@ export default {
     data() {
         return {
             input: '',
-            size: 15,
             pageNumber: 1
         }
     },
     computed: {
         ...mapState(['mainData']),
-        ...mapGetters(['getTorrents', 'getTorrentCountString']),
+        ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
             if (this.input.length === 0) return this.getTorrents()
 
@@ -117,14 +116,17 @@ export default {
             const fuse = new Fuse(this.getTorrents(), options)
             return fuse.search(this.input).map(el => el.item)
         },
+        paginationSize() {
+            return this.getWebuiSettings().paginationSize
+        },
         pageCount(){
             let l = this.torrents.length,
-                s = this.size
+                s = this.paginationSize
             return Math.ceil(l/s)
         },
         paginatedData(){
-            const start = (this.pageNumber - 1) * this.size,
-                end = start + this.size
+            const start = (this.pageNumber - 1) * this.paginationSize,
+                end = start + this.paginationSize
             return this.torrents.slice(start, end)
         },
         torrentCountString() {
