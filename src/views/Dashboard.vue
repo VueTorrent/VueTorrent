@@ -31,7 +31,7 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
-                <v-row xs12 justify="center">
+                <v-row v-if="pageCount > 1" xs12 justify="center">
                     <v-col>
                         <v-container>
                             <v-pagination
@@ -59,7 +59,7 @@
                         :length="torrents.length - 1"
                     />
                 </div>
-                <v-row xs12 justify="center">
+                <v-row v-if="pageCount > 1" xs12 justify="center">
                     <v-col>
                         <v-container>
                             <v-pagination
