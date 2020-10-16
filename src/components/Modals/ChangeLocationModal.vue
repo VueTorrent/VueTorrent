@@ -53,7 +53,7 @@ import { mapGetters } from 'vuex'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
-    name: 'TorrentLocationModal',
+    name: 'ChangeLocationModal',
     mixins: [Modal, FullScreenModal],
     props: {
         hash: String
@@ -65,6 +65,9 @@ export default {
     },
     computed: {
         ...mapGetters(['getTorrent']),
+        dialogWidth() {
+            return this.phoneLayout ? '100%' : '750px'
+        },
         torrent() {
             return this.getTorrent(this.hash)
         }

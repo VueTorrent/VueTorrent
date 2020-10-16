@@ -65,7 +65,7 @@ export default {
             qbit.pauseTorrents([this.hash])
         },
         directory() {
-            this.createModal('TorrentLocationModal', { hash: this.hash })
+            this.createModal('ChangeLocationModal', { hash: this.hash })
         },
         reannounce() {
             qbit.reannounceTorrents([this.hash])
