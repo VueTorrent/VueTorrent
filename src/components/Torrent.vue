@@ -21,13 +21,6 @@
                     }}</span>
                 </div>
             </v-flex>
-            <v-flex xs6 sm1 md1>
-                <div class="caption grey--text">Done</div>
-                <div>
-                    {{ torrent.progress }}
-                    <span class="caption grey--text">%</span>
-                </div>
-            </v-flex>
             <v-flex xs6 sm1 md1 :class="phoneLayout ? '' : 'mr-4'">
                 <div class="caption grey--text">Status</div>
                 <div>
@@ -41,6 +34,24 @@
                         {{ torrent.state }}
                     </v-chip>
                 </div>                        
+            </v-flex>
+            <v-flex xs12 sm1 md1>
+                <div class="caption grey--text">Done</div>
+                <v-progress-linear
+                    v-model="torrent.progress"
+                    height="20"
+                    style="width:80%;"
+                    :color="torrent.progress == 100 ? `teal lighten-1` : `orange lighten-1`"
+                >
+                    <span
+                        class="caption"
+                        :class="
+                            theme === 'light'
+                                ? `${state} white--text `
+                                : `${state} black--text`">
+                        {{ torrent.progress }}%
+                    </span>
+                </v-progress-linear>
             </v-flex>
             <v-flex xs6 sm1 md1>
                 <div class="caption grey--text">Ratio</div>
