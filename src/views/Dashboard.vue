@@ -93,7 +93,7 @@ export default {
         return {
             input: '',
             size: 15,
-            pageNumber: 1,
+            pageNumber: 1
         }
     },
     computed: {
@@ -119,13 +119,13 @@ export default {
         },
         pageCount(){
             let l = this.torrents.length,
-                s = this.size;
-            return Math.ceil(l/s);
+                s = this.size
+            return Math.ceil(l/s)
         },
         paginatedData(){
             const start = (this.pageNumber - 1) * this.size,
-                end = start + this.size;
-            return this.torrents.slice(start, end);
+                end = start + this.size
+            return this.torrents.slice(start, end)
         },
         torrentCountString() {
             return this.getTorrentCountString()
