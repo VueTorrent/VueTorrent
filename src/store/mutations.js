@@ -66,7 +66,7 @@ export default {
         state.sort_options.hashes = payload.hashes ? payload.hashes : state.sort_options.hashes
         state.sort_options.filter = payload.filter ? payload.filter : state.sort_options.filter
         state.sort_options.category =
-            payload.category !== null ? payload.category : state.sort_options.category
+            payload.category !== null ? payload.category : null
     },
     FETCH_CATEGORIES: async state => {
         const { data } = await qbit.getCategories()
