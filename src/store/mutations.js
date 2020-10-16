@@ -61,10 +61,10 @@ export default {
         state.settings = data
     },
     UPDATE_SORT_OPTIONS: (state, payload) => {
-        state.sort_options.sort = payload.name ? payload.name : null
-        state.sort_options.reverse = payload.reverse ? payload.reverse : null
-        state.sort_options.hashes = payload.hashes ? payload.hashes : null
-        state.sort_options.filter = payload.filter ? payload.filter : null
+        state.sort_options.sort = payload.name ? payload.name : state.sort_options.sort
+        state.sort_options.reverse = payload.reverse ? payload.reverse : state.sort_options.reverse
+        state.sort_options.hashes = payload.hashes ? payload.hashes : state.sort_options.hashes
+        state.sort_options.filter = payload.filter ? payload.filter : state.sort_options.filter
         state.sort_options.category =
             payload.category !== null ? payload.category : null
     },

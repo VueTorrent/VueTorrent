@@ -46,10 +46,10 @@ export default {
     mixins: [Modal],
     data() {
         return {
-            sortProperty: { value: '', name: 'Default' },
-            reverse: false,
+            sortProperty: { value: 'added_on', name: 'Default' },
+            reverse: true,
             options: [
-                { value: 'default', name: 'Default' },
+                { value: 'added_on', name: 'Default' },
                 { value: 'availability', name: 'Availability' },
                 { value: 'category', name: 'Category' },
                 { value: 'completed', name: 'Completed' },

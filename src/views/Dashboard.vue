@@ -23,6 +23,7 @@
                     clearable
                     solo
                     color="search"
+                    @click:clear="resetInput()"
                     v-model="input"
                 ></v-text-field>
             </v-flex>
@@ -30,9 +31,20 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
+                <v-row xs12 justify="center">
+                    <v-col>
+                        <v-container>
+                            <v-pagination
+                            v-model="pageNumber"
+                            :length="pageCount"
+                            :total-visible="7"
+                            ></v-pagination>
+                        </v-container>
+                    </v-col>
+                </v-row>
                 <div
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-                    v-for="(torrent, index) in torrents"
+                    v-for="(torrent, index) in paginatedData"
                     :key="torrent.hash"
                 >
                     <Torrent
@@ -47,6 +59,17 @@
                         :length="torrents.length - 1"
                     />
                 </div>
+                <v-row xs12 justify="center">
+                    <v-col>
+                        <v-container>
+                            <v-pagination
+                            v-model="pageNumber"
+                            :length="pageCount"
+                            :total-visible="7"
+                            ></v-pagination>
+                        </v-container>
+                    </v-col>
+                </v-row>
             </div>
         </v-container>
         <vue-context ref="menu" v-slot="{ data }">
@@ -68,12 +91,13 @@ export default {
     components: { Torrent, VueContext, TorrentRightClickMenu },
     data() {
         return {
-            input: ''
+            input: '',
+            pageNumber: 1
         }
     },
     computed: {
         ...mapState(['mainData']),
-        ...mapGetters(['getTorrents', 'getTorrentCountString']),
+        ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
             if (this.input.length === 0) return this.getTorrents()
 
@@ -92,6 +116,19 @@ export default {
             const fuse = new Fuse(this.getTorrents(), options)
             return fuse.search(this.input).map(el => el.item)
         },
+        paginationSize() {
+            return this.getWebuiSettings().paginationSize
+        },
+        pageCount(){
+            let l = this.torrents.length,
+                s = this.paginationSize
+            return Math.ceil(l/s)
+        },
+        paginatedData(){
+            const start = (this.pageNumber - 1) * this.paginationSize,
+                end = start + this.paginationSize
+            return this.torrents.slice(start, end)
+        },
         torrentCountString() {
             return this.getTorrentCountString()
         }
@@ -99,6 +136,9 @@ export default {
     methods: {
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
+        },
+        resetInput(){
+            this.input = ''
         }
     },
     created() {

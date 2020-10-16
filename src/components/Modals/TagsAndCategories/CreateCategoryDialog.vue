@@ -3,7 +3,7 @@
         <v-card>
             <v-container style="min-height: 200px" :class="`pa-0 project done`">
                 <v-card-title class="justify-center">
-                    <h2>Create New Category</h2>
+                    <h2>{{ hasInitialCategory ? 'Edit' : 'Create New' }} Category</h2>
                 </v-card-title>
 
                 <v-form ref="categoryForm" class="px-6 mt-3">
@@ -69,8 +69,7 @@ export default {
         hasInitialCategory() {
             return (
                 this.initialCategory &&
-                this.initialCategory.name &&
-                this.initialCategory.savePath
+                this.initialCategory.name
             )
         }
     },

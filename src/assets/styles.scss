@@ -20,7 +20,7 @@
 .sideborder.done {
     border-left: 4px solid #3cd1c2;
 }
-.sideborder.busy {
+.sideborder.downloading {
     border-left: 4px solid #ffaa2c;
 }
 .sideborder.fail {
@@ -47,7 +47,7 @@
 .v-chip.done {
     background: #3cd1c2 !important;
 }
-.v-chip.busy {
+.v-chip.downloading {
     background: #ffaa2c !important;
 }
 .v-chip.fail {
