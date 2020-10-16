@@ -18,7 +18,7 @@ export default class Torrent {
         this.available_seeds = data.num_complete
         this.available_peers = data.num_incomplete
         this.savePath = data.save_path
-        this.progress = data.progress * 100
+        this.progress = Math.round(data.progress * 100)
         this.ratio = Math.round(data.ratio * 100) / 100
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
         this.category = data.category
@@ -28,7 +28,7 @@ export default class Torrent {
         switch (state) {
             case 'forceDL':
             case 'downloading':
-                return 'Busy'
+                return 'Downloading'
             case 'metaDL':
                 return 'Metadata'
             case 'forcedUP':
