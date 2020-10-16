@@ -31,9 +31,19 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
+                <v-row justify="center">
+                    <v-col cols="5">
+                        <v-container class="max-width">
+                            <v-pagination
+                            v-model="pageNumber"
+                            :length="pageCount"
+                            ></v-pagination>
+                        </v-container>
+                    </v-col>
+                </v-row>
                 <div
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-                    v-for="(torrent, index) in torrents"
+                    v-for="(torrent, index) in paginatedData"
                     :key="torrent.hash"
                 >
                     <Torrent
@@ -48,6 +58,16 @@
                         :length="torrents.length - 1"
                     />
                 </div>
+                <v-row justify="center">
+                    <v-col cols="5">
+                        <v-container class="max-width">
+                            <v-pagination
+                            v-model="pageNumber"
+                            :length="pageCount"
+                            ></v-pagination>
+                        </v-container>
+                    </v-col>
+                </v-row>
             </div>
         </v-container>
         <vue-context ref="menu" v-slot="{ data }">
@@ -69,7 +89,9 @@ export default {
     components: { Torrent, VueContext, TorrentRightClickMenu },
     data() {
         return {
-            input: ''
+            input: '',
+            size: 15,
+            pageNumber: 1,
         }
     },
     computed: {
@@ -92,6 +114,16 @@ export default {
             }
             const fuse = new Fuse(this.getTorrents(), options)
             return fuse.search(this.input).map(el => el.item)
+        },
+        pageCount(){
+            let l = this.torrents.length,
+                s = this.size;
+            return Math.ceil(l/s);
+        },
+        paginatedData(){
+            const start = (this.pageNumber - 1) * this.size,
+                end = start + this.size;
+            return this.torrents.slice(start, end);
         },
         torrentCountString() {
             return this.getTorrentCountString()
