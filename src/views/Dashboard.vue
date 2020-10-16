@@ -31,12 +31,13 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
-                <v-row justify="center">
-                    <v-col cols="5">
-                        <v-container class="max-width">
+                <v-row xs12 justify="center">
+                    <v-col>
+                        <v-container>
                             <v-pagination
                             v-model="pageNumber"
                             :length="pageCount"
+                            :total-visible="7"
                             ></v-pagination>
                         </v-container>
                     </v-col>
@@ -58,12 +59,13 @@
                         :length="torrents.length - 1"
                     />
                 </div>
-                <v-row justify="center">
-                    <v-col cols="5">
-                        <v-container class="max-width">
+                <v-row xs12 justify="center">
+                    <v-col>
+                        <v-container>
                             <v-pagination
                             v-model="pageNumber"
                             :length="pageCount"
+                            :total-visible="7"
                             ></v-pagination>
                         </v-container>
                     </v-col>
