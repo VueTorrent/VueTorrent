@@ -8,9 +8,9 @@
         @dblclick.prevent="showInfo(torrent.hash)"
     >
         <v-layout row wrap :class="style">
-            <v-flex xs12 sm12 md12 class="mb-4">
+            <v-flex xs12 class="mb-4">
                 <div class="caption grey--text">Torrent title</div>
-                <div class="truncate">{{ torrent.name }}</div>
+                <div class="truncate mr-4">{{ torrent.name }}</div>
             </v-flex>
             <v-flex xs6 sm1 md1>
                 <div class="caption grey--text">Size</div>
@@ -35,12 +35,12 @@
                     </v-chip>
                 </div>                        
             </v-flex>
-            <v-flex xs12 sm1 md1>
+            <v-flex xs12 sm1 md1 :class="phoneLayout ? 'mr-4' : ''">
                 <div class="caption grey--text">Done</div>
                 <v-progress-linear
                     v-model="torrent.progress"
                     height="20"
-                    style="width:80%;"
+                    :style="phoneLayout ? '' : 'width: 80%;'"
                     :color="torrent.progress == 100 ? `teal lighten-1` : `orange lighten-1`"
                 >
                     <span

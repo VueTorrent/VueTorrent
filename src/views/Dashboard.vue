@@ -31,17 +31,6 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
-                <v-row v-if="pageCount > 1" xs12 justify="center">
-                    <v-col>
-                        <v-container>
-                            <v-pagination
-                            v-model="pageNumber"
-                            :length="pageCount"
-                            :total-visible="7"
-                            ></v-pagination>
-                        </v-container>
-                    </v-col>
-                </v-row>
                 <div
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
                     v-for="(torrent, index) in paginatedData"
@@ -66,6 +55,7 @@
                             v-model="pageNumber"
                             :length="pageCount"
                             :total-visible="7"
+                            @input="toTop"
                             ></v-pagination>
                         </v-container>
                     </v-col>
@@ -139,6 +129,9 @@ export default {
         },
         resetInput(){
             this.input = ''
+        },
+        toTop () {
+            this.$vuetify.goTo(0)
         }
     },
     created() {
