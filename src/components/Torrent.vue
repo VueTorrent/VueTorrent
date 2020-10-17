@@ -142,15 +142,6 @@ export default {
         length: Number
     },
     computed: {
-        chips() {
-            let chips = []
-
-            if (this.torrent.category.length > 0) {
-                chips.push(this.torrent.category)
-            }
-
-            return chips
-        },
         ...mapGetters(['getTheme']),
         theme() {
             return this.getTheme() ? 'dark' : 'light'

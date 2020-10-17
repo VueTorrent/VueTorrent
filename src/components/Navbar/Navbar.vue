@@ -92,7 +92,7 @@ export default {
     },
     data() {
         return {
-            drawer: !this.$vuetify.breakpoint.xsOnly
+            drawer: !this.$vuetify.breakpoint.smAndDown
         }
     },
 

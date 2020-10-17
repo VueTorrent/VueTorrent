@@ -43,6 +43,8 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 -   adding / removing / pausing / resuming torrents
 
+-   choosing / renaming torrent files
+
 -   filtering powered by Fuse.js!
 
 -   mobile friendly!

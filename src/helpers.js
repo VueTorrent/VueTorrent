@@ -81,6 +81,7 @@ export function treeify(paths) {
 
 function createFile(data, name, children) {
     return {
+        id: data.id,
         name: name,
         fullName: data.name,
         progress: Math.round(data.progress * 100),
