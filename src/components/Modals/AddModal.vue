@@ -175,10 +175,8 @@ export default {
             let savePath = this.getSettings().save_path
             if (this.category) {
                 savePath += this.category
-                if (this.availableCategories.includes(this.category)) {
-                    let category_path = this.getCategories()[this.category].savePath
-                    if (category_path) savePath = category_path
-                }
+                let category = this.getCategories()[this.category]
+                if (category && category.savePath) savePath = category.savePath
             }
             return savePath
         },
