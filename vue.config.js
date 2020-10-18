@@ -4,8 +4,8 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].title = "VueTorrent";
-                return args;
+                args[0].title = 'VueTorrent'
+                return args
             })
     },
     outputDir: 'vuetorrent/public',

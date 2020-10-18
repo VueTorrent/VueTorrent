@@ -4,7 +4,7 @@ build_and_copy(){
     npm run build
     VERSION=$(jq -r .version package.json)
     mkdir ../vuetorrent-release
-    git clone https://github.com/muertocaloh/VueTorrent.git ../vuetorrent-release
+    git clone https://github.com/wdaan/VueTorrent.git ../vuetorrent-release
     cd ../vuetorrent-release
     git checkout latest-release
     git pull

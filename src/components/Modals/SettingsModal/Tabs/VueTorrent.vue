@@ -51,6 +51,16 @@
                                     Global Remove/Resume/Pause Buttons</template
                                 >
                             </v-switch>
+                          <v-switch
+                              class="v-input--reverse v-input--expand pa-0 ma-0"
+                              inset
+                              v-model="denseDashboard"
+                              color="green_accent"
+                          >
+                            <template #label>
+                              Dense version of the dasbhoard</template
+                            >
+                          </v-switch>
                             <v-row dense>
                                 <v-col cols="10" sm="10" md="10">
                                     <p class="subtitle-1">Pagination size:</p>
@@ -130,6 +140,14 @@ export default {
             },
             set(val) {
                 this.webuiSettings.showGlobalRemoveResumePause = val
+            }
+        },
+        denseDashboard: {
+            get() {
+                return this.webuiSettings.denseDashboard
+            },
+            set(val) {
+                this.webuiSettings.denseDashboard = val
             }
         },
         paginationSize: {
