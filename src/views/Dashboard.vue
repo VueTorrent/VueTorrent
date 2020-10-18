@@ -10,9 +10,9 @@
             </p>
         </h1>
 
-        <v-container
+        <div
             color="background"
-            class="my-4 pt-5 pa-0"
+            class="my-4 pt-5 px-8"
             @click.self="resetSelected"
         >
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
@@ -36,7 +36,7 @@
                     v-for="(torrent, index) in paginatedData"
                     :key="torrent.hash"
                 >
-                    <Torrent
+                    <Torrent v-if="!denseDashboard"
                         :class="{
                             topBorderRadius: index === 0,
                             noBorderRadius:
@@ -47,6 +47,17 @@
                         :index="index"
                         :length="torrents.length - 1"
                     />
+                  <TorrentDense v-if="denseDashboard"
+                           :class="{
+                            topBorderRadius: index === 0,
+                            noBorderRadius:
+                                index !== 0 && index !== torrent.length - 1,
+                            bottomBorderRadius: index === torrents.length - 1
+                        }"
+                           :torrent="torrent"
+                           :index="index"
+                           :length="torrents.length - 1"
+                  />
                 </div>
                 <v-row v-if="pageCount > 1" xs12 justify="center">
                     <v-col>
@@ -61,7 +72,7 @@
                     </v-col>
                 </v-row>
             </div>
-        </v-container>
+        </div>
         <vue-context ref="menu" v-slot="{ data }">
             <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
         </vue-context>
@@ -71,6 +82,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Torrent from '@/components/Torrent'
+import TorrentDense from '@/components/TorrentDense'
 import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
@@ -78,7 +90,7 @@ import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vu
 
 export default {
     name: 'Dashboard',
-    components: { Torrent, VueContext, TorrentRightClickMenu },
+    components: { Torrent, TorrentDense, VueContext, TorrentRightClickMenu },
     data() {
         return {
             input: '',
@@ -121,6 +133,9 @@ export default {
         },
         torrentCountString() {
             return this.getTorrentCountString()
+        },
+        denseDashboard(){
+            return this.getWebuiSettings().denseDashboard
         }
     },
     methods: {

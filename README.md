@@ -8,16 +8,24 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 <p  align="center">
 
-<a  href="https://imgur.com/fiOzVSu.png"><img  src="https://imgur.com/fiOzVSu.png"  title="Dashboard"  alt="Dashboard Screenshot" ></a>
+<a  href="https://imgur.com/hpjuVYb.png"><img  src="https://imgur.com/hpjuVYb.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
 
 </p>
 
 |                                                                                                    |                                                                                                    |                                                                                                    |
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| <img width="1604" alt="Torrent Details" src="https://imgur.com/ObJQaIj.png"> | <img width="1604" alt="Context menu" src="https://imgur.com/hGDi2In.png"> | <img width="1604" alt="Settings" src="https://imgur.com/AdTJ020.png"> |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/Zcm98H3.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OujrH0f.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OkukwYY.png"> |
+| <img width="1604" alt="screen shot 2017-015 pm" src="https://imgur.com/QYpNCXs.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/6j5wxhl.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/jnzDKjW.png"> |
+
+<p  align="center">
+<a  href="https://imgur.com/U3mes8r.png"><img  src="https://imgur.com/c5i63Yz.jpg"  title="Desktop" width="300"  alt="Mobile" >
+</a>
+</p>
 
 
 ## Installation
+
+### manual
 
 -   Visit the releases page!
 
@@ -26,6 +34,12 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 -   Unzip this folder
 
 -   Point your Alternate WEBUI location to the 'vuetorrent' folder
+
+### 'automatic'
+
+- head over to the 'latest_release' branch
+- clone it
+- pull every once in a while
 
 ## Development
 
@@ -39,15 +53,15 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 -   viewing sessions status ( down / upload speed, session uploaded / downloaded )
 
--   paginating torrent list to make it lightest!
+-   adding / removing / pausing / resuming / renaming torrents
 
--   adding / removing / pausing / resuming torrents
+-   selectively downloading torrents
 
 -   choosing / renaming torrent files
 
 -   filtering powered by Fuse.js!
 
--   mobile friendly!
+-   mobile friendly! (can be installed as a PWA)
 
 -   torrent info / trackers / peers / content
 
@@ -63,12 +77,16 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 I'll gladly accept help/pull requests & advice!
 
-## FAQ
+## Support
 
--   **Why build this??**
+*   Open up an issue 😛
 
--   Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
+[<img  src="https://cdn.buymeacoffee.com/buttons/lato-blue.png"  alt="drawing"  width="180"/>](https://www.buymeacoffee.com/wdaan 'Buy me a coffee')
 
 ## Credits
 
--   Original repo [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent)
+- Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
+
+- This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+
+- Muertocaloh's [fork](https://github.com/muertocaloh/VueTorrent)

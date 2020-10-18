@@ -26,7 +26,6 @@ export default class Torrent {
 
     formatState(item) {
         if (!item.tracker) return 'Fail'
-
         switch (item.state) {
         case 'forceDL':
         case 'downloading':

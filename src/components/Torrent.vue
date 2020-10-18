@@ -10,7 +10,7 @@
         <v-layout row wrap :class="style">
             <v-flex xs12 class="mb-4">
                 <div class="caption grey--text">Torrent title</div>
-                <div class="truncate mr-4">{{ torrent.name }}</div>
+                <div class="truncate">{{ torrent.name }}</div>
             </v-flex>
             <v-flex xs6 sm1 md1>
                 <div class="caption grey--text">Size</div>
@@ -21,34 +21,16 @@
                     }}</span>
                 </div>
             </v-flex>
-            <v-flex xs6 sm1 md1 :class="phoneLayout ? '' : 'mr-4'">
-                <div class="caption grey--text">Status</div>
-                <div>
-                    <v-chip
-                        small
-                        class="caption"
-                        :class="
-                            theme === 'light'
-                                ? `${state} white--text `
-                                : `${state} black--text`">
-                        {{ torrent.state }}
-                    </v-chip>
-                </div>                        
-            </v-flex>
-            <v-flex xs12 sm1 md1 :class="phoneLayout ? 'mr-4' : ''">
+            <v-flex xs12 sm1 md1 class="mr-4">
                 <div class="caption grey--text">Done</div>
                 <v-progress-linear
+                    v-model="torrent.progress"
                     height="20"
-                    :value="torrent.progress"
                     :style="phoneLayout ? '' : 'width: 80%;'"
-                    :color="torrent.progress == 100 ? `teal lighten-1` : `orange lighten-1`"
-                >
+                    :color="`torrent-${state}-color`" >
                     <span
                         class="caption"
-                        :class="
-                            theme === 'light'
-                                ? `${state} white--text `
-                                : `${state} black--text`">
+                    >
                         {{ torrent.progress }}%
                     </span>
                 </v-progress-linear>
@@ -66,7 +48,7 @@
                 </div>
             </v-flex>
             <v-flex xs6 sm1 md1>
-                <div class="caption grey--text">Download Speed</div>
+                <div class="caption grey--text">Download</div>
                 <div>
                     {{ torrent.dlspeed | getDataValue }}
                     <span class="caption grey--text">{{
@@ -75,7 +57,7 @@
                 </div>
             </v-flex>
             <v-flex xs6 sm1 md1>
-                <div class="caption grey--text">Upload Speed</div>
+                <div class="caption grey--text">Upload</div>
                 <div>
                     {{ torrent.upspeed | getDataValue }}
                     <span class="caption grey--text">{{
@@ -101,26 +83,41 @@
                     >
                 </div>
             </v-flex>
-            <v-flex v-if="torrent.category" xs3 sm1 md1>
-                <div class="caption grey--text">Category</div>
-                <v-chip small class="upload white--text caption">
-                    {{ torrent.category }}
-                </v-chip>
-            </v-flex>
-
-            <!-- labels -->
-            <v-flex v-for="tag in torrent.tags" :key="tag" xs3 sm1 md1>
-                <v-chip
+          <v-flex xs6 sm1 md1 :class="phoneLayout ? '' : 'mr-4'">
+            <div class="caption grey--text">Status</div>
+              <v-chip
+                  small
+                  class="caption"
+                  :class="
+                            theme === 'light'
+                                ? `${state} white--text `
+                                : `${state}  black--text`">
+                {{ torrent.state }}
+              </v-chip>
+          </v-flex>
+          <!-- Category -->
+          <v-flex v-if="torrent.category" xs4 sm1 md1>
+            <div class="caption grey--text">Category</div>
+            <v-chip small class="upload white--text caption">
+              {{ torrent.category }}
+            </v-chip>
+          </v-flex>
+            <!-- Tags -->
+            <v-flex xs12 sm1>
+              <div class="caption grey--text">Tags</div>
+              <v-row wrap class="ma-0">
+                <v-chip v-for="tag in torrent.tags" :key="tag"
                     small
                     :class="
                         theme === 'light'
                             ? 'white--text'
                             : 'black--text'
                     "
-                    class="download my-2 caption"
+                    class="download caption mb-1 mx-1"
                 >
                     {{ tag }}
                 </v-chip>
+              </v-row>
             </v-flex>
         </v-layout>
         <v-divider v-if="index !== length"></v-divider>
@@ -128,52 +125,11 @@
 </template>
 
 <script>
-import { General } from '@/mixins'
-
-import { mapGetters } from 'vuex'
+import { General, Torrent } from '@/mixins'
 
 export default {
     name: 'Torrent',
-    mixins: [General],
-
-    props: {
-        torrent: Object,
-        index: Number,
-        length: Number
-    },
-    computed: {
-        ...mapGetters(['getTheme']),
-        theme() {
-            return this.getTheme() ? 'dark' : 'light'
-        },
-        state() {
-            return this.torrent.state.toLowerCase()
-        },
-        style() {
-            let base = `pa-4 ml-0 sideborder ${this.state} `
-            if (this.index === this.length) base += ' bottomBorderRadius'
-            if (this.index === 0) base += ' topBorderRadius'
-            return base
-        },
-        phoneLayout() {
-            return this.$vuetify.breakpoint.xsOnly
-        }
-    },
-    methods: {
-        selectTorrent(hash) {
-            if (this.containsTorrent(hash)) {
-                this.$store.commit('SET_SELECTED', { type: 'remove', hash })
-            } else {
-                this.$store.commit('SET_SELECTED', { type: 'add', hash })
-            }
-        },
-        containsTorrent(hash) {
-            return this.$store.getters.containsTorrent(hash)
-        },
-        showInfo(hash) {
-            this.createModal('TorrentDetailModal', { hash })
-        }
-    }
+    mixins: [General, Torrent]
 }
 </script>
 
