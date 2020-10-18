@@ -15,7 +15,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 |                                                                                                    |                                                                                                    |                                                                                                    |
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
 | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/Zcm98H3.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OujrH0f.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OkukwYY.png"> |
-| <img width="1604" alt="screen shot 2017-015 pm" src="https://imgur.com/QYpNCXs.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/8xpNPhf.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/jnzDKjW.png"> |
+| <img width="1604" alt="screen shot 2017-015 pm" src="https://imgur.com/QYpNCXs.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/6j5wxhl.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/jnzDKjW.png"> |
 
 <p  align="center">
 <a  href="https://imgur.com/U3mes8r.png"><img  src="https://imgur.com/c5i63Yz.jpg"  title="Desktop" width="300"  alt="Mobile" >
