@@ -1,6 +1,6 @@
 # VueTorrent
 
-The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent)
+The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 > Vue, qBitorrent, Vuetify
 
@@ -45,9 +45,11 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 -   clone the repo
 
-*   npm install
+-   npm install
 
 -   npm run serve
+
+-   docker-compose up -d (to start qbittorrent docker)
 
 ## Features
 
@@ -56,8 +58,6 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 -   adding / removing / pausing / resuming / renaming torrents
 
 -   selectively downloading torrents
-
--   choosing / renaming torrent files
 
 -   filtering powered by Fuse.js!
 
