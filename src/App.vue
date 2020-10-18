@@ -28,7 +28,9 @@ export default {
     methods: {
         async checkAuthenticated() {
             const res = await qbit.login()
-            this.$store.commit('LOGIN', res === 'Ok.')
+            const authenticated = res === 'Ok.'
+            this.$store.commit('LOGIN', authenticated)
+            if (!authenticated && this.$router.currentRoute.name !== 'login') this.$router.push('login')
         }
     },
     computed: {

@@ -11,6 +11,7 @@
                             <v-row no-gutters>
                                 <v-col ref="fileZone">
                                     <v-file-input
+                                        v-if="!url"
                                         v-model="files"
                                         color="deep-purple accent-4"
                                         counter
@@ -44,6 +45,7 @@
                                         </template>
                                     </v-file-input>
                                     <v-text-field
+                                        v-if="files.length == 0"
                                         label="URL"
                                         prepend-icon="mdi-link"
                                         :rows="
@@ -62,19 +64,29 @@
                                 clearable
                                 label="Category"
                                 prepend-icon="tag"
+                                @input="categoryChanged"
                             ></v-combobox>
 
                             <v-text-field
+                                :disabled="autoTMM"
                                 v-model="directory"
-                                :placeholder="savepath"
                                 label="Download Directory"
                                 prepend-icon="folder"
                             ></v-text-field>
-
-                            <v-checkbox
-                                v-model="skip_checking"
-                                label="Skip hash check"
-                            ></v-checkbox>
+                            <v-row no-gutters>
+                                <v-flex xs12 sm6>
+                                    <v-checkbox
+                                        v-model="autoTMM"
+                                        label="Automatic Torrent Management"
+                                    ></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6>
+                                    <v-checkbox
+                                        v-model="skip_checking"
+                                        label="Skip hash check"
+                                    ></v-checkbox>
+                                </v-flex>
+                            </v-row>
                         </v-container>
                     </v-form>
                 </v-card-text>
@@ -108,6 +120,7 @@ export default {
             files: [],
             category: null,
             directory: '',
+            autoTMM: true,
             skip_checking: false,
             inputRules: [
                 v =>
@@ -125,14 +138,11 @@ export default {
         submit() {
             if (this.files.length || this.url) {
                 let torrents = []
-                let params = { urls: null, autoTMM: true }
+                let params = { urls: null, autoTMM: this.autoTMM }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.url) params.urls = this.url
                 if (this.category) params.category = this.category
-                if (this.directory) {
-                    params.savepath = this.directory
-                    params.autoTMM = false
-                }
+                if (!this.autoTMM) params.savepath = this.directory
                 if (this.skip_checking) params.skip_checking = this.skip_checking
 
                 qbit.addTorrents(params, torrents)
@@ -141,6 +151,9 @@ export default {
 
                 this.$store.commit('DELETE_MODAL', this.guid)
             }
+        },
+        categoryChanged() {
+            if (this.autoTMM) this.directory = this.savepath
         },
         resetForm() {
             this.url = null
@@ -162,8 +175,8 @@ export default {
             let savePath = this.getSettings().save_path
             if (this.category) {
                 savePath += this.category
-                let category_path = this.getCategories()[this.category].savePath
-                if (category_path) savePath = category_path
+                let category = this.getCategories()[this.category]
+                if (category && category.savePath) savePath = category.savePath
             }
             return savePath
         },
@@ -174,6 +187,7 @@ export default {
     created() {
         this.$store.commit('FETCH_SETTINGS')
         this.$store.commit('FETCH_CATEGORIES')
+        this.directory = this.savepath
     }
 }
 </script>

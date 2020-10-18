@@ -31,8 +31,8 @@ export default new Vuex.Store({
         selected_torrents: [],
         authenticated: false,
         sort_options: {
-            sort: 'name',
-            reverse: false,
+            sort: 'default',
+            reverse: true,
             hashes: [],
             filter: null
         },
@@ -46,7 +46,8 @@ export default new Vuex.Store({
             showSpeedGraph: true,
             showSessionStat: true,
             showCurrentSpeed: true,
-            showGlobalRemoveResumePause: true
+            showGlobalRemoveResumePause: true,
+            paginationSize: 15
         },
         categories: [],
         filteredTorrentsCount: 0

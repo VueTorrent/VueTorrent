@@ -52,6 +52,19 @@
                                 >
                             </v-switch>
                             <v-row dense>
+                                <v-col cols="10" sm="10" md="10">
+                                    <p class="subtitle-1">Pagination size:</p>
+                                </v-col>
+                                <v-col cols="2" sm="2" md="2">
+                                    <v-select
+                                        class="pa-0 ma-0"
+                                        color="green_accent"
+                                        :items="paginationSizes"
+                                        v-model="paginationSize"
+                                    ></v-select>
+                                </v-col>
+                            </v-row>
+                            <v-row dense>
                                 <v-col cols="10" sm="10" md="11">
                                     <p class="subtitle-1">Current Version:</p>
                                 </v-col>
@@ -71,6 +84,11 @@
 import { mapState, mapGetters } from 'vuex'
 export default {
     name: 'VueTorrent',
+    data() {
+        return {
+            paginationSizes: [5, 15, 30, 50]
+        }
+    },
     computed: {
         ...mapState(['webuiSettings']),
         ...mapGetters(['getAppVersion']),
@@ -112,6 +130,14 @@ export default {
             },
             set(val) {
                 this.webuiSettings.showGlobalRemoveResumePause = val
+            }
+        },
+        paginationSize: {
+            get() {
+                return this.webuiSettings.paginationSize
+            },
+            set(val) {
+                this.webuiSettings.paginationSize = val
             }
         },
         version() {

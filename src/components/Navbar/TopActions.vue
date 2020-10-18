@@ -93,6 +93,7 @@ export default {
         },
         removeTorrents() {
             qbit.deleteTorrents(this.selected_torrents, false)
+            this.$store.commit('RESET_SELECTED')
         },
         addModal(name) {
             this.createModal(name)

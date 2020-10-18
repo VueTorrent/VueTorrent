@@ -20,10 +20,16 @@
             >
         </v-list-item>
         <v-divider />
+        <v-list-item @click="directory" link>
+            <v-icon>folder</v-icon>
+            <v-list-item-title class="ml-2" style="font-size: 15px"
+                >Change location</v-list-item-title
+            >
+        </v-list-item>
         <v-list-item @click="reannounce" link>
             <v-icon>record_voice_over</v-icon>
             <v-list-item-title class="ml-2" style="font-size: 15px"
-                >reannounce</v-list-item-title
+                >Reannounce</v-list-item-title
             >
         </v-list-item>
         <v-divider />
@@ -57,6 +63,9 @@ export default {
         },
         pause() {
             qbit.pauseTorrents([this.hash])
+        },
+        directory() {
+            this.createModal('ChangeLocationModal', { hash: this.hash })
         },
         reannounce() {
             qbit.reannounceTorrents([this.hash])
