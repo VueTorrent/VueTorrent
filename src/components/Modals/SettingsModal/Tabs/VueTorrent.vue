@@ -75,19 +75,6 @@
                                 </v-col>
                             </v-row>
                             <v-row dense>
-                                <v-col cols="10" sm="10" md="10">
-                                    <p class="subtitle-1">Pagination size:</p>
-                                </v-col>
-                                <v-col cols="2" sm="2" md="2">
-                                    <v-select
-                                        class="pa-0 ma-0"
-                                        color="green_accent"
-                                        :items="paginationSizes"
-                                        v-model="paginationSize"
-                                    ></v-select>
-                                </v-col>
-                            </v-row>
-                            <v-row dense>
                                 <v-col cols="10" sm="10" md="11">
                                     <p class="subtitle-1">Current Version:</p>
                                 </v-col>

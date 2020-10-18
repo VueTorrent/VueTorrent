@@ -49,11 +49,7 @@
     background: #{$torrent-done} !important;
 }
 .v-chip.downloading {
-<<<<<<< HEAD
-    background: #ffaa2c !important;
-=======
     background: #{$torrent-downloading} !important;
->>>>>>> dashboard
 }
 .v-chip.fail {
     background: #{$torrent-fail}!important;
