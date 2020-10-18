@@ -89,7 +89,7 @@ export default {
         ...mapState(['mainData']),
         ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
-            if (this.input.length === 0) return this.getTorrents()
+            if (!this.input || !this.input.length) return this.getTorrents()
 
             const options = {
                 threshold: 0.3,

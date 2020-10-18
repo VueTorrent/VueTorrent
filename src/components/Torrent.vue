@@ -38,8 +38,8 @@
             <v-flex xs12 sm1 md1 :class="phoneLayout ? 'mr-4' : ''">
                 <div class="caption grey--text">Done</div>
                 <v-progress-linear
-                    v-model="torrent.progress"
                     height="20"
+                    :value="torrent.progress"
                     :style="phoneLayout ? '' : 'width: 80%;'"
                     :color="torrent.progress == 100 ? `teal lighten-1` : `orange lighten-1`"
                 >
