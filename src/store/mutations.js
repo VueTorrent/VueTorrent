@@ -52,7 +52,7 @@ export default {
 
         let { data } = await qbit.getTorrents(state.sort_options)
         if (state.sort_options.tracker !== null)
-            data = data.filter(d => getHostName(d.tracker) != state.sort_options.tracker)
+            data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
 
         // torrents
         state.torrents = []
