@@ -10,9 +10,9 @@
             </p>
         </h1>
 
-        <v-container
+        <div
             color="background"
-            class="my-4 pt-5 pa-0"
+            class="my-4 pt-5 px-8"
             @click.self="resetSelected"
         >
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
@@ -23,6 +23,7 @@
                     clearable
                     solo
                     color="search"
+                    @click:clear="resetInput()"
                     v-model="input"
                 ></v-text-field>
             </v-flex>
@@ -32,10 +33,10 @@
             <div v-else>
                 <div
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-                    v-for="(torrent, index) in torrents"
+                    v-for="(torrent, index) in paginatedData"
                     :key="torrent.hash"
                 >
-                    <Torrent
+                    <Torrent v-if="!denseDashboard"
                         :class="{
                             topBorderRadius: index === 0,
                             noBorderRadius:
@@ -46,9 +47,32 @@
                         :index="index"
                         :length="torrents.length - 1"
                     />
+                  <TorrentDense v-if="denseDashboard"
+                           :class="{
+                            topBorderRadius: index === 0,
+                            noBorderRadius:
+                                index !== 0 && index !== torrent.length - 1,
+                            bottomBorderRadius: index === torrents.length - 1
+                        }"
+                           :torrent="torrent"
+                           :index="index"
+                           :length="torrents.length - 1"
+                  />
                 </div>
+                <v-row v-if="pageCount > 1" xs12 justify="center">
+                    <v-col>
+                        <v-container>
+                            <v-pagination
+                            v-model="pageNumber"
+                            :length="pageCount"
+                            :total-visible="7"
+                            @input="toTop"
+                            ></v-pagination>
+                        </v-container>
+                    </v-col>
+                </v-row>
             </div>
-        </v-container>
+        </div>
         <vue-context ref="menu" v-slot="{ data }">
             <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
         </vue-context>
@@ -58,6 +82,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Torrent from '@/components/Torrent'
+import TorrentDense from '@/components/TorrentDense'
 import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
@@ -65,17 +90,18 @@ import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vu
 
 export default {
     name: 'Dashboard',
-    components: { Torrent, VueContext, TorrentRightClickMenu },
+    components: { Torrent, TorrentDense, VueContext, TorrentRightClickMenu },
     data() {
         return {
-            input: ''
+            input: '',
+            pageNumber: 1
         }
     },
     computed: {
         ...mapState(['mainData']),
-        ...mapGetters(['getTorrents', 'getTorrentCountString']),
+        ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
-            if (this.input.length === 0) return this.getTorrents()
+            if (!this.input || !this.input.length) return this.getTorrents()
 
             const options = {
                 threshold: 0.3,
@@ -92,13 +118,35 @@ export default {
             const fuse = new Fuse(this.getTorrents(), options)
             return fuse.search(this.input).map(el => el.item)
         },
+        paginationSize() {
+            return this.getWebuiSettings().paginationSize
+        },
+        pageCount(){
+            let l = this.torrents.length,
+                s = this.paginationSize
+            return Math.ceil(l/s)
+        },
+        paginatedData(){
+            const start = (this.pageNumber - 1) * this.paginationSize,
+                end = start + this.paginationSize
+            return this.torrents.slice(start, end)
+        },
         torrentCountString() {
             return this.getTorrentCountString()
+        },
+        denseDashboard(){
+            return this.getWebuiSettings().denseDashboard
         }
     },
     methods: {
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
+        },
+        resetInput(){
+            this.input = ''
+        },
+        toTop () {
+            this.$vuetify.goTo(0)
         }
     },
     created() {

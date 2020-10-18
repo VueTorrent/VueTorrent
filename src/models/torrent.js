@@ -2,68 +2,127 @@ export default class Torrent {
     constructor(data) {
         this.name = data.name
         this.size = this.formatBytes(data.size)
-        this.birth = new Date(data.added_on * 1000).toLocaleString()
-        this.dlspeed = this.formatBytes(data.dlspeed, 1)
+        this.added_on = new Date(data.added_on * 1000).toLocaleString()
+        this.dlspeed = this.formatBytes(data.dlspeed, 1) + '/s'
         this.dloaded = this.formatBytes(data.completed)
-        this.upspeed = this.formatBytes(data.upspeed, 1)
+        this.upspeed = this.formatBytes(data.upspeed, 1) + '/s'
         this.uploaded = this.formatBytes(data.uploaded)
-        this.eta = data.eta
+        this.eta = this.formatEta(data.eta)
         this.num_leechs = data.num_leechs
         this.num_seeds = data.num_seeds
         this.path = data.path === undefined ? '/downloads' : data.path
-        this.state = this.formatState(data.state)
+        this.state = this.formatState(data)
         // hash is used to identify
         this.hash = data.hash
         // available seeds
         this.available_seeds = data.num_complete
         this.available_peers = data.num_incomplete
         this.savePath = data.save_path
-        this.progress = data.progress * 100
-        this.ratio = Math.round(data.ratio * 100)
+        this.progress = Math.round(data.progress * 10000) / 100
+        this.ratio = Math.round(data.ratio * 100) / 100
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
         this.category = data.category
     }
 
-    formatState(state) {
-        switch (state) {
+    formatState(item) {
+        if (!item.tracker) return 'Fail'
+        switch (item.state) {
         case 'forceDL':
         case 'downloading':
-            return 'busy'
+            return 'Downloading'
         case 'metaDL':
-            return 'metadata'
+            return 'Metadata'
         case 'forcedUP':
         case 'uploading':
         case 'stalledUP':
-            return 'seeding'
+            return 'Seeding'
         case 'pausedDL':
-            return 'paused'
+            return 'Paused'
         case 'pausedUP':
-            return 'done'
+            return 'Done'
         case 'queuedDL':
         case 'queuedUP':
-            return 'queued'
+            return 'Queued'
         case 'allocating':
         case 'checkingDL':
         case 'checkingUP':
         case 'checkingResumeData':
         case 'moving':
-            return 'checking'
+            return 'Checking'
         case 'unknown':
         case 'missingFiles':
-            return 'fail'
+            return 'Fail'
         case 'stalledDL':
-            return 'stalled'
+            return 'Stalled'
         default:
-            return 'fail'
+            return 'Fail'
         }
     }
 
     formatBytes(a, b) {
-        if (a == 0) return '0 Bytes'
+        if (a == 0) return '0 B'
         const c = 1024
         const d = b || 2
-        const e = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+        const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
         const f = Math.floor(Math.log(a) / Math.log(c))
         return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
+    }
+
+    formatEta(value) {
+        let options = { dayLimit: 100 }
+        const minute = 60
+        const hour = minute * 60
+        const day = hour * 24
+        const year = day * 365
+
+        const durations = [year, day, hour, minute, 1]
+        const units = 'ydhms'
+
+        let index = 0
+        let unitSize = 0
+        const parts = []
+
+        const defaultOptions = {
+            maxUnitSize: 2,
+            dayLimit: 0,
+            minUnit: 0
+        }
+
+        const opt = options
+            ? Object.assign(defaultOptions, options)
+            : defaultOptions
+
+        if (opt.dayLimit && value >= opt.dayLimit * day) {
+            return '∞'
+        }
+
+        while (
+            (!opt.maxUnitSize || unitSize !== opt.maxUnitSize) &&
+            index !== durations.length
+        ) {
+            const duration = durations[index]
+            if (value < duration) {
+                index++
+                continue
+            } else if (
+                opt.minUnit &&
+                durations.length - index <= opt.minUnit
+            ) {
+                break
+            }
+
+            const result = Math.floor(value / duration)
+            parts.push(result + units[index])
+
+            value %= duration
+            index++
+            unitSize++
+        }
+
+        if (!parts.length) {
+            return '0' + units[durations.length - 1 - opt.minUnit]
+        }
+
+        return parts.join(' ')
     }
 }

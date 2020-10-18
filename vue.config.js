@@ -1,5 +1,13 @@
 const webpack = require('webpack')
 module.exports = {
+    chainWebpack: config => {
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0].title = 'VueTorrent'
+                return args
+            })
+    },
     outputDir: 'vuetorrent/public',
     publicPath: './',
     transpileDependencies: ['vuetify'],

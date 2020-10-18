@@ -214,6 +214,16 @@ class Qbit {
         })
     }
 
+    renameFile(hash, id, name) {
+        const params = {
+            hash,
+            id,
+            name
+        }
+        const data = new URLSearchParams(params)
+        return this.axios.post('/torrents/renameFile', data)
+    }
+
     getAvailableTags() {
         return this.axios.get('/torrents/tags')
     }
@@ -299,6 +309,7 @@ class Qbit {
     // End Categories
 
     actionTorrents(action, hashes, extra) {
+        if (action == 'delete' && !hashes.length) return
         const params = {
             hashes: hashes.length ? hashes.join('|') : 'all',
             ...extra

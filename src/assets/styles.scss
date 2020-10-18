@@ -1,4 +1,5 @@
 @import '~vuetify/src/styles/styles.sass';
+@import '../styles/variables.scss';
 
 @mixin dialog-title {
     @include theme(v-card) using($material) {
@@ -18,58 +19,58 @@
 }
 
 .sideborder.done {
-    border-left: 4px solid #3cd1c2;
+    border-left: 4px solid #{$torrent-done};
 }
-.sideborder.busy {
-    border-left: 4px solid #ffaa2c;
+.sideborder.downloading {
+    border-left: 4px solid #{$torrent-downloading};
 }
 .sideborder.fail {
-    border-left: 4px solid #f83e70;
+    border-left: 4px solid #{$torrent-fail};
 }
 .sideborder.paused {
-    border-left: 4px solid #cfd8dc;
+    border-left: 4px solid #{$torrent-paused};
 }
 .sideborder.queued {
-    border-left: 4px solid #2e5eaa;
+    border-left: 4px solid #{$torrent-queued};
 }
 .sideborder.seeding {
-    border-left: 4px solid #26a69a;
+    border-left: 4px solid #{$torrent-seeding};
 }
 .sideborder.checking {
-    border-left: 4px solid #ff7043;
+    border-left: 4px solid #{$torrent-checking};
 }
 .sideborder.stalled {
-    border-left: 4px solid #81c784;
+    border-left: 4px solid #{$torrent-stalled};
 }
 .sideborder.metadata {
-    border-left: 4px solid #7e57c2;
+    border-left: 4px solid #{$torrent-metadata};
 }
 .v-chip.done {
-    background: #3cd1c2 !important;
+    background: #{$torrent-done} !important;
 }
-.v-chip.busy {
-    background: #ffaa2c !important;
+.v-chip.downloading {
+    background: #{$torrent-downloading} !important;
 }
 .v-chip.fail {
-    background: #f83e70 !important;
+    background: #{$torrent-fail}!important;
 }
 .v-chip.paused {
-    background: #cfd8dc !important;
+    background: #{$torrent-paused} !important;
 }
 .v-chip.queued {
-    background: #2e5eaa !important;
+    background: #{$torrent-queued} !important;
 }
 .v-chip.seeding {
-    background: #26a69a !important;
+    background: #{$torrent-seeding} !important;
 }
 .v-chip.checking {
-    background: #ff7043 !important;
+    background: #{$torrent-checking} !important;
 }
 .v-chip.stalled {
-    background: #81c784 !important;
+    background: #{$torrent-stalled} !important;
 }
 .v-chip.metadata {
-    background: #7e57c2 !important;
+    background: #{$torrent-metadata} !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

@@ -1,0 +1,21 @@
+$torrent-done:  #3cd1c2;
+$torrent-downloading: #ffaa2c;
+$torrent-fail: #f83e70;
+$torrent-paused: #cfd8dc;
+$torrent-queued: #2e5eaa;
+$torrent-seeding: #26a69a;
+$torrent-checking: #ff7043;
+$torrent-stalled: #81c784;
+$torrent-metadata: #7e57c2;
+
+:export {
+  torrent-done-color: $torrent-done;
+  torrent-downloading-color: $torrent-downloading;
+  torrent-fail-color: $torrent-fail;
+  torrent-paused-color: $torrent-paused;
+  torrent-queued-color: $torrent-queued;
+  torrent-seeding-color: $torrent-seeding;
+  torrent-checking-color: $torrent-checking;
+  torrent-stalled-color: $torrent-stalled;
+  torrent-metadata-color: $torrent-metadata;
+}

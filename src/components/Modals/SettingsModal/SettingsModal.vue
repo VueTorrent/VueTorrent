@@ -10,7 +10,7 @@
                 <v-card-title class="pb-0 justify-center primary">
                     <h2 class="white--text">Settings</h2>
                 </v-card-title>
-                <v-tabs v-model="tab" background-color="primary" center-active>
+                <v-tabs v-model="tab" background-color="primary" dark fixed-tabs>
                     <v-tab href="#downloads">Downloads</v-tab>
                     <v-tab href="#bittorrent">BitTorrent</v-tab>
                     <v-tab href="#webui">WebUI</v-tab>

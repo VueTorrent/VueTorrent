@@ -54,7 +54,7 @@ export function treeify(paths) {
     let level = { result }
 
     paths.forEach(path => {
-        path.name.split('/').reduce((r, name, i, a) => {
+        path.name.split('/').reduce((r, name) => {
             if (!r[name]) {
                 r[name] = { result: [] }
                 r.result.push(createFile(path, name, r[name].result))
@@ -81,7 +81,9 @@ export function treeify(paths) {
 
 function createFile(data, name, children) {
     return {
+        id: data.id,
         name: name,
+        fullName: data.name,
         progress: Math.round(data.progress * 100),
         size: formatBytes(data.size),
         icon: getIconForFileType(name.split('.').pop()),
@@ -92,6 +94,7 @@ function createFile(data, name, children) {
 function createFolder(name, children) {
     return {
         name: name,
+        fullName: name,
         type: 'directory',
         children: children
     }

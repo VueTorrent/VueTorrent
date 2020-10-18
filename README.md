@@ -1,6 +1,6 @@
 # VueTorrent
 
-The sleekest looking WEBUI for qBittorrent made with Vuejs!
+The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent)
 
 > Vue, qBitorrent, Vuetify
 
@@ -8,29 +8,38 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 <p  align="center">
 
-<a  href="https://imgur.com/kEqGvem.jng"><img  src="https://imgur.com/kEqGvem.jpg"  title="Desktop"  alt="Desktop Screenshot" ></a>
+<a  href="https://imgur.com/hpjuVYb.png"><img  src="https://imgur.com/hpjuVYb.png"  title="Desktop"  alt="Desktop Screenshot" ></a>
 
 </p>
 
 |                                                                                                    |                                                                                                    |                                                                                                    |
 | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/eN8qAM9.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/T1A2Bng.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/V83NMPg.png"> |
+| <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/Zcm98H3.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OujrH0f.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/OkukwYY.png"> |
+| <img width="1604" alt="screen shot 2017-015 pm" src="https://imgur.com/QYpNCXs.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/6j5wxhl.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/jnzDKjW.png"> |
 
 <p  align="center">
-<a  href="https://imgur.com/kEqGvem.jpg"><img  src="https://imgur.com/c5i63Yz.jpg"  title="Desktop" width="300"  alt="Mobile" >
+<a  href="https://imgur.com/U3mes8r.png"><img  src="https://imgur.com/U3mes8r.png"  title="Desktop" width="300"  alt="Mobile" >
 </a>
 </p>
 
 
 ## Installation
 
--   Visit the releases page!
+- ### manual
 
--   Download the latest release.zip
+    -   Visit the releases page!
 
--   Unzip this folder
+    -   Download the latest release.zip
 
--   Point your Alternate WEBUI location to the 'vuetorrent' folder
+    -   Unzip this folder
+
+    -   Point your Alternate WEBUI location to the 'vuetorrent' folder
+
+- ### 'automatic'
+
+    - head over to the 'latest_release' branch
+    - clone it
+    - pull every once in a while
 
 ## Development
 
@@ -44,11 +53,15 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   viewing sessions status ( down / upload speed, session uploaded / downloaded )
 
--   adding / removing / pausing / resuming torrents
+-   adding / removing / pausing / resuming / renaming torrents
+
+-   selectively downloading torrents
+
+-   choosing / renaming torrent files
 
 -   filtering powered by Fuse.js!
 
--   mobile friendly! (maybe not for thousands of torrents...)
+-   mobile friendly! (can be installed as a PWA)
 
 -   torrent info / trackers / peers / content
 
@@ -62,19 +75,9 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Contributing
 
-I'll gladly accept help/pull requests & advice! (this is my first project of this nature, pls be kind 😛 ).
-
-## FAQ
-
--   **Why build this??**
-
-*   Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
+I'll gladly accept help/pull requests & advice!
 
 ## Support
-
-Reach out to me at one of the following places!
-
--   <a  href="https://m.me/WijnsDaan"  target="_blank">`Facebook Messenger`</a>
 
 *   Open up an issue 😛
 
@@ -82,6 +85,8 @@ Reach out to me at one of the following places!
 
 ## Credits
 
--   Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
+- Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
 
-*   This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+- This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+
+- Muertocaloh's [fork](https://github.com/muertocaloh/VueTorrent)
