@@ -18,28 +18,28 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 | <img width="1604" alt="screen shot 2017-015 pm" src="https://imgur.com/QYpNCXs.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/6j5wxhl.png"> | <img width="1604" alt="screen shot 2017-08-07 at 12 18 15 pm" src="https://imgur.com/jnzDKjW.png"> |
 
 <p  align="center">
-<a  href="https://imgur.com/U3mes8r.png"><img  src="https://imgur.com/c5i63Yz.jpg"  title="Desktop" width="300"  alt="Mobile" >
+<a  href="https://imgur.com/U3mes8r.png"><img  src="https://imgur.com/U3mes8r.png"  title="Desktop" width="300"  alt="Mobile" >
 </a>
 </p>
 
 
 ## Installation
 
-### manual
+- ### manual
 
--   Visit the releases page!
+    -   Visit the releases page!
 
--   Download the latest release.zip
+    -   Download the latest release.zip
 
--   Unzip this folder
+    -   Unzip this folder
 
--   Point your Alternate WEBUI location to the 'vuetorrent' folder
+    -   Point your Alternate WEBUI location to the 'vuetorrent' folder
 
-### 'automatic'
+- ### 'automatic'
 
-- head over to the 'latest_release' branch
-- clone it
-- pull every once in a while
+    - head over to the 'latest_release' branch
+    - clone it
+    - pull every once in a while
 
 ## Development
 
