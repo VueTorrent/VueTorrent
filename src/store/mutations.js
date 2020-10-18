@@ -50,7 +50,7 @@ export default {
         state.upload_data.splice(0, 1)
         state.upload_data.push(state.status.upspeedRaw)
 
-        const { data } = await qbit.getTorrents(state.sort_options)
+        let { data } = await qbit.getTorrents(state.sort_options)
         if (state.sort_options.tracker !== null)
             data = data.filter(d => getHostName(d.tracker) != state.sort_options.tracker)
 
