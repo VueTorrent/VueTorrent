@@ -11,7 +11,7 @@ export default class Torrent {
         this.num_leechs = data.num_leechs
         this.num_seeds = data.num_seeds
         this.path = data.path === undefined ? '/downloads' : data.path
-        this.state = this.formatState(data)
+        this.state = this.formatState(data.state)
         // hash is used to identify
         this.hash = data.hash
         // available seeds
@@ -24,10 +24,8 @@ export default class Torrent {
         this.category = data.category
     }
 
-    formatState(item) {
-        if (!item.tracker) return 'Fail'
-
-        switch (item.state) {
+    formatState(state) {
+        switch (state) {
         case 'forceDL':
         case 'downloading':
             return 'Downloading'

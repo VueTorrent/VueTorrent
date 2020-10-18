@@ -1,6 +1,7 @@
 import Torrent from '../models/torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
+import { getHostName } from '../helpers'
 
 export default {
     SET_APP_VERSION(state, version) {
@@ -50,6 +51,9 @@ export default {
         state.upload_data.push(state.status.upspeedRaw)
 
         const { data } = await qbit.getTorrents(state.sort_options)
+        if (state.sort_options.tracker !== null)
+            data = data.filter(d => getHostName(d.tracker) != state.sort_options.tracker)
+
         // torrents
         state.torrents = []
         for (const [key, value] of Object.entries(data)) {
@@ -67,10 +71,19 @@ export default {
         state.sort_options.filter = payload.filter ? payload.filter : state.sort_options.filter
         state.sort_options.category =
             payload.category !== null ? payload.category : null
+        state.sort_options.tracker = 
+            payload.tracker !== null ? payload.tracker : null
     },
     FETCH_CATEGORIES: async state => {
         const { data } = await qbit.getCategories()
         state.categories = data
     },
-    SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count)
+    SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count),
+    FETCH_TRACKERS: async state => {
+        if (!state.torrents) await this.updateMainData()
+        state.trackers = state.torrents.map(t => t.tracker)
+            .map(url => getHostName(url))
+            .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+            .sort()
+    }
 }

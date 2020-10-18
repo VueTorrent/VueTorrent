@@ -13,6 +13,7 @@ export default {
     getCategories: state => () => state.categories,
     getModals: state => () => state.modals,
     getTorrents: state => () => state.torrents,
+    getTrackers: state => () => state.trackers,
     getAuthenticated: state => () => state.authenticated,
     getTorrentCountString: state => () => {
         if (state.selected_torrents && state.selected_torrents.length) {
