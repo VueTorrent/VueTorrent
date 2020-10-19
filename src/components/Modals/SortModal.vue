@@ -46,7 +46,7 @@ export default {
     mixins: [Modal],
     data() {
         return {
-            sortProperty: { value: 'added_on', name: 'Default' },
+            sortProperty: { value: 'added_on', name: 'Added On' },
             reverse: true,
             options: [
                 { value: 'added_on', name: 'Added On' },

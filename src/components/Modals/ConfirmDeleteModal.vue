@@ -26,13 +26,13 @@
                     text
                     class="green_accent white--text mt-3"
                     @click="deleteWithoutFiles()"
-                >Remove</v-btn
+                >Delete</v-btn
                 >
                 <v-btn
                     text
                     class="green_accent white--text mt-3"
                     @click="deleteWithFiles()"
-                >Remove with files</v-btn
+                >Delete with files</v-btn
                 >
               </v-card-actions>
             </v-container>
@@ -45,18 +45,18 @@ import { mapState, mapGetters } from 'vuex'
 import { Modal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
-    name: 'ConfirmRemoveModal',
+    name: 'ConfirmDeleteModal',
     mixins: [Modal],
     methods: {
         close() {
             this.$store.commit('DELETE_MODAL', this.guid)
         },
         deleteWithoutFiles() {
-            qbit.deleteTorrents([this.selected_torrents], false)
+            qbit.deleteTorrents(this.selected_torrents, false)
             this.close()
         },
         deleteWithFiles() {
-            qbit.deleteTorrents([this.selected_torrents], true)
+            qbit.deleteTorrents(this.selected_torrents, true)
             this.close()
         }
     },

@@ -322,8 +322,6 @@ class Qbit {
             hashes: hashes.join('|'),
             ...extra
         }
-        console.log(hashes.join('|'))
-        console.log(params)
         const data = new URLSearchParams(params)
         return this.axios.post(`/torrents/${action}`, data)
     }

@@ -156,7 +156,7 @@ export default {
                 //no torrents select to delete
                 if(!this.selected_torrents.length) return
 
-                return this.createModal('ConfirmRemoveModal')
+                return this.createModal('ConfirmDeleteModal')
             }
         }
     },
