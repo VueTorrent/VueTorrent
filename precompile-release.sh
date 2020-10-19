@@ -8,8 +8,8 @@ build_and_copy(){
     cd ../vuetorrent-release
     git checkout latest-release
     git pull
-    sudo rm -r public
-    cp -r ../vuetorrent/vuetorrent/* ./
+    sudo rm -r public || true
+    cp -r ../VueTorrent/vuetorrent/* ./
     
 }
 
