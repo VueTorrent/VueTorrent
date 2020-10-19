@@ -132,6 +132,7 @@ class Qbit {
     }
 
     deleteTorrents(hashes, deleteFiles) {
+        if(!hashes.length) return
         return this.actionTorrents('delete', hashes, { deleteFiles })
     }
 
@@ -182,6 +183,14 @@ class Qbit {
 
     setTorrentLocation(hashes, location) {
         return this.actionTorrents('setLocation', hashes, { location })
+    }
+
+    setTorrentName(hash, name) {
+        const params = {
+            hash,
+            name
+        }
+        return this.axios.get('/torrents/rename', { params })
     }
 
     getTorrentProperties(hash) {
@@ -309,9 +318,8 @@ class Qbit {
     // End Categories
 
     actionTorrents(action, hashes, extra) {
-        if (action == 'delete' && !hashes.length) return
         const params = {
-            hashes: hashes.length ? hashes.join('|') : 'all',
+            hashes: hashes.join('|'),
             ...extra
         }
         const data = new URLSearchParams(params)

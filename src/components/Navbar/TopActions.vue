@@ -92,8 +92,9 @@ export default {
             qbit.resumeTorrents(this.selected_torrents)
         },
         removeTorrents() {
-            qbit.deleteTorrents(this.selected_torrents, false)
-            this.$store.commit('RESET_SELECTED')
+            if(!this.selected_torrents.length) return
+
+            return this.createModal('ConfirmDeleteModal')
         },
         addModal(name) {
             this.createModal(name)
