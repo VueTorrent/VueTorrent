@@ -1,5 +1,8 @@
 <template>
-    <div class="pl-5 pr-5" color="background" @click.self="resetSelected">
+    <div class="pl-5 pr-5"
+         color="background"
+         @click.self="resetSelected"
+    >
         <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">
             Dashboard
             <p
@@ -10,9 +13,9 @@
             </p>
         </h1>
 
-        <v-container
+        <div
             color="background"
-            class="my-4 pt-5 pa-0"
+            class="my-4 pt-5 px-8"
             @click.self="resetSelected"
         >
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
@@ -61,7 +64,7 @@
                     </v-col>
                 </v-row>
             </div>
-        </v-container>
+        </div>
         <vue-context ref="menu" v-slot="{ data }">
             <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
         </vue-context>
@@ -75,10 +78,12 @@ import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import { TorrentSelect, General } from '@/mixins'
 
 export default {
     name: 'Dashboard',
     components: { Torrent, VueContext, TorrentRightClickMenu },
+    mixins: [ TorrentSelect, General ],
     data() {
         return {
             input: '',
@@ -86,7 +91,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['mainData']),
+        ...mapState(['mainData', 'selected_torrents']),
         ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
             if (!this.input || !this.input.length) return this.getTorrents()
@@ -132,7 +137,31 @@ export default {
         },
         toTop () {
             this.$vuetify.goTo(0)
+        },
+        handleKeyboardShortcut(e) {
+            // 'ctrl + A' => select torrents
+            if (e.keyCode === 65 && e.ctrlKey) {
+                e.preventDefault()
+                if(this.$store.state.selected_torrents.length === this.torrents.length){
+                    return  this.$store.state.selected_torrents = []
+                }
+                const hashes = this.torrents.map(t => t.hash)
+                return this.$store.state.selected_torrents = hashes
+            }
+
+            // 'Delete' => Delete modal
+            if(e.keyCode === 46) {
+                e.preventDefault()
+
+                //no torrents select to delete
+                if(!this.selected_torrents.length) return
+
+                return this.createModal('ConfirmDeleteModal')
+            }
         }
+    },
+    mounted() {
+        document.addEventListener('keydown', this.handleKeyboardShortcut)
     },
     created() {
         this.$store.dispatch('INIT_INTERVALS')
@@ -140,6 +169,7 @@ export default {
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')
+        document.removeEventListener('keydown', this.handleKeyboardShortcut)
     },
     watch: {
         torrents: function (torrents) {

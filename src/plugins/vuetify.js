@@ -3,6 +3,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
 import colors from 'vuetify/lib/util/colors'
+import variables from '../styles/variables.scss'
 
 Vue.use(Vuetify)
 
@@ -28,7 +29,8 @@ export default new Vuetify({
                 background: colors.grey.lighten4,
                 search: colors.grey.darken1,
                 torrentmodaltext: colors.grey.darken4,
-                select: colors.grey.lighten4
+                select: colors.grey.lighten4,
+                ...variables
             },
             dark: {
                 primary: '#35495e',
@@ -45,7 +47,8 @@ export default new Vuetify({
                 background: colors.grey.darken4,
                 search: colors.grey.darken3,
                 torrentmodaltext: colors.grey.lighten4,
-                select: colors.grey.darken3
+                select: colors.grey.darken3,
+                ...variables
             }
         }
     }

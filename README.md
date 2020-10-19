@@ -19,21 +19,31 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 ## Installation
 
--   Visit the releases page!
+- ### manual
 
--   Download the latest release.zip
+    -   Visit the releases page!
 
--   Unzip this folder
+    -   Download the latest release.zip
 
--   Point your Alternate WEBUI location to the 'vuetorrent' folder
+    -   Unzip this folder
+
+    -   Point your Alternate WEBUI location to the 'vuetorrent' folder
+
+- ### 'automatic'
+
+    - head over to the 'latest_release' branch
+    - clone it
+    - pull every once in a while
 
 ## Development
 
 -   clone the repo
 
-*   npm install
+-   npm install
 
 -   npm run serve
+
+-   docker-compose up -d (to start qbittorrent docker)
 
 ## Features
 
@@ -41,13 +51,15 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 -   paginating torrent list to make it lightest!
 
--   adding / removing / pausing / resuming torrents
+-   adding / removing / pausing / resuming / renaming torrents
+
+-   selectively downloading torrents
 
 -   choosing / renaming torrent files
 
 -   filtering powered by Fuse.js!
 
--   mobile friendly!
+-   mobile friendly! (can be installed as a PWA)
 
 -   torrent info / trackers / peers / content
 

@@ -47,6 +47,7 @@ export default new Vuex.Store({
             showSessionStat: true,
             showCurrentSpeed: true,
             showGlobalRemoveResumePause: true,
+            denseDashboard: true,
             paginationSize: 15
         },
         categories: [],
