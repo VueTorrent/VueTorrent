@@ -49,10 +49,9 @@
                     :space="status.freeDiskSpace"
                 />
                 <FilterSelect />
-            </v-flex>
-            <v-container class="mt-12">
+                <div class="mt-4"></div>
                 <BottomActions />
-            </v-container>
+            </v-flex>
         </v-navigation-drawer>
     </nav>
 </template>

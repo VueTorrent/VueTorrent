@@ -78,8 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .justify-space-between {
-    position: fixed;
     bottom: 0px;
-    width: 100%;
+    padding: 10px;
 }
 </style>

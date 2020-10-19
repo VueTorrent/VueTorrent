@@ -9,14 +9,14 @@
                 <span class="download--text title">
                     {{ status.dlspeed | getDataValue }}
                     <span class="font-weight-light caption">
-                        {{ status.dlspeed | getDataUnit }}
+                        {{ status.dlspeed | getDataUnit }}/s
                     </span>
                 </span>
                 <v-icon class="pl-5" color="upload">keyboard_arrow_up</v-icon>
                 <span class="upload--text title">
                     {{ status.upspeed | getDataValue }}
                     <span class="font-weight-light caption">
-                        {{ status.upspeed | getDataUnit }}
+                        {{ status.upspeed | getDataUnit }}/s
                     </span>
                 </span>
             </v-layout>
