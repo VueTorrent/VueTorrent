@@ -11,7 +11,6 @@
                             <v-row no-gutters>
                                 <v-col ref="fileZone">
                                     <v-file-input
-                                        v-if="!url"
                                         v-model="files"
                                         color="deep-purple accent-4"
                                         counter
@@ -44,8 +43,7 @@
                                             >
                                         </template>
                                     </v-file-input>
-                                    <v-text-field
-                                        v-if="files.length == 0"
+                                    <v-textarea
                                         label="URL"
                                         prepend-icon="mdi-link"
                                         :rows="
@@ -53,7 +51,10 @@
                                         "
                                         required
                                         :autofocus="!phoneLayout"
-                                        v-model="url"
+                                        v-model="urls"
+                                        auto-grow
+                                        clearable
+                                        hint="One link per line"
                                     />
                                 </v-col>
                             </v-row>
@@ -130,17 +131,17 @@ export default {
                     'Not a valid magnet link'
             ],
             loading: false,
-            url: null,
+            urls: null,
             valid: false
         }
     },
     methods: {
         submit() {
-            if (this.files.length || this.url) {
+            if (this.files.length || this.urls) {
                 let torrents = []
                 let params = { urls: null, autoTMM: this.autoTMM }
                 if (this.files.length) torrents.push(...this.files)
-                if (this.url) params.urls = this.url
+                if (this.urls) params.urls = this.urls
                 if (this.category) params.category = this.category
                 if (!this.autoTMM) params.savepath = this.directory
                 if (this.skip_checking) params.skip_checking = this.skip_checking
