@@ -1,5 +1,8 @@
 <template>
-    <div class="pl-5 pr-5" color="background" @click.self="resetSelected">
+    <div class="pl-5 pr-5"
+         color="background"
+         @click.self="resetSelected"
+    >
         <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">
             Dashboard
             <p
@@ -75,10 +78,12 @@ import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import { TorrentSelect } from '@/mixins'
 
 export default {
     name: 'Dashboard',
     components: { Torrent, VueContext, TorrentRightClickMenu },
+    mixins: [ TorrentSelect],
     data() {
         return {
             input: '',
@@ -132,7 +137,22 @@ export default {
         },
         toTop () {
             this.$vuetify.goTo(0)
+        },
+        test(e) {
+            if (!(e.keyCode === 65 && e.ctrlKey)) {
+                return
+            }
+
+            e.preventDefault()
+            if(this.$store.state.selected_torrents.length === this.torrents.length){
+                return  this.$store.state.selected_torrents = []
+            }
+            const hashes = this.torrents.map(t => t.hash)
+            this.$store.state.selected_torrents = hashes
         }
+    },
+    mounted() {
+        document.addEventListener('keydown', this.test)
     },
     created() {
         this.$store.dispatch('INIT_INTERVALS')
@@ -140,6 +160,7 @@ export default {
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')
+        document.removeEventListener('keydown', this.test)
     },
     watch: {
         torrents: function (torrents) {

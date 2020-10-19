@@ -57,7 +57,7 @@
       >Show Info</v-list-item-title
       >
     </v-list-item>
-    <v-list-item @click="selectTorrent" link>
+    <v-list-item @click="selectTorrents([hash])" link>
       <v-icon>done</v-icon>
       <v-list-item-title class="ml-2" style="font-size: 12px"
       >Select</v-list-item-title
@@ -68,10 +68,10 @@
 
 <script>
 import qbit from '@/services/qbit'
-import { General } from '@/mixins'
+import { General, TorrentSelect  } from '@/mixins'
 export default {
     name: 'TorrentRightClickMenu',
-    mixins: [General],
+    mixins: [General, TorrentSelect],
     props: {
         hash: String
     },
@@ -102,17 +102,8 @@ export default {
         },
         showInfo() {
             this.createModal('TorrentDetailModal', { hash: this.hash })
-        },
-        containsTorrent(hash) {
-            return this.$store.getters.containsTorrent(hash)
-        },
-        selectTorrent() {
-            if (this.containsTorrent(this.hash)) {
-                this.$store.commit('SET_SELECTED', { type: 'remove', hash: this.hash })
-            } else {
-                this.$store.commit('SET_SELECTED', { type: 'add', hash: this.hash })
-            }
         }
+
     },
     computed: {
         dark() {

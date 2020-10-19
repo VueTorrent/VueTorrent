@@ -3,7 +3,7 @@
       ripple
       flat
       class="pointer torrent noselect"
-      :class="{ torrent_selected: containsTorrent(torrent.hash) }"
+      :class="{ torrent_selected: isAlreadySelected([torrent.hash]) }"
       @click.native="showInfo(torrent.hash)"
       @dblclick.prevent="showInfo(torrent.hash)"
   >
@@ -120,13 +120,13 @@
 </template>
 
 <script>
-import { General } from '@/mixins'
+import { General, TorrentSelect } from '@/mixins'
 import {mapGetters} from 'vuex'
 
 
 export default {
     name: 'Torrent',
-    mixins: [General],
+    mixins: [General, TorrentSelect],
     props: {
         torrent: Object,
         index: Number,
@@ -154,9 +154,6 @@ export default {
         }
     },
     methods: {
-        containsTorrent(hash) {
-            return this.$store.getters.containsTorrent(hash)
-        },
         showInfo(hash) {
             this.createModal('TorrentDetailModal', { hash })
         }
