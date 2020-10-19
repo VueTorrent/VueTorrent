@@ -132,6 +132,7 @@ class Qbit {
     }
 
     deleteTorrents(hashes, deleteFiles) {
+        if(!hashes.length) return
         return this.actionTorrents('delete', hashes, { deleteFiles })
     }
 
@@ -317,11 +318,12 @@ class Qbit {
     // End Categories
 
     actionTorrents(action, hashes, extra) {
-        if (action == 'delete' && !hashes.length) return
         const params = {
-            hashes: hashes.length ? hashes.join('|') : 'all',
+            hashes: hashes.join('|'),
             ...extra
         }
+        console.log(hashes.join('|'))
+        console.log(params)
         const data = new URLSearchParams(params)
         return this.axios.post(`/torrents/${action}`, data)
     }

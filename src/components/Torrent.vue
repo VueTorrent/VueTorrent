@@ -3,9 +3,10 @@
       ripple
       flat
       class="pointer torrent noselect"
-      :class="{ torrent_selected: isAlreadySelected([torrent.hash]) }"
-      @click.native="showInfo(torrent.hash)"
+      :class="{ torrent_selected: isAlreadySelected(torrent.hash) }"
+      @click.native.exact.prevent="showInfo(torrent.hash)"
       @dblclick.prevent="showInfo(torrent.hash)"
+      @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
   >
     <v-tooltip top>
       <template v-slot:activator="{ on }">
@@ -155,7 +156,7 @@ export default {
     },
     methods: {
         showInfo(hash) {
-            this.createModal('TorrentDetailModal', { hash })
+            this.createModal('TorrentDetailModal', {hash})
         }
     }
 }

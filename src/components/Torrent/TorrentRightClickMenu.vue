@@ -57,7 +57,7 @@
       >Show Info</v-list-item-title
       >
     </v-list-item>
-    <v-list-item @click="selectTorrents([hash])" link>
+    <v-list-item @click="selectTorrent(hash)" link>
       <v-icon>done</v-icon>
       <v-list-item-title class="ml-2" style="font-size: 12px"
       >Select</v-list-item-title

@@ -78,12 +78,12 @@ import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
-import { TorrentSelect } from '@/mixins'
+import { TorrentSelect, General } from '@/mixins'
 
 export default {
     name: 'Dashboard',
     components: { Torrent, VueContext, TorrentRightClickMenu },
-    mixins: [ TorrentSelect],
+    mixins: [ TorrentSelect, General ],
     data() {
         return {
             input: '',
@@ -91,7 +91,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(['mainData']),
+        ...mapState(['mainData', 'selected_torrents']),
         ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
         torrents() {
             if (!this.input || !this.input.length) return this.getTorrents()
@@ -138,21 +138,30 @@ export default {
         toTop () {
             this.$vuetify.goTo(0)
         },
-        test(e) {
-            if (!(e.keyCode === 65 && e.ctrlKey)) {
-                return
+        handleKeyboardShortcut(e) {
+            // 'ctrl + A' => select torrents
+            if (e.keyCode === 65 && e.ctrlKey) {
+                e.preventDefault()
+                if(this.$store.state.selected_torrents.length === this.torrents.length){
+                    return  this.$store.state.selected_torrents = []
+                }
+                const hashes = this.torrents.map(t => t.hash)
+                return this.$store.state.selected_torrents = hashes
             }
 
-            e.preventDefault()
-            if(this.$store.state.selected_torrents.length === this.torrents.length){
-                return  this.$store.state.selected_torrents = []
+            // 'Delete' => Delete modal
+            if(e.keyCode === 46) {
+                e.preventDefault()
+
+                //no torrents select to delete
+                if(!this.selected_torrents.length) return
+
+                return this.createModal('ConfirmRemoveModal')
             }
-            const hashes = this.torrents.map(t => t.hash)
-            this.$store.state.selected_torrents = hashes
         }
     },
     mounted() {
-        document.addEventListener('keydown', this.test)
+        document.addEventListener('keydown', this.handleKeyboardShortcut)
     },
     created() {
         this.$store.dispatch('INIT_INTERVALS')
@@ -160,7 +169,7 @@ export default {
     },
     beforeDestroy() {
         this.$store.commit('REMOVE_INTERVALS')
-        document.removeEventListener('keydown', this.test)
+        document.removeEventListener('keydown', this.handleKeyboardShortcut)
     },
     watch: {
         torrents: function (torrents) {

@@ -1,13 +1,13 @@
 export default {
     methods: {
-        isAlreadySelected(hashesArray) {
-            return this.$store.getters.containsTorrents(hashesArray)
+        isAlreadySelected(hash) {
+            return this.$store.getters.containsTorrent(hash)
         },
-        selectTorrents(hashesArray) {
-            if (this.isAlreadySelected(hashesArray)) {
-                this.$store.commit('SET_SELECTED', { type: 'remove', hash: this.hash })
+        selectTorrent(hash) {
+            if (this.isAlreadySelected(hash)) {
+                this.$store.commit('SET_SELECTED', { type: 'remove', hash })
             } else {
-                this.$store.commit('SET_SELECTED', { type: 'add', hash: this.hash })
+                this.$store.commit('SET_SELECTED', { type: 'add', hash })
             }
         }
     }
