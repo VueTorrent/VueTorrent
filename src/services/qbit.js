@@ -184,6 +184,14 @@ class Qbit {
         return this.actionTorrents('setLocation', hashes, { location })
     }
 
+    setTorrentName(hash, name) {
+        const params = {
+            hash,
+            name
+        }
+        return this.axios.get('/torrents/rename', { params })
+    }
+
     getTorrentProperties(hash) {
         const params = {
             hash

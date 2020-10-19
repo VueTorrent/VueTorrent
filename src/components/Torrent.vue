@@ -4,7 +4,7 @@
       flat
       class="pointer torrent noselect"
       :class="{ torrent_selected: containsTorrent(torrent.hash) }"
-      @click.native="selectTorrent(torrent.hash)"
+      @click.native="showInfo(torrent.hash)"
       @dblclick.prevent="showInfo(torrent.hash)"
   >
     <v-tooltip top>
@@ -154,13 +154,6 @@ export default {
         }
     },
     methods: {
-        selectTorrent(hash) {
-            if (this.containsTorrent(hash)) {
-                this.$store.commit('SET_SELECTED', { type: 'remove', hash })
-            } else {
-                this.$store.commit('SET_SELECTED', { type: 'add', hash })
-            }
-        },
         containsTorrent(hash) {
             return this.$store.getters.containsTorrent(hash)
         },
