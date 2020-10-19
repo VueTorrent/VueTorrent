@@ -135,7 +135,6 @@
 import { General, TorrentSelect } from '@/mixins'
 import {mapGetters} from 'vuex'
 
-
 export default {
     name: 'Torrent',
     mixins: [General, TorrentSelect],

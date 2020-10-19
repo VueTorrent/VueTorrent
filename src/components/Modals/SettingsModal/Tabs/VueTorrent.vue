@@ -74,6 +74,23 @@
                                     ></v-select>
                                 </v-col>
                             </v-row>
+                          <v-row dense>
+                            <v-list flat>
+                                <draggable
+                                    :list="DashboardOptions"
+                                    tag="tbody"
+                                >
+                                  <v-list-item
+                                      v-for="(item, index) in DashboardOptions"
+                                      :key="index"
+                                  >
+                                    <v-list-item-content>
+                                      <v-list-item-title class="truncate" v-text="item.name"></v-list-item-title>
+                                    </v-list-item-content>
+                                  </v-list-item>
+                                </draggable>
+                            </v-list>
+                          </v-row>
                             <v-row dense>
                                 <v-col cols="10" sm="10" md="11">
                                     <p class="subtitle-1">Current Version:</p>
@@ -92,11 +109,21 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import draggable from 'vuedraggable'
+
 export default {
     name: 'VueTorrent',
+    components: {
+        draggable
+    },
     data() {
         return {
-            paginationSizes: [5, 15, 30, 50]
+            paginationSizes: [5, 15, 30, 50],
+            DashboardOptions: [
+                { name: 'Size', active: true},
+                { name: 'Done', active: true},
+                { name: 'Download', active: true}
+            ]
         }
     },
     computed: {
