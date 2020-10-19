@@ -4,7 +4,10 @@
       flat
       class="pointer torrent noselect"
       :class="{ torrent_selected: isAlreadySelected(torrent.hash) }"
-      @click.native.exact.prevent="showInfo(torrent.hash)"
+      @click.native.exact.prevent="
+      $vuetify.breakpoint.smAndDown ?
+      selectTorrent(torrent.hash)  :
+      showInfo(torrent.hash)"
       @dblclick.prevent="showInfo(torrent.hash)"
       @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
   >
