@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.4.4",
+    "version": "0.4.5",
     "private": true,
     "scripts": {
         "serve": "vue-cli-service serve",

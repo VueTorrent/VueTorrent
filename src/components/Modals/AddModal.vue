@@ -10,40 +10,45 @@
                         <v-container>
                             <v-row no-gutters>
                                 <v-col ref="fileZone">
-                                    <v-file-input
-                                        v-if="!urls"
-                                        v-model="files"
-                                        color="deep-purple accent-4"
-                                        counter
-                                        label="File input"
-                                        multiple
-                                        placeholder="Select your files"
-                                        prepend-icon="mdi-paperclip"
-                                        outlined
-                                        :show-size="1000"
+                                    <div
+                                        @drop.prevent="addDropFile"
+                                        @dragover.prevent
                                     >
-                                        <template
-                                            v-slot:selection="{ index, text }"
+                                        <v-file-input
+                                            v-if="!urls"
+                                            v-model="files"
+                                            color="deep-purple accent-4"
+                                            counter
+                                            label="File input"
+                                            multiple
+                                            placeholder="Select your files"
+                                            prepend-icon="mdi-paperclip"
+                                            outlined
+                                            :show-size="1000"
                                         >
-                                            <v-chip
-                                                v-if="index < 2"
-                                                color="deep-purple accent-4"
-                                                dark
-                                                label
-                                                small
-                                                >{{ text }}</v-chip
+                                            <template
+                                                v-slot:selection="{ index, text }"
                                             >
+                                                <v-chip
+                                                    v-if="index < 2"
+                                                    color="deep-purple accent-4"
+                                                    dark
+                                                    label
+                                                    small
+                                                    >{{ text }}</v-chip
+                                                >
 
-                                            <span
-                                                v-else-if="index === 2"
-                                                class="overline grey--text text--darken-3 mx-2"
-                                                >+{{
-                                                    files.length - 2
-                                                }}
-                                                File(s)</span
-                                            >
-                                        </template>
-                                    </v-file-input>
+                                                <span
+                                                    v-else-if="index === 2"
+                                                    class="overline grey--text text--darken-3 mx-2"
+                                                    >+{{
+                                                        files.length - 2
+                                                    }}
+                                                    File(s)</span
+                                                >
+                                            </template>
+                                        </v-file-input>
+                                    </div>
                                     <v-textarea
                                         v-if="files.length == 0"
                                         label="URL"
@@ -138,6 +143,10 @@ export default {
         }
     },
     methods: {
+        addDropFile(e)
+        {
+            this.files.push(...Array.from(e.dataTransfer.files))
+        },
         submit() {
             if (this.files.length || this.urls) {
                 let torrents = []
