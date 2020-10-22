@@ -98,6 +98,7 @@ export default {
 
             const options = {
                 threshold: 0.3,
+                shouldSort: false,
                 keys: [
                     'name',
                     'size',
