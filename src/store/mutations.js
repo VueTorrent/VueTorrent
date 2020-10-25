@@ -51,6 +51,11 @@ export default {
         state.upload_data.push(state.status.upspeedRaw)
 
         let { data } = await qbit.getTorrents(state.sort_options)
+        state.trackers = data.map(t => t.tracker)
+            .map(url => getHostName(url))
+            .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+            .sort()
+
         if (state.sort_options.tracker !== null)
             data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
 
@@ -78,12 +83,5 @@ export default {
         const { data } = await qbit.getCategories()
         state.categories = data
     },
-    SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count),
-    FETCH_TRACKERS: async state => {
-        if (!state.torrents) await this.updateMainData()
-        state.trackers = state.torrents.map(t => t.tracker)
-            .map(url => getHostName(url))
-            .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-            .sort()
-    }
+    SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count)
 }

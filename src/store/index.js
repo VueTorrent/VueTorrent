@@ -24,7 +24,18 @@ export default new Vuex.Store({
     state: {
         version: 0,
         intervals: [],
-        status: null,
+        status: {
+            status: '',
+            downloaded: '',
+            uploaded: '',
+            dlspeed: '',
+            upspeed: '',
+            freeDiskSpace: '',
+            altSpeed: '',
+            dlspeedRaw: '',
+            upspeedRaw: '',
+            tags: ''
+        },
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         torrents: [],
@@ -51,6 +62,7 @@ export default new Vuex.Store({
             paginationSize: 15
         },
         categories: [],
+        trackers: [],
         filteredTorrentsCount: 0
     },
     getters: {

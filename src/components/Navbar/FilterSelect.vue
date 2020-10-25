@@ -137,9 +137,6 @@ export default {
             })
         }
     },
-    created() {
-        this.$store.commit('FETCH_TRACKERS')
-    },
     mounted() {
         this.selectedCategory = this.availableCategories[0]
     }

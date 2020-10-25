@@ -31,7 +31,7 @@
                         <v-icon v-if="theme === 'Light'" class="white--text"
                             >brightness_7</v-icon
                         >
-                        <v-icon v-else class="pr-2 white--text"
+                        <v-icon v-else class="white--text"
                             >brightness_2</v-icon
                         >
                     </v-list-item>

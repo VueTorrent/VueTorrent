@@ -27,6 +27,7 @@
             v-model="drawer"
             class="primary"
             style="position: fixed; height: 100%"
+            width="280"
             disable-resize-watcher
         >
             <!--current download speeds -->
