@@ -12,6 +12,7 @@ export default {
         console.log(res)
         if (res === 'Ok.') {
             Vue.$toast.success('Successfully logged in!')
+            context.commit('LOGIN', true)
             context.commit('updateMainData')
             context.commit('FETCH_SETTINGS')
             context.commit('FETCH_CATEGORIES')
