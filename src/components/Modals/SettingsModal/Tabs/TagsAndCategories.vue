@@ -2,7 +2,8 @@
     <v-card flat>
         <v-card-text
             class="mx-auto mt-5"
-            style="font-size: 1.1em; max-height: 500px; min-height: 300px"
+            style="font-size: 1.1em;"
+            :style="{ minHeight: phoneLayout ? '' : '75vh'}"
         >
             <v-layout class="mx-auto" row wrap>
                 <v-flex xs12 sm12>
@@ -72,11 +73,11 @@ import { mapGetters } from 'vuex'
 
 import qbit from '@/services/qbit'
 
-import { Tab, General } from '@/mixins'
+import { Tab, General,FullScreenModal } from '@/mixins'
 
 export default {
     name: 'TagsAndCategories',
-    mixins: [Tab, General],
+    mixins: [Tab, General, FullScreenModal],
     props: {
         hash: String
     },

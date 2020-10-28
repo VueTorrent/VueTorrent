@@ -1,7 +1,9 @@
 <template>
-    <v-container>
+  <div class="ma-3 pa-2">
         <v-card flat>
-            <v-card-text class="pa-0" style="font-size: 1.1em">
+            <v-card-text class="pa-0" style="font-size: 1.1em"
+            :style="{ minHeight: phoneLayout ? '' : '75vh'}"
+            >
                 <div class="box">
                     <v-subheader>Use Alternative WebUI</v-subheader>
                     <div class="ml-5 mr-5">
@@ -49,15 +51,15 @@
                 </div>
             </v-card-text>
         </v-card>
-    </v-container>
+    </div>
 </template>
 
 <script>
-import SettingsTab from '@/mixins/SettingsTab'
+import {FullScreenModal, SettingsTab} from '@/mixins'
 
 export default {
     name: 'WebUI',
-    mixins: [SettingsTab]
+    mixins: [SettingsTab, FullScreenModal]
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
     <nav>
         <!--title-->
-        <v-app-bar app flat color="background">
+        <v-app-bar app flat color="background" @click="resetSelected">
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
                 class="grey--text text--lighten-1"
@@ -95,7 +95,11 @@ export default {
             drawer: this.$vuetify.breakpoint.mdAndUp
         }
     },
-
+    methods: {
+        resetSelected() {
+            this.$store.commit('RESET_SELECTED')
+        }
+    },
     created() {
         this.$vuetify.theme.dark = this.getTheme()
     }

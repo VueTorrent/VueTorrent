@@ -1,7 +1,7 @@
 <template>
-    <v-container>
+  <v-container class="pa-3 ma-2">
         <v-card flat>
-            <v-card-text>
+          <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
                 <h3>Privacy</h3>
                 <div class="settings_content ml-5 mr-5">
                     <v-checkbox
@@ -144,11 +144,11 @@
 </template>
 
 <script>
-import SettingsTab from '@/mixins/SettingsTab'
+import {SettingsTab, FullScreenModal} from '@/mixins'
 
 export default {
     name: 'BitTorrent',
-    mixins: [SettingsTab]
+    mixins: [SettingsTab, FullScreenModal]
 }
 </script>
 

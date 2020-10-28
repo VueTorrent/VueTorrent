@@ -34,11 +34,15 @@
                 <p class="grey--text">Nothing to see here!</p>
             </div>
             <div v-else>
-                <div
+                <v-layout
                     @contextmenu.prevent="$refs.menu.open($event, { torrent })"
                     v-for="(torrent, index) in paginatedData"
                     :key="torrent.hash"
                 >
+                  <v-flex v-if="selectMode">
+                    <v-checkbox color="grey" class="mt-10" xs1 :value="selected_torrents.indexOf(torrent.hash) !== -1" @click="selectTorrent(torrent.hash)" />
+                  </v-flex>
+                  <v-flex :class="selectMode ? 'xs11' : ''">
                     <Torrent
                         :class="{
                             topBorderRadius: index === 0,
@@ -50,7 +54,8 @@
                         :index="index"
                         :length="torrents.length - 1"
                     />
-                </div>
+                  </v-flex>
+                </v-layout>
                 <v-row v-if="pageCount > 1" xs12 justify="center">
                     <v-col>
                         <v-container>
@@ -98,6 +103,7 @@ export default {
 
             const options = {
                 threshold: 0.3,
+                shouldSort: false,
                 keys: [
                     'name',
                     'size',
@@ -126,6 +132,9 @@ export default {
         },
         torrentCountString() {
             return this.getTorrentCountString()
+        },
+        selectMode(){
+            return this.$store.state.selectMode
         }
     },
     methods: {

@@ -1,0 +1,17 @@
+<template>
+  <v-flex xs6 sm1 md1 class="mr-2">
+    <div class="caption grey--text">Size</div>
+    <div>
+      {{ torrent.size | getDataValue }}
+      <span class="caption grey--text">{{
+          torrent.size | getDataUnit
+        }}</span>
+    </div>
+  </v-flex>
+</template>
+<script>
+export default {
+    name: 'Size',
+    props: ['torrent']
+}
+</script>
