@@ -1,27 +1,17 @@
 <template>
-<v-flex xs12 sm1 md1 class="mr-4">
-<div class="caption grey--text">Done</div>
-<v-progress-linear
-    v-model="torrent.progress"
-    height="20"
-    :style="phoneLayout ? '' : 'width: 80%;'"
-    :color="`torrent-${state}-color`" >
-                    <span
-                        class="caption"
-                    >
-                        {{ torrent.progress }}%
-                    </span>
-</v-progress-linear>
-</v-flex>
+  <v-flex xs6 sm1 md1 class="mr-2">
+    <div class="caption grey--text">Size</div>
+    <div>
+      {{ torrent.size | getDataValue }}
+      <span class="caption grey--text">{{
+          torrent.size | getDataUnit
+        }}</span>
+    </div>
+  </v-flex>
 </template>
-
 <script>
 export default {
     name: 'Size',
-    computed:{
-        phoneLayout() {
-            return this.$vuetify.breakpoint.xsOnly
-        }
-    }
+    props: ['torrent']
 }
 </script>

@@ -134,7 +134,7 @@ export default {
             return this.getTorrentCountString()
         },
         selectMode(){
-          return this.$store.state.selectMode
+            return this.$store.state.selectMode
         }
     },
     methods: {

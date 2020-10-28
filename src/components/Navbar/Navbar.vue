@@ -96,9 +96,9 @@ export default {
         }
     },
     methods: {
-      resetSelected() {
-        this.$store.commit('RESET_SELECTED')
-      }
+        resetSelected() {
+            this.$store.commit('RESET_SELECTED')
+        }
     },
     created() {
         this.$vuetify.theme.dark = this.getTheme()

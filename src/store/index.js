@@ -48,7 +48,31 @@ export default new Vuex.Store({
             showCurrentSpeed: true,
             showGlobalRemoveResumePause: true,
             denseDashboard: true,
-            paginationSize: 15
+            paginationSize: 15,
+            busyTorrentProperties: [
+                { name: 'Size', active: true},
+                { name: 'Progress', active: true},
+                { name: 'Download', active: true},
+                { name: 'Upload', active: true},
+                { name: 'ETA', active: true},
+                { name: 'Peers', active: true},
+                { name: 'Seeds', active: true},
+                { name: 'Status', active: true},
+                { name: 'Ratio', active: true},
+                { name: 'Tags', active: true}
+            ],
+            doneTorrentProperties: [
+                { name: 'Size', active: true},
+                { name: 'Progress', active: true},
+                { name: 'Download', active: true},
+                { name: 'Upload', active: true},
+                { name: 'ETA', active: true},
+                { name: 'Peers', active: true},
+                { name: 'Seeds', active: true},
+                { name: 'Status', active: true},
+                { name: 'Ratio', active: true},
+                { name: 'Tags', active: true}
+            ]
         },
         categories: [],
         filteredTorrentsCount: 0,
