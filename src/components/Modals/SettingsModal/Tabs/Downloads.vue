@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-3 ma-2">
+  <v-container>
         <v-card flat>
             <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
                 <h3>When adding a torrent</h3>

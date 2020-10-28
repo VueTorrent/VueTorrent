@@ -2,7 +2,7 @@
     <v-dialog
         v-model="dialog"
         scrollable
-        width="85%"
+        width="75%"
         :fullscreen="phoneLayout"
     >
         <v-card style="min-height: 400px; overflow: hidden !important">

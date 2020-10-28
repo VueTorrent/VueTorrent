@@ -1,6 +1,6 @@
 <template>
-  <div class="ma-2">
-    <v-card flat style="width: 100vh">
+  <v-container>
+    <v-card flat>
       <v-card-text class="pa-0" style="font-size: 1.1em">
         <div class="box">
           <v-subheader
@@ -87,7 +87,7 @@
         </div>
       </v-card-text>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script>

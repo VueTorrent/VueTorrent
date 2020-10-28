@@ -1,15 +1,17 @@
 <template>
+  <v-container>
     <v-card flat>
         <v-card-text
             class="mx-auto mt-5"
             style="font-size: 1.1em;"
             :style="{ minHeight: phoneLayout ? '' : '75vh'}"
         >
-            <v-layout class="mx-auto" row wrap>
-                <v-flex xs12 sm12>
+          <v-layout row wrap>
+            <v-flex class="mx-auto text-center" xs12 md6>
+                <div>
                     <h3>Available Tags:</h3>
-                </v-flex>
-                <v-flex xs12 sm12 class="mt-3 d-flex flex-wrap">
+                </div>
+                <div class="mt-3 d-flex flex-wrap justify-center">
                     <v-chip
                         v-for="tag in availableTags"
                         :key="tag"
@@ -19,24 +21,24 @@
                     >
                         {{ tag }}
                     </v-chip>
-                </v-flex>
-            </v-layout>
-            <v-card-actions class="justify-center pb-5">
-                <v-btn text class="error white--text mt-3" @click="deleteTag"
-                    >Delete</v-btn
-                >
-                <v-btn
-                    text
-                    class="green_accent white--text mt-3"
-                    @click="createTag"
-                    >Create new</v-btn
-                >
-            </v-card-actions>
-            <v-layout class="mx-auto" row wrap>
-                <v-flex xs12 sm12>
+                </div>
+              <v-card-actions class="justify-center pb-5">
+                  <v-btn text class="error white--text mt-3" @click="deleteTag"
+                      >Delete</v-btn
+                  >
+                  <v-btn
+                      text
+                      class="green_accent white--text mt-3"
+                      @click="createTag"
+                      >Create new</v-btn
+                  >
+              </v-card-actions>
+            </v-flex>
+            <v-flex class="mx-auto text-center" xs12 md6>
+                <div>
                     <h3>Available Categories:</h3>
-                </v-flex>
-                <v-flex class="d-flex flex-wrap mt-3" xs12 sm12>
+                </div>
+                <div class="d-flex flex-wrap mt-3 justify-center" xs12 sm12>
                     <v-chip
                         v-for="cat in availableCategories"
                         :key="cat.name"
@@ -48,24 +50,26 @@
                     >
                         {{ cat.name }}
                     </v-chip>
-                </v-flex>
-            </v-layout>
-            <v-card-actions class="justify-center pb-5">
-                <v-btn
-                    text
-                    class="error white--text mt-3"
-                    @click="deleteCategory"
-                    >Delete</v-btn
-                >
-                <v-btn
-                    text
-                    class="green_accent white--text mt-3"
-                    @click="createCategory"
-                    >Create new</v-btn
-                >
-            </v-card-actions>
+                </div>
+              <v-card-actions class="justify-center pb-5">
+                  <v-btn
+                      text
+                      class="error white--text mt-3"
+                      @click="deleteCategory"
+                      >Delete</v-btn
+                  >
+                  <v-btn
+                      text
+                      class="green_accent white--text mt-3"
+                      @click="createCategory"
+                      >Create new</v-btn
+                  >
+              </v-card-actions>
+            </v-flex>
+          </v-layout>
         </v-card-text>
     </v-card>
+  </v-container>
 </template>
 
 <script>

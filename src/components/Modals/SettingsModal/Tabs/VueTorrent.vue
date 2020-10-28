@@ -1,6 +1,6 @@
 <template>
-    <div class="ma-1">
-        <v-card flat style="width: 100vh">
+    <v-container>
+        <v-card flat>
           <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
           <v-tabs v-model="tab">
             <v-tab href="#general">General</v-tab>
@@ -19,7 +19,7 @@
           </v-tabs-items>
           </v-card-text>
         </v-card>
-    </div>
+    </v-container>
 </template>
 
 <script>
