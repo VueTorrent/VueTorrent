@@ -1,6 +1,5 @@
 <template>
-    <div class="ma-1">
-        <v-card flat style="width: 100vh">
+        <v-card flat>
           <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
           <v-tabs v-model="tab">
             <v-tab href="#general">General</v-tab>
@@ -10,16 +9,15 @@
               v-model="tab"
               :touch="updateTab(tab)"
           >
-            <v-tab-item style="width: 100vh" value="general">
+            <v-tab-item value="general">
               <General :is-active="tab === 'downloads'" />
             </v-tab-item>
-            <v-tab-item style="width: 100vh" value="dashboard">
+            <v-tab-item value="dashboard">
               <Dashboard :is-active="tab === 'bittorrent'" />
             </v-tab-item>
           </v-tabs-items>
           </v-card-text>
         </v-card>
-    </div>
 </template>
 
 <script>

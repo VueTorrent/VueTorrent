@@ -1,5 +1,5 @@
 <template>
-  <div class="ma-3 pa-2">
+  <v-container>
         <v-card flat>
             <v-card-text class="pa-0" style="font-size: 1.1em"
             :style="{ minHeight: phoneLayout ? '' : '75vh'}"
@@ -51,7 +51,7 @@
                 </div>
             </v-card-text>
         </v-card>
-    </div>
+    </v-container>
 </template>
 
 <script>

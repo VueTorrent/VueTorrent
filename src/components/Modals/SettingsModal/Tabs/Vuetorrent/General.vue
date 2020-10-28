@@ -1,6 +1,6 @@
 <template>
-  <div class="ma-2">
-    <v-card flat style="width: 100vh">
+  <v-container class="mx-1 px-0">
+    <v-card flat>
       <v-card-text class="pa-0" style="font-size: 1.1em">
         <div class="box">
           <v-subheader
@@ -62,10 +62,10 @@
                 >
               </v-switch>
               <v-row dense>
-                <v-col cols="10" sm="10" md="10">
+                <v-col cols="8" sm="8" md="10">
                   <p class="subtitle-1">Pagination size:</p>
                 </v-col>
-                <v-col cols="2" sm="2" md="2">
+                <v-col cols="4" sm="4" md="2">
                   <v-select
                       class="pa-0 ma-0"
                       color="green_accent"
@@ -87,7 +87,7 @@
         </div>
       </v-card-text>
     </v-card>
-  </div>
+  </v-container>
 </template>
 
 <script>
