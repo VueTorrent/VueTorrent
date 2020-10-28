@@ -28,7 +28,7 @@
             </div>
           </v-flex>
           <v-flex xs12 sm1 md1 class="mr-4">
-            <div class="caption grey--text">Done</div>
+            <div class="caption grey--text">Progress</div>
             <v-progress-linear
                 v-model="torrent.progress"
                 height="20"
