@@ -1,6 +1,7 @@
 <template>
-    <v-container>
-        <v-card flat>
+    <div class="ma-1">
+        <v-card flat style="width: 100vh">
+          <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
           <v-tabs v-model="tab">
             <v-tab href="#general">General</v-tab>
             <v-tab href="#dashboard">Dashboard</v-tab>
@@ -9,26 +10,29 @@
               v-model="tab"
               :touch="updateTab(tab)"
           >
-            <v-tab-item value="general">
+            <v-tab-item style="width: 100vh" value="general">
               <General :is-active="tab === 'downloads'" />
             </v-tab-item>
-            <v-tab-item value="dashboard">
+            <v-tab-item style="width: 100vh" value="dashboard">
               <Dashboard :is-active="tab === 'bittorrent'" />
             </v-tab-item>
           </v-tabs-items>
+          </v-card-text>
         </v-card>
-    </v-container>
+    </div>
 </template>
 
 <script>
 import General from './Vuetorrent/General'
 import Dashboard from './Vuetorrent/Dashboard'
+import {FullScreenModal} from '@/mixins'
 
 export default {
     name: 'VueTorrent',
     components: {
         General, Dashboard
     },
+    mixins: [FullScreenModal],
     data : () => ({
         tab: null
     }),

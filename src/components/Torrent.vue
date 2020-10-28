@@ -58,11 +58,8 @@ export default {
         Seeds,
         Status,
         Category,
-        Tags},
-
-
-export default {
-    name: 'Torrent',
+        Tags
+    },
     mixins: [General, TorrentSelect],
     props: {
         torrent: Object,

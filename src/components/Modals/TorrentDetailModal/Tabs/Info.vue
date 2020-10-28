@@ -3,10 +3,7 @@
     <perfect-scrollbar>
       <v-card-text
         style="font-size: 1.1em"
-        :style="{
-          maxHeight: phoneLayout ? '' : '500px',
-          minHeight: phoneLayout ? '' : '75vh',
-        }"
+        :style="{ minHeight: phoneLayout ? '' : '75vh'}"
       >
         <v-simple-table>
           <tbody>

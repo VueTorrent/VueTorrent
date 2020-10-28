@@ -6,10 +6,7 @@
       :items="peers"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :style="{
-        maxHeight: phoneLayout ? '' : '500px',
-        minHeight: phoneLayout ? '' : '75vh',
-      }"
+      :style="{ minHeight: phoneLayout ? '' : '75vh'}"
     >
       <template v-slot:item="row">
         <tr>

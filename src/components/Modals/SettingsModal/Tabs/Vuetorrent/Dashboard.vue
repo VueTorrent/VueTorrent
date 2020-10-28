@@ -1,13 +1,14 @@
 <template>
-  <v-container>
+  <div class="ma-3 pa-2">
     <v-card flat>
-      <v-card-text class="pa-0" style="font-size: 1.1em">
-        <div class="box">
+      <v-card-text class="pa-0">
+        <v-layout row wrap align-center justify-center>
+        <v-flex class="box ma-1" style="width:50px !important;" xs12 md5>
           <v-subheader>
             Properties to display for busy torrents
           </v-subheader>
-          <v-row dense>
-            <v-list flat>
+          <v-row dense  >
+            <v-list flat class="ma-0 pa-0">
               <draggable
                   :list="busyTorrentProperties"
                   tag="tbody"
@@ -15,7 +16,7 @@
                 <v-list-item
                     v-for="(item, index) in busyTorrentProperties"
                     :key="index"
-                    style="width: 68vh"
+                    style="width: 30vh"
                 >
                   <v-checkbox v-model="item.active" dense class="pa-0 ma-0 mt-3"/>
                   <v-list-item-content>
@@ -25,13 +26,13 @@
               </draggable>
             </v-list>
           </v-row>
-        </div>
-        <div class="box">
+        </v-flex>
+          <v-flex class="box ma-1" xs12 md5>
           <v-subheader>
             Properties to display for completed torrents
           </v-subheader>
-          <v-row dense>
-            <v-list flat>
+            <v-row dense>
+            <v-list flat class="ma-0 pa-0">
               <draggable
                   :list="doneTorrentProperties"
                   tag="tbody"
@@ -39,7 +40,7 @@
                 <v-list-item
                     v-for="(item, index) in doneTorrentProperties"
                     :key="index"
-                    style="width: 68vh"
+                    style="width: 30vh"
                 >
                   <v-checkbox v-model="item.active" dense class="pa-0 ma-0 mt-3"/>
                   <v-list-item-content>
@@ -49,10 +50,11 @@
               </draggable>
             </v-list>
           </v-row>
-        </div>
+        </v-flex>
+        </v-layout>
       </v-card-text>
     </v-card>
-  </v-container>
+  </div>
 </template>
 
 <script>

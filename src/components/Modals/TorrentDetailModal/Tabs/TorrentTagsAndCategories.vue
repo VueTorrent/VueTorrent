@@ -1,12 +1,9 @@
 <template>
   <v-card flat>
     <v-card-text
-      class="mx-auto mt-5"
+      class="mx-auto mt-4"
       style="font-size: 1.1em"
-      :style="{
-        maxHeight: phoneLayout ? '' : '500px',
-        minHeight: phoneLayout ? '' : '75vh',
-      }"
+      :style="{ minHeight: phoneLayout ? '' : '75vh'}"
     >
       <v-row>
         <v-col :cols="12" :lg="6" :md="6" :sm="12">

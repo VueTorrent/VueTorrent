@@ -2,7 +2,7 @@
     <v-dialog
         v-model="dialog"
         scrollable
-        :width="dialogWidth"
+        width="85%"
         :fullscreen="phoneLayout"
     >
         <v-card style="min-height: 400px; overflow: hidden !important">
@@ -102,9 +102,6 @@ export default {
     },
     computed: {
         ...mapGetters(['getSettings']),
-        dialogWidth() {
-            return this.phoneLayout ? '100%' : '750px'
-        },
         dialogHeight() {
             return this.phoneLayout ? '79vh' : '70vh'
         }
