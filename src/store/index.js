@@ -52,7 +52,8 @@ export default new Vuex.Store({
         },
         categories: [],
         filteredTorrentsCount: 0,
-        latestSelectedTorrent: null
+        latestSelectedTorrent: null,
+        selectMode: false
     },
     getters: {
         ...getters
