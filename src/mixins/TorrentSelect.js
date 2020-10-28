@@ -9,6 +9,9 @@ export default {
             } else {
                 this.$store.commit('SET_SELECTED', { type: 'add', hash })
             }
+        },
+        selectUntil(hash, index){
+            this.$store.commit('SET_SELECTED', { type: 'until', hash, index })
         }
     }
 }

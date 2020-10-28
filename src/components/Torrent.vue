@@ -10,6 +10,7 @@
       showInfo(torrent.hash)"
       @dblclick.prevent="showInfo(torrent.hash)"
       @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
+      @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
   >
     <v-tooltip top>
       <template v-slot:activator="{ on }">

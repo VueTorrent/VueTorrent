@@ -15,13 +15,26 @@ export default {
     DELETE_MODAL(state, guid) {
         state.modals = state.modals.filter(m => m.guid !== guid)
     },
-    SET_SELECTED: (state, payload) => {
-        if (payload.type === 'add') state.selected_torrents.push(payload.hash)
-        if (payload.type === 'remove')
+    SET_SELECTED: (state, {type, hash, index}) => {
+        if (type === 'add') {
+            state.selected_torrents.push(hash)
+            state.latestSelectedTorrent = state.torrents.map(t => t.hash).indexOf(hash)
+        } else if (type === 'remove') {
             state.selected_torrents.splice(
-                state.selected_torrents.indexOf(payload.hash),
+                state.selected_torrents.indexOf(hash),
                 1
             )
+        } else if (type === 'until') {
+            let from, until
+            if (state.latestSelectedTorrent > index) {
+                from = index
+                until = state.latestSelectedTorrent + 1 //include latest selected
+            } else {
+                from = state.latestSelectedTorrent
+                until = index + 1
+            }
+            state.selected_torrents = state.torrents.map(t => t.hash).slice(from, until)
+        }
     },
     RESET_SELECTED: state => {
         state.selected_torrents = []

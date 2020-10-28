@@ -51,7 +51,8 @@ export default new Vuex.Store({
             paginationSize: 15
         },
         categories: [],
-        filteredTorrentsCount: 0
+        filteredTorrentsCount: 0,
+        latestSelectedTorrent: null
     },
     getters: {
         ...getters
