@@ -59,6 +59,10 @@ export default {
         Status,
         Category,
         Tags},
+
+
+export default {
+    name: 'Torrent',
     mixins: [General, TorrentSelect],
     props: {
         torrent: Object,
