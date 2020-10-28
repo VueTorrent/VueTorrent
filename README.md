@@ -71,6 +71,11 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 -   tag & category support
 
+- Keyboard shortcuts!
+    - select all torrents with ctrl+A
+    - delete selected with delete button
+    - select with ctrl+click or from right-click-menu (regular tap on mobile still works)
+    - shift + click to select from one torrent until another
 -   works on QBittorrent V4.2 and later
 
 ## Contributing
