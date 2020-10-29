@@ -1,5 +1,8 @@
 <template>
     <div>
+        <v-btn :ripple="false" id="no-background-hover" text>
+          <v-checkbox class="grey--text" v-model="$store.state.selectMode" color="grey" hide-details style="width: 5px;"/>
+        </v-btn>
         <v-btn
             text
             small
@@ -102,3 +105,12 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+#no-background-hover::before {
+  background-color: transparent !important;
+}
+#no-background-hover {
+  cursor: default !important;
+}
+</style>

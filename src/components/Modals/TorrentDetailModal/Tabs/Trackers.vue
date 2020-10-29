@@ -1,32 +1,34 @@
 <template>
-    <perfect-scrollbar>
-        <v-data-table
-            v-if="trackers"
-            :headers="headers"
-            :items="trackers"
-            :hide-default-footer="true"
-            style="max-height: 500px; min-height: 400px"
-        >
-            <template v-slot:item="row">
-                <tr>
-                    <td>{{ row.item.tier }}</td>
-                    <td>{{ row.item.url }}</td>
-                    <td>{{ row.item.status | formatTrackerStatus }}</td>
-                    <td>{{ row.item.num_peers | formatTrackerNum }}</td>
-                    <td>{{ row.item.num_seeds | formatTrackerNum }}</td>
-                    <td>{{ row.item.num_leeches | formatTrackerNum }}</td>
-                    <td>{{ row.item.num_downloaded | formatTrackerNum }}</td>
-                    <td>{{ row.item.msg }}</td>
-                </tr>
-            </template>
-        </v-data-table>
-    </perfect-scrollbar>
+  <perfect-scrollbar>
+    <v-data-table
+      v-if="trackers"
+      :headers="headers"
+      :items="trackers"
+      :hide-default-footer="true"
+      :style="{ minHeight: phoneLayout ? '' : '75vh'}"
+    >
+      <template v-slot:item="row">
+        <tr>
+          <td>{{ row.item.tier }}</td>
+          <td>{{ row.item.url }}</td>
+          <td>{{ row.item.status | formatTrackerStatus }}</td>
+          <td>{{ row.item.num_peers | formatTrackerNum }}</td>
+          <td>{{ row.item.num_seeds | formatTrackerNum }}</td>
+          <td>{{ row.item.num_leeches | formatTrackerNum }}</td>
+          <td>{{ row.item.num_downloaded | formatTrackerNum }}</td>
+          <td>{{ row.item.msg }}</td>
+        </tr>
+      </template>
+    </v-data-table>
+  </perfect-scrollbar>
 </template>
 
 <script>
 import qbit from '@/services/qbit'
+import { FullScreenModal } from '@/mixins'
 export default {
     name: 'Trackers',
+    mixins: [FullScreenModal],
     props: { hash: String, isActive: Boolean },
     data: () => ({
         headers: [
@@ -86,20 +88,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/assets/styles.scss';
+@import "~@/assets/styles.scss";
 
 ::v-deep .v-data-table thead th,
 ::v-deep .v-data-table tbody td {
-    padding: 0 2px !important;
-    height: auto;
+  padding: 0 2px !important;
+  height: auto;
 
-    white-space: nowrap;
+  white-space: nowrap;
 
-    &:first-child {
-        padding: 0 0 0 8px !important;
-    }
-    &:last-child {
-        padding-right: 8px !important;
-    }
+  &:first-child {
+    padding: 0 0 0 8px !important;
+  }
+  &:last-child {
+    padding-right: 8px !important;
+  }
 }
 </style>

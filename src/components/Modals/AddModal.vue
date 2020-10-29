@@ -23,6 +23,7 @@
                                             multiple
                                             placeholder="Select your files"
                                             prepend-icon="mdi-paperclip"
+                                            :rules="fileInputRules"
                                             outlined
                                             :show-size="1000"
                                         >
@@ -37,7 +38,6 @@
                                                     small
                                                     >{{ text }}</v-chip
                                                 >
-
                                                 <span
                                                     v-else-if="index === 2"
                                                     class="overline grey--text text--darken-3 mx-2"
@@ -130,12 +130,11 @@ export default {
             directory: '',
             autoTMM: true,
             skip_checking: false,
-            inputRules: [
-                v =>
-                    v.indexOf('magnet') > -1 ||
-                    v.indexOf('http') > -1 ||
-                    this.validFile ||
-                    'Not a valid magnet link'
+            fileInputRules: [
+                v => {
+                    const result = v.every(f => f.type === 'application/x-bittorrent' )
+                    return result ? result : 'One or more files is not a valid torrent'
+                }            
             ],
             loading: false,
             urls: null,
