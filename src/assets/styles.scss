@@ -100,3 +100,14 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+body {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #E2E8F0;
+        border-radius: 20px;
+    }
+}
