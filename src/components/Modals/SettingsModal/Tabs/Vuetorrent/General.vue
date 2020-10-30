@@ -82,6 +82,14 @@
                   <p class="mb-2">{{ version }}</p>
                 </v-col>
               </v-row>
+              <v-row dense>
+                <v-col cols="10" sm="10" md="11">
+                  <p class="subtitle-1">QBittorrent Version:</p>
+                </v-col>
+                <v-col cols="2" sm="2" md="1">
+                  <p class="mb-2">{{ Qbitversion }}</p>
+                </v-col>
+              </v-row>
             </v-container>
           </v-form>
         </div>
@@ -92,11 +100,13 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import qbit from '@/services/qbit'
 export default {
     name: 'General',
     data() {
         return {
-            paginationSizes: [5, 15, 30, 50]
+            paginationSizes: [5, 15, 30, 50],
+            Qbitversion: 0
         }
     },
     computed: {
@@ -161,6 +171,14 @@ export default {
         version() {
             return this.getAppVersion()
         }
+    },
+    methods : {
+        async fetchQbitVersion(){
+            this.Qbitversion = await qbit.getAppVersion()
+        }
+    },
+    created() {
+        this.fetchQbitVersion()
     }
 }
 </script>

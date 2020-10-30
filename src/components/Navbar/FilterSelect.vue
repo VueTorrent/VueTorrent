@@ -62,7 +62,7 @@ export default {
             { value: 'stalled', name: 'Stalled' },
             { value: 'stalled_uploading', name: 'Stalled Uploading' },
             { value: 'stalled_downloading', name: 'Stalled Downloading' },
-            { value: 'errored', name: 'Erorred' }
+            { value: 'errored', name: 'Errored' }
         ],
         selectedState: { value: 'all', name: 'All' },
         selectedCategory: null

@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <perfect-scrollbar>
-      <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
+      <v-card-text  :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}">
         <v-treeview
           v-model="selected"
           :items="fileTree"
