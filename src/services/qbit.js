@@ -12,6 +12,7 @@ class Qbit {
 
     getAppVersion() {
         return this.axios.get('/app/version')
+            .then(res => res.data)
     }
 
     getApiVersion() {
