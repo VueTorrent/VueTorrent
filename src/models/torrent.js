@@ -47,8 +47,9 @@ export default class Torrent {
         case 'checkingDL':
         case 'checkingUP':
         case 'checkingResumeData':
-        case 'moving':
             return 'Checking'
+        case 'moving':
+            return 'Moving'
         case 'unknown':
         case 'missingFiles':
             return 'Fail'

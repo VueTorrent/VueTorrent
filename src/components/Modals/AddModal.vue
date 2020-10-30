@@ -131,9 +131,12 @@ export default {
             skip_checking: false,
             fileInputRules: [
                 v => {
-                    const result = v.every(f => f.type === 'application/x-bittorrent' )
+                    const result = v.every(f => {
+                        if (f.type) return f.type === 'application/x-bittorrent'
+                        else return /^.*\.torrent$/.test(f.name)
+                    })
                     return result ? result : 'One or more files is not a valid torrent'
-                }            
+                }
             ],
             loading: false,
             urls: null,
