@@ -67,7 +67,7 @@ I'll gladly accept help/pull requests & advice!
 
 - Open up an issue 😛
 
-[![Buy Me a Coffee](https://cdn.buymeacoffee.com/buttons/lato-blue.png)](https://www.buymeacoffee.com/wdaan)
+<a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
 ## Credits
 
