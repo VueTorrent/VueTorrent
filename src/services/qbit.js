@@ -328,6 +328,10 @@ class Qbit {
     }
 
     // Search
+    getSearchPlugins(){
+        return this.axios.get('/search/plugins')
+            .then(res => res.data)
+    }
 
     startSearch(pattern, category = null) {
         const params = {
