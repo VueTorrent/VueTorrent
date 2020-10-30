@@ -30,7 +30,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 - head over to the 'latest_release' branch
 - clone it
-    - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
+  - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - pull every once in a while
 
 ## Development
