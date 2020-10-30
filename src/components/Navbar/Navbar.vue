@@ -25,11 +25,10 @@
         <v-navigation-drawer
             app
             v-model="drawer"
-            class="primary"
+            class="primary drawer"
             style="position: fixed; height: 100%"
             disable-resize-watcher
         >
-            <!--current download speeds -->
             <v-flex class="mt-3" v-if="status">
                 <CurrentSpeed
                     v-if="webuiSettings.showCurrentSpeed"
@@ -105,3 +104,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+#app > div > nav > nav > div.v-navigation-drawer__content {
+  height: 95%;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #56718c;
+    border-radius: 20px;
+  }
+}
+</style>
