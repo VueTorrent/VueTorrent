@@ -6,89 +6,65 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/V
 
 ## Screenshots
 
-<p  align="center">
+![Desktop screenshot](https://imgur.com/hpjuVYb.png)
 
-<a  href="https://imgur.com/fiOzVSu.png"><img  src="https://imgur.com/fiOzVSu.png"  title="Dashboard"  alt="Dashboard Screenshot" ></a>
+|                                    |                                    |                                    |
+| :--------------------------------: | :--------------------------------: | :--------------------------------: |
+| ![](https://imgur.com/Zcm98H3.png) | ![](https://imgur.com/OujrH0f.png) | ![](https://imgur.com/OkukwYY.png) |
+| ![](https://imgur.com/QYpNCXs.png) | ![](https://imgur.com/6j5wxhl.png) | ![](https://imgur.com/jnzDKjW.png) |
 
+<p align="center">
+<img src="https://imgur.com/U3mes8r.png" width="300" alt="Mobile screenshot">
 </p>
-
-|                                                                                                    |                                                                                                    |                                                                                                    |
-| :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: |
-| <img width="1604" alt="Torrent Details" src="https://imgur.com/ObJQaIj.png"> | <img width="1604" alt="Context menu" src="https://imgur.com/hGDi2In.png"> | <img width="1604" alt="Settings" src="https://imgur.com/AdTJ020.png"> |
-
 
 ## Installation
 
-- ### manual
+### manual
 
-    -   Visit the releases page!
+- Visit the releases page!
+- Download the latest release.zip
+- Unzip this folder
+- Point your Alternate WEBUI location to the 'vuetorrent' folder
 
-    -   Download the latest release.zip
+### 'automatic'
 
-    -   Unzip this folder
-
-    -   Point your Alternate WEBUI location to the 'vuetorrent' folder
-
-- ### 'automatic'
-
-    - head over to the 'latest_release' branch
-    - clone it
-    - pull every once in a while
+- head over to the 'latest_release' branch
+- clone it
+  - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
+- pull every once in a while
 
 ## Development
 
--   clone the repo
-
--   npm install
-
--   npm run serve
-
--   docker-compose up -d (to start qbittorrent docker)
+- clone the repo
+- npm install
+- npm run serve
+- docker-compose up -d (to start qbittorrent docker)
 
 ## Features
 
--   viewing sessions status ( down / upload speed, session uploaded / downloaded )
-
--   paginating torrent list to make it lightest!
-
--   adding / removing / pausing / resuming / renaming torrents
-
--   selectively downloading torrents
-
--   choosing / renaming torrent files
-
--   filtering powered by Fuse.js!
-
--   mobile friendly! (can be installed as a PWA)
-
--   torrent info / trackers / peers / content
-
--   searching for new torrents straight from the WEBUI!
-
--   changing the most common settings
-
--   tag & category support
-
+- viewing sessions status ( down / upload speed, session uploaded / downloaded )
+- adding / removing / pausing / resuming / renaming torrents
+- selectively downloading torrents
+- filtering powered by Fuse.js!
+- mobile friendly! (can be installed as a PWA)
+- torrent info / trackers / peers / content
+- searching for new torrents straight from the WEBUI!
+- changing the most common settings
+- tag & category support
 - Keyboard shortcuts!
-    - select all torrents with ctrl+A
-    - delete selected with delete button
-    - select with ctrl+click or from right-click-menu (regular tap on mobile still works)
-    - shift + click to select from one torrent until another
-
+  - select all torrents with ctrl+A
+  - delete selected with delete button
+  - select with ctrl+click or from right-click-menu (regular tap on mobile still works)
+  - shift + click to select from one torrent until another
 - Which torrent properties are shown is configurable in the dashboard (for both busy and completed torrents)
- 
--   works on QBittorrent V4.2 and later
+- works on QBittorrent V4.2 and later
 
 ## Contributing
 
 I'll gladly accept help/pull requests & advice!
 
-## FAQ
-
--   **Why build this??**
-
--   Why not? Most WebUI's look very dated and now it's no longer necessary to search for a remote control app!
-
 ## Credits
 
--   Original repo [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent)
+- Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
+- This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+- Muertocaloh's [fork](https://github.com/muertocaloh/VueTorrent)

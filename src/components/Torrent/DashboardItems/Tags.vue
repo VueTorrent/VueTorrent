@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs5 sm2 v-if="torrent.tags && torrent.tags.length">
+  <v-flex xs6 sm2 v-if="torrent.tags && torrent.tags.length">
     <div class="caption grey--text">Tags</div>
     <v-row wrap class="ma-0">
       <v-chip v-for="tag in torrent.tags" :key="tag"
