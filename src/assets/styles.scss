@@ -45,6 +45,9 @@
 .sideborder.metadata {
     border-left: 4px solid #{$torrent-metadata};
 }
+.sideborder.moving {
+    border-left: 4px solid #{$torrent-moving};
+}
 .v-chip.done {
     background: #{$torrent-done} !important;
 }
@@ -71,6 +74,9 @@
 }
 .v-chip.metadata {
     background: #{$torrent-metadata} !important;
+}
+.v-chip.moving {
+    background: #{$torrent-moving} !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
@@ -99,4 +105,15 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+body {
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #E2E8F0;
+        border-radius: 20px;
+    }
 }

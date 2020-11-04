@@ -5,7 +5,7 @@
       :headers="headers"
       :items="trackers"
       :hide-default-footer="true"
-      :style="{ minHeight: phoneLayout ? '' : '75vh'}"
+      :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}"
     >
       <template v-slot:item="row">
         <tr>
