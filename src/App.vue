@@ -18,10 +18,12 @@ import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import { version } from '../package.json'
 import qbit from '@/services/qbit'
+import { General } from '@/mixins'
 
 export default {
-    components: { Navbar },
     name: 'App',
+    components: { Navbar },
+    mixins: [ General ],
     data() {
         return {}
     },
@@ -35,13 +37,7 @@ export default {
     },
     computed: {
         ...mapState(['rid', 'mainData', 'preferences', 'modals']),
-        ...mapGetters(['getTheme', 'getAuthenticated']),
-        theme() {
-            return this.getTheme() ? 'dark' : 'light'
-        },
-        background() {
-            return this.$vuetify.theme.themes[this.theme].background
-        },
+        ...mapGetters(['getAuthenticated']),
         isAuthenticated() {
             return this.getAuthenticated()
         }
