@@ -5,6 +5,7 @@
         :width="dialogWidth"
         :fullscreen="phoneLayout"
         persistent
+        :style="{ height: phoneLayout ? '100vh' : '' }"
     >
         <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
           <v-card-title class="headline">
@@ -19,18 +20,53 @@
             </v-btn>
           </v-card-title>
           <v-card-text>
-            <SearchForm
-                :loading="loading"
-                @triggerSearch="triggerSearch"
-                @stopSearch="stopSearch"
-            />
-
+            <v-form
+                ref="form"
+                v-model="searchForm.valid"
+            >
+              <v-container fluid>
+                <v-row>
+                  <v-flex row class="col-12 col-sm-6 col-md-8">
+                    <v-text-field
+                        v-model="searchForm.pattern"
+                        prepend-inner-icon="mdi-magnify"
+                        @keypress.enter="$refs.searchButton.click"
+                        label="Search"
+                        :rules="[v => !!v || 'Searchterm is required']"
+                        clearable
+                        style="width: 70%"
+                    />
+                    <v-spacer/>
+                    <v-btn
+                        ref="searchButton"
+                        :disabled="!searchForm.valid"
+                        :color="loading ? 'warning' : 'primary'"
+                        @click="loading ? stopSearch() : startSearch()"
+                    >
+                      {{ loading ? "Stop" : "Search"}}
+                    </v-btn>
+                  </v-flex>
+                  <v-spacer/>
+                  <v-col align-self="center" class="col-2">
+                    <v-autocomplete
+                        v-model="searchForm.category"
+                        :items="availableCategories"
+                        item-text="name"
+                        item-value="key"
+                        label="Category"
+                    />
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-form>
+            <perfect-scrollbar>
             <v-data-table
                 :headers="grid.headers"
-                :items="grid.searchItems"
+                :items="search.results"
                 :items-per-page="10"
                 :loading="loading"
                 class="elevation-1"
+                :style="{ maxHeight: '60vh'}"
             >
               <template #[`item.fileName`]="{ item }">
                 <a
@@ -46,11 +82,10 @@
                 <v-icon @click="downloadTorrent(item)">mdi-download</v-icon>
               </template>
             </v-data-table>
+            </perfect-scrollbar>
           </v-card-text>
           <v-card-actions>
-            <v-btn>
-              <v-icon>mdi-cog</v-icon> Plugin manager
-            </v-btn>
+            <PluginManager/>
           </v-card-actions>
             <v-fab-transition v-if="phoneLayout">
                 <v-btn @click="close" color="red" dark absolute bottom right>
@@ -58,38 +93,30 @@
                 </v-btn>
             </v-fab-transition>
         </v-card>
+
     </v-dialog>
 </template>
 
 <script>
-import SearchForm from './SearchForm'
-import { Modal, FullScreenModal } from '@/mixins'
+import {intersection} from 'lodash'
 import qbit from '@/services/qbit'
+import { Modal, FullScreenModal, General } from '@/mixins'
+import PluginManager from './PluginManager'
+
 export default {
     name: 'SearchModal',
-    components : {SearchForm},
-    mixins: [Modal, FullScreenModal],
+    components : { PluginManager},
+    mixins: [Modal, FullScreenModal, General],
     data() {
         return {
-            searchTerm: null,
-            searchCategory: null,
-            searchId: null,
-            status: null,
-            searchInterval: null,
-            results: [],
-            noResults: false, //old variables end here
+            search: {
+                id: null,
+                status: null,
+                interval: null,
+                results: []
+            },
             loading: false,
             grid: {
-                searchItems: [],
-                downloadItem: {
-                    descrLink: '',
-                    fileName: '',
-                    fileSize: 0,
-                    fileUrl: '',
-                    nbLeechers: 0,
-                    nbSeeders: 0,
-                    siteUrl: ''
-                },
                 headers: [
                     { text: 'Name', value: 'fileName' },
                     { text: 'Size', value: 'fileSize' },
@@ -98,61 +125,67 @@ export default {
                     { text: 'Search_engine', value: 'siteUrl' },
                     { text: 'Action', value: 'actions', sortable: false }
                 ]
+            },
+            searchForm: {
+                valid: false,
+                category: 'all',
+                pattern: '',
+                plugins: []
             }
         }
     },
     computed: {
         dialogWidth() {
             return this.phoneLayout ? '100%' : '80%'
+        },
+        availableCategories() {
+            const result = ['all', { divider: true }]
+            const categories = intersection(
+                ...this.searchForm.plugins.map(p => p.supportedCategories)
+            ).map(c => ({ key: c, name: c }))
+            result.push(...categories)
+  
+            return result
         }
     },
     methods: {
-        async search() {
-            this.noResults = false
-            if (this.searchTerm && !this.searchInterval) {
-                this.status = 'Running'
-                this.results = []
-                const {data} = await qbit.startSearch(
-                    this.searchTerm,
-                    this.searchCategory
+        async startSearch() {
+            if (this.searchForm.pattern.length && !this.search.interval) {
+                this.loading = true
+                this.search.status = 'Running'
+                this.search.results = []
+                const data = await qbit.startSearch(
+                    this.searchForm.pattern,
+                    this.searchForm.category
                 )
-                this.searchId = data.id
-                this.searchInterval = setInterval(async () => {
+                this.search.id = data.id
+                await this.getStatus()
+                this.search.interval = setInterval(async () => {
                     let status = await this.getStatus()
                     if (status === 'Stopped') {
-                        clearInterval(this.searchInterval)
-                        this.searchInterval = null
-                        this.getResults()
+                        clearInterval(this.search.interval)
+                        this.search.interval = null
+                        await this.getResults()
                     }
-                }, 2000)
+                }, 500)
             }
         },
         async getStatus() {
-            if (this.searchId) {
-                const { data } = await qbit.getSearchStatus(this.searchId)
-                return (this.status = data[0].status)
+            if (this.search.id) {
+                const data  = await qbit.getSearchStatus(this.search.id)
+                return (this.search.status = data[0].status)
             }
         },
         async getResults() {
-            const { data } = await qbit.getSearchResults(this.searchId)
-            this.results = data.results
-            if (data.results.length === 0) this.noResults = true
+            const data = await qbit.getSearchResults(this.search.id)
+            this.search.results = data.results
+            this.loading = false
         },
-        addTorrent(torrent) {
-            let params = { urls: null }
-            params.urls = torrent
-            qbit.addTorrents(params)
+        downloadTorrent(item) {
+            this.createModal('addModal', {initialMagnet: item.fileUrl})
         },
-        async downloadTorrent(item) {
-            console.log(item)
-        },
-        async triggerSearch(searchForm) {
-            this.grid.searchItems = [] // Clear the table
-            this.loading = true
-            console.log(searchForm)
-        },
-        async stopSearch(){
-            //
+        stopSearch(){
+            qbit.stopSearch(this.search.id)
         },
         close() {
             this.$store.commit('DELETE_MODAL', this.guid)

@@ -10,6 +10,11 @@ class Qbit {
             'application/x-www-form-urlencoded'
     }
 
+    execute(method, action, params){
+        const data = new URLSearchParams(params)
+        return this.axios[method](action, data).then(res => res.data)
+    }
+
     getAppVersion() {
         return this.axios.get('/app/version')
             .then(res => res.data)
@@ -186,6 +191,14 @@ class Qbit {
         return this.actionTorrents('setLocation', hashes, { location })
     }
 
+    actionTorrents(action, hashes, extra) {
+        const params = {
+            hashes: hashes.join('|'),
+            ...extra
+        }
+        return this.axios.post(`/torrents/${action}`, {params})
+    }
+
     setTorrentName(hash, name) {
         const params = {
             hash,
@@ -278,33 +291,27 @@ class Qbit {
 
     getCategories() {
         return this.axios.get('/torrents/categories')
+            .then(res => res.data)
     }
 
-    deleteCategory(cat) {
-        const params = {
-            categories: cat
-        }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/removeCategories   ', data)
+    deleteCategory(categories) {
+        return this.categoryAction('removeCategories', {
+            categories
+        })
     }
 
     createCategory(cat) {
-        const params = {
+        return this.categoryAction('createCategory', {
             category: cat.name,
             savePath: cat.savePath
-        }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/createCategory   ', data)
+        })
     }
 
     setCategory(hash, cat) {
-        const params = {
+        return this.categoryAction('setCategory', {
             hashes: hash,
             category: cat
-        }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/setCategory ', data)
+        })
     }
 
     editCategory(cat) {
@@ -312,25 +319,28 @@ class Qbit {
             category: cat.name,
             savePath: cat.savePath
         }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/editCategory   ', data)
+        return this.categoryAction('editCategory', params)
     }
-
-    // End Categories
-
-    actionTorrents(action, hashes, extra) {
-        const params = {
-            hashes: hashes.join('|'),
-            ...extra
-        }
+    
+    categoryAction(action, params){
         const data = new URLSearchParams(params)
         return this.axios.post(`/torrents/${action}`, data)
     }
+
+    // End Categories
 
     // Search
     getSearchPlugins(){
         return this.axios.get('/search/plugins')
             .then(res => res.data)
+    }
+
+    enableSearchPlugin(plugins, enable){
+        const params = {
+            names: plugins.join('|'),
+            enable
+        }
+        return this.searchAction('enablePlugin', params)
     }
 
     startSearch(pattern, category = null) {
@@ -339,25 +349,28 @@ class Qbit {
             plugins: 'all',
             category: category ? category : 'all'
         }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/search/start', data)
+        return this.searchAction('start', params)
+    }
+    
+    stopSearch(id){
+        return this.searchAction('stop', {id})
     }
 
     getSearchStatus(id) {
-        const params = {
-            id
-        }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/search/status', data)
+        return this.searchAction('status', {id})
     }
 
     getSearchResults(id) {
-        const params = {
+        return this.searchAction('results', {
             id,
             limit: 30
-        }
+        })
+    }
+    
+    searchAction(action ,params){
         const data = new URLSearchParams(params)
-        return this.axios.post('/search/results', data)
+        return this.axios.post(`/search/${action}`, data)
+            .then(res => res.data)
     }
 }
 

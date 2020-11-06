@@ -121,6 +121,7 @@ import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 export default {
     name: 'AddModal',
+    props:['initialMagnet'],
     mixins: [Modal],
     data() {
         return {
@@ -201,6 +202,7 @@ export default {
         this.$store.commit('FETCH_SETTINGS')
         this.$store.commit('FETCH_CATEGORIES')
         this.directory = this.savepath
+        this.urls = this.initialMagnet
     }
 }
 </script>

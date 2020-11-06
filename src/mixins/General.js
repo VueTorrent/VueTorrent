@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters(['getTheme']),

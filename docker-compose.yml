@@ -1,7 +1,7 @@
 version: '3.6'
 services:
     qbittorrent:
-        image: linuxserver/qbittorrent
+        image: linuxserver/qbittorrent:latest
         container_name: qbit
         environment:
             - PUID=1000
