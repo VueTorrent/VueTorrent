@@ -1,9 +1,9 @@
 <template>
     <v-layout row wrap align-center class="justify-center">
         <div style="margin: 130px auto">
-            <v-container class="grey lighten-4 pa-0">
+            <v-container class="pa-0">
                 <v-card max-width="400" flat>
-                    <v-container :class="`pa-3 project done`">
+                    <v-container class="pa-3 project done">
                         <v-card-title class="justify-center">
                             <h2>Login</h2>
                         </v-card-title>
