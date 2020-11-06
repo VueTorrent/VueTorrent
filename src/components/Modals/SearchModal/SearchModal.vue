@@ -4,20 +4,11 @@
         scrollable
         :width="dialogWidth"
         :fullscreen="phoneLayout"
-        persistent
         :style="{ height: phoneLayout ? '100vh' : '' }"
     >
         <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
-          <v-card-title class="headline">
-            <v-icon class="mr-2">mdi-card-search-outline</v-icon>
-            <span v-text="'Search'" />
-            <v-spacer />
-            <v-btn
-                icon
-                @click="close"
-            >
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
+          <v-card-title class="justify-center">
+            <h2>Search</h2>
           </v-card-title>
           <v-card-text>
             <v-form
@@ -122,7 +113,7 @@ export default {
     computed: {
         ...mapGetters(['getSearchPlugins']),
         dialogWidth() {
-            return this.phoneLayout ? '100%' : '80%'
+            return this.phoneLayout ? '100%' : '60%'
         },
         enabledSearchPlugins(){
             return this.getSearchPlugins().filter(p => p.enabled)
