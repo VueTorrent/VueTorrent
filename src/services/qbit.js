@@ -6,14 +6,17 @@ class Qbit {
             baseURL: 'api/v2'
         })
 
-        this.axios.defaults.headers.post['Content-Type'] =
-            'application/x-www-form-urlencoded'
+        this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
     }
 
-    execute(method, action, params){
-        const data = new URLSearchParams(params)
-        return this.axios[method](action, data).then(res => res.data)
+    execute(method, action, params) {
+        if (method === 'post') {
+            const data = new URLSearchParams(params)
+            return this.axios.post(action, data).then(res => res.data)
+        }
     }
+
+    /** Begin General functions * */
 
     getAppVersion() {
         return this.axios.get('/app/version')
@@ -47,21 +50,95 @@ class Qbit {
     }
 
     setPreferences(params) {
-        const data = new URLSearchParams({
+        return this.execute('post', '/app/setPreferences', {
             json: JSON.stringify(params)
         })
-
-        return this.axios.post('/app/setPreferences', data)
     }
 
     getMainData(rid) {
-        const params = {
-            rid
-        }
-        return this.axios.get('/sync/maindata', {
-            params
+        return this.axios.get(
+            '/sync/maindata', {
+                rid
+            })
+    }
+
+    switchToOldUi() {
+        return this.setPreferences({
+            alternative_webui_enabled: false
         })
     }
+
+    toggleSpeedLimitsMode() {
+        return this.axios.post('/transfer/toggleSpeedLimitsMode')
+    }
+
+    /** Begin Torrent functions * */
+
+    // Get
+
+    getLogs(lastId) {
+        return this.axios.get('/log/main', {
+            last_known_id: lastId
+        })
+    }
+
+    getTorrents(payload) {
+        const params = {
+            sort: payload.sort,
+            reverse: payload.reverse,
+            hashes: payload.hashes ? payload.hashes.join('|') : null,
+            filter: payload.filter ? payload.filter : null,
+            category: payload.category !== null ? payload.category : null
+        }
+
+        // clean
+        Object.keys(params).forEach(
+            key => params[key] == null && delete params[key]
+        )
+
+        const data = new URLSearchParams(params)
+
+        return this.axios.get(`/torrents/info?${data.toString()}`)
+    }
+
+    getTorrentTrackers(hash) {
+        return this.axios.get('/torrents/trackers', {
+            hash
+        })
+    }
+
+    getTorrentPeers(hash, rid) {
+        return this.axios.get('/sync/torrentPeers', {
+            hash,
+            rid
+        })
+    }
+
+    setTorrentName(hash, name) {
+        const params = {
+            hash,
+            name
+        }
+        return this.axios.get('/torrents/rename', { params })
+    }
+
+    getTorrentPieceStates(hash) {
+        return this.axios.get('/torrents/pieceStates', {
+            hash
+        })
+    }
+
+    getTorrentFiles(hash) {
+        return this.axios.get('/torrents/files', {
+            hash
+        })
+    }
+
+    getAvailableTags() {
+        return this.axios.get('/torrents/tags')
+    }
+
+    // Post
 
     addTorrents(params, torrents) {
         let data
@@ -84,157 +161,58 @@ class Qbit {
         return this.axios.post('/torrents/add', data)
     }
 
-    switchToOldUi() {
-        const params = {
-            alternative_webui_enabled: false
-        }
-
-        return this.setPreferences(params)
-    }
-
     setTorrentFilePriority(hash, idList, priority) {
-        const idListStr = idList.join('|')
         const params = {
             hash,
-            id: idListStr,
+            id: idList.join('|'),
             priority
         }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/filePrio', data)
-    }
-
-    getLogs(lastId) {
-        const params = {
-            last_known_id: lastId
-        }
-
-        return this.axios.get('/log/main', {
-            params
-        })
-    }
-
-    toggleSpeedLimitsMode() {
-        return this.axios.post('/transfer/toggleSpeedLimitsMode')
-    }
-
-    getTorrents(payload) {
-        let params = {
-            sort: payload.sort,
-            reverse: payload.reverse,
-            hashes: payload.hashes ? payload.hashes.join('|') : null,
-            filter: payload.filter ? payload.filter : null,
-            category: payload.category !== null ? payload.category : null
-        }
-
-        //clean
-        Object.keys(params).forEach(
-            key => params[key] == null && delete params[key]
-        )
-
-        const data = new URLSearchParams(params)
-
-        return this.axios.get(`/torrents/info?${data.toString()}`)
+        return this.execute('post', '/torrents/filePrio', params)
     }
 
     deleteTorrents(hashes, deleteFiles) {
-        if(!hashes.length) return
-        return this.actionTorrents('delete', hashes, { deleteFiles })
+        if (!hashes.length) return
+        return this.torrentAction('delete', hashes, { deleteFiles })
     }
 
     pauseTorrents(hashes) {
-        return this.actionTorrents('pause', hashes)
+        return this.torrentAction('pause', hashes)
     }
 
     resumeTorrents(hashes) {
-        return this.actionTorrents('resume', hashes)
+        return this.torrentAction('resume', hashes)
     }
 
     reannounceTorrents(hashes) {
-        return this.actionTorrents('reannounce', hashes)
+        return this.torrentAction('reannounce', hashes)
     }
 
     recheckTorrents(hashes) {
-        return this.actionTorrents('recheck', hashes)
+        return this.torrentAction('recheck', hashes)
     }
 
     setTorrentsCategory(hashes, category) {
-        return this.actionTorrents('setCategory', hashes, { category })
-    }
-
-    getTorrentTrackers(hash) {
-        const params = {
-            hash
-        }
-
-        return this.axios.get('/torrents/trackers', {
-            params
-        })
-    }
-
-    getTorrentPeers(hash, rid) {
-        const params = {
-            hash,
-            rid
-        }
-
-        return this.axios.get('/sync/torrentPeers', {
-            params
-        })
+        return this.torrentAction('setCategory', hashes, { category })
     }
 
     editTracker(hash, origUrl, newUrl) {
-        return this.actionTorrents('editTracker', [hash], { origUrl, newUrl })
+        return this.torrentAction('editTracker', [hash], { origUrl, newUrl })
     }
 
     setTorrentLocation(hashes, location) {
-        return this.actionTorrents('setLocation', hashes, { location })
+        return this.torrentAction('setLocation', hashes, { location })
     }
 
-    actionTorrents(action, hashes, extra) {
+    getTorrentProperties(hash) {
+        return this.axios.get('/torrents/properties', { hash })
+    }
+
+    torrentAction(action, hashes, extra) {
         const params = {
             hashes: hashes.join('|'),
             ...extra
         }
-        return this.axios.post(`/torrents/${action}`, {params})
-    }
-
-    setTorrentName(hash, name) {
-        const params = {
-            hash,
-            name
-        }
-        return this.axios.get('/torrents/rename', { params })
-    }
-
-    getTorrentProperties(hash) {
-        const params = {
-            hash
-        }
-
-        return this.axios.get('/torrents/properties', {
-            params
-        })
-    }
-
-    getTorrentPieceStates(hash) {
-        const params = {
-            hash
-        }
-
-        return this.axios.get('/torrents/pieceStates', {
-            params
-        })
-    }
-
-    getTorrentFiles(hash) {
-        const params = {
-            hash
-        }
-
-        return this.axios.get('/torrents/files', {
-            params
-        })
+        return this.execute('post', `/torrents/${action}`, params)
     }
 
     renameFile(hash, id, name) {
@@ -243,72 +221,57 @@ class Qbit {
             id,
             name
         }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/renameFile', data)
+        return this.execute('post','/torrents/renameFile',params)
     }
 
-    getAvailableTags() {
-        return this.axios.get('/torrents/tags')
-    }
-
+    /** Begin Torrent Tags **/
     removeTorrentTag(hash, tag) {
-        const params = {
+        return this.execute('post', '/torrents/removeTags',{
             hashes: hash,
             tags: tag
-        }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/removeTags', data)
+        })
     }
 
     addTorrentTag(hash, tag) {
-        const params = {
+        return this.execute('post','/torrents/addTags ', {
             hashes: hash,
             tags: tag
-        }
-
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/addTags ', data)
+        })
     }
 
     createTag(tag) {
-        const params = {
+        return this.execute('/torrents/createTags  ', {
             tags: tag
-        }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/createTags  ', data)
+        })
     }
 
     deleteTag(tag) {
-        const params = {
+        return this.execute('post','/torrents/deleteTags', {
             tags: tag
-        }
-        const data = new URLSearchParams(params)
-        return this.axios.post('/torrents/deleteTags   ', data)
+        })
     }
 
-    // Begin Categories
-
+    /** Begin Categories **/
     getCategories() {
         return this.axios.get('/torrents/categories')
             .then(res => res.data)
     }
 
     deleteCategory(categories) {
-        return this.categoryAction('removeCategories', {
+        return this.execute('post','/torrents/removeCategories', {
             categories
         })
     }
 
     createCategory(cat) {
-        return this.categoryAction('createCategory', {
+        return this.execute('post','/torrents/createCategory', {
             category: cat.name,
             savePath: cat.savePath
         })
     }
 
     setCategory(hash, cat) {
-        return this.categoryAction('setCategory', {
+        return this.execute('post', '/torrents/setCategory', {
             hashes: hash,
             category: cat
         })
@@ -319,58 +282,45 @@ class Qbit {
             category: cat.name,
             savePath: cat.savePath
         }
-        return this.categoryAction('editCategory', params)
-    }
-    
-    categoryAction(action, params){
-        const data = new URLSearchParams(params)
-        return this.axios.post(`/torrents/${action}`, data)
+        return this.execute('post','/torrents/editCategory', params)
     }
 
-    // End Categories
-
-    // Search
-    getSearchPlugins(){
-        return this.axios.get('/search/plugins')
+    /** Search **/
+    getSearchPlugins() {
+        return this.get( '/search/plugins')
             .then(res => res.data)
     }
 
-    enableSearchPlugin(plugins, enable){
+    enableSearchPlugin(plugins, enable) {
         const params = {
             names: plugins.join('|'),
             enable
         }
-        return this.searchAction('enablePlugin', params)
+        return this.execute('post','enablePlugin', params)
     }
 
     startSearch(pattern, category = null) {
         const params = {
             pattern,
             plugins: 'all',
-            category: category ? category : 'all'
+            category: category || 'all'
         }
-        return this.searchAction('start', params)
+        return this.execute('post','/search/start', params)
     }
-    
-    stopSearch(id){
-        return this.searchAction('stop', {id})
+
+    stopSearch(id) {
+        return this.execute('post','/search/stop', { id })
     }
 
     getSearchStatus(id) {
-        return this.searchAction('status', {id})
+        return this.execute('post','/search/status', { id })
     }
 
     getSearchResults(id) {
-        return this.searchAction('results', {
+        return this.execute('post','/search/results', {
             id,
-            limit: 30
+            limit: 50
         })
-    }
-    
-    searchAction(action ,params){
-        const data = new URLSearchParams(params)
-        return this.axios.post(`/search/${action}`, data)
-            .then(res => res.data)
     }
 }
 
