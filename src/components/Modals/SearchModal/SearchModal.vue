@@ -25,8 +25,7 @@
                 v-model="searchForm.valid"
             >
               <v-container fluid>
-                <v-row>
-                  <v-flex row class="col-12 col-sm-6 col-md-8">
+                  <v-flex row class="col-12 col-sm-6 col-md-8 mx-auto">
                     <v-text-field
                         v-model="searchForm.pattern"
                         prepend-inner-icon="mdi-magnify"
@@ -46,17 +45,6 @@
                       {{ loading ? "Stop" : "Search"}}
                     </v-btn>
                   </v-flex>
-                  <v-spacer/>
-                  <v-col align-self="center" class="col-2">
-                    <v-autocomplete
-                        v-model="searchForm.category"
-                        :items="availableCategories"
-                        item-text="name"
-                        item-value="key"
-                        label="Category"
-                    />
-                  </v-col>
-                </v-row>
               </v-container>
             </v-form>
             <perfect-scrollbar>
@@ -65,7 +53,6 @@
                 :items="search.results"
                 :items-per-page="10"
                 :loading="loading"
-                class="elevation-1"
                 :style="{ maxHeight: '60vh'}"
             >
               <template #[`item.fileName`]="{ item }">
@@ -98,7 +85,7 @@
 </template>
 
 <script>
-import {intersection} from 'lodash'
+import {  mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
 import PluginManager from './PluginManager'
@@ -128,24 +115,17 @@ export default {
             },
             searchForm: {
                 valid: false,
-                category: 'all',
-                pattern: '',
-                plugins: []
+                pattern: ''
             }
         }
     },
     computed: {
+        ...mapGetters(['getSearchPlugins']),
         dialogWidth() {
             return this.phoneLayout ? '100%' : '80%'
         },
-        availableCategories() {
-            const result = ['all', { divider: true }]
-            const categories = intersection(
-                ...this.searchForm.plugins.map(p => p.supportedCategories)
-            ).map(c => ({ key: c, name: c }))
-            result.push(...categories)
-  
-            return result
+        enabledSearchPlugins(){
+            return this.getSearchPlugins().filter(p => p.enabled)
         }
     },
     methods: {
@@ -156,7 +136,7 @@ export default {
                 this.search.results = []
                 const data = await qbit.startSearch(
                     this.searchForm.pattern,
-                    this.searchForm.category
+                    this.enabledSearchPlugins.map(p => p.name)
                 )
                 this.search.id = data.id
                 await this.getStatus()
@@ -191,6 +171,5 @@ export default {
             this.$store.commit('DELETE_MODAL', this.guid)
         }
     }
-
 }
 </script>

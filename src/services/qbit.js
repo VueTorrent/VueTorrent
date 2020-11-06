@@ -287,7 +287,7 @@ class Qbit {
 
     /** Search **/
     getSearchPlugins() {
-        return this.get( '/search/plugins')
+        return this.axios.get( '/search/plugins')
             .then(res => res.data)
     }
 
@@ -296,14 +296,14 @@ class Qbit {
             names: plugins.join('|'),
             enable
         }
-        return this.execute('post','enablePlugin', params)
+        return this.execute('post','/search/enablePlugin', params)
     }
 
-    startSearch(pattern, category = null) {
+    startSearch(pattern, plugins) {
         const params = {
             pattern,
-            plugins: 'all',
-            category: category || 'all'
+            plugins: Array.isArray(plugins) ? plugins.join('|') : 'all',
+            category: 'all'
         }
         return this.execute('post','/search/start', params)
     }
