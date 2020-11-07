@@ -114,12 +114,15 @@ export default {
                 .filter(f => f.priority === 0)
                 .map(f => f.id)
 
-            if (filesToExclude.length)
+            if (filesToExclude.length) {
                 await qbit.setTorrentFilePriority(this.hash, filesToExclude, 0)
-            if (filesToInclude.length)
+            }
+            if (filesToInclude.length) {
                 await qbit.setTorrentFilePriority(this.hash, filesToInclude, 1)
-            if (filesToExclude.length || filesToInclude.length)
+            }
+            if (filesToExclude.length || filesToInclude.length) {
                 await this.getTorrentFiles()
+            }
         },
         togleEditing(item) {
             item.editing = !item.editing

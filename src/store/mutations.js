@@ -15,7 +15,7 @@ export default {
     DELETE_MODAL(state, guid) {
         state.modals = state.modals.filter(m => m.guid !== guid)
     },
-    SET_SELECTED: (state, {type, hash, index}) => {
+    SET_SELECTED: (state, { type, hash, index }) => {
         if (type === 'add') {
             state.selected_torrents.push(hash)
             state.latestSelectedTorrent = state.torrents.map(t => t.hash).indexOf(hash)
@@ -25,10 +25,11 @@ export default {
                 1
             )
         } else if (type === 'until') {
-            let from, until
+            let from
+            let until
             if (state.latestSelectedTorrent > index) {
                 from = index
-                until = state.latestSelectedTorrent + 1 //include latest selected
+                until = state.latestSelectedTorrent + 1 // include latest selected
             } else {
                 from = state.latestSelectedTorrent
                 until = index + 1
@@ -81,9 +82,7 @@ export default {
         state.sort_options.category =
             payload.category !== null ? payload.category : null
     },
-    FETCH_CATEGORIES: async state => {
-        const { data } = await qbit.getCategories()
-        state.categories = data
-    },
+    FETCH_CATEGORIES: async state => state.categories = await qbit.getCategories(),
+    FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),
     SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count)
 }

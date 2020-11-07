@@ -121,6 +121,7 @@ import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 export default {
     name: 'AddModal',
+    props: ['initialMagnet'],
     mixins: [Modal],
     data() {
         return {
@@ -144,14 +145,13 @@ export default {
         }
     },
     methods: {
-        addDropFile(e)
-        {
+        addDropFile(e) {
             this.files.push(...Array.from(e.dataTransfer.files))
         },
         submit() {
             if (this.files.length || this.urls) {
-                let torrents = []
-                let params = { urls: null, autoTMM: this.autoTMM }
+                const torrents = []
+                const params = { urls: null, autoTMM: this.autoTMM }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.urls) params.urls = this.urls
                 if (this.category) params.category = this.category
@@ -188,7 +188,7 @@ export default {
             let savePath = this.getSettings().save_path
             if (this.category) {
                 savePath += this.category
-                let category = this.getCategories()[this.category]
+                const category = this.getCategories()[this.category]
                 if (category && category.savePath) savePath = category.savePath
             }
             return savePath
@@ -201,6 +201,7 @@ export default {
         this.$store.commit('FETCH_SETTINGS')
         this.$store.commit('FETCH_CATEGORIES')
         this.directory = this.savepath
+        this.urls = this.initialMagnet
     }
 }
 </script>

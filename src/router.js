@@ -36,11 +36,13 @@ router.beforeEach(async (to, from, next) => {
     if (!isPublic && !authenticated) {
         return next({
             path: '/login',
-            query: { redirect: to.fullPath } // Store the full path to redirect the user to after login
+            // Store the full path to redirect the user to after login
+            query: { redirect: to.fullPath }
         })
     }
 
-    // Do not allow user to visit login page or register page if they are logged in
+    // Do not allow user to visit login page or register page
+    // if they are logged in
     if (authenticated && onlyWhenLoggedOut) {
         return next('/')
     }

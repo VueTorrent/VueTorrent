@@ -53,7 +53,7 @@ export default {
                     theme: 'light',
                     x: {
                         formatter: value => {
-                            let val = 32 - value * 2
+                            const val = 32 - value * 2
                             return val + ' seconds ago'
                         }
                     }

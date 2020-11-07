@@ -1,7 +1,12 @@
 <template>
     <div>
         <v-btn :ripple="false" id="no-background-hover" text>
-          <v-checkbox class="grey--text" v-model="$store.state.selectMode" color="grey" hide-details style="width: 5px;"/>
+          <v-checkbox
+              class="grey--text"
+              v-model="$store.state.selectMode"
+              color="grey" hide-details
+              style="width: 5px;"
+          />
         </v-btn>
         <v-btn
             text
@@ -95,7 +100,7 @@ export default {
             qbit.resumeTorrents(this.selected_torrents)
         },
         removeTorrents() {
-            if(!this.selected_torrents.length) return
+            if (!this.selected_torrents.length) return
 
             return this.createModal('ConfirmDeleteModal')
         },

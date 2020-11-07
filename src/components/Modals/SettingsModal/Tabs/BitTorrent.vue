@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import {SettingsTab, FullScreenModal} from '@/mixins'
+import { SettingsTab, FullScreenModal } from '@/mixins'
 
 export default {
     name: 'BitTorrent',
