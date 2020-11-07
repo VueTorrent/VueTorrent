@@ -19,7 +19,11 @@
             <div class="caption grey--text">Torrent title</div>
             <div class="truncate">{{ torrent.name }}</div>
           </v-flex>
-          <component :key="'busy' + item.name" v-for="item in properties" :is="item.name" :torrent="torrent"  />
+          <component
+            :key="'busy' + item.name"
+            v-for="item in properties"
+            :is="item.name" :torrent="torrent"
+          />
         </v-layout>
       </template>
       <span>{{ torrent.name }}</span>
@@ -30,7 +34,7 @@
 
 <script>
 import { General, TorrentSelect } from '@/mixins'
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import {
     Size,
     Progress,
@@ -83,11 +87,11 @@ export default {
         phoneLayout() {
             return this.$vuetify.breakpoint.xsOnly
         },
-        denseDashboard(){
+        denseDashboard() {
             return this.getWebuiSettings().denseDashboard
         },
-        properties(){
-            if(this.torrent.progress === 100){
+        properties() {
+            if (this.torrent.progress === 100) {
                 return this.getWebuiSettings().doneTorrentProperties.filter(i => i.active)
             }
             return this.getWebuiSettings().busyTorrentProperties.filter(i => i.active)
@@ -95,7 +99,7 @@ export default {
     },
     methods: {
         showInfo(hash) {
-            this.createModal('TorrentDetailModal', {hash})
+            this.createModal('TorrentDetailModal', { hash })
         }
     }
 }

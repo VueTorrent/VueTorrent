@@ -76,14 +76,14 @@
 </template>
 
 <script>
-import {  mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
 import PluginManager from './PluginManager'
 
 export default {
     name: 'SearchModal',
-    components : { PluginManager},
+    components: { PluginManager },
     mixins: [Modal, FullScreenModal, General],
     data() {
         return {
@@ -115,7 +115,7 @@ export default {
         dialogWidth() {
             return this.phoneLayout ? '100%' : '60%'
         },
-        enabledSearchPlugins(){
+        enabledSearchPlugins() {
             return this.getSearchPlugins().filter(p => p.enabled)
         }
     },
@@ -132,7 +132,7 @@ export default {
                 this.search.id = data.id
                 await this.getStatus()
                 this.search.interval = setInterval(async () => {
-                    let status = await this.getStatus()
+                    const status = await this.getStatus()
                     if (status === 'Stopped') {
                         clearInterval(this.search.interval)
                         this.search.interval = null
@@ -143,7 +143,7 @@ export default {
         },
         async getStatus() {
             if (this.search.id) {
-                const data  = await qbit.getSearchStatus(this.search.id)
+                const data = await qbit.getSearchStatus(this.search.id)
                 return (this.search.status = data[0].status)
             }
         },
@@ -153,9 +153,9 @@ export default {
             this.loading = false
         },
         downloadTorrent(item) {
-            this.createModal('addModal', {initialMagnet: item.fileUrl})
+            this.createModal('addModal', { initialMagnet: item.fileUrl })
         },
-        stopSearch(){
+        stopSearch() {
             qbit.stopSearch(this.search.id)
         },
         close() {

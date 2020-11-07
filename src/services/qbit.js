@@ -110,7 +110,7 @@ class Qbit {
 
     getTorrentPeers(hash, rid) {
         return this.axios.get('/sync/torrentPeers', {
-            params: { hash,rid}
+            params: { hash, rid }
         })
     }
 
@@ -223,19 +223,19 @@ class Qbit {
             id,
             name
         }
-        return this.execute('post','/torrents/renameFile',params)
+        return this.execute('post', '/torrents/renameFile', params)
     }
 
     /** Begin Torrent Tags **/
     removeTorrentTag(hash, tag) {
-        return this.execute('post', '/torrents/removeTags',{
+        return this.execute('post', '/torrents/removeTags', {
             hashes: hash,
             tags: tag
         })
     }
 
     addTorrentTag(hash, tag) {
-        return this.execute('post','/torrents/addTags ', {
+        return this.execute('post', '/torrents/addTags ', {
             hashes: hash,
             tags: tag
         })
@@ -248,7 +248,7 @@ class Qbit {
     }
 
     deleteTag(tag) {
-        return this.execute('post','/torrents/deleteTags', {
+        return this.execute('post', '/torrents/deleteTags', {
             tags: tag
         })
     }
@@ -260,13 +260,13 @@ class Qbit {
     }
 
     deleteCategory(categories) {
-        return this.execute('post','/torrents/removeCategories', {
+        return this.execute('post', '/torrents/removeCategories', {
             categories
         })
     }
 
     createCategory(cat) {
-        return this.execute('post','/torrents/createCategory', {
+        return this.execute('post', '/torrents/createCategory', {
             category: cat.name,
             savePath: cat.savePath
         })
@@ -284,7 +284,7 @@ class Qbit {
             category: cat.name,
             savePath: cat.savePath
         }
-        return this.execute('post','/torrents/editCategory', params)
+        return this.execute('post', '/torrents/editCategory', params)
     }
 
     /** Search **/
@@ -298,7 +298,7 @@ class Qbit {
             names: plugins.join('|'),
             enable
         }
-        return this.execute('post','/search/enablePlugin', params)
+        return this.execute('post', '/search/enablePlugin', params)
     }
 
     startSearch(pattern, plugins) {
@@ -307,19 +307,19 @@ class Qbit {
             plugins: Array.isArray(plugins) ? plugins.join('|') : 'all',
             category: 'all'
         }
-        return this.execute('post','/search/start', params)
+        return this.execute('post', '/search/start', params)
     }
 
     stopSearch(id) {
-        return this.execute('post','/search/stop', { id })
+        return this.execute('post', '/search/stop', { id })
     }
 
     getSearchStatus(id) {
-        return this.execute('post','/search/status', { id })
+        return this.execute('post', '/search/status', { id })
     }
 
     getSearchResults(id) {
-        return this.execute('post','/search/results', {
+        return this.execute('post', '/search/results', {
             id,
             limit: 50
         })

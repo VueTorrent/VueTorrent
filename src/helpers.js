@@ -9,7 +9,7 @@ export function formatBytes(a, b) {
 }
 
 export function getIconForFileType(type) {
-    let types = {
+    const types = {
         html: 'mdi-language-html5',
         js: 'mdi-nodejs',
         json: 'mdi-json',
@@ -51,7 +51,7 @@ export function codeToFlag(code) {
 
 export function treeify(paths) {
     let result = []
-    let level = { result }
+    const level = { result }
 
     paths.forEach(path => {
         path.name.split('/').reduce((r, name) => {
@@ -64,12 +64,12 @@ export function treeify(paths) {
         }, level)
     })
 
-    //parse folders
+    // parse folders
     result = result.map(el => parseFolder(el))
 
     function parseFolder(el) {
         if (el.children.length !== 0) {
-            let folder = createFolder(el.name, el.children)
+            const folder = createFolder(el.name, el.children)
             folder.children = folder.children.map(el => parseFolder(el))
             return folder
         }

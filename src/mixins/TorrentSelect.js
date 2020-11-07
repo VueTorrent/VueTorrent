@@ -10,7 +10,7 @@ export default {
                 this.$store.commit('SET_SELECTED', { type: 'add', hash })
             }
         },
-        selectUntil(hash, index){
+        selectUntil(hash, index) {
             this.$store.commit('SET_SELECTED', { type: 'until', hash, index })
         }
     }

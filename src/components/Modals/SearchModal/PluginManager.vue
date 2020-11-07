@@ -43,23 +43,23 @@
 </template>
 
 <script>
-import { mapState} from 'vuex'
+import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
 export default {
     name: 'PluginsManager',
     data: () =>({
         opened: false
     }),
-    computed : {
+    computed: {
         ...mapState(['searchPlugins'])
     },
     methods: {
-        togglePlugin(plugin){
+        togglePlugin(plugin) {
             qbit.enableSearchPlugin([plugin.name], plugin.enabled)
         }
     },
     watch: {
-        opened(){
+        opened() {
             this.$store.commit('FETCH_SEARCH_PLUGINS')
         }
     }

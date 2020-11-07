@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import {FullScreenModal, SettingsTab} from '@/mixins'
+import { FullScreenModal, SettingsTab } from '@/mixins'
 
 export default {
     name: 'WebUI',

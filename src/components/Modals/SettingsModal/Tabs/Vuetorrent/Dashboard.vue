@@ -65,11 +65,11 @@ export default {
     components: {
         draggable
     },
-    computed : {
-        busyTorrentProperties(){
+    computed: {
+        busyTorrentProperties() {
             return this.$store.state.webuiSettings.busyTorrentProperties
         },
-        doneTorrentProperties(){
+        doneTorrentProperties() {
             return this.$store.state.webuiSettings.doneTorrentProperties
         }
     }

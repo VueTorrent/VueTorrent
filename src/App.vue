@@ -23,7 +23,7 @@ import { General } from '@/mixins'
 export default {
     name: 'App',
     components: { Navbar },
-    mixins: [ General ],
+    mixins: [General],
     data() {
         return {}
     },
@@ -32,7 +32,10 @@ export default {
             const res = await qbit.login()
             const authenticated = res === 'Ok.'
             this.$store.commit('LOGIN', authenticated)
-            if (!authenticated && !this.$router.currentRoute.name.includes('login')) this.$router.push('login')
+            if (
+                !authenticated &&
+                !this.$router.currentRoute.name.includes('login')
+            ) this.$router.push('login')
         }
     },
     computed: {

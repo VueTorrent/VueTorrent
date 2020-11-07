@@ -172,8 +172,8 @@ export default {
             return this.getAppVersion()
         }
     },
-    methods : {
-        async fetchQbitVersion(){
+    methods: {
+        async fetchQbitVersion() {
             this.Qbitversion = await qbit.getAppVersion()
         }
     },

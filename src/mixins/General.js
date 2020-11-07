@@ -12,7 +12,7 @@ export default {
     },
     methods: {
         createModal(name, props) {
-            let component = {
+            const component = {
                 component: name,
                 props,
                 guid: uuidv4()

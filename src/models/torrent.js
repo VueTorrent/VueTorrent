@@ -70,7 +70,7 @@ export default class Torrent {
     }
 
     formatEta(value) {
-        let options = { dayLimit: 100 }
+        const options = { dayLimit: 100 }
         const minute = 60
         const hour = minute * 60
         const day = hour * 24
@@ -89,9 +89,9 @@ export default class Torrent {
             minUnit: 0
         }
 
-        const opt = options
-            ? Object.assign(defaultOptions, options)
-            : defaultOptions
+        const opt = options ?
+            Object.assign(defaultOptions, options) :
+            defaultOptions
 
         if (opt.dayLimit && value >= opt.dayLimit * day) {
             return '∞'
