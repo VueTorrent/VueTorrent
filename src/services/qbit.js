@@ -50,16 +50,16 @@ class Qbit {
     }
 
     setPreferences(params) {
-        return this.execute('post', '/app/setPreferences', {
+        const data = new URLSearchParams({
             json: JSON.stringify(params)
         })
+
+        return this.axios.post('/app/setPreferences', data)
     }
 
     getMainData(rid) {
         return this.axios.get(
-            '/sync/maindata', {
-                rid
-            })
+            '/sync/maindata', { params: { rid } })
     }
 
     switchToOldUi() {
@@ -103,14 +103,14 @@ class Qbit {
 
     getTorrentTrackers(hash) {
         return this.axios.get('/torrents/trackers', {
-            hash
+            params: { hash }
         })
     }
 
+
     getTorrentPeers(hash, rid) {
         return this.axios.get('/sync/torrentPeers', {
-            hash,
-            rid
+            params: { hash,rid}
         })
     }
 
@@ -124,13 +124,13 @@ class Qbit {
 
     getTorrentPieceStates(hash) {
         return this.axios.get('/torrents/pieceStates', {
-            hash
+            params: { hash }
         })
     }
 
     getTorrentFiles(hash) {
         return this.axios.get('/torrents/files', {
-            hash
+            params: { hash }
         })
     }
 
@@ -204,7 +204,9 @@ class Qbit {
     }
 
     getTorrentProperties(hash) {
-        return this.axios.get('/torrents/properties', { hash })
+        return this.axios.get('/torrents/properties', {
+            params: { hash }
+        })
     }
 
     torrentAction(action, hashes, extra) {
