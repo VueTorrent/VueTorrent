@@ -63,7 +63,7 @@ export default {
     computed: {
         ...mapState(['selected_torrents']),
         ...mapGetters(['getTorrents']),
-        torrents(){
+        torrents() {
             return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
         }
     }

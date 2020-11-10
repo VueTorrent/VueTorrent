@@ -1,33 +1,31 @@
 module.exports = {
-    root: true,
     env: {
-        node: true,
-        commonjs: true,
+        browser: true,
         es2021: true
     },
-    extends: ['plugin:vue/essential', 'eslint:recommended'],
+    extends: [
+        'plugin:vue/essential',
+        'google'
+    ],
     parserOptions: {
-        parser: 'babel-eslint'
+        ecmaVersion: 12,
+        sourceType: 'module'
     },
+    plugins: [
+        'vue'
+    ],
     rules: {
-        'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         indent: ['warn', 4],
         semi: ['error', 'never'],
         quotes: ['error', 'single'],
         'comma-dangle': ['error', 'never'],
         'arrow-parens': ['error', 'as-needed'],
-        'no-underscore-dangle': ['warn', { allowAfterThis: true }]
-    },
-    overrides: [
-        {
-            files: [
-                '**/__tests__/*.{j,t}s?(x)',
-                '**/tests/unit/**/*.spec.{j,t}s?(x)'
-            ],
-            env: {
-                jest: true
-            }
-        }
-    ]
+        'no-underscore-dangle': ['warn', { allowAfterThis: true }],
+        'quote-props': ['error', 'as-needed'],
+        'object-curly-spacing': ['error', 'always'],
+        'require-jsdoc': 'off',
+        'valid-jsdoc': 'off',
+        'max-len': ['error', { code: 100 }],
+        'vue/html-quotes': ['error', 'double', { avoidEscape: true }]
+    }
 }

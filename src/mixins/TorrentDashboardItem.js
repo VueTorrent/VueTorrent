@@ -1,7 +1,7 @@
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
-    computed : {
+    computed: {
         ...mapGetters(['getTheme']),
         phoneLayout() {
             return this.$vuetify.breakpoint.xsOnly

@@ -114,8 +114,8 @@ export default {
             return this.getTorrent(this.hash)
         },
         availableTags() {
-            let availableTags = this.getAvailableTags()
-            let currentTags = this.getTorrent(this.hash).tags
+            const availableTags = this.getAvailableTags()
+            const currentTags = this.getTorrent(this.hash).tags
             return difference(availableTags, currentTags)
         },
         availableCategories() {

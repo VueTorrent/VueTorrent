@@ -77,7 +77,7 @@ import { mapGetters } from 'vuex'
 
 import qbit from '@/services/qbit'
 
-import { Tab, General,FullScreenModal } from '@/mixins'
+import { Tab, General, FullScreenModal } from '@/mixins'
 
 export default {
     name: 'TagsAndCategories',

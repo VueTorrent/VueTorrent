@@ -23,7 +23,7 @@
 <script>
 import General from './Vuetorrent/General'
 import Dashboard from './Vuetorrent/Dashboard'
-import {FullScreenModal} from '@/mixins'
+import { FullScreenModal } from '@/mixins'
 
 export default {
     name: 'VueTorrent',
@@ -31,7 +31,7 @@ export default {
         General, Dashboard
     },
     mixins: [FullScreenModal],
-    data : () => ({
+    data: () => ({
         tab: null
     }),
     methods: {
