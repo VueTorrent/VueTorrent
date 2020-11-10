@@ -93,7 +93,8 @@ export default new Vuex.Store({
         trackers: [],
         filteredTorrentsCount: 0,
         latestSelectedTorrent: null,
-        selectMode: false
+        selectMode: false,
+        searchPlugins: []
     },
     getters: {
         ...getters

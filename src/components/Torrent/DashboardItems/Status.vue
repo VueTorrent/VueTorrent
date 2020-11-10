@@ -11,10 +11,10 @@
   </v-flex>
 </template>
 <script>
-import {TorrentDashboardItem} from '@/mixins'
+import { TorrentDashboardItem } from '@/mixins'
 export default {
     name: 'Status',
-    mixins : [TorrentDashboardItem],
+    mixins: [TorrentDashboardItem],
     props: ['torrent']
 }
 </script>

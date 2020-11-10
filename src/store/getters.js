@@ -21,5 +21,6 @@ export default {
         }
 
         return `${state.filteredTorrentsCount} torrents`
-    }
+    },
+    getSearchPlugins: state => () => state.searchPlugins
 }

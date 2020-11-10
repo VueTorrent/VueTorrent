@@ -68,7 +68,7 @@
 
 <script>
 import qbit from '@/services/qbit'
-import { General, TorrentSelect  } from '@/mixins'
+import { General, TorrentSelect } from '@/mixins'
 export default {
     name: 'TorrentRightClickMenu',
     mixins: [General, TorrentSelect],

@@ -40,7 +40,12 @@
                     :key="torrent.hash"
                 >
                   <v-flex v-if="selectMode">
-                    <v-checkbox color="grey" class="mt-10" xs1 :value="selected_torrents.indexOf(torrent.hash) !== -1" @click="selectTorrent(torrent.hash)" />
+                    <v-checkbox
+                        color="grey"
+                        class="mt-10"
+                        xs1
+                        :value="selected_torrents.indexOf(torrent.hash) !== -1"
+                        @click="selectTorrent(torrent.hash)" />
                   </v-flex>
                   <v-flex :class="selectMode ? 'xs11' : ''">
                     <Torrent
@@ -88,7 +93,7 @@ import { TorrentSelect, General } from '@/mixins'
 export default {
     name: 'Dashboard',
     components: { Torrent, VueContext, TorrentRightClickMenu },
-    mixins: [ TorrentSelect, General ],
+    mixins: [TorrentSelect, General],
     data() {
         return {
             input: '',
@@ -120,20 +125,20 @@ export default {
         paginationSize() {
             return this.getWebuiSettings().paginationSize
         },
-        pageCount(){
-            let l = this.torrents.length,
-                s = this.paginationSize
+        pageCount() {
+            const l = this.torrents.length
+            const s = this.paginationSize
             return Math.ceil(l/s)
         },
-        paginatedData(){
-            const start = (this.pageNumber - 1) * this.paginationSize,
-                end = start + this.paginationSize
+        paginatedData() {
+            const start = (this.pageNumber - 1) * this.paginationSize
+            const end = start + this.paginationSize
             return this.torrents.slice(start, end)
         },
         torrentCountString() {
             return this.getTorrentCountString()
         },
-        selectMode(){
+        selectMode() {
             return this.$store.state.selectMode
         }
     },
@@ -141,29 +146,29 @@ export default {
         resetSelected() {
             this.$store.commit('RESET_SELECTED')
         },
-        resetInput(){
+        resetInput() {
             this.input = ''
         },
-        toTop () {
+        toTop() {
             this.$vuetify.goTo(0)
         },
         handleKeyboardShortcut(e) {
             // 'ctrl + A' => select torrents
             if (e.keyCode === 65 && e.ctrlKey) {
                 e.preventDefault()
-                if(this.$store.state.selected_torrents.length === this.torrents.length){
-                    return  this.$store.state.selected_torrents = []
+                if (this.$store.state.selected_torrents.length === this.torrents.length) {
+                    return this.$store.state.selected_torrents = []
                 }
                 const hashes = this.torrents.map(t => t.hash)
                 return this.$store.state.selected_torrents = hashes
             }
 
             // 'Delete' => Delete modal
-            if(e.keyCode === 46) {
+            if (e.keyCode === 46) {
                 e.preventDefault()
 
-                //no torrents select to delete
-                if(!this.selected_torrents.length) return
+                // no torrents select to delete
+                if (!this.selected_torrents.length) return
 
                 return this.createModal('ConfirmDeleteModal')
             }
@@ -181,7 +186,7 @@ export default {
         document.removeEventListener('keydown', this.handleKeyboardShortcut)
     },
     watch: {
-        torrents: function (torrents) {
+        torrents: function(torrents) {
             this.$store.commit('SET_CURRENT_ITEM_COUNT', torrents.length)
         }
     }
