@@ -70,8 +70,9 @@ export default {
             .filter((domain, index, self) => index === self.indexOf(domain) && domain)
             .sort()
 
-        if (state.sort_options.tracker !== null)
+        if (state.sort_options.tracker !== null) {
             data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
+        }
 
         // torrents
         state.torrents = []
@@ -90,7 +91,7 @@ export default {
         state.sort_options.filter = payload.filter ? payload.filter : state.sort_options.filter
         state.sort_options.category =
             payload.category !== null ? payload.category : null
-        state.sort_options.tracker = 
+        state.sort_options.tracker =
             payload.tracker !== null ? payload.tracker : null
     },
     FETCH_CATEGORIES: async state => state.categories = await qbit.getCategories(),
