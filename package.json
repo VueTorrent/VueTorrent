@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.4.5",
+    "version": "0.4.6",
     "private": true,
     "scripts": {
         "start": "npm run serve",
@@ -12,7 +12,7 @@
         "@babel/polyfill": "^7.12.1",
         "apexcharts": "^3.22.1",
         "axios": "^0.19.2",
-        "core-js": "^3.6.4",
+        "core-js": "^3.7.0",
         "dayjs": "^1.9.5",
         "fuse.js": "^6.4.3",
         "lodash": "^4.17.20",
