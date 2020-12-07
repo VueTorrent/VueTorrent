@@ -30,7 +30,7 @@
             width="280"
             disable-resize-watcher
         >
-            <v-flex style="height: 100vh; display: flex; flex-direction: column;"
+            <v-flex style="height: 98vh; display: flex; flex-direction: column;"
                     class="mt-3" v-if="status">
                 <CurrentSpeed
                     v-if="webuiSettings.showCurrentSpeed"
@@ -50,7 +50,7 @@
                     :space="status.freeDiskSpace"
                 />
                 <FilterSelect :showTrackerFilter="webuiSettings.showTrackerFilter" />
-              <div class="flex-grow-1">
+              <div class="mt-auto">
                 <BottomActions />
               </div>
             </v-flex>
