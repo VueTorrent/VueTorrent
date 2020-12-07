@@ -64,7 +64,10 @@ export default {
         state.upload_data.splice(0, 1)
         state.upload_data.push(state.status.upspeedRaw)
 
+        // torrents
         let { data } = await qbit.getTorrents(state.sort_options)
+
+        // trackers
         state.trackers = data.map(t => t.tracker)
             .map(url => getHostName(url))
             .filter((domain, index, self) => index === self.indexOf(domain) && domain)
