@@ -17,7 +17,7 @@
         <v-layout v-on="denseDashboard && on" row wrap :class="style">
           <v-flex xs12 :class="denseDashboard ? 'sm3' : ''">
             <div class="caption grey--text">Torrent title</div>
-            <div class="truncate">{{ torrent.name }}</div>
+            <div class="truncate mr-4">{{ torrent.name }}</div>
           </v-flex>
           <component
             :key="'busy' + item.name"
@@ -46,7 +46,8 @@ import {
     Seeds,
     Status,
     Category,
-    Tags
+    Tags,
+    AddedOn
 } from './Torrent/DashboardItems'
 
 export default {
@@ -62,7 +63,8 @@ export default {
         Seeds,
         Status,
         Category,
-        Tags
+        Tags,
+        AddedOn
     },
     mixins: [General, TorrentSelect],
     props: {

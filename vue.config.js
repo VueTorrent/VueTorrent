@@ -4,8 +4,8 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].title = 'VueTorrent'
-                return args
+                args[0].title = "VueTorrent";
+                return args;
             })
     },
     outputDir: 'vuetorrent/public',
@@ -29,7 +29,7 @@ module.exports = {
         port: 8000,
         proxy: {
             '/api': {
-                target: 'http://localhost:8080'
+                target: 'http://192.168.1.254:8085'
             }
         }
     }

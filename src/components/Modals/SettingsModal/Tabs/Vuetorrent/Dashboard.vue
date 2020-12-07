@@ -59,7 +59,6 @@
 
 <script>
 import draggable from 'vuedraggable'
-
 export default {
     name: 'Dashboard',
     components: {

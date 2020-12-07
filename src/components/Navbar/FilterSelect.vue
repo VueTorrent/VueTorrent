@@ -33,7 +33,24 @@
             color="download"
             background-color="secondary"
             item-color="download"
-            @input="setCategoryFilter"
+            @input="setCategoryOrTrackerFilter"
+            height="55"
+        ></v-select>
+        <div class="secondary_lighter--text text-uppercase caption ml-4">
+            Tracker
+        </div>
+        <v-select
+            :value="selectedTracker"
+            v-model="selectedTracker"
+            flat
+            class="ml-2 mr-2"
+            :items="availableTrackers"
+            dense
+            solo
+            color="download"
+            background-color="secondary"
+            item-color="download"
+            @input="setCategoryOrTrackerFilter"
             height="55"
         ></v-select>
         <div
@@ -65,10 +82,11 @@ export default {
             { value: 'errored', name: 'Errored' }
         ],
         selectedState: { value: 'all', name: 'All' },
-        selectedCategory: null
+        selectedCategory: null,
+        selectedTracker: 'All'
     }),
     computed: {
-        ...mapGetters(['getCategories', 'getTorrentCountString']),
+        ...mapGetters(['getCategories', 'getTrackers', 'getTorrentCountString']),
         availableCategories() {
             const categories = ['All', 'Uncategorized']
             categories.push(...Object.keys(this.getCategories()))
@@ -84,6 +102,21 @@ export default {
                 return this.selectedCategory
             }
         },
+        availableTrackers() {
+            const trackers = ['All', 'Not working']
+            trackers.push(...this.getTrackers())
+            return trackers
+        },
+        trackerFilter() {
+            switch (this.selectedTracker) {
+            case 'All':
+                return null
+            case 'Not working':
+                return ''
+            default:
+                return this.selectedTracker
+            }
+        },
         torrentCountString() {
             return this.getTorrentCountString()
         }
@@ -92,13 +125,15 @@ export default {
         setStatusFilter(value) {
             this.$store.commit('UPDATE_SORT_OPTIONS', {
                 filter: value,
-                category: this.categoryFilter
+                category: this.categoryFilter,
+                tracker: this.trackerFilter
             })
         },
-        setCategoryFilter() {
+        setCategoryOrTrackerFilter() {
             this.$store.commit('UPDATE_SORT_OPTIONS', {
                 filter: this.selectedState.value,
-                category: this.categoryFilter
+                category: this.categoryFilter,
+                tracker: this.trackerFilter
             })
         }
     },

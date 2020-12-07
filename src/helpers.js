@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 export function formatBytes(a, b) {
-    if (a == 0) return '0 Bytes'
+    if (a == 0) return '0 B'
     const c = 1024
     const d = b || 2
-    const e = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
     const f = Math.floor(Math.log(a) / Math.log(c))
     return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
@@ -97,5 +97,17 @@ function createFolder(name, children) {
         fullName: name,
         type: 'directory',
         children: children
+    }
+}
+
+export function getHostName(url) {
+    const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i)
+    if (match != null &&
+        match.length > 2 &&
+        typeof match[2] === 'string' &&
+        match[2].length > 0) {
+        return match[2]
+    } else {
+        return ''
     }
 }

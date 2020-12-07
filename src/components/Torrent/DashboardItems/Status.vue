@@ -1,13 +1,11 @@
 <template>
-  <v-flex xs5 sm1>
+  <v-flex xs6 sm1>
     <div class="caption grey--text">Status</div>
     <v-chip
-        small
-        class="caption"
-        :class="
-                            theme === 'light'
-                                ? `${state} white--text `
-                                : `${state}  black--text`">
+      small
+      class="caption white--text"
+      :class="state"
+    >
       {{ torrent.state }}
     </v-chip>
   </v-flex>
