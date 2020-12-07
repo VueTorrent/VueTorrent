@@ -25,6 +25,7 @@ export default class Torrent {
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
         this.category = data.category
         this.tracker = data.tracker
+        this.comment = data.comment
     }
 
     formatState(state) {
