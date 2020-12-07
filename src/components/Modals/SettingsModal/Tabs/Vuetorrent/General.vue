@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mx-1 px-0">
+  <v-container class="mx-1 px-1">
     <v-card flat>
       <v-card-text class="pa-0" style="font-size: 1.1em">
         <div class="box">

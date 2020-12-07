@@ -2,7 +2,7 @@
     <v-dialog
         v-model="dialog"
         scrollable
-        width="75%"
+        :width="dialogWidth"
         :fullscreen="phoneLayout"
     >
         <v-card style="min-height: 400px; overflow: hidden !important">
@@ -17,12 +17,7 @@
                     <v-tab href="#vuetorrent">VueTorrent</v-tab>
                     <v-tab href="#tagsAndCategories">Tags & Categories</v-tab>
                 </v-tabs>
-                <perfect-scrollbar>
-                    <v-tabs-items
-                        v-model="tab"
-                        :touch="updateTab(tab)"
-                        :style="{ maxHeight: dialogHeight }"
-                    >
+              <v-tabs-items v-model="tab" :touch="updateTab(tab)">
                         <v-tab-item value="downloads">
                             <Downloads :is-active="tab === 'downloads'" />
                         </v-tab-item>
@@ -42,7 +37,6 @@
                             />
                         </v-tab-item>
                     </v-tabs-items>
-                </perfect-scrollbar>
             </div>
             <v-card-actions class="d-flex justify-center">
                 <v-btn color="success" @click="saveSettings">Save</v-btn>
@@ -64,11 +58,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import { mapGetters } from 'vuex'
-import qbit from '@/services/qbit'
-
-import { Modal, FullScreenModal } from '@/mixins'
+import { Modal, FullScreenModal, SettingsTab } from '@/mixins'
 import {
     WebUI,
     BitTorrent,
@@ -79,7 +69,7 @@ import {
 
 export default {
     name: 'SettingsModal',
-    mixins: [Modal, FullScreenModal],
+    mixins: [Modal, FullScreenModal, SettingsTab],
     components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories },
     data() {
         return {
@@ -91,19 +81,6 @@ export default {
     methods: {
         close() {
             this.deleteModal()
-        },
-        saveSettings() {
-            qbit.setPreferences(this.getSettings()).then(() => {
-                Vue.$toast.success('Settings saved successfully!')
-            })
-            this.$store.commit('FETCH_SETTINGS')
-            this.close()
-        }
-    },
-    computed: {
-        ...mapGetters(['getSettings']),
-        dialogHeight() {
-            return this.phoneLayout ? '79vh' : '70vh'
         }
     },
     created() {

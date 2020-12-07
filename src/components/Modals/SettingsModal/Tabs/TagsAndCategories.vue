@@ -4,7 +4,7 @@
         <v-card-text
             class="mx-auto mt-5"
             style="font-size: 1.1em;"
-            :style="{ minHeight: phoneLayout ? '' : '75vh'}"
+            :style="{ minHeight: phoneLayout ? '' : '64vh'}"
         >
           <v-layout row wrap>
             <v-flex class="mx-auto text-center" xs12 md6>
