@@ -50,11 +50,10 @@
                                         </v-file-input>
                                     </div>
                                     <v-textarea
+                                        v-if="files.length == 0"
                                         label="URL"
                                         prepend-icon="mdi-link"
-                                        :rows="
-                                            $vuetify.breakpoint.xsOnly ? 1 : 3
-                                        "
+                                        rows="1"
                                         required
                                         :autofocus="!phoneLayout"
                                         v-model="urls"
@@ -83,14 +82,26 @@
                             <v-row no-gutters>
                                 <v-flex xs12 sm6>
                                     <v-checkbox
-                                        v-model="autoTMM"
-                                        label="Automatic Torrent Management"
+                                        v-model="start"
+                                        label="Start torrent"
                                     ></v-checkbox>
                                 </v-flex>
                                 <v-flex xs12 sm6>
                                     <v-checkbox
                                         v-model="skip_checking"
                                         label="Skip hash check"
+                                    ></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6>
+                                    <v-checkbox
+                                        v-model="root_folder"
+                                        label="Create subfolder"
+                                    ></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6>
+                                    <v-checkbox
+                                        v-model="autoTMM"
+                                        label="Automatic Torrent Management"
                                     ></v-checkbox>
                                 </v-flex>
                             </v-row>
@@ -128,8 +139,10 @@ export default {
             files: [],
             category: null,
             directory: '',
-            autoTMM: true,
+            start: true,
             skip_checking: false,
+            root_folder: true,
+            autoTMM: true,
             fileInputRules: [
                 v => {
                     const result = v.every(f => {
@@ -151,12 +164,17 @@ export default {
         submit() {
             if (this.files.length || this.urls) {
                 const torrents = []
-                const params = { urls: null, autoTMM: this.autoTMM }
+                const params = {
+                    urls: null,
+                    paused: !this.start,
+                    skip_checking: this.skip_checking,
+                    root_folder: this.root_folder,
+                    autoTMM: this.autoTMM
+                }
                 if (this.files.length) torrents.push(...this.files)
                 if (this.urls) params.urls = this.urls
                 if (this.category) params.category = this.category
                 if (!this.autoTMM) params.savepath = this.directory
-                if (this.skip_checking) params.skip_checking = this.skip_checking
 
                 qbit.addTorrents(params, torrents)
 
@@ -172,12 +190,15 @@ export default {
             this.url = null
             this.files = []
             this.category = null
-            this.directory = null
+            this.directory = this.savepath
             this.skip_checking = null
         }
     },
     computed: {
         ...mapGetters(['getSettings', 'getCategories']),
+        settings() {
+            return this.getSettings()
+        },
         validFile() {
             return this.Files.length > 0
         },
@@ -197,10 +218,14 @@ export default {
             return Object.keys(this.getCategories())
         }
     },
+    watch: {
+        settings(newvalue) {
+            this.directory = newvalue.save_path
+        }
+    },
     created() {
         this.$store.commit('FETCH_SETTINGS')
         this.$store.commit('FETCH_CATEGORIES')
-        this.directory = this.savepath
         this.urls = this.initialMagnet
     }
 }

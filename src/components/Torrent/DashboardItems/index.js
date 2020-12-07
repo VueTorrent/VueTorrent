@@ -9,6 +9,7 @@ import Seeds from './Seeds'
 import Status from './Status'
 import Category from './Category'
 import Tags from './Tags'
+import AddedOn from './AddedOn'
 
 export {
     Size,
@@ -21,5 +22,6 @@ export {
     Seeds,
     Status,
     Category,
-    Tags
+    Tags,
+    AddedOn
 }

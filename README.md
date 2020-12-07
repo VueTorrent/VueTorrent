@@ -1,6 +1,6 @@
 # VueTorrent
 
-The sleekest looking WEBUI for qBittorrent made with Vuejs!
+The sleekest looking WEBUI for qBittorrent made with Vuejs! Forked from [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent)
 
 > Vue, qBitorrent, Vuetify
 
@@ -62,12 +62,6 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 ## Contributing
 
 I'll gladly accept help/pull requests & advice!
-
-## Support
-
-- Open up an issue 😛
-
-<a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
 ## Credits
 

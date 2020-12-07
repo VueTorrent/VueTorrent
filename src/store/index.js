@@ -24,7 +24,18 @@ export default new Vuex.Store({
     state: {
         version: 0,
         intervals: [],
-        status: null,
+        status: {
+            status: '',
+            downloaded: '',
+            uploaded: '',
+            dlspeed: '',
+            upspeed: '',
+            freeDiskSpace: '',
+            altSpeed: '',
+            dlspeedRaw: '',
+            upspeedRaw: '',
+            tags: ''
+        },
         upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         torrents: [],
@@ -59,7 +70,9 @@ export default new Vuex.Store({
                 { name: 'Seeds', active: true },
                 { name: 'Status', active: true },
                 { name: 'Ratio', active: true },
-                { name: 'Tags', active: true }
+                { name: 'Category', active: true },
+                { name: 'Tags', active: true },
+                { name: 'AddedOn', active: true }
             ],
             doneTorrentProperties: [
                 { name: 'Size', active: true },
@@ -71,10 +84,13 @@ export default new Vuex.Store({
                 { name: 'Seeds', active: true },
                 { name: 'Status', active: true },
                 { name: 'Ratio', active: true },
-                { name: 'Tags', active: true }
+                { name: 'Category', active: true },
+                { name: 'Tags', active: true },
+                { name: 'AddedOn', active: true }
             ]
         },
         categories: [],
+        trackers: [],
         filteredTorrentsCount: 0,
         latestSelectedTorrent: null,
         selectMode: false,

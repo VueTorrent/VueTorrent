@@ -17,7 +17,7 @@ jobs:
               with:
                   args: zip -qq -r ./release.zip ./vuetorrent
             - name: Get Version
-              run: echo ::set-env name=VERSION::$(jq -r .version package.json)
+              run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
             - name: Upload
               uses: actions/upload-release-asset@v1.0.1
               env:

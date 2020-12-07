@@ -1,7 +1,7 @@
 <template>
     <nav>
         <!--title-->
-        <v-app-bar app flat color="background" @click="resetSelected">
+        <v-app-bar app flat color="background">
             <v-app-bar-nav-icon
                 @click.stop="drawer = !drawer"
                 class="grey--text text--lighten-1"
@@ -26,7 +26,8 @@
             app
             v-model="drawer"
             class="primary drawer"
-            style="position: fixed; height: 100%"
+            style="position: fixed"
+            width="280"
             disable-resize-watcher
         >
             <v-flex class="mt-3" v-if="status">
@@ -48,10 +49,8 @@
                     :space="status.freeDiskSpace"
                 />
                 <FilterSelect />
-            </v-flex>
-            <v-container class="mt-12">
                 <BottomActions />
-            </v-container>
+            </v-flex>
         </v-navigation-drawer>
     </nav>
 </template>
@@ -94,11 +93,6 @@ export default {
             drawer: this.$vuetify.breakpoint.mdAndUp
         }
     },
-    methods: {
-        resetSelected() {
-            this.$store.commit('RESET_SELECTED')
-        }
-    },
     created() {
         this.$vuetify.theme.dark = this.getTheme()
     }
@@ -107,7 +101,6 @@ export default {
 
 <style lang="scss">
 #app > div > nav > nav > div.v-navigation-drawer__content {
-  height: 95%;
   &::-webkit-scrollbar {
     width: 6px;
   }
