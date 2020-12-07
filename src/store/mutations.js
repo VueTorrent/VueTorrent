@@ -68,13 +68,15 @@ export default {
         let { data } = await qbit.getTorrents(state.sort_options)
 
         // trackers
-        state.trackers = data.map(t => t.tracker)
-            .map(url => getHostName(url))
-            .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-            .sort()
+        if (state.webuiSettings.showTrackerFilter) { // dont calculate trackers when disabled
+            state.trackers = data.map(t => t.tracker)
+                .map(url => getHostName(url))
+                .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+                .sort()
 
-        if (state.sort_options.tracker !== null) {
-            data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
+            if (state.sort_options.tracker !== null) {
+                data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
+            }
         }
 
         // torrents

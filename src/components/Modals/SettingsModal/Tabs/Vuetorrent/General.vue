@@ -61,6 +61,16 @@
                   Dense version of the dasbhoard</template
                 >
               </v-switch>
+              <v-switch
+                  class="v-input--reverse v-input--expand pa-0 ma-0"
+                  inset
+                  v-model="showTrackerFilter"
+                  color="green_accent"
+              >
+                <template #label>
+                 Show Tracker Filter</template
+                >
+              </v-switch>
               <v-row dense>
                 <v-col cols="8" sm="8" md="10">
                   <p class="subtitle-1">Pagination size:</p>
@@ -158,6 +168,14 @@ export default {
             },
             set(val) {
                 this.webuiSettings.denseDashboard = val
+            }
+        },
+        showTrackerFilter: {
+            get() {
+                return this.webuiSettings.showTrackerFilter
+            },
+            set(val) {
+                this.webuiSettings.showTrackerFilter = val
             }
         },
         paginationSize: {

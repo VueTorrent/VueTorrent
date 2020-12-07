@@ -36,6 +36,7 @@
             @input="setCategoryOrTrackerFilter"
             height="55"
         ></v-select>
+      <div v-if="showTrackerFilter">
         <div class="secondary_lighter--text text-uppercase caption ml-4">
             Tracker
         </div>
@@ -53,6 +54,7 @@
             @input="setCategoryOrTrackerFilter"
             height="55"
         ></v-select>
+      </div>
         <div
             style="font-size: 0.9em"
             class="download--text text-uppercase text-center"
@@ -66,6 +68,7 @@
 import { mapGetters } from 'vuex'
 export default {
     name: 'FilterSelect',
+    props: ['showTrackerFilter'],
     data: () => ({
         options: [
             { value: 'all', name: 'All' },
@@ -104,7 +107,9 @@ export default {
         },
         availableTrackers() {
             const trackers = ['All', 'Not working']
-            trackers.push(...this.getTrackers())
+            if (this.showTrackerFilter) {
+                trackers.push(...this.getTrackers())
+            }
             return trackers
         },
         trackerFilter() {

@@ -26,11 +26,12 @@
             app
             v-model="drawer"
             class="primary drawer"
-            style="position: fixed"
+            style="position: fixed;"
             width="280"
             disable-resize-watcher
         >
-            <v-flex class="mt-3" v-if="status">
+            <v-flex style="height: 100vh; display: flex; flex-direction: column;"
+                    class="mt-3" v-if="status">
                 <CurrentSpeed
                     v-if="webuiSettings.showCurrentSpeed"
                     :status="status"
@@ -48,8 +49,10 @@
                     v-if="webuiSettings.showFreeSpace"
                     :space="status.freeDiskSpace"
                 />
-                <FilterSelect />
+                <FilterSelect :showTrackerFilter="webuiSettings.showTrackerFilter" />
+              <div class="flex-grow-1">
                 <BottomActions />
+              </div>
             </v-flex>
         </v-navigation-drawer>
     </nav>
