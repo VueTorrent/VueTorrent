@@ -50,6 +50,30 @@
       >Force reannounce</v-list-item-title
       >
     </v-list-item>
+    <v-menu
+            open-on-hover
+            top
+        >
+      <template v-slot:activator="{ on }">
+      <v-list-item  link v-on="on">
+        <v-icon>trending_up</v-icon>
+        <v-list-item-title class="ml-2" style="font-size: 12px"
+        >Set Priority</v-list-item-title>
+          </v-list-item>
+      </template>
+          <v-list dense rounded>
+            <v-list-item link
+                v-for="(item, index) in priority_options"
+                :key="index"
+                @click="setPriority(item.action)"
+            >
+              <v-icon>{{ item.icon }}</v-icon>
+              <v-list-item-title class="ml-2" style="font-size: 12px">
+                {{ item.name }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
     <v-divider />
     <v-list-item @click="showInfo" link>
       <v-icon>info</v-icon>
@@ -59,7 +83,7 @@
     </v-list-item>
     <v-list-item @click="selectTorrent(hash)" link>
       <v-icon>done</v-icon>
-      <v-list-item-title class="ml-2" style="font-size: 12px"
+      <v-list-item-title class="ml-2"
       >Select</v-list-item-title
       >
     </v-list-item>
@@ -75,6 +99,14 @@ export default {
     props: {
         hash: String
     },
+    data: () => ({
+        priority_options: [
+            { name: 'top', icon: 'upgrade', action: 'topPrio' },
+            { name: 'increase', icon: 'arrow_drop_up', action: 'increasePrio' },
+            { name: 'decrease', icon: 'arrow_drop_down', action: 'decreasePrio' },
+            { name: 'bottom', icon: 'vertical_align_bottom', action: 'bottomPrio' }
+        ]
+    }),
     methods: {
         resume() {
             qbit.resumeTorrents([this.hash])
@@ -102,8 +134,10 @@ export default {
         },
         showInfo() {
             this.createModal('TorrentDetailModal', { hash: this.hash })
+        },
+        setPriority(priority) {
+            qbit.setTorrentPriority(this.hash, priority)
         }
-
     },
     computed: {
         dark() {

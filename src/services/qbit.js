@@ -226,6 +226,15 @@ class Qbit {
         return this.execute('post', '/torrents/renameFile', params)
     }
 
+    /** Torrent Priority **/
+    setTorrentPriority(hash, priority) {
+        if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
+            return this.execute('post', `/torrents/${priority}`, {
+                hashes: hash
+            })
+        }
+    }
+
     /** Begin Torrent Tags **/
     removeTorrentTag(hash, tag) {
         return this.execute('post', '/torrents/removeTags', {
