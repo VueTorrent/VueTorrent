@@ -87,6 +87,18 @@
                 {{ torrent.added_on }}
               </td>
             </tr>
+            <tr v-if="torrent.tracker">
+              <td class="grey--text">Tracker</td>
+              <td class="torrentmodaltext--text">
+                {{ torrent.tracker }}
+              </td>
+            </tr>
+            <tr v-if="torrent.comment">
+              <td class="grey--text">Comment</td>
+              <td class="torrentmodaltext--text">
+                {{ torrent.comment }}
+              </td>
+            </tr>
             <tr>
               <td class="grey--text">Status</td>
               <v-chip

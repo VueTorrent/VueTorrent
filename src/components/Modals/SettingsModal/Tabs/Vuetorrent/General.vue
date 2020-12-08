@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mx-1 px-0">
+  <v-container class="mx-1 px-1">
     <v-card flat>
       <v-card-text class="pa-0" style="font-size: 1.1em">
         <div class="box">
@@ -59,6 +59,16 @@
               >
                 <template #label>
                   Dense version of the dasbhoard</template
+                >
+              </v-switch>
+              <v-switch
+                  class="v-input--reverse v-input--expand pa-0 ma-0"
+                  inset
+                  v-model="showTrackerFilter"
+                  color="green_accent"
+              >
+                <template #label>
+                 Show Tracker Filter</template
                 >
               </v-switch>
               <v-row dense>
@@ -158,6 +168,14 @@ export default {
             },
             set(val) {
                 this.webuiSettings.denseDashboard = val
+            }
+        },
+        showTrackerFilter: {
+            get() {
+                return this.webuiSettings.showTrackerFilter
+            },
+            set(val) {
+                this.webuiSettings.showTrackerFilter = val
             }
         },
         paginationSize: {

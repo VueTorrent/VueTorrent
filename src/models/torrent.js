@@ -1,12 +1,14 @@
+import { formatBytes } from '../helpers'
+
 export default class Torrent {
     constructor(data) {
         this.name = data.name
-        this.size = this.formatBytes(data.size)
+        this.size = formatBytes(data.size)
         this.added_on = new Date(data.added_on * 1000).toLocaleString()
-        this.dlspeed = this.formatBytes(data.dlspeed, 1) + '/s'
-        this.dloaded = this.formatBytes(data.completed)
-        this.upspeed = this.formatBytes(data.upspeed, 1) + '/s'
-        this.uploaded = this.formatBytes(data.uploaded)
+        this.dlspeed = formatBytes(data.dlspeed, 1) + '/s'
+        this.dloaded = formatBytes(data.completed)
+        this.upspeed = formatBytes(data.upspeed, 1) + '/s'
+        this.uploaded = formatBytes(data.uploaded)
         this.eta = this.formatEta(data.eta)
         this.num_leechs = data.num_leechs
         this.num_seeds = data.num_seeds
@@ -23,6 +25,7 @@ export default class Torrent {
         this.tags = data.tags.length > 0 ? data.tags.split(',') : null
         this.category = data.category
         this.tracker = data.tracker
+        this.comment = data.comment
     }
 
     formatState(state) {
@@ -58,15 +61,6 @@ export default class Torrent {
         default:
             return 'Fail'
         }
-    }
-
-    formatBytes(a, b) {
-        if (a == 0) return '0 B'
-        const c = 1024
-        const d = b || 2
-        const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-        const f = Math.floor(Math.log(a) / Math.log(c))
-        return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
     }
 
     formatEta(value) {

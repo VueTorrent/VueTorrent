@@ -2,7 +2,7 @@
   <v-container>
         <v-card flat>
             <v-card-text class="pa-0" style="font-size: 1.1em"
-            :style="{ minHeight: phoneLayout ? '' : '75vh'}"
+            :style="{ minHeight: phoneLayout ? '' : '70vh'}"
             >
                 <div class="box">
                     <v-subheader>Use Alternative WebUI</v-subheader>

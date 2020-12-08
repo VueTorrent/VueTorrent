@@ -1,7 +1,7 @@
 <template>
   <v-container>
         <v-card flat>
-            <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
+            <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh'}">
                 <h3>When adding a torrent</h3>
                 <div class="settings_content ml-5 mr-5">
                     <v-checkbox

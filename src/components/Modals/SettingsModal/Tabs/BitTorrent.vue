@@ -1,7 +1,8 @@
 <template>
   <v-container>
         <v-card flat>
-          <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh'}">
+          <perfect-scrollbar>
+          <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
                 <h3>Privacy</h3>
                 <div class="settings_content ml-5 mr-5">
                     <v-checkbox
@@ -139,6 +140,7 @@
                     </v-row>
                 </div>
             </v-card-text>
+          </perfect-scrollbar>
         </v-card>
     </v-container>
 </template>
