@@ -86,15 +86,17 @@
               </v-row>
               <v-row dense>
                 <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">Current Version:</p>
+                  <p class="subtitle-1">VueTorrent Version:</p>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <p class="mb-2">{{ version }}</p>
+                  <a href="https://github.com/WDaan/VueTorrent/releases/tag/{{ version }}">
+                  <p class="mb-2">{{ version }}</p></a>
                 </v-col>
               </v-row>
               <v-row dense>
                 <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">QBittorrent Version:</p>
+                  <a href="https://github.com/qbittorrent/qBittorrent/releases/tag/release-{{ Qbitversion }}">
+                  <p class="subtitle-1">QBittorrent Version:</p></a>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
                   <p class="mb-2">{{ Qbitversion }}</p>
