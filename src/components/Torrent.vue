@@ -45,40 +45,12 @@
 <script>
 import { General, TorrentSelect } from '@/mixins'
 import { mapGetters } from 'vuex'
-import {
-  Size,
-  Progress,
-  Download,
-  Ratio,
-  Upload,
-  ETA,
-  Peers,
-  Seeds,
-  Status,
-  Category,
-  Tags,
-  AddedOn,
-  Uploaded,
-  UploadedSession
-} from './Torrent/DashboardItems'
+import * as Fields from './Torrent/DashboardItems'
 
 export default {
   name: 'Torrent',
   components: {
-    Size,
-    Progress,
-    Download,
-    Ratio,
-    Upload,
-    ETA,
-    Peers,
-    Seeds,
-    Status,
-    Category,
-    Tags,
-    AddedOn,
-    Uploaded,
-    UploadedSession
+    ...Fields
   },
   mixins: [General, TorrentSelect],
   props: {
