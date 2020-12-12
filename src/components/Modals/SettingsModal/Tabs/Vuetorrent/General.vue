@@ -3,101 +3,119 @@
     <v-card flat>
       <v-card-text class="pa-0" style="font-size: 1.1em">
         <div class="box">
-          <v-subheader
-          >These settings are for the custom WebUI
-            itself</v-subheader
-          >
+          <v-subheader>
+            These settings are for the custom WebUI
+            itself
+          </v-subheader>
           <v-form class="px-6 mt-3">
             <v-container>
               <v-switch
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
                   v-model="showCurrentSpeed"
-                  color="green_accent"
-              >
-                <template #label> Show Current Speed </template>
-              </v-switch>
-              <v-switch
                   class="v-input--reverse v-input--expand pa-0 ma-0"
                   inset
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Current Speed
+                </template>
+              </v-switch>
+              <v-switch
                   v-model="showSpeedGraph"
-                  color="green_accent"
-              >
-                <template #label> Show Speed Graph</template>
-              </v-switch>
-              <v-switch
                   class="v-input--reverse v-input--expand pa-0 ma-0"
                   inset
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Speed Graph
+                </template>
+              </v-switch>
+              <v-switch
                   v-model="showSessionStat"
-                  color="green_accent"
-              >
-                <template #label> Show Session Stats </template>
-              </v-switch>
-              <v-switch
                   class="v-input--reverse v-input--expand pa-0 ma-0"
                   inset
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Session Stats
+                </template>
+              </v-switch>
+              <v-switch
                   v-model="freeSpace"
-                  color="green_accent"
-              >
-                <template #label> Show Free Space </template>
-              </v-switch>
-              <v-switch
                   class="v-input--reverse v-input--expand pa-0 ma-0"
                   inset
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Free Space
+                </template>
+              </v-switch>
+              <v-switch
                   v-model="showGlobalRemoveResumePause"
+                  class="v-input--reverse v-input--expand pa-0 ma-0"
+                  inset
                   color="green_accent"
               >
                 <template #label>
-                  Global Remove/Resume/Pause Buttons</template
-                >
+                  Global Remove/Resume/Pause Buttons
+                </template>
               </v-switch>
               <v-switch
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
                   v-model="denseDashboard"
-                  color="green_accent"
-              >
-                <template #label>
-                  Dense version of the dasbhoard</template
-                >
-              </v-switch>
-              <v-switch
                   class="v-input--reverse v-input--expand pa-0 ma-0"
                   inset
-                  v-model="showTrackerFilter"
                   color="green_accent"
               >
                 <template #label>
-                 Show Tracker Filter</template
-                >
+                  Dense version of the dasbhoard
+                </template>
+              </v-switch>
+              <v-switch
+                  v-model="showTrackerFilter"
+                  class="v-input--reverse v-input--expand pa-0 ma-0"
+                  inset
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Tracker Filter
+                </template>
               </v-switch>
               <v-row dense>
                 <v-col cols="8" sm="8" md="10">
-                  <p class="subtitle-1">Pagination size:</p>
+                  <p class="subtitle-1">
+                    Pagination size:
+                  </p>
                 </v-col>
                 <v-col cols="4" sm="4" md="2">
                   <v-select
+                      v-model="paginationSize"
                       class="pa-0 ma-0"
                       color="green_accent"
                       :items="paginationSizes"
-                      v-model="paginationSize"
-                  ></v-select>
+                  />
                 </v-col>
               </v-row>
               <v-row dense>
                 <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">Current Version:</p>
+                  <p class="subtitle-1">
+                    VueTorrent Version:
+                  </p>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <p class="mb-2">{{ version }}</p>
+                  <a :href="`https://github.com/WDaan/VueTorrent/releases/tag/${version}`">
+                    <p class="mb-2">{{ version }}</p>
+                  </a>
                 </v-col>
               </v-row>
               <v-row dense>
                 <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">QBittorrent Version:</p>
+                  <a :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
+                    <p class="subtitle-1">QBittorrent Version:</p>
+                  </a>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <p class="mb-2">{{ Qbitversion }}</p>
+                  <p class="mb-2">
+                    {{ Qbitversion }}
+                  </p>
                 </v-col>
               </v-row>
             </v-container>
@@ -190,13 +208,14 @@ export default {
             return this.getAppVersion()
         }
     },
-    methods: {
-        async fetchQbitVersion() {
-            this.Qbitversion = await qbit.getAppVersion()
-        }
-    },
     created() {
         this.fetchQbitVersion()
+    },
+    methods: {
+        async fetchQbitVersion() {
+            const version = await qbit.getAppVersion()
+            this.Qbitversion = version.substring(1)
+        }
     }
 }
 </script>
