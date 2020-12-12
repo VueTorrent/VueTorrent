@@ -8,12 +8,12 @@ import CurrentSpeed from './CurrentSpeed.vue'
 import FilterSelect from './FilterSelect.vue'
 
 export {
-    Navbar,
-    BottomActions,
-    TopActions,
-    SpeedGraph,
-    FreeSpace,
-    SessionStats,
-    CurrentSpeed,
-    FilterSelect
+  Navbar,
+  BottomActions,
+  TopActions,
+  SpeedGraph,
+  FreeSpace,
+  SessionStats,
+  CurrentSpeed,
+  FilterSelect
 }

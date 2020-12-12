@@ -10,70 +10,70 @@
           <v-form class="px-6 mt-3">
             <v-container>
               <v-switch
-                  v-model="showCurrentSpeed"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="showCurrentSpeed"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Show Current Speed
                 </template>
               </v-switch>
               <v-switch
-                  v-model="showSpeedGraph"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="showSpeedGraph"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Show Speed Graph
                 </template>
               </v-switch>
               <v-switch
-                  v-model="showSessionStat"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="showSessionStat"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Show Session Stats
                 </template>
               </v-switch>
               <v-switch
-                  v-model="freeSpace"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="freeSpace"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Show Free Space
                 </template>
               </v-switch>
               <v-switch
-                  v-model="showGlobalRemoveResumePause"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="showGlobalRemoveResumePause"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Global Remove/Resume/Pause Buttons
                 </template>
               </v-switch>
               <v-switch
-                  v-model="denseDashboard"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="denseDashboard"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Dense version of the dasbhoard
                 </template>
               </v-switch>
               <v-switch
-                  v-model="showTrackerFilter"
-                  class="v-input--reverse v-input--expand pa-0 ma-0"
-                  inset
-                  color="green_accent"
+                v-model="showTrackerFilter"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="green_accent"
               >
                 <template #label>
                   Show Tracker Filter
@@ -87,10 +87,10 @@
                 </v-col>
                 <v-col cols="4" sm="4" md="2">
                   <v-select
-                      v-model="paginationSize"
-                      class="pa-0 ma-0"
-                      color="green_accent"
-                      :items="paginationSizes"
+                    v-model="paginationSize"
+                    class="pa-0 ma-0"
+                    color="green_accent"
+                    :items="paginationSizes"
                   />
                 </v-col>
               </v-row>
@@ -130,93 +130,93 @@
 import { mapState, mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 export default {
-    name: 'General',
-    data() {
-        return {
-            paginationSizes: [5, 15, 30, 50],
-            Qbitversion: 0
-        }
-    },
-    computed: {
-        ...mapState(['webuiSettings']),
-        ...mapGetters(['getAppVersion']),
-        freeSpace: {
-            get() {
-                return this.webuiSettings.showFreeSpace
-            },
-            set(val) {
-                this.webuiSettings.showFreeSpace = val
-            }
-        },
-        showCurrentSpeed: {
-            get() {
-                return this.webuiSettings.showCurrentSpeed
-            },
-            set(val) {
-                this.webuiSettings.showCurrentSpeed = val
-            }
-        },
-        showSpeedGraph: {
-            get() {
-                return this.webuiSettings.showSpeedGraph
-            },
-            set(val) {
-                this.webuiSettings.showSpeedGraph = val
-            }
-        },
-        showSessionStat: {
-            get() {
-                return this.webuiSettings.showSessionStat
-            },
-            set(val) {
-                this.webuiSettings.showSessionStat = val
-            }
-        },
-        showGlobalRemoveResumePause: {
-            get() {
-                return this.webuiSettings.showGlobalRemoveResumePause
-            },
-            set(val) {
-                this.webuiSettings.showGlobalRemoveResumePause = val
-            }
-        },
-        denseDashboard: {
-            get() {
-                return this.webuiSettings.denseDashboard
-            },
-            set(val) {
-                this.webuiSettings.denseDashboard = val
-            }
-        },
-        showTrackerFilter: {
-            get() {
-                return this.webuiSettings.showTrackerFilter
-            },
-            set(val) {
-                this.webuiSettings.showTrackerFilter = val
-            }
-        },
-        paginationSize: {
-            get() {
-                return this.webuiSettings.paginationSize
-            },
-            set(val) {
-                this.webuiSettings.paginationSize = val
-            }
-        },
-        version() {
-            return this.getAppVersion()
-        }
-    },
-    created() {
-        this.fetchQbitVersion()
-    },
-    methods: {
-        async fetchQbitVersion() {
-            const version = await qbit.getAppVersion()
-            this.Qbitversion = version.substring(1)
-        }
+  name: 'General',
+  data() {
+    return {
+      paginationSizes: [5, 15, 30, 50],
+      Qbitversion: 0
     }
+  },
+  computed: {
+    ...mapState(['webuiSettings']),
+    ...mapGetters(['getAppVersion']),
+    freeSpace: {
+      get() {
+        return this.webuiSettings.showFreeSpace
+      },
+      set(val) {
+        this.webuiSettings.showFreeSpace = val
+      }
+    },
+    showCurrentSpeed: {
+      get() {
+        return this.webuiSettings.showCurrentSpeed
+      },
+      set(val) {
+        this.webuiSettings.showCurrentSpeed = val
+      }
+    },
+    showSpeedGraph: {
+      get() {
+        return this.webuiSettings.showSpeedGraph
+      },
+      set(val) {
+        this.webuiSettings.showSpeedGraph = val
+      }
+    },
+    showSessionStat: {
+      get() {
+        return this.webuiSettings.showSessionStat
+      },
+      set(val) {
+        this.webuiSettings.showSessionStat = val
+      }
+    },
+    showGlobalRemoveResumePause: {
+      get() {
+        return this.webuiSettings.showGlobalRemoveResumePause
+      },
+      set(val) {
+        this.webuiSettings.showGlobalRemoveResumePause = val
+      }
+    },
+    denseDashboard: {
+      get() {
+        return this.webuiSettings.denseDashboard
+      },
+      set(val) {
+        this.webuiSettings.denseDashboard = val
+      }
+    },
+    showTrackerFilter: {
+      get() {
+        return this.webuiSettings.showTrackerFilter
+      },
+      set(val) {
+        this.webuiSettings.showTrackerFilter = val
+      }
+    },
+    paginationSize: {
+      get() {
+        return this.webuiSettings.paginationSize
+      },
+      set(val) {
+        this.webuiSettings.paginationSize = val
+      }
+    },
+    version() {
+      return this.getAppVersion()
+    }
+  },
+  created() {
+    this.fetchQbitVersion()
+  },
+  methods: {
+    async fetchQbitVersion() {
+      const version = await qbit.getAppVersion()
+      this.Qbitversion = version.substring(1)
+    }
+  }
 }
 </script>
 

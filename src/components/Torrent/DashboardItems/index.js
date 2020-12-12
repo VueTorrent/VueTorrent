@@ -12,16 +12,16 @@ import Tags from './Tags'
 import AddedOn from './AddedOn'
 
 export {
-    Size,
-    Progress,
-    Download,
-    Ratio,
-    Upload,
-    ETA,
-    Peers,
-    Seeds,
-    Status,
-    Category,
-    Tags,
-    AddedOn
+  Size,
+  Progress,
+  Download,
+  Ratio,
+  Upload,
+  ETA,
+  Peers,
+  Seeds,
+  Status,
+  Category,
+  Tags,
+  AddedOn
 }
