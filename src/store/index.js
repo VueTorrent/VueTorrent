@@ -73,7 +73,9 @@ export default new Vuex.Store({
         { name: 'Ratio', active: true },
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true }
+        { name: 'AddedOn', active: true },
+        { name: 'Uploaded', active: true },
+        { name: 'UploadedSession', active: true }
       ],
       doneTorrentProperties: [
         { name: 'Size', active: true },
@@ -87,7 +89,9 @@ export default new Vuex.Store({
         { name: 'Ratio', active: true },
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true }
+        { name: 'AddedOn', active: true },
+        { name: 'Uploaded', active: true },
+        { name: 'UploadedSession', active: true }
       ]
     },
     categories: [],

@@ -57,7 +57,9 @@ import {
   Status,
   Category,
   Tags,
-  AddedOn
+  AddedOn,
+  Uploaded,
+  UploadedSession
 } from './Torrent/DashboardItems'
 
 export default {
@@ -74,7 +76,9 @@ export default {
     Status,
     Category,
     Tags,
-    AddedOn
+    AddedOn,
+    Uploaded,
+    UploadedSession
   },
   mixins: [General, TorrentSelect],
   props: {

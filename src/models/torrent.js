@@ -9,6 +9,7 @@ export default class Torrent {
     this.dloaded = formatBytes(data.completed)
     this.upspeed = formatBytes(data.upspeed, 1) + '/s'
     this.uploaded = formatBytes(data.uploaded)
+    this.uploaded_session = formatBytes(data.uploaded_session)
     this.eta = this.formatEta(data.eta)
     this.num_leechs = data.num_leechs
     this.num_seeds = data.num_seeds

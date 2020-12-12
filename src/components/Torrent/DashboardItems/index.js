@@ -10,6 +10,8 @@ import Status from './Status'
 import Category from './Category'
 import Tags from './Tags'
 import AddedOn from './AddedOn'
+import Uploaded from './Uploaded'
+import UploadedSession from './UploadedSession'
 
 export {
   Size,
@@ -23,5 +25,7 @@ export {
   Status,
   Category,
   Tags,
-  AddedOn
+  AddedOn,
+  Uploaded,
+  UploadedSession
 }
