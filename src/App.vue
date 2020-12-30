@@ -8,7 +8,7 @@
         />
         <Navbar v-if="isAuthenticated" />
         <v-main fill-height fill-width>
-            <router-view></router-view>
+          <router-view></router-view>
         </v-main>
     </v-app>
 </template>

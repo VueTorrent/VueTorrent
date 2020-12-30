@@ -60,6 +60,7 @@ export default new Vuex.Store({
             showGlobalRemoveResumePause: true,
             denseDashboard: false,
             showTrackerFilter: false,
+            showSpeedInTitle: false,
             paginationSize: 15,
             busyTorrentProperties: [
                 { name: 'Size', active: true },

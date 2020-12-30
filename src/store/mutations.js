@@ -79,7 +79,11 @@ export default {
             }
         }
 
-        document.title = `[D: ${state.status.dlspeed}/s, U: ${state.status.upspeed}/s] qBittorrent`
+        // torrent speed in title
+        if (state.webuiSettings.showSpeedInTitle) {
+            // eslint-disable-next-line max-len
+            document.title = `[D: ${state.status.dlspeed}/s, U: ${state.status.upspeed}/s] VueTorrent`
+        }
 
         // torrents
         state.torrents = []

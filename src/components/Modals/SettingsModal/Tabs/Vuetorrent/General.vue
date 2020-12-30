@@ -71,6 +71,16 @@
                  Show Tracker Filter</template
                 >
               </v-switch>
+              <v-switch
+                  class="v-input--reverse v-input--expand pa-0 ma-0"
+                  inset
+                  v-model="showSpeedInTitle"
+                  color="green_accent"
+              >
+                <template #label>
+                  Show Speed in Title</template
+                >
+              </v-switch>
               <v-row dense>
                 <v-col cols="8" sm="8" md="10">
                   <p class="subtitle-1">Pagination size:</p>
@@ -176,6 +186,15 @@ export default {
             },
             set(val) {
                 this.webuiSettings.showTrackerFilter = val
+            }
+        },
+        showSpeedInTitle: {
+            get() {
+                return this.webuiSettings.showSpeedInTitle
+            },
+            set(val) {
+                this.webuiSettings.showSpeedInTitle = val
+                document.title = 'VueTorrent'
             }
         },
         paginationSize: {
