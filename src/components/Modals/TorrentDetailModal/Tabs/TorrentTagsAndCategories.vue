@@ -6,7 +6,12 @@
       :style="{ minHeight: phoneLayout ? '' : '75vh'}"
     >
       <v-row>
-        <v-col :cols="12" :lg="6" :md="6" :sm="12">
+        <v-col
+          :cols="12"
+          :lg="6"
+          :md="6"
+          :sm="12"
+        >
           <v-layout class="mx-auto" row wrap>
             <v-flex xs12 sm12>
               <h3>Available Tags:</h3>
@@ -39,14 +44,22 @@
                   style="font-size: 0.95em !important"
                   @click="deleteTag(tag)"
                   @click:close="deleteTag(tag)"
-                  >{{ tag }}</v-chip
                 >
+                  {{ tag }}
+                </v-chip>
               </div>
-              <div v-else>None</div>
+              <div v-else>
+                None
+              </div>
             </v-flex>
           </v-layout>
         </v-col>
-        <v-col :cols="12" :lg="6" :md="6" :sm="12">
+        <v-col
+          :cols="12"
+          :lg="6"
+          :md="6"
+          :sm="12"
+        >
           <v-layout
             class="mx-auto"
             :class="this.$vuetify.breakpoint.smAndDown ? 'mt-12' : ''"
@@ -82,9 +95,12 @@
                 style="font-size: 0.95em !important"
                 @click="deleteCategory"
                 @click:close="deleteCategory"
-                >{{ torrent.category }}</v-chip
               >
-              <div v-else>None</div>
+                {{ torrent.category }}
+              </v-chip>
+              <div v-else>
+                None
+              </div>
             </v-flex>
           </v-layout>
         </v-col>
@@ -100,45 +116,46 @@ import qbit from '@/services/qbit'
 import { FullScreenModal } from '@/mixins'
 
 export default {
-    name: 'TorrentTagsAndCategories',
-    props: {
-        hash: String
+  name: 'TorrentTagsAndCategories',
+  mixins: [FullScreenModal],
+  props: {
+    hash: String
+  },
+  data: () => ({
+    categories: []
+  }),
+  computed: {
+    ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
+    torrent() {
+      return this.getTorrent(this.hash)
     },
-    mixins: [FullScreenModal],
-    data: () => ({
-        categories: []
-    }),
-    computed: {
-        ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
-        torrent() {
-            return this.getTorrent(this.hash)
-        },
-        availableTags() {
-            const availableTags = this.getAvailableTags()
-            const currentTags = this.getTorrent(this.hash).tags
-            return difference(availableTags, currentTags)
-        },
-        availableCategories() {
-            return this.getCategories()
-        }
+    availableTags() {
+      const availableTags = this.getAvailableTags()
+      const currentTags = this.getTorrent(this.hash).tags
+      
+      return difference(availableTags, currentTags)
     },
-    methods: {
-        addTag(tag) {
-            qbit.addTorrentTag(this.hash, tag)
-        },
-        deleteTag(tag) {
-            qbit.removeTorrentTag(this.hash, tag)
-        },
-        setCategory(cat) {
-            qbit.setCategory(this.hash, cat)
-        },
-        deleteCategory() {
-            qbit.setCategory(this.hash, '')
-        }
-    },
-    created() {
-        this.$store.commit('FETCH_CATEGORIES')
+    availableCategories() {
+      return this.getCategories()
     }
+  },
+  created() {
+    this.$store.commit('FETCH_CATEGORIES')
+  },
+  methods: {
+    addTag(tag) {
+      qbit.addTorrentTag(this.hash, tag)
+    },
+    deleteTag(tag) {
+      qbit.removeTorrentTag(this.hash, tag)
+    },
+    setCategory(cat) {
+      qbit.setCategory(this.hash, cat)
+    },
+    deleteCategory() {
+      qbit.setCategory(this.hash, '')
+    }
+  }
 }
 </script>
 

@@ -8,7 +8,7 @@
       :hide-default-footer="true"
       :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}"
     >
-      <template v-slot:item="row">
+      <template #item="row">
         <tr>
           <td class="ip">
             <template v-if="row.item.country_code">
@@ -18,16 +18,20 @@
                 :title="row.item.country"
                 :alt="codeToFlag(row.item.country_code).char"
                 :src="codeToFlag(row.item.country_code).url"
-              />
-              <template v-else>{{
-                codeToFlag(row.item.country_code).char
-              }}</template>
+              >
+              <template v-else>
+                {{
+                  codeToFlag(row.item.country_code).char
+                }}
+              </template>
             </template>
             {{ row.item.ip }}
             <span class="grey--text">:{{ row.item.port }}</span>
           </td>
           <td>{{ row.item.connection }}</td>
-          <td :title="row.item.flags_desc">{{ row.item.flags }}</td>
+          <td :title="row.item.flags_desc">
+            {{ row.item.flags }}
+          </td>
           <td>{{ row.item.client }}</td>
           <td>{{ row.item.progress | progress }}</td>
           <td>{{ row.item.dl_speed | networkSpeed }}</td>
@@ -48,66 +52,66 @@ import qbit from '@/services/qbit'
 import { codeToFlag, isWindows } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
 export default {
-    name: 'Peers',
-    mixins: [FullScreenModal],
-    props: { hash: String, isActive: Boolean },
-    data: () => ({
-        headers: [
-            { text: 'IP', value: 'ip' },
-            { text: 'Connection', value: 'connection' },
-            { text: 'Flags', value: 'flags' },
-            { text: 'Client', value: 'client' },
-            { text: 'Progress', value: 'progress' },
-            { text: 'DL Speed', value: 'dl_speed' },
-            { text: 'Downloaded', value: 'downloaded' },
-            { text: 'UP Speed', value: 'up_speed' },
-            { text: 'Uploaded', value: 'uploaded' },
-            { text: 'Relevance', value: 'relevance' },
-            { text: 'Files', value: 'files' }
-        ],
-        peersObj: null
-    }),
-    methods: {
-        codeToFlag(val) {
-            return codeToFlag(val)
-        },
-        isWindows() {
-            return isWindows()
-        },
-        async getTorrentPeers() {
-            const { data } = await qbit.getTorrentPeers(
-                this.hash,
-                this.rid + 1 || undefined
-            )
-
-            this.rid = data.rid
-
-            this.peersObj = data.peers
-        }
+  name: 'Peers',
+  mixins: [FullScreenModal],
+  props: { hash: String, isActive: Boolean },
+  data: () => ({
+    headers: [
+      { text: 'IP', value: 'ip' },
+      { text: 'Connection', value: 'connection' },
+      { text: 'Flags', value: 'flags' },
+      { text: 'Client', value: 'client' },
+      { text: 'Progress', value: 'progress' },
+      { text: 'DL Speed', value: 'dl_speed' },
+      { text: 'Downloaded', value: 'downloaded' },
+      { text: 'UP Speed', value: 'up_speed' },
+      { text: 'Uploaded', value: 'uploaded' },
+      { text: 'Relevance', value: 'relevance' },
+      { text: 'Files', value: 'files' }
+    ],
+    peersObj: null
+  }),
+  computed: {
+    rid: {
+      get() {
+        return this.$store.state.rid
+      },
+      set(val) {
+        this.$store.state.rid = val
+      }
     },
-    watch: {
-        isActive(active) {
-            if (active) {
-                this.getTorrentPeers()
-            }
-        }
-    },
-    computed: {
-        rid: {
-            get() {
-                return this.$store.state.rid
-            },
-            set(val) {
-                this.$store.state.rid = val
-            }
-        },
-        peers() {
-            return map(this.peersObj, (value, key) => merge({}, value, { key }))
-        }
-    },
-    created() {
-        this.getTorrentPeers()
+    peers() {
+      return map(this.peersObj, (value, key) => merge({}, value, { key }))
     }
+  },
+  watch: {
+    isActive(active) {
+      if (active) {
+        this.getTorrentPeers()
+      }
+    }
+  },
+  created() {
+    this.getTorrentPeers()
+  },
+  methods: {
+    codeToFlag(val) {
+      return codeToFlag(val)
+    },
+    isWindows() {
+      return isWindows()
+    },
+    async getTorrentPeers() {
+      const { data } = await qbit.getTorrentPeers(
+        this.hash,
+        this.rid + 1 || undefined
+      )
+
+      this.rid = data.rid
+
+      this.peersObj = data.peers
+    }
+  }
 }
 </script>
 
