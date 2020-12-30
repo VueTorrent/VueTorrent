@@ -79,6 +79,8 @@ export default {
             }
         }
 
+        document.title = `[D: ${state.status.dlspeed}/s, U: ${state.status.upspeed}/s] qBittorrent`
+
         // torrents
         state.torrents = []
         for (const [key, value] of Object.entries(data)) {
