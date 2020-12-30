@@ -1,5 +1,5 @@
 <template>
-    <div class="topactions">
+    <div class="flex-shrink-0 mr-4">
         <v-btn :ripple="false" id="no-background-hover" text>
           <v-checkbox
               class="grey--text"
@@ -84,7 +84,6 @@
 import qbit from '@/services/qbit'
 import { mapState } from 'vuex'
 import { General } from '@/mixins'
-import './TopActions.scss'
 
 export default {
     name: 'TopActions',
