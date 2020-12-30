@@ -9,7 +9,7 @@ build_and_copy(){
     git checkout latest-release
     git pull
     sudo rm -r public || true
-    cp -r ../VueTorrent/vuetorrent/* ./
+    cp -r ../vuetorrent/vuetorrent/* ./
     
 }
 
