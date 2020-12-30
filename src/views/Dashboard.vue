@@ -1,5 +1,5 @@
 <template>
-    <div class="pl-5 pr-5"
+    <div class="px-1 px-sm-5"
          color="background"
          @click.self="resetSelected"
     >
@@ -15,7 +15,7 @@
 
         <div
             color="background"
-            class="my-4 pt-5 px-8"
+            class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8"
             @click.self="resetSelected"
         >
             <v-flex xs12 sm6 md3 @click.self="resetSelected">
