@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <nav class="navbar">
         <!--title-->
         <v-app-bar app flat color="background">
             <v-app-bar-nav-icon
@@ -69,6 +69,7 @@ import {
     CurrentSpeed,
     FilterSelect
 } from './index'
+import './NavBar.scss'
 
 export default {
     name: 'Navbar',

@@ -1,0 +1,9 @@
+.topactions {
+  overflow-x: hidden;
+  height: 100%;
+  margin-left: -12px;
+
+  > *:first-child {
+    margin-left: -12px;
+  }
+}
