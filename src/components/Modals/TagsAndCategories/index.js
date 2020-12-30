@@ -4,8 +4,8 @@ import CreateNewCategoryDialog from './CreateCategoryDialog.vue'
 import DeleteCategoryDialog from './DeleteCategoryDialog'
 
 export {
-    CreateNewTagDialog,
-    DeleteTagDialog,
-    CreateNewCategoryDialog,
-    DeleteCategoryDialog
+  CreateNewTagDialog,
+  DeleteTagDialog,
+  CreateNewCategoryDialog,
+  DeleteCategoryDialog
 }

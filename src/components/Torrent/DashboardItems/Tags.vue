@@ -1,15 +1,19 @@
 <template>
-  <v-flex xs6 sm2 v-if="torrent.tags && torrent.tags.length">
-    <div class="caption grey--text">Tags</div>
+  <v-flex v-if="torrent.tags && torrent.tags.length" xs6 sm2>
+    <div class="caption grey--text">
+      Tags
+    </div>
     <v-row wrap class="ma-0">
-      <v-chip v-for="tag in torrent.tags" :key="tag"
-              small
-              :class="
-                        theme === 'light'
-                            ? 'white--text'
-                            : 'black--text'
-                    "
-              class="download caption mb-1 mx-1"
+      <v-chip
+        v-for="tag in torrent.tags"
+        :key="tag"
+        small
+        :class="
+          theme === 'light'
+            ? 'white--text'
+            : 'black--text'
+        "
+        class="download caption mb-1 mx-1"
       >
         {{ tag }}
       </v-chip>
@@ -19,8 +23,8 @@
 <script>
 import { TorrentDashboardItem } from '@/mixins'
 export default {
-    name: 'Tags',
-    mixins: [TorrentDashboardItem],
-    props: ['torrent']
+  name: 'Tags',
+  mixins: [TorrentDashboardItem],
+  props: ['torrent']
 }
 </script>

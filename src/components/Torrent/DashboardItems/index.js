@@ -10,18 +10,22 @@ import Status from './Status'
 import Category from './Category'
 import Tags from './Tags'
 import AddedOn from './AddedOn'
+import Uploaded from './Uploaded'
+import UploadedSession from './UploadedSession'
 
 export {
-    Size,
-    Progress,
-    Download,
-    Ratio,
-    Upload,
-    ETA,
-    Peers,
-    Seeds,
-    Status,
-    Category,
-    Tags,
-    AddedOn
+  Size,
+  Progress,
+  Download,
+  Ratio,
+  Upload,
+  ETA,
+  Peers,
+  Seeds,
+  Status,
+  Category,
+  Tags,
+  AddedOn,
+  Uploaded,
+  UploadedSession
 }

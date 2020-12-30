@@ -7,7 +7,7 @@
       :hide-default-footer="true"
       :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}"
     >
-      <template v-slot:item="row">
+      <template #item="row">
         <tr>
           <td>{{ row.item.tier }}</td>
           <td>{{ row.item.url }}</td>
@@ -27,63 +27,63 @@
 import qbit from '@/services/qbit'
 import { FullScreenModal } from '@/mixins'
 export default {
-    name: 'Trackers',
-    mixins: [FullScreenModal],
-    props: { hash: String, isActive: Boolean },
-    data: () => ({
-        headers: [
-            { text: '#', value: 'tier' },
-            { text: 'URL', value: 'url' },
-            { text: 'Status', value: 'status' },
-            { text: 'Peers', value: 'num_peers' },
-            { text: 'Seeds', value: 'num_seeds' },
-            { text: 'Leeches', value: 'num_leeches' },
-            { text: 'Downloaded', value: 'num_downloaded' },
-            { text: 'Message', value: 'msg' }
-        ],
-        tempTrackers: []
-    }),
-    methods: {
-        async getTorrentTrackers() {
-            const { data } = await qbit.getTorrentTrackers(this.hash)
-            this.tempTrackers = data
-        }
-    },
-    watch: {
-        isActive(active) {
-            if (active) {
-                this.getTorrentTrackers()
-            }
-        }
-    },
-    filters: {
-        formatTrackerStatus(status) {
-            const map = [
-                'Disabled',
-                'Not contacted',
-                'Working',
-                'Updating',
-                'Not working'
-            ]
+  name: 'Trackers',
+  filters: {
+    formatTrackerStatus(status) {
+      const map = [
+        'Disabled',
+        'Not contacted',
+        'Working',
+        'Updating',
+        'Not working'
+      ]
 
-            return map[status]
-        },
-        formatTrackerNum(num) {
-            if (num === -1) {
-                return 'N/A'
-            }
+      return map[status]
+    },
+    formatTrackerNum(num) {
+      if (num === -1) {
+        return 'N/A'
+      }
 
-            return num.toString()
-        }
-    },
-    computed: {
-        trackers() {
-            return this.tempTrackers
-        }
-    },
-    created() {
-        this.getTorrentTrackers()
+      return num.toString()
     }
+  },
+  mixins: [FullScreenModal],
+  props: { hash: String, isActive: Boolean },
+  data: () => ({
+    headers: [
+      { text: '#', value: 'tier' },
+      { text: 'URL', value: 'url' },
+      { text: 'Status', value: 'status' },
+      { text: 'Peers', value: 'num_peers' },
+      { text: 'Seeds', value: 'num_seeds' },
+      { text: 'Leeches', value: 'num_leeches' },
+      { text: 'Downloaded', value: 'num_downloaded' },
+      { text: 'Message', value: 'msg' }
+    ],
+    tempTrackers: []
+  }),
+  computed: {
+    trackers() {
+      return this.tempTrackers
+    }
+  },
+  watch: {
+    isActive(active) {
+      if (active) {
+        this.getTorrentTrackers()
+      }
+    }
+  },
+  created() {
+    this.getTorrentTrackers()
+  },
+  methods: {
+    async getTorrentTrackers() {
+      const { data } = await qbit.getTorrentTrackers(this.hash)
+      this.tempTrackers = data
+    }
+  }
 }
 </script>
 

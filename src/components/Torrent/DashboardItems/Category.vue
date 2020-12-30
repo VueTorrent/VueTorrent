@@ -1,6 +1,13 @@
 <template>
-  <v-flex v-if="torrent.category" xs6 sm1 md1>
-    <div class="caption grey--text">Category</div>
+  <v-flex
+    v-if="torrent.category"
+    xs6
+    sm1
+    md1
+  >
+    <div class="caption grey--text">
+      Category
+    </div>
     <v-chip small class="upload white--text caption">
       {{ torrent.category }}
     </v-chip>
@@ -8,7 +15,7 @@
 </template>
 <script>
 export default {
-    name: 'Category',
-    props: ['torrent']
+  name: 'Category',
+  props: ['torrent']
 }
 </script>

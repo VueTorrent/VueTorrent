@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.4.6",
+    "version": "0.4.7",
     "private": true,
     "scripts": {
         "start": "npm run serve",
@@ -10,14 +10,14 @@
     },
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
-        "apexcharts": "^3.22.1",
+        "apexcharts": "^3.22.3",
         "axios": "^0.19.2",
         "core-js": "^3.7.0",
-        "dayjs": "^1.9.5",
+        "dayjs": "^1.9.7",
         "fuse.js": "^6.4.3",
         "lodash": "^4.17.20",
-        "register-service-worker": "^1.7.1",
-        "uuid": "^8.3.1",
+        "register-service-worker": "^1.7.2",
+        "uuid": "^8.3.2",
         "vue": "^2.6.12",
         "vue-apexcharts": "^1.6.0",
         "vue-context": "^5.2.0",
@@ -26,7 +26,7 @@
         "vue-toastification": "^1.7.8",
         "vue2-perfect-scrollbar": "^1.5.0",
         "vuedraggable": "^2.24.3",
-        "vuetify": "^2.3.16",
+        "vuetify": "^2.3.21",
         "vuex": "^3.6.0",
         "vuex-persist": "^3.1.3"
     },
