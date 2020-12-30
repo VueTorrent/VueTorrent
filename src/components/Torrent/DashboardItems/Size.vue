@@ -1,17 +1,21 @@
 <template>
   <v-flex xs6 sm1 md1>
-    <div class="caption grey--text">Size</div>
+    <div class="caption grey--text">
+      Size
+    </div>
     <div>
       {{ torrent.size | getDataValue }}
-      <span class="caption grey--text">{{
+      <span class="caption grey--text">
+        {{
           torrent.size | getDataUnit
-        }}</span>
+        }}
+      </span>
     </div>
   </v-flex>
 </template>
 <script>
 export default {
-    name: 'Size',
-    props: ['torrent']
+  name: 'Size',
+  props: ['torrent']
 }
 </script>

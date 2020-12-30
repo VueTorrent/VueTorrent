@@ -3,14 +3,14 @@ import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 
 const vuexPersist = new VuexPersist({
-    key: 'vuetorrent',
-    storage: window.localStorage,
-    reducer: state => ({
-        sort_options: state.sort_options,
-        webuiSettings: state.webuiSettings,
-        authenticated: state.authenticated,
-        torrents: state.torrents
-    })
+  key: 'vuetorrent',
+  storage: window.localStorage,
+  reducer: state => ({
+    sort_options: state.sort_options,
+    webuiSettings: state.webuiSettings,
+    authenticated: state.authenticated,
+    torrents: state.torrents
+  })
 })
 
 Vue.use(Vuex)
@@ -20,91 +20,92 @@ import mutations from './mutations'
 import actions from './actions'
 
 export default new Vuex.Store({
-    plugins: [vuexPersist.plugin],
-    state: {
-        version: 0,
-        intervals: [],
-        status: {
-            status: '',
-            downloaded: '',
-            uploaded: '',
-            dlspeed: '',
-            upspeed: '',
-            freeDiskSpace: '',
-            altSpeed: '',
-            dlspeedRaw: '',
-            upspeedRaw: '',
-            tags: ''
-        },
-        upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        torrents: [],
-        selected_torrents: [],
-        authenticated: false,
-        sort_options: {
-            sort: 'default',
-            reverse: true,
-            hashes: [],
-            filter: null
-        },
-        rid: 0,
-        pasteUrl: null,
-        modals: [],
-        settings: {},
-        webuiSettings: {
-            darkTheme: false,
-            showFreeSpace: true,
-            showSpeedGraph: true,
-            showSessionStat: true,
-            showCurrentSpeed: true,
-            showGlobalRemoveResumePause: true,
-            denseDashboard: false,
-            showTrackerFilter: false,
-            paginationSize: 15,
-            busyTorrentProperties: [
-                { name: 'Size', active: true },
-                { name: 'Progress', active: true },
-                { name: 'Download', active: true },
-                { name: 'Upload', active: true },
-                { name: 'ETA', active: true },
-                { name: 'Peers', active: true },
-                { name: 'Seeds', active: true },
-                { name: 'Status', active: true },
-                { name: 'Ratio', active: true },
-                { name: 'Category', active: true },
-                { name: 'Tags', active: true },
-                { name: 'AddedOn', active: true }
-            ],
-            doneTorrentProperties: [
-                { name: 'Size', active: true },
-                { name: 'Progress', active: true },
-                { name: 'Download', active: true },
-                { name: 'Upload', active: true },
-                { name: 'ETA', active: true },
-                { name: 'Peers', active: true },
-                { name: 'Seeds', active: true },
-                { name: 'Status', active: true },
-                { name: 'Ratio', active: true },
-                { name: 'Category', active: true },
-                { name: 'Tags', active: true },
-                { name: 'AddedOn', active: true }
-            ]
-        },
-        categories: [],
-        trackers: [],
-        filteredTorrentsCount: 0,
-        latestSelectedTorrent: null,
-        selectMode: false,
-        searchPlugins: []
+  plugins: [vuexPersist.plugin],
+  state: {
+    version: 0,
+    intervals: [],
+    status: {
+      status: '',
+      downloaded: '',
+      uploaded: '',
+      dlspeed: '',
+      upspeed: '',
+      freeDiskSpace: '',
+      altSpeed: '',
+      dlspeedRaw: '',
+      upspeedRaw: '',
+      tags: ''
     },
-    getters: {
-        ...getters
+    upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    torrents: [],
+    selected_torrents: [],
+    authenticated: false,
+    sort_options: {
+      sort: null,
+      reverse: true,
+      hashes: [],
+      filter: null
     },
+    rid: 0,
+    pasteUrl: null,
+    modals: [],
+    settings: {},
+    webuiSettings: {
+      darkTheme: false,
+      showFreeSpace: true,
+      showSpeedGraph: true,
+      showSessionStat: true,
+      showCurrentSpeed: true,
+      showGlobalRemoveResumePause: true,
+      denseDashboard: false,
+      showTrackerFilter: false,
+      showSpeedInTitle: false,
+      paginationSize: 15,
+      busyTorrentProperties: [
+        { name: 'Size', active: true },
+        { name: 'Progress', active: true },
+        { name: 'Download', active: true },
+        { name: 'Upload', active: true },
+        { name: 'ETA', active: true },
+        { name: 'Peers', active: true },
+        { name: 'Seeds', active: true },
+        { name: 'Status', active: true },
+        { name: 'Ratio', active: true },
+        { name: 'Category', active: true },
+        { name: 'Tags', active: true },
+        { name: 'AddedOn', active: true }
+      ],
+      doneTorrentProperties: [
+        { name: 'Size', active: true },
+        { name: 'Progress', active: true },
+        { name: 'Download', active: true },
+        { name: 'Upload', active: true },
+        { name: 'ETA', active: true },
+        { name: 'Peers', active: true },
+        { name: 'Seeds', active: true },
+        { name: 'Status', active: true },
+        { name: 'Ratio', active: true },
+        { name: 'Category', active: true },
+        { name: 'Tags', active: true },
+        { name: 'AddedOn', active: true }
+      ]
+    },
+    categories: [],
+    trackers: [],
+    filteredTorrentsCount: 0,
+    latestSelectedTorrent: null,
+    selectMode: false,
+    searchPlugins: []
+  },
+  getters: {
+    ...getters
+  },
 
-    mutations: {
-        ...mutations
-    },
-    actions: {
-        ...actions
-    }
+  mutations: {
+    ...mutations
+  },
+  actions: {
+    ...actions
+  }
 })

@@ -1,13 +1,13 @@
 <template>
-  <v-flex xs6 sm1 md1>
+  <v-flex xs6 sm2 md2>
     <div class="caption grey--text">
-      Upload
+      Uploaded Session
     </div>
     <div>
-      {{ torrent.upspeed | getDataValue }}
+      {{ torrent.uploaded_session | getDataValue }}
       <span class="caption grey--text">
         {{
-          torrent.upspeed | getDataUnit
+          torrent.uploaded_session | getDataUnit
         }}
       </span>
     </div>
@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: 'Upload',
+  name: 'UploadedSession',
   props: ['torrent']
 }
 </script>
