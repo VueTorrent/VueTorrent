@@ -72,7 +72,6 @@ import {
   CurrentSpeed,
   FilterSelect
 } from './index'
-import './NavBar.scss'
 
 export default {
   name: 'Navbar',
@@ -114,6 +113,10 @@ export default {
     background: #56718c;
     border-radius: 20px;
   }
+}
+
+.v-app-bar > .v-toolbar__content{
+ padding-right: 0;
 }
 
 .navbar {

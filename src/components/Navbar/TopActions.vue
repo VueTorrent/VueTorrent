@@ -1,6 +1,11 @@
 <template>
-  <div class="flex-shrink-0 mr-4">
-    <v-btn id="no-background-hover" :ripple="false" text>
+  <div class="flex-shrink-0 ml-0">
+    <v-btn
+      id="no-background-hover"
+      class="pa-0"
+      :ripple="false"
+      text
+    >
       <v-checkbox
         v-model="$store.state.selectMode"
         class="grey--text"
@@ -132,7 +137,7 @@ export default {
 }
 #no-background-hover {
   cursor: default !important;
-  min-width: 10px;
-  margin-right: 1.5em;
+  min-width: 1px;
+  margin-right: 2em;
 }
 </style>

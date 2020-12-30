@@ -67,7 +67,7 @@ export default {
       return this.torrent.state.toLowerCase()
     },
     style() {
-      let base = `pa-4 ml-0 sideborder ${this.state} `
+      let base = `ma-0 pa-4 ml-0 sideborder ${this.state} `
       if (this.index === this.length) base += ' bottomBorderRadius'
       if (this.index === 0) base += ' topBorderRadius'
       
