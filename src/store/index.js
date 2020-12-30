@@ -42,7 +42,7 @@ export default new Vuex.Store({
         selected_torrents: [],
         authenticated: false,
         sort_options: {
-            sort: 'added_on',
+            sort: null,
             reverse: true,
             hashes: [],
             filter: null
