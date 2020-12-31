@@ -111,9 +111,9 @@
                   </p>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <p class="mb-2">
-                    {{ version }}
-                  </p>
+                  <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/${version}`">
+                    <p class="mb-2">{{ version }}</p>
+                  </a>
                 </v-col>
               </v-row>
               <v-row dense>
@@ -123,9 +123,11 @@
                   </p>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <p class="mb-2">
-                    {{ Qbitversion }}
-                  </p>
+                  <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
+                    <p class="mb-2">
+                      {{ Qbitversion }}
+                    </p>
+                  </a>
                 </v-col>
               </v-row>
             </v-container>
@@ -232,7 +234,8 @@ export default {
   },
   methods: {
     async fetchQbitVersion() {
-      this.Qbitversion = await qbit.getAppVersion()
+      const version = await qbit.getAppVersion()
+      this.Qbitversion = version.includes('v') ? version.substring(1) : version
     }
   }
 }
