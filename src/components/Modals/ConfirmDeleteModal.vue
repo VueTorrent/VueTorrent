@@ -52,16 +52,16 @@ import qbit from '@/services/qbit'
 export default {
   name: 'ConfirmDeleteModal',
   mixins: [Modal],
+  computed: {
+    ...mapState(['selected_torrents']),
+    ...mapGetters(['getTorrents']),
+    torrents() {
+      return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
+    }
+  },
   methods: {
     close() {
       this.$store.commit('DELETE_MODAL', this.guid)
-    },
-    computed: {
-      ...mapState(['selected_torrents']),
-      ...mapGetters(['getTorrents']),
-      torrents() {
-        return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
-      }
     },
     deleteWithoutFiles() {
       qbit.deleteTorrents(this.selected_torrents, false)
