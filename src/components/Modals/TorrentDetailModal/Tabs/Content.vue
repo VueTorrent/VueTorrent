@@ -32,6 +32,35 @@
             <div v-else>
               <span>[{{ item.size }}]</span>
               <span class="ml-4">{{ item.progress }}%</span>
+              <v-menu
+                open-on-hover
+                top
+              >
+                <template #activator="{ on }">
+                  <v-btn
+                    class="mb-2 ml-4"
+                    x-small
+                    fab
+                    v-on="on"
+                  >
+                    <v-icon>trending_up</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense rounded>
+                  <v-list-item
+                    v-for="prio in priority_options"
+                    :key="prio.value"
+                    link
+                    class="black--text"
+                    @click="setFilePrio(item.id, prio.value)"
+                  >
+                    <v-icon>{{ prio.icon }}</v-icon>
+                    <v-list-item-title class="ml-2 black--text" style="font-size: 12px">
+                      {{ prio.name }}
+                    </v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
               <v-btn
                 v-if="!item.editing"
                 class="mb-2 ml-4"
@@ -71,6 +100,7 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
+
 export default {
   name: 'Content',
   mixins: [FullScreenModal],
@@ -82,7 +112,12 @@ export default {
     return {
       opened: null,
       selected: [],
-      treeData: null
+      treeData: null,
+      priority_options: [
+        { name: 'max', icon: 'upgrade', value: 7 },
+        { name: 'high', icon: 'arrow_drop_up', value: 6 },
+        { name: 'normal', icon: 'trending_flat', value: 1 }
+      ]
     }
   },
   computed: {
@@ -162,6 +197,9 @@ export default {
       qbit.renameFile(this.hash, item.id, item.newName)
       item.name = item.newName
       this.togleEditing(item)
+    },
+    async setFilePrio(fileId, priority) {
+      await qbit.setTorrentFilePriority(this.hash, [fileId], priority)
     }
   }
 }
