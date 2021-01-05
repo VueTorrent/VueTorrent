@@ -32,6 +32,7 @@
             <div v-else>
               <span>[{{ item.size }}]</span>
               <span class="ml-4">{{ item.progress }}%</span>
+              <span class="ml-4">[ {{ item.priority | priority }} ]</span>
               <v-menu
                 open-on-hover
                 top
@@ -101,8 +102,23 @@ import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
 
+const FILE_PRIORITY_OPTIONS = [
+  { name: 'max', icon: 'upgrade', value: 7 },
+  { name: 'high', icon: 'arrow_drop_up', value: 6 },
+  { name: 'normal', icon: 'trending_flat', value: 1 },
+  { name: 'unwanted', icon: 'file_download_off', value: 0 }
+]
+
 export default {
   name: 'Content',
+  filters: {
+    priority(value) {
+      if (value === 4) return 'normal'
+      const res = FILE_PRIORITY_OPTIONS.find(el => el.value === value)
+      
+      return res ? res.name : 'undefined'
+    }
+  },
   mixins: [FullScreenModal],
   props: {
     hash: String,
@@ -113,11 +129,7 @@ export default {
       opened: null,
       selected: [],
       treeData: null,
-      priority_options: [
-        { name: 'max', icon: 'upgrade', value: 7 },
-        { name: 'high', icon: 'arrow_drop_up', value: 6 },
-        { name: 'normal', icon: 'trending_flat', value: 1 }
-      ]
+      priority_options: FILE_PRIORITY_OPTIONS
     }
   },
   computed: {
@@ -140,20 +152,23 @@ export default {
     }
   },
   created() {
-    this.getTorrentFiles().then(() => {
-      this.opened = []
-        .concat(
-          ...this.treeData
-            .map(file => file.name.split('/'))
-            .filter(f => f.splice(-1, 1))
-        )
-        .filter((f, index, self) => index === self.indexOf(f))
-      this.selected = this.treeData
-        .filter(file => file.priority !== 0)
-        .map(file => file.name)
-    })
+    this.initFiles()
   },
   methods: {
+    initFiles() {
+      this.getTorrentFiles().then(() => {
+        this.opened = []
+          .concat(
+            ...this.treeData
+              .map(file => file.name.split('/'))
+              .filter(f => f.splice(-1, 1))
+          )
+          .filter((f, index, self) => index === self.indexOf(f))
+        this.selected = this.treeData
+          .filter(file => file.priority !== 0)
+          .map(file => file.name)
+      })
+    },
     async getTorrentFiles() {
       const { data } = await qbit.getTorrentFiles(this.hash)
       data.forEach((d, i) => {
@@ -198,8 +213,9 @@ export default {
       item.name = item.newName
       this.togleEditing(item)
     },
-    async setFilePrio(fileId, priority) {
-      await qbit.setTorrentFilePriority(this.hash, [fileId], priority)
+    setFilePrio(fileId, priority) {
+      qbit.setTorrentFilePriority(this.hash, [fileId], priority)
+        .then(() => this.initFiles())
     }
   }
 }
