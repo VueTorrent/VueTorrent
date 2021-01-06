@@ -4,15 +4,21 @@
     color="background"
     @click.self="resetSelected"
   >
-    <h1 style="font-size: 1.1em !important" class="subtitle-1 grey--text">
-      Dashboard
-      <p
-        style="float: right; font-size: 0.7em"
-        class="grey--text text-uppercase"
-      >
-        {{ torrentCountString }}
-      </p>
-    </h1>
+    <v-row no-gutters class=" grey--text">
+      <v-col>
+        <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">
+          Dashboard
+        </h1>
+      </v-col>
+      <v-col>
+        <p
+          style="float: right; font-size: 0.8em"
+          class="mr-2 text-uppercase"
+        >
+          {{ torrentCountString }}
+        </p>
+      </v-col>
+    </v-row>
 
     <div
       color="background"

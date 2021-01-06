@@ -32,6 +32,36 @@
             <div v-else>
               <span>[{{ item.size }}]</span>
               <span class="ml-4">{{ item.progress }}%</span>
+              <span class="ml-4">[ {{ item.priority | priority }} ]</span>
+              <v-menu
+                open-on-hover
+                top
+              >
+                <template #activator="{ on }">
+                  <v-btn
+                    class="mb-2 ml-4"
+                    x-small
+                    fab
+                    v-on="on"
+                  >
+                    <v-icon>trending_up</v-icon>
+                  </v-btn>
+                </template>
+                <v-list dense rounded>
+                  <v-list-item
+                    v-for="prio in priority_options"
+                    :key="prio.value"
+                    link
+                    class="black--text"
+                    @click="setFilePrio(item.id, prio.value)"
+                  >
+                    <v-icon>{{ prio.icon }}</v-icon>
+                    <v-list-item-title class="ml-2 black--text" style="font-size: 12px">
+                      {{ prio.name }}
+                    </v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
               <v-btn
                 v-if="!item.editing"
                 class="mb-2 ml-4"
@@ -71,8 +101,24 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
+
+const FILE_PRIORITY_OPTIONS = [
+  { name: 'max', icon: 'upgrade', value: 7 },
+  { name: 'high', icon: 'arrow_drop_up', value: 6 },
+  { name: 'normal', icon: 'trending_flat', value: 1 },
+  { name: 'unwanted', icon: 'file_download_off', value: 0 }
+]
+
 export default {
   name: 'Content',
+  filters: {
+    priority(value) {
+      if (value === 4) return 'normal'
+      const res = FILE_PRIORITY_OPTIONS.find(el => el.value === value)
+      
+      return res ? res.name : 'undefined'
+    }
+  },
   mixins: [FullScreenModal],
   props: {
     hash: String,
@@ -82,7 +128,8 @@ export default {
     return {
       opened: null,
       selected: [],
-      treeData: null
+      treeData: null,
+      priority_options: FILE_PRIORITY_OPTIONS
     }
   },
   computed: {
@@ -105,20 +152,23 @@ export default {
     }
   },
   created() {
-    this.getTorrentFiles().then(() => {
-      this.opened = []
-        .concat(
-          ...this.treeData
-            .map(file => file.name.split('/'))
-            .filter(f => f.splice(-1, 1))
-        )
-        .filter((f, index, self) => index === self.indexOf(f))
-      this.selected = this.treeData
-        .filter(file => file.priority !== 0)
-        .map(file => file.name)
-    })
+    this.initFiles()
   },
   methods: {
+    initFiles() {
+      this.getTorrentFiles().then(() => {
+        this.opened = []
+          .concat(
+            ...this.treeData
+              .map(file => file.name.split('/'))
+              .filter(f => f.splice(-1, 1))
+          )
+          .filter((f, index, self) => index === self.indexOf(f))
+        this.selected = this.treeData
+          .filter(file => file.priority !== 0)
+          .map(file => file.name)
+      })
+    },
     async getTorrentFiles() {
       const { data } = await qbit.getTorrentFiles(this.hash)
       data.forEach((d, i) => {
@@ -162,6 +212,10 @@ export default {
       qbit.renameFile(this.hash, item.id, item.newName)
       item.name = item.newName
       this.togleEditing(item)
+    },
+    setFilePrio(fileId, priority) {
+      qbit.setTorrentFilePriority(this.hash, [fileId], priority)
+        .then(() => this.initFiles())
     }
   }
 }

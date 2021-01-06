@@ -1,24 +1,20 @@
 <template>
-  <div class="flex-shrink-0 ml-0">
+  <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
     <v-btn
-      id="no-background-hover"
-      class="pa-0"
-      :ripple="false"
-      text
-    >
-      <v-checkbox
-        v-model="$store.state.selectMode"
-        class="grey--text"
-        color="grey"
-        hide-details
-        style="width: 5px;"
-      />
-    </v-btn>
-    <v-btn
-      text
+      :text="!mobile"
       small
       fab
-      color="grey"
+      class="mr-0 ml-0"
+      @click="$store.state.selectMode = !$store.state.selectMode"
+    >
+      <v-icon color="grey">
+        {{ $store.state.selectMode ? 'check_box' : 'check_box_outline_blank' }}
+      </v-icon>
+    </v-btn>
+    <v-btn
+      :text="!mobile"
+      small
+      fab
       class="mr-0 ml-0"
       @click="addModal('SortModal')"
     >
@@ -27,10 +23,10 @@
       </v-icon>
     </v-btn>
     <v-btn
-      text
+      :text="!mobile"
       small
       fab
-      color="grey"
+      color="grey--text"
       class="mr-0 ml-0"
       @click="addModal('SearchModal')"
     >
@@ -39,10 +35,10 @@
       </v-icon>
     </v-btn>
     <v-btn
-      text
+      :text="!mobile"
       small
       fab
-      color="grey"
+      color="grey--text"
       class="mr-0 ml-0"
       @click="addModal('AddModal')"
     >
@@ -54,7 +50,7 @@
       v-if="showAll"
       small
       fab
-      text
+      :text="!mobile"
       class="mr-0 ml-0"
       @click="removeTorrents"
     >
@@ -66,7 +62,7 @@
       v-if="showAll"
       small
       fab
-      text
+      :text="!mobile"
       class="mr-0 ml-0"
       @click="resumeTorrents"
     >
@@ -78,7 +74,7 @@
       v-if="showAll"
       small
       fab
-      text
+      :text="!mobile"
       class="mr-0 ml-0"
       @click="pauseTorrents"
     >
@@ -89,7 +85,7 @@
     <v-btn
       small
       fab
-      text
+      :text="!mobile"
       class="mr-0 ml-0"
       @click="addModal('SettingsModal')"
     >
@@ -101,14 +97,19 @@
 </template>
 
 <script>
-import qbit from '@/services/qbit'
-import { mapState } from 'vuex'
 import { General } from '@/mixins'
+import { mapState } from 'vuex'
+import qbit from '@/services/qbit'
 
 export default {
   name: 'TopActions',
   mixins: [General],
-  props: ['showAll'],
+  props: ['mobile', 'showAll'],
+  data() {
+    return {
+      fab: false
+    }
+  },
   computed: {
     ...mapState(['selected_torrents'])
   },
@@ -130,14 +131,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-#no-background-hover::before {
-  background-color: transparent !important;
-}
-#no-background-hover {
-  cursor: default !important;
-  min-width: 1px;
-  margin-right: 2em;
-}
-</style>

@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.4.8",
+    "version": "0.4.9",
     "private": true,
     "scripts": {
         "start": "npm run serve",
@@ -11,7 +11,7 @@
     "dependencies": {
         "@babel/polyfill": "^7.12.1",
         "apexcharts": "^3.23.1",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "core-js": "^3.8.2",
         "dayjs": "^1.10.1",
         "fuse.js": "^6.4.5",
@@ -39,8 +39,8 @@
         "babel-eslint": "^10.1.0",
         "eslint": "^7.17.0",
         "eslint-config-google": "^0.14.0",
-        "eslint-plugin-prettier": "^3.3.0",
-        "eslint-plugin-vue": "^7.4.0",
+        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-vue": "^7.4.1",
         "fibers": "^5.0.0",
         "node-sass": "^4.14.1",
         "sass": "^1.32.0",

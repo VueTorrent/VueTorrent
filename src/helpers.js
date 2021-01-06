@@ -90,6 +90,7 @@ function createFile(data, name, children) {
     progress: Math.round(data.progress * 100),
     size: formatBytes(data.size),
     icon: getIconForFileType(name.split('.').pop()),
+    priority: data.priority,
     children: children
   }
 }

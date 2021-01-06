@@ -66,7 +66,7 @@
                 color="green_accent"
               >
                 <template #label>
-                  Dense version of the dasbhoard
+                  Dense version of the dashboard
                 </template>
               </v-switch>
               <v-switch

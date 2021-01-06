@@ -7,19 +7,18 @@
         @click.stop="drawer = !drawer"
       />
       <v-toolbar-title
+        v-if="!$vuetify.breakpoint.xs"
         :class="[
           'grey--text',
           { 'subheading ml-0': $vuetify.breakpoint.smAndDown }
         ]"
       >
-        <div v-if="!$vuetify.breakpoint.xs">
-          <span class="font-weight-light">Vue</span>
-          <span>Torrent</span>
-        </div>
+        <span class="font-weight-light">Vue</span>
+        <span>Torrent</span>
       </v-toolbar-title>
       <v-spacer />
 
-      <TopActions :show-all="webuiSettings.showGlobalRemoveResumePause" />
+      <TopMenu :show-all="webuiSettings.showGlobalRemoveResumePause" />
     </v-app-bar>
     <!--navigation drawer itself -->
     <v-navigation-drawer
@@ -65,7 +64,7 @@
 import { mapGetters } from 'vuex'
 import {
   BottomActions,
-  TopActions,
+  TopMenu,
   SpeedGraph,
   FreeSpace,
   SessionStats,
@@ -78,7 +77,7 @@ export default {
   components: {
     FreeSpace,
     BottomActions,
-    TopActions,
+    TopMenu,
     SpeedGraph,
     SessionStats,
     CurrentSpeed,

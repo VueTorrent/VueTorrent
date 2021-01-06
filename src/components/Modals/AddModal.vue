@@ -195,8 +195,15 @@ export default {
     this.$store.commit('FETCH_SETTINGS')
     this.$store.commit('FETCH_CATEGORIES')
     this.urls = this.initialMagnet
+    this.setSettings()
   },
   methods: {
+    setSettings() {
+      const settings = this.getSettings()
+      this.start = !settings.start_paused_enabled
+      this.autoTMM = settings.auto_tmm_enabled
+      this.root_folder = settings.create_subfolder_enabled
+    },
     addDropFile(e) {
       this.files.push(...Array.from(e.dataTransfer.files))
     },
