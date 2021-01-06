@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
     <v-btn
       :text="!mobile"
       small
@@ -22,20 +22,18 @@
         sort
       </v-icon>
     </v-btn>
-    <div>
-      <v-btn
-        :text="!mobile"
-        small
-        fab
-        color="grey--text"
-        class="mr-0 ml-0"
-        @click="addModal('SearchModal')"
-      >
-        <v-icon color="grey">
-          search
-        </v-icon>
-      </v-btn>
-    </div>
+    <v-btn
+      :text="!mobile"
+      small
+      fab
+      color="grey--text"
+      class="mr-0 ml-0"
+      @click="addModal('SearchModal')"
+    >
+      <v-icon color="grey">
+        search
+      </v-icon>
+    </v-btn>
     <v-btn
       :text="!mobile"
       small
