@@ -34,5 +34,3 @@ export default {
   props: ['status']
 }
 </script>
-
-<style scoped></style>

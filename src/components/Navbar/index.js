@@ -6,6 +6,7 @@ import FreeSpace from './FreeSpace.vue'
 import SessionStats from './SessionStats.vue'
 import CurrentSpeed from './CurrentSpeed.vue'
 import FilterSelect from './FilterSelect.vue'
+import TopMenu from './TopMenu.vue'
 
 export {
   Navbar,
@@ -15,5 +16,6 @@ export {
   FreeSpace,
   SessionStats,
   CurrentSpeed,
-  FilterSelect
+  FilterSelect,
+  TopMenu
 }
