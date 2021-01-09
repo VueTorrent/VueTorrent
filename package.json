@@ -1,6 +1,6 @@
 {
     "name": "vuetorrent",
-    "version": "0.4.9",
+    "version": "0.5.0",
     "private": true,
     "scripts": {
         "start": "npm run serve",
@@ -13,8 +13,8 @@
         "apexcharts": "^3.23.1",
         "axios": "^0.21.1",
         "core-js": "^3.8.2",
-        "dayjs": "^1.10.1",
-        "fuse.js": "^6.4.5",
+        "dayjs": "^1.10.3",
+        "fuse.js": "^6.4.6",
         "lodash": "^4.17.20",
         "register-service-worker": "^1.7.2",
         "uuid": "^8.3.2",
@@ -33,7 +33,7 @@
     "devDependencies": {
         "@vue/cli-plugin-babel": "~4.3.0",
         "@vue/cli-plugin-eslint": "~4.3.0",
-        "@vue/cli-plugin-pwa": "^4.5.9",
+        "@vue/cli-plugin-pwa": "^4.5.10",
         "@vue/cli-service": "~4.3.0",
         "@vue/eslint-config-prettier": "^6.0.0",
         "babel-eslint": "^10.1.0",
@@ -43,7 +43,7 @@
         "eslint-plugin-vue": "^7.4.1",
         "fibers": "^5.0.0",
         "node-sass": "^4.14.1",
-        "sass": "^1.32.0",
+        "sass": "^1.32.2",
         "sass-loader": "^8.0.2",
         "vue-cli-plugin-vuetify": "^2.0.9",
         "vue-template-compiler": "^2.6.12"

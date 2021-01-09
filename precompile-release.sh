@@ -1,7 +1,7 @@
 #!/bin/bash
 
 build_and_copy(){
-    npm run build
+    npm run build --production
     VERSION=$(jq -r .version package.json)
     mkdir ../vuetorrent-release
     git clone git@github.com:WDaan/VueTorrent.git ../vuetorrent-release
