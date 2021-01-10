@@ -1,98 +1,146 @@
 <template>
   <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
-    <v-btn
-      :text="!mobile"
-      small
-      fab
-      class="mr-0 ml-0"
-      @click="$store.state.selectMode = !$store.state.selectMode"
-    >
-      <v-icon color="grey">
-        {{ $store.state.selectMode ? mdiSelectOff : mdiSelectMultiple }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      :text="!mobile"
-      small
-      fab
-      class="mr-0 ml-0"
-      @click="addModal('SortModal')"
-    >
-      <v-icon color="grey">
-        {{ mdiSort }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      :text="!mobile"
-      small
-      fab
-      color="grey--text"
-      class="mr-0 ml-0"
-      @click="addModal('SearchModal')"
-    >
-      <v-icon color="grey">
-        {{ mdiSearchWeb }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      :text="!mobile"
-      small
-      fab
-      color="grey--text"
-      class="mr-0 ml-0"
-      @click="addModal('AddModal')"
-    >
-      <v-icon color="grey">
-        {{ mdiPlus }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      v-if="showAll"
-      small
-      fab
-      :text="!mobile"
-      class="mr-0 ml-0"
-      @click="removeTorrents"
-    >
-      <v-icon color="grey">
-        {{ mdiDelete }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      v-if="showAll"
-      small
-      fab
-      :text="!mobile"
-      class="mr-0 ml-0"
-      @click="resumeTorrents"
-    >
-      <v-icon color="grey">
-        {{ mdiPlay }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      v-if="showAll"
-      small
-      fab
-      :text="!mobile"
-      class="mr-0 ml-0"
-      @click="pauseTorrents"
-    >
-      <v-icon color="grey">
-        {{ mdiPause }}
-      </v-icon>
-    </v-btn>
-    <v-btn
-      small
-      fab
-      :text="!mobile"
-      class="mr-0 ml-0"
-      @click="addModal('SettingsModal')"
-    >
-      <v-icon color="grey">
-        {{ mdiCog }}
-      </v-icon>
-    </v-btn>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="$store.state.selectMode = !$store.state.selectMode"
+        >
+          <v-icon color="grey">
+            {{ $store.state.selectMode ? mdiSelectOff : mdiSelectMultiple }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Select Mode</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="addModal('SortModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiSort }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Add Torrent</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          color="grey--text"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="addModal('SearchModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiSearchWeb }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Search new Torrent</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          color="grey--text"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="addModal('AddModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiPlus }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span> Add Torrent</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          v-if="showAll"
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="removeTorrents"
+        >
+          <v-icon color="grey">
+            {{ mdiDelete }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Remove Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          v-if="showAll"
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="resumeTorrents"
+        >
+          <v-icon color="grey">
+            {{ mdiPlay }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Resume Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          v-if="showAll"
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="pauseTorrents"
+        >
+          <v-icon color="grey">
+            {{ mdiPause }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Pause Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          v-on="on"
+          @click="addModal('SettingsModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiCog }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Open Settings</span>
+    </v-tooltip>
   </div>
 </template>
 

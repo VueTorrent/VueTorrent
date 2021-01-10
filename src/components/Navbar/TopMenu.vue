@@ -15,11 +15,8 @@
         small
         fab
       >
-        <v-icon v-if="fab">
-          mdi-close
-        </v-icon>
-        <v-icon v-else>
-          mdi-dots-vertical
+        <v-icon>
+          {{ fab ? mdiClose : mdiDotsVertical }}
         </v-icon>
       </v-btn>
     </template>
@@ -29,6 +26,7 @@
 
 <script>
 import TopActions from './TopActions'
+import { mdiDotsVertical, mdiClose } from '@mdi/js'
 
 export default {
   name: 'TopMenu',
@@ -36,7 +34,9 @@ export default {
   props: ['showAll'],
   data() {
     return {
-      fab: false
+      fab: false,
+      mdiDotsVertical,
+      mdiClose
     }
   }
 }
