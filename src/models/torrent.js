@@ -27,6 +27,7 @@ export default class Torrent {
     this.category = data.category
     this.tracker = data.tracker
     this.comment = data.comment
+    Object.freeze(this)
   }
 
   formatState(state) {

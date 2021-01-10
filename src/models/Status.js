@@ -1,8 +1,8 @@
-import { formatBytes } from '../helpers'
+import { formatBytes } from '@/helpers'
 
 export default class Status {
   constructor(data, tags) {
-    if (data != undefined && data != null) {
+    if (data) {
       this.status = data.connection_status
       this.downloaded = formatBytes(data.dl_info_data, 1)
       this.uploaded = formatBytes(data.up_info_data, 1)
@@ -13,6 +13,7 @@ export default class Status {
       this.dlspeedRaw = this.formatSpeed(data.dl_info_speed)
       this.upspeedRaw = this.formatSpeed(data.up_info_speed)
       this.tags = tags
+      Object.freeze(this)
     }
   }
 
