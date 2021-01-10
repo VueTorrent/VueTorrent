@@ -29,7 +29,7 @@
             Web User Interface (Remote Control)
           </v-subheader>
           <v-row class="ml-5 mr-5">
-            <v-col cols="10">
+            <v-col cols="9" class="pa-0">
               <v-text-field
                 v-model="settings.web_ui_address"
                 class="mr-1"
@@ -39,7 +39,7 @@
                 :label="`IP Address:`"
               />
             </v-col>
-            <v-col>
+            <v-col cols="3" class="pa-0">
               <v-text-field
                 v-model="settings.web_ui_port"
                 class="ml-1"

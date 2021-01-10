@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <perfect-scrollbar>
-      <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
+      <v-card-text class="pa-1" :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
         <v-tabs v-model="tab">
           <v-tab href="#general">
             General
