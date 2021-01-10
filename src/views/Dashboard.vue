@@ -98,7 +98,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Torrent from '@/components/Torrent'
+import Torrent from '@/components/Torrent/Torrent'
 import Fuse from 'fuse.js'
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'

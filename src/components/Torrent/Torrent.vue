@@ -45,7 +45,7 @@
 <script>
 import { General, TorrentSelect } from '@/mixins'
 import { mapGetters } from 'vuex'
-import * as Fields from './Torrent/DashboardItems'
+import * as Fields from './DashboardItems'
 
 export default {
   name: 'Torrent',

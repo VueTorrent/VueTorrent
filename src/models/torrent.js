@@ -1,4 +1,4 @@
-import { formatBytes } from '../helpers'
+import { formatBytes } from '@/helpers'
 
 export default class Torrent {
   constructor(data) {
