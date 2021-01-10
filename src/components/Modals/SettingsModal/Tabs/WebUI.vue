@@ -25,10 +25,10 @@
           </div>
         </div>
         <div class="box">
-          <v-subheader>
+          <v-subheader class="pb-4">
             Web User Interface (Remote Control)
           </v-subheader>
-          <v-row class="ml-5 mr-5">
+          <v-row class="ml-5 mr-5 pb-4">
             <v-col cols="9" class="pa-0">
               <v-text-field
                 v-model="settings.web_ui_address"

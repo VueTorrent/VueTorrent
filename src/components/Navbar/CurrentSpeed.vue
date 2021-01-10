@@ -4,7 +4,7 @@
       current speed
     </div>
     <v-card color="secondary" flat class="mr-2 ml-2">
-      <v-layout row wrap class="pa-3 project nav_download mx-auto">
+      <v-layout row wrap class="pa-3 mt-1 project nav_download mx-auto">
         <v-icon color="download">
           keyboard_arrow_down
         </v-icon>

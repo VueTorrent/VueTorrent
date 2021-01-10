@@ -4,7 +4,7 @@
       session status
     </div>
     <v-card flat color="secondary" class="mr-2 ml-2">
-      <v-layout row wrap class="pa-3 project nav_download mx-auto">
+      <v-layout row wrap class="pa-3 mt-1 project nav_download mx-auto">
         <v-flex md6>
           <div
             style="font-size: 0.95em; margin-top: 6px"
