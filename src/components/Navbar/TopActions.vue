@@ -8,7 +8,7 @@
       @click="$store.state.selectMode = !$store.state.selectMode"
     >
       <v-icon color="grey">
-        {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+        {{ $store.state.selectMode ? mdiSelectOff : mdiSelectMultiple }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -101,7 +101,7 @@ import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
 import {
-  mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort, mdiCog,
+  mdiSelectOff, mdiSelectMultiple, mdiSort, mdiCog,
   mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause
 } from '@mdi/js'
 
@@ -119,8 +119,8 @@ export default {
       mdiPause,
       mdiDelete,
       mdiCog,
-      mdiCheckboxBlankOutline,
-      mdiCheckboxMarked
+      mdiSelectOff,
+      mdiSelectMultiple
     }
   },
   computed: {
