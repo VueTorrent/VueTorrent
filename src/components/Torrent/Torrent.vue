@@ -1,14 +1,9 @@
 <template>
   <v-card
-    ripple
     flat
     class="pointer torrent noselect"
     :class="{ torrent_selected: isAlreadySelected(torrent.hash) }"
-    @click.native.exact.prevent="
-      $vuetify.breakpoint.smAndDown ?
-        selectTorrent(torrent.hash) :
-        showInfo(torrent.hash)"
-    @dblclick.prevent="showInfo(torrent.hash)"
+    @click.native.exact.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
   >
@@ -31,7 +26,7 @@
           <component
             :is="item.name"
             v-for="item in properties"
-            :key="'busy' + item.name"
+            :key="item.name"
             :torrent="torrent"
           />
         </v-layout>

@@ -47,35 +47,35 @@
           Nothing to see here!
         </p>
       </div>
-      <div v-else>
-        <v-layout
+      <v-list v-else color="background">
+        <v-list-item
           v-for="(torrent, index) in paginatedData"
           :key="torrent.hash"
+          class="pa-0"
           @contextmenu.prevent="$refs.menu.open($event, { torrent })"
         >
-          <v-flex v-if="selectMode">
-            <v-checkbox
-              color="grey"
-              class="mt-10"
-              xs1
-              :value="selected_torrents.indexOf(torrent.hash) !== -1"
-              @click="selectTorrent(torrent.hash)"
-            />
-          </v-flex>
-          <v-flex :class="selectMode ? 'xs11' : ''">
-            <Torrent
-              :class="{
-                topBorderRadius: index === 0,
-                noBorderRadius:
-                  index !== 0 && index !== torrent.length - 1,
-                bottomBorderRadius: index === torrents.length - 1
-              }"
-              :torrent="torrent"
-              :index="index"
-              :length="torrents.length - 1"
-            />
-          </v-flex>
-        </v-layout>
+          <template #default>
+            <v-list-item-action v-if="selectMode">
+              <v-checkbox
+                :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                @click="selectTorrent(torrent.hash)"
+              />
+            </v-list-item-action>
+            <v-list-item-content class="pa-0">
+              <Torrent
+                :class="{
+                  topBorderRadius: index === 0,
+                  noBorderRadius:
+                    index !== 0 && index !== torrent.length - 1,
+                  bottomBorderRadius: index === torrents.length - 1
+                }"
+                :torrent="torrent"
+                :index="index"
+                :length="torrents.length - 1"
+              />
+            </v-list-item-content>
+          </template>
+        </v-list-item>
         <v-row v-if="pageCount > 1" xs12 justify="center">
           <v-col>
             <v-container>
@@ -88,7 +88,7 @@
             </v-container>
           </v-col>
         </v-row>
-      </div>
+      </v-list>
     </div>
     <vue-context ref="menu" v-slot="{ data }">
       <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
@@ -220,16 +220,26 @@ export default {
         padding: 0;
     }
 }
+</style>
+
+<style scoped lang="scss">
+.v-context {
+  &,
+  & ul {
+    border-radius: 0.3rem;
+    padding: 0;
+  }
+}
 .topBorderRadius {
-    border-top-left-radius: 3px !important;
-    border-top-right-radius: 3px !important;
-    border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 3px !important;
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 0px !important;
 }
 .noBorderRadius {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .bottomBorderRadius {
-    border-bottom-left-radius: 3px !important;
-    border-bottom-right-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
 }
 </style>
