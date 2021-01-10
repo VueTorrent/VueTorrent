@@ -102,7 +102,7 @@ export default {
     state.sort_options.tracker =
             payload.tracker !== null ? payload.tracker : null
   },
-  FETCH_CATEGORIES: async state => state.categories = await qbit.getCategories(),
+  FETCH_CATEGORIES: async state => state.categories = Object.values(await (qbit.getCategories())),
   FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),
   SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count)
 }

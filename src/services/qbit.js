@@ -259,7 +259,7 @@ class Qbit {
   }
 
   createTag(tag) {
-    return this.execute('/torrents/createTags  ', {
+    return this.execute('post', '/torrents/createTags  ', {
       tags: tag
     })
   }

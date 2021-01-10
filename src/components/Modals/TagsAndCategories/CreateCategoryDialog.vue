@@ -16,6 +16,7 @@
               :counter="15"
               label="Category name"
               required
+              :disabled="hasInitialCategory"
             />
             <v-text-field
               v-model="category.savePath"
@@ -86,10 +87,8 @@ export default {
   computed: {
     ...mapGetters(['getSelectedCategory']),
     hasInitialCategory() {
-      return (
-        this.initialCategory &&
-                this.initialCategory.name
-      )
+      return !!(this.initialCategory &&
+          this.initialCategory.name)
     }
   },
   created() {
@@ -104,9 +103,6 @@ export default {
       this.cancel()
     },
     cancel() {
-      this.category.name = ''
-      this.category.savePath = ''
-      this.$refs.categoryForm.reset()
       this.$store.commit('FETCH_CATEGORIES')
       this.deleteModal()
     },

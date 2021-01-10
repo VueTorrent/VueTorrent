@@ -59,7 +59,6 @@ export default {
       this.cancel()
     },
     cancel() {
-      this.tagname = ''
       this.deleteModal()
     }
   }
