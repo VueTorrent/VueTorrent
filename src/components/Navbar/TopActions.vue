@@ -8,7 +8,7 @@
           fab
           class="mr-0 ml-0"
           v-on="on"
-          @click="$store.state.selectMode = !$store.state.selectMode"
+          @click="toggleSelectMode()"
         >
           <v-icon color="grey">
             {{ $store.state.selectMode ? mdiSelectOff : mdiSelectMultiple }}
@@ -188,6 +188,14 @@ export default {
     },
     addModal(name) {
       this.createModal(name)
+    },
+    toggleSelectMode() {
+      if (this.$store.state.selectMode) {
+        this.$store.state.selected_torrents = []
+        
+        return this.$store.state.selectMode = false
+      }
+      this.$store.state.selectMode = true
     }
   }
 }

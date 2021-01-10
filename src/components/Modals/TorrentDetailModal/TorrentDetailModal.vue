@@ -73,7 +73,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -82,9 +82,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
 import { Modal, FullScreenModal } from '@/mixins'
 import { Content, Info, Peers, Trackers, TagsAndCategories } from './Tabs'
+import { mdiClose } from '@mdi/js'
 
 export default {
   name: 'TorrentDetailModal',
@@ -97,7 +97,8 @@ export default {
     return {
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
-      peers: []
+      peers: [],
+      mdiClose
     }
   },
   computed: {

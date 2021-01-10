@@ -76,7 +76,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -88,6 +88,7 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
 import PluginManager from './PluginManager'
+import { mdiClose } from '@mdi/js'
 
 export default {
   name: 'SearchModal',
@@ -115,7 +116,8 @@ export default {
       searchForm: {
         valid: false,
         pattern: ''
-      }
+      },
+      mdiClose
     }
   },
   computed: {

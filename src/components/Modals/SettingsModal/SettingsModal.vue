@@ -68,7 +68,7 @@
             right
             @click="close"
           >
-            <v-icon>close</v-icon>
+            <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </v-fab-transition>
       </v-card-actions>
@@ -78,6 +78,7 @@
 
 <script>
 import { Modal, FullScreenModal, SettingsTab } from '@/mixins'
+import { mdiClose } from '@mdi/js'
 import {
   WebUI,
   BitTorrent,
@@ -94,7 +95,8 @@ export default {
     return {
       tab: null,
       items: [],
-      peers: []
+      peers: [],
+      mdiClose
     }
   },
   created() {

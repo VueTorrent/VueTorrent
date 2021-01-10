@@ -19,9 +19,8 @@
                       v-model="files"
                       color="deep-purple accent-4"
                       counter
-                      label="File input"
+                      label="Select your files"
                       multiple
-                      placeholder="Select your files"
                       prepend-icon="mdi-paperclip"
                       :rules="fileInputRules"
                       outlined
@@ -71,7 +70,7 @@
                 :items="availableCategories"
                 clearable
                 label="Category"
-                prepend-icon="tag"
+                :prepend-icon="mdiTag"
                 @input="categoryChanged"
               />
 
@@ -79,7 +78,7 @@
                 v-model="directory"
                 :disabled="autoTMM"
                 label="Download Directory"
-                prepend-icon="folder"
+                :prepend-icon="mdiFolder"
               />
               <v-row no-gutters>
                 <v-flex xs12 sm6>
@@ -133,6 +132,7 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
+import { mdiFolder, mdiTag } from '@mdi/js'
 export default {
   name: 'AddModal',
   mixins: [Modal],
@@ -158,7 +158,8 @@ export default {
       ],
       loading: false,
       urls: null,
-      valid: false
+      valid: false,
+      mdiFolder, mdiTag
     }
   },
   computed: {
