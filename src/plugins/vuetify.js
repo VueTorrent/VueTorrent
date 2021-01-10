@@ -8,6 +8,9 @@ import variables from '../styles/variables.scss'
 Vue.use(Vuetify)
 
 export default new Vuetify({
+  icons: {
+    iconfont: 'mdiSvg'
+  },
   theme: {
     options: {
       customProperties: true

@@ -1,19 +1,19 @@
 <template>
-  <v-list dense rounded>
+  <v-list>
     <v-list-item link @click="resume">
-      <v-icon>play_arrow</v-icon>
+      <v-icon>{{ mdiPlay }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Resume
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="pause">
-      <v-icon>pause</v-icon>
+      <v-icon>{{ mdiPause }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Pause
       </v-list-item-title>
@@ -21,59 +21,59 @@
     <v-divider />
     <v-list-item link @click="deleteWithoutFiles">
       <v-icon color="red">
-        delete
+        {{ mdiDelete }}
       </v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px; color: red"
+        style="font-size: 1em; color: red"
       >
         Delete
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="deleteWithFiles">
       <v-icon color="red">
-        delete
+        {{ mdiDeleteForever }}
       </v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px; color: red"
+        style="font-size: 1em; color: red"
       >
         Delete with files
       </v-list-item-title>
     </v-list-item>
     <v-divider />
     <v-list-item link @click="location">
-      <v-icon>folder</v-icon>
+      <v-icon>{{ mdiFolder }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Change location
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="rename">
-      <v-icon>edit</v-icon>
+      <v-icon>{{ mdiPencil }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Rename
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="recheck">
-      <v-icon>widgets</v-icon>
+      <v-icon>{{ mdiWidgets }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px;"
+        style="font-size: 1em"
       >
         Force recheck
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="reannounce">
-      <v-icon>record_voice_over</v-icon>
+      <v-icon>{{ mdiAccountVoice }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Force reannounce
       </v-list-item-title>
@@ -84,10 +84,10 @@
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
-          <v-icon>trending_up</v-icon>
+          <v-icon>{{ mdiTrendingUp }}</v-icon>
           <v-list-item-title
             class="ml-2"
-            style="font-size: 12px"
+            style="font-size: 1em"
           >
             Set Priority
           </v-list-item-title>
@@ -109,16 +109,16 @@
     </v-menu>
     <v-divider />
     <v-list-item link @click="showInfo">
-      <v-icon>info</v-icon>
+      <v-icon>{{ mdiInformation }}</v-icon>
       <v-list-item-title
         class="ml-2"
-        style="font-size: 12px"
+        style="font-size: 1em"
       >
         Show Info
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="selectTorrent(hash)">
-      <v-icon>done</v-icon>
+      <v-icon>{{ mdiCheck }}</v-icon>
       <v-list-item-title
         class="ml-2"
       >
@@ -131,6 +131,11 @@
 <script>
 import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
+import {
+  mdiAccountVoice, mdiWidgets, mdiTrendingUp,
+  mdiInformation, mdiDeleteForever, mdiPencil, mdiFolder, mdiDelete,
+  mdiPlay, mdiPause, mdiCheck
+} from '@mdi/js'
 export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
@@ -143,7 +148,10 @@ export default {
       { name: 'increase', icon: 'arrow_drop_up', action: 'increasePrio' },
       { name: 'decrease', icon: 'arrow_drop_down', action: 'decreasePrio' },
       { name: 'bottom', icon: 'vertical_align_bottom', action: 'bottomPrio' }
-    ]
+    ],
+    mdiDelete, mdiPlay, mdiPause, mdiCheck,
+    mdiFolder, mdiPencil, mdiDeleteForever, mdiInformation,
+    mdiWidgets, mdiTrendingUp, mdiAccountVoice
   }),
   computed: {
     dark() {

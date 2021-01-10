@@ -21,7 +21,7 @@
 
                         <v-list-item-action>
                           <v-icon color="red" @click="deleteTag(item)">
-                            mdi-delete
+                            {{ mdiDelete }}
                           </v-icon>
                         </v-list-item-action>
                       </v-list-item>
@@ -61,12 +61,12 @@
 
                         <v-list-item-action>
                           <v-icon @click="editCategory(item)">
-                            edit
+                            {{ mdiPencil }}
                           </v-icon>
                         </v-list-item-action>
                         <v-list-item-action>
                           <v-icon color="red" @click="deleteCategory(item)">
-                            mdi-delete
+                            {{ mdiDelete }}
                           </v-icon>
                         </v-list-item-action>
                       </v-list-item>
@@ -98,8 +98,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
 import qbit from '@/services/qbit'
+import { mdiDelete, mdiPencil } from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
 
@@ -110,7 +110,9 @@ export default {
     hash: String
   },
   data: () => ({
-    selectedCategory: null
+    selectedCategory: null,
+    mdiDelete,
+    mdiPencil
   }),
   computed: {
     ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),

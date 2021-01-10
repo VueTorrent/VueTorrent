@@ -9,24 +9,30 @@ export function formatBytes(a, b) {
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
 
+import {
+  mdiLanguageHtml5, mdiFileDocumentOutline,
+  mdiNodejs, mdiFilePdf, mdiFileExcel,
+  mdiCodeJson, mdiFileImage, mdiMovie,
+  mdiLanguageMarkdown, mdiFile } from '@mdi/js'
+
 export function getIconForFileType(type) {
   const types = {
-    html: 'mdi-language-html5',
-    js: 'mdi-nodejs',
-    json: 'mdi-json',
-    md: 'mdi-markdown',
-    pdf: 'mdi-file-pdf',
-    png: 'mdi-file-image',
-    txt: 'mdi-file-document-outline',
-    sub: 'mdi-file-document-outline',
-    idx: 'mdi-file-document-outline',
-    xls: 'mdi-file-excel',
-    avi: 'movie',
-    mp4: 'movie',
-    mkv: 'movie'
+    html: mdiLanguageHtml5,
+    js: mdiNodejs,
+    json: mdiCodeJson,
+    md: mdiLanguageMarkdown,
+    pdf: mdiFilePdf,
+    png: mdiFileImage,
+    txt: mdiFileDocumentOutline,
+    sub: mdiFileDocumentOutline,
+    idx: mdiFileDocumentOutline,
+    xls: mdiFileExcel,
+    avi: mdiMovie,
+    mp4: mdiMovie,
+    mkv: mdiMovie
   }
 
-  if (!types[type]) return 'insert_drive_file'
+  if (!types[type]) return mdiFile
 
   return types[type]
 }

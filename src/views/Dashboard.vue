@@ -57,6 +57,7 @@
           <template #default>
             <v-list-item-action v-if="selectMode">
               <v-checkbox
+                color="grey"
                 :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
                 @click="selectTorrent(torrent.hash)"
               />

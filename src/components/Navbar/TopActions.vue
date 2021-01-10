@@ -8,7 +8,7 @@
       @click="$store.state.selectMode = !$store.state.selectMode"
     >
       <v-icon color="grey">
-        {{ $store.state.selectMode ? 'check_box' : 'check_box_outline_blank' }}
+        {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -19,7 +19,7 @@
       @click="addModal('SortModal')"
     >
       <v-icon color="grey">
-        sort
+        {{ mdiSort }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -31,7 +31,7 @@
       @click="addModal('SearchModal')"
     >
       <v-icon color="grey">
-        search
+        {{ mdiMagnify }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -43,7 +43,7 @@
       @click="addModal('AddModal')"
     >
       <v-icon color="grey">
-        add
+        {{ mdiPlus }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -55,7 +55,7 @@
       @click="removeTorrents"
     >
       <v-icon color="grey">
-        remove
+        {{ mdiDelete }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -67,7 +67,7 @@
       @click="resumeTorrents"
     >
       <v-icon color="grey">
-        play_arrow
+        {{ mdiPlay }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -79,7 +79,7 @@
       @click="pauseTorrents"
     >
       <v-icon color="grey">
-        pause
+        {{ mdiPause }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -90,7 +90,7 @@
       @click="addModal('SettingsModal')"
     >
       <v-icon color="grey">
-        settings
+        {{ mdiCog }}
       </v-icon>
     </v-btn>
   </div>
@@ -100,6 +100,10 @@
 import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
+import {
+  mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort, mdiCog,
+  mdiMagnify, mdiDelete, mdiPlus, mdiPlay, mdiPause
+} from '@mdi/js'
 
 export default {
   name: 'TopActions',
@@ -107,7 +111,16 @@ export default {
   props: ['mobile', 'showAll'],
   data() {
     return {
-      fab: false
+      fab: false,
+      mdiSort,
+      mdiPlus,
+      mdiMagnify,
+      mdiPlay,
+      mdiPause,
+      mdiDelete,
+      mdiCog,
+      mdiCheckboxBlankOutline,
+      mdiCheckboxMarked
     }
   },
   computed: {

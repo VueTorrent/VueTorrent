@@ -152,7 +152,7 @@ export default {
 
 <style lang="scss">
 .v-select__selection,
-.v-input__icon i {
+.v-input__icon svg {
     color: #64ceaa !important;
 }
 </style>

@@ -6,7 +6,7 @@
     <v-card color="secondary" flat class="mr-2 ml-2">
       <v-layout row wrap class="pa-3 mt-1 project nav_download mx-auto">
         <v-icon color="download">
-          keyboard_arrow_down
+          {{ mdiChevronDown }}
         </v-icon>
         <span class="download--text title">
           {{ status.dlspeed | getDataValue(1) }}
@@ -15,7 +15,7 @@
           </span>
         </span>
         <v-icon class="pl-5" color="upload">
-          keyboard_arrow_up
+          {{ mdiChevronUp }}
         </v-icon>
         <span class="upload--text title">
           {{ status.upspeed | getDataValue }}
@@ -29,8 +29,13 @@
 </template>
 
 <script>
+import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 export default {
   name: 'CurrentSpeed',
-  props: ['status']
+  props: ['status'],
+  data: () => ({
+    mdiChevronUp,
+    mdiChevronDown
+  })
 }
 </script>
