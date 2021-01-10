@@ -29,6 +29,6 @@
 <script>
 export default {
   name: 'FreeSpace',
-  props: { space: String }
+  props: ['space']
 }
 </script>

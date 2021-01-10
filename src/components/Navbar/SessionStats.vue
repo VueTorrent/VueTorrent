@@ -35,9 +35,9 @@
         </v-flex>
         <v-flex md5 class="ml-4">
           <span class="upload--text title">
-            {{ status.uploaded | getDataValue }}
+            {{ status.uploaded | getDataValue(1) }}
             <span class="font-weight-light caption">
-              {{ status.uploaded | getDataUnit }}
+              {{ status.uploaded | getDataUnit(1) }}
             </span>
           </span>
         </v-flex>

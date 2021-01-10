@@ -9,9 +9,9 @@
           keyboard_arrow_down
         </v-icon>
         <span class="download--text title">
-          {{ status.dlspeed | getDataValue }}
+          {{ status.dlspeed | getDataValue(1) }}
           <span class="font-weight-light caption">
-            {{ status.dlspeed | getDataUnit }}/s
+            {{ status.dlspeed | getDataUnit(1) }}/s
           </span>
         </span>
         <v-icon class="pl-5" color="upload">

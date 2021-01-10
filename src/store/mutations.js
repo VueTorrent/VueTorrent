@@ -1,7 +1,7 @@
-import Torrent from '../models/torrent'
+import Torrent from '../models/Torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
-import { getHostName } from '../helpers'
+import { getHostName } from '@/helpers'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -86,10 +86,7 @@ export default {
     }
 
     // torrents
-    state.torrents = []
-    for (const [key, value] of Object.entries(data)) {
-      state.torrents.push(new Torrent({ hash: key, ...value }))
-    }
+    state.torrents = data.map(t => new Torrent(t))
   },
   FETCH_SETTINGS: async state => {
     const { data } = await qbit.getAppPreferences()
