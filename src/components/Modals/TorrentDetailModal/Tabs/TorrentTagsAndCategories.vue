@@ -11,9 +11,13 @@
                 </h3>
               </v-card-title>
               <v-card-text>
-                <v-list>
+                <v-list-item-group
+                  :value="activeTags"
+                  active-class="green_accent--text"
+                  multiple
+                >
                   <template v-for="(item, index) in availableTags">
-                    <v-list-item :key="item.title">
+                    <v-list-item :key="item" @click="addTag(item)">
                       <v-list-item-content>
                         <v-list-item-title v-text="item" />
                       </v-list-item-content>
@@ -23,7 +27,7 @@
                       :key="index"
                     />
                   </template>
-                </v-list>
+                </v-list-item-group>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -35,9 +39,12 @@
                 </h3>
               </v-card-title>
               <v-card-text>
-                <v-list>
+                <v-list-item-group
+                  :value="activeCategory"
+                  active-class="green_accent--text"
+                >
                   <template v-for="(item, index) in availableCategories">
-                    <v-list-item :key="item.title">
+                    <v-list-item :key="item.title" @click="setCategory(item)">
                       <v-list-item-content>
                         <v-list-item-title v-text="item.name" />
                       </v-list-item-content>
@@ -47,7 +54,7 @@
                       :key="index"
                     />
                   </template>
-                </v-list>
+                </v-list-item-group>
               </v-card-text>
             </v-card>
           </v-flex>
@@ -58,7 +65,6 @@
 </template>
 
 <script>
-import { difference } from 'lodash'
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { FullScreenModal } from '@/mixins'
@@ -78,13 +84,25 @@ export default {
       return this.getTorrent(this.hash)
     },
     availableTags() {
-      const availableTags = this.getAvailableTags()
-      const currentTags = this.getTorrent(this.hash).tags
-      
-      return difference(availableTags, currentTags)
+      return this.getAvailableTags()
     },
     availableCategories() {
       return this.getCategories()
+    },
+    activeCategory() {
+      return this.availableCategories.map(el => el.name).indexOf(this.torrent.category)
+    },
+    activeTags() {
+      const active = []
+      const tags = this.torrent.tags
+      if (tags && tags.length) {
+        tags.forEach(t => {
+          const index = this.availableTags.indexOf(t)
+          if (index !== -1) active.push(index)
+        })
+      }
+      
+      return active
     }
   },
   created() {
@@ -92,13 +110,19 @@ export default {
   },
   methods: {
     addTag(tag) {
+      if (this.activeTags.includes(this.availableTags.indexOf(tag))) {
+        return this.deleteTag(tag)
+      }
       qbit.addTorrentTag(this.hash, tag)
     },
     deleteTag(tag) {
       qbit.removeTorrentTag(this.hash, tag)
     },
     setCategory(cat) {
-      qbit.setCategory(this.hash, cat)
+      if (this.torrent.category === cat.name) {
+        return qbit.setCategory(this.hash, '')
+      }
+      qbit.setCategory(this.hash, cat.name)
     },
     deleteCategory() {
       qbit.setCategory(this.hash, '')
