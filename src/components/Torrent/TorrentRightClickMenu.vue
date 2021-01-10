@@ -52,7 +52,7 @@
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="rename">
-      <v-icon>{{ mdiPencil }}</v-icon>
+      <v-icon>{{ mdiRenameBox }}</v-icon>
       <v-list-item-title
         class="ml-2"
         style="font-size: 1em"
@@ -61,7 +61,7 @@
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="recheck">
-      <v-icon>{{ mdiWidgets }}</v-icon>
+      <v-icon>{{ mdiPlaylistCheck }}</v-icon>
       <v-list-item-title
         class="ml-2"
         style="font-size: 1em"
@@ -70,7 +70,7 @@
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="reannounce">
-      <v-icon>{{ mdiAccountVoice }}</v-icon>
+      <v-icon>{{ mdiBullhorn }}</v-icon>
       <v-list-item-title
         class="ml-2"
         style="font-size: 1em"
@@ -84,12 +84,13 @@
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
-          <v-icon>{{ mdiTrendingUp }}</v-icon>
+          <v-icon>{{ mdiPriorityHigh }}</v-icon>
           <v-list-item-title
             class="ml-2"
             style="font-size: 1em"
           >
             Set Priority
+            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
       </template>
@@ -118,7 +119,7 @@
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="selectTorrent(hash)">
-      <v-icon>{{ mdiCheck }}</v-icon>
+      <v-icon>{{ mdiSelect }}</v-icon>
       <v-list-item-title
         class="ml-2"
       >
@@ -132,9 +133,9 @@
 import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
-  mdiAccountVoice, mdiWidgets, mdiTrendingUp,
-  mdiInformation, mdiDeleteForever, mdiPencil, mdiFolder, mdiDelete,
-  mdiPlay, mdiPause, mdiCheck
+  mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
+  mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
+  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight
 } from '@mdi/js'
 export default {
   name: 'TorrentRightClickMenu',
@@ -144,14 +145,14 @@ export default {
   },
   data: () => ({
     priority_options: [
-      { name: 'top', icon: 'upgrade', action: 'topPrio' },
-      { name: 'increase', icon: 'arrow_drop_up', action: 'increasePrio' },
-      { name: 'decrease', icon: 'arrow_drop_down', action: 'decreasePrio' },
-      { name: 'bottom', icon: 'vertical_align_bottom', action: 'bottomPrio' }
+      { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
+      { name: 'increase', icon: mdiArrowUp, action: 'increasePrio' },
+      { name: 'decrease', icon: mdiArrowDown, action: 'decreasePrio' },
+      { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
     ],
-    mdiDelete, mdiPlay, mdiPause, mdiCheck,
-    mdiFolder, mdiPencil, mdiDeleteForever, mdiInformation,
-    mdiWidgets, mdiTrendingUp, mdiAccountVoice
+    mdiDelete, mdiPlay, mdiPause, mdiSelect,
+    mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
+    mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight
   }),
   computed: {
     dark() {

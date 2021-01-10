@@ -101,13 +101,17 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
-import { mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen, mdiFolder, mdiFile, mdiTrendingUp } from '@mdi/js'
+import { 
+  mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen,
+  mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh,
+  mdiArrowUp, mdiArrowDown, mdiPriorityLow
+} from '@mdi/js'
 
 const FILE_PRIORITY_OPTIONS = [
-  { name: 'max', icon: 'upgrade', value: 7 },
-  { name: 'high', icon: 'arrow_drop_up', value: 6 },
-  { name: 'normal', icon: 'trending_flat', value: 1 },
-  { name: 'unwanted', icon: 'file_download_off', value: 0 }
+  { name: 'max', icon: mdiPriorityHigh, value: 7 },
+  { name: 'high', icon: mdiArrowUp, value: 6 },
+  { name: 'normal', icon: mdiArrowDown, value: 1 },
+  { name: 'unwanted', icon: mdiPriorityLow, value: 0 }
 ]
 
 export default {

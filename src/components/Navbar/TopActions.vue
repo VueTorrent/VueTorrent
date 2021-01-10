@@ -31,7 +31,7 @@
       @click="addModal('SearchModal')"
     >
       <v-icon color="grey">
-        {{ mdiMagnify }}
+        {{ mdiSearchWeb }}
       </v-icon>
     </v-btn>
     <v-btn
@@ -102,7 +102,7 @@ import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
 import {
   mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort, mdiCog,
-  mdiMagnify, mdiDelete, mdiPlus, mdiPlay, mdiPause
+  mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause
 } from '@mdi/js'
 
 export default {
@@ -114,7 +114,7 @@ export default {
       fab: false,
       mdiSort,
       mdiPlus,
-      mdiMagnify,
+      mdiSearchWeb,
       mdiPlay,
       mdiPause,
       mdiDelete,

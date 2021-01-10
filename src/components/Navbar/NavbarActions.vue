@@ -19,7 +19,7 @@
             <v-icon
               color="white"
             >
-              {{ altSpeed ?  mdiSpeedometerSlow : mdiSpeedometer }}
+              {{ altSpeed ? mdiSpeedometerSlow : mdiSpeedometer }}
             </v-icon>
           </v-list-item>
         </template>
