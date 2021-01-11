@@ -17,6 +17,7 @@
         "fuse.js": "^6.4.6",
         "lodash": "^4.17.20",
         "register-service-worker": "^1.7.2",
+        "typeface-roboto": "^1.1.13",
         "uuid": "^8.3.2",
         "vue": "^2.6.12",
         "vue-apexcharts": "^1.6.0",
