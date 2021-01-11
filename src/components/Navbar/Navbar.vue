@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <!--title-->
-    <v-app-bar app flat color="background">
+    <v-app-bar app flat>
       <v-app-bar-nav-icon
         class="grey--text text--lighten-1"
         @click.stop="drawer = !drawer"
@@ -26,7 +26,7 @@
       app
       class="primary drawer"
       style="position: fixed;"
-      width="280"
+      width="256"
       disable-resize-watcher
     >
       <v-flex

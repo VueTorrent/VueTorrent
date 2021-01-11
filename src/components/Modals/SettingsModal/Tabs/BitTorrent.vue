@@ -153,7 +153,3 @@ export default {
   mixins: [SettingsTab, FullScreenModal]
 }
 </script>
-
-<style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
-</style>

@@ -13,7 +13,7 @@
               <v-card-text>
                 <v-list-item-group
                   :value="activeTags"
-                  active-class="green_accent--text"
+                  active-class="accent--text"
                   multiple
                 >
                   <template v-for="(item, index) in availableTags">
@@ -41,7 +41,7 @@
               <v-card-text>
                 <v-list-item-group
                   :value="activeCategory"
-                  active-class="green_accent--text"
+                  active-class="accent--text"
                 >
                   <template v-for="(item, index) in availableCategories">
                     <v-list-item :key="item.title" @click="setCategory(item)">

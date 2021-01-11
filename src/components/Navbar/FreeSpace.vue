@@ -1,12 +1,12 @@
 <template>
   <v-card flat color="secondary" class="mr-2 ml-2 mt-8">
-    <v-layout row wrap class="pa-3 py-6 project nav_upload mx-auto">
+    <v-layout row wrap class="pa-3 py-6 project mx-auto">
       <v-flex md6>
         <div
-          style="font-size: 0.95em; margin-top: 6px"
+          style="margin-top: 6px"
           class="upload--text"
         >
-          Free Space
+          FREE SPACE
         </div>
       </v-flex>
       <v-flex v-if="space" md5 class="ml-4">

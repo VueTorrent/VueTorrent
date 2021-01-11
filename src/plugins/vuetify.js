@@ -3,7 +3,7 @@ import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 
 //import colors from 'vuetify/lib/util/colors'
-import variables from '../styles/variables.scss'
+import variables from '@/styles/colors.scss'
 
 Vue.use(Vuetify)
 
@@ -18,17 +18,9 @@ export default new Vuetify({
     dark: false,
     themes: {
       light: {
-        primary: '#35495e',
-        secondary: '#3e556d',
-        download: '#64CEAA',
-        upload: '#00b3fa',
         ...variables
       },
       dark: {
-        primary: '#35495e',
-        secondary: '#3e556d',
-        download: '#64CEAA',
-        upload: '#00b3fa',
         ...variables
       }
     }

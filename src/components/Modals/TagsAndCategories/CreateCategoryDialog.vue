@@ -41,7 +41,7 @@
         <v-btn
           v-if="!hasInitialCategory"
           text
-          class="green_accent white--text mt-3"
+          class="accent white--text mt-3"
           @click="create"
         >
           Save
@@ -49,7 +49,7 @@
         <v-btn
           v-else
           text
-          class="green_accent white--text mt-3"
+          class="accent white--text mt-3"
           @click="edit"
         >
           Edit

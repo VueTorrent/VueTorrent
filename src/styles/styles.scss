@@ -1,5 +1,4 @@
-@import '~vuetify/src/styles/styles.sass';
-@import '../styles/variables.scss';
+@import "~@/styles/colors.scss";
 
 @mixin dialog-title {
     @include theme(v-card) using($material) {
@@ -77,6 +76,26 @@
 }
 .v-chip.moving {
     background: #{$torrent-moving} !important;
+}
+
+.side-card {
+    background-color: #00ff00;
+    background:
+            linear-gradient(rgba(255,0,0,0.1), rgba(255,0,0,0.1) 100%);
+    background-color: #00ff00;
+    background-blend-mode: color;
+}
+
+.v-text-field--outlined fieldset {
+    border-color: #{$primary} !important;
+}
+
+.v-text-field--outlined fieldset {
+    border-color: #{$primary} !important;
+}
+
+.v-input__slot:hover fieldset {
+    border-color: #{$primary} !important;
 }
 
 .noselect {

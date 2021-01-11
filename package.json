@@ -48,7 +48,8 @@
         "sass": "^1.32.2",
         "sass-loader": "^8.0.2",
         "vue-cli-plugin-vuetify": "^2.0.9",
-        "vue-template-compiler": "^2.6.12"
+        "vue-template-compiler": "^2.6.12",
+        "vuetify-loader": "^1.6.0"
     },
     "browserslist": [
         "> 1%",

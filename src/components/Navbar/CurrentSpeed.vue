@@ -1,6 +1,6 @@
 <template>
   <div v-if="status">
-    <div class="secondary_lighter--text text-uppercase caption ml-4">
+    <div class="text-uppercase caption ml-4">
       current speed
     </div>
     <v-card color="secondary" flat class="mr-2 ml-2">

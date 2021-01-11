@@ -31,7 +31,10 @@ export default {
             }
           }
         },
-        colors: ['#00b3fa', '#64CEAA'],
+        colors: [
+          this.$vuetify.theme.currentTheme.upload,
+          this.$vuetify.theme.currentTheme.download
+        ],
         stroke: {
           show: true,
           curve: 'smooth',

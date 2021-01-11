@@ -1,13 +1,13 @@
 <template>
   <div v-if="status">
-    <div class="secondary_lighter--text text-uppercase caption ml-4">
-      session status
+    <div class="text-uppercase caption ml-4">
+      Session Status
     </div>
     <v-card flat color="secondary" class="mr-2 ml-2">
-      <v-layout row wrap class="pa-3 mt-1 project nav_download mx-auto">
+      <v-layout row wrap class="pa-3 mt-1 project mx-auto">
         <v-flex md6>
           <div
-            style="font-size: 0.95em; margin-top: 6px"
+            style="margin-top: 6px"
             class="download--text"
           >
             Downloaded
@@ -24,10 +24,10 @@
       </v-layout>
     </v-card>
     <v-card flat color="secondary" class="ml-2 mr-2 mt-1">
-      <v-layout row wrap class="pa-3 project nav_upload mx-auto">
+      <v-layout row wrap class="pa-3 project mx-auto">
         <v-flex md6>
           <div
-            style="font-size: 0.95em; margin-top: 6px"
+            style="margin-top: 6px"
             class="upload--text"
           >
             Uploaded

@@ -23,29 +23,29 @@
       class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8"
       @click.self="resetSelected"
     >
-      <v-flex
-        xs12
-        sm6
-        md3
-        @click.self="resetSelected"
-      >
-        <v-text-field
-          v-model="input"
-          flat
-          label="type to filter..."
-          height="50"
-          clearable
-          solo
-          color="search"
-          @click:clear="resetInput()"
-        />
-      </v-flex>
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
           Nothing to see here!
         </p>
       </div>
       <v-list v-else class="pa-0">
+        <v-flex
+          xs12
+          sm6
+          md3
+          @click.self="resetSelected"
+        >
+          <v-text-field
+            v-model="input"
+            flat
+            label="Filter"
+            outlined
+            clearable
+            solo
+            :append-outer-icon="mdiFilter"
+            @click:clear="resetInput()"
+          />
+        </v-flex>
         <v-list-item
           v-for="(torrent, index) in paginatedData"
           :key="torrent.hash"
@@ -91,11 +91,15 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Torrent from '@/components/Torrent/Torrent'
 import Fuse from 'fuse.js'
+import { mdiFilter } from '@mdi/js'
+
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
+
+import Torrent from '@/components/Torrent/Torrent'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+
 import { TorrentSelect, General } from '@/mixins'
 
 export default {
@@ -105,7 +109,8 @@ export default {
   data() {
     return {
       input: '',
-      pageNumber: 1
+      pageNumber: 1,
+      mdiFilter
     }
   },
   computed: {

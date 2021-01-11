@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="space-between">
+  <v-row align="center" align-content="center" justify="center">
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">

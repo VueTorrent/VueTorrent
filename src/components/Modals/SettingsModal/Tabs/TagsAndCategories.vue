@@ -36,7 +36,7 @@
                 <v-card-actions>
                   <v-btn
                     text
-                    class="green_accent white--text mx-auto"
+                    class="accent white--text mx-auto"
                     @click="createTag"
                   >
                     Create new
@@ -81,7 +81,7 @@
                 <v-card-actions>
                   <v-btn
                     text
-                    class="green_accent white--text mx-auto"
+                    class="accent white--text mx-auto"
                     @click="createCategory"
                   >
                     Create new
@@ -150,6 +150,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
-</style>
