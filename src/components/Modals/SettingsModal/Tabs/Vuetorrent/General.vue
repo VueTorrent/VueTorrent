@@ -50,16 +50,6 @@
                 </template>
               </v-switch>
               <v-switch
-                v-model="denseDashboard"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="download"
-              >
-                <template #label>
-                  Dense version of the dashboard
-                </template>
-              </v-switch>
-              <v-switch
                 v-model="showTrackerFilter"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
@@ -172,14 +162,6 @@ export default {
       },
       set(val) {
         this.webuiSettings.showSessionStat = val
-      }
-    },
-    denseDashboard: {
-      get() {
-        return this.webuiSettings.denseDashboard
-      },
-      set(val) {
-        this.webuiSettings.denseDashboard = val
       }
     },
     showTrackerFilter: {

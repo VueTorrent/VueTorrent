@@ -7,32 +7,26 @@
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
   >
-    <v-tooltip top>
-      <template #activator="{ on }">
-        <v-layout
-          row
-          wrap
-          :class="style"
-          v-on="denseDashboard && on"
-        >
-          <v-flex xs12 :class="denseDashboard ? 'sm3' : ''">
-            <div class="caption grey--text">
-              Torrent title
-            </div>
-            <div class="truncate mr-4">
-              {{ torrent.name }}
-            </div>
-          </v-flex>
-          <component
-            :is="item.name"
-            v-for="item in properties"
-            :key="item.name"
-            :torrent="torrent"
-          />
-        </v-layout>
-      </template>
-      <span>{{ torrent.name }}</span>
-    </v-tooltip>
+    <v-layout
+      row
+      wrap
+      :class="style"
+    >
+      <v-flex xs12>
+        <div class="caption grey--text">
+          Torrent title
+        </div>
+        <div class="truncate mr-4">
+          {{ torrent.name }}
+        </div>
+      </v-flex>
+      <component
+        :is="item.name"
+        v-for="item in properties"
+        :key="item.name"
+        :torrent="torrent"
+      />
+    </v-layout>
   </v-card>
 </template>
 
@@ -65,9 +59,6 @@ export default {
     },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
-    },
-    denseDashboard() {
-      return this.getWebuiSettings().denseDashboard
     },
     properties() {
       if (this.torrent.progress === 100) {
