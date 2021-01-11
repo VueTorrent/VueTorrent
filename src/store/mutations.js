@@ -1,7 +1,7 @@
 import Torrent from '../models/Torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
-import { getHostName } from '@/helpers'
+import { formatBytes, getHostName } from '@/helpers'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -82,7 +82,7 @@ export default {
     // torrent speed in title
     if (state.webuiSettings.showSpeedInTitle) {
       // eslint-disable-next-line max-len
-      document.title = `[D: ${state.status.dlspeed}/s, U: ${state.status.upspeed}/s] VueTorrent`
+      document.title = `[D: ${formatBytes(state.status.dlspeed)}/s, U: ${formatBytes(state.status.upspeed)}/s] VueTorrent`
     }
 
     // torrents
