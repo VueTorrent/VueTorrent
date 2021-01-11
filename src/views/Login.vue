@@ -21,7 +21,7 @@
                   solo
                   background-color="torrent"
                   label="username"
-                  prepend-icon="person"
+                  :prepend-icon="mdiAccount"
                   :rules="inputRules"
                   autocomplete="current email"
                   name="username"
@@ -34,7 +34,7 @@
                   background-color="torrent"
                   type="password"
                   label="password"
-                  prepend-icon="lock"
+                  :prepend-icon="mdiLock"
                   :rules="inputRules"
                   autocomplete="current password"
                   name="password"
@@ -60,13 +60,15 @@
 </template>
 
 <script>
+import { mdiLock, mdiAccount } from '@mdi/js'
 export default {
   name: 'Login',
   data() {
     return {
       username: '',
       password: '',
-      inputRules: [v => v.length >= 1 || 'At least 1 character']
+      inputRules: [v => v.length >= 1 || 'At least 1 character'],
+      mdiLock, mdiAccount
     }
   },
   methods: {
