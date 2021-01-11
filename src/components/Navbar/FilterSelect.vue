@@ -92,7 +92,7 @@ export default {
     ...mapGetters(['getCategories', 'getTrackers', 'getTorrentCountString']),
     availableCategories() {
       const categories = ['All', 'Uncategorized']
-      categories.push(...Object.keys(this.getCategories()))
+      categories.push(...this.getCategories().map(c => c.name))
       
       return categories
     },
