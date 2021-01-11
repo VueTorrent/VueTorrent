@@ -1,7 +1,6 @@
 <template>
   <div
-    class="px-1 px-sm-5"
-    color="background"
+    class="px-1 px-sm-5 mt-4"
     @click.self="resetSelected"
   >
     <v-row no-gutters class=" grey--text">
@@ -21,7 +20,6 @@
     </v-row>
 
     <div
-      color="background"
       class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8"
       @click.self="resetSelected"
     >
@@ -47,7 +45,7 @@
           Nothing to see here!
         </p>
       </div>
-      <v-list v-else color="background">
+      <v-list v-else class="pa-0">
         <v-list-item
           v-for="(torrent, index) in paginatedData"
           :key="torrent.hash"
@@ -63,16 +61,10 @@
               />
             </v-list-item-action>
             <v-list-item-content class="pa-0">
-              <Torrent
-                :class="{
-                  topBorderRadius: index === 0,
-                  noBorderRadius:
-                    index !== 0 && index !== torrent.length - 1,
-                  bottomBorderRadius: index === torrents.length - 1
-                }"
-                :torrent="torrent"
-                :index="index"
-                :length="torrents.length - 1"
+              <Torrent :torrent="torrent" />
+              <v-divider
+                v-if="index < paginatedData.length - 1"
+                :key="index"
               />
             </v-list-item-content>
           </template>

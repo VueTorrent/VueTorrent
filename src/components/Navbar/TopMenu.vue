@@ -1,5 +1,5 @@
 <template>
-  <TopActions v-if="!$vuetify.breakpoint.xsOnly" :show-all="showAll" />
+  <TopActions v-if="!$vuetify.breakpoint.xsOnly" />
   <v-speed-dial
     v-else
     v-model="fab"
@@ -20,7 +20,7 @@
         </v-icon>
       </v-btn>
     </template>
-    <TopActions :show-all="showAll" :mobile="true" />
+    <TopActions :mobile="true" />
   </v-speed-dial>
 </template>
 
@@ -31,7 +31,6 @@ import { mdiDotsVertical, mdiClose } from '@mdi/js'
 export default {
   name: 'TopMenu',
   components: { TopActions },
-  props: ['showAll'],
   data() {
     return {
       fab: false,

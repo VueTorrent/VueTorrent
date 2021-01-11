@@ -33,7 +33,6 @@
       </template>
       <span>{{ torrent.name }}</span>
     </v-tooltip>
-    <v-divider v-if="index !== length" />
   </v-card>
 </template>
 
@@ -62,11 +61,7 @@ export default {
       return this.torrent.state.toLowerCase()
     },
     style() {
-      let base = `ma-0 pa-4 ml-0 sideborder ${this.state} `
-      if (this.index === this.length) base += ' bottomBorderRadius'
-      if (this.index === 0) base += ' topBorderRadius'
-      
-      return base
+      return `ma-0 pa-4 ml-0 sideborder ${this.state} `
     },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
@@ -89,12 +84,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.topBorderRadius {
-  border-top-left-radius: 3px;
-}
-.bottomBorderRadius {
-  border-bottom-left-radius: 3px;
-}
-</style>

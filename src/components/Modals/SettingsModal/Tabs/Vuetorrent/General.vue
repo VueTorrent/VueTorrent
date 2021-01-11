@@ -13,7 +13,7 @@
                 v-model="showCurrentSpeed"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Current Speed
@@ -23,7 +23,7 @@
                 v-model="showSpeedGraph"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Speed Graph
@@ -33,7 +33,7 @@
                 v-model="showSessionStat"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Session Stats
@@ -43,27 +43,17 @@
                 v-model="freeSpace"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Free Space
                 </template>
               </v-switch>
               <v-switch
-                v-model="showGlobalRemoveResumePause"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="green_accent"
-              >
-                <template #label>
-                  Global Remove/Resume/Pause Buttons
-                </template>
-              </v-switch>
-              <v-switch
                 v-model="denseDashboard"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Dense version of the dashboard
@@ -73,7 +63,7 @@
                 v-model="showTrackerFilter"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Tracker Filter
@@ -83,7 +73,7 @@
                 v-model="showSpeedInTitle"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="download"
               >
                 <template #label>
                   Show Speed in Title
@@ -99,7 +89,7 @@
                   <v-select
                     v-model="paginationSize"
                     class="pa-0 ma-0"
-                    color="green_accent"
+                    color="download"
                     :items="paginationSizes"
                   />
                 </v-col>
@@ -182,14 +172,6 @@ export default {
       },
       set(val) {
         this.webuiSettings.showSessionStat = val
-      }
-    },
-    showGlobalRemoveResumePause: {
-      get() {
-        return this.webuiSettings.showGlobalRemoveResumePause
-      },
-      set(val) {
-        this.webuiSettings.showGlobalRemoveResumePause = val
       }
     },
     denseDashboard: {

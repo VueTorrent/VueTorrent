@@ -73,7 +73,6 @@
     <v-tooltip bottom>
       <template #activator="{ on }">
         <v-btn
-          v-if="showAll"
           small
           fab
           :text="!mobile"
@@ -91,7 +90,6 @@
     <v-tooltip bottom>
       <template #activator="{ on }">
         <v-btn
-          v-if="showAll"
           small
           fab
           :text="!mobile"
@@ -109,7 +107,6 @@
     <v-tooltip bottom>
       <template #activator="{ on }">
         <v-btn
-          v-if="showAll"
           small
           fab
           :text="!mobile"
@@ -156,7 +153,7 @@ import {
 export default {
   name: 'TopActions',
   mixins: [General],
-  props: ['mobile', 'showAll'],
+  props: ['mobile'],
   data() {
     return {
       fab: false,

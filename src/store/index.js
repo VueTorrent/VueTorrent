@@ -57,7 +57,6 @@ export default new Vuex.Store({
       showSpeedGraph: true,
       showSessionStat: true,
       showCurrentSpeed: true,
-      showGlobalRemoveResumePause: true,
       denseDashboard: false,
       showTrackerFilter: false,
       showSpeedInTitle: false,
