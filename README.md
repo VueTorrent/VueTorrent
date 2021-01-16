@@ -73,9 +73,9 @@ I'll gladly accept help/pull requests & advice!
 ## FAQ
 
 ### Unacceptable file type, only regular file is allowed. 
-- Running FreeNAS? checkout [#101]
-- On an older version? check out [#90]
-- Other? check out [#10]
+- Running FreeNAS? checkout [#101](/../../issues/101)
+- On an older version? check out [#90](/../../issues/90)
+- Other? check out [#10](/../../issues/10)
 
 ### Disable/Uninstall
 When you use VueTorrent, it gets installed as a [PWA](https://web.dev/progressive-web-apps/) so that it can feel more like an app.
