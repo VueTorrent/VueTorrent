@@ -69,6 +69,16 @@
                   Show Speed in Title
                 </template>
               </v-switch>
+              <v-switch
+                v-model="useDeviceDarkMode"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="accent"
+              >
+                <template #label>
+                  Use device dark/light mode
+                </template>
+              </v-switch>
               <v-row dense>
                 <v-col cols="8" sm="8" md="10">
                   <p class="subtitle-1">
@@ -170,6 +180,14 @@ export default {
       },
       set(val) {
         this.webuiSettings.showTrackerFilter = val
+      }
+    },
+    useDeviceDarkMode: {
+      get() {
+        return this.webuiSettings.useDeviceDarkMode
+      },
+      set(val) {
+        this.webuiSettings.useDeviceDarkMode = val
       }
     },
     showSpeedInTitle: {

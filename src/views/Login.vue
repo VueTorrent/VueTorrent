@@ -44,7 +44,7 @@
                 <v-card-actions class="justify-center">
                   <v-btn
                     text
-                    class="blue_accent white--text mx-0 mt-3"
+                    class="accent white--text mx-0 mt-3"
                     @click="Login"
                   >
                     Login

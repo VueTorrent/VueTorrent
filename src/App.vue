@@ -28,7 +28,7 @@ export default {
     return {}
   },
   computed: {
-    ...mapState(['rid', 'mainData', 'preferences', 'modals']),
+    ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
     ...mapGetters(['getAuthenticated']),
     isAuthenticated() {
       return this.getAuthenticated()
@@ -36,6 +36,7 @@ export default {
   },
   created() {
     this.$store.commit('SET_APP_VERSION', version)
+    this.checkDeviceDarkTheme()
     this.checkAuthenticated()
   },
   methods: {
@@ -47,6 +48,14 @@ export default {
         !authenticated &&
                 !this.$router.currentRoute.name.includes('login')
       ) this.$router.push('login')
+    },
+    checkDeviceDarkTheme() {
+      if (this.webuiSettings.useDeviceDarkMode) {
+        const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+        if (darkMediaQuery.matches) {
+          this.$vuetify.theme.dark = true
+        }
+      }
     }
   }
 }
