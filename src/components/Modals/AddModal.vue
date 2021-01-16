@@ -21,7 +21,7 @@
                       counter
                       label="Select your files"
                       multiple
-                      prepend-icon="mdi-paperclip"
+                      :prepend-icon="mdiPaperclip"
                       :rules="fileInputRules"
                       outlined
                       :show-size="1000"
@@ -54,7 +54,7 @@
                     v-if="files.length == 0"
                     v-model="urls"
                     label="URL"
-                    prepend-icon="mdi-link"
+                    :prepend-icon="mdiLink"
                     rows="1"
                     required
                     :autofocus="!phoneLayout"
@@ -132,7 +132,7 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
-import { mdiFolder, mdiTag } from '@mdi/js'
+import { mdiFolder, mdiTag, mdiPaperclip, mdiLink } from '@mdi/js'
 export default {
   name: 'AddModal',
   mixins: [Modal],
@@ -159,7 +159,7 @@ export default {
       loading: false,
       urls: null,
       valid: false,
-      mdiFolder, mdiTag
+      mdiFolder, mdiTag, mdiPaperclip, mdiLink
     }
   },
   computed: {
