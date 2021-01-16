@@ -73,7 +73,7 @@ I'll gladly accept help/pull requests & advice!
 ## FAQ
 
 ### Unacceptable file type, only regular file is allowed. 
-- Running FreeNAS? checkout [#101](/../../issues/101)
+- Running FreeNAS? check out [#101](/../../issues/101)
 - On an older version? check out [#90](/../../issues/90)
 - Other? check out [#10](/../../issues/10)
 
