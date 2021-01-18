@@ -32,7 +32,7 @@
 
 <script>
 import { General, TorrentSelect } from '@/mixins'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import * as Fields from './DashboardItems'
 
 export default {
@@ -48,6 +48,7 @@ export default {
   },
   computed: {
     ...mapGetters(['getTheme', 'getWebuiSettings']),
+    ...mapState(['selected_torrents']),
     theme() {
       return this.getTheme() ? 'dark' : 'light'
     },
@@ -55,7 +56,7 @@ export default {
       return this.torrent.state.toLowerCase()
     },
     style() {
-      return `ma-0 pa-4 ml-0 sideborder ${this.state} `
+      return `ma-0 pa-4 ml-0 sideborder ${this.state} ${this.isSelected ? 'selected' : ''}`
     },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
@@ -66,6 +67,9 @@ export default {
       }
       
       return this.getWebuiSettings().busyTorrentProperties.filter(i => i.active)
+    },
+    isSelected() {
+      return this.selected_torrents.includes(this.torrent.hash)
     }
   },
   methods: {

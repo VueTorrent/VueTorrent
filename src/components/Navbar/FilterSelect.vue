@@ -5,36 +5,41 @@
       :value="selectedState"
       class="ml-2 mr-2"
       label="STATUS"
-      outlined
+      solo
+      flat
       :items="options"
       item-text="name"
       item-value="value"
       color="download"
       item-color="download"
+      background-color="secondary"
       @input="setStatusFilter"
     />
     <v-select
       v-model="selectedCategory"
       :value="selectedCategory"
-      outlined
+      solo
+      flat
       class="ml-2 mr-2 side-select"
       label="CATEGORIES"
       :items="availableCategories"
       color="download"
       item-color="download"
-      style="border-color: green !important; border: 1px"
+      background-color="secondary"
       @input="setCategoryOrTrackerFilter"
     />
     <div v-if="showTrackerFilter">
       <v-select
         v-model="selectedTracker"
         :value="selectedTracker"
-        outlined
+        solo
+        flat
         class="ml-2 mr-2 side-select"
         label="TRACKER"
         :items="availableTrackers"
         color="download"
         item-color="download"
+        background-color="secondary"
         @input="setCategoryOrTrackerFilter"
       />
     </div>
@@ -138,4 +143,8 @@ export default {
 .v-input__icon svg {
   color: #64ceaa !important;
 }
+.v-select__slot > label {
+  color: white !important;
+}
 </style>
+

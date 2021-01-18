@@ -79,8 +79,8 @@
                 :disabled="autoTMM"
                 label="Download Directory"
                 :prepend-icon="mdiFolder"
-                autocomplete="Download Directory"
-                name="Download Directory"
+                autocomplete="download-directory"
+                name="download-directory"
               />
               <v-row no-gutters>
                 <v-flex xs12 sm6>
