@@ -50,7 +50,7 @@ export default {
       if (this.webuiSettings.useDeviceDarkMode) {
         const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
         if (darkMediaQuery.matches) {
-          this.$vuetify.theme.dark = true
+          setTimeout(() => this.$vuetify.theme.dark = true, 0)
         }
       }
     }

@@ -1,75 +1,69 @@
 <template>
-  <div
-    class="px-1 px-sm-5 mt-4"
-    @click.self="resetSelected"
-  >
-    <v-row no-gutters class=" grey--text">
+  <div class="px-1 px-sm-5 mt-4" @click.self="resetSelected">
+    <v-row no-gutters class="grey--text">
       <v-col>
         <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">
           Dashboard
         </h1>
       </v-col>
       <v-col>
-        <p
-          style="float: right; font-size: 0.8em"
-          class="mr-2 text-uppercase"
-        >
+        <p style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
           {{ torrentCountString }}
         </p>
       </v-col>
     </v-row>
 
-    <div
-      class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8"
-      @click.self="resetSelected"
-    >
+    <div class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8" @click.self="resetSelected">
+      <v-flex
+        xs12
+        sm6
+        md3
+        @click.self="resetSelected"
+      >
+        <v-text-field
+          v-model="input"
+          flat
+          label="Filter"
+          outlined
+          clearable
+          solo
+          :append-outer-icon="mdiFilter"
+          @click:clear="resetInput()"
+        />
+      </v-flex>
+
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
           Nothing to see here!
         </p>
       </div>
-      <v-list v-else class="pa-0">
-        <v-flex
-          xs12
-          sm6
-          md3
-          @click.self="resetSelected"
-        >
-          <v-text-field
-            v-model="input"
-            flat
-            label="Filter"
-            outlined
-            clearable
-            solo
-            :append-outer-icon="mdiFilter"
-            @click:clear="resetInput()"
-          />
-        </v-flex>
-        <v-list-item
-          v-for="(torrent, index) in paginatedData"
-          :key="torrent.hash"
-          class="pa-0"
-          @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-        >
-          <template #default>
-            <v-list-item-action v-if="selectMode">
-              <v-checkbox
-                color="grey"
-                :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
-                @click="selectTorrent(torrent.hash)"
-              />
-            </v-list-item-action>
-            <v-list-item-content class="pa-0">
-              <Torrent :torrent="torrent" />
-              <v-divider
-                v-if="index < paginatedData.length - 1"
-                :key="index"
-              />
-            </v-list-item-content>
-          </template>
-        </v-list-item>
-        <v-row v-if="pageCount > 1" xs12 justify="center">
+      <div v-else>
+        <v-list class="pa-0">
+          <v-list-item
+            v-for="(torrent, index) in paginatedData"
+            :key="torrent.hash"
+            class="pa-0"
+            @contextmenu.prevent="$refs.menu.open($event, { torrent })"
+          >
+            <template #default>
+              <v-list-item-action v-if="selectMode">
+                <v-checkbox
+                  color="grey"
+                  :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                  @click="selectTorrent(torrent.hash)"
+                />
+              </v-list-item-action>
+              <v-list-item-content class="pa-0">
+                <Torrent :torrent="torrent" />
+                <v-divider
+                  v-if="index < paginatedData.length - 1"
+                  :key="index"
+                />
+              </v-list-item-content>
+            </template>
+          </v-list-item>
+        </v-list>
+        <v-row v-if="(pageCount > 1) && !hasSearchFilter" xs12 justify="center">
           <v-col>
             <v-container>
               <v-pagination
@@ -81,7 +75,7 @@
             </v-container>
           </v-col>
         </v-row>
-      </v-list>
+      </div>
     </div>
     <vue-context ref="menu" v-slot="{ data }">
       <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
@@ -117,23 +111,15 @@ export default {
     ...mapState(['mainData', 'selected_torrents']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
-      if (!this.input || !this.input.length) return this.getTorrents()
+      if (!this.hasSearchFilter) return this.getTorrents()
 
       const options = {
         threshold: 0.3,
         shouldSort: false,
-        keys: [
-          'name',
-          'size',
-          'state',
-          'hash',
-          'savePath',
-          'tags',
-          'category'
-        ]
+        keys: ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category']
       }
       const fuse = new Fuse(this.getTorrents(), options)
-      
+
       return fuse.search(this.input).map(el => el.item)
     },
     paginationSize() {
@@ -142,13 +128,16 @@ export default {
     pageCount() {
       const l = this.torrents.length
       const s = this.paginationSize
-      
+
       return Math.ceil(l / s)
     },
     paginatedData() {
       const start = (this.pageNumber - 1) * this.paginationSize
       const end = start + this.paginationSize
-      
+      if (this.hasSearchFilter) {
+        return this.torrents
+      }
+
       return this.torrents.slice(start, end)
     },
     torrentCountString() {
@@ -156,6 +145,9 @@ export default {
     },
     selectMode() {
       return this.$store.state.selectMode
+    },
+    hasSearchFilter() {
+      return this.input && this.input.length
     }
   },
   watch: {
@@ -188,12 +180,14 @@ export default {
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
         e.preventDefault()
-        if (this.$store.state.selected_torrents.length === this.torrents.length) {
-          return this.$store.state.selected_torrents = []
+        if (
+          this.$store.state.selected_torrents.length === this.torrents.length
+        ) {
+          return (this.$store.state.selected_torrents = [])
         }
         const hashes = this.torrents.map(t => t.hash)
-        
-        return this.$store.state.selected_torrents = hashes
+
+        return (this.$store.state.selected_torrents = hashes)
       }
 
       // 'Delete' => Delete modal
@@ -212,11 +206,11 @@ export default {
 
 <style scoped lang="scss">
 .v-context {
-    &,
-    & ul {
-        border-radius: 0.3rem;
-        padding: 0;
-    }
+  &,
+  & ul {
+    border-radius: 0.3rem;
+    padding: 0;
+  }
 }
 </style>
 

@@ -31,7 +31,7 @@
     >
       <v-flex
         v-if="status"
-        style="height: 98vh; display: flex; flex-direction: column;"
+        style="height: 97vh; display: flex; flex-direction: column;"
         class="mt-3"
       >
         <CurrentSpeed
