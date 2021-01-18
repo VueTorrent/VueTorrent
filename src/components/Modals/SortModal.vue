@@ -18,7 +18,6 @@
                 item-value="value"
                 dense
                 solo
-                background-color="select"
                 height="55"
               />
               <v-switch

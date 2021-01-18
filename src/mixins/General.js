@@ -5,9 +5,6 @@ export default {
     ...mapGetters(['getTheme']),
     theme() {
       return this.getTheme() ? 'dark' : 'light'
-    },
-    background() {
-      return this.$vuetify.theme.themes[this.theme].background
     }
   },
   methods: {

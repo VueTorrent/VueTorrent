@@ -18,9 +18,11 @@ export default new Vuetify({
     dark: false,
     themes: {
       light: {
+        accent: variables.download,
         ...variables
       },
       dark: {
+        accent: variables.download,
         ...variables
       }
     }

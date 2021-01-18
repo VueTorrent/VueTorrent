@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="{ backgroundColor: background }">
+  <v-app>
     <component
       :is="modal.component"
       v-for="modal in modals"
@@ -24,9 +24,6 @@ export default {
   name: 'App',
   components: { Navbar },
   mixins: [General],
-  data() {
-    return {}
-  },
   computed: {
     ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
     ...mapGetters(['getAuthenticated']),
@@ -37,7 +34,7 @@ export default {
   created() {
     this.$store.commit('SET_APP_VERSION', version)
     this.checkDeviceDarkTheme()
-    this.checkAuthenticated()
+    //this.checkAuthenticated()
   },
   methods: {
     async checkAuthenticated() {

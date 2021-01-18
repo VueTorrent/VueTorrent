@@ -1,22 +1,5 @@
 @import "~@/styles/colors.scss";
 
-@mixin dialog-title {
-    @include theme(v-card) using($material) {
-        .v-card__title {
-            background-color: map-get($material, 'app-bar');
-        }
-    }
-}
-
-@mixin dark-mode-value($light, $dark) {
-    &.theme--light {
-        @content ($light);
-    }
-    &.theme--dark {
-        @content ($dark);
-    }
-}
-
 .sideborder.done {
     border-left: 4px solid #{$torrent-done};
 }
@@ -76,14 +59,6 @@
 }
 .v-chip.moving {
     background: #{$torrent-moving} !important;
-}
-
-.side-card {
-    background-color: #00ff00;
-    background:
-            linear-gradient(rgba(255,0,0,0.1), rgba(255,0,0,0.1) 100%);
-    background-color: #00ff00;
-    background-blend-mode: color;
 }
 
 .v-text-field--outlined fieldset {
