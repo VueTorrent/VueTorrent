@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav>
     <!--title-->
     <v-app-bar app flat>
       <v-app-bar-nav-icon

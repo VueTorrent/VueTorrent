@@ -1,5 +1,5 @@
 <template>
-  <div class="px-1 px-sm-5 mt-4" @click.self="resetSelected">
+  <div class="px-1 px-sm-5 pt-4" @click.self="resetSelected">
     <v-row no-gutters class="grey--text">
       <v-col>
         <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">

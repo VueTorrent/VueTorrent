@@ -141,6 +141,12 @@ class Qbit {
     return this.axios.get('/torrents/tags')
   }
 
+  getTorrentProperties(hash) {
+    return this.axios.get('/torrents/properties', {
+      params: { hash }
+    })
+  }
+
   // Post
 
   addTorrents(params, torrents) {
@@ -209,10 +215,22 @@ class Qbit {
     return this.torrentAction('setLocation', hashes, { location })
   }
 
-  getTorrentProperties(hash) {
-    return this.axios.get('/torrents/properties', {
-      params: { hash }
-    })
+  addTorrenTrackers(hash, trackers) {
+    const params = {
+      hash,
+      urls: trackers
+    }
+    
+    return this.execute('post', '/torrents/addTrackers', params)
+  }
+
+  removeTorrentTrackers(hash, trackers) {
+    const params = {
+      hash,
+      urls: trackers.join('|') 
+    }
+    
+    return this.execute('post', '/torrents/removeTrackers', params)
   }
 
   torrentAction(action, hashes, extra) {
