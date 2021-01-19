@@ -5,6 +5,9 @@ export default {
     ...mapGetters(['getTheme']),
     theme() {
       return this.getTheme() ? 'dark' : 'light'
+    },
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown
     }
   },
   methods: {

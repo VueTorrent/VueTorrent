@@ -13,7 +13,7 @@
       </v-col>
     </v-row>
 
-    <div class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8" @click.self="resetSelected">
+    <div class="my-2 px-2" @click.self="resetSelected">
       <v-flex
         xs12
         sm6

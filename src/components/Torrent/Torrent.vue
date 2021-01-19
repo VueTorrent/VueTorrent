@@ -1,15 +1,41 @@
 <template>
   <v-card
     flat
-    class="pointer torrent noselect"
+    class="pointer noselect"
     :class="{ torrent_selected: isAlreadySelected(torrent.hash) }"
     @click.native.exact.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
   >
     <v-layout
+      v-if="isMobile"
+      wrap
+      class="ma-0 pa-2"
+      :class="style"
+    >
+      <v-flex xs12>
+        <div class="truncate ">
+          {{ torrent.name }}
+        </div>
+      </v-flex>
+      <v-flex xs12>
+        {{ torrent.dloaded | getDataValue }} {{ torrent.dloaded | getDataUnit }} /  {{ torrent.size | getDataValue }} {{ torrent.size | getDataUnit }} - {{ torrent.progress }}%
+      </v-flex>
+      <v-flex xs12 class="mt-1">
+        <v-progress-linear :value="torrent.progress" />
+      </v-flex>
+      <v-flex xs6>
+        {{ torrent.state }} {{ torrent.num_leechs }}/{{ torrent.available_peers }} peers
+      </v-flex>
+      <v-flex xs6>
+        {{ torrent.dlspeed | getDataValue(1) }} {{ torrent.dlspeed | getDataUnit(1) }}/s {{ torrent.upspeed | getDataValue(1) }} {{ torrent.upspeed | getDataUnit(1) }}/s
+      </v-flex>
+    </v-layout>
+    <v-layout
+      v-else
       row
       wrap
+      class="ma-0 pa-4 ml-0 "
       :class="style"
     >
       <v-flex xs12>
@@ -56,7 +82,7 @@ export default {
       return this.torrent.state.toLowerCase()
     },
     style() {
-      return `ma-0 pa-4 ml-0 sideborder ${this.state} ${this.isSelected ? 'selected' : ''}`
+      return `sideborder ${this.state} ${this.isSelected ? 'selected' : ''}`
     },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
