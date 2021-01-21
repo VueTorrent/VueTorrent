@@ -16,7 +16,7 @@
           v-model="searchForm.valid"
         >
           <v-container fluid>
-            <v-flex row class="col-12 col-sm-6 col-md-8 mx-auto">
+            <v-flex row class="mx-auto">
               <v-text-field
                 v-model="searchForm.pattern"
                 :prepend-inner-icon="mdiMagnify"

@@ -13,22 +13,31 @@
       class="ma-0 pa-2"
       :class="style"
     >
-      <v-flex xs12>
-        <div class="truncate ">
-          {{ torrent.name }}
+      <v-card-title class="truncate pa-0 subtitle-1">
+        {{ torrent.name }}
+      </v-card-title>
+      <v-card-subtitle class="pa-0 ma-1 row">
+        <div>
+          {{ torrent.state }}:
+          <span class="white--text"> {{ torrent.dloaded | getDataValue }} </span>
+          {{ torrent.dloaded | getDataUnit }} /
+          <span class="white--text">{{ torrent.size | getDataValue }} </span>
+          {{ torrent.size | getDataUnit }}
         </div>
+        <v-spacer />
+        <div><span class="white--text">{{ torrent.progress }}</span>%</div>
+      </v-card-subtitle>
+      <v-flex xs12 class="mt-1 mb-1">
+        <v-progress-linear color="upload" :value="torrent.progress" />
       </v-flex>
-      <v-flex xs12>
-        {{ torrent.dloaded | getDataValue }} {{ torrent.dloaded | getDataUnit }} /  {{ torrent.size | getDataValue }} {{ torrent.size | getDataUnit }} - {{ torrent.progress }}%
-      </v-flex>
-      <v-flex xs12 class="mt-1">
-        <v-progress-linear :value="torrent.progress" />
-      </v-flex>
-      <v-flex xs6>
-        {{ torrent.state }} {{ torrent.num_leechs }}/{{ torrent.available_peers }} peers
-      </v-flex>
-      <v-flex xs6>
-        {{ torrent.dlspeed | getDataValue(1) }} {{ torrent.dlspeed | getDataUnit(1) }}/s {{ torrent.upspeed | getDataValue(1) }} {{ torrent.upspeed | getDataUnit(1) }}/s
+      <v-flex row xs12 class="ma-1">
+        <div class="caption grey--text">
+          {{ torrent.num_leechs }}/{{ torrent.available_peers }} peers
+        </div>
+        <v-spacer />
+        <div class="caption grey--text">
+          {{ torrent.dlspeed | getDataValue(1) }} {{ torrent.dlspeed | getDataUnit(1) }}/s {{ torrent.upspeed | getDataValue(1) }} {{ torrent.upspeed | getDataUnit(1) }}/s
+        </div>
       </v-flex>
     </v-layout>
     <v-layout
