@@ -1,13 +1,13 @@
 <template>
   <v-container class="mx-1 px-1">
     <v-card flat>
-      <v-card-text class="pa-0" style="font-size: 1.1em">
+      <v-card-text class="pa-0 px-1" style="font-size: 1.1em">
         <div class="box">
           <v-subheader>
             These settings are for the custom WebUI
             itself
           </v-subheader>
-          <v-form class="px-6 mt-3">
+          <v-form class="px-4 mt-3">
             <v-container>
               <v-switch
                 v-model="showCurrentSpeed"
@@ -241,4 +241,8 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss" scoped>
+@import '~@/styles/SettingsTab.scss';
 </style>

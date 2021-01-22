@@ -85,3 +85,6 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+@import '~@/styles/SettingsTab.scss';
+</style>
