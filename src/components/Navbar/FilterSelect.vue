@@ -118,6 +118,7 @@ export default {
   },
   mounted() {
     this.selectedCategory = this.availableCategories[0]
+    this.selectedState = this.options.find(o => o.value === this.$store.state.sort_options.filter)
   },
   methods: {
     setStatusFilter(value) {

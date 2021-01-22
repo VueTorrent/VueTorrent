@@ -2,7 +2,6 @@
   <v-card
     flat
     class="pointer noselect"
-    :class="{ torrent_selected: isAlreadySelected(torrent.hash) }"
     @click.native.exact.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"

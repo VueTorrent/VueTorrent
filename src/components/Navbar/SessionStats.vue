@@ -1,7 +1,7 @@
 <template>
   <div v-if="status">
     <div class="text-uppercase white--text caption ml-4">
-      Session Status
+      Session Stats
     </div>
     <v-card flat color="secondary" class="mr-2 ml-2">
       <v-layout row wrap class="pa-3 mt-1 project mx-auto">

@@ -6,7 +6,7 @@
           style="margin-top: 6px"
           class="upload--text"
         >
-          FREE SPACE
+          Free Space
         </div>
       </v-flex>
       <v-flex v-if="space" md5 class="ml-4">
