@@ -27,14 +27,15 @@
       </v-chip>
     </v-flex>
     <v-flex xs12 class="pa-0 ma-1 row">
-      <span class="white--text body-2"> {{ torrent.dloaded | getDataValue }} </span>
+      <span class="body-2"> {{ torrent.dloaded | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.dloaded | getDataUnit }} / </span>
-      <span class="white--text body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
+      <span class="body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.size | getDataUnit }} - </span>
       <span class="grey--text caption ml-1"> Ratio: </span>
-      <span class="white--text body-2 ml-1"> {{ torrent.ratio }} </span>
+      <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
       <v-spacer />
-      <div><span class="white--text body-2">{{ torrent.progress }}</span>%</div>
+      <span class="body-2">{{ torrent.progress }}</span>
+      <span class="grey--text caption">%</span>
     </v-flex>
     <v-flex xs12 class="mt-1 mb-1">
       <v-progress-linear color="upload" :value="torrent.progress" />
