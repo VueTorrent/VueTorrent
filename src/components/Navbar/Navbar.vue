@@ -4,6 +4,7 @@
     <v-app-bar app flat>
       <v-app-bar-nav-icon
         class="grey--text text--lighten-1"
+        aria-label="Open Navigation Drawer"
         @click.stop="drawer = !drawer"
       />
       <v-toolbar-title

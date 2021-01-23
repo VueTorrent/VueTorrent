@@ -198,7 +198,7 @@ class Qbit {
   forceStartTorrents(hashes) {
     return this.torrentAction('setForceStart', hashes, { value: true })
   }
-  
+
   reannounceTorrents(hashes) {
     return this.torrentAction('reannounce', hashes)
   }

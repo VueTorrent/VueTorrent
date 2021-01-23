@@ -7,6 +7,7 @@
           small
           fab
           class="mr-0 ml-0"
+          aria-label="Select Mode"
           v-on="on"
           @click="toggleSelectMode()"
         >
@@ -24,6 +25,7 @@
           small
           fab
           class="mr-0 ml-0"
+          aria-label="Add Torrent"
           v-on="on"
           @click="addModal('SortModal')"
         >
@@ -42,6 +44,7 @@
           fab
           color="grey--text"
           class="mr-0 ml-0"
+          aria-label="Search New Torrent"
           v-on="on"
           @click="addModal('SearchModal')"
         >
@@ -60,6 +63,7 @@
           fab
           color="grey--text"
           class="mr-0 ml-0"
+          aria-label="Add Torrent"
           v-on="on"
           @click="addModal('AddModal')"
         >
@@ -77,6 +81,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
+          aria-label="Remove Selected Torrents"
           v-on="on"
           @click="removeTorrents"
         >
@@ -94,6 +99,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
+          aria-label="Resume Selected Torrents"
           v-on="on"
           @click="resumeTorrents"
         >
@@ -111,6 +117,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
+          aria-label="Pause Selected Torrents"
           v-on="on"
           @click="pauseTorrents"
         >
@@ -128,6 +135,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
+          aria-label="Open Settings"
           v-on="on"
           @click="addModal('SettingsModal')"
         >

@@ -1,6 +1,7 @@
 <template>
   <div style="margin-top: 30px">
     <v-select
+      aria-label="state_filter"
       :value="selectedState"
       class="ml-2 mr-2"
       label="STATUS"
@@ -14,6 +15,7 @@
       @input="setState"
     />
     <v-select
+      aria-label="category_filter"
       :value="selectedCategory"
       solo
       flat
@@ -28,6 +30,7 @@
     />
     <div v-if="showTrackerFilter">
       <v-select
+        aria-label="tracker_filter"
         :value="selectedTracker"
         solo
         flat
