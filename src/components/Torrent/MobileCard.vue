@@ -6,7 +6,7 @@
     :class="style"
   >
     <v-flex xs12 class="ma-1 mt-0" row>
-      <span class="truncate  subtitle-1">
+      <span class="subtitle-1">
         {{ torrent.name }}
       </span>
     </v-flex>
