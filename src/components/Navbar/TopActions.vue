@@ -25,7 +25,7 @@
           small
           fab
           class="mr-0 ml-0"
-          aria-label="Add Torrent"
+          aria-label="Sort Torrents"
           v-on="on"
           @click="addModal('SortModal')"
         >
@@ -34,7 +34,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Add Torrent</span>
+      <span>Sort Torrents</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
