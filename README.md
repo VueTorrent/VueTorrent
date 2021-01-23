@@ -1,6 +1,6 @@
 # VueTorrent
 
-The sleekest looking WEBUI for qBittorrent made with Vue.js!
+The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 > Vue, qBitorrent, Vuetify
 
@@ -26,12 +26,12 @@ The sleekest looking WEBUI for qBittorrent made with Vue.js!
 - Unzip the downloaded file
 - Point your alternate WebUI location to the `vuetorrent` folder in qBittorrent settings
 
-### Automatic
+### From Source
 
 - Head to the [`latest_release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
 - Clone the branch
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
-- Pull changes every once in a while, using `git pull` while inside the folder
+- Pull changes every once in a while, using `git pull`
 
 ### NGINX install
 
@@ -65,9 +65,9 @@ server {
 
 - Torrents
   - add / remove / pause / resume / rename
-  - selectively downloading files
+  - selectively download files
   - view info / trackers / peers / content / tags & categories
-  - searching for new torrents straight from the WebUI!
+  - search for new torrents straight from the WebUI!
   - search filtering powered by Fuse.js!
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
@@ -75,8 +75,8 @@ server {
   - select with <kbd>Ctrl</kbd>+click or from right-click-menu
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
-  - beautiful transfer graphs
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
+  - beautiful transfer graphs
   - changing the most common settings
 - Extra features the default WebUI doesn't have
   - mobile friendly! (can be installed as a PWA)
