@@ -9,6 +9,15 @@
         Resume
       </v-list-item-title>
     </v-list-item>
+    <v-list-item link @click="forceResume">
+      <v-icon>{{ mdiFastForward }}</v-icon>
+      <v-list-item-title
+        class="ml-2"
+        style="font-size: 1em"
+      >
+        Force Resume
+      </v-list-item-title>
+    </v-list-item>
     <v-list-item link @click="pause">
       <v-icon>{{ mdiPause }}</v-icon>
       <v-list-item-title
@@ -18,6 +27,7 @@
         Pause
       </v-list-item-title>
     </v-list-item>
+
     <v-divider />
     <v-list-item link @click="deleteWithoutFiles">
       <v-icon color="red">
@@ -135,7 +145,7 @@ import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
   mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
-  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight
+  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight, mdiFastForward
 } from '@mdi/js'
 export default {
   name: 'TorrentRightClickMenu',
@@ -150,7 +160,7 @@ export default {
       { name: 'decrease', icon: mdiArrowDown, action: 'decreasePrio' },
       { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
     ],
-    mdiDelete, mdiPlay, mdiPause, mdiSelect,
+    mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
     mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
     mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight
   }),
@@ -189,6 +199,9 @@ export default {
     },
     setPriority(priority) {
       qbit.setTorrentPriority(this.hash, priority)
+    },
+    forceResume() {
+      qbit.forceStartTorrents([this.hash])
     }
   }
 }
