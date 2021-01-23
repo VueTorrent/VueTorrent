@@ -29,13 +29,13 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 ### From Source
 
 - Head to the [`latest_release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
-- Clone the branch
+- Clone branch using
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
 
 ### NGINX install
 
-You can use NGINX reverse proxy to use vuetorrent, without making any change to qBittorrent. 
+You can use NGINX reverse proxy to use VueTorrent, without making any change to qBittorrent. 
 
 Simply download and unzip the folder to a location (`/opt` here) and paste this code into your NGINX config file.
 
