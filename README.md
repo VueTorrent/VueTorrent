@@ -64,7 +64,7 @@ server {
 ## Features
 
 - Torrents
-  - add / remove / pause / resume / rename
+  - add / remove / pause / resume / rename torrents
   - selectively download files
   - view info / trackers / peers / content / tags & categories
   - search for new torrents straight from the WebUI!
@@ -72,12 +72,12 @@ server {
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
   - delete selected with delete button
-  - select with <kbd>Ctrl</kbd>+click or from right-click-menu
+  - select with <kbd>Ctrl</kbd>+click or from right-click menu
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
   - beautiful transfer graphs
-  - changing the most common settings
+  - change the most common settings
 - Extra features the default WebUI doesn't have
   - mobile friendly! (can be installed as a PWA)
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
@@ -101,8 +101,8 @@ When you use VueTorrent, it gets installed as a [PWA](https://web.dev/progressiv
 If you disable or uninstall VueTorrent, sometimes you'll see fragments of the VueTorrent PWA stick around, due to the nature of how PWAs work.
 
 Here's how to fix it:
-- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools ˃ Developer tools)
-- Select the "Application" tab. Select the "Clear storage" submenu, and then press the "Clear site data" button.
+- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools > Developer tools)
+- Select the "Application" tab. Select the "Clear storage" submenu, and then press the `Clear site data` button.
 
 
 ## Support
