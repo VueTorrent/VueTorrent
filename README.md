@@ -38,30 +38,52 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 - clone the repo
 - npm install
 - npm run serve
-- docker-compose up -d (to start qbittorrent docker)
+- npm run lint (to format the code)
+- docker-compose up -d (to start qbittorrent docker => optional, you can edit vue.config.js as well)
 
 ## Features
 
-- viewing sessions status ( down / upload speed, session uploaded / downloaded )
-- adding / removing / pausing / resuming / renaming torrents
-- selectively downloading torrents
-- filtering powered by Fuse.js!
-- mobile friendly! (can be installed as a PWA)
-- torrent info / trackers / peers / content
-- searching for new torrents straight from the WEBUI!
-- changing the most common settings
-- tag & category support
+- Torrents
+  - adding / removing / pausing / resuming / renaming
+  - selectively downloading files
+  - view info / trackers / peers / content / tags & categories
+  - searching for new torrents straight from the WEBUI!
+  - search filtering powered by Fuse.js!
+
 - Keyboard shortcuts!
   - select all torrents with ctrl+A
   - delete selected with delete button
-  - select with ctrl+click or from right-click-menu (regular tap on mobile still works)
+  - select with ctrl+click or from right-click-menu
   - shift + click to select from one torrent until another
-- Which torrent properties are shown is configurable in the dashboard (for both busy and completed torrents)
+
+- System
+  - see sessions status ( down / upload speed, session uploaded / downloaded, free space)
+  - changing the most common settings
+
+- Extra features the default WebUI doesn't have
+  - mobile friendly! (can be installed as a PWA)
+  - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
+
 - works on QBittorrent V4.2 and later
 
 ## Contributing
 
 I'll gladly accept help/pull requests & advice!
+
+## FAQ
+
+### Unacceptable file type, only regular file is allowed. 
+- Running FreeNAS? check out [#101](/../../issues/101)
+- On an older version? check out [#90](/../../issues/90)
+- Other? check out [#10](/../../issues/10)
+
+### Disable/Uninstall
+When you use VueTorrent, it gets installed as a [PWA](https://web.dev/progressive-web-apps/) so that it can feel more like an app.
+If you disable or uninstall VueTorrent, sometimes you'll see fragments of the VueTorrent PWA stick around, due to the nature of how PWAs work.
+Here's how to fix it:
+- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools ˃ Developer tools)
+- Select the "Application" tab. Select the "Clear storage" submenu, and then press the "Clear site data" button.
+
 
 ## Support
 
@@ -71,6 +93,4 @@ I'll gladly accept help/pull requests & advice!
 
 ## Credits
 
-- Dashboard design heavily inspired by: '[Net Ninja - Vuetify](https://github.com/iamshaunjp/vuetify-playlist)'.
-- This repo '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
-- Muertocaloh's [fork](https://github.com/muertocaloh/VueTorrent)
+- Other alternate WebUI written in Vue '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'

@@ -1,14 +1,9 @@
 <template>
-  <v-card
-    flat
-    style="margin-top: 30px"
-    color="secondary"
-    class="ml-2 mr-2"
-  >
-    <v-layout row wrap class="pa-3 project nav_upload mx-auto">
+  <v-card flat color="secondary" class="mr-2 ml-2 mt-8">
+    <v-layout row wrap class="pa-3 py-6 project mx-auto">
       <v-flex md6>
         <div
-          style="font-size: 0.95em; margin-top: 6px"
+          style="margin-top: 6px"
           class="upload--text"
         >
           Free Space
@@ -29,6 +24,6 @@
 <script>
 export default {
   name: 'FreeSpace',
-  props: { space: String }
+  props: ['space']
 }
 </script>

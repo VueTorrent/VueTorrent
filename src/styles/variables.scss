@@ -1,23 +1,7 @@
-$torrent-done: #3cd1c2;
-$torrent-downloading: #ffaa2c;
-$torrent-fail: #f83e70;
-$torrent-paused: #cfd8dc;
-$torrent-queued: #2e5eaa;
-$torrent-seeding: #0D9488;
-$torrent-checking: #ff7043;
-$torrent-stalled: #4ADE80;
-$torrent-metadata: #7e57c2;
-$torrent-moving: #ffaa2c;
+@import '~vuetify/src/components/VAppBar/_variables.scss';
+@import '~vuetify/src/components/VSelect/_variables.scss';
+@import '~vuetify/src/components/VBtn/_variables.scss';
 
-:export {
-  torrent-done-color: $torrent-done;
-  torrent-downloading-color: $torrent-downloading;
-  torrent-fail-color: $torrent-fail;
-  torrent-paused-color: $torrent-paused;
-  torrent-queued-color: $torrent-queued;
-  torrent-seeding-color: $torrent-seeding;
-  torrent-checking-color: $torrent-checking;
-  torrent-stalled-color: $torrent-stalled;
-  torrent-metadata-color: $torrent-metadata;
-  torrent-moving-color: $torrent-moving;
-}
+$app-bar-elevation: 24 !important;
+$input-font-size: 1.2em !important;
+$select-prefix-line-height: 0px !important;

@@ -4,11 +4,11 @@
       Download
     </div>
     <div>
-      {{ torrent.dlspeed | getDataValue }}
+      {{ torrent.dlspeed | getDataValue(1) }}
       <span class="caption grey--text">
         {{
-          torrent.dlspeed | getDataUnit
-        }}
+          torrent.dlspeed | getDataUnit(1)
+        }}/s
       </span>
     </div>
   </v-flex>

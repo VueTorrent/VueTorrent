@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="{ backgroundColor: background }">
+  <v-app>
     <component
       :is="modal.component"
       v-for="modal in modals"
@@ -7,7 +7,7 @@
       v-bind="{ guid: modal.guid, ...modal.props }"
     />
     <Navbar v-if="isAuthenticated" />
-    <v-main fill-height fill-width>
+    <v-main class="background" fill-height fill-width>
       <router-view />
     </v-main>
   </v-app>
@@ -24,11 +24,8 @@ export default {
   name: 'App',
   components: { Navbar },
   mixins: [General],
-  data() {
-    return {}
-  },
   computed: {
-    ...mapState(['rid', 'mainData', 'preferences', 'modals']),
+    ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
     ...mapGetters(['getAuthenticated']),
     isAuthenticated() {
       return this.getAuthenticated()
@@ -36,7 +33,8 @@ export default {
   },
   created() {
     this.$store.commit('SET_APP_VERSION', version)
-    this.checkAuthenticated()
+    this.checkDeviceDarkTheme()
+    //this.checkAuthenticated()
   },
   methods: {
     async checkAuthenticated() {
@@ -47,6 +45,14 @@ export default {
         !authenticated &&
                 !this.$router.currentRoute.name.includes('login')
       ) this.$router.push('login')
+    },
+    checkDeviceDarkTheme() {
+      if (this.webuiSettings.useDeviceDarkMode) {
+        const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+        if (darkMediaQuery.matches) {
+          setTimeout(() => this.$vuetify.theme.dark = true, 0)
+        }
+      }
     }
   }
 }

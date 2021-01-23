@@ -1,58 +1,47 @@
 <template>
   <div style="margin-top: 30px">
-    <div class="secondary_lighter--text text-uppercase caption ml-4">
-      Status
-    </div>
     <v-select
-      v-model="selectedState"
+      aria-label="state_filter"
       :value="selectedState"
-      flat
       class="ml-2 mr-2"
+      label="STATUS"
+      solo
+      flat
       :items="options"
       item-text="name"
-      item-value="value"
-      dense
-      solo
       color="download"
-      background-color="secondary"
       item-color="download"
-      height="55"
-      @input="setStatusFilter"
+      background-color="secondary"
+      @input="setState"
     />
-    <div class="secondary_lighter--text text-uppercase caption ml-4">
-      Category
-    </div>
     <v-select
-      v-model="selectedCategory"
+      aria-label="category_filter"
       :value="selectedCategory"
-      flat
-      class="ml-2 mr-2"
-      :items="availableCategories"
-      dense
       solo
+      flat
+      class="ml-2 mr-2 side-select"
+      label="CATEGORIES"
+      :items="availableCategories"
+      item-text="name"
       color="download"
-      background-color="secondary"
       item-color="download"
-      height="55"
-      @input="setCategoryOrTrackerFilter"
+      background-color="secondary"
+      @input="setCategory"
     />
     <div v-if="showTrackerFilter">
-      <div class="secondary_lighter--text text-uppercase caption ml-4">
-        Tracker
-      </div>
       <v-select
-        v-model="selectedTracker"
+        aria-label="tracker_filter"
         :value="selectedTracker"
-        flat
-        class="ml-2 mr-2"
-        :items="availableTrackers"
-        dense
         solo
+        flat
+        class="ml-2 mr-2 side-select"
+        label="TRACKER"
+        :items="availableTrackers"
+        item-text="name"
         color="download"
-        background-color="secondary"
         item-color="download"
-        height="55"
-        @input="setCategoryOrTrackerFilter"
+        background-color="secondary"
+        @input="setTracker"
       />
     </div>
     <div
@@ -65,13 +54,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
   data: () => ({
     options: [
-      { value: 'all', name: 'All' },
+      { value: null, name: 'All' },
       { value: 'downloading', name: 'Downloading' },
       { value: 'seeding', name: 'Seeding' },
       { value: 'completed', name: 'Completed' },
@@ -84,67 +73,68 @@ export default {
       { value: 'stalled_downloading', name: 'Stalled Downloading' },
       { value: 'errored', name: 'Errored' }
     ],
-    selectedState: { value: 'all', name: 'All' },
+    selectedState: null,
     selectedCategory: null,
-    selectedTracker: 'All'
+    selectedTracker: null
   }),
   computed: {
     ...mapGetters(['getCategories', 'getTrackers', 'getTorrentCountString']),
+    ...mapState(['sort_options']),
     availableCategories() {
-      const categories = ['All', 'Uncategorized']
-      categories.push(...Object.keys(this.getCategories()))
-      
+      const categories = [
+        { name: 'All', value: null },
+        { name: 'Uncategorized', value: '' }]
+      categories.push(...this.getCategories().map(c => {
+        return { name: c.name, value: c.name }
+      }))
+
       return categories
     },
-    categoryFilter() {
-      switch (this.selectedCategory) {
-        case 'All':
-          return null
-        case 'Uncategorized':
-          return ''
-        default:
-          return this.selectedCategory
-      }
-    },
     availableTrackers() {
-      const trackers = ['All', 'Not working']
+      const trackers = [
+        { name: 'All', value: null },
+        { name: 'Not working', value: '' }
+      ]
+         
       if (this.showTrackerFilter) {
-        trackers.push(...this.getTrackers())
+        trackers.push(...this.getTrackers().map(t => {
+          return {
+            name: t, value: t
+          }
+        }))
       }
-      
+
       return trackers
-    },
-    trackerFilter() {
-      switch (this.selectedTracker) {
-        case 'All':
-          return null
-        case 'Not working':
-          return ''
-        default:
-          return this.selectedTracker
-      }
     },
     torrentCountString() {
       return this.getTorrentCountString()
     }
   },
   mounted() {
-    this.selectedCategory = this.availableCategories[0]
+    this.setDefaultValues()
   },
   methods: {
-    setStatusFilter(value) {
+    applyFilter() {
       this.$store.commit('UPDATE_SORT_OPTIONS', {
-        filter: value,
-        category: this.categoryFilter,
-        tracker: this.trackerFilter
+        filter: this.selectedState,
+        category: this.selectedCategory,
+        tracker: this.selectedTracker
       })
     },
-    setCategoryOrTrackerFilter() {
-      this.$store.commit('UPDATE_SORT_OPTIONS', {
-        filter: this.selectedState.value,
-        category: this.categoryFilter,
-        tracker: this.trackerFilter
-      })
+    setState(value) {
+      this.selectedState = value
+      this.applyFilter()
+    },
+    setTracker(value) {
+      this.selectedTracker = value
+      this.applyFilter()
+    },
+    setCategory(value) {
+      this.selectedCategory = value
+      this.applyFilter()
+    },
+    setDefaultValues() {
+      this.selectedState = this.options.find(o => o.value === this.sort_options.filter).value || this.options[0].value
     }
   }
 }
@@ -152,7 +142,11 @@ export default {
 
 <style lang="scss">
 .v-select__selection,
-.v-input__icon i {
-    color: #64ceaa !important;
+.v-input__icon svg {
+  color: #64ceaa !important;
+}
+.v-select__slot > label {
+  color: white !important;
 }
 </style>
+

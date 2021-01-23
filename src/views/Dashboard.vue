@@ -1,30 +1,19 @@
 <template>
-  <div
-    class="px-1 px-sm-5"
-    color="background"
-    @click.self="resetSelected"
-  >
-    <v-row no-gutters class=" grey--text">
+  <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
+    <v-row no-gutters class="grey--text">
       <v-col>
         <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">
           Dashboard
         </h1>
       </v-col>
       <v-col>
-        <p
-          style="float: right; font-size: 0.8em"
-          class="mr-2 text-uppercase"
-        >
+        <p style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
           {{ torrentCountString }}
         </p>
       </v-col>
     </v-row>
 
-    <div
-      color="background"
-      class="my-2 my-sm-4 pt-2 pt-sm-5 px-sm-8"
-      @click.self="resetSelected"
-    >
+    <div class="my-2 px-2" @click.self="resetSelected">
       <v-flex
         xs12
         sm6
@@ -34,49 +23,47 @@
         <v-text-field
           v-model="input"
           flat
-          label="type to filter..."
-          height="50"
+          label="Filter"
+          outlined
           clearable
           solo
-          color="search"
+          :append-outer-icon="mdiFilter"
           @click:clear="resetInput()"
         />
       </v-flex>
+
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
           Nothing to see here!
         </p>
       </div>
       <div v-else>
-        <v-layout
-          v-for="(torrent, index) in paginatedData"
-          :key="torrent.hash"
-          @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-        >
-          <v-flex v-if="selectMode">
-            <v-checkbox
-              color="grey"
-              class="mt-10"
-              xs1
-              :value="selected_torrents.indexOf(torrent.hash) !== -1"
-              @click="selectTorrent(torrent.hash)"
-            />
-          </v-flex>
-          <v-flex :class="selectMode ? 'xs11' : ''">
-            <Torrent
-              :class="{
-                topBorderRadius: index === 0,
-                noBorderRadius:
-                  index !== 0 && index !== torrent.length - 1,
-                bottomBorderRadius: index === torrents.length - 1
-              }"
-              :torrent="torrent"
-              :index="index"
-              :length="torrents.length - 1"
-            />
-          </v-flex>
-        </v-layout>
-        <v-row v-if="pageCount > 1" xs12 justify="center">
+        <v-list class="pa-0 transparent">
+          <v-list-item
+            v-for="(torrent, index) in paginatedData"
+            :key="torrent.hash"
+            class="pa-0 mb-1"
+            @contextmenu.prevent="$refs.menu.open($event, { torrent })"
+          >
+            <template #default>
+              <v-list-item-action v-if="selectMode">
+                <v-checkbox
+                  color="grey"
+                  :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                  @click="selectTorrent(torrent.hash)"
+                />
+              </v-list-item-action>
+              <v-list-item-content class="pa-0">
+                <Torrent :torrent="torrent" />
+                <v-divider
+                  v-if="index < paginatedData.length - 1"
+                  :key="index"
+                />
+              </v-list-item-content>
+            </template>
+          </v-list-item>
+        </v-list>
+        <v-row v-if="(pageCount > 1) && !hasSearchFilter" xs12 justify="center">
           <v-col>
             <v-container>
               <v-pagination
@@ -91,51 +78,50 @@
       </div>
     </div>
     <vue-context ref="menu" v-slot="{ data }">
-      <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" />
+      <TorrentRightClickMenu v-if="data && !selected_torrents.length" :hash="data.torrent.hash" />
+      <TorrentMultipleRightClickMenu v-if="data && selected_torrents.length" />
     </vue-context>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Torrent from '@/components/Torrent'
 import Fuse from 'fuse.js'
+import { mdiFilter } from '@mdi/js'
+
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
+
+import Torrent from '@/components/Torrent/Torrent'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import TorrentMultipleRightClickMenu from '@/components/Torrent/TorrentMultipleRightClickMenu.vue'
+
 import { TorrentSelect, General } from '@/mixins'
 
 export default {
   name: 'Dashboard',
-  components: { Torrent, VueContext, TorrentRightClickMenu },
+  components: { Torrent, VueContext, TorrentRightClickMenu, TorrentMultipleRightClickMenu },
   mixins: [TorrentSelect, General],
   data() {
     return {
       input: '',
-      pageNumber: 1
+      pageNumber: 1,
+      mdiFilter
     }
   },
   computed: {
     ...mapState(['mainData', 'selected_torrents']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
-      if (!this.input || !this.input.length) return this.getTorrents()
+      if (!this.hasSearchFilter) return this.getTorrents()
 
       const options = {
         threshold: 0.3,
         shouldSort: false,
-        keys: [
-          'name',
-          'size',
-          'state',
-          'hash',
-          'savePath',
-          'tags',
-          'category'
-        ]
+        keys: ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category']
       }
       const fuse = new Fuse(this.getTorrents(), options)
-      
+
       return fuse.search(this.input).map(el => el.item)
     },
     paginationSize() {
@@ -144,13 +130,16 @@ export default {
     pageCount() {
       const l = this.torrents.length
       const s = this.paginationSize
-      
+
       return Math.ceil(l / s)
     },
     paginatedData() {
       const start = (this.pageNumber - 1) * this.paginationSize
       const end = start + this.paginationSize
-      
+      if (this.hasSearchFilter) {
+        return this.torrents
+      }
+
       return this.torrents.slice(start, end)
     },
     torrentCountString() {
@@ -158,6 +147,9 @@ export default {
     },
     selectMode() {
       return this.$store.state.selectMode
+    },
+    hasSearchFilter() {
+      return this.input && this.input.length
     }
   },
   watch: {
@@ -190,12 +182,14 @@ export default {
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
         e.preventDefault()
-        if (this.$store.state.selected_torrents.length === this.torrents.length) {
-          return this.$store.state.selected_torrents = []
+        if (
+          this.$store.state.selected_torrents.length === this.torrents.length
+        ) {
+          return (this.$store.state.selected_torrents = [])
         }
         const hashes = this.torrents.map(t => t.hash)
-        
-        return this.$store.state.selected_torrents = hashes
+
+        return (this.$store.state.selected_torrents = hashes)
       }
 
       // 'Delete' => Delete modal
@@ -214,22 +208,37 @@ export default {
 
 <style scoped lang="scss">
 .v-context {
-    &,
-    & ul {
-        border-radius: 0.3rem;
-        padding: 0;
-    }
+  &,
+  & ul {
+    border-radius: 0.3rem;
+    padding: 0;
+  }
+}
+</style>
+
+<style scoped lang="scss">
+.v-context {
+  &,
+  & ul {
+    border-radius: 0.3rem;
+    padding: 0;
+  }
 }
 .topBorderRadius {
-    border-top-left-radius: 3px !important;
-    border-top-right-radius: 3px !important;
-    border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 3px !important;
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 0px !important;
 }
 .noBorderRadius {
-    border-radius: 0 !important;
+  border-radius: 0 !important;
 }
 .bottomBorderRadius {
-    border-bottom-left-radius: 3px !important;
-    border-bottom-right-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+}
+
+.transparent {
+  background-color: transparent!important;
+  border-color: transparent!important;
 }
 </style>

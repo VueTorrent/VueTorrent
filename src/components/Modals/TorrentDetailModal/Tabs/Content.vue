@@ -13,7 +13,7 @@
         >
           <template #prepend="{ item, open }">
             <v-icon v-if="!item.icon">
-              {{ open ? "mdi-folder-open" : "mdi-folder" }}
+              {{ open ? mdiFolderOpen : mdiFolderOpen }}
             </v-icon>
             <v-icon v-else>
               {{ item.icon }}
@@ -44,7 +44,7 @@
                     fab
                     v-on="on"
                   >
-                    <v-icon>trending_up</v-icon>
+                    <v-icon>{{ mdiTrendingUp }}</v-icon>
                   </v-btn>
                 </template>
                 <v-list dense rounded>
@@ -69,7 +69,7 @@
                 fab
                 @click="edit(item)"
               >
-                <v-icon>mdi-pencil</v-icon>
+                <v-icon>{{ mdiPencil }}</v-icon>
               </v-btn>
               <v-btn
                 v-if="item.editing"
@@ -78,7 +78,7 @@
                 fab
                 @click="renameFile(item)"
               >
-                <v-icon>save</v-icon>
+                <v-icon>{{ mdiContentSave }}</v-icon>
               </v-btn>
               <v-btn
                 v-if="item.editing"
@@ -87,7 +87,7 @@
                 fab
                 @click="togleEditing(item)"
               >
-                <v-icon>close</v-icon>
+                <v-icon>{{ mdiClose }}</v-icon>
               </v-btn>
             </div>
           </template>
@@ -101,12 +101,17 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
+import { 
+  mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen,
+  mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh,
+  mdiArrowUp, mdiArrowDown, mdiPriorityLow
+} from '@mdi/js'
 
 const FILE_PRIORITY_OPTIONS = [
-  { name: 'max', icon: 'upgrade', value: 7 },
-  { name: 'high', icon: 'arrow_drop_up', value: 6 },
-  { name: 'normal', icon: 'trending_flat', value: 1 },
-  { name: 'unwanted', icon: 'file_download_off', value: 0 }
+  { name: 'max', icon: mdiPriorityHigh, value: 7 },
+  { name: 'high', icon: mdiArrowUp, value: 6 },
+  { name: 'normal', icon: mdiArrowDown, value: 1 },
+  { name: 'unwanted', icon: mdiPriorityLow, value: 0 }
 ]
 
 export default {
@@ -129,7 +134,14 @@ export default {
       opened: null,
       selected: [],
       treeData: null,
-      priority_options: FILE_PRIORITY_OPTIONS
+      priority_options: FILE_PRIORITY_OPTIONS,
+      mdiFolderOpen,
+      mdiFolder,
+      mdiFile,
+      mdiTrendingUp,
+      mdiPencil,
+      mdiContentSave,
+      mdiClose
     }
   },
   computed: {

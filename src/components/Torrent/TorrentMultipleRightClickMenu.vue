@@ -52,24 +52,6 @@
       </v-list-item-title>
     </v-list-item>
     <v-divider />
-    <v-list-item link @click="location">
-      <v-icon>{{ mdiFolder }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Change location
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="rename">
-      <v-icon>{{ mdiRenameBox }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Rename
-      </v-list-item-title>
-    </v-list-item>
     <v-list-item link @click="recheck">
       <v-icon>{{ mdiPlaylistCheck }}</v-icon>
       <v-list-item-title
@@ -88,54 +70,36 @@
         Force reannounce
       </v-list-item-title>
     </v-list-item>
+    <v-divider />
     <v-menu
       open-on-hover
       top
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
-          <v-icon>{{ mdiPriorityHigh }}</v-icon>
+          <v-icon>{{ mdiShape }}</v-icon>
           <v-list-item-title
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Priority
+            Set Category
             <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
       </template>
       <v-list dense rounded>
         <v-list-item
-          v-for="(item, index) in priority_options"
+          v-for="(item, index) in availableCategories"
           :key="index"
           link
-          @click="setPriority(item.action)"
+          @click="setCategory(item.value)"
         >
-          <v-icon>{{ item.icon }}</v-icon>
           <v-list-item-title class="ml-2" style="font-size: 12px">
             {{ item.name }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-divider />
-    <v-list-item link @click="showInfo">
-      <v-icon>{{ mdiInformation }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Show Info
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="selectTorrent(hash)">
-      <v-icon>{{ mdiSelect }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-      >
-        Select
-      </v-list-item-title>
-    </v-list-item>
   </v-list>
 </template>
 
@@ -143,16 +107,15 @@
 import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
-  mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
-  mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
-  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight, mdiFastForward
+  mdiBullhorn, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
+  mdiDeleteForever, mdiDelete, mdiPlaylistCheck, mdiShape,
+  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiFastForward,
+  mdiChevronRight
 } from '@mdi/js'
+import { mapGetters, mapState } from 'vuex'
 export default {
-  name: 'TorrentRightClickMenu',
+  name: 'TorrentMultipleRightClickMenu',
   mixins: [General, TorrentSelect],
-  props: {
-    hash: String
-  },
   data: () => ({
     priority_options: [
       { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
@@ -161,47 +124,46 @@ export default {
       { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
     ],
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
-    mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
-    mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight
+    mdiDeleteForever, mdiBullhorn, mdiPlaylistCheck, mdiShape,
+    mdiChevronRight
   }),
   computed: {
-    dark() {
-      return this.$vuetify.dark
+    ...mapState(['selected_torrents']),
+    ...mapGetters(['getCategories']),
+    availableCategories() {
+      const categories = [
+        { name: 'None', value: '' }]
+      categories.push(...this.getCategories().map(c => {
+        return { name: c.name, value: c.name }
+      }))
+
+      return categories
     }
   },
   methods: {
     resume() {
-      qbit.resumeTorrents([this.hash])
+      qbit.resumeTorrents(this.selected_torrents)
     },
     pause() {
-      qbit.pauseTorrents([this.hash])
-    },
-    location() {
-      this.createModal('ChangeLocationModal', { hash: this.hash })
-    },
-    rename() {
-      this.createModal('RenameModal', { hash: this.hash })
+      qbit.pauseTorrents(this.selected_torrents)
     },
     reannounce() {
-      qbit.reannounceTorrents([this.hash])
+      qbit.reannounceTorrents(this.selected_torrents)
     },
     deleteWithoutFiles() {
-      qbit.deleteTorrents([this.hash], false)
+      qbit.deleteTorrents(this.selected_torrents, false)
     },
     deleteWithFiles() {
-      qbit.deleteTorrents([this.hash], true)
+      qbit.deleteTorrents(this.selected_torrents, true)
     },
     recheck() {
-      qbit.recheckTorrents([this.hash])
-    },
-    showInfo() {
-      this.createModal('TorrentDetailModal', { hash: this.hash })
-    },
-    setPriority(priority) {
-      qbit.setTorrentPriority(this.hash, priority)
+      qbit.recheckTorrents(this.selected_torrents)
     },
     forceResume() {
-      qbit.forceStartTorrents([this.hash])
+      qbit.forceStartTorrents(this.selected_torrents)
+    },
+    setCategory(cat) {
+      qbit.setCategory(this.selected_torrents, cat)
     }
   }
 }

@@ -57,10 +57,9 @@ export default new Vuex.Store({
       showSpeedGraph: true,
       showSessionStat: true,
       showCurrentSpeed: true,
-      showGlobalRemoveResumePause: true,
-      denseDashboard: false,
       showTrackerFilter: false,
       showSpeedInTitle: false,
+      useDeviceDarkMode: true,
       paginationSize: 15,
       busyTorrentProperties: [
         { name: 'Size', active: true },

@@ -1,88 +1,105 @@
 <template>
   <v-container>
     <v-card flat>
-      <v-card-text
-        class="mx-auto mt-5"
-        style="font-size: 1.1em;"
-        :style="{ minHeight: phoneLayout ? '' : '64vh'}"
-      >
-        <v-layout row wrap>
-          <v-flex class="mx-auto text-center" xs12 md6>
-            <div>
-              <h3>Available Tags:</h3>
-            </div>
-            <div class="mt-3 d-flex flex-wrap justify-center">
-              <v-chip
-                v-for="tag in availableTags"
-                :key="tag"
-                small
-                class="download white--text caption mx-2 my-1"
-                style="font-size: 0.95em !important"
-              >
-                {{ tag }}
-              </v-chip>
-            </div>
-            <v-card-actions class="justify-center pb-5">
-              <v-btn
-                text
-                class="error white--text mt-3"
-                @click="deleteTag"
-              >
-                Delete
-              </v-btn>
-              <v-btn
-                text
-                class="green_accent white--text mt-3"
-                @click="createTag"
-              >
-                Create new
-              </v-btn>
-            </v-card-actions>
-          </v-flex>
-          <v-flex class="mx-auto text-center" xs12 md6>
-            <div>
-              <h3>Available Categories:</h3>
-            </div>
-            <div class="d-flex flex-wrap mt-3 justify-center" xs12 sm12>
-              <v-chip
-                v-for="cat in availableCategories"
-                :key="cat.name"
-                small
-                class="upload white--text caption mx-2 my-1"
-                style="font-size: 0.95em !important"
-                @click="editCategory(cat)"
-                @click:close="editCategory(cat)"
-              >
-                {{ cat.name }}
-              </v-chip>
-            </div>
-            <v-card-actions class="justify-center pb-5">
-              <v-btn
-                text
-                class="error white--text mt-3"
-                @click="deleteCategory"
-              >
-                Delete
-              </v-btn>
-              <v-btn
-                text
-                class="green_accent white--text mt-3"
-                @click="createCategory"
-              >
-                Create new
-              </v-btn>
-            </v-card-actions>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
+      <perfect-scrollbar>
+        <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
+          <v-layout row wrap>
+            <v-flex class="mx-auto" xs12 md6>
+              <v-card flat class="ma-1">
+                <v-card-title>
+                  <h3 class="mx-auto">
+                    Available Tags:
+                  </h3>
+                </v-card-title>
+                <v-card-text>
+                  <v-list>
+                    <template v-for="(item, index) in availableTags">
+                      <v-list-item :key="item.title">
+                        <v-list-item-content>
+                          <v-list-item-title v-text="item" />
+                        </v-list-item-content>
+
+                        <v-list-item-action>
+                          <v-icon color="red" @click="deleteTag(item)">
+                            {{ mdiDelete }}
+                          </v-icon>
+                        </v-list-item-action>
+                      </v-list-item>
+
+                      <v-divider
+                        v-if="index < availableTags.length - 1"
+                        :key="index"
+                      />
+                    </template>
+                  </v-list>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                    text
+                    class="accent white--text mx-auto"
+                    @click="createTag"
+                  >
+                    Create new
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+            <v-flex class="mx-auto" xs12 md6>
+              <v-card flat class="ma-1">
+                <v-card-title>
+                  <h3 class="mx-auto">
+                    Available Categories:
+                  </h3>
+                </v-card-title>
+                <v-card-text>
+                  <v-list>
+                    <template v-for="(item, index) in availableCategories">
+                      <v-list-item :key="item.title">
+                        <v-list-item-content>
+                          <v-list-item-title v-text="item.name" />
+                        </v-list-item-content>
+
+                        <v-list-item-action>
+                          <v-icon @click="editCategory(item)">
+                            {{ mdiPencil }}
+                          </v-icon>
+                        </v-list-item-action>
+                        <v-list-item-action>
+                          <v-icon color="red" @click="deleteCategory(item)">
+                            {{ mdiDelete }}
+                          </v-icon>
+                        </v-list-item-action>
+                      </v-list-item>
+
+                      <v-divider
+                        v-if="index < availableCategories.length - 1"
+                        :key="index"
+                      />
+                    </template>
+                  </v-list>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                    text
+                    class="accent white--text mx-auto"
+                    @click="createCategory"
+                  >
+                    Create new
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-card-text>
+      </perfect-scrollbar>
     </v-card>
   </v-container>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-
 import qbit from '@/services/qbit'
+import { mdiDelete, mdiPencil } from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
 
@@ -93,11 +110,12 @@ export default {
     hash: String
   },
   data: () => ({
-    selectedCategory: null
+    selectedCategory: null,
+    mdiDelete,
+    mdiPencil
   }),
   computed: {
     ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
-
     availableTags() {
       return this.getAvailableTags()
     },
@@ -110,14 +128,10 @@ export default {
   },
   methods: {
     activeMethod() {
-      this.fetchCategories()
+      this.$store.commit('FETCH_CATEGORIES')
     },
-    async fetchCategories() {
-      const { data } = await qbit.getCategories()
-      this.categories = data
-    },
-    deleteTag() {
-      this.createModal('DeleteTagDialog')
+    deleteTag(item) {
+      qbit.deleteTag(item)
     },
     createTag() {
       this.createModal('CreateTagDialog')
@@ -125,8 +139,9 @@ export default {
     createCategory() {
       this.createModal('CreateCategoryDialog')
     },
-    deleteCategory() {
-      this.createModal('DeleteCategoryDialog')
+    deleteCategory(category) {
+      qbit.deleteCategory(category.name)
+      this.$store.commit('FETCH_CATEGORIES')
     },
     editCategory(cat) {
       this.createModal('CreateCategoryDialog', { initialCategory: cat })
@@ -135,6 +150,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
-</style>

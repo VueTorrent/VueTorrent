@@ -2,7 +2,7 @@
   <v-container>
     <v-card flat>
       <perfect-scrollbar>
-        <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
+        <v-card-text class="pa-1" :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
           <h3>Privacy</h3>
           <div class="settings_content ml-5 mr-5">
             <v-checkbox
@@ -155,5 +155,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
+@import '~@/styles/SettingsTab.scss';
 </style>

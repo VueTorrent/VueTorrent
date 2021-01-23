@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-btn @click="opened = true">
-      <v-icon>mdi-cog</v-icon> Plugin manager
+      <v-icon>{{ mdiCog }}</v-icon> Plugin manager
     </v-btn>
 
     <v-bottom-sheet
@@ -12,7 +12,7 @@
     >
       <v-sheet>
         <v-card>
-          <v-card-title> <v-icon>mdi-toy-brick</v-icon> Plugin manager </v-card-title>
+          <v-card-title> <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager </v-card-title>
           <v-card-text>
             <v-switch
               v-for="(plugin, key) in searchPlugins"
@@ -27,7 +27,7 @@
     </v-bottom-sheet>
     <v-dialog v-else v-model="opened" width="50%">
       <v-card>
-        <v-card-title> <v-icon>mdi-toy-brick</v-icon> Plugin manager </v-card-title>
+        <v-card-title> <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager </v-card-title>
         <v-card-text>
           <v-switch
             v-for="(plugin, key) in searchPlugins"
@@ -45,10 +45,12 @@
 <script>
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
+import { mdiCog, mdiToyBrick } from '@mdi/js'
 export default {
   name: 'PluginsManager',
   data: () => ({
-    opened: false
+    opened: false,
+    mdiCog, mdiToyBrick
   }),
   computed: {
     ...mapState(['searchPlugins'])

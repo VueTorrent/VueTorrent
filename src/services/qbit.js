@@ -141,6 +141,12 @@ class Qbit {
     return this.axios.get('/torrents/tags')
   }
 
+  getTorrentProperties(hash) {
+    return this.axios.get('/torrents/properties', {
+      params: { hash }
+    })
+  }
+
   // Post
 
   addTorrents(params, torrents) {
@@ -189,6 +195,10 @@ class Qbit {
     return this.torrentAction('resume', hashes)
   }
 
+  forceStartTorrents(hashes) {
+    return this.torrentAction('setForceStart', hashes, { value: true })
+  }
+
   reannounceTorrents(hashes) {
     return this.torrentAction('reannounce', hashes)
   }
@@ -209,10 +219,22 @@ class Qbit {
     return this.torrentAction('setLocation', hashes, { location })
   }
 
-  getTorrentProperties(hash) {
-    return this.axios.get('/torrents/properties', {
-      params: { hash }
-    })
+  addTorrenTrackers(hash, trackers) {
+    const params = {
+      hash,
+      urls: trackers
+    }
+    
+    return this.execute('post', '/torrents/addTrackers', params)
+  }
+
+  removeTorrentTrackers(hash, trackers) {
+    const params = {
+      hash,
+      urls: trackers.join('|') 
+    }
+    
+    return this.execute('post', '/torrents/removeTrackers', params)
   }
 
   torrentAction(action, hashes, extra) {
@@ -259,7 +281,7 @@ class Qbit {
   }
 
   createTag(tag) {
-    return this.execute('/torrents/createTags  ', {
+    return this.execute('post', '/torrents/createTags  ', {
       tags: tag
     })
   }
@@ -289,11 +311,8 @@ class Qbit {
     })
   }
 
-  setCategory(hash, cat) {
-    return this.execute('post', '/torrents/setCategory', {
-      hashes: hash,
-      category: cat
-    })
+  setCategory(hashes, category) {
+    return this.torrentAction('setCategory', hashes, { category })
   }
 
   editCategory(cat) {

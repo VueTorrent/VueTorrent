@@ -1,11 +1,11 @@
 <template>
-  <v-row justify="space-between">
+  <v-row align="center" align-content="center" justify="center">
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
           <v-list-item link v-on="on" @click="logout">
             <v-icon class="white--text">
-              exit_to_app
+              {{ mdiExitToApp }}
             </v-icon>
           </v-list-item>
         </template>
@@ -17,10 +17,9 @@
         <template #activator="{ on }">
           <v-list-item link v-on="on" @click="toggleSpeed">
             <v-icon
-              :color="altSpeed ? 'download' : ''"
-              class="white--text"
+              color="white"
             >
-              speed
+              {{ altSpeed ? mdiSpeedometerSlow : mdiSpeedometer }}
             </v-icon>
           </v-list-item>
         </template>
@@ -32,16 +31,9 @@
         <template #activator="{ on }">
           <v-list-item link v-on="on" @click="toggleTheme">
             <v-icon
-              v-if="theme === 'Light'"
               class="white--text"
             >
-              brightness_7
-            </v-icon>
-            <v-icon
-              v-else
-              class="white--text"
-            >
-              brightness_2
+              {{ theme === 'Light' ? mdiBrightness7 : mdiBrightness4 }}
             </v-icon>
           </v-list-item>
         </template>
@@ -54,9 +46,17 @@
 <script>
 import qbit from '@/services/qbit'
 import { mapGetters } from 'vuex'
+import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiExitToApp } from '@mdi/js'
 
 export default {
   name: 'BottomActions',
+  data: () => ({
+    mdiBrightness4,
+    mdiBrightness7,
+    mdiSpeedometer,
+    mdiExitToApp,
+    mdiSpeedometerSlow
+  }),
   computed: {
     ...mapGetters(['getTheme', 'getStatus']),
     theme() {

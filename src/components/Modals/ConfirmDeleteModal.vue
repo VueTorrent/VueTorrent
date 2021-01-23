@@ -27,14 +27,14 @@
           </v-btn>
           <v-btn
             text
-            class="green_accent white--text mt-3"
+            class="accent white--text mt-3"
             @click="deleteWithoutFiles()"
           >
             Delete
           </v-btn>
           <v-btn
             text
-            class="green_accent white--text mt-3"
+            class="accent white--text mt-3"
             @click="deleteWithFiles()"
           >
             Delete with files

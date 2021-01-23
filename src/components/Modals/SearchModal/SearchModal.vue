@@ -16,10 +16,10 @@
           v-model="searchForm.valid"
         >
           <v-container fluid>
-            <v-flex row class="col-12 col-sm-6 col-md-8 mx-auto">
+            <v-flex row class="mx-auto">
               <v-text-field
                 v-model="searchForm.pattern"
-                prepend-inner-icon="mdi-magnify"
+                :prepend-inner-icon="mdiMagnify"
                 label="Search"
                 :rules="[v => !!v || 'Searchterm is required']"
                 clearable
@@ -58,7 +58,7 @@
             </template>
             <template #[`item.actions`]="{ item }">
               <v-icon @click="downloadTorrent(item)">
-                mdi-download
+                {{ mdiDownload }}
               </v-icon>
             </template>
           </v-data-table>
@@ -76,7 +76,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -88,6 +88,7 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
 import PluginManager from './PluginManager'
+import { mdiClose, mdiMagnify, mdiDownload } from '@mdi/js'
 
 export default {
   name: 'SearchModal',
@@ -115,7 +116,8 @@ export default {
       searchForm: {
         valid: false,
         pattern: ''
-      }
+      },
+      mdiClose, mdiMagnify, mdiDownload
     }
   },
   computed: {

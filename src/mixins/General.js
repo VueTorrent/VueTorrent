@@ -6,8 +6,8 @@ export default {
     theme() {
       return this.getTheme() ? 'dark' : 'light'
     },
-    background() {
-      return this.$vuetify.theme.themes[this.theme].background
+    isMobile() {
+      return this.$vuetify.breakpoint.smAndDown
     }
   },
   methods: {

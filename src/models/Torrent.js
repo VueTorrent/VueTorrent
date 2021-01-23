@@ -1,23 +1,19 @@
-import { formatBytes } from '../helpers'
-
 export default class Torrent {
   constructor(data) {
     this.name = data.name
-    this.size = formatBytes(data.size)
+    this.size = data.size
     this.added_on = new Date(data.added_on * 1000).toLocaleString()
-    this.dlspeed = formatBytes(data.dlspeed, 1) + '/s'
-    this.dloaded = formatBytes(data.completed)
-    this.upspeed = formatBytes(data.upspeed, 1) + '/s'
-    this.uploaded = formatBytes(data.uploaded)
-    this.uploaded_session = formatBytes(data.uploaded_session)
+    this.dlspeed = data.dlspeed
+    this.dloaded = data.completed
+    this.upspeed = data.upspeed
+    this.uploaded = data.uploaded
+    this.uploaded_session = data.uploaded_session
     this.eta = this.formatEta(data.eta)
     this.num_leechs = data.num_leechs
     this.num_seeds = data.num_seeds
     this.path = data.path === undefined ? '/downloads' : data.path
     this.state = this.formatState(data.state)
-    // hash is used to identify
     this.hash = data.hash
-    // available seeds
     this.available_seeds = data.num_complete
     this.available_peers = data.num_incomplete
     this.savePath = data.save_path
@@ -27,6 +23,7 @@ export default class Torrent {
     this.category = data.category
     this.tracker = data.tracker
     this.comment = data.comment
+    Object.freeze(this)
   }
 
   formatState(state) {

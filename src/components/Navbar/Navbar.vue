@@ -1,9 +1,10 @@
 <template>
-  <nav class="navbar">
+  <nav>
     <!--title-->
-    <v-app-bar app flat color="background">
+    <v-app-bar app flat>
       <v-app-bar-nav-icon
         class="grey--text text--lighten-1"
+        aria-label="Open Navigation Drawer"
         @click.stop="drawer = !drawer"
       />
       <v-toolbar-title
@@ -18,7 +19,7 @@
       </v-toolbar-title>
       <v-spacer />
 
-      <TopMenu :show-all="webuiSettings.showGlobalRemoveResumePause" />
+      <TopMenu />
     </v-app-bar>
     <!--navigation drawer itself -->
     <v-navigation-drawer
@@ -26,12 +27,12 @@
       app
       class="primary drawer"
       style="position: fixed;"
-      width="280"
+      width="256"
       disable-resize-watcher
     >
       <v-flex
         v-if="status"
-        style="height: 98vh; display: flex; flex-direction: column;"
+        style="height: 97vh; display: flex; flex-direction: column;"
         class="mt-3"
       >
         <CurrentSpeed

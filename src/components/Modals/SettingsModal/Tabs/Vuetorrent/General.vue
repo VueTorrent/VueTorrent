@@ -1,19 +1,19 @@
 <template>
   <v-container class="mx-1 px-1">
     <v-card flat>
-      <v-card-text class="pa-0" style="font-size: 1.1em">
+      <v-card-text class="pa-0 px-1" style="font-size: 1.1em">
         <div class="box">
           <v-subheader>
             These settings are for the custom WebUI
             itself
           </v-subheader>
-          <v-form class="px-6 mt-3">
+          <v-form class="px-4 mt-3">
             <v-container>
               <v-switch
                 v-model="showCurrentSpeed"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Current Speed
@@ -23,7 +23,7 @@
                 v-model="showSpeedGraph"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Speed Graph
@@ -33,7 +33,7 @@
                 v-model="showSessionStat"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Session Stats
@@ -43,37 +43,17 @@
                 v-model="freeSpace"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Free Space
                 </template>
               </v-switch>
               <v-switch
-                v-model="showGlobalRemoveResumePause"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="green_accent"
-              >
-                <template #label>
-                  Global Remove/Resume/Pause Buttons
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="denseDashboard"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="green_accent"
-              >
-                <template #label>
-                  Dense version of the dashboard
-                </template>
-              </v-switch>
-              <v-switch
                 v-model="showTrackerFilter"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Tracker Filter
@@ -83,10 +63,20 @@
                 v-model="showSpeedInTitle"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
               >
                 <template #label>
                   Show Speed in Title
+                </template>
+              </v-switch>
+              <v-switch
+                v-model="useDeviceDarkMode"
+                class="v-input--reverse v-input--expand pa-0 ma-0"
+                inset
+                color="accent"
+              >
+                <template #label>
+                  Use device dark/light mode
                 </template>
               </v-switch>
               <v-row dense>
@@ -99,7 +89,7 @@
                   <v-select
                     v-model="paginationSize"
                     class="pa-0 ma-0"
-                    color="green_accent"
+                    color="accent"
                     :items="paginationSizes"
                   />
                 </v-col>
@@ -184,28 +174,20 @@ export default {
         this.webuiSettings.showSessionStat = val
       }
     },
-    showGlobalRemoveResumePause: {
-      get() {
-        return this.webuiSettings.showGlobalRemoveResumePause
-      },
-      set(val) {
-        this.webuiSettings.showGlobalRemoveResumePause = val
-      }
-    },
-    denseDashboard: {
-      get() {
-        return this.webuiSettings.denseDashboard
-      },
-      set(val) {
-        this.webuiSettings.denseDashboard = val
-      }
-    },
     showTrackerFilter: {
       get() {
         return this.webuiSettings.showTrackerFilter
       },
       set(val) {
         this.webuiSettings.showTrackerFilter = val
+      }
+    },
+    useDeviceDarkMode: {
+      get() {
+        return this.webuiSettings.useDeviceDarkMode
+      },
+      set(val) {
+        this.webuiSettings.useDeviceDarkMode = val
       }
     },
     showSpeedInTitle: {
@@ -242,10 +224,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
-</style>
-
-<style lang="scss" scoped>
 // Reversed input variant
 ::v-deep .v-input--reverse .v-input__slot {
   flex-direction: row-reverse;
@@ -263,4 +241,8 @@ export default {
     }
   }
 }
+</style>
+
+<style lang="scss" scoped>
+@import '~@/styles/SettingsTab.scss';
 </style>

@@ -4,10 +4,11 @@ import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
 import '@babel/polyfill'
+import 'typeface-roboto'
 
 /* eslint-disable no-unused-vars */
 import filters from '@/filters'
-import styles from '@/assets/styles.scss'
+import styles from '@/styles/styles.scss'
 /* eslint-enable no-unused-vars */
 
 import VueObserveVisibility from 'vue-observe-visibility'

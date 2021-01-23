@@ -1,5 +1,9 @@
 <template>
-  <v-flex xs6 sm1>
+  <v-flex
+    xs6
+    sm1
+    md2
+  >
     <div class="caption grey--text">
       Status
     </div>

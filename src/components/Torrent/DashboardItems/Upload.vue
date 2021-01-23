@@ -4,11 +4,11 @@
       Upload
     </div>
     <div>
-      {{ torrent.upspeed | getDataValue }}
+      {{ torrent.upspeed | getDataValue(1) }}
       <span class="caption grey--text">
         {{
-          torrent.upspeed | getDataUnit
-        }}
+          torrent.upspeed | getDataUnit(1)
+        }}/s
       </span>
     </div>
   </v-flex>

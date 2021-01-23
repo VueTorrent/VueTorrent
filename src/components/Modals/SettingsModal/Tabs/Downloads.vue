@@ -2,7 +2,7 @@
   <v-container>
     <v-card flat>
       <perfect-scrollbar>
-        <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
+        <v-card-text class="pa-1" :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
           <h3>When adding a torrent</h3>
           <div class="settings_content ml-5 mr-5">
             <v-checkbox
@@ -55,7 +55,7 @@
               </v-col>
             </v-row>
             <v-row dense>
-              <v-col cols="5">
+              <v-col cols="12" md="5">
                 <v-checkbox
                   v-model="settings.temp_path_enabled"
                   dense
@@ -90,5 +90,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/styles/SettingsTab.scss';
+@import '~@/styles/SettingsTab.scss';
 </style>

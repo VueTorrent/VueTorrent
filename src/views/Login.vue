@@ -3,70 +3,65 @@
     row
     wrap
     align-center
-    class="justify-center"
+    style="height: 100vh"
+    class="justify-center background"
   >
     <div style="margin: 130px auto">
-      <v-container class="pa-0">
-        <v-card max-width="400" flat>
-          <v-container class="pa-3 project done">
-            <v-card-title class="justify-center">
-              <h2>Login</h2>
-            </v-card-title>
-            <div class="mr-5 ml-5" />
-            <v-card-text>
-              <v-form ref="form" class="px-3">
-                <v-text-field
-                  v-model="username"
-                  flat
-                  solo
-                  background-color="torrent"
-                  label="username"
-                  prepend-icon="person"
-                  :rules="inputRules"
-                  autocomplete="current email"
-                  name="username"
-                  @keyup.enter.native="Login"
-                />
-                <v-text-field
-                  v-model="password"
-                  flat
-                  solo
-                  background-color="torrent"
-                  type="password"
-                  label="password"
-                  prepend-icon="lock"
-                  :rules="inputRules"
-                  autocomplete="current password"
-                  name="password"
-                  @keyup.enter.native="Login"
-                />
-                <v-spacer />
-                <v-card-actions class="justify-center">
-                  <v-btn
-                    text
-                    class="blue_accent white--text mx-0 mt-3"
-                    @click="Login"
-                  >
-                    Login
-                  </v-btn>
-                </v-card-actions>
-              </v-form>
-            </v-card-text>
-          </v-container>
-        </v-card>
-      </v-container>
+      <v-card max-width="400" flat>
+        <v-card-title class="justify-center">
+          <h2>Login</h2>
+        </v-card-title>
+        <div class="mr-5 ml-5" />
+        <v-card-text>
+          <v-form ref="form" class="px-3">
+            <v-text-field
+              v-model="username"
+              outlined
+              label="username"
+              :prepend-icon="mdiAccount"
+              :rules="inputRules"
+              autocomplete="current email"
+              name="username"
+              @keyup.enter.native="Login"
+            />
+            <v-text-field
+              v-model="password"
+              outlined
+              type="password"
+              label="password"
+              :prepend-icon="mdiLock"
+              :rules="inputRules"
+              autocomplete="current password"
+              name="password"
+              @keyup.enter.native="Login"
+            />
+            <v-spacer />
+            <v-card-actions class="justify-center">
+              <v-btn
+                text
+                class="accent white--text mx-0 mt-3"
+                @click="Login"
+              >
+                Login
+              </v-btn>
+            </v-card-actions>
+          </v-form>
+        </v-card-text>
+      </v-card>
     </div>
   </v-layout>
 </template>
 
 <script>
+import { mdiLock, mdiAccount } from '@mdi/js'
 export default {
   name: 'Login',
   data() {
     return {
       username: '',
       password: '',
-      inputRules: [v => v.length >= 1 || 'At least 1 character']
+      inputRules: [v => v.length >= 1 || 'At least 1 character'],
+      mdiLock, mdiAccount
     }
   },
   methods: {

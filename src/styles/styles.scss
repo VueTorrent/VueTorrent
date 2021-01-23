@@ -1,22 +1,4 @@
-@import '~vuetify/src/styles/styles.sass';
-@import '../styles/variables.scss';
-
-@mixin dialog-title {
-    @include theme(v-card) using($material) {
-        .v-card__title {
-            background-color: map-get($material, 'app-bar');
-        }
-    }
-}
-
-@mixin dark-mode-value($light, $dark) {
-    &.theme--light {
-        @content ($light);
-    }
-    &.theme--dark {
-        @content ($dark);
-    }
-}
+@import "~@/styles/colors.scss";
 
 .sideborder.done {
     border-left: 4px solid #{$torrent-done};
@@ -78,6 +60,19 @@
 .v-chip.moving {
     background: #{$torrent-moving} !important;
 }
+
+.v-text-field--outlined fieldset {
+    border-color: #{$primary} !important;
+}
+
+.v-text-field--outlined fieldset {
+    border-color: #{$primary} !important;
+}
+
+.v-input__slot:hover fieldset {
+    border-color: #{$primary} !important;
+}
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -86,9 +81,6 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
-}
-.v-chip.queued {
-    background: #2e5eaa !important;
 }
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

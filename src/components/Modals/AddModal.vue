@@ -19,10 +19,9 @@
                       v-model="files"
                       color="deep-purple accent-4"
                       counter
-                      label="File input"
+                      label="Select your files"
                       multiple
-                      placeholder="Select your files"
-                      prepend-icon="mdi-paperclip"
+                      :prepend-icon="mdiPaperclip"
                       :rules="fileInputRules"
                       outlined
                       :show-size="1000"
@@ -55,7 +54,7 @@
                     v-if="files.length == 0"
                     v-model="urls"
                     label="URL"
-                    prepend-icon="mdi-link"
+                    :prepend-icon="mdiLink"
                     rows="1"
                     required
                     :autofocus="!phoneLayout"
@@ -71,7 +70,7 @@
                 :items="availableCategories"
                 clearable
                 label="Category"
-                prepend-icon="tag"
+                :prepend-icon="mdiTag"
                 @input="categoryChanged"
               />
 
@@ -79,7 +78,9 @@
                 v-model="directory"
                 :disabled="autoTMM"
                 label="Download Directory"
-                prepend-icon="folder"
+                :prepend-icon="mdiFolder"
+                autocomplete="download-directory"
+                name="download-directory"
               />
               <v-row no-gutters>
                 <v-flex xs12 sm6>
@@ -117,7 +118,7 @@
             <v-btn
               text
               :disabled="!valid"
-              class="blue_accent white--text mx-0 mt-3"
+              class="accent white--text mx-0 mt-3"
               @click="submit"
             >
               Add Torrent
@@ -133,6 +134,7 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
+import { mdiFolder, mdiTag, mdiPaperclip, mdiLink } from '@mdi/js'
 export default {
   name: 'AddModal',
   mixins: [Modal],
@@ -158,7 +160,8 @@ export default {
       ],
       loading: false,
       urls: null,
-      valid: false
+      valid: false,
+      mdiFolder, mdiTag, mdiPaperclip, mdiLink
     }
   },
   computed: {

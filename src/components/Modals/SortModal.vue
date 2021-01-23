@@ -18,14 +18,13 @@
                 item-value="value"
                 dense
                 solo
-                background-color="select"
                 height="55"
               />
               <v-switch
                 v-model="sort_options.reverse"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
-                color="green_accent"
+                color="accent"
                 style="padding-left: 10px !important"
               >
                 <template #label>

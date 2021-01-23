@@ -84,18 +84,24 @@ export function networkSize(size) {
 
 Vue.filter('networkSize', networkSize)
 
-function getDataUnit(value) {
-  if (!value) return ''
-  
-  return value.substring(value.indexOf(' '))
+function getDataUnit(a, b) {
+  if (a == 0) return 'B'
+  const c = 1024
+  const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  const f = Math.floor(Math.log(a) / Math.log(c))
+
+  return `${e[f]}`
 }
 
 Vue.filter('getDataUnit', getDataUnit)
 
-function getDataValue(value) {
-  if (!value) return ''
+function getDataValue(a, b) {
+  if (a == 0) return '0'
+  const c = 1024
+  const d = b || 2
+  const f = Math.floor(Math.log(a) / Math.log(c))
   
-  return value.substring(0, value.indexOf(' '))
+  return `${parseFloat((a / Math.pow(c, f)).toFixed(d))}`
 }
 
 Vue.filter('getDataValue', getDataValue)
