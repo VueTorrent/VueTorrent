@@ -2,7 +2,7 @@
   <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
     <v-row no-gutters class="grey--text">
       <v-col>
-        <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">
+        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           Dashboard
         </h1>
       </v-col>

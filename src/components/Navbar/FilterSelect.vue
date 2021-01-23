@@ -1,12 +1,16 @@
 <template>
-  <div style="margin-top: 30px">
+  <div class="mt-1">
+    <label class="white--text text-uppercase font-weight-medium caption ml-4">
+      Status
+    </label>
     <v-select
+      name="state_filter"
       aria-label="state_filter"
       :value="selectedState"
       class="ml-2 mr-2"
       label="STATUS"
-      solo
       flat
+      solo
       :items="options"
       item-text="name"
       color="download"
@@ -14,12 +18,15 @@
       background-color="secondary"
       @input="setState"
     />
+    <label class="white--text text-uppercase font-weight-medium caption ml-4">
+      Category
+    </label>
     <v-select
       aria-label="category_filter"
       :value="selectedCategory"
-      solo
       flat
-      class="ml-2 mr-2 side-select"
+      solo
+      class="ml-2 mr-2"
       label="CATEGORIES"
       :items="availableCategories"
       item-text="name"
@@ -29,12 +36,15 @@
       @input="setCategory"
     />
     <div v-if="showTrackerFilter">
+      <label class="white--text text-uppercase font-weight-medium caption ml-4">
+        Tracker
+      </label>
       <v-select
         aria-label="tracker_filter"
         :value="selectedTracker"
-        solo
         flat
-        class="ml-2 mr-2 side-select"
+        solo
+        class="ml-2 mr-2"
         label="TRACKER"
         :items="availableTrackers"
         item-text="name"
@@ -43,12 +53,6 @@
         background-color="secondary"
         @input="setTracker"
       />
-    </div>
-    <div
-      style="font-size: 0.9em"
-      class="download--text text-uppercase text-center"
-    >
-      {{ torrentCountString }}
     </div>
   </div>
 </template>
@@ -78,7 +82,7 @@ export default {
     selectedTracker: null
   }),
   computed: {
-    ...mapGetters(['getCategories', 'getTrackers', 'getTorrentCountString']),
+    ...mapGetters(['getCategories', 'getTrackers']),
     ...mapState(['sort_options']),
     availableCategories() {
       const categories = [
@@ -105,9 +109,6 @@ export default {
       }
 
       return trackers
-    },
-    torrentCountString() {
-      return this.getTorrentCountString()
     }
   },
   mounted() {
@@ -147,6 +148,9 @@ export default {
 }
 .v-select__slot > label {
   color: white !important;
+}
+#app .v-select .v-text-field__details {
+  display: none;
 }
 </style>
 

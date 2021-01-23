@@ -17,7 +17,7 @@
         <template #activator="{ on }">
           <v-list-item link v-on="on" @click="toggleSpeed">
             <v-icon
-              color="white"
+              :color="altSpeed ? 'accent' : 'white'"
             >
               {{ altSpeed ? mdiSpeedometerSlow : mdiSpeedometer }}
             </v-icon>
