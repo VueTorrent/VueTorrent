@@ -14,7 +14,7 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 | ![](https://imgur.com/QYpNCXs.png) | ![](https://imgur.com/6j5wxhl.png) | ![](https://imgur.com/jnzDKjW.png) |
 
 <p align="center">
-<img src="https://imgur.com/U3mes8r.png" width="300" alt="Mobile screenshot">
+<img src="https://imgur.com/K1gJQir.png" width="300" alt="Mobile screenshot">
 </p>
 
 ## Installation
