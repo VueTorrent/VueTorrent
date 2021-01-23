@@ -1,6 +1,6 @@
 # VueTorrent
 
-The sleekest looking WEBUI for qBittorrent made with Vuejs!
+The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 > Vue, qBitorrent, Vuetify
 
@@ -19,52 +19,69 @@ The sleekest looking WEBUI for qBittorrent made with Vuejs!
 
 ## Installation
 
-### manual
+### Manual
 
-- Visit the releases page!
-- Download the latest release.zip
-- Unzip this folder
-- Point your Alternate WEBUI location to the 'vuetorrent' folder
+- Visit the [Releases](https://github.com/WDaan/VueTorrent/releases) page!
+- Download the latest `release.zip`
+- Unzip the downloaded file
+- Point your alternate WebUI location to the `vuetorrent` folder in qBittorrent settings
 
-### 'automatic'
+### From Source
 
-- head over to the 'latest_release' branch
-- clone it
+- Head to the [`latest_release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
+- Clone branch using
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
-- pull every once in a while
+- Pull changes every once in a while, using `git pull`
+
+### NGINX install
+
+You can use NGINX reverse proxy to use VueTorrent, without making any change to qBittorrent. 
+
+Simply download and unzip the folder to a location (`/opt` here) and paste this code into your NGINX config file.
+
+```nginx
+server {
+  server_name vue.torrent;
+  location / {
+    root /opt/vuetorrent/public/;
+  }
+  location /api {
+    proxy_pass http://127.0.0.1:8081;
+    http2_push_preload on;
+    client_max_body_size 10M;
+  }
+}
+```
 
 ## Development
 
-- clone the repo
-- npm install
-- npm run serve
-- npm run lint (to format the code)
-- docker-compose up -d (to start qbittorrent docker => optional, you can edit vue.config.js as well)
+- Clone the repo
+- `npm install`
+- `npm run serve`
+- `npm run lint` (to format the code)
+- `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
 
 ## Features
 
 - Torrents
-  - adding / removing / pausing / resuming / renaming
-  - selectively downloading files
+  - add / remove / pause / resume / rename torrents
+  - selectively download files
   - view info / trackers / peers / content / tags & categories
-  - searching for new torrents straight from the WEBUI!
+  - search for new torrents straight from the WebUI!
   - search filtering powered by Fuse.js!
-
 - Keyboard shortcuts!
-  - select all torrents with ctrl+A
+  - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
   - delete selected with delete button
-  - select with ctrl+click or from right-click-menu
-  - shift + click to select from one torrent until another
-
+  - select with <kbd>Ctrl</kbd>+click or from right-click menu
+  - <kbd>Shift</kbd>-click to select from one torrent
 - System
-  - see sessions status ( down / upload speed, session uploaded / downloaded, free space)
-  - changing the most common settings
-
+  - see session stats (down / upload speed, session uploaded / downloaded, free space)
+  - beautiful transfer graphs
+  - change the most common settings
 - Extra features the default WebUI doesn't have
   - mobile friendly! (can be installed as a PWA)
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
-
-- works on QBittorrent V4.2 and later
+- works with qBittorrent v4.2 and later
 
 ## Contributing
 
@@ -78,11 +95,14 @@ I'll gladly accept help/pull requests & advice!
 - Other? check out [#10](/../../issues/10)
 
 ### Disable/Uninstall
+
 When you use VueTorrent, it gets installed as a [PWA](https://web.dev/progressive-web-apps/) so that it can feel more like an app.
+
 If you disable or uninstall VueTorrent, sometimes you'll see fragments of the VueTorrent PWA stick around, due to the nature of how PWAs work.
+
 Here's how to fix it:
-- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools ˃ Developer tools)
-- Select the "Application" tab. Select the "Clear storage" submenu, and then press the "Clear site data" button.
+- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools > Developer tools)
+- Select the "Application" tab. Select the "Clear storage" submenu, and then press the `Clear site data` button.
 
 
 ## Support
@@ -93,4 +113,4 @@ Here's how to fix it:
 
 ## Credits
 
-- Other alternate WebUI written in Vue '[CzBiX qb-web ](https://github.com/CzBiX/qb-web)'
+- Other alternate WebUI written in Vue [`CzBiX qb-web`](https://github.com/CzBiX/qb-web)
