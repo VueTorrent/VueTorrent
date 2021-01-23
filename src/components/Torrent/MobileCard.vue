@@ -6,7 +6,7 @@
     :class="style"
   >
     <v-flex xs12 class="ma-1 mt-0" row>
-      <span class="subtitle-1">
+      <span class="subtitle-1" style="line-height: 1.3em;">
         {{ torrent.name }}
       </span>
     </v-flex>
@@ -32,7 +32,9 @@
       <span class="body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.size | getDataUnit }} - </span>
       <span class="grey--text caption ml-1"> Ratio: </span>
-      <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
+      <span class="body-2 ml-1"> {{ torrent.ratio }} - </span>
+      <span class="grey--text caption ml-1"> ETA: </span>
+      <span class="body-2 ml-1"> {{ torrent.eta }} </span>
       <v-spacer />
       <span class="body-2">{{ torrent.progress }}</span>
       <span class="grey--text caption">%</span>
