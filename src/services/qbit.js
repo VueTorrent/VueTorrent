@@ -196,11 +196,11 @@ class Qbit {
   }
 
   forceStartTorrents(hashes) {
-    return this.torrentAction('resume', hashes, { value: true })
+    return this.torrentAction('setForceStart', hashes, { value: true })
   }
-
+  
   reannounceTorrents(hashes) {
-    return this.torrentAction('setForceStart', hashes)
+    return this.torrentAction('reannounce', hashes)
   }
 
   recheckTorrents(hashes) {
@@ -311,11 +311,8 @@ class Qbit {
     })
   }
 
-  setCategory(hash, cat) {
-    return this.execute('post', '/torrents/setCategory', {
-      hashes: hash,
-      category: cat
-    })
+  setCategory(hashes, category) {
+    return this.torrentAction('setCategory', hashes, { category })
   }
 
   editCategory(cat) {

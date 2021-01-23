@@ -5,12 +5,12 @@
     class="ma-0 pa-1"
     :class="style"
   >
-    <v-flex xs12 class="ma-1" row>
+    <v-flex xs12 class="ma-1 mt-0" row>
       <span class="truncate  subtitle-1">
         {{ torrent.name }}
       </span>
     </v-flex>
-    <v-flex xs12 row class="ma-1">
+    <v-flex xs12 row class="ma-1 mt-0">
       <v-chip
         small
         class="caption white--text mr-2"

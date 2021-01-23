@@ -120,12 +120,12 @@ export default {
     },
     setCategory(cat) {
       if (this.torrent.category === cat.name) {
-        return qbit.setCategory(this.hash, '')
+        return qbit.setCategory([this.hash], '')
       }
-      qbit.setCategory(this.hash, cat.name)
+      qbit.setCategory([this.hash], cat.name)
     },
     deleteCategory() {
-      qbit.setCategory(this.hash, '')
+      qbit.setCategory([this.hash], '')
     }
   }
 }
