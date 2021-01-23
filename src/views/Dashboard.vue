@@ -1,5 +1,5 @@
 <template>
-  <div class="px-1 px-sm-5 pt-4" @click.self="resetSelected">
+  <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
     <v-row no-gutters class="grey--text">
       <v-col>
         <h1 style="font-size: 1.3em !important" class="subtitle-1 ml-2">
@@ -38,11 +38,11 @@
         </p>
       </div>
       <div v-else>
-        <v-list class="pa-0">
+        <v-list class="pa-0 transparent">
           <v-list-item
             v-for="(torrent, index) in paginatedData"
             :key="torrent.hash"
-            class="pa-0"
+            class="pa-0 mb-1"
             @contextmenu.prevent="$refs.menu.open($event, { torrent })"
           >
             <template #default>
@@ -233,5 +233,10 @@ export default {
 .bottomBorderRadius {
   border-bottom-left-radius: 3px !important;
   border-bottom-right-radius: 3px !important;
+}
+
+.transparent {
+  background-color: transparent!important;
+  border-color: transparent!important;
 }
 </style>

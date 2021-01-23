@@ -94,13 +94,11 @@ export default {
   },
   UPDATE_SORT_OPTIONS: (state, payload) => {
     state.sort_options.sort = payload.name ? payload.name : state.sort_options.sort
-    state.sort_options.reverse = payload.reverse ? payload.reverse : state.sort_options.reverse
+    state.sort_options.reverse = payload.reverse
     state.sort_options.hashes = payload.hashes ? payload.hashes : state.sort_options.hashes
-    state.sort_options.filter = payload.filter ? payload.filter : state.sort_options.filter
-    state.sort_options.category =
-            payload.category !== null ? payload.category : null
-    state.sort_options.tracker =
-            payload.tracker !== null ? payload.tracker : null
+    state.sort_options.filter = payload.filter
+    state.sort_options.category = payload.category
+    state.sort_options.tracker = payload.tracker
   },
   FETCH_CATEGORIES: async state => state.categories = Object.values(await (qbit.getCategories())),
   FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),

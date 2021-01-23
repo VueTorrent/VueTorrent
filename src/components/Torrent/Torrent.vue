@@ -2,6 +2,7 @@
   <v-card
     flat
     class="pointer noselect"
+    :class="{ selected: isSelected}"
     @click.native.exact.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"

@@ -1,7 +1,6 @@
 <template>
   <div style="margin-top: 30px">
     <v-select
-      v-model="selectedState"
       :value="selectedState"
       class="ml-2 mr-2"
       label="STATUS"
@@ -9,38 +8,37 @@
       flat
       :items="options"
       item-text="name"
-      item-value="value"
       color="download"
       item-color="download"
       background-color="secondary"
-      @input="setStatusFilter"
+      @input="setState"
     />
     <v-select
-      v-model="selectedCategory"
       :value="selectedCategory"
       solo
       flat
       class="ml-2 mr-2 side-select"
       label="CATEGORIES"
       :items="availableCategories"
+      item-text="name"
       color="download"
       item-color="download"
       background-color="secondary"
-      @input="setCategoryOrTrackerFilter"
+      @input="setCategory"
     />
     <div v-if="showTrackerFilter">
       <v-select
-        v-model="selectedTracker"
         :value="selectedTracker"
         solo
         flat
         class="ml-2 mr-2 side-select"
         label="TRACKER"
         :items="availableTrackers"
+        item-text="name"
         color="download"
         item-color="download"
         background-color="secondary"
-        @input="setCategoryOrTrackerFilter"
+        @input="setTracker"
       />
     </div>
     <div
@@ -53,13 +51,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
   data: () => ({
     options: [
-      { value: 'all', name: 'All' },
+      { value: null, name: 'All' },
       { value: 'downloading', name: 'Downloading' },
       { value: 'seeding', name: 'Seeding' },
       { value: 'completed', name: 'Completed' },
@@ -72,68 +70,68 @@ export default {
       { value: 'stalled_downloading', name: 'Stalled Downloading' },
       { value: 'errored', name: 'Errored' }
     ],
-    selectedState: { value: 'all', name: 'All' },
+    selectedState: null,
     selectedCategory: null,
-    selectedTracker: 'All'
+    selectedTracker: null
   }),
   computed: {
     ...mapGetters(['getCategories', 'getTrackers', 'getTorrentCountString']),
+    ...mapState(['sort_options']),
     availableCategories() {
-      const categories = ['All', 'Uncategorized']
-      categories.push(...this.getCategories().map(c => c.name))
+      const categories = [
+        { name: 'All', value: null },
+        { name: 'Uncategorized', value: '' }]
+      categories.push(...this.getCategories().map(c => {
+        return { name: c.name, value: c.name }
+      }))
 
       return categories
     },
-    categoryFilter() {
-      switch (this.selectedCategory) {
-        case 'All':
-          return null
-        case 'Uncategorized':
-          return ''
-        default:
-          return this.selectedCategory
-      }
-    },
     availableTrackers() {
-      const trackers = ['All', 'Not working']
+      const trackers = [
+        { name: 'All', value: null },
+        { name: 'Not working', value: '' }
+      ]
+         
       if (this.showTrackerFilter) {
-        trackers.push(...this.getTrackers())
+        trackers.push(...this.getTrackers().map(t => {
+          return {
+            name: t, value: t
+          }
+        }))
       }
 
       return trackers
-    },
-    trackerFilter() {
-      switch (this.selectedTracker) {
-        case 'All':
-          return null
-        case 'Not working':
-          return ''
-        default:
-          return this.selectedTracker
-      }
     },
     torrentCountString() {
       return this.getTorrentCountString()
     }
   },
   mounted() {
-    this.selectedCategory = this.availableCategories[0]
-    this.selectedState = this.options.find(o => o.value === this.$store.state.sort_options.filter)
+    this.setDefaultValues()
   },
   methods: {
-    setStatusFilter(value) {
+    applyFilter() {
       this.$store.commit('UPDATE_SORT_OPTIONS', {
-        filter: value,
-        category: this.categoryFilter,
-        tracker: this.trackerFilter
+        filter: this.selectedState,
+        category: this.selectedCategory,
+        tracker: this.selectedTracker
       })
     },
-    setCategoryOrTrackerFilter() {
-      this.$store.commit('UPDATE_SORT_OPTIONS', {
-        filter: this.selectedState.value,
-        category: this.categoryFilter,
-        tracker: this.trackerFilter
-      })
+    setState(value) {
+      this.selectedState = value
+      this.applyFilter()
+    },
+    setTracker(value) {
+      this.selectedTracker = value
+      this.applyFilter()
+    },
+    setCategory(value) {
+      this.selectedCategory = value
+      this.applyFilter()
+    },
+    setDefaultValues() {
+      this.selectedState = this.options.find(o => o.value === this.sort_options.filter).value || this.options[0].value
     }
   }
 }

@@ -19,11 +19,13 @@ export default new Vuetify({
     themes: {
       light: {
         accent: variables.download,
+        background: colors.grey.lighten4,
         selected: colors.grey.lighten2,
         ...variables
       },
       dark: {
         accent: variables.download,
+        background: colors.black,
         selected: colors.grey.darken1,
         ...variables
       }

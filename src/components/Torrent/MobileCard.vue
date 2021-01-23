@@ -2,7 +2,7 @@
   <v-layout
     row
     wrap
-    class="ma-0 pa-2"
+    class="ma-0 pa-1"
     :class="style"
   >
     <v-flex xs12 class="ma-1" row>
@@ -12,7 +12,7 @@
     </v-flex>
     <v-flex xs12 row class="ma-1">
       <v-chip
-        x-small
+        small
         class="caption white--text mr-2"
         :class="torrent.state.toLowerCase()"
       >
@@ -20,7 +20,7 @@
       </v-chip>
       <v-chip
         v-if="torrent.category"
-        x-small
+        small
         class="upload caption white--text"
       >
         {{ torrent.category }}

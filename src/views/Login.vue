@@ -4,7 +4,7 @@
     wrap
     align-center
     style="height: 100vh"
-    class="justify-center"
+    class="justify-center background"
   >
     <div style="margin: 130px auto">
       <v-card max-width="400" flat>

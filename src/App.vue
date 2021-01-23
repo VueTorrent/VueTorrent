@@ -7,7 +7,7 @@
       v-bind="{ guid: modal.guid, ...modal.props }"
     />
     <Navbar v-if="isAuthenticated" />
-    <v-main fill-height fill-width>
+    <v-main class="background" fill-height fill-width>
       <router-view />
     </v-main>
   </v-app>
