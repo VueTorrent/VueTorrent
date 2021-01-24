@@ -70,6 +70,7 @@
                 :items="availableCategories"
                 clearable
                 label="Category"
+                item-text="name"
                 :prepend-icon="mdiTag"
                 @input="categoryChanged"
               />
@@ -166,9 +167,6 @@ export default {
   },
   computed: {
     ...mapGetters(['getSettings', 'getCategories']),
-    settings() {
-      return this.getSettings()
-    },
     validFile() {
       return this.Files.length > 0
     },
@@ -178,20 +176,13 @@ export default {
     savepath() {
       let savePath = this.getSettings().save_path
       if (this.category) {
-        savePath += this.category
-        const category = this.getCategories()[this.category]
-        if (category && category.savePath) savePath = category.savePath
+        savePath = this.category.savePath
       }
 
       return savePath
     },
     availableCategories() {
-      return Object.keys(this.getCategories())
-    }
-  },
-  watch: {
-    settings(newvalue) {
-      this.directory = newvalue.save_path
+      return this.getCategories()
     }
   },
   created() {
@@ -222,7 +213,7 @@ export default {
         }
         if (this.files.length) torrents.push(...this.files)
         if (this.urls) params.urls = this.urls
-        if (this.category) params.category = this.category
+        if (this.category) params.category = this.category.name
         if (!this.autoTMM) params.savepath = this.directory
 
         qbit.addTorrents(params, torrents)

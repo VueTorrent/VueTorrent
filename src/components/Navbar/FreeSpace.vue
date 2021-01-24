@@ -1,5 +1,5 @@
 <template>
-  <v-card flat color="secondary" class="mr-2 ml-2 mt-8">
+  <v-card flat color="secondary" class="mr-2 ml-2 mt-8 mb-4">
     <v-layout row wrap class="pa-3 py-6 project mx-auto">
       <v-flex md6>
         <div

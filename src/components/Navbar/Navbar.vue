@@ -42,8 +42,6 @@
 
         <SpeedGraph v-if="webuiSettings.showSpeedGraph" />
 
-        <div class="mt-4" />
-        <FilterSelect :show-tracker-filter="webuiSettings.showTrackerFilter" />
         <SessionStats
           v-if="webuiSettings.showSessionStat"
           :status="status"
@@ -53,6 +51,8 @@
           v-if="webuiSettings.showFreeSpace"
           :space="status.freeDiskSpace"
         />
+
+        <FilterSelect :show-tracker-filter="webuiSettings.showTrackerFilter" />
         <div
           style="font-size: 0.9em"
           class="download--text text-uppercase text-center mt-5"
