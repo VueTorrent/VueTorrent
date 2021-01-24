@@ -1,11 +1,16 @@
 <template>
-  <v-dialog v-model="dialog" max-width="500px">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    max-width="500px"
+    :fullscreen="phoneLayout"
+  >
     <v-card>
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
           <h2>Add a new Torrent</h2>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="pb-0">
           <v-form ref="form" v-model="valid">
             <v-container>
               <v-row no-gutters>
@@ -70,6 +75,7 @@
                 :items="availableCategories"
                 clearable
                 label="Category"
+                item-text="name"
                 :prepend-icon="mdiTag"
                 @input="categoryChanged"
               />
@@ -87,24 +93,28 @@
                   <v-checkbox
                     v-model="start"
                     label="Start torrent"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="skip_checking"
                     label="Skip hash check"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="root_folder"
                     label="Create subfolder"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="autoTMM"
                     label="Automatic Torrent Management"
+                    hide-details
                   />
                 </v-flex>
               </v-row>
@@ -123,6 +133,18 @@
             >
               Add Torrent
             </v-btn>
+            <v-fab-transition v-if="phoneLayout">
+              <v-btn
+                color="red"
+                dark
+                absolute
+                bottom
+                right
+                @click="close"
+              >
+                <v-icon>{{ mdiClose }}</v-icon>
+              </v-btn>
+            </v-fab-transition>
           </v-card-actions>
         </v-form>
       </v-container>
@@ -134,10 +156,11 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
-import { mdiFolder, mdiTag, mdiPaperclip, mdiLink } from '@mdi/js'
+import { mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { FullScreenModal } from '@/mixins'
 export default {
   name: 'AddModal',
-  mixins: [Modal],
+  mixins: [Modal, FullScreenModal],
   props: ['initialMagnet'],
   data() {
     return {
@@ -161,14 +184,11 @@ export default {
       loading: false,
       urls: null,
       valid: false,
-      mdiFolder, mdiTag, mdiPaperclip, mdiLink
+      mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose
     }
   },
   computed: {
     ...mapGetters(['getSettings', 'getCategories']),
-    settings() {
-      return this.getSettings()
-    },
     validFile() {
       return this.Files.length > 0
     },
@@ -178,20 +198,13 @@ export default {
     savepath() {
       let savePath = this.getSettings().save_path
       if (this.category) {
-        savePath += this.category
-        const category = this.getCategories()[this.category]
-        if (category && category.savePath) savePath = category.savePath
+        savePath = this.category.savePath
       }
 
       return savePath
     },
     availableCategories() {
-      return Object.keys(this.getCategories())
-    }
-  },
-  watch: {
-    settings(newvalue) {
-      this.directory = newvalue.save_path
+      return this.getCategories()
     }
   },
   created() {
@@ -222,7 +235,7 @@ export default {
         }
         if (this.files.length) torrents.push(...this.files)
         if (this.urls) params.urls = this.urls
-        if (this.category) params.category = this.category
+        if (this.category) params.category = this.category.name
         if (!this.autoTMM) params.savepath = this.directory
 
         qbit.addTorrents(params, torrents)
@@ -241,6 +254,9 @@ export default {
       this.category = null
       this.directory = this.savepath
       this.skip_checking = null
+    },
+    close() {
+      this.deleteModal()
     }
   }
 }

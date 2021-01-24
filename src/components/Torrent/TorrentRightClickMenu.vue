@@ -118,6 +118,35 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-menu
+      open-on-hover
+      top
+    >
+      <template #activator="{ on }">
+        <v-list-item link v-on="on">
+          <v-icon>{{ mdiShape }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Set Category
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-title>
+        </v-list-item>
+      </template>
+      <v-list dense rounded>
+        <v-list-item
+          v-for="(item, index) in availableCategories"
+          :key="index"
+          link
+          @click="setCategory(item.value)"
+        >
+          <v-list-item-title class="ml-2" style="font-size: 12px">
+            {{ item.name }}
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-divider />
     <v-list-item link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
@@ -145,8 +174,10 @@ import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
   mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
-  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight, mdiFastForward
+  mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
+  mdiFastForward, mdiShape
 } from '@mdi/js'
+import { mapGetters } from 'vuex'
 export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
@@ -162,11 +193,19 @@ export default {
     ],
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
     mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
-    mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight
+    mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
+    mdiShape
   }),
   computed: {
-    dark() {
-      return this.$vuetify.dark
+    ...mapGetters(['getCategories']),
+    availableCategories() {
+      const categories = [
+        { name: 'None', value: '' }]
+      categories.push(...this.getCategories().map(c => {
+        return { name: c.name, value: c.name }
+      }))
+
+      return categories
     }
   },
   methods: {
@@ -202,6 +241,9 @@ export default {
     },
     forceResume() {
       qbit.forceStartTorrents([this.hash])
+    },
+    setCategory(cat) {
+      qbit.setCategory([this.hash], cat)
     }
   }
 }

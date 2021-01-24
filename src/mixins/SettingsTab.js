@@ -15,6 +15,13 @@ export default {
       })
       this.$store.commit('FETCH_SETTINGS')
       this.close()
+      if (!this.settings.alternative_webui_enabled) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (const registration of registrations) {
+            registration.unregister()
+          } 
+        })
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <perfect-scrollbar>
-      <v-card-text :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}">
+      <v-card-text class="pa-0" :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}">
         <v-treeview
           v-model="selected"
           :items="fileTree"
@@ -27,7 +27,7 @@
               autofocus
             />
           </template>
-          <template #append="{ item }">
+          <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
             <span v-if="!item.icon">{{ item.children.length }} Files</span>
             <div v-else>
               <span>[{{ item.size }}]</span>
