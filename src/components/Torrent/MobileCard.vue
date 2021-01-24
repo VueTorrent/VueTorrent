@@ -34,14 +34,13 @@
       <span class="body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.size | getDataUnit }}</span>
       <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
-      <span class="grey--text caption"> Ratio: </span>
-      <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
-      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
-      <span class="grey--text caption"> ETA: </span>
-      <span class="body-2 ml-1"> {{ torrent.eta }} </span>
-      <v-spacer />
       <span class="body-2">{{ torrent.progress }}</span>
       <span class="grey--text caption ml-1">%</span>
+      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
+      <span class="grey--text caption"> Ratio: </span>
+      <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
+      <v-spacer />
+      <span class="body-2 ml-1"> {{ torrent.eta }} </span>
     </v-flex>
     <v-flex xs12 class="ma-1">
       <v-progress-linear
