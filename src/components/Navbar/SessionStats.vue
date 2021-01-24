@@ -3,6 +3,19 @@
     <label class="text-uppercase white--text caption font-weight-medium ml-4">
       Session Stats
     </label>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-icon
+          color="white"
+          style="opacity: 0.3;"
+          small
+          v-on="on"
+        >
+          {{ mdiInformationOutline }}
+        </v-icon>
+      </template>
+      <span>Since the last time qBittorrent was restarted</span>
+    </v-tooltip>
     <v-card flat color="secondary" class="mr-2 ml-2 mb-4">
       <v-layout row wrap class="pa-3 mt-1 project mx-auto">
         <v-flex md6>
@@ -47,9 +60,11 @@
 </template>
 
 <script>
+import { mdiInformationOutline } from '@mdi/js'
 export default {
   name: 'SessionStats',
-  props: ['status']
+  props: ['status'],
+  data: () => ({ mdiInformationOutline })
 }
 </script>
 
