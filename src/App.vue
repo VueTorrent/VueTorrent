@@ -34,7 +34,7 @@ export default {
   created() {
     this.$store.commit('SET_APP_VERSION', version)
     this.checkDeviceDarkTheme()
-    //this.checkAuthenticated()
+    this.checkAuthenticated()
   },
   methods: {
     async checkAuthenticated() {
