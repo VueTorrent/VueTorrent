@@ -93,24 +93,28 @@
                   <v-checkbox
                     v-model="start"
                     label="Start torrent"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="skip_checking"
                     label="Skip hash check"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="root_folder"
                     label="Create subfolder"
+                    hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="autoTMM"
                     label="Automatic Torrent Management"
+                    hide-details
                   />
                 </v-flex>
               </v-row>
@@ -257,9 +261,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-#app .v-input--checkbox .v-messages {
-  display: none;
-}
-</style>
