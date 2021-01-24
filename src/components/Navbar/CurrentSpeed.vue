@@ -1,14 +1,16 @@
 <template>
-  <div v-if="status">
+  <div v-if="status" class="mb-1">
     <div class="text-uppercase white--text caption ml-4 font-weight-medium">
       current speed
     </div>
     <v-card color="secondary" flat class="mr-2 ml-2">
       <v-layout row wrap class="py-3 px-1 mt-1 project mx-auto text-center">
-        <v-flex xs6>
+        <v-flex xs1 class="mt-1">
           <v-icon color="download" size="16px">
             {{ mdiChevronDown }}
           </v-icon>
+        </v-flex>
+        <v-flex xs5>
           <span
             class="download--text title"
             style="font-size: 1.1em !important;"
@@ -19,14 +21,15 @@
             </span>
           </span>
         </v-flex>
-        <v-flex xs6>
+        <v-flex xs1 class="mt-1">
           <v-icon
-            class="pl-2"
             color="upload"
-            size="24px"
+            size="16px"
           >
             {{ mdiChevronUp }}
           </v-icon>
+        </v-flex>
+        <v-flex xs5>
           <span
             class="upload--text title"
             style="font-size: 1.1em !important;"
