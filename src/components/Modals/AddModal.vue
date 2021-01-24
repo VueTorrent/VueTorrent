@@ -1,11 +1,16 @@
 <template>
-  <v-dialog v-model="dialog" max-width="500px">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    max-width="500px"
+    :fullscreen="phoneLayout"
+  >
     <v-card>
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
           <h2>Add a new Torrent</h2>
         </v-card-title>
-        <v-card-text>
+        <v-card-text class="pb-0">
           <v-form ref="form" v-model="valid">
             <v-container>
               <v-row no-gutters>
@@ -124,6 +129,18 @@
             >
               Add Torrent
             </v-btn>
+            <v-fab-transition v-if="phoneLayout">
+              <v-btn
+                color="red"
+                dark
+                absolute
+                bottom
+                right
+                @click="close"
+              >
+                <v-icon>{{ mdiClose }}</v-icon>
+              </v-btn>
+            </v-fab-transition>
           </v-card-actions>
         </v-form>
       </v-container>
@@ -135,10 +152,11 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
-import { mdiFolder, mdiTag, mdiPaperclip, mdiLink } from '@mdi/js'
+import { mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { FullScreenModal } from '@/mixins'
 export default {
   name: 'AddModal',
-  mixins: [Modal],
+  mixins: [Modal, FullScreenModal],
   props: ['initialMagnet'],
   data() {
     return {
@@ -162,7 +180,7 @@ export default {
       loading: false,
       urls: null,
       valid: false,
-      mdiFolder, mdiTag, mdiPaperclip, mdiLink
+      mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose
     }
   },
   computed: {
@@ -232,7 +250,16 @@ export default {
       this.category = null
       this.directory = this.savepath
       this.skip_checking = null
+    },
+    close() {
+      this.deleteModal()
     }
   }
 }
 </script>
+
+<style lang="scss">
+#app .v-input--checkbox .v-messages {
+  display: none;
+}
+</style>
