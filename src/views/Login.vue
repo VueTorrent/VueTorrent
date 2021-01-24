@@ -1,11 +1,5 @@
 <template>
-  <v-layout
-    row
-    wrap
-    align-center
-    style="height: 100vh"
-    class="justify-center background"
-  >
+  <v-layout class="background mt-5">
     <div style="margin: 130px auto">
       <v-card max-width="400" flat>
         <v-card-title class="justify-center">
