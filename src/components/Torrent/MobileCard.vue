@@ -5,8 +5,8 @@
     class="ma-0 pa-1"
     :class="style"
   >
-    <v-flex xs12 class="ma-1 mt-0" row>
-      <span class="subtitle-1" style="line-height: 1.3em; font-size: .9em !important;">
+    <v-flex xs12 class="ma-1" row>
+      <span class="subtitle-1" style="line-height: 1.3em; font-size: .95em !important;">
         {{ torrent.name }}
       </span>
     </v-flex>
@@ -15,7 +15,7 @@
         small
         class="caption white--text mr-2"
         :class="torrent.state.toLowerCase()"
-        style="height: 18px;"
+        style="height: 20px;"
       >
         {{ torrent.state }}
       </v-chip>
@@ -23,7 +23,7 @@
         v-if="torrent.category"
         small
         class="upload caption white--text"
-        style="height: 18px;"
+        style="height: 20px;"
       >
         {{ torrent.category }}
       </v-chip>
@@ -33,10 +33,10 @@
       <span class="grey--text caption ml-1"> {{ torrent.dloaded | getDataUnit }} / </span>
       <span class="body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.size | getDataUnit }}</span>
-      <span class="mx-1" style="margin-top: 3px">•</span>
+      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
       <span class="grey--text caption"> Ratio: </span>
       <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
-      <span class="mx-1" style="margin-top: 3px">•</span>
+      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
       <span class="grey--text caption"> ETA: </span>
       <span class="body-2 ml-1"> {{ torrent.eta }} </span>
       <v-spacer />
@@ -55,7 +55,7 @@
       <div class="caption grey--text">
         {{ torrent.num_seeds }}/{{ torrent.available_seeds }} seeds
       </div>
-      <span class="mx-1" style="margin-top: 2px">•</span>
+      <span class="mx-1 grey--text" style="margin-top: 2px">•</span>
       <div class="caption grey--text">
         {{ torrent.num_leechs }}/{{ torrent.available_peers }} peers
       </div>
