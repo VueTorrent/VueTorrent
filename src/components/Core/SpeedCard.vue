@@ -11,13 +11,12 @@
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex v-if="value" xs7 class="text-center font-weight-bold robot-mono">
+      <v-flex xs7 class="text-center font-weight-bold robot-mono">
         <span data-testid="SpeedCard-value">
           {{ value | getDataValue(2) }}
         </span>
       </v-flex>
       <v-flex
-        v-if="value"
         xs3
         class="caption robot-mono text-right mt-1"
       >
