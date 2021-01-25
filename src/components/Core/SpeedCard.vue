@@ -3,23 +3,25 @@
     flat
     color="secondary"
     class="speedCard"
+    data-testid="SpeedCard"
   >
     <v-layout row :class="color + '--text'">
-      <v-flex xs2>
-        <v-icon :color="color" size="16px">
+      <v-flex v-if="icon" xs2>
+        <v-icon data-testid="SpeedCard-icon" :color="color" size="16px">
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex xs7 class="text-center font-weight-bold robot-mono">
-        <span>
+      <v-flex v-if="value" xs7 class="text-center font-weight-bold robot-mono">
+        <span data-testid="SpeedCard-value">
           {{ value | getDataValue(2) }}
         </span>
       </v-flex>
       <v-flex
+        v-if="value"
         xs3
         class="caption robot-mono text-right mt-1"
       >
-        <span class="speedUnits">
+        <span class="speedUnits" data-testid="SpeedCard-unit">
           {{ value | getDataUnit(1) }}/s
         </span>
       </v-flex>
