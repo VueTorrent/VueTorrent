@@ -1,30 +1,30 @@
 <template>
   <v-card
-    width="112px"
     flat
     color="secondary"
-    class="mx-1"
+    class="speedCard"
   >
-    <div
-      class="pa-3 my-2 row"
-      :class="color + '--text'"
-    >
-      <v-flex xs1>
+    <v-layout row :class="color + '--text'">
+      <v-flex xs2>
         <v-icon :color="color" size="16px">
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex xs7 class="text-center" style="font-family: 'Roboto Mono', sans-serif">
+      <v-flex xs7 class="text-center robot-mono">
         <span>
-          {{ value | getDataValue(2) }}
+          <!--          {{ value | getDataValue(2) }}-->
+          223.45
         </span>
       </v-flex>
-      <v-flex xs3 class="pa-0 text-end">
-        <span class="caption font-weight-regular">
+      <v-flex
+        xs3
+        class="caption robot-mono text-right mt-1"
+      >
+        <span class="speedUnits">
           {{ value | getDataUnit(1) }}/s
         </span>
       </v-flex>
-    </div>
+    </v-layout>
   </v-card>
 </template>
 
@@ -34,3 +34,14 @@ export default {
   props: ['color', 'icon', 'value']
 }
 </script>
+
+<style scoped>
+.speedCard {
+  padding: 32px 16px !important;
+  font-size: 1.05em;
+}
+
+.speedUnits {
+  font-size:  .8em !important;
+}
+</style>

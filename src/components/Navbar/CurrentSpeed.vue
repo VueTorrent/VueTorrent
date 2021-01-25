@@ -1,12 +1,16 @@
 <template>
-  <div v-if="status" class="mb-1">
+  <div v-if="status">
     <div class="text-uppercase white--text caption ml-4 font-weight-medium">
       current speed
     </div>
-    <v-layout row class="mx-1 mt-2">
-      <SpeedCard :icon="mdiChevronDown" color="download" :value="status.dlspeed" />
-      <SpeedCard :icon="mdiChevronUp" color="upload" :value="status.upspeed" />
-    </v-layout>
+    <v-row dense class="mx-1 pt-1">
+      <v-col>
+        <SpeedCard :icon="mdiChevronDown" color="download" :value="status.dlspeed" />
+      </v-col>
+      <v-col>
+        <SpeedCard :icon="mdiChevronUp" color="upload" :value="status.upspeed" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 

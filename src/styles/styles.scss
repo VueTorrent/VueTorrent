@@ -101,6 +101,11 @@ $sideborder-margin: 5px;
     text-overflow: ellipsis;
 }
 
+.robot-mono {
+    font-family: 'Roboto Mono', sans-serif;
+    letter-spacing: 0;
+}
+
 body {
     &::-webkit-scrollbar {
         width: 6px;
