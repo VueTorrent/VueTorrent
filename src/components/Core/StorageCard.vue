@@ -5,14 +5,15 @@
         <div
           style="margin-top: 6px"
           :class="color + '--text'"
+          data-testid="StorageCard-label"
         >
           {{ label }}
         </div>
       </v-flex>
       <v-flex md5 class="ml-4">
-        <span :class="color + '--text title'">
-          {{ value | getDataValue(2) }}
-          <span class="font-weight-light caption">
+        <span data-testid="StorageCard-Wrapper" :class="color + '--text title'">
+          <span data-testid="StorageCard-value"> {{ value | getDataValue(2) }} </span>
+          <span data-testid="StorageCard-unit" class="font-weight-light caption">
             {{ value | getDataUnit }}
           </span>
         </span>

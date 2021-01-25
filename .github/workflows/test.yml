@@ -1,0 +1,13 @@
+name: Test Core Components
+on:
+  push
+
+jobs:
+  test-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Install & test
+        uses: actions/setup-node@master
+      - run: npm ci
+      - run: npm run test:unit
