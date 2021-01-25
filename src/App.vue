@@ -7,7 +7,7 @@
       v-bind="{ guid: modal.guid, ...modal.props }"
     />
     <Navbar v-if="isAuthenticated" />
-    <v-main class="background" fill-height fill-width>
+    <v-main class="background">
       <router-view />
     </v-main>
   </v-app>
@@ -34,7 +34,7 @@ export default {
   created() {
     this.$store.commit('SET_APP_VERSION', version)
     this.checkDeviceDarkTheme()
-    //this.checkAuthenticated()
+    this.checkAuthenticated()
   },
   methods: {
     async checkAuthenticated() {

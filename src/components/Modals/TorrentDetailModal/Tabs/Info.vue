@@ -36,15 +36,17 @@
                 Size
               </td>
               <td class="torrentmodaltext--text">
-                {{ torrent.size }}
+                {{ torrent.size | getDataValue }}
+                {{ torrent.size | getDataUnit(1) }}
               </td>
             </tr>
             <tr>
               <td class="grey--text">
-                Done:
+                Downloaded:
               </td>
               <td class="torrentmodaltext--text">
-                {{ torrent.dloaded }}
+                {{ torrent.dloaded | getDataValue }}
+                {{ torrent.dloaded | getDataUnit(1) }}
               </td>
             </tr>
             <tr>
@@ -52,7 +54,8 @@
                 Uploaded:
               </td>
               <td class="torrentmodaltext--text">
-                {{ torrent.uploaded }}
+                {{ torrent.uploaded | getDataValue }}
+                {{ torrent.uploaded | getDataUnit(1) }}
               </td>
             </tr>
             <tr>
@@ -68,7 +71,8 @@
                 Download Speed
               </td>
               <td class="torrentmodaltext--text">
-                {{ torrent.dlspeed }}
+                {{ torrent.dlspeed | getDataValue }}
+                {{ torrent.dlspeed | getDataUnit(1) }}
               </td>
             </tr>
             <tr>
@@ -76,7 +80,8 @@
                 Upload Speed
               </td>
               <td class="torrentmodaltext--text">
-                {{ torrent.upspeed }}
+                {{ torrent.upspeed | getDataValue }}
+                {{ torrent.upspeed | getDataUnit(1) }}
               </td>
             </tr>
             <tr>

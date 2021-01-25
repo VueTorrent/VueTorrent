@@ -1,34 +1,36 @@
 @import "~@/styles/colors.scss";
 
+$sideborder-margin: 5px;
+
 .sideborder.done {
-    border-left: 4px solid #{$torrent-done};
+    border-left: #{$sideborder-margin} solid #{$torrent-done};
 }
 .sideborder.downloading {
-    border-left: 4px solid #{$torrent-downloading};
+    border-left: #{$sideborder-margin} solid #{$torrent-downloading};
 }
 .sideborder.fail {
-    border-left: 4px solid #{$torrent-fail};
+    border-left: #{$sideborder-margin} solid #{$torrent-fail};
 }
 .sideborder.paused {
-    border-left: 4px solid #{$torrent-paused};
+    border-left: #{$sideborder-margin} solid #{$torrent-paused};
 }
 .sideborder.queued {
-    border-left: 4px solid #{$torrent-queued};
+    border-left: #{$sideborder-margin} solid #{$torrent-queued};
 }
 .sideborder.seeding {
-    border-left: 4px solid #{$torrent-seeding};
+    border-left: #{$sideborder-margin} solid #{$torrent-seeding};
 }
 .sideborder.checking {
-    border-left: 4px solid #{$torrent-checking};
+    border-left: #{$sideborder-margin} solid #{$torrent-checking};
 }
 .sideborder.stalled {
-    border-left: 4px solid #{$torrent-stalled};
+    border-left: #{$sideborder-margin} solid #{$torrent-stalled};
 }
 .sideborder.metadata {
-    border-left: 4px solid #{$torrent-metadata};
+    border-left: #{$sideborder-margin} solid #{$torrent-metadata};
 }
 .sideborder.moving {
-    border-left: 4px solid #{$torrent-moving};
+    border-left: #{$sideborder-margin} solid #{$torrent-moving};
 }
 .v-chip.done {
     background: #{$torrent-done} !important;
@@ -97,6 +99,11 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.robot-mono {
+    font-family: 'Roboto Mono', sans-serif;
+    letter-spacing: 0;
 }
 
 body {

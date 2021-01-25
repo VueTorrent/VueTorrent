@@ -5,6 +5,7 @@ import router from '@/router'
 import store from '@/store'
 import '@babel/polyfill'
 import 'typeface-roboto'
+import 'typeface-roboto-mono'
 
 /* eslint-disable no-unused-vars */
 import filters from '@/filters'
