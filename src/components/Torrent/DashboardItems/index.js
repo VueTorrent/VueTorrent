@@ -1,6 +1,7 @@
 import Size from './Size'
 import Progress from './Progress'
 import Download from './Download'
+import Downloaded from './Downloaded'
 import Ratio from './Ratio'
 import Upload from './Upload'
 import ETA from './ETA'
@@ -27,5 +28,6 @@ export {
   Tags,
   AddedOn,
   Uploaded,
-  UploadedSession
+  UploadedSession,
+  Downloaded
 }
