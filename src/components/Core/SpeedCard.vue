@@ -10,7 +10,7 @@
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex xs7 class="text-center robot-mono">
+      <v-flex xs7 class="text-center font-weight-bold robot-mono">
         <span>
           <!--          {{ value | getDataValue(2) }}-->
           223.45
