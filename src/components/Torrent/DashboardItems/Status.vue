@@ -3,13 +3,14 @@
     xs6
     sm1
     md1
+    class="mr-4"
   >
     <div class="caption grey--text">
       Status
     </div>
     <v-chip
       small
-      class="caption white--text"
+      class="caption white--text px-2"
       :class="state"
     >
       {{ torrent.state }}
