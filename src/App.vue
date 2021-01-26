@@ -41,6 +41,7 @@ export default {
       const res = await qbit.login()
       const authenticated = res === 'Ok.'
       this.$store.commit('LOGIN', authenticated)
+      this.$store.commit('updateMainData')
       if (
         !authenticated &&
                 !this.$router.currentRoute.name.includes('login')

@@ -8,8 +8,7 @@ const vuexPersist = new VuexPersist({
   reducer: state => ({
     sort_options: state.sort_options,
     webuiSettings: state.webuiSettings,
-    authenticated: state.authenticated,
-    torrents: state.torrents
+    authenticated: state.authenticated
   })
 })
 
