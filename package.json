@@ -24,7 +24,6 @@
     "vue": "^2.6.12",
     "vue-apexcharts": "^1.6.0",
     "vue-context": "^5.2.0",
-    "vue-observe-visibility": "^0.4.6",
     "vue-router": "^3.4.9",
     "vue-toastification": "^1.7.11",
     "vue2-perfect-scrollbar": "^1.5.0",

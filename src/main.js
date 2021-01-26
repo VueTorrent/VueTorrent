@@ -4,21 +4,15 @@ import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
 import '@babel/polyfill'
-import 'typeface-roboto'
-import 'typeface-roboto-mono'
+import vuetify from './plugins/vuetify'
 
 /* eslint-disable no-unused-vars */
 import filters from '@/filters'
 import styles from '@/styles/styles.scss'
 /* eslint-enable no-unused-vars */
 
-import VueObserveVisibility from 'vue-observe-visibility'
-
-Vue.use(VueObserveVisibility)
-
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
-import vuetify from './plugins/vuetify'
 Vue.use(Toast, {
   maxToasts: 5,
   timeout: 2000
@@ -26,7 +20,6 @@ Vue.use(Toast, {
 
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
-
 Vue.use(PerfectScrollbar)
 
 import './registerServiceWorker'

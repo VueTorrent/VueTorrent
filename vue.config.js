@@ -5,7 +5,7 @@ module.exports = {
       .plugin('html')
       .tap(args => {
         args[0].title = 'VueTorrent'
-        
+
         return args
       })
   },
