@@ -78,8 +78,7 @@
       </div>
     </div>
     <vue-context ref="menu" v-slot="{ data }">
-      <TorrentRightClickMenu v-if="data && !selected_torrents.length" :hash="data.torrent.hash" />
-      <TorrentMultipleRightClickMenu v-if="data && selected_torrents.length" />
+      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" />
     </vue-context>
   </div>
 </template>
@@ -94,13 +93,12 @@ import 'vue-context/src/sass/vue-context.scss'
 
 import Torrent from '@/components/Torrent/Torrent'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
-import TorrentMultipleRightClickMenu from '@/components/Torrent/TorrentMultipleRightClickMenu.vue'
 
 import { TorrentSelect, General } from '@/mixins'
 
 export default {
   name: 'Dashboard',
-  components: { Torrent, VueContext, TorrentRightClickMenu, TorrentMultipleRightClickMenu },
+  components: { Torrent, VueContext, TorrentRightClickMenu },
   mixins: [TorrentSelect, General],
   data() {
     return {

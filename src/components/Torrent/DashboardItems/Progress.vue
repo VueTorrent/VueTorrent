@@ -6,13 +6,14 @@
     class="mr-4"
   >
     <div class="caption grey--text">
-      Done
+      Progress
     </div>
     <v-progress-linear
       :value="torrent.progress"
       height="20"
       :style="phoneLayout ? '' : 'width: 80%;'"
       :color="`torrent-${state}-color`"
+      rounded
     >
       <span
         class="caption white--text"

@@ -69,5 +69,16 @@ module.exports = {
     'arrow-spacing': ['error', { before: true, after: true }],
     'no-multi-spaces': ['error'],
     'newline-before-return': ['error']
-  }
+  },
+  overrides: [
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
 }

@@ -129,6 +129,9 @@ export default {
       return this.getSearchPlugins().filter(p => p.enabled)
     }
   },
+  created() {
+    this.$store.commit('FETCH_SEARCH_PLUGINS')
+  },
   methods: {
     async startSearch() {
       if (this.searchForm.pattern.length && !this.search.interval) {

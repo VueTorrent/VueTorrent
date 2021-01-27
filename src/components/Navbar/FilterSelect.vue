@@ -152,5 +152,10 @@ export default {
 #app .v-select .v-text-field__details {
   display: none;
 }
+
+#app .v-select .v-select__selection {
+  padding: 16px 0;
+  margin: 0;
+}
 </style>
 

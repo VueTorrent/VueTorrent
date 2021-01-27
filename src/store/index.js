@@ -8,8 +8,7 @@ const vuexPersist = new VuexPersist({
   reducer: state => ({
     sort_options: state.sort_options,
     webuiSettings: state.webuiSettings,
-    authenticated: state.authenticated,
-    torrents: state.torrents
+    authenticated: state.authenticated
   })
 })
 
@@ -64,6 +63,7 @@ export default new Vuex.Store({
       busyTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
+        { name: 'Downloaded', active: true },
         { name: 'Download', active: true },
         { name: 'Upload', active: true },
         { name: 'ETA', active: true },
@@ -78,6 +78,7 @@ export default new Vuex.Store({
       doneTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
+        { name: 'Downloaded', active: true },
         { name: 'Download', active: true },
         { name: 'Upload', active: true },
         { name: 'ETA', active: true },

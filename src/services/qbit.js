@@ -199,6 +199,18 @@ class Qbit {
     return this.torrentAction('setForceStart', hashes, { value: true })
   }
 
+  toggleSequentialDownload(hashes) {
+    return this.torrentAction('toggleSequentialDownload', hashes)
+  }
+
+  toggleFirstLastPiecePriority(hashes) {
+    return this.torrentAction('toggleFirstLastPiecePrio', hashes)
+  }
+
+  setAutoTMM(hashes, enable) {
+    return this.torrentAction('setAutoManagement', hashes, { enable })
+  }
+
   reannounceTorrents(hashes) {
     return this.torrentAction('reannounce', hashes)
   }
