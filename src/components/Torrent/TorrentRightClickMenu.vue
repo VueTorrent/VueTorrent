@@ -52,42 +52,88 @@
       </v-list-item-title>
     </v-list-item>
     <v-divider />
-    <v-list-item link @click="location">
-      <v-icon>{{ mdiFolder }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Change location
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="rename">
-      <v-icon>{{ mdiRenameBox }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Rename
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="recheck">
-      <v-icon>{{ mdiPlaylistCheck }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Force recheck
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="reannounce">
-      <v-icon>{{ mdiBullhorn }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
-        Force reannounce
-      </v-list-item-title>
-    </v-list-item>
+    <v-menu
+      open-on-hover
+      top
+    >
+      <template #activator="{ on }">
+        <v-list-item link v-on="on">
+          <v-icon>{{ mdiHeadCog }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Advanced
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-title>
+        </v-list-item>
+      </template>
+      <v-list dense rounded>
+        <v-list-item v-if="!multiple" link @click="location">
+          <v-icon>{{ mdiFolder }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Change location
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!multiple" link @click="rename">
+          <v-icon>{{ mdiRenameBox }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Rename
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item link @click="recheck">
+          <v-icon>{{ mdiPlaylistCheck }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Force recheck
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item link @click="reannounce">
+          <v-icon>{{ mdiBullhorn }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Force reannounce
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!multiple" link @click="toggleSeq">
+          <v-icon> {{ torrent.seq_dl ? mdiCheckboxMarked : mdiCheckboxBlankOutline }} </v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Sequential Download
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!multiple" link @click="toggleFL">
+          <v-icon> {{ torrent.f_l_piece_prio ? mdiCheckboxMarked : mdiCheckboxBlankOutline }} </v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            First/Last priority
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item v-if="!multiple" link @click="toggleAutoTMM">
+          <v-icon> {{ torrent.auto_tmm ? mdiCheckboxMarked : mdiCheckboxBlankOutline }} </v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Auto TMM
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-menu
       open-on-hover
       top
@@ -147,8 +193,8 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-divider />
-    <v-list-item link @click="showInfo">
+    <v-divider v-if="!multiple" />
+    <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
       <v-list-item-title
         class="ml-2"
@@ -157,7 +203,7 @@
         Show Info
       </v-list-item-title>
     </v-list-item>
-    <v-list-item link @click="selectTorrent(hash)">
+    <v-list-item v-if="!multiple" link @click="selectTorrent(hash)">
       <v-icon>{{ mdiSelect }}</v-icon>
       <v-list-item-title
         class="ml-2"
@@ -169,20 +215,21 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
   mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
-  mdiFastForward, mdiShape
+  mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline
 } from '@mdi/js'
-import { mapGetters } from 'vuex'
+
 export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
   props: {
-    hash: String
+    torrent: Object
   },
   data: () => ({
     priority_options: [
@@ -194,10 +241,11 @@ export default {
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
     mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
     mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
-    mdiShape
+    mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline
   }),
   computed: {
     ...mapGetters(['getCategories']),
+    ...mapState(['selected_torrents']),
     availableCategories() {
       const categories = [
         { name: 'None', value: '' }]
@@ -206,44 +254,61 @@ export default {
       }))
 
       return categories
+    },
+    hashes() {
+      if (this.multiple) return this.selected_torrents
+      
+      return [this.torrent.hash]
+    },
+    multiple() {
+      return this.selected_torrents.length
     }
   },
   methods: {
     resume() {
-      qbit.resumeTorrents([this.hash])
+      qbit.resumeTorrents(this.hashes)
     },
     pause() {
-      qbit.pauseTorrents([this.hash])
+      qbit.pauseTorrents(this.hashes)
     },
     location() {
-      this.createModal('ChangeLocationModal', { hash: this.hash })
+      this.createModal('ChangeLocationModal', { hash: this.torrent.hash })
     },
     rename() {
-      this.createModal('RenameModal', { hash: this.hash })
+      this.createModal('RenameModal', { hash: this.torrent.hash })
     },
     reannounce() {
-      qbit.reannounceTorrents([this.hash])
+      qbit.reannounceTorrents(this.hashes)
     },
     deleteWithoutFiles() {
-      qbit.deleteTorrents([this.hash], false)
+      qbit.deleteTorrents(this.hashes, false)
     },
     deleteWithFiles() {
-      qbit.deleteTorrents([this.hash], true)
+      qbit.deleteTorrents(this.hashes, true)
     },
     recheck() {
-      qbit.recheckTorrents([this.hash])
+      qbit.recheckTorrents(this.hashes)
     },
     showInfo() {
-      this.createModal('TorrentDetailModal', { hash: this.hash })
+      this.createModal('TorrentDetailModal', { hash: this.torrent.hash })
     },
     setPriority(priority) {
       qbit.setTorrentPriority(this.hash, priority)
     },
     forceResume() {
-      qbit.forceStartTorrents([this.hash])
+      qbit.forceStartTorrents(this.hashes)
     },
     setCategory(cat) {
-      qbit.setCategory([this.hash], cat)
+      qbit.setCategory(this.hashes, cat)
+    },
+    toggleSeq() {
+      qbit.toggleSequentialDownload(this.hashes)
+    },
+    toggleFL() {
+      qbit.toggleFirstLastPiecePriority(this.hashes)
+    },
+    toggleAutoTMM() {
+      qbit.setAutoTMM(this.hashes, !this.torrent.auto_tmm)
     }
   }
 }

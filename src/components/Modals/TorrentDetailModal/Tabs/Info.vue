@@ -11,7 +11,7 @@
               <td class="grey--text">
                 Torrent title
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.name }}
               </td>
             </tr>
@@ -19,7 +19,7 @@
               <td class="grey--text">
                 Directory
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.savePath }}
               </td>
             </tr>
@@ -27,7 +27,7 @@
               <td class="grey--text">
                 hash
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.hash }}
               </td>
             </tr>
@@ -35,7 +35,7 @@
               <td class="grey--text">
                 Size
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.size | getDataValue }}
                 {{ torrent.size | getDataUnit(1) }}
               </td>
@@ -44,7 +44,7 @@
               <td class="grey--text">
                 Downloaded:
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.dloaded | getDataValue }}
                 {{ torrent.dloaded | getDataUnit(1) }}
               </td>
@@ -53,7 +53,7 @@
               <td class="grey--text">
                 Uploaded:
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.uploaded | getDataValue }}
                 {{ torrent.uploaded | getDataUnit(1) }}
               </td>
@@ -62,7 +62,7 @@
               <td class="grey--text">
                 Ratio
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.ratio }}
               </td>
             </tr>
@@ -70,7 +70,7 @@
               <td class="grey--text">
                 Download Speed
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.dlspeed | getDataValue }}
                 {{ torrent.dlspeed | getDataUnit(1) }}
               </td>
@@ -79,7 +79,7 @@
               <td class="grey--text">
                 Upload Speed
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.upspeed | getDataValue }}
                 {{ torrent.upspeed | getDataUnit(1) }}
               </td>
@@ -88,7 +88,7 @@
               <td class="grey--text">
                 ETA
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.eta }}
               </td>
             </tr>
@@ -96,7 +96,7 @@
               <td class="grey--text">
                 Peers
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.num_leechs
                 }}<span class="grey--text">/{{ torrent.available_peers }}</span>
               </td>
@@ -105,7 +105,7 @@
               <td class="grey--text">
                 Seeds
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.num_seeds
                 }}<span class="grey--text">/{{ torrent.available_seeds }}</span>
               </td>
@@ -114,24 +114,8 @@
               <td class="grey--text">
                 Added on
               </td>
-              <td class="torrentmodaltext--text">
+              <td>
                 {{ torrent.added_on }}
-              </td>
-            </tr>
-            <tr v-if="torrent.tracker">
-              <td class="grey--text">
-                Tracker
-              </td>
-              <td class="torrentmodaltext--text">
-                {{ torrent.tracker }}
-              </td>
-            </tr>
-            <tr v-if="torrent.comment">
-              <td class="grey--text">
-                Comment
-              </td>
-              <td class="torrentmodaltext--text">
-                {{ torrent.comment }}
               </td>
             </tr>
             <tr>
@@ -144,6 +128,47 @@
               >
                 {{ torrent.state }}
               </v-chip>
+            </tr>
+            <tr v-if="torrent.tracker">
+              <td class="grey--text">
+                Tracker
+              </td>
+              <td>
+                {{ torrent.tracker }}
+              </td>
+            </tr>
+            <tr v-if="torrent.comment">
+              <td class="grey--text">
+                Comment
+              </td>
+              <td>
+                {{ torrent.comment }}
+              </td>
+            </tr>
+            
+            <tr>
+              <td class="grey--text">
+                First/Last Piece Priority
+              </td>
+              <td>
+                {{ torrent.f_l_piece_prio }}
+              </td>
+            </tr>
+            <tr>
+              <td class="grey--text">
+                Sequential Download
+              </td>
+              <td>
+                {{ torrent.seq_dl }}
+              </td>
+            </tr>
+            <tr>
+              <td class="grey--text">
+                Auto TMM
+              </td>
+              <td>
+                {{ torrent.auto_tmm }}
+              </td>
             </tr>
           </tbody>
         </v-simple-table>
