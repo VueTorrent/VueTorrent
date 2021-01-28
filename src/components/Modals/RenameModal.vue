@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiFile} from '@mdi/js'
+import { mdiFile } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
