@@ -44,25 +44,6 @@
           fab
           color="grey--text"
           class="mr-0 ml-0"
-          aria-label="Search New Torrent"
-          v-on="on"
-          @click="addModal('SearchModal')"
-        >
-          <v-icon color="grey">
-            {{ mdiSearchWeb }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Search new Torrent</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          color="grey--text"
-          class="mr-0 ml-0"
           aria-label="Add Torrent"
           v-on="on"
           @click="addModal('AddModal')"
@@ -73,24 +54,6 @@
         </v-btn>
       </template>
       <span> Add Torrent</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          aria-label="Remove Selected Torrents"
-          v-on="on"
-          @click="removeTorrents"
-        >
-          <v-icon color="grey">
-            {{ mdiDelete }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Remove Selected Torrents</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -127,6 +90,43 @@
         </v-btn>
       </template>
       <span>Pause Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          aria-label="Remove Selected Torrents"
+          v-on="on"
+          @click="removeTorrents"
+        >
+          <v-icon color="grey">
+            {{ mdiDelete }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Remove Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          color="grey--text"
+          class="mr-0 ml-0"
+          aria-label="Search New Torrent"
+          v-on="on"
+          @click="addModal('SearchModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiSearchWeb }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Search new Torrent</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
