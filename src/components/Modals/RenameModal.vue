@@ -18,7 +18,7 @@
                   <v-text-field
                     v-model="name"
                     label="Torrent Name"
-                    prepend-icon="insert_drive_file"
+                    :prepend-icon="mdiFile"
                   />
                 </v-col>
               </v-row>
@@ -51,6 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { mdiFile} from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
@@ -61,7 +62,8 @@ export default {
   },
   data() {
     return {
-      name: ''
+      name: '',
+      mdiFile
     }
   },
   computed: {

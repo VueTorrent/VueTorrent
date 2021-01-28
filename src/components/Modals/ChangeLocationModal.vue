@@ -18,13 +18,13 @@
                   <v-text-field
                     v-model="torrent.name"
                     label="Torrent Name"
-                    prepend-icon="insert_drive_file"
+                    :prepend-icon="mdiFile"
                     readonly
                   />
                   <v-text-field
                     v-model="newPath"
                     label="Directory"
-                    prepend-icon="folder"
+                    :prepend-icon="mdiFolder"
                     @keydown.enter="setLocation"
                   />
                 </v-col>
@@ -58,9 +58,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import { mdiFile, mdiFolder } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
+
 export default {
   name: 'ChangeLocationModal',
   mixins: [Modal, FullScreenModal],
@@ -69,7 +70,8 @@ export default {
   },
   data() {
     return {
-      newPath: ''
+      newPath: '',
+      mdiFile, mdiFolder
     }
   },
   computed: {
