@@ -19,23 +19,81 @@
     </v-row>
 
     <div class="my-2 px-2" @click.self="resetSelected">
-      <v-flex
-        xs12
-        sm6
-        md3
-        @click.self="resetSelected"
-      >
-        <v-text-field
-          v-model="input"
-          flat
-          label="Search"
-          outlined
-          clearable
-          solo
-          :append-outer-icon="mdiFilter"
-          @click:clear="resetInput()"
-        />
-      </v-flex>
+      <v-row class="my-2" :class="searchFilterEnabled ? 'mx-1' : ''" @click.self="resetSelected">
+        <v-flex
+          v-if="searchFilterEnabled"
+          xs7
+          md3
+          class="ma-0 pa-0"
+        >
+          <v-text-field
+          
+            v-model="input"
+            flat
+            label="Search"
+            outlined
+            clearable
+            solo
+            @click:clear="resetInput()"
+          />
+        </v-flex>
+        <v-row class="my-2 mx-1">
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Select Mode"
+                v-on="on"
+                @click="searchFilterEnabled = !searchFilterEnabled"
+              >
+                <v-icon color="grey">
+                  {{ mdiFilter }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Toggle Search Filter</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Select Mode"
+                v-on="on"
+                @click="toggleSelectMode()"
+              >
+                <v-icon color="grey">
+                  {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Select Mode</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Sort Torrents"
+                v-on="on"
+                @click="addModal('SortModal')"
+              >
+                <v-icon color="grey">
+                  {{ mdiSort }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Sort Torrents</span>
+          </v-tooltip>
+        </v-row>
+      </v-row>
 
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
@@ -92,7 +150,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
-import { mdiFilter } from '@mdi/js'
+import { mdiFilter, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
@@ -109,8 +167,9 @@ export default {
   data() {
     return {
       input: '',
+      searchFilterEnabled: false,
       pageNumber: 1,
-      mdiFilter
+      mdiFilter, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
     }
   },
   computed: {
@@ -181,6 +240,17 @@ export default {
     },
     toTop() {
       this.$vuetify.goTo(0)
+    },
+    toggleSelectMode() {
+      if (this.$store.state.selectMode) {
+        this.$store.state.selected_torrents = []
+
+        return this.$store.state.selectMode = false
+      }
+      this.$store.state.selectMode = true
+    },
+    addModal(name) {
+      this.createModal(name)
     },
     handleKeyboardShortcut(e) {
       // 'ctrl + A' => select torrents

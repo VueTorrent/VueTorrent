@@ -6,42 +6,6 @@
           :text="!mobile"
           small
           fab
-          class="mr-0 ml-0"
-          aria-label="Select Mode"
-          v-on="on"
-          @click="toggleSelectMode()"
-        >
-          <v-icon color="grey">
-            {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Select Mode</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          class="mr-0 ml-0"
-          aria-label="Sort Torrents"
-          v-on="on"
-          @click="addModal('SortModal')"
-        >
-          <v-icon color="grey">
-            {{ mdiSort }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Sort Torrents</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
           color="grey--text"
           class="mr-0 ml-0"
           aria-label="Add Torrent"
@@ -193,14 +157,6 @@ export default {
     },
     addModal(name) {
       this.createModal(name)
-    },
-    toggleSelectMode() {
-      if (this.$store.state.selectMode) {
-        this.$store.state.selected_torrents = []
-        
-        return this.$store.state.selectMode = false
-      }
-      this.$store.state.selectMode = true
     }
   }
 }
