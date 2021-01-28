@@ -26,6 +26,9 @@ export default class Torrent {
     this.f_l_piece_prio = data.f_l_piece_prio
     this.seq_dl = data.seq_dl
     this.auto_tmm = data.auto_tmm
+    this.dl_limit = data.dl_limit
+    this.up_limit = data.up_limit
+    this.ratio_limit = data.ratio_limit
 
     Object.freeze(this)
   }
