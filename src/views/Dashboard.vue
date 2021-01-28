@@ -42,7 +42,8 @@
           <v-list-item
             v-for="(torrent, index) in paginatedData"
             :key="torrent.hash"
-            class="pa-0 mb-1"
+            class="pa-0"
+            :class="isMobile ? 'mb-1' : 'mb-2'"
             @contextmenu.prevent="$refs.menu.open($event, { torrent })"
           >
             <template #default>
