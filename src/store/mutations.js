@@ -66,7 +66,6 @@ export default {
 
     // torrents
     let { data } = await qbit.getTorrents(state.sort_options)
-    console.log(data)
 
     // trackers
     if (state.webuiSettings.showTrackerFilter) { // dont calculate trackers when disabled

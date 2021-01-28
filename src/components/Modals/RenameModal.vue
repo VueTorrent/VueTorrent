@@ -8,7 +8,7 @@
     <v-card style="overflow: hidden !important">
       <v-container :style="{ height: phoneLayout ? '100vh' : '' }">
         <v-card-title class="pb-0 justify-center">
-          <h2>Rename Torrent</h2>
+          <h2>Rename</h2>
         </v-card-title>
         <v-card-text>
           <div>
@@ -42,7 +42,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -51,7 +51,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiFile } from '@mdi/js'
+import { mdiFile, mdiClose } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
@@ -63,7 +63,7 @@ export default {
   data() {
     return {
       name: '',
-      mdiFile
+      mdiFile, mdiClose
     }
   },
   computed: {

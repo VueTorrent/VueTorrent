@@ -42,7 +42,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -51,19 +51,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiFile } from '@mdi/js'
+import { mdiFile, mdiClose } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
-  name: 'RenameModal',
+  name: 'SpeedLimitModal',
   mixins: [Modal, FullScreenModal],
   props: {
-    hash: String
+    hashes: Array,
+    type: String
   },
   data() {
     return {
       name: '',
-      mdiFile
+      mdiFile, mdiClose
     }
   },
   computed: {

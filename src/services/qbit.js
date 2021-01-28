@@ -211,6 +211,18 @@ class Qbit {
     return this.torrentAction('setAutoManagement', hashes, { enable })
   }
 
+  setDownloadLimit(hashes, limit) {
+    return this.torrentAction('setDownloadLimit', hashes, { limit })
+  }
+
+  setUploadLimit(hashes, limit) {
+    return this.torrentAction('setUploadLimit', hashes, { limit })
+  }
+
+  setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
+    return this.torrentAction('setShareLimits', hashes, { ratioLimit, seedingTimeLimit })
+  }
+
   reannounceTorrents(hashes) {
     return this.torrentAction('reannounce', hashes)
   }
