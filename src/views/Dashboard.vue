@@ -1,15 +1,20 @@
 <template>
   <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
-    <v-row no-gutters class="grey--text">
+    <v-row
+      no-gutters
+      class="grey--text"
+      align="center"
+      justify="center"
+    >
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           Dashboard
         </h1>
       </v-col>
-      <v-col>
-        <p style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
+      <v-col class="align-center justify-center">
+        <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
           {{ torrentCountString }}
-        </p>
+        </span>
       </v-col>
     </v-row>
 
@@ -23,7 +28,7 @@
         <v-text-field
           v-model="input"
           flat
-          label="Filter"
+          label="Search"
           outlined
           clearable
           solo
