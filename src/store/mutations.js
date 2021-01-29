@@ -95,7 +95,8 @@ export default {
   UPDATE_SORT_OPTIONS: (state, { 
     reverse = false, 
     hashes = [], 
-    filter = null, category = null, 
+    filter = null,
+    category = null,
     tracker = null 
   }) => {
     state.sort_options.reverse = reverse

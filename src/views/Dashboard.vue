@@ -115,13 +115,17 @@
             @contextmenu.prevent="$refs.menu.open($event, { torrent })"
           >
             <template #default>
-              <v-list-item-action v-if="selectMode">
-                <v-checkbox
-                  color="grey"
-                  :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
-                  @click="selectTorrent(torrent.hash)"
-                />
-              </v-list-item-action>
+              <v-expand-x-transition>
+                <v-card v-show="selectMode" class="transparent">
+                  <v-list-item-action>
+                    <v-checkbox
+                      color="grey"
+                      :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                      @click="selectTorrent(torrent.hash)"
+                    />
+                  </v-list-item-action>
+                </v-card>
+              </v-expand-x-transition>
               <v-list-item-content class="pa-0">
                 <Torrent :torrent="torrent" />
                 <v-divider
