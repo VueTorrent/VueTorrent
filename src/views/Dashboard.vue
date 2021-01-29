@@ -24,6 +24,7 @@
           <v-card
             v-show="searchFilterEnabled"
             id="searchFilter"
+            flat
             xs7
             md3
             class="ma-0 pa-0 mt-1 transparent"
@@ -116,7 +117,7 @@
           >
             <template #default>
               <v-expand-x-transition>
-                <v-card v-show="selectMode" class="transparent">
+                <v-card v-show="selectMode" flat class="transparent">
                   <v-list-item-action>
                     <v-checkbox
                       color="grey"

@@ -6,7 +6,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 ## Screenshots
 
-![Desktop screenshot](https://imgur.com/BgqO5Zp.png)
+![Desktop screenshot](https://imgur.com/IUkaDnI.png)
 
 |                                    |                                    |                                    |
 | :--------------------------------: | :--------------------------------: | :--------------------------------: |

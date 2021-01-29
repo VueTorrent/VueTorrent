@@ -97,13 +97,15 @@ export default {
     hashes = [], 
     filter = null,
     category = null,
-    tracker = null 
+    tracker = null,
+    sort = null
   }) => {
     state.sort_options.reverse = reverse
     state.sort_options.hashes = hashes
     state.sort_options.filter = filter
     state.sort_options.category = category
     state.sort_options.tracker = tracker
+    state.sort_options.sort = sort
   },
   FETCH_CATEGORIES: async state => state.categories = Object.values(await (qbit.getCategories())),
   FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),
