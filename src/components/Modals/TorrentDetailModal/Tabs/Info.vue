@@ -183,7 +183,7 @@
                 Download Limit
               </td>
               <td>
-                {{ torrent.dl_limit }}
+                {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}/s
               </td>
             </tr>
             <tr>
@@ -191,7 +191,7 @@
                 Upload Limit
               </td>
               <td>
-                {{ torrent.up_limit }}
+                {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}/s
               </td>
             </tr>
           </tbody>

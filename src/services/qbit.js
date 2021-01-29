@@ -281,10 +281,10 @@ class Qbit {
   }
 
   /** Torrent Priority **/
-  setTorrentPriority(hash, priority) {
+  setTorrentPriority(hashes, priority) {
     if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
       return this.execute('post', `/torrents/${priority}`, {
-        hashes: hash
+        hashes: hashes.join('|')
       })
     }
   }
