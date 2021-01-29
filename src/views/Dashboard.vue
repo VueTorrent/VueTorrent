@@ -19,25 +19,30 @@
     </v-row>
 
     <div class="my-2 px-2" @click.self="resetSelected">
-      <v-row class="my-2" :class="searchFilterEnabled ? 'mx-1' : ''" @click.self="resetSelected">
-        <v-flex
-          v-if="searchFilterEnabled"
-          xs7
-          md3
-          class="ma-0 pa-0"
-        >
-          <v-text-field
-          
-            v-model="input"
-            flat
-            label="Search"
-            outlined
-            clearable
-            solo
-            @click:clear="resetInput()"
-          />
-        </v-flex>
-        <v-row class="my-2 mx-1">
+      <v-row class="my-2 mx-1" @click.self="resetSelected">
+        <v-expand-x-transition>
+          <v-card
+            v-show="searchFilterEnabled"
+            id="searchFilter"
+            xs7
+            md3
+            class="ma-0 pa-0 mt-1 transparent"
+          >
+            <v-text-field
+              v-model="input"
+              flat
+              label="Search"
+              dense
+              outlined
+              clearable
+              solo
+              height="50px"
+              width="100px"
+              @click:clear="resetInput()"
+            />
+          </v-card>
+        </v-expand-x-transition>
+        <v-row style="margin-top: 10px" class="mb-1 mx-1">
           <v-tooltip bottom>
             <template #activator="{ on }">
               <v-btn
@@ -280,13 +285,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.v-context {
-  &,
-  & ul {
-    border-radius: 0.3rem;
-    padding: 0;
-  }
+<style lang="scss">
+#searchFilter .v-text-field__details {
+  display: none;
 }
 </style>
 
