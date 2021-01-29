@@ -12,7 +12,10 @@
               :key="t.hash"
             >
               <v-list-item-content>
-                <v-list-item-title class="truncate" v-text="t.name" />
+                <v-list-item-title
+                  class="text-wrap"
+                  v-text="t.name"
+                />
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -20,21 +23,21 @@
         <v-card-actions class="justify-center pb-5">
           <v-btn
             text
-            class="error white--text mt-3"
+            class="accent white--text mt-3"
             @click="close()"
           >
             Cancel
           </v-btn>
           <v-btn
             text
-            class="accent white--text mt-3"
+            class="error white--text mt-3"
             @click="deleteWithoutFiles()"
           >
             Delete
           </v-btn>
           <v-btn
             text
-            class="accent white--text mt-3"
+            class="error white--text mt-3"
             @click="deleteWithFiles()"
           >
             Delete with files

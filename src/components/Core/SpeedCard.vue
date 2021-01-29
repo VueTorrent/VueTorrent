@@ -11,16 +11,16 @@
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex xs7 class="text-center font-weight-bold robot-mono">
+      <v-flex xs6 class="text-center font-weight-bold robot-mono">
         <span data-testid="SpeedCard-value">
-          {{ value | getDataValue(2) }}
+          {{ value | getSpeedValue }}
         </span>
       </v-flex>
       <v-flex
-        xs3
+        xs4
         class="caption robot-mono text-right mt-1"
       >
-        <span class="speedUnits" data-testid="SpeedCard-unit">
+        <span data-testid="SpeedCard-unit">
           {{ value | getDataUnit(1) }}/s
         </span>
       </v-flex>
@@ -31,6 +31,16 @@
 <script>
 export default {
   name: 'SpeedCard',
+  filters: {
+    getSpeedValue(value) {
+      if (!value) return '0'
+      const c = 1024
+      const d = value > 1048576 ? 2 : 0 // 2 decimals when MB
+      const f = Math.floor(Math.log(value) / Math.log(c))
+
+      return `${parseFloat((value / Math.pow(c, f)).toFixed(d))}`
+    }
+  },
   props: ['color', 'icon', 'value']
 }
 </script>
@@ -39,9 +49,5 @@ export default {
 .speedCard {
   padding: 32px 16px !important;
   font-size: 1.05em;
-}
-
-.speedUnits {
-  font-size:  .8em !important;
 }
 </style>

@@ -211,6 +211,18 @@ class Qbit {
     return this.torrentAction('setAutoManagement', hashes, { enable })
   }
 
+  setDownloadLimit(hashes, limit) {
+    return this.torrentAction('setDownloadLimit', hashes, { limit })
+  }
+
+  setUploadLimit(hashes, limit) {
+    return this.torrentAction('setUploadLimit', hashes, { limit })
+  }
+
+  setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
+    return this.torrentAction('setShareLimits', hashes, { ratioLimit, seedingTimeLimit })
+  }
+
   reannounceTorrents(hashes) {
     return this.torrentAction('reannounce', hashes)
   }
@@ -269,10 +281,10 @@ class Qbit {
   }
 
   /** Torrent Priority **/
-  setTorrentPriority(hash, priority) {
+  setTorrentPriority(hashes, priority) {
     if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
       return this.execute('post', `/torrents/${priority}`, {
-        hashes: hash
+        hashes: hashes.join('|')
       })
     }
   }

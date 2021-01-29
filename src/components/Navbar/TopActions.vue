@@ -6,61 +6,6 @@
           :text="!mobile"
           small
           fab
-          class="mr-0 ml-0"
-          aria-label="Select Mode"
-          v-on="on"
-          @click="toggleSelectMode()"
-        >
-          <v-icon color="grey">
-            {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Select Mode</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          class="mr-0 ml-0"
-          aria-label="Sort Torrents"
-          v-on="on"
-          @click="addModal('SortModal')"
-        >
-          <v-icon color="grey">
-            {{ mdiSort }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Sort Torrents</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          color="grey--text"
-          class="mr-0 ml-0"
-          aria-label="Search New Torrent"
-          v-on="on"
-          @click="addModal('SearchModal')"
-        >
-          <v-icon color="grey">
-            {{ mdiSearchWeb }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Search new Torrent</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
           color="grey--text"
           class="mr-0 ml-0"
           aria-label="Add Torrent"
@@ -73,24 +18,6 @@
         </v-btn>
       </template>
       <span> Add Torrent</span>
-    </v-tooltip>
-    <v-tooltip bottom>
-      <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          aria-label="Remove Selected Torrents"
-          v-on="on"
-          @click="removeTorrents"
-        >
-          <v-icon color="grey">
-            {{ mdiDelete }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span>Remove Selected Torrents</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -127,6 +54,43 @@
         </v-btn>
       </template>
       <span>Pause Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          small
+          fab
+          :text="!mobile"
+          class="mr-0 ml-0"
+          aria-label="Remove Selected Torrents"
+          v-on="on"
+          @click="removeTorrents"
+        >
+          <v-icon color="grey">
+            {{ mdiDelete }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Remove Selected Torrents</span>
+    </v-tooltip>
+    <v-tooltip bottom>
+      <template #activator="{ on }">
+        <v-btn
+          :text="!mobile"
+          small
+          fab
+          color="grey--text"
+          class="mr-0 ml-0"
+          aria-label="Search New Torrent"
+          v-on="on"
+          @click="addModal('SearchModal')"
+        >
+          <v-icon color="grey">
+            {{ mdiSearchWeb }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>Search new Torrent</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -193,14 +157,6 @@ export default {
     },
     addModal(name) {
       this.createModal(name)
-    },
-    toggleSelectMode() {
-      if (this.$store.state.selectMode) {
-        this.$store.state.selected_torrents = []
-        
-        return this.$store.state.selectMode = false
-      }
-      this.$store.state.selectMode = true
     }
   }
 }

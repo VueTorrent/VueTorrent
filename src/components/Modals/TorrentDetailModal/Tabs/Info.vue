@@ -170,6 +170,30 @@
                 {{ torrent.auto_tmm }}
               </td>
             </tr>
+            <tr>
+              <td class="grey--text">
+                Share Limit
+              </td>
+              <td>
+                {{ torrent.ratio_limit }}
+              </td>
+            </tr>
+            <tr>
+              <td class="grey--text">
+                Download Limit
+              </td>
+              <td>
+                {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}/s
+              </td>
+            </tr>
+            <tr>
+              <td class="grey--text">
+                Upload Limit
+              </td>
+              <td>
+                {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}/s
+              </td>
+            </tr>
           </tbody>
         </v-simple-table>
       </v-card-text>

@@ -193,13 +193,42 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-menu
+      v-if="!multiple"
+      open-on-hover
+      top
+    >
+      <template #activator="{ on }">
+        <v-list-item link v-on="on">
+          <v-icon>{{ mdiSpeedometerSlow }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Set Limit
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-title>
+        </v-list-item>
+      </template>
+      <v-list dense rounded>
+        <v-list-item @click="setLimit('download')">
+          <v-icon>{{ mdiChevronDown }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Download
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="setLimit('upload')">
+          <v-icon>{{ mdiChevronUp }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Upload    
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-divider v-if="!multiple" />
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em"
-      >
+      <v-list-item-title class="ml-2">
         Show Info
       </v-list-item-title>
     </v-list-item>
@@ -222,7 +251,8 @@ import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
   mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
-  mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline
+  mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
+  mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
 } from '@mdi/js'
 
 export default {
@@ -241,7 +271,8 @@ export default {
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
     mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
     mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
-    mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline
+    mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
+    mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
   }),
   computed: {
     ...mapGetters(['getCategories']),
@@ -293,7 +324,10 @@ export default {
       this.createModal('TorrentDetailModal', { hash: this.torrent.hash })
     },
     setPriority(priority) {
-      qbit.setTorrentPriority(this.hash, priority)
+      qbit.setTorrentPriority(this.hashes, priority)
+    },
+    setLimit(mode) {
+      this.createModal('SpeedLimitModal', { hash: this.torrent.hash, mode })
     },
     forceResume() {
       qbit.forceStartTorrents(this.hashes)

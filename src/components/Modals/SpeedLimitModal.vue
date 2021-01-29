@@ -2,13 +2,15 @@
   <v-dialog
     v-model="dialog"
     scrollable
-    :width="dialogWidth"
+    max-width="500px"
     :fullscreen="phoneLayout"
   >
     <v-card style="overflow: hidden !important">
       <v-container :style="{ height: phoneLayout ? '100vh' : '' }">
         <v-card-title class="pb-0 justify-center">
-          <h2>Rename</h2>
+          <h2 class="text-capitalize">
+            Limit {{ mode }}
+          </h2>
         </v-card-title>
         <v-card-text>
           <div>
@@ -16,9 +18,11 @@
               <v-row>
                 <v-col>
                   <v-text-field
-                    v-model="name"
-                    label="Torrent Name"
-                    :prepend-icon="mdiFile"
+                    v-model="limit"
+                    label="Speed Limit"
+                    :prepend-icon="mdiSpeedometer"
+                    suffix="KB/s"
+                    clearable
                   />
                 </v-col>
               </v-row>
@@ -27,7 +31,7 @@
         </v-card-text>
         <div>
           <v-card-actions class="justify-center">
-            <v-btn color="success" @click="rename">
+            <v-btn color="success" @click="setLimit">
               Save
             </v-btn>
           </v-card-actions>
@@ -51,36 +55,53 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiFile, mdiClose } from '@mdi/js'
+import { mdiSpeedometer, mdiClose } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
-  name: 'RenameModal',
+  name: 'SpeedLimitModal',
   mixins: [Modal, FullScreenModal],
   props: {
+    mode: String,
     hash: String
   },
   data() {
     return {
-      name: '',
-      mdiFile, mdiClose
+      limit: '',
+      mdiSpeedometer, mdiClose
     }
   },
   computed: {
     ...mapGetters(['getTorrent']),
-    dialogWidth() {
-      return this.phoneLayout ? '100%' : '750px'
-    },
     torrent() {
       return this.getTorrent(this.hash)
     }
   },
   created() {
-    this.name = this.torrent.name
+    switch (this.mode) {
+      case 'download':
+        this.limit = this.torrent.dl_limit / 1024
+        break
+      case 'upload':
+        this.limit = this.torrent.up_limit / 1024
+        break
+      default:
+        break
+    }
+ 
   },
   methods: {
-    rename() {
-      qbit.setTorrentName(this.hash, this.name)
+    setLimit() {
+      switch (this.mode) {
+        case 'download':
+          qbit.setDownloadLimit([this.hash], this.limit * 1024 ?? -1)
+          break
+        case 'upload':
+          qbit.setUploadLimit([this.hash], this.limit * 1024 ?? -1)
+          break
+        default:
+          break
+      }
       this.close()
     },
     close() {

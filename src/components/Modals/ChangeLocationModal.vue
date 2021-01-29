@@ -8,7 +8,7 @@
     <v-card style="overflow: hidden !important">
       <v-container :style="{ height: phoneLayout ? '100vh' : '' }">
         <v-card-title class="pb-0 justify-center">
-          <h2>Change Torrent Location</h2>
+          <h2>Change Location</h2>
         </v-card-title>
         <v-card-text>
           <div>
@@ -18,13 +18,13 @@
                   <v-text-field
                     v-model="torrent.name"
                     label="Torrent Name"
-                    prepend-icon="insert_drive_file"
+                    :prepend-icon="mdiFile"
                     readonly
                   />
                   <v-text-field
                     v-model="newPath"
                     label="Directory"
-                    prepend-icon="folder"
+                    :prepend-icon="mdiFolder"
                     @keydown.enter="setLocation"
                   />
                 </v-col>
@@ -49,7 +49,7 @@
           right
           @click="close"
         >
-          <v-icon>close</v-icon>
+          <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
     </v-card>
@@ -58,9 +58,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import { mdiFile, mdiFolder, mdiClose } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
+
 export default {
   name: 'ChangeLocationModal',
   mixins: [Modal, FullScreenModal],
@@ -69,7 +70,8 @@ export default {
   },
   data() {
     return {
-      newPath: ''
+      newPath: '',
+      mdiFile, mdiFolder, mdiClose
     }
   },
   computed: {

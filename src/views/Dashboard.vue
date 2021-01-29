@@ -1,36 +1,105 @@
 <template>
   <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
-    <v-row no-gutters class="grey--text">
+    <v-row
+      no-gutters
+      class="grey--text"
+      align="center"
+      justify="center"
+    >
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           Dashboard
         </h1>
       </v-col>
-      <v-col>
-        <p style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
+      <v-col class="align-center justify-center">
+        <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
           {{ torrentCountString }}
-        </p>
+        </span>
       </v-col>
     </v-row>
 
     <div class="my-2 px-2" @click.self="resetSelected">
-      <v-flex
-        xs12
-        sm6
-        md3
-        @click.self="resetSelected"
-      >
-        <v-text-field
-          v-model="input"
-          flat
-          label="Filter"
-          outlined
-          clearable
-          solo
-          :append-outer-icon="mdiFilter"
-          @click:clear="resetInput()"
-        />
-      </v-flex>
+      <v-row class="my-2 mx-1" @click.self="resetSelected">
+        <v-expand-x-transition>
+          <v-card
+            v-show="searchFilterEnabled"
+            id="searchFilter"
+            flat
+            xs7
+            md3
+            class="ma-0 pa-0 mt-1 transparent"
+          >
+            <v-text-field
+              v-model="input"
+              flat
+              label="Search"
+              dense
+              outlined
+              clearable
+              solo
+              height="50px"
+              width="100px"
+              @click:clear="resetInput()"
+            />
+          </v-card>
+        </v-expand-x-transition>
+        <v-row style="margin-top: 10px" class="mb-1 mx-1">
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Select Mode"
+                v-on="on"
+                @click="searchFilterEnabled = !searchFilterEnabled"
+              >
+                <v-icon color="grey">
+                  {{ mdiFilter }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Toggle Search Filter</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Select Mode"
+                v-on="on"
+                @click="toggleSelectMode()"
+              >
+                <v-icon color="grey">
+                  {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Select Mode</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                class="mr-0 ml-0"
+                aria-label="Sort Torrents"
+                v-on="on"
+                @click="addModal('SortModal')"
+              >
+                <v-icon color="grey">
+                  {{ mdiSort }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Sort Torrents</span>
+          </v-tooltip>
+        </v-row>
+      </v-row>
 
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
@@ -42,17 +111,22 @@
           <v-list-item
             v-for="(torrent, index) in paginatedData"
             :key="torrent.hash"
-            class="pa-0 mb-1"
+            class="pa-0"
+            :class="isMobile ? 'mb-1' : 'mb-2'"
             @contextmenu.prevent="$refs.menu.open($event, { torrent })"
           >
             <template #default>
-              <v-list-item-action v-if="selectMode">
-                <v-checkbox
-                  color="grey"
-                  :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
-                  @click="selectTorrent(torrent.hash)"
-                />
-              </v-list-item-action>
+              <v-expand-x-transition>
+                <v-card v-show="selectMode" flat class="transparent">
+                  <v-list-item-action>
+                    <v-checkbox
+                      color="grey"
+                      :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                      @click="selectTorrent(torrent.hash)"
+                    />
+                  </v-list-item-action>
+                </v-card>
+              </v-expand-x-transition>
               <v-list-item-content class="pa-0">
                 <Torrent :torrent="torrent" />
                 <v-divider
@@ -86,7 +160,7 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
-import { mdiFilter } from '@mdi/js'
+import { mdiFilter, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
 import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
@@ -103,8 +177,9 @@ export default {
   data() {
     return {
       input: '',
+      searchFilterEnabled: false,
       pageNumber: 1,
-      mdiFilter
+      mdiFilter, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
     }
   },
   computed: {
@@ -176,6 +251,17 @@ export default {
     toTop() {
       this.$vuetify.goTo(0)
     },
+    toggleSelectMode() {
+      if (this.$store.state.selectMode) {
+        this.$store.state.selected_torrents = []
+
+        return this.$store.state.selectMode = false
+      }
+      this.$store.state.selectMode = true
+    },
+    addModal(name) {
+      this.createModal(name)
+    },
     handleKeyboardShortcut(e) {
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
@@ -204,13 +290,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-.v-context {
-  &,
-  & ul {
-    border-radius: 0.3rem;
-    padding: 0;
-  }
+<style lang="scss">
+#searchFilter .v-text-field__details {
+  display: none;
 }
 </style>
 
