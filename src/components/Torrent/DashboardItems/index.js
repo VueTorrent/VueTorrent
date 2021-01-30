@@ -13,6 +13,7 @@ import Tags from './Tags'
 import AddedOn from './AddedOn'
 import Uploaded from './Uploaded'
 import UploadedSession from './UploadedSession'
+import Availability from './Availability'
 
 export {
   Size,
@@ -29,5 +30,6 @@ export {
   AddedOn,
   Uploaded,
   UploadedSession,
-  Downloaded
+  Downloaded,
+  Availability
 }

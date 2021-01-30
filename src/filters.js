@@ -85,6 +85,7 @@ export function networkSize(size) {
 Vue.filter('networkSize', networkSize)
 
 function getDataUnit(a, b) {
+  if (a === -1) return null
   if (!a) return 'B'
   const c = 1024
   const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
@@ -96,7 +97,8 @@ function getDataUnit(a, b) {
 Vue.filter('getDataUnit', getDataUnit)
 
 function getDataValue(a, b) {
-  if (a == 0) return '0'
+  if (a === -1) return 'None'
+  if (!a) return '0'
   const c = 1024
   const d = b || 2
   const f = Math.floor(Math.log(a) / Math.log(c))
