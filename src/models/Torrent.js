@@ -30,6 +30,7 @@ export default class Torrent {
     this.up_limit = data.up_limit
     this.ratio_limit = data.ratio_limit
     this.availability = Math.round(data.availability * 100) / 100
+    this.forced = data.state.includes('forced')
 
     Object.freeze(this)
   }
@@ -37,13 +38,11 @@ export default class Torrent {
   formatState(state) {
     switch (state) {
       case 'forcedDL':
-        return '[F] Downloading'
       case 'downloading':
         return 'Downloading'
       case 'metaDL':
         return 'Metadata'
       case 'forcedUP':
-        return '[F] Seeding'
       case 'uploading':
       case 'stalledUP':
         return 'Seeding'
