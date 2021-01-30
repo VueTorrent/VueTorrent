@@ -137,7 +137,12 @@
             </template>
           </v-list-item>
         </v-list>
-        <v-row v-if="(pageCount > 1) && !hasSearchFilter" xs12 justify="center">
+        <v-row
+          v-if="(pageCount > 1) && !hasSearchFilter"
+          xs12
+          justify="center"
+          class="mb-0"
+        >
           <v-col>
             <v-container>
               <v-pagination
