@@ -29,6 +29,7 @@ export default class Torrent {
     this.dl_limit = data.dl_limit
     this.up_limit = data.up_limit
     this.ratio_limit = data.ratio_limit
+    this.availability = Math.round(data.availability * 100) / 100
 
     Object.freeze(this)
   }

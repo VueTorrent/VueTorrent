@@ -183,7 +183,7 @@
                 Download Limit
               </td>
               <td>
-                {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}/s
+                {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}<span v-if="torrent.dl_limit !== -1"> /s </span>
               </td>
             </tr>
             <tr>
@@ -191,7 +191,15 @@
                 Upload Limit
               </td>
               <td>
-                {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}/s
+                {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}<span v-if="torrent.up_limit !== -1"> /s </span>
+              </td>
+            </tr>
+            <tr>
+              <td class="grey--text">
+                Availability
+              </td>
+              <td>
+                {{ torrent.availability }}%
               </td>
             </tr>
           </tbody>
