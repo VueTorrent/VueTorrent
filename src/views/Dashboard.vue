@@ -309,21 +309,4 @@ export default {
     padding: 0;
   }
 }
-.topBorderRadius {
-  border-top-left-radius: 3px !important;
-  border-top-right-radius: 3px !important;
-  border-bottom-right-radius: 0px !important;
-}
-.noBorderRadius {
-  border-radius: 0 !important;
-}
-.bottomBorderRadius {
-  border-bottom-left-radius: 3px !important;
-  border-bottom-right-radius: 3px !important;
-}
-
-.transparent {
-  background-color: transparent!important;
-  border-color: transparent!important;
-}
 </style>

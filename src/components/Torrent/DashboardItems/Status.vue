@@ -13,7 +13,7 @@
       class="caption white--text px-2"
       :class="state"
     >
-      {{ torrent.state }}
+      {{ stateString }}
     </v-chip>
   </v-flex>
 </template>
@@ -22,6 +22,15 @@ import { TorrentDashboardItem } from '@/mixins'
 export default {
   name: 'Status',
   mixins: [TorrentDashboardItem],
-  props: ['torrent']
+  props: ['torrent'],
+  computed: {
+    stateString() {
+      if (this.torrent.forced) {
+        return `[F] ${this.torrent.state}`
+      }      
+      
+      return this.torrent.state
+    }
+  }
 }
 </script>
