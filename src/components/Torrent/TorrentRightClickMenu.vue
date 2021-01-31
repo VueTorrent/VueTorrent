@@ -232,14 +232,6 @@
         Show Info
       </v-list-item-title>
     </v-list-item>
-    <v-list-item v-if="!multiple" link @click="selectTorrent(hash)">
-      <v-icon>{{ mdiSelect }}</v-icon>
-      <v-list-item-title
-        class="ml-2"
-      >
-        Select
-      </v-list-item-title>
-    </v-list-item>
   </v-list>
 </template>
 

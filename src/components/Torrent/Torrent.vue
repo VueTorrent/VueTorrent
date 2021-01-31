@@ -3,6 +3,7 @@
     flat
     class="pointer noselect"
     :class="{ selected: isSelected}"
+    @click.native.prevent="selectMode && selectTorrent(torrent.hash)"
     @dblclick.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
@@ -29,7 +30,7 @@ export default {
     torrent: Object
   },
   computed: {
-    ...mapState(['selected_torrents']),
+    ...mapState(['selected_torrents', 'selectMode']),
     isSelected() {
       return this.selected_torrents.includes(this.torrent.hash)
     }
