@@ -12,6 +12,8 @@
 <script>
 import VueApexCharts from 'vue-apexcharts'
 import { mapGetters } from 'vuex'
+import { getDataUnit, getDataValue } from '@/filters'
+
 export default {
   name: 'SpeedGraph',
   components: {
@@ -59,6 +61,11 @@ export default {
               const val = 32 - value * 2
               
               return val + ' seconds ago'
+            }
+          },
+          y: {
+            formatter: value => {
+              return `${getDataValue(value, 0)} ${getDataUnit(value)}`
             }
           }
         }

@@ -20,6 +20,6 @@ export default class Status {
       return 0
     }
 
-    return Math.round(value / 1000)
+    return Math.round(value)
   }
 }
