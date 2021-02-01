@@ -1,12 +1,13 @@
 <template>
   <v-card
+    v-ripple="true"
     flat
     class="pointer noselect"
-    :class="{ selected: isSelected}"
-    @click.native.prevent="selectMode && selectTorrent(torrent.hash)"
-    @dblclick.prevent="showInfo(torrent.hash)"
-    @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
-    @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
+    :class="{ selected: isSelected }"
+    @click.native.exact.prevent="selectMode && selectTorrent(torrent.hash)"
+    @dblclick.exact.prevent="showInfo(torrent.hash)"
+    @click.native.ctrl.exact.prevent="handleSelection(torrent.hash)"
+    @click.native.shift.exact.prevent="handleRangeSelection(torrent.hash, index)"
   >
     <MobileCard v-if="isMobile" :torrent="torrent" />
     <DesktopCard v-else :torrent="torrent" />
@@ -27,7 +28,8 @@ export default {
   },
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object
+    torrent: Object,
+    index: Number
   },
   computed: {
     ...mapState(['selected_torrents', 'selectMode']),
@@ -38,6 +40,38 @@ export default {
   methods: {
     showInfo(hash) {
       this.createModal('TorrentDetailModal', { hash })
+    },
+    enableSelectMode() {
+      if (!this.$store.state.selectMode) {
+        this.$store.state.selectMode = true
+      }
+    },
+    disableSelectMode() {
+      if (this.$store.state.selectMode) {
+        this.$store.state.selectMode = false
+      }
+    },
+    toggleSelection() {
+      if (this.selected_torrents.length) {
+        this.enableSelectMode()
+      } else {
+        this.disableSelectMode()
+      }
+    },
+    // custom selection with Ctrl and Shift pressed that initites selection mode
+    handleSelection(hash) {
+      // trick to allow adding or removing selected torrents
+      // because select function from mixin doesnt allow this if select mode is not enables
+      this.enableSelectMode()
+      this.selectTorrent(hash)
+      this.toggleSelection()
+    },
+    handleRangeSelection(hash, index) {
+      // trick to allow adding or removing selected torrents
+      // because select function from mixin doesnt allow this if select mode is not enables
+      this.enableSelectMode()
+      this.selectUntil(hash, index)
+      this.toggleSelection()
     }
   }
 }
