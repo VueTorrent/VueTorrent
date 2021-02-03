@@ -41,8 +41,8 @@ export default new Vuex.Store({
     selected_torrents: [],
     authenticated: false,
     sort_options: {
-      sort: null,
-      reverse: true,
+      sort: 'state',
+      reverse: false,
       hashes: [],
       filter: null
     },
@@ -59,7 +59,26 @@ export default new Vuex.Store({
       showTrackerFilter: false,
       showSpeedInTitle: false,
       useDeviceDarkMode: true,
-      paginationSize: 15,
+      paginationSize: 50,
+      torrentHeaders: [
+        {
+          text: 'Torrent',
+          align: 'start',
+          sortable: false,
+          value: 'name'
+        },
+        { text: 'Size', align: 'center', value: 'size' },
+        { text: 'Progress', align: 'center', value: 'progress' },
+        { text: 'Downloaded', align: 'center', value: 'dloaded' },
+        { text: 'Download', align: 'center', value: 'dlspeed' },
+        { text: 'Upload', align: 'center', value: 'upspeed' },
+        { text: 'ETA', align: 'center', value: 'eta' },
+        { text: 'Peers', align: 'center', value: 'available_peers' },
+        { text: 'Seeds', align: 'center', value: 'available_seeds' },
+        { text: 'Status', align: 'center', value: 'state' },
+        { text: 'Ratio', align: 'center', value: 'ratio' },
+        { text: 'Category', align: 'center', value: 'category' }
+      ],
       busyTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
@@ -73,8 +92,8 @@ export default new Vuex.Store({
         { name: 'Ratio', active: true },
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true }
+        { name: 'AddedOn', active: false },
+        { name: 'Availability', active: false }
       ],
       doneTorrentProperties: [
         { name: 'Size', active: true },
@@ -89,8 +108,8 @@ export default new Vuex.Store({
         { name: 'Ratio', active: true },
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true }
+        { name: 'AddedOn', active: false },
+        { name: 'Availability', active: false }
       ]
     },
     categories: [],

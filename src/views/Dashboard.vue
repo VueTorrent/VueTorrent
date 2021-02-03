@@ -107,7 +107,13 @@
         </p>
       </div>
       <div v-else>
-        <v-list class="pa-0 transparent">
+        <torrent-table
+          v-if="!isMobile"
+          :headers="tableHeaders"
+          :torrents="paginatedData"
+        />
+
+        <v-list v-else class="pa-0 transparent">
           <v-list-item
             v-for="(torrent, index) in paginatedData"
             :key="torrent.hash"
@@ -137,6 +143,8 @@
             </template>
           </v-list-item>
         </v-list>
+
+
         <v-row
           v-if="(pageCount > 1) && !hasSearchFilter"
           xs12
@@ -171,13 +179,14 @@ import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 
 import Torrent from '@/components/Torrent/Torrent'
+import TorrentTable from '@/components/Torrent/TorrentTable'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 import { TorrentSelect, General } from '@/mixins'
 
 export default {
   name: 'Dashboard',
-  components: { Torrent, VueContext, TorrentRightClickMenu },
+  components: { VueContext, TorrentRightClickMenu, TorrentTable, Torrent },
   mixins: [TorrentSelect, General],
   data() {
     return {
@@ -188,7 +197,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['mainData', 'selected_torrents']),
+    ...mapState(['mainData', 'selected_torrents', 'sort_options']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
       if (!this.hasSearchFilter) return this.getTorrents()
@@ -204,6 +213,9 @@ export default {
     },
     paginationSize() {
       return this.getWebuiSettings().paginationSize
+    },
+    tableHeaders() {
+      return this.getWebuiSettings().torrentHeaders
     },
     pageCount() {
       const l = this.torrents.length

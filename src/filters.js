@@ -107,3 +107,9 @@ function getDataValue(a, b) {
 }
 
 Vue.filter('getDataValue', getDataValue)
+
+function formatTextSize(value) {
+  return value
+}
+
+Vue.filter('formatTextSize', formatTextSize)

@@ -45,7 +45,11 @@ export default {
       if (
         !authenticated &&
                 !this.$router.currentRoute.name.includes('login')
-      ) this.$router.push('login')
+      ) {
+        this.$router.push('login')
+      } else if (this.$router.currentRoute.name.includes('login')) {
+        this.$router.push('/')
+      }
     },
     checkDeviceDarkTheme() {
       if (this.webuiSettings.useDeviceDarkMode) {
