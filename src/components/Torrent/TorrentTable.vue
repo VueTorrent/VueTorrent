@@ -1,12 +1,17 @@
 <template>
   <div>
     <v-data-table
+      v-model="selectedTorrents"
       :headers="headers"
       :items="torrents"
       :items-per-page="30"
-      calculate-widths
+      item-key="hash"
       hide-default-footer
+      :show-select="selectMode"
+      unselectable
       class="elevation-5 mb-5 torrent-table"
+      @current-items="current = $event"
+      @item-selected="bulkSelect"
       @dblclick:row="showTorrentInfo"
       @contextmenu:row="showContextMenu"
     >
@@ -131,15 +136,35 @@ export default {
     torrents: Array
   },
   data() {
-    return {}
+    return {
+      selectedTorrents: [],
+      current: []
+    }
   },
   computed: {
-    ...mapState(['sort_options']),
+    ...mapState(['sort_options', 'selectMode']),
     ...mapGetters(['getWebuiSettings'])
   },
-  watch: {},
-  mounted() {
-
+  watch: {
+    selectedTorrents: function (newTorrents, oldTorrents) {
+      const hashes = newTorrents.map(t => t.hash)
+      this.$store.state.selected_torrents = hashes
+    }
+  },
+  created() {
+    const self = this
+    self.keyDownHandler = function ({ key }) {
+      if (key == 'Shift') self.shiftKeyOn = true
+    }
+    self.keyUpHandler = function ({ key }) {
+      if (key == 'Shift') self.shiftKeyOn = false
+    }
+    window.addEventListener('keydown', this.keyDownHandler)
+    window.addEventListener('keyup', this.keyUpHandler)
+  },
+  beforeDestroy() {
+    window.removeEventListener('keydown', this.keyDownHandler)
+    window.removeEventListener('keyup', this.keyUpHandler)
   },
   methods: {
     stateString(torrent) {
@@ -156,10 +181,23 @@ export default {
     showContextMenu(event, torrent) {
       event.preventDefault()
       this.$refs.contextMenu.open(event, { torrent })
+    },
+    bulkSelect({ item: b, value }) {
+      const { selectedTorrents, current, shiftKeyOn } = this
+      if (selectedTorrents.length == 1 && value == true && shiftKeyOn) {
+        const [a] = selectedTorrents
+        let start = current.findIndex(item => item.hash == a.hash)
+        let end = current.findIndex(item => item == b)
+        if (start - end > 0) {
+          const temp = start
+          start = end
+          end = temp
+        }
+        for (let i = start; i <= end; i++) {
+          selectedTorrents.push(current[i])
+        }
+      }
     }
   }
 }
 </script>
-<style>
-
-</style>
