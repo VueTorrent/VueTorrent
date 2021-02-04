@@ -1,5 +1,6 @@
 # VueTorrent
 
+Changed Desktop View , to present all the torrents in a data table , instead of a list. 
 The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 > Vue, qBitorrent, Vuetify
