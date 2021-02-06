@@ -43,7 +43,7 @@ jobs:
       - name: Zip VueTorrent
         run: zip -qq -r ./vuetorrent.zip ./vuetorrent
       - name: Upload VueTorrent release
-        uses: actions/upload-release-asset@v1.0.1
+        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
