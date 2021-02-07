@@ -1,29 +1,80 @@
 name: Build release
 on:
-    release:
-        types: [published, edited]
-
+  push:
+    branches:
+      - master
 jobs:
-    build-release:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@master
-            - name: Install & build
-              uses: actions/setup-node@master
-            - run: npm install
-            - run: npm run build
-            - name: Zip it
-              uses: montudor/action-zip@v0.1.0
-              with:
-                  args: zip -qq -r ./release.zip ./vuetorrent
-            - name: Get Version
-              run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
-            - name: Upload
-              uses: actions/upload-release-asset@v1.0.1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  upload_url: ${{ github.event.release.upload_url }}
-                  asset_path: ./release.zip
-                  asset_name: release.zip
-                  asset_content_type: application/zip
+  setup-release:
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      upload_url: ${{ steps.release.outputs.upload_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run release please
+        uses: google-github-actions/release-please-action@v2.16
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: node
+          package-name: VueTorrent
+  upload-release:
+    needs: setup-release
+    if: ${{ needs.setup-release.outputs.release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Build Node.js cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm ci
+      - name: Build VueTorrent
+        run: npm run build
+      - name: Zip VueTorrent
+        run: zip -qq -r ./vuetorrent.zip ./vuetorrent
+      - name: Upload VueTorrent release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.setup-release.outputs.upload_url }}
+          asset_path: ./vuetorrent.zip
+          asset_name: vuetorrent.zip
+          asset_content_type: application/zip
+  push-release:
+    needs: setup-release
+    if: ${{ needs.setup-release.outputs.release_created }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - name: Build Node.js cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: npm ci
+      - name: Build VueTorrent
+        run: npm run build
+      - name: Push to latest-release
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: latest-release
+          FOLDER: ./vuetorrent/public

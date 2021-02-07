@@ -22,13 +22,13 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 ### Manual
 
 - Visit the [Releases](https://github.com/WDaan/VueTorrent/releases) page!
-- Download the latest `release.zip`
+- Download the latest `vuetorrent.zip`
 - Unzip the downloaded file
 - Point your alternate WebUI location to the `vuetorrent` folder in qBittorrent settings
 
 ### From Source
 
-- Head to the [`latest_release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
+- Head to the [`latest-release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
 - Clone branch using
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
