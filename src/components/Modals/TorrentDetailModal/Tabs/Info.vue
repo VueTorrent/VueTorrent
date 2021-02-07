@@ -199,7 +199,7 @@
                 Availability
               </td>
               <td>
-                {{ torrent.availability }}%
+                {{ torrent.availability }}
               </td>
             </tr>
           </tbody>

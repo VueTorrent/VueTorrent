@@ -84,7 +84,7 @@ export function networkSize(size) {
 
 Vue.filter('networkSize', networkSize)
 
-function getDataUnit(a, b) {
+export function getDataUnit(a, b) {
   if (a === -1) return null
   if (!a) return 'B'
   const c = 1024
@@ -96,7 +96,7 @@ function getDataUnit(a, b) {
 
 Vue.filter('getDataUnit', getDataUnit)
 
-function getDataValue(a, b) {
+export function getDataValue(a, b) {
   if (a === -1) return 'None'
   if (!a) return '0'
   const c = 1024

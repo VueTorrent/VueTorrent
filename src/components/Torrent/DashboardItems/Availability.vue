@@ -15,7 +15,7 @@ export default {
   computed: {
     availability() {
       if (this.torrent.availability !== -1) {
-        return `${this.torrent.availability}%`
+        return this.torrent.availability
       }
       
       return 'N/A'
