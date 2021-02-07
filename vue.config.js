@@ -1,4 +1,8 @@
 const webpack = require('webpack')
+
+const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
+const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
+
 module.exports = {
   chainWebpack: config => {
     config
@@ -27,10 +31,10 @@ module.exports = {
       poll: true
     },
     host: '0.0.0.0',
-    port: 8000,
+    port: `${vueTorrentPort}`,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080'
+        target: `http://localhost:${qBittorrentPort}`
       }
     }
   }

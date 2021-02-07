@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
 const vuexPersist = new VuexPersist({
   key: 'vuetorrent',
@@ -13,10 +16,6 @@ const vuexPersist = new VuexPersist({
 })
 
 Vue.use(Vuex)
-
-import getters from './getters'
-import mutations from './mutations'
-import actions from './actions'
 
 export default new Vuex.Store({
   plugins: [vuexPersist.plugin],
@@ -63,9 +62,10 @@ export default new Vuex.Store({
       busyTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
-        { name: 'Downloaded', active: true },
         { name: 'Download', active: true },
         { name: 'Upload', active: true },
+        { name: 'Downloaded', active: true },
+        { name: 'Uploaded', active: true },
         { name: 'ETA', active: true },
         { name: 'Peers', active: true },
         { name: 'Seeds', active: true },
@@ -79,9 +79,10 @@ export default new Vuex.Store({
       doneTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
-        { name: 'Downloaded', active: true },
         { name: 'Download', active: true },
         { name: 'Upload', active: true },
+        { name: 'Downloaded', active: true },
+        { name: 'Uploaded', active: true },
         { name: 'ETA', active: true },
         { name: 'Peers', active: true },
         { name: 'Seeds', active: true },
@@ -100,14 +101,13 @@ export default new Vuex.Store({
     selectMode: false,
     searchPlugins: []
   },
+  actions: {
+    ...actions
+  },
   getters: {
     ...getters
   },
-
   mutations: {
     ...mutations
-  },
-  actions: {
-    ...actions
   }
 })
