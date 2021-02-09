@@ -128,7 +128,7 @@
                 </v-card>
               </v-expand-x-transition>
               <v-list-item-content class="pa-0">
-                <Torrent :torrent="torrent" />
+                <Torrent :torrent="torrent" :index="index" />
                 <v-divider
                   v-if="index < paginatedData.length - 1"
                   :key="index"

@@ -3,7 +3,7 @@
     flat
     class="pointer noselect"
     :class="{ selected: isSelected}"
-    @click.native.prevent="selectMode && selectTorrent(torrent.hash)"
+    @click.native.exact.prevent="selectMode && selectTorrent(torrent.hash)"
     @dblclick.prevent="showInfo(torrent.hash)"
     @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
     @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
@@ -27,7 +27,8 @@ export default {
   },
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object
+    torrent: Object,
+    index: Number
   },
   computed: {
     ...mapState(['selected_torrents', 'selectMode']),

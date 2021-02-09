@@ -4,7 +4,7 @@ export default {
       return this.$store.getters.containsTorrent(hash)
     },
     selectTorrent(hash) {
-      if (!this.$store.state.selectMode) return
+      if (!this.$store.state.selectMode) this.$store.state.selectMode = true
       if (this.isAlreadySelected(hash)) {
         this.$store.commit('SET_SELECTED', { type: 'remove', hash })
       } else {
