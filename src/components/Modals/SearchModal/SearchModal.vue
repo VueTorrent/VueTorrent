@@ -24,7 +24,7 @@
                 :rules="[v => !!v || 'Searchterm is required']"
                 clearable
                 style="width: 70%"
-                @keypress.enter="$refs.searchButton.click"
+                @keydown.enter="$refs.searchButton.click"
               />
               <v-spacer />
               <v-btn
@@ -123,7 +123,7 @@ export default {
   computed: {
     ...mapGetters(['getSearchPlugins']),
     dialogWidth() {
-      return this.phoneLayout ? '100%' : '60%'
+      return this.phoneLayout ? '100%' : '70%'
     },
     enabledSearchPlugins() {
       return this.getSearchPlugins().filter(p => p.enabled)
@@ -157,7 +157,7 @@ export default {
     async getStatus() {
       if (this.search.id) {
         const data = await qbit.getSearchStatus(this.search.id)
-        
+
         return (this.search.status = data[0].status)
       }
     },
