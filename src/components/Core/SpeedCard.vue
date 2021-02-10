@@ -1,29 +1,31 @@
 <template>
   <v-card
     flat
+    rounded="md"
     color="secondary"
     class="speedCard"
     data-testid="SpeedCard"
   >
-    <v-layout row :class="color + '--text'">
-      <v-flex v-if="icon" xs2>
-        <v-icon data-testid="SpeedCard-icon" :color="color" size="16px">
+    <v-layout row align-center :class="color + '--text'">
+      <v-flex v-if="icon" xs2 class="pl-1">
+        <v-icon data-testid="SpeedCard-icon" :color="color" size="20px">
           {{ icon }}
         </v-icon>
       </v-flex>
-      <v-flex xs6 class="text-center font-weight-bold robot-mono">
-        <span data-testid="SpeedCard-value">
-          {{ value | getSpeedValue }}
-        </span>
-      </v-flex>
-      <v-flex
-        xs4
-        class="caption robot-mono text-right mt-1"
-      >
-        <span data-testid="SpeedCard-unit">
-          {{ value | getDataUnit(1) }}/s
-        </span>
-      </v-flex>
+      <v-layout column xs10>
+        <v-flex class="text-center font-weight-bold robot-mono">
+          <span data-testid="SpeedCard-value">
+            {{ value | getSpeedValue }}
+          </span>
+        </v-flex>
+        <v-flex
+          class="caption robot-mono text-center mt-n1"
+        >
+          <span data-testid="SpeedCard-unit">
+            {{ value | getDataUnit(1) }}/s
+          </span>
+        </v-flex>
+      </v-layout>
     </v-layout>
   </v-card>
 </template>
@@ -47,7 +49,7 @@ export default {
 
 <style scoped>
 .speedCard {
-  padding: 32px 16px !important;
-  font-size: 1.05em;
+  padding: 20px 20px !important;
+  font-size: 1.10em;
 }
 </style>
