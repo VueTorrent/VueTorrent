@@ -122,12 +122,14 @@
               <td class="grey--text">
                 Status
               </td>
-              <v-chip
-                small
-                :class="`${torrent.state.toLowerCase()} white--text my-2 caption`"
-              >
-                {{ torrent.state }}
-              </v-chip>
+              <td>
+                <v-chip
+                  small
+                  :class="`${torrent.state.toLowerCase()} white--text caption`"
+                >
+                  {{ torrent.state }}
+                </v-chip>
+              </td>
             </tr>
             <tr v-if="torrent.tracker">
               <td class="grey--text">
@@ -145,7 +147,7 @@
                 {{ torrent.comment }}
               </td>
             </tr>
-            
+
             <tr>
               <td class="grey--text">
                 First/Last Piece Priority
