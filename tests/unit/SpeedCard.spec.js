@@ -34,9 +34,9 @@ describe('SpeedCard.vue', () => {
     expect(wrapper.find('[data-testid="SpeedCard-unit"]').text()).toBe('KB/s')
   })
 
-  it('should render value (2 decimals) and unit & be formatted', () => {
+  it('should render value (1 decimals) and unit & be formatted', () => {
     const wrapper = setup(SpeedCard, { value: 10899700 })
-    expect(wrapper.find('[data-testid="SpeedCard-value"]').text()).toBe('10.39')
+    expect(wrapper.find('[data-testid="SpeedCard-value"]').text()).toBe('10.4')
 
     expect(wrapper.find('[data-testid="SpeedCard-unit"]').text()).toBe('MB/s')
   })

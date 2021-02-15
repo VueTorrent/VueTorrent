@@ -35,7 +35,7 @@ export default {
     getSpeedValue(value) {
       if (!value) return '0'
       const c = 1024
-      const d = value > 1048576 ? 2 : 0 // 2 decimals when MB
+      const d = value > 1048576 ? 1 : 0 // 2 decimals when MB
       const f = Math.floor(Math.log(value) / Math.log(c))
 
       return `${parseFloat((value / Math.pow(c, f)).toFixed(d))}`
