@@ -1,5 +1,5 @@
 <template>
-  <div v-if="status" class="mt-3">
+  <div v-if="status" class="mt-3 mb-3">
     <label class="text-uppercase white--text caption font-weight-medium ml-4">
       Session Stats
     </label>
