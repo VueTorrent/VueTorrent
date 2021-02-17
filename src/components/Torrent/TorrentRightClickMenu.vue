@@ -34,8 +34,8 @@
         {{ mdiDelete }}
       </v-icon>
       <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em; color: red"
+        class="ml-2 red--text"
+        style="font-size: 1em;"
       >
         Delete
       </v-list-item-title>
@@ -45,8 +45,8 @@
         {{ mdiDeleteForever }}
       </v-icon>
       <v-list-item-title
-        class="ml-2"
-        style="font-size: 1em; color: red"
+        class="ml-2 red--text"
+        style="font-size: 1em;"
       >
         Delete with files
       </v-list-item-title>
@@ -220,7 +220,7 @@
         <v-list-item @click="setLimit('upload')">
           <v-icon>{{ mdiChevronUp }}</v-icon>
           <v-list-item-title class="ml-2">
-            Upload    
+            Upload
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -280,7 +280,7 @@ export default {
     },
     hashes() {
       if (this.multiple) return this.selected_torrents
-      
+
       return [this.torrent.hash]
     },
     multiple() {

@@ -10,33 +10,31 @@
       <v-card-title class="justify-center">
         <h2>Search</h2>
       </v-card-title>
-      <v-card-text>
+      <v-card-text class="pa-0">
         <v-form
           ref="form"
           v-model="searchForm.valid"
         >
-          <v-container fluid>
-            <v-flex row class="mx-auto">
-              <v-text-field
-                v-model="searchForm.pattern"
-                :prepend-inner-icon="mdiMagnify"
-                label="Search"
-                :rules="[v => !!v || 'Searchterm is required']"
-                clearable
-                style="width: 70%"
-                @keydown.enter="$refs.searchButton.click"
-              />
-              <v-spacer />
-              <v-btn
-                ref="searchButton"
-                :disabled="!searchForm.valid"
-                :color="loading ? 'warning' : 'primary'"
-                @click="loading ? stopSearch() : startSearch()"
-              >
-                {{ loading ? "Stop" : "Search" }}
-              </v-btn>
-            </v-flex>
-          </v-container>
+          <v-flex row class="py-1 px-2 mx-auto">
+            <v-text-field
+              v-model="searchForm.pattern"
+              :prepend-inner-icon="mdiMagnify"
+              label="Search"
+              :rules="[v => !!v || 'Searchterm is required']"
+              clearable
+              style="width: 70%"
+              @keydown.enter="$refs.searchButton.click"
+            />
+            <v-spacer />
+            <v-btn
+              ref="searchButton"
+              :disabled="!searchForm.valid"
+              :color="loading ? 'warning' : 'primary'"
+              @click="loading ? stopSearch() : startSearch()"
+            >
+              {{ loading ? "Stop" : "Search" }}
+            </v-btn>
+          </v-flex>
         </v-form>
         <perfect-scrollbar>
           <v-data-table
