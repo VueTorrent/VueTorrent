@@ -15,25 +15,29 @@
           ref="form"
           v-model="searchForm.valid"
         >
-          <v-flex row class="py-1 px-2 mx-auto">
-            <v-text-field
-              v-model="searchForm.pattern"
-              :prepend-inner-icon="mdiMagnify"
-              label="Search"
-              :rules="[v => !!v || 'Searchterm is required']"
-              clearable
-              style="width: 70%"
-              @keydown.enter="$refs.searchButton.click"
-            />
-            <v-spacer />
-            <v-btn
-              ref="searchButton"
-              :disabled="!searchForm.valid"
-              :color="loading ? 'warning' : 'primary'"
-              @click="loading ? stopSearch() : startSearch()"
-            >
-              {{ loading ? "Stop" : "Search" }}
-            </v-btn>
+          <v-flex row class="mt-1 py-1 px-2 mx-auto">
+            <v-col class="pa-0" cols="8">
+              <v-text-field
+                v-model="searchForm.pattern"
+                :prepend-inner-icon="mdiMagnify"
+                label="Search"
+                :rules="[v => !!v || 'Searchterm is required']"
+                clearable
+                style="width: 95%;"
+                @keydown.enter="$refs.searchButton.click"
+              />
+            </v-col>
+            <v-col class="pa-0 mt-2 ml-1 justify-center" cols="4">
+              <v-btn
+                ref="searchButton"
+                class="mt-2 mx-0"
+                :disabled="!searchForm.valid"
+                :color="loading ? 'warning' : 'primary'"
+                @click="loading ? stopSearch() : startSearch()"
+              >
+                {{ loading ? "Stop" : "Search" }}
+              </v-btn>
+            </v-col>
           </v-flex>
         </v-form>
         <perfect-scrollbar>
