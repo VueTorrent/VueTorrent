@@ -15,7 +15,7 @@
           ref="form"
           v-model="searchForm.valid"
         >
-          <v-flex row class="mt-1 py-1 px-2 mx-auto">
+          <v-flex row class="my-1 py-1 px-2 mx-auto">
             <v-col class="pa-0" cols="8">
               <v-text-field
                 v-model="searchForm.pattern"
@@ -27,7 +27,7 @@
                 @keydown.enter="$refs.searchButton.click"
               />
             </v-col>
-            <v-col class="pa-0 mt-2 ml-1 justify-center" cols="4">
+            <v-col class="pa-0 mt-2" cols="3">
               <v-btn
                 ref="searchButton"
                 class="mt-2 mx-0"
