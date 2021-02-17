@@ -29,6 +29,9 @@ export default {
     ...mapGetters(['getAuthenticated']),
     isAuthenticated() {
       return this.getAuthenticated()
+    },
+    onLoginPage() {
+      return this.$router.currentRoute.name.includes('login')
     }
   },
   created() {
@@ -42,10 +45,7 @@ export default {
       const authenticated = res === 'Ok.'
       this.$store.commit('LOGIN', authenticated)
       this.$store.commit('updateMainData')
-      if (
-        !authenticated &&
-                !this.$router.currentRoute.name.includes('login')
-      ) this.$router.push('login')
+      if (!authenticated && !this.onLoginPage) return this.$router.push('login')
     },
     checkDeviceDarkTheme() {
       if (this.webuiSettings.useDeviceDarkMode) {
