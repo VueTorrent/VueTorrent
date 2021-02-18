@@ -77,4 +77,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: latest-release
-          FOLDER: ./vuetorrent/public
+          FOLDER: ./vuetorrent
