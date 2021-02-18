@@ -263,7 +263,7 @@ class Qbit {
 
   torrentAction(action, hashes, extra) {
     const params = {
-      hashes: hashes.join('|'),
+      hashes: hashes.length ? hashes.join('|') : 'all',
       ...extra
     }
     
