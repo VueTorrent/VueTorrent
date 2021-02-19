@@ -100,7 +100,35 @@
           </v-tooltip>
         </v-row>
       </v-row>
-
+      <v-row id="selectAllTorrents" class="ma-0 pa-0">
+        <v-expand-transition>
+          <v-card
+            v-show="selectMode"
+            flat
+            class="transparent"
+            height="40"
+          >
+            <v-tooltip bottom>
+              <template #activator="{ on }">
+                <v-btn
+                  text
+                  small
+                  fab
+                  width="24px"
+                  aria-label="Select Mode"
+                  v-on="on"
+                  @click="selectAllTorrents()"
+                >
+                  <v-icon>
+                    {{ allTorrentsSelected ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+                  </v-icon>
+                </v-btn>
+              </template>
+              <span>Select All</span>
+            </v-tooltip>
+          </v-card>
+        </v-expand-transition>
+      </v-row>
       <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
         <p class="grey--text">
           Nothing to see here!
@@ -228,6 +256,13 @@ export default {
     },
     hasSearchFilter() {
       return this.input && this.input.length
+    },
+    selectedTorrentsLength() {
+      return this.$store.state.selected_torrents.length 
+    },
+    allTorrentsSelected() {
+
+      return this.selectedTorrentsLength === this.torrents.length
     }
   },
   watch: {
@@ -267,18 +302,20 @@ export default {
     addModal(name) {
       this.createModal(name)
     },
+    selectAllTorrents() {
+      if (this.allTorrentsSelected) {
+        return (this.$store.state.selected_torrents = [])
+      }
+      const hashes = this.torrents.map(t => t.hash)
+
+      return (this.$store.state.selected_torrents = hashes)
+    },
     handleKeyboardShortcut(e) {
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
         e.preventDefault()
-        if (
-          this.$store.state.selected_torrents.length === this.torrents.length
-        ) {
-          return (this.$store.state.selected_torrents = [])
-        }
-        const hashes = this.torrents.map(t => t.hash)
-
-        return (this.$store.state.selected_torrents = hashes)
+       
+        this.selectAllTorrents()
       }
 
       // 'Delete' => Delete modal
@@ -296,8 +333,8 @@ export default {
 </script>
 
 <style lang="scss">
-#searchFilter .v-text-field__details {
-  display: none;
+#searchFilter .v-text-field__details, #selectAllTorrents .v-messages {
+  display: none !important;
 }
 </style>
 
