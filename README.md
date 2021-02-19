@@ -71,8 +71,8 @@ server {
   - search filtering powered by Fuse.js!
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
-  - delete selected with delete button
-  - select with <kbd>Ctrl</kbd>+click or from right-click menu
+  - delete selected torrents with <kbd>delete</kbd>
+  - select with <kbd>Ctrl</kbd>+click
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
@@ -93,17 +93,6 @@ I'll gladly accept help/pull requests & advice!
 - Running FreeNAS? check out [#101](/../../issues/101)
 - On an older version? check out [#90](/../../issues/90)
 - Other? check out [#10](/../../issues/10)
-
-### Disable/Uninstall
-
-When you use VueTorrent, it gets installed as a [PWA](https://web.dev/progressive-web-apps/) so that it can feel more like an app.
-
-If you disable or uninstall VueTorrent, sometimes you'll see fragments of the VueTorrent PWA stick around, due to the nature of how PWAs work.
-
-Here's how to fix it:
-- Open up your browser's inspector (on Chrome, click the ︙ menu, then go to More tools > Developer tools)
-- Select the "Application" tab. Select the "Clear storage" submenu, and then press the `Clear site data` button.
-
 
 ## Support
 
