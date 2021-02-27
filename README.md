@@ -33,25 +33,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
 
-### NGINX install
-
-You can use NGINX reverse proxy to use VueTorrent, without making any change to qBittorrent. 
-
-Simply download and unzip the folder to a location (`/opt` here) and paste this code into your NGINX config file.
-
-```nginx
-server {
-  server_name vue.torrent;
-  location / {
-    root /opt/vuetorrent/public/;
-  }
-  location /api {
-    proxy_pass http://127.0.0.1:8081;
-    http2_push_preload on;
-    client_max_body_size 10M;
-  }
-}
-```
+[Alternative methods - May work for older QBit versions](../../wiki/Alternative_Installation_Methods)
 
 ## Development
 
@@ -87,16 +69,15 @@ server {
 
 I'll gladly accept help/pull requests & advice!
 
-## FAQ
-
-### Unacceptable file type, only regular file is allowed. 
-- Running FreeNAS? check out [#101](/../../issues/101)
-- On an older version? check out [#90](/../../issues/90)
-- Other? check out [#10](/../../issues/10)
+[FAQ](../../wiki/FAQ)
 
 ## Support
 
-- Open up an issue 😛
+Open up an issue 😛
+
+but before you do that:
+- confirm you're on the latest version of VueTorrent 
+- confirm there is no other issue mentioning the same problem
 
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
