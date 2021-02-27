@@ -28,7 +28,7 @@
     "vue-toastification": "^1.7.11",
     "vue2-perfect-scrollbar": "^1.5.0",
     "vuedraggable": "^2.24.3",
-    "vuetify": "^2.4.4",
+    "vuetify": "^2.4.5",
     "vuex": "^3.6.2",
     "vuex-persist": "^3.1.3"
   },
