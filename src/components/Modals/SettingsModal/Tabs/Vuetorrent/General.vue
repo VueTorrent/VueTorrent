@@ -60,16 +60,6 @@
                 </template>
               </v-switch>
               <v-switch
-                v-model="showSpeedInTitle"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Speed in Title
-                </template>
-              </v-switch>
-              <v-switch
                 v-model="useDeviceDarkMode"
                 class="v-input--reverse v-input--expand pa-0 ma-0"
                 inset
@@ -91,6 +81,21 @@
                     class="pa-0 ma-0"
                     color="accent"
                     :items="paginationSizes"
+                  />
+                </v-col>
+              </v-row>
+              <v-row dense>
+                <v-col cols="8" sm="8" md="10">
+                  <p class="subtitle-1">
+                    VueTorrent title:
+                  </p>
+                </v-col>
+                <v-col cols="4" sm="4" md="2">
+                  <v-select
+                    v-model="title"
+                    class="pa-0 ma-0"
+                    color="accent"
+                    :items="titleOptions"
                   />
                 </v-col>
               </v-row>
@@ -136,6 +141,7 @@ export default {
   data() {
     return {
       paginationSizes: [5, 15, 30, 50],
+      titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0
     }
   },
@@ -190,21 +196,20 @@ export default {
         this.webuiSettings.useDeviceDarkMode = val
       }
     },
-    showSpeedInTitle: {
-      get() {
-        return this.webuiSettings.showSpeedInTitle
-      },
-      set(val) {
-        this.webuiSettings.showSpeedInTitle = val
-        document.title = 'VueTorrent'
-      }
-    },
     paginationSize: {
       get() {
         return this.webuiSettings.paginationSize
       },
       set(val) {
         this.webuiSettings.paginationSize = val
+      }
+    },
+    title: {
+      get() {
+        return this.webuiSettings.title
+      },
+      set(val) {
+        this.webuiSettings.title = val
       }
     },
     version() {

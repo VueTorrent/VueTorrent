@@ -1,7 +1,8 @@
 import Torrent from '../models/Torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
-import { formatBytes, getHostName } from '@/helpers'
+import { getHostName } from '@/helpers'
+import { setDocumentTitle } from '@/actions'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -79,21 +80,22 @@ export default {
       }
     }
 
-    // torrent speed in title
-    if (state.webuiSettings.showSpeedInTitle) {
-      // eslint-disable-next-line max-len
-      document.title = `[D: ${formatBytes(state.status.dlspeed)}/s, U: ${formatBytes(state.status.upspeed)}/s] VueTorrent`
-    }
-
     // torrents
     state.torrents = data.map(t => new Torrent(t))
+
+    // update document title
+    setDocumentTitle.updateTitle(
+      state.webuiSettings.title,
+      [state.status.dlspeed, state.status.upspeed],
+      state.torrents ? state.torrents[0] : null
+    )
   },
   FETCH_SETTINGS: async state => {
     const { data } = await qbit.getAppPreferences()
     state.settings = data
   },
   UPDATE_SORT_OPTIONS: (state, {
-    hashes = [], 
+    hashes = [],
     filter = null,
     category = null,
     tracker = null
