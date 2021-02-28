@@ -23,6 +23,9 @@
                     :prepend-icon="mdiSpeedometer"
                     suffix="KB/s"
                     clearable
+                    autofocus
+                    @focus="$event.target.select()"
+                    @keydown.enter="setLimit"
                   />
                 </v-col>
               </v-row>
@@ -80,24 +83,23 @@ export default {
   created() {
     switch (this.mode) {
       case 'download':
-        this.limit = this.torrent.dl_limit / 1024
+        this.limit = this.torrent.dl_limit > 0 ? this.limit = this.torrent.dl_limit / 1024 : '∞'
         break
       case 'upload':
-        this.limit = this.torrent.up_limit / 1024
+        this.limit = this.torrent.up_limit > 0 ? this.torrent.up_limit / 1024 : '∞'
         break
       default:
         break
     }
- 
   },
   methods: {
     setLimit() {
       switch (this.mode) {
         case 'download':
-          qbit.setDownloadLimit([this.hash], this.limit * 1024 ?? -1)
+          qbit.setDownloadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
           break
         case 'upload':
-          qbit.setUploadLimit([this.hash], this.limit * 1024 ?? -1)
+          qbit.setUploadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
           break
         default:
           break
