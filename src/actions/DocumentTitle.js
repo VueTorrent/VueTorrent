@@ -1,6 +1,6 @@
 import { formatBytes } from '@/helpers'
 
-export class setDocumentTitle {
+export class DocumentTitle {
   static setDefault() {
     this.set('VueTorrent')
   }
@@ -12,7 +12,7 @@ export class setDocumentTitle {
 
   static setFirstTorrentStatus(torrent) {
     if (!torrent) return
-    this.set(`${torrent.state.toLowerCase()} - ${torrent.progress}% - ${torrent.name}`)
+    this.set(`[D: ${formatBytes(torrent.dlspeed)}/s, U: ${formatBytes(torrent.upspeed)}/s] ${torrent.progress}%`)
   }
 
   static updateTitle(mode, speeds, torrent) {

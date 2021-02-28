@@ -1,5 +1,5 @@
-import { setDocumentTitle } from './setDocumentTitle'
+import { DocumentTitle } from './DocumentTitle'
 
 export {
-  setDocumentTitle
+  DocumentTitle
 }

@@ -2,7 +2,7 @@ import Torrent from '../models/Torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
 import { getHostName } from '@/helpers'
-import { setDocumentTitle } from '@/actions'
+import { DocumentTitle } from '@/actions'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -84,7 +84,7 @@ export default {
     state.torrents = data.map(t => new Torrent(t))
 
     // update document title
-    setDocumentTitle.updateTitle(
+    DocumentTitle.updateTitle(
       state.webuiSettings.title,
       [state.status.dlspeed, state.status.upspeed],
       state.torrents ? state.torrents[0] : null
