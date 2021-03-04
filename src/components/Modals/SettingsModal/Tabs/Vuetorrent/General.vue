@@ -106,7 +106,7 @@
                   </p>
                 </v-col>
                 <v-col cols="2" sm="2" md="1">
-                  <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/${version}`">
+                  <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">
                     <p class="mb-2">{{ version }}</p>
                   </a>
                 </v-col>
