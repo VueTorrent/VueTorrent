@@ -5,7 +5,7 @@
     </v-btn>
 
     <v-bottom-sheet
-      v-if="this.$vuetify.breakpoint.smAndDown"
+      v-if="$vuetify.breakpoint.smAndDown"
       v-model="opened"
       scrollable
       inset

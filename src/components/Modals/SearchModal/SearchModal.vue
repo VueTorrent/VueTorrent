@@ -42,6 +42,7 @@
         </v-form>
         <perfect-scrollbar>
           <v-data-table
+            id="searchTable"
             :headers="grid.headers"
             :items="search.results"
             :items-per-page="10"
@@ -180,3 +181,18 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#searchTable  {
+  .v-data-footer {
+    justify-content: center;
+  }
+  .v-data-footer__pagination {
+    margin: 0 8px;
+  }
+
+  .v-select__slot {
+    width: 4em;
+  }
+}
+</style>
