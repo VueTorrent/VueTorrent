@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.7.1](https://www.github.com/WDaan/VueTorrent/compare/v0.7.0...v0.7.1) (2021-04-02)
+
+
+### Bug Fixes
+
+* Update registerServiceWorker.js (delete all cache on when new version is released) ([d846c92](https://www.github.com/WDaan/VueTorrent/commit/d846c924937c99746cbf5a102b0de8ed27381a5d))
+
 ## [0.7.0](https://www.github.com/WDaan/VueTorrent/compare/v0.6.0...v0.7.0) (2021-03-25)
 
 
