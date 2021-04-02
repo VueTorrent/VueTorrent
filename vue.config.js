@@ -13,7 +13,7 @@ module.exports = {
     workboxOptions: {
       skipWaiting: true
     }
-    
+  },
   chainWebpack: config => {
     config
       .plugin('html')
