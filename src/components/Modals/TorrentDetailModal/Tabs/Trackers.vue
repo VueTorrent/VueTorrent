@@ -48,7 +48,7 @@
       >
         Delete
       </v-btn>
-      <v-dialog v-model="dialog" persistent max-width="290">
+      <v-dialog v-model="dialog2" persistent max-width="290">
         <template #activator="{ on, attrs }">
           <v-btn
             color="accent"
@@ -77,7 +77,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="red darken-1" text @click="addTrackers">
+            <v-btn color="red darken-1" text @click="closeAddTrackers">
               Cancel
             </v-btn>
             <v-btn color="green darken-1" text @click="addTrackers">
@@ -94,6 +94,7 @@
 import qbit from '@/services/qbit'
 import { FullScreenModal } from '@/mixins'
 export default {
+  dialog2: false,
   name: 'Trackers',
   filters: {
     formatTrackerStatus(status) {
@@ -154,12 +155,16 @@ export default {
       this.tempTrackers = data
     },
     async addTrackers() {
-      if (!this.newTrackers.length) return (this.dialog = false)
+      if (!this.newTrackers.length) return (this.dialog2 = false)
 
       qbit.addTorrenTrackers(this.hash, this.newTrackers)
       this.newTrackers = ''
       await this.getTorrentTrackers()
-      this.dialog = false
+      this.dialog2 = false
+    },
+    closeAddTrackers() {
+      this.newTrackers = ''
+      this.dialog2 = false
     },
     async DeleteTrackers() {
       if (!this.selectedTrackers.length) return 
