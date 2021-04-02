@@ -45,6 +45,9 @@ export default {
   TOGGLE_THEME(state) {
     state.webuiSettings.darkTheme = !state.webuiSettings.darkTheme
   },
+  async TOGGLE_ALARM(state) {
+    state.webuiSettings.alarm = !state.webuiSettings.alarm
+  },
   LOGOUT: state => {
     qbit.logout()
     state.authenticated = false
@@ -81,7 +84,51 @@ export default {
     }
 
     // torrents
-    state.torrents = data.map(t => new Torrent(t))
+    const lastTorrents = state.torrents
+    state.torrents = data.map(t => new Torrent(t))var str = '', str2 = '', donenum = 0
+    for (var i = 0; i < lastTorrents.length; i++) {
+      if (lastTorrents[i].progress != 100) {
+        for (var j = 0; j < state.torrents.length; j++) {
+          if (lastTorrents[i].hash == state.torrents[j].hash) {
+            if (state.torrents[j].progress == 100) {
+              console.log('done: ' + state.torrents[j].name)
+              str += state.torrents[j].name + '\n'
+              if (str2.length <= 0) {
+                str2 = state.torrents[j].name
+              }
+              donenum++
+              j = state.torrents.length
+            }
+          }
+        }
+      }
+    }
+    if (str.length > 0) {
+      if (state.webuiSettings.alarm) {
+        (async function () {
+          try {
+            if (typeof Notification === 'undefined') {
+              console.log('notification is undefined')
+            } else {
+              if (Notification.permission == 'granted') {
+                console.log('notification success')
+                const reg = await navigator.serviceWorker.getRegistration()
+                const options = {
+                  body: str2 + '\n' + donenum + 'torrent(s) done.',
+                  icon: './img/icons/android-chrome-192x192.png',
+                  vibrate: [100, 50, 100],
+                  data: { dateOfArrival: Date.now(), primaryKey: 1 }
+                }
+                reg.showNotification('torrent downloaded', options)
+              }
+            }
+          } catch (e) {
+            console.log('notification error: ' + e)
+          }
+        })()
+      }
+      // toast here
+    }
 
     // update document title
     DocumentTitle.updateTitle(
