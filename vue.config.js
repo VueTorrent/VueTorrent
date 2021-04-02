@@ -4,6 +4,16 @@ const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
 const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
 
 module.exports = {
+  pwa: {
+    name: 'VueTorrent', //PWApp name
+    //themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
+    manifestOptions: {
+      background_color: '#eeeeee' //background color for android PWA splash page
+    },
+    workboxOptions: {
+      skipWaiting: true
+    }
+    
   chainWebpack: config => {
     config
       .plugin('html')
