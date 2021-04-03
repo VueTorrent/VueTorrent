@@ -23,7 +23,7 @@
                     v-model="selectedTrackers"
                     :value="item"
                     class="pa-0 mb-0"
-                    color="accent" 
+                    color="accent"
                   />
                 </td>
                 <td>{{ item.tier }}</td>
@@ -162,7 +162,7 @@ export default {
       this.dialog = false
     },
     async DeleteTrackers() {
-      if (!this.selectedTrackers.length) return 
+      if (!this.selectedTrackers.length) return
       qbit.removeTorrentTrackers(this.hash, this.selectedTrackers.map(t => t.url))
       this.selectedTrackers = []
       await this.getTorrentTrackers()
