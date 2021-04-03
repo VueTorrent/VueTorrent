@@ -53,6 +53,9 @@ export default {
     state.authenticated = payload
   },
   updateMainData: async state => {
+    // TODO: more performant parsing
+    //const rid = state.rid ? state.rid : undefined
+    //const res = await qbit.getMainData(rid)
     const res = await qbit.getMainData(undefined)
 
     // status
