@@ -23,7 +23,7 @@
                     v-model="selectedTrackers"
                     :value="item"
                     class="pa-0 mb-0"
-                    color="accent" 
+                    color="accent"
                   />
                 </td>
                 <td>{{ item.tier }}</td>
@@ -48,7 +48,7 @@
       >
         Delete
       </v-btn>
-      <v-dialog v-model="dialog2" persistent max-width="290">
+      <v-dialog v-model="trackerDialog" persistent max-width="290">
         <template #activator="{ on, attrs }">
           <v-btn
             color="accent"
@@ -94,7 +94,6 @@
 import qbit from '@/services/qbit'
 import { FullScreenModal } from '@/mixins'
 export default {
-  dialog2: false,
   name: 'Trackers',
   filters: {
     formatTrackerStatus(status) {
@@ -130,7 +129,7 @@ export default {
       { text: 'Message', value: 'msg' }
     ],
     tempTrackers: [],
-    dialog: false,
+    trackerDialog: false,
     newTrackers: '',
     selectedTrackers: []
   }),
@@ -155,19 +154,19 @@ export default {
       this.tempTrackers = data
     },
     async addTrackers() {
-      if (!this.newTrackers.length) return (this.dialog2 = false)
+      if (!this.newTrackers.length) return (this.trackerDialog = false)
 
       qbit.addTorrenTrackers(this.hash, this.newTrackers)
       this.newTrackers = ''
       await this.getTorrentTrackers()
-      this.dialog2 = false
+      this.trackerDialog = false
     },
     closeAddTrackers() {
       this.newTrackers = ''
-      this.dialog2 = false
+      this.trackerDialog = false
     },
     async DeleteTrackers() {
-      if (!this.selectedTrackers.length) return 
+      if (!this.selectedTrackers.length) return
       qbit.removeTorrentTrackers(this.hash, this.selectedTrackers.map(t => t.url))
       this.selectedTrackers = []
       await this.getTorrentTrackers()
