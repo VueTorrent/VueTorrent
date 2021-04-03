@@ -6,7 +6,7 @@ const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
 module.exports = {
   pwa: {
     name: 'VueTorrent', //PWApp name
-    //themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
+    themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
     manifestOptions: {
       background_color: '#eeeeee' //background color for android PWA splash page
     },
@@ -42,6 +42,7 @@ module.exports = {
     },
     host: '0.0.0.0',
     port: `${vueTorrentPort}`,
+    disableHostCheck: true, //allows https proxy for dev server
     proxy: {
       '/api': {
         target: `http://localhost:${qBittorrentPort}`
