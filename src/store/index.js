@@ -97,6 +97,7 @@ export default new Vuex.Store({
     },
     categories: [],
     trackers: [],
+    tags: [],
     filteredTorrentsCount: 0,
     latestSelectedTorrent: null,
     selectMode: false,

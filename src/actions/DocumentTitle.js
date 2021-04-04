@@ -1,29 +1,33 @@
 import { formatBytes } from '@/helpers'
+import store from '../store'
+
 
 export class DocumentTitle {
   static setDefault() {
     this.set('VueTorrent')
   }
 
-  static setGlobalSpeed(speeds) {
-    if (!speeds || speeds.length !== 2) return
-    this.set(`[D: ${formatBytes(speeds[0])}/s, U: ${formatBytes(speeds[1])}/s] VueTorrent`)
+  static setGlobalSpeed() {
+    const status = store.getters.getStatus()
+    this.set(`[D: ${formatBytes(status.upspeed)}/s, U: ${formatBytes(status.dlspeed)}/s] VueTorrent`)
   }
 
-  static setFirstTorrentStatus(torrent) {
-    if (!torrent) return
+  static setFirstTorrentStatus() {
+    const torrents = store.getters.getTorrents()
+    if (!torrents && !torrents.length) return
+    const torrent = torrents[0]
     this.set(`[D: ${formatBytes(torrent.dlspeed)}/s, U: ${formatBytes(torrent.upspeed)}/s] ${torrent.progress}%`)
   }
 
-  static updateTitle(mode, speeds, torrent) {
-    if (!mode || !speeds.length || !torrent) return
+  static update() {
+    const mode = store.getters.getWebuiSettings().title
     switch (mode) {
       case 'Default':
         return this.setDefault()
       case 'Global Speed':
-        return this.setGlobalSpeed(speeds)
+        return this.setGlobalSpeed()
       case 'First Torrent Status':
-        return this.setFirstTorrentStatus(torrent)
+        return this.setFirstTorrentStatus()
       default:
         return this.setDefault()
     }

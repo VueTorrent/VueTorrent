@@ -1,18 +1,29 @@
+import store from '../store'
+
 export default class Status {
-  constructor(data, tags) {
-    if (data) {
-      this.status = data.connection_status
-      this.downloaded = data.dl_info_data
-      this.uploaded = data.up_info_data
-      this.dlspeed = data.dl_info_speed
-      this.upspeed = data.up_info_speed
-      this.freeDiskSpace = data.free_space_on_disk
-      this.altSpeed = data.use_alt_speed_limits
-      this.dlspeedRaw = this.formatSpeed(data.dl_info_speed)
-      this.upspeedRaw = this.formatSpeed(data.up_info_speed)
-      this.tags = tags
-      Object.freeze(this)
-    }
+  constructor({
+    connection_status,
+    dl_info_data,
+    up_info_data,
+    dl_info_speed,
+    up_info_speed,
+    free_space_on_disk,
+    use_alt_speed_limits
+  }) {
+
+    const previous = store.state.status
+
+    this.status = connection_status || previous.status
+    this.downloaded = dl_info_data || previous.downloaded
+    this.uploaded = up_info_data || previous.uploaded
+    this.dlspeed = dl_info_speed || previous.dlspeed
+    this.upspeed = up_info_speed || previous.upspeed
+    this.freeDiskSpace = free_space_on_disk || previous.freeDiskSpace
+    this.altSpeed = use_alt_speed_limits || previous.altSpeed
+    this.dlspeedRaw = this.formatSpeed(dl_info_speed) || previous.dlspeedRaw
+    this.upspeedRaw = this.formatSpeed(up_info_speed) || previous.upspeedRaw
+    Object.freeze(this)
+
   }
 
   formatSpeed(value) {

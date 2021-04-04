@@ -12,7 +12,7 @@ class Qbit {
   execute(method, action, params) {
     if (method === 'post') {
       const data = new URLSearchParams(params)
-      
+
       return this.axios.post(action, data).then(res => res.data)
     }
   }
@@ -35,7 +35,7 @@ class Qbit {
         return status === 200 || status === 403
       }
     })
-    
+
     return data
   }
 
@@ -62,6 +62,7 @@ class Qbit {
   getMainData(rid) {
     return this.axios.get(
       '/sync/maindata', { params: { rid } })
+      .then(res => res.data)
   }
 
   switchToOldUi() {
@@ -121,7 +122,7 @@ class Qbit {
       hash,
       name
     }
-    
+
     return this.axios.get('/torrents/rename', { params })
   }
 
@@ -167,7 +168,7 @@ class Qbit {
     } else {
       data = new URLSearchParams(params)
     }
-    
+
     return this.axios.post('/torrents/add', data)
   }
 
@@ -177,13 +178,13 @@ class Qbit {
       id: idList.join('|'),
       priority
     }
-    
+
     return this.execute('post', '/torrents/filePrio', params)
   }
 
   deleteTorrents(hashes, deleteFiles) {
     if (!hashes.length) return
-    
+
     return this.torrentAction('delete', hashes, { deleteFiles })
   }
 
@@ -248,16 +249,16 @@ class Qbit {
       hash,
       urls: trackers
     }
-    
+
     return this.execute('post', '/torrents/addTrackers', params)
   }
 
   removeTorrentTrackers(hash, trackers) {
     const params = {
       hash,
-      urls: trackers.join('|') 
+      urls: trackers.join('|')
     }
-    
+
     return this.execute('post', '/torrents/removeTrackers', params)
   }
 
@@ -266,7 +267,7 @@ class Qbit {
       hashes: hashes.length ? hashes.join('|') : 'all',
       ...extra
     }
-    
+
     return this.execute('post', `/torrents/${action}`, params)
   }
 
@@ -276,7 +277,7 @@ class Qbit {
       id,
       name
     }
-    
+
     return this.execute('post', '/torrents/renameFile', params)
   }
 
@@ -344,7 +345,7 @@ class Qbit {
       category: cat.name,
       savePath: cat.savePath
     }
-    
+
     return this.execute('post', '/torrents/editCategory', params)
   }
 
@@ -359,7 +360,7 @@ class Qbit {
       names: plugins.join('|'),
       enable
     }
-    
+
     return this.execute('post', '/search/enablePlugin', params)
   }
 
@@ -369,7 +370,7 @@ class Qbit {
       plugins: Array.isArray(plugins) ? plugins.join('|') : 'all',
       category: 'all'
     }
-    
+
     return this.execute('post', '/search/start', params)
   }
 

@@ -1,8 +1,5 @@
-import Torrent from '../models/Torrent'
-import Status from '../models/Status'
 import qbit from '../services/qbit'
-import { getHostName } from '@/helpers'
-import { DocumentTitle } from '@/actions'
+import { DocumentTitle, Tags, Trackers, Torrents, Graph, ServerStatus } from '@/actions'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -45,49 +42,27 @@ export default {
   TOGGLE_THEME(state) {
     state.webuiSettings.darkTheme = !state.webuiSettings.darkTheme
   },
-  LOGOUT: state => {
-    qbit.logout()
+  LOGOUT: async state => {
+    await qbit.logout()
     state.authenticated = false
   },
   LOGIN: async (state, payload) => {
     state.authenticated = payload
   },
   updateMainData: async state => {
-    const res = await qbit.getMainData(undefined)
+    const response = await qbit.getMainData(state.rid || undefined)
+    state.rid = response.rid || undefined
 
-    // status
-    state.status = new Status(res.data.server_state, res.data.tags)
+    ServerStatus.update(response)
+    Tags.update(response)
+    Graph.update()
 
-    // graph
-    state.download_data.splice(0, 1)
-    state.download_data.push(state.status.dlspeedRaw)
-    state.upload_data.splice(0, 1)
-    state.upload_data.push(state.status.upspeedRaw)
+    // fetch torrent data
+    const { data } = await qbit.getTorrents(state.sort_options)
 
-    // torrents
-    let { data } = await qbit.getTorrents(state.sort_options)
-
-    // trackers
-    if (state.webuiSettings.showTrackerFilter) { // dont calculate trackers when disabled
-      state.trackers = data.map(t => t.tracker)
-        .map(url => getHostName(url))
-        .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-        .sort()
-
-      if (state.sort_options.tracker !== null) {
-        data = data.filter(d => getHostName(d.tracker) === state.sort_options.tracker)
-      }
-    }
-
-    // torrents
-    state.torrents = data.map(t => new Torrent(t))
-
-    // update document title
-    DocumentTitle.updateTitle(
-      state.webuiSettings.title,
-      [state.status.dlspeed, state.status.upspeed],
-      state.torrents ? state.torrents[0] : null
-    )
+    Trackers.update(data)
+    Torrents.update(data)
+    DocumentTitle.update()
   },
   FETCH_SETTINGS: async state => {
     const { data } = await qbit.getAppPreferences()
