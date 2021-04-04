@@ -1,79 +1,90 @@
 <template>
-  <div class="ma-3 pa-2">
-    <v-card flat>
-      <v-card-text class="pa-0">
-        <v-layout
-          row
-          wrap
-          align-center
-          justify-center
-        >
-          <v-flex
-            class="box ma-1"
-            style="width:50px !important;"
-            xs12
-            md5
-          >
-            <v-subheader>
-              Properties to display for busy torrents
-            </v-subheader>
-            <v-row dense>
-              <v-list flat class="ma-0 pa-0">
-                <draggable
-                  :list="busyTorrentProperties"
-                  tag="tbody"
-                >
-                  <v-list-item
-                    v-for="(item, index) in busyTorrentProperties"
-                    :key="index"
-                    style="width: 30vh"
-                  >
-                    <v-checkbox v-model="item.active" dense class="pa-0 ma-0 mt-3" />
-                    <v-list-item-content>
-                      <v-list-item-title class="truncate" v-text="item.name" />
-                    </v-list-item-content>
-                  </v-list-item>
-                </draggable>
-              </v-list>
-            </v-row>
-          </v-flex>
-          <v-flex class="box ma-1" xs12 md5>
-            <v-subheader>
-              Properties to display for completed torrents
-            </v-subheader>
-            <v-row dense>
-              <v-list flat class="ma-0 pa-0">
-                <draggable
-                  :list="doneTorrentProperties"
-                  tag="tbody"
-                >
-                  <v-list-item
-                    v-for="(item, index) in doneTorrentProperties"
-                    :key="index"
-                    style="width: 30vh"
-                  >
-                    <v-checkbox v-model="item.active" dense class="pa-0 ma-0 mt-3" />
-                    <v-list-item-content>
-                      <v-list-item-title class="truncate" v-text="item.name" />
-                    </v-list-item-content>
-                  </v-list-item>
-                </draggable>
-              </v-list>
-            </v-row>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-    </v-card>
-  </div>
+  <v-card flat>
+    <v-row dense>
+      <v-col cols="12" md="6">
+        <v-subheader>
+          Properties to display for busy torrents
+        </v-subheader>
+        <v-row dense>
+          <v-list flat class="ma-2 pa-0">
+            <draggable
+              :list="busyTorrentProperties"
+              tag="tbody"
+            >
+              <v-list-item
+                v-for="(item, index) in busyTorrentProperties"
+                :key="index"
+                class="ma-2 elevation-2 rounded-lg pointer"
+              >
+                <v-checkbox
+                  v-model="item.active"
+                  dense
+                  hide-details
+                  class="pa-0 ma-0"
+                />
+                <v-list-item-content>
+                  <v-list-item-title class="truncate" v-text="item.name" />
+                </v-list-item-content>
+                <v-list-item-action>
+                  <v-icon>
+                    {{ mdiMenu }}
+                  </v-icon>
+                </v-list-item-action>
+              </v-list-item>
+            </draggable>
+          </v-list>
+        </v-row>
+      </v-col>
+      
+      <v-col cols="12" md="6">
+        <v-subheader>
+          Properties to display for completed torrents
+        </v-subheader>
+        <v-row dense>
+          <v-list flat class="ma-2 pa-0">
+            <draggable
+              :list="doneTorrentProperties"
+              tag="tbody"
+            >
+              <v-list-item
+                v-for="(item, index) in doneTorrentProperties"
+                :key="index"
+                class="ma-2 elevation-2 rounded-lg pointer"
+              >
+                <v-checkbox
+                  v-model="item.active"
+                  dense
+                  hide-details
+                  class="pa-0 ma-0"
+                />
+                <v-list-item-content>
+                  <v-list-item-title class="truncate" v-text="item.name" />
+                </v-list-item-content>
+                <v-list-item-action>
+                  <v-icon>
+                    {{ mdiMenu }}
+                  </v-icon>
+                </v-list-item-action>
+              </v-list-item>
+            </draggable>
+          </v-list>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
+import { mdiMenu } from '@mdi/js'
 export default {
   name: 'Dashboard',
   components: {
     draggable
   },
+  data: () => ({
+    mdiMenu
+  }),
   computed: {
     busyTorrentProperties() {
       return this.$store.state.webuiSettings.busyTorrentProperties
@@ -84,7 +95,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@import '~@/styles/SettingsTab.scss';
-</style>
