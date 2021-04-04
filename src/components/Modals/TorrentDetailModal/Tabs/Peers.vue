@@ -2,11 +2,12 @@
   <perfect-scrollbar>
     <v-data-table
       v-if="peers"
+      dense
       :headers="headers"
       :items="peers"
       :items-per-page="-1"
       :hide-default-footer="true"
-      :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}"
+      mobile-breakpoint="0"
     >
       <template #item="row">
         <tr>
@@ -56,6 +57,7 @@ export default {
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
   data: () => ({
+    refreshTimer: '',
     headers: [
       { text: 'IP', value: 'ip' },
       { text: 'Connection', value: 'connection' },
@@ -93,6 +95,9 @@ export default {
   },
   created() {
     this.getTorrentPeers()
+    this.refreshTimer = setInterval(function(){
+      this.getTorrentPeers()
+    }.bind(this), 2000)
   },
   methods: {
     codeToFlag(val) {
@@ -111,6 +116,9 @@ export default {
 
       this.peersObj = data.peers
     }
+  },
+  beforeDestroy() {
+    clearTimeout(this.refreshTimer)
   }
 }
 </script>
@@ -131,10 +139,8 @@ export default {
 
 ::v-deep .v-data-table thead th,
 ::v-deep .v-data-table tbody td {
-  padding: 0 2px !important;
+  padding: 0 3px !important;
   height: auto;
-
-  white-space: nowrap;
 
   &:first-child {
     padding: 0 0 0 8px !important;
@@ -142,5 +148,11 @@ export default {
   &:last-child {
     padding-right: 8px !important;
   }
+}
+::v-deep .v-data-table-header {
+  white-space: nowrap;
+}
+::v-deep td {
+  white-space: nowrap;
 }
 </style>
