@@ -64,6 +64,7 @@ export default {
   },
   methods: {
     close() {
+      this.$store.state.selected_torrents = []
       this.$store.commit('DELETE_MODAL', this.guid)
     },
     deleteWithoutFiles() {

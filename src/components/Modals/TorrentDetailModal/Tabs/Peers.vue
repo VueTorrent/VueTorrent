@@ -95,9 +95,12 @@ export default {
   },
   created() {
     this.getTorrentPeers()
-    this.refreshTimer = setInterval(function(){
+    this.refreshTimer = setInterval(function () {
       this.getTorrentPeers()
     }.bind(this), 2000)
+  },
+  beforeDestroy() {
+    clearTimeout(this.refreshTimer)
   },
   methods: {
     codeToFlag(val) {
@@ -116,9 +119,6 @@ export default {
 
       this.peersObj = data.peers
     }
-  },
-  beforeDestroy() {
-    clearTimeout(this.refreshTimer)
   }
 }
 </script>
