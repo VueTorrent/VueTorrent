@@ -52,6 +52,14 @@ export default {
   updateMainData: async state => {
     const response = await qbit.getMainData(state.rid || undefined)
     state.rid = response.rid || undefined
+    if (response.response !== undefined) {
+      if (response.response.status !== undefined) {
+        state.networkErrCode = response.response.status
+
+        return false
+      }
+    }
+    state.networkErrCode = 0
 
     ServerStatus.update(response)
     Tags.update(response)
