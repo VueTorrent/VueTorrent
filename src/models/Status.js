@@ -16,12 +16,12 @@ export default class Status {
     this.status = connection_status || previous.status
     this.downloaded = dl_info_data || previous.downloaded
     this.uploaded = up_info_data || previous.uploaded
-    this.dlspeed = dl_info_speed || previous.dlspeed
-    this.upspeed = up_info_speed || previous.upspeed
+    this.dlspeed = dl_info_speed || 0
+    this.upspeed = up_info_speed || 0
     this.freeDiskSpace = free_space_on_disk || previous.freeDiskSpace
     this.altSpeed = use_alt_speed_limits || previous.altSpeed
-    this.dlspeedRaw = this.formatSpeed(dl_info_speed) || previous.dlspeedRaw
-    this.upspeedRaw = this.formatSpeed(up_info_speed) || previous.upspeedRaw
+    this.dlspeedRaw = this.formatSpeed(dl_info_speed) || 0
+    this.upspeedRaw = this.formatSpeed(up_info_speed) || 0
     Object.freeze(this)
 
   }
