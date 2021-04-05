@@ -15,9 +15,6 @@ export default {
   methods: {
     deleteModal() {
       setTimeout(() => this.$store.commit('DELETE_MODAL', this.guid), 100)
-    },
-    updateTab(tab) {
-      this.tab = tab
     }
   },
   beforeDestroy() {
