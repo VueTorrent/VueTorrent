@@ -20,6 +20,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [vuexPersist.plugin],
   state: {
+    networkErrCode: 0,
     version: 0,
     intervals: [],
     status: {
