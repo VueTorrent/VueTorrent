@@ -63,6 +63,28 @@ class Qbit {
     return this.axios.get(
       '/sync/maindata', { params: { rid } })
       .then(res => res.data)
+      .catch(function (error) {
+        
+        if (error.response) {
+          /*
+          console.log(error.response.data)
+          console.log(error.response.status)
+          console.log(error.response.headers)
+          */
+
+          return error 
+        } else {
+          // in released pwa, some ranges of errors do not return an error code.
+          const ers = {
+            response: {
+              status: 999
+            }
+          }
+          
+          return ers
+        }
+
+      })
   }
 
   switchToOldUi() {
