@@ -10,6 +10,26 @@
     <v-main class="background">
       <router-view />
     </v-main>
+    
+    <v-dialog
+      v-model="networkErrDialog"
+      persistent
+      width="400"
+      content-class="noselect"
+    >
+      <v-card color="primary">
+        <v-card-text>
+          <h4 class="pt-2 white--text">
+            Waiting for server response
+          </h4>
+          <v-progress-linear
+            indeterminate
+            color="primarytext"
+            class="mb-0"
+          />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -24,6 +44,11 @@ export default {
   name: 'App',
   components: { Navbar },
   mixins: [General],
+  data() {
+    return {
+      networkErrDialog: false
+    }
+  },
   computed: {
     ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
     ...mapGetters(['getAuthenticated']),
@@ -32,6 +57,24 @@ export default {
     },
     onLoginPage() {
       return this.$router.currentRoute.name.includes('login')
+    }
+  },
+  watch: {
+    '$store.state.networkErrCode'(e) {
+      switch (e) {
+        case 0:
+          this.networkErrDialog = false
+          break
+        case 403:
+          this.$store.commit('LOGOUT')
+          this.$router.push('/login')
+          this.networkErrDialog = false
+          
+          break
+        default:
+          this.networkErrDialog = true
+      }
+      //this.$store.state.networkErrCode = 0
     }
   },
   created() {
