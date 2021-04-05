@@ -40,7 +40,7 @@
             Tags & Categories
           </v-tab>
         </v-tabs>
-        <v-tabs-items v-model="tab" :touch="updateTab(tab)">
+        <v-tabs-items v-model="tab" touchless>
           <v-tab-item value="info">
             <info :is-active="tab === 'info'" :hash="hash" />
           </v-tab-item>

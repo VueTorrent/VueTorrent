@@ -12,7 +12,7 @@
         </v-tabs>
         <v-tabs-items
           v-model="tab"
-          :touch="updateTab(tab)"
+          touchless
         >
           <v-tab-item value="general">
             <General :is-active="tab === 'downloads'" />
@@ -39,11 +39,6 @@ export default {
   mixins: [FullScreenModal],
   data: () => ({
     tab: null
-  }),
-  methods: {
-    updateTab(tab) {
-      this.tab = tab
-    }
-  }
+  })
 }
 </script>
