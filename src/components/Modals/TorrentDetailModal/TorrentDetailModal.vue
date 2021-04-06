@@ -3,7 +3,7 @@
     v-model="dialog"
     scrollable
     :width="dialogWidth"
-    :fullscreen="phoneLayout"
+    :fullscreen="isFullscreen"
   >
     <v-card
       v-if="torrent"
@@ -13,7 +13,7 @@
         :class="`pa-0 project ${torrent.state}`"
         :style="{ height: phoneLayout ? '100vh' : '' }"
       >
-        <v-card-title class="pb-0 justify-center primary">
+        <v-card-title class="pb-0 justify-center primary" @dblclick="hndlFullscreen = !hndlFullscreen">
           <h2 class="white--text">
             Torrent Detail
           </h2>
@@ -64,18 +64,27 @@
           </v-tab-item>
         </v-tabs-items>
       </div>
-      <v-fab-transition v-if="phoneLayout">
-        <v-btn
-          color="red"
-          dark
-          absolute
-          bottom
-          right
-          @click="close"
-        >
-          <v-icon>{{ mdiClose }}</v-icon>
-        </v-btn>
-      </v-fab-transition>
+      <v-btn
+        v-if="!isPhone"
+        absolute
+        fab
+        small
+        class="primary white--text elevation-0"
+        style="top:9px; right:50px;"
+        @click="fullscreen = !fullscreen"
+      >
+        <v-icon>{{ isFullscreen ? mdiWindowRestore : mdiWindowMaximize }}</v-icon>
+      </v-btn>
+      <v-btn
+        absolute
+        fab
+        small
+        class="primary white--text elevation-0"
+        style="top:9px; right:9px;"
+        @click="close"
+      >
+        <v-icon>{{ mdiClose }}</v-icon>
+      </v-btn>
     </v-card>
   </v-dialog>
 </template>
@@ -84,7 +93,7 @@
 import { mapGetters } from 'vuex'
 import { Modal, FullScreenModal } from '@/mixins'
 import { Content, Info, Peers, Trackers, TagsAndCategories } from './Tabs'
-import { mdiClose } from '@mdi/js'
+import { mdiClose, mdiWindowMaximize, mdiWindowRestore } from '@mdi/js'
 
 export default {
   name: 'TorrentDetailModal',
@@ -95,16 +104,23 @@ export default {
   },
   data() {
     return {
+      fullscreen: false,
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
       peers: [],
-      mdiClose
+      mdiClose, mdiWindowMaximize, mdiWindowRestore
     }
   },
   computed: {
     ...mapGetters(['getTorrent']),
     torrent() {
       return this.getTorrent(this.hash)
+    },
+    isPhone() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+    isFullscreen() {
+      return this.isPhone || this.fullscreen
     }
   },
   methods: {
