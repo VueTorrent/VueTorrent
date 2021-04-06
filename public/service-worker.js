@@ -14,16 +14,12 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.2aefc67e57ace416b1cf896bed9cd39d.js"
+  "precache-manifest.dc5fd239ca0a88ed5609c6f8cb0883f5.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vuetorrent"});
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting();
-  }
-});
+workbox.core.skipWaiting();
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
