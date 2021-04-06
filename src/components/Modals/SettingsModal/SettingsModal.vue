@@ -34,7 +34,7 @@
             Tags & Categories
           </v-tab>
         </v-tabs>
-        <v-tabs-items v-model="tab" touchless">
+        <v-tabs-items v-model="tab" touchless>
           <v-tab-item value="downloads">
             <Downloads :is-active="tab === 'downloads'" />
           </v-tab-item>
