@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.8.0](https://www.github.com/WDaan/VueTorrent/compare/v0.7.0...v0.8.0) (2021-04-06)
+
+
+### Features
+
+* auto install search plugins when none installed ([abc5457](https://www.github.com/WDaan/VueTorrent/commit/abc5457882892ce4840ae0eef7a438e5ea4c7c90))
+* auto refresh peers ([dfd10be](https://www.github.com/WDaan/VueTorrent/commit/dfd10beeab4c757ff1ac0c3eecbdc4e740573a75))
+* fullscreen toggle on torrent info modal (desktop) ([1de9e64](https://www.github.com/WDaan/VueTorrent/commit/1de9e6459657c386332d146352c3ed765f70fa3c))
+* PWA splash & bar color ([dfbed5c](https://www.github.com/WDaan/VueTorrent/commit/dfbed5cb05c0b6974c09c86c6e82e1478f1100d6))
+* use confirmation modal when deleting from context menu [#191](https://www.github.com/WDaan/VueTorrent/issues/191) ([53c548b](https://www.github.com/WDaan/VueTorrent/commit/53c548b502bacc95bab59026b836eb2bb2b785ec))
+
+
+### Bug Fixes
+
+* 0 speed when no speed data returned ([a7b8ed9](https://www.github.com/WDaan/VueTorrent/commit/a7b8ed9da3dbca8d2f3be0665880d3cda5f5a50b))
+* add tracker dialog bug [#187](https://www.github.com/WDaan/VueTorrent/issues/187) ([7c7e40d](https://www.github.com/WDaan/VueTorrent/commit/7c7e40d4a5105ce3e0e9422551ad6cd2673da932))
+* always fetch full data (more reliable) ([89cf6ba](https://www.github.com/WDaan/VueTorrent/commit/89cf6ba32c7a4b24cd0ea4d358e56e1d859d4665))
+* remove gesture feature on tabs (buggy anyway) ([0960962](https://www.github.com/WDaan/VueTorrent/commit/0960962441e424c28c8ad6014a79f733f495b881))
+* Settings>VueTorrent>Dashboard layout & UX ([d93e540](https://www.github.com/WDaan/VueTorrent/commit/d93e540a71c72bb274da14f36ae5fd72404bc65d))
+* Update registerServiceWorker.js (delete all cache on when new version is released) ([d846c92](https://www.github.com/WDaan/VueTorrent/commit/d846c924937c99746cbf5a102b0de8ed27381a5d))
+
+
+### Performance Improvements
+
+* only update changed data + code cleanup ([664e4db](https://www.github.com/WDaan/VueTorrent/commit/664e4dbe2ff9bf04a2ef766fe2726d5f994b1228))
+
 ## [0.7.0](https://www.github.com/WDaan/VueTorrent/compare/v0.6.0...v0.7.0) (2021-03-25)
 
 
