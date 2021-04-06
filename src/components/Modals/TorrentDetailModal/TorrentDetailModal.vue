@@ -71,7 +71,7 @@
         small
         class="primary white--text elevation-0"
         style="top:9px; right:50px;"
-        @click="hndlFullscreen = !hndlFullscreen"
+        @click="fullscreen = !fullscreen"
       >
         <v-icon>{{ isFullscreen ? mdiWindowRestore : mdiWindowMaximize }}</v-icon>
       </v-btn>
@@ -104,7 +104,7 @@ export default {
   },
   data() {
     return {
-      hndlFullscreen: false,
+      fullscreen: false,
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
       peers: [],
@@ -120,12 +120,7 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     },
     isFullscreen() {
-      if (this.hndlFullscreen)
-        return true
-      else if (this.isPhone)
-        return true
-
-      return false
+      return this.isPhone || this.fullscreen
     }
   },
   methods: {
