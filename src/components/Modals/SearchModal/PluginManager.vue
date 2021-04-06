@@ -64,6 +64,11 @@ export default {
     togglePlugin(plugin) {
       qbit.enableSearchPlugin([plugin.name], plugin.enabled)
     }
+  },
+  mounted() {
+    if(!this.searchPlugins.length) {
+      qbit.updateSearchPlugins()
+    }
   }
 }
 </script>

@@ -355,6 +355,10 @@ class Qbit {
       .then(res => res.data)
   }
 
+  updateSearchPlugins() {
+    return this.execute('post', '/search/updatePlugins')
+  }
+
   enableSearchPlugin(plugins, enable) {
     const params = {
       names: plugins.join('|'),
