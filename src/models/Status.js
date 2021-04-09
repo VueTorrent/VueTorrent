@@ -12,18 +12,24 @@ export default class Status {
   }) {
 
     const previous = store.state.status
-
-    this.status = connection_status || previous.status
-    this.downloaded = dl_info_data || previous.downloaded
-    this.uploaded = up_info_data || previous.uploaded
-    this.dlspeed = dl_info_speed || 0
-    this.upspeed = up_info_speed || 0
-    this.freeDiskSpace = free_space_on_disk || previous.freeDiskSpace
-    this.altSpeed = use_alt_speed_limits || previous.altSpeed
-    this.dlspeedRaw = this.formatSpeed(dl_info_speed) || 0
-    this.upspeedRaw = this.formatSpeed(up_info_speed) || 0
+    this.status = this.ddf(connection_status, previous.status),
+    this.downloaded = this.ddf(dl_info_data, previous.downloaded),
+    this.uploaded = this.ddf(up_info_data, previous.uploaded),
+    this.dlspeed = this.ddf(dl_info_speed, 0),
+    this.upspeed = this.ddf(up_info_speed, 0),
+    this.freeDiskSpace = this.ddf(free_space_on_disk, previous.freeDiskSpace),
+    this.altSpeed = this.ddf(use_alt_speed_limits, previous.altSpeed),
+    this.dlspeedRaw = this.ddf(this.formatSpeed(dl_info_speed), 0),
+    this.upspeedRaw = this.ddf(this.formatSpeed(up_info_speed), 0)
     Object.freeze(this)
 
+  }
+
+  ddf(v, p) {
+    if (v === undefined)
+      return p
+    else
+      return v
   }
 
   formatSpeed(value) {
