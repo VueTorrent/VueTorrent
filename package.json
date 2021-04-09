@@ -15,7 +15,6 @@
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
     "dayjs": "^1.10.4",
-    "dotenv": "^8.2.0",
     "fuse.js": "^6.4.6",
     "lodash": "^4.17.20",
     "register-service-worker": "^1.7.2",
