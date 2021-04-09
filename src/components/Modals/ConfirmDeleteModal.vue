@@ -20,27 +20,26 @@
             </v-list-item>
           </v-list>
         </v-card-text>
-        <v-card-actions class="justify-center pb-5">
+        <v-card-actions id="with-files-check" class="justify-center pa-0 ma-0">
+          <v-checkbox
+            v-model="withFiles"
+            label="Also delete the files on the hard disk"
+          />
+        </v-card-actions>
+        <v-card-actions class="justify-center pb-5 py-0">
           <v-btn
             text
-            class="accent white--text mt-3"
+            class="accent--text mt-3"
             @click="close()"
           >
             Cancel
           </v-btn>
           <v-btn
             text
-            class="error white--text mt-3"
-            @click="deleteWithoutFiles()"
+            class="error--text mt-3"
+            @click="deleteTorrent()"
           >
             Delete
-          </v-btn>
-          <v-btn
-            text
-            class="error white--text mt-3"
-            @click="deleteWithFiles()"
-          >
-            Delete with files
           </v-btn>
         </v-card-actions>
       </v-container>
@@ -55,6 +54,9 @@ import qbit from '@/services/qbit'
 export default {
   name: 'ConfirmDeleteModal',
   mixins: [Modal],
+  data: () => ({
+    withFiles: false
+  }),
   computed: {
     ...mapState(['selected_torrents']),
     ...mapGetters(['getTorrents']),
@@ -69,14 +71,16 @@ export default {
     close() {
       this.$store.commit('DELETE_MODAL', this.guid)
     },
-    deleteWithoutFiles() {
-      qbit.deleteTorrents(this.selected_torrents, false)
-      this.close()
-    },
-    deleteWithFiles() {
-      qbit.deleteTorrents(this.selected_torrents, true)
+    deleteTorrent() {
+      qbit.deleteTorrents(this.selected_torrents, this.withFiles)
       this.close()
     }
   }
 }
 </script>
+
+<style lang="scss">
+#with-files-check .v-messages {
+  display: none !important;
+}
+</style>
