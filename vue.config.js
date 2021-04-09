@@ -45,7 +45,8 @@ module.exports = {
     disableHostCheck: true, //allows https proxy for dev server
     proxy: {
       '/api': {
-        target: `http://localhost:${qBittorrentPort}`
+        //target: `http://localhost:${qBittorrentPort}`
+        target: 'https://192.168.50.240:9980'
       }
     }
   }
