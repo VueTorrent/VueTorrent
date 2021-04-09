@@ -1,3 +1,5 @@
+import store from '../store'
+
 export default class Status {
   constructor(data) {
     if (data) {

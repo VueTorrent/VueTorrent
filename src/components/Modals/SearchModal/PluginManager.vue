@@ -60,6 +60,11 @@ export default {
       this.$store.commit('FETCH_SEARCH_PLUGINS')
     }
   },
+  mounted() {
+    if (!this.searchPlugins.length) {
+      qbit.updateSearchPlugins()
+    }
+  },
   methods: {
     togglePlugin(plugin) {
       qbit.enableSearchPlugin([plugin.name], plugin.enabled)

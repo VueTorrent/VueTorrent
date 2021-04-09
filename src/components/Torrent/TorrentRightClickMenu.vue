@@ -29,7 +29,7 @@
     </v-list-item>
 
     <v-divider />
-    <v-list-item link @click="deleteWithoutFiles">
+    <v-list-item link @click="removeTorrent">
       <v-icon color="red">
         {{ mdiDelete }}
       </v-icon>
@@ -38,17 +38,6 @@
         style="font-size: 1em;"
       >
         Delete
-      </v-list-item-title>
-    </v-list-item>
-    <v-list-item link @click="deleteWithFiles">
-      <v-icon color="red">
-        {{ mdiDeleteForever }}
-      </v-icon>
-      <v-list-item-title
-        class="ml-2 red--text"
-        style="font-size: 1em;"
-      >
-        Delete with files
       </v-list-item-title>
     </v-list-item>
     <v-divider />
@@ -241,7 +230,7 @@ import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
-  mdiInformation, mdiDeleteForever, mdiRenameBox, mdiFolder, mdiDelete,
+  mdiInformation, mdiRenameBox, mdiFolder, mdiDelete,
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
   mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
   mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
@@ -261,7 +250,7 @@ export default {
       { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
     ],
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
-    mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,
+    mdiFolder, mdiRenameBox, mdiInformation,
     mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
     mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
     mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
@@ -284,7 +273,7 @@ export default {
       return [this.torrent.hash]
     },
     multiple() {
-      return this.selected_torrents.length
+      return this.selected_torrents.length > 1
     }
   },
   methods: {
@@ -303,11 +292,10 @@ export default {
     reannounce() {
       qbit.reannounceTorrents(this.hashes)
     },
-    deleteWithoutFiles() {
-      qbit.deleteTorrents(this.hashes, false)
-    },
-    deleteWithFiles() {
-      qbit.deleteTorrents(this.hashes, true)
+    removeTorrent() {
+      this.$store.state.selected_torrents = this.hashes
+
+      return this.createModal('ConfirmDeleteModal')
     },
     recheck() {
       qbit.recheckTorrents(this.hashes)
