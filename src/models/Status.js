@@ -19,7 +19,7 @@ export default class Status {
     this.dlspeed = dl_info_speed || 0
     this.upspeed = up_info_speed || 0
     this.freeDiskSpace = free_space_on_disk || previous.freeDiskSpace
-    this.altSpeed = use_alt_speed_limits || previous.altSpeed
+    this.altSpeed = use_alt_speed_limits !== undefined ? use_alt_speed_limits : previous.altSpeed
     this.dlspeedRaw = this.formatSpeed(dl_info_speed) || 0
     this.upspeedRaw = this.formatSpeed(up_info_speed) || 0
     Object.freeze(this)
