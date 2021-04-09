@@ -1,5 +1,13 @@
 # Changelog
 
+### [0.8.1](https://www.github.com/WDaan/VueTorrent/compare/v0.8.0...v0.8.1) (2021-04-09)
+
+
+### Bug Fixes
+
+* altspeed value ([aadb3f2](https://www.github.com/WDaan/VueTorrent/commit/aadb3f2171d38d5a94f9ca9847c50137669055b3))
+* selection list not cleared when closing deletemodal without button press ([80573f4](https://www.github.com/WDaan/VueTorrent/commit/80573f436498def7edae86e161535ef378c538e7))
+
 ## [0.8.0](https://www.github.com/WDaan/VueTorrent/compare/v0.7.0...v0.8.0) (2021-04-06)
 
 
