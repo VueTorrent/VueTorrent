@@ -2,10 +2,14 @@
   <v-dialog
     v-model="dialog"
     scrollable
+    :content-class="isPhone ? 'rounded-0' : 'rounded-form'"
     max-width="500px"
     :fullscreen="phoneLayout"
   >
-    <v-card>
+    <v-card
+      @drop.prevent="addDropFile"
+      @dragover.prevent=""
+    >
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
           <h2>Add a new Torrent</h2>
@@ -15,46 +19,41 @@
             <v-container>
               <v-row no-gutters>
                 <v-col ref="fileZone">
-                  <div
-                    @drop.prevent="addDropFile"
-                    @dragover.prevent
+                  <v-file-input
+                    v-if="!urls"
+                    v-model="files"
+                    color="deep-purple accent-4"
+                    counter
+                    label="Select your files"
+                    multiple
+                    :prepend-icon="mdiPaperclip"
+                    :rules="fileInputRules"
+                    outlined
+                    :show-size="1000"
                   >
-                    <v-file-input
-                      v-if="!urls"
-                      v-model="files"
-                      color="deep-purple accent-4"
-                      counter
-                      label="Select your files"
-                      multiple
-                      :prepend-icon="mdiPaperclip"
-                      :rules="fileInputRules"
-                      outlined
-                      :show-size="1000"
+                    <template
+                      #selection="{ index, text }"
                     >
-                      <template
-                        #selection="{ index, text }"
+                      <v-chip
+                        v-if="index < 2"
+                        color="deep-purple accent-4"
+                        dark
+                        label
+                        small
                       >
-                        <v-chip
-                          v-if="index < 2"
-                          color="deep-purple accent-4"
-                          dark
-                          label
-                          small
-                        >
-                          {{ text }}
-                        </v-chip>
-                        <span
-                          v-else-if="index === 2"
-                          class="overline grey--text text--darken-3 mx-2"
-                        >
-                          +{{
-                            files.length - 2
-                          }}
-                          File(s)
-                        </span>
-                      </template>
-                    </v-file-input>
-                  </div>
+                        {{ text }}
+                      </v-chip>
+                      <span
+                        v-else-if="index === 2"
+                        class="overline grey--text text--darken-3 mx-2"
+                      >
+                        +{{
+                          files.length - 2
+                        }}
+                        File(s)
+                      </span>
+                    </template>
+                  </v-file-input>
                   <v-textarea
                     v-if="files.length == 0"
                     v-model="urls"
@@ -164,6 +163,7 @@ export default {
   props: ['initialMagnet'],
   data() {
     return {
+      hndlDialog: true,
       files: [],
       category: null,
       directory: '',
@@ -205,6 +205,16 @@ export default {
     },
     availableCategories() {
       return this.getCategories()
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -256,7 +266,7 @@ export default {
       this.skip_checking = null
     },
     close() {
-      this.deleteModal()
+      this.dialog = false
     }
   }
 }

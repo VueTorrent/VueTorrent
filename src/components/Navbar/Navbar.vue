@@ -1,7 +1,11 @@
 <template>
   <nav>
     <!--title-->
-    <v-app-bar app flat>
+    <v-app-bar
+      app
+      elevate-on-scroll
+      class="noselect"
+    >
       <v-app-bar-nav-icon
         class="grey--text text--lighten-1"
         aria-label="Open Navigation Drawer"
@@ -28,12 +32,14 @@
       class="primary drawer"
       style="position: fixed;"
       width="256"
+      height="100%"
       disable-resize-watcher
     >
-      <v-flex
+      <v-card
         v-if="status"
-        style="height: 97vh; display: flex; flex-direction: column;"
-        class="mt-3"
+        style="display: flex; flex-direction: column;"
+        class="pt-3 primary"
+        flat
       >
         <CurrentSpeed
           v-if="webuiSettings.showCurrentSpeed"
@@ -59,11 +65,12 @@
         >
           {{ torrentCountString }}
         </div>
-
-        <div class="mt-auto">
+      </v-card>
+      <template #append>
+        <div class="pa-2">
           <BottomActions />
         </div>
-      </v-flex>
+      </template>
     </v-navigation-drawer>
   </nav>
 </template>

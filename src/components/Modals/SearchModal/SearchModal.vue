@@ -99,6 +99,7 @@ export default {
   mixins: [Modal, FullScreenModal, General],
   data() {
     return {
+      hndlDialog: true,
       search: {
         id: null,
         status: null,
@@ -130,6 +131,16 @@ export default {
     },
     enabledSearchPlugins() {
       return this.getSearchPlugins().filter(p => p.enabled)
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -176,7 +187,7 @@ export default {
       qbit.stopSearch(this.search.id)
     },
     close() {
-      this.$store.commit('DELETE_MODAL', this.guid)
+      this.dialog = false
     }
   }
 }
