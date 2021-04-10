@@ -45,7 +45,7 @@
                 <v-icon>{{ mdiTrendingUp }}</v-icon>
               </v-btn>
             </template>
-            <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
+            <v-list>
               <v-list-item
                 v-for="prio in priority_options"
                 :key="prio.value"

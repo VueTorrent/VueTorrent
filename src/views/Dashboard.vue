@@ -194,14 +194,11 @@
       :position-x="trcMenuX"
       :position-y="trcMenuY"
       absolute
-      offset-y
     >
       <TorrentRightClickMenu
         v-if="data"
         :torrent="data.torrent"
         :touchmode="trcTouchMode"
-        class="elevation-9 pa-0 ma-0 rounded-lg"
-        style="border: solid 1px rgb(127,127,127,.5)"
       />
     </v-menu>
   </div>
@@ -320,6 +317,8 @@ export default {
       clearTimeout(this.trcMenuTouchTimer)
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
+      if (this.trcMenu)
+        return false
       this.data = data
       try {
         e.preventDefault()
@@ -327,8 +326,8 @@ export default {
         console.log(e)
       }
       this.trcTouchMode = touchmode
-      this.trcMenuX = e.clientX
-      this.trcMenuY = e.clientY
+      this.trcMenuX = e.clientX + (touchmode ? 12 : 6)
+      this.trcMenuY = e.clientY + (touchmode ? 12 : 6)
       this.$nextTick(() => {
         this.trcMenu = true
       })

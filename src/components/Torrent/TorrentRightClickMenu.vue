@@ -61,7 +61,7 @@
           </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
+      <v-list>
         <v-list-item v-if="!multiple" link @click="location">
           <v-icon>{{ mdiFolder }}</v-icon>
           <v-list-item-title
@@ -147,7 +147,7 @@
           </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
+      <v-list>
         <v-list-item
           v-for="(item, index) in priority_options"
           :key="index"
@@ -181,7 +181,7 @@
           </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
+      <v-list>
         <v-list-item
           v-for="(item, index) in availableCategories"
           :key="index"
@@ -215,7 +215,7 @@
           </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
+      <v-list>
         <v-list-item @click="setLimit('download')">
           <v-icon>{{ mdiChevronDown }}</v-icon>
           <v-list-item-title class="ml-2">

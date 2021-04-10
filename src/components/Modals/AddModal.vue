@@ -2,13 +2,30 @@
   <v-dialog
     v-model="dialog"
     scrollable
-    :content-class="isPhone ? 'rounded-0' : 'rounded-form'"
+    :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
     max-width="500px"
     :fullscreen="phoneLayout"
   >
-    <v-card
+    <div
+      class="noselect"
+      style="
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      "
+      @click="closeWrap"
       @drop.prevent="addDropFile"
-      @dragover.prevent=""
+      @dragover.prevent="showWrapDrag = true"
+      @dragend.prevent="showWrapDrag = false"
+      @dragleave.prevent="DragLeave"
+    />
+    <v-card
+      :class="showWrapDrag ? 'wrap-drag' : ''"
+      @drop.prevent="addDropFile"
+      @dragover.prevent="showWrapDrag = true"
+      @dragend.prevent="showWrapDrag = false"
     >
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
@@ -148,6 +165,30 @@
         </v-form>
       </v-container>
     </v-card>
+    <div
+      v-show="showWrapDrag"
+      class="wrap-drag noselect"
+      style="
+      position:fixed;
+      left:0;
+      top:0;
+      width:100%;
+      height:100%;
+      text-align:center;
+      background-color: rgb(0,0,0,.5)
+      "
+    >
+      <div class="align white--text">
+        <div>
+          <v-icon size="40" class="white--text">
+            {{ mdiCloudUpload }}
+          </v-icon>
+        </div>
+        <div>
+          <h3>Drop here for add</h3>
+        </div>
+      </div>
+    </div>
   </v-dialog>
 </template>
 
@@ -155,7 +196,7 @@
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
-import { mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
 export default {
   name: 'AddModal',
@@ -164,6 +205,7 @@ export default {
   data() {
     return {
       hndlDialog: true,
+      showWrapDrag: false,
       files: [],
       category: null,
       directory: '',
@@ -184,7 +226,7 @@ export default {
       loading: false,
       urls: null,
       valid: false,
-      mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose
+      mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose
     }
   },
   computed: {
@@ -231,7 +273,21 @@ export default {
       this.root_folder = settings.create_subfolder_enabled
     },
     addDropFile(e) {
-      this.files.push(...Array.from(e.dataTransfer.files))
+      this.showWrapDrag = false
+      if (!this.urls)
+        this.files.push(...Array.from(e.dataTransfer.files))
+    },
+    startDropFile() {
+      this.showWrapDrag = true
+    },
+    DragLeave(e) {
+      this.showWrapDrag = false
+    },
+    closeWrap() {
+      if (this.showWrapDrag)
+        this.showWrapDrag = false
+      else
+        this.close()
     },
     submit() {
       if (this.files.length || this.urls) {
@@ -271,3 +327,21 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.wrap-drag {
+  pointer-events: none;
+}
+.wrap-drag .align {
+  margin: -.5em 0 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 0;
+}
+</style>
