@@ -42,7 +42,7 @@
     </v-list-item>
     <v-divider />
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
     >
       <template #activator="{ on }">
@@ -124,7 +124,7 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
     >
       <template #activator="{ on }">
@@ -154,7 +154,7 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
     >
       <template #activator="{ on }">
@@ -184,7 +184,7 @@
     </v-menu>
     <v-menu
       v-if="!multiple"
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
     >
       <template #activator="{ on }">
@@ -240,7 +240,8 @@ export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object
+    torrent: Object,
+    touchmode: Boolean
   },
   data: () => ({
     priority_options: [

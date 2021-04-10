@@ -40,32 +40,30 @@
             </v-col>
           </v-flex>
         </v-form>
-        <perfect-scrollbar>
-          <v-data-table
-            id="searchTable"
-            :headers="grid.headers"
-            :items="search.results"
-            :items-per-page="10"
-            :loading="loading"
-            :style="{ maxHeight: '60vh'}"
-          >
-            <template #[`item.fileName`]="{ item }">
-              <a
-                :href="item.descrLink"
-                target="_blank"
-                v-text="item.fileName"
-              />
-            </template>
-            <template #[`item.fileSize`]="{ item }">
-              {{ item.fileSize | formatSize }}
-            </template>
-            <template #[`item.actions`]="{ item }">
-              <v-icon @click="downloadTorrent(item)">
-                {{ mdiDownload }}
-              </v-icon>
-            </template>
-          </v-data-table>
-        </perfect-scrollbar>
+        <v-data-table
+          id="searchTable"
+          :headers="grid.headers"
+          :items="search.results"
+          :items-per-page="10"
+          :loading="loading"
+          :style="{ maxHeight: '60vh'}"
+        >
+          <template #[`item.fileName`]="{ item }">
+            <a
+              :href="item.descrLink"
+              target="_blank"
+              v-text="item.fileName"
+            />
+          </template>
+          <template #[`item.fileSize`]="{ item }">
+            {{ item.fileSize | formatSize }}
+          </template>
+          <template #[`item.actions`]="{ item }">
+            <v-icon @click="downloadTorrent(item)">
+              {{ mdiDownload }}
+            </v-icon>
+          </template>
+        </v-data-table>
       </v-card-text>
       <v-card-actions>
         <PluginManager />

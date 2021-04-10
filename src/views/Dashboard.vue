@@ -185,9 +185,22 @@
         />
       </div>
     </div>
-    <vue-context ref="menu" v-slot="{ data }">
-      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" />
-    </vue-context>
+    <v-menu
+      v-model="trcMenu"
+      transition="slide-y-transition"
+      :position-x="trcMenuX"
+      :position-y="trcMenuY"
+      absolute
+      offset-y
+    >
+      <TorrentRightClickMenu
+        v-if="data"
+        :torrent="data.torrent"
+        :touchmode="trcTouchMode"
+        class="elevation-9 pa-0 ma-0 rounded-lg"
+        style="border: solid 1px rgb(127,127,127,.5)"
+      />
+    </v-menu>
   </div>
 </template>
 
@@ -210,6 +223,13 @@ export default {
   mixins: [TorrentSelect, General],
   data() {
     return {
+      data: null,
+      trcMenu: false,
+      trcMenuX: 0,
+      trcMenuY: 0,
+      trcMenuTouchTimer: 0,
+      trcTouchMode: false,
+      trcMoveTick: 0,
       input: '',
       searchFilterEnabled: false,
       pageNumber: 1,
@@ -283,6 +303,35 @@ export default {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
+    strTouchStart(e, data) {
+      this.trcMoveTick = 0
+      this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
+    },
+    strTouchMove(e) {
+      this.trcMoveTick++
+      if (this.trcMoveTick > 10) {
+        this.trcMenu = false
+        clearTimeout(this.trcMenuTouchTimer)
+      }
+    },
+    strTouchEnd(e) {
+      clearTimeout(this.trcMenuTouchTimer)
+    },
+    showTorrentRightClickMenu(e, data, touchmode = false) {
+      this.data = data
+      try {
+        e.preventDefault()
+      } catch (e) {
+        console.log(e)
+      }
+      this.trcTouchMode = touchmode
+      this.trcMenuX = e.clientX
+      this.trcMenuY = e.clientY
+      this.$nextTick(() => {
+        this.trcMenu = true
+      })
+
+    },
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
         this.addModal('AddModal')

@@ -39,7 +39,7 @@
         <v-btn
           class="white--text elevation-0 px-4"
           :class="withFiles ? 'error' : 'info'"
-          @click="deleteWithFiles()"
+          @click="deleteTorrent()"
         >
           Delete
         </v-btn>
@@ -90,10 +90,6 @@ export default {
   methods: {
     close() {
       this.dialog = false
-    },
-    deleteWithoutFiles() {
-      qbit.deleteTorrents(this.selected_torrents, false)
-      this.close()
     },
     deleteTorrent() {
       qbit.deleteTorrents(this.selected_torrents, this.withFiles)
