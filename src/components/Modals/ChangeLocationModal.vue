@@ -2,7 +2,7 @@
   <v-dialog
     v-model="dialog"
     scrollable
-    :content-class="isPhone ? 'rounded-0' : 'rounded-form'"
+    :width="dialogWidth"
     :fullscreen="isPhone"
   >
     <v-card>

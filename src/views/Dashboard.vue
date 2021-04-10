@@ -199,6 +199,7 @@
       <TorrentRightClickMenu
         v-if="data"
         :torrent="data.torrent"
+        :touchmode="trcTouchMode"
         class="elevation-9 pa-0 ma-0 rounded-lg"
         style="border: solid 1px rgb(127,127,127,.5)"
       />
@@ -229,6 +230,8 @@ export default {
       trcMenuX: 0,
       trcMenuY: 0,
       trcMenuTouchTimer: 0,
+      trcTouchMode: false,
+      trcMoveTick: 0,
       input: '',
       searchFilterEnabled: false,
       pageNumber: 1,
@@ -303,22 +306,27 @@ export default {
   },
   methods: {
     strTouchStart(e, data) {
-      this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data), 500)
+      this.trcMoveTick = 0
+      this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
     },
     strTouchMove(e) {
-      this.trcMenu = false
-      clearTimeout(this.trcMenuTouchTimer)
+      this.trcMoveTick++
+      if (this.trcMoveTick > 10) {
+        this.trcMenu = false
+        clearTimeout(this.trcMenuTouchTimer)
+      }
     },
     strTouchEnd(e) {
       clearTimeout(this.trcMenuTouchTimer)
     },
-    showTorrentRightClickMenu(e, data) {
+    showTorrentRightClickMenu(e, data, touchmode = false) {
       this.data = data
       try {
         e.preventDefault()
       } catch (e) {
         console.log(e)
       }
+      this.trcTouchMode = touchmode
       this.trcMenuX = e.clientX
       this.trcMenuY = e.clientY
       this.$nextTick(() => {

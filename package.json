@@ -28,7 +28,6 @@
     "vue-context": "^6.0.0",
     "vue-router": "^3.5.1",
     "vue-toastification": "^1.7.11",
-    "vue2-perfect-scrollbar": "^1.5.0",
     "vuedraggable": "^2.24.3",
     "vuetify": "^2.4.9",
     "vuex": "^3.6.2",

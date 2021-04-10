@@ -42,7 +42,7 @@
     </v-list-item>
     <v-divider />
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
       transition="slide-x-transition"
       offset-x
@@ -128,7 +128,7 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
       transition="slide-x-transition"
       offset-x
@@ -162,7 +162,7 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
       transition="slide-x-transition"
       offset-x
@@ -196,7 +196,7 @@
     </v-menu>
     <v-menu
       v-if="!multiple"
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
       transition="slide-x-transition"
       offset-x
@@ -256,7 +256,8 @@ export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object
+    torrent: Object,
+    touchmode: Boolean
   },
   data: () => ({
     priority_options: [
