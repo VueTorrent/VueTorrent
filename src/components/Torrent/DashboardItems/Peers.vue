@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      Peers
+      {{ $t('torrent.detail.info.peers') }}
     </div>
     <div>
       {{ torrent.num_leechs }}

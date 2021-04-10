@@ -6,7 +6,7 @@
     class="mr-4"
   >
     <div class="caption grey--text">
-      Progress
+      {{ $t('torrent.detail.info.progress') }}
     </div>
     <v-progress-linear
       :value="torrent.progress"

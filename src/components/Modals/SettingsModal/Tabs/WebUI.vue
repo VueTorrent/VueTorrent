@@ -51,6 +51,20 @@
             </v-col>
           </v-row>
         </div>
+        <div class="box">
+          <v-subheader class="pb-4">
+            {{ $t('settings.webui.language') }}
+          </v-subheader>
+          <v-row class="ml-5 mr-5 pb-4">
+            <v-select
+              v-model="settings.locale"
+              :items="languageItems"
+              outlined
+              dense
+              hide-details="true"
+            />
+          </v-row>
+        </div>
       </v-card-text>
     </v-card>
   </v-container>
@@ -61,7 +75,21 @@ import { FullScreenModal, SettingsTab } from '@/mixins'
 
 export default {
   name: 'WebUI',
-  mixins: [SettingsTab, FullScreenModal]
+  mixins: [SettingsTab, FullScreenModal],
+  data() {
+    return {
+      languageItems: [
+        {
+          text: '简体中文',
+          value: 'zh'
+        },
+        {
+          text: 'English',
+          value: 'us'
+        }
+      ]
+    }
+  }
 }
 </script>
 

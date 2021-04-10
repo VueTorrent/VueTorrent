@@ -6,7 +6,7 @@
     class="mr-4"
   >
     <div class="caption grey--text">
-      Status
+      {{ $t('torrent.detail.info.status') }}
     </div>
     <v-chip
       small
@@ -19,17 +19,19 @@
 </template>
 <script>
 import { TorrentDashboardItem } from '@/mixins'
+import i18n from '@/locales/index'
 export default {
   name: 'Status',
   mixins: [TorrentDashboardItem],
   props: ['torrent'],
   computed: {
     stateString() {
+      const status = i18n.tc(`download.status.${this.torrent.state.toLowerCase()}`)
       if (this.torrent.forced) {
-        return `[F] ${this.torrent.state}`
+        return `[F] ${status}`
       }      
       
-      return this.torrent.state
+      return status
     }
   }
 }

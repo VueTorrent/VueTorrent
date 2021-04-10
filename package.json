@@ -24,6 +24,7 @@
     "vue": "^2.6.12",
     "vue-apexcharts": "^1.6.0",
     "vue-context": "^5.2.0",
+    "vue-i18n": "^8.22.4",
     "vue-router": "^3.5.1",
     "vue-toastification": "^1.7.11",
     "vue2-perfect-scrollbar": "^1.5.0",

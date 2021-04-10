@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 
-const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
-const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
+const qBittorrentPort = process.env['QBITTORRENT_PORT'] || 9091
+const vueTorrentPort = process.env['VUETORRENT_PORT'] || 9091
 
 module.exports = {
   chainWebpack: config => {

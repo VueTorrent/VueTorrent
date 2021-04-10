@@ -8,7 +8,7 @@
     <v-card>
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
-          <h2>Add a new Torrent</h2>
+          <h2>{{ $t('torrent.add.title') }}</h2>
         </v-card-title>
         <v-card-text class="pb-0">
           <v-form ref="form" v-model="valid">
@@ -24,7 +24,7 @@
                       v-model="files"
                       color="deep-purple accent-4"
                       counter
-                      label="Select your files"
+                      :label="$t('torrent.add.selectFile')"
                       multiple
                       :prepend-icon="mdiPaperclip"
                       :rules="fileInputRules"
@@ -58,7 +58,7 @@
                   <v-textarea
                     v-if="files.length == 0"
                     v-model="urls"
-                    label="URL"
+                    :label="$t('torrent.add.url')"
                     :prepend-icon="mdiLink"
                     rows="1"
                     required
@@ -74,7 +74,7 @@
                 v-model="category"
                 :items="availableCategories"
                 clearable
-                label="Category"
+                :label="$t('torrent.add.category')"
                 item-text="name"
                 :prepend-icon="mdiTag"
                 @input="categoryChanged"
@@ -83,7 +83,7 @@
               <v-text-field
                 v-model="directory"
                 :disabled="autoTMM"
-                label="Download Directory"
+                :label="$t('torrent.add.directory')"
                 :prepend-icon="mdiFolder"
                 autocomplete="download-directory"
                 name="download-directory"
@@ -92,28 +92,28 @@
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="start"
-                    label="Start torrent"
+                    :label="$t('torrent.add.start')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="skip_checking"
-                    label="Skip hash check"
+                    :label="$t('torrent.add.skipCheck')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="root_folder"
-                    label="Create subfolder"
+                    :label="$t('torrent.add.createSubfolder')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="autoTMM"
-                    label="Automatic Torrent Management"
+                    :label="$t('torrent.add.AutomaticTorrentManagement')"
                     hide-details
                   />
                 </v-flex>
@@ -131,7 +131,7 @@
               class="accent white--text mx-0 mt-3"
               @click="submit"
             >
-              Add Torrent
+              {{ $t('torrent.add.confirm') }}
             </v-btn>
             <v-fab-transition v-if="phoneLayout">
               <v-btn

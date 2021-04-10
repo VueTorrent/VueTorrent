@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import qbit from '../services/qbit'
+import i18n from '@/locales'
 
 export default {
   INIT_INTERVALS: async context => {
@@ -11,7 +12,7 @@ export default {
     const res = await qbit.login(payload)
     console.log(res)
     if (res === 'Ok.') {
-      Vue.$toast.success('Successfully logged in!')
+      Vue.$toast.success(i18n.tc('user.login.success.msg'))
       context.commit('LOGIN', true)
       context.commit('updateMainData')
       context.commit('FETCH_SETTINGS')
@@ -19,7 +20,7 @@ export default {
       
       return true
     }
-    Vue.$toast.error('Log in failed 😕')
+    Vue.$toast.error(i18n.tc('user.login.fail.msg'))
     
     return false
   }

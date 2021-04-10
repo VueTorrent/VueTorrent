@@ -17,7 +17,7 @@
         :class="torrent.state.toLowerCase()"
         style="height: 20px;"
       >
-        {{ torrent.state }}
+        {{ $t(`download.status.${torrent.state.toLowerCase()}`) }}
       </v-chip>
       <v-chip
         v-if="torrent.category"
@@ -37,7 +37,7 @@
       <span class="body-2">{{ torrent.progress }}</span>
       <span class="grey--text caption ml-1">%</span>
       <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
-      <span class="grey--text caption"> Ratio: </span>
+      <span class="grey--text caption"> {{ $t('torrent.detail.info.ratio') }} </span>
       <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
       <v-spacer />
       <span class="body-2 ml-1"> {{ torrent.eta }} </span>

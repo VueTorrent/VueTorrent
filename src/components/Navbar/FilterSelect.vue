@@ -1,7 +1,7 @@
 <template>
   <div class="mt-1">
     <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      Status
+      {{ $t('dashboard.left.status') }}
     </label>
     <v-select
       name="state_filter"
@@ -19,7 +19,7 @@
       @input="setState"
     />
     <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      Category
+      {{ $t('dashboard.left.category') }}
     </label>
     <v-select
       aria-label="category_filter"
@@ -59,23 +59,23 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+import i18n from '../../locales/index'
 export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
   data: () => ({
     options: [
-      { value: null, name: 'All' },
-      { value: 'downloading', name: 'Downloading' },
-      { value: 'seeding', name: 'Seeding' },
-      { value: 'completed', name: 'Completed' },
-      { value: 'resumed', name: 'Resumed' },
-      { value: 'paused', name: 'Paused' },
-      { value: 'active', name: 'Active' },
-      { value: 'inactive', name: 'Inactive' },
-      { value: 'stalled', name: 'Stalled' },
-      { value: 'stalled_uploading', name: 'Stalled Uploading' },
-      { value: 'stalled_downloading', name: 'Stalled Downloading' },
-      { value: 'errored', name: 'Errored' }
+      { value: null, name: i18n.tc('download.status.all') },
+      { value: 'downloading', name: i18n.tc('download.status.downloading') },
+      { value: 'completed', name: i18n.tc('download.status.completed') },
+      { value: 'resumed', name: i18n.tc('download.status.resumed') },
+      { value: 'paused', name: i18n.tc('download.status.paused') },
+      { value: 'active', name: i18n.tc('download.status.active') },
+      { value: 'inactive', name: i18n.tc('download.status.inactive') },
+      { value: 'stalled', name: i18n.tc('download.status.stalled') },
+      { value: 'stalled_uploading', name: i18n.tc('download.status.stalled_uploading') },
+      { value: 'stalled_downloading', name: i18n.tc('download.status.stalled_downloading') },
+      { value: 'errored', name: i18n.tc('download.status.errored') }
     ],
     selectedState: null,
     selectedCategory: null,
@@ -86,7 +86,7 @@ export default {
     ...mapState(['sort_options']),
     availableCategories() {
       const categories = [
-        { name: 'All', value: null },
+        { name: i18n.tc('download.status.all'), value: null },
         { name: 'Uncategorized', value: '' }]
       categories.push(...this.getCategories().map(c => {
         return { name: c.name, value: c.name }

@@ -2,6 +2,7 @@ import Torrent from '../models/Torrent'
 import Status from '../models/Status'
 import qbit from '../services/qbit'
 import { formatBytes, getHostName } from '@/helpers'
+import i18n from '@/locales'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -91,6 +92,7 @@ export default {
   FETCH_SETTINGS: async state => {
     const { data } = await qbit.getAppPreferences()
     state.settings = data
+    i18n.locale = data.locale
   },
   UPDATE_SORT_OPTIONS: (state, {
     hashes = [], 

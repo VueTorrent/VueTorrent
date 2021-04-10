@@ -9,7 +9,7 @@
       <div :style="{ height: phoneLayout ? '100vh' : '' }">
         <v-card-title class="pb-0 justify-center primary">
           <h2 class="white--text">
-            Settings
+            {{ $t('settings.title') }}
           </h2>
         </v-card-title>
         <v-tabs
@@ -19,19 +19,19 @@
           fixed-tabs
         >
           <v-tab href="#downloads">
-            Downloads
+            {{ $t('settings.downloads') }}
           </v-tab>
           <v-tab href="#bittorrent">
-            BitTorrent
+            {{ $t('settings.torrent') }}
           </v-tab>
           <v-tab href="#webui">
-            WebUI
+            {{ $t('settings.webui') }}
           </v-tab>
           <v-tab href="#vuetorrent">
-            VueTorrent
+            {{ $t('settings.vueTorrent') }}
           </v-tab>
           <v-tab href="#tagsAndCategories">
-            Tags & Categories
+            {{ $t('settings.tags&categories') }}
           </v-tab>
         </v-tabs>
         <v-tabs-items v-model="tab" :touch="updateTab(tab)">

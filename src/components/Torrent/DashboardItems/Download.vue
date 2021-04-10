@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      Download
+      {{ $t('torrent.detail.info.download.speed') }}
     </div>
     <div>
       {{ torrent.dlspeed | getDataValue(1) }}

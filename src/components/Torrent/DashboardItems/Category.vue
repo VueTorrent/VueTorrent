@@ -6,7 +6,7 @@
     md1
   >
     <div class="caption grey--text">
-      Category
+      {{ $t('torrent.detail.info.category') }}
     </div>
     <v-chip small class="upload white--text caption">
       {{ torrent.category }}

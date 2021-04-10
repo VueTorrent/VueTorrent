@@ -3,7 +3,7 @@
     <v-card>
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
-          <h2>Sort Torrents</h2>
+          <h2>{{ $t('sort.title') }}</h2>
         </v-card-title>
         <v-card-text>
           <v-form class="px-6 mt-3 justify-center mx-auto">
@@ -28,7 +28,7 @@
                 style="padding-left: 10px !important"
               >
                 <template #label>
-                  Reverse
+                  {{ $t('sort.reverse') }}
                 </template>
               </v-switch>
             </v-container>
@@ -42,31 +42,32 @@
 <script>
 import { mapState } from 'vuex'
 import { Modal } from '@/mixins'
+import i18n from '@/locales'
 export default {
   name: 'Sort',
   mixins: [Modal],
   data() {
     return {
-      sortProperty: { value: 'added_on', name: 'Added On' },
+      sortProperty: { value: 'added_on', name: i18n.tc('torrent.detail.info.addedOn') },
       reverse: true,
       options: [
-        { value: 'added_on', name: 'Added On' },
-        { value: 'availability', name: 'Availability' },
-        { value: 'category', name: 'Category' },
-        { value: 'completed', name: 'Completed' },
-        { value: 'dlspeed', name: 'Download Speed' },
-        { value: 'downloaded', name: 'Downloaded' },
-        { value: 'eta', name: 'ETA' },
-        { value: 'name', name: 'Name' },
-        { value: 'num_leechs', name: 'Peers' },
-        { value: 'priority', name: 'Priority' },
-        { value: 'progress', name: 'Progress' },
-        { value: 'ratio', name: 'Ratio' },
-        { value: 'size', name: 'Size' },
-        { value: 'state', name: 'State' },
-        { value: 'time_active', name: 'Time Active' },
-        { value: 'uploaded', name: 'Uploaded' },
-        { value: 'upspeed', name: 'Upload Speed' }
+        { value: 'added_on', name: i18n.tc('torrent.detail.info.addedOn') },
+        { value: 'availability', name: i18n.tc('torrent.detail.info.availability') },
+        { value: 'category', name: i18n.tc('torrent.detail.info.category') },
+        { value: 'completed', name: i18n.tc('download.status.completed') },
+        { value: 'dlspeed', name: i18n.tc('torrent.detail.info.download.speed') },
+        { value: 'downloaded', name: i18n.tc('torrent.detail.info.downloaded') },
+        { value: 'eta', name: i18n.tc('torrent.detail.info.ETA') },
+        { value: 'name', name: i18n.tc('torrent.detail.info.title') },
+        { value: 'num_leechs', name: i18n.tc('torrent.detail.info.peers') },
+        { value: 'priority', name: i18n.tc('torrent.detail.info.priority') },
+        { value: 'progress', name: i18n.tc('torrent.detail.info.progress') },
+        { value: 'ratio', name: i18n.tc('torrent.detail.info.ratio') },
+        { value: 'size', name: i18n.tc('torrent.detail.info.size') },
+        { value: 'state', name: i18n.tc('torrent.detail.info.status') },
+        { value: 'time_active', name: i18n.tc('torrent.detail.info.timeActive') },
+        { value: 'uploaded', name: i18n.tc('torrent.detail.info.uploaded') },
+        { value: 'upspeed', name: i18n.tc('torrent.detail.info.upload.speed') }
       ]
     }
   },

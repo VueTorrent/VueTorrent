@@ -8,7 +8,7 @@
     >
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          Dashboard
+          {{ $t('menu.dashboard') }}
         </h1>
       </v-col>
       <v-col class="align-center justify-center">
@@ -241,6 +241,7 @@ export default {
   created() {
     this.$store.dispatch('INIT_INTERVALS')
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_SETTINGS')
   },
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')

@@ -4,6 +4,7 @@ import VuexPersist from 'vuex-persist'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
+import { loadLanguageAsync } from '@/locales'
 
 const vuexPersist = new VuexPersist({
   key: 'vuetorrent',
@@ -102,7 +103,17 @@ export default new Vuex.Store({
     searchPlugins: []
   },
   actions: {
-    ...actions
+    ...actions,
+    SET_LANG: ({ commit }, lang) => {
+      return new Promise((resolve, reject) => {
+        commit('SET_LANGUAGE', lang)
+        loadLanguageAsync(lang).then(() => {
+          resolve()
+        }).catch(e => {
+          reject(e)
+        })
+      })
+    }
   },
   getters: {
     ...getters

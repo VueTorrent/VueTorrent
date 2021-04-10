@@ -17,7 +17,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span> Add Torrent</span>
+      <span> {{ $t('tooltip.addTorrent') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -35,7 +35,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Resume Selected Torrents</span>
+      <span>{{ $t('tooltip.resumeSelectedTorrents') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -53,7 +53,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Pause Selected Torrents</span>
+      <span>{{ $t('tooltip.pauseSelectedTorrents') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -71,7 +71,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Remove Selected Torrents</span>
+      <span>{{ $t('tooltip.removeSelectedTorrents') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -90,7 +90,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Search new Torrent</span>
+      <span>{{ $t('tooltip.searchTorrent') }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -108,7 +108,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Open Settings</span>
+      <span>{{ $t('tooltip.openSettings') }}</span>
     </v-tooltip>
   </div>
 </template>

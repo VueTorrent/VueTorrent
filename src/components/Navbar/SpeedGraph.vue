@@ -13,6 +13,7 @@
 import VueApexCharts from 'vue-apexcharts'
 import { mapGetters } from 'vuex'
 import { getDataUnit, getDataValue } from '@/filters'
+import i18n from '@/locales'
 
 export default {
   name: 'SpeedGraph',
@@ -76,12 +77,12 @@ export default {
     series() {
       return [
         {
-          name: 'upload',
+          name: i18n.tc('chart.upload'),
           type: 'area',
           data: this.$store.state.upload_data
         },
         {
-          name: 'download',
+          name: i18n.tc('chart.download'),
           type: 'area',
           data: this.$store.state.download_data
         }

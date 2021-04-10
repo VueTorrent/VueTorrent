@@ -6,7 +6,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Resume
+        {{ $t('torrentRightClick.item.resume') }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="forceResume">
@@ -15,7 +15,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Force Resume
+        {{ $t('torrentRightClick.item.forceResume') }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="pause">
@@ -24,7 +24,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Pause
+        {{ $t('torrentRightClick.item.pause') }}
       </v-list-item-title>
     </v-list-item>
 
@@ -37,7 +37,7 @@
         class="ml-2"
         style="font-size: 1em; color: red"
       >
-        Delete
+        {{ $t('torrentRightClick.item.delete') }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="deleteWithFiles">
@@ -48,7 +48,7 @@
         class="ml-2"
         style="font-size: 1em; color: red"
       >
-        Delete with files
+        {{ $t('torrentRightClick.item.deleteWithFiles') }}
       </v-list-item-title>
     </v-list-item>
     <v-divider />
@@ -63,7 +63,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Advanced
+            {{ $t('torrentRightClick.item.advanced') }}
             <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
@@ -75,7 +75,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Change location
+            {{ $t('torrentRightClick.item.advanced.changeLocation') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="rename">
@@ -84,7 +84,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Rename
+            {{ $t('torrentRightClick.item.advanced.rename') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="recheck">
@@ -93,7 +93,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Force recheck
+            {{ $t('torrentRightClick.item.advanced.forceRecheck') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="reannounce">
@@ -102,7 +102,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Force reannounce
+            {{ $t('torrentRightClick.item.advanced.forceReannounce') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleSeq">
@@ -111,7 +111,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Sequential Download
+            {{ $t('torrentRightClick.item.advanced.sequentialDownload') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleFL">
@@ -120,7 +120,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            First/Last priority
+            {{ $t('torrentRightClick.item.advanced.firstOrLastPriority') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleAutoTMM">
@@ -129,7 +129,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Auto TMM
+            {{ $t('torrentRightClick.item.advanced.AutoTMM') }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -145,7 +145,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Priority
+            {{ $t('torrentRightClick.item.set.priority') }}
             <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
@@ -175,7 +175,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Category
+            {{ $t('torrentRightClick.item.set.category') }}
             <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
@@ -205,7 +205,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Limit
+            {{ $t('torrentRightClick.item.set.limit') }}
             <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
         </v-list-item>
@@ -214,13 +214,13 @@
         <v-list-item @click="setLimit('download')">
           <v-icon>{{ mdiChevronDown }}</v-icon>
           <v-list-item-title class="ml-2">
-            Download
+            {{ $t('torrentRightClick.item.download') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item @click="setLimit('upload')">
           <v-icon>{{ mdiChevronUp }}</v-icon>
           <v-list-item-title class="ml-2">
-            Upload    
+            {{ $t('torrentRightClick.item.upload') }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -229,7 +229,7 @@
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
       <v-list-item-title class="ml-2">
-        Show Info
+        {{ $t('torrentRightClick.item.showInfo') }}
       </v-list-item-title>
     </v-list-item>
   </v-list>
@@ -246,6 +246,7 @@ import {
   mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
   mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
 } from '@mdi/js'
+import i18n from '@/locales'
 
 export default {
   name: 'TorrentRightClickMenu',
@@ -255,10 +256,10 @@ export default {
   },
   data: () => ({
     priority_options: [
-      { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
-      { name: 'increase', icon: mdiArrowUp, action: 'increasePrio' },
-      { name: 'decrease', icon: mdiArrowDown, action: 'decreasePrio' },
-      { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
+      { name: i18n.tc('torrentRightClick.item.set.priority.top'), icon: mdiPriorityHigh, action: 'topPrio' },
+      { name: i18n.tc('torrentRightClick.item.set.priority.increase'), icon: mdiArrowUp, action: 'increasePrio' },
+      { name: i18n.tc('torrentRightClick.item.set.priority.decrease'), icon: mdiArrowDown, action: 'decreasePrio' },
+      { name: i18n.tc('torrentRightClick.item.set.priority.bottom'), icon: mdiPriorityLow, action: 'bottomPrio' }
     ],
     mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
     mdiFolder, mdiRenameBox, mdiDeleteForever, mdiInformation,

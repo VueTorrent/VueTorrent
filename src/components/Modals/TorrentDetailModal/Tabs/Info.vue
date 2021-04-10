@@ -9,7 +9,7 @@
           <tbody>
             <tr>
               <td class="grey--text">
-                Torrent title
+                {{ $t('torrent.detail.info.title') }}
               </td>
               <td>
                 {{ torrent.name }}
@@ -17,7 +17,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Directory
+                {{ $t('torrent.detail.info.directory') }}
               </td>
               <td>
                 {{ torrent.savePath }}
@@ -25,7 +25,7 @@
             </tr>
             <tr style="margin-top: 10px !important">
               <td class="grey--text">
-                hash
+                {{ $t('torrent.detail.info.hash') }}
               </td>
               <td>
                 {{ torrent.hash }}
@@ -33,7 +33,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Size
+                {{ $t('torrent.detail.info.size') }}
               </td>
               <td>
                 {{ torrent.size | getDataValue }}
@@ -42,7 +42,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Downloaded:
+                {{ $t('torrent.detail.info.downloaded') }}
               </td>
               <td>
                 {{ torrent.dloaded | getDataValue }}
@@ -51,7 +51,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Uploaded:
+                {{ $t('torrent.detail.info.uploaded') }}
               </td>
               <td>
                 {{ torrent.uploaded | getDataValue }}
@@ -60,7 +60,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Ratio
+                {{ $t('torrent.detail.info.ratio') }}
               </td>
               <td>
                 {{ torrent.ratio }}
@@ -68,7 +68,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Download Speed
+                {{ $t('torrent.detail.info.downloadSpeed') }}
               </td>
               <td>
                 {{ torrent.dlspeed | getDataValue }}
@@ -77,7 +77,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Upload Speed
+                {{ $t('torrent.detail.info.uploadSpeed') }}
               </td>
               <td>
                 {{ torrent.upspeed | getDataValue }}
@@ -86,7 +86,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                ETA
+                {{ $t('torrent.detail.info.ETA') }}
               </td>
               <td>
                 {{ torrent.eta }}
@@ -94,7 +94,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Peers
+                {{ $t('torrent.detail.info.peers') }}
               </td>
               <td>
                 {{ torrent.num_leechs
@@ -103,7 +103,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Seeds
+                {{ $t('torrent.detail.info.seeds') }}
               </td>
               <td>
                 {{ torrent.num_seeds
@@ -112,7 +112,7 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Added on
+                {{ $t('torrent.detail.info.addedOn') }}
               </td>
               <td>
                 {{ torrent.added_on }}
@@ -120,20 +120,20 @@
             </tr>
             <tr>
               <td class="grey--text">
-                Status
+                {{ $t('torrent.detail.info.status') }}
               </td>
               <td>
                 <v-chip
                   small
                   :class="`${torrent.state.toLowerCase()} white--text caption`"
                 >
-                  {{ torrent.state }}
+                  {{ $t(`download.status.${torrent.state.toLowerCase()}`) }}
                 </v-chip>
               </td>
             </tr>
             <tr v-if="torrent.tracker">
               <td class="grey--text">
-                Tracker
+                {{ $t('torrent.detail.info.tracker') }}
               </td>
               <td>
                 {{ torrent.tracker }}
@@ -141,7 +141,7 @@
             </tr>
             <tr v-if="torrent.comment">
               <td class="grey--text">
-                Comment
+                {{ $t('torrent.detail.info.comment') }}
               </td>
               <td>
                 {{ torrent.comment }}

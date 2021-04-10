@@ -7,6 +7,7 @@ import '@babel/polyfill'
 import vuetify from './plugins/vuetify'
 import 'typeface-roboto'
 import 'typeface-roboto-mono'
+import i18n from './locales'
 
 /* eslint-disable no-unused-vars */
 import filters from '@/filters'
@@ -40,5 +41,6 @@ new Vue({
   router,
   store,
   vuetify,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
