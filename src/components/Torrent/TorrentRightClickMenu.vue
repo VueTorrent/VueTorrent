@@ -1,5 +1,5 @@
 <template>
-  <v-list class="py-1">
+  <v-list class="noselect">
     <v-list-item link @click="resume">
       <v-icon>{{ mdiPlay }}</v-icon>
       <v-list-item-title
@@ -44,6 +44,8 @@
     <v-menu
       open-on-hover
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -53,11 +55,13 @@
             style="font-size: 1em"
           >
             Advanced
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
         <v-list-item v-if="!multiple" link @click="location">
           <v-icon>{{ mdiFolder }}</v-icon>
           <v-list-item-title
@@ -126,6 +130,8 @@
     <v-menu
       open-on-hover
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -135,11 +141,13 @@
             style="font-size: 1em"
           >
             Set Priority
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
         <v-list-item
           v-for="(item, index) in priority_options"
           :key="index"
@@ -156,6 +164,8 @@
     <v-menu
       open-on-hover
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -165,11 +175,13 @@
             style="font-size: 1em"
           >
             Set Category
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
         <v-list-item
           v-for="(item, index) in availableCategories"
           :key="index"
@@ -186,6 +198,8 @@
       v-if="!multiple"
       open-on-hover
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -195,11 +209,13 @@
             style="font-size: 1em"
           >
             Set Limit
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list class="rounded-lg py-0 elevation-12" style="border: solid 1px rgb(127,127,127,.5)">
         <v-list-item @click="setLimit('download')">
           <v-icon>{{ mdiChevronDown }}</v-icon>
           <v-list-item-title class="ml-2">

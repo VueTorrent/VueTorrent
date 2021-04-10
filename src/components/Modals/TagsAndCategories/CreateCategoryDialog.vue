@@ -59,6 +59,7 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
+import Vue from 'vue'
 
 export default {
   name: 'CreateNewCategoryDialog',

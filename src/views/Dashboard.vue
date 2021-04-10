@@ -1,6 +1,6 @@
 <template>
   <div
-    class="px-1 px-sm-5 pt-4 background"
+    class="px-1 px-sm-5 pt-4 background noselect"
     @dragenter.prevent="detectDragEnter()"
     @click.self="resetSelected"
   >
@@ -62,7 +62,7 @@
               @click="searchFilterEnabled = !searchFilterEnabled"
             >
               <v-icon color="grey">
-                {{ mdiFilter }}
+                {{ searchFilterEnabled ? mdiChevronLeftCircle : mdiTextBoxSearch }}
               </v-icon>
             </v-btn>
           </template>
@@ -151,7 +151,10 @@
           :key="torrent.hash"
           class="pa-0"
           :class="isMobile ? 'mb-1' : 'mb-2'"
-          @contextmenu.prevent="$refs.menu.open($event, { torrent })"
+          @touchstart="strTouchStart($event, { torrent })"
+          @touchmove="strTouchMove"
+          @touchend="strTouchEnd"
+          @contextmenu="showTorrentRightClickMenu($event, { torrent })"
         >
           <template #default>
             <v-expand-x-transition>
@@ -185,18 +188,29 @@
         />
       </div>
     </div>
-    <vue-context ref="menu" v-slot="{ data }">
-      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" />
-    </vue-context>
+    <v-menu
+      v-model="trcMenu"
+      transition="slide-y-transition"
+      :position-x="trcMenuX"
+      :position-y="trcMenuY"
+      absolute
+      offset-y
+    >
+      <TorrentRightClickMenu
+        v-if="data"
+        :torrent="data.torrent"
+        class="elevation-9 pa-0 ma-0 rounded-lg"
+        style="border: solid 1px rgb(127,127,127,.5)"
+      />
+    </v-menu>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
-import { mdiMagnify, mdiFilter, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
+import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
-import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 
 import Torrent from '@/components/Torrent/Torrent'
@@ -206,14 +220,19 @@ import { TorrentSelect, General } from '@/mixins'
 
 export default {
   name: 'Dashboard',
-  components: { Torrent, VueContext, TorrentRightClickMenu },
+  components: { Torrent, TorrentRightClickMenu },
   mixins: [TorrentSelect, General],
   data() {
     return {
+      data: null,
+      trcMenu: false,
+      trcMenuX: 0,
+      trcMenuY: 0,
+      trcMenuTouchTimer: 0,
       input: '',
       searchFilterEnabled: false,
       pageNumber: 1,
-      mdiMagnify, mdiFilter, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
+      mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
     }
   },
   computed: {
@@ -283,6 +302,30 @@ export default {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
+    strTouchStart(e, data) {
+      this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data), 500)
+    },
+    strTouchMove(e) {
+      this.trcMenu = false
+      clearTimeout(this.trcMenuTouchTimer)
+    },
+    strTouchEnd(e) {
+      clearTimeout(this.trcMenuTouchTimer)
+    },
+    showTorrentRightClickMenu(e, data) {
+      this.data = data
+      try {
+        e.preventDefault()
+      } catch (e) {
+        console.log(e)
+      }
+      this.trcMenuX = e.clientX
+      this.trcMenuY = e.clientY
+      this.$nextTick(() => {
+        this.trcMenu = true
+      })
+
+    },
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
         this.addModal('AddModal')
