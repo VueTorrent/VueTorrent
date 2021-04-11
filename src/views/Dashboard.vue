@@ -155,6 +155,7 @@
           @touchmove="strTouchMove"
           @touchend="strTouchEnd"
           @contextmenu="showTorrentRightClickMenu($event, { torrent })"
+          @dblclick.prevent="showInfo(torrent.hash)"
         >
           <template #default>
             <v-expand-x-transition>
@@ -304,7 +305,9 @@ export default {
   methods: {
     strTouchStart(e, data) {
       this.trcMoveTick = 0
-      this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
+      clearTimeout(this.trcMenuTouchTimer)
+      if (e.touches.length == 1) // one finger only
+        this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
     },
     strTouchMove(e) {
       this.trcMoveTick++
@@ -342,6 +345,10 @@ export default {
       }
 
       return true
+    },
+    showInfo(hash) {
+      if (!this.$store.state.selectMode && !this.trcMenu)
+        this.createModal('TorrentDetailModal', { hash })
     },
     resetSelected() {
       this.$store.commit('RESET_SELECTED')

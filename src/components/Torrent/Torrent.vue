@@ -5,7 +5,6 @@
   >
     <v-layout
       @click="evtClicnk"
-      @dblclick.prevent="!selectMode && showInfo(torrent.hash)"
     >
       <MobileCard v-if="isMobile" :torrent="torrent" />
       <DesktopCard v-else :torrent="torrent" />
@@ -37,9 +36,6 @@ export default {
     }
   },
   methods: {
-    showInfo(hash) {
-      this.createModal('TorrentDetailModal', { hash })
-    },
     evtClicnk: function (event) {
       if (event.shiftKey) {
         this.selectUntil(this.torrent.hash, this.index)
