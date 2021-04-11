@@ -152,8 +152,8 @@
           class="pa-0"
           :class="isMobile ? 'mb-1' : 'mb-2'"
           @touchstart="strTouchStart($event, { torrent })"
-          @touchmove="strTouchMove"
-          @touchend="strTouchEnd"
+          @touchmove="strTouchMove($event)"
+          @touchend="strTouchEnd($event)"
           @contextmenu="showTorrentRightClickMenu($event, { torrent })"
           @dblclick.prevent="showInfo(torrent.hash)"
         >
@@ -311,7 +311,7 @@ export default {
     },
     strTouchMove(e) {
       this.trcMoveTick++
-      if (this.trcMoveTick > 10) {
+      if (this.trcMoveTick > 1) {
         this.trcMenu = false
         clearTimeout(this.trcMenuTouchTimer)
       }
