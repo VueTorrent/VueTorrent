@@ -228,6 +228,8 @@ export default {
       trcMenuX: 0,
       trcMenuY: 0,
       trcMenuTouchTimer: 0,
+      trcMenuLastFinger: 0,
+      trcMenuLastHash: '',
       trcTouchMode: false,
       trcMoveTick: 0,
       input: '',
@@ -307,19 +309,32 @@ export default {
       this.trcMoveTick = 0
       this.trcMenu = false
       clearTimeout(this.trcMenuTouchTimer)
-      if (e.touches.length == 1) // one finger only
-        this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
+      if (e.touches.length == 1) { // one finger only
+        this.trcMenuLastFinger = 1
+        this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
+      }
+      if (e.touches.length == 2) { // two finger
+        this.trcMenuLastFinger = 2
+        if (this.trcMenuLastHash == data.torrent.hash) {
+          e.preventDefault()
+          this.showTorrentRightClickMenu(e.touches[0], data, true)
+        }
+      }
+      this.trcMenuLastHash = data.torrent.hash
     },
     strTouchMove(e) {
       this.trcMoveTick++
-      if (this.trcMoveTick > 1) {
-        this.trcMenu = false
+      if (this.trcMenu == true && e.touches.length > 1) {
+        e.preventDefault()
+      } else if (this.trcMoveTick > 1 && e.touches.length == 1) {
+        if (this.trcMenuLastFinger == 1) this.trcMenu = false
         clearTimeout(this.trcMenuTouchTimer)
       }
     },
     strTouchEnd(e) {
       clearTimeout(this.trcMenuTouchTimer)
-      e.preventDefault()
+      if (this.trcMenu)
+        e.preventDefault()
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
       if (this.trcMenu)
@@ -341,9 +356,6 @@ export default {
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
         this.addModal('AddModal')
-        //
-      } else {
-        //
       }
 
       return true
