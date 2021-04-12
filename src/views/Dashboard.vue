@@ -305,6 +305,7 @@ export default {
   methods: {
     strTouchStart(e, data) {
       this.trcMoveTick = 0
+      this.trcMenu = false
       clearTimeout(this.trcMenuTouchTimer)
       if (e.touches.length == 1) // one finger only
         this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 300)
@@ -318,6 +319,7 @@ export default {
     },
     strTouchEnd(e) {
       clearTimeout(this.trcMenuTouchTimer)
+      e.preventDefault()
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
       if (this.trcMenu)
