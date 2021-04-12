@@ -151,6 +151,7 @@
           :key="torrent.hash"
           class="pa-0"
           :class="isMobile ? 'mb-1' : 'mb-2'"
+          @mousedown="trcMenu = false"
           @touchstart="strTouchStart($event, { torrent })"
           @touchmove="strTouchMove($event)"
           @touchend="strTouchEnd($event)"
