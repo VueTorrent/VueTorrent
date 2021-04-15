@@ -12,45 +12,45 @@ module.exports = {
     name: 'VueTorrent', //PWApp name
     themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
     manifestOptions: {
-      start_url: 'https://m4rt.hakase.me:9980',
+      //start_url: 'https://example.com/',
       icons: [
         {
-          "src": "./icons/android-chrome-192x192.png?s=" + iconVersion,
-          "sizes": "192x192",
-          "type": "image/png"
+          src: './icons/android-chrome-192x192.png?s=' + iconVersion,
+          sizes: '192x192',
+          type: 'image/png'
         },
         {
-          "src": "./icons/android-chrome-512x512.png?s=" + iconVersion,
-          "sizes": "512x512",
-          "type": "image/png"
+          src: './icons/android-chrome-512x512.png?s=' + iconVersion,
+          sizes: '512x512',
+          type: 'image/png'
         },
         {
-          "src": "./icons/android-chrome-maskable-192x192.png?s=" + iconVersion,
-          "sizes": "192x192",
-          "type": "image/png",
-          "purpose": "maskable"
+          src: './icons/android-chrome-maskable-192x192.png?s=' + iconVersion,
+          sizes: '192x192',
+          type: 'image/png',
+          purpose: 'maskable'
         },
         {
-          "src": "./icons/android-chrome-maskable-512x512.png?s=" + iconVersion,
-          "sizes": "512x512",
-          "type": "image/png",
-          "purpose": "maskable"
+          src: './icons/android-chrome-maskable-512x512.png?s=' + iconVersion,
+          sizes: '512x512',
+          type: 'image/png',
+          purpose: 'maskable'
         },
 
         {
-          "src": "./icons/apple-touch-icon.png?s=" + iconVersion,
-          "sizes": "180x180",
-          "type": "image/png"
+          src: './icons/apple-touch-icon.png?s=' + iconVersion,
+          sizes: '180x180',
+          type: 'image/png'
         },
         {
-          "src": "./icons/safari-pinned-tab.svg?s=" + iconVersion,
-          "sizes": "683x683",
-          "type": "image/svg+xml"
+          src: './icons/safari-pinned-tab.svg?s=' + iconVersion,
+          sizes: '683x683',
+          type: 'image/svg+xml'
         },
         {
-          "src": "./icons/msapplication-icon-144x144.png?s=" + iconVersion,
-          "sizes": "144x144",
-          "type": "image/png"
+          src: './icons/msapplication-icon-144x144.png?s=' + iconVersion,
+          sizes: '144x144',
+          type: 'image/png'
         }
 
       ],
