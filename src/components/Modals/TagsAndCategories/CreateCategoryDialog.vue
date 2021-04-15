@@ -1,17 +1,16 @@
 <template>
-  <v-dialog v-model="dialog" max-width="600px">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
     <v-card>
-      <v-container style="min-height: 200px" :class="`pa-0 project done`">
-        <v-card-title class="justify-center">
-          <h2>{{ hasInitialCategory ? 'Edit' : 'Create New' }} Category</h2>
-        </v-card-title>
-
+      <v-card-title class="pa-0">
+        <v-toolbar-title class="ma-4 primarytext--text">
+          <h3>{{ hasInitialCategory ? 'Edit' : 'Create New' }} Category</h3>
+        </v-toolbar-title>
+      </v-card-title>
+      <v-card-text>
         <v-form ref="categoryForm" class="px-6 mt-3">
           <v-container>
             <v-text-field
               v-model="category.name"
-              class="mx-auto"
-              style="max-width: 200px"
               :rules="nameRules"
               :counter="15"
               label="Category name"
@@ -20,8 +19,6 @@
             />
             <v-text-field
               v-model="category.savePath"
-              class="mx-auto"
-              style="max-width: 200px"
               :rules="PathRules"
               :counter="40"
               label="Path"
@@ -29,30 +26,28 @@
             />
           </v-container>
         </v-form>
-      </v-container>
-      <v-card-actions class="justify-center pb-5 project done">
-        <v-btn
-          text
-          class="error white--text mt-3"
-          @click="cancel"
-        >
-          Cancel
-        </v-btn>
+      </v-card-text>
+      <v-divider />
+      <v-card-actions class="justify-end">
         <v-btn
           v-if="!hasInitialCategory"
-          text
-          class="accent white--text mt-3"
+          class="accent white--text elevation-0 px-4"
           @click="create"
         >
-          Save
+          Create
         </v-btn>
         <v-btn
           v-else
-          text
-          class="accent white--text mt-3"
+          class="accent white--text elevation-0 px-4"
           @click="edit"
         >
           Edit
+        </v-btn>
+        <v-btn
+          class="error white--text elevation-0 px-4"
+          @click="cancel"
+        >
+          Cancel
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -63,6 +58,7 @@
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
+import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
 import Vue from 'vue'
 
 export default {
@@ -72,6 +68,7 @@ export default {
     initialCategory: Object
   },
   data: () => ({
+    hndlDialog: true,
     nameRules: [
       v => !!v || 'Category name is required',
       v =>
@@ -82,13 +79,24 @@ export default {
       v => !!v || 'Path is required',
       v => (v && v.length <= 40) || 'Path must be less than 40 characters'
     ],
-    category: { name: '', savePath: '' }
+    category: { name: '', savePath: '' },
+    mdiCancel, mdiTagPlus, mdiPencil
   }),
   computed: {
     ...mapGetters(['getSelectedCategory']),
     hasInitialCategory() {
       return !!(this.initialCategory &&
           this.initialCategory.name)
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -104,7 +112,7 @@ export default {
     },
     cancel() {
       this.$store.commit('FETCH_CATEGORIES')
-      this.deleteModal()
+      this.dialog = false
     },
     edit() {
       qbit.editCategory(this.category)

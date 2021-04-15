@@ -40,32 +40,30 @@
             </v-col>
           </v-flex>
         </v-form>
-        <perfect-scrollbar>
-          <v-data-table
-            id="searchTable"
-            :headers="grid.headers"
-            :items="search.results"
-            :items-per-page="10"
-            :loading="loading"
-            :style="{ maxHeight: '60vh'}"
-          >
-            <template #[`item.fileName`]="{ item }">
-              <a
-                :href="item.descrLink"
-                target="_blank"
-                v-text="item.fileName"
-              />
-            </template>
-            <template #[`item.fileSize`]="{ item }">
-              {{ item.fileSize | formatSize }}
-            </template>
-            <template #[`item.actions`]="{ item }">
-              <v-icon @click="downloadTorrent(item)">
-                {{ mdiDownload }}
-              </v-icon>
-            </template>
-          </v-data-table>
-        </perfect-scrollbar>
+        <v-data-table
+          id="searchTable"
+          :headers="grid.headers"
+          :items="search.results"
+          :items-per-page="10"
+          :loading="loading"
+          :style="{ maxHeight: '60vh'}"
+        >
+          <template #[`item.fileName`]="{ item }">
+            <a
+              :href="item.descrLink"
+              target="_blank"
+              v-text="item.fileName"
+            />
+          </template>
+          <template #[`item.fileSize`]="{ item }">
+            {{ item.fileSize | formatSize }}
+          </template>
+          <template #[`item.actions`]="{ item }">
+            <v-icon @click="downloadTorrent(item)">
+              {{ mdiDownload }}
+            </v-icon>
+          </template>
+        </v-data-table>
       </v-card-text>
       <v-card-actions>
         <PluginManager />
@@ -99,6 +97,7 @@ export default {
   mixins: [Modal, FullScreenModal, General],
   data() {
     return {
+      hndlDialog: true,
       search: {
         id: null,
         status: null,
@@ -130,6 +129,16 @@ export default {
     },
     enabledSearchPlugins() {
       return this.getSearchPlugins().filter(p => p.enabled)
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -176,7 +185,7 @@ export default {
       qbit.stopSearch(this.search.id)
     },
     close() {
-      this.$store.commit('DELETE_MODAL', this.guid)
+      this.dialog = false
     }
   }
 }

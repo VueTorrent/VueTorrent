@@ -1,99 +1,94 @@
 <template>
   <v-card flat>
-    <perfect-scrollbar>
-      <v-card-text class="pa-0" :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh'}">
-        <v-treeview
-          v-model="selected"
-          :items="fileTree"
-          :open.sync="opened"
-          activatable
-          selectable
-          item-key="fullName"
-          open-all
-        >
-          <template #prepend="{ item, open }">
-            <v-icon v-if="!item.icon">
-              {{ open ? mdiFolderOpen : mdiFolderOpen }}
-            </v-icon>
-            <v-icon v-else>
-              {{ item.icon }}
-            </v-icon>
-          </template>
-          <template #label="{ item }">
-            <span v-if="!item.editing">{{ item.name }}</span>
-            <v-text-field
-              v-if="item.editing"
-              v-model="item.newName"
-              autofocus
-            />
-          </template>
-          <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
-            <span v-if="!item.icon">{{ item.children.length }} Files</span>
-            <div v-else>
-              <span>[{{ item.size }}]</span>
-              <span class="ml-4">{{ item.progress }}%</span>
-              <span class="ml-4">[ {{ item.priority | priority }} ]</span>
-              <v-menu
-                open-on-hover
-                top
-              >
-                <template #activator="{ on }">
-                  <v-btn
-                    class="mb-2 ml-4"
-                    x-small
-                    fab
-                    v-on="on"
-                  >
-                    <v-icon>{{ mdiTrendingUp }}</v-icon>
-                  </v-btn>
-                </template>
-                <v-list dense rounded>
-                  <v-list-item
-                    v-for="prio in priority_options"
-                    :key="prio.value"
-                    link
-                    class="black--text"
-                    @click="setFilePrio(item.id, prio.value)"
-                  >
-                    <v-icon>{{ prio.icon }}</v-icon>
-                    <v-list-item-title class="ml-2 black--text" style="font-size: 12px">
-                      {{ prio.name }}
-                    </v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </v-menu>
+    <v-treeview
+      v-model="selected"
+      :items="fileTree"
+      :open.sync="opened"
+      activatable
+      selectable
+      item-key="fullName"
+      open-all
+    >
+      <template #prepend="{ item, open }">
+        <v-icon v-if="!item.icon">
+          {{ open ? mdiFolderOpen : mdiFolderOpen }}
+        </v-icon>
+        <v-icon v-else>
+          {{ item.icon }}
+        </v-icon>
+      </template>
+      <template #label="{ item }">
+        <span v-if="!item.editing">{{ item.name }}</span>
+        <v-text-field
+          v-if="item.editing"
+          v-model="item.newName"
+          autofocus
+        />
+      </template>
+      <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
+        <span v-if="!item.icon">{{ item.children.length }} Files</span>
+        <div v-else>
+          <span>[{{ item.size }}]</span>
+          <span class="ml-4">{{ item.progress }}%</span>
+          <span class="ml-4">[ {{ item.priority | priority }} ]</span>
+          <v-menu
+            open-on-hover
+            offset-y
+          >
+            <template #activator="{ on }">
               <v-btn
-                v-if="!item.editing"
-                class="mb-2 ml-4"
-                x-small
                 fab
-                @click="edit(item)"
-              >
-                <v-icon>{{ mdiPencil }}</v-icon>
-              </v-btn>
-              <v-btn
-                v-if="item.editing"
-                class="mb-2 ml-4"
                 x-small
-                fab
-                @click="renameFile(item)"
+                class="accent white--text elevation-0 px-4 ml-2"
+                v-on="on"
               >
-                <v-icon>{{ mdiContentSave }}</v-icon>
+                <v-icon>{{ mdiTrendingUp }}</v-icon>
               </v-btn>
-              <v-btn
-                v-if="item.editing"
-                class="mb-2 ml-2"
-                x-small
-                fab
-                @click="togleEditing(item)"
+            </template>
+            <v-list>
+              <v-list-item
+                v-for="prio in priority_options"
+                :key="prio.value"
+                link
+                @click="setFilePrio(item.id, prio.value)"
               >
-                <v-icon>{{ mdiClose }}</v-icon>
-              </v-btn>
-            </div>
-          </template>
-        </v-treeview>
-      </v-card-text>
-    </perfect-scrollbar>
+                <v-icon>{{ prio.icon }}</v-icon>
+                <v-list-item-title class="caption">
+                  {{ prio.name }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+          <v-btn
+            v-if="!item.editing"
+            fab
+            x-small
+            class="accent white--text elevation-0 px-4 ml-2"
+            @click="edit(item)"
+          >
+            <v-icon>{{ mdiPencil }}</v-icon>
+          </v-btn>
+          <v-btn
+            v-if="item.editing"
+            fab
+            x-small
+            class="accent white--text elevation-0 px-4 ml-2"
+            @click="renameFile(item)"
+          >
+            <v-icon>{{ mdiContentSave }}</v-icon>
+          </v-btn>
+          <v-btn
+            v-if="item.editing"
+            fab
+            x-small
+            class="error white--text elevation-0 px-4 ml-2"
+            @click="togleEditing(item)"
+          >
+            <v-icon>{{ mdiClose }}</v-icon>
+          </v-btn>
+        </div>
+      </template>
+    </v-treeview>
   </v-card>
 </template>
 

@@ -2,6 +2,7 @@ const webpack = require('webpack')
 
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
 const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
+const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
 
 module.exports = {
   pwa: {
@@ -45,7 +46,7 @@ module.exports = {
     disableHostCheck: true, //allows https proxy for dev server
     proxy: {
       '/api': {
-        target: `http://localhost:${qBittorrentPort}`
+        target: `${proxyTarget}:${qBittorrentPort}`
       }
     }
   }

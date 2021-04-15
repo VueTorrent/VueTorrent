@@ -1,5 +1,5 @@
 import store from '../store'
-import { ArrayHelper } from '@/Helpers'
+import { ArrayHelper } from '@/Helpers/index.js'
 
 export class Tags {
   static update(response) {

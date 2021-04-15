@@ -2,89 +2,78 @@
   <v-dialog
     v-model="dialog"
     scrollable
+    :content-class="isFullscreen ? 'rounded-0' : 'rounded-form'"
     :width="dialogWidth"
     :fullscreen="isFullscreen"
   >
     <v-card
-      v-if="torrent"
-      style="min-height: 400px; overflow: hidden !important"
+      class="rounded-t-formtop noselect"
+      :class="isFullscreen ? '' : 'fix-height'"
     >
-      <div
-        :class="`pa-0 project ${torrent.state}`"
-        :style="{ height: phoneLayout ? '100vh' : '' }"
-      >
-        <v-card-title class="pb-0 justify-center primary" @dblclick="hndlFullscreen = !hndlFullscreen">
-          <h2 class="white--text">
-            Torrent Detail
-          </h2>
-        </v-card-title>
-        <v-tabs
-          v-model="tab"
-          background-color="primary"
-          dark
-          fixed-tabs
-        >
-          <v-tab href="#info">
-            Info
-          </v-tab>
-          <v-tab href="#trackers">
-            Trackers
-          </v-tab>
-          <v-tab href="#peers">
-            Peers
-          </v-tab>
-          <v-tab href="#content">
-            Content
-          </v-tab>
-          <v-tab href="#tagsAndCategories">
-            Tags & Categories
-          </v-tab>
-        </v-tabs>
+      <v-card-title class="primary pa-0" @dblclick="hndlFullscreen = !hndlFullscreen">
+        <v-toolbar flat dense class="primary white--text">
+          <v-toolbar-title class="mt-auto">
+            <h3>Torrent Detail</h3>
+          </v-toolbar-title>
+          <v-spacer />
+          <v-btn
+            v-if="!isPhone"
+            fab
+            small
+            class="primary white--text elevation-0"
+            @click="hndlFullscreen = !hndlFullscreen"
+          >
+            <v-icon>{{ isFullscreen ? mdiWindowRestore : mdiWindowMaximize }}</v-icon>
+          </v-btn>
+          <v-btn
+            fab
+            small
+            class="primary white--text elevation-0"
+            @click="close"
+          >
+            <v-icon>{{ mdiClose }}</v-icon>
+          </v-btn>
+          <template #extension>
+            <v-tabs v-model="tab" align-with-title show-arrows>
+              <v-tabs-slider color="white" />
+              <v-tab class="white--text" href="#info">
+                <h4>Info</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#trackers">
+                <h4>Trackers</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#peers">
+                <h4>Peers</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#content">
+                <h4>Content</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#tagsAndCategories">
+                <h4>Tags & Categories</h4>
+              </v-tab>
+            </v-tabs>
+          </template>
+        </v-toolbar>
+      </v-card-title>
+      <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
-          <v-tab-item value="info">
+          <v-tab-item eager value="info">
             <info :is-active="tab === 'info'" :hash="hash" />
           </v-tab-item>
-          <v-tab-item value="trackers">
-            <Trackers
-              :is-active="tab === 'trackers'"
-              :hash="hash"
-            />
+          <v-tab-item eager value="trackers">
+            <Trackers :is-active="tab === 'trackers'" :hash="hash" />
           </v-tab-item>
-          <v-tab-item value="peers">
+          <v-tab-item eager value="peers">
             <Peers :is-active="tab === 'peers'" :hash="hash" />
           </v-tab-item>
-          <v-tab-item value="content">
+          <v-tab-item eager value="content">
             <Content :is-active="tab === 'content'" :hash="hash" />
           </v-tab-item>
-          <v-tab-item value="tagsAndCategories">
-            <TagsAndCategories
-              :is-active="tab === 'tagsAndCategories'"
-              :hash="hash"
-            />
+          <v-tab-item eager value="tagsAndCategories">
+            <TagsAndCategories :is-active="tab === 'tagsAndCategories'" :hash="hash" />
           </v-tab-item>
         </v-tabs-items>
-      </div>
-      <v-btn
-        v-if="!isPhone"
-        absolute
-        fab
-        small
-        class="primary white--text elevation-0"
-        style="top:9px; right:50px;"
-        @click="fullscreen = !fullscreen"
-      >
-        <v-icon>{{ isFullscreen ? mdiWindowRestore : mdiWindowMaximize }}</v-icon>
-      </v-btn>
-      <v-btn
-        absolute
-        fab
-        small
-        class="primary white--text elevation-0"
-        style="top:9px; right:9px;"
-        @click="close"
-      >
-        <v-icon>{{ mdiClose }}</v-icon>
-      </v-btn>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
@@ -104,7 +93,8 @@ export default {
   },
   data() {
     return {
-      fullscreen: false,
+      hndlDialog: true,
+      hndlFullscreen: false,
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
       peers: [],
@@ -120,13 +110,34 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     },
     isFullscreen() {
-      return this.isPhone || this.fullscreen
+      if (this.hndlFullscreen)
+        return true
+      else if (this.isPhone)
+        return true
+
+      return false
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   methods: {
     close() {
-      this.deleteModal()
+      this.dialog = false
     }
   }
 }
 </script>
+
+<style scoped>
+.fix-height .v-card__text {
+  height: 600px;
+}
+</style>

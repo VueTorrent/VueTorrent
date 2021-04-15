@@ -1,136 +1,160 @@
 <template>
-  <v-container class="mx-1 px-1">
-    <v-card flat>
-      <v-card-text class="pa-0 px-1" style="font-size: 1.1em">
-        <div class="box">
-          <v-subheader>
-            These settings are for the custom WebUI
-            itself
-          </v-subheader>
-          <v-form class="px-4 mt-3">
-            <v-container>
-              <v-switch
-                v-model="showCurrentSpeed"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Current Speed
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="showSpeedGraph"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Speed Graph
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="showSessionStat"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Session Stats
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="freeSpace"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Free Space
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="showTrackerFilter"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Show Tracker Filter
-                </template>
-              </v-switch>
-              <v-switch
-                v-model="useDeviceDarkMode"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-              >
-                <template #label>
-                  Use device dark/light mode
-                </template>
-              </v-switch>
-              <v-row dense>
-                <v-col cols="8" sm="8" md="10">
-                  <p class="subtitle-1">
-                    Pagination size:
-                  </p>
-                </v-col>
-                <v-col cols="4" sm="4" md="2">
-                  <v-select
-                    v-model="paginationSize"
-                    class="pa-0 ma-0"
-                    color="accent"
-                    :items="paginationSizes"
-                  />
-                </v-col>
-              </v-row>
-              <v-row dense>
-                <v-col cols="8" sm="8" md="10">
-                  <p class="subtitle-1">
-                    VueTorrent title:
-                  </p>
-                </v-col>
-                <v-col cols="4" sm="4" md="2">
-                  <v-select
-                    v-model="title"
-                    class="pa-0 ma-0"
-                    color="accent"
-                    :items="titleOptions"
-                  />
-                </v-col>
-              </v-row>
-              <v-row dense>
-                <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">
-                    Current Version:
-                  </p>
-                </v-col>
-                <v-col cols="2" sm="2" md="1">
-                  <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">
-                    <p class="mb-2">{{ version }}</p>
-                  </a>
-                </v-col>
-              </v-row>
-              <v-row dense>
-                <v-col cols="10" sm="10" md="11">
-                  <p class="subtitle-1">
-                    QBittorrent Version:
-                  </p>
-                </v-col>
-                <v-col cols="2" sm="2" md="1">
-                  <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
-                    <p class="mb-2">
-                      {{ Qbitversion }}
-                    </p>
-                  </a>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-form>
-        </div>
-      </v-card-text>
-    </v-card>
-  </v-container>
+  <v-card flat>
+    <v-subheader>
+      These settings are for the custom WebUI
+      itself
+    </v-subheader>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="showCurrentSpeed"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show Current Speed"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="showSpeedGraph"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show Speed Graph"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="showSessionStat"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show Session Stats"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="freeSpace"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show Free Space"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="showTrackerFilter"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show Tracker Filter"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="useDeviceDarkMode"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Use device dark/light mode"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col cols="8" sm="8" md="10">
+          <p class="subtitle-1 mt-2">
+            Pagination size:
+          </p>
+        </v-col>
+        <v-col cols="4" sm="4" md="2">
+          <v-select
+            v-model="paginationSize"
+            flat
+            solo
+            dense
+            hide-details
+            background-color="background"
+            class="rounded-xl"
+            :items="paginationSizes"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col cols="8" sm="8" md="10">
+          <p class="subtitle-1 mt-2">
+            VueTorrent title:
+          </p>
+        </v-col>
+        <v-col cols="4" sm="4" md="2">
+          <v-select
+            v-model="title"
+            flat
+            solo
+            dense
+            hide-details
+            background-color="background"
+            class="rounded-xl"
+            :items="titleOptions"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col cols="10" sm="10" md="11">
+          <p class="subtitle-1">
+            Current Version:
+          </p>
+        </v-col>
+        <v-col cols="2" sm="2" md="1">
+          <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">
+            <p class="mb-2">{{ version }}</p>
+          </a>
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col cols="10" sm="10" md="11">
+          <p class="subtitle-1">
+            QBittorrent Version:
+          </p>
+        </v-col>
+        <v-col cols="2" sm="2" md="1">
+          <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
+            <p class="mb-2">
+              {{ Qbitversion }}
+            </p>
+          </a>
+        </v-col>
+      </v-row>
+    </v-list-item>
+  </v-card>
 </template>
 
 <script>
@@ -246,8 +270,4 @@ export default {
     }
   }
 }
-</style>
-
-<style lang="scss" scoped>
-@import '~@/styles/SettingsTab.scss';
 </style>

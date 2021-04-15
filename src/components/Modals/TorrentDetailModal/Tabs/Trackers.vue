@@ -1,58 +1,59 @@
 <template>
-  <v-card
-    flat
-    :style="{ minHeight: phoneLayout ? '' : '75vh', maxHeight: '75vh' }"
-  >
+  <v-card flat>
     <v-card-text class="pa-0">
-      <perfect-scrollbar>
-        <v-data-table
-          v-if="trackers"
-          v-model="selectedTrackers"
-          show-select
-          :headers="headers"
-          :items="trackers"
-          item-key="url"
-          :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh' }"
-        >
-          <template #body="{ items }">
-            <tbody>
-              <tr v-for="item in items" :key="item.url">
-                <td>
-                  <v-checkbox
-                    v-if="typeof item.tier === 'number'"
-                    v-model="selectedTrackers"
-                    :value="item"
-                    class="pa-0 mb-0"
-                    color="accent"
-                  />
-                </td>
-                <td>{{ item.tier }}</td>
-                <td>{{ item.url }}</td>
-                <td>{{ item.status | formatTrackerStatus }}</td>
-                <td>{{ item.num_peers | formatTrackerNum }}</td>
-                <td>{{ item.num_seeds | formatTrackerNum }}</td>
-                <td>{{ item.num_leeches | formatTrackerNum }}</td>
-                <td>{{ item.num_downloaded | formatTrackerNum }}</td>
-                <td>{{ item.msg }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-data-table>
-      </perfect-scrollbar>
+      <v-data-table
+        v-if="trackers"
+        v-model="selectedTrackers"
+        dense
+        show-select
+        :headers="headers"
+        :items="trackers"
+        :items-per-page="-1"
+        item-key="url"
+        mobile-breakpoint="0"
+      >
+        <template #body="{ items }">
+          <tbody>
+            <tr v-for="item in items" :key="item.url">
+              <td>
+                <v-checkbox
+                  v-if="typeof item.tier === 'number'"
+                  v-model="selectedTrackers"
+                  :value="item"
+                  hide-details
+                  class="pa-0 ma-0"
+                  color="accent" 
+                />
+              </td>
+              <td>{{ item.tier }}</td>
+              <td>{{ item.url }}</td>
+              <td>{{ item.status | formatTrackerStatus }}</td>
+              <td>{{ item.num_peers | formatTrackerNum }}</td>
+              <td>{{ item.num_seeds | formatTrackerNum }}</td>
+              <td>{{ item.num_leeches | formatTrackerNum }}</td>
+              <td>{{ item.num_downloaded | formatTrackerNum }}</td>
+              <td>{{ item.msg }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-data-table>
     </v-card-text>
     <v-card-actions class="justify-center">
       <v-btn
-        class="error mx-2"
-        dark
+        class="error white--text elevation-0 px-4 mx-2"
         @click="DeleteTrackers"
       >
         Delete
       </v-btn>
-      <v-dialog v-model="trackerDialog" persistent max-width="290">
+      <v-dialog
+        v-model="trackerDialog"
+        content-class="rounded-form"
+        persistent
+        max-width="290"
+      >
         <template #activator="{ on, attrs }">
           <v-btn
-            color="accent"
-            dark
+            class="accent white--text elevation-0 px-4 mx-2"
             v-bind="attrs"
             v-on="on"
           >
@@ -61,7 +62,7 @@
         </template>
         <v-card>
           <v-card-title class="justify-center">
-            Add Trackers
+            <h3>Add Trackers</h3>
           </v-card-title>
           <v-card-text>
             <v-textarea
@@ -118,6 +119,7 @@ export default {
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
   data: () => ({
+    trackerDialog: false,
     headers: [
       { text: '#', value: 'tier' },
       { text: 'URL', value: 'url' },
@@ -129,7 +131,6 @@ export default {
       { text: 'Message', value: 'msg' }
     ],
     tempTrackers: [],
-    trackerDialog: false,
     newTrackers: '',
     selectedTrackers: []
   }),
@@ -166,7 +167,7 @@ export default {
       this.trackerDialog = false
     },
     async DeleteTrackers() {
-      if (!this.selectedTrackers.length) return
+      if (!this.selectedTrackers.length) return 
       qbit.removeTorrentTrackers(this.hash, this.selectedTrackers.map(t => t.url))
       this.selectedTrackers = []
       await this.getTorrentTrackers()
@@ -180,10 +181,8 @@ export default {
 
 ::v-deep .v-data-table thead th,
 ::v-deep .v-data-table tbody td {
-  padding: 0 2px !important;
+  padding: 0 3px !important;
   height: auto;
-
-  white-space: nowrap;
 
   &:first-child {
     padding: 0 0 0 8px !important;
@@ -191,6 +190,12 @@ export default {
   &:last-child {
     padding-right: 8px !important;
   }
+}
+::v-deep .v-data-table-header {
+  white-space: nowrap;
+}
+::v-deep td {
+  white-space: nowrap;
 }
 </style>
 

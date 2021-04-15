@@ -1,5 +1,5 @@
 <template>
-  <perfect-scrollbar>
+  <v-card flat>
     <v-data-table
       v-if="peers"
       dense
@@ -44,7 +44,7 @@
         </tr>
       </template>
     </v-data-table>
-  </perfect-scrollbar>
+  </v-card>
 </template>
 
 <script>
