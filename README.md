@@ -90,4 +90,4 @@ but before you do that:
 ## Credits
 
 - Other alternate WebUI written in Vue [`CzBiX qb-web`](https://github.com/CzBiX/qb-web)
-- Many thanks @m4ximuel for designing the icon & helping out with the project
+- Many thanks [@m4ximuel](https://github.com/m4ximuel) for designing the icon & helping out with the project
