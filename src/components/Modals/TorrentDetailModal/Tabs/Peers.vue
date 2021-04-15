@@ -1,48 +1,50 @@
 <template>
-  <v-data-table
-    v-if="peers"
-    dense
-    :headers="headers"
-    :items="peers"
-    :items-per-page="-1"
-    :hide-default-footer="true"
-    mobile-breakpoint="0"
-  >
-    <template #item="row">
-      <tr>
-        <td class="ip">
-          <template v-if="row.item.country_code">
-            <img
-              v-if="isWindows"
-              class="country-flag"
-              :title="row.item.country"
-              :alt="codeToFlag(row.item.country_code).char"
-              :src="codeToFlag(row.item.country_code).url"
-            >
-            <template v-else>
-              {{
-                codeToFlag(row.item.country_code).char
-              }}
+  <v-card flat>
+    <v-data-table
+      v-if="peers"
+      dense
+      :headers="headers"
+      :items="peers"
+      :items-per-page="-1"
+      :hide-default-footer="true"
+      mobile-breakpoint="0"
+    >
+      <template #item="row">
+        <tr>
+          <td class="ip">
+            <template v-if="row.item.country_code">
+              <img
+                v-if="isWindows"
+                class="country-flag"
+                :title="row.item.country"
+                :alt="codeToFlag(row.item.country_code).char"
+                :src="codeToFlag(row.item.country_code).url"
+              >
+              <template v-else>
+                {{
+                  codeToFlag(row.item.country_code).char
+                }}
+              </template>
             </template>
-          </template>
-          {{ row.item.ip }}
-          <span class="grey--text">:{{ row.item.port }}</span>
-        </td>
-        <td>{{ row.item.connection }}</td>
-        <td :title="row.item.flags_desc">
-          {{ row.item.flags }}
-        </td>
-        <td>{{ row.item.client }}</td>
-        <td>{{ row.item.progress | progress }}</td>
-        <td>{{ row.item.dl_speed | networkSpeed }}</td>
-        <td>{{ row.item.downloaded | networkSize }}</td>
-        <td>{{ row.item.up_speed | networkSpeed }}</td>
-        <td>{{ row.item.uploaded | networkSize }}</td>
-        <td>{{ row.item.relevance | progress }}</td>
-        <td>{{ row.item.files }}</td>
-      </tr>
-    </template>
-  </v-data-table>
+            {{ row.item.ip }}
+            <span class="grey--text">:{{ row.item.port }}</span>
+          </td>
+          <td>{{ row.item.connection }}</td>
+          <td :title="row.item.flags_desc">
+            {{ row.item.flags }}
+          </td>
+          <td>{{ row.item.client }}</td>
+          <td>{{ row.item.progress | progress }}</td>
+          <td>{{ row.item.dl_speed | networkSpeed }}</td>
+          <td>{{ row.item.downloaded | networkSize }}</td>
+          <td>{{ row.item.up_speed | networkSpeed }}</td>
+          <td>{{ row.item.uploaded | networkSize }}</td>
+          <td>{{ row.item.relevance | progress }}</td>
+          <td>{{ row.item.files }}</td>
+        </tr>
+      </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>

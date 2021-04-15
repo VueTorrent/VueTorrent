@@ -124,3 +124,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-card .v-card__text {
+  height: 400px;
+}
+</style>

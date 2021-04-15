@@ -1,6 +1,6 @@
 <template>
   <v-card flat>
-    <v-row dense>
+    <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
         <v-subheader>Available Tags:</v-subheader>
         <template v-for="(item, index) in availableTags">
