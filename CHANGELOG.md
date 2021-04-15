@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.9.0](https://www.github.com/WDaan/VueTorrent/compare/v0.8.0...v0.9.0) (2021-04-15)
+
+
+### Features
+
+* checkbox + button with color feedback for TorrentDeleteModal ([a83ea14](https://www.github.com/WDaan/VueTorrent/commit/a83ea144cf1daac09fc76feff5d03347c8ea87ca))
+* New Logo ([b2858a4](https://www.github.com/WDaan/VueTorrent/commit/b2858a4f68238867996cfe5e61e0947dae3af022))
+* remove torrent files with checkbox [#199](https://www.github.com/WDaan/VueTorrent/issues/199) ([0eddf64](https://www.github.com/WDaan/VueTorrent/commit/0eddf6458ea3b72ce19282fbcd07e19ff96fd3f8))
+
+
+### Bug Fixes
+
+* altspeed value ([aadb3f2](https://www.github.com/WDaan/VueTorrent/commit/aadb3f2171d38d5a94f9ca9847c50137669055b3))
+* issue where 'torrent details' modal does not work properly on iOS ([a83ea14](https://www.github.com/WDaan/VueTorrent/commit/a83ea144cf1daac09fc76feff5d03347c8ea87ca))
+* layout issues + remove vue-perfect-scrollbar + refactor context menu ([a83ea14](https://www.github.com/WDaan/VueTorrent/commit/a83ea144cf1daac09fc76feff5d03347c8ea87ca))
+* selection list not cleared when closing deletemodal without button press ([80573f4](https://www.github.com/WDaan/VueTorrent/commit/80573f436498def7edae86e161535ef378c538e7))
+
+
+### Performance Improvements
+
+* 'Vue2-perfect-scrollbar' is no longer dependent ([a83ea14](https://www.github.com/WDaan/VueTorrent/commit/a83ea144cf1daac09fc76feff5d03347c8ea87ca))
+* Context (right click) menu refactor! Works way better on mobile ([a83ea14](https://www.github.com/WDaan/VueTorrent/commit/a83ea144cf1daac09fc76feff5d03347c8ea87ca))
+
 ## [0.8.0](https://www.github.com/WDaan/VueTorrent/compare/v0.7.0...v0.8.0) (2021-04-06)
 
 
