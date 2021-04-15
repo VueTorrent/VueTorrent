@@ -7,7 +7,10 @@
     :width="dialogWidth"
     :fullscreen="isPhone"
   >
-    <v-card class="rounded-t-formtop noselect">
+    <v-card
+      class="rounded-t-formtop noselect"
+      :class="isPhone ? '' : 'fix-height'"
+    >
       <v-card-title class="primary pa-0">
         <v-toolbar flat dense class="primary white--text">
           <v-toolbar-title class="mt-auto white--text">
@@ -126,7 +129,7 @@ export default {
 </script>
 
 <style scoped>
-.v-card .v-card__text {
+.fix-height .v-card__text {
   height: 400px;
 }
 </style>

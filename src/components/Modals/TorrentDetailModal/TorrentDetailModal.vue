@@ -6,7 +6,10 @@
     :width="dialogWidth"
     :fullscreen="isFullscreen"
   >
-    <v-card class="rounded-t-formtop noselect">
+    <v-card
+      class="rounded-t-formtop noselect"
+      :class="isFullscreen ? '' : 'fix-height'"
+    >
       <v-card-title class="primary pa-0" @dblclick="hndlFullscreen = !hndlFullscreen">
         <v-toolbar flat dense class="primary white--text">
           <v-toolbar-title class="mt-auto">
@@ -134,7 +137,7 @@ export default {
 </script>
 
 <style scoped>
-.v-card .v-card__text {
+.fix-height .v-card__text {
   height: 600px;
 }
 </style>
