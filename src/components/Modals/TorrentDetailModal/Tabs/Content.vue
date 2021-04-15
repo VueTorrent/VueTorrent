@@ -296,6 +296,20 @@ export default {
             selectIndex++
           }
           break
+        case 'End':
+          e.preventDefault()
+          if (selectIndex != treeNodes.length - 1) {
+            treeNodes[treeNodes.length - 1].click()
+            selectIndex = treeNodes.length - 1
+          }
+          break
+        case 'Home':
+          e.preventDefault()
+          if (selectIndex != 0) {
+            treeNodes[0].click()
+            selectIndex = 0
+          }
+          break
         default:
       }
       const
