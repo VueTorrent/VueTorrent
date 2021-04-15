@@ -1,66 +1,48 @@
 <template>
   <v-card flat>
-    <perfect-scrollbar>
-      <v-card-text :style="{ minHeight: phoneLayout ? '' : '70vh', maxHeight: '70vh'}">
-        <v-layout class="mx-auto" row wrap>
-          <v-flex xs12 sm12 md6>
-            <v-card flat class="ma-1">
-              <v-card-title>
-                <h3 class="mx-auto">
-                  Available Tags:
-                </h3>
-              </v-card-title>
-              <v-card-text>
-                <v-list-item-group
-                  :value="activeTags"
-                  active-class="accent--text"
-                  multiple
-                >
-                  <template v-for="(item, index) in availableTags">
-                    <v-list-item :key="item" @click="addTag(item)">
-                      <v-list-item-content>
-                        <v-list-item-title v-text="item" />
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-divider
-                      v-if="index < availableTags.length - 1"
-                      :key="index"
-                    />
-                  </template>
-                </v-list-item-group>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-          <v-flex xs12 sm12 md6>
-            <v-card flat class="ma-1">
-              <v-card-title>
-                <h3 class="mx-auto">
-                  Available Categories:
-                </h3>
-              </v-card-title>
-              <v-card-text>
-                <v-list-item-group
-                  :value="activeCategory"
-                  active-class="accent--text"
-                >
-                  <template v-for="(item, index) in availableCategories">
-                    <v-list-item :key="item.title" @click="setCategory(item)">
-                      <v-list-item-content>
-                        <v-list-item-title v-text="item.name" />
-                      </v-list-item-content>
-                    </v-list-item>
-                    <v-divider
-                      v-if="index < availableCategories.length - 1"
-                      :key="index"
-                    />
-                  </template>
-                </v-list-item-group>
-              </v-card-text>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-card-text>
-    </perfect-scrollbar>
+    <v-row dense class="ma-0 pa-0">
+      <v-col cols="12" md="6">
+        <v-subheader>Available Tags:</v-subheader>
+        <v-list-item-group
+          :value="activeTags"
+          active-class="accent--text"
+          multiple
+        >
+          <template v-for="(item, index) in availableTags">
+            <v-list-item :key="item.title" @click="addTag(item)">
+              <v-list-item-content>
+                <v-list-item-title v-text="item" />
+              </v-list-item-content>
+            </v-list-item>
+            <v-divider
+              v-if="index < availableTags.length - 1"
+              :key="index"
+            />
+          </template>
+        </v-list-item-group>
+      </v-col>
+
+      <v-col cols="12" md="6">
+        <v-subheader>Available Categories:</v-subheader>
+        <v-list-item-group
+          :value="activeCategory"
+          active-class="accent--text"
+        >
+          <template v-for="(item, index) in availableCategories">
+            <v-list-item :key="item.title" @click="setCategory(item)">
+              <v-list-item-content>
+                <v-list-item-title v-text="item.name" />
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-divider
+              v-if="index < availableCategories.length - 1"
+              :key="index"
+            />
+          </template>
+        </v-list-item-group>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 

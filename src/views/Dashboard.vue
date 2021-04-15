@@ -1,5 +1,9 @@
 <template>
-  <div class="px-1 px-sm-5 pt-4 background" @click.self="resetSelected">
+  <div
+    class="px-1 px-sm-5 pt-4 background noselect"
+    @dragenter.prevent="detectDragEnter()"
+    @click.self="resetSelected"
+  >
     <v-row
       no-gutters
       class="grey--text"
@@ -18,184 +22,195 @@
       </v-col>
     </v-row>
 
-    <div class="my-2 px-2" @click.self="resetSelected">
-      <v-row class="my-2 mx-1" @click.self="resetSelected">
-        <v-expand-x-transition>
-          <v-card
-            v-show="searchFilterEnabled"
-            id="searchFilter"
-            flat
-            xs7
-            md3
-            class="ma-0 pa-0 mt-1 transparent"
-          >
-            <v-text-field
-              v-model="input"
-              flat
-              label="Search"
-              dense
-              outlined
-              clearable
-              solo
-              height="50px"
-              width="100px"
-              @click:clear="resetInput()"
-            />
-          </v-card>
-        </v-expand-x-transition>
-        <v-row style="margin-top: 10px" class="mb-1 mx-1">
-          <v-tooltip bottom>
-            <template #activator="{ on }">
-              <v-btn
-                text
-                small
-                fab
-                class="mr-0 ml-0"
-                aria-label="Select Mode"
-                v-on="on"
-                @click="searchFilterEnabled = !searchFilterEnabled"
-              >
-                <v-icon color="grey">
-                  {{ mdiFilter }}
-                </v-icon>
-              </v-btn>
-            </template>
-            <span>Toggle Search Filter</span>
-          </v-tooltip>
-          <v-tooltip bottom>
-            <template #activator="{ on }">
-              <v-btn
-                text
-                small
-                fab
-                class="mr-0 ml-0"
-                aria-label="Select Mode"
-                v-on="on"
-                @click="toggleSelectMode()"
-              >
-                <v-icon color="grey">
-                  {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
-                </v-icon>
-              </v-btn>
-            </template>
-            <span>Select Mode</span>
-          </v-tooltip>
-          <v-tooltip bottom>
-            <template #activator="{ on }">
-              <v-btn
-                text
-                small
-                fab
-                class="mr-0 ml-0"
-                aria-label="Sort Torrents"
-                v-on="on"
-                @click="addModal('SortModal')"
-              >
-                <v-icon color="grey">
-                  {{ mdiSort }}
-                </v-icon>
-              </v-btn>
-            </template>
-            <span>Sort Torrents</span>
-          </v-tooltip>
-        </v-row>
-      </v-row>
-      <v-row id="selectAllTorrents" class="ma-0 pa-0">
-        <v-expand-transition>
-          <v-card
-            v-show="selectMode"
-            flat
-            class="transparent"
-            height="40"
-          >
-            <v-tooltip bottom>
-              <template #activator="{ on }">
-                <v-btn
-                  text
-                  small
-                  fab
-                  width="24px"
-                  aria-label="Select Mode"
-                  v-on="on"
-                  @click="selectAllTorrents()"
-                >
-                  <v-icon>
-                    {{ allTorrentsSelected ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
-                  </v-icon>
-                </v-btn>
-              </template>
-              <span>Select All</span>
-            </v-tooltip>
-          </v-card>
-        </v-expand-transition>
-      </v-row>
-      <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-        <p class="grey--text">
-          Nothing to see here!
-        </p>
-      </div>
-      <div v-else>
-        <v-list class="pa-0 transparent">
-          <v-list-item
-            v-for="(torrent, index) in paginatedData"
-            :key="torrent.hash"
-            class="pa-0"
-            :class="isMobile ? 'mb-1' : 'mb-2'"
-            @contextmenu.prevent="$refs.menu.open($event, { torrent })"
-          >
-            <template #default>
-              <v-expand-x-transition>
-                <v-card v-show="selectMode" flat class="transparent">
-                  <v-list-item-action>
-                    <v-checkbox
-                      color="grey"
-                      :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
-                      @click="selectTorrent(torrent.hash)"
-                    />
-                  </v-list-item-action>
-                </v-card>
-              </v-expand-x-transition>
-              <v-list-item-content class="pa-0">
-                <Torrent :torrent="torrent" :index="index" />
-                <v-divider
-                  v-if="index < paginatedData.length - 1"
-                  :key="index"
-                />
-              </v-list-item-content>
-            </template>
-          </v-list-item>
-        </v-list>
-        <v-row
-          v-if="(pageCount > 1) && !hasSearchFilter"
-          xs12
-          justify="center"
-          class="mb-0"
+    <v-row class="ma-0 pa-0" @click.self="resetSelected">
+      <v-expand-x-transition>
+        <v-card
+          v-show="searchFilterEnabled"
+          id="searchFilter"
+          flat
+          xs7
+          md3
+          class="ma-0 pa-0 mt-1 transparent"
         >
-          <v-col>
-            <v-container>
-              <v-pagination
-                v-model="pageNumber"
-                :length="pageCount"
-                :total-visible="7"
-                @input="toTop"
+          <v-text-field
+            v-model="input"
+            autofocus
+            flat
+            solo
+            clearable
+            class="rounded-pill"
+            dense
+            hide-details
+            label="Search"
+            :prepend-inner-icon="mdiMagnify"
+            height="100%"
+            width="100px"
+            @click:clear="resetInput()"
+          />
+        </v-card>
+      </v-expand-x-transition>
+      <v-row style="margin-top: 6px" class="mb-1 mx-1">
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <v-btn
+              text
+              small
+              fab
+              class="mr-0 ml-0"
+              aria-label="Select Mode"
+              v-on="on"
+              @click="searchFilterEnabled = !searchFilterEnabled"
+            >
+              <v-icon color="grey">
+                {{ searchFilterEnabled ? mdiChevronLeftCircle : mdiTextBoxSearch }}
+              </v-icon>
+            </v-btn>
+          </template>
+          <span>Toggle Search Filter</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <v-btn
+              text
+              small
+              fab
+              class="mr-0 ml-0"
+              aria-label="Select Mode"
+              v-on="on"
+              @click="toggleSelectMode()"
+            >
+              <v-icon color="grey">
+                {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+              </v-icon>
+            </v-btn>
+          </template>
+          <span>Select Mode</span>
+        </v-tooltip>
+        <v-tooltip bottom>
+          <template #activator="{ on }">
+            <v-btn
+              text
+              small
+              fab
+              class="mr-0 ml-0"
+              aria-label="Sort Torrents"
+              v-on="on"
+              @click="addModal('SortModal')"
+            >
+              <v-icon color="grey">
+                {{ mdiSort }}
+              </v-icon>
+            </v-btn>
+          </template>
+          <span>Sort Torrents</span>
+        </v-tooltip>
+      </v-row>
+    </v-row>
+    <v-row id="selectAllTorrents" class="ma-0 pa-0">
+      <v-expand-transition>
+        <v-card
+          v-show="selectMode"
+          flat
+          class="transparent"
+          height="40"
+        >
+          <v-tooltip bottom>
+            <template #activator="{ on }">
+              <v-btn
+                text
+                small
+                fab
+                style="left:-8px"
+                aria-label="Select Mode"
+                class="grey--text"
+                v-on="on"
+                @click="selectAllTorrents()"
+              >
+                <v-icon>
+                  {{ allTorrentsSelected ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+                </v-icon>
+              </v-btn>
+            </template>
+            <span>Select All</span>
+          </v-tooltip>
+          <span class="grey--text">
+            Select / Release All ( Ctrl + A )
+          </span>
+        </v-card>
+      </v-expand-transition>
+    </v-row>
+    <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
+      <p class="grey--text">
+        Nothing to see here!
+      </p>
+    </div>
+    <div v-else>
+      <v-list class="pa-0 transparent">
+        <v-list-item
+          v-for="(torrent, index) in paginatedData"
+          :key="torrent.hash"
+          class="pa-0"
+          :class="isMobile ? 'mb-1' : 'mb-2'"
+          @mousedown="trcMenu = false"
+          @touchstart="strTouchStart($event, { torrent })"
+          @touchmove="strTouchMove($event)"
+          @touchend="strTouchEnd($event)"
+          @contextmenu="showTorrentRightClickMenu($event, { torrent })"
+          @dblclick.prevent="showInfo(torrent.hash)"
+        >
+          <template #default>
+            <v-expand-x-transition>
+              <v-card v-show="selectMode" flat class="transparent">
+                <v-list-item-action>
+                  <v-checkbox
+                    color="grey"
+                    :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
+                    @click="selectTorrent(torrent.hash)"
+                  />
+                </v-list-item-action>
+              </v-card>
+            </v-expand-x-transition>
+            <v-list-item-content class="pa-0 rounded">
+              <Torrent :torrent="torrent" :index="index" />
+              <v-divider
+                v-if="index < paginatedData.length - 1"
+                :key="index"
               />
-            </v-container>
-          </v-col>
-        </v-row>
+            </v-list-item-content>
+          </template>
+        </v-list-item>
+      </v-list>
+      <div class="text-center mb-5">
+        <v-pagination
+          v-if="(pageCount > 1) && !hasSearchFilter" 
+          v-model="pageNumber"
+          :length="pageCount"
+          :total-visible="7"
+          @input="toTop"
+        />
       </div>
     </div>
-    <vue-context ref="menu" v-slot="{ data }">
-      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" />
-    </vue-context>
+    <v-menu
+      v-model="trcMenu"
+      transition="slide-y-transition"
+      :position-x="trcMenuX"
+      :position-y="trcMenuY"
+      absolute
+    >
+      <TorrentRightClickMenu
+        v-if="data"
+        :torrent="data.torrent"
+        :touchmode="trcTouchMode"
+      />
+    </v-menu>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
-import { mdiFilter, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
+import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
-import { VueContext } from 'vue-context'
 import 'vue-context/src/sass/vue-context.scss'
 
 import Torrent from '@/components/Torrent/Torrent'
@@ -205,14 +220,23 @@ import { TorrentSelect, General } from '@/mixins'
 
 export default {
   name: 'Dashboard',
-  components: { Torrent, VueContext, TorrentRightClickMenu },
+  components: { Torrent, TorrentRightClickMenu },
   mixins: [TorrentSelect, General],
   data() {
     return {
+      data: null,
+      trcMenu: false,
+      trcMenuX: 0,
+      trcMenuY: 0,
+      trcMenuTouchTimer: 0,
+      trcMenuLastFinger: 0,
+      trcMenuLastHash: '',
+      trcTouchMode: false,
+      trcMoveTick: 0,
       input: '',
       searchFilterEnabled: false,
       pageNumber: 1,
-      mdiFilter, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
+      mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
     }
   },
   computed: {
@@ -282,6 +306,65 @@ export default {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
+    strTouchStart(e, data) {
+      this.trcMoveTick = 0
+      this.trcMenu = false
+      clearTimeout(this.trcMenuTouchTimer)
+      if (e.touches.length == 1) { // one finger only
+        this.trcMenuLastFinger = 1
+        this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
+      }
+      if (e.touches.length == 2) { // two finger
+        this.trcMenuLastFinger = 2
+        if (this.trcMenuLastHash == data.torrent.hash) {
+          e.preventDefault()
+          this.showTorrentRightClickMenu(e.touches[0], data, true)
+        }
+      }
+      this.trcMenuLastHash = data.torrent.hash
+    },
+    strTouchMove(e) {
+      this.trcMoveTick++
+      if (this.trcMenu == true && e.touches.length > 1) {
+        e.preventDefault()
+      } else if (this.trcMoveTick > 1 && e.touches.length == 1) {
+        if (this.trcMenuLastFinger == 1) this.trcMenu = false
+        clearTimeout(this.trcMenuTouchTimer)
+      }
+    },
+    strTouchEnd(e) {
+      clearTimeout(this.trcMenuTouchTimer)
+      if (this.trcMenu)
+        e.preventDefault()
+    },
+    showTorrentRightClickMenu(e, data, touchmode = false) {
+      if (this.trcMenu)
+        return false
+      this.data = data
+      try {
+        e.preventDefault()
+      } catch (e) {
+        console.log(e)
+      }
+      this.trcTouchMode = touchmode
+      this.trcMenuX = e.clientX + (touchmode ? 12 : 6)
+      this.trcMenuY = e.clientY + (touchmode ? 12 : 6)
+      this.$nextTick(() => {
+        this.trcMenu = true
+      })
+
+    },
+    detectDragEnter() {
+      if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
+        this.addModal('AddModal')
+      }
+
+      return true
+    },
+    showInfo(hash) {
+      if (!this.$store.state.selectMode && !this.trcMenu)
+        this.createModal('TorrentDetailModal', { hash })
+    },
     resetSelected() {
       this.$store.commit('RESET_SELECTED')
     },
@@ -307,10 +390,17 @@ export default {
         return (this.$store.state.selected_torrents = [])
       }
       const hashes = this.torrents.map(t => t.hash)
+      this.$store.state.selectMode = true
 
       return (this.$store.state.selected_torrents = hashes)
     },
     handleKeyboardShortcut(e) {
+      console.log(this.$store.state.modals.length)
+      if (this.$store.state.modals.length > 0) {
+        //e.preventDefault()
+
+        return null
+      }
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
         e.preventDefault()
@@ -331,19 +421,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-#searchFilter .v-text-field__details, #selectAllTorrents .v-messages {
-  display: none !important;
-}
-</style>
-
-<style scoped lang="scss">
-.v-context {
-  &,
-  & ul {
-    border-radius: 0.3rem;
-    padding: 0;
-  }
-}
-</style>

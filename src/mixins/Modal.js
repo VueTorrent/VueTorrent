@@ -2,15 +2,7 @@ import { mapGetters } from 'vuex'
 export default {
   props: ['guid'],
   computed: {
-    ...mapGetters(['getModalState']),
-    dialog: {
-      get() {
-        return this.getModalState(this.guid)
-      },
-      set() {
-        this.deleteModal()
-      }
-    }
+    ...mapGetters(['getModalState'])
   },
   methods: {
     deleteModal() {

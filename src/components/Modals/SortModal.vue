@@ -1,40 +1,43 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="500px">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    content-class="rounded-form"
+    max-width="500px"
+  >
     <v-card>
-      <v-container :class="`pa-0 project done`">
-        <v-card-title class="justify-center">
-          <h2>Sort Torrents</h2>
-        </v-card-title>
-        <v-card-text>
-          <v-form class="px-6 mt-3 justify-center mx-auto">
-            <v-container class="sortmodal">
-              <v-select
-                v-model="sort_options.sort"
-                :value="sortProperty"
-                flat
-                class="ml-2 mr-2"
-                :items="options"
-                item-text="name"
-                item-value="value"
-                dense
-                solo
-                height="55"
-              />
-              <v-switch
-                v-model="sort_options.reverse"
-                class="v-input--reverse v-input--expand pa-0 ma-0"
-                inset
-                color="accent"
-                style="padding-left: 10px !important"
-              >
-                <template #label>
-                  Reverse
-                </template>
-              </v-switch>
-            </v-container>
-          </v-form>
-        </v-card-text>
-      </v-container>
+      <v-card-title class="justify-center primarytext--text">
+        <h2>Sort Torrents</h2>
+      </v-card-title>
+      <v-card-text>
+        <v-form class="px-6 mt-3 justify-center mx-auto">
+          <v-container class="sortmodal">
+            <v-select
+              v-model="sort_options.sort"
+              :value="sortProperty"
+              flat
+              class="ml-2 mr-2"
+              :items="options"
+              item-text="name"
+              item-value="value"
+              dense
+              solo
+              height="55"
+            />
+            <v-switch
+              v-model="sort_options.reverse"
+              class="v-input--reverse v-input--expand pa-0 ma-0"
+              inset
+              color="accent"
+              style="padding-left: 10px !important"
+            >
+              <template #label>
+                Reverse
+              </template>
+            </v-switch>
+          </v-container>
+        </v-form>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
@@ -47,6 +50,7 @@ export default {
   mixins: [Modal],
   data() {
     return {
+      hndlDialog: true,
       sortProperty: { value: 'added_on', name: 'Added On' },
       reverse: true,
       options: [
@@ -71,11 +75,21 @@ export default {
     }
   },
   computed: {
-    ...mapState(['sort_options'])
+    ...mapState(['sort_options']),
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
+    }
   },
   methods: {
     close() {
-      this.$store.commit('DELETE_MODAL', this.guid)
+      this.dialog = false
     }
   }
 }

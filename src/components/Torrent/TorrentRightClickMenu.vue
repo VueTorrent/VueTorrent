@@ -1,5 +1,5 @@
 <template>
-  <v-list class="py-1">
+  <v-list class="noselect">
     <v-list-item link @click="resume">
       <v-icon>{{ mdiPlay }}</v-icon>
       <v-list-item-title
@@ -42,8 +42,10 @@
     </v-list-item>
     <v-divider />
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -53,11 +55,13 @@
             style="font-size: 1em"
           >
             Advanced
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list>
         <v-list-item v-if="!multiple" link @click="location">
           <v-icon>{{ mdiFolder }}</v-icon>
           <v-list-item-title
@@ -124,8 +128,10 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -135,11 +141,13 @@
             style="font-size: 1em"
           >
             Set Priority
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list>
         <v-list-item
           v-for="(item, index) in priority_options"
           :key="index"
@@ -154,8 +162,10 @@
       </v-list>
     </v-menu>
     <v-menu
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -165,11 +175,13 @@
             style="font-size: 1em"
           >
             Set Category
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list>
         <v-list-item
           v-for="(item, index) in availableCategories"
           :key="index"
@@ -184,8 +196,10 @@
     </v-menu>
     <v-menu
       v-if="!multiple"
-      open-on-hover
+      :open-on-hover="!touchmode"
       top
+      transition="slide-x-transition"
+      offset-x
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -195,11 +209,13 @@
             style="font-size: 1em"
           >
             Set Limit
-            <v-icon>{{ mdiChevronRight }}</v-icon>
           </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
         </v-list-item>
       </template>
-      <v-list dense rounded>
+      <v-list>
         <v-list-item @click="setLimit('download')">
           <v-icon>{{ mdiChevronDown }}</v-icon>
           <v-list-item-title class="ml-2">
@@ -240,7 +256,8 @@ export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object
+    torrent: Object,
+    touchmode: Boolean
   },
   data: () => ({
     priority_options: [
