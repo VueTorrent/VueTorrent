@@ -1,15 +1,14 @@
 <template>
   <v-card
-    flat
-    class="pointer noselect"
-    :class="{ selected: isSelected}"
-    @click.native.exact.prevent="selectMode && selectTorrent(torrent.hash)"
-    @dblclick.prevent="showInfo(torrent.hash)"
-    @click.ctrl.exact.prevent="selectTorrent(torrent.hash)"
-    @click.shift.exact.prevent="selectUntil(torrent.hash, index)"
+    class="pointer noselect elevation-0 rounded-0 ma-0 pa-0"
+    :class="isSelected ? 'info' : ''"
   >
-    <MobileCard v-if="isMobile" :torrent="torrent" />
-    <DesktopCard v-else :torrent="torrent" />
+    <v-layout
+      @click="evtClicnk"
+    >
+      <MobileCard v-if="isMobile" :torrent="torrent" />
+      <DesktopCard v-else :torrent="torrent" />
+    </v-layout>
   </v-card>
 </template>
 
@@ -37,8 +36,14 @@ export default {
     }
   },
   methods: {
-    showInfo(hash) {
-      this.createModal('TorrentDetailModal', { hash })
+    evtClicnk: function (event) {
+      if (event.shiftKey) {
+        this.selectUntil(this.torrent.hash, this.index)
+      } else if (event.ctrlKey) {
+        this.selectTorrent(this.torrent.hash)
+      } else {
+        this.selectMode && this.selectTorrent(this.torrent.hash)
+      }
     }
   }
 }

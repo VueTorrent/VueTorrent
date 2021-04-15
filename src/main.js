@@ -20,10 +20,6 @@ Vue.use(Toast, {
   timeout: 2000
 })
 
-import PerfectScrollbar from 'vue2-perfect-scrollbar'
-import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
-Vue.use(PerfectScrollbar)
-
 import './registerServiceWorker'
 
 Vue.config.productionTip = false

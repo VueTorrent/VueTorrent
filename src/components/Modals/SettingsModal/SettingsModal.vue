@@ -1,76 +1,78 @@
 <template>
   <v-dialog
     v-model="dialog"
+    max-width="800px"
     scrollable
+    :content-class="isPhone ? 'rounded-0' : 'rounded-form'"
     :width="dialogWidth"
-    :fullscreen="phoneLayout"
+    :fullscreen="isPhone"
   >
-    <v-card style="min-height: 400px; overflow: hidden !important">
-      <div :style="{ height: phoneLayout ? '100vh' : '' }">
-        <v-card-title class="pb-0 justify-center primary">
-          <h2 class="white--text">
-            Settings
-          </h2>
-        </v-card-title>
-        <v-tabs
-          v-model="tab"
-          background-color="primary"
-          dark
-          fixed-tabs
-        >
-          <v-tab href="#downloads">
-            Downloads
-          </v-tab>
-          <v-tab href="#bittorrent">
-            BitTorrent
-          </v-tab>
-          <v-tab href="#webui">
-            WebUI
-          </v-tab>
-          <v-tab href="#vuetorrent">
-            VueTorrent
-          </v-tab>
-          <v-tab href="#tagsAndCategories">
-            Tags & Categories
-          </v-tab>
-        </v-tabs>
+    <v-card
+      class="rounded-t-formtop noselect"
+      :class="isPhone ? '' : 'fix-height'"
+    >
+      <v-card-title class="primary pa-0">
+        <v-toolbar flat dense class="primary white--text">
+          <v-toolbar-title class="mt-auto white--text">
+            <h3>Settings</h3>
+          </v-toolbar-title>
+          <template #extension>
+            <v-tabs v-model="tab" align-with-title show-arrows>
+              <v-tabs-slider color="white" />
+              <v-tab class="white--text" href="#vuetorrent">
+                <h4>vuetorrent</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#downloads">
+                <h4>downloads</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#bittorrent">
+                <h4>bittorrent</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#webui">
+                <h4>WEB UI</h4>
+              </v-tab>
+              <v-tab class="white--text" href="#tagsAndCategories">
+                <h4>tags & categories</h4>
+              </v-tab>
+            </v-tabs>
+          </template>
+        </v-toolbar>
+      </v-card-title>
+      <!--<v-divider />-->
+      <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
-          <v-tab-item value="downloads">
-            <Downloads :is-active="tab === 'downloads'" />
-          </v-tab-item>
-          <v-tab-item value="bittorrent">
-            <BitTorrent :is-active="tab === 'bittorrent'" />
-          </v-tab-item>
-          <v-tab-item value="webui">
-            <WebUI :is-active="tab === 'webui'" />
-          </v-tab-item>
-
-          <v-tab-item value="vuetorrent">
+          <v-tab-item eager value="vuetorrent">
             <VueTorrent :is-active="tab === 'vuetorrent'" />
           </v-tab-item>
-          <v-tab-item value="tagsAndCategories">
-            <TagsAndCategories
-              :is-active="tab === 'tagsAndCategories'"
-            />
+          <v-tab-item eager value="downloads">
+            <Downloads :is-active="tab === 'downloads'" />
+          </v-tab-item>
+          <v-tab-item eager value="bittorrent">
+            <BitTorrent :is-active="tab === 'bittorrent'" />
+          </v-tab-item>
+          <v-tab-item eager value="webui">
+            <WebUI :is-active="tab === 'webui'" />
+          </v-tab-item>
+          <v-tab-item eager value="tagsAndCategories">
+            <TagsAndCategories :is-active="tab === 'tagsAndCategories'" />
           </v-tab-item>
         </v-tabs-items>
-      </div>
-      <v-card-actions class="d-flex justify-center">
-        <v-btn color="success" @click="saveSettings">
-          Save
+      </v-card-text>
+      <v-divider />
+      <v-card-actions class="justify-end">
+        <!--  class="justify-center" -->
+        <v-btn
+          class="accent white--text elevation-0 px-4"
+          @click="saveSettings"
+        >
+          save
         </v-btn>
-        <v-fab-transition v-if="phoneLayout">
-          <v-btn
-            color="red"
-            dark
-            absolute
-            bottom
-            right
-            @click="close"
-          >
-            <v-icon>{{ mdiClose }}</v-icon>
-          </v-btn>
-        </v-fab-transition>
+        <v-btn
+          class="error white--text elevation-0 px-4"
+          @click="close"
+        >
+          cancel
+        </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -93,10 +95,26 @@ export default {
   mixins: [Modal, FullScreenModal, SettingsTab],
   data() {
     return {
+      hndlDialog: true,
       tab: null,
       items: [],
       peers: [],
       mdiClose
+    }
+  },
+  computed: {
+    isPhone() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -104,8 +122,14 @@ export default {
   },
   methods: {
     close() {
-      this.deleteModal()
+      this.dialog = false
     }
   }
 }
 </script>
+
+<style scoped>
+.fix-height .v-card__text {
+  height: 400px;
+}
+</style>

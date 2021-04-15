@@ -2,56 +2,49 @@
   <v-dialog
     v-model="dialog"
     scrollable
+    content-class="rounded-form"
     max-width="500px"
-    :fullscreen="phoneLayout"
+    :fullscreen="isPhone"
   >
-    <v-card style="overflow: hidden !important">
-      <v-container :style="{ height: phoneLayout ? '100vh' : '' }">
-        <v-card-title class="pb-0 justify-center">
-          <h2 class="text-capitalize">
-            Limit {{ mode }}
-          </h2>
-        </v-card-title>
-        <v-card-text>
-          <div>
-            <v-container>
-              <v-row>
-                <v-col>
-                  <v-text-field
-                    v-model="limit"
-                    label="Speed Limit"
-                    :prepend-icon="mdiSpeedometer"
-                    suffix="KB/s"
-                    clearable
-                    autofocus
-                    @focus="$event.target.select()"
-                    @keydown.enter="setLimit"
-                  />
-                </v-col>
-              </v-row>
-            </v-container>
-          </div>
-        </v-card-text>
-        <div>
-          <v-card-actions class="justify-center">
-            <v-btn color="success" @click="setLimit">
-              Save
-            </v-btn>
-          </v-card-actions>
-        </div>
-      </v-container>
-      <v-fab-transition v-if="phoneLayout">
+    <v-card>
+      <v-card-title class="pa-0">
+        <v-toolbar-title class="ma-4 primarytext--text">
+          <h3>Limit {{ mode }}</h3>
+        </v-toolbar-title>
+      </v-card-title>
+      <v-card-text>
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-text-field
+                v-model="limit"
+                autofocus
+                clearable
+                label="Speed Limit"
+                :prepend-inner-icon="mdiSpeedometer"
+                suffix="KB/s"
+                @focus="$event.target.select()"
+                @keydown.enter="setLimit"
+              />
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card-text>
+      <v-divider />
+      <v-card-actions class="justify-end">
         <v-btn
-          color="red"
-          dark
-          absolute
-          bottom
-          right
+          class="accent white--text elevation-0 px-4"
+          @click="setLimit"
+        >
+          Save
+        </v-btn>
+        <v-btn
+          class="error white--text elevation-0 px-4"
           @click="close"
         >
-          <v-icon>{{ mdiClose }}</v-icon>
+          Cancel
         </v-btn>
-      </v-fab-transition>
+      </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
@@ -70,6 +63,7 @@ export default {
   },
   data() {
     return {
+      hndlDialog: true,
       limit: '',
       mdiSpeedometer, mdiClose
     }
@@ -78,6 +72,19 @@ export default {
     ...mapGetters(['getTorrent']),
     torrent() {
       return this.getTorrent(this.hash)
+    },
+    isPhone() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+    dialog: {
+      get: function () {
+        return this.hndlDialog
+      },
+      set: function (e) {
+        this.hndlDialog = e
+        if (e === false)
+          this.deleteModal()
+      }
     }
   },
   created() {
@@ -107,7 +114,7 @@ export default {
       this.close()
     },
     close() {
-      this.$store.commit('DELETE_MODAL', this.guid)
+      this.dialog = false
     }
   }
 }
