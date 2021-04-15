@@ -1,8 +1,14 @@
 # VueTorrent
+<p>
+<img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">   
 
-The sleekest looking WebUI for qBittorrent made with Vue.js!
+<p>&nbsp;</p>
+The sleekest looking WebUI for qBittorrent made with Vue.js!  
 
 > Vue, qBitorrent, Vuetify
+</p>
+<p>&nbsp;</p>
+
 
 ## Screenshots
 
@@ -84,3 +90,4 @@ but before you do that:
 ## Credits
 
 - Other alternate WebUI written in Vue [`CzBiX qb-web`](https://github.com/CzBiX/qb-web)
+- Many thanks @m4ximuel for designing the icon & helping out with the project
