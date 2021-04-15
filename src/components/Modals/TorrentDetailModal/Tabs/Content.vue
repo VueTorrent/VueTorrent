@@ -265,21 +265,35 @@ export default {
           break
         case 'Space':
         case 'Enter':
+          e.preventDefault()
           treeNodes[selectIndex].getElementsByClassName('v-treeview-node__checkbox')[0].click()
-          console.log('space!')
           break
         case 'ArrowRight':
+          e.preventDefault()
           if (btnToggle) {
-            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') == -1)
+            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') == -1) {
               btnToggle.click()
+              break
+            }
           }
-
-          //treeNodes[selectIndex].getElementsByClassName('v-treeview-node__toggle')[0].click()
+          try {
+            treeNodes[++selectIndex].click()
+          } catch (e) {
+            selectIndex--
+          }
           break
         case 'ArrowLeft':
+          e.preventDefault()
           if (btnToggle) {
-            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') != -1)
+            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') != -1) {
               btnToggle.click()
+              break
+            }
+          }
+          try {
+            treeNodes[--selectIndex].click()
+          } catch (e) {
+            selectIndex++
           }
           break
         default:
