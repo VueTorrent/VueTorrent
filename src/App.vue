@@ -16,7 +16,6 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
-import { version } from '../package.json'
 import qbit from '@/services/qbit'
 import { General } from '@/mixins'
 
@@ -35,7 +34,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('SET_APP_VERSION', version)
+    this.$store.commit('SET_APP_VERSION', process.env['npm_package_version'])
     this.checkDeviceDarkTheme()
     this.checkAuthenticated()
   },
