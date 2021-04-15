@@ -136,7 +136,9 @@ export default {
       mdiTrendingUp,
       mdiPencil,
       mdiContentSave,
-      mdiClose
+      mdiClose,
+      hWndContent: null,
+      flagEdit: false
     }
   },
   computed: {
@@ -157,6 +159,10 @@ export default {
     selected(newValue, oldValue) {
       this.changeFilePriorities(newValue, oldValue)
     }
+  },
+  mounted() {
+    this.hWndContent = this.$parent.$parent.$parent.$el.getElementsByClassName('v-card__text')[0]
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
   created() {
     this.initFiles()
@@ -223,6 +229,71 @@ export default {
     setFilePrio(fileId, priority) {
       qbit.setTorrentFilePriority(this.hash, [fileId], priority)
         .then(() => this.initFiles())
+    },
+    handleKeyboardShortcut(e) {
+      if (this.flagEdit === true)
+        return false
+      if (!this.isActive)
+        return false
+      const treeNodes = this.$el.getElementsByClassName('v-treeview-node__root')
+      var selectIndex = 0
+      for (var i = 0; i < treeNodes.length; i++) {
+        const className = treeNodes[i].className
+        if (className) {
+          if (treeNodes[i].className.indexOf('v-treeview-node--active') != -1) {
+            selectIndex = i
+          }
+        }
+      }
+      const btnToggle = treeNodes[selectIndex].getElementsByClassName('v-treeview-node__toggle')[0]
+      switch (e.code) {
+        case 'ArrowDown':
+          e.preventDefault()
+          try {
+            treeNodes[++selectIndex].click()
+          } catch (e) {
+            selectIndex--
+          }
+          break
+        case 'ArrowUp':
+          e.preventDefault()
+          try {
+            treeNodes[--selectIndex].click()
+          } catch (e) {
+            selectIndex++
+          }
+          break
+        case 'Space':
+        case 'Enter':
+          treeNodes[selectIndex].getElementsByClassName('v-treeview-node__checkbox')[0].click()
+          console.log('space!')
+          break
+        case 'ArrowRight':
+          if (btnToggle) {
+            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') == -1)
+              btnToggle.click()
+          }
+
+          //treeNodes[selectIndex].getElementsByClassName('v-treeview-node__toggle')[0].click()
+          break
+        case 'ArrowLeft':
+          if (btnToggle) {
+            if (btnToggle.className.indexOf('v-treeview-node__toggle--open') != -1)
+              btnToggle.click()
+          }
+          break
+        default:
+      }
+      const
+        parentRect = this.hWndContent.getClientRects()[0],
+        clientRect = treeNodes[selectIndex].getClientRects()[0],
+        minTop = clientRect.height * selectIndex,
+        maxTop = clientRect.height * (selectIndex + 1) - parentRect.height
+
+      if (this.hWndContent.scrollTop > minTop)
+        this.hWndContent.scrollTop = minTop
+      if (this.hWndContent.scrollTop < maxTop)
+        this.hWndContent.scrollTop = maxTop
     }
   }
 }
