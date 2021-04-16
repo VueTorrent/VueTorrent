@@ -1,4 +1,6 @@
 # VueTorrent
+
+
 <p>
 <img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">   
 
@@ -9,6 +11,22 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 </p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
+<p align="center">
+      <a href="https://img.shields.io/github/stars/WDaan/VueTorrent" alt="stars">
+        <img src="https://img.shields.io/github/stars/WDaan/VueTorrent" /></a>
+      <a href="https://img.shields.io/github/forks/WDaan/VueTorrent" alt="Forks">
+        <img src="https://img.shields.io/github/forks/WDaan/VueTorrent" /></a>
+    <a href="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues">
+        <img src="https://img.shields.io/github/issues/WDaan/VueTorrent" /></a>
+      <a href="https://img.shields.io/github/v/release/wdaan/vuetorrent" alt="Version">
+        <img src="https://img.shields.io/github/v/release/wdaan/vuetorrent" /></a>
+      <a href="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components">
+        <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components"
+            alt="Test Status"></a>
+        <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
+        <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total"
+            alt="Downloads"></a>
+</p>
 
 ## Screenshots
 
