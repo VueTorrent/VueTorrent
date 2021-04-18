@@ -134,6 +134,7 @@ $sideborder-margin: 6px;
         width: 8px;
         height: 8px;
         background: var(--v-background-base) !important;
+        border-radius: 0px 20px 20px 0px;
     }
     &::-webkit-scrollbar-thumb {
         border-radius: 20px;
