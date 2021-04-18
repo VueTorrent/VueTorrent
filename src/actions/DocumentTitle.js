@@ -9,7 +9,7 @@ export class DocumentTitle {
 
   static setGlobalSpeed() {
     const status = store.getters.getStatus()
-    this.set(`[D: ${formatBytes(status.upspeed)}/s, U: ${formatBytes(status.dlspeed)}/s] VueTorrent`)
+    this.set(`[D: ${formatBytes(status.dlspeed)}/s, U: ${formatBytes(status.upspeed)}/s] VueTorrent`)
   }
 
   static setFirstTorrentStatus() {
