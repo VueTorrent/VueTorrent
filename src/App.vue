@@ -48,7 +48,7 @@ export default {
         }
       }())
     })
-    this.$store.commit('SET_APP_VERSION', process.env['npm_package_version'])
+    this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
     this.checkDeviceDarkTheme()
     this.checkAuthenticated()
   },
