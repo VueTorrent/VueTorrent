@@ -63,7 +63,6 @@ export default {
   mixins: [Modal],
   data() {
     return {
-      hndlDialog: true,
       withFiles: false
     }
   },
@@ -72,16 +71,6 @@ export default {
     ...mapGetters(['getTorrents']),
     torrents() {
       return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   beforeDestroy() {

@@ -93,7 +93,6 @@ export default {
   },
   data() {
     return {
-      hndlDialog: true,
       hndlFullscreen: false,
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
@@ -116,16 +115,6 @@ export default {
         return true
 
       return false
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   methods: {

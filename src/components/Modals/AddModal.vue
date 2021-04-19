@@ -204,7 +204,6 @@ export default {
   props: ['initialMagnet'],
   data() {
     return {
-      hndlDialog: true,
       showWrapDrag: false,
       files: [],
       category: null,
@@ -247,16 +246,6 @@ export default {
     },
     availableCategories() {
       return this.getCategories()
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   created() {
