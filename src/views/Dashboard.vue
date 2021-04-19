@@ -1,7 +1,6 @@
 <template>
   <div
     class="px-1 px-sm-5 pt-4 background noselect"
-    @dragenter.prevent="detectDragEnter()"
     @click.self="resetSelected"
   >
     <v-row
@@ -296,6 +295,7 @@ export default {
   },
   mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
+    document.addEventListener('dragenter', this.detectDragEnter)
   },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
@@ -304,6 +304,7 @@ export default {
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
+    document.removeEventListener('dragenter', this.detectDragEnter)
   },
   methods: {
     strTouchStart(e, data) {
@@ -356,7 +357,7 @@ export default {
     },
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
-        this.addModal('AddModal')
+        this.createModal('AddModal', { openSuddenly: true })
       }
 
       return true

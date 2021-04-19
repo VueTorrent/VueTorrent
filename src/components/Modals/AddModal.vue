@@ -2,6 +2,7 @@
   <v-dialog
     v-model="dialog"
     scrollable
+    :transition="dTransition"
     :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
     max-width="500px"
     :fullscreen="phoneLayout"
@@ -201,9 +202,10 @@ import { FullScreenModal } from '@/mixins'
 export default {
   name: 'AddModal',
   mixins: [Modal, FullScreenModal],
-  props: ['initialMagnet'],
+  props: ['initialMagnet', 'openSuddenly'],
   data() {
     return {
+      dTransition: 'scale-transition',
       hndlDialog: true,
       showWrapDrag: false,
       files: [],
@@ -264,6 +266,12 @@ export default {
     this.$store.commit('FETCH_CATEGORIES')
     this.urls = this.initialMagnet
     this.setSettings()
+    if (this.openSuddenly == true) {
+      this.dTransition = 'none'
+    }
+  },
+  mounted() {
+    this.dTransition = 'scale-transition'
   },
   methods: {
     setSettings() {
