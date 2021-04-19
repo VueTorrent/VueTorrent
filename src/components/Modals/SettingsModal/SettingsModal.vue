@@ -95,7 +95,6 @@ export default {
   mixins: [Modal, FullScreenModal, SettingsTab],
   data() {
     return {
-      hndlDialog: true,
       tab: null,
       items: [],
       peers: [],
@@ -105,16 +104,6 @@ export default {
   computed: {
     isPhone() {
       return this.$vuetify.breakpoint.xsOnly
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   created() {

@@ -68,7 +68,6 @@ export default {
     initialCategory: Object
   },
   data: () => ({
-    hndlDialog: true,
     nameRules: [
       v => !!v || 'Category name is required',
       v =>
@@ -87,16 +86,6 @@ export default {
     hasInitialCategory() {
       return !!(this.initialCategory &&
           this.initialCategory.name)
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   created() {

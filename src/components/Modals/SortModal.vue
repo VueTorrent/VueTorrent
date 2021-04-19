@@ -50,7 +50,6 @@ export default {
   mixins: [Modal],
   data() {
     return {
-      hndlDialog: true,
       sortProperty: { value: 'added_on', name: 'Added On' },
       reverse: true,
       options: [
@@ -75,17 +74,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['sort_options']),
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
-    }
+    ...mapState(['sort_options'])
   },
   methods: {
     close() {
