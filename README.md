@@ -57,6 +57,9 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
 
+### Lazy/Easy
+- use [hotio's qbittorrent](https://hotio.dev/containers/qbittorrent/) docker image, that comes pre-packed with VueTorrent.
+
 [Alternative methods - May work for older QBit versions](../../wiki/Alternative_Installation_Methods)
 
 ## Development
