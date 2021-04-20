@@ -24,7 +24,6 @@
     "typeface-roboto-mono": "^1.1.13",
     "uuid": "^8.3.2",
     "vue": "^2.6.12",
-    "vue-apexcharts": "^1.6.0",
     "vue-context": "^6.0.0",
     "vue-router": "^3.5.1",
     "vue-toastification": "^1.7.11",
