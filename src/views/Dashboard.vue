@@ -211,8 +211,6 @@ import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
 import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
-import 'vue-context/src/sass/vue-context.scss'
-
 import Torrent from '@/components/Torrent/Torrent'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
