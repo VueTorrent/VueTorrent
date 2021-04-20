@@ -1,5 +1,21 @@
 # Changelog
 
+### [0.9.1](https://www.github.com/WDaan/VueTorrent/compare/v0.9.0...v0.9.1) (2021-04-20)
+
+
+### Bug Fixes
+
+* application version getter ([#222](https://www.github.com/WDaan/VueTorrent/issues/222)) ([6535ac5](https://www.github.com/WDaan/VueTorrent/commit/6535ac56265d3062c877f35fa5e44b9635e26fcd))
+* Establish Service WalkerRules ([#227](https://www.github.com/WDaan/VueTorrent/issues/227)) ([04971dc](https://www.github.com/WDaan/VueTorrent/commit/04971dcf874c2f952f57c3abef94d8d92337e488))
+* Global Speed Title (upload & download were switched) ([#218](https://www.github.com/WDaan/VueTorrent/issues/218)) ([906f6d5](https://www.github.com/WDaan/VueTorrent/commit/906f6d5f872b848fc7b3c5071c51a9696ce7c734))
+* remove vue-context import ([edcd825](https://www.github.com/WDaan/VueTorrent/commit/edcd825969f6876b1962dc8875be4b9447704820))
+* scrollbar ([c460e29](https://www.github.com/WDaan/VueTorrent/commit/c460e29d95eb034266b3ae1006ebb57001f5aa83))
+
+
+### Performance Improvements
+
+* Remove redundant dialog code, use Modal Mixin ([33cf62f](https://www.github.com/WDaan/VueTorrent/commit/33cf62ff9b6ea671dc1022e345a65705bd814640))
+
 ## [0.9.0](https://www.github.com/WDaan/VueTorrent/compare/v0.8.0...v0.9.0) (2021-04-15)
 
 
