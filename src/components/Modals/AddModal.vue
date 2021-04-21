@@ -249,16 +249,6 @@ export default {
     },
     availableCategories() {
       return this.getCategories()
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   created() {

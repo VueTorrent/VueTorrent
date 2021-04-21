@@ -45,25 +45,12 @@ export default {
   name: 'CreateTagDialog',
   mixins: [Modal],
   data: () => ({
-    hndlDialog: true,
     tagname: '',
     rules: [
       v => !!v || 'Tag is required',
       v => v.length <= 10 || 'Tag must be less than 10 characters'
     ]
   }),
-  computed: {
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
-    }
-  },
   methods: {
     create() {
       qbit.createTag(this.tagname)

@@ -34,7 +34,21 @@ export default {
     }
   },
   created() {
-    this.$store.commit('SET_APP_VERSION', process.env['npm_package_version'])
+    self.addEventListener('fetch', function (event) {
+      event.respondWith(async function () {
+        try {
+          var res = await fetch(event.request)
+          var cache = await caches.open('cache')
+          cache.put(event.request.url, res.clone())
+
+          return res
+        } catch (error) {
+
+          return caches.match(event.request)
+        }
+      }())
+    })
+    this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
     this.checkDeviceDarkTheme()
     this.checkAuthenticated()
   },
