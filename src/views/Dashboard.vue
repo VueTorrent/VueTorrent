@@ -341,11 +341,8 @@ export default {
       if (this.trcMenu.show)
         return false
       this.data = data
-      try {
+      if (e.preventDefault)
         e.preventDefault()
-      } catch (e) {
-        console.log(e)
-      }
       this.tmCalc.TouchMode = touchmode
       this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
       this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
