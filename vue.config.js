@@ -100,10 +100,8 @@ module.exports = {
   configureWebpack: {
     devtool: 'source-map',
     plugins: [
-      new webpack.DefinePlugin({
-        APPLICATION_VERSION: JSON.stringify(
-          require('./package.json').version
-        )
+      new webpack.EnvironmentPlugin({
+        APPLICATION_VERSION: process.env['npm_package_version']
       })
     ]
   },

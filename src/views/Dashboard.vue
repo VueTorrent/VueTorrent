@@ -1,7 +1,6 @@
 <template>
   <div
     class="px-1 px-sm-5 pt-4 background noselect"
-    @dragenter.prevent="detectDragEnter()"
     @click.self="resetSelected"
   >
     <v-row
@@ -211,8 +210,6 @@ import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
 import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
-import 'vue-context/src/sass/vue-context.scss'
-
 import Torrent from '@/components/Torrent/Torrent'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
@@ -296,6 +293,7 @@ export default {
   },
   mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
+    document.addEventListener('dragenter', this.detectDragEnter)
   },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
@@ -304,6 +302,7 @@ export default {
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
+    document.removeEventListener('dragenter', this.detectDragEnter)
   },
   methods: {
     strTouchStart(e, data) {
@@ -356,7 +355,7 @@ export default {
     },
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
-        this.addModal('AddModal')
+        this.createModal('AddModal', { openSuddenly: true })
       }
 
       return true

@@ -61,7 +61,6 @@ export default {
   },
   data() {
     return {
-      hndlDialog: true,
       name: '',
       mdiFile
     }
@@ -73,16 +72,6 @@ export default {
     },
     isPhone() {
       return this.$vuetify.breakpoint.xsOnly
-    },
-    dialog: {
-      get: function () {
-        return this.hndlDialog
-      },
-      set: function (e) {
-        this.hndlDialog = e
-        if (e === false)
-          this.deleteModal()
-      }
     }
   },
   created() {
