@@ -295,6 +295,11 @@ export default {
   mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
     document.addEventListener('dragenter', this.detectDragEnter)
+    this.$store.state.selectMode = false
+    window.scrollTo(0, 0)
+    document.addEventListener('scroll', function () {
+      this.trcMenu.show = false
+    }.bind(this))
   },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
