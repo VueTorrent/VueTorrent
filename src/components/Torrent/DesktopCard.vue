@@ -3,7 +3,6 @@
     row
     wrap
     class="ma-0 px-4 py-2 ml-0 "
-    :class="style"
   >
     <v-flex xs12>
       <div class="caption grey--text">
@@ -41,9 +40,6 @@ export default {
       }
 
       return this.getWebuiSettings().busyTorrentProperties.filter(i => i.active)
-    },
-    style() {
-      return `sideborder ${this.torrent.state.toLowerCase()} ${this.isSelected ? 'selected' : ''}`
     }
   }
 }
