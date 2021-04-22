@@ -3,7 +3,6 @@
     row
     wrap
     class="ma-0 pa-1"
-    :class="style"
   >
     <v-flex xs12 class="ma-1" row>
       <span class="subtitle-1" style="line-height: 1.3em; font-size: .95em !important;">
@@ -87,11 +86,6 @@ export default {
   },
   data: () => ({
     mdiChevronUp, mdiChevronDown
-  }),
-  computed: {
-    style() {
-      return `sideborder ${this.torrent.state.toLowerCase()} ${this.isSelected ? 'selected' : ''}`
-    }
-  }
+  })
 }
 </script>

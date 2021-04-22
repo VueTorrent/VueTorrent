@@ -1,7 +1,7 @@
 <template>
   <v-card
     class="pointer noselect elevation-0 rounded-0 ma-0 pa-0"
-    :class="isSelected ? 'info' : ''"
+    :class="style"
   >
     <v-layout
       @click="evtClicnk"
@@ -33,6 +33,9 @@ export default {
     ...mapState(['selected_torrents', 'selectMode']),
     isSelected() {
       return this.selected_torrents.includes(this.torrent.hash)
+    },
+    style() {
+      return `sideborder ${this.torrent.state.toLowerCase()} ${this.isSelected ? 'v-chip' : ''}`
     }
   },
   methods: {
