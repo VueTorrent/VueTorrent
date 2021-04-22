@@ -16,16 +16,18 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
         <img src="https://img.shields.io/github/stars/WDaan/VueTorrent" /></a>
       <a href="https://img.shields.io/github/forks/WDaan/VueTorrent" alt="Forks">
         <img src="https://img.shields.io/github/forks/WDaan/VueTorrent" /></a>
-    <a href="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues">
+      <a href="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues">
         <img src="https://img.shields.io/github/issues/WDaan/VueTorrent" /></a>
+      <a href="https://img.shields.io/github/issues-closed/wdaan/vuetorrent" alt="Issues Closed">
+        <img src="https://img.shields.io/github/issues-closed/WDaan/VueTorrent" /></a>
+      <a href="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" alt="Closed PR">
+        <img src="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" /></a>
       <a href="https://img.shields.io/github/v/release/wdaan/vuetorrent" alt="Version">
         <img src="https://img.shields.io/github/v/release/wdaan/vuetorrent" /></a>
       <a href="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components">
-        <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components"
-            alt="Test Status"></a>
-        <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
-        <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total"
-            alt="Downloads"></a>
+        <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components" alt="Test Status"></a>
+      <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
+        <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total" alt="Downloads"></a>
 </p>
 
 ## Screenshots
