@@ -44,8 +44,9 @@
     <v-menu
       :open-on-hover="!touchmode"
       top
-      transition="slide-x-transition"
       offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -130,8 +131,9 @@
     <v-menu
       :open-on-hover="!touchmode"
       top
-      transition="slide-x-transition"
       offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -164,8 +166,9 @@
     <v-menu
       :open-on-hover="!touchmode"
       top
-      transition="slide-x-transition"
       offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -198,8 +201,9 @@
       v-if="!multiple"
       :open-on-hover="!touchmode"
       top
-      transition="slide-x-transition"
       offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
     >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -257,21 +261,25 @@ export default {
   mixins: [General, TorrentSelect],
   props: {
     torrent: Object,
-    touchmode: Boolean
+    touchmode: Boolean,
+    x: Number
   },
-  data: () => ({
-    priority_options: [
-      { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
-      { name: 'increase', icon: mdiArrowUp, action: 'increasePrio' },
-      { name: 'decrease', icon: mdiArrowDown, action: 'decreasePrio' },
-      { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
-    ],
-    mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
-    mdiFolder, mdiRenameBox, mdiInformation,
-    mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
-    mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
-    mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
-  }),
+  data() {
+    return {
+      isRightside: true,
+      priority_options: [
+        { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
+        { name: 'increase', icon: mdiArrowUp, action: 'increasePrio' },
+        { name: 'decrease', icon: mdiArrowDown, action: 'decreasePrio' },
+        { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
+      ],
+      mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
+      mdiFolder, mdiRenameBox, mdiInformation,
+      mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
+      mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
+      mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
+    }
+  },
   computed: {
     ...mapGetters(['getCategories']),
     ...mapState(['selected_torrents']),
@@ -293,7 +301,18 @@ export default {
       return this.selected_torrents.length > 1
     }
   },
+  watch: {
+    x() {
+      this.detectRightside()
+    }
+  },
+  mounted() {
+    this.detectRightside()
+  },
   methods: {
+    detectRightside() {
+      this.isRightside = document.documentElement.clientWidth < this.x + 380
+    },
     resume() {
       qbit.resumeTorrents(this.hashes)
     },

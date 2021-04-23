@@ -150,7 +150,7 @@
           :key="torrent.hash"
           class="pa-0"
           :class="isMobile ? 'mb-1' : 'mb-2'"
-          @mousedown="trcMenu = false"
+          @mousedown="trcMenu.show = false"
           @touchstart="strTouchStart($event, { torrent })"
           @touchmove="strTouchMove($event)"
           @touchend="strTouchEnd($event)"
@@ -190,16 +190,17 @@
       </div>
     </div>
     <v-menu
-      v-model="trcMenu"
+      v-model="trcMenu.show"
       transition="slide-y-transition"
-      :position-x="trcMenuX"
-      :position-y="trcMenuY"
+      :position-x="trcMenu.X"
+      :position-y="trcMenu.Y"
       absolute
     >
       <TorrentRightClickMenu
         v-if="data"
         :torrent="data.torrent"
-        :touchmode="trcTouchMode"
+        :touchmode="tmCalc.TouchMode"
+        :x="trcMenu.X"
       />
     </v-menu>
   </div>
@@ -222,13 +223,13 @@ export default {
   data() {
     return {
       data: null,
-      trcMenu: false,
-      trcMenuX: 0,
-      trcMenuY: 0,
-      trcMenuTouchTimer: 0,
-      trcMenuLastFinger: 0,
-      trcMenuLastHash: '',
-      trcTouchMode: false,
+      trcMenu: {
+        show: false, X: 0, Y: 0
+      },
+      tmCalc: {
+        TouchMode: false, TouchTimer: 0, LastFinger: 0, LastHash: ''
+      },
+
       trcMoveTick: 0,
       input: '',
       searchFilterEnabled: false,
@@ -294,6 +295,11 @@ export default {
   mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
     document.addEventListener('dragenter', this.detectDragEnter)
+    this.$store.state.selectMode = false
+    window.scrollTo(0, 0)
+    document.addEventListener('scroll', function () {
+      this.trcMenu.show = false
+    }.bind(this))
   },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
@@ -307,49 +313,46 @@ export default {
   methods: {
     strTouchStart(e, data) {
       this.trcMoveTick = 0
-      this.trcMenu = false
-      clearTimeout(this.trcMenuTouchTimer)
+      this.trcMenu.show = false
+      clearTimeout(this.tmCalc.TouchTimer)
       if (e.touches.length == 1) { // one finger only
-        this.trcMenuLastFinger = 1
-        this.trcMenuTouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
+        this.tmCalc.LastFinger = 1
+        this.tmCalc.TouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
       }
       if (e.touches.length == 2) { // two finger
-        this.trcMenuLastFinger = 2
-        if (this.trcMenuLastHash == data.torrent.hash) {
+        this.tmCalc.LastFinger = 2
+        if (this.tmCalc.LastHash == data.torrent.hash) {
           e.preventDefault()
           this.showTorrentRightClickMenu(e.touches[0], data, true)
         }
       }
-      this.trcMenuLastHash = data.torrent.hash
+      this.tmCalc.LastHash = data.torrent.hash
     },
     strTouchMove(e) {
       this.trcMoveTick++
-      if (this.trcMenu == true && e.touches.length > 1) {
+      if (this.trcMenu.show == true && e.touches.length > 1) {
         e.preventDefault()
       } else if (this.trcMoveTick > 1 && e.touches.length == 1) {
-        if (this.trcMenuLastFinger == 1) this.trcMenu = false
-        clearTimeout(this.trcMenuTouchTimer)
+        if (this.tmCalc.LastFinger == 1) this.trcMenu.show = false
+        clearTimeout(this.tmCalc.TouchTimer)
       }
     },
     strTouchEnd(e) {
-      clearTimeout(this.trcMenuTouchTimer)
-      if (this.trcMenu)
+      clearTimeout(this.tmCalc.TouchTimer)
+      if (this.trcMenu.show)
         e.preventDefault()
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
-      if (this.trcMenu)
+      if (this.trcMenu.show)
         return false
       this.data = data
-      try {
+      if (e.preventDefault)
         e.preventDefault()
-      } catch (e) {
-        console.log(e)
-      }
-      this.trcTouchMode = touchmode
-      this.trcMenuX = e.clientX + (touchmode ? 12 : 6)
-      this.trcMenuY = e.clientY + (touchmode ? 12 : 6)
+      this.tmCalc.TouchMode = touchmode
+      this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
+      this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
       this.$nextTick(() => {
-        this.trcMenu = true
+        this.trcMenu.show = true
       })
 
     },
