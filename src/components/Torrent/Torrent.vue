@@ -35,7 +35,9 @@ export default {
       return this.selected_torrents.includes(this.torrent.hash)
     },
     style() {
-      return `sideborder ${this.torrent.state.toLowerCase()} ${this.isSelected ? 'v-chip' : ''}`
+      const state = this.torrent.state.toLowerCase()
+
+      return `sideborder ${state} ${this.isSelected ? `torrent-${state}-color` : ''}`
     }
   },
   methods: {
