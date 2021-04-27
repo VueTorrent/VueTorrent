@@ -3,46 +3,6 @@
 
 $sideborder-margin: 6px;
 
-.selMode.done {
-    background-color: #{$torrent-done};
-}
-
-.selMode.downloading {
-    background-color: #{$torrent-downloading};
-}
-
-.selMode.fail {
-    background-color: #{$torrent-fail};
-}
-
-.selMode.paused {
-    background-color: #{$torrent-paused};
-}
-
-.selMode.queued {
-    background-color: #{$torrent-queued};
-}
-
-.selMode.seeding {
-    background-color: #{$torrent-seeding};
-}
-
-.selMode.checking {
-    background-color: #{$torrent-checking};
-}
-
-.selMode.stalled {
-    background-color: #{$torrent-stalled};
-}
-
-.selMode.metadata {
-    background-color: #{$torrent-metadata};
-}
-
-.selMode.moving {
-    background-color: #{$torrent-moving};
-}
-
 .sideborder.done {
     border-left: #{$sideborder-margin} solid #{$torrent-done};
 }
