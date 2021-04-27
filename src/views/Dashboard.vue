@@ -185,6 +185,7 @@
           v-model="pageNumber"
           :length="pageCount"
           :total-visible="7"
+          class="pagenation_style"
           @input="toTop"
         />
       </div>
@@ -423,3 +424,46 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+
+.v-pagination>li>button {
+  //background-color:black !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.pagenation_style {
+  position: absolute;
+  //position: fixed;
+  //right: 14px;
+  //top: 60px;
+  >ul {
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: var(--v-background-base);
+    //box-shadow: 0px 3px 6px rgba(0,0,0,.3);
+  }
+}
+
+.v-pagination__navigation {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+.v-pagination__item {
+  outline:none;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+}
+.v-pagination__more {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
