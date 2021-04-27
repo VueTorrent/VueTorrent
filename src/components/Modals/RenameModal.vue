@@ -31,6 +31,14 @@
       <v-divider />
       <v-card-actions class="justify-end">
         <v-btn
+          v-if="enableUrlDecode"
+          class="info white--text elevation-0 px-4"
+          @click="urlDecode"
+        >
+          URL DECODE
+        </v-btn>
+        <v-spacer />
+        <v-btn
           class="accent white--text elevation-0 px-4"
           @click="rename"
         >
@@ -76,8 +84,21 @@ export default {
   },
   created() {
     this.name = this.torrent.name
+    this.isUrl()
   },
   methods: {
+    urlDecode() {
+      this.name = decodeURIComponent(this.name)
+      this.isUrl()
+    },
+    isUrl() {
+      this.enableUrlDecode = false
+      if (this.name.indexOf(' ') == -1) {
+        const exp = /\+|%/
+        if (exp.test(this.name))
+          this.enableUrlDecode = true
+      }
+    },
     rename() {
       qbit.setTorrentName(this.hash, this.name)
       this.close()
