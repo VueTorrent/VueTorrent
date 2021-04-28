@@ -20,6 +20,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   plugins: [vuexPersist.plugin],
   state: {
+    searchFilter: '',
     version: 0,
     intervals: [],
     status: {

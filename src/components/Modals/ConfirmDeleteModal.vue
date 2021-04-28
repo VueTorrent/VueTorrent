@@ -74,7 +74,8 @@ export default {
     }
   },
   beforeDestroy() {
-    this.$store.state.selected_torrents = []
+    if (!this.$store.state.selectMode)
+      this.$store.state.selected_torrents = []
   },
   methods: {
     close() {

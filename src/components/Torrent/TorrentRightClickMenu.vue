@@ -28,8 +28,9 @@
       </v-list-item-title>
     </v-list-item>
 
-    <v-divider />
-    <v-list-item link @click="removeTorrent">
+    <v-divider v-show="!modalOpened" />
+
+    <v-list-item v-show="!modalOpened" link @click="removeTorrent">
       <v-icon color="red">
         {{ mdiDelete }}
       </v-icon>
@@ -43,6 +44,8 @@
     <v-divider />
     <v-menu
       :open-on-hover="!touchmode"
+      open-delay="200"
+      close-delay="200"
       top
       offset-x
       :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
@@ -130,6 +133,8 @@
     </v-menu>
     <v-menu
       :open-on-hover="!touchmode"
+      open-delay="200"
+      close-delay="200"
       top
       offset-x
       :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
@@ -165,6 +170,8 @@
     </v-menu>
     <v-menu
       :open-on-hover="!touchmode"
+      open-delay="200"
+      close-delay="200"
       top
       offset-x
       :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
@@ -200,6 +207,8 @@
     <v-menu
       v-if="!multiple"
       :open-on-hover="!touchmode"
+      open-delay="200"
+      close-delay="200"
       top
       offset-x
       :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
@@ -293,12 +302,15 @@ export default {
       return categories
     },
     hashes() {
-      if (this.multiple) return this.selected_torrents
+      if (this.selected_torrents.length > 0) return this.selected_torrents
 
       return [this.torrent.hash]
     },
     multiple() {
       return this.selected_torrents.length > 1
+    },
+    modalOpened() {
+      return this.$store.state.modals.length > 0
     }
   },
   watch: {

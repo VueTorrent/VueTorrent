@@ -17,6 +17,19 @@
           </v-toolbar-title>
           <v-spacer />
           <v-btn
+            v-touch="{ start: () => touchTick = true }"
+            fab
+            small
+            class="primary primarytext--text elevation-0"
+            aria-label="Remove Selected Torrents"
+            @click="openMenu()"
+            @dblclick.stop
+          >
+            <v-icon>
+              {{ mdiDotsHorizontalCircle }}
+            </v-icon>
+          </v-btn>
+          <v-btn
             v-if="!isPhone"
             fab
             small
@@ -82,7 +95,7 @@
 import { mapGetters } from 'vuex'
 import { Modal, FullScreenModal } from '@/mixins'
 import { Content, Info, Peers, Trackers, TagsAndCategories } from './Tabs'
-import { mdiClose, mdiWindowMaximize, mdiWindowRestore } from '@mdi/js'
+import { mdiClose, mdiWindowMaximize, mdiWindowRestore, mdiDotsHorizontalCircle } from '@mdi/js'
 
 export default {
   name: 'TorrentDetailModal',
@@ -97,7 +110,7 @@ export default {
       tab: null,
       items: [{ tab: 'Info' }, { tab: 'Content' }],
       peers: [],
-      mdiClose, mdiWindowMaximize, mdiWindowRestore
+      mdiClose, mdiWindowMaximize, mdiWindowRestore, mdiDotsHorizontalCircle
     }
   },
   computed: {
@@ -120,6 +133,42 @@ export default {
   methods: {
     close() {
       this.dialog = false
+    },
+    openMenu(e) {
+      const dialogRect = this.$children[0].$refs.dialog.getBoundingClientRect()
+      const
+        x = dialogRect.x + dialogRect.width - 140,
+        y = dialogRect.y + 40
+      const firstSelected = document.getElementsByClassName('v-list-item__content')[0]
+      if (this.touchTick) {
+        this.touchTick = false
+        const touchObj = new Touch({
+          identifier: Date.now(),
+          target: firstSelected,
+          clientX: x,
+          clientY: y
+        })
+        firstSelected.dispatchEvent(new TouchEvent('touchstart', {
+          cancelable: true,
+          bubbles: true,
+          touches: [touchObj],
+          targetTouches: [],
+          changedTouches: [touchObj]
+        }))
+        firstSelected.dispatchEvent(new TouchEvent('touchstart', {
+          cancelable: true,
+          bubbles: true,
+          touches: [touchObj, touchObj],
+          targetTouches: [],
+          changedTouches: [touchObj]
+        }))
+      } else {
+        firstSelected.dispatchEvent(new MouseEvent('contextmenu', { 
+          bubbles: true,
+          clientX: x,
+          clientY: y
+        }))
+      }
     }
   }
 }

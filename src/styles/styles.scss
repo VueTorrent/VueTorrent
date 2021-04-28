@@ -157,3 +157,20 @@ body {
         border-radius: 20px;
     }
 }
+
+.primaryFill {
+    fill: var(--v-primarytext-base) !important;
+}
+
+.wrap_align {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align:center;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

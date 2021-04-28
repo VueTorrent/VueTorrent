@@ -8,6 +8,9 @@ export default {
     },
     isMobile() {
       return this.$vuetify.breakpoint.smAndDown
+    },
+    isPhone() {
+      return this.$vuetify.breakpoint.xsOnly
     }
   },
   methods: {
