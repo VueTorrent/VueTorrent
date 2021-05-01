@@ -12,7 +12,6 @@ module.exports = {
     name: 'VueTorrent', //PWApp name
     themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
     manifestOptions: {
-      //start_url: 'https://example.com/',
       icons: [
         {
           src: './icons/android-chrome-192x192.png?s=' + iconVersion,

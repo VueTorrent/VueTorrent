@@ -1,3 +1,5 @@
+import store from '../store'
+
 export default class Torrent {
   constructor(data) {
     this.name = data.name
@@ -31,8 +33,27 @@ export default class Torrent {
     this.ratio_limit = data.ratio_limit
     this.availability = Math.round(data.availability * 100) / 100
     this.forced = data.state.includes('forced')
+    this.uploadGraph = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    this.downloadGraph = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+    const previous = this.getPrevious()
+    if (previous) {
+      this.uploadGraph = this.setGraphData(previous.uploadGraph, this.upspeed || 0)
+      this.downloadGraph = this.setGraphData(previous.downloadGraph, this.dlspeed || 0)
+    }
 
     Object.freeze(this)
+  }
+
+  setGraphData(arr, newEntry) {
+    arr.shift()
+    arr.push(newEntry)
+
+    return arr
+  }
+
+  getPrevious() {
+    return store.getters.getTorrent(this.hash)
   }
 
   formatState(state) {

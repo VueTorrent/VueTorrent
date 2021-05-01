@@ -97,7 +97,7 @@ export default {
       this.cvsLeft -= 3.6
       this.svgGraph.style.left = this.cvsLeft
     }.bind(this), 400)
-    
+
     this.svgGraph.addEventListener('mousemove', function (event) {
       //const svgWidth = 255
       const svgWidth = 274
@@ -142,30 +142,6 @@ export default {
         }
       }
     },
-    /*
-    updateGraph(val, cvs) {
-      var
-        i, v, d_dat = [], b_dat = [], c_dat = []
-      const
-        max = Math.max.apply(null, val),
-        l = val.length
-
-      for (i = 0; i < l; i++) {
-        v = Math.floor(100 - val[i] / max * 100)
-        if (Number.isNaN(v)) {
-          d_dat.push([i, 100])
-          b_dat.unshift([i, 100])
-          c_dat.unshift([i, 100])
-        } else {
-          d_dat.push([i, v])
-          b_dat.unshift([i, v + (100 - v) / 1.3])
-          c_dat.unshift([i, v + (100 - v) / 2.3])
-        }
-      }
-      cvs[0].setAttribute('points', d_dat.concat(b_dat))
-      d_dat.unshift([0, 100]); d_dat.push([14, 100])
-    },
-    */
     updateGraph(val, cvs) {
       var
         i, v, v2, d_dat = [], b_dat = [], c_dat = []

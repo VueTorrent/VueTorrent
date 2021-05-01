@@ -3,7 +3,6 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 14 100"
     preserveAspectRatio="none"
-    class="updlGraph"
     style="position:absolute; width:300px; height:30%; bottom:0"
   >
     <defs>
@@ -16,72 +15,77 @@
       </mask>
     </defs>
     <g mask="url(#fade)">
-      <path class="hWndUpload" />
-      <path class="hWndUpload" />
-      <path class="hWndUpload" />
-      <path class="hWndDownload" />
-      <path class="hWndDownload" />
-      <path class="hWndDownload" />
+      <path class="UploadCanvas" />
+      <path class="UploadCanvas" />
+      <path class="UploadCanvas" />
+      <path class="DownloadCanvas" />
+      <path class="DownloadCanvas" />
+      <path class="DownloadCanvas" />
     </g>
   </svg>
 </template>
 <script>
 export default {
   name: 'LineGraph',
-  props: {
-    upload: Array,
-    download: Array
-  },
+  props: ['data'],
   data() {
     return {
       svgGraph: null,
-      hWndDownload: null,
-      hWndUpload: null,
-      downloadData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      uploadData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      uploadCanvas: null,
+      downloadCanvas: null
     }
   },
   watch: {
-    'download'() {
+    'data'() {
       this.update()
     }
   },
   mounted() {
-    const getCanvas = s => this.$el.getElementsByClassName(s)
-    this.hWndDownload = getCanvas('hWndDownload')
-    this.hWndUpload = getCanvas('hWndUpload')
+    this.downloadCanvas = this.getCanvas('DownloadCanvas')
+    this.uploadCanvas = this.getCanvas('UploadCanvas')
   },
   methods: {
     update() {
-      this.hWndDownload && this.updateGraph(this.download, this.hWndDownload)
-      this.hWndUpload && this.updateGraph(this.upload, this.hWndUpload)
+      this.updateGraph(this.data.download, this.downloadCanvas)
+      this.updateGraph(this.data.upload, this.uploadCanvas)
+    },
+    getCanvas(name) {
+      return this.$el.getElementsByClassName(name)
+    },
+    rescaleValue(arr, val) {
+      const max = Math.max(...arr)
+
+      const floored = Math.floor(100 - val / max * 100)
+
+      return Number.isNaN(floored) ? 100 : floored
+
     },
     updateGraph(val, cvs) {
       let i, v, v2
       const d_dat = [], b_dat = [], c_dat = []
-      const max = Math.max.apply(null, val)
-      let l = val.length - 1
-      const
-        c_ = e => Math.floor(100 - e / max * 100),
-        n_ = e => Number.isNaN(e)
-      v = c_(val[0]); if (n_(v)) v = 100
+
+      v = this.rescaleValue(val, val[0])
+
       d_dat.push(['M0', 100])
       d_dat.push(['L0', v])
-      for (i = 1; i < l; i++) {
-        v = c_(val[i]); if (n_(v)) v = 100
-        v2 = c_(val[i + 1]); if (n_(v2)) v2 = 100; v2 = (v + v2) / 2
+
+      for (i = 1; i < val.length - 1; i++) {
+        v = this.rescaleValue(val, val[i])
+        v2 = this.rescaleValue(val, val[i + 1])
+        v2 = (v + v2) / 2
 
         d_dat.push(['Q' + i, v])
         d_dat.push([i + 0.5, v2])
       }
-      v = c_(val[i]); if (n_(v)) v = 100
+
+      v = this.rescaleValue(val, val[i])
       d_dat.push(['L14', v])
 
-      l = d_dat.length - 1
-      for (i = l; i > 1; i--) {
+      for (i = d_dat.length - 1; i > 1; i--) {
         b_dat.push([d_dat[i][0], Math.floor(d_dat[i][1] + (100 - d_dat[i][1]) / 1.3)])
         c_dat.push([d_dat[i][0], Math.floor(d_dat[i][1] + (100 - d_dat[i][1]) / 2.3)])
       }
+
       b_dat.push([0, Math.floor(d_dat[1][1] + (100 - d_dat[1][1]) / 1.3)])
       c_dat.push([0, Math.floor(d_dat[1][1] + (100 - d_dat[1][1]) / 2.3)])
 
@@ -95,11 +99,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.hWndDownload {
+.DownloadCanvas {
   fill: var(--v-download-base);
   opacity: .23;
 }
-.hWndUpload {
+.UploadCanvas {
   fill: var(--v-upload-base);
   opacity: .23;
 }

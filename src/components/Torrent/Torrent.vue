@@ -3,7 +3,7 @@
     class="pointer noselect elevation-0 rounded-0 ma-0 pa-0"
     :class="isSelected ? 'info' : ''"
   >
-    <LineGraph :download="downloadData" :upload="uploadData" />
+    <LineGraph :data="data" />
     <v-layout
       @click="evtClicnk"
     >
@@ -32,21 +32,16 @@ export default {
     torrent: Object,
     index: Number
   },
-  data() {
-    return {
-      downloadData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-      uploadData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    }
-  },
   computed: {
     ...mapState(['selected_torrents', 'selectMode']),
     isSelected() {
       return this.selected_torrents.includes(this.torrent.hash)
-    }
-  },
-  watch: {
-    '$store.state.download_data'() {
-      this.update()
+    },
+    data() {
+      return {
+        upload: this.torrent.uploadGraph,
+        download: this.torrent.downloadGraph
+      }
     }
   },
   methods: {
@@ -58,12 +53,6 @@ export default {
       } else {
         this.selectMode && this.selectTorrent(this.torrent.hash)
       }
-    },
-    update() {
-      this.downloadData.shift()
-      this.uploadData.shift()
-      this.downloadData.push(this.torrent.dlspeed || 0)
-      this.uploadData.push(this.torrent.upspeed || 0)
     }
   }
 }
