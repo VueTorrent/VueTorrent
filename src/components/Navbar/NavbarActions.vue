@@ -55,6 +55,9 @@
       </v-tooltip>
     </v-col>-->
     <v-col>
+      <connection-status :status="connectionStatus" />
+    </v-col>
+    <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
           <v-btn
@@ -78,10 +81,22 @@
 <script>
 import qbit from '@/services/qbit'
 import { mapGetters } from 'vuex'
-import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
+import {
+  mdiBrightness4,
+  mdiSpeedometerSlow,
+  mdiBrightness7,
+  mdiSpeedometer,
+  mdiExitToApp,
+  mdiBell,
+  mdiBellOff
+} from '@mdi/js'
+import ConnectionStatus from './ConnectionStatus.vue'
 
 export default {
   name: 'BottomActions',
+  components: {
+    ConnectionStatus
+  },
   data: () => ({
     //commonStyle: 'primarytext--text',
     commonStyle: 'white--text',
@@ -104,11 +119,16 @@ export default {
     alarm() {
       return this.getAlarm()
     },
+    status() {
+      return this.getStatus()
+    },
     altSpeed() {
-      const status = this.getStatus()
-      if (status && status.altSpeed) return status.altSpeed
+      if (this.status && this.status.altSpeed) return this.status.altSpeed
 
       return null
+    },
+    connectionStatus() {
+      return this.status.status
     }
   },
   methods: {
