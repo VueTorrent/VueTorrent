@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.10.0](https://www.github.com/WDaan/VueTorrent/compare/v0.9.0...v0.10.0) (2021-05-02)
+
+
+### Features
+
+* New select mode color ([8f8d3db](https://www.github.com/WDaan/VueTorrent/commit/8f8d3dbb765d950baa9c5e7654a356e2d300ed28))
+* open addmodal when dragging a file into the dashboard ([5807db5](https://www.github.com/WDaan/VueTorrent/commit/5807db5e99ac84436261e9d0e2b9a6767d851ba2))
+
+
+### Bug Fixes
+
+* application version getter ([#222](https://www.github.com/WDaan/VueTorrent/issues/222)) ([6535ac5](https://www.github.com/WDaan/VueTorrent/commit/6535ac56265d3062c877f35fa5e44b9635e26fcd))
+* Context menu placement ([ed08c91](https://www.github.com/WDaan/VueTorrent/commit/ed08c914ebde9fba53e8b24f58c0a80918569b26))
+* Establish Service WalkerRules ([#227](https://www.github.com/WDaan/VueTorrent/issues/227)) ([04971dc](https://www.github.com/WDaan/VueTorrent/commit/04971dcf874c2f952f57c3abef94d8d92337e488))
+* Global Speed Title (upload & download were switched) ([#218](https://www.github.com/WDaan/VueTorrent/issues/218)) ([906f6d5](https://www.github.com/WDaan/VueTorrent/commit/906f6d5f872b848fc7b3c5071c51a9696ce7c734))
+* remove vue-context import ([edcd825](https://www.github.com/WDaan/VueTorrent/commit/edcd825969f6876b1962dc8875be4b9447704820))
+* scrollbar ([c460e29](https://www.github.com/WDaan/VueTorrent/commit/c460e29d95eb034266b3ae1006ebb57001f5aa83))
+* tweak search treshold [#250](https://www.github.com/WDaan/VueTorrent/issues/250) ([bdbc87b](https://www.github.com/WDaan/VueTorrent/commit/bdbc87b72423891a04a9c8c7a5de69e1d4ccd755))
+
+
+### Performance Improvements
+
+* Remove redundant dialog code, use Modal Mixin ([33cf62f](https://www.github.com/WDaan/VueTorrent/commit/33cf62ff9b6ea671dc1022e345a65705bd814640))
+
 ## [0.9.0](https://www.github.com/WDaan/VueTorrent/compare/v0.8.0...v0.9.0) (2021-04-15)
 
 
