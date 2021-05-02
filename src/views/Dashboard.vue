@@ -244,7 +244,7 @@ export default {
       if (!this.hasSearchFilter) return this.getTorrents()
 
       const options = {
-        threshold: 0.3,
+        threshold: 0.25,
         shouldSort: false,
         keys: ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category']
       }
