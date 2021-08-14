@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.11.0](https://www.github.com/WDaan/VueTorrent/compare/v0.10.0...v0.11.0) (2021-08-14)
+
+
+### Features
+
+* copy name/hash/magnet [#277](https://www.github.com/WDaan/VueTorrent/issues/277) ([42afd92](https://www.github.com/WDaan/VueTorrent/commit/42afd921274c0be3fc122a4d5b8d2aeae5fe0c13))
+* drawer on right side [#276](https://www.github.com/WDaan/VueTorrent/issues/276) ([a18bded](https://www.github.com/WDaan/VueTorrent/commit/a18bded9cb9792b3301008cc717b52053191c8f9))
+* Show connection status at the bottom of Navbar ([#255](https://www.github.com/WDaan/VueTorrent/issues/255)) ([204d74c](https://www.github.com/WDaan/VueTorrent/commit/204d74c4e84df5404819796e9e5078c01106990a))
+* show created by info [#279](https://www.github.com/WDaan/VueTorrent/issues/279) ([7a7562e](https://www.github.com/WDaan/VueTorrent/commit/7a7562e54e66aebbf782baefa89b1f17e5119afa))
+
+
+### Bug Fixes
+
+* Persistent add modal ([d517d9f](https://www.github.com/WDaan/VueTorrent/commit/d517d9f3341e59de572118922b43a9e1adb8c9ad))
+
 ## [0.10.0](https://www.github.com/WDaan/VueTorrent/compare/v0.9.0...v0.10.0) (2021-05-02)
 
 
