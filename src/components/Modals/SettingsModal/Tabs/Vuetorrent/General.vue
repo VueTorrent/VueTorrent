@@ -84,6 +84,19 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="rightDrawer"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Right Drawer"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
             Pagination size:
@@ -218,6 +231,14 @@ export default {
       },
       set(val) {
         this.webuiSettings.useDeviceDarkMode = val
+      }
+    },
+    rightDrawer: {
+      get() {
+        return this.webuiSettings.rightDrawer
+      },
+      set(val) {
+        this.webuiSettings.rightDrawer = val
       }
     },
     paginationSize: {

@@ -34,6 +34,7 @@
       width="256"
       height="100%"
       disable-resize-watcher
+      :right="webuiSettings.rightDrawer"
     >
       <v-card
         v-if="status"
