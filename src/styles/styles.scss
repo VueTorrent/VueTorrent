@@ -105,18 +105,7 @@ $sideborder-margin: 6px;
     border-color: transparent!important;
 }
 // scrollbar designs & menu designs
-.v-card__text {
-    &::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background: background-color;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background: gray;
-    }
-}
-.v-data-table__wrapper {
+.v-card__text,.v-data-table__wrapper, div {
     &::-webkit-scrollbar {
         width: 8px;
         height: 8px;

@@ -1,11 +1,11 @@
 <template>
   <v-dialog
     v-model="dialog"
-    scrollable
     :transition="dTransition"
     :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
     max-width="500px"
     :fullscreen="phoneLayout"
+    persistent
   >
     <div
       class="noselect"
@@ -16,13 +16,13 @@
       width:100%;
       height:100%;
       "
-      @click="closeWrap"
       @drop.prevent="addDropFile"
       @dragover.prevent="showWrapDrag = true"
       @dragend.prevent="showWrapDrag = false"
       @dragleave.prevent="DragLeave"
     />
     <v-card
+      style="height:100%"
       :class="showWrapDrag ? 'wrap-drag' : ''"
       @drop.prevent="addDropFile"
       @dragover.prevent="showWrapDrag = true"
@@ -30,7 +30,19 @@
     >
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
-          <h2>Add a new Torrent</h2>
+          <v-toolbar flat dense class="transparent">
+            <v-toolbar-title class="mx-auto">
+              <h2>Add a new Torrent</h2>
+            </v-toolbar-title>
+            <v-btn
+              fab
+              small
+              class="transparent white--text elevation-0"
+              @click="close"
+            >
+              <v-icon>{{ mdiClose }}</v-icon>
+            </v-btn>
+          </v-toolbar>
         </v-card-title>
         <v-card-text class="pb-0">
           <v-form ref="form" v-model="valid">
