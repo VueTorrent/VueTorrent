@@ -145,7 +145,7 @@ class Qbit {
   getTorrentProperties(hash) {
     return this.axios.get('/torrents/properties', {
       params: { hash }
-    })
+    }).then(res => res.data)
   }
 
   // Post

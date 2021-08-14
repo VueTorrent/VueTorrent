@@ -134,6 +134,14 @@
             {{ torrent.tracker }}
           </td>
         </tr>
+        <tr v-if="createdBy">
+          <td :class="commonStyle">
+            Created By
+          </td>
+          <td>
+            {{ createdBy }}
+          </td>
+        </tr>
         <tr v-if="torrent.comment">
           <td :class="commonStyle">
             Comments
@@ -213,6 +221,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import { FullScreenModal } from '@/mixins'
+import qbit from '@/services/qbit'
+
 export default {
   name: 'Info',
   mixins: [FullScreenModal],
@@ -221,13 +231,23 @@ export default {
   },
   data() {
     return {
-      commonStyle: 'caption'
+      commonStyle: 'caption',
+      createdBy: null
     }
   },
   computed: {
     ...mapGetters(['getTorrent']),
     torrent() {
       return this.getTorrent(this.hash)
+    }
+  },
+  mounted() {
+    this.getTorrentProperties()
+  },
+  methods: {
+    async getTorrentProperties() {
+      const props = await qbit.getTorrentProperties(this.hash)
+      this.createdBy = props.created_by || null
     }
   }
 }
