@@ -7,7 +7,7 @@
     :fullscreen="isFullscreen"
   >
     <v-card
-      class="rounded-t-formtop noselect"
+      class="rounded-t-formtop"
       :class="isFullscreen ? '' : 'fix-height'"
     >
       <v-card-title class="primary pa-0" @dblclick="hndlFullscreen = !hndlFullscreen">
