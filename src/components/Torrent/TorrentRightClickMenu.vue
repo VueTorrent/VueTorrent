@@ -234,6 +234,49 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-menu
+      v-if="!multiple"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ on }">
+        <v-list-item link v-on="on">
+          <v-icon>{{ mdiContentCopy }}</v-icon>
+          <v-list-item-title
+            class="ml-2"
+            style="font-size: 1em"
+          >
+            Copy
+          </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
+        </v-list-item>
+      </template>
+      <v-list>
+        <v-list-item @click="copyToClipBoard(torrent.name)">
+          <v-icon>{{ mdiContentCopy }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Name
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="copyToClipBoard(torrent.hash)">
+          <v-icon>{{ mdiContentCopy }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Hash
+          </v-list-item-title>
+        </v-list-item>
+        <v-list-item @click="copyToClipBoard(torrent.magnet)">
+          <v-icon>{{ mdiMagnet }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Magnet
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
     <v-divider v-if="!multiple" />
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
@@ -253,7 +296,7 @@ import {
   mdiInformation, mdiRenameBox, mdiFolder, mdiDelete,
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
   mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
-  mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
+  mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown, mdiContentCopy, mdiMagnet
 } from '@mdi/js'
 
 export default {
@@ -274,10 +317,10 @@ export default {
         { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
       ],
       mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
-      mdiFolder, mdiRenameBox, mdiInformation,
+      mdiFolder, mdiRenameBox, mdiInformation, mdiMagnet,
       mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
       mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
-      mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown
+      mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown, mdiContentCopy
     }
   },
   computed: {
@@ -359,6 +402,9 @@ export default {
     },
     toggleAutoTMM() {
       qbit.setAutoTMM(this.hashes, !this.torrent.auto_tmm)
+    },
+    copyToClipBoard(text) {
+      navigator.clipboard.writeText(text)
     }
   }
 }

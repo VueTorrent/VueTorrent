@@ -397,7 +397,6 @@ export default {
       return (this.$store.state.selected_torrents = hashes)
     },
     handleKeyboardShortcut(e) {
-      console.log(this.$store.state.modals.length)
       if (this.$store.state.modals.length > 0) {
         //e.preventDefault()
 

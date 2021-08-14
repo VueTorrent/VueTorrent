@@ -31,6 +31,7 @@ export default class Torrent {
     this.ratio_limit = data.ratio_limit
     this.availability = Math.round(data.availability * 100) / 100
     this.forced = data.state.includes('forced')
+    this.magnet = data.magnet_uri
 
     Object.freeze(this)
   }
