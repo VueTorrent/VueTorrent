@@ -364,7 +364,7 @@ export default {
       return true
     },
     showInfo(hash) {
-      if (!this.$store.state.selectMode && !this.trcMenu)
+      if (!this.$store.state.selectMode)
         this.createModal('TorrentDetailModal', { hash })
     },
     resetSelected() {
