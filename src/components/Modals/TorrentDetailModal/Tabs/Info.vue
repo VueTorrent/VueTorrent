@@ -142,12 +142,12 @@
             {{ createdBy }}
           </td>
         </tr>
-        <tr v-if="torrent.comment">
+        <tr v-if="comment">
           <td :class="commonStyle">
             Comments
           </td>
           <td>
-            {{ torrent.comment }}
+            {{ comment }}
           </td>
         </tr>
 
@@ -232,7 +232,8 @@ export default {
   data() {
     return {
       commonStyle: 'caption',
-      createdBy: null
+      createdBy: null,
+      comment: null
     }
   },
   computed: {
@@ -248,6 +249,7 @@ export default {
     async getTorrentProperties() {
       const props = await qbit.getTorrentProperties(this.hash)
       this.createdBy = props.created_by || null
+      this.comment = props.comment || null
     }
   }
 }

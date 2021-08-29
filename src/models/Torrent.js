@@ -22,7 +22,6 @@ export default class Torrent {
     this.tags = data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : null
     this.category = data.category
     this.tracker = data.tracker
-    this.comment = data.comment
     this.f_l_piece_prio = data.f_l_piece_prio
     this.seq_dl = data.seq_dl
     this.auto_tmm = data.auto_tmm
