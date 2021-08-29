@@ -1,6 +1,6 @@
 <template>
   <v-card flat>
-    <v-subheader>privacy</v-subheader>
+    <v-subheader>Privacy</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.dht"
