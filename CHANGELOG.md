@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.12.0](https://www.github.com/WDaan/VueTorrent/compare/v0.11.0...v0.12.0) (2021-08-29)
+
+
+### Features
+
+* remember delete with files preference [#291](https://www.github.com/WDaan/VueTorrent/issues/291) ([684bbec](https://www.github.com/WDaan/VueTorrent/commit/684bbecff0f7fe239f0ee05dfb5392b4a6401069))
+
+
+### Bug Fixes
+
+* double click opens info [#287](https://www.github.com/WDaan/VueTorrent/issues/287) ([c8ffce5](https://www.github.com/WDaan/VueTorrent/commit/c8ffce59b1ebb7b72575f8797d35942bdfe62ef4))
+* logout [#286](https://www.github.com/WDaan/VueTorrent/issues/286) ([9121230](https://www.github.com/WDaan/VueTorrent/commit/912123098e5fca6193ebb6f66ad06c8442d07861))
+* remove device darkmode because its unreliable [#285](https://www.github.com/WDaan/VueTorrent/issues/285) ([e6c0863](https://www.github.com/WDaan/VueTorrent/commit/e6c0863545c4a6a24ecc57158ff61421d17f9070))
+* show torrent comment [#292](https://www.github.com/WDaan/VueTorrent/issues/292) ([4c3c2d3](https://www.github.com/WDaan/VueTorrent/commit/4c3c2d36d713c5f5fda2393a4cfc14b68b09244f))
+* wrong tempPathEnabled state [#284](https://www.github.com/WDaan/VueTorrent/issues/284) ([d8e2610](https://www.github.com/WDaan/VueTorrent/commit/d8e26104196120fdbb3475b36f4976c3619ba464))
+
 ## [0.11.0](https://www.github.com/WDaan/VueTorrent/compare/v0.10.0...v0.11.0) (2021-08-14)
 
 
