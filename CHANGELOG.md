@@ -1,5 +1,14 @@
 # Changelog
 
+### [0.11.1](https://www.github.com/WDaan/VueTorrent/compare/v0.11.0...v0.11.1) (2021-08-29)
+
+
+### Bug Fixes
+
+* double click opens info [#287](https://www.github.com/WDaan/VueTorrent/issues/287) ([c8ffce5](https://www.github.com/WDaan/VueTorrent/commit/c8ffce59b1ebb7b72575f8797d35942bdfe62ef4))
+* remove device darkmode because its unreliable [#285](https://www.github.com/WDaan/VueTorrent/issues/285) ([e6c0863](https://www.github.com/WDaan/VueTorrent/commit/e6c0863545c4a6a24ecc57158ff61421d17f9070))
+* show torrent comment [#292](https://www.github.com/WDaan/VueTorrent/issues/292) ([4c3c2d3](https://www.github.com/WDaan/VueTorrent/commit/4c3c2d36d713c5f5fda2393a4cfc14b68b09244f))
+
 ## [0.11.0](https://www.github.com/WDaan/VueTorrent/compare/v0.10.0...v0.11.0) (2021-08-14)
 
 
