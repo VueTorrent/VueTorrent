@@ -58,7 +58,6 @@ export default new Vuex.Store({
       showTrackerFilter: false,
       showSpeedInTitle: false,
       title: 'Default',
-      useDeviceDarkMode: true,
       rightDrawer: false,
       paginationSize: 15,
       busyTorrentProperties: [

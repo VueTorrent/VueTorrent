@@ -59,14 +59,6 @@ export default {
       this.$store.commit('LOGIN', authenticated)
       this.$store.commit('updateMainData')
       if (!authenticated && !this.onLoginPage) return this.$router.push('login')
-    },
-    checkDeviceDarkTheme() {
-      if (this.webuiSettings.useDeviceDarkMode) {
-        const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-        if (darkMediaQuery.matches) {
-          setTimeout(() => this.$vuetify.theme.dark = true, 0)
-        }
-      }
     }
   }
 }

@@ -73,19 +73,6 @@
       <v-row dense>
         <v-col>
           <v-switch
-            v-model="useDeviceDarkMode"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            label="Use device dark/light mode"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
             v-model="rightDrawer"
             class="v-input--reverse pa-0 ma-0"
             hide-details
@@ -223,14 +210,6 @@ export default {
       },
       set(val) {
         this.webuiSettings.showTrackerFilter = val
-      }
-    },
-    useDeviceDarkMode: {
-      get() {
-        return this.webuiSettings.useDeviceDarkMode
-      },
-      set(val) {
-        this.webuiSettings.useDeviceDarkMode = val
       }
     },
     rightDrawer: {
