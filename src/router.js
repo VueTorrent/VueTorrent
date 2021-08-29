@@ -25,19 +25,14 @@ const router = new Router({
       name: 'login',
       component: Login,
       meta: {
-        public: true, // Allow access to even if not logged in
-        onlyWhenLoggedOut: true
+        public: true // Allow access to even if not logged in      }
       }
     }
-
   ]
 })
 
 router.beforeEach(async (to, from, next) => {
   const isPublic = to.matched.some(record => record.meta.public)
-  const onlyWhenLoggedOut = to.matched.some(
-    record => record.meta.onlyWhenLoggedOut
-  )
   const authenticated = isAuthenticated()
 
   if (!isPublic && !authenticated) {
@@ -46,12 +41,6 @@ router.beforeEach(async (to, from, next) => {
       // Store the full path to redirect the user to after login
       query: { redirect: to.fullPath }
     })
-  }
-
-  // Do not allow user to visit login page or register page
-  // if they are logged in
-  if (authenticated && onlyWhenLoggedOut) {
-    return next('/')
   }
 
   next()

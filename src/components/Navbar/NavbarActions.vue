@@ -134,7 +134,7 @@ export default {
   methods: {
     logout() {
       this.$store.commit('LOGOUT')
-      this.$router.push('/login')
+      this.$router.push({ name: 'login' })
     },
     toggleSpeed() {
       qbit.toggleSpeedLimitsMode()

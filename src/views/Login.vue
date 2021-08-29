@@ -48,6 +48,8 @@
 
 <script>
 import { mdiLock, mdiAccount } from '@mdi/js'
+import { isAuthenticated } from '@/services/auth.js'
+
 export default {
   name: 'Login',
   data() {
@@ -56,6 +58,11 @@ export default {
       password: '',
       inputRules: [v => v.length >= 1 || 'At least 1 character'],
       mdiLock, mdiAccount
+    }
+  },
+  mounted() {
+    if (isAuthenticated()) {
+      this.$router.push('/')
     }
   },
   methods: {
