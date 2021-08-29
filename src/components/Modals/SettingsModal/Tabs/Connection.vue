@@ -7,6 +7,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Global maximum number of connections"
       />
@@ -17,6 +18,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Maximum number of connections per torrent"
       />
@@ -27,6 +29,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Global maximum number of upload slots"
       />
@@ -37,6 +40,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Maximum number of upload slots per torrent"
       />
