@@ -25,6 +25,9 @@
               <v-tab class="white--text" href="#downloads">
                 <h4>downloads</h4>
               </v-tab>
+              <v-tab class="white--text" href="#connection">
+                <h4>connection</h4>
+              </v-tab>
               <v-tab class="white--text" href="#bittorrent">
                 <h4>bittorrent</h4>
               </v-tab>
@@ -46,6 +49,9 @@
           </v-tab-item>
           <v-tab-item eager value="downloads">
             <Downloads :is-active="tab === 'downloads'" />
+          </v-tab-item>
+          <v-tab-item eager value="connection">
+            <Connection :is-active="tab === 'connection'" />
           </v-tab-item>
           <v-tab-item eager value="bittorrent">
             <BitTorrent :is-active="tab === 'bittorrent'" />
@@ -86,12 +92,13 @@ import {
   BitTorrent,
   Downloads,
   VueTorrent,
-  TagsAndCategories
+  TagsAndCategories,
+  Connection
 } from './Tabs'
 
 export default {
   name: 'SettingsModal',
-  components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories },
+  components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection },
   mixins: [Modal, FullScreenModal, SettingsTab],
   data() {
     return {

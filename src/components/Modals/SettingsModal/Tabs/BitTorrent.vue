@@ -1,6 +1,6 @@
 <template>
   <v-card flat>
-    <v-subheader>privacy</v-subheader>
+    <v-subheader>Privacy</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.dht"
@@ -48,6 +48,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Maximum active downloads"
         :disabled="!settings.queueing_enabled"
@@ -59,6 +60,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Maximum active uploads"
         :disabled="!settings.queueing_enabled"
@@ -70,6 +72,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Maximum active torrents"
         :disabled="!settings.queueing_enabled"
@@ -89,6 +92,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Download rate threshold KiB/s"
         :disabled="!settings.dont_count_slow_torrents"
@@ -100,6 +104,7 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Upload rate threshold KiB/s"
         :disabled="!settings.dont_count_slow_torrents"
@@ -111,13 +116,14 @@
         class="mb-2"
         outlined
         dense
+        type="number"
         hide-details
         label="Torrent inactivity timer"
         :disabled="!settings.dont_count_slow_torrents"
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>seed limits</v-subheader>
+    <v-subheader>Seed Limits</v-subheader>
     <v-list-item>
       <v-row dense>
         <v-col>
@@ -134,6 +140,7 @@
             class="mb-2"
             outlined
             dense
+            type="number"
             hide-details
             :disabled="!settings.max_ratio_enabled"
           />
@@ -156,6 +163,7 @@
             class="mb-2"
             outlined
             dense
+            type="number"
             hide-details
             :disabled="!settings.max_seeding_time_enabled"
           />
