@@ -57,6 +57,7 @@ export default new Vuex.Store({
       showCurrentSpeed: true,
       showTrackerFilter: false,
       showSpeedInTitle: false,
+      deleteWithFiles: false,
       title: 'Default',
       rightDrawer: false,
       paginationSize: 15,

@@ -30,7 +30,7 @@
       <v-divider />
       <v-card-actions class="justify-end">
         <v-checkbox
-          v-model="withFiles"
+          v-model="settings.deleteWithFiles"
           class="ma-0 pa-0"
           label="Also delete the files on the storage"
           hide-details
@@ -38,7 +38,7 @@
         <v-spacer />
         <v-btn
           class="white--text elevation-0 px-4"
-          :class="withFiles ? 'error' : 'info'"
+          :class="settings.deleteWithFiles ? 'error' : 'info'"
           @click="deleteTorrent()"
         >
           Delete
@@ -61,16 +61,14 @@ import qbit from '@/services/qbit'
 export default {
   name: 'ConfirmDeleteModal',
   mixins: [Modal],
-  data() {
-    return {
-      withFiles: false
-    }
-  },
   computed: {
     ...mapState(['selected_torrents']),
-    ...mapGetters(['getTorrents']),
+    ...mapGetters(['getTorrents', 'getWebuiSettings']),
     torrents() {
       return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
+    },
+    settings() {
+      return this.getWebuiSettings()
     }
   },
   beforeDestroy() {
@@ -81,7 +79,7 @@ export default {
       this.dialog = false
     },
     deleteTorrent() {
-      qbit.deleteTorrents(this.selected_torrents, this.withFiles)
+      qbit.deleteTorrents(this.selected_torrents, this.settings.deleteWithFiles)
       this.close()
     }
   }
