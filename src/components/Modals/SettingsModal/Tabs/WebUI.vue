@@ -98,7 +98,7 @@
         </v-col>
       </v-row>
     </v-list-item>
-    <v-list-item class="ml-5 mr-4 pb-4">
+    <v-list-item class="ml-5 mr-4">
       <v-text-field
         v-model="settings.web_ui_session_timeout"
         class="mr-1"
@@ -107,6 +107,33 @@
         type="number"
         hide-details="true"
         label="Session timeout (seconds)"
+      />
+    </v-list-item>
+    <v-list-item class="ml-4">
+      <v-checkbox
+        v-model="settings.bypass_local_auth"
+        hide-details
+        class="ma-0 pa-0"
+        label="Bypass authentication for clients on localhost" 
+      />
+    </v-list-item>
+    <v-list-item class="ml-4">
+      <v-checkbox
+        v-model="settings.bypass_auth_subnet_whitelist_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        label="Bypass authentication for clients in whitelisted IP subnets" 
+      />
+    </v-list-item>
+    <v-list-item class="ml-4">
+      <v-textarea
+        v-model="settings.bypass_auth_subnet_whitelist"
+        class="mr-1"
+        outlined
+        dense
+        placeholder="Example: 172.17.32.0/24, fdff:ffff:c8::/40"
+        hide-details="true"
+        :disabled="!settings.bypass_auth_subnet_whitelist_enabled"
       />
     </v-list-item>
   </v-card>
