@@ -45,7 +45,7 @@
         label="Automatic Torrent Management"
       />
     </v-list-item>
-    <v-list-item>
+    <v-list-item class="mb-2">
       <v-checkbox
         v-model="settings.save_path_changed_tmm_enabled"
         hide-details
@@ -53,29 +53,21 @@
         label="Relocate Torrent when category changes"
       />
     </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <p class="pt-1 pl-5">
-            Default Save Path
-          </p>
-        </v-col>
-        <v-col>
-          <v-text-field
-            v-model="settings.save_path"
-            class="mb-2"
-            outlined
-            dense
-            hide-details
-          />
-        </v-col>
-      </v-row>
+    <v-list-item class="mb-2">
+      <v-text-field
+        v-model="settings.save_path"
+        class="mb-2"
+        outlined
+        dense
+        label="Default Save Path"
+        hide-details
+      />
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
           <v-checkbox
-            v-model="settings.max_seeding_time_enabled"
+            v-model="settings.temp_path_enabled"
             hide-details
             class="ma-0 pa-0"
             label="Keep incomplete torrents in:"
