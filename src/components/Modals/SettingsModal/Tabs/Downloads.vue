@@ -18,7 +18,7 @@
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>public settings</v-subheader>
+    <v-subheader>Public Settings</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.preallocate_all"
@@ -53,9 +53,6 @@
         label="Relocate Torrent when category changes"
       />
     </v-list-item>
-
-
-    
     <v-list-item>
       <v-row dense>
         <v-col>

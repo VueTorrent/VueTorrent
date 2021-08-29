@@ -1,6 +1,5 @@
 <template>
   <v-card flat>
-    <v-subheader>public settings</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.alternative_webui_enabled"
@@ -31,7 +30,7 @@
             outlined
             dense
             hide-details="true"
-            :label="`IP Address:`"
+            label="IP Address:"
           />
         </v-col>
         <v-col cols="3" class="pa-0">
@@ -41,10 +40,20 @@
             outlined
             dense
             hide-details="true"
-            :label="`Port`"
+            label="Port"
           />
         </v-col>
       </v-row>
+    </v-list-item>
+    <v-list-item class="ml-5 mr-4 pb-4">
+      <v-text-field
+        v-model="settings.web_ui_session_timeout"
+        class="mr-1"
+        outlined
+        dense
+        hide-details="true"
+        label="Session timeout (seconds)"
+      />
     </v-list-item>
   </v-card>
 </template>

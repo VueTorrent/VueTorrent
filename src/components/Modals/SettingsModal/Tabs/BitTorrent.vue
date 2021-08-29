@@ -117,7 +117,7 @@
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>seed limits</v-subheader>
+    <v-subheader>Seed Limits</v-subheader>
     <v-list-item>
       <v-row dense>
         <v-col>
