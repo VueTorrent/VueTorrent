@@ -56,6 +56,7 @@ export default new Vuex.Store({
       showSessionStat: true,
       showCurrentSpeed: true,
       showTrackerFilter: false,
+      disableAuthentication: false,
       showSpeedInTitle: false,
       deleteWithFiles: false,
       title: 'Default',
