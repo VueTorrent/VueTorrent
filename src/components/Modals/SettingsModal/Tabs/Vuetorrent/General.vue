@@ -8,19 +8,6 @@
       <v-row dense>
         <v-col>
           <v-switch
-            v-model="disableAuthentication"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            label="Disable Login Prompt"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
             v-model="showCurrentSpeed"
             class="v-input--reverse pa-0 ma-0"
             hide-details
@@ -185,14 +172,6 @@ export default {
   computed: {
     ...mapState(['webuiSettings']),
     ...mapGetters(['getAppVersion']),
-    disableAuthentication: {
-      get() {
-        return this.webuiSettings.disableAuthentication
-      },
-      set(val) {
-        this.webuiSettings.disableAuthentication = val
-      }
-    },
     freeSpace: {
       get() {
         return this.webuiSettings.showFreeSpace
