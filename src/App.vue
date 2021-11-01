@@ -49,9 +49,24 @@ export default {
       }())
     })
     this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
-    this.checkAuthenticated()
+    const needsAuth = this.needsAuthentication()
+    if (needsAuth) {
+      this.checkAuthenticated()
+    }
   },
   methods: {
+    async needsAuthentication() {
+      const res = qbit.getAuthenticationStatus()
+      const forbidden = res === 'Forbidden'
+      if (forbidden) {
+        return true
+      } else {
+        this.$store.commit('LOGIN', true)
+        this.$store.commit('updateMainData')
+      }
+
+      return false
+    },
     async checkAuthenticated() {
       const res = await qbit.login()
       const authenticated = res === 'Ok.'
