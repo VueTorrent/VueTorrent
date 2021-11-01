@@ -232,6 +232,12 @@
             Upload
           </v-list-item-title>
         </v-list-item>
+        <v-list-item @click="setShareLimit()">
+          <v-icon>{{ mdiAccountGroup }}</v-icon>
+          <v-list-item-title class="ml-2">
+            Share 
+          </v-list-item-title>
+        </v-list-item>
       </v-list>
     </v-menu>
     <v-menu
@@ -293,7 +299,7 @@ import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
-  mdiInformation, mdiRenameBox, mdiFolder, mdiDelete,
+  mdiInformation, mdiRenameBox, mdiFolder, mdiDelete, mdiAccountGroup, 
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
   mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
   mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown, mdiContentCopy, mdiMagnet
@@ -317,7 +323,7 @@ export default {
         { name: 'bottom', icon: mdiPriorityLow, action: 'bottomPrio' }
       ],
       mdiDelete, mdiPlay, mdiPause, mdiSelect, mdiFastForward,
-      mdiFolder, mdiRenameBox, mdiInformation, mdiMagnet,
+      mdiFolder, mdiRenameBox, mdiInformation, mdiMagnet, mdiAccountGroup,
       mdiPlaylistCheck, mdiPriorityHigh, mdiBullhorn, mdiChevronRight,
       mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
       mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown, mdiContentCopy
@@ -387,6 +393,9 @@ export default {
     },
     setLimit(mode) {
       this.createModal('SpeedLimitModal', { hash: this.torrent.hash, mode })
+    },
+    setShareLimit() {
+      this.createModal('ShareLimitModal', { hash: this.torrent.hash })
     },
     forceResume() {
       qbit.forceStartTorrents(this.hashes)
