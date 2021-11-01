@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.13.0](https://www.github.com/WDaan/VueTorrent/compare/v0.12.0...v0.13.0) (2021-11-01)
+
+
+### Features
+
+* basic limit share ratio [#308](https://www.github.com/WDaan/VueTorrent/issues/308) ([2c1fc34](https://www.github.com/WDaan/VueTorrent/commit/2c1fc34ebdc6f096628d23a6072ea1970764b267))
+* bypass authentication ([#310](https://www.github.com/WDaan/VueTorrent/issues/310)) ([b069ce4](https://www.github.com/WDaan/VueTorrent/commit/b069ce490e74baf003c9c92cd780c51414702c13))
+
 ## [0.12.0](https://www.github.com/WDaan/VueTorrent/compare/v0.11.0...v0.12.0) (2021-08-29)
 
 
