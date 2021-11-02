@@ -37,7 +37,7 @@
             <v-btn
               fab
               small
-              class="transparent white--text elevation-0"
+              class="transparent elevation-0"
               @click="close"
             >
               <v-icon>{{ mdiClose }}</v-icon>

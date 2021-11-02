@@ -28,7 +28,7 @@
           <v-btn
             fab
             small
-            class="primary white--text elevation-0"
+            class="primary elevation-0"
             @click="close"
           >
             <v-icon>{{ mdiClose }}</v-icon>
