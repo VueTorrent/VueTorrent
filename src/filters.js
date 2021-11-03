@@ -107,3 +107,17 @@ export function getDataValue(a, b) {
 }
 
 Vue.filter('getDataValue', getDataValue)
+
+
+export function limitToValue(value) {
+  if (value === -2) {
+    return 'global'
+  }
+  if (value === -1) {
+    return 'unlimitted'
+  }
+
+  return value
+}
+
+Vue.filter('limitToValue', limitToValue)

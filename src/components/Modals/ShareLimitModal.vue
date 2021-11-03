@@ -9,38 +9,44 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Limit ratio</h3>
+          <h3>Limit Ratio</h3>
         </v-toolbar-title>
       </v-card-title>
-      <v-card-text>
-        <v-container>
-          <v-row>
-            <v-col>
-              <v-text-field
-                v-model="limit"
-                autofocus
-                clearable
-                label="Ratio Limit"
-                :prepend-inner-icon="mdiSpeedometer"
-                @focus="$event.target.select()"
-                @keydown.enter="setLimit"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+      <v-card-text class="px-5 py-2">
+        <v-slider
+          v-model="limit"
+          class="mt-6"
+          :prepend-icon="mdiPercent"
+          thumb-label="always"
+          thumb-size="24"
+          :min="-2"
+          :max="25"
+        >
+          <template #thumb-label>
+            {{ limit | limitToValue }}
+          </template>
+        </v-slider>
+        <v-slider
+          v-model="timeLimit"
+          class="mt-6"
+          :prepend-icon="mdiClockTimeEight"
+          thumb-label="always"
+          thumb-size="24"
+          :min="-2"
+          :max="1000"
+          step="25"
+        >
+          <template #thumb-label>
+            {{ timeLimit | limitToValue }}
+          </template>
+        </v-slider>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          class="accent white--text elevation-0 px-4"
-          @click="setLimit"
-        >
+        <v-btn class="accent white--text elevation-0 px-4" @click="save">
           Save
         </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="close"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="close">
           Cancel
         </v-btn>
       </v-card-actions>
@@ -50,7 +56,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiSpeedometer, mdiClose } from '@mdi/js'
+import { mdiPercent, mdiClose, mdiClockTimeEight } from '@mdi/js'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
@@ -62,8 +68,9 @@ export default {
   },
   data() {
     return {
+      mdiPercent, mdiClockTimeEight, mdiClose,
       limit: '',
-      mdiSpeedometer, mdiClose
+      timeLimit: ''
     }
   },
   computed: {
@@ -75,10 +82,13 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
+  created() {
+    this.limit = this.torrent.ratio_limit
+    this.timeLimit = this.torrent.ratio_time_limit
+  },
   methods: {
-    setLimit() {
-      console.log(this.limit || -2)
-      qbit.setShareLimit([this.hash], this.limit || -2, -2)
+    save() {
+      qbit.setShareLimit([this.hash], this.limit, this.timeLimit)
       this.close()
     },
     close() {
