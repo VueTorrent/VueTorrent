@@ -107,3 +107,11 @@ export function getDataValue(a, b) {
 }
 
 Vue.filter('getDataValue', getDataValue)
+
+export function titleCase(str) {
+  return str.split(' ')
+    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .join(' ')
+}
+
+Vue.filter('titleCase', titleCase)

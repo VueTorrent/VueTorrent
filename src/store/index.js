@@ -50,7 +50,7 @@ export default new Vuex.Store({
     modals: [],
     settings: {},
     webuiSettings: {
-      lang: 'nl',
+      lang: 'en',
       darkTheme: false,
       showFreeSpace: true,
       showSpeedGraph: true,

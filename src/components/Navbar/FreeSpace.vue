@@ -3,7 +3,7 @@
     <StorageCard
       v-if="space"
       class="mt-8"
-      label="Free Space"
+      :label="$t('navbar.freeSpace') | titleCase"
       color="upload"
       :value="space"
     />

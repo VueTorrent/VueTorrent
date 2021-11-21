@@ -54,7 +54,7 @@
                     v-model="files"
                     color="deep-purple accent-4"
                     counter
-                    label="Select your files"
+                    :label="$t('modals.add.selectFiles')"
                     multiple
                     :prepend-icon="mdiPaperclip"
                     :rules="fileInputRules"

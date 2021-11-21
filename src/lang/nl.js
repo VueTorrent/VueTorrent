@@ -3,13 +3,21 @@ const locale = {
   category: 'categorie',
   settings: 'instellingen',
 
+  /** Navbar */
+  navbar: {
+    currentSpeed: 'huidige snelheid',
+    freeSpace: 'vrije ruimte',
+    topActions: {
+      openSettings: 'open instellingen',
+      searchNew: 'zoek nieuwe torrent'
+    }
+  },
+
   /** Modals */
   modals: {
     add: {
-      title: 'Voeg torrent toe'
-    },
-    settings: {
-      title: 'Instellingen'
+      title: 'Voeg torrent toe',
+      selectFiles: 'Selecteer bestanden'
     }
   }
 }

@@ -2,7 +2,6 @@ import { setup } from '../helpers'
 import StorageCard from '@/components/Core/StorageCard'
 
 describe('StorageCard.vue', () => {
-  
   it('should render the label', () => {
     const label = 'Downloaded'
     const wrapper = setup(StorageCard, { label })
