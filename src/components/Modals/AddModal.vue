@@ -32,7 +32,7 @@
         <v-card-title class="justify-center">
           <v-toolbar flat dense class="transparent">
             <v-toolbar-title class="mx-auto">
-              <h2>Add a new Torrent</h2>
+              <h2>{{ $t('modals.add.title') }}</h2>
             </v-toolbar-title>
             <v-btn
               fab

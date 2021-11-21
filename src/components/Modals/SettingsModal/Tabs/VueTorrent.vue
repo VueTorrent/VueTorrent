@@ -10,11 +10,9 @@
     </v-tabs>
     <v-tabs-items v-model="tab" touchless>
       <v-tab-item eager value="general">
-        <!--<General :is-active="tab === 'downloads'" />-->
         <General />
       </v-tab-item>
       <v-tab-item eager value="dashboard">
-        <!--<Dashboard :is-active="tab === 'bittorrent'" />-->
         <Dashboard />
       </v-tab-item>
     </v-tabs-items>

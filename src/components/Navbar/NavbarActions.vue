@@ -36,24 +36,6 @@
         <span>Alt speeds</span>
       </v-tooltip>
     </v-col>
-    <!--<v-col>
-      <v-tooltip top>
-        <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="toggleAlarm"
-          >
-            <v-icon :class="commonStyle">
-              {{ alarm ? mdiBell : mdiBellOff }}
-            </v-icon>
-          </v-btn>
-        </template>
-        <span>done notification</span>
-      </v-tooltip>
-    </v-col>-->
     <v-col>
       <connection-status :status="connectionStatus" />
     </v-col>
@@ -98,7 +80,6 @@ export default {
     ConnectionStatus
   },
   data: () => ({
-    //commonStyle: 'primarytext--text',
     commonStyle: 'white--text',
     mdiBrightness4,
     mdiBrightness7,
@@ -139,11 +120,6 @@ export default {
     toggleSpeed() {
       qbit.toggleSpeedLimitsMode()
     },
-    /*
-    toggleAlarm() {
-      this.$store.commit('TOGGLE_ALARM')
-    },
-    */
     toggleTheme() {
       this.$store.commit('TOGGLE_THEME')
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark

@@ -19,7 +19,7 @@
       @input="setState"
     />
     <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      Category
+      {{ $t('category') }}
     </label>
     <v-select
       aria-label="category_filter"
