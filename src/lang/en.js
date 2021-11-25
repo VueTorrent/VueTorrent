@@ -12,7 +12,7 @@ const locale = {
       searchNew: 'search new torrent'
     }
   },
-  
+
   /** Modals */
   modals: {
     add: {
@@ -21,5 +21,5 @@ const locale = {
     }
   }
 }
-  
+
 export default locale
