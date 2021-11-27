@@ -8,7 +8,7 @@
           fab
           color="grey--text"
           class="mr-0 ml-0"
-          aria-label="Add Torrent"
+          :aria-label="$t('navbar.topActions.addTorrent')"
           v-on="on"
           @click="addModal('AddModal')"
         >
@@ -17,7 +17,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span> Add Torrent</span>
+      <span> {{ $t('navbar.topActions.addTorrent') | titleCase }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -26,7 +26,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
-          aria-label="Resume Selected Torrents"
+          :aria-label="$t('navbar.topActions.resumeSelected')"
           v-on="on"
           @click="resumeTorrents"
         >
@@ -35,7 +35,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Resume Selected Torrents</span>
+      <span>{{ $t('navbar.topActions.resumeSelected') | titleCase }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -44,7 +44,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
-          aria-label="Pause Selected Torrents"
+          :aria-label="$t('navbar.topActions.pauseSelected')"
           v-on="on"
           @click="pauseTorrents"
         >
@@ -53,7 +53,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Pause Selected Torrents</span>
+      <span> {{ $t('navbar.topActions.pauseSelected') | titleCase }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -62,7 +62,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
-          aria-label="Remove Selected Torrents"
+          :aria-label="$t('navbar.topActions.removeSelected')"
           v-on="on"
           @click="removeTorrents"
         >
@@ -71,7 +71,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Remove Selected Torrents</span>
+      <span> {{ $t('navbar.topActions.removeSelected') | titleCase }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -81,7 +81,7 @@
           fab
           color="grey--text"
           class="mr-0 ml-0"
-          aria-label="Search New Torrent"
+          :aria-label="$t('navbar.topActions.searchNew')"
           v-on="on"
           @click="addModal('SearchModal')"
         >
@@ -90,7 +90,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Search new Torrent</span>
+      <span>{{ $t('navbar.topActions.searchNew') | titleCase }}</span>
     </v-tooltip>
     <v-tooltip bottom>
       <template #activator="{ on }">
@@ -99,7 +99,7 @@
           fab
           :text="!mobile"
           class="mr-0 ml-0"
-          aria-label="Open Settings"
+          :aria-label="$t('navbar.topActions.openSettings')"
           v-on="on"
           @click="addModal('SettingsModal')"
         >
@@ -108,7 +108,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>Open Settings</span>
+      <span>{{ $t('navbar.topActions.openSettings') | titleCase }}</span>
     </v-tooltip>
   </div>
 </template>

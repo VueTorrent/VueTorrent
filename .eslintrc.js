@@ -26,7 +26,8 @@ module.exports = {
     'comma-style': ['error', 'last'],
     eqeqeq: 0,
     indent: ['error', 2, {
-      SwitchCase: 1
+      SwitchCase: 1,
+      "ignoredNodes": ["TemplateLiteral"]
     }],
     'vue/html-indent': [
       'error',

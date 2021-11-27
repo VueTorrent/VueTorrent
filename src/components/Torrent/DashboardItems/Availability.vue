@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      Availability
+      {{ $t('torrent.availability') | titleCase }}
     </div>
     <div>
       {{ availability }}
@@ -17,7 +17,7 @@ export default {
       if (this.torrent.availability !== -1) {
         return this.torrent.availability
       }
-      
+
       return 'N/A'
     }
   }

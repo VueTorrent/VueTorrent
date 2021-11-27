@@ -181,7 +181,7 @@
       </v-list>
       <div class="text-center mb-5">
         <v-pagination
-          v-if="(pageCount > 1) && !hasSearchFilter" 
+          v-if="(pageCount > 1) && !hasSearchFilter"
           v-model="pageNumber"
           :length="pageCount"
           :total-visible="7"
@@ -280,7 +280,7 @@ export default {
       return this.input && this.input.length
     },
     selectedTorrentsLength() {
-      return this.$store.state.selected_torrents.length 
+      return this.$store.state.selected_torrents.length
     },
     allTorrentsSelected() {
 
@@ -405,7 +405,7 @@ export default {
       // 'ctrl + A' => select torrents
       if (e.keyCode === 65 && e.ctrlKey) {
         e.preventDefault()
-       
+
         this.selectAllTorrents()
       }
 

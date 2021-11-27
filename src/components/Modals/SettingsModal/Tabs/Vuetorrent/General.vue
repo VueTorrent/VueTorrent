@@ -86,6 +86,27 @@
       <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
+            Language:
+          </p>
+        </v-col>
+        <v-col cols="4" sm="4" md="2">
+          <v-select
+            v-model="lang"
+            flat
+            solo
+            dense
+            hide-details
+            background-color="background"
+            class="rounded-xl"
+            :items="languages"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col cols="8" sm="8" md="10">
+          <p class="subtitle-1 mt-2">
             Pagination size:
           </p>
         </v-col>
@@ -164,6 +185,7 @@ export default {
   name: 'General',
   data() {
     return {
+      languages: ['en', 'it', 'nl', 'zh'],
       paginationSizes: [5, 15, 30, 50],
       titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0
@@ -236,6 +258,14 @@ export default {
         this.webuiSettings.title = val
       }
     },
+    lang: {
+      get() {
+        return this.webuiSettings.lang
+      },
+      set(val) {
+        this.webuiSettings.lang = val
+      }
+    },
     version() {
       return this.getAppVersion()
     }
@@ -253,6 +283,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+::v-deep .v-select .v-select__selection {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
 // Reversed input variant
 ::v-deep .v-input--reverse .v-input__slot {
   @import "src/styles/styles.scss";

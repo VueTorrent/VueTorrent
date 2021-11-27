@@ -9,17 +9,18 @@ export default {
     }
   },
   methods: {
-    saveSettings() {
+    async saveSettings() {
       qbit.setPreferences(this.getSettings()).then(() => {
-        Vue.$toast.success('Settings saved successfully!')
+        Vue.$toast.success(this.$t('toast.settingsSaved'))
       })
-      this.$store.commit('FETCH_SETTINGS')
+      await this.$store.commit('FETCH_SETTINGS')
+      await this.$store.commit('SET_LANGUAGE')
       this.close()
       if (!this.settings.alternative_webui_enabled) {
         navigator.serviceWorker.getRegistrations().then(function (registrations) {
           for (const registration of registrations) {
             registration.unregister()
-          } 
+          }
         })
       }
     }

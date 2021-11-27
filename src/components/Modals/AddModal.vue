@@ -32,7 +32,7 @@
         <v-card-title class="justify-center">
           <v-toolbar flat dense class="transparent">
             <v-toolbar-title class="mx-auto">
-              <h2>Add a new Torrent</h2>
+              <h2>{{ $t('modals.add.title') }}</h2>
             </v-toolbar-title>
             <v-btn
               fab
@@ -54,7 +54,7 @@
                     v-model="files"
                     color="deep-purple accent-4"
                     counter
-                    label="Select your files"
+                    :label="$t('modals.add.selectFiles')"
                     multiple
                     :prepend-icon="mdiPaperclip"
                     :rules="fileInputRules"

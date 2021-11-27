@@ -14,7 +14,7 @@
       <v-card-title class="primary pa-0">
         <v-toolbar flat dense class="primary white--text">
           <v-toolbar-title class="mt-auto white--text">
-            <h3>Settings</h3>
+            <h3>{{ $t('settings') | titleCase }}</h3>
           </v-toolbar-title>
           <template #extension>
             <v-tabs v-model="tab" align-with-title show-arrows>

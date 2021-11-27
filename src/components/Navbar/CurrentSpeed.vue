@@ -1,7 +1,7 @@
 <template>
   <div v-if="status">
     <div class="text-uppercase white--text caption ml-4 font-weight-medium">
-      current speed
+      {{ $t('navbar.currentSpeed') }}
     </div>
     <v-row dense class="mx-1 pt-1">
       <v-col>

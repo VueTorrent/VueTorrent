@@ -11,16 +11,16 @@ export default {
     const res = await qbit.login(payload)
     console.log(res)
     if (res === 'Ok.') {
-      Vue.$toast.success('Successfully logged in!')
+      Vue.$toast.success(this.$t('toast.loginSuccess'))
       context.commit('LOGIN', true)
       context.commit('updateMainData')
       context.commit('FETCH_SETTINGS')
       context.commit('FETCH_CATEGORIES')
-      
+
       return true
     }
-    Vue.$toast.error('Log in failed 😕')
-    
+    Vue.$toast.error(this.$t('toast.loginFailed'))
+
     return false
   }
 }
