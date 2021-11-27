@@ -1,5 +1,17 @@
 # Changelog
 
+### [0.13.1](https://www.github.com/WDaan/VueTorrent/compare/v0.13.0...v0.13.1) (2021-11-27)
+
+
+### Bug Fixes
+
+* invisble close button on modal [#314](https://www.github.com/WDaan/VueTorrent/issues/314) [#297](https://www.github.com/WDaan/VueTorrent/issues/297) ([8001dc9](https://www.github.com/WDaan/VueTorrent/commit/8001dc91c738e4b9bfa9dd8a6b6b52249e727f5a))
+
+
+### Improvements
+
+* better share limit modal ([#316](https://www.github.com/WDaan/VueTorrent/issues/316)) ([9f2ca42](https://www.github.com/WDaan/VueTorrent/commit/9f2ca4230da46431965d6ed0777f465554926494))
+
 ## [0.13.0](https://www.github.com/WDaan/VueTorrent/compare/v0.12.0...v0.13.0) (2021-11-01)
 
 
