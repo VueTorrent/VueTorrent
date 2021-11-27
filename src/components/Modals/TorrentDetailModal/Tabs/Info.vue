@@ -177,10 +177,18 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Share Limit
+            Share Ratio Limit
           </td>
           <td>
-            {{ torrent.ratio_limit }}
+            {{ torrent.ratio_limit | limitToValue }}
+          </td>
+        </tr>
+        <tr>
+          <td :class="commonStyle">
+            Share Time Limit (minutes)
+          </td>
+          <td>
+            {{ torrent.ratio_time_limit | limitToValue }}
           </td>
         </tr>
         <tr>

@@ -27,7 +27,8 @@ export default class Torrent {
     this.auto_tmm = data.auto_tmm
     this.dl_limit = data.dl_limit
     this.up_limit = data.up_limit
-    this.ratio_limit = data.ratio_limit
+    this.ratio_limit = data.max_ratio
+    this.ratio_time_limit = data.max_seeding_time
     this.availability = Math.round(data.availability * 100) / 100
     this.forced = data.state.includes('forced')
     this.magnet = data.magnet_uri

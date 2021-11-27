@@ -6,41 +6,27 @@
     max-width="500px"
     :fullscreen="isPhone"
   >
-    <v-card>
+    <v-card class="px-2">
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Limit ratio</h3>
+          <h3>Limit Ratio</h3>
         </v-toolbar-title>
       </v-card-title>
-      <v-card-text>
-        <v-container>
-          <v-row>
-            <v-col>
-              <v-text-field
-                v-model="limit"
-                autofocus
-                clearable
-                label="Ratio Limit"
-                :prepend-inner-icon="mdiSpeedometer"
-                @focus="$event.target.select()"
-                @keydown.enter="setLimit"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+      <v-card-text class="px-4 py-2">
+        <ShareLimitInput ref="ratio" title="Ratio" :initial-limit="torrent.ratio_limit" />
+        <ShareLimitInput
+          ref="time"
+          title="Duration"
+          :initial-limit="torrent.ratio_time_limit"
+          class="mt-2"
+        />
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          class="accent white--text elevation-0 px-4"
-          @click="setLimit"
-        >
+        <v-btn class="accent white--text elevation-0 px-4" @click="save">
           Save
         </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="close"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="close">
           Cancel
         </v-btn>
       </v-card-actions>
@@ -50,21 +36,16 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiSpeedometer, mdiClose } from '@mdi/js'
+import ShareLimitInput from './ShareLimitInput.vue'
 import { Modal, FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 export default {
   name: 'ShareLimitModal',
+  components: { ShareLimitInput },
   mixins: [Modal, FullScreenModal],
   props: {
     mode: String,
     hash: String
-  },
-  data() {
-    return {
-      limit: '',
-      mdiSpeedometer, mdiClose
-    }
   },
   computed: {
     ...mapGetters(['getTorrent']),
@@ -76,9 +57,11 @@ export default {
     }
   },
   methods: {
-    setLimit() {
-      console.log(this.limit || -2)
-      qbit.setShareLimit([this.hash], this.limit || -2, -2)
+    save() {
+      qbit.setShareLimit([this.hash],
+        this.$refs.ratio.export(),
+        this.$refs.time.export()
+      )
       this.close()
     },
     close() {
@@ -87,3 +70,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+// Reversed input variant
+::v-deep .v-input--reverse .v-input__slot {
+  @import "../../../styles/styles";
+  @include reverse-switch;
+}
+</style>
