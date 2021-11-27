@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.14.0](https://www.github.com/WDaan/VueTorrent/compare/v0.13.0...v0.14.0) (2021-11-27)
+
+
+### Features
+
+* basic multilang support ([#320](https://www.github.com/WDaan/VueTorrent/issues/320)) ([a7cc03c](https://www.github.com/WDaan/VueTorrent/commit/a7cc03c3ba60f7dbc2d18fff78a0b5f5c6db4b1a))
+* run external program on torrent completion [#258](https://www.github.com/WDaan/VueTorrent/issues/258) ([93f89a6](https://www.github.com/WDaan/VueTorrent/commit/93f89a68ed3488fbb82dc0a433ac2da34e9274cc))
+
+
+### Bug Fixes
+
+* invisble close button on modal [#314](https://www.github.com/WDaan/VueTorrent/issues/314) [#297](https://www.github.com/WDaan/VueTorrent/issues/297) ([8001dc9](https://www.github.com/WDaan/VueTorrent/commit/8001dc91c738e4b9bfa9dd8a6b6b52249e727f5a))
+
+
+### Improvements
+
+* better share limit modal ([#316](https://www.github.com/WDaan/VueTorrent/issues/316)) ([9f2ca42](https://www.github.com/WDaan/VueTorrent/commit/9f2ca4230da46431965d6ed0777f465554926494))
+
 ## [0.13.0](https://www.github.com/WDaan/VueTorrent/compare/v0.12.0...v0.13.0) (2021-11-01)
 
 
