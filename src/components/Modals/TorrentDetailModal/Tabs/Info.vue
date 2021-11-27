@@ -12,7 +12,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Directory
+            {{ $t('torrent.directory') | titleCase }}
           </td>
           <td>
             {{ torrent.savePath }}
@@ -37,7 +37,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Downloaded
+            {{ $t('torrent.downloaded') | titleCase }}
           </td>
           <td>
             {{ torrent.dloaded | getDataValue }}
@@ -46,7 +46,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Uploaded
+            {{ $t('torrent.uploaded') | titleCase }}
           </td>
           <td>
             {{ torrent.uploaded | getDataValue }}
@@ -144,7 +144,7 @@
         </tr>
         <tr v-if="comment">
           <td :class="commonStyle">
-            Comments
+            {{ $t('torrent.comments') | titleCase }}
           </td>
           <td>
             {{ comment }}

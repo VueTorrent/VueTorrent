@@ -15,7 +15,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Log out</span>
+        <span>Log Out</span>
       </v-tooltip>
     </v-col>
     <v-col>
@@ -37,7 +37,7 @@
       </v-tooltip>
     </v-col>
     <v-col>
-      <connection-status :status="connectionStatus" />
+      <connection-status :status="connectionStatus | titleCase" />
     </v-col>
     <v-col>
       <v-tooltip top>

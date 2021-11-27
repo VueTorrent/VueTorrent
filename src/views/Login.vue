@@ -16,7 +16,7 @@
               :rules="inputRules"
               autocomplete="current email"
               name="username"
-              @keyup.enter.native="Login"
+              @keyup.enter.native="login"
             />
             <v-text-field
               v-model="password"
@@ -27,14 +27,14 @@
               :rules="inputRules"
               autocomplete="current password"
               name="password"
-              @keyup.enter.native="Login"
+              @keyup.enter.native="login"
             />
             <v-spacer />
             <v-card-actions class="justify-center">
               <v-btn
                 text
                 class="accent white--text mx-0 mt-3"
-                @click="Login"
+                @click="login"
               >
                 Login
               </v-btn>
@@ -66,7 +66,7 @@ export default {
     }
   },
   methods: {
-    async Login() {
+    async login() {
       const authenticated = await this.$store.dispatch('LOGIN', {
         username: this.username,
         password: this.password

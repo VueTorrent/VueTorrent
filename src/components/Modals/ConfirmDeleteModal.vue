@@ -3,16 +3,16 @@
     v-model="dialog"
     scrollable
     content-class="rounded-form"
-    max-width="550px"
+    max-width="600px"
   >
-    <v-card>
+    <v-card class="pa-2">
       <v-card-title class="pa-0">
-        <v-toolbar-title class="ma-4">
-          <h3>Confirm Removal</h3>
+        <v-toolbar-title class="mx-4 mt-2">
+          <h3>{{ $t('confirm') | titleCase }}</h3>
         </v-toolbar-title>
       </v-card-title>
-      <v-card-text>
-        <v-list flat>
+      <v-card-text class="px-6p py-2 mb-2">
+        <v-list flat class="mb-4">
           <v-list-item
             v-for="t in torrents"
             :key="t.hash"
@@ -26,28 +26,28 @@
             </v-list-item-content>
           </v-list-item>
         </v-list>
-      </v-card-text>
-      <v-divider />
-      <v-card-actions class="justify-end">
         <v-checkbox
           v-model="settings.deleteWithFiles"
           class="ma-0 pa-0"
-          label="Also delete the files on the storage"
+          :label="$t('modals.delete.check')"
           hide-details
         />
-        <v-spacer />
+      </v-card-text>
+      <v-divider />
+      <v-card-actions class="justify-end">
         <v-btn
           class="white--text elevation-0 px-4"
           :class="settings.deleteWithFiles ? 'error' : 'info'"
           @click="deleteTorrent()"
         >
-          Delete
+          {{ $t('delete') }}
         </v-btn>
+        <v-spacer />
         <v-btn
           class="grey white--text elevation-0 px-4"
           @click="close()"
         >
-          Cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>

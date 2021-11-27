@@ -14,7 +14,7 @@
           {{ mdiInformationOutline }}
         </v-icon>
       </template>
-      <span>Since the last time qBittorrent was restarted</span>
+      <span>{{ $t('navbar.sessionStats.tooltip') }}</span>
     </v-tooltip>
     <StorageCard
       class="mb-4 mt-4"

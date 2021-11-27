@@ -2,6 +2,8 @@ const locale = {
   /** General */
   category: '分类',
   settings: '设置',
+  pause: '暂停',
+  delete: '删除',
 
   /** Torrent */
   torrent: {
@@ -45,8 +47,6 @@ const locale = {
   rightClick: {
     resume: '继续',
     forceResume: '强制继续',
-    pause: '暂停',
-    delete: '删除',
     advanced: {
       advanced: '高级',
       changeLocation: '修改保存位置',

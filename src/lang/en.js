@@ -2,6 +2,11 @@ const locale = {
   /** General */
   category: 'category',
   settings: 'settings',
+  pause: 'pause',
+  delete: 'delete',
+  save: 'save',
+  cancel: 'cancel',
+  confirm: 'confirm',
 
   /** Torrent */
   torrent: {
@@ -9,7 +14,12 @@ const locale = {
     added: 'added on',
     availability: 'availability',
     size: 'size',
-    progress: 'progress'
+    progress: 'progress',
+    directory: 'directory',
+    downloaded: 'downloaded',
+    uploaded: 'uploaded',
+    created: 'created by',
+    comments: 'comments'
   },
   /** Navbar */
   navbar: {
@@ -22,6 +32,9 @@ const locale = {
       removeSelected: 'remove selected torrents',
       openSettings: 'open settings',
       searchNew: 'search new torrent'
+    },
+    sessionStats: {
+      tooltip: 'Since the last time qBittorrent was restarted'
     }
   },
 
@@ -30,6 +43,9 @@ const locale = {
     add: {
       title: 'Add a new Torrent',
       selectFiles: 'Select your files'
+    },
+    delete: {
+      check: 'Also delete files from storage'
     }
   },
 
@@ -45,8 +61,6 @@ const locale = {
   rightClick: {
     resume: 'resume',
     forceResume: 'force resume',
-    pause: 'pause',
-    delete: 'delete',
     advanced: {
       advanced: 'advanced',
       changeLocation: 'change location',

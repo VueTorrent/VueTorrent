@@ -2,13 +2,24 @@ const locale = {
   /** General */
   category: 'categorie',
   settings: 'instellingen',
+  pause: 'pauzeer',
+  delete: 'verwijder',
+  save: 'opslaan',
+  cancel: 'annuleren',
+  confirm: 'bevestig',
+
 
   /** Torrent */
   torrent: {
     title: 'titel',
     added: 'toegevoegd op',
     size: 'grootte',
-    progress: 'vooruitgang'
+    progress: 'vooruitgang',
+    directory: 'map',
+    downloaded: 'gedownload',
+    uploaded: 'geüpload',
+    created: 'gemaakt door',
+    comments: 'opmerkingen'
   },
 
   /** Navbar */
@@ -22,6 +33,9 @@ const locale = {
       removeSelected: 'verwijder geselecteerde torrents',
       openSettings: 'open instellingen',
       searchNew: 'zoek nieuwe torrent'
+    },
+    sessionStats: {
+      tooltip: 'Sinds qBitorrent is opgestart'
     }
   },
 
@@ -30,6 +44,9 @@ const locale = {
     add: {
       title: 'Voeg torrent toe',
       selectFiles: 'Selecteer bestanden'
+    },
+    delete: {
+      check: 'Ook bestanden verwijderen'
     }
   },
 
@@ -45,8 +62,6 @@ const locale = {
   rightClick: {
     resume: 'hervat',
     forceResume: 'geforceerd hervatten',
-    pause: 'pauzeer',
-    delete: 'verwijder',
     advanced: {
       advanced: 'geavanceerd',
       changeLocation: 'verander locatie',

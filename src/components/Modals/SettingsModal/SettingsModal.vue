@@ -71,13 +71,13 @@
           class="accent white--text elevation-0 px-4"
           @click="saveSettings"
         >
-          save
+          {{ $t('save') }}
         </v-btn>
         <v-btn
           class="error white--text elevation-0 px-4"
           @click="close"
         >
-          cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>

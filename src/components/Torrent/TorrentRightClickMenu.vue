@@ -24,7 +24,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        {{ $t('rightClick.pause') | titleCase }}
+        {{ $t('pause') | titleCase }}
       </v-list-item-title>
     </v-list-item>
 
@@ -37,7 +37,7 @@
         class="ml-2 red--text"
         style="font-size: 1em;"
       >
-        {{ $t('rightClick.delete') | titleCase }}
+        {{ $t('delete') | titleCase }}
       </v-list-item-title>
     </v-list-item>
     <v-divider />
