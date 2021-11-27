@@ -105,7 +105,7 @@ export default {
     },
     edit() {
       qbit.editCategory(this.category)
-      Vue.$toast.success('Category edited successfully!')
+      Vue.$toast.success(this.$t('toast.categorySaved'))
       this.cancel()
     }
   }

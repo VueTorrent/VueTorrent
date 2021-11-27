@@ -11,7 +11,7 @@ export default {
   methods: {
     async saveSettings() {
       qbit.setPreferences(this.getSettings()).then(() => {
-        Vue.$toast.success('Settings saved successfully!')
+        Vue.$toast.success(this.$t('toast.settingsSaved'))
       })
       await this.$store.commit('FETCH_SETTINGS')
       await this.$store.commit('SET_LANGUAGE')
@@ -20,7 +20,7 @@ export default {
         navigator.serviceWorker.getRegistrations().then(function (registrations) {
           for (const registration of registrations) {
             registration.unregister()
-          } 
+          }
         })
       }
     }
