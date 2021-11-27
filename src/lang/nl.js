@@ -39,6 +39,30 @@ const locale = {
     loginFailed: 'Inloggen mislukt 😕',
     settingsSaved: 'Instellingen successvol opgeslagen!',
     categorySaved: 'Categorie successvol opgeslagen!'
+  },
+
+  /** RightClick **/
+  rightClick: {
+    resume: 'hervat',
+    forceResume: 'geforceerd hervatten',
+    pause: 'pauzeer',
+    delete: 'verwijder',
+    advanced: {
+      advanced: 'geavanceerd',
+      changeLocation: 'verander locatie',
+      rename: 'hernoem'
+    },
+    prio: {
+      prio: 'zet prioriteit',
+      top: 'top',
+      bottom: 'bottom',
+      increase: 'verhoog',
+      decrease: 'verlaag'
+    },
+    category: 'zet categorie',
+    limit: 'zet limiet',
+    copy: 'kopieer',
+    info: 'toon info'
   }
 }
 

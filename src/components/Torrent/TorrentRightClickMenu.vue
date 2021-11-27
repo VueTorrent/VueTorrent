@@ -6,7 +6,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Resume
+        {{ $t('rightClick.resume') | titleCase }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="forceResume">
@@ -15,7 +15,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Force Resume
+        {{ $t('rightClick.forceResume') | titleCase }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="pause">
@@ -24,7 +24,7 @@
         class="ml-2"
         style="font-size: 1em"
       >
-        Pause
+        {{ $t('rightClick.pause') | titleCase }}
       </v-list-item-title>
     </v-list-item>
 
@@ -37,7 +37,7 @@
         class="ml-2 red--text"
         style="font-size: 1em;"
       >
-        Delete
+        {{ $t('rightClick.delete') | titleCase }}
       </v-list-item-title>
     </v-list-item>
     <v-divider />
@@ -55,7 +55,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Advanced
+            {{ $t('rightClick.advanced.advanced') | titleCase }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -69,7 +69,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Change location
+            {{ $t('rightClick.advanced.changeLocation') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="rename">
@@ -78,7 +78,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Rename
+            {{ $t('rightClick.advanced.rename') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="recheck">
@@ -142,7 +142,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Priority
+            {{ $t('rightClick.prio.prio') | titleCase }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -158,7 +158,7 @@
         >
           <v-icon>{{ item.icon }}</v-icon>
           <v-list-item-title class="ml-2" style="font-size: 12px">
-            {{ item.name }}
+            {{ $t('rightClick.prio.' + item.name ) | titleCase }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -177,7 +177,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Category
+            {{ $t('rightClick.category') | titleCase }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -212,7 +212,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Set Limit
+            {{ $t('rightClick.limit') | titleCase }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -235,7 +235,7 @@
         <v-list-item @click="setShareLimit()">
           <v-icon>{{ mdiAccountGroup }}</v-icon>
           <v-list-item-title class="ml-2">
-            Share 
+            Share
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -255,7 +255,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Copy
+            {{ $t('rightClick.copy') | titleCase }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -287,7 +287,7 @@
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
       <v-list-item-title class="ml-2">
-        Show Info
+        {{ $t('rightClick.info') | titleCase }}
       </v-list-item-title>
     </v-list-item>
   </v-list>
@@ -299,7 +299,7 @@ import qbit from '@/services/qbit'
 import { General, TorrentSelect } from '@/mixins'
 import {
   mdiBullhorn, mdiPlaylistCheck, mdiArrowUp, mdiArrowDown, mdiPriorityLow,
-  mdiInformation, mdiRenameBox, mdiFolder, mdiDelete, mdiAccountGroup, 
+  mdiInformation, mdiRenameBox, mdiFolder, mdiDelete, mdiAccountGroup,
   mdiPlay, mdiPause, mdiSelect, mdiPriorityHigh, mdiChevronRight,
   mdiFastForward, mdiShape, mdiHeadCog, mdiCheckboxMarked, mdiCheckboxBlankOutline,
   mdiSpeedometerSlow, mdiChevronUp, mdiChevronDown, mdiContentCopy, mdiMagnet

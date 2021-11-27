@@ -28,7 +28,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Size
+            {{ $t('torrent.size') | titleCase }}
           </td>
           <td>
             {{ torrent.size | getDataValue }}
@@ -107,7 +107,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Added on
+            {{ $t('torrent.added') | titleCase }}
           </td>
           <td>
             {{ torrent.added_on }}
@@ -215,7 +215,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Availability
+            {{ $t('torrent.availability') | titleCase }}
           </td>
           <td>
             {{ torrent.availability }}
