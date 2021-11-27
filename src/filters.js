@@ -27,7 +27,7 @@ export function formatSize(value) {
   if (index < 0) {
     return `${value} ${unit}`
   }
-  
+
   return `${toPrecision(value, 3)} ${unit}`
 }
 
@@ -40,7 +40,7 @@ export function formatTimestamp(timestamp) {
   }
 
   const m = dayjs.unix(timestamp)
-  
+
   return m.format('YYYY-MM-DD HH:mm:ss')
 }
 
@@ -48,7 +48,7 @@ Vue.filter('formatTimestamp', formatTimestamp)
 
 export function formatProgress(progress) {
   progress *= 100
-  
+
   return `${toPrecision(progress, 3)}%`
 }
 
@@ -102,7 +102,7 @@ export function getDataValue(a, b) {
   const c = 1024
   const d = b || 2
   const f = Math.floor(Math.log(a) / Math.log(c))
-  
+
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))}`
 }
 
@@ -114,7 +114,7 @@ export function limitToValue(value) {
     return 'global'
   }
   if (value === -1) {
-    return 'unlimitted'
+    return 'unlimited'
   }
 
   return value
