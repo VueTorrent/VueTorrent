@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["lang-zh-js"],{"9df6":function(e,t,n){"use strict";n.r(t);var s={category:"分类",settings:"设置",navbar:{currentSpeed:"当前速率",freeSpace:"剩余磁盘空间",topActions:{openSettings:"打开设置",searchNew:"搜索新的Torrent"}},modals:{add:{title:"添加新的Torrent",selectFiles:"选择文件"}}};t["default"]=s}}]);
+//# sourceMappingURL=lang-zh-js.1cfa6f4f.js.map

@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["lang-it-js"],{"2b3b":function(e,i,t){"use strict";t.r(i);var a={category:"categoria",settings:"impostazioni",navbar:{currentSpeed:"velocità attuale",freeSpace:"spazio libero",topActions:{openSettings:"apri le impostazioni",searchNew:"cerca nuovi torrent"}},modals:{add:{title:"Aggiungi un Torrent",selectFiles:"Seleziona i file"}}};i["default"]=a}}]);
+//# sourceMappingURL=lang-it-js.89d35d96.js.map
