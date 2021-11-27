@@ -64,26 +64,58 @@
       />
     </v-list-item>
     <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-checkbox
-            v-model="settings.temp_path_enabled"
-            hide-details
-            class="ma-0 pa-0"
-            label="Keep incomplete torrents in:"
-          />
-        </v-col>
-        <v-col>
-          <v-text-field
-            v-model="settings.temp_path"
-            class="mb-2"
-            outlined
-            dense
-            hide-details
-            :disabled="!settings.temp_path_enabled"
-          />
-        </v-col>
-      </v-row>
+      <v-checkbox
+        v-model="settings.temp_path_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        label="Keep incomplete torrents in:"
+      />
+    </v-list-item>
+    <v-list-item v-if="settings.temp_path_enabled">
+      <v-text-field
+        v-model="settings.temp_path"
+        class="mb-2"
+        outlined
+        dense
+        hide-details
+      />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox
+        v-model="settings.autorun_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        label="Autorun enabled:"
+      />
+    </v-list-item>
+    <v-list-item v-if="settings.autorun_enabled">
+      <v-text-field
+        v-model="settings.autorun_program"
+        class="mb-2"
+        outlined
+        dense
+        label="Autorun program"
+        hide-details
+      />
+    </v-list-item>
+    <v-list-item v-if="settings.autorun_enabled" class="mb-4">
+      <v-card flat color="grey--text selected">
+        <v-card-text>
+          <h5>Supported parameters (case sensitive):</h5>
+          <ul>
+            <li>%N: Torrent name </li>
+            <li>%L: Category</li>
+            <li>%G: Tags (separated by comma)</li>
+            <li>%F: Content path (same as root path for multi-file torrent)</li>
+            <li>%R: Root path (first torrent subdirectory path)</li>
+            <li>%D: Save path</li>
+            <li>%C: Number of files</li>
+            <li>%Z: Torrent size (bytes)</li>
+            <li>%T: Current tracker</li>
+            <li>%I: Info hash</li>
+          </ul>
+        </v-card-text>
+      </v-card>
     </v-list-item>
   </v-card>
 </template>
