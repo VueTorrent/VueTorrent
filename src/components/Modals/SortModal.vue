@@ -91,19 +91,7 @@ export default {
 }
 // Reversed input variant
 ::v-deep .v-input--reverse .v-input__slot {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    .v-application--is-ltr & {
-        .v-input--selection-controls__input {
-            margin-right: 0;
-            margin-left: 8px;
-        }
-    }
-    .v-application--is-rtl & {
-        .v-input--selection-controls__input {
-            margin-left: 0;
-            margin-right: 8px;
-        }
-    }
+  @import "src/styles/styles.scss";
+  @include reverse-switch;
 }
 </style>

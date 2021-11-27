@@ -146,3 +146,21 @@ body {
         border-radius: 20px;
     }
 }
+
+// Reversed switch input variant
+@mixin reverse-switch {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    .v-application--is-ltr & {
+        .v-input--selection-controls__input {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+    }
+    .v-application--is-rtl & {
+        .v-input--selection-controls__input {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+    }
+}
