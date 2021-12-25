@@ -87,7 +87,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: `${proxyTarget}:${qBittorrentPort}`
+        target: `${proxyTarget}:${qBittorrentPort}`,
+        changeOrigin: true,
       }
     }
   }

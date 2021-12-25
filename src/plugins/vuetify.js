@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuetify from 'vuetify/lib'
 
 import colors from 'vuetify/lib/util/colors'
-import variables from '@/styles/colors.scss'
 
 Vue.use(Vuetify)
 
@@ -16,20 +15,48 @@ export default new Vuetify({
     },
     dark: false,
     themes: {
-      // light: {
-      //   accent: variables.download,
-      //   background: colors.grey.lighten4,
-      //   selected: colors.grey.lighten2,
-      //   red: colors.red.accent2,
-      //   ...variables
-      // },
-      // dark: {
-      //   accent: variables.download,
-      //   background: colors.black,
-      //   selected: colors.grey.darken1,
-      //   red: colors.red.accent3,
-      //   ...variables
-      // }
+      light: {
+        accent: '#64CEAA',
+        background: colors.grey.lighten4,
+        selected: colors.grey.lighten2,
+        red: colors.red.accent2,
+        primary: '#35495e',
+        secondary: '#3e556d',
+        download: '#64CEAA',
+        upload: '#00b3fa',
+        // Torrent status colors
+        'torrent-done': '#16573e',
+        'torrent-downloading': '#5bb974',
+        'torrent-fail': '#f83e70',
+        'torrent-paused': '#9CA3AF',
+        'torrent-queued': '#2e5eaa',
+        'torrent-seeding': '#4ecde6',
+        'torrent-checking': '#ff7043',
+        'torrent-stalled': '#4ADE80',
+        'torrent-metadata': '#7e57c2',
+        'torrent-moving': '#ffaa2c'
+      },
+      dark: {
+        accent: '#64CEAA',
+        background: colors.black,
+        selected: colors.grey.darken1,
+        red: colors.red.accent3,
+        primary: '#35495e',
+        secondary: '#3e556d',
+        download: '#64CEAA',
+        upload: '#00b3fa',
+        // Torrent status colors
+        'torrent-done': '#16573e',
+        'torrent-downloading': '#5bb974',
+        'torrent-fail': '#f83e70',
+        'torrent-paused': '#9CA3AF',
+        'torrent-queued': '#2e5eaa',
+        'torrent-seeding': '#4ecde6',
+        'torrent-checking': '#ff7043',
+        'torrent-stalled': '#4ADE80',
+        'torrent-metadata': '#7e57c2',
+        'torrent-moving': '#ffaa2c'
+      }
     }
   }
 })

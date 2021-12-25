@@ -177,7 +177,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/colors.scss";
+@import "@/styles/colors.scss";
 
 ::v-deep .v-data-table thead th,
 ::v-deep .v-data-table tbody td {

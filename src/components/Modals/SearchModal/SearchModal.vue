@@ -88,7 +88,7 @@
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
-import PluginManager from './PluginManager'
+import PluginManager from './PluginManager.vue'
 import { mdiClose, mdiMagnify, mdiDownload } from '@mdi/js'
 
 export default {

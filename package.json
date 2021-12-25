@@ -10,16 +10,12 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
     "apexcharts": "^3.26.0",
     "axios": "^0.21.1",
     "core-js": "^3.10.0",
     "dayjs": "^1.10.4",
-    "eslint": "^6.8.0",
     "fuse.js": "^6.4.6",
     "lodash": "^4.17.21",
-    "register-service-worker": "^1.7.2",
-    "sass-loader": "^10.1.1",
     "typeface-roboto": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
     "uuid": "^8.3.2",
@@ -40,19 +36,16 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "@vue/test-utils": "^1.1.3",
     "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.17.0",
-    "fibers": "^5.0.0",
-    "node-sass": "^5.0.0",
     "sass": "~1.32.12",
     "vite": "^2.7.6",
     "vite-plugin-components": "^0.13.3",
     "vite-plugin-pwa": "^0.11.12",
     "vite-plugin-vue2": "^1.9.0",
-    "vue-cli-plugin-vuetify": "^2.3.1",
-    "vue-template-compiler": "^2.6.12",
-    "vuetify-loader": "^1.7.2"
+    "vue-template-compiler": "^2.6.14"
   },
   "browserslist": [
     "> 1%",

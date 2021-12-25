@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import '@babel/polyfill'
 import 'typeface-roboto'
 import 'typeface-roboto-mono'
 
