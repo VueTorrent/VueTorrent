@@ -1,18 +1,15 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import '@/registerServiceWorker'
-import router from '@/router'
-import store from '@/store'
 import '@babel/polyfill'
-import vuetify from './plugins/vuetify'
 import 'typeface-roboto'
 import 'typeface-roboto-mono'
-import { i18n } from './lang/index'
 
-/* eslint-disable no-unused-vars */
-import filters from '@/filters'
-import styles from '@/styles/styles.scss'
-/* eslint-enable no-unused-vars */
+import router from '@/router.js'
+import store from '@/store/index.js'
+import vuetify from './plugins/vuetify.js'
+import { i18n } from './lang/index.js'
+import '@/filters.js'
+import '@/styles/styles.scss'
 
 import Toast from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
@@ -21,17 +18,16 @@ Vue.use(Toast, {
   timeout: 2000
 })
 
-import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
 // register modals
-const files = require.context('@/components/Modals', true, /\.vue$/i)
-files
-  .keys()
-  .map(key =>
-    Vue.component(key.split('/').pop().split('.')[0], files(key).default)
-  )
+const components = import.meta.glob('./components/Modals/**/*.vue')
+Object.entries(components).forEach(([path, definition]) => { 
+  const componentName = path.split('/').pop().replace(/\.\w+$/, '')
+  Vue.component(componentName, definition)
+})
+
 
 new Vue({
   router,

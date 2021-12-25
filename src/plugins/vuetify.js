@@ -16,20 +16,20 @@ export default new Vuetify({
     },
     dark: false,
     themes: {
-      light: {
-        accent: variables.download,
-        background: colors.grey.lighten4,
-        selected: colors.grey.lighten2,
-        red: colors.red.accent2,
-        ...variables
-      },
-      dark: {
-        accent: variables.download,
-        background: colors.black,
-        selected: colors.grey.darken1,
-        red: colors.red.accent3,
-        ...variables
-      }
+      // light: {
+      //   accent: variables.download,
+      //   background: colors.grey.lighten4,
+      //   selected: colors.grey.lighten2,
+      //   red: colors.red.accent2,
+      //   ...variables
+      // },
+      // dark: {
+      //   accent: variables.download,
+      //   background: colors.black,
+      //   selected: colors.grey.darken1,
+      //   red: colors.red.accent3,
+      //   ...variables
+      // }
     }
   }
 })

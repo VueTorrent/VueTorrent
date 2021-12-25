@@ -16,7 +16,7 @@
 
 <script>
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-import SpeedCard from '@/components/Core/SpeedCard'
+import SpeedCard from '@/components/Core/SpeedCard.vue'
 export default {
   name: 'CurrentSpeed',
   components: {

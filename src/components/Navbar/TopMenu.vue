@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import TopActions from './TopActions'
+import TopActions from './TopActions.vue'
 import { mdiDotsVertical, mdiClose } from '@mdi/js'
 
 export default {

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import StorageCard from '@/components/Core/StorageCard'
+import StorageCard from '@/components/Core/StorageCard.vue'
 export default {
   name: 'FreeSpace',
   components: {

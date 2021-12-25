@@ -68,7 +68,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 - Clone the repo
 - `npm install`
-- `npm run serve`
+- `npm run dev`
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
 

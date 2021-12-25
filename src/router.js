@@ -2,13 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import Login from '@/views/Login.vue'
-import MagnetHandler from '@/views/MagnetHandler'
+import MagnetHandler from '@/views/MagnetHandler.vue'
 import { isAuthenticated } from '@/services/auth.js'
 
 Vue.use(Router)
 
 const router = new Router({
-  base: process.env.BASE_URL,
+  base: import.meta.env.BASE_UR,
   routes: [
     {
       path: '/',

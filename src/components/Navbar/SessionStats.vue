@@ -28,7 +28,7 @@
 
 <script>
 import { mdiInformationOutline } from '@mdi/js'
-import StorageCard from '@/components/Core/StorageCard'
+import StorageCard from '@/components/Core/StorageCard.vue'
 export default {
   name: 'SessionStats',
   components: { StorageCard },
