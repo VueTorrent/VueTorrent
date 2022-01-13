@@ -3,7 +3,7 @@
   "version": "0.15.0",
   "private": true,
   "scripts": {
-    "dev": "vite --host --debug",
+    "dev": "vite --host",
     "build": "vite build",
     "test:unit": "jest --setupTestFrameworkScriptFile=./tests/setup.js",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue",
@@ -40,8 +40,8 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.17.0",
     "sass": "~1.32.12",
+    "unplugin-vue-components": "^0.17.11",
     "vite": "^2.7.10",
-    "vite-plugin-components": "^0.13.3",
     "vite-plugin-pwa": "^0.11.12",
     "vite-plugin-vue2": "^1.9.0",
     "vue-template-compiler": "^2.6.14"
