@@ -19,7 +19,7 @@
         ]"
       >
         <span class="font-weight-light">Qbit</span>
-        <span>Torrent</span>
+        <span>torrent</span>
       </v-toolbar-title>
       <v-spacer />
 
