@@ -27,11 +27,11 @@ const locale = {
     freeSpace: '剩余磁盘空间',
     topActions: {
       addTorrent: '打开种子',
-      resumeSelected: '继续选中的种子',
-      pauseSelected: '暂停选中的种子',
-      removeSelected: '删除选中的种子',
+      resumeSelected: '继续选中种子',
+      pauseSelected: '暂停选中种子',
+      removeSelected: '删除选中种子',
       openSettings: '打开设置',
-      searchNew: '搜索新的种子'
+      searchNew: '搜索新种子'
     },
     sessionStats: {
       tooltip: '自 qBittorrent 上次重启以来'
@@ -45,7 +45,7 @@ const locale = {
       selectFiles: '选择文件'
     },
     delete: {
-      check: '同时从存储器上删除'
+      check: '同时从存储中删除'
     }
   },
 
@@ -75,7 +75,7 @@ const locale = {
     },
     category: '设置分类',
     limit: '设置限制',
-    copy: '赋值',
+    copy: '复制…',
     info: '显示详情'
   }
 }
