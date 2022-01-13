@@ -18,7 +18,7 @@
           { 'subheading ml-0': $vuetify.breakpoint.smAndDown }
         ]"
       >
-        <span class="font-weight-light">Vue</span>
+        <span class="font-weight-light">Qbit</span>
         <span>Torrent</span>
       </v-toolbar-title>
       <v-spacer />
