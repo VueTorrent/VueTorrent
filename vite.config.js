@@ -7,6 +7,8 @@ import path from 'path'
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
 const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
 
+console.log( `${proxyTarget}:${qBittorrentPort}`)
+
 export default defineConfig({
   plugins: [
     createVuePlugin(),
@@ -88,7 +90,8 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: `${proxyTarget}:${qBittorrentPort}`,
-        changeOrigin: true,
+        secure: false,
+        changeOrigin: true
       }
     }
   }

@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 import Login from '@/views/Login.vue'
-import MagnetHandler from '@/views/MagnetHandler.vue'
 import { isAuthenticated } from '@/services/auth.js'
 
 Vue.use(Router)
@@ -14,11 +13,6 @@ const router = new Router({
       path: '/',
       name: 'dashboard',
       component: Dashboard
-    },
-    { path: '/download=:magnet',
-      name: 'MagnetHandler',
-      component: MagnetHandler,
-      props: true
     },
     {
       path: '/login',

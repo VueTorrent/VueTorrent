@@ -34,7 +34,7 @@ class Qbit {
       validateStatus(status) {
         return status === 200 || status === 403
       }
-    })
+    }).catch(err => console.log(err))
 
     return data
   }
