@@ -1,5 +1,17 @@
 # Changelog
 
+### [0.15.2](https://www.github.com/WDaan/VueTorrent/compare/v0.15.1...v0.15.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* Qbittorrent title on tab ([05bcc9e](https://www.github.com/WDaan/VueTorrent/commit/05bcc9e58783e4de49d698cfd25c902fad7776de))
+
+
+### Improvements
+
+* Chinese translations ([#363](https://www.github.com/WDaan/VueTorrent/issues/363)) ([6c7372b](https://www.github.com/WDaan/VueTorrent/commit/6c7372b41ef72387c7781e0dcfd51fb046fb7881))
+
 ### [0.15.1](https://www.github.com/WDaan/VueTorrent/compare/v0.15.0...v0.15.1) (2022-01-13)
 
 
