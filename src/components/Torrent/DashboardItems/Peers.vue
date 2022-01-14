@@ -15,7 +15,7 @@
 </template>
 <script>
 export default {
-  name: 'Peers',
+  name: 'DashboardPeers',
   props: ['torrent']
 }
 </script>

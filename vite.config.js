@@ -2,17 +2,22 @@ import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import { VitePWA } from 'vite-plugin-pwa'
 import Components from 'unplugin-vue-components/vite'
+import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
 const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
 
-console.log( `${proxyTarget}:${qBittorrentPort}`)
+console.log(`${proxyTarget}:${qBittorrentPort}`)
 
 export default defineConfig({
   plugins: [
     createVuePlugin(),
-    Components({ /* options */ }),
+    Components({ 
+      resolvers: [
+        VuetifyResolver()
+      ]
+    }),
     VitePWA({
       includeAssets: ['favicon.ico', 'robots.txt',
         './icons/android-chrome-192x192.png',
