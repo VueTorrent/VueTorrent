@@ -7,7 +7,7 @@
 <p>&nbsp;</p>
 The sleekest looking WebUI for qBittorrent made with Vue.js!  
 
-> Vue, qBitorrent, Vuetify
+> Vue, qBittorrent, Vuetify
 </p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

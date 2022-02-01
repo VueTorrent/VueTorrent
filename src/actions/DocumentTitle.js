@@ -4,7 +4,7 @@ import store from '../store'
 
 export class DocumentTitle {
   static setDefault() {
-    this.set('Qbittorrent')
+    this.set('qBittorrent')
   }
 
   static setGlobalSpeed() {
