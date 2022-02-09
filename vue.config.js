@@ -2,9 +2,9 @@ const webpack = require('webpack')
 
 const iconVersion = 22 //fingerprint
 
-const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
-const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
-const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
+const qBittorrentPort = process.env['VUE_APP_QBITTORRENT_PORT'] ?? 8080
+const vueTorrentPort = process.env['VUE_APP_VUETORRENT_PORT'] ?? 8000
+const proxyTarget = process.env['VUE_APP_QBITTORRENT_TARGET'] ?? 'http://localhost'
 
 module.exports = {
   pwa: {
