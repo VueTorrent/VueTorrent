@@ -79,3 +79,5 @@ const locale = {
     info: '顯示詳情'
   }
 } 
+
+export default locale
