@@ -1,5 +1,12 @@
 # Changelog
 
+### [0.15.3](https://www.github.com/WDaan/VueTorrent/compare/v0.15.2...v0.15.3) (2022-02-28)
+
+
+### Bug Fixes
+
+* spelling mistake in README and "qBittorrent" casing ([#368](https://www.github.com/WDaan/VueTorrent/issues/368)) ([90d6623](https://www.github.com/WDaan/VueTorrent/commit/90d66237115f50828a38edec7b10caf817a55b66))
+
 ### [0.15.2](https://www.github.com/WDaan/VueTorrent/compare/v0.15.1...v0.15.2) (2022-01-13)
 
 
