@@ -67,7 +67,7 @@ const locale = {
       rename: 'renombrar'
     },
     prio: {
-      prio: 'cambiar prioridad',
+      prio: 'prioridad',
       top: 'arriba',
       bottom: 'abajo',
       increase: 'incrementar',
