@@ -51,7 +51,7 @@ const locale = {
 
   /** Toast */
   toast: {
-    loginSuccess: '¡Inicio de sesión Correcto! 🎉',
+    loginSuccess: '¡Inicio de sesión correcto! 🎉',
     loginFailed: 'Inicio de sesión fallido 😕',
     settingsSaved: '¡Los ajustes se guardaron correctamente!',
     categorySaved: '¡Categoría guardada correctamente!'
@@ -59,8 +59,8 @@ const locale = {
 
   /** RightClick **/
   rightClick: {
-    resume: 'resumir',
-    forceResume: 'forzar el resumido',
+    resume: 'reanudar',
+    forceResume: 'forzar reanudado',
     advanced: {
       advanced: 'avanzado',
       changeLocation: 'cambiar directorio',
