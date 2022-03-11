@@ -393,8 +393,7 @@ class Qbit {
 
   getSearchResults(id) {
     return this.execute('post', '/search/results', {
-      id,
-      limit: 50
+      id
     })
   }
 }
