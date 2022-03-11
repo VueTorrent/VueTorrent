@@ -76,6 +76,10 @@ $sideborder-margin: 6px;
     border-color: #{$primary} !important;
 }
 
+.v-application a {
+    color: inherit !important;
+}  
+
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
