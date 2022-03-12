@@ -150,8 +150,8 @@ export default {
           if (status === 'Stopped') {
             clearInterval(this.search.interval)
             this.search.interval = null
-            await this.getResults()
           }
+          await this.getResults()
         }, 500)
       }
     },
@@ -165,13 +165,13 @@ export default {
     async getResults() {
       const data = await qbit.getSearchResults(this.search.id)
       this.search.results = data.results
-      this.loading = false
     },
     downloadTorrent(item) {
       this.createModal('addModal', { initialMagnet: item.fileUrl })
     },
     stopSearch() {
       qbit.stopSearch(this.search.id)
+      this.loading = false
     },
     close() {
       this.dialog = false
