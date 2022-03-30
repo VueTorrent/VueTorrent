@@ -185,7 +185,7 @@ export default {
   name: 'General',
   data() {
     return {
-      languages: ['en', 'fr', 'id', 'it', 'nl', 'pt-br', 'zh-hans', 'zh-hant'],
+      languages: ['en', 'fr', 'id', 'it', 'ja', 'nl', 'pt-br', 'zh-hans', 'zh-hant'],
       paginationSizes: [5, 15, 30, 50],
       titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0
