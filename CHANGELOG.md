@@ -1,5 +1,21 @@
 # Changelog
 
+### [0.15.4](https://www.github.com/WDaan/VueTorrent/compare/v0.15.3...v0.15.4) (2022-04-04)
+
+
+### Bug Fixes
+
+* low visibility text in dark theme ([#390](https://www.github.com/WDaan/VueTorrent/issues/390)) ([84750af](https://www.github.com/WDaan/VueTorrent/commit/84750af3d4d584f5fc0fd8f3cbabd1b0ecfa2e9f))
+* PWA manifest [#405](https://www.github.com/WDaan/VueTorrent/issues/405) ([94727a1](https://www.github.com/WDaan/VueTorrent/commit/94727a142a1822c533c665d558ad4af6c207d5b9))
+* search results not loading until stopped ([#391](https://www.github.com/WDaan/VueTorrent/issues/391)) ([8b126d8](https://www.github.com/WDaan/VueTorrent/commit/8b126d8df5607f1c31174fec81f86091f4ad47cf))
+
+
+### Improvements
+
+* add Japanese language support ([#401](https://www.github.com/WDaan/VueTorrent/issues/401)) ([a178205](https://www.github.com/WDaan/VueTorrent/commit/a1782058c8417e6a8c06acd22ce56418b4fe9419))
+* add Spanish Language ([#385](https://www.github.com/WDaan/VueTorrent/issues/385)) ([d0f7055](https://www.github.com/WDaan/VueTorrent/commit/d0f7055148b6e88bb00c1c8cd58ec1fa123488e9))
+* add Vietnamese ([#392](https://www.github.com/WDaan/VueTorrent/issues/392)) ([6019759](https://www.github.com/WDaan/VueTorrent/commit/6019759260d6561af29dbeb1a95497028b2b8b87))
+
 ### [0.15.3](https://www.github.com/WDaan/VueTorrent/compare/v0.15.2...v0.15.3) (2022-02-28)
 
 
