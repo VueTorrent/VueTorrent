@@ -8,7 +8,7 @@ const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
 
 module.exports = {
   pwa: {
-    manifestPath: 'manifest.' + iconVersion + '.json',
+    manifestPath: 'manifest.json',
     name: 'VueTorrent', //PWApp name
     themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
     manifestOptions: {
