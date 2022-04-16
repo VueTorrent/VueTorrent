@@ -225,6 +225,32 @@ class Qbit {
     return this.torrentAction('setUploadLimit', hashes, { limit })
   }
 
+  async getGlobalDownloadLimit() {
+    const { data } = await this.axios.get('/transfer/downloadLimit')
+    
+    return data
+  }
+
+  async getGlobalUploadLimit() {
+    const { data } = await this.axios.get('/transfer/uploadLimit')
+    
+    return data
+  }
+
+  setGlobalDownloadLimit(limit) {
+    const formData = new FormData()
+    formData.append('limit', limit)
+    
+    return this.axios.post('/transfer/setDownloadLimit', formData)
+  }
+
+  setGlobalUploadLimit(limit) {
+    const formData = new FormData()
+    formData.append('limit', limit)
+
+    return this.axios.post('/transfer/setUploadLimit', formData)
+  }
+
   setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
     return this.torrentAction('setShareLimits', hashes, { ratioLimit, seedingTimeLimit })
   }

@@ -1,10 +1,12 @@
 <template>
   <v-card
+    v-ripple
     flat
     rounded="md"
     color="secondary"
     class="speedCard"
     data-testid="SpeedCard"
+    @click="open"
   >
     <v-layout row align-center :class="color + '--text'">
       <v-flex v-if="icon" xs2 class="pl-1">
@@ -31,6 +33,8 @@
 </template>
 
 <script>
+import { General } from '@/mixins'
+
 export default {
   name: 'SpeedCard',
   filters: {
@@ -43,7 +47,13 @@ export default {
       return `${parseFloat((value / Math.pow(c, f)).toFixed(d))}`
     }
   },
-  props: ['color', 'icon', 'value']
+  mixins: [General],
+  props: ['color', 'icon', 'value'],
+  methods: {
+    open() {
+      this.createModal('SpeedLimitModal', { mode: this.color })
+    }
+  }
 }
 </script>
 
@@ -51,5 +61,6 @@ export default {
 .speedCard {
   padding: 20px 20px !important;
   font-size: 1.10em;
+  cursor: pointer;
 }
 </style>

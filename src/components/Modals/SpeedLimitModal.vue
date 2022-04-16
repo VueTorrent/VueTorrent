@@ -76,13 +76,23 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
-  created() {
+  async created() {
     switch (this.mode) {
       case 'download':
-        this.limit = this.torrent.dl_limit > 0 ? this.limit = this.torrent.dl_limit / 1024 : '∞'
+        if (this.isGlobal()) {
+          const limit = await qbit.getGlobalDownloadLimit()
+          this.limit = this.formatLimit(limit)
+        } else {
+          this.limit = this.formatLimit(this.torrent?.dl_limit)
+        }
         break
       case 'upload':
-        this.limit = this.torrent.up_limit > 0 ? this.torrent.up_limit / 1024 : '∞'
+        if (this.isGlobal()) {
+          const limit = await qbit.getGlobalUploadLimit()
+          this.limit = this.formatLimit(limit)
+        } else {
+          this.limit = this.formatLimit(this.torrent?.up_limit)
+        }
         break
       default:
         break
@@ -92,15 +102,33 @@ export default {
     setLimit() {
       switch (this.mode) {
         case 'download':
-          qbit.setDownloadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          if (this.isGlobal()) {
+            qbit.setGlobalDownloadLimit(this.exportLimit())
+          } else {
+            qbit.setDownloadLimit([this.hash], this.exportLimit())
+          }
           break
         case 'upload':
-          qbit.setUploadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          if (this.isGlobal()) {
+            qbit.setGlobalUploadLimit(this.exportLimit())
+          } else {
+            qbit.setUploadLimit([this.hash], this.exportLimit())
+          }
           break
         default:
           break
       }
+      
       this.close()
+    },
+    isGlobal() {
+      return this.torrent ? false : true
+    },
+    formatLimit(limit) {
+      return limit > 0 ? limit / 1024 : '∞'
+    },
+    exportLimit() {
+      return this.limit > 0 ? this.limit * 1024 : NaN
     },
     close() {
       this.dialog = false
