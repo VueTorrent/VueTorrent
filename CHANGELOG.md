@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.16.0](https://www.github.com/WDaan/VueTorrent/compare/v0.15.4...v0.16.0) (2022-04-16)
+
+
+### Features
+
+* add support for setting global speed limits ([#406](https://www.github.com/WDaan/VueTorrent/issues/406)) ([23fee41](https://www.github.com/WDaan/VueTorrent/commit/23fee419fd1561f440f88e4b354ac3745ed813cd))
+
 ### [0.15.4](https://www.github.com/WDaan/VueTorrent/compare/v0.15.3...v0.15.4) (2022-04-04)
 
 
