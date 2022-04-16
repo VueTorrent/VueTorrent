@@ -225,12 +225,16 @@ class Qbit {
     return this.torrentAction('setUploadLimit', hashes, { limit })
   }
 
-  getGlobalDownloadLimit() {
-    return this.axios.get('/transfer/downloadLimit')
+  async getGlobalDownloadLimit() {
+    const { data } = this.axios.get('/transfer/downloadLimit')
+    
+    return data
   }
 
   getGlobalUploadLimit() {
-    return this.axios.get('/transfer/uploadLimit')
+    const { data } = this.axios.get('/transfer/uploadLimit')
+    
+    return data
   }
 
   setGlobalDownloadLimit(limit) {
