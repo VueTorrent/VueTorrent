@@ -4,7 +4,7 @@ module.exports = {
     'plugin:vue/recommended'
   ],
   parserOptions: {
-    parser: 'babel-eslint',
+    parser: '@babel/eslint-parser',
     ecmaVersion: 2017,
     sourceType: 'module'
   },
@@ -27,7 +27,7 @@ module.exports = {
     eqeqeq: 0,
     indent: ['error', 2, {
       SwitchCase: 1,
-      "ignoredNodes": ["TemplateLiteral"]
+      ignoredNodes: ['TemplateLiteral']
     }],
     'vue/html-indent': [
       'error',
