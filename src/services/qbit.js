@@ -227,10 +227,12 @@ class Qbit {
 
   getGlobalDownloadLimit() {
     return this.axios.get('/transfer/downloadLimit')
+      .then(res => res.data)
   }
 
   getGlobalUploadLimit() {
     return this.axios.get('/transfer/uploadLimit')
+      .then(res => res.data)
   }
 
   setGlobalDownloadLimit(limit) {
