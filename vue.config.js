@@ -1,7 +1,5 @@
 const webpack = require('webpack')
 
-const iconVersion = 22 //fingerprint
-
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
 const vueTorrentPort = process.env['VUETORRENT_PORT'] ?? 8000
 const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
@@ -9,10 +7,9 @@ const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
 module.exports = {
   pwa: {
     manifestPath: 'manifest.json',
-    name: 'VueTorrent', //PWApp name
+    name: 'VueTorrent',
     themeColor: '#597566', //PWA title bar color ( windows 10 PWA, android web browser and PWA address bar color )
     manifestOptions: {
-      //start_url: 'https://example.com/',
       icons: [
         {
           src: './icons/android-chrome-192x192.png?s=' + iconVersion,

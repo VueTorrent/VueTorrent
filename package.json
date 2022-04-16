@@ -49,9 +49,10 @@
     "eslint-plugin-vue": "^7.17.0",
     "fibers": "^5.0.0",
     "node-sass": "^7.0.0",
-    "sass": "^1.50",
-    "vue-cli-plugin-vuetify": "^2.4.8",
-    "vue-template-compiler": "^2.6.12"
+    "sass": "~1.32.0",
+    "vue-cli-plugin-vuetify": "^2.4.2",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
   },
   "browserslist": [
     "> 1%",
