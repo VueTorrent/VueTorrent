@@ -226,13 +226,13 @@ class Qbit {
   }
 
   async getGlobalDownloadLimit() {
-    const { data } = this.axios.get('/transfer/downloadLimit')
+    const { data } = await this.axios.get('/transfer/downloadLimit')
     
     return data
   }
 
-  getGlobalUploadLimit() {
-    const { data } = this.axios.get('/transfer/uploadLimit')
+  async getGlobalUploadLimit() {
+    const { data } = await this.axios.get('/transfer/uploadLimit')
     
     return data
   }
