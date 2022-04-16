@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvuetorrent"]=self["webpackChunkvuetorrent"]||[]).push([[179],{59268:function(e,t,i){i.r(t);var a={category:"categoria",settings:"impostazioni",navbar:{currentSpeed:"velocità attuale",freeSpace:"spazio libero",topActions:{openSettings:"apri le impostazioni",searchNew:"cerca nuovi torrent"}},modals:{add:{title:"Aggiungi un Torrent",selectFiles:"Seleziona i file"}}};t["default"]=a}}]);
+//# sourceMappingURL=lang-it-js-legacy.af87b31f.js.map
