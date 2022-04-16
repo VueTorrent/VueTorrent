@@ -6,6 +6,8 @@ import variables from '@/styles/colors.scss'
 
 Vue.use(Vuetify)
 
+console.log(variables)
+
 export default new Vuetify({
   icons: {
     iconfont: 'mdiSvg'

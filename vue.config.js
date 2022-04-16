@@ -106,12 +106,8 @@ module.exports = {
     ]
   },
   devServer: {
-    watchOptions: {
-      poll: true
-    },
     host: '0.0.0.0',
     port: `${vueTorrentPort}`,
-    disableHostCheck: true, //allows https proxy for dev server
     proxy: {
       '/api': {
         target: `${proxyTarget}:${qBittorrentPort}`
