@@ -76,13 +76,23 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
-  created() {
+  async created() {
     switch (this.mode) {
       case 'download':
-        this.limit = this.torrent.dl_limit > 0 ? this.limit = this.torrent.dl_limit / 1024 : '∞'
+        if (this.torrent) {
+          this.limit = this.torrent?.dl_limit > 0 ? this.limit = this.torrent.dl_limit / 1024 : '∞'
+        } else {
+          const { data: downLimit } = await qbit.getGlobalDownloadLimit()
+          this.limit = downLimit > 0 ? downLimit / 1024 : '∞'
+        }
         break
       case 'upload':
-        this.limit = this.torrent.up_limit > 0 ? this.torrent.up_limit / 1024 : '∞'
+        if (this.torrent) {
+          this.limit = this.torrent?.up_limit > 0 ? this.torrent.up_limit / 1024 : '∞'
+        } else {
+          const { data: upLimit } = await qbit.getGlobalUploadLimit()
+          this.limit = upLimit > 0 ? upLimit / 1024 : '∞'
+        }
         break
       default:
         break
@@ -92,14 +102,23 @@ export default {
     setLimit() {
       switch (this.mode) {
         case 'download':
-          qbit.setDownloadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          if (this.torrent) {
+            qbit.setDownloadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          } else {
+            qbit.setGlobalDownloadLimit(this.limit > 0 ? this.limit * 1024 : NaN)
+          }
           break
         case 'upload':
-          qbit.setUploadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          if (this.torrent) {
+            qbit.setUploadLimit([this.hash], this.limit > 0 ? this.limit * 1024 : NaN)
+          } else {
+            qbit.setGlobalUploadLimit(this.limit > 0 ? this.limit * 1024 : NaN)
+          }
           break
         default:
           break
       }
+      
       this.close()
     },
     close() {
