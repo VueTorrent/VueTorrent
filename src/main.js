@@ -14,11 +14,12 @@ import filters from '@/filters'
 import styles from '@/styles/styles.scss'
 /* eslint-enable no-unused-vars */
 
-import Toast from 'vue-toastification'
+import Toast, { POSITION } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 Vue.use(Toast, {
   maxToasts: 5,
-  timeout: 2000
+  timeout: 2000,
+  position: POSITION.BOTTOM_RIGHT
 })
 
 import './registerServiceWorker'
