@@ -36,30 +36,20 @@ export default {
   created() {
     this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
     this.$store.commit('SET_LANGUAGE')
-    const needsAuth = this.needsAuthentication()
-    if (needsAuth) {
-      this.checkAuthenticated()
-    }
+    this.checkAuthentication()
   },
   methods: {
-    async needsAuthentication() {
-      const res = qbit.getAuthenticationStatus()
-      const forbidden = res === 'Forbidden'
-      if (forbidden) {
-        return true
-      } else {
+    async checkAuthentication() {
+      const authenticated = await qbit.getAuthenticationStatus()
+      if (authenticated) {
         this.$store.commit('LOGIN', true)
         this.$store.commit('updateMainData')
+
+        return
       }
 
-      return false
-    },
-    async checkAuthenticated() {
-      const res = await qbit.login()
-      const authenticated = res === 'Ok.'
-      this.$store.commit('LOGIN', authenticated)
-      this.$store.commit('updateMainData')
-      if (!authenticated && !this.onLoginPage) return this.$router.push('login')
+      this.$store.commit('LOGIN', false)
+      if (!this.onLoginPage) return this.$router.push('login')
     }
   }
 }
