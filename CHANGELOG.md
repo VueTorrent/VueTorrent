@@ -1,5 +1,20 @@
 # Changelog
 
+### [0.16.1](https://www.github.com/WDaan/VueTorrent/compare/v0.16.0...v0.16.1) (2022-04-17)
+
+
+### Bug Fixes
+
+* torrent progress color [#410](https://www.github.com/WDaan/VueTorrent/issues/410) ([886bc13](https://www.github.com/WDaan/VueTorrent/commit/886bc13f10d82b8973d6ea63fa051ae873b8aea2))
+
+
+### Improvements
+
+* add all-time stats [#351](https://www.github.com/WDaan/VueTorrent/issues/351) ([a268e77](https://www.github.com/WDaan/VueTorrent/commit/a268e774def5875354129c06122898bad018d5ed))
+* better authenticated check ([#411](https://www.github.com/WDaan/VueTorrent/issues/411)) ([ce698e3](https://www.github.com/WDaan/VueTorrent/commit/ce698e38a80fb7ba1dee01251451865df75f68d4))
+* move notification banner to botton [#389](https://www.github.com/WDaan/VueTorrent/issues/389) ([4b90d56](https://www.github.com/WDaan/VueTorrent/commit/4b90d56df5a43bf466acafd3c7bb43a960bffab8))
+* topmenu tooltip delay [#399](https://www.github.com/WDaan/VueTorrent/issues/399) ([2d5ad9d](https://www.github.com/WDaan/VueTorrent/commit/2d5ad9d44227f2ffd3e180eff9740e82ba0281cb))
+
 ## [0.16.0](https://www.github.com/WDaan/VueTorrent/compare/v0.15.4...v0.16.0) (2022-04-16)
 
 
