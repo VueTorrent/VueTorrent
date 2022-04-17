@@ -41,7 +41,8 @@ class Qbit {
 
   async getAuthenticationStatus() {
     return this.axios.get('/app/version')
-      .then(response => response.statusText)
+      .then(() => true)
+      .catch(() => false)
   }
 
   async logout() {
