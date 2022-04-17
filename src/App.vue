@@ -48,9 +48,6 @@ export default {
         return
       }
 
-      this.toLogin()
-    },
-    async toLogin() {
       this.$store.commit('LOGIN', false)
       if (!this.onLoginPage) return this.$router.push('login')
     }
