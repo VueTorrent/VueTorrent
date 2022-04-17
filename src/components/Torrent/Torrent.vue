@@ -37,7 +37,7 @@ export default {
     style() {
       const state = this.torrent.state.toLowerCase()
 
-      return `sideborder ${state} ${this.isSelected ? `torrent-${state}-color` : ''}`
+      return `sideborder ${state} ${this.isSelected ? `torrent-${state}` : ''}`
     }
   },
   methods: {

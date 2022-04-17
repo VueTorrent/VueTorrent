@@ -13,6 +13,7 @@ const locale = {
   torrent: {
     title: 'titel',
     added: 'toegevoegd op',
+    availability: 'beschikbaarheid',
     size: 'grootte',
     progress: 'vooruitgang',
     directory: 'map',
