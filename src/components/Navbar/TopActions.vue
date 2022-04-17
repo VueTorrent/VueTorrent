@@ -1,6 +1,6 @@
 <template>
   <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           :text="!mobile"
@@ -19,7 +19,7 @@
       </template>
       <span> {{ $t('navbar.topActions.addTorrent') | titleCase }}</span>
     </v-tooltip>
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           small
@@ -37,7 +37,7 @@
       </template>
       <span>{{ $t('navbar.topActions.resumeSelected') | titleCase }}</span>
     </v-tooltip>
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           small
@@ -55,7 +55,7 @@
       </template>
       <span> {{ $t('navbar.topActions.pauseSelected') | titleCase }}</span>
     </v-tooltip>
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           small
@@ -73,7 +73,7 @@
       </template>
       <span> {{ $t('navbar.topActions.removeSelected') | titleCase }}</span>
     </v-tooltip>
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           :text="!mobile"
@@ -92,7 +92,7 @@
       </template>
       <span>{{ $t('navbar.topActions.searchNew') | titleCase }}</span>
     </v-tooltip>
-    <v-tooltip bottom>
+    <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn
           small
