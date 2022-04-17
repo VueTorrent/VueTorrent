@@ -55,6 +55,7 @@ export default new Vuex.Store({
       showFreeSpace: true,
       showSpeedGraph: true,
       showSessionStat: true,
+      showAlltimeStat: true,
       showCurrentSpeed: true,
       showTrackerFilter: false,
       showSpeedInTitle: false,

@@ -1,9 +1,9 @@
 <template>
   <div v-if="status" class="mt-3 mb-3">
     <label class="text-uppercase white--text caption font-weight-medium ml-4">
-      Session Stats
+      {{ getTitle }}
     </label>
-    <v-tooltip bottom>
+    <v-tooltip v-if="isSession" bottom>
       <template #activator="{ on }">
         <v-icon
           color="white"
@@ -20,9 +20,9 @@
       class="mb-4 mt-4"
       label="Downloaded"
       color="download"
-      :value="status.downloaded"
+      :value="getDownload"
     />
-    <StorageCard label="Uploaded" color="upload" :value="status.uploaded" />
+    <StorageCard label="Uploaded" color="upload" :value="getUpload" />
   </div>
 </template>
 
@@ -30,10 +30,28 @@
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '@/components/Core/StorageCard'
 export default {
-  name: 'SessionStats',
+  name: 'TransferStats',
   components: { StorageCard },
-  props: ['status'],
-  data: () => ({ mdiInformationOutline })
+  props: ['status', 'session'],
+  data: () => ({ 
+    mdiInformationOutline,
+    sessionTitle: 'session stats',
+    alltimeTitle: 'all-time stats'
+  }),
+  computed: {
+    isSession() {
+      return this.session
+    },
+    getTitle() {
+      return this.isSession ? this.sessionTitle : this.alltimeTitle
+    },
+    getDownload() {
+      return this.isSession ? this.status.sessionDownloaded : this.status.alltimeDownloaded
+    },
+    getUpload() {
+      return this.isSession ? this.status.sessionUploaded : this.status.alltimeUploaded
+    }
+  }
 }
 </script>
 

@@ -47,6 +47,19 @@
       <v-row dense>
         <v-col>
           <v-switch
+            v-model="showAlltimeStat"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            label="Show All-Time Stats"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-switch
             v-model="freeSpace"
             class="v-input--reverse pa-0 ma-0"
             hide-details
@@ -226,6 +239,14 @@ export default {
       },
       set(val) {
         this.webuiSettings.showSessionStat = val
+      }
+    },
+    showAlltimeStat: {
+      get() {
+        return this.webuiSettings.showAlltimeStat
+      },
+      set(val) {
+        this.webuiSettings.showAlltimeStat = val
       }
     },
     showTrackerFilter: {
