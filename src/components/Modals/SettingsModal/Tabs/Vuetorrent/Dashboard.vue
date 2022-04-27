@@ -3,7 +3,7 @@
     <v-row dense>
       <v-col cols="12" md="6">
         <v-subheader>
-          Properties to display for busy torrents
+          {{ $t('modals.settings.pageVueTorrent.pageDashboard.busyTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">
@@ -38,7 +38,7 @@
       
       <v-col cols="12" md="6">
         <v-subheader>
-          Properties to display for completed torrents
+          {{ $t('modals.settings.pageVueTorrent.pageDashboard.completedTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">

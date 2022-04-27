@@ -1,12 +1,12 @@
 <template>
   <v-card flat>
-    <v-subheader>Privacy</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageBittorrent.subHeaderPrivacy') }}</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.dht"
         hide-details
         class="ma-0 pa-0"
-        label="Enable DHT (decentralized network) to find more peers"
+        :label="$t('modals.settings.pageBittorrent.enableDHT')"
       />
     </v-list-item>
     <v-list-item>
@@ -14,7 +14,7 @@
         v-model="settings.pex"
         hide-details
         class="ma-0 pa-0"
-        label="Enable Peer Exchange (PeX) to find more peers"
+        :label="$t('modals.settings.pageBittorrent.enablePeX')"
       />
     </v-list-item>
     <v-list-item>
@@ -22,7 +22,7 @@
         v-model="settings.lsd"
         hide-details
         class="ma-0 pa-0"
-        label="Enable Local Peer Discovery to find more peers"
+        :label="$t('modals.settings.pageBittorrent.enableLPD')"
       />
     </v-list-item>
     <v-list-item>
@@ -30,7 +30,7 @@
         v-model="settings.lsd"
         hide-details
         class="ma-0 pa-0"
-        label="Enable anonymous mode"
+        :label="$t('modals.settings.pageBittorrent.enableAnonymous')"
       />
     </v-list-item>
     <v-divider insert />
@@ -39,7 +39,7 @@
         v-model="settings.queueing_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Torrent Queueing" 
+        :label="$t('modals.settings.pageBittorrent.torrentQueue')"
       />
     </v-list-item>
     <v-list-item>
@@ -50,7 +50,7 @@
         dense
         type="number"
         hide-details
-        label="Maximum active downloads"
+        :label="$t('modals.settings.pageBittorrent.maxActiveDownload')"
         :disabled="!settings.queueing_enabled"
       />
     </v-list-item>
@@ -62,7 +62,7 @@
         dense
         type="number"
         hide-details
-        label="Maximum active uploads"
+        :label="$t('modals.settings.pageBittorrent.maxActiveUpload')"
         :disabled="!settings.queueing_enabled"
       />
     </v-list-item>
@@ -74,7 +74,7 @@
         dense
         type="number"
         hide-details
-        label="Maximum active torrents"
+        :label="$t('modals.settings.pageBittorrent.maxActiveTorrent')"
         :disabled="!settings.queueing_enabled"
       />
     </v-list-item>
@@ -83,7 +83,7 @@
         v-model="settings.dont_count_slow_torrents"
         hide-details
         class="ma-0 pa-0"
-        label="Do not count slow torrents in these limits"
+        :label="$t('modals.settings.pageBittorrent.excludeSlowTorrent')"
       />
     </v-list-item>
     <v-list-item>
@@ -94,7 +94,7 @@
         dense
         type="number"
         hide-details
-        label="Download rate threshold KiB/s"
+        :label="$t('modals.settings.pageBittorrent.downloadRateLimit')"
         :disabled="!settings.dont_count_slow_torrents"
       />
     </v-list-item>
@@ -106,7 +106,7 @@
         dense
         type="number"
         hide-details
-        label="Upload rate threshold KiB/s"
+        :label="$t('modals.settings.pageBittorrent.uploadRateLimit')"
         :disabled="!settings.dont_count_slow_torrents"
       />
     </v-list-item>
@@ -118,12 +118,12 @@
         dense
         type="number"
         hide-details
-        label="Torrent inactivity timer"
+        :label="$t('modals.settings.pageBittorrent.torrentInactivityTimer')"
         :disabled="!settings.dont_count_slow_torrents"
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>Seed Limits</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageBittorrent.subHeaderSeedLimits') }}</v-subheader>
     <v-list-item>
       <v-row dense>
         <v-col>
@@ -131,7 +131,7 @@
             v-model="settings.max_ratio_enabled"
             hide-details
             class="ma-0 pa-0"
-            label="When ratio reaches"
+            :label="$t('modals.settings.pageBittorrent.whenRatioReaches')"
           />
         </v-col>
         <v-col>
@@ -154,7 +154,7 @@
             v-model="settings.max_seeding_time_enabled"
             hide-details
             class="ma-0 pa-0"
-            label="When seeding time reaches"
+            :label="$t('modals.settings.pageBittorrent.whenSeedingTimeReaches')"
           />
         </v-col>
         <v-col>

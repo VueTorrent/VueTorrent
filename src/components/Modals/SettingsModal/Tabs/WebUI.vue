@@ -5,7 +5,7 @@
         v-model="settings.alternative_webui_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Use Alternative WebUI"
+        :label="$t('modals.settings.pageWebUI.useAlternativeWebUI')"
       />
     </v-list-item>
     <v-list-item>
@@ -15,12 +15,12 @@
         outlined
         dense
         hide-details
-        label="Files location"
+        :label="$t('modals.settings.pageWebUI.filesLocation')"
         :disabled="!settings.alternative_webui_enabled"
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>Web User Interface (Remote Control)</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageWebUI.webUserInterface') }}</v-subheader>
     <v-list-item>
       <v-row class="ml-5 mr-5 pb-4">
         <v-col cols="9" class="pa-0">
@@ -30,7 +30,7 @@
             outlined
             dense
             hide-details="true"
-            label="IP Address:"
+            :label="$t('modals.settings.pageWebUI.ipAddress')"
           />
         </v-col>
         <v-col cols="3" class="pa-0">
@@ -41,13 +41,13 @@
             dense
             type="number"
             hide-details="true"
-            label="Port"
+            :label="$t('modals.settings.pageWebUI.port')"
           />
         </v-col>
       </v-row>
     </v-list-item>
     <v-divider insert />
-    <v-subheader>Authentication</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageWebUI.authentication') }}</v-subheader>
     <v-list-item>
       <v-row class="ml-5 mr-5 pb-4">
         <v-col cols="6" class="pa-0">
@@ -57,7 +57,7 @@
             outlined
             dense
             hide-details="true"
-            label="Username"
+            :label="$t('modals.settings.pageWebUI.username')"
           />
         </v-col>
         <v-col cols="6" class="pa-0">
@@ -67,7 +67,7 @@
             outlined
             dense
             hide-details="true"
-            label="password"
+            :label="$t('modals.settings.pageWebUI.password')"
           />
         </v-col>
       </v-row>
@@ -82,7 +82,7 @@
             dense
             type="number"
             hide-details="true"
-            label="Max attempts"
+            :label="$t('modals.settings.pageWebUI.maxAttempts')"
           />
         </v-col>
         <v-col cols="6" class="pa-0">
@@ -93,7 +93,7 @@
             dense
             type="number"
             hide-details="true"
-            label="Ban Duration (seconds)"
+            :label="$t('modals.settings.pageWebUI.banDuration')"
           />
         </v-col>
       </v-row>
@@ -106,7 +106,7 @@
         dense
         type="number"
         hide-details="true"
-        label="Session timeout (seconds)"
+        :label="$t('modals.settings.pageWebUI.sessionTimeout')"
       />
     </v-list-item>
     <v-list-item class="ml-4">
@@ -114,7 +114,7 @@
         v-model="settings.bypass_local_auth"
         hide-details
         class="ma-0 pa-0"
-        label="Bypass authentication for clients on localhost" 
+        :label="$t('modals.settings.pageWebUI.bypassAuthenticationForClientsOnLocalhost')"
       />
     </v-list-item>
     <v-list-item class="ml-4">
@@ -122,7 +122,7 @@
         v-model="settings.bypass_auth_subnet_whitelist_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Bypass authentication for clients in whitelisted IP subnets" 
+        :label="$t('modals.settings.pageWebUI.bypassAuthenticationForClientsInWhitelisted')"
       />
     </v-list-item>
     <v-list-item class="ml-4">
