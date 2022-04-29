@@ -7,6 +7,39 @@ const locale = {
   save: 'save',
   cancel: 'cancel',
   confirm: 'confirm',
+  edit: 'Edit',
+  createNew: 'Create New',
+  path: 'Path',
+  create: 'Create',
+  url: 'URL',
+  directory: 'Directory',
+  unknown: 'unknown',
+  status: 'Status',
+  all: 'All',
+  downloading: 'downloading',
+  seeding: 'Seeding',
+  completed: 'Completed',
+  resumed: 'Resumed',
+  paused: 'Paused',
+  active: 'Active',
+  inactive: 'Inactive',
+  stalled: 'Stalled',
+  errored: 'Errored',
+  login: 'Login in',
+  logout: 'Log out',
+  downloaded: 'downloaded',
+  uploaded: 'uploaded',
+  upload: 'upload',
+  download: 'Download',
+  ETA: 'ETA',
+  peers: 'Peers',
+  ratio: 'Ratio',
+  seeds: 'Seeds',
+  tags: 'Tags',
+  share: 'Share',
+  name: 'Name',
+  hash: 'Hase',
+  magnet: 'Magnet',
 
   /** Torrent */
   torrent: {
@@ -19,7 +52,9 @@ const locale = {
     downloaded: 'downloaded',
     uploaded: 'uploaded',
     created: 'created by',
-    comments: 'comments'
+    comments: 'comments',
+    uploadedSession: 'Uploaded Session',
+    torrentTitle: 'Torrent Title'
   },
   /** Navbar */
   navbar: {
@@ -35,6 +70,15 @@ const locale = {
     },
     sessionStats: {
       tooltip: 'Since the last time qBittorrent was restarted'
+    },
+    filters: {
+      stalled_uploading: 'Stalled Uploading',
+      stalled_downloading: 'Stalled Downloading'
+    },
+    action: {
+      altSpeed: 'Alt speeds',
+      dark: 'Dark',
+      light: 'Light'
     }
   },
 
@@ -169,9 +213,126 @@ const locale = {
         subHeaderCategories: 'Available Categories:'
       }
     },
+    shareLimit: {
+      input: {
+        globalLimit: 'Use global limit',
+        unlimited: 'Unlimited'
+      },
+      limitRatio: 'Limit Ratio',
+      titleDuration: 'Duration',
+      titleRatio: 'Ratio'
+    },
+    newCategory: {
+      categoryName: 'Category name',
+      Path: 'Path',
+      tipOnNoName: 'Category name is required',
+      tipOnNameTooLong: 'Category name must be less than 15 characters',
+      tipOnNoPath: 'Path is required',
+      TipOnPathTooLong: 'Path must be less than 40 characters'
+    },
+    newTag: {
+      createNewTag: 'Create New Tag',
+      tagName: 'Tag name'
+    },
+    detail: {
+      title: 'Torrent Detail',
+      tabTitleInfo: 'Info',
+      tabTitleTrackers: 'Trackers',
+      tabTitlePeers: 'Peers',
+      tabTitleContent: 'Content',
+      tabTitleTagsCategories: 'Tags & Categories',
+      pageInfo: {
+        torrentTitle: 'Torrent title',
+        hash: 'hash',
+        ratio: 'Ratio',
+        downloadSpeed: 'DL Speed',
+        uploadSpeed: 'UP Speed',
+        eta: 'ETA',
+        peers: 'Peers',
+        seeds: 'Seeds',
+        status: 'Status',
+        trackers: 'Trackers',
+        createdBy: 'Created By',
+        firstLastPiecePriority: 'First/Last Piece Priority',
+        sequentialDownload: 'Sequential Download',
+        autoTMM: 'Auto TMM',
+        shareRatioLimit: 'Share Ratio Limit',
+        shareTimeLimit: 'Share Time Limit (minutes)',
+        downloadLimit: 'Download Limit',
+        uploadLimit: 'Upload Limit'
+      },
+      pagePeers: {
+        ip: 'IP',
+        connection: 'Connection',
+        flags: 'Flags',
+        client: 'Client',
+        progress: 'Progress',
+        downloadSpeed: 'DL Speed',
+        downloaded: 'Downloaded',
+        upSpeed: 'UP Speed',
+        uploaded: 'Uploaded',
+        relevance: 'Relevance',
+        files: 'Files'
+      },
+      pageTagsAndCategories: {
+        subHeaderTag: 'Available Tags:',
+        subHeaderCategories: 'Available Categories:'
+      },
+      pageTrackers: {
+        url: 'URL',
+        status: 'Status',
+        peers: 'Peers',
+        seeds: 'Seeds',
+        leeches: 'Leeches',
+        downloaded: 'Downloaded',
+        message: 'Message'
+      }
+    },
     add: {
       title: 'Add a new Torrent',
-      selectFiles: 'Select your files'
+      selectFiles: 'Select your files',
+      urlHint: 'One link per line',
+      downloadDirectory: 'Download Directory',
+      starttorrent: 'Start torrent',
+      skipHashCheck: 'Skip hash check',
+      createSubfolder: 'Create subfolder',
+      automaticTorrentManagement: 'Automatic Torrent Management',
+      dropHereForAdd: 'Drop here for add',
+      oneOrMoreFilesInvalidTorrent: 'One or more files is not a valid torrent'
+    },
+    changeLocation: {
+      title: 'Change Location',
+      torrentName: 'Torrent Name'
+    },
+    rename: {
+      title: 'Rename',
+      torrentName: 'Torrent Name'
+    },
+    sort: {
+      title: 'Sort Torrents',
+      reverse: 'Reverse',
+      sortBy: {
+        availability: 'Availability',
+        category: 'Category',
+        completed: 'Completed',
+        downloaded: 'Downloaded',
+        ETA: 'ETA',
+        name: 'Name',
+        peers: 'Peers',
+        priority: 'Priority',
+        progress: 'Progress',
+        ratio: 'Ratio',
+        size: 'Size',
+        state: 'State',
+        uploaded: 'Uploaded',
+        addedOn: 'Added On',
+        downloadSpeed: 'Download Speed',
+        timeActive: 'Time Active',
+        uploadSpeed: 'Upload Speed'
+      }
+    },
+    speedLimit: {
+      speedLimit: 'Speed Limit'
     },
     delete: {
       check: 'Also delete files from storage'
@@ -193,7 +354,12 @@ const locale = {
     advanced: {
       advanced: 'advanced',
       changeLocation: 'change location',
-      rename: 'rename'
+      rename: 'rename',
+      forceRecheck: 'Force recheck',
+      forceReannounce: 'Force reannounce',
+      sequentialDownload: 'Sequential Download',
+      firstLastPriority: 'First/Last priority',
+      autoManagement: 'Automatic Torrent Management'
     },
     prio: {
       prio: 'set priority',

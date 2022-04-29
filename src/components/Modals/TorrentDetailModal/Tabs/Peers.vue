@@ -58,19 +58,6 @@ export default {
   props: { hash: String, isActive: Boolean },
   data: () => ({
     refreshTimer: '',
-    headers: [
-      { text: 'IP', value: 'ip' },
-      { text: 'Connection', value: 'connection' },
-      { text: 'Flags', value: 'flags' },
-      { text: 'Client', value: 'client' },
-      { text: 'Progress', value: 'progress' },
-      { text: 'DL Speed', value: 'dl_speed' },
-      { text: 'Downloaded', value: 'downloaded' },
-      { text: 'UP Speed', value: 'up_speed' },
-      { text: 'Uploaded', value: 'uploaded' },
-      { text: 'Relevance', value: 'relevance' },
-      { text: 'Files', value: 'files' }
-    ],
     peersObj: null
   }),
   computed: {
@@ -84,6 +71,21 @@ export default {
     },
     peers() {
       return map(this.peersObj, (value, key) => merge({}, value, { key }))
+    },
+    headers() {
+      return [
+        { text: this.$i18n.t('modals.detail.pagePeers.ip'), value: 'ip' },
+        { text: this.$i18n.t('modals.detail.pagePeers.connection'), value: 'connection' },
+        { text: this.$i18n.t('modals.detail.pagePeers.flags'), value: 'flags' },
+        { text: this.$i18n.t('modals.detail.pagePeers.client'), value: 'client' },
+        { text: this.$i18n.t('modals.detail.pagePeers.progress'), value: 'progress' },
+        { text: this.$i18n.t('modals.detail.pagePeers.downloadSpeed'), value: 'dl_speed' },
+        { text: this.$i18n.t('modals.detail.pagePeers.downloaded'), value: 'downloaded' },
+        { text: this.$i18n.t('modals.detail.pagePeers.upSpeed'), value: 'up_speed' },
+        { text: this.$i18n.t('modals.detail.pagePeers.uploaded'), value: 'uploaded' },
+        { text: this.$i18n.t('modals.detail.pagePeers.relevance'), value: 'relevance' },
+        { text: this.$i18n.t('modals.detail.pagePeers.files'), value: 'files' }
+      ]
     }
   },
   watch: {

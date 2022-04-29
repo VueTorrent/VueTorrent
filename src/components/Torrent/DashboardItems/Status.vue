@@ -6,7 +6,7 @@
     class="mr-4"
   >
     <div class="caption grey--text">
-      Status
+      {{ $t('status') }}
     </div>
     <v-chip
       small

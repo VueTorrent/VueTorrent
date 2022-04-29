@@ -2,6 +2,7 @@
   <v-flex xs6 sm2 md2>
     <div class="caption grey--text">
       Uploaded Session
+      {{ $t('torrent.uploadedSession') }}
     </div>
     <div>
       {{ torrent.uploaded_session | getDataValue }}

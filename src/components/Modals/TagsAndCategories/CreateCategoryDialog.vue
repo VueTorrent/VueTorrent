@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>{{ hasInitialCategory ? 'Edit' : 'Create New' }} Category</h3>
+          <h3>{{ hasInitialCategory ? $t('edit') : $t('createNew') }} {{ $t('category') }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
@@ -13,7 +13,7 @@
               v-model="category.name"
               :rules="nameRules"
               :counter="15"
-              label="Category name"
+              :label="$t('modals.newCategory.categoryName')"
               required
               :disabled="hasInitialCategory"
             />
@@ -21,7 +21,7 @@
               v-model="category.savePath"
               :rules="PathRules"
               :counter="40"
-              label="Path"
+              :label="$t('path')"
               required
             />
           </v-container>
@@ -34,20 +34,20 @@
           class="accent white--text elevation-0 px-4"
           @click="create"
         >
-          Create
+          {{ $t('create') }}
         </v-btn>
         <v-btn
           v-else
           class="accent white--text elevation-0 px-4"
           @click="edit"
         >
-          Edit
+          {{ $t('edit') }}
         </v-btn>
         <v-btn
           class="error white--text elevation-0 px-4"
           @click="cancel"
         >
-          Cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>
@@ -69,14 +69,14 @@ export default {
   },
   data: () => ({
     nameRules: [
-      v => !!v || 'Category name is required',
+      v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'),
       v =>
         (v && v.length <= 15) ||
-          'Category name must be less than 15 characters'
+          this.$i18n.t('modals.newCategory.tipOnNameTooLong')
     ],
     PathRules: [
-      v => !!v || 'Path is required',
-      v => (v && v.length <= 40) || 'Path must be less than 40 characters'
+      v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'),
+      v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')
     ],
     category: { name: '', savePath: '' },
     mdiCancel, mdiTagPlus, mdiPencil
