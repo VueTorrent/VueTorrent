@@ -9,7 +9,7 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Limit {{ mode }}</h3>
+          <h3>Limit {{ mode | titleCase }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
@@ -118,7 +118,7 @@ export default {
         default:
           break
       }
-      
+
       this.close()
     },
     isGlobal() {

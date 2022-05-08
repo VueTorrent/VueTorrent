@@ -359,7 +359,7 @@ const locale = {
       forceReannounce: 'Force reannounce',
       sequentialDownload: 'Sequential Download',
       firstLastPriority: 'First/Last priority',
-      autoManagement: 'Automatic Torrent Management'
+      automaticTorrentManagement: 'Automatic Torrent Management'
     },
     prio: {
       prio: 'set priority',
