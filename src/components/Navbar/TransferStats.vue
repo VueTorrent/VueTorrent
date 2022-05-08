@@ -18,22 +18,25 @@
     </v-tooltip>
     <StorageCard
       class="mb-4 mt-4"
-      :label="$t('downloaded')"
+      :label="titleCase($t('downloaded'))"
       color="download"
       :value="getDownload"
     />
-    <StorageCard :label="$t('uploaded')" color="upload" :value="getUpload" />
+    <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload" />
   </div>
 </template>
 
 <script>
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '@/components/Core/StorageCard'
+// eslint-disable-next-line no-unused-vars
+import { titleCase } from '../../filters'
+
 export default {
   name: 'TransferStats',
   components: { StorageCard },
   props: ['status', 'session'],
-  data: () => ({ 
+  data: () => ({
     mdiInformationOutline,
     sessionTitle: 'session stats',
     alltimeTitle: 'all-time stats'
@@ -50,6 +53,11 @@ export default {
     },
     getUpload() {
       return this.isSession ? this.status.sessionUploaded : this.status.alltimeUploaded
+    }
+  },
+  methods: {
+    titleCase(str) {
+      return titleCase(str)
     }
   }
 }

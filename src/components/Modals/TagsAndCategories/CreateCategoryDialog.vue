@@ -68,16 +68,6 @@ export default {
     initialCategory: Object
   },
   data: () => ({
-    nameRules: [
-      v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'),
-      v =>
-        (v && v.length <= 15) ||
-          this.$i18n.t('modals.newCategory.tipOnNameTooLong')
-    ],
-    PathRules: [
-      v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'),
-      v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')
-    ],
     category: { name: '', savePath: '' },
     mdiCancel, mdiTagPlus, mdiPencil
   }),
@@ -86,6 +76,20 @@ export default {
     hasInitialCategory() {
       return !!(this.initialCategory &&
           this.initialCategory.name)
+    },
+    nameRules() {
+      return [
+        v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'),
+        v =>
+          (v && v.length <= 15) ||
+            this.$i18n.t('modals.newCategory.tipOnNameTooLong')
+      ]
+    },
+    PathRules() {
+      return [
+        v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'),
+        v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')
+      ]
     }
   },
   created() {
