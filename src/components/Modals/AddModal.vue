@@ -87,6 +87,7 @@
                   <v-textarea
                     v-if="files.length == 0"
                     v-model="urls"
+                    style="max-height: 200px; overflow-x: hidden; overflow-y: auto"
                     :label="$t('url')"
                     :prepend-icon="mdiLink"
                     rows="1"
@@ -233,7 +234,7 @@ export default {
             if (f.type) return f.type === 'application/x-bittorrent'
             else return /^.*\.torrent$/.test(f.name)
           })
-          
+
           return result ? result : this.$i18n.t('modals.add.oneOrMoreFilesInvalidTorrent')
         }
       ],
