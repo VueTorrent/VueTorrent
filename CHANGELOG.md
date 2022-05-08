@@ -1,5 +1,18 @@
 # Changelog
 
+### [0.16.2](https://github.com/WDaan/VueTorrent/compare/v0.16.1...v0.16.2) (2022-05-08)
+
+
+### Bug Fixes
+
+* magnet text area max size [#413](https://github.com/WDaan/VueTorrent/issues/413) ([4dd81f7](https://github.com/WDaan/VueTorrent/commit/4dd81f7cd49ab807fddeb50ff2e871364fd955e5))
+
+
+### Improvements
+
+* support more translations + add Simplified Chinese translations ([#415](https://github.com/WDaan/VueTorrent/issues/415)) ([ddd28ae](https://github.com/WDaan/VueTorrent/commit/ddd28ae6192862928ef26c1e1135565f6303095b))
+* translation fixes ([#419](https://github.com/WDaan/VueTorrent/issues/419)) ([521ac58](https://github.com/WDaan/VueTorrent/commit/521ac5804a622c68d788de1f5730b0c43f49f0a1))
+
 ### [0.16.1](https://www.github.com/WDaan/VueTorrent/compare/v0.16.0...v0.16.1) (2022-04-17)
 
 
