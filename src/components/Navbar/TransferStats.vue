@@ -18,11 +18,11 @@
     </v-tooltip>
     <StorageCard
       class="mb-4 mt-4"
-      label="Downloaded"
+      :label="$t('downloaded')"
       color="download"
       :value="getDownload"
     />
-    <StorageCard label="Uploaded" color="upload" :value="getUpload" />
+    <StorageCard :label="$t('uploaded')" color="upload" :value="getUpload" />
   </div>
 </template>
 

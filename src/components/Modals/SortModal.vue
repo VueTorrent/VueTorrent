@@ -7,7 +7,7 @@
   >
     <v-card>
       <v-card-title class="justify-center primarytext--text">
-        <h2>Sort Torrents</h2>
+        <h2>{{ $t('modals.sort.title') }}</h2>
       </v-card-title>
       <v-card-text>
         <v-form class="px-6 mt-3 justify-center mx-auto">
@@ -32,7 +32,7 @@
               style="padding-left: 10px !important"
             >
               <template #label>
-                Reverse
+                {{ $t('modals.sort.reverse') }}
               </template>
             </v-switch>
           </v-container>
@@ -51,30 +51,32 @@ export default {
   data() {
     return {
       sortProperty: { value: 'added_on', name: 'Added On' },
-      reverse: true,
-      options: [
-        { value: 'added_on', name: 'Added On' },
-        { value: 'availability', name: 'Availability' },
-        { value: 'category', name: 'Category' },
-        { value: 'completed', name: 'Completed' },
-        { value: 'dlspeed', name: 'Download Speed' },
-        { value: 'downloaded', name: 'Downloaded' },
-        { value: 'eta', name: 'ETA' },
-        { value: 'name', name: 'Name' },
-        { value: 'num_leechs', name: 'Peers' },
-        { value: 'priority', name: 'Priority' },
-        { value: 'progress', name: 'Progress' },
-        { value: 'ratio', name: 'Ratio' },
-        { value: 'size', name: 'Size' },
-        { value: 'state', name: 'State' },
-        { value: 'time_active', name: 'Time Active' },
-        { value: 'uploaded', name: 'Uploaded' },
-        { value: 'upspeed', name: 'Upload Speed' }
-      ]
+      reverse: true
     }
   },
   computed: {
-    ...mapState(['sort_options'])
+    ...mapState(['sort_options']),
+    options() {
+      return [
+        { value: 'added_on', name: this.$i18n.t('modals.sort.sortBy.addedOn') },
+        { value: 'availability', name: this.$i18n.t('modals.sort.sortBy.availability') },
+        { value: 'category', name: this.$i18n.t('modals.sort.sortBy.category') },
+        { value: 'completed', name: this.$i18n.t('modals.sort.sortBy.completed') },
+        { value: 'dlspeed', name: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
+        { value: 'downloaded', name: this.$i18n.t('modals.sort.sortBy.downloaded') },
+        { value: 'eta', name: this.$i18n.t('modals.sort.sortBy.ETA') },
+        { value: 'name', name: this.$i18n.t('modals.sort.sortBy.name') },
+        { value: 'num_leechs', name: this.$i18n.t('modals.sort.sortBy.peers') },
+        { value: 'priority', name: this.$i18n.t('modals.sort.sortBy.priority') },
+        { value: 'progress', name: this.$i18n.t('modals.sort.sortBy.progress') },
+        { value: 'ratio', name: this.$i18n.t('modals.sort.sortBy.ratio') },
+        { value: 'size', name: this.$i18n.t('modals.sort.sortBy.size') },
+        { value: 'state', name: this.$i18n.t('modals.sort.sortBy.state') },
+        { value: 'time_active', name: this.$i18n.t('modals.sort.sortBy.timeActive') },
+        { value: 'uploaded', name: this.$i18n.t('modals.sort.sortBy.uploaded') },
+        { value: 'upspeed', name: this.$i18n.t('modals.sort.sortBy.uploadSpeed') }
+      ]
+    }
   },
   methods: {
     close() {

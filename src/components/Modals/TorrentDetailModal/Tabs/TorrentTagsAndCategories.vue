@@ -2,7 +2,7 @@
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
-        <v-subheader>Available Tags:</v-subheader>
+        <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderTag') }}</v-subheader>
         <v-list-item-group
           :value="activeTags"
           active-class="accent--text"
@@ -23,7 +23,7 @@
       </v-col>
 
       <v-col cols="12" md="6">
-        <v-subheader>Available Categories:</v-subheader>
+        <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
         <v-list-item-group
           :value="activeCategory"
           active-class="accent--text"

@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      Upload
+      {{ $t('upload') }}
     </div>
     <div>
       {{ torrent.upspeed | getDataValue(1) }}

@@ -4,7 +4,7 @@
       <tbody>
         <tr>
           <td :class="commonStyle">
-            Torrent title
+            {{ $t('modals.detail.pageInfo.torrentTitle') }}
           </td>
           <td>
             {{ torrent.name }}
@@ -20,7 +20,7 @@
         </tr>
         <tr style="margin-top: 10px !important">
           <td :class="commonStyle">
-            hash
+            {{ $t('modals.detail.pageInfo.hash') }}
           </td>
           <td>
             {{ torrent.hash }}
@@ -55,7 +55,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Ratio
+            {{ $t('modals.detail.pageInfo.ratio') }}
           </td>
           <td>
             {{ torrent.ratio }}
@@ -63,7 +63,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            DL Speed
+            {{ $t('modals.detail.pageInfo.downloadSpeed') }}
           </td>
           <td>
             {{ torrent.dlspeed | getDataValue }}
@@ -72,7 +72,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            UP Speed
+            {{ $t('modals.detail.pageInfo.uploadSpeed') }}
           </td>
           <td>
             {{ torrent.upspeed | getDataValue }}
@@ -81,7 +81,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            ETA
+            {{ $t('modals.detail.pageInfo.eta') }}
           </td>
           <td>
             {{ torrent.eta }}
@@ -89,7 +89,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Peers
+            {{ $t('modals.detail.pageInfo.peers') }}
           </td>
           <td>
             {{ torrent.num_leechs
@@ -98,7 +98,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Seeds
+            {{ $t('modals.detail.pageInfo.seeds') }}
           </td>
           <td>
             {{ torrent.num_seeds
@@ -115,7 +115,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Status
+            {{ $t('modals.detail.pageInfo.status') }}
           </td>
           <td>
             <v-chip
@@ -128,7 +128,7 @@
         </tr>
         <tr v-if="torrent.tracker">
           <td :class="commonStyle">
-            Trackers
+            {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
           <td>
             {{ torrent.tracker }}
@@ -136,7 +136,7 @@
         </tr>
         <tr v-if="createdBy">
           <td :class="commonStyle">
-            Created By
+            {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
           <td>
             {{ createdBy }}
@@ -153,7 +153,7 @@
 
         <tr>
           <td :class="commonStyle">
-            First/Last Piece Priority
+            {{ $t('modals.detail.pageInfo.firstLastPiecePriority') }}
           </td>
           <td>
             {{ torrent.f_l_piece_prio }}
@@ -161,7 +161,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Sequential Download
+            {{ $t('modals.detail.pageInfo.sequentialDownload') }}
           </td>
           <td>
             {{ torrent.seq_dl }}
@@ -169,7 +169,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Auto TMM
+            {{ $t('modals.detail.pageInfo.autoTMM') }}
           </td>
           <td>
             {{ torrent.auto_tmm }}
@@ -177,7 +177,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Share Ratio Limit
+            {{ $t('modals.detail.pageInfo.shareRatioLimit') }}
           </td>
           <td>
             {{ torrent.ratio_limit | limitToValue }}
@@ -185,7 +185,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Share Time Limit (minutes)
+            {{ $t('modals.detail.pageInfo.shareTimeLimit') }}
           </td>
           <td>
             {{ torrent.ratio_time_limit | limitToValue }}
@@ -193,7 +193,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Download Limit
+            {{ $t('modals.detail.pageInfo.downloadLimit') }}
           </td>
           <td v-if="torrent.dl_limit > 0">
             {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}<span>/s </span>
@@ -204,7 +204,7 @@
         </tr>
         <tr>
           <td :class="commonStyle">
-            Upload Limit
+            {{ $t('modals.detail.pageInfo.uploadLimit') }}
           </td>
           <td v-if="torrent.up_limit > 0">
             {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}<span>/s </span>

@@ -87,7 +87,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Force recheck
+            {{ $t('rightClick.advanced.forceRecheck') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="reannounce">
@@ -96,7 +96,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Force reannounce
+            {{ $t('rightClick.advanced.forceReannounce') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleSeq">
@@ -105,7 +105,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Sequential Download
+            {{ $t('rightClick.advanced.sequentialDownload') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleFL">
@@ -114,7 +114,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            First/Last priority
+            {{ $t('rightClick.advanced.firstLastPriority') | titleCase }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleAutoTMM">
@@ -123,7 +123,7 @@
             class="ml-2"
             style="font-size: 1em"
           >
-            Auto TMM
+            {{ $t('rightClick.advanced.automaticTorrentManagement') | titleCase }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -223,19 +223,19 @@
         <v-list-item @click="setLimit('download')">
           <v-icon>{{ mdiChevronDown }}</v-icon>
           <v-list-item-title class="ml-2">
-            Download
+            {{ $t('download') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item @click="setLimit('upload')">
           <v-icon>{{ mdiChevronUp }}</v-icon>
           <v-list-item-title class="ml-2">
-            Upload
+            {{ $t('upload') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item @click="setShareLimit()">
           <v-icon>{{ mdiAccountGroup }}</v-icon>
           <v-list-item-title class="ml-2">
-            Share
+            {{ $t('share') }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -266,19 +266,19 @@
         <v-list-item @click="copyToClipBoard(torrent.name)">
           <v-icon>{{ mdiContentCopy }}</v-icon>
           <v-list-item-title class="ml-2">
-            Name
+            {{ $t('name') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item @click="copyToClipBoard(torrent.hash)">
           <v-icon>{{ mdiContentCopy }}</v-icon>
           <v-list-item-title class="ml-2">
-            Hash
+            {{ $t('hash') }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item @click="copyToClipBoard(torrent.magnet)">
           <v-icon>{{ mdiMagnet }}</v-icon>
           <v-list-item-title class="ml-2">
-            Magnet
+            {{ $t('magnet') }}
           </v-list-item-title>
         </v-list-item>
       </v-list>

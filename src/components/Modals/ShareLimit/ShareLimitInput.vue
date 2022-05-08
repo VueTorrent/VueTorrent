@@ -9,7 +9,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            label="Use global limit"
+            :label="$t('modals.shareLimit.input.globalLimit')"
             @change="disableUnlimited"
           />
         </v-col>
@@ -23,7 +23,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            label="Unlimited"
+            :label="$t('modals.shareLimit.input.unlimited')"
             @change="disabledGlobal"
           />
         </v-col>

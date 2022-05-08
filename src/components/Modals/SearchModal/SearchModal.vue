@@ -8,7 +8,7 @@
   >
     <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
       <v-card-title class="justify-center">
-        <h2>Search</h2>
+        <h2>{{ $t('modals.search.title') }}</h2>
       </v-card-title>
       <v-card-text class="pa-0">
         <v-form
@@ -35,7 +35,7 @@
                 :color="loading ? 'warning' : 'primary'"
                 @click="loading ? stopSearch() : startSearch()"
               >
-                {{ loading ? "Stop" : "Search" }}
+                {{ loading ? $t('modals.search.btnStopSearch') : $t('modals.search.btnStartSearch') }}
               </v-btn>
             </v-col>
           </v-flex>
@@ -106,12 +106,12 @@ export default {
       loading: false,
       grid: {
         headers: [
-          { text: 'Name', value: 'fileName' },
-          { text: 'Size', value: 'fileSize' },
-          { text: 'Seeds', value: 'nbSeeders' },
-          { text: 'Peers', value: 'nbLeechers' },
-          { text: 'Search_engine', value: 'siteUrl' },
-          { text: 'Action', value: 'actions', sortable: false }
+          { text: this.$i18n.t('modals.search.columnTitle.name'), value: 'fileName' },
+          { text: this.$i18n.t('modals.search.columnTitle.size'), value: 'fileSize' },
+          { text: this.$i18n.t('modals.search.columnTitle.seeds'), value: 'nbSeeders' },
+          { text: this.$i18n.t('modals.search.columnTitle.peers'), value: 'nbLeechers' },
+          { text: this.$i18n.t('modals.search.columnTitle.search_engine'), value: 'siteUrl' },
+          { text: this.$i18n.t('modals.search.columnTitle.action'), value: 'actions', sortable: false }
         ]
       },
       searchForm: {

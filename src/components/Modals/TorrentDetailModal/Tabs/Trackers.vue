@@ -120,16 +120,6 @@ export default {
   props: { hash: String, isActive: Boolean },
   data: () => ({
     trackerDialog: false,
-    headers: [
-      { text: '#', value: 'tier' },
-      { text: 'URL', value: 'url' },
-      { text: 'Status', value: 'status' },
-      { text: 'Peers', value: 'num_peers' },
-      { text: 'Seeds', value: 'num_seeds' },
-      { text: 'Leeches', value: 'num_leeches' },
-      { text: 'Downloaded', value: 'num_downloaded' },
-      { text: 'Message', value: 'msg' }
-    ],
     tempTrackers: [],
     newTrackers: '',
     selectedTrackers: []
@@ -137,6 +127,18 @@ export default {
   computed: {
     trackers() {
       return this.tempTrackers.map(x => ({ ...x, isSelectable: typeof x.tier === 'number' }))
+    },
+    headers() {
+      return [
+        { text: '#', value: 'tier' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.url'), value: 'url' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.status'), value: 'status' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.peers'), value: 'num_peers' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.seeds'), value: 'num_seeds' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.leeches'), value: 'num_leeches' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.downloaded'), value: 'num_downloaded' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.message'), value: 'msg' }
+      ]
     }
   },
   watch: {

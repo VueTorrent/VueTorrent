@@ -1,14 +1,14 @@
 <template>
   <div class="mt-1">
     <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      Status
+      {{ $t('status') }}
     </label>
     <v-select
       name="state_filter"
       aria-label="state_filter"
       :value="selectedState"
       class="ml-2 mr-2"
-      label="STATUS"
+      :label="$t('status')"
       flat
       solo
       :items="options"
@@ -27,7 +27,7 @@
       flat
       solo
       class="ml-2 mr-2"
-      label="CATEGORIES"
+      :label="$t('category')"
       :items="availableCategories"
       item-text="name"
       color="download"
@@ -63,20 +63,6 @@ export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
   data: () => ({
-    options: [
-      { value: null, name: 'All' },
-      { value: 'downloading', name: 'Downloading' },
-      { value: 'seeding', name: 'Seeding' },
-      { value: 'completed', name: 'Completed' },
-      { value: 'resumed', name: 'Resumed' },
-      { value: 'paused', name: 'Paused' },
-      { value: 'active', name: 'Active' },
-      { value: 'inactive', name: 'Inactive' },
-      { value: 'stalled', name: 'Stalled' },
-      { value: 'stalled_uploading', name: 'Stalled Uploading' },
-      { value: 'stalled_downloading', name: 'Stalled Downloading' },
-      { value: 'errored', name: 'Errored' }
-    ],
     selectedState: null,
     selectedCategory: null,
     selectedTracker: null
@@ -84,6 +70,22 @@ export default {
   computed: {
     ...mapGetters(['getCategories', 'getTrackers']),
     ...mapState(['sort_options']),
+    options() {
+      return [
+        { value: null, name: this.$i18n.t('all') },
+        { value: 'downloading', name: this.$i18n.t('downloading') },
+        { value: 'seeding', name: this.$i18n.t('seeding') },
+        { value: 'completed', name: this.$i18n.t('completed') },
+        { value: 'resumed', name: this.$i18n.t('resumed') },
+        { value: 'paused', name: this.$i18n.t('paused') },
+        { value: 'active', name: this.$i18n.t('active') },
+        { value: 'inactive', name: this.$i18n.t('inactive') },
+        { value: 'stalled', name: this.$i18n.t('stalled') },
+        { value: 'stalled_uploading', name: this.$i18n.t('navbar.filters.stalled_uploading') },
+        { value: 'stalled_downloading', name: this.$i18n.t('navbar.filters.stalled_downloading') },
+        { value: 'errored', name: this.$i18n.t('errored') }
+      ]
+    },
     availableCategories() {
       const categories = [
         { name: 'All', value: null },

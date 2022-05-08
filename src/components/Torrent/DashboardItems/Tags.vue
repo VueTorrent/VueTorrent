@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="torrent.tags && torrent.tags.length" xs6 sm2>
     <div class="caption grey--text">
-      Tags
+      {{ $t('tags') }}
     </div>
     <v-row wrap class="ma-0">
       <v-chip

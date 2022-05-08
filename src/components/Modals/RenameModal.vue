@@ -9,7 +9,7 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Rename</h3>
+          <h3>{{ $t('modals.rename.title') }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
@@ -21,7 +21,7 @@
                 rows="1"
                 auto-grow
                 clearable
-                label="Torrent Name"
+                :label="$t('modals.rename.torrentName')"
                 :prepend-inner-icon="mdiFile"
               />
             </v-col>
@@ -42,13 +42,13 @@
           class="accent white--text elevation-0 px-4"
           @click="rename"
         >
-          save
+          {{ $t('save') }}
         </v-btn>
         <v-btn
           class="error white--text elevation-0 px-4"
           @click="close"
         >
-          cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>

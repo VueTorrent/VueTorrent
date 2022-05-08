@@ -1,12 +1,12 @@
 <template>
   <v-card flat>
-    <v-subheader>When adding a torrent</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderWhenAddTorrent') }}</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.create_subfolder_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Create subfolder for torrents with multiple files"
+        :label="$t('modals.settings.pageDownloads.whenAddTorrent.createSubFolder')"
       />
     </v-list-item>
     <v-list-item>
@@ -14,17 +14,17 @@
         v-model="settings.start_paused_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Do not start the download automatically"
+        :label="$t('modals.settings.pageDownloads.whenAddTorrent.donotAutoStart')"
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>Public Settings</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderPublicSettings') }}</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.preallocate_all"
         hide-details
         class="ma-0 pa-0"
-        label="Pre-allocate disk space for all files"
+        :label="$t('modals.settings.pageDownloads.publicSettings.preAllocateDisk')"
       />
     </v-list-item>
     <v-list-item>
@@ -32,17 +32,17 @@
         v-model="settings.incomplete_files_ext"
         hide-details
         class="ma-0 pa-0"
-        label="Append .!qB extension to incomplete files"
+        :label="$t('modals.settings.pageDownloads.publicSettings.appendQBExtension')"
       />
     </v-list-item>
     <v-divider insert />
-    <v-subheader>Saving Management</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderSaveManagement') }}</v-subheader>
     <v-list-item>
       <v-checkbox
         v-model="settings.auto_tmm_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Automatic Torrent Management"
+        :label="$t('modals.settings.pageDownloads.saveManagement.autoManagement')"
       />
     </v-list-item>
     <v-list-item class="mb-2">
@@ -50,7 +50,7 @@
         v-model="settings.save_path_changed_tmm_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Relocate Torrent when category changes"
+        :label="$t('modals.settings.pageDownloads.saveManagement.relocate')"
       />
     </v-list-item>
     <v-list-item class="mb-2">
@@ -59,7 +59,7 @@
         class="mb-2"
         outlined
         dense
-        label="Default Save Path"
+        :label="$t('modals.settings.pageDownloads.saveManagement.defaultSavePath')"
         hide-details
       />
     </v-list-item>
@@ -68,7 +68,7 @@
         v-model="settings.temp_path_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Keep incomplete torrents in:"
+        :label="$t('modals.settings.pageDownloads.saveManagement.keepIncompleteIn')"
       />
     </v-list-item>
     <v-list-item v-if="settings.temp_path_enabled">
@@ -85,7 +85,7 @@
         v-model="settings.autorun_enabled"
         hide-details
         class="ma-0 pa-0"
-        label="Autorun enabled:"
+        :label="$t('modals.settings.pageDownloads.saveManagement.autoEnabled')"
       />
     </v-list-item>
     <v-list-item v-if="settings.autorun_enabled">
@@ -94,25 +94,25 @@
         class="mb-2"
         outlined
         dense
-        label="Autorun program"
+        :label="$t('modals.settings.pageDownloads.saveManagement.autorunProgram')"
         hide-details
       />
     </v-list-item>
     <v-list-item v-if="settings.autorun_enabled" class="mb-4">
       <v-card flat color="grey--text selected">
         <v-card-text>
-          <h5>Supported parameters (case sensitive):</h5>
+          <h5>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamTitle') }}</h5>
           <ul>
-            <li>%N: Torrent name </li>
-            <li>%L: Category</li>
-            <li>%G: Tags (separated by comma)</li>
-            <li>%F: Content path (same as root path for multi-file torrent)</li>
-            <li>%R: Root path (first torrent subdirectory path)</li>
-            <li>%D: Save path</li>
-            <li>%C: Number of files</li>
-            <li>%Z: Torrent size (bytes)</li>
-            <li>%T: Current tracker</li>
-            <li>%I: Info hash</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamN') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamL') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamG') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamF') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamR') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamD') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamC') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamZ') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamT') }}</li>
+            <li>{{ $t('modals.settings.pageDownloads.saveManagement.supportParamI') }}</li>
           </ul>
         </v-card-text>
       </v-card>

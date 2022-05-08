@@ -15,7 +15,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Log Out</span>
+        <span>{{ $t('logout') }}</span>
       </v-tooltip>
     </v-col>
     <v-col>
@@ -33,7 +33,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Alt speeds</span>
+        <span>{{ $t('navbar.action.altSpeed') }}</span>
       </v-tooltip>
     </v-col>
     <v-col>
@@ -95,7 +95,7 @@ export default {
       return this.getWebuiSettings()
     },
     theme() {
-      return this.getTheme() ? 'Dark' : 'Light'
+      return this.getTheme() ? this.$i18n.t('navbar.action.dark') : this.$i18n.t('navbar.action.light')
     },
     alarm() {
       return this.getAlarm()

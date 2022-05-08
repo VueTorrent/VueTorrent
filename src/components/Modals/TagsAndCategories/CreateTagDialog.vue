@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Create New Tag</h3>
+          <h3>{{ $t('modals.newTag.createNewTag') }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
@@ -13,7 +13,7 @@
               v-model="tagname"
               :rules="rules"
               :counter="10"
-              label="Tag name"
+              :label="$t('modals.newTag.tagName')"
               required
             />
           </v-container>
@@ -25,13 +25,13 @@
           class="accent white--text elevation-0 px-4"
           @click="create"
         >
-          Create
+          {{ $t('create') }}
         </v-btn>
         <v-btn
           class="error white--text elevation-0 px-4"
           @click="cancel"
         >
-          Cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>
