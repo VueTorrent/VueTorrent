@@ -52,7 +52,7 @@ const locale = {
     downloaded: '已下載',
     uploaded: '已上載',
     created: '製作程式',
-    comments: '註解'
+    comments: '註解',
     uploadedSession: '上傳會話',
     torrentTitle: '種子標題'
   },
@@ -290,7 +290,7 @@ const locale = {
     },
     add: {
       title: '新增種子',
-      selectFiles: '選擇檔案'
+      selectFiles: '選擇檔案',
       urlHint: '每行一個連結',
       downloadDirectory: '下載目錄',
       starttorrent: '新增後開始',
@@ -354,7 +354,7 @@ const locale = {
     advanced: {
       advanced: '進階',
       changeLocation: '修改儲存位置',
-      rename: '重新命名'
+      rename: '重新命名',
       forceRecheck: '強制重新檢查',
       forceReannounce: '強制重新發佈',
       sequentialDownload: '順序下載',
