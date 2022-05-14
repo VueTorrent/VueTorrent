@@ -20,7 +20,7 @@
                 v-model="limit"
                 autofocus
                 clearable
-                label="$t('modals.speedLimit.speedLimit')"
+                :label="$t('modals.speedLimit.speedLimit')"
                 :prepend-inner-icon="mdiSpeedometer"
                 suffix="KB/s"
                 @focus="$event.target.select()"
