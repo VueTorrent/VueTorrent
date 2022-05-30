@@ -242,6 +242,7 @@ const locale = {
       tabTitleContent: 'Content',
       tabTitleTagsCategories: 'Tags & Categories',
       pageInfo: {
+        pieceStates: 'Progress',
         torrentTitle: 'Torrent title',
         hash: 'hash',
         ratio: 'Ratio',
