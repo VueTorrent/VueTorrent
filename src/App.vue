@@ -37,6 +37,7 @@ export default {
     this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
     this.$store.commit('SET_LANGUAGE')
     this.checkAuthentication()
+    this.blockContextMenu()
   },
   methods: {
     async checkAuthentication() {
@@ -50,6 +51,20 @@ export default {
 
       this.$store.commit('LOGIN', false)
       if (!this.onLoginPage) return this.$router.push('login')
+    },
+    blockContextMenu() {
+      document.addEventListener('contextmenu', event => {
+        if (!event.target) return
+        const nodeName = event.target.nodeName.toLowerCase()
+        const nodeType = event.target.getAttribute('type')
+
+        if (nodeName === 'textarea') return
+        if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
+
+        event.preventDefault()
+
+        return false
+      })
     }
   }
 }
