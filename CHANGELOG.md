@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.17.0](https://github.com/WDaan/VueTorrent/compare/v0.16.3...v0.17.0) (2022-06-05)
+
+
+### Features
+
+* add dialog missing options [#418](https://github.com/WDaan/VueTorrent/issues/418) ([68223f5](https://github.com/WDaan/VueTorrent/commit/68223f5f45da3a4819b43398707fed1e172468e8))
+* piece states progress bar ([#426](https://github.com/WDaan/VueTorrent/issues/426)) ([1722a14](https://github.com/WDaan/VueTorrent/commit/1722a14dba74dafca3b373d50c6dcd94814ab074))
+
+
+### Bug Fixes
+
+* allow native context menu in input elements ([#428](https://github.com/WDaan/VueTorrent/issues/428)) ([b8ad965](https://github.com/WDaan/VueTorrent/commit/b8ad965763fd647b230f7fcbd9798d182cefd762))
+* load default folder [#417](https://github.com/WDaan/VueTorrent/issues/417) ([c63d0a4](https://github.com/WDaan/VueTorrent/commit/c63d0a403939c99a442a10563789cb8753d67771))
+
 ### [0.16.3](https://github.com/WDaan/VueTorrent/compare/v0.16.2...v0.16.3) (2022-05-14)
 
 
