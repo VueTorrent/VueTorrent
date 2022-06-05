@@ -147,6 +147,20 @@
                     hide-details
                   />
                 </v-flex>
+                <v-flex xs12 sm6>
+                  <v-checkbox
+                    v-model="sequentialDownload"
+                    :label="$t('rightClick.advanced.sequentialDownload')"
+                    hide-details
+                  />
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-checkbox
+                    v-model="firstLastPiecePrio"
+                    :label="$t('rightClick.advanced.firstLastPriority')"
+                    hide-details
+                  />
+                </v-flex>
               </v-row>
             </v-container>
           </v-form>
@@ -212,6 +226,7 @@ import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 import { mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
+
 export default {
   name: 'AddModal',
   mixins: [Modal, FullScreenModal],
@@ -228,6 +243,8 @@ export default {
       skip_checking: false,
       root_folder: true,
       autoTMM: true,
+      sequentialDownload: false,
+      firstLastPiecePrio: false,
       fileInputRules: [
         v => {
           const result = v.every(f => {
@@ -308,7 +325,9 @@ export default {
           paused: !this.start,
           skip_checking: this.skip_checking,
           root_folder: this.root_folder,
-          autoTMM: this.autoTMM
+          autoTMM: this.autoTMM,
+          sequentialDownload: this.sequentialDownload,
+          firstLastPiecePrio: this.firstLastPiecePrio
         }
         if (this.files.length) torrents.push(...this.files)
         if (this.urls) params.urls = this.urls
@@ -343,6 +362,7 @@ export default {
 .wrap-drag {
   pointer-events: none;
 }
+
 .wrap-drag .align {
   margin: -.5em 0 0;
   position: absolute;
