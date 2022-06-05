@@ -16,7 +16,7 @@ const locale = {
   unknown: 'unknown',
   status: 'Status',
   all: 'All',
-  downloading: 'downloading',
+  downloading: 'Downloading',
   seeding: 'Seeding',
   completed: 'Completed',
   resumed: 'Resumed',
