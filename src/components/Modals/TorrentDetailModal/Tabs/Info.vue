@@ -4,18 +4,18 @@
       <tbody>
         <tr>
           <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.pieceStates') }}
-          </td>
-          <td id="pieceStates">
-            <canvas width="0" height="1" />
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.torrentTitle') }}
           </td>
           <td>
             {{ torrent.name }}
+          </td>
+        </tr>
+        <tr>
+          <td :class="commonStyle">
+            {{ $t('modals.detail.pageInfo.pieceStates') }}
+          </td>
+          <td id="pieceStates">
+            <canvas width="0" height="1" />
           </td>
         </tr>
         <tr>
