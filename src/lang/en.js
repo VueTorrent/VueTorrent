@@ -1,6 +1,6 @@
 const locale = {
   /** General */
-  category: 'category',
+  category: 'Category',
   settings: 'settings',
   pause: 'pause',
   delete: 'delete',
@@ -16,7 +16,7 @@ const locale = {
   unknown: 'unknown',
   status: 'Status',
   all: 'All',
-  downloading: 'downloading',
+  downloading: 'Downloading',
   seeding: 'Seeding',
   completed: 'Completed',
   resumed: 'Resumed',
@@ -27,9 +27,9 @@ const locale = {
   errored: 'Errored',
   login: 'Login in',
   logout: 'Log out',
-  downloaded: 'downloaded',
-  uploaded: 'uploaded',
-  upload: 'upload',
+  downloaded: 'Downloaded',
+  uploaded: 'Uploaded',
+  upload: 'Upload',
   download: 'Download',
   ETA: 'ETA',
   peers: 'Peers',
@@ -38,7 +38,7 @@ const locale = {
   tags: 'Tags',
   share: 'Share',
   name: 'Name',
-  hash: 'Hase',
+  hash: 'Hash',
   magnet: 'Magnet',
 
   /** Torrent */
