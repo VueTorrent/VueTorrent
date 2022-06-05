@@ -23,5 +23,11 @@ export default {
     Vue.$toast.error(i18n.t('toast.loginFailed'))
 
     return false
+  },
+  FETCH_SETTINGS: async context => {
+    const { data } = await qbit.getAppPreferences()
+    context.commit('FETCH_SETTINGS', data)
+
+    return data
   }
 }

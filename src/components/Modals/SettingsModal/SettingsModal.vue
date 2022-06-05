@@ -114,7 +114,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('FETCH_SETTINGS')
+    this.$store.dispatch('FETCH_SETTINGS')
   },
   methods: {
     close() {

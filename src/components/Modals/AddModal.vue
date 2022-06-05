@@ -282,8 +282,6 @@ export default {
     }
   },
   created() {
-    this.$store.commit('FETCH_SETTINGS')
-    this.$store.commit('FETCH_CATEGORIES')
     this.urls = this.initialMagnet
     this.setSettings()
     if (this.openSuddenly == true) {
@@ -294,11 +292,15 @@ export default {
     this.dTransition = 'scale-transition'
   },
   methods: {
-    setSettings() {
+    async setSettings() {
+      await this.$store.dispatch('FETCH_SETTINGS')
+      await this.$store.commit('FETCH_CATEGORIES')
       const settings = this.getSettings()
+      console.log(settings)
       this.start = !settings.start_paused_enabled
       this.autoTMM = settings.auto_tmm_enabled
       this.root_folder = settings.create_subfolder_enabled
+      this.directory = settings.save_path
     },
     addDropFile(e) {
       this.showWrapDrag = false

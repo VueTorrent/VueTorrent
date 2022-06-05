@@ -65,9 +65,8 @@ export default {
     Torrents.update(data)
     DocumentTitle.update()
   },
-  FETCH_SETTINGS: async state => {
-    const { data } = await qbit.getAppPreferences()
-    state.settings = data
+  FETCH_SETTINGS: async (state, settings) => {
+    state.settings = settings
   },
   UPDATE_SORT_OPTIONS: (state, {
     hashes = [],
