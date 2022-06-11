@@ -14,7 +14,8 @@
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.pieceStates') }}
           </td>
-          <td id="pieceStates">
+          <td id="pieceStates" class="d-flex">
+            <span class="mr-2 align-center d-flex"> {{ torrent.progress }}% </span>
             <canvas width="0" height="1" />
           </td>
         </tr>
@@ -110,7 +111,7 @@
           </td>
           <td>
             {{ torrent.num_seeds
-            }}<span cla:class="commonStyle">/{{ torrent.available_seeds }}</span>
+            }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
           </td>
         </tr>
         <tr>
@@ -338,7 +339,8 @@ export default {
 
   canvas {
     height: 100%;
-    width: 100%;
+    width: 95%;
+    border: 1px dotted;
   }
 }
 </style>
