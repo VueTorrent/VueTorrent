@@ -78,7 +78,11 @@ $sideborder-margin: 6px;
 
 .v-application a {
     color: inherit !important;
-}  
+}
+
+:root {
+  color-scheme: dark
+}
 
 .noselect {
     -webkit-touch-callout: none; /* iOS Safari */

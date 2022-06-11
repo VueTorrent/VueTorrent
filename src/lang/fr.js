@@ -245,7 +245,7 @@ const locale = {
         pieceStates: 'Progrès',
         torrentTitle: 'Titre du torrent',
         hash: 'hash',
-          ratio: 'Ratio',
+        ratio: 'Ratio',
         downloadSpeed: 'Vitesse de DL',
         uploadSpeed: 'Vitesse d\'UP',
         eta: 'ETA',
