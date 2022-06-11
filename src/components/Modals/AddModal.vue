@@ -272,7 +272,7 @@ export default {
     savepath() {
       let savePath = this.getSettings().save_path
       if (this.category) {
-        savePath = this.category.savePath
+        savePath = this.category.save_path
       }
 
       return savePath
@@ -296,11 +296,10 @@ export default {
       await this.$store.dispatch('FETCH_SETTINGS')
       await this.$store.commit('FETCH_CATEGORIES')
       const settings = this.getSettings()
-      console.log(settings)
       this.start = !settings.start_paused_enabled
       this.autoTMM = settings.auto_tmm_enabled
       this.root_folder = settings.create_subfolder_enabled
-      this.directory = settings.save_path
+      this.directory = this.savepath
     },
     addDropFile(e) {
       this.showWrapDrag = false
@@ -344,7 +343,7 @@ export default {
       }
     },
     categoryChanged() {
-      if (this.autoTMM) this.directory = this.savepath
+      this.directory = this.savepath
     },
     resetForm() {
       this.url = null
