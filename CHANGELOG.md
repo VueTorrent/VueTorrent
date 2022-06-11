@@ -1,5 +1,20 @@
 # Changelog
 
+### [0.17.1](https://github.com/WDaan/VueTorrent/compare/v0.17.0...v0.17.1) (2022-06-11)
+
+
+### Bug Fixes
+
+* add progress border + percentage [#430](https://github.com/WDaan/VueTorrent/issues/430) ([acc0733](https://github.com/WDaan/VueTorrent/commit/acc07335d31b027cd7ca989959c6d450a957010e))
+* category download folder [#435](https://github.com/WDaan/VueTorrent/issues/435) ([5a0ec26](https://github.com/WDaan/VueTorrent/commit/5a0ec26ddb7b9c7fc1a03102684fd2268b2ae33f))
+* non-capital words ([#432](https://github.com/WDaan/VueTorrent/issues/432)) ([ce1e7c3](https://github.com/WDaan/VueTorrent/commit/ce1e7c3546c150243fede941bd8b4b724e4a5c27))
+* white scrollbar [#433](https://github.com/WDaan/VueTorrent/issues/433) ([db86506](https://github.com/WDaan/VueTorrent/commit/db86506c5e493e2bb69e441e56d86d78667df54b))
+
+
+### Improvements
+
+* complete French translation ([#438](https://github.com/WDaan/VueTorrent/issues/438)) ([3a8ec90](https://github.com/WDaan/VueTorrent/commit/3a8ec90ca20dd20bf22d4af468031d347de7f686))
+
 ## [0.17.0](https://github.com/WDaan/VueTorrent/compare/v0.16.3...v0.17.0) (2022-06-05)
 
 
