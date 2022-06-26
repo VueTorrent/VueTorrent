@@ -31,6 +31,9 @@
               <v-tab class="white--text" href="#bittorrent">
                 <h4>{{ $t('modals.settings.tabName.bittorrent') }}</h4>
               </v-tab>
+              <v-tab class="white--text" href="#rss">
+                <h4>{{ $t('modals.settings.tabName.rss') }}</h4>
+              </v-tab>
               <v-tab class="white--text" href="#webui">
                 <h4>{{ $t('modals.settings.tabName.webUI') }}</h4>
               </v-tab>
@@ -61,6 +64,9 @@
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
             <TagsAndCategories :is-active="tab === 'tagsAndCategories'" />
+          </v-tab-item>
+          <v-tab-item eager value="rss">
+            <Rss :is-active="tab === 'rss'" />
           </v-tab-item>
         </v-tabs-items>
       </v-card-text>
@@ -93,12 +99,13 @@ import {
   Downloads,
   VueTorrent,
   TagsAndCategories,
+  Rss,
   Connection
 } from './Tabs'
 
 export default {
   name: 'SettingsModal',
-  components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection },
+  components: { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection, Rss },
   mixins: [Modal, FullScreenModal, SettingsTab],
   data() {
     return {

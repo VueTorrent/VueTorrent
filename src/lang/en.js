@@ -106,6 +106,7 @@ const locale = {
         downloads: 'downloads',
         connection: 'connection',
         bittorrent: 'bittorrent',
+        rss: 'Rss',
         webUI: 'WEB UI',
         tagsAndCategories: 'tags & categories'
       },
@@ -190,6 +191,12 @@ const locale = {
         subHeaderSeedLimits: 'Seed Limits',
         whenRatioReaches: 'When ratio reaches',
         whenSeedingTimeReaches: 'When seeding time reaches'
+      },
+      pageRss: {
+        rssAutoDownloader: 'RSS Torrent Auto Downloader',
+        input: {
+          enableRSS: 'Enable auto downloading of RSS torrents'
+        }
       },
       pageWebUI: {
         useAlternativeWebUI: 'Use Alternative WebUI',
