@@ -9,7 +9,7 @@
               <v-list-item-title v-text="item.name" />
             </v-list-item-content>
             <v-list-item-action>
-              <v-icon color="red" @click="deleteFeed(item.uid)">
+              <v-icon color="red" @click="deleteFeed(item)">
                 {{ mdiDelete }}
               </v-icon>
             </v-list-item-action>
@@ -55,7 +55,7 @@ export default {
       this.$store.commit('FETCH_FEEDS')
     },
     deleteFeed(item) {
-      qbit.deleteFeed(item)
+      qbit.deleteFeed(item.name)
       this.$store.commit('FETCH_CATEGORIES')
     },
     createFeed() {

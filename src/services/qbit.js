@@ -160,6 +160,12 @@ class Qbit {
     return this.axios.get('/rss/items').then(res => res.data)
   }  
 
+  deleteFeed(name) {
+    return this.execute('post', 'rss/removeItem', {
+      path: name
+    })
+  }
+
   // Post
 
   addTorrents(params, torrents) {
