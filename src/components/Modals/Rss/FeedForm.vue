@@ -10,14 +10,6 @@
         <v-form ref="feedForm" class="px-6 mt-3">
           <v-container>
             <v-text-field
-              v-model="feed.name"
-              :rules="nameRules"
-              :counter="15"
-              :label="$t('modals.newFeed.feedName')"
-              required
-              :disabled="hasInitialFeed"
-            />
-            <v-text-field
               v-model="feed.url"
               :label="$t('modals.newFeed.url')"
               required
@@ -66,7 +58,7 @@ export default {
     initialFeed: Object
   },
   data: () => ({
-    feed: { name: '', savePath: '' },
+    feed: { url: '' },
     mdiCancel, mdiTagPlus, mdiPencil
   }),
   computed: {
@@ -74,21 +66,7 @@ export default {
     hasInitialFeed() {
       return !!(this.initialFeed &&
           this.initialFeed.name)
-    },
-    nameRules() {
-      return [
-        v => !!v || this.$i18n.t('modals.newFeed.tipOnNoName'),
-        v =>
-          (v && v.length <= 15) ||
-            this.$i18n.t('modals.newFeed.tipOnNameTooLong')
-      ]
     }
-    // urlRules() {
-    //   return [
-    //     v => !!v || this.$i18n.t('modals.newFeed.tipOnNoPath'),
-    //     v => (v && v.length <= 40) || this.$i18n.t('modals.newFeed.TipOnPathTooLong')
-    //   ]
-    // }
   },
   created() {
     this.$store.commit('FETCH_FEEDS')
@@ -98,7 +76,7 @@ export default {
   },
   methods: {
     create() {
-      qbit.createfeed(this.feed)
+      qbit.createFeed(this.feed)
       this.cancel()
     },
     cancel() {

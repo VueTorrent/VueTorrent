@@ -156,6 +156,20 @@ class Qbit {
 
   // RSS
 
+  createFeed(feed) {
+    return this.execute('post', '/rss/addFeed', { 
+      url: feed.url,
+      path: feed.url
+    })
+  }
+
+  createRule(ruleName, defs) {
+    this.execute('post', '/rss/setRule', {
+      ruleName: ruleName,
+      ruleDef: defs
+    })
+  }
+
   getFeeds() {
     return this.axios.get('/rss/items').then(res => res.data)
   }
