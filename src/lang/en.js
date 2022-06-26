@@ -88,6 +88,12 @@ const locale = {
       feedName: 'Name',
       url: 'URL'
     },
+    newRule: {
+      name: 'Name',
+      def: {
+        mustContain: 'Must Contain'
+      }
+    },
     pluginManager: {
       title: 'Plugin manager'
     },
@@ -372,7 +378,8 @@ const locale = {
     loginFailed: 'Login failed 😕',
     settingsSaved: 'Settings saved successfully!',
     categorySaved: 'Category edited successfully!',
-    feedSaved: 'Feed saved successfully!'
+    feedSaved: 'Feed saved successfully!',
+    ruleSaved: 'Rule saved!'
   },
 
   /** RightClick **/

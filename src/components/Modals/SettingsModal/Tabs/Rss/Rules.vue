@@ -62,7 +62,7 @@ export default {
       this.$store.commit('FETCH_RULES')
     },
     createRule() {
-      this.createModal('CreateRuleDialog')
+      this.createModal('RuleForm')
     }
   }
 }
