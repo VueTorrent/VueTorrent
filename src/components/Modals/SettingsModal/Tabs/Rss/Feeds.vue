@@ -56,7 +56,7 @@ export default {
     },
     deleteFeed(item) {
       qbit.deleteFeed(item.name)
-      this.$store.commit('FETCH_CATEGORIES')
+      this.$store.commit('FETCH_FEEDS')
     },
     createFeed() {
       this.createModal('CreateFeedDialog')
