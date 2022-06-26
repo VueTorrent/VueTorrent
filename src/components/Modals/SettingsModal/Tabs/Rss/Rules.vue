@@ -36,8 +36,11 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { mdiDelete } from '@mdi/js'
 
+import { Tab, General, FullScreenModal } from '@/mixins'
+
 export default {
   name: 'Rules',
+  mixins: [Tab, General, FullScreenModal],
   data: () => ({
     mdiDelete
   }),

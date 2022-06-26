@@ -84,6 +84,10 @@ const locale = {
 
   /** Modals */
   modals: {
+    newFeed: {
+      feedName: 'Name',
+      url: 'URL'
+    },
     pluginManager: {
       title: 'Plugin manager'
     },
@@ -367,7 +371,8 @@ const locale = {
     loginSuccess: 'Successfully logged in! 🎉',
     loginFailed: 'Login failed 😕',
     settingsSaved: 'Settings saved successfully!',
-    categorySaved: 'Category edited successfully!'
+    categorySaved: 'Category edited successfully!',
+    feedSaved: 'Feed saved successfully!'
   },
 
   /** RightClick **/

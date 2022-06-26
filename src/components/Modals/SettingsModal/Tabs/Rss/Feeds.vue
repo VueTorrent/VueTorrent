@@ -36,8 +36,11 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { mdiDelete } from '@mdi/js'
 
+import { Tab, General, FullScreenModal } from '@/mixins'
+
 export default {
   name: 'Feeds',
+  mixins: [Tab, General, FullScreenModal],
   data: () => ({
     mdiDelete
   }),
@@ -59,7 +62,7 @@ export default {
       this.$store.commit('FETCH_FEEDS')
     },
     createFeed() {
-      this.createModal('CreateFeedDialog')
+      this.createModal('FeedForm')
     }
   }
 }
