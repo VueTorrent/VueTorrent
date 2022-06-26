@@ -193,9 +193,15 @@ const locale = {
         whenSeedingTimeReaches: 'When seeding time reaches'
       },
       pageRss: {
-        rssAutoDownloader: 'RSS Torrent Auto Downloader',
-        input: {
-          enableRSS: 'Enable auto downloading of RSS torrents'
+        tabName: {
+          general: 'Geral',
+          feeds: 'Feeds'
+        },
+        pageGeneral: {
+          rssAutoDownloader: 'RSS Torrent Auto Downloader',
+          input: {
+            enableRSS: 'Enable auto downloading of RSS torrents'
+          }
         }
       },
       pageWebUI: {

@@ -1,21 +1,37 @@
 <template>
   <v-card flat>
-    <v-subheader>{{ $t('modals.settings.pageRss.rssAutoDownloader') }}</v-subheader>
-    <v-list-item>
-      <v-checkbox
-        v-model="settings.rss_processing_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.pageRss.input.enableRSS')"
-      />
-    </v-list-item>
+    <v-tabs v-model="tab">
+      <v-tab href="#general">
+        {{ $t('modals.settings.pageRss.tabName.general') }}
+      </v-tab>
+      <v-tab href="#feeds">
+        {{ $t('modals.settings.pageRss.tabName.feeds') }}
+      </v-tab>
+    </v-tabs>
+    <v-tabs-items v-model="tab" touchless>
+      <v-tab-item eager value="general">
+        <General />
+      </v-tab-item>
+      <v-tab-item eager value="feeds">
+        <Feeds />
+      </v-tab-item>
+    </v-tabs-items>
   </v-card>
 </template>
+
 <script>
-import { FullScreenModal, SettingsTab } from '@/mixins'
+import General from './Rss/General'
+import Feeds from './Rss/Feeds'
+import { FullScreenModal } from '@/mixins'
 
 export default {
-  name: 'Rss',
-  mixins: [SettingsTab, FullScreenModal]
+  name: 'VueTorrent',
+  components: {
+    General, Feeds
+  },
+  mixins: [FullScreenModal],
+  data: () => ({
+    tab: null
+  })
 }
 </script>
