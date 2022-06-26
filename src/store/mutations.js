@@ -83,7 +83,13 @@ export default {
   FETCH_FEEDS: async state => {
     const feeds = await qbit.getFeeds()
     state.feeds = Object.entries(feeds).map(feed => { 
-      return { name: feed[0], uid: feed[1].uid, url: feed[1].url }
+      return { name: feed[0], ...feed[1] }
+    })
+  },
+  FETCH_RULES: async state => {
+    const rules = await qbit.getRules()
+    state.rules = Object.entries(rules).map(rule => { 
+      return { name: rule[0], ...rule[1] }
     })
   },
   FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),

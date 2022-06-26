@@ -158,7 +158,17 @@ class Qbit {
 
   getFeeds() {
     return this.axios.get('/rss/items').then(res => res.data)
-  }  
+  }
+  
+  getRules() {
+    return this.axios.get('/rss/rules').then(res => res.data)
+  }
+
+  deleteRule(ruleName) {
+    return this.execute('post', 'rss/removeRule', {
+      ruleName
+    })
+  }
 
   deleteFeed(name) {
     return this.execute('post', 'rss/removeItem', {

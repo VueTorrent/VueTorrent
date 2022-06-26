@@ -195,7 +195,12 @@ const locale = {
       pageRss: {
         tabName: {
           general: 'Geral',
-          feeds: 'Feeds'
+          feeds: 'Feeds',
+          rules: 'Rules'
+        },
+        pageRules: {
+          rules: 'Rules',
+          btnCreateNew: 'Create Rule'
         },
         pageFeeds: {
           feeds: 'Feeds',

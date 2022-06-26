@@ -12,6 +12,7 @@ export default {
   getAvailableTags: state => () => state.tags,
   getCategories: state => () => state.categories,
   getFeeds: state => () => state.feeds,
+  getRules: state => () => state.rules,
   getModals: state => () => state.modals,
   getTorrents: state => () => state.torrents,
   getTrackers: state => () => state.trackers,
