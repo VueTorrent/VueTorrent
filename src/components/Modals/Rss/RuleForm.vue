@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
-    <v-card>
+  <v-dialog v-model="dialog" max-width="300px">
+    <v-card flat>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
           <h3>{{ hasInitialRule ? $t('edit') : $t('createNew') }} {{ $t('rule') }}</h3>
@@ -14,6 +14,24 @@
               :label="$t('modals.newRule.name')"
               required
             />
+          </v-container>
+          <v-container>
+            <v-text-field
+              v-model="rule.def.mustContain"
+              :label="$t('modals.newRule.def.mustContain')"
+              required
+            />
+          </v-container>
+          <v-container>
+            <v-subheader>{{ $t('modals.newRule.def.affectedFeeds') }}</v-subheader>
+            <template v-for="(item, index) in availableFeeds">
+              <v-checkbox
+                :key="index"
+                v-model="rule.def.affectedFeeds"
+                :label="item.name"
+                :value="item.url"
+              />
+            </template>
           </v-container>
         </v-form>
       </v-card-text>
@@ -69,7 +87,10 @@ export default {
     mdiCancel, mdiTagPlus, mdiPencil
   }),
   computed: {
-    ...mapGetters(['getSelectedRule']),
+    ...mapGetters(['getSelectedRule', 'getFeeds']),
+    availableFeeds() {
+      return this.getFeeds()
+    },
     hasInitialRule() {
       return !!(this.initialRule &&
           this.initialRule.name)

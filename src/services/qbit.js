@@ -164,7 +164,7 @@ class Qbit {
   }
 
   createRule(ruleName, defs) {
-    this.execute('post', '/rss/setRule', {
+    return this.execute('post', '/rss/setRule', {
       ruleName: ruleName,
       ruleDef: JSON.stringify(defs)
     })

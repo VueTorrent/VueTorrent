@@ -91,7 +91,8 @@ const locale = {
     newRule: {
       name: 'Name',
       def: {
-        mustContain: 'Must Contain'
+        mustContain: 'Must Contain',
+        affectedFeeds: 'Apply Rule to Feeds'
       }
     },
     pluginManager: {
@@ -217,9 +218,11 @@ const locale = {
           btnCreateNew: 'Add feed'
         },
         pageGeneral: {
+          rssAutoProcessing: 'RSS Reader',
           rssAutoDownloader: 'RSS Torrent Auto Downloader',
           input: {
-            enableRSS: 'Enable auto downloading of RSS torrents'
+            enableRssAutoDownload: 'Enable auto downloading of RSS torrents',
+            enableRssProcessing: 'Enable fetching RSS feeds'
           }
         }
       },
