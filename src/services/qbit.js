@@ -154,6 +154,12 @@ class Qbit {
     }).then(res => res.data)
   }
 
+  // RSS
+
+  getFeeds() {
+    return this.axios.get('/rss/items').then(res => res.data)
+  }  
+
   // Post
 
   addTorrents(params, torrents) {

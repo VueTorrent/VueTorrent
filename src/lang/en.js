@@ -197,6 +197,10 @@ const locale = {
           general: 'Geral',
           feeds: 'Feeds'
         },
+        pageFeeds: {
+          feeds: 'Feeds',
+          btnCreateNew: 'Add feed'
+        },
         pageGeneral: {
           rssAutoDownloader: 'RSS Torrent Auto Downloader',
           input: {
