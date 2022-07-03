@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from '@/views/Dashboard.vue'
-import Login from '@/views/Login.vue'
-import MagnetHandler from '@/views/MagnetHandler'
-import { isAuthenticated } from '@/services/auth.js'
+import Dashboard from './views/Dashboard.vue'
+import Login from './views/Login.vue'
+import Settings from './views/Settings.vue'
+import TorrentDetail from './views/TorrentDetail'
+import MagnetHandler from './views/MagnetHandler'
+import { isAuthenticated } from './services/auth.js'
 
 Vue.use(Router)
 
@@ -14,6 +16,16 @@ const router = new Router({
       path: '/',
       name: 'dashboard',
       component: Dashboard
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: Settings
+    },
+    {
+      path: '/torrent/:hash',
+      name: 'torrentDetail',
+      component: TorrentDetail
     },
     { path: '/download=:magnet',
       name: 'MagnetHandler',

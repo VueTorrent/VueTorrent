@@ -386,7 +386,7 @@ export default {
       qbit.recheckTorrents(this.hashes)
     },
     showInfo() {
-      this.createModal('TorrentDetailModal', { hash: this.torrent.hash })
+      this.$router.push({ name: 'torrentDetail', params: { hash: this.torrent.hash } })
     },
     setPriority(priority) {
       qbit.setTorrentPriority(this.hashes, priority)

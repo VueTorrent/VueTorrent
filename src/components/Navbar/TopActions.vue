@@ -101,7 +101,7 @@
           class="mr-0 ml-0"
           :aria-label="$t('navbar.topActions.openSettings')"
           v-on="on"
-          @click="addModal('SettingsModal')"
+          @click="goToSettings"
         >
           <v-icon color="grey">
             {{ mdiCog }}
@@ -157,6 +157,10 @@ export default {
     },
     addModal(name) {
       this.createModal(name)
+    },
+    goToSettings() {
+      if (this.$route.name !== 'settings')
+        this.$router.push({ name: 'settings' })
     }
   }
 }
