@@ -272,7 +272,7 @@ export default {
     savepath() {
       let savePath = this.getSettings().save_path
       if (this.category) {
-        savePath = this.category.save_path
+        savePath = this.category.savePath
       }
 
       return savePath
