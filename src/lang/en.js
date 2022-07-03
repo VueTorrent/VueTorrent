@@ -205,7 +205,7 @@ const locale = {
       },
       pageRss: {
         tabName: {
-          general: 'Geral',
+          general: 'General',
           feeds: 'Feeds',
           rules: 'Rules'
         },
