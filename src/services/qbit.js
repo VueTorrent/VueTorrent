@@ -171,11 +171,21 @@ class Qbit {
   }
 
   getFeeds() {
-    return this.axios.get('/rss/items').then(res => res.data)
+    return this.axios.get('/rss/items')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(feed => {
+          return { name: feed[0], ...feed[1] }
+        }))
   }
   
   getRules() {
-    return this.axios.get('/rss/rules').then(res => res.data)
+    return this.axios.get('/rss/rules')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(rule => {
+          return { name: rule[0], ...rule[1] }
+        }))
   }
 
   deleteRule(ruleName) {
