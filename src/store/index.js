@@ -22,6 +22,10 @@ export default new Vuex.Store({
   state: {
     version: 0,
     intervals: [],
+    rss: {
+      feeds: [],
+      rules: []
+    },
     status: {
       status: '',
       downloaded: '',
