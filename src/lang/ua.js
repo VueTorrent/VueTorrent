@@ -37,7 +37,7 @@ const locale = {
   seeds: 'Сіли',
   tags: 'Теги',
   share: 'Поділитися',
-  name: "Ім'я",
+  name: 'Ім\'я',
   hash: 'Хеш',
   magnet: 'Магнет',
 
@@ -92,7 +92,7 @@ const locale = {
       btnStartSearch: 'Пошук',
       btnStopSearch: 'Стоп',
       columnTitle: {
-        name: "Ім'я",
+        name: 'Ім\'я',
         size: 'Розмір',
         seeds: 'Сіди',
         peers: 'Піри',
@@ -104,7 +104,7 @@ const locale = {
       tabName: {
         VueTorrent: 'vuetorrent',
         downloads: 'завантаження',
-        connection: "зв'язок",
+        connection: 'зв\'язок',
         bittorrent: 'bittorrent',
         webUI: 'веб-інтерфейс',
         tagsAndCategories: 'теги та категорії'
@@ -148,7 +148,7 @@ const locale = {
         subHeaderSaveManagement: 'Управління збереженням',
         saveManagement: {
         
-autoManagement: 'Автоматичне керування торрентами',
+          autoManagement: 'Автоматичне керування торрентами',
           relocate: 'Переміщення торенту при зміні категорії',
           defaultSavePath: 'Шлях збереження за замовчуванням',
           keepIncompleteIn: 'Зберігати неповні торренти в:',
@@ -169,8 +169,8 @@ autoManagement: 'Автоматичне керування торрентами'
       },
       pageConnection: {
         subHeader: 'Обмеження підключення',
-        globalMaxConnection: "Глобальна максимальна кількість з'єднань",
-        perTorrentMaxConnection: "Максимальна кількість з'єднань на торрент",
+        globalMaxConnection: 'Глобальна максимальна кількість з\'єднань',
+        perTorrentMaxConnection: 'Максимальна кількість з\'єднань на торрент',
         globalMaxUploadSlots: 'Глобальна максимальна кількість слотів для завантаження',
         perTorrentMaxUploadSlots: 'Максимальна кількість слотів для завантаження на торрент'
       },
@@ -199,7 +199,7 @@ autoManagement: 'Автоматичне керування торрентами'
         ipAddress: 'IP-адреса:',
         port: 'Порт',
         authentication: 'Аутентифікація',
-        username: "Ім'я користувача",
+        username: 'Ім\'я користувача',
         password: 'пароль',
         maxAttempts: 'Максимальна кількість спроб',
         banDuration: 'Тривалість заборони (секунди)',
@@ -318,7 +318,7 @@ autoManagement: 'Автоматичне керування торрентами'
         completed: 'Завершено',
         downloaded: 'Завантажено',
         ETA: 'ОЧЗ',
-        name: "Ім'я",
+        name: 'Ім\'я',
         peers: 'Піри',
         priority: 'Пріоритет',
         progress: 'Прогрес',
