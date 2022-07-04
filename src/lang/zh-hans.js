@@ -29,17 +29,19 @@ const locale = {
   logout: '退出',
   downloaded: '已下载',
   uploaded: '已上传',
+  upload: '上传',
   download: '下载',
   ETA: '剩余时间',
   peers: '用户',
   ratio: '比率',
   seeds: '做种',
   tags: '标签',
-  upload: '上传',
   share: '分享',
   name: '名称',
   hash: '哈希值',
   magnet: '磁力链接',
+  feed: '订阅源',
+  rule: '规则',
 
   /** Torrent */
   torrent: {
@@ -84,6 +86,17 @@ const locale = {
 
   /** Modals */
   modals: {
+    newFeed: {
+      feedName: '名称',
+      url: '地址'
+    },
+    newRule: {
+      name: '名称',
+      def: {
+        mustContain: '必须包含',
+        affectedFeeds: '应用于以下订阅源'
+      }
+    },
     pluginManager: {
       title: '插件管理器'
     },
@@ -106,6 +119,7 @@ const locale = {
         downloads: '下载',
         connection: '连接',
         bittorrent: 'bittorrent',
+        rss: 'RSS',
         webUI: '网页界面',
         tagsAndCategories: '标签和分类'
       },
@@ -171,7 +185,11 @@ const locale = {
         globalMaxConnection: '全局最大连接数',
         perTorrentMaxConnection: '单个种子最大连接数',
         globalMaxUploadSlots: '全局最大上传数',
-        perTorrentMaxUploadSlots: '单个种子最大上传数'
+        perTorrentMaxUploadSlots: '单个种子最大上传数',
+        proxySubHeader: '代理服务器',
+        proxyPeerConnections: '使用代理服务器进行用户连接',
+        proxyTorrentOnly: '只对 torrents 使用代理',
+        proxyAuth: '认证'
       },
       pageBittorrent: {
         subHeaderPrivacy: '隐私',
@@ -190,6 +208,31 @@ const locale = {
         subHeaderSeedLimits: '做种限制',
         whenRatioReaches: '当比率达到时',
         whenSeedingTimeReaches: '当做种时间达到时'
+      },
+      pageRss: {
+        tabName: {
+          general: '常规',
+          feeds: '订阅源',
+          rules: '规则'
+        },
+        pageRules: {
+          rules: '规则',
+          btnCreateNew: '创建规则'
+        },
+        pageFeeds: {
+          feeds: '订阅源',
+          btnCreateNew: '添加订阅'
+        },
+        pageGeneral: {
+          rssAutoProcessing: 'RSS 阅读器',
+          rssAutoDownloader: 'RSS Torrent 自动下载器',
+          input: {
+            enableRssAutoDownload: '启用 RSS Torrents 自动下载',
+            enableRssProcessing: '启用获取 RSS 订阅',
+            feedsRefreshInterval: '订阅源更新间隔',
+            feedsMaxArticles: '每个订阅源文章数目最大值'
+          }
+        }
       },
       pageWebUI: {
         useAlternativeWebUI: '使用其他的网页界面',
@@ -224,7 +267,7 @@ const locale = {
     },
     newCategory: {
       categoryName: '分类名称',
-      path: '路径',
+      Path: '路径',
       tipOnNoName: '分类名称是必须的',
       tipOnNameTooLong: '分类名称必须小于 15 个字符',
       tipOnNoPath: '路径是必须的',
@@ -242,6 +285,7 @@ const locale = {
       tabTitleContent: '内容',
       tabTitleTagsCategories: '标签和分类',
       pageInfo: {
+        pieceStates: '进度',
         torrentTitle: '种子标题',
         hash: '哈希值',
         ratio: '比率',
@@ -344,7 +388,9 @@ const locale = {
     loginSuccess: '登录成功！🎉',
     loginFailed: '登录失败…😕',
     settingsSaved: '设置保存成功！',
-    categorySaved: '分类编辑成功！'
+    categorySaved: '分类编辑成功！',
+    feedSaved: '订阅源保存成功！',
+    ruleSaved: '规则保存成功！'
   },
 
   /** RightClick **/
