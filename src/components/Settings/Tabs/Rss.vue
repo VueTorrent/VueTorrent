@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import General from './Rss/General'
-import Feeds from './Rss/Feeds'
-import Rules from './Rss/Rules'
+import General from '../Rss/General.vue'
+import Feeds from '../Rss/Feeds.vue'
+import Rules from '../Rss/Rules.vue'
 import { FullScreenModal } from '@/mixins'
 
 export default {
-  name: 'VueTorrent',
+  name: 'Rss',
   components: {
     General, Feeds, Rules
   },

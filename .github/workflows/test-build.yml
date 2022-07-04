@@ -1,8 +1,7 @@
 name: Test Release Build
 on:
-  push:
-    branches:
-      - release-please--branches--master
+ workflow_dispatch:
+
 jobs:
   test-build:
     runs-on: ubuntu-latest
