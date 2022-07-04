@@ -1,10 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from './views/Dashboard.vue'
-import Login from './views/Login.vue'
-import Settings from './views/Settings.vue'
-import TorrentDetail from './views/TorrentDetail'
-import MagnetHandler from './views/MagnetHandler'
 import { isAuthenticated } from './services/auth.js'
 
 Vue.use(Router)
@@ -15,27 +10,27 @@ const router = new Router({
     {
       path: '/',
       name: 'dashboard',
-      component: Dashboard
+      component: () => import('./views/Dashboard.vue')
     },
     {
       path: '/settings',
       name: 'settings',
-      component: Settings
+      component: () => import('./views/Settings.vue')
     },
     {
       path: '/torrent/:hash',
       name: 'torrentDetail',
-      component: TorrentDetail
+      component: () => import('./views/TorrentDetail.vue')
     },
     { path: '/download=:magnet',
       name: 'MagnetHandler',
-      component: MagnetHandler,
+      component: () => import('./views/MagnetHandler.vue'),
       props: true
     },
     {
       path: '/login',
       name: 'login',
-      component: Login,
+      component: () => import('./views/Login.vue'),
       meta: {
         public: true // Allow access to even if not logged in      }
       }
