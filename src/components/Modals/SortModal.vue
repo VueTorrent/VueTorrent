@@ -92,7 +92,7 @@ export default {
     color: var(--search) !important;
 }
 // Reversed input variant
-::v-deep .v-input--reverse .v-input__slot {
+:deep(.v-input--reverse .v-input__slot) {
   @import "src/styles/styles.scss";
   @include reverse-switch;
 }

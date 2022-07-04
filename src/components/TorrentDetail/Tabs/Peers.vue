@@ -126,12 +126,12 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .ip {
+:deep(.ip) {
   display: flex;
   align-items: center;
 }
 
-::v-deep .ip .country-flag {
+:deep(.ip .country-flag) {
   width: 1.5em;
   margin-right: 0.5em;
 }
@@ -139,8 +139,8 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/colors.scss";
 
-::v-deep .v-data-table thead th,
-::v-deep .v-data-table tbody td {
+:deep(.v-data-table thead th),
+:deep(.v-data-table tbody td) {
   padding: 0 3px !important;
   height: auto;
 
@@ -151,10 +151,10 @@ export default {
     padding-right: 8px !important;
   }
 }
-::v-deep .v-data-table-header {
+:deep(.v-data-table-header) {
   white-space: nowrap;
 }
-::v-deep td {
+:deep(td) {
   white-space: nowrap;
 }
 </style>

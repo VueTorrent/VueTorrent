@@ -319,12 +319,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep .v-data-table thead th,
-::v-deep .v-data-table tbody td {
+:deep(.v-data-table thead th),
+:deep(.v-data-table tbody td) {
   padding: 0 !important;
   height: 3em;
-
-  white-space: nowrap;
 
   &:first-child {
     padding: 0 0 0 8px !important;

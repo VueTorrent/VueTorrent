@@ -77,7 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 // Reversed input variant
-::v-deep .v-input--reverse .v-input__slot {
+:deep(.v-input--reverse .v-input__slot) {
   @import "../../../styles/styles";
   @include reverse-switch;
 }

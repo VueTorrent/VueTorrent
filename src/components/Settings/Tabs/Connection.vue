@@ -179,11 +179,3 @@ export default {
   }
 }
 </script>
-
-//
-<style lang="scss" scoped>
-// ::v-deep .v-select .v-select__selection {
-//   padding: 0;
-// }
-//
-</style>
