@@ -185,7 +185,11 @@ const locale = {
         globalMaxConnection: 'Global maximum number of connections',
         perTorrentMaxConnection: 'Maximum number of connections per torrent',
         globalMaxUploadSlots: 'Global maximum number of upload slots',
-        perTorrentMaxUploadSlots: 'Maximum number of upload slots per torrent'
+        perTorrentMaxUploadSlots: 'Maximum number of upload slots per torrent',
+        proxySubHeader: 'Proxy Server',
+        proxyPeerConnections: 'Use proxy for peer connections',
+        proxyTorrentOnly: 'Use proxy only for torrents',
+        proxyAuth: 'Authentication'
       },
       pageBittorrent: {
         subHeaderPrivacy: 'Privacy',
@@ -238,7 +242,7 @@ const locale = {
         port: 'Port',
         authentication: 'Authentication',
         username: 'Username',
-        password: 'password',
+        password: 'Password',
         maxAttempts: 'Max attempts',
         banDuration: 'Ban Duration (seconds)',
         sessionTimeout: 'Session timeout (seconds)',
