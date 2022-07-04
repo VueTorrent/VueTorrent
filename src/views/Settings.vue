@@ -1,6 +1,11 @@
 <template>
   <div class="px-1 px-sm-5 background noselect">
-    <v-row no-gutters class="grey--text" align="center" justify="center">
+    <v-row
+      no-gutters
+      class="grey--text"
+      align="center"
+      justify="center"
+    >
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           {{ $t("settings") | titleCase }}
@@ -8,7 +13,12 @@
       </v-col>
       <v-col class="align-center justify-center">
         <v-card-actions class="justify-end">
-          <v-btn class="accent" small elevation="0" @click="saveSettings">
+          <v-btn
+            class="accent"
+            small
+            elevation="0"
+            @click="saveSettings"
+          >
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
           <v-btn small elevation="0" @click="close">
@@ -79,8 +89,8 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { mdiClose, mdiContentSave } from "@mdi/js";
+import { mapGetters } from 'vuex'
+import { mdiClose, mdiContentSave } from '@mdi/js'
 import {
   WebUI,
   BitTorrent,
@@ -88,11 +98,12 @@ import {
   VueTorrent,
   TagsAndCategories,
   Connection,
-} from "@/components/Settings/Tabs";
-import { SettingsTab } from "../mixins";
+  Rss
+} from '@/components/Settings/Tabs'
+import { SettingsTab } from '../mixins'
 
 export default {
-  name: "Settings",
+  name: 'Settings',
   components: {
     WebUI,
     BitTorrent,
@@ -100,6 +111,7 @@ export default {
     VueTorrent,
     TagsAndCategories,
     Connection,
+    Rss
   },
   mixins: [SettingsTab],
   data() {
@@ -108,25 +120,25 @@ export default {
       items: [],
       peers: [],
       mdiClose,
-      mdiContentSave,
-    };
+      mdiContentSave
+    }
   },
   computed: {
-    ...mapGetters(["getSettings"]),
+    ...mapGetters(['getSettings']),
     settings() {
-      return this.getSettings();
+      return this.getSettings()
     },
     isPhone() {
-      return this.$vuetify.breakpoint.xsOnly;
-    },
+      return this.$vuetify.breakpoint.xsOnly
+    }
   },
   mounted() {
-    this.$store.dispatch("FETCH_SETTINGS");
+    this.$store.dispatch('FETCH_SETTINGS')
   },
   methods: {
     close() {
-      this.$router.back();
-    },
-  },
-};
+      this.$router.back()
+    }
+  }
+}
 </script>

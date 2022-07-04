@@ -40,6 +40,8 @@ const locale = {
   name: 'Name',
   hash: 'Hash',
   magnet: 'Magnet',
+  feed: 'feed',
+  rule: 'rule',
 
   /** Torrent */
   torrent: {
@@ -222,7 +224,9 @@ const locale = {
           rssAutoDownloader: 'RSS Torrent Auto Downloader',
           input: {
             enableRssAutoDownload: 'Enable auto downloading of RSS torrents',
-            enableRssProcessing: 'Enable fetching RSS feeds'
+            enableRssProcessing: 'Enable fetching RSS feeds',
+            feedsRefreshInterval: 'Feeds refresh interval',
+            feedsMaxArticles: 'Maximum number of articles per feed'
           }
         }
       },
