@@ -84,6 +84,17 @@ const locale = {
 
   /** Modals */
   modals: {
+    newFeed: {
+      feedName: 'Name',
+      url: 'URL'
+    },
+    newRule: {
+      name: 'Name',
+      def: {
+        mustContain: 'Must Contain',
+        affectedFeeds: 'Apply Rule to Feeds'
+      }
+    },
     pluginManager: {
       title: 'Plugin manager'
     },
@@ -106,6 +117,7 @@ const locale = {
         downloads: 'downloads',
         connection: 'connection',
         bittorrent: 'bittorrent',
+        rss: 'Rss',
         webUI: 'WEB UI',
         tagsAndCategories: 'tags & categories'
       },
@@ -190,6 +202,29 @@ const locale = {
         subHeaderSeedLimits: 'Seed Limits',
         whenRatioReaches: 'When ratio reaches',
         whenSeedingTimeReaches: 'When seeding time reaches'
+      },
+      pageRss: {
+        tabName: {
+          general: 'General',
+          feeds: 'Feeds',
+          rules: 'Rules'
+        },
+        pageRules: {
+          rules: 'Rules',
+          btnCreateNew: 'Create Rule'
+        },
+        pageFeeds: {
+          feeds: 'Feeds',
+          btnCreateNew: 'Add feed'
+        },
+        pageGeneral: {
+          rssAutoProcessing: 'RSS Reader',
+          rssAutoDownloader: 'RSS Torrent Auto Downloader',
+          input: {
+            enableRssAutoDownload: 'Enable auto downloading of RSS torrents',
+            enableRssProcessing: 'Enable fetching RSS feeds'
+          }
+        }
       },
       pageWebUI: {
         useAlternativeWebUI: 'Use Alternative WebUI',
@@ -345,7 +380,9 @@ const locale = {
     loginSuccess: 'Successfully logged in! 🎉',
     loginFailed: 'Login failed 😕',
     settingsSaved: 'Settings saved successfully!',
-    categorySaved: 'Category edited successfully!'
+    categorySaved: 'Category edited successfully!',
+    feedSaved: 'Feed saved successfully!',
+    ruleSaved: 'Rule saved!'
   },
 
   /** RightClick **/

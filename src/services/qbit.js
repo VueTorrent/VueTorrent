@@ -154,6 +154,52 @@ class Qbit {
     }).then(res => res.data)
   }
 
+  // RSS
+
+  createFeed(feed) {
+    return this.execute('post', '/rss/addFeed', { 
+      url: feed.url,
+      path: feed.url
+    })
+  }
+
+  createRule(ruleName, defs) {
+    return this.execute('post', '/rss/setRule', {
+      ruleName: ruleName,
+      ruleDef: JSON.stringify(defs)
+    })
+  }
+
+  getFeeds() {
+    return this.axios.get('/rss/items')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(feed => {
+          return { name: feed[0], ...feed[1] }
+        }))
+  }
+  
+  getRules() {
+    return this.axios.get('/rss/rules')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(rule => {
+          return { name: rule[0], ...rule[1] }
+        }))
+  }
+
+  deleteRule(ruleName) {
+    return this.execute('post', 'rss/removeRule', {
+      ruleName
+    })
+  }
+
+  deleteFeed(name) {
+    return this.execute('post', 'rss/removeItem', {
+      path: name
+    })
+  }
+
   // Post
 
   addTorrents(params, torrents) {
