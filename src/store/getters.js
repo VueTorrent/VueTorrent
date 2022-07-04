@@ -11,6 +11,8 @@ export default {
   getWebuiSettings: state => () => state.webuiSettings,
   getAvailableTags: state => () => state.tags,
   getCategories: state => () => state.categories,
+  getFeeds: state => () => state.rss.feeds,
+  getRules: state => () => state.rss.rules,
   getModals: state => () => state.modals,
   getTorrents: state => () => state.torrents,
   getTrackers: state => () => state.trackers,

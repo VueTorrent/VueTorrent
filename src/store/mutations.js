@@ -80,6 +80,8 @@ export default {
     state.sort_options.tracker = tracker
   },
   FETCH_CATEGORIES: async state => state.categories = Object.values(await (qbit.getCategories())),
+  FETCH_FEEDS: async state => state.rss.feeds = await qbit.getFeeds(),
+  FETCH_RULES: async state => state.rss.rules = await qbit.getRules(),
   FETCH_SEARCH_PLUGINS: async state => state.searchPlugins = await qbit.getSearchPlugins(),
   SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count),
   SET_LANGUAGE: async state => await loadLanguageAsync(state.webuiSettings.lang)

@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+# asdf config
+.tool-versions
+
 # local env files
 .env.local
 .env.*.local
