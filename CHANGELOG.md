@@ -1,5 +1,26 @@
 # Changelog
 
+## [0.18.0](https://github.com/WDaan/VueTorrent/compare/v0.17.1...v0.18.0) (2022-07-04)
+
+
+### Features
+
+* basic proxy support [#261](https://github.com/WDaan/VueTorrent/issues/261) ([71a09fc](https://github.com/WDaan/VueTorrent/commit/71a09fc58a9c29037cfc87fa6c6f0cfdb645233e))
+* Basic rss interface ([#447](https://github.com/WDaan/VueTorrent/issues/447)) ([732e519](https://github.com/WDaan/VueTorrent/commit/732e5193ec76d521249ac6fb73c4a6e975091476))
+
+
+### Bug Fixes
+
+* category download folder not showing correctly ([#448](https://github.com/WDaan/VueTorrent/issues/448)) ([06579c8](https://github.com/WDaan/VueTorrent/commit/06579c8bbee5f991f195df596054da8751d0ea72))
+* favicon [#441](https://github.com/WDaan/VueTorrent/issues/441) ([745376c](https://github.com/WDaan/VueTorrent/commit/745376c02be7a1d9398feb5181bebe9026d22638))
+* favicon [#441](https://github.com/WDaan/VueTorrent/issues/441) ([b7e7de1](https://github.com/WDaan/VueTorrent/commit/b7e7de1e9095228d9207845201c0ceff814623a4))
+
+
+### Improvements
+
+* add ukranian ([e063168](https://github.com/WDaan/VueTorrent/commit/e06316812134df15ac1f5fbb73034436eb7d519c))
+* use pages instead of modals [#398](https://github.com/WDaan/VueTorrent/issues/398) ([#450](https://github.com/WDaan/VueTorrent/issues/450)) ([fcb0219](https://github.com/WDaan/VueTorrent/commit/fcb021972ae62ee36e91bbbf5cba0ee6dc87725a))
+
 ### [0.17.1](https://github.com/WDaan/VueTorrent/compare/v0.17.0...v0.17.1) (2022-06-11)
 
 
