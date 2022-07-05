@@ -129,6 +129,7 @@
         outlined
         dense
         hide-details
+        type="password"
         :disabled="!settings.proxy_auth_enabled"
         :label="$t('modals.settings.pageWebUI.password')"
       />
