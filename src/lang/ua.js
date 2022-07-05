@@ -1,19 +1,19 @@
 const locale = {
   /** General */
   category: 'Категорії',
-  settings: 'налаштування',
-  pause: 'пауза',
-  delete: 'видалити',
-  save: 'зберегти',
-  cancel: 'відмінити',
-  confirm: 'підтвердити',
+  settings: 'Налаштування',
+  pause: 'Пауза',
+  delete: 'Видалити',
+  save: 'Зберегти',
+  cancel: 'Відмінити',
+  confirm: 'Підтвердити',
   edit: 'Редагувати',
   createNew: 'Створити новий',
   path: 'Шлях',
   create: 'Створити',
   url: 'URL',
   directory: 'Тека',
-  unknown: 'невідомий',
+  unknown: 'Невідомий',
   status: 'Стан',
   all: 'Все',
   downloading: 'Завантажуються',
@@ -34,7 +34,7 @@ const locale = {
   ETA: 'ОЧЗ',
   peers: 'Піри',
   ratio: 'Співвідношення',
-  seeds: 'Сіли',
+  seeds: 'Сіди',
   tags: 'Теги',
   share: 'Поділитися',
   name: 'Ім\'я',
@@ -43,18 +43,18 @@ const locale = {
 
   /** Torrent */
   torrent: {
-    title: 'заголовок',
-    added: 'додано о',
-    availability: 'доступність',
-    size: 'розмір',
-    progress: 'прогрес',
-    directory: 'тека',
-    downloaded: 'завантажено',
-    uploaded: 'вивантажено',
-    created: 'створено',
+    title: 'Заголовок',
+    added: 'Додано о:',
+    availability: 'Доступність',
+    size: 'Розмір',
+    progress: 'Прогрес',
+    directory: 'Тека',
+    downloaded: 'Завантаж.',
+    uploaded: 'Вивантаж.',
+    created: 'Створено',
     comments: 'примітки',
     uploadedSession: 'Завантажено за сесію',
-    torrentTitle: 'Заголовок торентту'
+    torrentTitle: 'Ім\'я'
   },
   /** Navbar */
   navbar: {
@@ -62,21 +62,21 @@ const locale = {
     freeSpace: 'вільне місце',
     topActions: {
       addTorrent: 'додати торрент',
-      resumeSelected: 'відновити вибрані торенти',
-      pauseSelected: 'призупинити вибрані торенти',
-      removeSelected: 'видалити вибрані торенти',
-      openSettings: 'відкрити налаштування',
-      searchNew: 'шукати нові торенти'
+      resumeSelected: 'Відновити вибрані торенти',
+      pauseSelected: 'Призупинити вибрані торенти',
+      removeSelected: 'Видалити вибрані торенти',
+      openSettings: 'Відкрити налаштування',
+      searchNew: 'Шукати нові торенти'
     },
     sessionStats: {
       tooltip: 'З моменту останнього перезапуску qBittorrent'
     },
     filters: {
       stalled_uploading: 'Залиплі вивантаження',
-      stalled_downloading: 'залиплі завантаження'
+      stalled_downloading: 'Залиплі завантаження'
     },
     action: {
-      altSpeed: 'обмеження швидкочті',
+      altSpeed: 'Обмеження швидкості',
       dark: 'Темна',
       light: 'Світла'
     }
@@ -102,12 +102,12 @@ const locale = {
     },
     settings: {
       tabName: {
-        VueTorrent: 'vuetorrent',
-        downloads: 'завантаження',
-        connection: 'зв\'язок',
-        bittorrent: 'bittorrent',
-        webUI: 'веб-інтерфейс',
-        tagsAndCategories: 'теги та категорії'
+        VueTorrent: 'Vuetorrent',
+        downloads: 'Завантаження',
+        connection: 'Зв\'язок',
+        bittorrent: 'Bittorrent',
+        webUI: 'Bеб-інтерфейс',
+        tagsAndCategories: 'Теги та категорії'
       },
       pageVueTorrent: {
         tabName: {
@@ -202,7 +202,7 @@ const locale = {
         username: 'Ім\'я користувача',
         password: 'пароль',
         maxAttempts: 'Максимальна кількість спроб',
-        banDuration: 'Тривалість заборони (секунди)',
+        banDuration: 'Тривалість бану (секунди)',
         sessionTimeout: 'Час очікування сеансу (секунди)',
         bypassAuthenticationForClientsOnLocalhost: 'Обійти автентифікацію для клієнтів на локальному хості',
         bypassAuthenticationForClientsInWhitelisted: 'Обійти автентифікацію для клієнтів у підмережах IP із білого списку',
@@ -217,7 +217,7 @@ const locale = {
     shareLimit: {
       input: {
         globalLimit: 'Використовувати глобальний ліміт',
-        unlimited: 'Необмежений'
+        unlimited: 'Необмежено'
       },
       limitRatio: 'Обмежити співвідношення',
       titleDuration: 'Тривалість',
@@ -236,7 +236,7 @@ const locale = {
       tagName: 'Назва тегу'
     },
     detail: {
-      title: 'Деталі торренту',
+      title: 'Деталі',
       tabTitleInfo: 'Інформація',
       tabTitleTrackers: 'Трекери',
       tabTitlePeers: 'Піри',
@@ -244,7 +244,7 @@ const locale = {
       tabTitleTagsCategories: 'Теги та категорії',
       pageInfo: {
         pieceStates: 'Прогрес',
-        torrentTitle: 'Назва торренту',
+        torrentTitle: 'Назва',
         hash: 'хеш',
         ratio: 'Співвідношення',
         downloadSpeed: 'Швидкість завантаження',
@@ -269,10 +269,10 @@ const locale = {
         flags: 'Прапорці',
         client: 'Клієнт',
         progress: 'Прогрес',
-        downloadSpeed: 'Швидкість завантаження',
-        downloaded: 'Завантажено',
-        upSpeed: 'Швидкість вивантаження',
-        uploaded: 'Вивантажено',
+        downloadSpeed: 'Швидкість зав.',
+        downloaded: 'Завант.',
+        upSpeed: 'Швидкість вивант.',
+        uploaded: 'Вивант.',
         files: 'Файли'
       },
       pageTagsAndCategories: {
@@ -307,7 +307,7 @@ const locale = {
     },
     rename: {
       title: 'Перейменувати',
-      torrentName: 'Назва торренту'
+      torrentName: 'Назва'
     },
     sort: {
       title: 'Сортувати торренти',
@@ -351,27 +351,27 @@ const locale = {
   /** RightClick  **/
   rightClick: {
     resume: 'відновити',
-    forceResume: 'примусове відновлення',
+    forceResume: 'Примусове відновлення',
     advanced: {
-      advanced: 'розширено',
-      changeLocation: 'змінити розташування',
-      rename: 'перейменувати',
+      advanced: 'Розширені',
+      changeLocation: 'Змінити розташування',
+      rename: 'Перейменувати',
       forceRecheck: 'Примусова перевірка',
       forceReannounce: 'Примусово анонсувати',
       sequentialDownload: 'Послідовне завантаження',
-      firstLastPriority: 'Перший/Останній пріоритет',
+      firstLastPriority: 'Перший/останній пріоритет',
       automaticTorrentManagement: 'Автоматичне керування торрентами'
     },
     prio: {
-      prio: 'встановити пріоритет',
-      top: 'верх',
-      bottom: 'низ',
-      increase: 'збільшити',
-      decrease: 'зменшити'
+      prio: 'Встановити пріоритет',
+      top: 'Наверх',
+      bottom: 'Донизу',
+      increase: 'Збільшити',
+      decrease: 'Зменшити'
     },
-    category: 'встановити категорію',
-    limit: 'встановити ліміт',
-    copy: 'копія',
+    category: 'Встановити категорію',
+    limit: 'Встановити ліміт',
+    copy: 'Копіювати',
     info: 'Деталі'
   }
 }
