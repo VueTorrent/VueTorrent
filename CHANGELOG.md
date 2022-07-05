@@ -1,5 +1,19 @@
 # Changelog
 
+### [0.18.1](https://github.com/WDaan/VueTorrent/compare/v0.18.0...v0.18.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* broken build [#453](https://github.com/WDaan/VueTorrent/issues/453) ([8f1a12d](https://github.com/WDaan/VueTorrent/commit/8f1a12d15fa438e55194a9c807bbdc0115a3deda))
+* release build ([7a74275](https://github.com/WDaan/VueTorrent/commit/7a74275a4d15280205ec1e749415da1cb0cd7e41))
+
+
+### Improvements
+
+* lazy load pages for smaller chunk sizes ([abe909e](https://github.com/WDaan/VueTorrent/commit/abe909e14d740f4a78267564d87e2d46ef3c08a8))
+* Update Simplified Chinese translation. ([#454](https://github.com/WDaan/VueTorrent/issues/454)) ([20f4a67](https://github.com/WDaan/VueTorrent/commit/20f4a67f4988629d1bc74ec18226cd858e2469e1))
+
 ## [0.18.0](https://github.com/WDaan/VueTorrent/compare/v0.17.1...v0.18.0) (2022-07-04)
 
 
