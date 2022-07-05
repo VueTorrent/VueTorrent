@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import General from '../VueTorrent/General.vue'
-import Dashboard from '../VueTorrent/Dashboard.vue'
+import General from './VueTorrent/General.vue'
+import Dashboard from './VueTorrent/Dashboard.vue'
 import { FullScreenModal } from '@/mixins'
 
 export default {

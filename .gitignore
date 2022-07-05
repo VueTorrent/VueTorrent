@@ -23,6 +23,6 @@ yarn-error.log*
 *.sln
 *.sw?
 
-vuetorrent
+vuetorrent/**
 config
 Downloads

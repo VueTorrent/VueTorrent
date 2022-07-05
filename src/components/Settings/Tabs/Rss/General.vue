@@ -67,7 +67,7 @@ export default {
 }
 // Reversed input variant
 :deep(.v-input--reverse .v-input__slot) {
-  @import "src/styles/styles.scss";
+  @import "../../../../styles/styles";
   @include reverse-switch;
 }
 </style>

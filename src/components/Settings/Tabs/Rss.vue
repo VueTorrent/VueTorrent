@@ -26,9 +26,9 @@
 </template>
 
 <script>
-import General from '../Rss/General.vue'
-import Feeds from '../Rss/Feeds.vue'
-import Rules from '../Rss/Rules.vue'
+import General from './Rss/General.vue'
+import Feeds from './Rss/Feeds.vue'
+import Rules from './Rss/Rules.vue'
 import { FullScreenModal } from '@/mixins'
 
 export default {
