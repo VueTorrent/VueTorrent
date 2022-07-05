@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkvuetorrent"]=self["webpackChunkvuetorrent"]||[]).push([[12],{2012:function(t,e,n){n.r(e),n.d(e,{default:function(){return o}});var r=function(){var t=this,e=t._self._c;return e("h1",{staticClass:"text-center mt-5"},[t._v(" MagnetHandler ")])},a=[],s=n(2241),u={name:"MagnetHandler",mixins:[s.LQ],props:["magnet"],created(){this.createModal("AddModal",{initialMagnet:this.magnet}),this.$router.push("/")}},l=u,i=n(1001),c=(0,i.Z)(l,r,a,!1,null,null,null),o=c.exports}}]);
+//# sourceMappingURL=12.e5b74ce8.js.map
