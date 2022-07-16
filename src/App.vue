@@ -36,30 +36,35 @@ export default {
   created() {
     this.$store.commit('SET_APP_VERSION', import.meta.env['APPLICATION_VERSION'])
     this.$store.commit('SET_LANGUAGE')
-    const needsAuth = this.needsAuthentication()
-    if (needsAuth) {
-      this.checkAuthenticated()
-    }
+    this.checkAuthentication()
+    this.blockContextMenu()
   },
   methods: {
-    async needsAuthentication() {
-      const res = qbit.getAuthenticationStatus()
-      const forbidden = res === 'Forbidden'
-      if (forbidden) {
-        return true
-      } else {
+    async checkAuthentication() {
+      const authenticated = await qbit.getAuthenticationStatus()
+      if (authenticated) {
         this.$store.commit('LOGIN', true)
         this.$store.commit('updateMainData')
+
+        return
       }
 
-      return false
+      this.$store.commit('LOGIN', false)
+      if (!this.onLoginPage) return this.$router.push('login')
     },
-    async checkAuthenticated() {
-      const res = await qbit.login()
-      const authenticated = res === 'Ok.'
-      this.$store.commit('LOGIN', authenticated)
-      this.$store.commit('updateMainData')
-      if (!authenticated && !this.onLoginPage) return this.$router.push('login')
+    blockContextMenu() {
+      document.addEventListener('contextmenu', event => {
+        if (!event.target) return
+        const nodeName = event.target.nodeName.toLowerCase()
+        const nodeType = event.target.getAttribute('type')
+
+        if (nodeName === 'textarea') return
+        if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
+
+        event.preventDefault()
+
+        return false
+      })
     }
   }
 }

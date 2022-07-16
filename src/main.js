@@ -1,21 +1,22 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-// import 'typeface-roboto'
-// import 'typeface-roboto-mono'
-
-import router from '@/router.js'
-import store from '@/store/index.js'
-import vuetify from './plugins/vuetify.js'
-import { i18n } from './lang/index.js'
+import '@/registerServiceWorker'
+import router from '@/router'
+import store from '@/store'
+import vuetify from './plugins/vuetify'
+import 'typeface-roboto'
+import 'typeface-roboto-mono'
+import { i18n } from './lang/index'
 import '@/filters.js'
 import '@/styles/styles.scss'
 
-// import Toast from 'vue-toastification'
-// import 'vue-toastification/dist/index.css'
-// Vue.use(Toast, {
-//   maxToasts: 5,
-//   timeout: 2000
-// })
+import Toast, { POSITION } from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
+Vue.use(Toast, {
+  maxToasts: 5,
+  timeout: 2000,
+  position: POSITION.BOTTOM_RIGHT
+})
 
 
 // register modals

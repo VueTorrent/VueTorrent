@@ -7,7 +7,7 @@
 <p>&nbsp;</p>
 The sleekest looking WebUI for qBittorrent made with Vue.js!  
 
-> Vue, qBitorrent, Vuetify
+> Vue, qBittorrent, Vuetify
 </p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -92,7 +92,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 - Extra features the default WebUI doesn't have
   - mobile friendly! (can be installed as a PWA)
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
-- works with qBittorrent v4.2 and later
+- works with qBittorrent v4.4 and later
 
 ## Contributing
 

@@ -87,14 +87,15 @@
                   <v-textarea
                     v-if="files.length == 0"
                     v-model="urls"
-                    label="URL"
+                    style="max-height: 200px; overflow-x: hidden; overflow-y: auto"
+                    :label="$t('url')"
                     :prepend-icon="mdiLink"
                     rows="1"
                     required
                     :autofocus="!phoneLayout"
                     auto-grow
                     clearable
-                    hint="One link per line"
+                    :hint="$t('modals.add.urlHint')"
                   />
                 </v-col>
               </v-row>
@@ -103,7 +104,7 @@
                 v-model="category"
                 :items="availableCategories"
                 clearable
-                label="Category"
+                :label="$t('category')"
                 item-text="name"
                 :prepend-icon="mdiTag"
                 @input="categoryChanged"
@@ -112,7 +113,7 @@
               <v-text-field
                 v-model="directory"
                 :disabled="autoTMM"
-                label="Download Directory"
+                :label="$t('modals.add.downloadDirectory')"
                 :prepend-icon="mdiFolder"
                 autocomplete="download-directory"
                 name="download-directory"
@@ -121,28 +122,42 @@
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="start"
-                    label="Start torrent"
+                    :label="$t('modals.add.starttorrent')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="skip_checking"
-                    label="Skip hash check"
+                    :label="$t('modals.add.skipHashCheck')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="root_folder"
-                    label="Create subfolder"
+                    :label="$t('modals.add.createSubfolder')"
                     hide-details
                   />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox
                     v-model="autoTMM"
-                    label="Automatic Torrent Management"
+                    :label="$t('modals.add.automaticTorrentManagement')"
+                    hide-details
+                  />
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-checkbox
+                    v-model="sequentialDownload"
+                    :label="$t('rightClick.advanced.sequentialDownload')"
+                    hide-details
+                  />
+                </v-flex>
+                <v-flex xs12 sm6>
+                  <v-checkbox
+                    v-model="firstLastPiecePrio"
+                    :label="$t('rightClick.advanced.firstLastPriority')"
                     hide-details
                   />
                 </v-flex>
@@ -198,7 +213,7 @@
           </v-icon>
         </div>
         <div>
-          <h3>Drop here for add</h3>
+          <h3>{{ $t('modals.add.dropHereForAdd') }}</h3>
         </div>
       </div>
     </div>
@@ -211,6 +226,7 @@ import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 import { mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
+
 export default {
   name: 'AddModal',
   mixins: [Modal, FullScreenModal],
@@ -227,14 +243,16 @@ export default {
       skip_checking: false,
       root_folder: true,
       autoTMM: true,
+      sequentialDownload: false,
+      firstLastPiecePrio: false,
       fileInputRules: [
         v => {
           const result = v.every(f => {
             if (f.type) return f.type === 'application/x-bittorrent'
             else return /^.*\.torrent$/.test(f.name)
           })
-          
-          return result ? result : 'One or more files is not a valid torrent'
+
+          return result ? result : this.$i18n.t('modals.add.oneOrMoreFilesInvalidTorrent')
         }
       ],
       loading: false,
@@ -264,8 +282,6 @@ export default {
     }
   },
   created() {
-    this.$store.commit('FETCH_SETTINGS')
-    this.$store.commit('FETCH_CATEGORIES')
     this.urls = this.initialMagnet
     this.setSettings()
     if (this.openSuddenly == true) {
@@ -276,11 +292,14 @@ export default {
     this.dTransition = 'scale-transition'
   },
   methods: {
-    setSettings() {
+    async setSettings() {
+      await this.$store.dispatch('FETCH_SETTINGS')
+      await this.$store.commit('FETCH_CATEGORIES')
       const settings = this.getSettings()
       this.start = !settings.start_paused_enabled
       this.autoTMM = settings.auto_tmm_enabled
       this.root_folder = settings.create_subfolder_enabled
+      this.directory = this.savepath
     },
     addDropFile(e) {
       this.showWrapDrag = false
@@ -307,7 +326,9 @@ export default {
           paused: !this.start,
           skip_checking: this.skip_checking,
           root_folder: this.root_folder,
-          autoTMM: this.autoTMM
+          autoTMM: this.autoTMM,
+          sequentialDownload: this.sequentialDownload,
+          firstLastPiecePrio: this.firstLastPiecePrio
         }
         if (this.files.length) torrents.push(...this.files)
         if (this.urls) params.urls = this.urls
@@ -322,7 +343,7 @@ export default {
       }
     },
     categoryChanged() {
-      if (this.autoTMM) this.directory = this.savepath
+      this.directory = this.savepath
     },
     resetForm() {
       this.url = null
@@ -342,6 +363,7 @@ export default {
 .wrap-drag {
   pointer-events: none;
 }
+
 .wrap-drag .align {
   margin: -.5em 0 0;
   position: absolute;

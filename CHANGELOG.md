@@ -1,5 +1,166 @@
 # Changelog
 
+### [0.18.1](https://github.com/WDaan/VueTorrent/compare/v0.18.0...v0.18.1) (2022-07-05)
+
+
+### Bug Fixes
+
+* broken build [#453](https://github.com/WDaan/VueTorrent/issues/453) ([8f1a12d](https://github.com/WDaan/VueTorrent/commit/8f1a12d15fa438e55194a9c807bbdc0115a3deda))
+* release build ([7a74275](https://github.com/WDaan/VueTorrent/commit/7a74275a4d15280205ec1e749415da1cb0cd7e41))
+
+
+### Improvements
+
+* lazy load pages for smaller chunk sizes ([abe909e](https://github.com/WDaan/VueTorrent/commit/abe909e14d740f4a78267564d87e2d46ef3c08a8))
+* Update Simplified Chinese translation. ([#454](https://github.com/WDaan/VueTorrent/issues/454)) ([20f4a67](https://github.com/WDaan/VueTorrent/commit/20f4a67f4988629d1bc74ec18226cd858e2469e1))
+
+## [0.18.0](https://github.com/WDaan/VueTorrent/compare/v0.17.1...v0.18.0) (2022-07-04)
+
+
+### Features
+
+* basic proxy support [#261](https://github.com/WDaan/VueTorrent/issues/261) ([71a09fc](https://github.com/WDaan/VueTorrent/commit/71a09fc58a9c29037cfc87fa6c6f0cfdb645233e))
+* Basic rss interface ([#447](https://github.com/WDaan/VueTorrent/issues/447)) ([732e519](https://github.com/WDaan/VueTorrent/commit/732e5193ec76d521249ac6fb73c4a6e975091476))
+
+
+### Bug Fixes
+
+* category download folder not showing correctly ([#448](https://github.com/WDaan/VueTorrent/issues/448)) ([06579c8](https://github.com/WDaan/VueTorrent/commit/06579c8bbee5f991f195df596054da8751d0ea72))
+* favicon [#441](https://github.com/WDaan/VueTorrent/issues/441) ([745376c](https://github.com/WDaan/VueTorrent/commit/745376c02be7a1d9398feb5181bebe9026d22638))
+* favicon [#441](https://github.com/WDaan/VueTorrent/issues/441) ([b7e7de1](https://github.com/WDaan/VueTorrent/commit/b7e7de1e9095228d9207845201c0ceff814623a4))
+
+
+### Improvements
+
+* add ukranian ([e063168](https://github.com/WDaan/VueTorrent/commit/e06316812134df15ac1f5fbb73034436eb7d519c))
+* use pages instead of modals [#398](https://github.com/WDaan/VueTorrent/issues/398) ([#450](https://github.com/WDaan/VueTorrent/issues/450)) ([fcb0219](https://github.com/WDaan/VueTorrent/commit/fcb021972ae62ee36e91bbbf5cba0ee6dc87725a))
+
+### [0.17.1](https://github.com/WDaan/VueTorrent/compare/v0.17.0...v0.17.1) (2022-06-11)
+
+
+### Bug Fixes
+
+* add progress border + percentage [#430](https://github.com/WDaan/VueTorrent/issues/430) ([acc0733](https://github.com/WDaan/VueTorrent/commit/acc07335d31b027cd7ca989959c6d450a957010e))
+* category download folder [#435](https://github.com/WDaan/VueTorrent/issues/435) ([5a0ec26](https://github.com/WDaan/VueTorrent/commit/5a0ec26ddb7b9c7fc1a03102684fd2268b2ae33f))
+* non-capital words ([#432](https://github.com/WDaan/VueTorrent/issues/432)) ([ce1e7c3](https://github.com/WDaan/VueTorrent/commit/ce1e7c3546c150243fede941bd8b4b724e4a5c27))
+* white scrollbar [#433](https://github.com/WDaan/VueTorrent/issues/433) ([db86506](https://github.com/WDaan/VueTorrent/commit/db86506c5e493e2bb69e441e56d86d78667df54b))
+
+
+### Improvements
+
+* complete French translation ([#438](https://github.com/WDaan/VueTorrent/issues/438)) ([3a8ec90](https://github.com/WDaan/VueTorrent/commit/3a8ec90ca20dd20bf22d4af468031d347de7f686))
+
+## [0.17.0](https://github.com/WDaan/VueTorrent/compare/v0.16.3...v0.17.0) (2022-06-05)
+
+
+### Features
+
+* add dialog missing options [#418](https://github.com/WDaan/VueTorrent/issues/418) ([68223f5](https://github.com/WDaan/VueTorrent/commit/68223f5f45da3a4819b43398707fed1e172468e8))
+* piece states progress bar ([#426](https://github.com/WDaan/VueTorrent/issues/426)) ([1722a14](https://github.com/WDaan/VueTorrent/commit/1722a14dba74dafca3b373d50c6dcd94814ab074))
+
+
+### Bug Fixes
+
+* allow native context menu in input elements ([#428](https://github.com/WDaan/VueTorrent/issues/428)) ([b8ad965](https://github.com/WDaan/VueTorrent/commit/b8ad965763fd647b230f7fcbd9798d182cefd762))
+* load default folder [#417](https://github.com/WDaan/VueTorrent/issues/417) ([c63d0a4](https://github.com/WDaan/VueTorrent/commit/c63d0a403939c99a442a10563789cb8753d67771))
+
+### [0.16.3](https://github.com/WDaan/VueTorrent/compare/v0.16.2...v0.16.3) (2022-05-14)
+
+
+### Bug Fixes
+
+* speed limit dialog incorrect text display and zh-hant fix ([#425](https://github.com/WDaan/VueTorrent/issues/425)) ([45b244f](https://github.com/WDaan/VueTorrent/commit/45b244fbcf1ed63ebb2757a821343ed384a832f4))
+
+
+### Improvements
+
+* update Traditional Chinese translations ([#422](https://github.com/WDaan/VueTorrent/issues/422)) ([964b145](https://github.com/WDaan/VueTorrent/commit/964b1451a1758522856fae2c730af9db66e351a1))
+
+### [0.16.2](https://github.com/WDaan/VueTorrent/compare/v0.16.1...v0.16.2) (2022-05-08)
+
+
+### Bug Fixes
+
+* magnet text area max size [#413](https://github.com/WDaan/VueTorrent/issues/413) ([4dd81f7](https://github.com/WDaan/VueTorrent/commit/4dd81f7cd49ab807fddeb50ff2e871364fd955e5))
+
+
+### Improvements
+
+* support more translations + add Simplified Chinese translations ([#415](https://github.com/WDaan/VueTorrent/issues/415)) ([ddd28ae](https://github.com/WDaan/VueTorrent/commit/ddd28ae6192862928ef26c1e1135565f6303095b))
+* translation fixes ([#419](https://github.com/WDaan/VueTorrent/issues/419)) ([521ac58](https://github.com/WDaan/VueTorrent/commit/521ac5804a622c68d788de1f5730b0c43f49f0a1))
+
+### [0.16.1](https://www.github.com/WDaan/VueTorrent/compare/v0.16.0...v0.16.1) (2022-04-17)
+
+
+### Bug Fixes
+
+* torrent progress color [#410](https://www.github.com/WDaan/VueTorrent/issues/410) ([886bc13](https://www.github.com/WDaan/VueTorrent/commit/886bc13f10d82b8973d6ea63fa051ae873b8aea2))
+
+
+### Improvements
+
+* add all-time stats [#351](https://www.github.com/WDaan/VueTorrent/issues/351) ([a268e77](https://www.github.com/WDaan/VueTorrent/commit/a268e774def5875354129c06122898bad018d5ed))
+* better authenticated check ([#411](https://www.github.com/WDaan/VueTorrent/issues/411)) ([ce698e3](https://www.github.com/WDaan/VueTorrent/commit/ce698e38a80fb7ba1dee01251451865df75f68d4))
+* move notification banner to botton [#389](https://www.github.com/WDaan/VueTorrent/issues/389) ([4b90d56](https://www.github.com/WDaan/VueTorrent/commit/4b90d56df5a43bf466acafd3c7bb43a960bffab8))
+* topmenu tooltip delay [#399](https://www.github.com/WDaan/VueTorrent/issues/399) ([2d5ad9d](https://www.github.com/WDaan/VueTorrent/commit/2d5ad9d44227f2ffd3e180eff9740e82ba0281cb))
+
+## [0.16.0](https://www.github.com/WDaan/VueTorrent/compare/v0.15.4...v0.16.0) (2022-04-16)
+
+
+### Features
+
+* add support for setting global speed limits ([#406](https://www.github.com/WDaan/VueTorrent/issues/406)) ([23fee41](https://www.github.com/WDaan/VueTorrent/commit/23fee419fd1561f440f88e4b354ac3745ed813cd))
+
+### [0.15.4](https://www.github.com/WDaan/VueTorrent/compare/v0.15.3...v0.15.4) (2022-04-04)
+
+
+### Bug Fixes
+
+* low visibility text in dark theme ([#390](https://www.github.com/WDaan/VueTorrent/issues/390)) ([84750af](https://www.github.com/WDaan/VueTorrent/commit/84750af3d4d584f5fc0fd8f3cbabd1b0ecfa2e9f))
+* PWA manifest [#405](https://www.github.com/WDaan/VueTorrent/issues/405) ([94727a1](https://www.github.com/WDaan/VueTorrent/commit/94727a142a1822c533c665d558ad4af6c207d5b9))
+* search results not loading until stopped ([#391](https://www.github.com/WDaan/VueTorrent/issues/391)) ([8b126d8](https://www.github.com/WDaan/VueTorrent/commit/8b126d8df5607f1c31174fec81f86091f4ad47cf))
+
+
+### Improvements
+
+* add Japanese language support ([#401](https://www.github.com/WDaan/VueTorrent/issues/401)) ([a178205](https://www.github.com/WDaan/VueTorrent/commit/a1782058c8417e6a8c06acd22ce56418b4fe9419))
+* add Spanish Language ([#385](https://www.github.com/WDaan/VueTorrent/issues/385)) ([d0f7055](https://www.github.com/WDaan/VueTorrent/commit/d0f7055148b6e88bb00c1c8cd58ec1fa123488e9))
+* add Vietnamese ([#392](https://www.github.com/WDaan/VueTorrent/issues/392)) ([6019759](https://www.github.com/WDaan/VueTorrent/commit/6019759260d6561af29dbeb1a95497028b2b8b87))
+
+### [0.15.3](https://www.github.com/WDaan/VueTorrent/compare/v0.15.2...v0.15.3) (2022-02-28)
+
+
+### Bug Fixes
+
+* spelling mistake in README and "qBittorrent" casing ([#368](https://www.github.com/WDaan/VueTorrent/issues/368)) ([90d6623](https://www.github.com/WDaan/VueTorrent/commit/90d66237115f50828a38edec7b10caf817a55b66))
+
+### [0.15.2](https://www.github.com/WDaan/VueTorrent/compare/v0.15.1...v0.15.2) (2022-01-13)
+
+
+### Bug Fixes
+
+* Qbittorrent title on tab ([05bcc9e](https://www.github.com/WDaan/VueTorrent/commit/05bcc9e58783e4de49d698cfd25c902fad7776de))
+
+
+### Improvements
+
+* Chinese translations ([#363](https://www.github.com/WDaan/VueTorrent/issues/363)) ([6c7372b](https://www.github.com/WDaan/VueTorrent/commit/6c7372b41ef72387c7781e0dcfd51fb046fb7881))
+
+### [0.15.1](https://www.github.com/WDaan/VueTorrent/compare/v0.15.0...v0.15.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* mention QBittorent [#356](https://www.github.com/WDaan/VueTorrent/issues/356) ([bbc31fb](https://www.github.com/WDaan/VueTorrent/commit/bbc31fb8c5be1cc1189000e53f90ba7886e05ba8))
+
+
+### Improvements
+
+* add French translations ([#337](https://www.github.com/WDaan/VueTorrent/issues/337)) ([30d5dc0](https://www.github.com/WDaan/VueTorrent/commit/30d5dc01c4349e0f52c5c58ec8f602ded16e706d))
+* add Indonesian ([#361](https://www.github.com/WDaan/VueTorrent/issues/361)) ([908af5b](https://www.github.com/WDaan/VueTorrent/commit/908af5b3faaa07a327665df51f296a977ddef9e6))
+* add Portugese ([#350](https://www.github.com/WDaan/VueTorrent/issues/350)) ([abb4c5b](https://www.github.com/WDaan/VueTorrent/commit/abb4c5ba69a779b729d99bb404fd59d25afb8b72))
+* more translations ([4f8c697](https://www.github.com/WDaan/VueTorrent/commit/4f8c697757d818eeaf70d1c6970cd1f6000d6497))
+
 ## [0.15.0](https://www.github.com/WDaan/VueTorrent/compare/v0.14.0...v0.15.0) (2021-11-27)
 
 

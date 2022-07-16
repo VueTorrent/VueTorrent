@@ -18,8 +18,8 @@
           { 'subheading ml-0': $vuetify.breakpoint.smAndDown }
         ]"
       >
-        <span class="font-weight-light">Qbit</span>
-        <span>Torrent</span>
+        <span class="font-weight-light">qBit</span>
+        <span>torrent</span>
       </v-toolbar-title>
       <v-spacer />
 
@@ -49,8 +49,15 @@
 
         <SpeedGraph v-if="webuiSettings.showSpeedGraph" />
 
-        <SessionStats
+        <TranserStats
+          v-if="webuiSettings.showAlltimeStat"
+          :session="false"
+          :status="status"
+        />
+
+        <TranserStats
           v-if="webuiSettings.showSessionStat"
+          :session="true"
           :status="status"
         />
 
@@ -83,7 +90,7 @@ import {
   TopMenu,
   SpeedGraph,
   FreeSpace,
-  SessionStats,
+  TranserStats,
   CurrentSpeed,
   FilterSelect
 } from './index'
@@ -95,7 +102,7 @@ export default {
     BottomActions,
     TopMenu,
     SpeedGraph,
-    SessionStats,
+    TranserStats,
     CurrentSpeed,
     FilterSelect
   },

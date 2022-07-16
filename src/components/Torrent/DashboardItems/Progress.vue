@@ -12,7 +12,7 @@
       :value="torrent.progress"
       height="20"
       :style="phoneLayout ? '' : 'width: 80%;'"
-      :color="`torrent-${state}-color`"
+      :color="`torrent-${state}`"
       rounded
     >
       <span

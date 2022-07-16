@@ -41,7 +41,8 @@ class Qbit {
 
   async getAuthenticationStatus() {
     return this.axios.get('/app/version')
-      .then(response => response.statusText)
+      .then(() => true)
+      .catch(() => false)
   }
 
   async logout() {
@@ -153,6 +154,52 @@ class Qbit {
     }).then(res => res.data)
   }
 
+  // RSS
+
+  createFeed(feed) {
+    return this.execute('post', '/rss/addFeed', { 
+      url: feed.url,
+      path: feed.url
+    })
+  }
+
+  createRule(ruleName, defs) {
+    return this.execute('post', '/rss/setRule', {
+      ruleName: ruleName,
+      ruleDef: JSON.stringify(defs)
+    })
+  }
+
+  getFeeds() {
+    return this.axios.get('/rss/items')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(feed => {
+          return { name: feed[0], ...feed[1] }
+        }))
+  }
+  
+  getRules() {
+    return this.axios.get('/rss/rules')
+      .then(res => res.data)
+      .then(data => 
+        Object.entries(data).map(rule => {
+          return { name: rule[0], ...rule[1] }
+        }))
+  }
+
+  deleteRule(ruleName) {
+    return this.execute('post', 'rss/removeRule', {
+      ruleName
+    })
+  }
+
+  deleteFeed(name) {
+    return this.execute('post', 'rss/removeItem', {
+      path: name
+    })
+  }
+
   // Post
 
   addTorrents(params, torrents) {
@@ -223,6 +270,32 @@ class Qbit {
 
   setUploadLimit(hashes, limit) {
     return this.torrentAction('setUploadLimit', hashes, { limit })
+  }
+
+  async getGlobalDownloadLimit() {
+    const { data } = await this.axios.get('/transfer/downloadLimit')
+    
+    return data
+  }
+
+  async getGlobalUploadLimit() {
+    const { data } = await this.axios.get('/transfer/uploadLimit')
+    
+    return data
+  }
+
+  setGlobalDownloadLimit(limit) {
+    const formData = new FormData()
+    formData.append('limit', limit)
+    
+    return this.axios.post('/transfer/setDownloadLimit', formData)
+  }
+
+  setGlobalUploadLimit(limit) {
+    const formData = new FormData()
+    formData.append('limit', limit)
+
+    return this.axios.post('/transfer/setUploadLimit', formData)
   }
 
   setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
@@ -393,8 +466,7 @@ class Qbit {
 
   getSearchResults(id) {
     return this.execute('post', '/search/results', {
-      id,
-      limit: 50
+      id
     })
   }
 }

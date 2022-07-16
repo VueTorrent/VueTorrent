@@ -365,7 +365,7 @@ export default {
     },
     showInfo(hash) {
       if (!this.$store.state.selectMode)
-        this.createModal('TorrentDetailModal', { hash })
+        this.$router.push({ name: 'torrentDetail', params: { hash } })
     },
     resetSelected() {
       this.$store.commit('RESET_SELECTED')

@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      Ratio
+      {{ $t('ratio') }}
     </div>
     <div>{{ torrent.ratio }}</div>
   </v-flex>

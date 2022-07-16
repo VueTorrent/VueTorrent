@@ -8,7 +8,7 @@
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>Change Location</h3>
+          <h3>{{ $t('modals.changeLocation.title') }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
@@ -17,13 +17,13 @@
             <v-col>
               <v-text-field
                 v-model="torrent.name"
-                label="Torrent Name"
+                :label="$t('modals.changeLocation.torrentName')"
                 :prepend-icon="mdiFile"
                 readonly
               />
               <v-text-field
                 v-model="newPath"
-                label="Directory"
+                :label="$t('directory')"
                 :prepend-icon="mdiFolder"
                 @keydown.enter="setLocation"
               />
@@ -37,13 +37,13 @@
           class="accent white--text elevation-0 px-4"
           @click="setLocation"
         >
-          Save
+          {{ $t('save') }}
         </v-btn>
         <v-btn
           class="error white--text elevation-0 px-4"
           @click="close"
         >
-          Cancel
+          {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
     </v-card>

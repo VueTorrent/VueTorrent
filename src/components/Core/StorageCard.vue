@@ -10,7 +10,7 @@
           {{ label }}
         </div>
       </v-flex>
-      <v-flex md5 class="ml-4">
+      <v-flex md6>
         <span data-testid="StorageCard-Wrapper" :class="color + '--text title'">
           <span data-testid="StorageCard-value"> {{ value | getDataValue(2) }} </span>
           <span data-testid="StorageCard-unit" class="caption">

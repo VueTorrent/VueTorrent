@@ -4,5 +4,6 @@ import Downloads from './Downloads.vue'
 import VueTorrent from './VueTorrent.vue'
 import TagsAndCategories from './TagsAndCategories.vue'
 import Connection from './Connection.vue'
+import Rss from './Rss.vue'
 
-export { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection }
+export { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection, Rss }
