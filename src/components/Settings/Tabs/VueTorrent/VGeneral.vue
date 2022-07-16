@@ -195,7 +195,7 @@ import { mapState, mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { availableLanguages } from '@/lang'
 export default {
-  name: 'General',
+  name: 'VueTorrent-General',
   data() {
     return {
       languages: availableLanguages,

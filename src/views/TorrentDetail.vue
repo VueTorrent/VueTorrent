@@ -76,7 +76,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Content, Info, Peers, Trackers, TagsAndCategories } from '@/components/TorrentDetail/Tabs'
+import { Content, Info, Peers, Trackers, TagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
 
 export default {

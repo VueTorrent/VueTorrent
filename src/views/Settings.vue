@@ -99,7 +99,7 @@ import {
   TagsAndCategories,
   Connection,
   Rss
-} from '@/components/Settings/Tabs'
+} from '../components/Settings/Tabs'
 import { SettingsTab } from '../mixins'
 
 export default {

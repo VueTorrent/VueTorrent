@@ -28,7 +28,7 @@
 
 <script>
 import { mdiInformationOutline } from '@mdi/js'
-import StorageCard from '@/components/Core/StorageCard'
+import StorageCard from '../Core/StorageCard.vue'
 // eslint-disable-next-line no-unused-vars
 import { titleCase } from '../../filters'
 

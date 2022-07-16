@@ -6,20 +6,18 @@ import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
-const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://localhost'
-
-console.log(`${proxyTarget}:${qBittorrentPort}`)
+const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://127.0.0.1'
 
 export default defineConfig({
   plugins: [
     createVuePlugin(),
-    Components({ 
-      resolvers: [
-        VuetifyResolver()
-      ]
+    Components({
+      resolvers: [VuetifyResolver()]
     }),
     VitePWA({
-      includeAssets: ['favicon.ico', 'robots.txt',
+      includeAssets: [
+        'favicon.ico',
+        'robots.txt',
         './icons/android-chrome-192x192.png',
         './icons/android-chrome-512x512.png',
         './icons/android-chrome-maskable-192x192.png',
@@ -78,9 +76,10 @@ export default defineConfig({
       // Other options
       registerType: 'autoUpdate',
       workbox: {
-        cleanupOutdatedCaches: true  
-      }  
-    })],
+        cleanupOutdatedCaches: true
+      }
+    })
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
@@ -94,7 +93,10 @@ export default defineConfig({
       '/api': {
         target: `${proxyTarget}:${qBittorrentPort}`,
         secure: false,
-        changeOrigin: true
+        changeOrigin: true,
+        headers: {
+          Referer: `${proxyTarget}:${qBittorrentPort}`
+        }
       }
     }
   }
