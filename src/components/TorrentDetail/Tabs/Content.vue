@@ -216,7 +216,7 @@ export default {
       this.togleEditing(item)
     },
     renameFile(item) {
-      qbit.renameFile(this.hash, item.id, item.newName)
+      qbit.renameFile(this.hash, item.name, item.newName)
       item.name = item.newName
       this.togleEditing(item)
     },
