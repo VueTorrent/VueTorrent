@@ -29,17 +29,19 @@ const locale = {
   logout: '登出',
   downloaded: '已下載',
   uploaded: '已上傳',
+  upload: '上傳',
   download: '下載',
   ETA: '預估剩餘時間',
   peers: '下載者',
   ratio: '分享率',
   seeds: '種子',
   tags: '標籤',
-  upload: '上傳',
   share: '分享',
   name: '名稱',
   hash: '雜湊值',
   magnet: '磁力連結',			 
+  feed: '訂閱源',
+  rule: '規則',
 
   /** Torrent */
   torrent: {
@@ -84,6 +86,17 @@ const locale = {
 
   /** Modals */
   modals: {
+    newFeed: {
+      feedName: '名稱',
+      url: '連結'
+    },
+    newRule: {
+      name: '名稱',
+      def: {
+        mustContain: '必須包含',
+        affectedFeeds: '套用至以下訂閱源'
+      }
+    },
     pluginManager: {
       title: '外掛管理器'
     },
@@ -106,6 +119,7 @@ const locale = {
         downloads: '下載',
         connection: '連線',
         bittorrent: 'bittorrent',
+        rss: 'RSS',
         webUI: '網頁介面',
         tagsAndCategories: '標籤和分類'
       },
@@ -171,7 +185,11 @@ const locale = {
         globalMaxConnection: '全域最大連線數',
         perTorrentMaxConnection: '單個種子的最大連線數',
         globalMaxUploadSlots: '全域上傳通道最大數',
-        perTorrentMaxUploadSlots: '單個種子的上傳通道最大數'
+        perTorrentMaxUploadSlots: '單個種子的上傳通道最大數',
+        proxySubHeader: '代理伺服器',
+        proxyPeerConnections: '使用代理伺服器來連線下載者',
+        proxyTorrentOnly: '只對種子使用代理伺服器',
+        proxyAuth: '驗證'
       },
       pageBittorrent: {
         subHeaderPrivacy: '隱私',
@@ -190,6 +208,31 @@ const locale = {
         subHeaderSeedLimits: '做種限制',
         whenRatioReaches: '當分享率達到',
         whenSeedingTimeReaches: '當做種時間達到 (分鐘)'
+      },
+      pageRss: {
+        tabName: {
+          general: '一般',
+          feeds: '訂閱源',
+          rules: '規則'
+        },
+        pageRules: {
+          rules: '規則',
+          btnCreateNew: '新增規則'
+        },
+        pageFeeds: {
+          feeds: '訂閱源',
+          btnCreateNew: '新增訂閱'
+        },
+        pageGeneral: {
+          rssAutoProcessing: 'RSS 閱讀器',
+          rssAutoDownloader: 'RSS 種子自動下載器',
+          input: {
+            enableRssAutoDownload: '啟用自動 RSS 種子下載',
+            enableRssProcessing: '啟用抓取 RSS 訂閱',
+            feedsRefreshInterval: '訂閱源更新區間',
+            feedsMaxArticles: '每個訂閱源的最大文章數'
+          }
+        }
       },
       pageWebUI: {
         useAlternativeWebUI: '使用替補 WebUI',
@@ -224,7 +267,7 @@ const locale = {
     },
     newCategory: {
       categoryName: '分類名稱',
-      path: '路徑',
+      Path: '路徑',
       tipOnNoName: '必須填寫分類名稱',
       tipOnNameTooLong: '分類名稱必須少於 15 個字符',
       tipOnNoPath: '必須填寫路徑',
@@ -242,6 +285,7 @@ const locale = {
       tabTitleContent: '內容',
       tabTitleTagsCategories: '標籤和分類',
       pageInfo: {
+        pieceStates: '進度',
         torrentTitle: '種子標題',
         hash: '雜湊值',
         ratio: '分享率',
@@ -344,7 +388,9 @@ const locale = {
     loginSuccess: '登入成功！🎉',
     loginFailed: '登入失敗…😕',
     settingsSaved: '設定儲存成功！',
-    categorySaved: '分類編輯成功！'
+    categorySaved: '分類編輯成功！',
+    feedSaved: '訂閱源儲存成功！',
+    ruleSaved: '規則保存成功！'
   },
 
   /** RightClick **/
