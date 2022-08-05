@@ -47,7 +47,16 @@
           :items-per-page="10"
           :loading="loading"
           :style="{ maxHeight: '60vh'}"
+          :search="filter"
+          :custom-filter="filterOnlyCapsText"
         >
+          <template #top>
+            <v-text-field
+              v-model="filter"
+              label="Filter"
+              class="mx-4"
+            />
+          </template>
           <template #[`item.fileName`]="{ item }">
             <a
               :href="item.descrLink"
@@ -118,6 +127,7 @@ export default {
         valid: false,
         pattern: ''
       },
+      filter: '',
       mdiClose, mdiMagnify, mdiDownload
     }
   },
@@ -175,6 +185,12 @@ export default {
     },
     close() {
       this.dialog = false
+    },
+    filterOnlyCapsText(value, search, item) {
+      return value != null &&
+          search != null &&
+          typeof value === 'string' &&
+          value.toString().toLocaleUpperCase().indexOf(search) !== -1
     }
   }
 }
