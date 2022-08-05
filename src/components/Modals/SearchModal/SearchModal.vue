@@ -7,7 +7,7 @@
     :style="{ height: phoneLayout ? '100vh' : '' }"
   >
     <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
-      <v-card-title class="justify-center">
+      <v-card-title v-if="!phoneLayout" class="justify-center">
         <h2>{{ $t('modals.search.title') }}</h2>
       </v-card-title>
       <v-card-text class="pa-0">
@@ -49,6 +49,8 @@
           :style="{ maxHeight: '60vh'}"
           :search="filter"
           :custom-filter="filterOnlyCapsText"
+          :sort-by.sync="sortBy"
+          :sort-desc.sync="sortDesc"
         >
           <template #top>
             <v-text-field
@@ -128,7 +130,9 @@ export default {
         pattern: ''
       },
       filter: '',
-      mdiClose, mdiMagnify, mdiDownload
+      mdiClose, mdiMagnify, mdiDownload,
+      sortBy: 'nbSeeders',
+      sortDesc: true
     }
   },
   computed: {
@@ -207,6 +211,7 @@ export default {
 
   .v-select__slot {
     width: 4em;
+    min-width: 100%;
   }
 }
 </style>
