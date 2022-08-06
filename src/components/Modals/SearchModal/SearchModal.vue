@@ -52,6 +52,7 @@
         >
           <template #top>
             <v-text-field
+              ref="filterRef"
               v-model="filter"
               label="Filter"
               class="mx-4"
@@ -151,6 +152,7 @@ export default {
         this.loading = true
         this.search.status = 'Running'
         this.search.results = []
+        this.$refs.filterRef.reset()
         const data = await qbit.startSearch(
           this.searchForm.pattern,
           this.enabledSearchPlugins.map(p => p.name)
