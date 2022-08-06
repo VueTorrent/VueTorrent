@@ -7,9 +7,6 @@
     :style="{ height: phoneLayout ? '100vh' : '' }"
   >
     <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
-      <v-card-title v-if="!phoneLayout" class="justify-center">
-        <h2>{{ $t('modals.search.title') }}</h2>
-      </v-card-title>
       <v-card-text class="pa-0">
         <v-form
           ref="form"
@@ -21,10 +18,10 @@
                 v-model="searchForm.pattern"
                 :prepend-inner-icon="mdiMagnify"
                 label="Search"
-                :rules="[v => !!v || 'Searchterm is required']"
+                :rules="[v => !!v || 'Search term is required']"
                 clearable
                 style="width: 95%;"
-                @keydown.enter="$refs.searchButton.click"
+                @keydown.enter.prevent="$refs.searchButton.click"
               />
             </v-col>
             <v-col class="pa-0 mt-2" cols="3">
@@ -48,9 +45,10 @@
           :loading="loading"
           :style="{ maxHeight: '60vh'}"
           :search="filter"
-          :custom-filter="filterOnlyCapsText"
+          :custom-filter="customFilter"
           :sort-by.sync="sortBy"
           :sort-desc.sync="sortDesc"
+          :mobile-breakpoint="0"
         >
           <template #top>
             <v-text-field
@@ -190,21 +188,24 @@ export default {
     close() {
       this.dialog = false
     },
-    filterOnlyCapsText(value, search, item) {
+    customFilter(value, search, item) {
+      const searchArr = search.trim().toLowerCase().split(' ')
+      
       return value != null &&
-          search != null &&
-          typeof value === 'string' &&
-          value.toString().toLocaleUpperCase().indexOf(search) !== -1
+        search != null &&
+        typeof value === 'string' &&
+        searchArr.every(i => (value.toString().toLowerCase().indexOf(i) !== -1))
     }
   }
 }
 </script>
 
 <style lang="scss">
-#searchTable  {
+#searchTable {
   .v-data-footer {
     justify-content: center;
   }
+
   .v-data-footer__pagination {
     margin: 0 8px;
   }
