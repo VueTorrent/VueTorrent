@@ -6,6 +6,7 @@
     max-width="500px"
     :fullscreen="phoneLayout"
     persistent
+    @keydown.enter.prevent="$refs.addTorrent.click"
   >
     <div
       class="noselect"
@@ -169,6 +170,7 @@
         <v-form>
           <v-card-actions class="justify-center">
             <v-btn
+              ref="addTorrent"
               text
               :disabled="!valid"
               class="accent white--text mx-0 mt-3"
