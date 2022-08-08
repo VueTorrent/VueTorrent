@@ -28,8 +28,7 @@
       </v-chip>
     </v-flex>
     <v-flex xs12 class="pa-0 ma-1 row">
-      <span class="body-2"> {{ torrent.dloaded | getDataValue }} </span>
-      <span class="grey--text caption ml-1"> {{ torrent.dloaded | getDataUnit }} / </span>
+      <span class="body-2"> {{ torrent.dloaded | getDataValue }} / </span>
       <span class="body-2 ml-1"> {{ torrent.size | getDataValue }} </span>
       <span class="grey--text caption ml-1"> {{ torrent.size | getDataUnit }}</span>
       <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
@@ -38,6 +37,9 @@
       <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
       <span class="grey--text caption"> Ratio: </span>
       <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
+      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
+      <span class="body-2"> {{ torrent.uploaded | getDataValue }} </span>
+      <span class="grey--text caption ml-1"> {{ torrent.uploaded | getDataUnit }} </span>
       <v-spacer />
       <span class="body-2 ml-1"> {{ torrent.eta }} </span>
     </v-flex>
