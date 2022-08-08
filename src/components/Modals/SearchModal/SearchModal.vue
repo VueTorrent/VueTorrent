@@ -21,6 +21,7 @@
                 :rules="[v => !!v || 'Search term is required']"
                 clearable
                 style="width: 95%;"
+                autofocus
                 @keydown.enter.prevent="$refs.searchButton.click"
               />
             </v-col>
