@@ -27,7 +27,7 @@
     </v-list-item>
     <v-list-item>
       <v-checkbox
-        v-model="settings.lsd"
+        v-model="settings.anonymous_mode"
         hide-details
         class="ma-0 pa-0"
         :label="$t('modals.settings.pageBittorrent.enableAnonymous')"
