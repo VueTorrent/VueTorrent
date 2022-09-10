@@ -109,8 +109,8 @@ const locale = {
         size: 'Size',
         seeds: 'Seeds',
         peers: 'Peers',
-        search_engine: 'Search_engine',
-        action: 'Action'
+        search_engine: 'Site',
+        action: ''
       }
     },
     settings: {

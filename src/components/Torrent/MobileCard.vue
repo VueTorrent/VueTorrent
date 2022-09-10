@@ -36,8 +36,11 @@
       <span class="body-2">{{ torrent.progress }}</span>
       <span class="grey--text caption ml-1">%</span>
       <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
-      <span class="grey--text caption"> Ratio: </span>
+      <span class="grey--text caption"> R: </span>
       <span class="body-2 ml-1"> {{ torrent.ratio }} </span>
+      <span class="mx-1 grey--text" style="margin-top: 3px">•</span>
+      <span class="body-2"> {{ torrent.uploaded | getDataValue }} </span>
+      <span class="grey--text caption ml-1"> {{ torrent.uploaded | getDataUnit }} </span>
       <v-spacer />
       <span class="body-2 ml-1"> {{ torrent.eta }} </span>
     </v-flex>
