@@ -8,7 +8,7 @@
       </div>
     </template>
 
-    <span>{{ status || $t('unknown') }}</span>
+    <span>{{ (status || $t('unknown')) | titleCase }}</span>
   </v-tooltip>
 </template>
 

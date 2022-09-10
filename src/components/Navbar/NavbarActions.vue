@@ -37,7 +37,7 @@
       </v-tooltip>
     </v-col>
     <v-col>
-      <connection-status :status="connectionStatus | titleCase" />
+      <connection-status :status="connectionStatus" />
     </v-col>
     <v-col>
       <v-tooltip top>
