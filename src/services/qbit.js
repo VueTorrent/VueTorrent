@@ -349,11 +349,11 @@ class Qbit {
     return this.execute('post', `/torrents/${action}`, params)
   }
 
-  renameFile(hash, id, name) {
+  renameFile(hash, oldPath, newPath) {
     const params = {
       hash,
-      id,
-      name
+      oldPath,
+      newPath
     }
 
     return this.execute('post', '/torrents/renameFile', params)
