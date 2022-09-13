@@ -204,7 +204,7 @@ const locale = {
         excludeSlowTorrent: 'Не учитывать медленные торренты в этих пределах',
         downloadRateLimit: 'Пороговое значение скорости скачивания Киб/с',
         uploadRateLimit: 'Порог скорости отдачи Киб/с',
-        torrentInactivityTimer: 'Таймер не активности торрента',
+        torrentInactivityTimer: 'Таймер неактивности торрента',
         subHeaderSeedLimits: 'Ограничение раздачи',
         whenRatioReaches: 'Когда Ратио достигнет',
         whenSeedingTimeReaches :' Когда время раздачи достигнет'
