@@ -45,7 +45,7 @@ const locale = {
 
   /** Torrent */
   torrent: {
-    title: 'Заголовок'',
+    title: 'Заголовок',
     added: 'Добавлено',
     availability: 'Доступность',
     size: 'Размер',
@@ -183,7 +183,7 @@ const locale = {
       pageConnection: {
         subHeader: 'Ограничение соединений',
         globalMaxConnection: 'Глобальное максимальное количество соединений',
-        perTorrentMaxConnection:'Максимальное количество соединений на торрент',
+        perTorrentMaxConnection: 'Максимальное количество соединений на торрент',
         globalMaxUploadSlots: 'Глобальное максимальное количество слотов для раздачи',
         perTorrentMaxUploadSlots: 'Максимальное количество слотов для раздачи на торрент',
         proxySubHeader: 'Прокси сервер',
@@ -199,7 +199,7 @@ const locale = {
         enableAnonymous: 'Включить анонимный режим',
         torrentQueue: 'Очередь торрентов',
         maxActiveDownload: 'Максимальное количество активных скачиваний',
-        maxActiveUpload:'Максимальное количество активных отдач',
+        maxActiveUpload: 'Максимальное количество активных отдач',
         maxActiveTorrent: 'Максимальное количество активных торрентов',
         excludeSlowTorrent: 'Не учитывать медленные торренты в этих пределах',
         downloadRateLimit: 'Пороговое значение скорости скачивания Киб/с',
@@ -207,7 +207,7 @@ const locale = {
         torrentInactivityTimer: 'Таймер неактивности торрента',
         subHeaderSeedLimits: 'Ограничение раздачи',
         whenRatioReaches: 'Когда Ратио достигнет',
-        whenSeedingTimeReaches :' Когда время раздачи достигнет'
+        whenSeedingTimeReaches: 'Когда время раздачи достигнет'
       },
       pageRss: {
         tabName: {
@@ -252,7 +252,7 @@ const locale = {
       },
       pageTagsAndCategories: {
         btnCreateNew: 'Создать категорию',
-        subHeaderTags:'Доступные теги:',
+        subHeaderTags: 'Доступные теги:',
         subHeaderCategories: 'Доступные категории:'
       }
     },
@@ -324,7 +324,7 @@ const locale = {
       },
       pageTrackers: {
         url: 'URL',
-        status:'Статус',
+        status: 'Статус',
         peers: 'Пиры',
         seeds: 'Сиды',
         leeches: 'Личи',
@@ -342,7 +342,7 @@ const locale = {
       createSubfolder: 'Создать подпапку',
       automaticTorrentManagement: 'Автоматическое управление торрентами',
       dropHereForAdd: 'Перетащить сюда для добавления',
-      oneOrMoreFilesInvalidTorrent: 'Один или несколько файлов не являются действительным торрентом''
+      oneOrMoreFilesInvalidTorrent: 'Один или несколько файлов не являются действительным торрентом'
     },
     changeLocation: {
       title: 'Изменить местоположение',
@@ -369,7 +369,7 @@ const locale = {
         size: 'Размер',
         state: 'Состояние',
         uploaded: 'Отдано',
-        addedOn:'добавлено',
+        addedOn: 'добавлено',
         downloadSpeed: 'Скорость загрузки',
         timeActive: 'Активен',
         uploadSpeed: 'Скорость отдачи'
