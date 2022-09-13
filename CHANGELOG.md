@@ -1,5 +1,25 @@
 # Changelog
 
+### [0.18.2](https://github.com/WDaan/VueTorrent/compare/v0.18.1...v0.18.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* anonymous mode [#362](https://github.com/WDaan/VueTorrent/issues/362) ([27a0717](https://github.com/WDaan/VueTorrent/commit/27a07179f08225292e2e26fb57bbfa6f846b272b))
+* connection password type [#456](https://github.com/WDaan/VueTorrent/issues/456) ([a8616cc](https://github.com/WDaan/VueTorrent/commit/a8616cce545ed579e39db9e64c0005a74eee63d5))
+* connection status [#482](https://github.com/WDaan/VueTorrent/issues/482) ([e047467](https://github.com/WDaan/VueTorrent/commit/e0474671042dc7b1c4f2490018c5484e4730ccf1))
+* no autocapitalize on login form [#489](https://github.com/WDaan/VueTorrent/issues/489) ([e352de0](https://github.com/WDaan/VueTorrent/commit/e352de0643dec66256f5565be6a686ee00f040e5))
+* Russian language ([#494](https://github.com/WDaan/VueTorrent/issues/494)) ([72548fa](https://github.com/WDaan/VueTorrent/commit/72548fac4ad7e5002a83b80c0b9cdb6b2d82e075))
+* torrent search ([#478](https://github.com/WDaan/VueTorrent/issues/478)) @Anteus ([baba4ac](https://github.com/WDaan/VueTorrent/commit/baba4acda4adcc2414d0a0cab6e7b13446152050))
+* Update Paramaters Sent to /torrents/renameFile ([#470](https://github.com/WDaan/VueTorrent/issues/470)) ([1ccdf08](https://github.com/WDaan/VueTorrent/commit/1ccdf08b606bfff9e9e016765c0d03ed0e2e7715))
+
+
+### Improvements
+
+* add Russian translations ([#493](https://github.com/WDaan/VueTorrent/issues/493)) [@reysonk](https://github.com/reysonk) ([9b6deb9](https://github.com/WDaan/VueTorrent/commit/9b6deb90371ac4e56ac2691002bda578e25758ea))
+* Improved Ukrainian translation ([#457](https://github.com/WDaan/VueTorrent/issues/457)) ([b56a16f](https://github.com/WDaan/VueTorrent/commit/b56a16f7cebaf3b434f85c621b73e2d3e3385ba8))
+* updated japanese translate file ([#491](https://github.com/WDaan/VueTorrent/issues/491)) ([7e5cc48](https://github.com/WDaan/VueTorrent/commit/7e5cc4891a61d441429c155ec759d5a668c3498f))
+
 ### [0.18.1](https://github.com/WDaan/VueTorrent/compare/v0.18.0...v0.18.1) (2022-07-05)
 
 
