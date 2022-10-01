@@ -26,7 +26,36 @@
         />
       </template>
       <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
-        <span v-if="!item.icon">{{ item.children.length }} Files</span>
+        <div v-if="!item.icon">
+          <span class="ml-4">{{ item.children.length }} Files</span>
+          <v-btn
+            v-if="!item.editing"
+            fab
+            x-small
+            class="accent white--text elevation-0 px-4 ml-2"
+            @click="edit(item)"
+          >
+            <v-icon>{{ mdiPencil }}</v-icon>
+          </v-btn>
+          <v-btn
+            v-if="item.editing"
+            fab
+            x-small
+            class="accent white--text elevation-0 px-4 ml-2"
+            @click="renameFolder(item)"
+          >
+            <v-icon>{{ mdiContentSave }}</v-icon>
+          </v-btn>
+          <v-btn
+            v-if="item.editing"
+            fab
+            x-small
+            class="error white--text elevation-0 px-4 ml-2"
+            @click="togleEditing(item)"
+          >
+            <v-icon>{{ mdiClose }}</v-icon>
+          </v-btn>
+        </div>
         <div v-else>
           <span>[{{ item.size }}]</span>
           <span class="ml-4">{{ item.progress }}%</span>
@@ -96,7 +125,7 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
-import { 
+import {
   mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen,
   mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh,
   mdiArrowUp, mdiArrowDown, mdiPriorityLow
@@ -115,7 +144,7 @@ export default {
     priority(value) {
       if (value === 4) return 'normal'
       const res = FILE_PRIORITY_OPTIONS.find(el => el.value === value)
-      
+
       return res ? res.name : 'undefined'
     }
   },
@@ -144,7 +173,7 @@ export default {
       if (this.treeData) {
         return treeify(this.treeData)
       }
-      
+
       return []
     }
   },
@@ -217,6 +246,11 @@ export default {
     },
     renameFile(item) {
       qbit.renameFile(this.hash, item.name, item.newName)
+      item.name = item.newName
+      this.togleEditing(item)
+    },
+    renameFolder(item) {
+      qbit.renameFolder(this.hash, item.name, item.newName)
       item.name = item.newName
       this.togleEditing(item)
     },

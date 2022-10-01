@@ -359,6 +359,16 @@ class Qbit {
     return this.execute('post', '/torrents/renameFile', params)
   }
 
+  renameFolder(hash, oldPath, newPath) {
+    const params = {
+      hash,
+      oldPath,
+      newPath
+    }
+
+    return this.execute('post', '/torrents/renameFolder', params)
+  }
+
   /** Torrent Priority **/
   setTorrentPriority(hashes, priority) {
     if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
