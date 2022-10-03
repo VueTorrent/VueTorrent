@@ -139,25 +139,19 @@
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
-          <td>
-            {{ torrent.tracker }}
-          </td>
+          <td v-html="$options.filters.transformUrlToHref(torrent.tracker)" />
         </tr>
         <tr v-if="createdBy">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
-          <td>
-            {{ createdBy }}
-          </td>
+          <td v-html="$options.filters.transformUrlToHref(createdBy)" />
         </tr>
         <tr v-if="comment">
           <td :class="commonStyle">
             {{ $t('torrent.comments') | titleCase }}
           </td>
-          <td>
-            {{ comment }}
-          </td>
+          <td v-html="$options.filters.transformUrlToHref(comment)" />
         </tr>
 
         <tr>
