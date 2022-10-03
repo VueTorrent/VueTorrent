@@ -402,7 +402,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 .list-item {
     &__title {
         font-size: 1em;
