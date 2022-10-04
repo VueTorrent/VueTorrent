@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard render correctly 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-row-stub tag="div" dense="true">
+    <v-col-stub cols="12" md="6" tag="div">
+      <v-subheader-stub>
+        modals.settings.pageVueTorrent.pageDashboard.busyTorrentTip
+      </v-subheader-stub>
+      <v-row-stub tag="div" dense="true">
+        <v-list-stub tag="div" flat="true" class="ma-2 pa-0">
+          <draggable-stub list="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" clone="[Function]" element="div" tag="tbody">
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Size</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Progress</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Download</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Upload</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Downloaded</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Uploaded</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">ETA</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Peers</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Seeds</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Status</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Ratio</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Category</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Tags</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">AddedOn</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Availability</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+          </draggable-stub>
+        </v-list-stub>
+      </v-row-stub>
+    </v-col-stub>
+    <v-col-stub cols="12" md="6" tag="div">
+      <v-subheader-stub>
+        modals.settings.pageVueTorrent.pageDashboard.completedTorrentTip
+      </v-subheader-stub>
+      <v-row-stub tag="div" dense="true">
+        <v-list-stub tag="div" flat="true" class="ma-2 pa-0">
+          <draggable-stub list="[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]" clone="[Function]" element="div" tag="tbody">
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Size</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Progress</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Download</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Upload</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Downloaded</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Uploaded</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">ETA</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Peers</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Seeds</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Status</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Ratio</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Category</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Tags</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">AddedOn</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+            <v-list-item-stub activeclass="" tag="div" class="ma-2 elevation-2 rounded-lg pointer">
+              <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" dense="true" hidedetails="true" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="pa-0 ma-0"></v-checkbox-stub>
+              <v-list-item-content-stub tag="div">
+                <v-list-item-title-stub tag="div" class="truncate">Availability</v-list-item-title-stub>
+              </v-list-item-content-stub>
+              <v-list-item-action-stub>
+                <v-icon-stub>
+                  M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z
+                </v-icon-stub>
+              </v-list-item-action-stub>
+            </v-list-item-stub>
+          </draggable-stub>
+        </v-list-stub>
+      </v-row-stub>
+    </v-col-stub>
+  </v-row-stub>
+</v-card-stub>
+`;
