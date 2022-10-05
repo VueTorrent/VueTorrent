@@ -131,3 +131,11 @@ export function limitToValue(value) {
 }
 
 Vue.filter('limitToValue', limitToValue)
+
+export function transformUrlToHref(string) {
+  const expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
+
+  return string.replace(expression, '<a href="$1" target="_blank">$1</a>')
+}
+
+Vue.filter('transformUrlToHref', transformUrlToHref)
