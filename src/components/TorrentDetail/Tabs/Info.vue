@@ -230,7 +230,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 
@@ -238,19 +237,14 @@ export default {
   name: 'Info',
   mixins: [FullScreenModal],
   props: {
-    hash: String
+    hash: String,
+    torrent: Object
   },
   data() {
     return {
       commonStyle: 'caption',
       createdBy: null,
       comment: null
-    }
-  },
-  computed: {
-    ...mapGetters(['getTorrent']),
-    torrent() {
-      return this.getTorrent(this.hash)
     }
   },
   mounted() {
@@ -306,7 +300,6 @@ export default {
           ctx.fillRect((data.length - rectWidth), 0, rectWidth, canvas.height)
         }
       }
-
     }
   }
 }
@@ -326,12 +319,16 @@ export default {
   }
 }
 
+:deep(.v-data-table tbody td.caption) {
+  width: 20%;
+}
+
 #pieceStates {
   display: block;
 
   canvas {
     height: 100%;
-    width: 95%;
+    width: 50%;
     border: 1px dotted;
   }
 }

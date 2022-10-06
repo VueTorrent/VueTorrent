@@ -54,7 +54,11 @@
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
           <v-tab-item eager value="info">
-            <info :is-active="tab === 'info'" :hash="hash" />
+            <info
+              v-if="torrent"
+              :torrent="torrent"
+              :hash="hash"
+            />
           </v-tab-item>
           <v-tab-item eager value="trackers">
             <Trackers :is-active="tab === 'trackers'" :hash="hash" />
@@ -66,7 +70,12 @@
             <Content :is-active="tab === 'content'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
-            <TagsAndCategories :is-active="tab === 'tagsAndCategories'" :hash="hash" />
+            <TagsAndCategories
+              v-if="torrent"
+              :torrent="torrent"
+              :is-active="tab === 'tagsAndCategories'"
+              :hash="hash"
+            />
           </v-tab-item>
         </v-tabs-items>
       </v-card-text>

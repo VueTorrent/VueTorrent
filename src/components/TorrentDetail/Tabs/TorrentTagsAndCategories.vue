@@ -55,16 +55,14 @@ export default {
   name: 'TorrentTagsAndCategories',
   mixins: [FullScreenModal],
   props: {
-    hash: String
+    hash: String,
+    torrent: Object
   },
   data: () => ({
     categories: []
   }),
   computed: {
-    ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
-    torrent() {
-      return this.getTorrent(this.hash)
-    },
+    ...mapGetters(['getAvailableTags', 'getCategories']),
     availableTags() {
       return this.getAvailableTags()
     },
