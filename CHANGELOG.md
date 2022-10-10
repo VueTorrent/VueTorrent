@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.19.0](https://github.com/WDaan/VueTorrent/compare/v0.18.2...v0.19.0) (2022-10-10)
+
+
+### Features
+
+* Links in torrent details view are now clickable ([#506](https://github.com/WDaan/VueTorrent/issues/506)) ([f1536cb](https://github.com/WDaan/VueTorrent/commit/f1536cb010e2ebc8d7d026a62be491e8a3a04cfa))
+* support for renaming folders ([#500](https://github.com/WDaan/VueTorrent/issues/500)) ([cf8f43a](https://github.com/WDaan/VueTorrent/commit/cf8f43aac3c235cf616bed4c1ce1ceda0fad8fe4))
+
+
+### Bug Fixes
+
+* Cookies not sent with request for Web App manifest.json ([#504](https://github.com/WDaan/VueTorrent/issues/504)) ([2efe73a](https://github.com/WDaan/VueTorrent/commit/2efe73ad7e51c7b45ad65827503d4c3fcebd58a4))
+* font-size difference in right click menu ([#505](https://github.com/WDaan/VueTorrent/issues/505)) ([a8f28dd](https://github.com/WDaan/VueTorrent/commit/a8f28dd5b468924f7dcf09d101e438a15e1269ba))
+
 ### [0.18.2](https://github.com/WDaan/VueTorrent/compare/v0.18.1...v0.18.2) (2022-09-13)
 
 
