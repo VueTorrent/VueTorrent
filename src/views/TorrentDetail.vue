@@ -61,13 +61,22 @@
             />
           </v-tab-item>
           <v-tab-item eager value="trackers">
-            <Trackers :is-active="tab === 'trackers'" :hash="hash" />
+            <Trackers
+              :is-active="tab === 'trackers'"
+              :hash="hash"
+            />
           </v-tab-item>
           <v-tab-item eager value="peers">
-            <Peers :is-active="tab === 'peers'" :hash="hash" />
+            <Peers
+              :is-active="tab === 'peers'"
+              :hash="hash"
+            />
           </v-tab-item>
           <v-tab-item eager value="content">
-            <Content :is-active="tab === 'content'" :hash="hash" />
+            <Content
+              :is-active="tab === 'content'"
+              :hash="hash"
+            />
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
             <TagsAndCategories
@@ -107,6 +116,12 @@ export default {
     hash() {
       return this.$route.params.hash
     }
+  },
+  created() {
+    this.$store.dispatch('INIT_INTERVALS')
+  },
+  destroyed() {
+    this.$store.commit('REMOVE_INTERVALS')
   },
   methods: {
     close() {
