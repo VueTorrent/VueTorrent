@@ -121,3 +121,37 @@ export function getHostName(url) {
     return ''
   }
 }
+
+const urlRegExp = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi)
+
+export function splitByUrl(string) {
+  const urls = string.match(urlRegExp)
+  let resultArray = []
+
+  if (urls) {
+    urls.forEach(function (url) {
+      let tmpResult
+      if (resultArray.length === 0) {
+        tmpResult = string.toString().split(url)
+      } else {
+        tmpResult = resultArray[resultArray.length - 1].toString().split(url)
+        resultArray.pop()
+      }
+
+      tmpResult.splice(1, 0, url)
+      resultArray = [...resultArray, ...tmpResult]
+    })
+  } else {
+    resultArray[0] = string
+  }
+
+  resultArray = resultArray.filter(element => {
+    return element !== ''
+  })
+
+  return resultArray
+}
+
+export function stringContainsUrl(string) {
+  return urlRegExp.test(string)
+}
