@@ -30,7 +30,7 @@ export default {
       return this.getAuthenticated()
     },
     onLoginPage() {
-      return this.$router.currentRoute.name.includes('login')
+      return this.$router.currentRoute.name?.includes('login')
     }
   },
   created() {
