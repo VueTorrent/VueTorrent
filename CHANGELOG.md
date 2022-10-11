@@ -1,5 +1,15 @@
 # Changelog
 
+### [0.19.1](https://github.com/WDaan/VueTorrent/compare/v0.19.0...v0.19.1) (2022-10-11)
+
+
+### Bug Fixes
+
+* login console error on refresh ([254d7c8](https://github.com/WDaan/VueTorrent/commit/254d7c8562e3fec5a16b4f65a4de0382ef7662c1))
+* login prompt being displayed when whitelisted ([#511](https://github.com/WDaan/VueTorrent/issues/511)) ([077cf54](https://github.com/WDaan/VueTorrent/commit/077cf54c6bb5ccc7e5ccf9b94731ec468bd17ecd))
+* refresh torrent detail data from store ([#509](https://github.com/WDaan/VueTorrent/issues/509)) ([5270619](https://github.com/WDaan/VueTorrent/commit/5270619a5d27eba380a33a8f12632c2c61611886))
+* temporarily disable render link feat for security ([#512](https://github.com/WDaan/VueTorrent/issues/512)) ([13e6584](https://github.com/WDaan/VueTorrent/commit/13e6584c5d9a541d01e770d901c9a6266e7c9b24))
+
 ## [0.19.0](https://github.com/WDaan/VueTorrent/compare/v0.18.2...v0.19.0) (2022-10-10)
 
 
