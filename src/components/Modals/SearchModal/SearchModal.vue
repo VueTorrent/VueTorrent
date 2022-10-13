@@ -7,9 +7,6 @@
     :style="{ height: phoneLayout ? '100vh' : '' }"
   >
     <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
-      <v-card-title class="justify-center">
-        <h2>{{ $t('modals.search.title') }}</h2>
-      </v-card-title>
       <v-card-text class="pa-0">
         <v-form
           ref="form"
@@ -21,10 +18,11 @@
                 v-model="searchForm.pattern"
                 :prepend-inner-icon="mdiMagnify"
                 label="Search"
-                :rules="[v => !!v || 'Searchterm is required']"
+                :rules="[v => !!v || 'Search term is required']"
                 clearable
                 style="width: 95%;"
-                @keydown.enter="$refs.searchButton.click"
+                autofocus
+                @keydown.enter.prevent="$refs.searchButton.click"
               />
             </v-col>
             <v-col class="pa-0 mt-2" cols="3">
@@ -47,7 +45,20 @@
           :items-per-page="10"
           :loading="loading"
           :style="{ maxHeight: '60vh'}"
+          :search="filter"
+          :custom-filter="customFilter"
+          :sort-by.sync="sortBy"
+          :sort-desc.sync="sortDesc"
+          :mobile-breakpoint="0"
         >
+          <template #top>
+            <v-text-field
+              ref="filterRef"
+              v-model="filter"
+              label="Filter"
+              class="mx-4"
+            />
+          </template>
           <template #[`item.fileName`]="{ item }">
             <a
               :href="item.descrLink"
@@ -118,7 +129,10 @@ export default {
         valid: false,
         pattern: ''
       },
-      mdiClose, mdiMagnify, mdiDownload
+      filter: '',
+      mdiClose, mdiMagnify, mdiDownload,
+      sortBy: 'nbSeeders',
+      sortDesc: true
     }
   },
   computed: {
@@ -139,6 +153,7 @@ export default {
         this.loading = true
         this.search.status = 'Running'
         this.search.results = []
+        this.$refs.filterRef.reset()
         const data = await qbit.startSearch(
           this.searchForm.pattern,
           this.enabledSearchPlugins.map(p => p.name)
@@ -175,22 +190,32 @@ export default {
     },
     close() {
       this.dialog = false
+    },
+    customFilter(value, search, item) {
+      const searchArr = search.trim().toLowerCase().split(' ')
+      
+      return value != null &&
+        search != null &&
+        typeof value === 'string' &&
+        searchArr.every(i => (value.toString().toLowerCase().indexOf(i) !== -1))
     }
   }
 }
 </script>
 
 <style lang="scss">
-#searchTable  {
+#searchTable {
   .v-data-footer {
     justify-content: center;
   }
+
   .v-data-footer__pagination {
     margin: 0 8px;
   }
 
   .v-select__slot {
     width: 4em;
+    min-width: 100%;
   }
 }
 </style>

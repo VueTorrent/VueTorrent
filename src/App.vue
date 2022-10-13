@@ -30,7 +30,7 @@ export default {
       return this.getAuthenticated()
     },
     onLoginPage() {
-      return this.$router.currentRoute.name.includes('login')
+      return this.$router.currentRoute.name?.includes('login')
     }
   },
   created() {
@@ -45,6 +45,7 @@ export default {
       if (authenticated) {
         this.$store.commit('LOGIN', true)
         this.$store.commit('updateMainData')
+        if (this.onLoginPage) return this.$router.push('/')
 
         return
       }

@@ -16,6 +16,7 @@
               :rules="inputRules"
               autocomplete="current email"
               name="username"
+              autocapitalize="none"
               @keyup.enter.native="login"
             />
             <v-text-field
@@ -27,6 +28,7 @@
               :rules="inputRules"
               autocomplete="current password"
               name="password"
+              autocapitalize="none"
               @keyup.enter.native="login"
             />
             <v-spacer />

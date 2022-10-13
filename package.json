@@ -1,6 +1,6 @@
 {
   "name": "vuetorrent",
-  "version": "0.18.1",
+  "version": "0.19.1",
   "private": true,
   "scripts": {
     "dev": "vite --host",
@@ -24,7 +24,7 @@
     "vue-router": "^3.5.1",
     "vue-toastification": "^1.7.11",
     "vuedraggable": "^2.24.3",
-    "vuetify": "^2.6.4",
+    "vuetify": "^2.6.10",
     "vuex": "^3.6.2",
     "vuex-persist": "^3.1.3"
   },

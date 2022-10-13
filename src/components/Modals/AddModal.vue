@@ -6,6 +6,7 @@
     max-width="500px"
     :fullscreen="phoneLayout"
     persistent
+    @keydown.enter.prevent="$refs.addTorrent.click"
   >
     <div
       class="noselect"
@@ -22,7 +23,6 @@
       @dragleave.prevent="DragLeave"
     />
     <v-card
-      style="height:100%"
       :class="showWrapDrag ? 'wrap-drag' : ''"
       @drop.prevent="addDropFile"
       @dragover.prevent="showWrapDrag = true"
@@ -170,6 +170,7 @@
         <v-form>
           <v-card-actions class="justify-center">
             <v-btn
+              ref="addTorrent"
               text
               :disabled="!valid"
               class="accent white--text mx-0 mt-3"

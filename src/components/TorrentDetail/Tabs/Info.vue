@@ -139,25 +139,19 @@
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
-          <td>
-            {{ torrent.tracker }}
-          </td>
+          <td> {{ torrent.tracker }} </td>
         </tr>
         <tr v-if="createdBy">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
-          <td>
-            {{ createdBy }}
-          </td>
+          <td> {{ createdBy }} </td>
         </tr>
         <tr v-if="comment">
           <td :class="commonStyle">
             {{ $t('torrent.comments') | titleCase }}
           </td>
-          <td>
-            {{ comment }}
-          </td>
+          <td> {{ comment }} </td>
         </tr>
 
         <tr>
@@ -236,7 +230,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
 
@@ -244,19 +237,14 @@ export default {
   name: 'Info',
   mixins: [FullScreenModal],
   props: {
-    hash: String
+    hash: String,
+    torrent: Object
   },
   data() {
     return {
       commonStyle: 'caption',
       createdBy: null,
       comment: null
-    }
-  },
-  computed: {
-    ...mapGetters(['getTorrent']),
-    torrent() {
-      return this.getTorrent(this.hash)
     }
   },
   mounted() {
@@ -312,7 +300,6 @@ export default {
           ctx.fillRect((data.length - rectWidth), 0, rectWidth, canvas.height)
         }
       }
-
     }
   }
 }
@@ -332,12 +319,16 @@ export default {
   }
 }
 
+:deep(.v-data-table tbody td.caption) {
+  width: 20%;
+}
+
 #pieceStates {
   display: block;
 
   canvas {
     height: 100%;
-    width: 95%;
+    width: 50%;
     border: 1px dotted;
   }
 }

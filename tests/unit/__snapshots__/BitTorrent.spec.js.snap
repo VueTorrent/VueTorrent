@@ -1,0 +1,651 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BitTorrent render correctly 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when anonymous_mode is false 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when dont_count_slow_torrents is false 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when max_active_downloads is 2 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="2" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when max_active_torrents is 3 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="3" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when max_ratio_enabled is false 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when max_seeding_time_enabled is false 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when queueing_enabled is false 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub disabled="true" errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when slow_torrent_dl_rate_threshold is 25 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="25" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;
+
+exports[`BitTorrent render correctly when slow_torrent_ul_rate_threshold is 24 1`] = `
+<v-card-stub loaderheight="4" tag="div" flat="true">
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderPrivacy</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableDHT" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enablePeX" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableLPD" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.enableAnonymous" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.torrentQueue" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveDownload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="max_active_uploads" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveUpload" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="6" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.maxActiveTorrent" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.excludeSlowTorrent" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.downloadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="24" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.uploadRateLimit" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" label="modals.settings.pageBittorrent.torrentInactivityTimer" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+  </v-list-item-stub>
+  <v-divider-stub insert=""></v-divider-stub>
+  <v-subheader-stub>modals.settings.pageBittorrent.subHeaderSeedLimits</v-subheader-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenRatioReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub activeclass="" tag="div">
+    <v-row-stub tag="div" dense="true">
+      <v-col-stub tag="div">
+        <v-checkbox-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" backgroundcolor="" hidedetails="true" label="modals.settings.pageBittorrent.whenSeedingTimeReaches" ripple="true" valuecomparator="[Function]" inputvalue="true" indeterminateicon="$checkboxIndeterminate" officon="$checkboxOff" onicon="$checkboxOn" class="ma-0 pa-0"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub tag="div">
+        <v-text-field-stub errorcount="1" errormessages="" messages="" rules="" successmessages="" value="1" backgroundcolor="" dense="true" hidedetails="true" loaderheight="2" clearicon="$clear" outlined="true" type="number" class="mb-2"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+</v-card-stub>
+`;

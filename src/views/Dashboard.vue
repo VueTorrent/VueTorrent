@@ -3,24 +3,6 @@
     class="px-1 px-sm-5 pt-4 background noselect"
     @click.self="resetSelected"
   >
-    <v-row
-      no-gutters
-      class="grey--text"
-      align="center"
-      justify="center"
-    >
-      <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          Dashboard
-        </h1>
-      </v-col>
-      <v-col class="align-center justify-center">
-        <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
-          {{ torrentCountString }}
-        </span>
-      </v-col>
-    </v-row>
-
     <v-row class="ma-0 pa-0" @click.self="resetSelected">
       <v-expand-x-transition>
         <v-card
@@ -103,6 +85,12 @@
           </template>
           <span>Sort Torrents</span>
         </v-tooltip>
+
+        <v-col class="align-center justify-center">
+          <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
+            {{ torrentCountString }}
+          </span>
+        </v-col>
       </v-row>
     </v-row>
     <v-row id="selectAllTorrents" class="ma-0 pa-0">
@@ -417,6 +405,11 @@ export default {
         if (!this.selected_torrents.length) return
 
         return this.createModal('ConfirmDeleteModal')
+      }
+
+      // 'Search new torrent'
+      if (e.keyCode === 55) {
+        return this.createModal('SearchModal')
       }
     }
   }
