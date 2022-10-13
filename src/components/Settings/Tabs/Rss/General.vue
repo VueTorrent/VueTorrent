@@ -55,7 +55,7 @@
 import { FullScreenModal, SettingsTab } from '@/mixins'
 
 export default {
-  name: 'Rss-General',
+  name: 'RssGeneral',
   mixins: [SettingsTab, FullScreenModal]
 }
 </script>

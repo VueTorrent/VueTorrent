@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
+    "test": "npm run test:unit",
     "test:unit": "jest --setupTestFrameworkScriptFile=./tests/setup.js",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx,.vue",
     "start": "npm run dev"
