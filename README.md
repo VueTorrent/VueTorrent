@@ -71,6 +71,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 - `npm run serve`
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
+- You now may open and access the WebUI under localhost with the default username `admin` and password `adminadmin`.
 
 ## Features
 
