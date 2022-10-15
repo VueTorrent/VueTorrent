@@ -14,7 +14,7 @@ const variables = {
   download: '#64CEAA',
   upload: '#00b3fa',
   // Torrent status colors
-  'torrent-done': '#16573e',
+  'torrent-done': '#9b3184',
   'torrent-downloading': '#5bb974',
   'torrent-fail': '#f83e70',
   'torrent-paused': '#9CA3AF',
