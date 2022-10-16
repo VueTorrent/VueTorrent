@@ -139,19 +139,34 @@
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
-          <td> {{ torrent.tracker }} </td>
+          <td>
+            <span v-for="trackersPart in splitString(torrent.tracker)">
+              <a v-if="stringContainsUrl(trackersPart)" _target="blank" :href="trackersPart">{{ trackersPart }}</a>
+              <span v-else>{{ trackersPart }}</span>
+            </span>
+          </td>
         </tr>
         <tr v-if="createdBy">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
-          <td> {{ createdBy }} </td>
+          <td>
+            <span v-for="createdByPart in splitString(createdBy)">
+              <a v-if="stringContainsUrl(createdByPart)" _target="blank" :href="createdByPart">{{ createdByPart }}</a>
+              <span v-else>{{ createdByPart }}</span>
+            </span>
+          </td>
         </tr>
         <tr v-if="comment">
           <td :class="commonStyle">
             {{ $t('torrent.comments') | titleCase }}
           </td>
-          <td> {{ comment }} </td>
+          <td>
+            <span v-for="commentPart in splitString(comment)">
+              <a v-if="stringContainsUrl(commentPart)" _target="blank" :href="commentPart">{{ commentPart }}</a>
+              <span v-else>{{ commentPart }}</span>
+            </span>
+          </td>
         </tr>
 
         <tr>
@@ -232,6 +247,7 @@
 <script>
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
+import { splitByUrl, stringContainsUrl } from '@/helpers'
 
 export default {
   name: 'Info',
@@ -300,6 +316,12 @@ export default {
           ctx.fillRect((data.length - rectWidth), 0, rectWidth, canvas.height)
         }
       }
+    },
+    stringContainsUrl(string) {
+      return stringContainsUrl(string)
+    },
+    splitString(string) {
+      return splitByUrl(string)
     }
   }
 }
