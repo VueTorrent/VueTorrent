@@ -170,16 +170,18 @@
         </v-col>
       </v-row>
     </v-list-item>
-    <v-subheader>{{ $t('then') }}</v-subheader>
     <v-list-item>
       <v-row>
-        <v-col>
+        <v-col offset="6">
+          <v-subheader>
+            {{ $t('then') }}
+          </v-subheader>
           <v-select
             v-model="settings.max_ratio_act"
+            class="mb-2"
             outlined
             :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
             dense
-            hide-details
             small-chips
             :items="thenTypes"
           />
@@ -200,19 +202,20 @@ export default {
       thenTypes: [
         {
           value: 0,
-          text: 'Pause torrent'
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
         },
         {
           value: 1,
-          text: 'Remove torrent'
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
         },
         {
           value: 3,
-          text: 'Remove torrent and relative files'
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
+          
         },
         {
           value: 2,
-          text: 'Enable torrent super seeding'
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding') 
         }
       ]
     }

@@ -208,7 +208,11 @@ const locale = {
         torrentInactivityTimer: 'Torrent inactivity timer',
         subHeaderSeedLimits: 'Seed Limits',
         whenRatioReaches: 'When ratio reaches',
-        whenSeedingTimeReaches: 'When seeding time reaches'
+        whenSeedingTimeReaches: 'When seeding time reaches',
+        maxRatioPauseTorrent: 'Pause torrent',
+        maxRatioRemoveTorrent: 'Remove torrent',
+        maxRatioRemoveTorrentAndFiles: 'Remove torrent and files',
+        maxRatioTorrentSuperseeding: 'Enable torrent super seeding'
       },
       pageRss: {
         tabName: {
