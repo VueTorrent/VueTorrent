@@ -175,7 +175,7 @@
       <v-row>
         <v-col>
           <v-select
-            v-model="settings.seeding_limits_then"
+            v-model="settings.max_ratio_act"
             outlined
             :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
             dense
@@ -199,11 +199,11 @@ export default {
     return {
       thenTypes: [
         {
-          value: 1,
+          value: 0,
           text: 'Pause torrent'
         },
         {
-          value: 2,
+          value: 1,
           text: 'Remove torrent'
         },
         {
@@ -211,7 +211,7 @@ export default {
           text: 'Remove torrent and relative files'
         },
         {
-          value: 4,
+          value: 2,
           text: 'Enable torrent super seeding'
         }
       ]
