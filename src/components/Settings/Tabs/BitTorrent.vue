@@ -170,6 +170,22 @@
         </v-col>
       </v-row>
     </v-list-item>
+    <v-subheader>{{ $t('then') }}</v-subheader>
+    <v-list-item>
+      <v-row>
+        <v-col>
+          <v-select
+            v-model="settings.seeding_limits_then"
+            outlined
+            :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
+            dense
+            hide-details
+            small-chips
+            :items="thenTypes"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
   </v-card>
 </template>
 
@@ -178,6 +194,28 @@ import { SettingsTab, FullScreenModal } from '@/mixins'
 
 export default {
   name: 'BitTorrent',
-  mixins: [SettingsTab, FullScreenModal]
+  mixins: [SettingsTab, FullScreenModal],
+  data() {
+    return {
+      thenTypes: [
+        {
+          value: 1,
+          text: 'Pause torrent'
+        },
+        {
+          value: 2,
+          text: 'Remove torrent'
+        },
+        {
+          value: 3,
+          text: 'Remove torrent and relative files'
+        },
+        {
+          value: 4,
+          text: 'Enable torrent super seeding'
+        }
+      ]
+    }
+  }
 }
 </script>

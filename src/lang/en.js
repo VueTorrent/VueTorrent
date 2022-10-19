@@ -42,6 +42,7 @@ const locale = {
   magnet: 'Magnet',
   feed: 'feed',
   rule: 'rule',
+  then: 'Then',
 
   /** Torrent */
   torrent: {
