@@ -171,11 +171,13 @@
       </v-row>
     </v-list-item>
     <v-list-item>
-      <v-row>
-        <v-col offset="6">
+      <v-row dense>
+        <v-col>
           <v-subheader>
             {{ $t('then') }}
           </v-subheader>
+        </v-col>
+        <v-col>
           <v-select
             v-model="settings.max_ratio_act"
             class="mb-2"
