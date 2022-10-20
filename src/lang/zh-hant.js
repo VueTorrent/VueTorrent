@@ -42,6 +42,7 @@ const locale = {
   magnet: '磁力連結',			 
   feed: '訂閱源',
   rule: '規則',
+  then: '然後',
 
   /** Torrent */
   torrent: {
@@ -109,8 +110,8 @@ const locale = {
         size: '大小',
         seeds: '種子',
         peers: '下載者',
-        search_engine: '搜尋引擎',
-        action: '操作'
+        search_engine: '網站',
+        action: ''
       }
     },
     settings: {
@@ -207,7 +208,11 @@ const locale = {
         torrentInactivityTimer: '種子不活躍計時器',
         subHeaderSeedLimits: '做種限制',
         whenRatioReaches: '當分享率達到',
-        whenSeedingTimeReaches: '當做種時間達到 (分鐘)'
+        whenSeedingTimeReaches: '當做種時間達到 (分鐘)',
+        maxRatioPauseTorrent: '暫停種子',
+        maxRatioRemoveTorrent: '移除種子',
+        maxRatioRemoveTorrentAndFiles: '移除種子與其檔案',
+        maxRatioTorrentSuperseeding: '為種子啟用超級做種'											   
       },
       pageRss: {
         tabName: {
