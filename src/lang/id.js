@@ -16,7 +16,7 @@ const locale = {
   unknown: 'tidak diketahui',
   status: 'Status',
   all: 'Semua',
-  downloading: 'Men-download',
+  downloading: 'Mengunduh',
   seeding: 'Seeding',
   completed: 'Selesai',
   resumed: 'Dilanjutkan',
@@ -27,21 +27,22 @@ const locale = {
   errored: 'Bermasalah',
   login: 'Masuk',
   logout: 'Keluar',
-  downloaded: 'Ter-download',
-  uploaded: 'Ter-upload',
-  upload: 'Upload',
-  download: 'Download',
+  downloaded: 'Terunduh',
+  uploaded: 'Terunggah',
+  upload: 'Unggah',
+  download: 'Unduh',
   ETA: 'Estimasi',
   peers: 'Peer',
   ratio: 'Rasio',
   seeds: 'Seed',
   tags: 'Tag',
-  share: 'Bagikan',
+  share: 'Berbagi',
   name: 'Nama',
   hash: 'Hash',
   magnet: 'Magnet',
   feed: 'feed',
   rule: 'rule',
+  then: 'Lalu',
 
   /** Torrent */
   torrent: {
@@ -51,11 +52,11 @@ const locale = {
     size: 'ukuran',
     progress: 'progres',
     directory: 'direktori',
-    downloaded: 'di-download',
-    uploaded: 'di-upload',
-    created: 'dibuat dengan',
+    downloaded: 'diunduh',
+    uploaded: 'diunggah',
+    created: 'dibuat oleh',
     comments: 'komentar',
-    uploadedSession: 'Sesi Ter-upload',
+    uploadedSession: 'Sesi Terunggah',
     torrentTitle: 'Judul Torrent'
   },
 
@@ -75,13 +76,13 @@ const locale = {
       tooltip: 'Sejak terakhir kali qBittorrent dijalankan ulang'
     },
     filters: {
-      stalled_uploading: 'Upload ter-stall',
-      stalled_downloading: 'Download ter-stall'
+      stalled_uploading: 'Unggahan ter-stall',
+      stalled_downloading: 'Unduhan ter-stall'
     },
     action: {
       altSpeed: 'Kecepatan alt',
-      dark: 'Dark',
-      light: 'Light'
+      dark: 'Malam',
+      light: 'Terang'
     }
   },
 
@@ -108,8 +109,8 @@ const locale = {
       columnTitle: {
         name: 'Nama',
         size: 'Ukuran',
-        seeds: 'Seeds',
-        peers: 'Peers',
+        seeds: 'Seed',
+        peers: 'Peer',
         search_engine: 'Situs',
         action: ''
       }
@@ -117,7 +118,7 @@ const locale = {
     settings: {
       tabName: {
         VueTorrent: 'vuetorrent',
-        downloads: 'Download',
+        downloads: 'Unduhan',
         connection: 'koneksi',
         bittorrent: 'bittorrent',
         rss: 'Rss',
@@ -133,11 +134,11 @@ const locale = {
           tip: 'Pengaturan berikut hanya untuk WebUI kustom',
           currentSpeed: 'Tampilkan Kec. Terkini',
           speedGraph: 'Tampilkan Grafik Kecepatan',
-          sessionStats: 'Tampilakn Statistik Sesi',
+          sessionStats: 'Tampilkan Statistik Sesi',
           allTimeStats: 'Tampilkan Semua Statistik',
           freeSpace: 'Tampilkan Ruang Kosong',
           trackerFilter: 'Tampilkan Filter Tracker',
-          rightDrawer: 'Drawer di Kanan',
+          rightDrawer: 'Drawer Kanan',
           language: 'Bahasa:',
           paginationSize: 'Ukuran halaman:',
           vueTorrentTitle: 'Judul VueTorrent:',
@@ -153,12 +154,12 @@ const locale = {
         subHeaderWhenAddTorrent: 'Saat menambahkan torrent',
         whenAddTorrent: {
           createSubFolder: 'Buat subfolder untuk torrent dengan banyak file',
-          donotAutoStart: 'Jangan mulai download secara otomatis'
+          donotAutoStart: 'Jangan mengunduh secara otomatis'
         },
         subHeaderPublicSettings: 'Pengaturan Publik',
         publicSettings: {
           preAllocateDisk: 'Pra-alokasi disk untuk semua file',
-          appendQBExtension: 'Satukan ekstensi .!qB extension pada file yang belum selesai'
+          appendQBExtension: 'Tambahkan ekstensi .!qB pada file yang belum selesai'
         },
         subHeaderSaveManagement: 'Manajemen Penyimpanan',
         saveManagement: {
@@ -185,8 +186,8 @@ const locale = {
         subHeader: 'Batas Koneksi',
         globalMaxConnection: 'Jumlah maksimum koneksi global',
         perTorrentMaxConnection: 'Jumlah maksimum koneksi per torrent',
-        globalMaxUploadSlots: 'Jumlah maksimum slot upload global',
-        perTorrentMaxUploadSlots: 'Jumlah maksimum slot upload per torrent',
+        globalMaxUploadSlots: 'Jumlah maksimum slot unggahan global',
+        perTorrentMaxUploadSlots: 'Jumlah maksimum slot unggahan per torrent',
         proxySubHeader: 'Server Proxy',
         proxyPeerConnections: 'Gunakan proxy untuk koneksi peer',
         proxyTorrentOnly: 'Gunakan proxy hanya untuk torrent',
@@ -199,16 +200,20 @@ const locale = {
         enableLPD: 'Aktifkan Local Peer Discovery untuk menemukan banyak peer',
         enableAnonymous: 'Aktifkan mode anonymous',
         torrentQueue: 'Antrean Torrent',
-        maxActiveDownload: 'Maksimum download aktif',
-        maxActiveUpload: 'Maksimum upload aktif',
+        maxActiveDownload: 'Maksimum unduhan aktif',
+        maxActiveUpload: 'Maksimum unggahan aktif',
         maxActiveTorrent: 'Maksimum torrent aktif',
-        excludeSlowTorrent: 'Jangan tampilkan torrent lambat pada batasan tersebut',
-        downloadRateLimit: 'Batas kecepatan download KiB/s',
-        uploadRateLimit: 'Batas kecepatan upload KiB/s',
-        torrentInactivityTimer: 'Pengatur waktu tidak aktif torrent',
+        excludeSlowTorrent: 'Jangan tampilkan torrent lambat pada batas tersebut',
+        downloadRateLimit: 'Batas kecepatan unduh KiB/s',
+        uploadRateLimit: 'Batas kecepatan unggah KiB/s',
+        torrentInactivityTimer: 'Pengatur waktu torrent tidak aktif',
         subHeaderSeedLimits: 'Batas Seed',
         whenRatioReaches: 'Saat rasio mencapai',
-        whenSeedingTimeReaches: 'Ketika waktu seeding mencapai'
+        whenSeedingTimeReaches: 'Ketika waktu seeding mencapai',
+        maxRatioPauseTorrent: 'Jeda torrent',
+        maxRatioRemoveTorrent: 'Hapus torrent',
+        maxRatioRemoveTorrentAndFiles: 'Hapus torrent beserta file',
+        maxRatioTorrentSuperseeding: 'Aktifkan torrent super seeding'
       },
       pageRss: {
         tabName: {
@@ -225,10 +230,10 @@ const locale = {
           btnCreateNew: 'Tambah feed'
         },
         pageGeneral: {
-          rssAutoProcessing: 'RSS Reader',
-          rssAutoDownloader: 'RSS Torrent Auto Downloader',
+          rssAutoProcessing: 'Pembaca RSS',
+          rssAutoDownloader: 'Pengunduh Otomatis RSS Torrent',
           input: {
-            enableRssAutoDownload: 'Aktifkan download otomatis RSS torrent',
+            enableRssAutoDownload: 'Aktifkan unduh otomatis RSS torrent',
             enableRssProcessing: 'Aktifkan pengambilan feed RSS',
             feedsRefreshInterval: 'Selang waktu refresh feed',
             feedsMaxArticles: 'Jumlah maksimum artikel per feed'
@@ -239,16 +244,16 @@ const locale = {
         useAlternativeWebUI: 'Gunakan WebUI Alternatif',
         filesLocation: 'Lokasi file',
         webUserInterface: 'Web User Interface (Remote Control)',
-        ipAddress: 'IP Address:',
+        ipAddress: 'Alamat IP:',
         port: 'Port',
         authentication: 'Autentikasi',
-        username: 'Username',
-        password: 'Password',
+        username: 'Nama Pengguna',
+        password: 'Kata Sandi',
         maxAttempts: 'Percobaan Maks.',
         banDuration: 'Durasi Ban (detik)',
         sessionTimeout: 'Waktu sesi (detik)',
-        bypassAuthenticationForClientsOnLocalhost: 'Bypass autentikasi untuk klien pada localhost',
-        bypassAuthenticationForClientsInWhitelisted: 'Bypass autentikasi untuk klien pada whitelist subnet IP',
+        bypassAuthenticationForClientsOnLocalhost: 'Lewati autentikasi untuk klien pada localhost',
+        bypassAuthenticationForClientsInWhitelisted: 'Lewati autentikasi untuk klien pada whitelist subnet IP',
         whiteListExample: 'Contoh: 172.17.32.0/24, fdff:ffff:c8::/40'
       },
       pageTagsAndCategories: {
@@ -260,7 +265,7 @@ const locale = {
     shareLimit: {
       input: {
         globalLimit: 'Gunakan batas global',
-        unlimited: 'Unlimited'
+        unlimited: 'Tidak terbatas'
       },
       limitRatio: 'Batas Rasio',
       titleDuration: 'Durasi',
@@ -288,23 +293,23 @@ const locale = {
       pageInfo: {
         pieceStates: 'Progres',
         torrentTitle: 'Judul torrent',
-        hash: 'hash',
+        hash: 'Hash',
         ratio: 'Rasio',
-        downloadSpeed: 'Kec. DL',
-        uploadSpeed: 'Kec. UP',
+        downloadSpeed: 'Kec. Unduh',
+        uploadSpeed: 'Kec. Unggah',
         eta: 'Estimasi',
         peers: 'Peer',
         seeds: 'Seed',
         status: 'Status',
         trackers: 'Tracker',
         createdBy: 'Dibuat Oleh',
-        firstLastPiecePriority: 'Prioritas Potongan Pertama/Terakhir',
-        sequentialDownload: 'Download Sekuensial',
+        firstLastPiecePriority: 'Prio. Bag. Pertama/Akhir',
+        sequentialDownload: 'Unduhan Sekuensial',
         autoTMM: 'TMM Oto.',
-        shareRatioLimit: 'Batas Ratio Berbagi',
+        shareRatioLimit: 'Batas Rasio Berbagi',
         shareTimeLimit: 'Batas Waktu Berbagi (menit)',
-        downloadLimit: 'Batas Upload',
-        uploadLimit: 'Batas Download'
+        downloadLimit: 'Batas Unggah',
+        uploadLimit: 'Batas Unduh'
       },
       pagePeers: {
         ip: 'IP',
@@ -312,10 +317,10 @@ const locale = {
         flags: 'Bendera',
         client: 'Klien',
         progress: 'Progres',
-        downloadSpeed: 'Kecepatan Und.',
-        downloaded: 'Ter-download',
-        upSpeed: 'Kecepatan Ung.',
-        uploaded: 'Ter-upload',
+        downloadSpeed: 'Kecepatan Unduh',
+        downloaded: 'Terunduh',
+        upSpeed: 'Kecepatan Unggah',
+        uploaded: 'Terunggah',
         relevance: 'Relevansi',
         files: 'File'
       },
@@ -329,13 +334,55 @@ const locale = {
         peers: 'Peer',
         seeds: 'Seed',
         leeches: 'Leeches',
-        downloaded: 'Ter-download',
+        downloaded: 'Terunduh',
         message: 'Pesan'
       }
     },
     add: {
-      title: 'Tambahkan Torrent baru',
-      selectFiles: 'Pilih berkas anda'
+      title: 'Tambah Torrent',
+      selectFiles: 'Pilih file',
+      urlHint: 'satu link per baris',
+      downloadDirectory: 'Direktori Unduhan',
+      starttorrent: 'Mulai torrent',
+      skipHashCheck: 'Lewati cek hash',
+      createSubfolder: 'Buat subfolder',
+      automaticTorrentManagement: 'Manajemen Torrent Otomatis',
+      dropHereForAdd: 'Jatuhkan di sini untuk menambah',
+      oneOrMoreFilesInvalidTorrent: 'Satu atau lebih file bukan torrent yang valid'
+    },
+    changeLocation: {
+      title: 'Ubah Lokasi',
+      torrentName: 'Nama Torrent'
+    },
+    rename: {
+      title: 'Ubah Nama',
+      torrentName: 'Nama Torrent'
+    },
+    sort: {
+      title: 'Sortir Torrent',
+      reverse: 'Terbalik',
+      sortBy: {
+        availability: 'Ketersediaan',
+        category: 'Kategori',
+        completed: 'Selesai',
+        downloaded: 'Terunduh',
+        ETA: 'Estimasi',
+        name: 'Nama',
+        peers: 'Peer',
+        priority: 'Prioritas',
+        progress: 'Progres',
+        ratio: 'Rasio',
+        size: 'Ukuran',
+        state: 'Status',
+        uploaded: 'Terunggah',
+        addedOn: 'Ditambahkan Pada',
+        downloadSpeed: 'Kec. Unduh',
+        timeActive: 'Waktu aktif',
+        uploadSpeed: 'Kec. Unggah'
+      }
+    },
+    speedLimit: {
+      speedLimit: 'Batas Kec.'
     },
     delete: {
       check: 'Dan hapus berkas dari penyimpanan'
@@ -354,16 +401,16 @@ const locale = {
 
   /** RightClick **/
   rightClick: {
-    resume: 'resume',
-    forceResume: 'force resume',
+    resume: 'lanjutkan',
+    forceResume: 'paksa lanjutkan',
     advanced: {
       advanced: 'lebih lanjut',
       changeLocation: 'ubah lokasi',
       rename: 'ubah nama',
       forceRecheck: 'Paksa periksa ulang',
       forceReannounce: 'Paksa umumkan ulang',
-      sequentialDownload: 'Download Sekuensial',
-      firstLastPriority: 'Priotitas Pertama/Terakhir',
+      sequentialDownload: 'Unduh Sekuensial',
+      firstLastPriority: 'Prioritas Pertama/Terakhir',
       automaticTorrentManagement: 'Manajemen Torrent Otomatis'
     },
     prio: {
@@ -376,7 +423,7 @@ const locale = {
     category: 'atur kategori',
     limit: 'atur batas',
     copy: 'salin',
-    info: 'tampilak info'
+    info: 'tampilkan info'
   }
 }
 
