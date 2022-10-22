@@ -86,7 +86,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: './vuetorrent'
+    outDir: './vuetorrent/public'
   },
   server: {
     proxy: {
