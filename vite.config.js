@@ -2,8 +2,8 @@ import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import { VitePWA } from 'vite-plugin-pwa'
 import Components from 'unplugin-vue-components/vite'
-import EnvironmentPlugin from 'vite-plugin-environment'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
+import loadVersion from 'vite-plugin-package-version'
 import path from 'path'
 
 const qBittorrentPort = process.env['QBITTORRENT_PORT'] ?? 8080
@@ -12,14 +12,10 @@ const proxyTarget = process.env['QBITTORRENT_TARGET'] ?? 'http://127.0.0.1'
 export default defineConfig({
   plugins: [
     createVuePlugin(),
+    loadVersion(),
     Components({
       resolvers: [VuetifyResolver()]
     }),
-    EnvironmentPlugin({
-      APPLICATION_VERSION: `${process.env['npm_package_version']}` 
-    }
-    , { defineOn: 'import.meta.env' }
-    ),
     VitePWA({
       includeAssets: [
         'favicon.ico',
@@ -84,7 +80,8 @@ export default defineConfig({
       base: './',
       useCredentials: true,
       workbox: {
-        skipWaiting: true
+        skipWaiting: true,
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}']
       }
     })
   ],
@@ -94,6 +91,7 @@ export default defineConfig({
     }
   },
   base: './',
+  publicDir: './public',
   build: {
     outDir: './vuetorrent/public'
   },

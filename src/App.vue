@@ -34,7 +34,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('SET_APP_VERSION', import.meta.env['APPLICATION_VERSION'])
+    this.$store.commit('SET_APP_VERSION', import.meta.env['PACKAGE_VERSION'])
     this.$store.commit('SET_LANGUAGE')
     this.checkAuthentication()
     this.blockContextMenu()
