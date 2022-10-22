@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
 import { VitePWA } from 'vite-plugin-pwa'
 import Components from 'unplugin-vue-components/vite'
+import EnvironmentPlugin from 'vite-plugin-environment'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 import path from 'path'
 
@@ -14,6 +15,11 @@ export default defineConfig({
     Components({
       resolvers: [VuetifyResolver()]
     }),
+    EnvironmentPlugin({
+      APPLICATION_VERSION: `${process.env['npm_package_version']}` 
+    }
+    , { defineOn: 'import.meta.env' }
+    ),
     VitePWA({
       includeAssets: [
         'favicon.ico',
@@ -27,8 +33,8 @@ export default defineConfig({
         './icons/msapplication-icon-144x144.png'
       ],
       manifest: {
-        name: 'V2Torrent',
-        short_name: 'V2t',
+        name: 'VueTorrent',
+        short_name: 'VueT',
         theme_color: '#597566',
         start_url: '/',
         background_color: '#000',
@@ -75,8 +81,10 @@ export default defineConfig({
       },
       // Other options
       registerType: 'autoUpdate',
+      base: './',
+      useCredentials: true,
       workbox: {
-        cleanupOutdatedCaches: true
+        skipWaiting: true
       }
     })
   ],
@@ -85,6 +93,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src')
     }
   },
+  base: './',
   build: {
     outDir: './vuetorrent/public'
   },
