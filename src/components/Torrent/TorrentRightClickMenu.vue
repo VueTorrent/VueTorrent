@@ -397,7 +397,22 @@ export default {
       qbit.setAutoTMM(this.hashes, !this.torrent.auto_tmm)
     },
     copyToClipBoard(text) {
-      navigator.clipboard.writeText(text)
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text)
+      } else {
+        const textArea = document.createElement('textarea')
+        textArea.value = text
+        textArea.style.position = 'fixed'
+        textArea.style.opacity = '0'
+        document.body.appendChild(textArea)
+        textArea.select()
+        try {
+          document.execCommand('copy')
+        } catch (err) {
+          console.error('Unable to copy to clipboard', err)
+        }
+        document.body.removeChild(textArea)
+      }
     }
   }
 }

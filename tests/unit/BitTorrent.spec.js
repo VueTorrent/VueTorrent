@@ -23,24 +23,39 @@ const getSettingsMockRes = {
 }
 
 const getCustomWrapper = getSettingsRes => {
-  return shallowMount(BitTorrent, { mocks: { $t: x => x, $store: {
-    getters: { getSettings: () => {
-      return getSettingsRes
-    } },
-    state: { }
-  }
-  } })
+  return shallowMount(BitTorrent, { 
+    mocks: { 
+      $i18n: {
+        t: x => x
+      },
+      $t: x => x,
+      $store: {
+        getters: { getSettings: () => {
+          return getSettingsRes
+        } },
+        state: { }
+      }
+    }
+
+  })
 }
 
 describe('BitTorrent', () => {
   beforeEach(() => {
-    wrapper = shallowMount(BitTorrent, { mocks: { $t: x => x, $store: {
-      getters: { getSettings: () => {
-        return getSettingsMockRes
-      } },
-      state: { }
-    }
-    } })
+    wrapper = shallowMount(BitTorrent, { 
+      mocks: {
+        $i18n: {
+          t: x => x
+        },
+        $t: x => x, 
+        $store: {
+          getters: { getSettings: () => {
+            return getSettingsMockRes
+          } },
+          state: { }
+        }
+      }
+    })
   })
 
   it('render correctly', () => {
@@ -48,74 +63,74 @@ describe('BitTorrent', () => {
   })
 
   it('render correctly when anonymous_mode is false', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       anonymous_mode: false
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when queueing_enabled is false', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       queueing_enabled: false
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when dont_count_slow_torrents is false', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       dont_count_slow_torrents: false
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when max_ratio_enabled is false', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       max_ratio_enabled: false
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when max_seeding_time_enabled is false', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       max_seeding_time_enabled: false
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when max_active_downloads is 2', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       max_active_downloads: 2
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when max_active_torrents is 3', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       max_active_torrents: 3
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when slow_torrent_dl_rate_threshold is 25', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       slow_torrent_dl_rate_threshold: 25
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 
   it('render correctly when slow_torrent_ul_rate_threshold is 24', () => {
-    const customerWarpper = getCustomWrapper({
+    const customWrapper = getCustomWrapper({
       ...getSettingsMockRes,
       slow_torrent_ul_rate_threshold: 24
     })
-    expect(customerWarpper.html()).toMatchSnapshot()
+    expect(customWrapper.html()).toMatchSnapshot()
   })
 })

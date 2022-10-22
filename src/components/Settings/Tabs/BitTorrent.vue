@@ -170,6 +170,26 @@
         </v-col>
       </v-row>
     </v-list-item>
+    <v-list-item>
+      <v-row dense>
+        <v-col>
+          <v-subheader>
+            {{ $t('then') }}
+          </v-subheader>
+        </v-col>
+        <v-col>
+          <v-select
+            v-model="settings.max_ratio_act"
+            class="mb-2"
+            outlined
+            :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
+            dense
+            small-chips
+            :items="thenTypes"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
   </v-card>
 </template>
 
@@ -178,6 +198,29 @@ import { SettingsTab, FullScreenModal } from '@/mixins'
 
 export default {
   name: 'BitTorrent',
-  mixins: [SettingsTab, FullScreenModal]
+  mixins: [SettingsTab, FullScreenModal],
+  data() {
+    return {
+      thenTypes: [
+        {
+          value: 0,
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
+        },
+        {
+          value: 1,
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
+        },
+        {
+          value: 3,
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
+          
+        },
+        {
+          value: 2,
+          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding') 
+        }
+      ]
+    }
+  }
 }
 </script>
