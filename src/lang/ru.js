@@ -29,8 +29,8 @@ const locale = {
   logout: 'Выйти',
   downloaded: 'Скачано',
   uploaded: 'Загружено',
-  upload: 'Раздать',
-  download: 'Скачать',
+  upload: 'Отдача',
+  download: 'Скачивание',
   ETA: 'ETA',
   peers: 'Пиры',
   ratio: 'Ратио',
@@ -39,7 +39,7 @@ const locale = {
   share: 'Поделиться',
   name: 'Имя',
   hash: 'Хэш',
-  magnet: 'Магнет',
+  magnet: 'Магнет-ссылка',
   feed: 'Канал',
   rule: 'Правило',
 
@@ -102,8 +102,8 @@ const locale = {
     },
     search: {
       title: 'Поиск',
-      btnStartSearch: 'Поиск',
-      btnStopSearch: 'Стоп',
+      btnStartSearch: 'Найти',
+      btnStopSearch: 'Остановить',
       columnTitle: {
         name: 'Имя',
         size: 'Размер',
@@ -117,7 +117,7 @@ const locale = {
       tabName: {
         VueTorrent: 'vuetorrent',
         downloads: 'Отдача',
-        connection: 'Связь',
+        connection: 'Соединение',
         bittorrent: 'Bittorrent',
         rss: 'RSS',
         webUI: 'Веб-интерфейс',
@@ -130,12 +130,12 @@ const locale = {
         },
         pageGeneral: {
           tip: 'Эти настройки предназначены для пользовательского веб-интерфейса',
-          currentSpeed: 'Отобразить текущую скорость',
-          speedGraph: 'Отобразить график скорости',
-          sessionStats: 'Отобразить статистику сессии',
-          allTimeStats: 'Отобразить всю статистику',
-          freeSpace: 'Отобразить свободное место',
-          trackerFilter: 'Отобразить фильтр трекеров',
+          currentSpeed: 'Отображать текущую скорость',
+          speedGraph: 'Отображать график скорости',
+          sessionStats: 'Отображать статистику сессии',
+          allTimeStats: 'Отображать всю статистику',
+          freeSpace: 'Отображать свободное место',
+          trackerFilter: 'Отображать фильтр трекеров',
           rightDrawer: 'Панель справа',
           language: 'Язык:',
           paginationSize: 'Размер страницы:',
@@ -206,8 +206,8 @@ const locale = {
         uploadRateLimit: 'Порог скорости отдачи Киб/с',
         torrentInactivityTimer: 'Таймер неактивности торрента',
         subHeaderSeedLimits: 'Ограничение раздачи',
-        whenRatioReaches: 'Когда Ратио достигнет',
-        whenSeedingTimeReaches: 'Когда время раздачи достигнет'
+        whenRatioReaches: 'По достижении рейтинга раздачи',
+        whenSeedingTimeReaches: 'По достижении времени раздачи'
       },
       pageRss: {
         tabName: {
@@ -227,7 +227,7 @@ const locale = {
           rssAutoProcessing: 'Чтение RSS',
           rssAutoDownloader: 'Автозагрузчик Торрентов RSS',
           input: {
-            enableRssAutoDownload: 'Включить автоматическую загрузку торрентов RSS',
+            enableRssAutoDownload: 'Включить автоматическую загрузку торрентов через RSS',
             enableRssProcessing: 'Включить получение RSS-каналов',
             feedsRefreshInterval: 'Интервал обновления каналов',
             feedsMaxArticles: 'Максимальное количество статей в ленте'
@@ -244,7 +244,7 @@ const locale = {
         username: 'Имя пользователя',
         password: 'Пароль',
         maxAttempts: 'Максимальное количество попыток',
-        banDuration: 'Продолжительность бана (секунды)',
+        banDuration: 'Продолжительность блокировки (секунды)',
         sessionTimeout: 'Время ожидания сеанса (секунды)',
         bypassAuthenticationForClientsOnlocalhost: 'Пропустить аутентификацию для клиентов на локальном хосте',
         bypassAuthenticationForClientsInwhitelisted: 'Пропустить аутентификацию для клиентов в подсетях IP из белого списка',
@@ -261,9 +261,9 @@ const locale = {
         globalLimit: 'Использовать глобальный лимит',
         unlimited: 'Неограниченно'
       },
-      limitRatio: 'Ограничения Ратио',
+      limitRatio: 'Ограничение рейтинга',
       titleDuration: 'Продолжительность',
-      titleRatio: 'Ратио'
+      titleRatio: 'Рейтинг'
     },
     newCategory: {
       categoryName: 'Название категории',
@@ -282,13 +282,13 @@ const locale = {
       tabTitleInfo: 'Информация',
       tabTitleTrackers: 'Трекеры',
       tabTitlePeers: 'Пиры',
-      tabTitleContent: 'Содержимое',
+      tabTitleContent: 'Файлы',
       tabTitleTagsCategories: 'Теги и категории',
       pageInfo: {
         pieceStates: 'Прогресс',
         torrentTitle: 'Название',
         hash: 'хэш',
-        ratio: 'Ратио',
+        ratio: 'Рейтинг',
         downloadSpeed: 'Скорость скачивания',
         uploadSpeed: 'Скорость раздачи',
         eta: 'ETA',
@@ -300,7 +300,7 @@ const locale = {
         firstLastPiecePriority: 'Приоритет первой/последней части',
         sequentialDownload: 'Последовательное скачивание',
         autoTMM: 'Авто TMM',
-        shareRatioLimit: 'Лимит по ратио',
+        shareRatioLimit: 'Лимит по рейтингу',
         shareTimeLimit: 'Лимит времени раздачи (минуты)',
         downloadLimit: 'Лимит скачивания',
         uploadLimit: 'Лимит отдачи'
@@ -338,7 +338,7 @@ const locale = {
       urlHint: 'Одна ссылка на строку',
       downloadDirectory: 'Скачать папку',
       starttorrent: 'Запустить торрент',
-      skipHashCheck: 'Пропустить проверку хэширования',
+      skipHashCheck: 'Пропустить проверку хэша',
       createSubfolder: 'Создать подпапку',
       automaticTorrentManagement: 'Автоматическое управление торрентами',
       dropHereForAdd: 'Перетащить сюда для добавления',
@@ -354,7 +354,7 @@ const locale = {
     },
     sort: {
       title: 'Сортировать торренты',
-      reverse: 'Реверс',
+      reverse: 'Обратный порядок',
       sortBy: {
         availability: 'Доступность',
         category: 'Категория',
@@ -369,7 +369,7 @@ const locale = {
         size: 'Размер',
         state: 'Состояние',
         uploaded: 'Отдано',
-        addedOn: 'добавлено',
+        addedOn: 'Добавлено',
         downloadSpeed: 'Скорость загрузки',
         timeActive: 'Активен',
         uploadSpeed: 'Скорость отдачи'
@@ -395,11 +395,11 @@ const locale = {
 
   /** RightClick **/
   rightClick: {
-    resume: 'Восстановить',
-    forceResume: 'Принудительное восстановление',
+    resume: 'Возобновить',
+    forceResume: 'Принудительное возобновление',
     advanced: {
       advanced: 'Расширенные',
-      changeLocation: 'изменить расположение',
+      changeLocation: 'Изменить расположение',
       rename: 'Переименовать',
       forceRecheck: 'Принудительная проверка',
       forceReannounce: 'Принудительно анонсировать',
@@ -409,13 +409,13 @@ const locale = {
     },
     prio: {
       prio: 'Установить приоритет',
-      top: 'Наверх',
-      bottom: 'Вниз',
+      top: 'Максимальный',
+      bottom: 'Минимальный',
       increase: 'Увеличить',
       decrease: 'Уменьшить'
     },
-    category: 'Установить категорию',
-    limit: 'Установить лимит',
+    category: 'Задать категорию',
+    limit: 'Задать лимит',
     copy: 'Копировать',
     info: 'Детали'
   }
