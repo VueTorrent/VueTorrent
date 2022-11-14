@@ -1,11 +1,6 @@
 <template>
   <v-app>
-    <component
-      :is="modal.component"
-      v-for="modal in modals"
-      :key="modal.guid"
-      v-bind="{ guid: modal.guid, ...modal.props }"
-    />
+    <component :is="modal.component" v-for="modal in modals" :key="modal.guid" v-bind="{ guid: modal.guid, ...modal.props }" />
     <Navbar v-if="isAuthenticated" />
     <v-main class="background">
       <router-view />

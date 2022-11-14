@@ -6,8 +6,7 @@ class Qbit {
       baseURL: 'api/v2'
     })
 
-    this.axios.defaults.headers.post['Content-Type'] =
-      'application/x-www-form-urlencoded'
+    this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
   }
 
   execute(method, action, params) {
@@ -69,9 +68,7 @@ class Qbit {
   }
 
   getMainData(rid) {
-    return this.axios
-      .get('/sync/maindata', { params: { rid } })
-      .then(res => res.data)
+    return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
   switchToOldUi() {
@@ -104,9 +101,7 @@ class Qbit {
     }
 
     // clean
-    Object.keys(params).forEach(
-      key => params[key] == null && delete params[key]
-    )
+    Object.keys(params).forEach(key => params[key] == null && delete params[key])
 
     const data = new URLSearchParams(params)
 
@@ -382,11 +377,7 @@ class Qbit {
 
   /** Torrent Priority **/
   setTorrentPriority(hashes, priority) {
-    if (
-      ['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(
-        priority
-      )
-    ) {
+    if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
       return this.execute('post', `/torrents/${priority}`, {
         hashes: hashes.join('|')
       })

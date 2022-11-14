@@ -5,11 +5,7 @@
     </div>
     <div>
       {{ torrent.num_seeds }}
-      <span
-        class="grey--text caption"
-      >
-        /{{ torrent.available_seeds }}
-      </span>
+      <span class="grey--text caption"> /{{ torrent.available_seeds }} </span>
     </div>
   </v-flex>
 </template>

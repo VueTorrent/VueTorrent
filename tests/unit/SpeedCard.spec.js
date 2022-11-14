@@ -8,7 +8,7 @@ describe('SpeedCard.vue', () => {
     expect(wrapper.find('[data-testid="SpeedCard"]').exists()).toBe(true)
   })
 
-  it('shouldn\'t render the icon', () => {
+  it("shouldn't render the icon", () => {
     const wrapper = setup(SpeedCard)
     expect(wrapper.find('[data-testid="SpeedCard-icon"]').exists()).toBe(false)
   })

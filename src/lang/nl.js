@@ -8,7 +8,6 @@ const locale = {
   cancel: 'annuleren',
   confirm: 'bevestig',
 
-
   /** Torrent */
   torrent: {
     title: 'titel',

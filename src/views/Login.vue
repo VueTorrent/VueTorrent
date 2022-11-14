@@ -33,13 +33,7 @@
             />
             <v-spacer />
             <v-card-actions class="justify-center">
-              <v-btn
-                text
-                class="accent white--text mx-0 mt-3"
-                @click="login"
-              >
-                Login
-              </v-btn>
+              <v-btn text class="accent white--text mx-0 mt-3" @click="login"> Login </v-btn>
             </v-card-actions>
           </v-form>
         </v-card-text>
@@ -59,7 +53,8 @@ export default {
       username: '',
       password: '',
       inputRules: [v => v.length >= 1 || 'At least 1 character'],
-      mdiLock, mdiAccount
+      mdiLock,
+      mdiAccount
     }
   },
   mounted() {

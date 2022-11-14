@@ -17,14 +17,15 @@ Vue.use(Toast, {
   position: POSITION.BOTTOM_RIGHT
 })
 
-
 // register modals
-// const components = import.meta.glob('./components/Modals/**/*.vue')
-// Object.entries(components).forEach(([path, definition]) => { 
-//   const componentName = path.split('/').pop().replace(/\.\w+$/, '')
-//   Vue.component(componentName, definition)
-// })
-
+const components = import.meta.glob('./components/Modals/**/*.vue')
+Object.entries(components).forEach(([path, definition]) => {
+  const componentName = path
+    .split('/')
+    .pop()
+    .replace(/\.\w+$/, '')
+  Vue.component(componentName, definition)
+})
 
 new Vue({
   router,

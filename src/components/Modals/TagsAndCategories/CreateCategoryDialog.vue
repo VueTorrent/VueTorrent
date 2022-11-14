@@ -9,44 +9,20 @@
       <v-card-text>
         <v-form ref="categoryForm" class="px-6 mt-3">
           <v-container>
-            <v-text-field
-              v-model="category.name"
-              :rules="nameRules"
-              :counter="15"
-              :label="$t('modals.newCategory.categoryName')"
-              required
-              :disabled="hasInitialCategory"
-            />
-            <v-text-field
-              v-model="category.savePath"
-              :rules="PathRules"
-              :counter="40"
-              :label="$t('path')"
-              required
-            />
+            <v-text-field v-model="category.name" :rules="nameRules" :counter="15" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
+            <v-text-field v-model="category.savePath" :rules="PathRules" :counter="40" :label="$t('path')" required />
           </v-container>
         </v-form>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          v-if="!hasInitialCategory"
-          class="accent white--text elevation-0 px-4"
-          @click="create"
-        >
+        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create">
           {{ $t('create') }}
         </v-btn>
-        <v-btn
-          v-else
-          class="accent white--text elevation-0 px-4"
-          @click="edit"
-        >
+        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit">
           {{ $t('edit') }}
         </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="cancel"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="cancel">
           {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
@@ -69,27 +45,20 @@ export default {
   },
   data: () => ({
     category: { name: '', savePath: '' },
-    mdiCancel, mdiTagPlus, mdiPencil
+    mdiCancel,
+    mdiTagPlus,
+    mdiPencil
   }),
   computed: {
     ...mapGetters(['getSelectedCategory']),
     hasInitialCategory() {
-      return !!(this.initialCategory &&
-          this.initialCategory.name)
+      return !!(this.initialCategory && this.initialCategory.name)
     },
     nameRules() {
-      return [
-        v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'),
-        v =>
-          (v && v.length <= 15) ||
-            this.$i18n.t('modals.newCategory.tipOnNameTooLong')
-      ]
+      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'), v => (v && v.length <= 15) || this.$i18n.t('modals.newCategory.tipOnNameTooLong')]
     },
     PathRules() {
-      return [
-        v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'),
-        v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')
-      ]
+      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'), v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')]
     }
   },
   created() {

@@ -1,7 +1,6 @@
 import { formatBytes } from '@/helpers'
 import store from '../store'
 
-
 export class DocumentTitle {
   static setDefault() {
     this.set('qBittorrent')

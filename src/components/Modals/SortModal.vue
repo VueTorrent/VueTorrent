@@ -1,10 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    content-class="rounded-form"
-    max-width="500px"
-  >
+  <v-dialog v-model="dialog" scrollable content-class="rounded-form" max-width="500px">
     <v-card>
       <v-card-title class="justify-center primarytext--text">
         <h2>{{ $t('modals.sort.title') }}</h2>
@@ -12,25 +7,8 @@
       <v-card-text>
         <v-form class="px-6 mt-3 justify-center mx-auto">
           <v-container class="sortmodal">
-            <v-select
-              v-model="sort_options.sort"
-              :value="sortProperty"
-              flat
-              class="ml-2 mr-2"
-              :items="options"
-              item-text="name"
-              item-value="value"
-              dense
-              solo
-              height="55"
-            />
-            <v-switch
-              v-model="sort_options.reverse"
-              class="v-input--reverse v-input--expand pa-0 ma-0"
-              inset
-              color="accent"
-              style="padding-left: 10px !important"
-            >
+            <v-select v-model="sort_options.sort" :value="sortProperty" flat class="ml-2 mr-2" :items="options" item-text="name" item-value="value" dense solo height="55" />
+            <v-switch v-model="sort_options.reverse" class="v-input--reverse v-input--expand pa-0 ma-0" inset color="accent" style="padding-left: 10px !important">
               <template #label>
                 {{ $t('modals.sort.reverse') }}
               </template>
@@ -89,11 +67,11 @@ export default {
 <style lang="scss" scoped>
 .sortmodal .v-select__selection,
 .v-input__icon i {
-    color: var(--search) !important;
+  color: var(--search) !important;
 }
 // Reversed input variant
 :deep(.v-input--reverse .v-input__slot) {
-  @import "src/styles/styles.scss";
+  @import 'src/styles/styles.scss';
   @include reverse-switch;
 }
 </style>

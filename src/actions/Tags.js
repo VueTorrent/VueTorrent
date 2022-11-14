@@ -17,8 +17,6 @@ export class Tags {
 
     if (response.tags) {
       store.state.tags = ArrayHelper.concat(store.state.tags, response.tags)
-
-
     }
   }
 }

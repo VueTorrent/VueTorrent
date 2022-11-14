@@ -2,16 +2,7 @@
   <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          color="grey--text"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.addTorrent')"
-          v-on="on"
-          @click="addModal('AddModal')"
-        >
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="addModal('AddModal')">
           <v-icon color="grey">
             {{ mdiPlus }}
           </v-icon>
@@ -21,15 +12,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.resumeSelected')"
-          v-on="on"
-          @click="resumeTorrents"
-        >
+        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.resumeSelected')" v-on="on" @click="resumeTorrents">
           <v-icon color="grey">
             {{ mdiPlay }}
           </v-icon>
@@ -39,15 +22,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.pauseSelected')"
-          v-on="on"
-          @click="pauseTorrents"
-        >
+        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.pauseSelected')" v-on="on" @click="pauseTorrents">
           <v-icon color="grey">
             {{ mdiPause }}
           </v-icon>
@@ -57,15 +32,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.removeSelected')"
-          v-on="on"
-          @click="removeTorrents"
-        >
+        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.removeSelected')" v-on="on" @click="removeTorrents">
           <v-icon color="grey">
             {{ mdiDelete }}
           </v-icon>
@@ -75,16 +42,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          :text="!mobile"
-          small
-          fab
-          color="grey--text"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.searchNew')"
-          v-on="on"
-          @click="addModal('SearchModal')"
-        >
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.searchNew')" v-on="on" @click="addModal('SearchModal')">
           <v-icon color="grey">
             {{ mdiSearchWeb }}
           </v-icon>
@@ -94,15 +52,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn
-          small
-          fab
-          :text="!mobile"
-          class="mr-0 ml-0"
-          :aria-label="$t('navbar.topActions.openSettings')"
-          v-on="on"
-          @click="goToSettings"
-        >
+        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.openSettings')" v-on="on" @click="goToSettings">
           <v-icon color="grey">
             {{ mdiCog }}
           </v-icon>
@@ -117,10 +67,7 @@
 import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import {
-  mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked,
-  mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause
-} from '@mdi/js'
+import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause } from '@mdi/js'
 
 export default {
   name: 'TopActions',
@@ -159,8 +106,7 @@ export default {
       this.createModal(name)
     },
     goToSettings() {
-      if (this.$route.name !== 'settings')
-        this.$router.push({ name: 'settings' })
+      if (this.$route.name !== 'settings') this.$router.push({ name: 'settings' })
     }
   }
 }

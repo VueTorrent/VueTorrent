@@ -5,11 +5,7 @@
     </div>
     <div>
       {{ torrent.dlspeed | getDataValue(1) }}
-      <span class="caption grey--text">
-        {{
-          torrent.dlspeed | getDataUnit(1)
-        }}/s
-      </span>
+      <span class="caption grey--text"> {{ torrent.dlspeed | getDataUnit(1) }}/s </span>
     </div>
   </v-flex>
 </template>

@@ -1,29 +1,15 @@
 <template>
-  <v-layout
-    row
-    wrap
-    class="ma-0 pa-1"
-  >
+  <v-layout row wrap class="ma-0 pa-1">
     <v-flex xs12 class="ma-1" row>
-      <span class="subtitle-1" style="line-height: 1.3em; font-size: .95em !important;">
+      <span class="subtitle-1" style="line-height: 1.3em; font-size: 0.95em !important">
         {{ torrent.name }}
       </span>
     </v-flex>
     <v-flex xs12 row class="ma-1 mt-0">
-      <v-chip
-        small
-        class="caption white--text mr-2"
-        :class="torrent.state.toLowerCase()"
-        style="height: 20px;"
-      >
+      <v-chip small class="caption white--text mr-2" :class="torrent.state.toLowerCase()" style="height: 20px">
         {{ torrent.state }}
       </v-chip>
-      <v-chip
-        v-if="torrent.category"
-        small
-        class="upload caption white--text"
-        style="height: 20px;"
-      >
+      <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
       </v-chip>
     </v-flex>
@@ -45,36 +31,27 @@
       <span class="body-2 ml-1"> {{ torrent.eta }} </span>
     </v-flex>
     <v-flex xs12 class="ma-1">
-      <v-progress-linear
-        rounded
-        color="upload"
-        height="5"
-        :value="torrent.progress"
-      />
+      <v-progress-linear rounded color="upload" height="5" :value="torrent.progress" />
     </v-flex>
     <v-flex row xs12 class="ma-1">
-      <div class="caption grey--text">
-        {{ torrent.num_seeds }}/{{ torrent.available_seeds }} seeds
-      </div>
+      <div class="caption grey--text">{{ torrent.num_seeds }}/{{ torrent.available_seeds }} seeds</div>
       <span class="mx-1 grey--text" style="margin-top: 2px">•</span>
-      <div class="caption grey--text">
-        {{ torrent.num_leechs }}/{{ torrent.available_peers }} peers
-      </div>
+      <div class="caption grey--text">{{ torrent.num_leechs }}/{{ torrent.available_peers }} peers</div>
       <v-spacer />
       <div>
         <span v-if="torrent.dlspeed">
           <v-icon small class="grey--text">
             {{ mdiChevronDown }}
-          </v-icon> 
+          </v-icon>
           <span class="caption font-weight-medium grey--text">{{ torrent.dlspeed | getDataValue(1) }} </span>
-          <span class="caption grey--text" style="font-size: 0.6em !important;">  {{ torrent.dlspeed | getDataUnit(1) }}/s </span>
+          <span class="caption grey--text" style="font-size: 0.6em !important"> {{ torrent.dlspeed | getDataUnit(1) }}/s </span>
         </span>
         <span v-if="torrent.upspeed">
           <v-icon small class="grey--text">
             {{ mdiChevronUp }}
-          </v-icon> 
+          </v-icon>
           <span class="caption font-weight-medium grey--text">{{ torrent.upspeed | getDataValue(1) }} </span>
-          <span class="caption grey--text" style="font-size: 0.6em !important;"> {{ torrent.upspeed | getDataUnit(1) }}/s </span>
+          <span class="caption grey--text" style="font-size: 0.6em !important"> {{ torrent.upspeed | getDataUnit(1) }}/s </span>
         </span>
       </div>
     </v-flex>
@@ -88,7 +65,8 @@ export default {
     torrent: Object
   },
   data: () => ({
-    mdiChevronUp, mdiChevronDown
+    mdiChevronUp,
+    mdiChevronDown
   })
 }
 </script>

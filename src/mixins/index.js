@@ -6,11 +6,4 @@ import General from './General'
 import TorrentSelect from './TorrentSelect'
 import TorrentDashboardItem from './TorrentDashboardItem'
 
-export { FullScreenModal,
-  Modal,
-  SettingsTab,
-  Tab,
-  General,
-  TorrentSelect,
-  TorrentDashboardItem
-}
+export { FullScreenModal, Modal, SettingsTab, Tab, General, TorrentSelect, TorrentDashboardItem }

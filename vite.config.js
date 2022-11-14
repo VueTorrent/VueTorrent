@@ -30,7 +30,7 @@ export default defineConfig({
       ],
       manifest: {
         name: 'VueTorrent',
-        short_name: 'VueT',
+        short_name: 'VueTorrent',
         theme_color: '#597566',
         start_url: '.',
         background_color: '#000',

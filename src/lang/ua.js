@@ -37,7 +37,7 @@ const locale = {
   seeds: 'Сіди',
   tags: 'Теги',
   share: 'Поділитися',
-  name: 'Ім\'я',
+  name: "Ім'я",
   hash: 'Хеш',
   magnet: 'Магнет',
 
@@ -54,7 +54,7 @@ const locale = {
     created: 'Створено',
     comments: 'примітки',
     uploadedSession: 'Завантажено за сесію',
-    torrentTitle: 'Ім\'я'
+    torrentTitle: "Ім'я"
   },
   /** Navbar */
   navbar: {
@@ -92,7 +92,7 @@ const locale = {
       btnStartSearch: 'Пошук',
       btnStopSearch: 'Стоп',
       columnTitle: {
-        name: 'Ім\'я',
+        name: "Ім'я",
         size: 'Розмір',
         seeds: 'Сіди',
         peers: 'Піри',
@@ -104,7 +104,7 @@ const locale = {
       tabName: {
         VueTorrent: 'Vuetorrent',
         downloads: 'Завантаження',
-        connection: 'Зв\'язок',
+        connection: "Зв'язок",
         bittorrent: 'Bittorrent',
         webUI: 'Bеб-інтерфейс',
         tagsAndCategories: 'Теги та категорії'
@@ -147,7 +147,6 @@ const locale = {
         },
         subHeaderSaveManagement: 'Управління збереженням',
         saveManagement: {
-        
           autoManagement: 'Автоматичне керування торрентами',
           relocate: 'Переміщення торенту при зміні категорії',
           defaultSavePath: 'Шлях збереження за замовчуванням',
@@ -169,8 +168,8 @@ const locale = {
       },
       pageConnection: {
         subHeader: 'Обмеження підключення',
-        globalMaxConnection: 'Глобальна максимальна кількість з\'єднань',
-        perTorrentMaxConnection: 'Максимальна кількість з\'єднань на торрент',
+        globalMaxConnection: "Глобальна максимальна кількість з'єднань",
+        perTorrentMaxConnection: "Максимальна кількість з'єднань на торрент",
         globalMaxUploadSlots: 'Глобальна максимальна кількість слотів для завантаження',
         perTorrentMaxUploadSlots: 'Максимальна кількість слотів для завантаження на торрент'
       },
@@ -199,7 +198,7 @@ const locale = {
         ipAddress: 'IP-адреса:',
         port: 'Порт',
         authentication: 'Аутентифікація',
-        username: 'Ім\'я користувача',
+        username: "Ім'я користувача",
         password: 'пароль',
         maxAttempts: 'Максимальна кількість спроб',
         banDuration: 'Тривалість бану (секунди)',
@@ -318,7 +317,7 @@ const locale = {
         completed: 'Завершено',
         downloaded: 'Завантажено',
         ETA: 'ОЧЗ',
-        name: 'Ім\'я',
+        name: "Ім'я",
         peers: 'Піри',
         priority: 'Пріоритет',
         progress: 'Прогрес',

@@ -34,7 +34,9 @@ import { FullScreenModal } from '@/mixins'
 export default {
   name: 'Rss',
   components: {
-    General, Feeds, Rules
+    General,
+    Feeds,
+    Rules
   },
   mixins: [FullScreenModal],
   data: () => ({

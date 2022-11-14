@@ -36,9 +36,7 @@
       @input="setCategory"
     />
     <div v-if="showTrackerFilter">
-      <label class="white--text text-uppercase font-weight-medium caption ml-4">
-        Tracker
-      </label>
+      <label class="white--text text-uppercase font-weight-medium caption ml-4"> Tracker </label>
       <v-select
         aria-label="tracker_filter"
         :value="selectedTracker"
@@ -81,18 +79,27 @@ export default {
         { value: 'active', name: this.$i18n.t('active') },
         { value: 'inactive', name: this.$i18n.t('inactive') },
         { value: 'stalled', name: this.$i18n.t('stalled') },
-        { value: 'stalled_uploading', name: this.$i18n.t('navbar.filters.stalled_uploading') },
-        { value: 'stalled_downloading', name: this.$i18n.t('navbar.filters.stalled_downloading') },
+        {
+          value: 'stalled_uploading',
+          name: this.$i18n.t('navbar.filters.stalled_uploading')
+        },
+        {
+          value: 'stalled_downloading',
+          name: this.$i18n.t('navbar.filters.stalled_downloading')
+        },
         { value: 'errored', name: this.$i18n.t('errored') }
       ]
     },
     availableCategories() {
       const categories = [
         { name: 'All', value: null },
-        { name: 'Uncategorized', value: '' }]
-      categories.push(...this.getCategories().map(c => {
-        return { name: c.name, value: c.name }
-      }))
+        { name: 'Uncategorized', value: '' }
+      ]
+      categories.push(
+        ...this.getCategories().map(c => {
+          return { name: c.name, value: c.name }
+        })
+      )
 
       return categories
     },
@@ -101,13 +108,16 @@ export default {
         { name: 'All', value: null },
         { name: 'Not working', value: '' }
       ]
-         
+
       if (this.showTrackerFilter) {
-        trackers.push(...this.getTrackers().map(t => {
-          return {
-            name: t, value: t
-          }
-        }))
+        trackers.push(
+          ...this.getTrackers().map(t => {
+            return {
+              name: t,
+              value: t
+            }
+          })
+        )
       }
 
       return trackers
@@ -160,4 +170,3 @@ export default {
   margin: 0;
 }
 </style>
-

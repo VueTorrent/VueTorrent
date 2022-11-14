@@ -1,11 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    max-width="750px"
-    :content-class="isPhone ? 'rounded-0' : 'rounded-form'"
-    :fullscreen="isPhone"
-  >
+  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="isPhone ? 'rounded-0' : 'rounded-form'" :fullscreen="isPhone">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -16,38 +10,19 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-textarea
-                v-model="name"
-                rows="1"
-                auto-grow
-                clearable
-                :label="$t('modals.rename.torrentName')"
-                :prepend-inner-icon="mdiFile"
-              />
+              <v-textarea v-model="name" rows="1" auto-grow clearable :label="$t('modals.rename.torrentName')" :prepend-inner-icon="mdiFile" />
             </v-col>
           </v-row>
         </v-container>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          v-if="enableUrlDecode"
-          class="info white--text elevation-0 px-4"
-          @click="urlDecode"
-        >
-          URL DECODE
-        </v-btn>
+        <v-btn v-if="enableUrlDecode" class="info white--text elevation-0 px-4" @click="urlDecode"> URL DECODE </v-btn>
         <v-spacer />
-        <v-btn
-          class="accent white--text elevation-0 px-4"
-          @click="rename"
-        >
+        <v-btn class="accent white--text elevation-0 px-4" @click="rename">
           {{ $t('save') }}
         </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="close"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="close">
           {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
@@ -95,8 +70,7 @@ export default {
       this.enableUrlDecode = false
       if (this.name.indexOf(' ') == -1) {
         const exp = /\+|%/
-        if (exp.test(this.name))
-          this.enableUrlDecode = true
+        if (exp.test(this.name)) this.enableUrlDecode = true
       }
     },
     rename() {

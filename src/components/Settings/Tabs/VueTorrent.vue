@@ -27,7 +27,8 @@ import { FullScreenModal } from '@/mixins'
 export default {
   name: 'VueTorrent',
   components: {
-    VGeneral, Dashboard
+    VGeneral,
+    Dashboard
   },
   mixins: [FullScreenModal],
   data: () => ({

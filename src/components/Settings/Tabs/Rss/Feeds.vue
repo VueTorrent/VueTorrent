@@ -14,16 +14,10 @@
               </v-icon>
             </v-list-item-action>
           </v-list-item>
-          <v-divider
-            v-if="index < availableFeeds.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableFeeds.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createFeed"
-          >
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createFeed">
             {{ $t('modals.settings.pageRss.pageFeeds.btnCreateNew') }}
           </v-btn>
         </v-list-item>

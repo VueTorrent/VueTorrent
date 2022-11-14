@@ -1,7 +1,5 @@
 <template>
-  <h1 class="text-center mt-5">
-    MagnetHandler
-  </h1>
+  <h1 class="text-center mt-5">MagnetHandler</h1>
 </template>
 
 <script>

@@ -37,12 +37,10 @@ export function loadLanguageAsync(lang) {
   }
 
   // If the language hasn't been loaded yet
-  return import(`./${lang}.js`).then(
-    messages => {
-      i18n.setLocaleMessage(lang, messages.default)
-      loadedLanguages.push(lang)
+  return import(`./${lang}.js`).then(messages => {
+    i18n.setLocaleMessage(lang, messages.default)
+    loadedLanguages.push(lang)
 
-      return setI18nLanguage(lang)
-    }
-  )
+    return setI18nLanguage(lang)
+  })
 }

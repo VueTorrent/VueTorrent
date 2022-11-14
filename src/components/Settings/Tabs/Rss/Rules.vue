@@ -14,16 +14,10 @@
               </v-icon>
             </v-list-item-action>
           </v-list-item>
-          <v-divider
-            v-if="index < availableRules.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableRules.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createRule"
-          >
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createRule">
             {{ $t('modals.settings.pageRss.pageRules.btnCreateNew') }}
           </v-btn>
         </v-list-item>

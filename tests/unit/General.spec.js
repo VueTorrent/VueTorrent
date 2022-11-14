@@ -5,20 +5,27 @@ let wrapper
 
 describe('General', () => {
   beforeEach(() => {
-    wrapper = shallowMount(General, { mocks: { $t: () => {}, $store: {
-      getters: { getAppVersion: jest.fn() },
-      state: { webuiSettings: {
-        showCurrentSpeed: 100,
-        showSpeedGraph: true,
-        showSessionStat: true,
-        showAlltimeStat: true,
-        showTrackerFilter: true,
-        rightDrawer: 10, 
-        paginationSize: 10, 
-        title: 'test',
-        lang: 'English' } }
-    }
-    } })
+    wrapper = shallowMount(General, {
+      mocks: {
+        $t: () => {},
+        $store: {
+          getters: { getAppVersion: jest.fn() },
+          state: {
+            webuiSettings: {
+              showCurrentSpeed: 100,
+              showSpeedGraph: true,
+              showSessionStat: true,
+              showAlltimeStat: true,
+              showTrackerFilter: true,
+              rightDrawer: 10,
+              paginationSize: 10,
+              title: 'test',
+              lang: 'English'
+            }
+          }
+        }
+      }
+    })
   })
 
   it('render correctly', () => {

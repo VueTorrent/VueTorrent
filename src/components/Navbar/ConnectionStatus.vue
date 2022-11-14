@@ -13,12 +13,7 @@
 </template>
 
 <script>
-import {
-  mdiCheckNetwork,
-  mdiNetworkOff,
-  mdiCloseNetwork,
-  mdiHelpNetwork
-} from '@mdi/js'
+import { mdiCheckNetwork, mdiNetworkOff, mdiCloseNetwork, mdiHelpNetwork } from '@mdi/js'
 
 export default {
   props: ['status'],

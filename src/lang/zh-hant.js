@@ -39,7 +39,7 @@ const locale = {
   share: '分享',
   name: '名稱',
   hash: '雜湊值',
-  magnet: '磁力連結',			 
+  magnet: '磁力連結',
   feed: '訂閱源',
   rule: '規則',
   then: '然後',
@@ -212,7 +212,7 @@ const locale = {
         maxRatioPauseTorrent: '暫停種子',
         maxRatioRemoveTorrent: '移除種子',
         maxRatioRemoveTorrentAndFiles: '移除種子與其檔案',
-        maxRatioTorrentSuperseeding: '為種子啟用超級做種'											   
+        maxRatioTorrentSuperseeding: '為種子啟用超級做種'
       },
       pageRss: {
         tabName: {
@@ -410,7 +410,7 @@ const locale = {
       forceReannounce: '強制重新發佈',
       sequentialDownload: '順序下載',
       firstLastPriority: '首末優先',
-      automaticTorrentManagement: '自動種子管理 (ATM)'	
+      automaticTorrentManagement: '自動種子管理 (ATM)'
     },
     prio: {
       prio: '設置優先級',

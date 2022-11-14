@@ -24,7 +24,8 @@ const router = new Router({
       name: 'torrentDetail',
       component: () => import('./views/TorrentDetail.vue')
     },
-    { path: '/download=:magnet',
+    {
+      path: '/download=:magnet',
       name: 'MagnetHandler',
       component: () => import('./views/MagnetHandler.vue'),
       props: true
