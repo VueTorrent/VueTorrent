@@ -1,6 +1,7 @@
+import { describe, it, expect } from 'vitest'
 import { setup } from '../helpers'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { mdiChevronDown } from '@mdi/js'
+import SpeedCard from '@/components/Core/SpeedCard.vue'
 
 describe('SpeedCard.vue', () => {
   it('should render the card', () => {

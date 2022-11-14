@@ -1,7 +1,17 @@
-import { shallowMount } from '@vue/test-utils'
-import General from '../../src/components/Settings/Tabs/VueTorrent/VGeneral.vue'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { shallowMount, Wrapper } from '@vue/test-utils'
+import General from '@/components/Settings/Tabs/VueTorrent/VGeneral.vue'
+import { Qbit } from '../../src/services/qbit'
 
-let wrapper
+let wrapper: Wrapper<any>
+
+vi.mock('../../src/services/qbit', () => {
+  return {
+    Qbit: {
+      getAppVersion: () => Promise.resolve('v1.2.3')
+    }
+  }
+})
 
 describe('General', () => {
   beforeEach(() => {
@@ -9,7 +19,7 @@ describe('General', () => {
       mocks: {
         $t: () => {},
         $store: {
-          getters: { getAppVersion: jest.fn() },
+          getters: { getAppVersion: vi.fn() },
           state: {
             webuiSettings: {
               showCurrentSpeed: 100,
@@ -65,6 +75,6 @@ describe('General', () => {
   })
 
   it('tests lang', () => {
-    expect(wrapper.vm.lang).toEqual('English')
+  expect(wrapper.vm.lang).toEqual('English')
   })
 })

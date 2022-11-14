@@ -123,7 +123,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import qbit from '@/services/qbit'
+import { Qbit } from '../../../../services/qbit'
 import { availableLanguages } from '@/lang'
 export default {
   name: 'VueTorrent-General',
@@ -227,8 +227,7 @@ export default {
   },
   methods: {
     async fetchQbitVersion() {
-      const version = await qbit.getAppVersion()
-      this.Qbitversion = version.includes('v') ? version.substring(1) : version
+      this.Qbitversion = await Qbit.getAppVersion()
     }
   }
 }

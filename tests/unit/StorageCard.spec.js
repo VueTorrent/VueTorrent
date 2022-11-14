@@ -1,5 +1,6 @@
+import { describe, it, expect } from 'vitest'
 import { setup } from '../helpers'
-import StorageCard from '@/components/Core/StorageCard'
+import StorageCard from '@/components/Core/StorageCard.vue'
 
 describe('StorageCard.vue', () => {
   it('should render the label', () => {

@@ -38,7 +38,7 @@ import { codeToFlag, isWindows } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
 
 export default {
-  name: 'Peers',
+  name: 'DetailPeers',
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
   data: () => ({

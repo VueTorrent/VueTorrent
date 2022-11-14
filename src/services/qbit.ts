@@ -1,6 +1,8 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
-class Qbit {
+export class QBitApi {
+  private axios: AxiosInstance
+
   constructor() {
     this.axios = axios.create({
       baseURL: 'api/v2'
@@ -18,9 +20,10 @@ class Qbit {
   }
 
   /** Begin General functions * */
-
-  getAppVersion() {
-    return this.axios.get('/app/version').then(res => res.data)
+  getAppVersion(): Promise<string> {
+    return this.axios.get('/app/version')
+    .then(res => res.data)
+    .then(version => version.includes('v') ? version.substring(1) : version)
   }
 
   getApiVersion() {
@@ -485,4 +488,5 @@ class Qbit {
   }
 }
 
-export default new Qbit()
+export const Qbit = new QBitApi()
+export default Qbit

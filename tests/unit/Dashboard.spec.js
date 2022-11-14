@@ -1,5 +1,7 @@
+import { describe, beforeEach, it, expect, vi } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import Dashboard from '../../src/components/Settings/Tabs/VueTorrent/Dashboard.vue'
+
+import Dashboard from '@/components/Settings/Tabs/VueTorrent/Dashboard.vue'
 
 let wrapper
 
@@ -9,7 +11,7 @@ describe('Dashboard', () => {
       mocks: {
         $t: x => x,
         $store: {
-          getters: { getAppVersion: jest.fn() },
+          getters: { getAppVersion: vi.fn() },
           state: {
             webuiSettings: {
               lang: 'en',

@@ -1,5 +1,7 @@
+import { describe, beforeEach, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import BitTorrent from '../../src/components/Settings/Tabs/BitTorrent.vue'
+
+import BitTorrent from '@/components/Settings/Tabs/BitTorrent.vue'
 
 let wrapper
 
