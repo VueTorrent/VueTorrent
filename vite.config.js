@@ -32,7 +32,7 @@ export default defineConfig({
         name: 'VueTorrent',
         short_name: 'VueT',
         theme_color: '#597566',
-        start_url: '/',
+        start_url: '.',
         background_color: '#000',
         icons: [
           {
