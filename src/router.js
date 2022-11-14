@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { getBaseURL } from './helpers.js'
 import { isAuthenticated } from './services/auth.js'
 
 Vue.use(Router)
 
 const router = new Router({
-  base: import.meta.env.BASE_UR,
+  base: getBaseURL(),
+  mode: 'hash',
   routes: [
     {
       path: '/',

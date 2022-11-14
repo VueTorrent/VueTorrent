@@ -163,3 +163,11 @@ export function getVersion() {
 
   return import.meta.env['VITE_PACKAGE_VERSION'] 
 }
+
+export function getBaseURL() {
+  if (process.env.NODE_ENV === 'production') {
+    return 'import.meta.env.BASE_URL' 
+  }
+
+  return import.meta.env['BASE_URL'] 
+}
