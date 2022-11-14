@@ -18,6 +18,7 @@ import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import qbit from '@/services/qbit'
 import { General } from '@/mixins'
+import { getVersion } from './helpers'
 
 export default {
   name: 'App',
@@ -34,7 +35,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('SET_APP_VERSION', import.meta.env['PACKAGE_VERSION'])
+    this.$store.commit('SET_APP_VERSION', getVersion())
     this.$store.commit('SET_LANGUAGE')
     this.checkAuthentication()
     this.blockContextMenu()

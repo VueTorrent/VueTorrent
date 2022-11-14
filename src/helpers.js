@@ -155,3 +155,11 @@ export function splitByUrl(string) {
 export function stringContainsUrl(string) {
   return urlRegExp.test(string)
 }
+
+export function getVersion() {
+  if (process.env.NODE_ENV === 'production') {
+    return 'import.meta.env.VITE_PACKAGE_VERSION' 
+  }
+
+  return import.meta.env['VITE_PACKAGE_VERSION'] 
+}
