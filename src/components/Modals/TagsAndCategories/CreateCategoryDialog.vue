@@ -7,7 +7,7 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
-        <v-form ref="categoryForm" class="px-6 mt-3">
+        <v-form ref="categoryForm" v-model="valid" lazy-validation class="px-6 mt-3">
           <v-container>
             <v-text-field v-model="category.name" :rules="nameRules" :counter="15" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
             <v-text-field v-model="category.savePath" :rules="PathRules" :counter="40" :label="$t('path')" required />
@@ -16,10 +16,10 @@
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create">
+        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create" :disabled="!valid">
           {{ $t('create') }}
         </v-btn>
-        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit">
+        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit" :disabled="!valid">
           {{ $t('edit') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
@@ -47,7 +47,8 @@ export default {
     category: { name: '', savePath: '' },
     mdiCancel,
     mdiTagPlus,
-    mdiPencil
+    mdiPencil,
+    valid: true
   }),
   computed: {
     ...mapGetters(['getSelectedCategory']),
@@ -69,6 +70,10 @@ export default {
   },
   methods: {
     create() {
+      this.$refs.categoryForm.validate()
+      
+      return
+      
       qbit.createCategory(this.category)
       this.cancel()
     },
