@@ -109,7 +109,11 @@ export default new Vuex.Store({
     filteredTorrentsCount: 0,
     latestSelectedTorrent: null,
     selectMode: false,
-    searchPlugins: []
+    searchPlugins: [],
+    dashboard: {
+      currentPage: 1,
+      searchFilter: ''
+    }
   },
   actions: {
     ...actions

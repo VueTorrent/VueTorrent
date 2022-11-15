@@ -155,11 +155,8 @@ export default {
         LastFinger: 0,
         LastHash: ''
       },
-
       trcMoveTick: 0,
-      input: '',
       searchFilterEnabled: false,
-      pageNumber: 1,
       mdiTextBoxSearch,
       mdiChevronLeftCircle,
       mdiMagnify,
@@ -169,7 +166,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(['mainData', 'selected_torrents']),
+    ...mapState(['mainData', 'selected_torrents', 'dashboard']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
       if (!this.hasSearchFilter) return this.getTorrents()
@@ -182,6 +179,22 @@ export default {
       const fuse = new Fuse(this.getTorrents(), options)
 
       return fuse.search(this.input).map(el => el.item)
+    },
+    pageNumber: {
+      get() {
+        return this.dashboard.currentPage
+      },
+      set(val) {
+        this.dashboard.currentPage = val
+      }
+    },
+    input: {
+      get() {
+        return this.dashboard.searchFilter
+      },
+      set(val) {
+        this.dashboard.searchFilter = val
+      }
     },
     topPagination() {
       return this.getWebuiSettings().topPagination
@@ -240,6 +253,7 @@ export default {
   created() {
     this.$store.dispatch('INIT_INTERVALS')
     this.$store.commit('FETCH_CATEGORIES')
+    if(this.input) this.searchFilterEnabled = true
   },
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')
