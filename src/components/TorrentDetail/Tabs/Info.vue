@@ -46,6 +46,15 @@
         </tr>
         <tr>
           <td :class="commonStyle">
+            {{ $t("torrent.timeActive") | titleCase }}
+          </td>
+          <td>
+            {{ torrent.time_active }}
+            <span v-if="torrent.seeding_time">{{ `(${$t("torrent.seededFor")} ${torrent.seeding_time})` }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td :class="commonStyle">
             {{ $t('torrent.downloaded') | titleCase }}
           </td>
           <td>

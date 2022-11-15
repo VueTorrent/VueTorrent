@@ -1,3 +1,8 @@
+import dayjs from 'dayjs'
+import duration from 'dayjs/plugin/duration'
+
+dayjs.extend(duration)
+
 export default class Torrent {
   constructor(data) {
     this.name = data.name
@@ -32,6 +37,8 @@ export default class Torrent {
     this.availability = Math.round(data.availability * 100) / 100
     this.forced = data.state.includes('forced')
     this.magnet = data.magnet_uri
+    this.time_active = dayjs.duration(data.time_active, 'seconds').format('D[d] H[h] m[m] s[s]')
+    this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format('D[d] H[h] m[m] s[s]') : null
 
     Object.freeze(this)
   }
