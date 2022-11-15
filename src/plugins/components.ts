@@ -7,6 +7,6 @@ Object.entries(components).forEach(([path, definition]) => {
     ?.split('/')
     ?.pop()
     ?.replace(/\.\w+$/, '')
-  
-  if(componentName)  Vue.component(componentName, definition)
+
+  if (componentName) Vue.component(componentName, definition)
 })

@@ -16,6 +16,7 @@ export function generateMultiple(count: number = 1): Torrent[] {
 export function generateTorrent(data: any): Torrent {
   return new Torrent({
     name: data.name,
+    hash: faker.datatype.uuid(),
     size: faker.datatype.number({ min: 1000000, max: 50000000000 }),
     tags: [],
     progress: faker.datatype.number({ min: 0, max: 1, precision: 0.01 }),
@@ -24,9 +25,10 @@ export function generateTorrent(data: any): Torrent {
     availability: faker.datatype.number({ min: 0, max: 1, precision: 0.01 }),
     added_on: faker.date.recent(),
     ratio: faker.datatype.number({ min: 0, max: 1, precision: 0.01 }),
-    num_leechs: faker.datatype.number({ min: 0, max: 500 }),
-    available_seeds: faker.datatype.number({ min: 0, max: 500 }),
-    num_seeds: faker.datatype.number({ min: 0, max: 500 }),
-    available_peers: faker.datatype.number({ min: 0, max: 500 }),
+    num_leechs: faker.datatype.number({ min: 1, max: 20 }),
+    num_complete: faker.datatype.number({ min: 1, max: 500 }),
+    num_seeds: faker.datatype.number({ min: 1, max: 25 }),
+    num_incomplete: faker.datatype.number({ min: 1, max: 500 }),
+    save_path: faker.system.filePath()
   })
 }

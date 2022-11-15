@@ -1,11 +1,11 @@
 <template>
   <div class="px-1 px-sm-5 pt-4 background noselect" @click.self="resetSelected">
     <v-row class="ma-0 pa-0" @click.self="resetSelected">
-        <v-col v-if="topPagination && isMobile" cols="12" class="align-center justify-center pa-0">
-          <div class="text-center">
-            <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
-          </div>
-        </v-col>
+      <v-col v-if="topPagination && isMobile" cols="12" class="align-center justify-center pa-0">
+        <div class="text-center">
+          <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
+        </div>
+      </v-col>
       <v-expand-x-transition>
         <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 mt-1 transparent">
           <v-text-field

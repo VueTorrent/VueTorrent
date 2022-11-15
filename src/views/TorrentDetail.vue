@@ -44,7 +44,7 @@
             <Trackers :is-active="tab === 'trackers'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="peers">
-            <Peers :is-active="tab === 'peers'" :hash="hash" />
+            <DetailPeers :is-active="tab === 'peers'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="content">
             <Content :is-active="tab === 'content'" :hash="hash" />
@@ -60,12 +60,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Content, Info, Peers, Trackers, TagsAndCategories } from '../components/TorrentDetail/Tabs'
+import { Content, Info, DetailPeers, Trackers, TagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
 
 export default {
   name: 'TorrentDetail',
-  components: { Content, Info, Peers, Trackers, TagsAndCategories },
+  components: { Content, Info, DetailPeers, Trackers, TagsAndCategories },
   data() {
     return {
       tab: null,
