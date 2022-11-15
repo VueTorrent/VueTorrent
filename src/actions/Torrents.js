@@ -19,7 +19,7 @@ export class Torrents {
 
     // load fake torrents if enabled
     if (isProduction()) return
-    if(import.meta.env.VITE_USE_FAKE_TORRENTS == 'false') return
+    if (import.meta.env.VITE_USE_FAKE_TORRENTS == 'false') return
     const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
     store.state.torrents.push(...generateMultiple(count))
   }

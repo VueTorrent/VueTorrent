@@ -4,6 +4,6 @@ declare module '*.vue' {
 }
 
 declare module 'vuetify/lib/framework' {
-  import Vuetify from 'vuetify';
-  export default Vuetify;
+  import Vuetify from 'vuetify'
+  export default Vuetify
 }
