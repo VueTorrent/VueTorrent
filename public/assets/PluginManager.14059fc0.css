@@ -1,0 +1,1 @@
+.bottom-sheet-transition-enter,.bottom-sheet-transition-leave-to{transform:translateY(100%)}.v-bottom-sheet.v-dialog{align-self:flex-end;border-radius:0;flex:0 1 auto;margin:0;overflow:visible}.v-bottom-sheet.v-dialog.v-bottom-sheet--inset{max-width:70%}@media only screen and (max-width: 599.98px){.v-bottom-sheet.v-dialog.v-bottom-sheet--inset{max-width:none}}
