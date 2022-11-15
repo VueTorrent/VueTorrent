@@ -1,6 +1,8 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
-class Qbit {
+export class QBitApi {
+  private axios: AxiosInstance
+
   constructor() {
     this.axios = axios.create({
       baseURL: 'api/v2'
@@ -18,10 +20,11 @@ class Qbit {
   }
 
   /** Begin General functions * */
-
-  getAppVersion() {
-    return this.axios.get('/app/version')
+  getAppVersion(): Promise<string> {
+    return this.axios
+      .get('/app/version')
       .then(res => res.data)
+      .then(version => (version.includes('v') ? version.substring(1) : version))
   }
 
   getApiVersion() {
@@ -30,17 +33,20 @@ class Qbit {
 
   async login(params) {
     const payload = new URLSearchParams(params)
-    const { data } = await this.axios.post('/auth/login', payload, {
-      validateStatus(status) {
-        return status === 200 || status === 403
-      }
-    })
+    const { data } = await this.axios
+      .post('/auth/login', payload, {
+        validateStatus(status) {
+          return status === 200 || status === 403
+        }
+      })
+      .catch(err => console.log(err))
 
     return data
   }
 
   async getAuthenticationStatus() {
-    return this.axios.get('/app/version')
+    return this.axios
+      .get('/app/version')
       .then(() => true)
       .catch(() => false)
   }
@@ -66,9 +72,7 @@ class Qbit {
   }
 
   getMainData(rid) {
-    return this.axios.get(
-      '/sync/maindata', { params: { rid } })
-      .then(res => res.data)
+    return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
   switchToOldUi() {
@@ -101,9 +105,7 @@ class Qbit {
     }
 
     // clean
-    Object.keys(params).forEach(
-      key => params[key] == null && delete params[key]
-    )
+    Object.keys(params).forEach(key => params[key] == null && delete params[key])
 
     const data = new URLSearchParams(params)
 
@@ -115,7 +117,6 @@ class Qbit {
       params: { hash }
     })
   }
-
 
   getTorrentPeers(hash, rid) {
     return this.axios.get('/sync/torrentPeers', {
@@ -149,15 +150,17 @@ class Qbit {
   }
 
   getTorrentProperties(hash) {
-    return this.axios.get('/torrents/properties', {
-      params: { hash }
-    }).then(res => res.data)
+    return this.axios
+      .get('/torrents/properties', {
+        params: { hash }
+      })
+      .then(res => res.data)
   }
 
   // RSS
 
   createFeed(feed) {
-    return this.execute('post', '/rss/addFeed', { 
+    return this.execute('post', '/rss/addFeed', {
       url: feed.url,
       path: feed.url
     })
@@ -171,21 +174,25 @@ class Qbit {
   }
 
   getFeeds() {
-    return this.axios.get('/rss/items')
+    return this.axios
+      .get('/rss/items')
       .then(res => res.data)
-      .then(data => 
+      .then(data =>
         Object.entries(data).map(feed => {
           return { name: feed[0], ...feed[1] }
-        }))
+        })
+      )
   }
-  
+
   getRules() {
-    return this.axios.get('/rss/rules')
+    return this.axios
+      .get('/rss/rules')
       .then(res => res.data)
-      .then(data => 
+      .then(data =>
         Object.entries(data).map(rule => {
           return { name: rule[0], ...rule[1] }
-        }))
+        })
+      )
   }
 
   deleteRule(ruleName) {
@@ -274,20 +281,20 @@ class Qbit {
 
   async getGlobalDownloadLimit() {
     const { data } = await this.axios.get('/transfer/downloadLimit')
-    
+
     return data
   }
 
   async getGlobalUploadLimit() {
     const { data } = await this.axios.get('/transfer/uploadLimit')
-    
+
     return data
   }
 
   setGlobalDownloadLimit(limit) {
     const formData = new FormData()
     formData.append('limit', limit)
-    
+
     return this.axios.post('/transfer/setDownloadLimit', formData)
   }
 
@@ -299,7 +306,10 @@ class Qbit {
   }
 
   setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
-    return this.torrentAction('setShareLimits', hashes, { ratioLimit, seedingTimeLimit })
+    return this.torrentAction('setShareLimits', hashes, {
+      ratioLimit,
+      seedingTimeLimit
+    })
   }
 
   reannounceTorrents(hashes) {
@@ -407,8 +417,7 @@ class Qbit {
 
   /** Begin Categories **/
   getCategories() {
-    return this.axios.get('/torrents/categories')
-      .then(res => res.data)
+    return this.axios.get('/torrents/categories').then(res => res.data)
   }
 
   deleteCategory(categories) {
@@ -439,8 +448,7 @@ class Qbit {
 
   /** Search **/
   getSearchPlugins() {
-    return this.axios.get('/search/plugins')
-      .then(res => res.data)
+    return this.axios.get('/search/plugins').then(res => res.data)
   }
 
   updateSearchPlugins() {
@@ -481,4 +489,5 @@ class Qbit {
   }
 }
 
-export default new Qbit()
+export const Qbit = new QBitApi()
+export default Qbit

@@ -6,91 +6,49 @@
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="showCurrentSpeed"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.currentSpeed')"
-          />
+          <v-switch v-model="showCurrentSpeed" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.currentSpeed')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="showSpeedGraph"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.speedGraph')"
-          />
+          <v-switch v-model="showSpeedGraph" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.speedGraph')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="showSessionStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
-          />
+          <v-switch v-model="showSessionStat" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="showAlltimeStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')"
-          />
+          <v-switch v-model="showAlltimeStat" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="freeSpace"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')"
-          />
+          <v-switch v-model="freeSpace" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="showTrackerFilter"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.trackerFilter')"
-          />
+          <v-switch v-model="showTrackerFilter" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.trackerFilter')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="rightDrawer"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.rightDrawer')"
-          />
+          <v-switch v-model="rightDrawer" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.rightDrawer')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -102,16 +60,7 @@
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
-          <v-select
-            v-model="lang"
-            flat
-            solo
-            dense
-            hide-details
-            background-color="background"
-            class="rounded-xl"
-            :items="languages"
-          />
+          <v-select v-model="lang" flat solo dense hide-details background-color="background" class="rounded-xl" :items="languages" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -123,16 +72,7 @@
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
-          <v-select
-            v-model="paginationSize"
-            flat
-            solo
-            dense
-            hide-details
-            background-color="background"
-            class="rounded-xl"
-            :items="paginationSizes"
-          />
+          <v-select v-model="paginationSize" flat solo dense hide-details background-color="background" class="rounded-xl" :items="paginationSizes" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -144,16 +84,7 @@
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
-          <v-select
-            v-model="title"
-            flat
-            solo
-            dense
-            hide-details
-            background-color="background"
-            class="rounded-xl"
-            :items="titleOptions"
-          />
+          <v-select v-model="title" flat solo dense hide-details background-color="background" class="rounded-xl" :items="titleOptions" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -192,13 +123,14 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import qbit from '@/services/qbit'
-import { availableLanguages } from '@/lang'
+import { Qbit } from '../../../../services/qbit'
+import { i18n } from '@/plugins/i18n'
+
 export default {
-  name: 'General',
+  name: 'VueTorrent-General',
   data() {
     return {
-      languages: availableLanguages,
+      languages: i18n.availableLocales,
       paginationSizes: [5, 15, 30, 50],
       titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0
@@ -296,8 +228,7 @@ export default {
   },
   methods: {
     async fetchQbitVersion() {
-      const version = await qbit.getAppVersion()
-      this.Qbitversion = version.includes('v') ? version.substring(1) : version
+      this.Qbitversion = await Qbit.getAppVersion()
     }
   }
 }
@@ -310,7 +241,7 @@ export default {
 }
 // Reversed input variant
 :deep(.v-input--reverse .v-input__slot) {
-  @import "src/styles/styles.scss";
+  @import 'src/styles/styles.scss';
   @include reverse-switch;
 }
 </style>

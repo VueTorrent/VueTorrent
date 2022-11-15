@@ -1,29 +1,13 @@
 <template>
   <v-card flat>
-    <v-data-table
-      v-if="peers"
-      dense
-      :headers="headers"
-      :items="peers"
-      :items-per-page="-1"
-      :hide-default-footer="true"
-      mobile-breakpoint="0"
-    >
+    <v-data-table v-if="peers" dense :headers="headers" :items="peers" :items-per-page="-1" :hide-default-footer="true" mobile-breakpoint="0">
       <template #item="row">
         <tr>
           <td class="ip">
             <template v-if="row.item.country_code">
-              <img
-                v-if="isWindows"
-                class="country-flag"
-                :title="row.item.country"
-                :alt="codeToFlag(row.item.country_code).char"
-                :src="codeToFlag(row.item.country_code).url"
-              >
+              <img v-if="isWindows" class="country-flag" :title="row.item.country" :alt="codeToFlag(row.item.country_code).char" :src="codeToFlag(row.item.country_code).url" />
               <template v-else>
-                {{
-                  codeToFlag(row.item.country_code).char
-                }}
+                {{ codeToFlag(row.item.country_code).char }}
               </template>
             </template>
             {{ row.item.ip }}
@@ -52,8 +36,9 @@ import { map, merge } from 'lodash'
 import qbit from '@/services/qbit'
 import { codeToFlag, isWindows } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
+
 export default {
-  name: 'Peers',
+  name: 'DetailPeers',
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
   data: () => ({
@@ -79,7 +64,10 @@ export default {
         { text: this.$i18n.t('modals.detail.pagePeers.flags'), value: 'flags' },
         { text: this.$i18n.t('modals.detail.pagePeers.client'), value: 'client' },
         { text: this.$i18n.t('modals.detail.pagePeers.progress'), value: 'progress' },
-        { text: this.$i18n.t('modals.detail.pagePeers.downloadSpeed'), value: 'dl_speed' },
+        {
+          text: this.$i18n.t('modals.detail.pagePeers.downloadSpeed'),
+          value: 'dl_speed'
+        },
         { text: this.$i18n.t('modals.detail.pagePeers.downloaded'), value: 'downloaded' },
         { text: this.$i18n.t('modals.detail.pagePeers.upSpeed'), value: 'up_speed' },
         { text: this.$i18n.t('modals.detail.pagePeers.uploaded'), value: 'uploaded' },
@@ -97,9 +85,12 @@ export default {
   },
   created() {
     this.getTorrentPeers()
-    this.refreshTimer = setInterval(function () {
-      this.getTorrentPeers()
-    }.bind(this), 2000)
+    this.refreshTimer = setInterval(
+      function () {
+        this.getTorrentPeers()
+      }.bind(this),
+      2000
+    )
   },
   beforeDestroy() {
     clearTimeout(this.refreshTimer)
@@ -112,10 +103,7 @@ export default {
       return isWindows()
     },
     async getTorrentPeers() {
-      const { data } = await qbit.getTorrentPeers(
-        this.hash,
-        this.rid + 1 || undefined
-      )
+      const { data } = await qbit.getTorrentPeers(this.hash, this.rid + 1 || undefined)
 
       this.rid = data.rid
 
@@ -137,7 +125,7 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-@import "~@/styles/colors.scss";
+@import '@/styles/colors.scss';
 
 :deep(.v-data-table thead th),
 :deep(.v-data-table tbody td) {

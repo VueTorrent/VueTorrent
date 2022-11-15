@@ -1,13 +1,13 @@
 # VueTorrent
 
-
 <p>
-<img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">   
+<img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">
 
 <p>&nbsp;</p>
-The sleekest looking WebUI for qBittorrent made with Vue.js!  
+The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 > Vue, qBittorrent, Vuetify
+
 </p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -60,6 +60,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 - Pull changes every once in a while, using `git pull`
 
 ### Lazy/Easy
+
 - use [hotio's qbittorrent](https://hotio.dev/containers/qbittorrent/) docker image, that comes pre-packed with VueTorrent.
 
 [Alternative methods - May work for older QBit versions](../../wiki/Alternative_Installation_Methods)
@@ -68,7 +69,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 - Clone the repo
 - `npm install`
-- `npm run serve`
+- `npm run dev`
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
 - You now may open and access the WebUI under localhost with the default username `admin` and password `adminadmin`.
@@ -106,7 +107,8 @@ I'll gladly accept help/pull requests & advice!
 Open up an issue 😛
 
 but before you do that:
-- confirm you're on the latest version of VueTorrent 
+
+- confirm you're on the latest version of VueTorrent
 - confirm there is no other issue mentioning the same problem
 
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>

@@ -3,13 +3,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="logout"
-          >
+          <v-btn text tile block v-on="on" @click="logout">
             <v-icon :class="commonStyle">
               {{ mdiExitToApp }}
             </v-icon>
@@ -21,13 +15,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="toggleSpeed"
-          >
+          <v-btn text tile block v-on="on" @click="toggleSpeed">
             <v-icon :class="altSpeed ? 'accent--text' : commonStyle">
               {{ altSpeed ? mdiSpeedometerSlow : mdiSpeedometer }}
             </v-icon>
@@ -42,13 +30,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="toggleTheme"
-          >
+          <v-btn text tile block v-on="on" @click="toggleTheme">
             <v-icon :class="commonStyle">
               {{ theme === 'Light' ? mdiBrightness7 : mdiBrightness4 }}
             </v-icon>
@@ -63,15 +45,7 @@
 <script>
 import qbit from '@/services/qbit'
 import { mapGetters } from 'vuex'
-import {
-  mdiBrightness4,
-  mdiSpeedometerSlow,
-  mdiBrightness7,
-  mdiSpeedometer,
-  mdiExitToApp,
-  mdiBell,
-  mdiBellOff
-} from '@mdi/js'
+import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
 import ConnectionStatus from './ConnectionStatus.vue'
 
 export default {

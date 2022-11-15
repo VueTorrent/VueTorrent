@@ -1,29 +1,12 @@
 <template>
   <v-card flat>
     <v-card-text class="pa-0">
-      <v-data-table
-        v-if="trackers"
-        v-model="selectedTrackers"
-        dense
-        show-select
-        :headers="headers"
-        :items="trackers"
-        :items-per-page="-1"
-        item-key="url"
-        mobile-breakpoint="0"
-      >
+      <v-data-table v-if="trackers" v-model="selectedTrackers" dense show-select :headers="headers" :items="trackers" :items-per-page="-1" item-key="url" mobile-breakpoint="0">
         <template #body="{ items }">
           <tbody>
             <tr v-for="item in items" :key="item.url">
               <td>
-                <v-checkbox
-                  v-if="typeof item.tier === 'number'"
-                  v-model="selectedTrackers"
-                  :value="item"
-                  hide-details
-                  class="pa-0 ma-0"
-                  color="accent" 
-                />
+                <v-checkbox v-if="typeof item.tier === 'number'" v-model="selectedTrackers" :value="item" hide-details class="pa-0 ma-0" color="accent" />
               </td>
               <td>{{ item.tier }}</td>
               <td>{{ item.url }}</td>
@@ -39,51 +22,22 @@
       </v-data-table>
     </v-card-text>
     <v-card-actions class="justify-center">
-      <v-btn
-        class="error white--text elevation-0 px-4 mx-2"
-        @click="DeleteTrackers"
-      >
-        Delete
-      </v-btn>
-      <v-dialog
-        v-model="trackerDialog"
-        content-class="rounded-form"
-        persistent
-        max-width="290"
-      >
+      <v-btn class="error white--text elevation-0 px-4 mx-2" @click="DeleteTrackers"> Delete </v-btn>
+      <v-dialog v-model="trackerDialog" content-class="rounded-form" persistent max-width="290">
         <template #activator="{ on, attrs }">
-          <v-btn
-            class="accent white--text elevation-0 px-4 mx-2"
-            v-bind="attrs"
-            v-on="on"
-          >
-            Add
-          </v-btn>
+          <v-btn class="accent white--text elevation-0 px-4 mx-2" v-bind="attrs" v-on="on"> Add </v-btn>
         </template>
         <v-card>
           <v-card-title class="justify-center">
             <h3>Add Trackers</h3>
           </v-card-title>
           <v-card-text>
-            <v-textarea
-              v-model="newTrackers"
-              label="Trackers"
-              rows="1"
-              required
-              autofocus
-              auto-grow
-              clearable
-              hint="One link per line"
-            />
+            <v-textarea v-model="newTrackers" label="Trackers" rows="1" required autofocus auto-grow clearable hint="One link per line" />
           </v-card-text>
           <v-card-actions>
             <v-spacer />
-            <v-btn color="red darken-1" text @click="closeAddTrackers">
-              Cancel
-            </v-btn>
-            <v-btn color="green darken-1" text @click="addTrackers">
-              Add
-            </v-btn>
+            <v-btn color="red darken-1" text @click="closeAddTrackers"> Cancel </v-btn>
+            <v-btn color="green darken-1" text @click="addTrackers"> Add </v-btn>
           </v-card-actions>
         </v-card>
       </v-dialog>
@@ -98,13 +52,7 @@ export default {
   name: 'Trackers',
   filters: {
     formatTrackerStatus(status) {
-      const map = [
-        'Disabled',
-        'Not contacted',
-        'Working',
-        'Updating',
-        'Not working'
-      ]
+      const map = ['Disabled', 'Not contacted', 'Working', 'Updating', 'Not working']
 
       return map[status]
     },
@@ -126,7 +74,10 @@ export default {
   }),
   computed: {
     trackers() {
-      return this.tempTrackers.map(x => ({ ...x, isSelectable: typeof x.tier === 'number' }))
+      return this.tempTrackers.map(x => ({
+        ...x,
+        isSelectable: typeof x.tier === 'number'
+      }))
     },
     headers() {
       return [
@@ -135,8 +86,14 @@ export default {
         { text: this.$i18n.t('modals.detail.pageTrackers.status'), value: 'status' },
         { text: this.$i18n.t('modals.detail.pageTrackers.peers'), value: 'num_peers' },
         { text: this.$i18n.t('modals.detail.pageTrackers.seeds'), value: 'num_seeds' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.leeches'), value: 'num_leeches' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.downloaded'), value: 'num_downloaded' },
+        {
+          text: this.$i18n.t('modals.detail.pageTrackers.leeches'),
+          value: 'num_leeches'
+        },
+        {
+          text: this.$i18n.t('modals.detail.pageTrackers.downloaded'),
+          value: 'num_downloaded'
+        },
         { text: this.$i18n.t('modals.detail.pageTrackers.message'), value: 'msg' }
       ]
     }
@@ -169,8 +126,11 @@ export default {
       this.trackerDialog = false
     },
     async DeleteTrackers() {
-      if (!this.selectedTrackers.length) return 
-      qbit.removeTorrentTrackers(this.hash, this.selectedTrackers.map(t => t.url))
+      if (!this.selectedTrackers.length) return
+      qbit.removeTorrentTrackers(
+        this.hash,
+        this.selectedTrackers.map(t => t.url)
+      )
       this.selectedTrackers = []
       await this.getTorrentTrackers()
     }
@@ -179,7 +139,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~@/styles/colors.scss";
+@import '@/styles/colors.scss';
 
 :deep(.v-data-table thead th),
 :deep(.v-data-table tbody td) {
@@ -200,4 +160,3 @@ export default {
   white-space: nowrap;
 }
 </style>
-

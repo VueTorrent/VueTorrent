@@ -3,31 +3,21 @@
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderTag') }}</v-subheader>
-        <v-list-item-group
-          :value="activeTags"
-          active-class="accent--text"
-          multiple
-        >
+        <v-list-item-group :value="activeTags" active-class="accent--text" multiple>
           <template v-for="(item, index) in availableTags">
             <v-list-item :key="item.title" @click="addTag(item)">
               <v-list-item-content>
                 <v-list-item-title v-text="item" />
               </v-list-item-content>
             </v-list-item>
-            <v-divider
-              v-if="index < availableTags.length - 1"
-              :key="index"
-            />
+            <v-divider v-if="index < availableTags.length - 1" :key="index" />
           </template>
         </v-list-item-group>
       </v-col>
 
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
-        <v-list-item-group
-          :value="activeCategory"
-          active-class="accent--text"
-        >
+        <v-list-item-group :value="activeCategory" active-class="accent--text">
           <template v-for="(item, index) in availableCategories">
             <v-list-item :key="item.title" @click="setCategory(item)">
               <v-list-item-content>
@@ -35,10 +25,7 @@
               </v-list-item-content>
             </v-list-item>
 
-            <v-divider
-              v-if="index < availableCategories.length - 1"
-              :key="index"
-            />
+            <v-divider v-if="index < availableCategories.length - 1" :key="index" />
           </template>
         </v-list-item-group>
       </v-col>
@@ -81,7 +68,7 @@ export default {
           if (index !== -1) active.push(index)
         })
       }
-      
+
       return active
     }
   },

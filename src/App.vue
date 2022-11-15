@@ -1,11 +1,6 @@
 <template>
   <v-app>
-    <component
-      :is="modal.component"
-      v-for="modal in modals"
-      :key="modal.guid"
-      v-bind="{ guid: modal.guid, ...modal.props }"
-    />
+    <component :is="modal.component" v-for="modal in modals" :key="modal.guid" v-bind="{ guid: modal.guid, ...modal.props }" />
     <Navbar v-if="isAuthenticated" />
     <v-main class="background">
       <router-view />
@@ -18,6 +13,7 @@ import { mapState, mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import qbit from '@/services/qbit'
 import { General } from '@/mixins'
+import { getVersion } from './helpers'
 
 export default {
   name: 'App',
@@ -34,7 +30,7 @@ export default {
     }
   },
   created() {
-    this.$store.commit('SET_APP_VERSION', process.env['APPLICATION_VERSION'])
+    this.$store.commit('SET_APP_VERSION', getVersion())
     this.$store.commit('SET_LANGUAGE')
     this.checkAuthentication()
     this.blockContextMenu()

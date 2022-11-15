@@ -1,18 +1,9 @@
 <template>
-  <v-flex
-    xs6
-    sm1
-    md1
-    class="mr-4"
-  >
+  <v-flex xs6 sm1 md1 class="mr-4">
     <div class="caption grey--text">
       {{ $t('status') }}
     </div>
-    <v-chip
-      small
-      class="caption white--text px-2"
-      :class="state"
-    >
+    <v-chip small class="caption white--text px-2" :class="state">
       {{ stateString }}
     </v-chip>
   </v-flex>
@@ -27,8 +18,8 @@ export default {
     stateString() {
       if (this.torrent.forced) {
         return `[F] ${this.torrent.state}`
-      }      
-      
+      }
+
       return this.torrent.state
     }
   }

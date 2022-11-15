@@ -110,8 +110,7 @@
             {{ $t('modals.detail.pageInfo.peers') }}
           </td>
           <td>
-            {{ torrent.num_leechs
-            }}<span :class="commonStyle">/{{ torrent.available_peers }}</span>
+            {{ torrent.num_leechs }}<span :class="commonStyle">/{{ torrent.available_peers }}</span>
           </td>
         </tr>
         <tr>
@@ -119,8 +118,7 @@
             {{ $t('modals.detail.pageInfo.seeds') }}
           </td>
           <td>
-            {{ torrent.num_seeds
-            }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
+            {{ torrent.num_seeds }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
           </td>
         </tr>
         <tr>
@@ -136,10 +134,7 @@
             {{ $t('modals.detail.pageInfo.status') }}
           </td>
           <td>
-            <v-chip
-              small
-              :class="`${torrent.state.toLowerCase()} white--text caption`"
-            >
+            <v-chip small :class="`${torrent.state.toLowerCase()} white--text caption`">
               {{ torrent.state }}
             </v-chip>
           </td>
@@ -149,7 +144,7 @@
             {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
           <td>
-            <span v-for="trackersPart in splitString(torrent.tracker)">
+            <span v-for="trackersPart in splitString(torrent.tracker)" :key="trackersPart">
               <a v-if="stringContainsUrl(trackersPart)" _target="blank" :href="trackersPart">{{ trackersPart }}</a>
               <span v-else>{{ trackersPart }}</span>
             </span>
@@ -160,7 +155,7 @@
             {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
           <td>
-            <span v-for="createdByPart in splitString(createdBy)">
+            <span v-for="createdByPart in splitString(createdBy)" :key="createdByPart">
               <a v-if="stringContainsUrl(createdByPart)" _target="blank" :href="createdByPart">{{ createdByPart }}</a>
               <span v-else>{{ createdByPart }}</span>
             </span>
@@ -171,7 +166,7 @@
             {{ $t('torrent.comments') | titleCase }}
           </td>
           <td>
-            <span v-for="commentPart in splitString(comment)">
+            <span v-for="commentPart in splitString(comment)" :key="commentPart">
               <a v-if="stringContainsUrl(commentPart)" _target="blank" :href="commentPart">{{ commentPart }}</a>
               <span v-else>{{ commentPart }}</span>
             </span>
@@ -222,23 +217,15 @@
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.downloadLimit') }}
           </td>
-          <td v-if="torrent.dl_limit > 0">
-            {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}<span>/s </span>
-          </td>
-          <td v-else>
-            ∞
-          </td>
+          <td v-if="torrent.dl_limit > 0">{{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}<span>/s </span></td>
+          <td v-else>∞</td>
         </tr>
         <tr>
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.uploadLimit') }}
           </td>
-          <td v-if="torrent.up_limit > 0">
-            {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}<span>/s </span>
-          </td>
-          <td v-else>
-            ∞
-          </td>
+          <td v-if="torrent.up_limit > 0">{{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}<span>/s </span></td>
+          <td v-else>∞</td>
         </tr>
         <tr>
           <td :class="commonStyle">
@@ -300,9 +287,11 @@ export default {
           const status = data[i]
           let newColor = ''
 
-          if (status === 1) // requested / downloading
+          if (status === 1)
+            // requested / downloading
             newColor = this.$vuetify.theme.currentTheme['torrent-downloading']
-          else if (status === 2) // already downloaded
+          else if (status === 2)
+            // already downloaded
             newColor = this.$vuetify.theme.currentTheme['torrent-done']
 
           if (newColor === color) {
@@ -312,7 +301,7 @@ export default {
 
           if (color !== '') {
             ctx.fillStyle = color
-            ctx.fillRect((i - rectWidth), 0, rectWidth, canvas.height)
+            ctx.fillRect(i - rectWidth, 0, rectWidth, canvas.height)
           }
 
           rectWidth = 1
@@ -322,7 +311,7 @@ export default {
         // Fill a rect at the end of the canvas if one is needed
         if (color !== '') {
           ctx.fillStyle = color
-          ctx.fillRect((data.length - rectWidth), 0, rectWidth, canvas.height)
+          ctx.fillRect(data.length - rectWidth, 0, rectWidth, canvas.height)
         }
       }
     },

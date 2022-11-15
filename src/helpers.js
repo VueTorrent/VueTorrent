@@ -5,15 +5,11 @@ export function formatBytes(a, b) {
   const d = b || 2
   const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
   const f = Math.floor(Math.log(a) / Math.log(c))
-  
+
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
 
-import {
-  mdiLanguageHtml5, mdiFileDocumentOutline,
-  mdiNodejs, mdiFilePdf, mdiFileExcel,
-  mdiCodeJson, mdiFileImage, mdiMovie,
-  mdiLanguageMarkdown, mdiFile } from '@mdi/js'
+import { mdiLanguageHtml5, mdiFileDocumentOutline, mdiNodejs, mdiFilePdf, mdiFileExcel, mdiCodeJson, mdiFileImage, mdiMovie, mdiLanguageMarkdown, mdiFile } from '@mdi/js'
 
 export function getIconForFileType(type) {
   const types = {
@@ -43,12 +39,10 @@ export function codeToFlag(code) {
   const magicNumber = 0x1f1a5
 
   // eslint-disable-next-line
-    code = code.toUpperCase()
+  code = code.toUpperCase()
   const codePoints = [...code].map(c => magicNumber + c.charCodeAt(0))
   const char = String.fromCodePoint(...codePoints)
-  const url =
-        'https://cdn.jsdelivr.net/npm/twemoji/2/svg/' +
-        `${codePoints[0].toString(16)}-${codePoints[1].toString(16)}.svg`
+  const url = 'https://cdn.jsdelivr.net/npm/twemoji/2/svg/' + `${codePoints[0].toString(16)}-${codePoints[1].toString(16)}.svg`
 
   return {
     char,
@@ -78,10 +72,10 @@ export function treeify(paths) {
     if (el.children.length !== 0) {
       const folder = createFolder(el.name, el.children)
       folder.children = folder.children.map(el => parseFolder(el))
-      
+
       return folder
     }
-    
+
     return el
   }
 
@@ -112,17 +106,16 @@ function createFolder(name, children) {
 
 export function getHostName(url) {
   const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i)
-  if (match != null &&
-        match.length > 2 &&
-        typeof match[2] === 'string' &&
-        match[2].length > 0) {
+  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
     return match[2]
   } else {
     return ''
   }
 }
 
-const urlRegExp = new RegExp(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi)
+const urlRegExp = new RegExp(
+  /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi
+)
 
 export function splitByUrl(string) {
   const urls = string.match(urlRegExp)
@@ -154,4 +147,20 @@ export function splitByUrl(string) {
 
 export function stringContainsUrl(string) {
   return urlRegExp.test(string)
+}
+
+export function getVersion() {
+  if (process.env.NODE_ENV === 'production') {
+    return 'import.meta.env.VITE_PACKAGE_VERSION'
+  }
+
+  return import.meta.env['VITE_PACKAGE_VERSION']
+}
+
+export function getBaseURL() {
+  if (process.env.NODE_ENV === 'production') {
+    return 'import.meta.env.BASE_URL'
+  }
+
+  return import.meta.env['BASE_URL']
 }

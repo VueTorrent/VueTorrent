@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import qbit from '../services/qbit'
-import { i18n } from '../lang'
+import { i18n } from '../plugins/i18n'
 
 export default {
   INIT_INTERVALS: async context => {
-    context.state.intervals[0] = setInterval(() => {
-      context.commit('updateMainData')
-    }, 2000)
+    // context.state.intervals[0] = setInterval(() => {
+    //   context.commit('updateMainData')
+    // }, 2000)
   },
   LOGIN: async (context, payload) => {
     const res = await qbit.login(payload)

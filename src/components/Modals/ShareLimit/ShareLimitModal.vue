@@ -1,11 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    content-class="rounded-form"
-    max-width="500px"
-    :fullscreen="isPhone"
-  >
+  <v-dialog v-model="dialog" scrollable content-class="rounded-form" max-width="500px" :fullscreen="isPhone">
     <v-card class="px-2">
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -13,17 +7,8 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text class="px-4 py-2">
-        <ShareLimitInput 
-          ref="ratio" 
-          :title="$t('modals.shareLimit.titleRatio')"
-          :initial-limit="torrent.ratio_limit"
-        />
-        <ShareLimitInput
-          ref="time"
-          :title="$t('modals.shareLimit.titleDuration')"
-          :initial-limit="torrent.ratio_time_limit"
-          class="mt-2"
-        />
+        <ShareLimitInput ref="ratio" :title="$t('modals.shareLimit.titleRatio')" :initial-limit="torrent.ratio_limit" />
+        <ShareLimitInput ref="time" :title="$t('modals.shareLimit.titleDuration')" :initial-limit="torrent.ratio_time_limit" class="mt-2" />
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
@@ -62,10 +47,7 @@ export default {
   },
   methods: {
     save() {
-      qbit.setShareLimit([this.hash],
-        this.$refs.ratio.export(),
-        this.$refs.time.export()
-      )
+      qbit.setShareLimit([this.hash], this.$refs.ratio.export(), this.$refs.time.export())
       this.close()
     },
     close() {
@@ -78,7 +60,7 @@ export default {
 <style lang="scss" scoped>
 // Reversed input variant
 :deep(.v-input--reverse .v-input__slot) {
-  @import "../../../styles/styles";
+  @import '../../../styles/styles';
   @include reverse-switch;
 }
 </style>

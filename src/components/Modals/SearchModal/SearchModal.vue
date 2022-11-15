@@ -1,17 +1,8 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    :width="dialogWidth"
-    :fullscreen="phoneLayout"
-    :style="{ height: phoneLayout ? '100vh' : '' }"
-  >
+  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="phoneLayout" :style="{ height: phoneLayout ? '100vh' : '' }">
     <v-card :style="{ height: phoneLayout ? '100vh' : '' }">
       <v-card-text class="pa-0">
-        <v-form
-          ref="form"
-          v-model="searchForm.valid"
-        >
+        <v-form ref="form" v-model="searchForm.valid">
           <v-flex row class="my-1 py-1 px-2 mx-auto">
             <v-col class="pa-0" cols="8">
               <v-text-field
@@ -20,19 +11,13 @@
                 label="Search"
                 :rules="[v => !!v || 'Search term is required']"
                 clearable
-                style="width: 95%;"
+                style="width: 95%"
                 autofocus
                 @keydown.enter.prevent="$refs.searchButton.click"
               />
             </v-col>
             <v-col class="pa-0 mt-2" cols="3">
-              <v-btn
-                ref="searchButton"
-                class="mt-2 mx-0"
-                :disabled="!searchForm.valid"
-                :color="loading ? 'warning' : 'primary'"
-                @click="loading ? stopSearch() : startSearch()"
-              >
+              <v-btn ref="searchButton" class="mt-2 mx-0" :disabled="!searchForm.valid" :color="loading ? 'warning' : 'primary'" @click="loading ? stopSearch() : startSearch()">
                 {{ loading ? $t('modals.search.btnStopSearch') : $t('modals.search.btnStartSearch') }}
               </v-btn>
             </v-col>
@@ -44,7 +29,7 @@
           :items="search.results"
           :items-per-page="10"
           :loading="loading"
-          :style="{ maxHeight: '60vh'}"
+          :style="{ maxHeight: '60vh' }"
           :search="filter"
           :custom-filter="customFilter"
           :sort-by.sync="sortBy"
@@ -52,19 +37,10 @@
           :mobile-breakpoint="0"
         >
           <template #top>
-            <v-text-field
-              ref="filterRef"
-              v-model="filter"
-              label="Filter"
-              class="mx-4"
-            />
+            <v-text-field ref="filterRef" v-model="filter" label="Filter" class="mx-4" />
           </template>
           <template #[`item.fileName`]="{ item }">
-            <a
-              :href="item.descrLink"
-              target="_blank"
-              v-text="item.fileName"
-            />
+            <a :href="item.descrLink" target="_blank" v-text="item.fileName" />
           </template>
           <template #[`item.fileSize`]="{ item }">
             {{ item.fileSize | formatSize }}
@@ -80,14 +56,7 @@
         <PluginManager />
       </v-card-actions>
       <v-fab-transition v-if="phoneLayout">
-        <v-btn
-          color="red"
-          dark
-          absolute
-          bottom
-          right
-          @click="close"
-        >
+        <v-btn color="red" dark absolute bottom right @click="close">
           <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
       </v-fab-transition>
@@ -99,7 +68,7 @@
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal, FullScreenModal, General } from '@/mixins'
-import PluginManager from './PluginManager'
+import PluginManager from './PluginManager.vue'
 import { mdiClose, mdiMagnify, mdiDownload } from '@mdi/js'
 
 export default {
@@ -121,8 +90,15 @@ export default {
           { text: this.$i18n.t('modals.search.columnTitle.size'), value: 'fileSize' },
           { text: this.$i18n.t('modals.search.columnTitle.seeds'), value: 'nbSeeders' },
           { text: this.$i18n.t('modals.search.columnTitle.peers'), value: 'nbLeechers' },
-          { text: this.$i18n.t('modals.search.columnTitle.search_engine'), value: 'siteUrl' },
-          { text: this.$i18n.t('modals.search.columnTitle.action'), value: 'actions', sortable: false }
+          {
+            text: this.$i18n.t('modals.search.columnTitle.search_engine'),
+            value: 'siteUrl'
+          },
+          {
+            text: this.$i18n.t('modals.search.columnTitle.action'),
+            value: 'actions',
+            sortable: false
+          }
         ]
       },
       searchForm: {
@@ -130,7 +106,9 @@ export default {
         pattern: ''
       },
       filter: '',
-      mdiClose, mdiMagnify, mdiDownload,
+      mdiClose,
+      mdiMagnify,
+      mdiDownload,
       sortBy: 'nbSeeders',
       sortDesc: true
     }
@@ -193,11 +171,8 @@ export default {
     },
     customFilter(value, search, item) {
       const searchArr = search.trim().toLowerCase().split(' ')
-      
-      return value != null &&
-        search != null &&
-        typeof value === 'string' &&
-        searchArr.every(i => (value.toString().toLowerCase().indexOf(i) !== -1))
+
+      return value != null && search != null && typeof value === 'string' && searchArr.every(i => value.toString().toLowerCase().indexOf(i) !== -1)
     }
   }
 }

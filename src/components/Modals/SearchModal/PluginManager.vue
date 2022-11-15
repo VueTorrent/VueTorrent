@@ -4,38 +4,25 @@
       <v-icon>{{ mdiCog }}</v-icon> {{ $t('modals.pluginManager.title') | titleCase }}
     </v-btn>
 
-    <v-bottom-sheet
-      v-if="$vuetify.breakpoint.smAndDown"
-      v-model="opened"
-      scrollable
-      inset
-    >
+    <v-bottom-sheet v-if="$vuetify.breakpoint.smAndDown" v-model="opened" scrollable inset>
       <v-sheet>
         <v-card>
-          <v-card-title> <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager </v-card-title>
+          <v-card-title>
+            <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager
+          </v-card-title>
           <v-card-text>
-            <v-switch
-              v-for="(plugin, key) in searchPlugins"
-              :key="key"
-              :input-value="plugin.enabled"
-              :label="plugin.fullName"
-              @change="togglePlugin(plugin)"
-            />
+            <v-switch v-for="(plugin, key) in searchPlugins" :key="key" :input-value="plugin.enabled" :label="plugin.fullName" @change="togglePlugin(plugin)" />
           </v-card-text>
         </v-card>
       </v-sheet>
     </v-bottom-sheet>
     <v-dialog v-else v-model="opened" width="50%">
       <v-card>
-        <v-card-title> <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager </v-card-title>
+        <v-card-title>
+          <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager
+        </v-card-title>
         <v-card-text>
-          <v-switch
-            v-for="(plugin, key) in searchPlugins"
-            :key="key"
-            v-model="plugin.enabled"
-            :label="plugin.fullName"
-            @change="togglePlugin(plugin)"
-          />
+          <v-switch v-for="(plugin, key) in searchPlugins" :key="key" v-model="plugin.enabled" :label="plugin.fullName" @change="togglePlugin(plugin)" />
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -50,7 +37,8 @@ export default {
   name: 'PluginsManager',
   data: () => ({
     opened: false,
-    mdiCog, mdiToyBrick
+    mdiCog,
+    mdiToyBrick
   }),
   computed: {
     ...mapState(['searchPlugins'])

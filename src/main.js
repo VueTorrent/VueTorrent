@@ -1,37 +1,18 @@
 import Vue from 'vue'
 import App from '@/App.vue'
-import '@/registerServiceWorker'
 import router from '@/router'
 import store from '@/store'
-import vuetify from './plugins/vuetify'
 import 'typeface-roboto'
 import 'typeface-roboto-mono'
-import { i18n } from './lang/index'
 
-/* eslint-disable no-unused-vars */
-import filters from '@/filters'
-import styles from '@/styles/styles.scss'
-/* eslint-enable no-unused-vars */
+import '@/filters.js'
+import '@/styles/styles.scss'
 
-import Toast, { POSITION } from 'vue-toastification'
-import 'vue-toastification/dist/index.css'
-Vue.use(Toast, {
-  maxToasts: 5,
-  timeout: 2000,
-  position: POSITION.BOTTOM_RIGHT
-})
-
-import './registerServiceWorker'
-
-Vue.config.productionTip = false
-
-// register modals
-const files = require.context('@/components/Modals', true, /\.vue$/i)
-files
-  .keys()
-  .map(key =>
-    Vue.component(key.split('/').pop().split('.')[0], files(key).default)
-  )
+import vuetify from './plugins/vuetify'
+import i18n from './plugins/i18n'
+import { toast, config } from './plugins/toast'
+Vue.use(toast, config)
+import './plugins/components'
 
 new Vue({
   router,

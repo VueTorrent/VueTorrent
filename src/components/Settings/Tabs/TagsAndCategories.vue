@@ -14,21 +14,15 @@
               </v-icon>
             </v-list-item-action>
           </v-list-item>
-          <v-divider
-            v-if="index < availableTags.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableTags.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createTag"
-          >
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createTag">
             {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
       </v-col>
-      
+
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
         <template v-for="(item, index) in availableCategories">
@@ -48,16 +42,10 @@
             </v-list-item-action>
           </v-list-item>
 
-          <v-divider
-            v-if="index < availableCategories.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableCategories.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createCategory"
-          >
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createCategory">
             {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
@@ -119,4 +107,3 @@ export default {
   }
 }
 </script>
-

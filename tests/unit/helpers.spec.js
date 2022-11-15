@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest'
 import { splitByUrl } from '../../src/helpers'
 
 describe('Helpers', () => {
@@ -21,7 +22,12 @@ describe('Helpers', () => {
     })
 
     it('should split correctly if more than one url exists', () => {
-      expect(splitByUrl('test http://www.test.something some string and https://onemoreurl.com')).toEqual(['test ', 'http://www.test.something', ' some string and ', 'https://onemoreurl.com'])
+      expect(splitByUrl('test http://www.test.something some string and https://onemoreurl.com')).toEqual([
+        'test ',
+        'http://www.test.something',
+        ' some string and ',
+        'https://onemoreurl.com'
+      ])
     })
   })
 })

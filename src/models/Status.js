@@ -1,18 +1,7 @@
 import store from '../store'
 
 export default class Status {
-  constructor({
-    connection_status,
-    dl_info_data,
-    up_info_data,
-    alltime_dl,
-    alltime_ul,
-    dl_info_speed,
-    up_info_speed,
-    free_space_on_disk,
-    use_alt_speed_limits
-  }) {
-
+  constructor({ connection_status, dl_info_data, up_info_data, alltime_dl, alltime_ul, dl_info_speed, up_info_speed, free_space_on_disk, use_alt_speed_limits }) {
     const previous = store.state.status
 
     this.status = connection_status || previous.status
@@ -27,7 +16,6 @@ export default class Status {
     this.dlspeedRaw = this.formatSpeed(dl_info_speed) || 0
     this.upspeedRaw = this.formatSpeed(up_info_speed) || 0
     Object.freeze(this)
-
   }
 
   formatSpeed(value) {

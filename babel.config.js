@@ -1,5 +1,14 @@
 module.exports = {
-  presets: [
-    '@vue/app'
+  presets: ['@babel/preset-env'],
+  plugins: [
+    function () {
+      return {
+        visitor: {
+          MetaProperty(path) {
+            path.replaceWithSourceString('process')
+          }
+        }
+      }
+    }
   ]
 }

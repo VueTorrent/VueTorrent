@@ -6,9 +6,7 @@
     <div>
       {{ torrent.dloaded | getDataValue(2) }}
       <span class="caption grey--text">
-        {{
-          torrent.dloaded | getDataUnit(1)
-        }}
+        {{ torrent.dloaded | getDataUnit(1) }}
       </span>
     </div>
   </v-flex>

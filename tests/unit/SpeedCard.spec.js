@@ -1,6 +1,7 @@
+import { describe, it, expect } from 'vitest'
 import { setup } from '../helpers'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { mdiChevronDown } from '@mdi/js'
+import SpeedCard from '@/components/Core/SpeedCard.vue'
 
 describe('SpeedCard.vue', () => {
   it('should render the card', () => {
@@ -8,7 +9,7 @@ describe('SpeedCard.vue', () => {
     expect(wrapper.find('[data-testid="SpeedCard"]').exists()).toBe(true)
   })
 
-  it('shouldn\'t render the icon', () => {
+  it("shouldn't render the icon", () => {
     const wrapper = setup(SpeedCard)
     expect(wrapper.find('[data-testid="SpeedCard-icon"]').exists()).toBe(false)
   })

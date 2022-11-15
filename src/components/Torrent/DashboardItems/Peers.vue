@@ -5,17 +5,13 @@
     </div>
     <div>
       {{ torrent.num_leechs }}
-      <span
-        class="grey--text caption"
-      >
-        /{{ torrent.available_peers }}
-      </span>
+      <span class="grey--text caption"> /{{ torrent.available_peers }} </span>
     </div>
   </v-flex>
 </template>
 <script>
 export default {
-  name: 'Peers',
+  name: 'DashboardPeers',
   props: ['torrent']
 }
 </script>

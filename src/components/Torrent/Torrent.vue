@@ -1,11 +1,6 @@
 <template>
-  <v-card
-    class="pointer noselect elevation-0 rounded-0 ma-0 pa-0"
-    :class="style"
-  >
-    <v-layout
-      @click="evtClicnk"
-    >
+  <v-card class="pointer noselect elevation-0 rounded-0 ma-0 pa-0" :class="style">
+    <v-layout @click="evtClicnk">
       <MobileCard v-if="isMobile" :torrent="torrent" />
       <DesktopCard v-else :torrent="torrent" />
     </v-layout>

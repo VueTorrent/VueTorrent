@@ -1,9 +1,5 @@
 <template>
-  <v-layout
-    row
-    wrap
-    class="ma-0 px-4 py-2 ml-0 "
-  >
+  <v-layout row wrap class="ma-0 px-4 py-2 ml-0">
     <v-flex xs12>
       <div class="caption grey--text">
         {{ $t('torrent.torrentTitle') }}
@@ -12,12 +8,7 @@
         {{ torrent.name }}
       </div>
     </v-flex>
-    <component
-      :is="item.name"
-      v-for="item in properties"
-      :key="item.name"
-      :torrent="torrent"
-    />
+    <component :is="item.name" v-for="item in properties" :key="item.name" :torrent="torrent" />
   </v-layout>
 </template>
 <script>

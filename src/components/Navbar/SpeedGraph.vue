@@ -1,11 +1,6 @@
 <template>
   <div class="mt-4">
-    <apexcharts
-      ref="chart"
-      type="line"
-      :options="chartOptions"
-      :series="series"
-    />
+    <apexcharts ref="chart" type="line" :options="chartOptions" :series="series" />
   </div>
 </template>
 
@@ -33,10 +28,7 @@ export default {
             }
           }
         },
-        colors: [
-          this.$vuetify.theme.currentTheme.upload,
-          this.$vuetify.theme.currentTheme.download
-        ],
+        colors: [this.$vuetify.theme.currentTheme.upload, this.$vuetify.theme.currentTheme.download],
         stroke: {
           show: true,
           curve: 'smooth',
@@ -59,7 +51,7 @@ export default {
           x: {
             formatter: value => {
               const val = 32 - value * 2
-              
+
               return val + ' seconds ago'
             }
           },

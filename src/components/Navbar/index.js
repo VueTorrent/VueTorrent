@@ -8,14 +8,4 @@ import CurrentSpeed from './CurrentSpeed.vue'
 import FilterSelect from './FilterSelect.vue'
 import TopMenu from './TopMenu.vue'
 
-export {
-  Navbar,
-  BottomActions,
-  TopActions,
-  SpeedGraph,
-  FreeSpace,
-  TranserStats,
-  CurrentSpeed,
-  FilterSelect,
-  TopMenu
-}
+export { Navbar, BottomActions, TopActions, SpeedGraph, FreeSpace, TranserStats, CurrentSpeed, FilterSelect, TopMenu }

@@ -1,4 +1,5 @@
-import { titleCase } from '../../src/filters'
+import { describe, it, expect } from 'vitest'
+import { titleCase } from '@/filters'
 
 describe('Filters', () => {
   it('titleCase', () => {

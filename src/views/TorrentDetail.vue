@@ -1,13 +1,6 @@
 <template>
-  <div
-    class="px-1 px-sm-5 background noselect"
-  >
-    <v-row
-      no-gutters
-      class="grey--text"
-      align="center"
-      justify="center"
-    >
+  <div class="px-1 px-sm-5 background noselect">
+    <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           {{ $t('modals.detail.title') | titleCase }}
@@ -15,11 +8,7 @@
       </v-col>
       <v-col class="align-center justify-center">
         <v-card-actions class="justify-end">
-          <v-btn
-            small
-            elevation="0"
-            @click="close"
-          >
+          <v-btn small elevation="0" @click="close">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </v-card-actions>
@@ -27,12 +16,7 @@
     </v-row>
 
     <v-row class="ma-0 pa-0">
-      <v-tabs
-        v-model="tab"
-        align-with-title
-        show-arrows
-        background-color="primary"
-      >
+      <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
         <v-tabs-slider color="white" />
         <v-tab class="white--text" href="#info">
           <h4>{{ $t('modals.detail.tabTitleInfo') }}</h4>
@@ -54,37 +38,19 @@
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
           <v-tab-item eager value="info">
-            <info
-              v-if="torrent"
-              :torrent="torrent"
-              :hash="hash"
-            />
+            <info v-if="torrent" :torrent="torrent" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="trackers">
-            <Trackers
-              :is-active="tab === 'trackers'"
-              :hash="hash"
-            />
+            <Trackers :is-active="tab === 'trackers'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="peers">
-            <Peers
-              :is-active="tab === 'peers'"
-              :hash="hash"
-            />
+            <Peers :is-active="tab === 'peers'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="content">
-            <Content
-              :is-active="tab === 'content'"
-              :hash="hash"
-            />
+            <Content :is-active="tab === 'content'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
-            <TagsAndCategories
-              v-if="torrent"
-              :torrent="torrent"
-              :is-active="tab === 'tagsAndCategories'"
-              :hash="hash"
-            />
+            <TagsAndCategories v-if="torrent" :torrent="torrent" :is-active="tab === 'tagsAndCategories'" :hash="hash" />
           </v-tab-item>
         </v-tabs-items>
       </v-card-text>
@@ -94,7 +60,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Content, Info, Peers, Trackers, TagsAndCategories } from '@/components/TorrentDetail/Tabs'
+import { Content, Info, Peers, Trackers, TagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
 
 export default {

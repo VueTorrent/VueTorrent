@@ -98,26 +98,18 @@ export default class Torrent {
       minUnit: 0
     }
 
-    const opt = options ?
-      Object.assign(defaultOptions, options) :
-      defaultOptions
+    const opt = options ? Object.assign(defaultOptions, options) : defaultOptions
 
     if (opt.dayLimit && value >= opt.dayLimit * day) {
       return '∞'
     }
 
-    while (
-      (!opt.maxUnitSize || unitSize !== opt.maxUnitSize) &&
-            index !== durations.length
-    ) {
+    while ((!opt.maxUnitSize || unitSize !== opt.maxUnitSize) && index !== durations.length) {
       const duration = durations[index]
       if (value < duration) {
         index++
         continue
-      } else if (
-        opt.minUnit &&
-                durations.length - index <= opt.minUnit
-      ) {
+      } else if (opt.minUnit && durations.length - index <= opt.minUnit) {
         break
       }
 

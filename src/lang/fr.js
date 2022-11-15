@@ -120,7 +120,7 @@ const locale = {
           speedGraph: 'Afficher le graphique de vitesse',
           sessionStats: 'Afficher les statistiques de la session',
           allTimeStats: 'Afficher les statistiques de tous les temps',
-          freeSpace: 'Afficher l\'espace libre',
+          freeSpace: "Afficher l'espace libre",
           trackerFilter: 'Afficher le filtre de Tracker',
           rightDrawer: 'Menu à droite',
           language: 'Langue:',
@@ -135,15 +135,15 @@ const locale = {
         }
       },
       pageDownloads: {
-        subHeaderWhenAddTorrent: 'Lors de l\'ajout d\'un torrent',
+        subHeaderWhenAddTorrent: "Lors de l'ajout d'un torrent",
         whenAddTorrent: {
           createSubFolder: 'Créer un sous-dossier pour les torrents avec plusieurs fichiers',
           donotAutoStart: 'Ne pas lancer le téléchargement automatiquement'
         },
         subHeaderPublicSettings: 'Paramètres publics',
         publicSettings: {
-          preAllocateDisk: 'Pré-allouer de l\'espace disque pour tous les fichiers',
-          appendQBExtension: 'Ajouter l\'extension .!qB aux fichiers incomplets'
+          preAllocateDisk: "Pré-allouer de l'espace disque pour tous les fichiers",
+          appendQBExtension: "Ajouter l'extension .!qB aux fichiers incomplets"
         },
         subHeaderSaveManagement: 'Saving Management',
         saveManagement: {
@@ -152,12 +152,12 @@ const locale = {
           defaultSavePath: 'Chemin de sauvegarde par défaut',
           keepIncompleteIn: 'Gardez les torrents incomplets dans :',
           autoEnabled: 'Autorun activé:',
-          autorunProgram: 'Programme d\'exécution automatique',
+          autorunProgram: "Programme d'exécution automatique",
           supportParamTitle: 'Paramètres pris en charge (sensibles à la casse):',
           supportParamN: '%N: Nom du torrent ',
           supportParamL: '%L: Catégorie',
           supportParamG: '%G: Tags (séparés par une virgule)',
-          supportParamF: '%F: Chemin d\'accès au contenu (identique au chemin d\'accès racine pour les torrents multi-fichiers)',
+          supportParamF: "%F: Chemin d'accès au contenu (identique au chemin d'accès racine pour les torrents multi-fichiers)",
           supportParamR: '%R: Chemin racine (chemin du premier sous-répertoire de torrent)',
           supportParamD: '%D: Chemin de sauvegarde',
           supportParamC: '%C: Nombre de fichiers',
@@ -176,17 +176,17 @@ const locale = {
       pageBittorrent: {
         subHeaderPrivacy: 'Vie privée',
         enableDHT: 'Permettre au DHT (réseau décentralisé) de trouver plus de peers.',
-        enablePeX: 'Activez l\'échange de peers (PeX) pour trouver d\'autres peers.',
+        enablePeX: "Activez l'échange de peers (PeX) pour trouver d'autres peers.",
         enableLPD: 'Activez la découverte de peers locaux pour trouver plus de peers.',
         enableAnonymous: 'Activer le mode anonyme',
-        torrentQueue: 'Mise en file d\'attente des torrents',
+        torrentQueue: "Mise en file d'attente des torrents",
         maxActiveDownload: 'Téléchargements actifs maximums',
         maxActiveUpload: 'Chargements actifs maximums',
         maxActiveTorrent: 'Maximum de torrents actifs',
         excludeSlowTorrent: 'Ne pas compter les torrents lents dans ces limites.',
         downloadRateLimit: 'Seuil du taux de téléchargement KiB/s',
         uploadRateLimit: 'Seuil du débit de chargement KiB/s',
-        torrentInactivityTimer: 'Délai d\'inactivité du torrent',
+        torrentInactivityTimer: "Délai d'inactivité du torrent",
         subHeaderSeedLimits: 'Seed Limites',
         whenRatioReaches: 'Lorsque le ratio atteint',
         whenSeedingTimeReaches: 'Lorsque le temps de seeding atteint'
@@ -198,13 +198,13 @@ const locale = {
         ipAddress: 'Adresse IP:',
         port: 'Port',
         authentication: 'Authentification',
-        username: 'Nom d\'utilisateur :',
+        username: "Nom d'utilisateur :",
         password: 'mot de passe',
         maxAttempts: 'Tentatives maximales',
         banDuration: 'Durée de ban (secondes)',
-        sessionTimeout: 'Délai d\'expiration de la session (secondes)',
-        bypassAuthenticationForClientsOnLocalhost: 'Contourner l\'authentification pour les clients sur localhost',
-        bypassAuthenticationForClientsInWhitelisted: 'Contournement de l\'authentification pour les clients dans les sous-réseaux IP de la liste blanche.',
+        sessionTimeout: "Délai d'expiration de la session (secondes)",
+        bypassAuthenticationForClientsOnLocalhost: "Contourner l'authentification pour les clients sur localhost",
+        bypassAuthenticationForClientsInWhitelisted: "Contournement de l'authentification pour les clients dans les sous-réseaux IP de la liste blanche.",
         whiteListExample: 'Exemple: 172.17.32.0/24, fdff:ffff:c8::/40'
       },
       pageTagsAndCategories: {
@@ -224,11 +224,11 @@ const locale = {
     },
     newCategory: {
       categoryName: 'Nom de la catégorie',
-      Path: 'Chemin d\'accès',
+      Path: "Chemin d'accès",
       tipOnNoName: 'Le nom de la catégorie est obligatoire',
       tipOnNameTooLong: 'Le nom de la catégorie doit comporter moins de 15 caractères',
-      tipOnNoPath: 'Le chemin d\'accès est requis',
-      TipOnPathTooLong: 'Le chemin d\'accès doit comporter moins de 40 caractères'
+      tipOnNoPath: "Le chemin d'accès est requis",
+      TipOnPathTooLong: "Le chemin d'accès doit comporter moins de 40 caractères"
     },
     newTag: {
       createNewTag: 'Créer un nouveau tag',
@@ -247,7 +247,7 @@ const locale = {
         hash: 'hash',
         ratio: 'Ratio',
         downloadSpeed: 'Vitesse de DL',
-        uploadSpeed: 'Vitesse d\'UP',
+        uploadSpeed: "Vitesse d'UP",
         eta: 'ETA',
         peers: 'Peers',
         seeds: 'Seeds',
@@ -260,7 +260,7 @@ const locale = {
         shareRatioLimit: 'Share Ratio Limit',
         shareTimeLimit: 'Limite de temps de partage (minutes)',
         downloadLimit: 'Limite de téléchargement',
-        uploadLimit: 'Limite d\'envoi'
+        uploadLimit: "Limite d'envoi"
       },
       pagePeers: {
         ip: 'IP',
@@ -270,7 +270,7 @@ const locale = {
         progress: 'Progrès',
         downloadSpeed: 'Vitesse de DL',
         downloaded: 'Téléchargé',
-        upSpeed: 'Vitesse d\'UP',
+        upSpeed: "Vitesse d'UP",
         uploaded: 'Uploaded',
         relevance: 'Pertinence',
         files: 'Fichiers'
@@ -302,7 +302,7 @@ const locale = {
       oneOrMoreFilesInvalidTorrent: 'Un ou plusieurs fichiers ne sont pas des torrents valides.'
     },
     changeLocation: {
-      title: 'Changement d\'emplacement',
+      title: "Changement d'emplacement",
       torrentName: 'Nom du torrent'
     },
     rename: {
@@ -329,7 +329,7 @@ const locale = {
         addedOn: 'Ajouté le',
         downloadSpeed: 'Vitesse de téléchargement',
         timeActive: 'Temps actif',
-        uploadSpeed: 'Vitesse d\'upload'
+        uploadSpeed: "Vitesse d'upload"
       }
     },
     speedLimit: {

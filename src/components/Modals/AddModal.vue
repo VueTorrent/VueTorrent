@@ -10,36 +10,20 @@
   >
     <div
       class="noselect"
-      style="
-      position:fixed;
-      left:0;
-      top:0;
-      width:100%;
-      height:100%;
-      "
+      style="position: fixed; left: 0; top: 0; width: 100%; height: 100%"
       @drop.prevent="addDropFile"
       @dragover.prevent="showWrapDrag = true"
       @dragend.prevent="showWrapDrag = false"
       @dragleave.prevent="DragLeave"
     />
-    <v-card
-      :class="showWrapDrag ? 'wrap-drag' : ''"
-      @drop.prevent="addDropFile"
-      @dragover.prevent="showWrapDrag = true"
-      @dragend.prevent="showWrapDrag = false"
-    >
+    <v-card :class="showWrapDrag ? 'wrap-drag' : ''" @drop.prevent="addDropFile" @dragover.prevent="showWrapDrag = true" @dragend.prevent="showWrapDrag = false">
       <v-container :class="`pa-0 project done`">
         <v-card-title class="justify-center">
           <v-toolbar flat dense class="transparent">
             <v-toolbar-title class="mx-auto">
               <h2>{{ $t('modals.add.title') }}</h2>
             </v-toolbar-title>
-            <v-btn
-              fab
-              small
-              class="transparent elevation-0"
-              @click="close"
-            >
+            <v-btn fab small class="transparent elevation-0" @click="close">
               <v-icon>{{ mdiClose }}</v-icon>
             </v-btn>
           </v-toolbar>
@@ -61,25 +45,12 @@
                     outlined
                     :show-size="1000"
                   >
-                    <template
-                      #selection="{ index, text }"
-                    >
-                      <v-chip
-                        v-if="index < 2"
-                        color="deep-purple accent-4"
-                        dark
-                        label
-                        small
-                      >
+                    <template #selection="{ index, text }">
+                      <v-chip v-if="index < 2" color="deep-purple accent-4" dark label small>
                         {{ text }}
                       </v-chip>
-                      <span
-                        v-else-if="index === 2"
-                        class="overline grey--text text--darken-3 mx-2"
-                      >
-                        +{{
-                          files.length - 2
-                        }}
+                      <span v-else-if="index === 2" class="overline grey--text text--darken-3 mx-2">
+                        +{{ files.length - 2 }}
                         File(s)
                       </span>
                     </template>
@@ -100,15 +71,7 @@
                 </v-col>
               </v-row>
 
-              <v-combobox
-                v-model="category"
-                :items="availableCategories"
-                clearable
-                :label="$t('category')"
-                item-text="name"
-                :prepend-icon="mdiTag"
-                @input="categoryChanged"
-              />
+              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiTag" @input="categoryChanged" />
 
               <v-text-field
                 v-model="directory"
@@ -120,46 +83,22 @@
               />
               <v-row no-gutters>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="start"
-                    :label="$t('modals.add.starttorrent')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="start" :label="$t('modals.add.starttorrent')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="skip_checking"
-                    :label="$t('modals.add.skipHashCheck')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="skip_checking" :label="$t('modals.add.skipHashCheck')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="root_folder"
-                    :label="$t('modals.add.createSubfolder')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="root_folder" :label="$t('modals.add.createSubfolder')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="autoTMM"
-                    :label="$t('modals.add.automaticTorrentManagement')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="autoTMM" :label="$t('modals.add.automaticTorrentManagement')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="sequentialDownload"
-                    :label="$t('rightClick.advanced.sequentialDownload')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="sequentialDownload" :label="$t('rightClick.advanced.sequentialDownload')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
-                  <v-checkbox
-                    v-model="firstLastPiecePrio"
-                    :label="$t('rightClick.advanced.firstLastPriority')"
-                    hide-details
-                  />
+                  <v-checkbox v-model="firstLastPiecePrio" :label="$t('rightClick.advanced.firstLastPriority')" hide-details />
                 </v-flex>
               </v-row>
             </v-container>
@@ -169,24 +108,9 @@
         <v-spacer />
         <v-form>
           <v-card-actions class="justify-center">
-            <v-btn
-              ref="addTorrent"
-              text
-              :disabled="!valid"
-              class="accent white--text mx-0 mt-3"
-              @click="submit"
-            >
-              Add Torrent
-            </v-btn>
+            <v-btn ref="addTorrent" text :disabled="!valid" class="accent white--text mx-0 mt-3" @click="submit"> Add Torrent </v-btn>
             <v-fab-transition v-if="phoneLayout">
-              <v-btn
-                color="red"
-                dark
-                absolute
-                bottom
-                right
-                @click="close"
-              >
+              <v-btn color="red" dark absolute bottom right @click="close">
                 <v-icon>{{ mdiClose }}</v-icon>
               </v-btn>
             </v-fab-transition>
@@ -197,15 +121,7 @@
     <div
       v-show="showWrapDrag"
       class="wrap-drag noselect"
-      style="
-      position:fixed;
-      left:0;
-      top:0;
-      width:100%;
-      height:100%;
-      text-align:center;
-      background-color: rgb(0,0,0,.5)
-      "
+      style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; text-align: center; background-color: rgb(0, 0, 0, 0.5)"
     >
       <div class="align white--text">
         <div>
@@ -259,7 +175,12 @@ export default {
       loading: false,
       urls: null,
       valid: false,
-      mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose
+      mdiCloudUpload,
+      mdiFolder,
+      mdiTag,
+      mdiPaperclip,
+      mdiLink,
+      mdiClose
     }
   },
   computed: {
@@ -304,8 +225,7 @@ export default {
     },
     addDropFile(e) {
       this.showWrapDrag = false
-      if (!this.urls)
-        this.files.push(...Array.from(e.dataTransfer.files))
+      if (!this.urls) this.files.push(...Array.from(e.dataTransfer.files))
     },
     startDropFile() {
       this.showWrapDrag = true
@@ -314,10 +234,8 @@ export default {
       this.showWrapDrag = false
     },
     closeWrap() {
-      if (this.showWrapDrag)
-        this.showWrapDrag = false
-      else
-        this.close()
+      if (this.showWrapDrag) this.showWrapDrag = false
+      else this.close()
     },
     submit() {
       if (this.files.length || this.urls) {
@@ -366,7 +284,7 @@ export default {
 }
 
 .wrap-drag .align {
-  margin: -.5em 0 0;
+  margin: -0.5em 0 0;
   position: absolute;
   top: 50%;
   left: 0;

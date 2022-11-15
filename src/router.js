@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { getBaseURL } from './helpers.js'
 import { isAuthenticated } from './services/auth.js'
 
 Vue.use(Router)
 
 const router = new Router({
-  base: process.env.BASE_URL,
+  base: getBaseURL(),
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -22,7 +24,8 @@ const router = new Router({
       name: 'torrentDetail',
       component: () => import('./views/TorrentDetail.vue')
     },
-    { path: '/download=:magnet',
+    {
+      path: '/download=:magnet',
       name: 'MagnetHandler',
       component: () => import('./views/MagnetHandler.vue'),
       props: true

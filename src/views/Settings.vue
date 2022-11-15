@@ -1,24 +1,14 @@
 <template>
   <div class="px-1 px-sm-5 background noselect">
-    <v-row
-      no-gutters
-      class="grey--text"
-      align="center"
-      justify="center"
-    >
+    <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ $t("settings") | titleCase }}
+          {{ $t('settings') | titleCase }}
         </h1>
       </v-col>
       <v-col class="align-center justify-center">
         <v-card-actions class="justify-end">
-          <v-btn
-            class="accent"
-            small
-            elevation="0"
-            @click="saveSettings"
-          >
+          <v-btn class="accent" small elevation="0" @click="saveSettings">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
           <v-btn small elevation="0" @click="close">
@@ -29,32 +19,27 @@
     </v-row>
 
     <v-row class="ma-0 pa-0">
-      <v-tabs
-        v-model="tab"
-        align-with-title
-        show-arrows
-        background-color="primary"
-      >
+      <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
         <v-tab class="white--text" href="#vuetorrent">
-          <h4>{{ $t("modals.settings.tabName.VueTorrent") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.VueTorrent') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#downloads">
-          <h4>{{ $t("modals.settings.tabName.downloads") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.downloads') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#connection">
-          <h4>{{ $t("modals.settings.tabName.connection") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.connection') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#bittorrent">
-          <h4>{{ $t("modals.settings.tabName.bittorrent") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.bittorrent') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#rss">
-          <h4>{{ $t("modals.settings.tabName.rss") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.rss') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#webui">
-          <h4>{{ $t("modals.settings.tabName.webUI") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.webUI') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#tagsAndCategories">
-          <h4>{{ $t("modals.settings.tabName.tagsAndCategories") }}</h4>
+          <h4>{{ $t('modals.settings.tabName.tagsAndCategories') }}</h4>
         </v-tab>
       </v-tabs>
 
@@ -91,15 +76,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import { mdiClose, mdiContentSave } from '@mdi/js'
-import {
-  WebUI,
-  BitTorrent,
-  Downloads,
-  VueTorrent,
-  TagsAndCategories,
-  Connection,
-  Rss
-} from '@/components/Settings/Tabs'
+import { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection, Rss } from '../components/Settings/Tabs'
 import { SettingsTab } from '../mixins'
 
 export default {

@@ -10,7 +10,7 @@
     </v-tabs>
     <v-tabs-items v-model="tab" touchless>
       <v-tab-item eager value="general">
-        <General />
+        <VGeneral />
       </v-tab-item>
       <v-tab-item eager value="dashboard">
         <Dashboard />
@@ -20,14 +20,15 @@
 </template>
 
 <script>
-import General from './VueTorrent/General.vue'
+import VGeneral from './VueTorrent/VGeneral.vue'
 import Dashboard from './VueTorrent/Dashboard.vue'
 import { FullScreenModal } from '@/mixins'
 
 export default {
   name: 'VueTorrent',
   components: {
-    General, Dashboard
+    VGeneral,
+    Dashboard
   },
   mixins: [FullScreenModal],
   data: () => ({

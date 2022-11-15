@@ -1,14 +1,6 @@
 <template>
   <v-card flat>
-    <v-treeview
-      v-model="selected"
-      :items="fileTree"
-      :open.sync="opened"
-      activatable
-      selectable
-      item-key="fullName"
-      open-all
-    >
+    <v-treeview v-model="selected" :items="fileTree" :open.sync="opened" activatable selectable item-key="fullName" open-all>
       <template #prepend="{ item, open }">
         <v-icon v-if="!item.icon">
           {{ open ? mdiFolderOpen : mdiFolderOpen }}
@@ -19,40 +11,18 @@
       </template>
       <template #label="{ item }">
         <span v-if="!item.editing">{{ item.name }}</span>
-        <v-text-field
-          v-if="item.editing"
-          v-model="item.newName"
-          autofocus
-        />
+        <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
       </template>
       <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
         <div v-if="!item.icon">
           <span class="ml-4">{{ item.children.length }} Files</span>
-          <v-btn
-            v-if="!item.editing"
-            fab
-            x-small
-            class="accent white--text elevation-0 px-4 ml-2"
-            @click="edit(item)"
-          >
+          <v-btn v-if="!item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="edit(item)">
             <v-icon>{{ mdiPencil }}</v-icon>
           </v-btn>
-          <v-btn
-            v-if="item.editing"
-            fab
-            x-small
-            class="accent white--text elevation-0 px-4 ml-2"
-            @click="renameFolder(item)"
-          >
+          <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFolder(item)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn
-            v-if="item.editing"
-            fab
-            x-small
-            class="error white--text elevation-0 px-4 ml-2"
-            @click="togleEditing(item)"
-          >
+          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="togleEditing(item)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
@@ -60,27 +30,14 @@
           <span>[{{ item.size }}]</span>
           <span class="ml-4">{{ item.progress }}%</span>
           <span class="ml-4">[ {{ item.priority | priority }} ]</span>
-          <v-menu
-            open-on-hover
-            offset-y
-          >
+          <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
-              <v-btn
-                fab
-                x-small
-                class="accent white--text elevation-0 px-4 ml-2"
-                v-on="on"
-              >
+              <v-btn fab x-small class="accent white--text elevation-0 px-4 ml-2" v-on="on">
                 <v-icon>{{ mdiTrendingUp }}</v-icon>
               </v-btn>
             </template>
             <v-list>
-              <v-list-item
-                v-for="prio in priority_options"
-                :key="prio.value"
-                link
-                @click="setFilePrio(item.id, prio.value)"
-              >
+              <v-list-item v-for="prio in priority_options" :key="prio.value" link @click="setFilePrio(item.id, prio.value)">
                 <v-icon>{{ prio.icon }}</v-icon>
                 <v-list-item-title class="caption">
                   {{ prio.name }}
@@ -88,31 +45,13 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          <v-btn
-            v-if="!item.editing"
-            fab
-            x-small
-            class="accent white--text elevation-0 px-4 ml-2"
-            @click="edit(item)"
-          >
+          <v-btn v-if="!item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="edit(item)">
             <v-icon>{{ mdiPencil }}</v-icon>
           </v-btn>
-          <v-btn
-            v-if="item.editing"
-            fab
-            x-small
-            class="accent white--text elevation-0 px-4 ml-2"
-            @click="renameFile(item)"
-          >
+          <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFile(item)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn
-            v-if="item.editing"
-            fab
-            x-small
-            class="error white--text elevation-0 px-4 ml-2"
-            @click="togleEditing(item)"
-          >
+          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="togleEditing(item)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
@@ -125,11 +64,7 @@
 import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
-import {
-  mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen,
-  mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh,
-  mdiArrowUp, mdiArrowDown, mdiPriorityLow
-} from '@mdi/js'
+import { mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen, mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh, mdiArrowUp, mdiArrowDown, mdiPriorityLow } from '@mdi/js'
 
 const FILE_PRIORITY_OPTIONS = [
   { name: 'max', icon: mdiPriorityHigh, value: 7 },
@@ -193,16 +128,8 @@ export default {
   methods: {
     initFiles() {
       this.getTorrentFiles().then(() => {
-        this.opened = []
-          .concat(
-            ...this.treeData
-              .map(file => file.name.split('/'))
-              .filter(f => f.splice(-1, 1))
-          )
-          .filter((f, index, self) => index === self.indexOf(f))
-        this.selected = this.treeData
-          .filter(file => file.priority !== 0)
-          .map(file => file.name)
+        this.opened = [].concat(...this.treeData.map(file => file.name.split('/')).filter(f => f.splice(-1, 1))).filter((f, index, self) => index === self.indexOf(f))
+        this.selected = this.treeData.filter(file => file.priority !== 0).map(file => file.name)
       })
     },
     async getTorrentFiles() {
@@ -255,8 +182,7 @@ export default {
       this.togleEditing(item)
     },
     setFilePrio(fileId, priority) {
-      qbit.setTorrentFilePriority(this.hash, [fileId], priority)
-        .then(() => this.initFiles())
+      qbit.setTorrentFilePriority(this.hash, [fileId], priority).then(() => this.initFiles())
     }
   }
 }

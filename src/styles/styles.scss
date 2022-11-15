@@ -1,174 +1,176 @@
 @charset 'utf-8';
-@import "~@/styles/colors.scss";
+@import '@/styles/colors.scss';
 
 $sideborder-margin: 6px;
 
 .sideborder.done {
-    border-left: #{$sideborder-margin} solid #{$torrent-done};
+  border-left: #{$sideborder-margin} solid #{$torrent-done};
 }
 .sideborder.downloading {
-    border-left: #{$sideborder-margin} solid #{$torrent-downloading};
+  border-left: #{$sideborder-margin} solid #{$torrent-downloading};
 }
 .sideborder.fail {
-    border-left: #{$sideborder-margin} solid #{$torrent-fail};
+  border-left: #{$sideborder-margin} solid #{$torrent-fail};
 }
 .sideborder.paused {
-    border-left: #{$sideborder-margin} solid #{$torrent-paused};
+  border-left: #{$sideborder-margin} solid #{$torrent-paused};
 }
 .sideborder.queued {
-    border-left: #{$sideborder-margin} solid #{$torrent-queued};
+  border-left: #{$sideborder-margin} solid #{$torrent-queued};
 }
 .sideborder.seeding {
-    border-left: #{$sideborder-margin} solid #{$torrent-seeding};
+  border-left: #{$sideborder-margin} solid #{$torrent-seeding};
 }
 .sideborder.checking {
-    border-left: #{$sideborder-margin} solid #{$torrent-checking};
+  border-left: #{$sideborder-margin} solid #{$torrent-checking};
 }
 .sideborder.stalled {
-    border-left: #{$sideborder-margin} solid #{$torrent-stalled};
+  border-left: #{$sideborder-margin} solid #{$torrent-stalled};
 }
 .sideborder.metadata {
-    border-left: #{$sideborder-margin} solid #{$torrent-metadata};
+  border-left: #{$sideborder-margin} solid #{$torrent-metadata};
 }
 .sideborder.moving {
-    border-left: #{$sideborder-margin} solid #{$torrent-moving};
+  border-left: #{$sideborder-margin} solid #{$torrent-moving};
 }
 .v-chip.done {
-    background: #{$torrent-done} !important;
+  background: #{$torrent-done} !important;
 }
 .v-chip.downloading {
-    background: #{$torrent-downloading} !important;
+  background: #{$torrent-downloading} !important;
 }
 .v-chip.fail {
-    background: #{$torrent-fail}!important;
+  background: #{$torrent-fail} !important;
 }
 .v-chip.paused {
-    background: #{$torrent-paused} !important;
+  background: #{$torrent-paused} !important;
 }
 .v-chip.queued {
-    background: #{$torrent-queued} !important;
+  background: #{$torrent-queued} !important;
 }
 .v-chip.seeding {
-    background: #{$torrent-seeding} !important;
+  background: #{$torrent-seeding} !important;
 }
 .v-chip.checking {
-    background: #{$torrent-checking} !important;
+  background: #{$torrent-checking} !important;
 }
 .v-chip.stalled {
-    background: #{$torrent-stalled} !important;
+  background: #{$torrent-stalled} !important;
 }
 .v-chip.metadata {
-    background: #{$torrent-metadata} !important;
+  background: #{$torrent-metadata} !important;
 }
 .v-chip.moving {
-    background: #{$torrent-moving} !important;
+  background: #{$torrent-moving} !important;
 }
 
 .v-text-field--outlined fieldset {
-    border-color: #{$primary} !important;
+  border-color: #{$primary} !important;
 }
 
 .v-text-field--outlined fieldset {
-    border-color: #{$primary} !important;
+  border-color: #{$primary} !important;
 }
 
 .v-input__slot:hover fieldset {
-    border-color: #{$primary} !important;
+  border-color: #{$primary} !important;
 }
 
 .v-application a {
-    color: inherit !important;
+  color: inherit !important;
 }
 
 :root {
-  color-scheme: dark
+  color-scheme: dark;
 }
 
 .noselect {
-    -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 .truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .robot-mono {
-    font-family: 'Roboto Mono', sans-serif;
-    letter-spacing: 0;
+  font-family: 'Roboto Mono', sans-serif;
+  letter-spacing: 0;
 }
 
 .transparent {
-    background-color: transparent!important;
-    border-color: transparent!important;
+  background-color: transparent !important;
+  border-color: transparent !important;
 }
 // scrollbar designs & menu designs
-.v-card__text,.v-data-table__wrapper, div {
-    &::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background: background-color;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background: gray;
-    }
+.v-card__text,
+.v-data-table__wrapper,
+div {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: background-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: gray;
+  }
 }
 .v-menu__content {
-    border-radius: 9px;
-    border: solid 1px rgb(127,127,127,.5);
-    &::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        background: var(--v-background-base) !important;
-        border-radius: 0px 20px 20px 0px;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 20px;
-        background: gray;
-    }
-    .v-list {
-        margin: 0px;
-        padding: 0px;
-    }
+  border-radius: 9px;
+  border: solid 1px rgb(127, 127, 127, 0.5);
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: var(--v-background-base) !important;
+    border-radius: 0px 20px 20px 0px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: gray;
+  }
+  .v-list {
+    margin: 0px;
+    padding: 0px;
+  }
 }
 body {
-    background-color: var(--v-background-base) !important;
-    &::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
-        //background: #F5F5F5;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: gray;
-        border-radius: 20px;
-    }
+  background-color: var(--v-background-base) !important;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    //background: #F5F5F5;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: gray;
+    border-radius: 20px;
+  }
 }
 
 // Reversed switch input variant
 @mixin reverse-switch {
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    .v-application--is-ltr & {
-        .v-input--selection-controls__input {
-            margin-right: 0;
-            margin-left: 8px;
-        }
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  .v-application--is-ltr & {
+    .v-input--selection-controls__input {
+      margin-right: 0;
+      margin-left: 8px;
     }
-    .v-application--is-rtl & {
-        .v-input--selection-controls__input {
-            margin-left: 0;
-            margin-right: 8px;
-        }
+  }
+  .v-application--is-rtl & {
+    .v-input--selection-controls__input {
+      margin-left: 0;
+      margin-right: 8px;
     }
+  }
 }

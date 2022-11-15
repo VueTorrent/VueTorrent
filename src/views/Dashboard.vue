@@ -1,18 +1,8 @@
 <template>
-  <div
-    class="px-1 px-sm-5 pt-4 background noselect"
-    @click.self="resetSelected"
-  >
+  <div class="px-1 px-sm-5 pt-4 background noselect" @click.self="resetSelected">
     <v-row class="ma-0 pa-0" @click.self="resetSelected">
       <v-expand-x-transition>
-        <v-card
-          v-show="searchFilterEnabled"
-          id="searchFilter"
-          flat
-          xs7
-          md3
-          class="ma-0 pa-0 mt-1 transparent"
-        >
+        <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 mt-1 transparent">
           <v-text-field
             v-model="input"
             autofocus
@@ -33,15 +23,7 @@
       <v-row style="margin-top: 6px" class="mb-1 mx-1">
         <v-tooltip bottom>
           <template #activator="{ on }">
-            <v-btn
-              text
-              small
-              fab
-              class="mr-0 ml-0"
-              aria-label="Select Mode"
-              v-on="on"
-              @click="searchFilterEnabled = !searchFilterEnabled"
-            >
+            <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="searchFilterEnabled = !searchFilterEnabled">
               <v-icon color="grey">
                 {{ searchFilterEnabled ? mdiChevronLeftCircle : mdiTextBoxSearch }}
               </v-icon>
@@ -51,15 +33,7 @@
         </v-tooltip>
         <v-tooltip bottom>
           <template #activator="{ on }">
-            <v-btn
-              text
-              small
-              fab
-              class="mr-0 ml-0"
-              aria-label="Select Mode"
-              v-on="on"
-              @click="toggleSelectMode()"
-            >
+            <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="toggleSelectMode()">
               <v-icon color="grey">
                 {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
               </v-icon>
@@ -69,15 +43,7 @@
         </v-tooltip>
         <v-tooltip bottom>
           <template #activator="{ on }">
-            <v-btn
-              text
-              small
-              fab
-              class="mr-0 ml-0"
-              aria-label="Sort Torrents"
-              v-on="on"
-              @click="addModal('SortModal')"
-            >
+            <v-btn text small fab class="mr-0 ml-0" aria-label="Sort Torrents" v-on="on" @click="addModal('SortModal')">
               <v-icon color="grey">
                 {{ mdiSort }}
               </v-icon>
@@ -95,24 +61,10 @@
     </v-row>
     <v-row id="selectAllTorrents" class="ma-0 pa-0">
       <v-expand-transition>
-        <v-card
-          v-show="selectMode"
-          flat
-          class="transparent"
-          height="40"
-        >
+        <v-card v-show="selectMode" flat class="transparent" height="40">
           <v-tooltip bottom>
             <template #activator="{ on }">
-              <v-btn
-                text
-                small
-                fab
-                style="left:-8px"
-                aria-label="Select Mode"
-                class="grey--text"
-                v-on="on"
-                @click="selectAllTorrents()"
-              >
+              <v-btn text small fab style="left: -8px" aria-label="Select Mode" class="grey--text" v-on="on" @click="selectAllTorrents()">
                 <v-icon>
                   {{ allTorrentsSelected ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
                 </v-icon>
@@ -120,16 +72,12 @@
             </template>
             <span>Select All</span>
           </v-tooltip>
-          <span class="grey--text">
-            Select / Release All ( Ctrl + A )
-          </span>
+          <span class="grey--text"> Select / Release All ( Ctrl + A ) </span>
         </v-card>
       </v-expand-transition>
     </v-row>
     <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-      <p class="grey--text">
-        Nothing to see here!
-      </p>
+      <p class="grey--text">Nothing to see here!</p>
     </div>
     <div v-else>
       <v-list class="pa-0 transparent">
@@ -149,47 +97,23 @@
             <v-expand-x-transition>
               <v-card v-show="selectMode" flat class="transparent">
                 <v-list-item-action>
-                  <v-checkbox
-                    color="grey"
-                    :input-value="selected_torrents.indexOf(torrent.hash) !== -1"
-                    @click="selectTorrent(torrent.hash)"
-                  />
+                  <v-checkbox color="grey" :input-value="selected_torrents.indexOf(torrent.hash) !== -1" @click="selectTorrent(torrent.hash)" />
                 </v-list-item-action>
               </v-card>
             </v-expand-x-transition>
             <v-list-item-content class="pa-0 rounded">
               <Torrent :torrent="torrent" :index="index" />
-              <v-divider
-                v-if="index < paginatedData.length - 1"
-                :key="index"
-              />
+              <v-divider v-if="index < paginatedData.length - 1" :key="index" />
             </v-list-item-content>
           </template>
         </v-list-item>
       </v-list>
       <div class="text-center mb-5">
-        <v-pagination
-          v-if="(pageCount > 1) && !hasSearchFilter"
-          v-model="pageNumber"
-          :length="pageCount"
-          :total-visible="7"
-          @input="toTop"
-        />
+        <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
       </div>
     </div>
-    <v-menu
-      v-model="trcMenu.show"
-      transition="slide-y-transition"
-      :position-x="trcMenu.X"
-      :position-y="trcMenu.Y"
-      absolute
-    >
-      <TorrentRightClickMenu
-        v-if="data"
-        :torrent="data.torrent"
-        :touchmode="tmCalc.TouchMode"
-        :x="trcMenu.X"
-      />
+    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute>
+      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
     </v-menu>
   </div>
 </template>
@@ -199,7 +123,7 @@ import { mapState, mapGetters } from 'vuex'
 import Fuse from 'fuse.js'
 import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
 
-import Torrent from '@/components/Torrent/Torrent'
+import Torrent from '@/components/Torrent/Torrent.vue'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 import { TorrentSelect, General } from '@/mixins'
@@ -212,17 +136,27 @@ export default {
     return {
       data: null,
       trcMenu: {
-        show: false, X: 0, Y: 0
+        show: false,
+        X: 0,
+        Y: 0
       },
       tmCalc: {
-        TouchMode: false, TouchTimer: 0, LastFinger: 0, LastHash: ''
+        TouchMode: false,
+        TouchTimer: 0,
+        LastFinger: 0,
+        LastHash: ''
       },
 
       trcMoveTick: 0,
       input: '',
       searchFilterEnabled: false,
       pageNumber: 1,
-      mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSort
+      mdiTextBoxSearch,
+      mdiChevronLeftCircle,
+      mdiMagnify,
+      mdiCheckboxBlankOutline,
+      mdiCheckboxMarked,
+      mdiSort
     }
   },
   computed: {
@@ -271,7 +205,6 @@ export default {
       return this.$store.state.selected_torrents.length
     },
     allTorrentsSelected() {
-
       return this.selectedTorrentsLength === this.torrents.length
     }
   },
@@ -285,9 +218,12 @@ export default {
     document.addEventListener('dragenter', this.detectDragEnter)
     this.$store.state.selectMode = false
     window.scrollTo(0, 0)
-    document.addEventListener('scroll', function () {
-      this.trcMenu.show = false
-    }.bind(this))
+    document.addEventListener(
+      'scroll',
+      function () {
+        this.trcMenu.show = false
+      }.bind(this)
+    )
   },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
@@ -303,11 +239,13 @@ export default {
       this.trcMoveTick = 0
       this.trcMenu.show = false
       clearTimeout(this.tmCalc.TouchTimer)
-      if (e.touches.length == 1) { // one finger only
+      if (e.touches.length == 1) {
+        // one finger only
         this.tmCalc.LastFinger = 1
         this.tmCalc.TouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
       }
-      if (e.touches.length == 2) { // two finger
+      if (e.touches.length == 2) {
+        // two finger
         this.tmCalc.LastFinger = 2
         if (this.tmCalc.LastHash == data.torrent.hash) {
           e.preventDefault()
@@ -327,22 +265,18 @@ export default {
     },
     strTouchEnd(e) {
       clearTimeout(this.tmCalc.TouchTimer)
-      if (this.trcMenu.show)
-        e.preventDefault()
+      if (this.trcMenu.show) e.preventDefault()
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
-      if (this.trcMenu.show)
-        return false
+      if (this.trcMenu.show) return false
       this.data = data
-      if (e.preventDefault)
-        e.preventDefault()
+      if (e.preventDefault) e.preventDefault()
       this.tmCalc.TouchMode = touchmode
       this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
       this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
       this.$nextTick(() => {
         this.trcMenu.show = true
       })
-
     },
     detectDragEnter() {
       if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
@@ -352,8 +286,7 @@ export default {
       return true
     },
     showInfo(hash) {
-      if (!this.$store.state.selectMode)
-        this.$router.push({ name: 'torrentDetail', params: { hash } })
+      if (!this.$store.state.selectMode) this.$router.push({ name: 'torrentDetail', params: { hash } })
     },
     resetSelected() {
       this.$store.commit('RESET_SELECTED')
@@ -368,7 +301,7 @@ export default {
       if (this.$store.state.selectMode) {
         this.$store.state.selected_torrents = []
 
-        return this.$store.state.selectMode = false
+        return (this.$store.state.selectMode = false)
       }
       this.$store.state.selectMode = true
     },
