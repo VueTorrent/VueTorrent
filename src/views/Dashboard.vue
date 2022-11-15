@@ -129,8 +129,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Fuse from 'fuse.js'
 import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
+import { QuickScore } from "quick-score"
 
 import Torrent from '@/components/Torrent/Torrent.vue'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
@@ -171,14 +171,10 @@ export default {
     torrents() {
       if (!this.hasSearchFilter) return this.getTorrents()
 
-      const options = {
-        threshold: 0.25,
-        shouldSort: false,
-        keys: ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category']
-      }
-      const fuse = new Fuse(this.getTorrents(), options)
+      // return this.getTorrents()
 
-      return fuse.search(this.input).map(el => el.item)
+      const qs = new QuickScore(this.getTorrents(), ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category'])
+      return qs.search(this.input).map(el => el.item)
     },
     pageNumber: {
       get() {
