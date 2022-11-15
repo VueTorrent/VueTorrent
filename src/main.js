@@ -12,7 +12,17 @@ import vuetify from './plugins/vuetify'
 import i18n from './plugins/i18n'
 import { toast, config } from './plugins/toast'
 Vue.use(toast, config)
-import './plugins/components'
+
+// register modals
+const components = import.meta.glob('./components/Modals/**/*.vue')
+Object.entries(components).forEach(([path, definition]) => {
+  const componentName = path
+    .split('/')
+    .pop()
+    .replace(/\.\w+$/, '')
+
+  Vue.component(componentName, definition)
+})
 
 new Vue({
   router,
