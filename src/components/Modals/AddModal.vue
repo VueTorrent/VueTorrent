@@ -139,10 +139,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Modal from '@/mixins/Modal'
 import qbit from '@/services/qbit'
 import { mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
-import { FullScreenModal } from '@/mixins'
+import { FullScreenModal, Modal } from '@/mixins'
 
 export default {
   name: 'AddModal',
