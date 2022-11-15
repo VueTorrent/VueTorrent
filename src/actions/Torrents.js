@@ -1,6 +1,8 @@
 import store from '../store'
 import { Hostname } from '@/Helpers/index.js'
 import Torrent from '@/models/Torrent'
+import { isProduction } from '../utils'
+import { generateMultiple } from '../utils/faker'
 
 export class Torrents {
   static update(data) {
@@ -12,7 +14,13 @@ export class Torrents {
       }
     }
 
+    console.log(data)
     // update torrents
     store.state.torrents = data.map(t => new Torrent(t))
+
+     // load fake torrents if enabled
+    if(isProduction() && !import.meta.env.VITE_USE_FAKE_TORRENTS) return
+    const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
+    store.state.torrents.push(...generateMultiple(count))
   }
 }

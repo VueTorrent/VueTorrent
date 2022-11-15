@@ -23,7 +23,7 @@ jobs:
         run: npm ci
       - name: Build VueTorrent
         run: npm run build
-      - name: Push to latest-release
+      - name: Push to nightly-release
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,4 +1,5 @@
-/* eslint-disable no-unused-vars */
+import { isProduction } from './utils'
+
 export function formatBytes(a, b) {
   if (a == 0) return '0 B'
   const c = 1024
@@ -150,7 +151,7 @@ export function stringContainsUrl(string) {
 }
 
 export function getVersion() {
-  if (process.env.NODE_ENV === 'production') {
+  if (isProduction()) {
     return 'import.meta.env.VITE_PACKAGE_VERSION'
   }
 
@@ -158,7 +159,7 @@ export function getVersion() {
 }
 
 export function getBaseURL() {
-  if (process.env.NODE_ENV === 'production') {
+  if (isProduction()) {
     return 'import.meta.env.BASE_URL'
   }
 

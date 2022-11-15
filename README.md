@@ -74,6 +74,7 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vite.config.js` as well)
 - Open the WebUI on localhost with the default username `admin` and password `adminadmin`.
+- Edit `env.development` to tweak your dev environment (e.g. fake torrents)
 
 ## Features
 
