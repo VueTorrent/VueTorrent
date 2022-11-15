@@ -48,6 +48,7 @@ export default {
         { value: 'priority', name: this.$i18n.t('modals.sort.sortBy.priority') },
         { value: 'progress', name: this.$i18n.t('modals.sort.sortBy.progress') },
         { value: 'ratio', name: this.$i18n.t('modals.sort.sortBy.ratio') },
+        { value: 'save_path', name: this.$i18n.t('modals.sort.sortBy.save_path') },
         { value: 'size', name: this.$i18n.t('modals.sort.sortBy.size') },
         { value: 'state', name: this.$i18n.t('modals.sort.sortBy.state') },
         { value: 'time_active', name: this.$i18n.t('modals.sort.sortBy.timeActive') },

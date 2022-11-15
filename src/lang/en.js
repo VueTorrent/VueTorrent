@@ -374,6 +374,7 @@ const locale = {
         priority: 'Priority',
         progress: 'Progress',
         ratio: 'Ratio',
+        save_path: 'Directory',
         size: 'Size',
         state: 'State',
         uploaded: 'Uploaded',

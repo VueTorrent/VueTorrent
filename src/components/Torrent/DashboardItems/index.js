@@ -2,6 +2,7 @@ import Size from './Size.vue'
 import Progress from './Progress.vue'
 import Download from './Download.vue'
 import Downloaded from './Downloaded.vue'
+import Directory from './Directory.vue'
 import Ratio from './Ratio.vue'
 import Upload from './Upload.vue'
 import ETA from './ETA.vue'
@@ -15,4 +16,4 @@ import Uploaded from './Uploaded.vue'
 import UploadedSession from './UploadedSession.vue'
 import Availability from './Availability.vue'
 
-export { Size, Progress, Download, Ratio, Upload, ETA, Peers, Seeds, Status, Category, Tags, AddedOn, Uploaded, UploadedSession, Downloaded, Availability }
+export { Size, Progress, Download, Directory, Ratio, Upload, ETA, Peers, Seeds, Status, Category, Tags, AddedOn, Uploaded, UploadedSession, Downloaded, Availability }
