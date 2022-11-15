@@ -1,6 +1,6 @@
 import qbit from '../services/qbit'
 import { DocumentTitle, Tags, Trackers, Torrents, Graph, ServerStatus } from '@/actions'
-import { loadLanguageAsync } from '../lang'
+import { setLanguage } from '../plugins/i18n'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -76,5 +76,5 @@ export default {
   FETCH_RULES: async state => (state.rss.rules = await qbit.getRules()),
   FETCH_SEARCH_PLUGINS: async state => (state.searchPlugins = await qbit.getSearchPlugins()),
   SET_CURRENT_ITEM_COUNT: (state, count) => (state.filteredTorrentsCount = count),
-  SET_LANGUAGE: async state => await loadLanguageAsync(state.webuiSettings.lang)
+  SET_LANGUAGE: async state => await setLanguage(state.webuiSettings.lang)
 }

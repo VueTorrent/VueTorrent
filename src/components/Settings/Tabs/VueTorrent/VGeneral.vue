@@ -124,12 +124,13 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '../../../../services/qbit'
-import { availableLanguages } from '@/lang'
+import { i18n } from '@/plugins/i18n'
+
 export default {
   name: 'VueTorrent-General',
   data() {
     return {
-      languages: availableLanguages,
+      languages: i18n.availableLocales,
       paginationSizes: [5, 15, 30, 50],
       titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0

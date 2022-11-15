@@ -1,9 +1,10 @@
-import path from 'path'
+import { resolve, dirname } from 'path'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue2'
 import { VitePWA } from 'vite-plugin-pwa'
 import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
+
 import { fileURLToPath, URL } from 'node:url'
 
 const version = process.env.NODE_ENV === 'production' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)

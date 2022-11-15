@@ -21,9 +21,10 @@ export class QBitApi {
 
   /** Begin General functions * */
   getAppVersion(): Promise<string> {
-    return this.axios.get('/app/version')
-    .then(res => res.data)
-    .then(version => version.includes('v') ? version.substring(1) : version)
+    return this.axios
+      .get('/app/version')
+      .then(res => res.data)
+      .then(version => (version.includes('v') ? version.substring(1) : version))
   }
 
   getApiVersion() {

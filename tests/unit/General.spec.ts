@@ -75,6 +75,6 @@ describe('General', () => {
   })
 
   it('tests lang', () => {
-  expect(wrapper.vm.lang).toEqual('English')
+    expect(wrapper.vm.lang).toEqual('English')
   })
 })
