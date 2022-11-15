@@ -18,7 +18,8 @@ export class Torrents {
     store.state.torrents = data.map(t => new Torrent(t))
 
     // load fake torrents if enabled
-    if (isProduction() && !import.meta.env.VITE_USE_FAKE_TORRENTS) return
+    if (isProduction()) return
+    if(import.meta.env.VITE_USE_FAKE_TORRENTS == 'false') return
     const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
     store.state.torrents.push(...generateMultiple(count))
   }

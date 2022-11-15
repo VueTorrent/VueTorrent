@@ -13,7 +13,7 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "lib": ["WebWorker"]
   },
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["node_modules"]
