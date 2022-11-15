@@ -140,6 +140,7 @@ const locale = {
           freeSpace: 'Show Free Space',
           trackerFilter: 'Show Tracker Filter',
           rightDrawer: 'Right Drawer',
+          topPagination: 'Place the pagination at the top of the screen',
           language: 'Language:',
           paginationSize: 'Pagination size:',
           vueTorrentTitle: 'VueTorrent title:',

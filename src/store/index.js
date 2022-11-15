@@ -66,6 +66,7 @@ export default new Vuex.Store({
       deleteWithFiles: false,
       title: 'Default',
       rightDrawer: false,
+      topPagination: false,
       paginationSize: 15,
       busyTorrentProperties: [
         { name: 'Size', active: true },

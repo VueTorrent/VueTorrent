@@ -14,7 +14,6 @@ export class Torrents {
       }
     }
 
-    console.log(data)
     // update torrents
     store.state.torrents = data.map(t => new Torrent(t))
 

@@ -54,6 +54,13 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
+        <v-col>
+          <v-switch v-model="topPagination" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.topPagination')" />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
             {{ $t('modals.settings.pageVueTorrent.pageGeneral.language') }}
@@ -193,6 +200,14 @@ export default {
       },
       set(val) {
         this.webuiSettings.rightDrawer = val
+      }
+    },
+    topPagination: {
+      get() {
+        return this.webuiSettings.topPagination
+      },
+      set(val) {
+        this.webuiSettings.topPagination = val
       }
     },
     paginationSize: {

@@ -1,6 +1,11 @@
 <template>
   <div class="px-1 px-sm-5 pt-4 background noselect" @click.self="resetSelected">
     <v-row class="ma-0 pa-0" @click.self="resetSelected">
+        <v-col v-if="topPagination && isMobile" cols="12" class="align-center justify-center pa-0">
+          <div class="text-center">
+            <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
+          </div>
+        </v-col>
       <v-expand-x-transition>
         <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 mt-1 transparent">
           <v-text-field
@@ -51,7 +56,11 @@
           </template>
           <span>Sort Torrents</span>
         </v-tooltip>
-
+        <v-col v-if="topPagination && !isMobile" cols="8" class="align-center justify-center pa-0">
+          <div class="text-center">
+            <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
+          </div>
+        </v-col>
         <v-col class="align-center justify-center">
           <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
             {{ torrentCountString }}
@@ -108,7 +117,7 @@
           </template>
         </v-list-item>
       </v-list>
-      <div class="text-center mb-5">
+      <div v-if="!topPagination" class="text-center mb-5">
         <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
       </div>
     </div>
@@ -173,6 +182,9 @@ export default {
       const fuse = new Fuse(this.getTorrents(), options)
 
       return fuse.search(this.input).map(el => el.item)
+    },
+    topPagination() {
+      return this.getWebuiSettings().topPagination
     },
     paginationSize() {
       return this.getWebuiSettings().paginationSize
