@@ -1,14 +1,10 @@
-name: Test Core Components
+name: Build nightly 
 on:
-  pull_request:
-    branches:
-      - master
   push:
     branches:
       - master
-
 jobs:
-  test-core:
+  push-nightly:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,5 +21,11 @@ jobs:
           restore-keys: ${{ runner.os }}-node-
       - name: Install dependencies
         run: npm ci
-      - name: Run tests
-        run: npm run test:unit
+      - name: Build VueTorrent
+        run: npm run build
+      - name: Push to latest-release
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: nightly-release
+          FOLDER: ./vuetorrent

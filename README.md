@@ -54,10 +54,11 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 ### From Source
 
-- Head to the [`latest-release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
 - Clone branch using
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
+
+If you like to always have the latest and greatest, please sync to the `nightly-release`-branch. This can contain breaking changes though.
 
 ### Lazy/Easy
 
@@ -69,10 +70,10 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 - Clone the repo
 - `npm install`
-- `npm run dev`
+- `npm start`
 - `npm run lint` (to format the code)
-- `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
-- You now may open and access the WebUI under localhost with the default username `admin` and password `adminadmin`.
+- `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vite.config.js` as well)
+- Open the WebUI on localhost with the default username `admin` and password `adminadmin`.
 
 ## Features
 
@@ -116,5 +117,4 @@ but before you do that:
 ## Credits
 
 - [qBittorrent](https://github.com/qbittorrent/qBittorrent)
-- Other alternate WebUI written in Vue [`CzBiX qb-web`](https://github.com/CzBiX/qb-web)
 - Many thanks [@m4ximuel](https://github.com/m4ximuel) for designing the icon & helping out with the project
