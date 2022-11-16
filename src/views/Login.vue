@@ -17,6 +17,7 @@
               autocomplete="current email"
               name="username"
               autocapitalize="none"
+              persistent-placeholder
               @keyup.enter.native="login"
             />
             <v-text-field
@@ -29,6 +30,7 @@
               autocomplete="current password"
               name="password"
               autocapitalize="none"
+              persistent-placeholder
               @keyup.enter.native="login"
             />
             <v-spacer />
