@@ -45,7 +45,7 @@ export default new Vuex.Store({
     authenticated: false,
     sort_options: {
       sort: 'priority',
-      reverse: true,
+      reverse: false,
       hashes: [],
       filter: null
     },
@@ -84,7 +84,8 @@ export default new Vuex.Store({
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
         { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true }
+        { name: 'Availability', active: true },
+        { name: 'LastActivity', active: false },
       ],
       doneTorrentProperties: [
         { name: 'Size', active: true },
@@ -102,7 +103,8 @@ export default new Vuex.Store({
         { name: 'Category', active: true },
         { name: 'Tags', active: true },
         { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true }
+        { name: 'Availability', active: true },
+        { name: 'LastActivity', active: false }
       ]
     },
     categories: [],

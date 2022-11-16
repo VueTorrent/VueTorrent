@@ -59,7 +59,8 @@ const locale = {
     uploadedSession: 'Uploaded Session',
     torrentTitle: 'Torrent Title',
     timeActive: 'Time Active',
-    seededFor: 'seeded for'
+    seededFor: 'seeded for',
+    last_activity: 'Last Activity'
   },
   /** Navbar */
   navbar: {
@@ -368,13 +369,14 @@ const locale = {
       title: 'Sort Torrents',
       reverse: 'Reverse',
       sortBy: {
-        none: 'None',
         availability: 'Availability',
         category: 'Category',
         completed: 'Completed',
         downloaded: 'Downloaded',
         ETA: 'ETA',
         name: 'Name',
+        none: 'None',
+        last_activity: 'Last Activity',
         peers: 'Peers',
         priority: 'Priority',
         progress: 'Progress',

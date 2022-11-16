@@ -183,6 +183,7 @@ export default {
         { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
         { value: 'name', text: this.$i18n.t('modals.sort.sortBy.name') },
         { value: 'num_leechs', text: this.$i18n.t('modals.sort.sortBy.peers') },
+        { value: 'last_activity', text: this.$i18n.t('modals.sort.sortBy.last_activity') },
         { value: 'priority', text: this.$i18n.t('modals.sort.sortBy.priority') },
         { value: 'progress', text: this.$i18n.t('modals.sort.sortBy.progress') },
         { value: 'ratio', text: this.$i18n.t('modals.sort.sortBy.ratio') },
