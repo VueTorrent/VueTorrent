@@ -185,6 +185,10 @@ const locale = {
         }
       },
       pageConnection: {
+        protocol: 'Peer connection protocol',
+        listeningSubHeader: 'Listening Port',
+        useUPnP: 'Use UPnP / NAT-PMP port forwarding from my router',
+        incomingConnectionPort: 'Port used for incoming connections',
         subHeader: 'Connection Limits',
         globalMaxConnection: 'Global maximum number of connections',
         perTorrentMaxConnection: 'Maximum number of connections per torrent',

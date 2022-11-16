@@ -29,6 +29,7 @@ export function generateTorrent(data: any): Torrent {
     num_complete: faker.datatype.number({ min: 1, max: 500 }),
     num_seeds: faker.datatype.number({ min: 1, max: 25 }),
     num_incomplete: faker.datatype.number({ min: 1, max: 500 }),
-    save_path: faker.system.filePath()
+    save_path: faker.system.filePath(),
+    category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV'])
   })
 }

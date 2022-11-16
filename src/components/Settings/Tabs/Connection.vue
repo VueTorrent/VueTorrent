@@ -1,5 +1,17 @@
 <template>
   <v-card flat>
+    <v-col cols="5" class="pb-0 mt-2">
+      <v-select v-model="settings.bittorrent_protocol" outlined dense small-chips :items="bittorrent_protocol" :label="$t('modals.settings.pageConnection.protocol')" />
+    </v-col>
+    <v-subheader>
+      {{ $t('modals.settings.pageConnection.listeningSubHeader') }}
+    </v-subheader>
+      <v-list-item>
+        <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.incomingConnectionPort')" />
+      </v-list-item>
+      <v-list-item>
+          <v-checkbox v-model="settings.upnp" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.useUPnP')" />
+      </v-list-item>
     <v-subheader>
       {{ $t('modals.settings.pageConnection.subHeader') }}
     </v-subheader>
@@ -117,6 +129,11 @@ export default {
           value: 5,
           text: 'SOCKS4 proxy without authentication'
         }
+      ],
+      bittorrent_protocol: [
+        { value: 0, text: 'TCP and μTP' },
+        { value: 1, text: 'TCP' },
+        { value: 2, text: 'μTP' },
       ]
     }
   },
