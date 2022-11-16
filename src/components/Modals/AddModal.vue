@@ -67,6 +67,7 @@
                     auto-grow
                     clearable
                     :hint="$t('modals.add.urlHint')"
+                    @click:prepend="paste"
                   />
                 </v-col>
               </v-row>
@@ -235,6 +236,13 @@ export default {
     closeWrap() {
       if (this.showWrapDrag) this.showWrapDrag = false
       else this.close()
+    },
+    async paste() {
+      if (navigator.clipboard && window.isSecureContext) {
+        this.urls = await navigator.clipboard.readText()
+      } else {
+        this.urls = document.execCommand('paste')
+      }
     },
     submit() {
       if (this.files.length || this.urls) {

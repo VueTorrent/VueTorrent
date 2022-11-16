@@ -30,7 +30,7 @@ describe('General', () => {
               rightDrawer: 10,
               paginationSize: 10,
               title: 'test',
-              lang: 'English',
+              lang: 'English'
             }
           }
         }
