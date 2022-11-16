@@ -3,7 +3,7 @@
     <div class="caption grey--text">
       {{ $t('status') }}
     </div>
-    <v-chip small class="caption white--text px-2" :class="state">
+    <v-chip style="height: 1.3em" class="caption white--text px-2" :class="state">
       {{ stateString }}
     </v-chip>
   </v-flex>

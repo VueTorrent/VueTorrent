@@ -1,9 +1,6 @@
 <template>
   <v-layout row wrap class="ma-0 px-4 py-2 ml-0">
     <v-flex xs12>
-      <div class="caption grey--text">
-        {{ $t('torrent.torrentTitle') }}
-      </div>
       <div class="truncate mr-4">
         {{ torrent.name }}
       </div>

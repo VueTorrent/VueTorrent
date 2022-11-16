@@ -57,7 +57,6 @@ const locale = {
     created: 'created by',
     comments: 'comments',
     uploadedSession: 'Uploaded Session',
-    torrentTitle: 'Torrent Title',
     timeActive: 'Time Active',
     seededFor: 'seeded for',
     last_activity: 'Last Activity'
