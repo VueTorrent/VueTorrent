@@ -368,6 +368,7 @@ const locale = {
       title: 'Sort Torrents',
       reverse: 'Reverse',
       sortBy: {
+        none: 'None',
         availability: 'Availability',
         category: 'Category',
         completed: 'Completed',

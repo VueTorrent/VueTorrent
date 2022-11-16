@@ -44,7 +44,7 @@ export default new Vuex.Store({
     selected_torrents: [],
     authenticated: false,
     sort_options: {
-      sort: null,
+      sort: 'priority',
       reverse: true,
       hashes: [],
       filter: null

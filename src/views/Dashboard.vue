@@ -173,6 +173,7 @@ export default {
       searchFilterEnabled: false,
       sortEnabled: false,
       sortOptions: [
+        { value: '', text: this.$i18n.t('modals.sort.sortBy.none') },
         { value: 'added_on', text: this.$i18n.t('modals.sort.sortBy.addedOn') },
         { value: 'availability', text: this.$i18n.t('modals.sort.sortBy.availability') },
         { value: 'category', text: this.$i18n.t('modals.sort.sortBy.category') },
