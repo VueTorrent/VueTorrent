@@ -30,7 +30,7 @@ describe('General', () => {
               rightDrawer: 10,
               paginationSize: 10,
               title: 'test',
-              lang: 'English'
+              lang: 'English',
             }
           }
         }
@@ -43,38 +43,38 @@ describe('General', () => {
   })
 
   it('tests showCurrentSpeed', () => {
-    expect(wrapper.vm.showCurrentSpeed).toEqual(100)
+    expect(wrapper.vm.webuiSettings.showCurrentSpeed).toEqual(100)
   })
 
   it('tests showSpeedGraph', () => {
-    expect(wrapper.vm.showSpeedGraph).toEqual(true)
+    expect(wrapper.vm.webuiSettings.showSpeedGraph).toEqual(true)
   })
 
   it('tests showSessionStat', () => {
-    expect(wrapper.vm.showSessionStat).toEqual(true)
+    expect(wrapper.vm.webuiSettings.showSessionStat).toEqual(true)
   })
 
   it('tests showAlltimeStat', () => {
-    expect(wrapper.vm.showAlltimeStat).toEqual(true)
+    expect(wrapper.vm.webuiSettings.showAlltimeStat).toEqual(true)
   })
 
   it('tests showTrackerFilter', () => {
-    expect(wrapper.vm.showTrackerFilter).toEqual(true)
+    expect(wrapper.vm.webuiSettings.showTrackerFilter).toEqual(true)
   })
 
   it('tests rightDrawer', () => {
-    expect(wrapper.vm.rightDrawer).toEqual(10)
+    expect(wrapper.vm.webuiSettings.rightDrawer).toEqual(10)
   })
 
   it('tests paginationSize', () => {
-    expect(wrapper.vm.paginationSize).toEqual(10)
+    expect(wrapper.vm.webuiSettings.paginationSize).toEqual(10)
   })
 
   it('tests title', () => {
-    expect(wrapper.vm.title).toEqual('test')
+    expect(wrapper.vm.webuiSettings.title).toEqual('test')
   })
 
   it('tests lang', () => {
-    expect(wrapper.vm.lang).toEqual('English')
+    expect(wrapper.vm.webuiSettings.lang).toEqual('English')
   })
 })
