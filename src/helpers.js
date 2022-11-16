@@ -10,7 +10,7 @@ export function formatBytes(a, b) {
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
 
-import { mdiLanguageHtml5, mdiFileDocumentOutline, mdiNodejs, mdiFilePdf, mdiFileExcel, mdiCodeJson, mdiFileImage, mdiMovie, mdiLanguageMarkdown, mdiFile } from '@mdi/js'
+import { mdiLanguageHtml5, mdiFileDocumentOutline, mdiNodejs, mdiFilePdfBox, mdiFileExcel, mdiCodeJson, mdiFileImage, mdiMovie, mdiLanguageMarkdown, mdiFile } from '@mdi/js'
 
 export function getIconForFileType(type) {
   const types = {
@@ -18,7 +18,7 @@ export function getIconForFileType(type) {
     js: mdiNodejs,
     json: mdiCodeJson,
     md: mdiLanguageMarkdown,
-    pdf: mdiFilePdf,
+    pdf: mdiFilePdfBox,
     png: mdiFileImage,
     txt: mdiFileDocumentOutline,
     sub: mdiFileDocumentOutline,

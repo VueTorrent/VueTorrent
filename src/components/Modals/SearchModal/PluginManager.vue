@@ -5,12 +5,12 @@
     </v-btn>
     <v-dialog v-model="opened" width="50%">
       <v-card class="pa-0">
-        <v-card-title class="justify-center pa-1" >
+        <v-card-title class="justify-center pa-1">
           <v-toolbar flat dense class="transparent">
             <v-toolbar-title>
-             <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager
+              <v-icon>{{ mdiToyBrick }}</v-icon> Plugin manager
             </v-toolbar-title>
-            <v-spacer/>
+            <v-spacer />
             <v-btn fab small class="transparent elevation-0" @click="close">
               <v-icon>{{ mdiClose }}</v-icon>
             </v-btn>
@@ -54,7 +54,7 @@ export default {
     togglePlugin(plugin) {
       qbit.enableSearchPlugin([plugin.name], plugin.enabled)
     },
-    close(){
+    close() {
       this.opened = false
     }
   }

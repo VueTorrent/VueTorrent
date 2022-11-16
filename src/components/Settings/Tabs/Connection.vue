@@ -6,12 +6,12 @@
     <v-subheader>
       {{ $t('modals.settings.pageConnection.listeningSubHeader') }}
     </v-subheader>
-      <v-list-item>
-        <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.incomingConnectionPort')" />
-      </v-list-item>
-      <v-list-item>
-          <v-checkbox v-model="settings.upnp" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.useUPnP')" />
-      </v-list-item>
+    <v-list-item>
+      <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.incomingConnectionPort')" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="settings.upnp" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.useUPnP')" />
+    </v-list-item>
     <v-subheader>
       {{ $t('modals.settings.pageConnection.subHeader') }}
     </v-subheader>
@@ -133,7 +133,7 @@ export default {
       bittorrent_protocol: [
         { value: 0, text: 'TCP and μTP' },
         { value: 1, text: 'TCP' },
-        { value: 2, text: 'μTP' },
+        { value: 2, text: 'μTP' }
       ]
     }
   },

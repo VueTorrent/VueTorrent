@@ -1,13 +1,13 @@
 <template>
   <div class="px-1 px-sm-5 pt-4 background noselect" @click.self="resetSelected">
-    <v-row class="ma-0 pa-0" @click.self="resetSelected">
+    <v-row class="ma-0 pa-0 mb-2" @click.self="resetSelected">
       <v-col v-if="topPagination && isMobile" cols="12" class="align-center justify-center pa-0">
         <div class="text-center">
           <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
         </div>
       </v-col>
       <v-expand-x-transition>
-        <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 mt-1 transparent">
+        <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 transparent">
           <v-text-field
             v-model="input"
             autofocus
@@ -25,48 +25,62 @@
           />
         </v-card>
       </v-expand-x-transition>
-      <v-row style="margin-top: 6px" class="mb-1 mx-1">
-        <v-tooltip bottom>
-          <template #activator="{ on }">
-            <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="searchFilterEnabled = !searchFilterEnabled">
-              <v-icon color="grey">
-                {{ searchFilterEnabled ? mdiChevronLeftCircle : mdiTextBoxSearch }}
-              </v-icon>
-            </v-btn>
-          </template>
-          <span>Toggle Search Filter</span>
-        </v-tooltip>
-        <v-tooltip bottom>
-          <template #activator="{ on }">
-            <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="toggleSelectMode()">
-              <v-icon color="grey">
-                {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
-              </v-icon>
-            </v-btn>
-          </template>
-          <span>Select Mode</span>
-        </v-tooltip>
-        <v-tooltip bottom>
-          <template #activator="{ on }">
-            <v-btn text small fab class="mr-0 ml-0" aria-label="Sort Torrents" v-on="on" @click="addModal('SortModal')">
-              <v-icon color="grey">
-                {{ mdiSort }}
-              </v-icon>
-            </v-btn>
-          </template>
-          <span>Sort Torrents</span>
-        </v-tooltip>
-        <v-col v-if="topPagination && !isMobile" cols="8" class="align-center justify-center pa-0">
-          <div class="text-center">
-            <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
-          </div>
-        </v-col>
-        <v-col class="align-center justify-center">
-          <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
-            {{ torrentCountString }}
-          </span>
-        </v-col>
-      </v-row>
+      <v-tooltip bottom>
+        <template #activator="{ on }">
+          <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="searchFilterEnabled = !searchFilterEnabled">
+            <v-icon color="grey">
+              {{ searchFilterEnabled ? mdiChevronLeftCircle : mdiTextBoxSearch }}
+            </v-icon>
+          </v-btn>
+        </template>
+        <span>Toggle Search Filter</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template #activator="{ on }">
+          <v-btn text small fab class="mr-0 ml-0" aria-label="Select Mode" v-on="on" @click="toggleSelectMode">
+            <v-icon color="grey">
+              {{ $store.state.selectMode ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+            </v-icon>
+          </v-btn>
+        </template>
+        <span>Select Mode</span>
+      </v-tooltip>
+      <v-expand-x-transition>
+        <v-card v-show="sortEnabled" flat class="ma-0 pa-0 mt-1 transparent">
+          <v-select
+            v-model="sort_options.sort"
+            flat
+            solo
+            dense
+            height="30"
+            class="ml-2 mr-2"
+            :items="sortOptions"
+            style="max-width: 10em"
+            :prepend-icon="sort_options.reverse ? mdiArrowUpThin : mdiArrowDownThin"
+            @click:prepend="$store.state.sort_options.reverse = !$store.state.sort_options.reverse"
+          />
+        </v-card>
+      </v-expand-x-transition>
+      <v-tooltip bottom>
+        <template #activator="{ on }">
+          <v-btn text small fab class="mr-0 ml-0" aria-label="Sort Torrents" v-on="on" @click="sortEnabled = !sortEnabled">
+            <v-icon color="grey">
+              {{ sortEnabled ? mdiChevronLeftCircle : mdiSort }}
+            </v-icon>
+          </v-btn>
+        </template>
+        <span>Sort Torrents</span>
+      </v-tooltip>
+      <v-col v-if="topPagination && !isMobile" cols="8" class="align-center justify-center pa-0">
+        <div class="text-center">
+          <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
+        </div>
+      </v-col>
+      <v-col class="align-center justify-center">
+        <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
+          {{ torrentCountString }}
+        </span>
+      </v-col>
     </v-row>
     <v-row id="selectAllTorrents" class="ma-0 pa-0">
       <v-expand-transition>
@@ -129,8 +143,8 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort } from '@mdi/js'
-import { QuickScore } from "quick-score"
+import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort, mdiArrowUpThin, mdiArrowDownThin } from '@mdi/js'
+import { QuickScore } from 'quick-score'
 
 import Torrent from '@/components/Torrent/Torrent.vue'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
@@ -157,21 +171,42 @@ export default {
       },
       trcMoveTick: 0,
       searchFilterEnabled: false,
+      sortEnabled: false,
+      sortOptions: [
+        { value: 'added_on', text: this.$i18n.t('modals.sort.sortBy.addedOn') },
+        { value: 'availability', text: this.$i18n.t('modals.sort.sortBy.availability') },
+        { value: 'category', text: this.$i18n.t('modals.sort.sortBy.category') },
+        { value: 'completed', text: this.$i18n.t('modals.sort.sortBy.completed') },
+        { value: 'dlspeed', text: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
+        { value: 'downloaded', text: this.$i18n.t('modals.sort.sortBy.downloaded') },
+        { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
+        { value: 'name', text: this.$i18n.t('modals.sort.sortBy.name') },
+        { value: 'num_leechs', text: this.$i18n.t('modals.sort.sortBy.peers') },
+        { value: 'priority', text: this.$i18n.t('modals.sort.sortBy.priority') },
+        { value: 'progress', text: this.$i18n.t('modals.sort.sortBy.progress') },
+        { value: 'ratio', text: this.$i18n.t('modals.sort.sortBy.ratio') },
+        { value: 'save_path', text: this.$i18n.t('modals.sort.sortBy.save_path') },
+        { value: 'size', text: this.$i18n.t('modals.sort.sortBy.size') },
+        { value: 'state', text: this.$i18n.t('modals.sort.sortBy.state') },
+        { value: 'time_active', text: this.$i18n.t('modals.sort.sortBy.timeActive') },
+        { value: 'uploaded', text: this.$i18n.t('modals.sort.sortBy.uploaded') },
+        { value: 'upspeed', text: this.$i18n.t('modals.sort.sortBy.uploadSpeed') }
+      ],
       mdiTextBoxSearch,
       mdiChevronLeftCircle,
       mdiMagnify,
       mdiCheckboxBlankOutline,
       mdiCheckboxMarked,
-      mdiSort
+      mdiSort,
+      mdiArrowUpThin,
+      mdiArrowDownThin
     }
   },
   computed: {
-    ...mapState(['mainData', 'selected_torrents', 'dashboard']),
+    ...mapState(['mainData', 'selected_torrents', 'dashboard', 'sort_options']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
       if (!this.hasSearchFilter) return this.getTorrents()
-
-      // return this.getTorrents()
 
       const qs = new QuickScore(this.getTorrents(), ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category'])
       return qs.search(this.input).map(el => el.item)
@@ -249,7 +284,7 @@ export default {
   created() {
     this.$store.dispatch('INIT_INTERVALS')
     this.$store.commit('FETCH_CATEGORIES')
-    if(this.input) this.searchFilterEnabled = true
+    if (this.input) this.searchFilterEnabled = true
   },
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')
