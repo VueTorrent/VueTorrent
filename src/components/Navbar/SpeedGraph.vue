@@ -81,7 +81,7 @@ export default {
     },
     ...mapGetters(['getTheme']),
     theme() {
-      return this.getTheme() ? 'Dark' : 'Light'
+      return this.getTheme()
     }
   },
   watch: {

@@ -4,7 +4,7 @@ export default {
   computed: {
     ...mapGetters(['getTheme']),
     theme() {
-      return this.getTheme() ? 'dark' : 'light'
+      return this.getTheme()
     },
     isMobile() {
       return this.$vuetify.breakpoint.smAndDown

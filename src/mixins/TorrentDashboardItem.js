@@ -7,7 +7,7 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     },
     theme() {
-      return this.getTheme() ? 'dark' : 'light'
+      return this.getTheme()
     },
     state() {
       return this.torrent.state.toLowerCase()

@@ -44,7 +44,7 @@
 
 <script>
 import qbit from '@/services/qbit'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
 import ConnectionStatus from './ConnectionStatus.vue'
 
@@ -64,12 +64,13 @@ export default {
     mdiBellOff
   }),
   computed: {
-    ...mapGetters(['getTheme', 'getStatus', 'getAlarm']),
+    ...mapState(['webuiSettings']),
+    ...mapGetters(['isDarkMode', 'getWebuiSettings', 'getStatus', 'getAlarm']),
     webuiSettings() {
       return this.getWebuiSettings()
     },
     theme() {
-      return this.getTheme() ? this.$i18n.t('navbar.action.dark') : this.$i18n.t('navbar.action.light')
+      return this.isDarkMode() ? this.$i18n.t('navbar.action.dark') : this.$i18n.t('navbar.action.light')
     },
     alarm() {
       return this.getAlarm()
@@ -95,8 +96,8 @@ export default {
       qbit.toggleSpeedLimitsMode()
     },
     toggleTheme() {
-      this.$store.commit('TOGGLE_THEME')
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.webuiSettings.darkTheme = !this.webuiSettings.darkTheme
+      this.$vuetify.theme.dark = this.webuiSettings.darkTheme
     }
   }
 }

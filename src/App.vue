@@ -30,6 +30,7 @@ export default {
     }
   },
   created() {
+    this.$vuetify.theme.dark = this.webuiSettings.darkTheme
     this.$store.commit('SET_APP_VERSION', getVersion())
     this.$store.commit('SET_LANGUAGE')
     this.checkAuthentication()

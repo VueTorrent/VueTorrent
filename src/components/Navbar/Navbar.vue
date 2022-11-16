@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import { BottomActions, TopMenu, SpeedGraph, FreeSpace, TranserStats, CurrentSpeed, FilterSelect } from './index'
 
 export default {
@@ -59,7 +59,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getTheme', 'getWebuiSettings', 'getStatus', 'getTorrentCountString']),
+    ...mapGetters(['getWebuiSettings', 'getStatus', 'getTorrentCountString']),
     webuiSettings() {
       return this.getWebuiSettings()
     },
@@ -71,7 +71,6 @@ export default {
     }
   },
   created() {
-    this.$vuetify.theme.dark = this.getTheme()
     this.drawer = this.webuiSettings.openSideBarOnStart && this.$vuetify.breakpoint.mdAndUp
   }
 }
