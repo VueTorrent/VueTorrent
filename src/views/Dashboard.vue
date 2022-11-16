@@ -142,6 +142,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import { mapState, mapGetters } from 'vuex'
 import { mdiTextBoxSearch, mdiChevronLeftCircle, mdiMagnify, mdiCheckboxMarked, mdiCheckboxBlankOutline, mdiSort, mdiArrowUpThin, mdiArrowDownThin } from '@mdi/js'
 import { QuickScore } from 'quick-score'
@@ -225,9 +226,9 @@ export default {
       get() {
         return this.dashboard.searchFilter
       },
-      set(val) {
+      set: _.debounce(function (val) {
         this.dashboard.searchFilter = val
-      }
+      }, 300)
     },
     topPagination() {
       return this.getWebuiSettings().topPagination
