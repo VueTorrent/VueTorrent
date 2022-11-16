@@ -1,5 +1,46 @@
 # Changelog
 
+## [1.0.0](https://github.com/WDaan/VueTorrent/compare/v0.19.1...v1.0.0) (2022-11-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* move to vite + typescript => BREAKS PWA, please re-install! (#352)
+
+### Features
+
+* add directory to dashboard and sort [#538](https://github.com/WDaan/VueTorrent/issues/538) ([f474709](https://github.com/WDaan/VueTorrent/commit/f474709d4f28b20fe4c0ef92f56de76b924f5d0b))
+* add max_ratio_act handling ([#523](https://github.com/WDaan/VueTorrent/issues/523)) [@giacomocerquone](https://github.com/giacomocerquone) ([b05dcd0](https://github.com/WDaan/VueTorrent/commit/b05dcd0569e526f66420c9e2d30ef5f4e9fc864b))
+* additional connection settings [#317](https://github.com/WDaan/VueTorrent/issues/317) ([54b3456](https://github.com/WDaan/VueTorrent/commit/54b345682f18b45fc6f6fe5d7a732bb87932f664))
+* basic fake torrent generator [#518](https://github.com/WDaan/VueTorrent/issues/518) ([d3cda1a](https://github.com/WDaan/VueTorrent/commit/d3cda1a6499fcc2a7c4a548862b9c1e4fa338c23))
+* create nightly build ([1cdbb95](https://github.com/WDaan/VueTorrent/commit/1cdbb95f8ca258430f85eb7d3385dc134d5c3b48))
+* custom date format support [#340](https://github.com/WDaan/VueTorrent/issues/340) ([e08a445](https://github.com/WDaan/VueTorrent/commit/e08a4456ee3ce76af3c3a47c7a15cbb5141a4663))
+* Last Activity support [#217](https://github.com/WDaan/VueTorrent/issues/217) ([1d9279a](https://github.com/WDaan/VueTorrent/commit/1d9279a3764578fbc25ded4c0b035be855d04163))
+* move to vite + typescript => BREAKS PWA, please re-install! ([#352](https://github.com/WDaan/VueTorrent/issues/352)) ([5aa83fa](https://github.com/WDaan/VueTorrent/commit/5aa83fa95e0c072822b1c13910455b18f7a6bbb8))
+* optional top pagination [#539](https://github.com/WDaan/VueTorrent/issues/539) ([8a59d10](https://github.com/WDaan/VueTorrent/commit/8a59d10483e351ae95a8c32e878189411ce50ec1))
+* render "active time" in torrent info tab ([#537](https://github.com/WDaan/VueTorrent/issues/537)) [@invakid404](https://github.com/invakid404) ([d3cf4d5](https://github.com/WDaan/VueTorrent/commit/d3cf4d5795b1a62a8bc1e5a4645408657c4956cd))
+* sidebar on launch option [#182](https://github.com/WDaan/VueTorrent/issues/182) ([fca51c5](https://github.com/WDaan/VueTorrent/commit/fca51c536fe8cb96c878501c386efcb4ee868ff6))
+
+
+### Bug Fixes
+
+* copy to clipboard on non secure context (no SSL) [#521](https://github.com/WDaan/VueTorrent/issues/521) ([058766f](https://github.com/WDaan/VueTorrent/commit/058766f617e39f57bd56d68557b32797d70d4947))
+* dark theme glitch ([2b913d5](https://github.com/WDaan/VueTorrent/commit/2b913d5064d6c5135ed19c720cdccaaaf792fe4c))
+* disabling plugins [#443](https://github.com/WDaan/VueTorrent/issues/443) ([3b98949](https://github.com/WDaan/VueTorrent/commit/3b989499b867f00618a0a567831c9a1dcdc65418))
+* login autocomplete render issue [#474](https://github.com/WDaan/VueTorrent/issues/474) ([ef64c38](https://github.com/WDaan/VueTorrent/commit/ef64c38f099fca1be5db45741c60afc04fff3065))
+* replace v-html with conditional rendering in torrent details view ([#513](https://github.com/WDaan/VueTorrent/issues/513)) ([6d873e7](https://github.com/WDaan/VueTorrent/commit/6d873e76fc63544673bda673ff377c0b9b810706))
+* save path on category [#481](https://github.com/WDaan/VueTorrent/issues/481) ([954560e](https://github.com/WDaan/VueTorrent/commit/954560ee9675ce40f7131482fec83f87e7ef4296))
+* viewport ([60ecfc5](https://github.com/WDaan/VueTorrent/commit/60ecfc547b594e5ccbeede1d4d99ef0faa854c80))
+
+
+### Improvements
+
+* add sort none option [#128](https://github.com/WDaan/VueTorrent/issues/128) ([bf406e5](https://github.com/WDaan/VueTorrent/commit/bf406e5cfdda039f09add706c121db049328e65e))
+* extra add button for mobile [#466](https://github.com/WDaan/VueTorrent/issues/466) ([e2dcb8e](https://github.com/WDaan/VueTorrent/commit/e2dcb8e6f08e9f75f00276c0529af97a873d7e5b))
+* persist searchfilter + page [#462](https://github.com/WDaan/VueTorrent/issues/462) ([67b1551](https://github.com/WDaan/VueTorrent/commit/67b1551b36c94849d46c0a0dd5dadfda181df589))
+* sort dropdown in dashboard [#309](https://github.com/WDaan/VueTorrent/issues/309) ([b557db4](https://github.com/WDaan/VueTorrent/commit/b557db48e8ef33fb68fa802e35d9b77921c5a52d))
+* use quick-score instead of fuse.js [#306](https://github.com/WDaan/VueTorrent/issues/306) ([f9434c3](https://github.com/WDaan/VueTorrent/commit/f9434c375663689f605e57e7749bd010fc87ad7a))
+
 ### [0.19.1](https://github.com/WDaan/VueTorrent/compare/v0.19.0...v0.19.1) (2022-10-11)
 
 ### Bug Fixes
