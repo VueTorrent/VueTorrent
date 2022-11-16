@@ -103,6 +103,19 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
+        <v-col>
+          <v-switch
+            v-model="webuiSettings.openSideBarOnStart"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            :label="$t('modals.settings.pageVueTorrent.pageGeneral.openSideBarOnStart')"
+          />
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
+      <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
             {{ $t('modals.settings.pageVueTorrent.pageGeneral.language') }}

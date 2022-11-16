@@ -69,6 +69,7 @@ export default new Vuex.Store({
       topPagination: false,
       paginationSize: 15,
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
+      openSideBarOnStart: true,
       busyTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },

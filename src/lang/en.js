@@ -146,6 +146,7 @@ const locale = {
           paginationSize: 'Pagination size:',
           vueTorrentTitle: 'VueTorrent title:',
           dateFormat: 'Date Format',
+          openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: 'Current Version:',
           qbittorrentVersion: 'QBittorrent Version:'
         },

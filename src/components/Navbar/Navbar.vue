@@ -72,6 +72,7 @@ export default {
   },
   created() {
     this.$vuetify.theme.dark = this.getTheme()
+    this.drawer = this.webuiSettings.openSideBarOnStart && this.$vuetify.breakpoint.mdAndUp
   }
 }
 </script>
