@@ -58,7 +58,7 @@
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch v-model="webuiSettings.freeSpace" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')" />
+          <v-switch v-model="webuiSettings.showFreeSpace" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')" />
         </v-col>
       </v-row>
     </v-list-item>
