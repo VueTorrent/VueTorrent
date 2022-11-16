@@ -68,6 +68,7 @@ export default new Vuex.Store({
       rightDrawer: false,
       topPagination: false,
       paginationSize: 15,
+      dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       busyTorrentProperties: [
         { name: 'Size', active: true },
         { name: 'Progress', active: true },
@@ -85,7 +86,7 @@ export default new Vuex.Store({
         { name: 'Tags', active: true },
         { name: 'AddedOn', active: true },
         { name: 'Availability', active: true },
-        { name: 'LastActivity', active: false },
+        { name: 'LastActivity', active: false }
       ],
       doneTorrentProperties: [
         { name: 'Size', active: true },

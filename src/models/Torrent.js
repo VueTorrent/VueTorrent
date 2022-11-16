@@ -5,11 +5,13 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 dayjs.extend(duration)
 dayjs.extend(relativeTime)
 
+const durationFormat = 'D[d] H[h] m[m] s[s]'
+
 export default class Torrent {
-  constructor(data) {
+  constructor(data, format = 'DD/MM/YYYY, HH:mm:ss') {
     this.name = data.name
     this.size = data.size
-    this.added_on = new Date(data.added_on * 1000).toLocaleString()
+    this.added_on = dayjs(data.added_on * 1000).format(format)
     this.dlspeed = data.dlspeed
     this.dloaded = data.completed
     this.upspeed = data.upspeed
@@ -39,8 +41,8 @@ export default class Torrent {
     this.availability = Math.round(data.availability * 100) / 100
     this.forced = data.state.includes('forced')
     this.magnet = data.magnet_uri
-    this.time_active = dayjs.duration(data.time_active, 'seconds').format('D[d] H[h] m[m] s[s]')
-    this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format('D[d] H[h] m[m] s[s]') : null
+    this.time_active = dayjs.duration(data.time_active, 'seconds').format(durationFormat)
+    this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat) : null
     this.last_activity = dayjs(data.last_activity * 1000).fromNow()
 
     Object.freeze(this)

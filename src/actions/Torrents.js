@@ -15,7 +15,7 @@ export class Torrents {
     }
 
     // update torrents
-    store.state.torrents = data.map(t => new Torrent(t))
+    store.state.torrents = data.map(t => new Torrent(t, store.state.webuiSettings.dateFormat))
 
     // load fake torrents if enabled
     if (isProduction()) return

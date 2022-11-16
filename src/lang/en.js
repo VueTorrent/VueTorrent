@@ -141,10 +141,11 @@ const locale = {
           freeSpace: 'Show Free Space',
           trackerFilter: 'Show Tracker Filter',
           rightDrawer: 'Right Drawer',
-          topPagination: 'Place the pagination at the top of the screen',
+          topPagination: 'Top Pagination',
           language: 'Language:',
           paginationSize: 'Pagination size:',
           vueTorrentTitle: 'VueTorrent title:',
+          dateFormat: 'Date Format',
           currentVersion: 'Current Version:',
           qbittorrentVersion: 'QBittorrent Version:'
         },

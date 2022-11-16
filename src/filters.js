@@ -1,4 +1,3 @@
-import dayjs from 'dayjs'
 import Vue from 'vue'
 
 /* eslint-disable no-param-reassign */
@@ -33,18 +32,6 @@ export function formatSize(value) {
 
 Vue.filter('formatSize', formatSize)
 Vue.filter('size', formatSize)
-
-export function formatTimestamp(timestamp) {
-  if (timestamp == null || timestamp === -1) {
-    return ''
-  }
-
-  const m = dayjs.unix(timestamp)
-
-  return m.format('YYYY-MM-DD HH:mm:ss')
-}
-
-Vue.filter('formatTimestamp', formatTimestamp)
 
 export function formatProgress(progress) {
   progress *= 100
