@@ -57,7 +57,9 @@ const locale = {
     created: '製作程式',
     comments: '註解',
     uploadedSession: '上傳會話',
-    torrentTitle: '種子標題'
+    timeActive: '經過時間',
+    seededFor: '已做種',
+    last_activity: '最後活動'
   },
   /** Navbar */
   navbar: {
@@ -138,9 +140,12 @@ const locale = {
           freeSpace: '顯示剩餘空間',
           trackerFilter: '顯示追蹤者過濾',
           rightDrawer: '側邊欄居右顯示',
+          topPagination: '分頁欄於頂部顯示',
           language: '語言',
           paginationSize: '每頁展示數量',
           vueTorrentTitle: 'VueTorrent 標題',
+          dateFormat: '日期格式',
+          openSideBarOnStart: '啟動時顯示側邊欄',
           currentVersion: '當前版本',
           qbittorrentVersion: 'QBittorrent 版本'
         },
@@ -182,6 +187,10 @@ const locale = {
         }
       },
       pageConnection: {
+        protocol: '下載者連線協定',
+        listeningSubHeader: '監聽埠',
+        useUPnP: '使用從路由器轉送的 UPnP / NAT-PMP 連接埠',
+        incomingConnectionPort: '連入連線時使用的埠',
         subHeader: '連線限制',
         globalMaxConnection: '全域最大連線數',
         perTorrentMaxConnection: '單個種子的最大連線數',
@@ -367,10 +376,13 @@ const locale = {
         downloaded: '已下載',
         ETA: '預估剩餘時間',
         name: '名稱',
+        none: '無',
+        last_activity: '最後活動',
         peers: '下載者',
         priority: '優先級',
         progress: '進度',
         ratio: '分享率',
+        save_path: '儲存路徑',
         size: '大小',
         state: '狀態',
         uploaded: '已上傳',
