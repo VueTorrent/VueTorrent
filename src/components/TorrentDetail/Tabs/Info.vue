@@ -85,7 +85,7 @@
           </td>
           <td>
             {{ torrent.dlspeed | getDataValue }}
-            {{ torrent.dlspeed | getDataUnit(1) }}
+            {{ torrent.dlspeed | getDataUnit(1) }}/s
           </td>
         </tr>
         <tr>
@@ -94,7 +94,7 @@
           </td>
           <td>
             {{ torrent.upspeed | getDataValue }}
-            {{ torrent.upspeed | getDataUnit(1) }}
+            {{ torrent.upspeed | getDataUnit(1) }}/s
           </td>
         </tr>
         <tr>
