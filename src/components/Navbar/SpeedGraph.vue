@@ -57,7 +57,7 @@ export default {
           },
           y: {
             formatter: value => {
-              return `${getDataValue(value, 0)} ${getDataUnit(value)}`
+              return `${getDataValue(value, 0)} ${getDataUnit(value)}/s`
             }
           }
         }
