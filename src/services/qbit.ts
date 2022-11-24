@@ -125,12 +125,7 @@ export class QBitApi {
   }
 
   setTorrentName(hash, name) {
-    const params = {
-      hash,
-      name
-    }
-
-    return this.axios.get('/torrents/rename', { params })
+    return this.execute('post', '/torrents/rename', { hash, name })
   }
 
   getTorrentPieceStates(hash) {
