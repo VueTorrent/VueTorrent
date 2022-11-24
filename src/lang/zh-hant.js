@@ -283,9 +283,7 @@ const locale = {
       categoryName: '分類名稱',
       Path: '路徑',
       tipOnNoName: '必須填寫分類名稱',
-      tipOnNameTooLong: '分類名稱必須少於 15 個字符',
-      tipOnNoPath: '必須填寫路徑',
-      TipOnPathTooLong: '路徑必須少於 40 個字符'
+      tipOnNoPath: '必須填寫路徑'
     },
     newTag: {
       createNewTag: '新增標籤',

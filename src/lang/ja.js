@@ -269,9 +269,7 @@ const locale = {
       categoryName: 'カテゴリ名',
       Path: 'パス',
       tipOnNoName: 'カテゴリ名が必要です',
-      tipOnNameTooLong: 'カテゴリ名は15字以内である必要があります',
-      tipOnNoPath: 'パスが必要です',
-      TipOnPathTooLong: 'パスは40文字以内である必要があります'
+      tipOnNoPath: 'パスが必要です'
     },
     newTag: {
       createNewTag: 'タグを作成',

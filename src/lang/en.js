@@ -283,9 +283,7 @@ const locale = {
       categoryName: 'Category name',
       Path: 'Path',
       tipOnNoName: 'Category name is required',
-      tipOnNameTooLong: 'Category name must be less than 15 characters',
-      tipOnNoPath: 'Path is required',
-      TipOnPathTooLong: 'Path must be less than 40 characters'
+      tipOnNoPath: 'Path is required'
     },
     newTag: {
       createNewTag: 'Create New Tag',

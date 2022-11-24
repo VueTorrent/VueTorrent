@@ -269,9 +269,7 @@ const locale = {
       categoryName: '分类名称',
       Path: '路径',
       tipOnNoName: '分类名称是必须的',
-      tipOnNameTooLong: '分类名称必须小于 15 个字符',
-      tipOnNoPath: '路径是必须的',
-      TipOnPathTooLong: '路径必须小于 40 个字符'
+      tipOnNoPath: '路径是必须的'
     },
     newTag: {
       createNewTag: '新建标签',

@@ -226,9 +226,7 @@ const locale = {
       categoryName: 'Nom de la catégorie',
       Path: "Chemin d'accès",
       tipOnNoName: 'Le nom de la catégorie est obligatoire',
-      tipOnNameTooLong: 'Le nom de la catégorie doit comporter moins de 15 caractères',
-      tipOnNoPath: "Le chemin d'accès est requis",
-      TipOnPathTooLong: "Le chemin d'accès doit comporter moins de 40 caractères"
+      tipOnNoPath: "Le chemin d'accès est requis"
     },
     newTag: {
       createNewTag: 'Créer un nouveau tag',

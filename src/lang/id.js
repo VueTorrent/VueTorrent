@@ -275,9 +275,7 @@ const locale = {
       categoryName: 'Nama kategori',
       Path: 'Path',
       tipOnNoName: 'Nama kategori diperlukan',
-      tipOnNameTooLong: 'Nama kategori harus kurang dari 15 karakter',
-      tipOnNoPath: 'Path is required',
-      TipOnPathTooLong: 'Path harus kurang dari 40 karakter'
+      tipOnNoPath: 'Path is required'
     },
     newTag: {
       createNewTag: 'Buat Tag Baru',
