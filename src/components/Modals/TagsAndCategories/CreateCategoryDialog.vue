@@ -72,8 +72,6 @@ export default {
     create() {
       this.$refs.categoryForm.validate()
 
-      return
-
       qbit.createCategory(this.category)
       this.cancel()
     },
