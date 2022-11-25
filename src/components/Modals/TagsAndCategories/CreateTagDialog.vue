@@ -7,15 +7,15 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
-        <v-form class="px-6 mt-3">
+        <v-form ref="tagForm" v-model="valid" class="px-6 mt-3">
           <v-container>
-            <v-text-field v-model="tagname" :rules="rules" :counter="10" :label="$t('modals.newTag.tagName')" required />
+            <v-text-field v-model="tagname" :rules="rules" :label="$t('modals.newTag.tagName')" required />
           </v-container>
         </v-form>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn class="accent white--text elevation-0 px-4" @click="create">
+        <v-btn class="accent white--text elevation-0 px-4" @click="create" :disabled="!valid">
           {{ $t('create') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
@@ -34,7 +34,8 @@ export default {
   mixins: [Modal],
   data: () => ({
     tagname: '',
-    rules: [v => !!v || 'Tag is required', v => v.length <= 10 || 'Tag must be less than 10 characters']
+    rules: [v => !!v || 'Tag is required'],
+    valid: false
   }),
   methods: {
     create() {

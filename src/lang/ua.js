@@ -226,9 +226,7 @@ const locale = {
       categoryName: 'Назва категорії',
       Path: 'Шлях',
       tipOnNoName: 'Потрібна назва категорії',
-      tipOnNameTooLong: 'Назва категорії має містити менше 15 символів',
-      tipOnNoPath: 'Потрібний шлях',
-      TipOnPathTooLong: 'Шлях має бути менше 40 символів'
+      tipOnNoPath: 'Потрібний шлях'
     },
     newTag: {
       createNewTag: 'Створити новий тег',

@@ -7,10 +7,10 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
-        <v-form ref="categoryForm" v-model="valid" lazy-validation class="px-6 mt-3">
+        <v-form ref="categoryForm" v-model="valid" class="px-6 mt-3">
           <v-container>
-            <v-text-field v-model="category.name" :rules="nameRules" :counter="15" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
-            <v-text-field v-model="category.savePath" :rules="PathRules" :counter="40" :label="$t('path')" required />
+            <v-text-field v-model="category.name" :rules="nameRules" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
+            <v-text-field v-model="category.savePath" :rules="PathRules" :label="$t('path')" required />
           </v-container>
         </v-form>
       </v-card-text>
@@ -48,7 +48,7 @@ export default {
     mdiCancel,
     mdiTagPlus,
     mdiPencil,
-    valid: true
+    valid: false
   }),
   computed: {
     ...mapGetters(['getSelectedCategory']),
@@ -56,10 +56,10 @@ export default {
       return !!(this.initialCategory && this.initialCategory.name)
     },
     nameRules() {
-      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName'), v => (v && v.length <= 15) || this.$i18n.t('modals.newCategory.tipOnNameTooLong')]
+      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName')]
     },
     PathRules() {
-      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath'), v => (v && v.length <= 40) || this.$i18n.t('modals.newCategory.TipOnPathTooLong')]
+      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath')]
     }
   },
   created() {
@@ -70,10 +70,6 @@ export default {
   },
   methods: {
     create() {
-      this.$refs.categoryForm.validate()
-
-      return
-
       qbit.createCategory(this.category)
       this.cancel()
     },

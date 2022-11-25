@@ -269,9 +269,7 @@ const locale = {
       categoryName: 'Название категории',
       Path: 'Путь',
       tipOnNoName: 'Требуется название категории',
-      tipOnNameTooLong: 'Название категории должно содержать менее 15 символов',
-      tipOnNoPath: 'Нужный путь',
-      TipOnPathTooLong: 'Путь должен быть менее 40 символов'
+      tipOnNoPath: 'Нужный путь'
     },
     newTag: {
       createNewTag: 'Создать новый тег',
