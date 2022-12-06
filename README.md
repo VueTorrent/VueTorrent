@@ -1,5 +1,5 @@
 <div>
-  <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png " alt="VueTorrent"/>
+  <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
   <h1>VueTorrent</h1>
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
   <p>
