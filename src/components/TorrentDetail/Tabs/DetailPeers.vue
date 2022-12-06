@@ -80,20 +80,20 @@ export default {
     isActive(active) {
       if (active) {
         this.getTorrentPeers()
+        this.refreshTimer = setInterval(
+            function () {
+              this.getTorrentPeers()
+            }.bind(this),
+            2000
+        )
+      } else {
+        clearTimeout(this.refreshTimer)
       }
     }
   },
   created() {
-    this.getTorrentPeers()
-    this.refreshTimer = setInterval(
-      function () {
-        this.getTorrentPeers()
-      }.bind(this),
-      2000
-    )
   },
   beforeDestroy() {
-    clearTimeout(this.refreshTimer)
   },
   methods: {
     codeToFlag(val) {
