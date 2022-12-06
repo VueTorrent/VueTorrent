@@ -2,25 +2,21 @@
   <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
   <h1>VueTorrent</h1>
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
-  <p>
-    <a href="https://img.shields.io/github/stars/WDaan/VueTorrent">
-      <img src="https://img.shields.io/github/stars/WDaan/VueTorrent" alt="stars"/></a>
-    <a href="https://img.shields.io/github/forks/WDaan/VueTorrent">
-      <img src="https://img.shields.io/github/forks/WDaan/VueTorrent" alt="Forks"/></a>
-    <a href="https://img.shields.io/github/issues/WDaan/VueTorrent">
-      <img src="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues"/></a>
-    <a href="https://img.shields.io/github/issues-closed/wdaan/vuetorrent">
-      <img src="https://img.shields.io/github/issues-closed/WDaan/VueTorrent" alt="Issues Closed"/></a>
-    <a href="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent">
-      <img src="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" alt="Closed PR"/></a>
-    <a href="https://img.shields.io/github/v/release/wdaan/vuetorrent">
-      <img src="https://img.shields.io/github/v/release/wdaan/vuetorrent" alt="Version"/></a>
-    <a href="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components">
-      <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components" alt="Test Status"></a>
-    <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
-      <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total" alt="Downloads"></a>
-  </p>
 </div>
+
+![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) 
+![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen) 
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen) 
+
+
+![stars](https://img.shields.io/github/stars/WDaan/VueTorrent)
+![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
+![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent)
+![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
+![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent)
+![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
+![Test Status](https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components)
+![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
 
 ## Screenshots
