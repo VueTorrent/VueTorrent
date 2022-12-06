@@ -133,8 +133,6 @@ export default {
   methods: {
     initFiles() {
       this.getTorrentFiles().then(() => {
-        console.log(this.treeData)
-        // this.opened = [].concat(...this.treeData.map(file => file.name.split('/')).filter(f => f.splice(-1, 1))).filter((f, index, self) => index === self.indexOf(f))
         this.opened = []
         this.selected = this.treeData.filter(file => file.priority !== 0).map(file => file.name)
       })
