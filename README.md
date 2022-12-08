@@ -1,47 +1,37 @@
-# VueTorrent
+<div>
+  <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
+  <h1>VueTorrent</h1>
+  <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
+</div>
 
-<p>
-<img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">
+![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) 
+![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen) 
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen) 
 
-<p>&nbsp;</p>
-The sleekest looking WebUI for qBittorrent made with Vue.js!
 
-> Vue, qBittorrent, Vuetify
+![stars](https://img.shields.io/github/stars/WDaan/VueTorrent)
+![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
+![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent)
+![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
+![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent)
+![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
+![Test Status](https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components)
+![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
-</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p align="center">
-      <a href="https://img.shields.io/github/stars/WDaan/VueTorrent" alt="stars">
-        <img src="https://img.shields.io/github/stars/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/forks/WDaan/VueTorrent" alt="Forks">
-        <img src="https://img.shields.io/github/forks/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues">
-        <img src="https://img.shields.io/github/issues/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues-closed/wdaan/vuetorrent" alt="Issues Closed">
-        <img src="https://img.shields.io/github/issues-closed/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" alt="Closed PR">
-        <img src="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/v/release/wdaan/vuetorrent" alt="Version">
-        <img src="https://img.shields.io/github/v/release/wdaan/vuetorrent" /></a>
-      <a href="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components">
-        <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components" alt="Test Status"></a>
-      <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
-        <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total" alt="Downloads"></a>
-</p>
 
 ## Screenshots
 
-![Desktop screenshot](https://imgur.com/IUkaDnI.png)
++ Destop  
+![](readme_assets/screenshot-desktop.png)  
 
-|                                    |                                    |                                    |
-| :--------------------------------: | :--------------------------------: | :--------------------------------: |
-| ![](https://imgur.com/Zcm98H3.png) | ![](https://imgur.com/OujrH0f.png) | ![](https://imgur.com/3FZTXPL.png) |
-| ![](https://imgur.com/QYpNCXs.png) | ![](https://imgur.com/6j5wxhl.png) | ![](https://imgur.com/jnzDKjW.png) |
 
-<p align="center">
-<img src="https://imgur.com/weOOI7n.png" width="300" alt="Mobile screenshot">
-</p>
++ Desktop Dark Mode  
+![](readme_assets/screenshot-desktop-dark-mode.png)  
+
+
++ Mobile Dark Mode  
+![](readme_assets/screenshot-mobile-dark-mode.png)  
+
 
 ## Installation
 

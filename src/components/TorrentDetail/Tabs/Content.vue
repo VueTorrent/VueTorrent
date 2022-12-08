@@ -90,6 +90,7 @@ export default {
   },
   data() {
     return {
+      inited: false,
       opened: null,
       selected: [],
       treeData: null,
@@ -115,7 +116,12 @@ export default {
   watch: {
     isActive(active) {
       if (active) {
-        this.getTorrentFiles()
+        if (this.inited) {
+          this.getTorrentFiles()
+        } else {
+          this.initFiles()
+          this.inited = true
+        }
       }
     },
     selected(newValue, oldValue) {
@@ -123,12 +129,11 @@ export default {
     }
   },
   created() {
-    this.initFiles()
   },
   methods: {
     initFiles() {
       this.getTorrentFiles().then(() => {
-        this.opened = [].concat(...this.treeData.map(file => file.name.split('/')).filter(f => f.splice(-1, 1))).filter((f, index, self) => index === self.indexOf(f))
+        this.opened = []
         this.selected = this.treeData.filter(file => file.priority !== 0).map(file => file.name)
       })
     },
@@ -141,7 +146,7 @@ export default {
       this.treeData = data
     },
     async changeFilePriorities(newValue, oldValue) {
-      if (newValue.length == oldValue.length) return
+      if (newValue.length === oldValue.length) return
 
       const filesToExclude = oldValue
         .filter(f => !newValue.includes(f))
