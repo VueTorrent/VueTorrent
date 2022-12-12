@@ -42,6 +42,7 @@ const locale = {
   magnet: '磁力链接',
   feed: '订阅源',
   rule: '规则',
+  then: '则',
 
   /** Torrent */
   torrent: {
@@ -56,7 +57,9 @@ const locale = {
     created: '制作程序',
     comments: '注释',
     uploadedSession: '上传会话',
-    torrentTitle: '种子标题'
+    timeActive: '活跃时间',
+    seededFor: '做种',
+    last_activity: '上次活跃'
   },
   /** Navbar */
   navbar: {
@@ -109,7 +112,7 @@ const locale = {
         size: '大小',
         seeds: '上传',
         peers: '用户',
-        search_engine: '搜索引擎',
+        search_engine: '站点',
         action: '操作'
       }
     },
@@ -129,7 +132,7 @@ const locale = {
           dashboard: '面板'
         },
         pageGeneral: {
-          tip: '这些设置适用于自定义WebUI本身',
+          tip: '这些设置适用于自定义 WebUI 本身',
           currentSpeed: '显示当前速度',
           speedGraph: '显示速度图形化',
           sessionStats: '显示会话状态',
@@ -137,9 +140,12 @@ const locale = {
           freeSpace: '显示剩余空间',
           trackerFilter: '显示 Tracker 过滤',
           rightDrawer: '侧边栏居右显示',
+          topPagination: '置顶分页按钮',
           language: '语言',
           paginationSize: '每页展示数量',
           vueTorrentTitle: 'VueTorrent 标题',
+          dateFormat: '日期格式',
+          openSideBarOnStart: '启动时打开侧栏',
           currentVersion: '当前版本',
           qbittorrentVersion: 'QBittorrent 版本'
         },
@@ -181,6 +187,10 @@ const locale = {
         }
       },
       pageConnection: {
+        protocol: '对等连接协议',
+        listeningSubHeader: '监听端口',
+        useUPnP: '使用路由器的 UPnP/NAT-PMP 端口转发',
+        incomingConnectionPort: '用于传入连接的端口',
         subHeader: '连接限制',
         globalMaxConnection: '全局最大连接数',
         perTorrentMaxConnection: '单个种子最大连接数',
@@ -194,8 +204,8 @@ const locale = {
       pageBittorrent: {
         subHeaderPrivacy: '隐私',
         enableDHT: '启用 DHT（分散网络）寻找更多终端',
-        enablePeX: '启用 PeX （对等交换）寻找更多终端',
-        enableLPD: '启用 LPD （本地终端发现）寻找更多终端',
+        enablePeX: '启用 PeX（对等交换）寻找更多终端',
+        enableLPD: '启用 LPD（本地终端发现）寻找更多终端',
         enableAnonymous: '启用匿名模式',
         torrentQueue: '种子队列',
         maxActiveDownload: '最大活跃下载数',
@@ -207,7 +217,11 @@ const locale = {
         torrentInactivityTimer: '种子不活跃计数器',
         subHeaderSeedLimits: '做种限制',
         whenRatioReaches: '当比率达到时',
-        whenSeedingTimeReaches: '当做种时间达到时'
+        whenSeedingTimeReaches: '当做种时间达到时',
+        maxRatioPauseTorrent: '暂停种子',
+        maxRatioRemoveTorrent: '移除种子',
+        maxRatioRemoveTorrentAndFiles: '移除种子和文件',
+        maxRatioTorrentSuperseeding: '启用超级做种'
       },
       pageRss: {
         tabName: {
@@ -360,10 +374,13 @@ const locale = {
         downloaded: '下载量',
         ETA: '剩余时间',
         name: '名称',
+        none: '无',
+        last_activity: '最后活跃',
         peers: '用户',
         priority: '优先级',
         progress: '进度',
         ratio: '比率',
+        save_path: '目录',
         size: '大小',
         state: '状态',
         uploaded: '上传量',
