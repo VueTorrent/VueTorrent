@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 @import '@/styles/colors.scss';
 
 $sideborder-margin: 6px;
@@ -133,15 +133,15 @@ div {
     width: 8px;
     height: 8px;
     background: var(--v-background-base) !important;
-    border-radius: 0px 20px 20px 0px;
+    border-radius: 0 20px 20px 0;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background: gray;
   }
   .v-list {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
   }
 }
 body {
@@ -173,4 +173,8 @@ body {
       margin-right: 8px;
     }
   }
+}
+
+.theme--dark.v-input,.theme--dark.v-input input,.theme--dark.v-input textarea {
+  caret-color: auto;
 }
