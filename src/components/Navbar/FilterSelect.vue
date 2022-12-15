@@ -1,41 +1,45 @@
 <template>
   <div class="mt-1">
-    <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      {{ $t('status') }}
-    </label>
-    <v-select
-      name="state_filter"
-      aria-label="state_filter"
-      :value="selectedState"
-      class="ml-2 mr-2"
-      :label="$t('status')"
-      flat
-      solo
-      :items="options"
-      item-text="name"
-      color="download"
-      item-color="download"
-      background-color="secondary"
-      @input="setState"
-    />
-    <label class="white--text text-uppercase font-weight-medium caption ml-4">
-      {{ $t('category') }}
-    </label>
-    <v-select
-      aria-label="category_filter"
-      :value="selectedCategory"
-      flat
-      solo
-      class="ml-2 mr-2"
-      :label="$t('category')"
-      :items="availableCategories"
-      item-text="name"
-      color="download"
-      item-color="download"
-      background-color="secondary"
-      @input="setCategory"
-    />
-    <div v-if="showTrackerFilter">
+    <div id="status_filter">
+      <label class="white--text text-uppercase font-weight-medium caption ml-4">
+        {{ $t('status') }}
+      </label>
+      <v-select
+        name="state_filter"
+        aria-label="state_filter"
+        :value="selectedState"
+        class="ml-2 mr-2"
+        :label="$t('status')"
+        flat
+        solo
+        :items="options"
+        item-text="name"
+        color="download"
+        item-color="download"
+        background-color="secondary"
+        @input="setState"
+      />
+    </div>
+    <div id="category_filter">
+      <label class="white--text text-uppercase font-weight-medium caption ml-4">
+        {{ $t('category') }}
+      </label>
+      <v-select
+        aria-label="category_filter"
+        :value="selectedCategory"
+        flat
+        solo
+        class="ml-2 mr-2"
+        :label="$t('category')"
+        :items="availableCategories"
+        item-text="name"
+        color="download"
+        item-color="download"
+        background-color="secondary"
+        @input="setCategory"
+      />
+    </div>
+    <div id="tracker_filter" v-if="showTrackerFilter">
       <label class="white--text text-uppercase font-weight-medium caption ml-4"> Tracker </label>
       <v-select
         aria-label="tracker_filter"
@@ -124,30 +128,32 @@ export default {
     }
   },
   mounted() {
-    this.setDefaultValues()
+    this.loadFilter()
   },
   methods: {
-    applyFilter() {
+    commitFilter() {
       this.$store.commit('UPDATE_SORT_OPTIONS', {
         filter: this.selectedState,
         category: this.selectedCategory,
         tracker: this.selectedTracker
       })
     },
+    loadFilter() {
+      this.selectedState = this.$store.state.sort_options.filter
+      this.selectedCategory = this.$store.state.sort_options.category
+      this.selectedTracker = this.$store.state.sort_options.tracker
+    },
     setState(value) {
       this.selectedState = value
-      this.applyFilter()
-    },
-    setTracker(value) {
-      this.selectedTracker = value
-      this.applyFilter()
+      this.commitFilter()
     },
     setCategory(value) {
       this.selectedCategory = value
-      this.applyFilter()
+      this.commitFilter()
     },
-    setDefaultValues() {
-      this.selectedState = this.options.find(o => o.value === this.sort_options.filter).value || this.options[0].value
+    setTracker(value) {
+      this.selectedTracker = value
+      this.commitFilter()
     }
   }
 }

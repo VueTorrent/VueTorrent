@@ -47,7 +47,9 @@ export default new Vuex.Store({
       sort: 'priority',
       reverse: false,
       hashes: [],
-      filter: null
+      filter: null,
+      category: null,
+      tracker: null
     },
     rid: 0,
     pasteUrl: null,
