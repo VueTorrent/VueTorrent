@@ -56,7 +56,7 @@
                     </template>
                   </v-file-input>
                   <v-textarea
-                    v-if="files.length == 0"
+                    v-if="files.length === 0"
                     v-model="urls"
                     style="max-height: 200px; overflow-x: hidden; overflow-y: auto"
                     :label="$t('url')"
@@ -72,7 +72,8 @@
                 </v-col>
               </v-row>
 
-              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiTag" @input="categoryChanged" />
+              <v-combobox v-model="tags" :items="availableTags" clearable :label="$t('tags')" :prepend-icon="mdiTag" multiple chips />
+              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiShape" @input="categoryChanged" />
 
               <v-text-field
                 v-model="directory"
@@ -141,7 +142,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiCloudUpload, mdiFolder, mdiTag, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { mdiCloudUpload, mdiFolder, mdiTag, mdiShape, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal, Modal } from '@/mixins'
 
 export default {
@@ -155,6 +156,7 @@ export default {
       showWrapDrag: false,
       files: [],
       category: null,
+      tags: [],
       directory: '',
       start: true,
       skip_checking: false,
@@ -178,13 +180,14 @@ export default {
       mdiCloudUpload,
       mdiFolder,
       mdiTag,
+      mdiShape,
       mdiPaperclip,
       mdiLink,
       mdiClose
     }
   },
   computed: {
-    ...mapGetters(['getSettings', 'getCategories']),
+    ...mapGetters(['getSettings', 'getCategories', 'getAvailableTags']),
     validFile() {
       return this.Files.length > 0
     },
@@ -201,12 +204,15 @@ export default {
     },
     availableCategories() {
       return this.getCategories()
+    },
+    availableTags() {
+      return this.getAvailableTags()
     }
   },
   created() {
     this.urls = this.initialMagnet
     this.setSettings()
-    if (this.openSuddenly == true) {
+    if (this.openSuddenly === true) {
       this.dTransition = 'none'
     }
   },
@@ -217,6 +223,7 @@ export default {
     async setSettings() {
       await this.$store.dispatch('FETCH_SETTINGS')
       await this.$store.commit('FETCH_CATEGORIES')
+      await this.$store.commit('FETCH_TAGS')
       const settings = this.getSettings()
       this.start = !settings.start_paused_enabled
       this.autoTMM = settings.auto_tmm_enabled
@@ -259,6 +266,7 @@ export default {
         if (this.files.length) torrents.push(...this.files)
         if (this.urls) params.urls = this.urls
         if (this.category) params.category = this.category.name
+        if (this.tags) params.tags = this.tags.join(',')
         if (!this.autoTMM) params.savepath = this.directory
 
         qbit.addTorrents(params, torrents)
@@ -275,6 +283,7 @@ export default {
       this.url = null
       this.files = []
       this.category = null
+      this.tags = []
       this.directory = this.savepath
       this.skip_checking = null
     },
