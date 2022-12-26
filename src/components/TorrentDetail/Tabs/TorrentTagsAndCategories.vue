@@ -74,6 +74,7 @@ export default {
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
   },
   methods: {
     addTag(tag) {

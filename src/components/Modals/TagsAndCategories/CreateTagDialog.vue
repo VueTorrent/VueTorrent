@@ -37,12 +37,16 @@ export default {
     rules: [v => !!v || 'Tag is required'],
     valid: false
   }),
+  created() {
+    this.$store.commit('FETCH_TAGS')
+  },
   methods: {
     create() {
       qbit.createTag(this.tagname)
       this.cancel()
     },
     cancel() {
+      this.$store.commit('FETCH_TAGS')
       this.dialog = false
     }
   }

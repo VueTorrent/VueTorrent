@@ -39,6 +39,25 @@
         @input="setCategory"
       />
     </div>
+    <div id="tag_filter">
+      <label class="white--text text-uppercase font-weight-medium caption ml-4">
+        {{ $t('tags') }}
+      </label>
+      <v-select
+        aria-label="tag_filter"
+        :value="selectedTag"
+        flat
+        solo
+        class="ml-2 mr-2"
+        :label="$t('tag')"
+        :items="availableTags"
+        item-text="name"
+        color="download"
+        item-color="download"
+        background-color="secondary"
+        @input="setTag"
+      />
+    </div>
     <div id="tracker_filter" v-if="showTrackerFilter">
       <label class="white--text text-uppercase font-weight-medium caption ml-4"> Tracker </label>
       <v-select
@@ -67,10 +86,11 @@ export default {
   data: () => ({
     selectedState: null,
     selectedCategory: null,
+    selectedTag: null,
     selectedTracker: null
   }),
   computed: {
-    ...mapGetters(['getCategories', 'getTrackers']),
+    ...mapGetters(['getCategories', 'getAvailableTags', 'getTrackers']),
     ...mapState(['sort_options']),
     options() {
       return [
@@ -107,6 +127,13 @@ export default {
 
       return categories
     },
+    availableTags() {
+      return [
+        {name: 'All', value: null},
+        {name: 'Untagged', value: ''},
+        ...this.getAvailableTags()
+      ]
+    },
     availableTrackers() {
       const trackers = [
         { name: 'All', value: null },
@@ -135,12 +162,14 @@ export default {
       this.$store.commit('UPDATE_SORT_OPTIONS', {
         filter: this.selectedState,
         category: this.selectedCategory,
+        tag: this.selectedTag,
         tracker: this.selectedTracker
       })
     },
     loadFilter() {
       this.selectedState = this.$store.state.sort_options.filter
       this.selectedCategory = this.$store.state.sort_options.category
+      this.selectedTag = this.$store.state.sort_options.tag
       this.selectedTracker = this.$store.state.sort_options.tracker
     },
     setState(value) {
@@ -149,6 +178,10 @@ export default {
     },
     setCategory(value) {
       this.selectedCategory = value
+      this.commitFilter()
+    },
+    setTag(value) {
+      this.selectedTag = value
       this.commitFilter()
     },
     setTracker(value) {

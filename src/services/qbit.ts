@@ -101,7 +101,8 @@ export class QBitApi {
       reverse: payload.reverse,
       hashes: payload.hashes ? payload.hashes.join('|') : null,
       filter: payload.filter ? payload.filter : null,
-      category: payload.category !== null ? payload.category : null
+      category: payload.category !== null ? payload.category : null,
+      tag: payload.tag !== null ? payload.tag : null
     }
 
     // clean
@@ -141,7 +142,7 @@ export class QBitApi {
   }
 
   getAvailableTags() {
-    return this.axios.get('/torrents/tags')
+    return this.axios.get('/torrents/tags').then(res => res.data)
   }
 
   getTorrentProperties(hash) {
@@ -384,16 +385,16 @@ export class QBitApi {
   }
 
   /** Begin Torrent Tags **/
-  removeTorrentTag(hash, tag) {
+  removeTorrentTag(hashes, tag) {
     return this.execute('post', '/torrents/removeTags', {
-      hashes: hash,
+      hashes: hashes.join('|'),
       tags: tag
     })
   }
 
-  addTorrentTag(hash, tag) {
+  addTorrentTag(hashes, tag) {
     return this.execute('post', '/torrents/addTags ', {
-      hashes: hash,
+      hashes: hashes.join('|'),
       tags: tag
     })
   }

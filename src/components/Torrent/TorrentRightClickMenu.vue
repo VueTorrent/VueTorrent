@@ -113,6 +113,35 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-menu v-if="availableTags.length > 0" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+      <template #activator="{ on }">
+        <v-list-item link v-on="on">
+          <v-icon>{{ mdiTag }}</v-icon>
+          <v-list-item-title class="ml-2 list-item__title">
+            {{ $t('rightClick.tags') | titleCase }}
+          </v-list-item-title>
+          <v-list-item-action>
+            <v-icon>{{ mdiChevronRight }}</v-icon>
+          </v-list-item-action>
+        </v-list-item>
+      </template>
+      <v-list>
+        <v-list-item v-for="(tag, index) in availableTags" :key="index" link @click="setTag(tag)">
+          <v-icon>
+            {{ torrent.tags !== null && torrent.tags.includes(tag) ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
+          </v-icon>
+          <v-list-item-title class="ml-2 list-item__title">
+            {{ tag }}
+          </v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
+    <v-list-item v-else>
+      <v-icon>{{ mdiTagOff }}</v-icon>
+      <v-list-item-title class="ml-2 list-item__title">
+        {{ $t('rightClick.notags') | titleCase }}
+      </v-list-item-title>
+    </v-list-item>
     <v-menu :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -210,35 +239,37 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import qbit from '@/services/qbit'
-import { General, TorrentSelect } from '@/mixins'
+import {General, TorrentSelect} from '@/mixins'
 import {
-  mdiBullhorn,
-  mdiPlaylistCheck,
-  mdiArrowUp,
-  mdiArrowDown,
-  mdiPriorityLow,
-  mdiInformation,
-  mdiRenameBox,
-  mdiFolder,
-  mdiDelete,
   mdiAccountGroup,
-  mdiPlay,
-  mdiPause,
-  mdiSelect,
-  mdiPriorityHigh,
-  mdiChevronRight,
-  mdiFastForward,
-  mdiShape,
-  mdiHeadCog,
-  mdiCheckboxMarked,
+  mdiArrowDown,
+  mdiArrowUp,
+  mdiBullhorn,
   mdiCheckboxBlankOutline,
-  mdiSpeedometerSlow,
-  mdiChevronUp,
+  mdiCheckboxMarked,
   mdiChevronDown,
+  mdiChevronRight,
+  mdiChevronUp,
   mdiContentCopy,
-  mdiMagnet
+  mdiDelete,
+  mdiFastForward,
+  mdiFolder,
+  mdiHeadCog,
+  mdiInformation,
+  mdiMagnet,
+  mdiPause,
+  mdiPlay,
+  mdiPlaylistCheck,
+  mdiPriorityHigh,
+  mdiPriorityLow,
+  mdiRenameBox,
+  mdiSelect,
+  mdiShape,
+  mdiSpeedometerSlow,
+  mdiTag,
+  mdiTagOff
 } from '@mdi/js'
 
 export default {
@@ -273,6 +304,8 @@ export default {
       mdiBullhorn,
       mdiChevronRight,
       mdiShape,
+      mdiTag,
+      mdiTagOff,
       mdiHeadCog,
       mdiCheckboxMarked,
       mdiCheckboxBlankOutline,
@@ -283,7 +316,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getCategories']),
+    ...mapGetters(['getCategories', 'getAvailableTags']),
     ...mapState(['selected_torrents']),
     availableCategories() {
       const categories = [{ name: 'None', value: '' }]
@@ -294,6 +327,9 @@ export default {
       )
 
       return categories
+    },
+    availableTags() {
+      return this.getAvailableTags()
     },
     hashes() {
       if (this.multiple) return this.selected_torrents
@@ -356,6 +392,18 @@ export default {
     },
     setCategory(cat) {
       qbit.setCategory(this.hashes, cat)
+    },
+    setTag(tag) {
+      if (this.torrent.tags && this.torrent.tags.includes(tag))
+        return this.removeTag(tag)
+      else
+        return this.addTag(tag)
+    },
+    addTag(tag) {
+      qbit.addTorrentTag(this.hashes, tag)
+    },
+    removeTag(tag) {
+      qbit.removeTorrentTag(this.hashes, tag)
     },
     toggleSeq() {
       qbit.toggleSequentialDownload(this.hashes)
