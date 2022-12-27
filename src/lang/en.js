@@ -311,7 +311,7 @@ const locale = {
         createdBy: 'Created By',
         firstLastPiecePriority: 'First/Last Piece Priority',
         sequentialDownload: 'Sequential Download',
-        autoTMM: 'Auto TMM',
+        autoTMM: 'Automatic Torrent Management',
         shareRatioLimit: 'Share Ratio Limit',
         shareTimeLimit: 'Share Time Limit (minutes)',
         downloadLimit: 'Download Limit',
@@ -354,7 +354,7 @@ const locale = {
       createSubfolder: 'Create subfolder',
       automaticTorrentManagement: 'Automatic Torrent Management',
       dropHereForAdd: 'Drop here for add',
-      oneOrMoreFilesInvalidTorrent: 'One or more files is not a valid torrent'
+      oneOrMoreFilesInvalidTorrent: 'One or more files are not valid torrents'
     },
     changeLocation: {
       title: 'Change Location',
