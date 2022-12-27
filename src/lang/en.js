@@ -36,6 +36,7 @@ const locale = {
   ratio: 'Ratio',
   seeds: 'Seeds',
   tags: 'Tags',
+  tracker: 'Tracker',
   share: 'Share',
   name: 'Name',
   hash: 'Hash',
@@ -64,6 +65,8 @@ const locale = {
   /** Navbar */
   navbar: {
     currentSpeed: 'current speed',
+    alltimeTitle: 'all-time stats',
+    sessionTitle: 'session stats',
     freeSpace: 'free space',
     topActions: {
       addTorrent: 'add torrent',
@@ -78,7 +81,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Stalled Uploading',
-      stalled_downloading: 'Stalled Downloading'
+      stalled_downloading: 'Stalled Downloading',
+      uncategorized: 'Uncategorized',
+      untagged: 'Untagged',
+      not_working: 'Not Working'
     },
     action: {
       altSpeed: 'Alt speeds',

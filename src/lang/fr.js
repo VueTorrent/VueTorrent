@@ -14,9 +14,9 @@ const locale = {
   url: 'URL',
   directory: 'Répertoire',
   unknown: 'inconnu',
-  status: 'statut',
-  all: 'tout',
-  downloading: 'téléchargement',
+  status: 'Statut',
+  all: 'Tout',
+  downloading: 'Téléchargement',
   seeding: 'Seeding',
   completed: 'Complété',
   resumed: 'A repris',
@@ -36,6 +36,7 @@ const locale = {
   ratio: 'Ratio',
   seeds: 'Seeds',
   tags: 'Tags',
+  tracker: 'Traqueur',
   share: 'Partager',
   name: 'Nom',
   hash: 'Hash',
@@ -64,6 +65,8 @@ const locale = {
   /** Navbar */
   navbar: {
     currentSpeed: 'vitesse actuelle',
+    alltimeTitle: 'Stats Globales',
+    sessionTitle: 'Stats de la Session',
     freeSpace: 'espace libre',
     topActions: {
       addTorrent: 'ajouter un Torrent',
@@ -77,8 +80,11 @@ const locale = {
       tooltip: 'Depuis le dernier redémarrage de qBittorrent'
     },
     filters: {
-      stalled_uploading: 'Chargement bloqué',
-      stalled_downloading: 'Téléchargement bloqué'
+      stalled_uploading: 'Téléversement bloqué',
+      stalled_downloading: 'Téléchargement bloqué',
+      uncategorized: 'Non catégorisé',
+      untagged: 'Non taggé',
+      not_working: 'Non Fonctionnel'
     },
     action: {
       altSpeed: 'Vitesse Alternative',

@@ -59,7 +59,9 @@
       />
     </div>
     <div id="tracker_filter" v-if="showTrackerFilter">
-      <label class="white--text text-uppercase font-weight-medium caption ml-4"> Tracker </label>
+      <label class="white--text text-uppercase font-weight-medium caption ml-4">
+        {{ $t('tracker') }}
+      </label>
       <v-select
         aria-label="tracker_filter"
         :value="selectedTracker"
@@ -116,8 +118,8 @@ export default {
     },
     availableCategories() {
       const categories = [
-        { name: 'All', value: null },
-        { name: 'Uncategorized', value: '' }
+        {name: this.$i18n.t('all'), value: null},
+        {name: this.$i18n.t('navbar.filters.uncategorized'), value: ''}
       ]
       categories.push(
         ...this.getCategories().map(c => {
@@ -129,15 +131,15 @@ export default {
     },
     availableTags() {
       return [
-        {name: 'All', value: null},
-        {name: 'Untagged', value: ''},
+        {name: this.$i18n.t('all'), value: null},
+        {name: this.$i18n.t('navbar.filters.untagged'), value: ''},
         ...this.getAvailableTags()
       ]
     },
     availableTrackers() {
       const trackers = [
-        { name: 'All', value: null },
-        { name: 'Not working', value: '' }
+        {name: this.$i18n.t('all'), value: null},
+        {name: this.$i18n.t('navbar.filters.not_working'), value: ''}
       ]
 
       if (this.showTrackerFilter) {
