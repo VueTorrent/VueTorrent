@@ -3,7 +3,7 @@
     <v-card flat>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
-          <h3>{{ hasInitialRule ? $t('edit') : $t('createNew') }} {{ $t('rule') }}</h3>
+          <h3>{{ hasInitialRule ? $t('modals.newRule.titleEdit') : $t('modals.newRule.titleCreate') }}</h3>
         </v-toolbar-title>
       </v-card-title>
       <v-card-text class="pa-2">

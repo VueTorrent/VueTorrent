@@ -8,7 +8,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span> {{ $t('navbar.topActions.addTorrent') | titleCase }}</span>
+      <span> {{ $t('navbar.topActions.addTorrent') }}</span>
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
@@ -18,7 +18,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>{{ $t('navbar.topActions.resumeSelected') | titleCase }}</span>
+      <span>{{ $t('navbar.topActions.resumeSelected') }}</span>
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
@@ -28,7 +28,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span> {{ $t('navbar.topActions.pauseSelected') | titleCase }}</span>
+      <span> {{ $t('navbar.topActions.pauseSelected') }}</span>
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
@@ -38,7 +38,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span> {{ $t('navbar.topActions.removeSelected') | titleCase }}</span>
+      <span> {{ $t('navbar.topActions.removeSelected') }}</span>
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
@@ -48,7 +48,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>{{ $t('navbar.topActions.searchNew') | titleCase }}</span>
+      <span>{{ $t('navbar.topActions.searchNew') }}</span>
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
@@ -58,7 +58,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <span>{{ $t('navbar.topActions.openSettings') | titleCase }}</span>
+      <span>{{ $t('navbar.topActions.openSettings') }}</span>
     </v-tooltip>
   </div>
 </template>

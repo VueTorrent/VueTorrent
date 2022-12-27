@@ -2,35 +2,35 @@ const locale = {
   /** General */
   category: 'Catégorie',
   settings: 'Paramètres',
-  pause: 'pause',
-  delete: 'supprimer',
-  save: 'sauvegarder',
-  cancel: 'annuler',
-  confirm: 'confirmer',
+  pause: 'Pause',
+  delete: 'Supprimer',
+  save: 'Sauvegarder',
+  cancel: 'Annuler',
+  confirm: 'Confirmer',
   edit: 'Editer',
   createNew: 'Créer un nouveau',
   path: 'Chemin',
   create: 'Créer',
   url: 'URL',
   directory: 'Répertoire',
-  unknown: 'inconnu',
+  unknown: 'Inconnu',
   status: 'Statut',
   all: 'Tout',
   downloading: 'Téléchargement',
   seeding: 'Seeding',
   completed: 'Complété',
-  resumed: 'A repris',
-  paused: 'En pause',
+  resumed: 'A Repris',
+  paused: 'En Pause',
   active: 'Actif',
   inactive: 'Inactif',
   stalled: 'Bloqué',
   errored: 'Erreur',
-  login: 'Se connecter',
-  logout: 'Se déconnecter',
-  downloaded: 'téléchargé',
-  uploaded: 'téléversé',
-  upload: 'téléversement',
-  download: 'téléchargement',
+  login: 'Se Connecter',
+  logout: 'Se Déconnecter',
+  download: 'Téléchargement',
+  downloaded: 'Téléchargé',
+  upload: 'Téléversement',
+  uploaded: 'Téléversé',
   ETA: 'ETA',
   peers: 'Pairs',
   ratio: 'Ratio',
@@ -41,40 +41,51 @@ const locale = {
   name: 'Nom',
   hash: 'Hash',
   magnet: 'Magnet',
-  feed: 'flux',
-  rule: 'règles',
-  then: 'alors',
+  feed: 'Flux',
+  rule: 'Règles',
+  then: 'Alors',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      toggleSearch: 'Rechercher un torrent',
+      toggleSelect: 'Activer / Désactiver la selection multiple',
+      toggleSort: 'Trier les torrents',
+      selectAll: 'Tout sélectionner',
+      selectAllCaption: '(Dé)Selectionne Tout (Ctrl + A)'
+    },
+    emptyTorrentList: 'Aucun torrent enregistré!'
+  },
   /** Torrent */
   torrent: {
-    title: 'titre',
-    added: 'ajouté le',
-    availability: 'disponibilité',
-    size: 'taille',
-    progress: 'progression',
-    directory: 'dossier',
-    downloaded: 'téléchargé',
-    uploaded: 'uploadé',
-    created: 'créé par',
-    comments: 'commentaires',
+    title: 'Titre',
+    added: 'Ajouté Le',
+    availability: 'Disponibilité',
+    size: 'Taille',
+    progress: 'Progression',
+    directory: 'Dossier',
+    downloaded: 'Téléchargé',
+    uploaded: 'Uploadé',
+    created: 'Créé Par',
+    comments: 'Commentaires',
     uploadedSession: 'Session de téléversement',
-    timeActive: "temps d'activité",
-    seededFor: 'seed depuis',
-    last_activity: 'dernière activité'
+    timeActive: "Temps d'Activité",
+    seededFor: 'Seed Depuis',
+    last_activity: 'Dernière Activité'
   },
   /** Navbar */
   navbar: {
-    currentSpeed: 'vitesse actuelle',
+    currentSpeed: 'Vitesse Actuelle',
     alltimeTitle: 'Stats Globales',
     sessionTitle: 'Stats de la Session',
     freeSpace: 'espace libre',
     topActions: {
-      addTorrent: 'ajouter un Torrent',
-      resumeSelected: 'reprendre les Torrents sélectionnés',
-      pauseSelected: 'mettre en pause les Torrents sélectionnés',
-      removeSelected: 'supprimer les Torrents sélectionnés',
-      openSettings: 'ouvrir les paramètres',
-      searchNew: 'rechercher un nouveau Torrent'
+      addTorrent: 'Ajouter un torrent',
+      resumeSelected: 'Reprendre les torrents sélectionnés',
+      pauseSelected: 'Mettre en pause les torrents sélectionnés',
+      removeSelected: 'Supprimer les torrents sélectionnés',
+      openSettings: 'Ouvrir les paramètres',
+      searchNew: 'Rechercher un nouveau torrent'
     },
     sessionStats: {
       tooltip: 'Depuis le dernier redémarrage de qBittorrent'
@@ -100,6 +111,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
+      titleCreate: 'Créer une nouvelle règle',
+      titleEdit: 'Modifier une règle',
       name: 'Nom',
       def: {
         mustContain: 'Doit contenir',
@@ -146,10 +159,10 @@ const locale = {
           freeSpace: "Afficher l'espace libre",
           trackerFilter: 'Afficher le filtre des trackers',
           rightDrawer: 'Menu à droite',
-          topPagination: 'Pagination du haut',
+          topPagination: 'Pagination en haut',
           language: 'Langue:',
           paginationSize: 'Taille de la pagination:',
-          vueTorrentTitle: 'Titre de VueTorrent:',
+          vueTorrentTitle: 'Titre de la page:',
           dateFormat: 'Format de date',
           openSideBarOnStart: 'Ouvrir la barre latérale au lancement',
           currentVersion: 'Version actuelle:',
@@ -176,7 +189,7 @@ const locale = {
           autoManagement: 'Gestion automatique des torrents',
           relocate: 'Déplacer le torrent lorsque la catégorie change',
           defaultSavePath: 'Chemin de sauvegarde par défaut',
-          keepIncompleteIn: 'Gardez les torrents incomplets dans :',
+          keepIncompleteIn: 'Garder les torrents incomplets',
           autoEnabled: 'Autorun activé:',
           autorunProgram: "Programme de l'autorun",
           supportParamTitle: 'Paramètres pris en charge (sensibles à la casse) :',
@@ -197,7 +210,7 @@ const locale = {
         listeningSubHeader: "Port d'écoute",
         useUPnP: 'Utiliser la redirection de port UPnP / NAT-PMP de mon routeur',
         incomingConnectionPort: 'Port utilisé pour les connexions entrantes',
-        subHeader: 'Limites de connexion',
+        subHeader: 'Limites de connexion (-1 pour désactiver)',
         globalMaxConnection: 'Nombre max de connexions globales',
         perTorrentMaxConnection: 'Nombre max de connexions par torrent',
         globalMaxUploadSlots: "Nombre maximum de slots d'upload global",
@@ -215,15 +228,15 @@ const locale = {
         enableAnonymous: 'Activer le mode anonyme',
         torrentQueue: "File d'attente des torrents",
         maxActiveDownload: 'Téléchargements actifs maximums',
-        maxActiveUpload: 'Chargements actifs maximums',
+        maxActiveUpload: 'Téléversements actifs maximums',
         maxActiveTorrent: 'Maximum de torrents actifs',
-        excludeSlowTorrent: 'Ne pas compter les torrents lents dans ces limites.',
-        downloadRateLimit: 'Seuil du taux de téléchargement en KiB/s',
-        uploadRateLimit: 'Seuil du débit de chargement en KiB/s',
-        torrentInactivityTimer: "Délai d'inactivité du torrent",
-        subHeaderSeedLimits: 'Limites de seed',
+        excludeSlowTorrent: 'Ne pas compter les torrents lents',
+        downloadRateLimit: 'Seuil de téléchargement (en KiB/s)',
+        uploadRateLimit: 'Seuil de téléversement (en KiB/s)',
+        torrentInactivityTimer: "Délai d'inactivité du torrent (en secondes)",
+        subHeaderSeedLimits: 'Arrêter de seed',
         whenRatioReaches: 'Lorsque le ratio atteint',
-        whenSeedingTimeReaches: 'Lorsque le temps de seeding atteint',
+        whenSeedingTimeReaches: 'Lorsque le temps de seed atteint',
         maxRatioPauseTorrent: 'Mettre en pause le torrent',
         maxRatioRemoveTorrent: 'Supprimer le torrent',
         maxRatioRemoveTorrentAndFiles: 'Suprimer le torrent & son contenu',
@@ -249,7 +262,7 @@ const locale = {
           input: {
             enableRssAutoDownload: 'Activer le téléchargement automatique des torrents RSS',
             enableRssProcessing: 'Activer la récupération des flux RSS',
-            feedsRefreshInterval: 'Intervalle de rafraichissement des flux',
+            feedsRefreshInterval: 'Intervalle de rafraichissement des flux (en minutes)',
             feedsMaxArticles: "Nombre maximum d'articles par flux"
           }
         }
@@ -261,8 +274,8 @@ const locale = {
         ipAddress: 'Adresse IP:',
         port: 'Port',
         authentication: 'Authentification',
-        username: "Nom d'utilisateur",
-        password: 'mot de passe',
+        username: "Nom d'Utilisateur",
+        password: 'Mot de Passe',
         maxAttempts: 'Tentatives maximales',
         banDuration: 'Durée de ban (secondes)',
         sessionTimeout: "Délai d'expiration de la session (secondes)",
@@ -380,7 +393,7 @@ const locale = {
         downloaded: 'Téléchargé',
         ETA: 'ETA',
         name: 'Nom',
-        none: 'Aucun',
+        default: 'Default',
         last_activity: 'Dernière activité',
         peers: 'Pairs',
         priority: 'Priorité',
@@ -390,14 +403,14 @@ const locale = {
         size: 'Taille',
         state: 'État',
         uploaded: 'Téléversé',
-        addedOn: 'Ajouté le',
+        addedOn: 'Ajouté Le',
         downloadSpeed: 'Vitesse de téléchargement',
         timeActive: 'Temps actif',
         uploadSpeed: "Vitesse d'upload"
       }
     },
     speedLimit: {
-      speedLimit: 'Limite de vitesse'
+      speedLimit: 'Limite de Vitesse'
     },
     delete: {
       check: 'Supprimer également les fichiers du disque'
@@ -416,16 +429,16 @@ const locale = {
 
   /** RightClick **/
   rightClick: {
-    resume: 'reprendre',
-    forceResume: 'forcer la reprise',
+    resume: 'Reprendre',
+    forceResume: 'Forcer la reprise',
     advanced: {
-      advanced: 'avancé',
-      changeLocation: "changer l'emplacement",
-      rename: 'renommer',
+      advanced: 'Avancé',
+      changeLocation: "Changer l'emplacement",
+      rename: 'Renommer',
       forceRecheck: 'Forcer la revérification',
       forceReannounce: 'Forcer la réannonce',
       sequentialDownload: 'Téléchargement séquentiel',
-      firstLastPriority: 'priorité de la Première/dernière pièce',
+      firstLastPriority: 'Priorité de la première/dernière pièce',
       automaticTorrentManagement: 'Gestion automatique des torrents'
     },
     prio: {
@@ -439,8 +452,8 @@ const locale = {
     tags: 'Définir les tags',
     notags: 'Aucun tag',
     limit: 'Définir la limite',
-    copy: 'copier',
-    info: 'afficher les informations'
+    copy: 'Copier',
+    info: 'Propriétés'
   }
 }
 

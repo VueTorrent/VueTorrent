@@ -374,7 +374,7 @@ const locale = {
           downloaded: 'Завантажено',
           ETA: 'ОЧЗ',
           name: "Ім'я",
-          none: 'Немає',
+          default: 'Немає',
           last_activity: 'Остання активність',
           peers: 'Піри',
           priority: 'Пріоритет',

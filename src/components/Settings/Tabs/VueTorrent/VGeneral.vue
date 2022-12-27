@@ -33,11 +33,11 @@
       <v-row dense>
         <v-col>
           <v-switch
-            v-model="webuiSettings.showSessionStat"
+            v-model="webuiSettings.showAlltimeStat"
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
+            :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')"
           />
         </v-col>
       </v-row>
@@ -46,11 +46,11 @@
       <v-row dense>
         <v-col>
           <v-switch
-            v-model="webuiSettings.showAlltimeStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')"
+              v-model="webuiSettings.showSessionStat"
+              class="v-input--reverse pa-0 ma-0"
+              hide-details
+              inset
+              :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
           />
         </v-col>
       </v-row>
@@ -212,7 +212,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { Qbit } from '../../../../services/qbit'
+import { Qbit } from '@/services/qbit'
 import { i18n } from '@/plugins/i18n'
 
 export default {

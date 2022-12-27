@@ -15,6 +15,7 @@
         type="number"
         hide-details
         :label="$t('modals.settings.pageRss.pageGeneral.input.feedsRefreshInterval')"
+        :disabled="!settings.rss_processing_enabled"
       />
     </v-list-item>
     <v-list-item>
@@ -26,6 +27,7 @@
         type="number"
         hide-details
         :label="$t('modals.settings.pageRss.pageGeneral.input.feedsMaxArticles')"
+        :disabled="!settings.rss_processing_enabled"
       />
     </v-list-item>
     <v-divider />

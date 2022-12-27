@@ -33,7 +33,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Toggle Search Filter</span>
+        <span>{{ $t('dashboard.tooltips.toggleSearch') }}</span>
       </v-tooltip>
       <v-tooltip bottom>
         <template #activator="{ on }">
@@ -43,7 +43,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Select Mode</span>
+        <span>{{ $t('dashboard.tooltips.toggleSelect') }}</span>
       </v-tooltip>
       <v-expand-x-transition>
         <v-card v-show="sortEnabled" flat class="ma-0 pa-0 mt-1 transparent">
@@ -69,7 +69,7 @@
             </v-icon>
           </v-btn>
         </template>
-        <span>Sort Torrents</span>
+        <span>{{ $t('dashboard.tooltips.toggleSort') }}</span>
       </v-tooltip>
       <v-col v-if="topPagination && !isMobile" cols="8" class="align-center justify-center pa-0">
         <div class="text-center">
@@ -93,14 +93,14 @@
                 </v-icon>
               </v-btn>
             </template>
-            <span>Select All</span>
+            <span>{{ $t('dashboard.tooltips.selectAll') }}</span>
           </v-tooltip>
-          <span class="grey--text"> Select / Release All ( Ctrl + A ) </span>
+          <span class="grey--text">{{ $t('dashboard.tooltips.selectAllCaption') }}</span>
         </v-card>
       </v-expand-transition>
     </v-row>
     <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-      <p class="grey--text">Nothing to see here!</p>
+      <p class="grey--text">{{ $t('dashboard.emptyTorrentList') }}</p>
     </div>
     <div v-else>
       <v-list class="pa-0 transparent">
@@ -174,7 +174,7 @@ export default {
       searchFilterEnabled: false,
       sortEnabled: false,
       sortOptions: [
-        { value: '', text: this.$i18n.t('modals.sort.sortBy.none') },
+        { value: '', text: this.$i18n.t('modals.sort.sortBy.default') },
         { value: 'added_on', text: this.$i18n.t('modals.sort.sortBy.addedOn') },
         { value: 'availability', text: this.$i18n.t('modals.sort.sortBy.availability') },
         { value: 'category', text: this.$i18n.t('modals.sort.sortBy.category') },
@@ -300,15 +300,15 @@ export default {
       this.trcMoveTick = 0
       this.trcMenu.show = false
       clearTimeout(this.tmCalc.TouchTimer)
-      if (e.touches.length == 1) {
+      if (e.touches.length === 1) {
         // one finger only
         this.tmCalc.LastFinger = 1
         this.tmCalc.TouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
       }
-      if (e.touches.length == 2) {
+      if (e.touches.length === 2) {
         // two finger
         this.tmCalc.LastFinger = 2
-        if (this.tmCalc.LastHash == data.torrent.hash) {
+        if (this.tmCalc.LastHash === data.torrent.hash) {
           e.preventDefault()
           this.showTorrentRightClickMenu(e.touches[0], data, true)
         }
@@ -317,10 +317,10 @@ export default {
     },
     strTouchMove(e) {
       this.trcMoveTick++
-      if (this.trcMenu.show == true && e.touches.length > 1) {
+      if (this.trcMenu.show === true && e.touches.length > 1) {
         e.preventDefault()
-      } else if (this.trcMoveTick > 1 && e.touches.length == 1) {
-        if (this.tmCalc.LastFinger == 1) this.trcMenu.show = false
+      } else if (this.trcMoveTick > 1 && e.touches.length === 1) {
+        if (this.tmCalc.LastFinger === 1) this.trcMenu.show = false
         clearTimeout(this.tmCalc.TouchTimer)
       }
     },
@@ -340,7 +340,7 @@ export default {
       })
     },
     detectDragEnter() {
-      if (this.selected_torrents.length == 0 && this.$store.state.modals.length < 1) {
+      if (this.selected_torrents.length === 0 && this.$store.state.modals.length < 1) {
         this.createModal('AddModal', { openSuddenly: true })
       }
 

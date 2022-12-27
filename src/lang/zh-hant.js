@@ -374,7 +374,7 @@ const locale = {
         downloaded: '已下載',
         ETA: '預估剩餘時間',
         name: '名稱',
-        none: '無',
+        default: '無',
         last_activity: '最後活動',
         peers: '下載者',
         priority: '優先級',

@@ -374,7 +374,7 @@ const locale = {
         downloaded: '下载量',
         ETA: '剩余时间',
         name: '名称',
-        none: '无',
+        default: '无',
         last_activity: '最后活跃',
         peers: '用户',
         priority: '优先级',
