@@ -170,7 +170,31 @@ const locale = {
         },
         pageDashboard: {
           busyTorrentTip: 'Properties to display for busy torrents',
-          completedTorrentTip: 'Properties to display for completed torrents'
+          completedTorrentTip: 'Properties to display for completed torrents',
+          properties: {
+            availability: 'Availability',
+            category: 'Category',
+            tags: 'Tags',
+            completed: 'Completed',
+            downloaded: 'Downloaded',
+            ETA: 'ETA',
+            name: 'Name',
+            default: 'Default',
+            last_activity: 'Last Activity',
+            peers: 'Peers',
+            seeds: 'Seeds',
+            priority: 'Priority',
+            progress: 'Progress',
+            ratio: 'Ratio',
+            save_path: 'Directory',
+            size: 'Size',
+            state: 'State',
+            uploaded: 'Uploaded',
+            addedOn: 'Added On',
+            downloadSpeed: 'Download Speed',
+            timeActive: 'Time Active',
+            uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {

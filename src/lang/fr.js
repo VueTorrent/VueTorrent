@@ -170,7 +170,31 @@ const locale = {
         },
         pageDashboard: {
           busyTorrentTip: 'Propriétés à afficher pour les torrents occupés',
-          completedTorrentTip: 'Propriétés à afficher pour les torrents terminés'
+          completedTorrentTip: 'Propriétés à afficher pour les torrents terminés',
+          properties: {
+            availability: 'Disponibilité',
+            category: 'Catégorie',
+            tags: 'Tags',
+            completed: 'Complété',
+            downloaded: 'Volume Téléchargé',
+            ETA: 'ETA',
+            name: 'Nom',
+            default: 'Default',
+            last_activity: 'Dernière activité',
+            peers: 'Pairs',
+            seeds: 'Seeds',
+            priority: 'Priorité',
+            progress: 'Progression',
+            ratio: 'Ratio',
+            save_path: 'Emplacement',
+            size: 'Taille',
+            state: 'État',
+            uploaded: 'Volume Téléversé',
+            addedOn: "Date d'ajout",
+            downloadSpeed: 'Vitesse de téléchargement',
+            timeActive: 'Temps actif',
+            uploadSpeed: "Vitesse d'upload"
+          }
         }
       },
       pageDownloads: {
@@ -390,7 +414,7 @@ const locale = {
         availability: 'Disponibilité',
         category: 'Catégorie',
         completed: 'Complété',
-        downloaded: 'Téléchargé',
+        downloaded: 'Volume Téléchargé',
         ETA: 'ETA',
         name: 'Nom',
         default: 'Default',
@@ -402,8 +426,8 @@ const locale = {
         save_path: 'Emplacement',
         size: 'Taille',
         state: 'État',
-        uploaded: 'Téléversé',
-        addedOn: 'Ajouté Le',
+        uploaded: 'Volume Téléversé',
+        addedOn: "Date d'ajout",
         downloadSpeed: 'Vitesse de téléchargement',
         timeActive: 'Temps actif',
         uploadSpeed: "Vitesse d'upload"

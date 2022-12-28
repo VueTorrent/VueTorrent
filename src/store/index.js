@@ -17,6 +17,26 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex)
 
+const propertiesTemplate = [
+  { name: 'Size', active: true },
+  { name: 'Progress', active: true },
+  { name: 'Download', active: true },
+  { name: 'Upload', active: true },
+  { name: 'Downloaded', active: true },
+  { name: 'Directory', active: false },
+  { name: 'Uploaded', active: true },
+  { name: 'ETA', active: true },
+  { name: 'Peers', active: true },
+  { name: 'Seeds', active: true },
+  { name: 'Status', active: true },
+  { name: 'Ratio', active: true },
+  { name: 'Category', active: true },
+  { name: 'Tags', active: true },
+  { name: 'AddedOn', active: true },
+  { name: 'Availability', active: true },
+  { name: 'LastActivity', active: false }
+]
+
 export default new Vuex.Store({
   plugins: [vuexPersist.plugin],
   state: {
@@ -73,44 +93,8 @@ export default new Vuex.Store({
       paginationSize: 15,
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
-      busyTorrentProperties: [
-        { name: 'Size', active: true },
-        { name: 'Progress', active: true },
-        { name: 'Download', active: true },
-        { name: 'Upload', active: true },
-        { name: 'Downloaded', active: true },
-        { name: 'Directory', active: false },
-        { name: 'Uploaded', active: true },
-        { name: 'ETA', active: true },
-        { name: 'Peers', active: true },
-        { name: 'Seeds', active: true },
-        { name: 'Status', active: true },
-        { name: 'Ratio', active: true },
-        { name: 'Category', active: true },
-        { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true },
-        { name: 'LastActivity', active: false }
-      ],
-      doneTorrentProperties: [
-        { name: 'Size', active: true },
-        { name: 'Progress', active: true },
-        { name: 'Download', active: true },
-        { name: 'Upload', active: true },
-        { name: 'Downloaded', active: true },
-        { name: 'Directory', active: false },
-        { name: 'Uploaded', active: true },
-        { name: 'ETA', active: true },
-        { name: 'Peers', active: true },
-        { name: 'Seeds', active: true },
-        { name: 'Status', active: true },
-        { name: 'Ratio', active: true },
-        { name: 'Category', active: true },
-        { name: 'Tags', active: true },
-        { name: 'AddedOn', active: true },
-        { name: 'Availability', active: true },
-        { name: 'LastActivity', active: false }
-      ]
+      busyTorrentProperties: [...propertiesTemplate],
+      doneTorrentProperties: [...propertiesTemplate]
     },
     categories: [],
     trackers: [],
