@@ -12,6 +12,9 @@
       <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
       </v-chip>
+      <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="upload caption white--text" style="height: 20px">
+        {{ tag }}
+      </v-chip>
     </v-flex>
     <v-flex xs12 class="pa-0 ma-1 row">
       <span class="body-2"> {{ torrent.dloaded | getDataValue }} </span>
