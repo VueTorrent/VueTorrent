@@ -5,14 +5,14 @@
         {{ torrent.name }}
       </span>
     </v-flex>
-    <v-flex xs12 row class="ma-1 mt-0">
-      <v-chip small class="caption white--text mr-2" :class="torrent.state.toLowerCase()" style="height: 20px">
+    <v-flex xs12 row class="ma-1 mt-0 chipgap">
+      <v-chip small class="caption white--text" :class="torrent.state.toLowerCase()" style="height: 20px">
         {{ torrent.state }}
       </v-chip>
       <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
       </v-chip>
-      <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="upload caption white--text" style="height: 20px">
+      <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="tags caption white--text" style="height: 20px">
         {{ tag }}
       </v-chip>
     </v-flex>
@@ -73,3 +73,12 @@ export default {
   })
 }
 </script>
+
+<style>
+.chipgap {
+  gap: 8px;
+}
+.tags {
+  background-color: #048b9a !important;
+}
+</style>
