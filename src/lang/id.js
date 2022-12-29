@@ -36,6 +36,7 @@ const locale = {
   ratio: 'Rasio',
   seeds: 'Seed',
   tags: 'Tag',
+  // tracker: 'Tracker',
   share: 'Berbagi',
   name: 'Nama',
   hash: 'Hash',
@@ -44,6 +45,17 @@ const locale = {
   rule: 'rule',
   then: 'Lalu',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      // toggleSearch: 'Toggle Search Filter',
+      // toggleSelect: 'Toggle Select Mode',
+      // toggleSort: 'Sort Torrents',
+      // selectAll: 'Select All',
+      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    // emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
     title: 'judul',
@@ -57,12 +69,15 @@ const locale = {
     created: 'dibuat oleh',
     comments: 'komentar',
     uploadedSession: 'Sesi Terunggah',
-    torrentTitle: 'Judul Torrent'
+    // timeActive: 'Time Active',
+    // seededFor: 'Seeded For',
+    // last_activity: 'Last Activity'
   },
-
   /** Navbar */
   navbar: {
     currentSpeed: 'kecepatan saat ini',
+    // alltimeTitle: 'All-Time Stats',
+    // sessionTitle: 'Session Stats',
     freeSpace: 'kosong',
     topActions: {
       addTorrent: 'tambah torrent',
@@ -77,7 +92,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Unggahan ter-stall',
-      stalled_downloading: 'Unduhan ter-stall'
+      stalled_downloading: 'Unduhan ter-stall',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
     },
     action: {
       altSpeed: 'Kecepatan alt',
@@ -93,6 +111,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
+      // titleCreate: 'Create new rule',
+      // titleEdit: 'Edit rule',
       name: 'Nama',
       def: {
         mustContain: 'Harus mengandung',
@@ -139,15 +159,42 @@ const locale = {
           freeSpace: 'Tampilkan Ruang Kosong',
           trackerFilter: 'Tampilkan Filter Tracker',
           rightDrawer: 'Drawer Kanan',
+          // topPagination: 'Top Pagination',
           language: 'Bahasa:',
           paginationSize: 'Ukuran halaman:',
           vueTorrentTitle: 'Judul VueTorrent:',
+          dateFormat: 'Date Format',
+          openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: 'Versi saat ini:',
           qbittorrentVersion: 'Versi qBittorrent:'
         },
         pageDashboard: {
           busyTorrentTip: 'Properti ditampilkan pada torrent yang sibuk',
-          completedTorrentTip: 'Properti ditampilkan pada torrent yang selesai'
+          completedTorrentTip: 'Properti ditampilkan pada torrent yang selesai',
+          properties: {
+            // availability: 'Availability',
+            // category: 'Category',
+            // tags: 'Tags',
+            // completed: 'Completed',
+            // downloaded: 'Downloaded',
+            // ETA: 'ETA',
+            // name: 'Name',
+            // default: 'Default',
+            // last_activity: 'Last Activity',
+            // peers: 'Peers',
+            // seeds: 'Seeds',
+            // priority: 'Priority',
+            // progress: 'Progress',
+            // ratio: 'Ratio',
+            // save_path: 'Directory',
+            // size: 'Size',
+            // state: 'State',
+            // uploaded: 'Uploaded',
+            // addedOn: 'Added On',
+            // downloadSpeed: 'Download Speed',
+            // timeActive: 'Time Active',
+            // uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -183,6 +230,10 @@ const locale = {
         }
       },
       pageConnection: {
+        // protocol: 'Peer connection protocol',
+        // listeningSubHeader: 'Listening Port',
+        // useUPnP: 'Use UPnP / NAT-PMP port forwarding from my router',
+        // incomingConnectionPort: 'Port used for incoming connections',
         subHeader: 'Batas Koneksi',
         globalMaxConnection: 'Jumlah maksimum koneksi global',
         perTorrentMaxConnection: 'Jumlah maksimum koneksi per torrent',
@@ -366,10 +417,13 @@ const locale = {
         downloaded: 'Terunduh',
         ETA: 'Estimasi',
         name: 'Nama',
+        // default: 'Default',
+        // last_activity: 'Last Activity',
         peers: 'Peer',
         priority: 'Prioritas',
         progress: 'Progres',
         ratio: 'Rasio',
+        // save_path: 'Directory',
         size: 'Ukuran',
         state: 'Status',
         uploaded: 'Terunggah',
@@ -419,6 +473,8 @@ const locale = {
       decrease: 'turunkan'
     },
     category: 'atur kategori',
+    // tags: 'Set Tags',
+    // notags: 'No Tags',
     limit: 'atur batas',
     copy: 'salin',
     info: 'tampilkan info'
