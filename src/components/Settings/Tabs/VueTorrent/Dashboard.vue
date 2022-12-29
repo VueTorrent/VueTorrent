@@ -52,7 +52,8 @@
 
 <script>
 import draggable from 'vuedraggable'
-import { mdiMenu } from '@mdi/js'
+import {mdiMenu} from '@mdi/js'
+
 export default {
   name: 'Dashboard',
   components: {
@@ -63,9 +64,7 @@ export default {
   }),
   computed: {
     busyTorrentProperties() {
-      const properties = this.injectLocalization(this.$store.state.webuiSettings.busyTorrentProperties)
-      console.log(properties)
-      return properties
+      return this.injectLocalization(this.$store.state.webuiSettings.busyTorrentProperties)
     },
     doneTorrentProperties() {
       return this.injectLocalization(this.$store.state.webuiSettings.doneTorrentProperties)
