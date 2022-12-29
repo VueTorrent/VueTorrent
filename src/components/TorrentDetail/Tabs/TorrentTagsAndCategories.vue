@@ -4,8 +4,13 @@
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderTag') }}</v-subheader>
         <v-list-item-group :value="activeTags" active-class="accent--text" multiple>
+<<<<<<< HEAD
           <template v-for="(item, index) in availableTags">
             <v-list-item link @click="addTag(item)" :key="item.title">
+=======
+          <template v-for="(item, index) in availableTags" :key="item.title">
+            <v-list-item link @click="addTag(item)">
+>>>>>>> 44623e3 (fix: Fix bad component in TorrentDetail vue)
               <v-list-item-content>
                 <v-list-item-title v-text="item" />
               </v-list-item-content>
@@ -18,8 +23,13 @@
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
         <v-list-item-group :value="activeCategory" active-class="accent--text">
+<<<<<<< HEAD
           <template v-for="(item, index) in availableCategories">
             <v-list-item link @click="setCategory(item)" :key="item.title">
+=======
+          <template v-for="(item, index) in availableCategories" :key="item.title">
+            <v-list-item link @click="setCategory(item)">
+>>>>>>> 44623e3 (fix: Fix bad component in TorrentDetail vue)
               <v-list-item-content>
                 <v-list-item-title v-text="item.name" />
               </v-list-item-content>
