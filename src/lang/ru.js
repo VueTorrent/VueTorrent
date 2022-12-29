@@ -27,22 +27,35 @@ const locale = {
   errored: 'Ошибочный',
   login: 'Войти',
   logout: 'Выйти',
-  downloaded: 'Скачано',
-  uploaded: 'Загружено',
-  upload: 'Отдача',
   download: 'Скачивание',
+  downloaded: 'Скачано',
+  upload: 'Отдача',
+  uploaded: 'Загружено',
   ETA: 'ETA',
   peers: 'Пиры',
   ratio: 'Ратио',
   seeds: 'Сиды',
   tags: 'Теги',
+  // tracker: 'Tracker',
   share: 'Поделиться',
   name: 'Имя',
   hash: 'Хэш',
   magnet: 'Магнет-ссылка',
   feed: 'Канал',
   rule: 'Правило',
+  // then: 'Then',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      // toggleSearch: 'Toggle Search Filter',
+      // toggleSelect: 'Toggle Select Mode',
+      // toggleSort: 'Sort Torrents',
+      // selectAll: 'Select All',
+      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    // emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
     title: 'Заголовок',
@@ -56,11 +69,15 @@ const locale = {
     created: 'Создано',
     comments: 'Комментарии',
     uploadedSession: 'Загружено за сессию',
-    torrentTitle: 'Имя торрента'
+    // timeActive: 'Time Active',
+    // seededFor: 'Seeded For',
+    // last_activity: 'Last Activity'
   },
   /** Navbar */
   navbar: {
     currentSpeed: 'Текущая скорость',
+    // alltimeTitle: 'All-Time Stats',
+    // sessionTitle: 'Session Stats',
     freeSpace: 'Свободное место',
     topActions: {
       addTorrent: 'Добавить торрент',
@@ -75,7 +92,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Остановка раздачи',
-      stalled_downloading: 'Остановка скачивания'
+      stalled_downloading: 'Остановка скачивания',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
     },
     action: {
       altSpeed: 'Альтернативные скорости',
@@ -91,6 +111,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
+      // titleCreate: 'Create new rule',
+      // titleEdit: 'Edit rule',
       name: 'Имя',
       def: {
         mustContain: 'Должен содержать',
@@ -137,15 +159,42 @@ const locale = {
           freeSpace: 'Отображать свободное место',
           trackerFilter: 'Отображать фильтр трекеров',
           rightDrawer: 'Панель справа',
+          // topPagination: 'Top Pagination',
           language: 'Язык:',
           paginationSize: 'Размер страницы:',
           vueTorrentTitle: 'Заголовок VueTorrent:',
+          // dateFormat: 'Date Format',
+          // openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: 'Текущая версия',
           qbittorrentVersion: 'Версия QBittorrent:'
         },
         pageDashboard: {
           busyTorrentTip: 'Свойства для отображения занятых торрентов',
-          completedTorrentTip: 'Свойства для отображения завершенных торрентов'
+          completedTorrentTip: 'Свойства для отображения завершенных торрентов',
+          properties: {
+            // availability: 'Availability',
+            // category: 'Category',
+            // tags: 'Tags',
+            // completed: 'Completed',
+            // downloaded: 'Downloaded',
+            // ETA: 'ETA',
+            // name: 'Name',
+            // default: 'Default',
+            // last_activity: 'Last Activity',
+            // peers: 'Peers',
+            // seeds: 'Seeds',
+            // priority: 'Priority',
+            // progress: 'Progress',
+            // ratio: 'Ratio',
+            // save_path: 'Directory',
+            // size: 'Size',
+            // state: 'State',
+            // uploaded: 'Uploaded',
+            // addedOn: 'Added On',
+            // downloadSpeed: 'Download Speed',
+            // timeActive: 'Time Active',
+            // uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -181,6 +230,10 @@ const locale = {
         }
       },
       pageConnection: {
+        // protocol: 'Peer connection protocol',
+        // listeningSubHeader: 'Listening Port',
+        // useUPnP: 'Use UPnP / NAT-PMP port forwarding from my router',
+        // incomingConnectionPort: 'Port used for incoming connections',
         subHeader: 'Ограничение соединений',
         globalMaxConnection: 'Глобальное максимальное количество соединений',
         perTorrentMaxConnection: 'Максимальное количество соединений на торрент',
@@ -207,7 +260,11 @@ const locale = {
         torrentInactivityTimer: 'Таймер неактивности торрента',
         subHeaderSeedLimits: 'Ограничение раздачи',
         whenRatioReaches: 'По достижении рейтинга раздачи',
-        whenSeedingTimeReaches: 'По достижении времени раздачи'
+        whenSeedingTimeReaches: 'По достижении времени раздачи',
+        // maxRatioPauseTorrent: 'Pause torrent',
+        // maxRatioRemoveTorrent: 'Remove torrent',
+        // maxRatioRemoveTorrentAndFiles: 'Remove torrent and files',
+        // maxRatioTorrentSuperseeding: 'Enable torrent super seeding'
       },
       pageRss: {
         tabName: {
@@ -246,8 +303,8 @@ const locale = {
         maxAttempts: 'Максимальное количество попыток',
         banDuration: 'Продолжительность блокировки (секунды)',
         sessionTimeout: 'Время ожидания сеанса (секунды)',
-        bypassAuthenticationForClientsOnlocalhost: 'Пропустить аутентификацию для клиентов на локальном хосте',
-        bypassAuthenticationForClientsInwhitelisted: 'Пропустить аутентификацию для клиентов в подсетях IP из белого списка',
+        bypassAuthenticationForClientsOnLocalhost: 'Пропустить аутентификацию для клиентов на локальном хосте',
+        bypassAuthenticationForClientsInWhitelisted: 'Пропустить аутентификацию для клиентов в подсетях IP из белого списка',
         whiteListExample: 'Пример: 172.17.32.0/24, fdff:ffff:c8::/40'
       },
       pageTagsAndCategories: {
@@ -360,10 +417,13 @@ const locale = {
         downloaded: 'Загружено',
         ETA: 'ETA',
         name: 'Имя',
+        // default: 'Default',
+        // last_activity: 'Last Activity',
         peers: 'Пиры',
         priority: 'Приоритет',
         progress: 'Прогресс',
         ratio: 'Ратио',
+        // save_path: 'Directory',
         size: 'Размер',
         state: 'Состояние',
         uploaded: 'Отдано',
@@ -413,6 +473,8 @@ const locale = {
       decrease: 'Уменьшить'
     },
     category: 'Задать категорию',
+    // tags: 'Set Tags',
+    // notags: 'No Tags',
     limit: 'Задать лимит',
     copy: 'Копировать',
     info: 'Детали'
