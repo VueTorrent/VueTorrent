@@ -53,6 +53,7 @@
 <script>
 import draggable from 'vuedraggable'
 import {mdiMenu} from '@mdi/js'
+import { i18n } from '@/plugins/i18n'
 
 export default {
   name: 'Dashboard',
@@ -74,23 +75,23 @@ export default {
     injectLocalization(properties) {
       const localePrefix = 'modals.settings.pageVueTorrent.pageDashboard.properties'
       const localeMap = {
-        Size: this.$i18n.t(`${localePrefix}.size`),
-        Progress: this.$i18n.t(`${localePrefix}.progress`),
-        Download: this.$i18n.t(`${localePrefix}.downloadSpeed`),
-        Upload: this.$i18n.t(`${localePrefix}.uploadSpeed`),
-        Downloaded: this.$i18n.t(`${localePrefix}.downloaded`),
-        Directory: this.$i18n.t(`${localePrefix}.save_path`),
-        Uploaded: this.$i18n.t(`${localePrefix}.uploaded`),
-        ETA: this.$i18n.t(`${localePrefix}.ETA`),
-        Peers: this.$i18n.t(`${localePrefix}.peers`),
-        Seeds: this.$i18n.t(`${localePrefix}.seeds`),
-        Status: this.$i18n.t(`${localePrefix}.state`),
-        Ratio: this.$i18n.t(`${localePrefix}.ratio`),
-        Category: this.$i18n.t(`${localePrefix}.category`),
-        Tags: this.$i18n.t(`${localePrefix}.tags`),
-        AddedOn: this.$i18n.t(`${localePrefix}.addedOn`),
-        Availability: this.$i18n.t(`${localePrefix}.availability`),
-        LastActivity: this.$i18n.t(`${localePrefix}.last_activity`)
+        Size: i18n.t(`${localePrefix}.size`),
+        Progress: i18n.t(`${localePrefix}.progress`),
+        Download: i18n.t(`${localePrefix}.downloadSpeed`),
+        Upload: i18n.t(`${localePrefix}.uploadSpeed`),
+        Downloaded: i18n.t(`${localePrefix}.downloaded`),
+        Directory: i18n.t(`${localePrefix}.save_path`),
+        Uploaded: i18n.t(`${localePrefix}.uploaded`),
+        ETA: i18n.t(`${localePrefix}.ETA`),
+        Peers: i18n.t(`${localePrefix}.peers`),
+        Seeds: i18n.t(`${localePrefix}.seeds`),
+        Status: i18n.t(`${localePrefix}.state`),
+        Ratio: i18n.t(`${localePrefix}.ratio`),
+        Category: i18n.t(`${localePrefix}.category`),
+        Tags: i18n.t(`${localePrefix}.tags`),
+        AddedOn: i18n.t(`${localePrefix}.addedOn`),
+        Availability: i18n.t(`${localePrefix}.availability`),
+        LastActivity: i18n.t(`${localePrefix}.last_activity`)
       }
 
       return properties.map(property => ({...property, label: localeMap[property.name]}))
