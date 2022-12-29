@@ -42,6 +42,7 @@ export default {
       if (authenticated) {
         this.$store.commit('LOGIN', true)
         this.$store.commit('updateMainData')
+        await this.$store.dispatch('FETCH_SETTINGS')
         if (this.onLoginPage) return this.$router.push('/')
 
         return
