@@ -400,8 +400,7 @@ const locale = {
       oneOrMoreFilesInvalidTorrent: '存在無效的種子檔案'
     },
     changeLocation: {
-      title: '更改位置',
-      torrentName: '種子名稱'
+      title: '更改位置'
     },
     rename: {
       title: '重新命名',

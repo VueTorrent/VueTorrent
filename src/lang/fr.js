@@ -400,8 +400,7 @@ const locale = {
       oneOrMoreFilesInvalidTorrent: 'Un ou plusieurs fichiers ne sont pas des torrents valides'
     },
     changeLocation: {
-      title: "Changement d'emplacement",
-      torrentName: 'Nom du torrent'
+      title: "Changement d'emplacement"
     },
     rename: {
       title: 'Renommer',

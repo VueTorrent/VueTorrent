@@ -400,8 +400,7 @@ const locale = {
       oneOrMoreFilesInvalidTorrent: 'Один або кілька файлів не є дійсним торрентом'
     },
     changeLocation: {
-      title: 'Змінити місцезнаходження',
-      torrentName: 'Назва торренту'
+      title: 'Змінити місцезнаходження'
     },
     rename: {
       title: 'Перейменувати',

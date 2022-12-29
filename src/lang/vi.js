@@ -400,8 +400,7 @@ const locale = {
       // oneOrMoreFilesInvalidTorrent: 'One or more files are not valid torrents'
     },
     changeLocation: {
-      // title: 'Change Location',
-      // torrentName: 'Torrent Name'
+      // title: 'Change Location'
     },
     rename: {
       // title: 'Rename',
