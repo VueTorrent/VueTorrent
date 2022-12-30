@@ -12,15 +12,7 @@
       <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
       </v-chip>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="tags caption white--text" style="height: 20px">
-=======
-      <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="upload caption white--text" style="height: 20px">
->>>>>>> ee396a4 (feat: Add tags chip in MobileCard vue)
-=======
-      <v-chip v-if="torrent.tags" v-for="tag in torrent.tags" small class="tags caption white--text" style="height: 20px">
->>>>>>> de6f94d (feat: Fix gap + tag chip color)
         {{ tag }}
       </v-chip>
     </v-flex>
