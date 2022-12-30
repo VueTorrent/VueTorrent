@@ -34,7 +34,8 @@ const propertiesTemplate = [
   { name: 'Tags', active: true },
   { name: 'AddedOn', active: true },
   { name: 'Availability', active: true },
-  { name: 'LastActivity', active: false }
+  { name: 'LastActivity', active: false },
+  { name: 'CompletedOn', active: false }
 ]
 
 export default new Vuex.Store({

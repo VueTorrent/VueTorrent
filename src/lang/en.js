@@ -71,7 +71,8 @@ const locale = {
     uploadedSession: 'Uploaded Session',
     timeActive: 'Time Active',
     seededFor: 'Seeded For',
-    last_activity: 'Last Activity'
+    last_activity: 'Last Activity',
+    completed_on: 'Completed On'
   },
   /** Navbar */
   navbar: {
@@ -413,6 +414,7 @@ const locale = {
         availability: 'Availability',
         category: 'Category',
         completed: 'Completed',
+        completion_on: 'Completed On',
         downloaded: 'Downloaded',
         ETA: 'ETA',
         name: 'Name',

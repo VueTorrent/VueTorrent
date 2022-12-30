@@ -12,6 +12,7 @@ export default class Torrent {
     this.name = data.name
     this.size = data.size
     this.added_on = dayjs(data.added_on * 1000).format(format)
+    this.completed_on = dayjs(data.completion_on * 1000).format(format)
     this.dlspeed = data.dlspeed
     this.dloaded = data.completed
     this.upspeed = data.upspeed

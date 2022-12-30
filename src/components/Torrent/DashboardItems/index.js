@@ -16,5 +16,26 @@ import Uploaded from './Uploaded.vue'
 import UploadedSession from './UploadedSession.vue'
 import Availability from './Availability.vue'
 import LastActivity from './LastActivity.vue'
+import CompletedOn from './CompletedOn.vue'
 
-export { Size, LastActivity, Progress, Download, Directory, Ratio, Upload, ETA, Peers, Seeds, Status, Category, Tags, AddedOn, Uploaded, UploadedSession, Downloaded, Availability }
+export {
+  Size,
+  CompletedOn,
+  LastActivity,
+  Progress,
+  Download,
+  Directory,
+  Ratio,
+  Upload,
+  ETA,
+  Peers,
+  Seeds,
+  Status,
+  Category,
+  Tags,
+  AddedOn,
+  Uploaded,
+  UploadedSession,
+  Downloaded,
+  Availability
+}

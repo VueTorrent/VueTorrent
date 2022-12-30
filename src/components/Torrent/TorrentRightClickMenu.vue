@@ -369,10 +369,7 @@ export default {
       qbit.pauseTorrents(this.hashes)
     },
     location() {
-      this.createModal(
-          'ChangeLocationModal',
-          { hashes: this.multiple ? this.selected_torrents : [this.torrent.hash] }
-      )
+      this.createModal('ChangeLocationModal', { hashes: this.multiple ? this.selected_torrents : [this.torrent.hash] })
     },
     rename() {
       this.createModal('RenameModal', { hash: this.torrent.hash })

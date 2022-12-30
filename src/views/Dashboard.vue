@@ -179,6 +179,7 @@ export default {
         { value: 'availability', text: this.$i18n.t('modals.sort.sortBy.availability') },
         { value: 'category', text: this.$i18n.t('modals.sort.sortBy.category') },
         { value: 'completed', text: this.$i18n.t('modals.sort.sortBy.completed') },
+        { value: 'completion_on', text: this.$i18n.t('modals.sort.sortBy.completion_on') },
         { value: 'dlspeed', text: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
         { value: 'downloaded', text: this.$i18n.t('modals.sort.sortBy.downloaded') },
         { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
