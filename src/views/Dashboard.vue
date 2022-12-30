@@ -401,11 +401,6 @@ export default {
 
         return this.createModal('ConfirmDeleteModal')
       }
-
-      // 'Search new torrent'
-      if (e.keyCode === 55) {
-        return this.createModal('SearchModal')
-      }
     }
   }
 }
