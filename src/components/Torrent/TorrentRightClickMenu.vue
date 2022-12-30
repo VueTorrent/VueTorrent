@@ -283,7 +283,7 @@ export default {
   name: 'TorrentRightClickMenu',
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object,
+    hash: String,
     touchmode: Boolean,
     x: Number
   },
@@ -323,7 +323,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getCategories', 'getAvailableTags']),
+    ...mapGetters(['getCategories', 'getAvailableTags', 'getTorrent']),
     ...mapState(['selected_torrents']),
     availableCategories() {
       const categories = [{ name: 'None', value: '' }]
@@ -345,6 +345,9 @@ export default {
     },
     multiple() {
       return this.selected_torrents.length > 1
+    },
+    torrent() {
+      return this.getTorrent(this.hash)
     }
   },
   watch: {
@@ -403,8 +406,6 @@ export default {
     setTag(tag) {
       if (this.torrent.tags && this.torrent.tags.includes(tag)) this.removeTag(tag)
       else this.addTag(tag)
-
-      console.log(this.torrent)
     },
     addTag(tag) {
       qbit.addTorrentTag(this.hashes, tag)

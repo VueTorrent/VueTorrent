@@ -136,7 +136,7 @@
       </div>
     </div>
     <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute>
-      <TorrentRightClickMenu v-if="data" :torrent="data.torrent" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
+      <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
     </v-menu>
   </div>
 </template>
