@@ -399,8 +399,7 @@ const locale = {
       oneOrMoreFilesInvalidTorrent: '一つまたは複数の無効なTorrentファイルが含まれています'
     },
     changeLocation: {
-      title: '場所を変更',
-      torrentName: 'Torrent名'
+      title: '場所を変更'
     },
     rename: {
       title: '名前を変更',

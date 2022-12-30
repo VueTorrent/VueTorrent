@@ -10,7 +10,13 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-text-field v-model="torrent.name" :label="$t('modals.changeLocation.torrentName')" :prepend-icon="mdiFile" readonly />
+              <v-list flat class="mb-4">
+                <v-list-item v-for="t in torrents" :key="t.hash" else>
+                  <v-list-item-content>
+                    <v-list-item-title class="text-wrap" v-text="t.name" />
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
               <v-text-field v-model="newPath" :label="$t('directory')" :prepend-icon="mdiFolder" @keydown.enter="setLocation" />
             </v-col>
           </v-row>
@@ -39,7 +45,7 @@ export default {
   name: 'ChangeLocationModal',
   mixins: [Modal, FullScreenModal],
   props: {
-    hash: String
+    hashes: Array
   },
   data() {
     return {
@@ -50,23 +56,23 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getTorrent']),
+    ...mapGetters(['getTorrent', 'getSettings']),
     dialogWidth() {
       return this.phoneLayout ? '100%' : '750px'
     },
-    torrent() {
-      return this.getTorrent(this.hash)
+    torrents() {
+      return [...this.hashes.map(hash => this.getTorrent(hash))]
     },
     isPhone() {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
   created() {
-    this.newPath = this.torrent.savePath
+    this.newPath = this.getSettings().save_path
   },
   methods: {
     setLocation() {
-      qbit.setTorrentLocation([this.hash], this.newPath)
+      qbit.setTorrentLocation(this.hashes, this.newPath)
       this.close()
     },
     close() {

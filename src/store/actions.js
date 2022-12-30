@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import qbit from '../services/qbit'
-import { i18n } from '../plugins/i18n'
+import { i18n } from '@/plugins/i18n'
 
 export default {
   INIT_INTERVALS: async context => {
@@ -15,7 +15,7 @@ export default {
       Vue.$toast.success(i18n.t('toast.loginSuccess'))
       context.commit('LOGIN', true)
       context.commit('updateMainData')
-      context.commit('FETCH_SETTINGS')
+      await context.dispatch('FETCH_SETTINGS')
       context.commit('FETCH_CATEGORIES')
       context.commit('FETCH_TAGS')
 

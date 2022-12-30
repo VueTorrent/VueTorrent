@@ -42,7 +42,7 @@
         </v-list-item>
       </template>
       <v-list>
-        <v-list-item v-if="!multiple" link @click="location">
+        <v-list-item link @click="location">
           <v-icon>{{ mdiFolder }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
             {{ $t('rightClick.advanced.changeLocation') | titleCase }}
@@ -369,7 +369,10 @@ export default {
       qbit.pauseTorrents(this.hashes)
     },
     location() {
-      this.createModal('ChangeLocationModal', { hash: this.torrent.hash })
+      this.createModal(
+          'ChangeLocationModal',
+          { hashes: this.multiple ? this.selected_torrents : [this.torrent.hash] }
+      )
     },
     rename() {
       this.createModal('RenameModal', { hash: this.torrent.hash })
