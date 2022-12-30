@@ -91,7 +91,8 @@ export default {
         Tags: i18n.t(`${localePrefix}.tags`),
         AddedOn: i18n.t(`${localePrefix}.addedOn`),
         Availability: i18n.t(`${localePrefix}.availability`),
-        LastActivity: i18n.t(`${localePrefix}.last_activity`)
+        LastActivity: i18n.t(`${localePrefix}.last_activity`),
+        CompletedOn: i18n.t(`${localePrefix}.completion_on`)
       }
 
       return properties.map(property => ({ ...property, label: localeMap[property.name] }))

@@ -178,6 +178,7 @@ const locale = {
             category: 'Category',
             tags: 'Tags',
             completed: 'Completed',
+            completion_on: 'Completed On',
             downloaded: 'Downloaded',
             ETA: 'ETA',
             name: 'Name',
