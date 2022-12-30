@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.1.0](https://github.com/WDaan/VueTorrent/compare/v1.0.1...v1.1.0) (2022-12-30)
+
+
+### Features
+
+* Add Batch change location ([#574](https://github.com/WDaan/VueTorrent/issues/574)) ([060c3c3](https://github.com/WDaan/VueTorrent/commit/060c3c3a1c463e988014fe1ae52569921a68d545))
+* add completed on [#571](https://github.com/WDaan/VueTorrent/issues/571) ([e242bad](https://github.com/WDaan/VueTorrent/commit/e242bad1af2c4a2f7824b2d0018e28a3e3ac580b))
+* Add tag support in Dashboard, TorrentDetail and Add Modal ([#570](https://github.com/WDaan/VueTorrent/issues/570)) ([0a175cc](https://github.com/WDaan/VueTorrent/commit/0a175ccb437f9ad5609b85482a63dfbc2e6f0e9a))
+
+
+### Bug Fixes
+
+* Add caret color to dark theme ([#564](https://github.com/WDaan/VueTorrent/issues/564)) ([45c65ae](https://github.com/WDaan/VueTorrent/commit/45c65ae394db6fc722afa13408ba74b4a55bf240))
+* general fixes and README update ([#562](https://github.com/WDaan/VueTorrent/issues/562)) ([8b6caf0](https://github.com/WDaan/VueTorrent/commit/8b6caf03359128581077471ce1d80d1308f1a2b6))
+* load missing filters at startup ([#567](https://github.com/WDaan/VueTorrent/issues/567)) ([87de795](https://github.com/WDaan/VueTorrent/commit/87de79555b5aad8827fd5f15dbf53239cdea10c9))
+* remove search shortcut [#561](https://github.com/WDaan/VueTorrent/issues/561) ([0c6562e](https://github.com/WDaan/VueTorrent/commit/0c6562efb374a98b51749b7fba93a8be730c1169))
+* toggle in right-click menu not updating ([91fcfee](https://github.com/WDaan/VueTorrent/commit/91fcfeeba6b65c63fdb996d14d0a14c4b6319530))
+
+
+### Improvements
+
+* add reset settings button [#326](https://github.com/WDaan/VueTorrent/issues/326) ([0ada50b](https://github.com/WDaan/VueTorrent/commit/0ada50ba4ab49cf2edc74ac410ae982d162dc7ae))
+* Update and realign locales ([#573](https://github.com/WDaan/VueTorrent/issues/573)) ([c45bf20](https://github.com/WDaan/VueTorrent/commit/c45bf208dedc72db108ee1b3115d338a0349f19e))
+
 ### [1.0.1](https://github.com/WDaan/VueTorrent/compare/v1.0.0...v1.0.1) (2022-11-25)
 
 ### Bug Fixes
