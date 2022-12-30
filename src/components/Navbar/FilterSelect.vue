@@ -118,8 +118,8 @@ export default {
     },
     availableCategories() {
       const categories = [
-        {name: this.$i18n.t('all'), value: null},
-        {name: this.$i18n.t('navbar.filters.uncategorized'), value: ''}
+        { name: this.$i18n.t('all'), value: null },
+        { name: this.$i18n.t('navbar.filters.uncategorized'), value: '' }
       ]
       categories.push(
         ...this.getCategories().map(c => {
@@ -130,16 +130,12 @@ export default {
       return categories
     },
     availableTags() {
-      return [
-        {name: this.$i18n.t('all'), value: null},
-        {name: this.$i18n.t('navbar.filters.untagged'), value: ''},
-        ...this.getAvailableTags()
-      ]
+      return [{ name: this.$i18n.t('all'), value: null }, { name: this.$i18n.t('navbar.filters.untagged'), value: '' }, ...this.getAvailableTags()]
     },
     availableTrackers() {
       const trackers = [
-        {name: this.$i18n.t('all'), value: null},
-        {name: this.$i18n.t('navbar.filters.not_working'), value: ''}
+        { name: this.$i18n.t('all'), value: null },
+        { name: this.$i18n.t('navbar.filters.not_working'), value: '' }
       ]
 
       if (this.showTrackerFilter) {

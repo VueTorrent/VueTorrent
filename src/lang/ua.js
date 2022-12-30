@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -92,7 +92,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Залиплі вивантаження',
-      stalled_downloading: 'Залиплі завантаження',
+      stalled_downloading: 'Залиплі завантаження'
       // uncategorized: 'Uncategorized',
       // untagged: 'Untagged',
       // not_working: 'Not Working'
@@ -107,13 +107,13 @@ const locale = {
   /** Modals */
   modals: {
     newFeed: {
-      feedName: 'Ім\'я',
+      feedName: "Ім'я",
       url: 'URL'
     },
     newRule: {
       // titleCreate: 'Create new rule',
       // titleEdit: 'Edit rule',
-      name: 'Ім\'я',
+      name: "Ім'я",
       def: {
         mustContain: 'Має містити',
         affectedFeeds: 'Застосувати правило до стрічок'
@@ -127,7 +127,7 @@ const locale = {
       btnStartSearch: 'Пошук',
       btnStopSearch: 'Стоп',
       columnTitle: {
-        name: "Ім\'я",
+        name: "Ім'я",
         size: 'Розмір',
         seeds: 'Сіди',
         peers: 'Піри',
@@ -139,7 +139,7 @@ const locale = {
       tabName: {
         VueTorrent: 'vuetorrent',
         downloads: 'Завантаження',
-        connection: "Зв\'язок",
+        connection: "Зв'язок",
         bittorrent: 'bittorrent',
         rss: 'Стрічки',
         webUI: 'Bеб-інтерфейс',
@@ -233,7 +233,7 @@ const locale = {
         protocol: 'Протокол підключення пірів',
         listeningSubHeader: 'Прослуховуваний порт',
         useUPnP: 'Використовувати переспрямування портів UPnP / NAT-PMP з мого маршрутизатора',
-        incomingConnectionPort: 'Порти, використані для вхідних з\'єднань',
+        incomingConnectionPort: "Порти, використані для вхідних з'єднань",
         subHeader: 'Обмеження підключення',
         globalMaxConnection: "Глобальна максимальна кількість з'єднань",
         perTorrentMaxConnection: "Максимальна кількість з'єднань на торрент",

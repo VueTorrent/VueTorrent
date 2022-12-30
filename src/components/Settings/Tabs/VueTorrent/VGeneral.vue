@@ -46,11 +46,11 @@
       <v-row dense>
         <v-col>
           <v-switch
-              v-model="webuiSettings.showSessionStat"
-              class="v-input--reverse pa-0 ma-0"
-              hide-details
-              inset
-              :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
+            v-model="webuiSettings.showSessionStat"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
           />
         </v-col>
       </v-row>

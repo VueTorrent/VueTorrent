@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -67,7 +67,7 @@ const locale = {
     downloaded: 'gedownload',
     uploaded: 'geüpload',
     created: 'gemaakt door',
-    comments: 'opmerkingen',
+    comments: 'opmerkingen'
     // uploadedSession: 'Uploaded Session',
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
@@ -317,7 +317,7 @@ const locale = {
       input: {
         // globalLimit: 'Use global limit',
         // unlimited: 'Unlimited'
-      },
+      }
       // limitRatio: 'Limit Ratio',
       // titleDuration: 'Duration',
       // titleRatio: 'Ratio'
@@ -389,7 +389,7 @@ const locale = {
     },
     add: {
       title: 'Voeg torrent toe',
-      selectFiles: 'Selecteer bestanden',
+      selectFiles: 'Selecteer bestanden'
       // urlHint: 'One link per line',
       // downloadDirectory: 'Download Directory',
       // starttorrent: 'Start torrent',
@@ -446,7 +446,7 @@ const locale = {
     loginSuccess: 'Inloggen gelukt! 🎉',
     loginFailed: 'Inloggen mislukt 😕',
     settingsSaved: 'Instellingen successvol opgeslagen!',
-    categorySaved: 'Categorie successvol opgeslagen!',
+    categorySaved: 'Categorie successvol opgeslagen!'
     // feedSaved: 'Feed saved successfully!',
     // ruleSaved: 'Rule saved!'
   },
@@ -458,7 +458,7 @@ const locale = {
     advanced: {
       advanced: 'geavanceerd',
       changeLocation: 'verander locatie',
-      rename: 'hernoem',
+      rename: 'hernoem'
       // forceRecheck: 'Force recheck',
       // forceReannounce: 'Force reannounce',
       // sequentialDownload: 'Sequential download',

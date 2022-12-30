@@ -9,8 +9,6 @@ import { fileURLToPath, URL } from 'node:url'
 
 const version = process.env.NODE_ENV === 'production' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)
 
-
-
 export default defineConfig(({ command, mode }) => {
   const theEnv = loadEnv(mode, process.cwd())
   const qBittorrentPort = theEnv.VITE_QBITTORRENT_PORT ?? 8080

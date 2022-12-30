@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -68,7 +68,7 @@ const locale = {
     uploaded: 'Загружено',
     created: 'Создано',
     comments: 'Комментарии',
-    uploadedSession: 'Загружено за сессию',
+    uploadedSession: 'Загружено за сессию'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
     // last_activity: 'Last Activity'
@@ -92,7 +92,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Остановка раздачи',
-      stalled_downloading: 'Остановка скачивания',
+      stalled_downloading: 'Остановка скачивания'
       // uncategorized: 'Uncategorized',
       // untagged: 'Untagged',
       // not_working: 'Not Working'
@@ -260,7 +260,7 @@ const locale = {
         torrentInactivityTimer: 'Таймер неактивности торрента',
         subHeaderSeedLimits: 'Ограничение раздачи',
         whenRatioReaches: 'По достижении рейтинга раздачи',
-        whenSeedingTimeReaches: 'По достижении времени раздачи',
+        whenSeedingTimeReaches: 'По достижении времени раздачи'
         // maxRatioPauseTorrent: 'Pause torrent',
         // maxRatioRemoveTorrent: 'Remove torrent',
         // maxRatioRemoveTorrentAndFiles: 'Remove torrent and files',

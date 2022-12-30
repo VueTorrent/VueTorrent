@@ -68,7 +68,7 @@ const locale = {
     downloaded: 'descargado',
     uploaded: 'subido',
     created: 'creado por',
-    comments: 'comentarios',
+    comments: 'comentarios'
     // uploadedSession: 'Uploaded Session',
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
@@ -90,7 +90,7 @@ const locale = {
     },
     sessionStats: {
       tooltip: 'Desde la última vez que se reinició qBittorrent'
-    },
+    }
     // filters: {
     //   stalled_uploading: 'Stalled Uploading',
     //   stalled_downloading: 'Stalled Downloading',
@@ -318,7 +318,7 @@ const locale = {
       input: {
         // globalLimit: 'Use global limit',
         // unlimited: 'Unlimited'
-      },
+      }
       // limitRatio: 'Limit Ratio',
       // titleDuration: 'Duration',
       // titleRatio: 'Ratio'
@@ -390,7 +390,7 @@ const locale = {
     },
     add: {
       title: 'Agregar nuevo torrent',
-      selectFiles: 'Selecciona tus archivos',
+      selectFiles: 'Selecciona tus archivos'
       // urlHint: 'One link per line',
       // downloadDirectory: 'Download Directory',
       // starttorrent: 'Start torrent',
@@ -447,7 +447,7 @@ const locale = {
     loginSuccess: '¡Inicio de sesión correcto! 🎉',
     loginFailed: 'Inicio de sesión fallido 😕',
     settingsSaved: '¡Los ajustes se guardaron correctamente!',
-    categorySaved: '¡Categoría guardada correctamente!',
+    categorySaved: '¡Categoría guardada correctamente!'
     // feedSaved: 'Feed saved successfully!',
     // ruleSaved: 'Rule saved!'
   },
@@ -459,7 +459,7 @@ const locale = {
     advanced: {
       advanced: 'avanzado',
       changeLocation: 'cambiar directorio',
-      rename: 'renombrar',
+      rename: 'renombrar'
       // forceRecheck: 'Force recheck',
       // forceReannounce: 'Force reannounce',
       // sequentialDownload: 'Sequential download',

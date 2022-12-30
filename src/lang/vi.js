@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -67,7 +67,7 @@ const locale = {
     downloaded: 'tải xuống',
     uploaded: 'tải lên',
     created: 'tạo ra bởi',
-    comments: 'đánh giá',
+    comments: 'đánh giá'
     // uploadedSession: 'Uploaded Session',
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
@@ -317,7 +317,7 @@ const locale = {
       input: {
         // globalLimit: 'Use global limit',
         // unlimited: 'Unlimited'
-      },
+      }
       // limitRatio: 'Limit Ratio',
       // titleDuration: 'Duration',
       // titleRatio: 'Ratio'
@@ -389,7 +389,7 @@ const locale = {
     },
     add: {
       title: 'Thêm một torrent mới',
-      selectFiles: 'Chọn tệp của bạn',
+      selectFiles: 'Chọn tệp của bạn'
       // urlHint: 'One link per line',
       // downloadDirectory: 'Download Directory',
       // starttorrent: 'Start torrent',
@@ -446,7 +446,7 @@ const locale = {
     loginSuccess: 'Đăng nhập thành công! 🎉',
     loginFailed: 'Đăng nhập thất bại 😕',
     settingsSaved: 'Cài đặt đã lưu thành công!',
-    categorySaved: 'Thể loại đã chỉnh sửa thành công!',
+    categorySaved: 'Thể loại đã chỉnh sửa thành công!'
     // feedSaved: 'Feed saved successfully!',
     // ruleSaved: 'Rule saved!'
   },
@@ -458,7 +458,7 @@ const locale = {
     advanced: {
       advanced: 'nâng cao',
       changeLocation: 'thay đổi vị trí',
-      rename: 'thay đổi tên',
+      rename: 'thay đổi tên'
       // forceRecheck: 'Force recheck',
       // forceReannounce: 'Force reannounce',
       // sequentialDownload: 'Sequential download',

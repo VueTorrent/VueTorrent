@@ -52,7 +52,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -67,7 +67,7 @@ const locale = {
     uploaded: 'アップ量',
     created: '作成',
     comments: 'コメント',
-    uploadedSession: 'アップロードセッション',
+    uploadedSession: 'アップロードセッション'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
     // last_activity: 'Last Activity'
@@ -91,7 +91,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: '停滞中アップロード',
-      stalled_downloading: '停滞中ダウンロード',
+      stalled_downloading: '停滞中ダウンロード'
       // uncategorized: 'Uncategorized',
       // untagged: 'Untagged',
       // not_working: 'Not Working'
@@ -259,7 +259,7 @@ const locale = {
         torrentInactivityTimer: 'Torrent未稼働時間',
         subHeaderSeedLimits: 'シードの制限',
         whenRatioReaches: 'シード制限する共有比',
-        whenSeedingTimeReaches: 'シード制限するシード時間 (分)',
+        whenSeedingTimeReaches: 'シード制限するシード時間 (分)'
         // maxRatioPauseTorrent: 'Pause torrent',
         // maxRatioRemoveTorrent: 'Remove torrent',
         // maxRatioRemoveTorrentAndFiles: 'Remove torrent and files',

@@ -52,7 +52,7 @@
 
 <script>
 import draggable from 'vuedraggable'
-import {mdiMenu} from '@mdi/js'
+import { mdiMenu } from '@mdi/js'
 import { i18n } from '@/plugins/i18n'
 
 export default {
@@ -94,7 +94,7 @@ export default {
         LastActivity: i18n.t(`${localePrefix}.last_activity`)
       }
 
-      return properties.map(property => ({...property, label: localeMap[property.name]}))
+      return properties.map(property => ({ ...property, label: localeMap[property.name] }))
     }
   }
 }

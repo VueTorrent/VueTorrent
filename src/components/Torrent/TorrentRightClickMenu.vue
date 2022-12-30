@@ -113,7 +113,14 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-menu v-if="availableTags.length > 0" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+    <v-menu
+      v-if="availableTags.length > 0"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
           <v-icon>{{ mdiTag }}</v-icon>
@@ -239,9 +246,9 @@
 </template>
 
 <script>
-import {mapGetters, mapState} from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import {General, TorrentSelect} from '@/mixins'
+import { General, TorrentSelect } from '@/mixins'
 import {
   mdiAccountGroup,
   mdiArrowDown,
@@ -394,10 +401,10 @@ export default {
       qbit.setCategory(this.hashes, cat)
     },
     setTag(tag) {
-      if (this.torrent.tags && this.torrent.tags.includes(tag))
-        return this.removeTag(tag)
-      else
-        return this.addTag(tag)
+      if (this.torrent.tags && this.torrent.tags.includes(tag)) this.removeTag(tag)
+      else this.addTag(tag)
+
+      console.log(this.torrent)
     },
     addTag(tag) {
       qbit.addTorrentTag(this.hashes, tag)

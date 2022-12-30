@@ -128,8 +128,7 @@ export default {
       this.changeFilePriorities(newValue, oldValue)
     }
   },
-  created() {
-  },
+  created() {},
   methods: {
     initFiles() {
       this.getTorrentFiles().then(() => {

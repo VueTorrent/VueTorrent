@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -92,7 +92,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: '停止上傳',
-      stalled_downloading: '停止下載',
+      stalled_downloading: '停止下載'
       // uncategorized: 'Uncategorized',
       // untagged: 'Untagged',
       // not_working: 'Not Working'

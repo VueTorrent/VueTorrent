@@ -2,20 +2,24 @@
 
 ### [1.0.1](https://github.com/WDaan/VueTorrent/compare/v1.0.0...v1.0.1) (2022-11-25)
 
-
 ### Bug Fixes
 
-* "405 Method Not Allowed" when renaming torrent ([#551](https://github.com/WDaan/VueTorrent/issues/551)) ([66dc741](https://github.com/WDaan/VueTorrent/commit/66dc74182545705003e3bcb4460224a18a57e830))
-* category create validation ([#552](https://github.com/WDaan/VueTorrent/issues/552)) ([edc0330](https://github.com/WDaan/VueTorrent/commit/edc0330bafdedc98e2e5f7df6bc2894bbcf5a281))
-* free space toggle [#541](https://github.com/WDaan/VueTorrent/issues/541) ([f8c3b7d](https://github.com/WDaan/VueTorrent/commit/f8c3b7dc38ff1a7a52a130982f86d82cc4fb61c4))
-* proper unit for up/dl speed in details ([#547](https://github.com/WDaan/VueTorrent/issues/547)) ([b2ceda2](https://github.com/WDaan/VueTorrent/commit/b2ceda28e548849f11f28503e27a081ad3818317))
-* proper unit for up/dl speed in graph ([#548](https://github.com/WDaan/VueTorrent/issues/548)) ([a6dac31](https://github.com/WDaan/VueTorrent/commit/a6dac31fbc5b902e3df562c97497daab121abee3))
-
+- "405 Method Not Allowed" when renaming torrent ([#551](https://github.com/WDaan/VueTorrent/issues/551))
+  ([66dc741](https://github.com/WDaan/VueTorrent/commit/66dc74182545705003e3bcb4460224a18a57e830))
+- category create validation ([#552](https://github.com/WDaan/VueTorrent/issues/552))
+  ([edc0330](https://github.com/WDaan/VueTorrent/commit/edc0330bafdedc98e2e5f7df6bc2894bbcf5a281))
+- free space toggle [#541](https://github.com/WDaan/VueTorrent/issues/541) ([f8c3b7d](https://github.com/WDaan/VueTorrent/commit/f8c3b7dc38ff1a7a52a130982f86d82cc4fb61c4))
+- proper unit for up/dl speed in details ([#547](https://github.com/WDaan/VueTorrent/issues/547))
+  ([b2ceda2](https://github.com/WDaan/VueTorrent/commit/b2ceda28e548849f11f28503e27a081ad3818317))
+- proper unit for up/dl speed in graph ([#548](https://github.com/WDaan/VueTorrent/issues/548))
+  ([a6dac31](https://github.com/WDaan/VueTorrent/commit/a6dac31fbc5b902e3df562c97497daab121abee3))
 
 ### Improvements
 
-* debounce torrent search field ([#542](https://github.com/WDaan/VueTorrent/issues/542)) ([bb76c23](https://github.com/WDaan/VueTorrent/commit/bb76c23b98689c956ab1c068a155e9fb081081ea))
-* paste button for magnet links [#307](https://github.com/WDaan/VueTorrent/issues/307) ([797ba8c](https://github.com/WDaan/VueTorrent/commit/797ba8c66687c3cfb654874189fc96808d4bbb34))
+- debounce torrent search field ([#542](https://github.com/WDaan/VueTorrent/issues/542))
+  ([bb76c23](https://github.com/WDaan/VueTorrent/commit/bb76c23b98689c956ab1c068a155e9fb081081ea))
+- paste button for magnet links [#307](https://github.com/WDaan/VueTorrent/issues/307)
+  ([797ba8c](https://github.com/WDaan/VueTorrent/commit/797ba8c66687c3cfb654874189fc96808d4bbb34))
 
 ## [1.0.0](https://github.com/WDaan/VueTorrent/compare/v0.19.1...v1.0.0) (2022-11-16)
 

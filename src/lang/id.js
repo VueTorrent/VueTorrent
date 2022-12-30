@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -68,7 +68,7 @@ const locale = {
     uploaded: 'diunggah',
     created: 'dibuat oleh',
     comments: 'komentar',
-    uploadedSession: 'Sesi Terunggah',
+    uploadedSession: 'Sesi Terunggah'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
     // last_activity: 'Last Activity'
@@ -92,7 +92,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Unggahan ter-stall',
-      stalled_downloading: 'Unduhan ter-stall',
+      stalled_downloading: 'Unduhan ter-stall'
       // uncategorized: 'Uncategorized',
       // untagged: 'Untagged',
       // not_working: 'Not Working'

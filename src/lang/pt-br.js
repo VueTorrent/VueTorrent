@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -67,7 +67,7 @@ const locale = {
     downloaded: 'downloaded',
     uploaded: 'uploaded',
     created: 'criado por',
-    comments: 'comentarios',
+    comments: 'comentarios'
     // uploadedSession: 'Uploaded Session',
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
@@ -317,7 +317,7 @@ const locale = {
       input: {
         // globalLimit: 'Use global limit',
         // unlimited: 'Unlimited'
-      },
+      }
       // limitRatio: 'Limit Ratio',
       // titleDuration: 'Duration',
       // titleRatio: 'Ratio'
@@ -389,7 +389,7 @@ const locale = {
     },
     add: {
       title: 'Adicionar um Novo Torrent',
-      selectFiles: 'Selecionar seus Arquivos',
+      selectFiles: 'Selecionar seus Arquivos'
       // urlHint: 'One link per line',
       // downloadDirectory: 'Download Directory',
       // starttorrent: 'Start torrent',
@@ -446,7 +446,7 @@ const locale = {
     loginSuccess: 'Logou com Sucesso! 🎉',
     loginFailed: 'Falha na Autenticação 😕',
     settingsSaved: 'Configurações salvas com Sucesso!',
-    categorySaved: 'Categoria Editada com Sucesso!',
+    categorySaved: 'Categoria Editada com Sucesso!'
     // feedSaved: 'Feed saved successfully!',
     // ruleSaved: 'Rule saved!'
   },
@@ -458,7 +458,7 @@ const locale = {
     advanced: {
       advanced: 'avançado',
       changeLocation: 'mudar localização',
-      rename: 'renomear',
+      rename: 'renomear'
       // forceRecheck: 'Force recheck',
       // forceReannounce: 'Force reannounce',
       // sequentialDownload: 'Sequential download',

@@ -345,7 +345,7 @@ const locale = {
         hash: 'hash',
         ratio: 'Ratio',
         downloadSpeed: 'Vitesse de Téléchargement',
-        uploadSpeed: "Vitesse de téléversement",
+        uploadSpeed: 'Vitesse de téléversement',
         eta: 'ETA',
         peers: 'Pairs',
         seeds: 'Seeds',
@@ -358,7 +358,7 @@ const locale = {
         shareRatioLimit: 'Limite de ratio',
         shareTimeLimit: 'Limite de temps de partage (minutes)',
         downloadLimit: 'Limite de téléchargement',
-        uploadLimit: "Limite de téléversement"
+        uploadLimit: 'Limite de téléversement'
       },
       pagePeers: {
         ip: 'IP',

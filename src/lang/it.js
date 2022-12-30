@@ -53,7 +53,7 @@ const locale = {
       // toggleSort: 'Sort Torrents',
       // selectAll: 'Select All',
       // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    },
+    }
     // emptyTorrentList: 'Nothing to see here!'
   },
   /** Torrent */
@@ -87,21 +87,21 @@ const locale = {
       openSettings: 'apri le impostazioni',
       searchNew: 'cerca nuovi torrent'
     },
-      sessionStats: {
-        // tooltip: 'Since the last time qBittorrent was restarted'
-      },
-      filters: {
-        // stalled_uploading: 'Stalled Uploading',
-        // stalled_downloading: 'Stalled Downloading',
-        // uncategorized: 'Uncategorized',
-        // untagged: 'Untagged',
-        // not_working: 'Not Working'
-      },
-      action: {
-        // altSpeed: 'Alt Speeds',
-        // dark: 'Dark',
-        // light: 'Light'
-      }
+    sessionStats: {
+      // tooltip: 'Since the last time qBittorrent was restarted'
+    },
+    filters: {
+      // stalled_uploading: 'Stalled Uploading',
+      // stalled_downloading: 'Stalled Downloading',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
+    },
+    action: {
+      // altSpeed: 'Alt Speeds',
+      // dark: 'Dark',
+      // light: 'Light'
+    }
   },
 
   /** Modals */
@@ -317,7 +317,7 @@ const locale = {
       input: {
         // globalLimit: 'Use global limit',
         // unlimited: 'Unlimited'
-      },
+      }
       // limitRatio: 'Limit Ratio',
       // titleDuration: 'Duration',
       // titleRatio: 'Ratio'
@@ -389,7 +389,7 @@ const locale = {
     },
     add: {
       title: 'Aggiungi un Torrent',
-      selectFiles: 'Seleziona i file',
+      selectFiles: 'Seleziona i file'
       // urlHint: 'One link per line',
       // downloadDirectory: 'Download Directory',
       // starttorrent: 'Start torrent',
@@ -471,7 +471,7 @@ const locale = {
       // bottom: 'Bottom',
       // increase: 'Increase',
       // decrease: 'Decrease'
-    },
+    }
     // category: 'Set Category',
     // tags: 'Set Tags',
     // notags: 'No Tags',
