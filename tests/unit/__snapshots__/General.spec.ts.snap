@@ -126,5 +126,8 @@ exports[`General > render correctly 1`] = `
         </a></vuecomponent-stub>
     </vuecomponent-stub>
   </vuecomponent-stub>
+  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"justify-center pb-2\\">
+    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"> </vuecomponent-stub>
+  </vuecomponent-stub>
 </vuecomponent-stub>"
 `;
