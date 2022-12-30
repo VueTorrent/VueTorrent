@@ -33,10 +33,16 @@
       <v-text-field v-model="settings.temp_path" class="mb-2" outlined dense hide-details />
     </v-list-item>
     <v-list-item>
-      <v-checkbox v-model="settings.autorun_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.autoEnabled')" />
+      <v-checkbox v-model="settings.autorun_on_torrent_added_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.autoEnabled_onAdded')" />
+    </v-list-item>
+    <v-list-item v-if="settings.autorun_on_torrent_added_enabled">
+      <v-text-field v-model="settings.autorun_on_torrent_added_program" class="mb-2" outlined dense :label="$t('modals.settings.pageDownloads.saveManagement.autoLabel_onAdded')" hide-details />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="settings.autorun_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.autoEnabled_onFinished')" />
     </v-list-item>
     <v-list-item v-if="settings.autorun_enabled">
-      <v-text-field v-model="settings.autorun_program" class="mb-2" outlined dense :label="$t('modals.settings.pageDownloads.saveManagement.autorunProgram')" hide-details />
+      <v-text-field v-model="settings.autorun_program" class="mb-2" outlined dense :label="$t('modals.settings.pageDownloads.saveManagement.autoLabel_onFinished')" hide-details />
     </v-list-item>
     <v-list-item v-if="settings.autorun_enabled" class="mb-4">
       <v-card flat color="grey--text selected">

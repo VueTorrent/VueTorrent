@@ -22,7 +22,7 @@
           <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFolder(item)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="togleEditing(item)">
+          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(item)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
@@ -51,7 +51,7 @@
           <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFile(item)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="togleEditing(item)">
+          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(item)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
@@ -168,22 +168,22 @@ export default {
         await this.getTorrentFiles()
       }
     },
-    togleEditing(item) {
+    toggleEditing(item) {
       item.editing = !item.editing
     },
     edit(item) {
       item.newName = item.name
-      this.togleEditing(item)
+      this.toggleEditing(item)
     },
     renameFile(item) {
       qbit.renameFile(this.hash, item.name, item.newName)
       item.name = item.newName
-      this.togleEditing(item)
+      this.toggleEditing(item)
     },
     renameFolder(item) {
       qbit.renameFolder(this.hash, item.name, item.newName)
       item.name = item.newName
-      this.togleEditing(item)
+      this.toggleEditing(item)
     },
     setFilePrio(fileId, priority) {
       qbit.setTorrentFilePriority(this.hash, [fileId], priority).then(() => this.initFiles())
