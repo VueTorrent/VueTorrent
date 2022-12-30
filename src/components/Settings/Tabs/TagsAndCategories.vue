@@ -68,7 +68,6 @@ export default {
     hash: String
   },
   data: () => ({
-    selectedCategory: null,
     mdiDelete,
     mdiPencil
   }),
@@ -83,13 +82,12 @@ export default {
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
   },
   methods: {
     activeMethod() {
       this.$store.commit('FETCH_CATEGORIES')
-    },
-    deleteTag(item) {
-      qbit.deleteTag(item)
+      this.$store.commit('FETCH_TAGS')
     },
     createTag() {
       this.createModal('CreateTagDialog')
@@ -100,6 +98,10 @@ export default {
     deleteCategory(category) {
       qbit.deleteCategory(category.name)
       this.$store.commit('FETCH_CATEGORIES')
+    },
+    deleteTag(item) {
+      qbit.deleteTag(item)
+      this.$store.commit('FETCH_TAGS')
     },
     editCategory(cat) {
       this.createModal('CreateCategoryDialog', { initialCategory: cat })

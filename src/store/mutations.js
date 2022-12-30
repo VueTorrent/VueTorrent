@@ -1,6 +1,6 @@
 import qbit from '../services/qbit'
 import { DocumentTitle, Tags, Trackers, Torrents, Graph, ServerStatus } from '@/actions'
-import { setLanguage } from '../plugins/i18n'
+import { setLanguage } from '@/plugins/i18n'
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -65,13 +65,15 @@ export default {
   FETCH_SETTINGS: async (state, settings) => {
     state.settings = settings
   },
-  UPDATE_SORT_OPTIONS: (state, { hashes = [], filter = null, category = null, tracker = null }) => {
+  UPDATE_SORT_OPTIONS: (state, { hashes = [], filter = null, category = null, tag = null, tracker = null }) => {
     state.sort_options.hashes = hashes
     state.sort_options.filter = filter
     state.sort_options.category = category
+    state.sort_options.tag = tag
     state.sort_options.tracker = tracker
   },
   FETCH_CATEGORIES: async state => (state.categories = Object.values(await qbit.getCategories())),
+  FETCH_TAGS: async state => (state.tags = await qbit.getAvailableTags()),
   FETCH_FEEDS: async state => (state.rss.feeds = await qbit.getFeeds()),
   FETCH_RULES: async state => (state.rss.rules = await qbit.getRules()),
   FETCH_SEARCH_PLUGINS: async state => (state.searchPlugins = await qbit.getSearchPlugins()),

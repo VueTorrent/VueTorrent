@@ -4,8 +4,8 @@
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderTag') }}</v-subheader>
         <v-list-item-group :value="activeTags" active-class="accent--text" multiple>
-          <template v-for="(item, index) in availableTags">
-            <v-list-item :key="item.title" @click="addTag(item)">
+          <template v-for="(item, index) in availableTags" :key="item.title">
+            <v-list-item link @click="addTag(item)">
               <v-list-item-content>
                 <v-list-item-title v-text="item" />
               </v-list-item-content>
@@ -18,8 +18,8 @@
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
         <v-list-item-group :value="activeCategory" active-class="accent--text">
-          <template v-for="(item, index) in availableCategories">
-            <v-list-item :key="item.title" @click="setCategory(item)">
+          <template v-for="(item, index) in availableCategories" :key="item.title">
+            <v-list-item link @click="setCategory(item)">
               <v-list-item-content>
                 <v-list-item-title v-text="item.name" />
               </v-list-item-content>
@@ -74,22 +74,25 @@ export default {
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
   },
   methods: {
     addTag(tag) {
       if (this.activeTags.includes(this.availableTags.indexOf(tag))) {
         return this.deleteTag(tag)
       }
-      qbit.addTorrentTag(this.hash, tag)
+
+      return qbit.addTorrentTag([this.hash], tag)
     },
     deleteTag(tag) {
-      qbit.removeTorrentTag(this.hash, tag)
+      qbit.removeTorrentTag([this.hash], tag)
     },
     setCategory(cat) {
       if (this.torrent.category === cat.name) {
-        return qbit.setCategory([this.hash], '')
+        return this.deleteCategory()
       }
-      qbit.setCategory([this.hash], cat.name)
+
+      return qbit.setCategory([this.hash], cat.name)
     },
     deleteCategory() {
       qbit.setCategory([this.hash], '')

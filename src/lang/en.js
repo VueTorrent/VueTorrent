@@ -430,6 +430,8 @@ const locale = {
       decrease: 'decrease'
     },
     category: 'set category',
+    tags: 'set tags',
+    notags: 'no tags',
     limit: 'set limit',
     copy: 'copy',
     info: 'show info'

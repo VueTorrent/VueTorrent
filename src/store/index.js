@@ -49,6 +49,7 @@ export default new Vuex.Store({
       hashes: [],
       filter: null,
       category: null,
+      tag: null,
       tracker: null
     },
     rid: 0,

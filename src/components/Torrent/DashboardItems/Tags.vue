@@ -4,7 +4,7 @@
       {{ $t('tags') }}
     </div>
     <v-row wrap class="ma-0">
-      <v-chip v-for="tag in torrent.tags" :key="tag" small :class="theme === 'light' ? 'white--text' : 'black--text'" class="download caption mb-1 mx-1">
+      <v-chip v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption mb-1 mx-1">
         {{ tag }}
       </v-chip>
     </v-row>
@@ -18,3 +18,9 @@ export default {
   props: ['torrent']
 }
 </script>
+
+<style>
+.tags {
+  background-color: #048b9a !important;
+}
+</style>

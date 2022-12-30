@@ -17,6 +17,7 @@ export default {
       context.commit('updateMainData')
       context.commit('FETCH_SETTINGS')
       context.commit('FETCH_CATEGORIES')
+      context.commit('FETCH_TAGS')
 
       return true
     }

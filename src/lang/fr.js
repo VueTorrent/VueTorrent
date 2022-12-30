@@ -368,6 +368,8 @@ const locale = {
       decrease: 'Diminuer'
     },
     category: 'Définir la catégorie',
+    tags: 'Définir les tags',
+    notags: 'Aucun tag',
     limit: 'Définir la limite',
     copy: 'copier',
     info: 'afficher les informations'
