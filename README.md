@@ -15,7 +15,7 @@
 ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
 ![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent)
 ![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
-![Test Status](https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components)
+![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml)
 ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
 
