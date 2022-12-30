@@ -1,19 +1,19 @@
 const locale = {
   /** General */
   category: 'Category',
-  settings: 'settings',
-  pause: 'pause',
-  delete: 'delete',
-  save: 'save',
-  cancel: 'cancel',
-  confirm: 'confirm',
+  settings: 'Settings',
+  pause: 'Pause',
+  delete: 'Delete',
+  save: 'Save',
+  cancel: 'Cancel',
+  confirm: 'Confirm',
   edit: 'Edit',
   createNew: 'Create New',
   path: 'Path',
   create: 'Create',
   url: 'URL',
   directory: 'Directory',
-  unknown: 'unknown',
+  unknown: 'Unknown',
   status: 'Status',
   all: 'All',
   downloading: 'Downloading',
@@ -27,61 +27,78 @@ const locale = {
   errored: 'Errored',
   login: 'Login in',
   logout: 'Log out',
-  downloaded: 'Downloaded',
-  uploaded: 'Uploaded',
-  upload: 'Upload',
   download: 'Download',
+  downloaded: 'Downloaded',
+  upload: 'Upload',
+  uploaded: 'Uploaded',
   ETA: 'ETA',
   peers: 'Peers',
   ratio: 'Ratio',
   seeds: 'Seeds',
   tags: 'Tags',
+  tracker: 'Tracker',
   share: 'Share',
   name: 'Name',
   hash: 'Hash',
   magnet: 'Magnet',
-  feed: 'feed',
-  rule: 'rule',
+  feed: 'Feed',
+  rule: 'Rule',
   then: 'Then',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      toggleSearch: 'Toggle Search Filter',
+      toggleSelect: 'Toggle Select Mode',
+      toggleSort: 'Sort Torrents',
+      selectAll: 'Select All',
+      selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
-    title: 'title',
-    added: 'added on',
-    availability: 'availability',
-    size: 'size',
-    progress: 'progress',
-    directory: 'directory',
-    downloaded: 'downloaded',
-    uploaded: 'uploaded',
-    created: 'created by',
-    comments: 'comments',
+    title: 'Title',
+    added: 'Added On',
+    availability: 'Availability',
+    size: 'Size',
+    progress: 'Progress',
+    directory: 'Directory',
+    downloaded: 'Downloaded',
+    uploaded: 'Uploaded',
+    created: 'Created By',
+    comments: 'Comments',
     uploadedSession: 'Uploaded Session',
     timeActive: 'Time Active',
-    seededFor: 'seeded for',
+    seededFor: 'Seeded For',
     last_activity: 'Last Activity'
   },
   /** Navbar */
   navbar: {
-    currentSpeed: 'current speed',
-    freeSpace: 'free space',
+    currentSpeed: 'Current Speed',
+    alltimeTitle: 'All-Time Stats',
+    sessionTitle: 'Session Stats',
+    freeSpace: 'Free Space',
     topActions: {
-      addTorrent: 'add torrent',
-      resumeSelected: 'resume selected torrents',
-      pauseSelected: 'pause selected torrents',
-      removeSelected: 'remove selected torrents',
-      openSettings: 'open settings',
-      searchNew: 'search new torrent'
+      addTorrent: 'Add torrent',
+      resumeSelected: 'Resume selected torrents',
+      pauseSelected: 'Pause selected torrents',
+      removeSelected: 'Remove selected torrents',
+      openSettings: 'Open settings',
+      searchNew: 'Search new torrent'
     },
     sessionStats: {
       tooltip: 'Since the last time qBittorrent was restarted'
     },
     filters: {
       stalled_uploading: 'Stalled Uploading',
-      stalled_downloading: 'Stalled Downloading'
+      stalled_downloading: 'Stalled Downloading',
+      uncategorized: 'Uncategorized',
+      untagged: 'Untagged',
+      not_working: 'Not Working'
     },
     action: {
-      altSpeed: 'Alt speeds',
+      altSpeed: 'Alt Speeds',
       dark: 'Dark',
       light: 'Light'
     }
@@ -94,6 +111,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
+      titleCreate: 'Create new rule',
+      titleEdit: 'Edit rule',
       name: 'Name',
       def: {
         mustContain: 'Must Contain',
@@ -118,13 +137,13 @@ const locale = {
     },
     settings: {
       tabName: {
-        VueTorrent: 'vuetorrent',
-        downloads: 'downloads',
-        connection: 'connection',
-        bittorrent: 'bittorrent',
-        rss: 'Rss',
-        webUI: 'WEB UI',
-        tagsAndCategories: 'tags & categories'
+        VueTorrent: 'VueTorrent',
+        downloads: 'Downloads',
+        connection: 'Connection',
+        bittorrent: 'BitTorrent',
+        rss: 'RSS',
+        webUI: 'WebUI',
+        tagsAndCategories: 'Tags & Categories'
       },
       pageVueTorrent: {
         tabName: {
@@ -151,7 +170,31 @@ const locale = {
         },
         pageDashboard: {
           busyTorrentTip: 'Properties to display for busy torrents',
-          completedTorrentTip: 'Properties to display for completed torrents'
+          completedTorrentTip: 'Properties to display for completed torrents',
+          properties: {
+            availability: 'Availability',
+            category: 'Category',
+            tags: 'Tags',
+            completed: 'Completed',
+            downloaded: 'Downloaded',
+            ETA: 'ETA',
+            name: 'Name',
+            default: 'Default',
+            last_activity: 'Last Activity',
+            peers: 'Peers',
+            seeds: 'Seeds',
+            priority: 'Priority',
+            progress: 'Progress',
+            ratio: 'Ratio',
+            save_path: 'Directory',
+            size: 'Size',
+            state: 'State',
+            uploaded: 'Uploaded',
+            addedOn: 'Added On',
+            downloadSpeed: 'Download Speed',
+            timeActive: 'Time Active',
+            uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -168,7 +211,7 @@ const locale = {
         subHeaderSaveManagement: 'Saving Management',
         saveManagement: {
           autoManagement: 'Automatic Torrent Management',
-          relocate: 'Relocate Torrent when category changes',
+          relocate: 'Relocate torrent when category changes',
           defaultSavePath: 'Default Save Path',
           keepIncompleteIn: 'Keep incomplete torrents in:',
           autoEnabled: 'Autorun enabled:',
@@ -191,7 +234,7 @@ const locale = {
         listeningSubHeader: 'Listening Port',
         useUPnP: 'Use UPnP / NAT-PMP port forwarding from my router',
         incomingConnectionPort: 'Port used for incoming connections',
-        subHeader: 'Connection Limits',
+        subHeader: 'Connection Limits (-1 to disable)',
         globalMaxConnection: 'Global maximum number of connections',
         perTorrentMaxConnection: 'Maximum number of connections per torrent',
         globalMaxUploadSlots: 'Global maximum number of upload slots',
@@ -243,7 +286,7 @@ const locale = {
           input: {
             enableRssAutoDownload: 'Enable auto downloading of RSS torrents',
             enableRssProcessing: 'Enable fetching RSS feeds',
-            feedsRefreshInterval: 'Feeds refresh interval',
+            feedsRefreshInterval: 'Feeds refresh interval (in minutes)',
             feedsMaxArticles: 'Maximum number of articles per feed'
           }
         }
@@ -299,7 +342,7 @@ const locale = {
       pageInfo: {
         pieceStates: 'Progress',
         torrentTitle: 'Torrent title',
-        hash: 'hash',
+        hash: 'Hash',
         ratio: 'Ratio',
         downloadSpeed: 'DL Speed',
         uploadSpeed: 'UP Speed',
@@ -311,7 +354,7 @@ const locale = {
         createdBy: 'Created By',
         firstLastPiecePriority: 'First/Last Piece Priority',
         sequentialDownload: 'Sequential Download',
-        autoTMM: 'Auto TMM',
+        autoTMM: 'Automatic Torrent Management',
         shareRatioLimit: 'Share Ratio Limit',
         shareTimeLimit: 'Share Time Limit (minutes)',
         downloadLimit: 'Download Limit',
@@ -354,7 +397,7 @@ const locale = {
       createSubfolder: 'Create subfolder',
       automaticTorrentManagement: 'Automatic Torrent Management',
       dropHereForAdd: 'Drop here for add',
-      oneOrMoreFilesInvalidTorrent: 'One or more files is not a valid torrent'
+      oneOrMoreFilesInvalidTorrent: 'One or more files are not valid torrents'
     },
     changeLocation: {
       title: 'Change Location',
@@ -374,7 +417,7 @@ const locale = {
         downloaded: 'Downloaded',
         ETA: 'ETA',
         name: 'Name',
-        none: 'None',
+        default: 'Default',
         last_activity: 'Last Activity',
         peers: 'Peers',
         priority: 'Priority',
@@ -418,23 +461,23 @@ const locale = {
       rename: 'rename',
       forceRecheck: 'Force recheck',
       forceReannounce: 'Force reannounce',
-      sequentialDownload: 'Sequential Download',
+      sequentialDownload: 'Sequential download',
       firstLastPriority: 'First/Last priority',
       automaticTorrentManagement: 'Automatic Torrent Management'
     },
     prio: {
-      prio: 'set priority',
-      top: 'top',
-      bottom: 'bottom',
-      increase: 'increase',
-      decrease: 'decrease'
+      prio: 'Set Priority',
+      top: 'Top',
+      bottom: 'Bottom',
+      increase: 'Increase',
+      decrease: 'Decrease'
     },
-    category: 'set category',
-    tags: 'set tags',
-    notags: 'no tags',
-    limit: 'set limit',
-    copy: 'copy',
-    info: 'show info'
+    category: 'Set Category',
+    tags: 'Set Tags',
+    notags: 'No Tags',
+    limit: 'Set Limit',
+    copy: 'Copy',
+    info: 'Show Info'
   }
 }
 

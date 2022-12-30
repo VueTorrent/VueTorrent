@@ -36,6 +36,7 @@ const locale = {
   ratio: '分享率',
   seeds: '種子',
   tags: '標籤',
+  // tracker: 'Tracker',
   share: '分享',
   name: '名稱',
   hash: '雜湊值',
@@ -44,6 +45,17 @@ const locale = {
   rule: '規則',
   then: '然後',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      // toggleSearch: 'Toggle Search Filter',
+      // toggleSelect: 'Toggle Select Mode',
+      // toggleSort: 'Sort Torrents',
+      // selectAll: 'Select All',
+      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    // emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
     title: '標題',
@@ -64,6 +76,8 @@ const locale = {
   /** Navbar */
   navbar: {
     currentSpeed: '當前速率',
+    // alltimeTitle: 'All-Time Stats',
+    // sessionTitle: 'Session Stats',
     freeSpace: '剩餘硬碟空間',
     topActions: {
       addTorrent: '新增種子',
@@ -78,7 +92,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: '停止上傳',
-      stalled_downloading: '停止下載'
+      stalled_downloading: '停止下載',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
     },
     action: {
       altSpeed: '替補速率限制',
@@ -94,6 +111,8 @@ const locale = {
       url: '連結'
     },
     newRule: {
+      // titleCreate: 'Create new rule',
+      // titleEdit: 'Edit rule',
       name: '名稱',
       def: {
         mustContain: '必須包含',
@@ -151,7 +170,31 @@ const locale = {
         },
         pageDashboard: {
           busyTorrentTip: '未完成種子所顯示的屬性',
-          completedTorrentTip: '已完成種子所顯示的屬性'
+          completedTorrentTip: '已完成種子所顯示的屬性',
+          properties: {
+            // availability: 'Availability',
+            // category: 'Category',
+            // tags: 'Tags',
+            // completed: 'Completed',
+            // downloaded: 'Downloaded',
+            // ETA: 'ETA',
+            // name: 'Name',
+            // default: 'Default',
+            // last_activity: 'Last Activity',
+            // peers: 'Peers',
+            // seeds: 'Seeds',
+            // priority: 'Priority',
+            // progress: 'Progress',
+            // ratio: 'Ratio',
+            // save_path: 'Directory',
+            // size: 'Size',
+            // state: 'State',
+            // uploaded: 'Uploaded',
+            // addedOn: 'Added On',
+            // downloadSpeed: 'Download Speed',
+            // timeActive: 'Time Active',
+            // uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -374,7 +417,7 @@ const locale = {
         downloaded: '已下載',
         ETA: '預估剩餘時間',
         name: '名稱',
-        none: '無',
+        default: '無',
         last_activity: '最後活動',
         peers: '下載者',
         priority: '優先級',
@@ -430,6 +473,8 @@ const locale = {
       decrease: '降低'
     },
     category: '設定分類',
+    // tags: 'Set Tags',
+    // notags: 'No Tags',
     limit: '設定限制',
     copy: '複製',
     info: '顯示詳情'

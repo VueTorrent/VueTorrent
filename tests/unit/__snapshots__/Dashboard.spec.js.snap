@@ -29,7 +29,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Download</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Download Speed</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -38,7 +38,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Upload</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Upload Speed</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -92,7 +92,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Status</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">State</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -128,7 +128,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">AddedOn</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Added On</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -173,7 +173,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Download</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Download Speed</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -182,7 +182,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Upload</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Upload Speed</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -236,7 +236,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Status</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">State</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>
@@ -272,7 +272,7 @@ exports[`Dashboard > render correctly 1`] = `
             <vuecomponent-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
               <vuecomponent-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></vuecomponent-stub>
               <vuecomponent-stub tag=\\"div\\">
-                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">AddedOn</vuecomponent-stub>
+                <vuecomponent-stub tag=\\"div\\" class=\\"truncate\\">Added On</vuecomponent-stub>
               </vuecomponent-stub>
               <vuecomponent-stub>
                 <vuecomponent-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </vuecomponent-stub>

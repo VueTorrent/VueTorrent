@@ -36,6 +36,7 @@ const locale = {
   ratio: '比率',
   seeds: 'シード',
   tags: 'タグ',
+  // tracker: 'Tracker',
   share: 'Share',
   name: '名前',
   hash: 'ハッシュ値',
@@ -43,6 +44,17 @@ const locale = {
   feed: 'フィード',
   rule: 'ルール',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      // toggleSearch: 'Toggle Search Filter',
+      // toggleSelect: 'Toggle Select Mode',
+      // toggleSort: 'Sort Torrents',
+      // selectAll: 'Select All',
+      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    // emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
     title: 'タイトル',
@@ -56,11 +68,15 @@ const locale = {
     created: '作成',
     comments: 'コメント',
     uploadedSession: 'アップロードセッション',
-    torrentTitle: 'Torrentのタイトル'
+    // timeActive: 'Time Active',
+    // seededFor: 'Seeded For',
+    // last_activity: 'Last Activity'
   },
   /** Navbar */
   navbar: {
     currentSpeed: '速度',
+    // alltimeTitle: 'All-Time Stats',
+    // sessionTitle: 'Session Stats',
     freeSpace: '空き容量',
     topActions: {
       addTorrent: 'Torrentを追加',
@@ -75,7 +91,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: '停滞中アップロード',
-      stalled_downloading: '停滞中ダウンロード'
+      stalled_downloading: '停滞中ダウンロード',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
     },
     action: {
       altSpeed: '代替速度制限',
@@ -91,6 +110,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
+      titleCreate: 'Create new rule',
+      titleEdit: 'Edit rule',
       name: 'ルール名',
       def: {
         mustContain: '必要',
@@ -137,15 +158,42 @@ const locale = {
           freeSpace: '空き容量を表示する',
           trackerFilter: 'トラッカーフィルターを表示する',
           rightDrawer: 'メニューを右側に表示する',
+          // topPagination: 'Top Pagination',
           language: '言語:',
           paginationSize: '1ページの表示数:',
           vueTorrentTitle: 'ページタイトル:',
+          // dateFormat: 'Date Format',
+          // openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: '現在のバージョン:',
           qbittorrentVersion: 'QBittorrentのバージョン:'
         },
         pageDashboard: {
           busyTorrentTip: '稼働中のTorrentに表示されるプロパティ',
-          completedTorrentTip: '完了したTorrentに表示されるプロパティ'
+          completedTorrentTip: '完了したTorrentに表示されるプロパティ',
+          properties: {
+            // availability: 'Availability',
+            // category: 'Category',
+            // tags: 'Tags',
+            // completed: 'Completed',
+            // downloaded: 'Downloaded',
+            // ETA: 'ETA',
+            // name: 'Name',
+            // default: 'Default',
+            // last_activity: 'Last Activity',
+            // peers: 'Peers',
+            // seeds: 'Seeds',
+            // priority: 'Priority',
+            // progress: 'Progress',
+            // ratio: 'Ratio',
+            // save_path: 'Directory',
+            // size: 'Size',
+            // state: 'State',
+            // uploaded: 'Uploaded',
+            // addedOn: 'Added On',
+            // downloadSpeed: 'Download Speed',
+            // timeActive: 'Time Active',
+            // uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -181,6 +229,10 @@ const locale = {
         }
       },
       pageConnection: {
+        // protocol: 'Peer connection protocol',
+        // listeningSubHeader: 'Listening Port',
+        // useUPnP: 'Use UPnP / NAT-PMP port forwarding from my router',
+        // incomingConnectionPort: 'Port used for incoming connections',
         subHeader: '接続制限',
         globalMaxConnection: '全体の最大接続数',
         perTorrentMaxConnection: 'Torrentあたりの最大接続数',
@@ -207,7 +259,11 @@ const locale = {
         torrentInactivityTimer: 'Torrent未稼働時間',
         subHeaderSeedLimits: 'シードの制限',
         whenRatioReaches: 'シード制限する共有比',
-        whenSeedingTimeReaches: 'シード制限するシード時間 (分)'
+        whenSeedingTimeReaches: 'シード制限するシード時間 (分)',
+        // maxRatioPauseTorrent: 'Pause torrent',
+        // maxRatioRemoveTorrent: 'Remove torrent',
+        // maxRatioRemoveTorrentAndFiles: 'Remove torrent and files',
+        // maxRatioTorrentSuperseeding: 'Enable torrent super seeding'
       },
       pageRss: {
         tabName: {
@@ -360,10 +416,13 @@ const locale = {
         downloaded: 'ダウンロード済み',
         ETA: '残り時間',
         name: '名前',
+        // default: 'Default',
+        // last_activity: 'Last Activity',
         peers: 'ピア',
         priority: '優先度',
         progress: '進捗',
         ratio: '比率',
+        // save_path: 'Directory',
         size: '大きさ',
         state: '状態',
         uploaded: 'アップロード済み',
@@ -413,6 +472,8 @@ const locale = {
       decrease: '下へ'
     },
     category: 'カテゴリーを設定',
+    // tags: 'Set Tags',
+    // notags: 'No Tags',
     limit: '制限を設定',
     copy: 'コピー',
     info: '情報'

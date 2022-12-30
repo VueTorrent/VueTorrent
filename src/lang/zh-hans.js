@@ -36,6 +36,7 @@ const locale = {
   ratio: '比率',
   seeds: '做种',
   tags: '标签',
+  // tracker: 'Tracker',
   share: '分享',
   name: '名称',
   hash: '哈希值',
@@ -44,6 +45,17 @@ const locale = {
   rule: '规则',
   then: '则',
 
+  /** Dashboard */
+  dashboard: {
+    tooltips: {
+      // toggleSearch: 'Toggle Search Filter',
+      // toggleSelect: 'Toggle Select Mode',
+      // toggleSort: 'Sort Torrents',
+      // selectAll: 'Select All',
+      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+    },
+    // emptyTorrentList: 'Nothing to see here!'
+  },
   /** Torrent */
   torrent: {
     title: '标题',
@@ -64,6 +76,8 @@ const locale = {
   /** Navbar */
   navbar: {
     currentSpeed: '当前速率',
+    // alltimeTitle: 'All-Time Stats',
+    // sessionTitle: 'Session Stats',
     freeSpace: '剩余磁盘空间',
     topActions: {
       addTorrent: '打开种子',
@@ -78,7 +92,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: '低速上传',
-      stalled_downloading: '低速下载'
+      stalled_downloading: '低速下载',
+      // uncategorized: 'Uncategorized',
+      // untagged: 'Untagged',
+      // not_working: 'Not Working'
     },
     action: {
       altSpeed: '备用速率限制',
@@ -94,6 +111,8 @@ const locale = {
       url: '地址'
     },
     newRule: {
+      // titleCreate: 'Create new rule',
+      // titleEdit: 'Edit rule',
       name: '名称',
       def: {
         mustContain: '必须包含',
@@ -151,7 +170,31 @@ const locale = {
         },
         pageDashboard: {
           busyTorrentTip: '未完成的种子要显示的属性',
-          completedTorrentTip: '已完成的种子要显示的属性'
+          completedTorrentTip: '已完成的种子要显示的属性',
+          properties: {
+            // availability: 'Availability',
+            // category: 'Category',
+            // tags: 'Tags',
+            // completed: 'Completed',
+            // downloaded: 'Downloaded',
+            // ETA: 'ETA',
+            // name: 'Name',
+            // default: 'Default',
+            // last_activity: 'Last Activity',
+            // peers: 'Peers',
+            // seeds: 'Seeds',
+            // priority: 'Priority',
+            // progress: 'Progress',
+            // ratio: 'Ratio',
+            // save_path: 'Directory',
+            // size: 'Size',
+            // state: 'State',
+            // uploaded: 'Uploaded',
+            // addedOn: 'Added On',
+            // downloadSpeed: 'Download Speed',
+            // timeActive: 'Time Active',
+            // uploadSpeed: 'Upload Speed'
+          }
         }
       },
       pageDownloads: {
@@ -374,7 +417,7 @@ const locale = {
         downloaded: '下载量',
         ETA: '剩余时间',
         name: '名称',
-        none: '无',
+        default: '无',
         last_activity: '最后活跃',
         peers: '用户',
         priority: '优先级',
@@ -430,6 +473,8 @@ const locale = {
       decrease: '降低'
     },
     category: '设置分类',
+    // tags: 'Set Tags',
+    // notags: 'No Tags',
     limit: '设置限制',
     copy: '复制',
     info: '显示详情'
