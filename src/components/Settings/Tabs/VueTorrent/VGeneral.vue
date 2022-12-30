@@ -207,6 +207,9 @@
         </v-col>
       </v-row>
     </v-list-item>
+    <v-list-item class="justify-center pb-2">
+      <v-btn @click="resetSettings"> {{ $t('modals.settings.pageVueTorrent.pageGeneral.resetSettings') }} </v-btn>
+    </v-list-item>
   </v-card>
 </template>
 
@@ -238,6 +241,10 @@ export default {
   methods: {
     async fetchQbitVersion() {
       this.Qbitversion = await Qbit.getAppVersion()
+    },
+    resetSettings() {
+      window.localStorage.clear()
+      location.reload()
     }
   }
 }

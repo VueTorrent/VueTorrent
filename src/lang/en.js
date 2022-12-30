@@ -167,7 +167,8 @@ const locale = {
           dateFormat: 'Date Format',
           openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: 'Current Version:',
-          qbittorrentVersion: 'QBittorrent Version:'
+          qbittorrentVersion: 'QBittorrent Version:',
+          resetSettings: 'Reset Settings'
         },
         pageDashboard: {
           busyTorrentTip: 'Properties to display for busy torrents',
