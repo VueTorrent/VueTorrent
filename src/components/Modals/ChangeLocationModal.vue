@@ -13,7 +13,9 @@
               <v-list flat class="mb-4">
                 <v-list-item v-for="t in torrents" :key="t.hash" else>
                   <v-list-item-content>
-                    <v-list-item-title class="text-wrap" v-text="t.name" />
+                    <v-list-item-title class="text-wrap">
+                      {{ t.name }}
+                    </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -68,7 +70,7 @@ export default {
     }
   },
   created() {
-    this.newPath = this.getSettings().save_path
+    this.newPath = this.torrents[0].savePath
   },
   methods: {
     setLocation() {
