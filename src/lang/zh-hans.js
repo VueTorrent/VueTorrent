@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: '设置保存成功！',
     categorySaved: '分类编辑成功！',
     feedSaved: '订阅源保存成功！',
-    ruleSaved: '规则保存成功！'
+    ruleSaved: '规则保存成功！',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/

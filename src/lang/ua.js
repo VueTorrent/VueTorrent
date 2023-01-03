@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: 'Налаштування успішно збережено!',
     categorySaved: 'Категорія успішно відредагована!',
     feedSaved: 'Стрічка збережена успішно!',
-    ruleSaved: 'Правило збережено!'
+    ruleSaved: 'Правило збережено!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/
