@@ -53,7 +53,7 @@ const locale = {
       toggleSort: '種子排序',
       selectAll: '全選',
       selectAllCaption: '選擇 / 取消選擇全部 (Ctrl + A)'
-    }
+    },
     emptyTorrentList: '這裡沒東西可看！'
   },
   /** Torrent */
