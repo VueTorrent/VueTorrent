@@ -27,16 +27,16 @@ const locale = {
   errored: '錯誤',
   login: '登入',
   logout: '登出',
-  downloaded: '已下載',
-  uploaded: '已上傳',
-  upload: '上傳',
   download: '下載',
+  downloaded: '已下載',
+  upload: '上傳',
+  uploaded: '已上傳',
   ETA: '預估剩餘時間',
   peers: '下載者',
   ratio: '分享率',
   seeds: '種子',
   tags: '標籤',
-  // tracker: 'Tracker',
+  tracker: '追蹤者',
   share: '分享',
   name: '名稱',
   hash: '雜湊值',
@@ -48,19 +48,19 @@ const locale = {
   /** Dashboard */
   dashboard: {
     tooltips: {
-      // toggleSearch: 'Toggle Search Filter',
-      // toggleSelect: 'Toggle Select Mode',
-      // toggleSort: 'Sort Torrents',
-      // selectAll: 'Select All',
-      // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    }
-    // emptyTorrentList: 'Nothing to see here!'
+      toggleSearch: '搜尋過濾器',
+      toggleSelect: '選擇模式',
+      toggleSort: '種子排序',
+      selectAll: '全選',
+      selectAllCaption: '選擇 / 取消選擇全部 (Ctrl + A)'
+    },
+    emptyTorrentList: '這裡沒東西可看！'
   },
   /** Torrent */
   torrent: {
     title: '標題',
     added: '新增於',
-    availability: '可用性',
+    availability: '可得性',
     size: '大小',
     progress: '進度',
     directory: '目錄',
@@ -71,13 +71,14 @@ const locale = {
     uploadedSession: '上傳會話',
     timeActive: '經過時間',
     seededFor: '已做種',
-    last_activity: '最後活動'
+    last_activity: '最後活動',
+    completed_on: '完成於'
   },
   /** Navbar */
   navbar: {
     currentSpeed: '當前速率',
-    // alltimeTitle: 'All-Time Stats',
-    // sessionTitle: 'Session Stats',
+    alltimeTitle: '歷史統計',
+    sessionTitle: '會話統計',
     freeSpace: '剩餘硬碟空間',
     topActions: {
       addTorrent: '新增種子',
@@ -92,10 +93,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: '停止上傳',
-      stalled_downloading: '停止下載'
-      // uncategorized: 'Uncategorized',
-      // untagged: 'Untagged',
-      // not_working: 'Not Working'
+      stalled_downloading: '停止下載',
+      uncategorized: '未分類',
+      untagged: '未標籤',
+      not_working: '無追蹤者'
     },
     action: {
       altSpeed: '替補速率限制',
@@ -111,8 +112,8 @@ const locale = {
       url: '連結'
     },
     newRule: {
-      // titleCreate: 'Create new rule',
-      // titleEdit: 'Edit rule',
+      titleCreate: '新增規則',
+      titleEdit: '編輯規則',
       name: '名稱',
       def: {
         mustContain: '必須包含',
@@ -140,7 +141,7 @@ const locale = {
         VueTorrent: 'VueTorrent',
         downloads: '下載',
         connection: '連線',
-        bittorrent: 'bittorrent',
+        bittorrent: 'Bittorrent',
         rss: 'RSS',
         webUI: '網頁介面',
         tagsAndCategories: '標籤和分類'
@@ -166,34 +167,36 @@ const locale = {
           dateFormat: '日期格式',
           openSideBarOnStart: '啟動時顯示側邊欄',
           currentVersion: '當前版本',
-          qbittorrentVersion: 'QBittorrent 版本'
+          qbittorrentVersion: 'QBittorrent 版本',
+          resetSettings: '重置設定'
         },
         pageDashboard: {
           busyTorrentTip: '未完成種子所顯示的屬性',
           completedTorrentTip: '已完成種子所顯示的屬性',
           properties: {
-            // availability: 'Availability',
-            // category: 'Category',
-            // tags: 'Tags',
-            // completed: 'Completed',
-            // downloaded: 'Downloaded',
-            // ETA: 'ETA',
-            // name: 'Name',
-            // default: 'Default',
-            // last_activity: 'Last Activity',
-            // peers: 'Peers',
-            // seeds: 'Seeds',
-            // priority: 'Priority',
-            // progress: 'Progress',
-            // ratio: 'Ratio',
-            // save_path: 'Directory',
-            // size: 'Size',
-            // state: 'State',
-            // uploaded: 'Uploaded',
-            // addedOn: 'Added On',
-            // downloadSpeed: 'Download Speed',
-            // timeActive: 'Time Active',
-            // uploadSpeed: 'Upload Speed'
+            availability: '可得性',
+            category: '分類',
+            tags: '標籤',
+            completed: '已完成',
+            completion_on: '完成於',
+            downloaded: '已下載',
+            ETA: '預估剩餘時間',
+            name: '名稱',
+            default: '預設',
+            last_activity: '最後活動',
+            peers: '下載者',
+            seeds: '種子',
+            priority: '優先級',
+            progress: '進度',
+            ratio: '分享率',
+            save_path: '儲存路徑',
+            size: '大小',
+            state: '狀態',
+            uploaded: '已上傳',
+            addedOn: '新增於',
+            downloadSpeed: '下載速率',
+            timeActive: '經過時間',
+            uploadSpeed: '上傳速率'
           }
         }
       },
@@ -214,10 +217,10 @@ const locale = {
           relocate: '當分類變更時重新定位種子',
           defaultSavePath: '預設儲存路徑',
           keepIncompleteIn: '保留未完成的種子於：',
-          // autoEnabled_onAdded: 'Run external program on torrent added:',
-          // autoLabel_onAdded: 'Command',
-          autoEnabled_onFinished: '啟用自動執行：',
-          autoLabel_onFinished: '自動執行的程式',
+          autoEnabled_onAdded: '當新增種子時執行外部程式：',
+          autoLabel_onAdded: '命令',
+          autoEnabled_onFinished: '當種子下載結束時執行外部程式：',
+          autoLabel_onFinished: '命令',
           supportParamTitle: '支援的參數 (區分大小寫)',
           supportParamN: '%N: 種子名稱',
           supportParamL: '%L: 分類',
@@ -236,7 +239,7 @@ const locale = {
         listeningSubHeader: '監聽埠',
         useUPnP: '使用從路由器轉送的 UPnP / NAT-PMP 連接埠',
         incomingConnectionPort: '連入連線時使用的埠',
-        subHeader: '連線限制',
+        subHeader: '連線限制 (-1 以禁用)',
         globalMaxConnection: '全域最大連線數',
         perTorrentMaxConnection: '單個種子的最大連線數',
         globalMaxUploadSlots: '全域上傳通道最大數',
@@ -288,7 +291,7 @@ const locale = {
           input: {
             enableRssAutoDownload: '啟用自動 RSS 種子下載',
             enableRssProcessing: '啟用抓取 RSS 訂閱',
-            feedsRefreshInterval: '訂閱源更新區間',
+            feedsRefreshInterval: '訂閱源更新區間 (分鐘)',
             feedsMaxArticles: '每個訂閱源的最大文章數'
           }
         }
@@ -415,10 +418,11 @@ const locale = {
         availability: '可得性',
         category: '分類',
         completed: '已完成',
+        completion_on: '完成於',
         downloaded: '已下載',
         ETA: '預估剩餘時間',
         name: '名稱',
-        default: '無',
+        default: '預設',
         last_activity: '最後活動',
         peers: '下載者',
         priority: '優先級',
@@ -474,8 +478,8 @@ const locale = {
       decrease: '降低'
     },
     category: '設定分類',
-    // tags: 'Set Tags',
-    // notags: 'No Tags',
+    tags: '新增標籤',
+    notags: '無標籤',
     limit: '設定限制',
     copy: '複製',
     info: '顯示詳情'
