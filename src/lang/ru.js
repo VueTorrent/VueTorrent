@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: 'Настройки успешно сохранены!',
     categorySaved: 'Категория успешно отредактирована!',
     feedSaved: 'Канал успешно сохранен!',
-    ruleSaved: 'Правила сохранены!'
+    ruleSaved: 'Правила сохранены!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/

@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: 'Paramètres enregistrés avec succès!',
     categorySaved: 'Catégorie modifiée avec succès!',
     feedSaved: 'Flux enregistré !',
-    ruleSaved: 'Règle enregistrée !'
+    ruleSaved: 'Règle enregistrée !',
+    renameFileFailed: 'Impossible de renommer le fichier',
+    renameFolderFailed: 'Impossible de renommer le dossier'
   },
 
   /** RightClick **/

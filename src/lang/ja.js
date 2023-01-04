@@ -448,7 +448,9 @@ const locale = {
     settingsSaved: '設定の保存に成功しました!',
     categorySaved: 'カテゴリーの編集に成功しました!',
     feedSaved: 'フィードの編集に成功しました!',
-    ruleSaved: 'ルールの編集に成功しました!'
+    ruleSaved: 'ルールの編集に成功しました!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/

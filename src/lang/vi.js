@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: 'Cài đặt đã lưu thành công!',
     categorySaved: 'Thể loại đã chỉnh sửa thành công!'
     // feedSaved: 'Feed saved successfully!',
-    // ruleSaved: 'Rule saved!'
+    // ruleSaved: 'Rule saved!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/

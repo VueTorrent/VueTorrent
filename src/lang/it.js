@@ -449,7 +449,9 @@ const locale = {
     // settingsSaved: 'Settings saved successfully!',
     // categorySaved: 'Category edited successfully!',
     // feedSaved: 'Feed saved successfully!',
-    // ruleSaved: 'Rule saved!'
+    // ruleSaved: 'Rule saved!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/

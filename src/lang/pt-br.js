@@ -449,7 +449,9 @@ const locale = {
     settingsSaved: 'Configurações salvas com Sucesso!',
     categorySaved: 'Categoria Editada com Sucesso!'
     // feedSaved: 'Feed saved successfully!',
-    // ruleSaved: 'Rule saved!'
+    // ruleSaved: 'Rule saved!',
+    // renameFileFailed: 'Unable to rename file',
+    // renameFolderFailed: 'Unable to rename file'
   },
 
   /** RightClick **/
