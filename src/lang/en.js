@@ -44,6 +44,7 @@ const locale = {
   feed: 'Feed',
   rule: 'Rule',
   then: 'Then',
+  of: 'of',
 
   /** Dashboard */
   dashboard: {
@@ -102,7 +103,8 @@ const locale = {
       altSpeed: 'Alt Speeds',
       dark: 'Dark',
       light: 'Light'
-    }
+    },
+    torrentsCount: 'No torrents | {n} torrent | {n} torrents'
   },
 
   /** Modals */
