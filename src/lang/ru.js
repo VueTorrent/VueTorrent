@@ -49,11 +49,11 @@ const locale = {
   /** Dashboard */
   dashboard: {
     tooltips: {
-      // toggleSearch: 'Toggle Search Filter',
-      // toggleSelect: 'Toggle Select Mode',
-      // toggleSort: 'Sort Torrents',
-      // selectAll: 'Select All',
-      // selectAllCaption: 'Select / Release All (Ctrl + A)'
+      toggleSearch: 'Переключить режим поиска',
+      toggleSelect: 'Переключить режим выбора',
+      toggleSort: 'Отсортировать торренты',
+      selectAll: 'Выбрать все',
+      selectAllCaption: 'Выбрать / снять все (Ctrl+A)'
     }
     // emptyTorrentList: 'Nothing to see here!'
   },
@@ -141,7 +141,7 @@ const locale = {
     settings: {
       tabName: {
         VueTorrent: 'vuetorrent',
-        downloads: 'Отдача',
+        downloads: 'Загрузки',
         connection: 'Соединение',
         bittorrent: 'Bittorrent',
         rss: 'RSS',
@@ -154,45 +154,45 @@ const locale = {
           dashboard: 'Панель'
         },
         pageGeneral: {
-          tip: 'Эти настройки предназначены для пользовательского веб-интерфейса',
-          currentSpeed: 'Отображать текущую скорость',
-          speedGraph: 'Отображать график скорости',
-          sessionStats: 'Отображать статистику сессии',
-          allTimeStats: 'Отображать всю статистику',
-          freeSpace: 'Отображать свободное место',
-          trackerFilter: 'Отображать фильтр трекеров',
-          rightDrawer: 'Панель справа',
-          // topPagination: 'Top Pagination',
+          tip: 'Общие настройки пользовательского веб-интерфейса',
+          currentSpeed: 'Показывать текущую скорость',
+          speedGraph: 'Показывать график скорости',
+          sessionStats: 'Показывать статистику сессии',
+          allTimeStats: 'Показывать всю статистику',
+          freeSpace: 'Показывать свободное место',
+          trackerFilter: 'Показывать фильтр трекеров',
+          rightDrawer: 'Расположить боковую панель справа',
+          topPagination: 'Расположить навигационную панель сверху',
           language: 'Язык:',
-          paginationSize: 'Размер страницы:',
+          paginationSize: 'Количество торрентов на странице:',
           vueTorrentTitle: 'Заголовок VueTorrent:',
-          // dateFormat: 'Date Format',
-          // openSideBarOnStart: 'Open Side Bar on launch',
+          dateFormat: 'Формат даты',
+          openSideBarOnStart: 'Открывать боковую панель при запуске',
           currentVersion: 'Текущая версия',
           qbittorrentVersion: 'Версия QBittorrent:',
-          resetSettings: 'Сброс настроек'
+          resetSettings: 'Сбросить настройки'
         },
         pageDashboard: {
-          busyTorrentTip: 'Свойства для отображения занятых торрентов',
+          busyTorrentTip: 'Свойства для отображения активных торрентов',
           completedTorrentTip: 'Свойства для отображения завершенных торрентов',
           properties: {
-            // availability: 'Availability',
-            // category: 'Category',
-            // tags: 'Tags',
+            availability: 'Доступность',
+            category: 'Категория',
+            tags: 'Метки',
             // completed: 'Completed',
             // completion_on: 'Completed On',
             // downloaded: 'Downloaded',
-            // ETA: 'ETA',
-            // name: 'Name',
-            // default: 'Default',
-            // last_activity: 'Last Activity',
-            // peers: 'Peers',
-            // seeds: 'Seeds',
-            // priority: 'Priority',
-            // progress: 'Progress',
-            // ratio: 'Ratio',
+            ETA: 'ETA',
+            name: 'Имя',
+            default: 'По-умолчанию',
+            last_activity: 'Последняя активность',
+            peers: 'Пиры',
+            seeds: 'Сиды',
+            priority: 'Приоритет',
+            progress: 'Прогресс',
+            ratio: 'Рейтинг',
             // save_path: 'Directory',
-            // size: 'Size',
+            size: 'Размер',
             // state: 'State',
             // uploaded: 'Uploaded',
             // addedOn: 'Added On',
@@ -203,37 +203,39 @@ const locale = {
         }
       },
       pageDownloads: {
-        subHeaderWhenAddTorrent: 'Когда добавляется торрент',
+        subHeaderWhenAddTorrent: 'При добавлении торрента',
         whenAddTorrent: {
           createSubFolder: 'Создать подкаталог для торрентов с несколькими файлами',
-          donotAutoStart: 'Не запускать раздачу автоматически'
+          donotAutoStart: 'Не начинать загрузку автоматически'
         },
         subHeaderPublicSettings: 'Общие настройки',
         publicSettings: {
-          preAllocateDisk: 'Предварительно выделить место на диске для всех файлов',
-          appendQBExtension: 'Добавить расширение .!qB к неполным файлам'
+          preAllocateDisk: 'Резервировать место на диске для всех файлов',
+          appendQBExtension: 'Добавлять расширение .!qB к незавершённым файлам'
         },
         subHeaderSaveManagement: 'Управление сохранением',
         saveManagement: {
-          autoManagement: 'Автоматическое управление торрентами',
-          relocate: 'Перемещение торрента при изменении категории',
-          defaultSavePath: 'Путь сохранения по умолчанию',
-          keepIncompleteIn: 'Хранить не завершенные торренты в:',
-          // autoEnabled_onAdded: 'Run external program on torrent added:',
-          // autoLabel_onAdded: 'Command',
-          autoEnabled_onFinished: 'Автозапуск включен:',
-          autoLabel_onFinished: 'Программа автозапуска',
+          autoManagement: 'Автоматический режим управления торрентом по умолчанию',
+          relocate: 'Переместить торрент при изменении категории',
+          defaultSavePath: 'Путь сохранения по умолчанию:',
+          keepIncompleteIn: 'Хранить незавершённые торренты в:',
+          autoEnabled_onAdded: 'Запускать внешнюю программу по добавлении торрента:',
+          autoLabel_onAdded: 'Команда',
+          autoEnabled_onFinished: 'Запускать внешнюю программу по завершении торрента:',
+          autoLabel_onFinished: 'Команда',
           supportParamTitle: 'Поддерживаемые параметры (с учетом регистра):',
           supportParamN: '%N: Имя торрента',
           supportParamL: '%L: Категория',
-          supportParamG: '% G: Теги (разделенные запятой)',
-          supportParamF: '% F: Путь к содержимому (такой же как корневой путь для многофайлового торрента)',
-          supportParamR: '%R: Корневой путь (путь первого подкаталога торрента)',
+          supportParamG: '%G: Метки (разделяются запятыми)',
+          supportParamF: '%F: Папка содержимого (или корневая папка для торрентов с множеством файлов)',
+          supportParamR: '%R: Корневая папка (главный путь для подкаталога торрента)',
           supportParamD: '%D: Путь сохранения',
           supportParamC: '%C: Количество файлов',
-          supportParamZ: '%Z: Размер торрента (байты)',
+          supportParamZ: '%Z: Размер торрента (в байтах)',
           supportParamT: '%T: Текущий трекер',
-          supportParamI: '%I: Хэш информации'
+          supportParamI: '%I: Инфо-хеш v1',
+          supportParamJ: '%J: Инфо-хеш v2',
+          supportParamK: '%K: ID торрента'
         }
       },
       pageConnection: {
