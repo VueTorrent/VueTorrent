@@ -16,27 +16,27 @@ const locale = {
   unknown: 'Неизвестный',
   status: 'Статус',
   all: 'Все',
-  downloading: 'Скачивание',
-  seeding: 'Раздача',
-  completed: 'Завершено',
-  resumed: 'Возобновлено',
-  paused: 'Приостановлено',
-  active: 'Активный',
-  inactive: 'Неактивный',
-  stalled: 'Застопорился',
-  errored: 'Ошибочный',
+  downloading: 'Загружаются',
+  seeding: 'Раздаются',
+  completed: 'Завершены',
+  resumed: 'Возобновлены',
+  paused: 'Остановлены',
+  active: 'Активны',
+  inactive: 'Неактивны',
+  stalled: 'Простаивают',
+  errored: 'Ошибка',
   login: 'Войти',
   logout: 'Выйти',
-  download: 'Скачивание',
-  downloaded: 'Скачано',
-  upload: 'Отдача',
-  uploaded: 'Загружено',
+  download: 'Загрузка',
+  downloaded: 'Загружено',
+  upload: 'Раздача',
+  uploaded: 'Роздано',
   ETA: 'ETA',
   peers: 'Пиры',
-  ratio: 'Ратио',
+  ratio: 'Рейтинг',
   seeds: 'Сиды',
-  tags: 'Теги',
-  // tracker: 'Tracker',
+  tags: 'Метки',
+  tracker: 'Трекер',
   share: 'Поделиться',
   name: 'Имя',
   hash: 'Хэш',
@@ -44,6 +44,7 @@ const locale = {
   feed: 'Канал',
   rule: 'Правило',
   // then: 'Then',
+  of: 'из',
 
   /** Dashboard */
   dashboard: {
@@ -65,20 +66,21 @@ const locale = {
     progress: 'Прогресс',
     directory: 'Каталог',
     downloaded: 'Скачано',
-    uploaded: 'Загружено',
+    uploaded: 'Роздано',
     created: 'Создано',
     comments: 'Комментарии',
-    uploadedSession: 'Загружено за сессию'
+    uploadedSession: 'Роздано за сессию'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
-    // last_activity: 'Last Activity'
+    // last_activity: 'Last Activity',
+    // completed_on: 'Completed On'
   },
   /** Navbar */
   navbar: {
     currentSpeed: 'Текущая скорость',
-    // alltimeTitle: 'All-Time Stats',
-    // sessionTitle: 'Session Stats',
-    freeSpace: 'Свободное место',
+    alltimeTitle: 'Статистика за всё время',
+    sessionTitle: 'Статистика за сессию',
+    freeSpace: 'Свободно',
     topActions: {
       addTorrent: 'Добавить торрент',
       resumeSelected: 'Восстановить выбранные торренты',
@@ -91,17 +93,18 @@ const locale = {
       tooltip: 'С момента последнего перезапуска qBittorrent'
     },
     filters: {
-      stalled_uploading: 'Остановка раздачи',
-      stalled_downloading: 'Остановка скачивания'
-      // uncategorized: 'Uncategorized',
-      // untagged: 'Untagged',
+      stalled_uploading: 'Отдача стоит',
+      stalled_downloading: 'Загрузка стоит',
+      uncategorized: 'Без категории',
+      untagged: 'Без метки',
       // not_working: 'Not Working'
     },
     action: {
       altSpeed: 'Альтернативные скорости',
-      dark: 'Темный',
-      light: 'Светлый'
-    }
+      dark: 'Тёмная тема',
+      light: 'Светлая тема'
+    },
+    torrentsCount: 'Нет торрентов | {n} торрент | {n} торрента | {n} торрентов'
   },
 
   /** Modals */
@@ -143,7 +146,7 @@ const locale = {
         bittorrent: 'Bittorrent',
         rss: 'RSS',
         webUI: 'Веб-интерфейс',
-        tagsAndCategories: 'Теги и категории'
+        tagsAndCategories: 'Метки и категории'
       },
       pageVueTorrent: {
         tabName: {
@@ -166,7 +169,8 @@ const locale = {
           // dateFormat: 'Date Format',
           // openSideBarOnStart: 'Open Side Bar on launch',
           currentVersion: 'Текущая версия',
-          qbittorrentVersion: 'Версия QBittorrent:'
+          qbittorrentVersion: 'Версия QBittorrent:',
+          resetSettings: 'Сброс настроек'
         },
         pageDashboard: {
           busyTorrentTip: 'Свойства для отображения занятых торрентов',
@@ -176,6 +180,7 @@ const locale = {
             // category: 'Category',
             // tags: 'Tags',
             // completed: 'Completed',
+            // completion_on: 'Completed On',
             // downloaded: 'Downloaded',
             // ETA: 'ETA',
             // name: 'Name',
@@ -331,8 +336,8 @@ const locale = {
       tipOnNoPath: 'Нужный путь'
     },
     newTag: {
-      createNewTag: 'Создать новый тег',
-      tagName: 'тег'
+      createNewTag: 'Создать новую метку',
+      tagName: 'метка'
     },
     detail: {
       title: 'Детали',
@@ -340,7 +345,7 @@ const locale = {
       tabTitleTrackers: 'Трекеры',
       tabTitlePeers: 'Пиры',
       tabTitleContent: 'Файлы',
-      tabTitleTagsCategories: 'Теги и категории',
+      tabTitleTagsCategories: 'Метки и категории',
       pageInfo: {
         pieceStates: 'Прогресс',
         torrentTitle: 'Название',
@@ -355,7 +360,7 @@ const locale = {
         trackers: 'Трекеры',
         createdBy: 'Создано',
         firstLastPiecePriority: 'Приоритет первой/последней части',
-        sequentialDownload: 'Последовательное скачивание',
+        sequentialDownload: 'Последовательная загрузка',
         autoTMM: 'Авто TMM',
         shareRatioLimit: 'Лимит по рейтингу',
         shareTimeLimit: 'Лимит времени раздачи (минуты)',
@@ -385,7 +390,7 @@ const locale = {
         peers: 'Пиры',
         seeds: 'Сиды',
         leeches: 'Личи',
-        downloaded: 'Скачано',
+        downloaded: 'Загружено',
         message: 'Сообщение'
       }
     },
@@ -415,6 +420,7 @@ const locale = {
         availability: 'Доступность',
         category: 'Категория',
         completed: 'Завершено',
+        // completion_on: 'Completed On',
         downloaded: 'Загружено',
         ETA: 'ETA',
         name: 'Имя',
@@ -427,7 +433,7 @@ const locale = {
         // save_path: 'Directory',
         size: 'Размер',
         state: 'Состояние',
-        uploaded: 'Отдано',
+        uploaded: 'Роздано',
         addedOn: 'Добавлено',
         downloadSpeed: 'Скорость загрузки',
         timeActive: 'Активен',
@@ -464,7 +470,7 @@ const locale = {
       rename: 'Переименовать',
       forceRecheck: 'Принудительная проверка',
       forceReannounce: 'Принудительно анонсировать',
-      sequentialDownload: 'Последовательное скачивание',
+      sequentialDownload: 'Последовательная загрузка',
       firstLastPriority: 'Первый/последний приоритет',
       automaticTorrentManagement: 'Автоматическое управление торрентами'
     },
