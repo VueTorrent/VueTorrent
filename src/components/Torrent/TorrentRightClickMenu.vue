@@ -449,4 +449,9 @@ export default {
     font-size: 1em;
   }
 }
+
+.v-menu__content {
+  max-height: 720px;
+  overflow-y: auto !important;
+}
 </style>
