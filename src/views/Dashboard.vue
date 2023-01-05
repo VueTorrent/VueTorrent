@@ -274,7 +274,7 @@ export default {
 
       const pageCount = Math.ceil( torrents.length / this.paginationSize);
       if (pageCount < this.pageNumber) {
-        this.pageNumber = pageCount
+        this.pageNumber = Math.max(1, pageCount)
       }
     }
   },
