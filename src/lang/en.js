@@ -224,7 +224,7 @@ const locale = {
           autoEnabled_onFinished: 'Run external program on torrent finished:',
           autoLabel_onFinished: 'Command',
           supportParamTitle: 'Supported parameters (case sensitive):',
-          supportParamN: '%N: Torrent name ',
+          supportParamN: '%N: Torrent name',
           supportParamL: '%L: Category',
           supportParamG: '%G: Tags (separated by comma)',
           supportParamF: '%F: Content path (same as root path for multi-file torrent)',
@@ -233,7 +233,9 @@ const locale = {
           supportParamC: '%C: Number of files',
           supportParamZ: '%Z: Torrent size (bytes)',
           supportParamT: '%T: Current tracker',
-          supportParamI: '%I: Info hash'
+          supportParamI: '%I: Info hash v1',
+          supportParamJ: '%J: Info hash v2',
+          supportParamK: '%K: Torrent ID'
         }
       },
       pageConnection: {
