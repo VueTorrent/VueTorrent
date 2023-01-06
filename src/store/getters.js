@@ -1,3 +1,5 @@
+import { i18n } from '@/plugins/i18n'
+
 export default {
   getAppVersion: state => () => state.version,
   containsTorrent: state => hash => state.selected_torrents.includes(hash),
@@ -18,10 +20,10 @@ export default {
   getAuthenticated: state => () => state.authenticated,
   getTorrentCountString: state => () => {
     if (state.selected_torrents && state.selected_torrents.length) {
-      return `${state.selected_torrents.length} of ${state.filteredTorrentsCount} torrents`
+      return `${state.selected_torrents.length} ${i18n.t('of')} ${i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)}`
     }
 
-    return `${state.filteredTorrentsCount} torrents`
+    return i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)
   },
   getSearchPlugins: state => () => state.searchPlugins
 }

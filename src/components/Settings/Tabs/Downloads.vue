@@ -81,6 +81,12 @@
             <li>
               {{ $t('modals.settings.pageDownloads.saveManagement.supportParamI') }}
             </li>
+            <li>
+              {{ $t('modals.settings.pageDownloads.saveManagement.supportParamJ') }}
+            </li>
+            <li>
+              {{ $t('modals.settings.pageDownloads.saveManagement.supportParamK') }}
+            </li>
           </ul>
         </v-card-text>
       </v-card>
