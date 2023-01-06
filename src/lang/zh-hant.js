@@ -44,6 +44,7 @@ const locale = {
   feed: '訂閱源',
   rule: '規則',
   then: '然後',
+  of: 'of',
 
   /** Dashboard */
   dashboard: {
@@ -102,7 +103,8 @@ const locale = {
       altSpeed: '替補速率限制',
       dark: '暗色介面',
       light: '亮色介面'
-    }
+    },
+    torrentsCount: 'No torrents | {n} torrent | {n} torrents'
   },
 
   /** Modals */
@@ -231,7 +233,9 @@ const locale = {
           supportParamC: '%C: 檔案數',
           supportParamZ: '%Z: 種子大小 (位元組 byte)',
           supportParamT: '%T: 當前的追蹤者',
-          supportParamI: '%I: 資訊雜湊值'
+          supportParamI: '%I: 資訊雜湊值 v1',
+          supportParamJ: '%J: 資訊雜湊值 v2',
+          supportParamK: '%K: 種子 ID'
         }
       },
       pageConnection: {
