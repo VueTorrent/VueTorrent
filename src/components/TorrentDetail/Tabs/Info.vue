@@ -271,11 +271,13 @@ export default {
     },
     async renderTorrentPieceStates() {
       const canvas = document.querySelector('#pieceStates canvas')
-      const { data } = await qbit.getTorrentPieceStates(this.hash)
+
+      const { data: files } = await qbit.getTorrentFiles(this.hash)
+      const { data: pieces } = await qbit.getTorrentPieceStates(this.hash)
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
-      if (data) {
-        canvas.width = data.length
+      if (pieces) {
+        canvas.width = pieces.length
         const ctx = canvas.getContext('2d')
         ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -283,8 +285,8 @@ export default {
         let color = ''
         let rectWidth = 1
 
-        for (let i = 0; i < data.length; ++i) {
-          const status = data[i]
+        for (let i = 0; i < pieces.length; ++i) {
+          const status = pieces[i]
           let newColor = ''
 
           if (status === 1)
@@ -293,6 +295,15 @@ export default {
           else if (status === 2)
             // already downloaded
             newColor = this.$vuetify.theme.currentTheme['torrent-done']
+          else {
+            const selected_piece_ranges = files.filter(file => file.priority !== 0).map(file => file.piece_range)
+            for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
+              if (i > min_piece_range && i < max_piece_range) {
+                newColor = this.$vuetify.theme.currentTheme['torrent-paused']
+                break
+              }
+            }
+          }
 
           if (newColor === color) {
             ++rectWidth
@@ -311,7 +322,7 @@ export default {
         // Fill a rect at the end of the canvas if one is needed
         if (color !== '') {
           ctx.fillStyle = color
-          ctx.fillRect(data.length - rectWidth, 0, rectWidth, canvas.height)
+          ctx.fillRect(pieces.length - rectWidth, 0, rectWidth, canvas.height)
         }
       }
     },
