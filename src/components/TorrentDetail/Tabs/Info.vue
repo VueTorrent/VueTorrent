@@ -298,7 +298,10 @@ export default {
           else {
             const selected_piece_ranges = files.filter(file => file.priority !== 0).map(file => file.piece_range)
             for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
-              if (i > min_piece_range && i < max_piece_range) newColor = this.$vuetify.theme.currentTheme['torrent-paused']
+              if (i > min_piece_range && i < max_piece_range) {
+                newColor = this.$vuetify.theme.currentTheme['torrent-paused']
+                break
+              }
             }
           }
 
