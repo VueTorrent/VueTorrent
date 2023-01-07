@@ -177,7 +177,9 @@ export default {
       this.toggleEditing(item)
     },
     renameFile(item) {
-      qbit.renameFile(this.hash, item.name, item.newName)
+      const lastPathSep = item.fullName.lastIndexOf("/")
+      const prefix = item.fullName.substring(0, lastPathSep)
+      qbit.renameFile(this.hash, `${prefix}/${item.name}`, `${prefix}/${item.newName}`)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
 
       item.name = item.newName
