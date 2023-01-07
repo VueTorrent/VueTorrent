@@ -346,6 +346,23 @@ export class QBitApi {
     return this.execute('post', '/torrents/removeTrackers', params)
   }
 
+  addTorrentPeers(hashes: Array<string>, peers: Array<string>) {
+    const params = {
+      hashes: hashes.join('|'),
+      peers: peers.join('|')
+    }
+
+    return this.execute('post', '/torrents/addPeers', params)
+  }
+
+  banPeers(peers: Array<string>) {
+    const params = {
+      peers: peers.join('|')
+    }
+
+    return this.execute('post', '/transfer/banPeers', params)
+  }
+
   torrentAction(action, hashes, extra) {
     const params = {
       hashes: hashes.length ? hashes.join('|') : 'all',
