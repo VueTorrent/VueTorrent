@@ -36,7 +36,7 @@ const locale = {
   ratio: 'Співвідношення',
   seeds: 'Сіди',
   tags: 'Теги',
-  // tracker: 'Tracker',
+  tracker: 'Трекер',
   share: 'Поділитися',
   name: "Ім'я",
   hash: 'Хеш',
@@ -55,7 +55,7 @@ const locale = {
       selectAll: 'Вибрати все',
       selectAllCaption: 'Вибрати / Скинути все (Ctrl + A)'
     },
-    // emptyTorrentList: 'Тут нічого нема! Спробуй додати торрент!'
+    // emptyTorrentList: 'Тут нічого нема, спробуй додати торрент!'
   },
   /** Torrent */
   torrent: {
