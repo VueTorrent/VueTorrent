@@ -94,7 +94,7 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Залиплі вивантаження',
-      stalled_downloading: 'Залиплі завантаження'
+      stalled_downloading: 'Залиплі завантаження',
       uncategorized: 'Без категорій',
       untagged: 'Без міток',
       not_working: 'Не працюють'
