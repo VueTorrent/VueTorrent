@@ -46,6 +46,10 @@ export default class Torrent {
     this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat) : null
     this.last_activity = dayjs(data.last_activity * 1000).fromNow()
 
+    // computed values
+    this.globalSpeed = this.dlspeed + this.upspeed
+    this.globalVolume = this.dloaded + this.uploaded
+
     Object.freeze(this)
   }
 

@@ -72,6 +72,9 @@ const locale = {
     timeActive: '活跃时间',
     seededFor: '做种',
     last_activity: '上次活跃'
+    // completed_on: 'Completed On',
+    // globalSpeed: 'Global Speed',
+    // globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -432,6 +435,8 @@ const locale = {
         downloadSpeed: '下载速率',
         timeActive: '活跃时间',
         uploadSpeed: '上传速率'
+        // globalSpeed: 'Global Speed',
+        // globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

@@ -70,7 +70,10 @@ const locale = {
     uploadedSession: 'アップロードセッション'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
-    // last_activity: 'Last Activity'
+    // last_activity: 'Last Activity',
+    // completed_on: 'Completed On',
+    // globalSpeed: 'Global Speed',
+    // globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -431,6 +434,8 @@ const locale = {
         downloadSpeed: 'ダウンロード速度',
         timeActive: '稼働時間',
         uploadSpeed: 'アップロード速度'
+        // globalSpeed: 'Global Speed',
+        // globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

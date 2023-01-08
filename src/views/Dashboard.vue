@@ -183,6 +183,8 @@ export default {
         { value: 'dlspeed', text: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
         { value: 'downloaded', text: this.$i18n.t('modals.sort.sortBy.downloaded') },
         { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
+        { value: 'globalSpeed', text: this.$i18n.t('modals.sort.sortBy.globalSpeed') },
+        { value: 'globalVolume', text: this.$i18n.t('modals.sort.sortBy.globalVolume') },
         { value: 'name', text: this.$i18n.t('modals.sort.sortBy.name') },
         { value: 'num_leechs', text: this.$i18n.t('modals.sort.sortBy.peers') },
         { value: 'last_activity', text: this.$i18n.t('modals.sort.sortBy.last_activity') },

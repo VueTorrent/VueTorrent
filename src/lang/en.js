@@ -73,7 +73,9 @@ const locale = {
     timeActive: 'Time Active',
     seededFor: 'Seeded For',
     last_activity: 'Last Activity',
-    completed_on: 'Completed On'
+    completed_on: 'Completed On',
+    globalSpeed: 'Global Speed',
+    globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -439,7 +441,9 @@ const locale = {
         addedOn: 'Added On',
         downloadSpeed: 'Download Speed',
         timeActive: 'Time Active',
-        uploadSpeed: 'Upload Speed'
+        uploadSpeed: 'Upload Speed',
+        globalSpeed: 'Global Speed',
+        globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

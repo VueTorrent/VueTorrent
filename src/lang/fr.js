@@ -71,7 +71,10 @@ const locale = {
     uploadedSession: 'Session de téléversement',
     timeActive: "Temps d'Activité",
     seededFor: 'Seed Depuis',
-    last_activity: 'Dernière Activité'
+    last_activity: 'Dernière Activité',
+    completed_on: 'Terminé Le',
+    globalSpeed: 'Vitesse Globale',
+    globalVolume: 'Volume Global'
   },
   /** Navbar */
   navbar: {
@@ -431,7 +434,9 @@ const locale = {
         addedOn: "Date d'ajout",
         downloadSpeed: 'Vitesse de téléchargement',
         timeActive: 'Temps actif',
-        uploadSpeed: "Vitesse d'upload"
+        uploadSpeed: "Vitesse d'upload",
+        globalSpeed: 'Vitesse Globale',
+        globalVolume: 'Volume Global'
       }
     },
     speedLimit: {

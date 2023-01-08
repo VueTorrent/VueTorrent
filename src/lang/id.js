@@ -71,7 +71,10 @@ const locale = {
     uploadedSession: 'Sesi Terunggah'
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
-    // last_activity: 'Last Activity'
+    // last_activity: 'Last Activity',
+    // completed_on: 'Completed On',
+    // globalSpeed: 'Global Speed',
+    // globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -432,6 +435,8 @@ const locale = {
         downloadSpeed: 'Kec. Unduh',
         timeActive: 'Waktu aktif',
         uploadSpeed: 'Kec. Unggah'
+        // globalSpeed: 'Global Speed',
+        // globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

@@ -73,7 +73,9 @@ const locale = {
     // timeActive: 'Time Active',
     // seededFor: 'Seeded For',
     // last_activity: 'Last Activity',
-    // completed_on: 'Completed On'
+    // completed_on: 'Completed On',
+    // globalSpeed: 'Global Speed',
+    // globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -440,6 +442,8 @@ const locale = {
         downloadSpeed: 'Скорость загрузки',
         timeActive: 'Активен',
         uploadSpeed: 'Скорость отдачи'
+        // globalSpeed: 'Global Speed',
+        // globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

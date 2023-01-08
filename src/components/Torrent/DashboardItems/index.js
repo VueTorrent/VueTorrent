@@ -17,6 +17,8 @@ import UploadedSession from './UploadedSession.vue'
 import Availability from './Availability.vue'
 import LastActivity from './LastActivity.vue'
 import CompletedOn from './CompletedOn.vue'
+import GlobalSpeed from './GlobalSpeed.vue'
+import GlobalVolume from './GlobalVolume.vue'
 
 export {
   Size,
@@ -37,5 +39,7 @@ export {
   Uploaded,
   UploadedSession,
   Downloaded,
-  Availability
+  Availability,
+  GlobalSpeed,
+  GlobalVolume
 }
