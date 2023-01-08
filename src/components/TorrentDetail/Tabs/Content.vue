@@ -178,8 +178,16 @@ export default {
     },
     renameFile(item) {
       const lastPathSep = item.fullName.lastIndexOf("/")
-      const prefix = item.fullName.substring(0, lastPathSep)
-      qbit.renameFile(this.hash, `${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      const args = [this.hash]
+
+      if (lastPathSep === -1)
+        args.push(item.name, item.newName)
+      else {
+        const prefix = item.fullName.substring(0, lastPathSep)
+        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      }
+
+      qbit.renameFile(...args)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
 
       item.name = item.newName
@@ -187,8 +195,16 @@ export default {
     },
     renameFolder(item) {
       const lastPathSep = item.fullName.lastIndexOf("/")
-      const prefix = item.fullName.substring(0, lastPathSep)
-      qbit.renameFolder(this.hash, `${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      const args = [this.hash]
+
+      if (lastPathSep === -1)
+        args.push(item.name, item.newName)
+      else {
+        const prefix = item.fullName.substring(0, lastPathSep)
+        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      }
+
+      qbit.renameFolder(...args)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
 
       item.name = item.newName
