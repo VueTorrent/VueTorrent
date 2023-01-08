@@ -186,7 +186,9 @@ export default {
       this.toggleEditing(item)
     },
     renameFolder(item) {
-      qbit.renameFolder(this.hash, item.name, item.newName)
+      const lastPathSep = item.fullName.lastIndexOf("/")
+      const prefix = item.fullName.substring(0, lastPathSep)
+      qbit.renameFolder(this.hash, `${prefix}/${item.name}`, `${prefix}/${item.newName}`)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
 
       item.name = item.newName
