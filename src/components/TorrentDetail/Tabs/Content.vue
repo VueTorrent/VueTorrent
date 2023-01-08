@@ -65,7 +65,7 @@ import qbit from '@/services/qbit'
 import { treeify } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
 import { mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen, mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh, mdiArrowUp, mdiArrowDown, mdiPriorityLow } from '@mdi/js'
-import Vue from "vue";
+import Vue from 'vue'
 
 const FILE_PRIORITY_OPTIONS = [
   { name: 'max', icon: mdiPriorityHigh, value: 7 },
@@ -177,15 +177,13 @@ export default {
       this.toggleEditing(item)
     },
     renameFile(item) {
-      qbit.renameFile(this.hash, item.name, item.newName)
-          .catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
+      qbit.renameFile(this.hash, item.name, item.newName).catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
 
       item.name = item.newName
       this.toggleEditing(item)
     },
     renameFolder(item) {
-      qbit.renameFolder(this.hash, item.name, item.newName)
-          .catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
+      qbit.renameFolder(this.hash, item.name, item.newName).catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
 
       item.name = item.newName
       this.toggleEditing(item)

@@ -454,7 +454,7 @@ const locale = {
     settingsSaved: 'Pengaturan sukses disimpan!',
     categorySaved: 'Kategori sukses diubah!',
     feedSaved: 'Feed berhasil disimpan!',
-    ruleSaved: 'Rule disimpan!',
+    ruleSaved: 'Rule disimpan!'
     // renameFileFailed: 'Unable to rename file',
     // renameFolderFailed: 'Unable to rename file'
   },
