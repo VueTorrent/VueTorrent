@@ -55,7 +55,7 @@ const locale = {
       selectAll: 'Вибрати все',
       selectAllCaption: 'Вибрати / Скинути все (Ctrl + A)'
     },
-    // emptyTorrentList: 'Тут нічого нема, спробуй додати торрент!'
+    emptyTorrentList: 'Тут нічого нема, спробуй додати торрент!'
   },
   /** Torrent */
   torrent: {
