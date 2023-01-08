@@ -53,7 +53,7 @@ const locale = {
       toggleSelect: 'Перемкнути режим вибору',
       toggleSort: 'Сортувати торренти',
       selectAll: 'Вибрати все',
-      selectAllCaption: 'Вибрати / Скинути все (Ctrl + A)'
+      selectAllCaption: 'Вибрати / Скинути все (Ctrl + A)',
     },
      emptyTorrentList: 'Тут нічого нема! Спробуй додати торрент!'
   },
