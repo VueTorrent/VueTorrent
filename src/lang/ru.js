@@ -96,7 +96,7 @@ const locale = {
       stalled_uploading: 'Отдача стоит',
       stalled_downloading: 'Загрузка стоит',
       uncategorized: 'Без категории',
-      untagged: 'Без метки',
+      untagged: 'Без метки'
       // not_working: 'Not Working'
     },
     action: {
@@ -192,7 +192,7 @@ const locale = {
             progress: 'Прогресс',
             ratio: 'Рейтинг',
             // save_path: 'Directory',
-            size: 'Размер',
+            size: 'Размер'
             // state: 'State',
             // uploaded: 'Uploaded',
             // addedOn: 'Added On',
@@ -457,7 +457,7 @@ const locale = {
     settingsSaved: 'Настройки успешно сохранены!',
     categorySaved: 'Категория успешно отредактирована!',
     feedSaved: 'Канал успешно сохранен!',
-    ruleSaved: 'Правила сохранены!',
+    ruleSaved: 'Правила сохранены!'
     // renameFileFailed: 'Unable to rename file',
     // renameFolderFailed: 'Unable to rename file'
   },
