@@ -6,7 +6,7 @@
           <tbody>
             <tr v-for="item in items" :key="item.url">
               <td>
-                <v-checkbox v-if="typeof item.tier === 'number'" v-model="selectedTrackers" :value="item" hide-details class="pa-0 ma-0" color="accent" />
+                <v-checkbox v-if="item.isSelectable" v-model="selectedTrackers" :value="item" hide-details class="pa-0 ma-0" color="accent" />
               </td>
               <td>{{ item.tier }}</td>
               <td>{{ item.url }}</td>
@@ -22,10 +22,10 @@
       </v-data-table>
     </v-card-text>
     <v-card-actions class="justify-center">
-      <v-btn class="error white--text elevation-0 px-4 mx-2" @click="DeleteTrackers"> Delete </v-btn>
+      <v-btn class="error white--text elevation-0 px-4 mx-2" @click="DeleteTrackers">Delete</v-btn>
       <v-dialog v-model="trackerDialog" content-class="rounded-form" persistent max-width="290">
         <template #activator="{ on, attrs }">
-          <v-btn class="accent white--text elevation-0 px-4 mx-2" v-bind="attrs" v-on="on"> Add </v-btn>
+          <v-btn class="accent white--text elevation-0 px-4 mx-2" v-bind="attrs" v-on="on">Add</v-btn>
         </template>
         <v-card>
           <v-card-title class="justify-center">
@@ -76,7 +76,7 @@ export default {
     trackers() {
       return this.tempTrackers.map(x => ({
         ...x,
-        isSelectable: typeof x.tier === 'number'
+        isSelectable: x.tier >= 0
       }))
     },
     headers() {
@@ -86,14 +86,8 @@ export default {
         { text: this.$i18n.t('modals.detail.pageTrackers.status'), value: 'status' },
         { text: this.$i18n.t('modals.detail.pageTrackers.peers'), value: 'num_peers' },
         { text: this.$i18n.t('modals.detail.pageTrackers.seeds'), value: 'num_seeds' },
-        {
-          text: this.$i18n.t('modals.detail.pageTrackers.leeches'),
-          value: 'num_leeches'
-        },
-        {
-          text: this.$i18n.t('modals.detail.pageTrackers.downloaded'),
-          value: 'num_downloaded'
-        },
+        { text: this.$i18n.t('modals.detail.pageTrackers.leeches'), value: 'num_leeches' },
+        { text: this.$i18n.t('modals.detail.pageTrackers.downloaded'), value: 'num_downloaded' },
         { text: this.$i18n.t('modals.detail.pageTrackers.message'), value: 'msg' }
       ]
     }
