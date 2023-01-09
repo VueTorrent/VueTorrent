@@ -36,7 +36,7 @@ const locale = {
   ratio: 'Співвідношення',
   seeds: 'Сіди',
   tags: 'Теги',
-  // tracker: 'Tracker',
+  tracker: 'Трекер',
   share: 'Поділитися',
   name: "Ім'я",
   hash: 'Хеш',
@@ -44,17 +44,18 @@ const locale = {
   feed: 'стрічка',
   rule: 'правило',
   then: 'тоді',
+  of: 'з',
 
   /** Dashboard */
   dashboard: {
     tooltips: {
-      // toggleSearch: 'Toggle Search Filter',
-      // toggleSelect: 'Toggle Select Mode',
-      // toggleSort: 'Sort Torrents',
-      // selectAll: 'Select All',
-      // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    }
-    // emptyTorrentList: 'Nothing to see here!'
+      toggleSearch: 'Увімкнути фільтр пошуку',
+      toggleSelect: 'Перемкнути режим вибору',
+      toggleSort: 'Сортувати торренти',
+      selectAll: 'Вибрати все',
+      selectAllCaption: 'Вибрати / Скинути все (Ctrl + A)'
+    },
+    emptyTorrentList: 'Тут нічого нема, спробуй додати торрент!'
   },
   /** Torrent */
   torrent: {
@@ -71,13 +72,14 @@ const locale = {
     uploadedSession: 'Завантажено за сесію',
     timeActive: 'Часу активно ',
     seededFor: 'роздано для',
-    last_activity: 'остання активність'
+    last_activity: 'остання активність',
+    completed_on: 'Виконано о'
   },
   /** Navbar */
   navbar: {
     currentSpeed: 'поточна швидкість',
-    // alltimeTitle: 'All-Time Stats',
-    // sessionTitle: 'Session Stats',
+    alltimeTitle: 'Статистика за весь час',
+    sessionTitle: 'Статистика сесії',
     freeSpace: 'вільне місце',
     topActions: {
       addTorrent: 'додати торрент',
@@ -92,16 +94,17 @@ const locale = {
     },
     filters: {
       stalled_uploading: 'Залиплі вивантаження',
-      stalled_downloading: 'Залиплі завантаження'
-      // uncategorized: 'Uncategorized',
-      // untagged: 'Untagged',
-      // not_working: 'Not Working'
+      stalled_downloading: 'Залиплі завантаження',
+      uncategorized: 'Невідома',
+      untagged: 'Без міток',
+      not_working: 'Не працюють'
     },
     action: {
       altSpeed: 'Обмеження швидкості',
       dark: 'Темна',
       light: 'Світла'
-    }
+    },
+    torrentsCount: 'Немає торрентів | {n} торрент | {n} торрентів'
   },
 
   /** Modals */
@@ -111,8 +114,8 @@ const locale = {
       url: 'URL'
     },
     newRule: {
-      // titleCreate: 'Create new rule',
-      // titleEdit: 'Edit rule',
+      titleCreate: 'Створити нове правило',
+      titleEdit: 'Редагувати правило',
       name: "Ім'я",
       def: {
         mustContain: 'Має містити',
@@ -137,7 +140,7 @@ const locale = {
     },
     settings: {
       tabName: {
-        VueTorrent: 'vuetorrent',
+        VueTorrent: 'VueTorrent',
         downloads: 'Завантаження',
         connection: "Зв'язок",
         bittorrent: 'bittorrent',
@@ -166,34 +169,36 @@ const locale = {
           dateFormat: 'Формат дати',
           openSideBarOnStart: 'Відкривати бокову панель при запуску',
           currentVersion: 'Поточна версія',
-          qbittorrentVersion: 'Версія QBittorrent:'
+          qbittorrentVersion: 'Версія QBittorrent:',
+          resetSettings: 'Скинути налаштування'
         },
         pageDashboard: {
           busyTorrentTip: 'Властивості для відображення зайнятих торрентів',
           completedTorrentTip: 'Властивості для відображення завершених торрентів',
           properties: {
-            // availability: 'Availability',
-            // category: 'Category',
-            // tags: 'Tags',
-            // completed: 'Completed',
-            // downloaded: 'Downloaded',
-            // ETA: 'ETA',
-            // name: 'Name',
-            // default: 'Default',
-            // last_activity: 'Last Activity',
-            // peers: 'Peers',
-            // seeds: 'Seeds',
-            // priority: 'Priority',
-            // progress: 'Progress',
-            // ratio: 'Ratio',
-            // save_path: 'Directory',
-            // size: 'Size',
-            // state: 'State',
-            // uploaded: 'Uploaded',
-            // addedOn: 'Added On',
-            // downloadSpeed: 'Download Speed',
-            // timeActive: 'Time Active',
-            // uploadSpeed: 'Upload Speed'
+            availability: 'Доступність',
+            category: 'Категорія',
+            tags: 'Мітки',
+            completed: 'Завершено',
+            completion_on: 'Виконано о',
+            downloaded: 'Завантажено',
+            ETA: 'ОЧЗ',
+            name: 'Назва',
+            default: 'За замовчуванням',
+            last_activity: 'Остання активність',
+            рeers: 'Піри',
+            seeds: 'Сіди',
+            priority: 'Приоритет',
+            progress: 'Поступ',
+            ratio: 'Співвідношення',
+            save_path: 'Тека',
+            size: 'Розмір',
+            state: 'Стан',
+            uploaded: 'Завантажено',
+            addedOn: 'Додано о',
+            downloadSpeed: 'Швидкість завантаження',
+            timeActive: 'Час активності',
+            uploadSpeed: 'Швидкість вивантаження'
           }
         }
       },
@@ -213,22 +218,24 @@ const locale = {
           autoManagement: 'Автоматичне керування торрентами',
           relocate: 'Переміщення торенту при зміні категорії',
           defaultSavePath: 'Шлях збереження за замовчуванням',
-          keepIncompleteIn: 'Зберігати неповні торренти в:',
-          // autoEnabled_onAdded: 'Run external program on torrent added:',
-          // autoLabel_onAdded: 'Command',
-          autoEnabled_onFinished: 'Автозапуск увімкнено:',
-          autoLabel_onFinished: 'Програма автозапуску',
+          keepIncompleteIn: 'Зберігати незавершені торренти в:',
+          autoEnabled_onAdded: 'Запуск зовнішньої програми при додаванні торренту:',
+          autoLabel_onAdded: 'Команда',
+          autoEnabled_onFinished: 'Запуск зовнішньої програми при завершенні торренту:',
+          autoLabel_onFinished: 'Команда',
           supportParamTitle: 'Підтримувані параметри (з урахуванням регістру):',
-          supportParamN: '%N: назва торрента',
+          supportParamN: '%N: Назва торрента',
           supportParamL: '%L: Категорія',
-          supportParamG: '%G: теги (розділені комою)',
-          supportParamF: '%F: шлях до вмісту (такий самий як кореневий шлях для багатофайлового торрента)',
-          supportParamR: '%R: кореневий шлях (шлях першого підкаталогу торрента)',
-          supportParamD: '%D: шлях збереження',
-          supportParamC: '%C: кількість файлів',
-          supportParamZ: '%Z: розмір торрента (байти)',
-          supportParamT: '%T: поточний трекер',
-          supportParamI: '%I: хеш інформації'
+          supportParamG: '%G: Мітки (розділені комою)',
+          supportParamF: '%F: Шлях до вмісту (такий самий як кореневий шлях для багатофайлового торрента)',
+          supportParamR: '%R: Кореневий шлях (шлях першого підкаталогу торрента)',
+          supportParamD: '%D: Шлях збереження',
+          supportParamC: '%C: Кількість файлів',
+          supportParamZ: '%Z: Розмір торренту (в байтах)',
+          supportParamT: '%T: Поточний трекер',
+          supportParamI: '%I: Хеш інформації v1',
+          supportParamI: '%I: Хеш інформації v2',
+          supportParamK: '%K: ID торренту'
         }
       },
       pageConnection: {
@@ -283,7 +290,7 @@ const locale = {
           btnCreateNew: 'Додати стрічку'
         },
         pageGeneral: {
-          rssAutoProcessing: 'Зчитатувач RSS',
+          rssAutoProcessing: 'Зчитувач RSS',
           rssAutoDownloader: 'Автозавантаження торрентів через RSS',
           input: {
             enableRssAutoDownload: 'Ввімкнути автозавантаження торрентів через RSS',
@@ -415,6 +422,7 @@ const locale = {
         availability: 'Доступність',
         category: 'Категорія',
         completed: 'Завершено',
+        completion_on: 'Завершено о',
         downloaded: 'Завантажено',
         ETA: 'ОЧЗ',
         name: "Ім'я",
@@ -450,8 +458,8 @@ const locale = {
     categorySaved: 'Категорія успішно відредагована!',
     feedSaved: 'Стрічка збережена успішно!',
     ruleSaved: 'Правило збережено!',
-    // renameFileFailed: 'Unable to rename file',
-    // renameFolderFailed: 'Unable to rename file'
+    renameFileFailed: 'Не можу перейменувати файл',
+    renameFolderFailed: 'Не можу перейменувати теку'
   },
 
   /** RightClick **/
@@ -476,8 +484,8 @@ const locale = {
       decrease: 'Зменшити'
     },
     category: 'Встановити категорію',
-    // tags: 'Set Tags',
-    // notags: 'No Tags',
+    tags: 'Встановити мітки',
+    notags: 'Без міток',
     limit: 'Встановити ліміт',
     copy: 'Копіювати',
     info: 'Деталі'
