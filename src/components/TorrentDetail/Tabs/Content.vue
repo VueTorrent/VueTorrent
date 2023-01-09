@@ -177,14 +177,34 @@ export default {
       this.toggleEditing(item)
     },
     renameFile(item) {
-      qbit.renameFile(this.hash, item.name, item.newName)
+      const lastPathSep = item.fullName.lastIndexOf("/")
+      const args = [this.hash]
+
+      if (lastPathSep === -1)
+        args.push(item.name, item.newName)
+      else {
+        const prefix = item.fullName.substring(0, lastPathSep)
+        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      }
+
+      qbit.renameFile(...args)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
 
       item.name = item.newName
       this.toggleEditing(item)
     },
     renameFolder(item) {
-      qbit.renameFolder(this.hash, item.name, item.newName)
+      const lastPathSep = item.fullName.lastIndexOf("/")
+      const args = [this.hash]
+
+      if (lastPathSep === -1)
+        args.push(item.name, item.newName)
+      else {
+        const prefix = item.fullName.substring(0, lastPathSep)
+        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+      }
+
+      qbit.renameFolder(...args)
           .catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
 
       item.name = item.newName
