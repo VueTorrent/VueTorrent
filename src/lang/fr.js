@@ -217,7 +217,7 @@ const locale = {
           autoEnabled_onAdded: "Execute un programme externe lorsqu'un torrent est ajouté :",
           autoLabel_onAdded: 'Commande',
           autoEnabled_onFinished: "Execute un programme externe lorsqu'un torrent est terminé :",
-          autoLabel_onFinished: "Commande",
+          autoLabel_onFinished: 'Commande',
           supportParamTitle: 'Paramètres pris en charge (sensibles à la casse) :',
           supportParamN: '%N: Nom du torrent ',
           supportParamL: '%L: Catégorie',

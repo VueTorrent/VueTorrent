@@ -272,7 +272,7 @@ export default {
     torrents: function (torrents) {
       this.$store.commit('SET_CURRENT_ITEM_COUNT', torrents.length)
 
-      const pageCount = Math.ceil( torrents.length / this.paginationSize);
+      const pageCount = Math.ceil(torrents.length / this.paginationSize)
       if (pageCount < this.pageNumber) {
         this.pageNumber = Math.max(1, pageCount)
       }

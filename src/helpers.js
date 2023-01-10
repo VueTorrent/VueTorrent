@@ -1,7 +1,7 @@
 import { isProduction } from './utils'
 
 export function formatBytes(a, b) {
-  if (a == 0) return '0 B'
+  if (a === 0) return '0 B'
   const c = 1024
   const d = b || 2
   const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
@@ -69,10 +69,10 @@ export function treeify(paths) {
   // parse folders
   result = result.map(el => parseFolder(el))
 
-  function parseFolder(el) {
+  function parseFolder(el, parent) {
     if (el.children.length !== 0) {
-      const folder = createFolder(el.name, el.children)
-      folder.children = folder.children.map(el => parseFolder(el))
+      const folder = createFolder(parent, el.name, el.children)
+      folder.children = folder.children.map(child => parseFolder(child, folder))
 
       return folder
     }
@@ -96,10 +96,10 @@ function createFile(data, name, children) {
   }
 }
 
-function createFolder(name, children) {
+function createFolder(parent, name, children) {
   return {
     name: name,
-    fullName: name,
+    fullName: parent === undefined ? name : `${parent.fullName}/${name}`,
     type: 'directory',
     children: children
   }
