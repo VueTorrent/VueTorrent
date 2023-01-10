@@ -95,7 +95,8 @@ export default {
         CompletedOn: i18n.t(`${localePrefix}.completion_on`)
       }
 
-      return properties.map(property => ({ ...property, label: localeMap[property.name] }))
+      properties.forEach(property => property.label = localeMap[property.name])
+      return properties
     }
   }
 }
