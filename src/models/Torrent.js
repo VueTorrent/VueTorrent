@@ -8,6 +8,7 @@ dayjs.extend(relativeTime)
 const durationFormat = 'D[d] H[h] m[m] s[s]'
 
 export default class Torrent {
+  static computedValues = ['globalSpeed', 'globalVolume']
   constructor(data, format = 'DD/MM/YYYY, HH:mm:ss') {
     this.name = data.name
     this.size = data.size

@@ -31,6 +31,8 @@ const locale = {
   downloaded: 'Downloaded',
   upload: 'Upload',
   uploaded: 'Uploaded',
+  globalSpeed: 'Global Speed',
+  globalVolume: 'Global Volume',
   ETA: 'ETA',
   peers: 'Peers',
   ratio: 'Ratio',
@@ -200,7 +202,9 @@ const locale = {
             addedOn: 'Added On',
             downloadSpeed: 'Download Speed',
             timeActive: 'Time Active',
-            uploadSpeed: 'Upload Speed'
+            uploadSpeed: 'Upload Speed',
+            globalSpeed: 'Global Speed',
+            globalVolume: 'Global Volume'
           }
         }
       },
