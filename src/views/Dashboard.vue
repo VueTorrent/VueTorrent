@@ -183,6 +183,8 @@ export default {
         { value: 'dlspeed', text: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
         { value: 'downloaded', text: this.$i18n.t('modals.sort.sortBy.downloaded') },
         { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
+        { value: 'globalSpeed', text: this.$i18n.t('modals.sort.sortBy.globalSpeed') },
+        { value: 'globalVolume', text: this.$i18n.t('modals.sort.sortBy.globalVolume') },
         { value: 'name', text: this.$i18n.t('modals.sort.sortBy.name') },
         { value: 'num_leechs', text: this.$i18n.t('modals.sort.sortBy.peers') },
         { value: 'last_activity', text: this.$i18n.t('modals.sort.sortBy.last_activity') },
@@ -207,13 +209,22 @@ export default {
     }
   },
   computed: {
-    ...mapState(['mainData', 'selected_torrents', 'dashboard', 'sort_options']),
+    ...mapState(['selected_torrents', 'dashboard', 'sort_options']),
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
-      if (!this.hasSearchFilter) return this.getTorrents()
+      let torrents
+      if (!this.hasSearchFilter)
+        torrents = this.getTorrents()
+      else {
+        const qs = new QuickScore(this.getTorrents(), ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category'])
+        torrents = qs.search(this.input).map(el => el.item)
+      }
 
-      const qs = new QuickScore(this.getTorrents(), ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category'])
-      return qs.search(this.input).map(el => el.item)
+      if (this.sort_options.isCustomSortEnabled) {
+        torrents.sort((a, b) => a[this.sort_options.sort] - b[this.sort_options.sort] || a.added_on - b.added_on)
+        if (this.sort_options.reverse) torrents.reverse()
+      }
+      return torrents
     },
     pageNumber: {
       get() {

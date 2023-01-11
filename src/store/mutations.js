@@ -1,6 +1,7 @@
 import qbit from '../services/qbit'
 import { DocumentTitle, Tags, Trackers, Torrents, Graph, ServerStatus } from '@/actions'
 import { setLanguage } from '@/plugins/i18n'
+import Torrent from "@/models/Torrent";
 
 export default {
   SET_APP_VERSION(state, version) {
@@ -56,6 +57,7 @@ export default {
     Graph.update()
 
     // fetch torrent data
+    state.sort_options.isCustomSortEnabled = Torrent.computedValues.indexOf(state.sort_options.sort) !== -1
     const { data } = await qbit.getTorrents(state.sort_options)
 
     Trackers.update(data)

@@ -74,6 +74,8 @@ const locale = {
     seededFor: '已做種',
     last_activity: '最後活動',
     completed_on: '完成於'
+    // globalSpeed: 'Global Speed',
+    // globalVolume: 'Global Volume'
   },
   /** Navbar */
   navbar: {
@@ -440,6 +442,8 @@ const locale = {
         downloadSpeed: '下載速率',
         timeActive: '經過時間',
         uploadSpeed: '上傳速率'
+        // globalSpeed: 'Global Speed',
+        // globalVolume: 'Global Volume'
       }
     },
     speedLimit: {

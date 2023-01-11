@@ -8,6 +8,7 @@ dayjs.extend(relativeTime)
 const durationFormat = 'D[d] H[h] m[m] s[s]'
 
 export default class Torrent {
+  static computedValues = ['globalSpeed', 'globalVolume']
   constructor(data, format = 'DD/MM/YYYY, HH:mm:ss') {
     this.name = data.name
     this.size = data.size
@@ -45,6 +46,10 @@ export default class Torrent {
     this.time_active = dayjs.duration(data.time_active, 'seconds').format(durationFormat)
     this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat) : null
     this.last_activity = dayjs(data.last_activity * 1000).fromNow()
+
+    // computed values
+    this.globalSpeed = this.dlspeed + this.upspeed
+    this.globalVolume = this.dloaded + this.uploaded
 
     Object.freeze(this)
   }

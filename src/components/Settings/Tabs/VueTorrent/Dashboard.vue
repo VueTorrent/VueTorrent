@@ -92,7 +92,9 @@ export default {
         AddedOn: i18n.t(`${localePrefix}.addedOn`),
         Availability: i18n.t(`${localePrefix}.availability`),
         LastActivity: i18n.t(`${localePrefix}.last_activity`),
-        CompletedOn: i18n.t(`${localePrefix}.completion_on`)
+        CompletedOn: i18n.t(`${localePrefix}.completion_on`),
+        GlobalSpeed: i18n.t(`${localePrefix}.globalSpeed`),
+        GlobalVolume: i18n.t(`${localePrefix}.globalVolume`)
       }
 
       properties.forEach(property => property.label = localeMap[property.name])
