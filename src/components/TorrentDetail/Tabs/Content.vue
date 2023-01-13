@@ -13,7 +13,7 @@
         <span v-if="!item.editing">{{ item.name }}</span>
         <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
       </template>
-      <template v-if="!$vuetify.breakpoint.smAndDown" #append="{ item }">
+      <template #append="{ item }">
         <div v-if="!item.icon">
           <span class="ml-4">{{ item.children.length }} Files</span>
           <v-btn v-if="!item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="edit(item)">
@@ -27,9 +27,9 @@
           </v-btn>
         </div>
         <div v-else>
-          <span>[{{ item.size }}]</span>
-          <span class="ml-4">{{ item.progress }}%</span>
-          <span class="ml-4">[ {{ item.priority | priority }} ]</span>
+          <span v-if="!item.editing">[{{ item.size }}]</span>
+          <span v-if="!item.editing" class="ml-4">{{ item.progress }}%</span>
+          <span v-if="!item.editing" class="ml-4">[ {{ item.priority | priority }} ]</span>
           <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
               <v-btn fab x-small class="accent white--text elevation-0 px-4 ml-2" v-on="on">
