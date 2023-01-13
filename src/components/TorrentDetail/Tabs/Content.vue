@@ -10,7 +10,7 @@
         </v-icon>
       </template>
       <template #label="{ item }">
-        <span v-if="!item.editing" :title="item.name">{{ item.name }}</span>
+        <span class="item-name" v-if="!item.editing" :title="item.name">{{ item.name }}</span>
         <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
       </template>
       <template #append="{ item }">
@@ -211,3 +211,9 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.item-name {
+  white-space: normal;
+}
+</style>
