@@ -3,14 +3,14 @@
     <v-treeview v-model="selected" :items="fileTree" :open.sync="opened" activatable selectable item-key="fullName" open-all>
       <template #prepend="{ item, open }">
         <v-icon v-if="!item.icon">
-          {{ open ? mdiFolderOpen : mdiFolderOpen }}
+          {{ open ? mdiFolderOpen : mdiFolder }}
         </v-icon>
         <v-icon v-else>
           {{ item.icon }}
         </v-icon>
       </template>
       <template #label="{ item }">
-        <span v-if="!item.editing">{{ item.name }}</span>
+        <span v-if="!item.editing" :title="item.name">{{ item.name }}</span>
         <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
       </template>
       <template #append="{ item }">
@@ -68,17 +68,16 @@ import { mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen, mdiFolder, mdiFile,
 import Vue from 'vue'
 
 const FILE_PRIORITY_OPTIONS = [
-  { name: 'max', icon: mdiPriorityHigh, value: 7 },
-  { name: 'high', icon: mdiArrowUp, value: 6 },
-  { name: 'normal', icon: mdiArrowDown, value: 1 },
-  { name: 'unwanted', icon: mdiPriorityLow, value: 0 }
+  { name: 'Max', icon: mdiPriorityHigh, value: 7 },
+  { name: 'High', icon: mdiArrowUp, value: 6 },
+  { name: 'Normal', icon: mdiArrowDown, value: 1 },
+  { name: 'Unwanted', icon: mdiPriorityLow, value: 0 }
 ]
 
 export default {
   name: 'Content',
   filters: {
     priority(value) {
-      if (value === 4) return 'normal'
       const res = FILE_PRIORITY_OPTIONS.find(el => el.value === value)
 
       return res ? res.name : 'undefined'
