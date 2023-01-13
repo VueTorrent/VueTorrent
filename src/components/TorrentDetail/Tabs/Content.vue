@@ -27,9 +27,9 @@
           </v-btn>
         </div>
         <div v-else>
-          <span v-if="!item.editing">[{{ item.size }}]</span>
-          <span v-if="!item.editing" class="ml-4">{{ item.progress }}%</span>
-          <span v-if="!item.editing" class="ml-4">[ {{ item.priority | priority }} ]</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing">[{{ item.size }}]</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing" class="ml-4">{{ item.progress }}%</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing" class="ml-4">[ {{ item.priority | priority }} ]</span>
           <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
               <v-btn fab x-small class="accent white--text elevation-0 px-4 ml-2" v-on="on">
