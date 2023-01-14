@@ -2,15 +2,15 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueI18n from 'vue-i18n'
 
-import { messages } from '@/lang'
+import {defaultLocale, messages} from '@/lang'
 
 Vue.use(VueI18n)
 
 export const i18n = new VueI18n({
-  locale: 'en', // set locale
-  fallbackLocale: 'en',
-  silentTranslationWarn: true,
   messages,
+  locale: defaultLocale,
+  fallbackLocale: defaultLocale,
+  silentTranslationWarn: true,
   pluralizationRules: {
     ru: function (choice, choicesLength) {
       if (choice === 0) {
