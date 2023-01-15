@@ -83,8 +83,14 @@ export default {
       return this.$route.params.hash
     }
   },
+  mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
   created() {
     this.$store.dispatch('INIT_INTERVALS')
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   destroyed() {
     this.$store.commit('REMOVE_INTERVALS')
@@ -92,6 +98,11 @@ export default {
   methods: {
     close() {
       this.$router.back()
+    },
+    handleKeyboardShortcut(e) {
+      if (e.key === "Escape") {
+        this.close()
+      }
     }
   }
 }
