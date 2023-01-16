@@ -10,7 +10,7 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-textarea v-model="name" rows="1" auto-grow clearable :label="$t('modals.rename.torrentName')" :prepend-inner-icon="mdiFile" />
+              <v-text-field v-model="name" clearable :label="$t('modals.rename.torrentName')" :prepend-inner-icon="mdiFile" />
             </v-col>
           </v-row>
         </v-container>
@@ -57,9 +57,15 @@ export default {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
+  mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
   created() {
     this.name = this.torrent.name
     this.isUrl()
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     urlDecode() {
@@ -68,18 +74,25 @@ export default {
     },
     isUrl() {
       this.enableUrlDecode = false
-      if (this.name.indexOf(' ') == -1) {
+      if (this.name.indexOf(' ') === -1) {
         const exp = /\+|%/
         if (exp.test(this.name)) this.enableUrlDecode = true
       }
     },
-    rename() {
-      qbit.setTorrentName(this.hash, this.name)
+    async rename() {
+      await qbit.setTorrentName(this.hash, this.name)
       this.close()
     },
     close() {
       this.dialog = false
       //this.$store.commit('DELETE_MODAL', this.guid)
+    },
+    handleKeyboardShortcut(e) {
+      if (e.key === "Escape") {
+        this.close()
+      } else if (e.keyCode === 13) {
+        this.rename()
+      }
     }
   }
 }
