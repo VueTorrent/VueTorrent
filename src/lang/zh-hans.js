@@ -36,7 +36,7 @@ const locale = {
   ratio: '比率',
   seeds: '做种',
   tags: '标签',
-  // tracker: 'Tracker',
+  tracker: 'Tracker',
   share: '分享',
   name: '名称',
   hash: '哈希值',
@@ -48,13 +48,13 @@ const locale = {
   /** Dashboard */
   dashboard: {
     tooltips: {
-      // toggleSearch: 'Toggle Search Filter',
-      // toggleSelect: 'Toggle Select Mode',
-      // toggleSort: 'Sort Torrents',
-      // selectAll: 'Select All',
-      // selectAllCaption: 'Select / Release All (Ctrl + A)'
-    }
-    // emptyTorrentList: 'Nothing to see here!'
+      toggleSearch: '切换搜索筛选器',
+      toggleSelect: '切换选择模式',
+      toggleSort: '排序种子',
+      selectAll: '全选',
+      selectAllCaption: '选中/释放所有 (Ctrl + A)'
+    },
+    emptyTorrentList: '什么都没有呢！'
   },
   /** Torrent */
   torrent: {
@@ -71,16 +71,16 @@ const locale = {
     uploadedSession: '上传会话',
     timeActive: '活跃时间',
     seededFor: '做种',
-    last_activity: '上次活跃'
-    // completed_on: 'Completed On',
-    // globalSpeed: 'Global Speed',
-    // globalVolume: 'Global Volume'
+    last_activity: '上次活跃',
+    completed_on: '完成时间',
+    globalSpeed: '全局速率',
+    globalVolume: '全局传输量'
   },
   /** Navbar */
   navbar: {
     currentSpeed: '当前速率',
-    // alltimeTitle: 'All-Time Stats',
-    // sessionTitle: 'Session Stats',
+    alltimeTitle: '所有时间统计',
+    sessionTitle: '会话统计',
     freeSpace: '剩余磁盘空间',
     topActions: {
       addTorrent: '打开种子',
@@ -95,10 +95,10 @@ const locale = {
     },
     filters: {
       stalled_uploading: '低速上传',
-      stalled_downloading: '低速下载'
-      // uncategorized: 'Uncategorized',
-      // untagged: 'Untagged',
-      // not_working: 'Not Working'
+      stalled_downloading: '低速下载',
+      uncategorized: '未分类',
+      untagged: '无标签',
+      not_working: '不工作'
     },
     action: {
       altSpeed: '备用速率限制',
@@ -114,8 +114,8 @@ const locale = {
       url: '地址'
     },
     newRule: {
-      // titleCreate: 'Create new rule',
-      // titleEdit: 'Edit rule',
+      titleCreate: '新建规则',
+      titleEdit: '编辑规则',
       name: '名称',
       def: {
         mustContain: '必须包含',
@@ -175,28 +175,28 @@ const locale = {
           busyTorrentTip: '未完成的种子要显示的属性',
           completedTorrentTip: '已完成的种子要显示的属性',
           properties: {
-            // availability: 'Availability',
-            // category: 'Category',
-            // tags: 'Tags',
-            // completed: 'Completed',
-            // downloaded: 'Downloaded',
-            // ETA: 'ETA',
-            // name: 'Name',
-            // default: 'Default',
-            // last_activity: 'Last Activity',
-            // peers: 'Peers',
-            // seeds: 'Seeds',
-            // priority: 'Priority',
-            // progress: 'Progress',
-            // ratio: 'Ratio',
-            // save_path: 'Directory',
-            // size: 'Size',
-            // state: 'State',
-            // uploaded: 'Uploaded',
-            // addedOn: 'Added On',
-            // downloadSpeed: 'Download Speed',
-            // timeActive: 'Time Active',
-            // uploadSpeed: 'Upload Speed'
+            availability: '可用性',
+            category: '分类',
+            tags: '标签',
+            completed: '已完成',
+            downloaded: '已下载',
+            ETA: '剩余时间',
+            name: '名称',
+            default: '默认',
+            last_activity: '最后活跃',
+            peers: '下载者',
+            seeds: '种子',
+            priority: '优先级',
+            progress: '进度',
+            ratio: '分享率',
+            save_path: '存储路径',
+            size: '大小',
+            state: '状态',
+            uploaded: '已上传',
+            addedOn: '添加于',
+            downloadSpeed: '下载速率',
+            timeActive: '活跃时间',
+            uploadSpeed: '上传速率'
           }
         }
       },
@@ -217,19 +217,19 @@ const locale = {
           relocate: '当分类变化时更改种子保存的路径',
           defaultSavePath: '默认保存路径',
           keepIncompleteIn: '将未完成的种子保存在：',
-          // autoEnabled_onAdded: 'Run external program on torrent added:',
-          // autoLabel_onAdded: 'Command',
+          autoEnabled_onAdded: '当添加种子后执行外部程序',
+          autoLabel_onAdded: '命令',
           autoEnabled_onFinished: '启用自动运行：',
           autoLabel_onFinished: '自动运行的程序',
-          supportParamTitle: '支持的参数（大小写敏感）：',
+          supportParamTitle: '支持的参数 (大小写敏感)：',
           supportParamN: '%N: 种子名称',
           supportParamL: '%L: 分类',
-          supportParamG: '%G: 标签（用逗号分隔）',
-          supportParamF: '%F: 内容路径（多文件种子同根路径）',
-          supportParamR: '%R: 根路径（首个种子子目录的路径）',
+          supportParamG: '%G: 标签 (用逗号分隔)',
+          supportParamF: '%F: 内容路径 (多文件种子同根路径)',
+          supportParamR: '%R: 根路径 (首个种子子目录的路径)',
           supportParamD: '%D: 保存路径',
           supportParamC: '%C: 文件数量',
-          supportParamZ: '%Z: 种子大小（单位为字节 byte）',
+          supportParamZ: '%Z: 种子大小 (单位为字节 byte)',
           supportParamT: '%T: 当前 tracker',
           supportParamI: '%I: 信息哈希值'
         }
@@ -251,9 +251,9 @@ const locale = {
       },
       pageBittorrent: {
         subHeaderPrivacy: '隐私',
-        enableDHT: '启用 DHT（分散网络）寻找更多终端',
-        enablePeX: '启用 PeX（对等交换）寻找更多终端',
-        enableLPD: '启用 LPD（本地终端发现）寻找更多终端',
+        enableDHT: '启用 DHT (分散网络) 寻找更多终端',
+        enablePeX: '启用 PeX (对等交换) 寻找更多终端',
+        enableLPD: '启用 LPD (本地终端发现) 寻找更多终端',
         enableAnonymous: '启用匿名模式',
         torrentQueue: '种子队列',
         maxActiveDownload: '最大活跃下载数',
@@ -299,15 +299,15 @@ const locale = {
       pageWebUI: {
         useAlternativeWebUI: '使用其他的网页界面',
         filesLocation: '文件路径',
-        webUserInterface: '网页用户界面（远程控制）',
+        webUserInterface: '网页用户界面 (远程控制)',
         ipAddress: 'IP 地址',
         port: '端口号',
         authentication: '认证',
         username: '用户名',
         password: '密码',
         maxAttempts: '最大尝试次数',
-        banDuration: '禁用时长（秒）',
-        sessionTimeout: '会话持续时间（秒）',
+        banDuration: '禁用时长 (秒)',
+        sessionTimeout: '会话持续时间 (秒)',
         bypassAuthenticationForClientsOnLocalhost: '绕过本地主机上客户端的身份验证',
         bypassAuthenticationForClientsInWhitelisted: '绕过白名单IP子网中客户端的身份验证',
         whiteListExample: '示例：172.17.32.0/24, fdff:ffff:c8::/40'
@@ -361,7 +361,7 @@ const locale = {
         sequentialDownload: '顺序下载',
         autoTMM: '自动种子管理',
         shareRatioLimit: '分享率限制',
-        shareTimeLimit: '分享时间限制（分钟）',
+        shareTimeLimit: '分享时间限制 (分钟)',
         downloadLimit: '下载限制',
         uploadLimit: '上传限制'
       },
@@ -400,7 +400,7 @@ const locale = {
       starttorrent: '添加后立即开始',
       skipHashCheck: '跳过哈希值检查',
       createSubfolder: '建立子目录',
-      automaticTorrentManagement: '自动种子管理（ATM）',
+      automaticTorrentManagement: '自动种子管理 (ATM)',
       dropHereForAdd: '拖拽到此处即可添加',
       oneOrMoreFilesInvalidTorrent: '存在无效的种子文件'
     },
@@ -434,9 +434,9 @@ const locale = {
         addedOn: '添加时间',
         downloadSpeed: '下载速率',
         timeActive: '活跃时间',
-        uploadSpeed: '上传速率'
-        // globalSpeed: 'Global Speed',
-        // globalVolume: 'Global Volume'
+        uploadSpeed: '上传速率',
+        globalSpeed: '全局速率',
+        globalVolume: '全局传输量'
       }
     },
     speedLimit: {
@@ -454,9 +454,9 @@ const locale = {
     settingsSaved: '设置保存成功！',
     categorySaved: '分类编辑成功！',
     feedSaved: '订阅源保存成功！',
-    ruleSaved: '规则保存成功！'
-    // renameFileFailed: 'Unable to rename file',
-    // renameFolderFailed: 'Unable to rename file'
+    ruleSaved: '规则保存成功！',
+    renameFileFailed: '无法重命名文件',
+    renameFolderFailed: '无法重命名文件夹'
   },
 
   /** RightClick **/
@@ -471,7 +471,7 @@ const locale = {
       forceReannounce: '强制重新汇报',
       sequentialDownload: '顺序下载',
       firstLastPriority: '首尾优先',
-      automaticTorrentManagement: '自动种子管理（ATM）'
+      automaticTorrentManagement: '自动种子管理 (ATM)'
     },
     prio: {
       prio: '设置优先级',
@@ -481,8 +481,8 @@ const locale = {
       decrease: '降低'
     },
     category: '设置分类',
-    // tags: 'Set Tags',
-    // notags: 'No Tags',
+    tags: '设置标签',
+    notags: '无标签',
     limit: '设置限制',
     copy: '复制',
     info: '显示详情'
