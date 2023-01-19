@@ -1,11 +1,12 @@
-import store from '../store'
+import store from '@/store'
 import { Hostname } from '@/helpers'
 import Torrent from '@/models/Torrent'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker'
+import type {TorrentResponse} from "@/types/qbit/responses";
 
 export class Torrents {
-  static update(data) {
+  static update(data: TorrentResponse[]) {
     if (store.state.webuiSettings.showTrackerFilter) {
       // don't calculate trackers when disabled
 

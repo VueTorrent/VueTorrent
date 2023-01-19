@@ -1,7 +1,7 @@
-import store from '../store'
+import store from '@/store'
 
 export class Graph {
-  static update() {
+  public static shiftValues() {
     const state = store.state
     state.download_data.shift()
     state.download_data.push(state.status.dlspeedRaw || 0)
