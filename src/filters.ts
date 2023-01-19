@@ -1,7 +1,6 @@
 import Vue from 'vue'
 
-/* eslint-disable no-param-reassign */
-export function toPrecision(value, precision) {
+export function toPrecision(value: number, precision: number): string {
   if (value >= 10 ** precision) {
     return value.toString()
   }
@@ -12,7 +11,7 @@ export function toPrecision(value, precision) {
   return value.toFixed(precision - 1)
 }
 
-export function formatSize(value) {
+export function formatSize(value: number): string {
   const units = 'KMGTP'
   let index = -1
 
@@ -33,7 +32,7 @@ export function formatSize(value) {
 Vue.filter('formatSize', formatSize)
 Vue.filter('size', formatSize)
 
-export function formatProgress(progress) {
+export function formatProgress(progress: number): string {
   progress *= 100
 
   return `${toPrecision(progress, 3)}%`
@@ -41,17 +40,7 @@ export function formatProgress(progress) {
 
 Vue.filter('progress', formatProgress)
 
-export function parseDate(str) {
-  if (!str) {
-    return null
-  }
-
-  return Date.parse(str) / 1000
-}
-
-Vue.filter('parseDate', parseDate)
-
-export function formatNetworkSpeed(speed) {
+export function formatNetworkSpeed(speed: number): string|null {
   if (speed === 0) {
     return null
   }
@@ -61,7 +50,7 @@ export function formatNetworkSpeed(speed) {
 
 Vue.filter('networkSpeed', formatNetworkSpeed)
 
-export function networkSize(size) {
+export function networkSize(size: number) {
   if (size === 0) {
     return null
   }
@@ -71,42 +60,41 @@ export function networkSize(size) {
 
 Vue.filter('networkSize', networkSize)
 
-export function getDataUnit(a, b) {
-  if (a === -1) return null
-  if (!a) return 'B'
+export function getDataUnit(data: number) {
+  if (data === -1) return null
+  if (!data) return 'B'
   const c = 1024
   const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  const f = Math.floor(Math.log(a) / Math.log(c))
+  const f = Math.floor(Math.log(data) / Math.log(c))
 
   return `${e[f]}`
 }
 
 Vue.filter('getDataUnit', getDataUnit)
 
-export function getDataValue(a, b) {
-  if (a === -1) return 'None'
-  if (!a) return '0'
+export function getDataValue(data: number, precision: number = 2) {
+  if (data === -1) return 'None'
+  if (!data) return '0'
   const c = 1024
-  const d = b || 2
-  const f = Math.floor(Math.log(a) / Math.log(c))
+  const f = Math.floor(Math.log(data) / Math.log(c))
 
-  return `${parseFloat((a / Math.pow(c, f)).toFixed(d))}`
+  return `${parseFloat((data / Math.pow(c, f)).toFixed(precision))}`
 }
 
 Vue.filter('getDataValue', getDataValue)
 
-export function titleCase(str) {
-  if (!str) return
+export function titleCase(str: string): string {
+  if (str.length == 0) return str
 
   return str
     .split(' ')
-    .map(w => w[0].toUpperCase() + w.substr(1).toLowerCase())
+    .map(w => w[0] && w[0].toUpperCase() + w.substring(1).toLowerCase())
     .join(' ')
 }
 
 Vue.filter('titleCase', titleCase)
 
-export function limitToValue(value) {
+export function limitToValue(value: number): string {
   if (value === -2) {
     return 'global'
   }
@@ -114,7 +102,7 @@ export function limitToValue(value) {
     return 'unlimited'
   }
 
-  return value
+  return value.toString()
 }
 
 Vue.filter('limitToValue', limitToValue)

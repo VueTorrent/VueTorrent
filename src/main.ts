@@ -16,11 +16,7 @@ Vue.use(toast, config)
 // register modals
 const components = import.meta.glob('./components/Modals/**/*.vue')
 Object.entries(components).forEach(([path, definition]) => {
-  const componentName = path
-    .split('/')
-    .pop()
-    .replace(/\.\w+$/, '')
-
+  const componentName = (path.split('/').pop() as string).replace(/\.\w+$/, '')
   Vue.component(componentName, definition)
 })
 

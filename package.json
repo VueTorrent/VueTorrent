@@ -33,6 +33,7 @@
     "@faker-js/faker": "^7.6.0",
     "@mdi/js": "^7",
     "@types/jsdom": "^20.0.1",
+    "@types/lodash": "^4.14.191",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "@vitejs/plugin-vue2": "^2",
