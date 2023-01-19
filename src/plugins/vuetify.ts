@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import type { Framework } from 'vuetify'
 import Vuetify from 'vuetify/lib'
 import { Ripple } from 'vuetify/lib/directives'
 
@@ -58,3 +59,10 @@ export default new Vuetify({
     }
   }
 })
+
+declare module 'vue/types/vue' {
+  // this.$vuetify inside Vue components
+  interface Vue {
+    $vuetify: Framework
+  }
+}
