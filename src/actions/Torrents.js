@@ -1,5 +1,5 @@
 import store from '../store'
-import { Hostname } from '@/Helpers/index.js'
+import { Hostname } from '@/helpers'
 import Torrent from '@/models/Torrent'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker'
