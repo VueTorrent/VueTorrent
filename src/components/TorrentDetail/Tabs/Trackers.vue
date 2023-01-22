@@ -110,7 +110,7 @@ export default {
     async addTrackers() {
       if (!this.newTrackers.length) return (this.trackerDialog = false)
 
-      qbit.addTorrenTrackers(this.hash, this.newTrackers)
+      qbit.addTorrentTrackers(this.hash, this.newTrackers)
       this.newTrackers = ''
       await this.getTorrentTrackers()
       this.trackerDialog = false
