@@ -1,5 +1,5 @@
 import store from '../store'
-import { Hostname } from '@/Helpers/index.js'
+import { Hostname } from '@/helpers'
 
 export class Trackers {
   static update(data) {
