@@ -128,7 +128,7 @@
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
-          <v-select v-model="webuiSettings.lang" flat solo dense hide-details background-color="background" class="rounded-xl" :items="languages" />
+          <v-select v-model="webuiSettings.lang" flat solo dense hide-details background-color="background" class="rounded-xl" :items="languages" item-text="caption" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -216,13 +216,13 @@
 <script>
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '@/services/qbit'
-import { i18n } from '@/plugins/i18n'
+import { LOCALES } from '@/lang/locales'
 
 export default {
   name: 'VueTorrent-General',
   data() {
     return {
-      languages: i18n.availableLocales,
+      languages: LOCALES,
       paginationSizes: [5, 15, 30, 50],
       titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
       Qbitversion: 0
