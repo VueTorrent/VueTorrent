@@ -1,6 +1,9 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import {TorrentState as QbitTorrentState} from "@/enums/qbit";
+import {TorrentState as VtTorrentState} from "@/enums/vuetorrent";
+import type {Torrent as QbitTorrent} from '@/types/qbit/models'
 
 dayjs.extend(duration)
 dayjs.extend(relativeTime)
@@ -9,7 +12,45 @@ const durationFormat = 'D[d] H[h] m[m] s[s]'
 
 export default class Torrent {
   static computedValues = ['globalSpeed', 'globalVolume']
-  constructor(data, format = 'DD/MM/YYYY, HH:mm:ss') {
+
+  name: string
+  size: number
+  added_on: string
+  completed_on: string
+  dlspeed: number
+  dloaded: number
+  upspeed: number
+  uploaded: number
+  uploaded_session: number
+  eta: string
+  num_leechs: number
+  num_seeds: number
+  state: VtTorrentState
+  hash: string
+  available_seeds: number
+  available_peers: number
+  savePath: string
+  progress: number
+  ratio: number
+  tags: string[] | null
+  category: string
+  tracker: string
+  f_l_piece_prio: boolean
+  seq_dl: boolean
+  auto_tmm: boolean
+  dl_limit: number
+  up_limit: number
+  ratio_limit: number
+  ratio_time_limit: number
+  availability: number
+  forced: boolean
+  magnet: string
+  time_active: string
+  seeding_time: string | null
+  last_activity: string
+  globalSpeed: number
+  globalVolume: number
+  constructor(data: QbitTorrent, format = 'DD/MM/YYYY, HH:mm:ss') {
     this.name = data.name
     this.size = data.size
     this.added_on = dayjs(data.added_on * 1000).format(format)
@@ -22,7 +63,6 @@ export default class Torrent {
     this.eta = this.formatEta(data.eta)
     this.num_leechs = data.num_leechs
     this.num_seeds = data.num_seeds
-    this.path = data.path === undefined ? '/downloads' : data.path
     this.state = this.formatState(data.state)
     this.hash = data.hash
     this.available_seeds = data.num_complete
@@ -54,42 +94,41 @@ export default class Torrent {
     Object.freeze(this)
   }
 
-  formatState(state) {
+  formatState(state: QbitTorrentState): VtTorrentState {
     switch (state) {
-      case 'forcedDL':
-      case 'downloading':
-        return 'Downloading'
-      case 'metaDL':
-        return 'Metadata'
-      case 'forcedUP':
-      case 'uploading':
-      case 'stalledUP':
-        return 'Seeding'
-      case 'pausedDL':
-        return 'Paused'
-      case 'pausedUP':
-        return 'Done'
-      case 'queuedDL':
-      case 'queuedUP':
-        return 'Queued'
-      case 'allocating':
-      case 'checkingDL':
-      case 'checkingUP':
-      case 'checkingResumeData':
-        return 'Checking'
-      case 'moving':
-        return 'Moving'
-      case 'unknown':
-      case 'missingFiles':
-        return 'Fail'
-      case 'stalledDL':
-        return 'Stalled'
+      case QbitTorrentState.FORCED_DL:
+      case QbitTorrentState.DOWNLOADING:
+        return VtTorrentState.DOWNLOADING
+      case QbitTorrentState.META_DL:
+        return VtTorrentState.METADATA
+      case QbitTorrentState.FORCED_UP:
+      case QbitTorrentState.UPLOADING:
+      case QbitTorrentState.STALLED_UP:
+        return VtTorrentState.SEEDING
+      case QbitTorrentState.PAUSED_DL:
+        return VtTorrentState.PAUSED
+      case QbitTorrentState.PAUSED_UP:
+        return VtTorrentState.DONE
+      case QbitTorrentState.QUEUED_DL:
+      case QbitTorrentState.QUEUED_UP:
+        return VtTorrentState.QUEUED
+      case QbitTorrentState.ALLOCATING:
+      case QbitTorrentState.CHECKING_DL:
+      case QbitTorrentState.CHECKING_UP:
+      case QbitTorrentState.CHECKING_RESUME_DATA:
+        return VtTorrentState.CHECKING
+      case QbitTorrentState.MOVING:
+        return VtTorrentState.MOVING
+      case QbitTorrentState.UNKNOWN:
+      case QbitTorrentState.STALLED_DL:
+        return VtTorrentState.STALLED
+      case QbitTorrentState.MISSING_FILES:
       default:
-        return 'Fail'
+        return VtTorrentState.FAIL
     }
   }
 
-  formatEta(value) {
+  formatEta(value: number): string {
     const options = { dayLimit: 100 }
     const minute = 60
     const hour = minute * 60

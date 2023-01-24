@@ -4,8 +4,11 @@ import VuexPersist from 'vuex-persist'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
+import type { StoreState } from '@/types/vuetorrent'
+import { Status } from '@/models'
+import {TitleOptions} from "@/enums/vuetorrent";
 
-const vuexPersist = new VuexPersist({
+const vuexPersist = new VuexPersist<StoreState>({
   key: 'vuetorrent',
   storage: window.localStorage,
   reducer: state => ({
@@ -17,6 +20,7 @@ const vuexPersist = new VuexPersist({
 
 Vue.use(Vuex)
 
+// noinspection DuplicatedCode
 const propertiesTemplate = [
   { name: 'Size', active: true },
   { name: 'Progress', active: true },
@@ -40,32 +44,29 @@ const propertiesTemplate = [
   { name: 'GlobalVolume', active: false }
 ]
 
-export default new Vuex.Store({
+export default new Vuex.Store<StoreState>({
   plugins: [vuexPersist.plugin],
   state: {
-    version: 0,
+    authenticated: false,
+    categories: [],
+    dashboard: {
+      currentPage: 1,
+      searchFilter: ''
+    },
+    download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    filteredTorrentsCount: 0,
     intervals: [],
+    latestSelectedTorrent: -1,
+    modals: [],
+    rid: 0,
     rss: {
       feeds: [],
       rules: []
     },
-    status: {
-      status: '',
-      downloaded: '',
-      uploaded: '',
-      dlspeed: '',
-      upspeed: '',
-      freeDiskSpace: '',
-      altSpeed: '',
-      dlspeedRaw: '',
-      upspeedRaw: '',
-      tags: ''
-    },
-    upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    torrents: [],
+    searchPlugins: [],
+    selectMode: false,
     selected_torrents: [],
-    authenticated: false,
+    settings: null,
     sort_options: {
       isCustomSortEnabled: false,
       sort: 'priority',
@@ -76,10 +77,12 @@ export default new Vuex.Store({
       tag: null,
       tracker: null
     },
-    rid: 0,
-    pasteUrl: null,
-    modals: [],
-    settings: {},
+    status: new Status(),
+    tags: [],
+    torrents: [],
+    trackers: [],
+    upload_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    version: '',
     webuiSettings: {
       lang: 'en',
       darkTheme: false,
@@ -91,27 +94,17 @@ export default new Vuex.Store({
       showTrackerFilter: false,
       showSpeedInTitle: false,
       deleteWithFiles: false,
-      title: 'Default',
+      title: TitleOptions.DEFAULT,
       rightDrawer: false,
       topPagination: false,
       paginationSize: 15,
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
-      busyTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate)),
-      doneTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate))
-    },
-    categories: [],
-    trackers: [],
-    tags: [],
-    filteredTorrentsCount: 0,
-    latestSelectedTorrent: null,
-    selectMode: false,
-    searchPlugins: [],
-    dashboard: {
-      currentPage: 1,
-      searchFilter: ''
+      busyTorrentProperties: [...propertiesTemplate],
+      doneTorrentProperties: [...propertiesTemplate]
     }
   },
+  // @ts-expect-error
   actions: {
     ...actions
   },

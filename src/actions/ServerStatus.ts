@@ -1,5 +1,5 @@
 import store from '@/store'
-import Status from '@/models/Status'
+import {Status} from '@/models'
 import type {ServerState} from "@/types/qbit/models";
 import type {Optional} from "@/global";
 

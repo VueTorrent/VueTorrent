@@ -1,9 +1,9 @@
 import store from '@/store'
 import { Hostname } from '@/helpers'
-import type {TorrentResponse} from "@/types/qbit/responses";
+import type {Torrent} from "@/types/qbit/models";
 
 export class Trackers {
-  static update(data: TorrentResponse[]) {
+  static update(data: Torrent[]) {
     if (store.state.webuiSettings.showTrackerFilter) {
       store.state.trackers = data
         .map(t => t.tracker)

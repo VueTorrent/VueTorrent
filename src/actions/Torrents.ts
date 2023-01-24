@@ -1,12 +1,12 @@
 import store from '@/store'
 import { Hostname } from '@/helpers'
-import Torrent from '@/models/Torrent'
+import {Torrent as VtTorrent} from '@/models'
+import type {Torrent as QbitTorrent} from '@/types/qbit/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker'
-import type {TorrentResponse} from "@/types/qbit/responses";
 
 export class Torrents {
-  static update(data: TorrentResponse[]) {
+  static update(data: QbitTorrent[]) {
     if (store.state.webuiSettings.showTrackerFilter) {
       // don't calculate trackers when disabled
 
@@ -16,7 +16,7 @@ export class Torrents {
     }
 
     // update torrents
-    store.state.torrents = data.map(t => new Torrent(t, store.state.webuiSettings.dateFormat))
+    store.state.torrents = data.map(t => new VtTorrent(t, store.state.webuiSettings.dateFormat))
 
     // load fake torrents if enabled
     if (isProduction()) return
