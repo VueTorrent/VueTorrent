@@ -241,19 +241,24 @@ export default {
     startDropFile() {
       this.showWrapDrag = true
     },
-    DragLeave(e) {
+    DragLeave() {
       this.showWrapDrag = false
     },
     closeWrap() {
       if (this.showWrapDrag) this.showWrapDrag = false
       else this.close()
     },
-    async paste() {
+    async paste(e) {
       if (navigator.clipboard && window.isSecureContext) {
         this.urls = await navigator.clipboard.readText()
       } else {
-        this.urls = document.execCommand('paste')
+        e.target.focus()
+        if (!document.execCommand('paste')) {
+          this.$toast.error(this.$i18n.t("toast.pasteNotSupported").toString())
+          return
+        }
       }
+      this.$toast.success(this.$i18n.t("toast.pasteSuccess").toString())
     },
     submit() {
       if (this.files.length || this.urls) {

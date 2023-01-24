@@ -432,13 +432,13 @@ export default {
         textArea.style.opacity = '0'
         document.body.appendChild(textArea)
         textArea.select()
-        try {
-          document.execCommand('copy')
-        } catch (err) {
-          console.error('Unable to copy to clipboard', err)
+        if (!document.execCommand('copy')) {
+          this.$toast.error(this.$i18n.t("toast.copyNotSupported").toString())
+          return
         }
         document.body.removeChild(textArea)
       }
+      this.$toast.success(this.$i18n.t("toast.copySuccess").toString())
     }
   }
 }

@@ -450,8 +450,10 @@
     "ruleSaved": "Règle enregistrée !",
     "renameFileFailed": "Impossible de renommer le fichier",
     "renameFolderFailed": "Impossible de renommer le dossier",
-    "copyNotSupported": "Impossible de copier, clipboard API indisponible dans ce navigateur",
-    "pasteNotSupported": "Impossible de coller, clipboard API indisponible dans ce navigateur"
+    "copySuccess": "Texte copié!",
+    "copyNotSupported": "Impossible de copier, Clipboard API indisponible dans ce navigateur",
+    "pasteSuccess": "Texte collé!",
+    "pasteNotSupported": "Impossible de coller, Clipboard API indisponible dans ce navigateur"
   },
   "rightClick": {
     "resume": "Reprendre",

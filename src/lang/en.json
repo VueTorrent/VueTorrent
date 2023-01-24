@@ -461,7 +461,9 @@
     "ruleSaved": "Rule saved!",
     "renameFileFailed": "Unable to rename file",
     "renameFolderFailed": "Unable to rename file",
+    "copySuccess": "Text copied!",
     "copyNotSupported": "Unable to copy, clipboard API unavailable on this browser",
+    "pasteSuccess": "Text pasted!",
     "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser"
   },
   "rightClick": {
