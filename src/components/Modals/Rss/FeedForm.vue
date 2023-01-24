@@ -70,7 +70,7 @@ export default {
       this.dialog = false
     },
     edit() {
-      qbit.editfeed(this.feed)
+      qbit.editFeed(this.feed)
       Vue.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
     }

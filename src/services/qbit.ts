@@ -1,4 +1,25 @@
-import axios, { AxiosInstance } from 'axios'
+import axios from 'axios'
+import type { AxiosInstance } from 'axios'
+import type {
+  ApplicationVersion,
+  AppPreferences,
+  Category,
+  Feed,
+  FeedRule,
+  SearchJob,
+  SearchPlugin,
+  SearchStatus,
+  TorrentFile,
+  TorrentProperties,
+  Tracker,
+  Torrent
+} from '@/types/qbit/models'
+import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import type { AddTorrentPayload, AppPreferencesPayload, LoginPayload } from '@/types/qbit/payloads'
+import type { SortOptions } from '@/types/vuetorrent'
+import type { Priority } from '@/enums/qbit'
+
+type Parameters = Record<string, any>
 
 export class QBitApi {
   private axios: AxiosInstance
@@ -11,92 +32,63 @@ export class QBitApi {
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
   }
 
-  execute(method, action, params) {
-    if (method === 'post') {
-      const data = new URLSearchParams(params)
-
-      return this.axios.post(action, data).then(res => res.data)
-    }
+  async execute(action: string, params?: Parameters): Promise<any> {
+    const data = new URLSearchParams(params)
+    return this.axios.post(action, data).then(res => res.data)
   }
 
   /** Begin General functions * */
-  getAppVersion(): Promise<string> {
+  async getAppVersion(): Promise<ApplicationVersion> {
     return this.axios
-      .get('/app/version')
-      .then(res => res.data)
-      .then(version => (version.includes('v') ? version.substring(1) : version))
+        .get('/app/version')
+        .then(res => res.data)
+        .then(version => (version.includes('v') ? version.substring(1) : version))
   }
 
-  getApiVersion() {
-    return this.axios.get('/app/webapiVersion')
-  }
-
-  async login(params) {
+  async login(params: LoginPayload): Promise<string> {
     const payload = new URLSearchParams(params)
-    const { data } = await this.axios
-      .post('/auth/login', payload, {
-        validateStatus(status) {
-          return status === 200 || status === 403
-        }
-      })
-      .catch(err => console.log(err))
+    const res = await this.axios
+        .post('/auth/login', payload, {
+          validateStatus: (status: number) => status === 200 || status === 403
+        })
+        .catch(err => console.log(err))
 
-    return data
+    return res?.data
   }
 
-  async getAuthenticationStatus() {
+  async getAuthenticationStatus(): Promise<boolean> {
     return this.axios
-      .get('/app/version')
-      .then(() => true)
-      .catch(() => false)
+        .get('/app/version')
+        .then(() => true)
+        .catch(() => false)
   }
 
-  async logout() {
-    this.axios.post('/auth/logout')
+  async logout(): Promise<void> {
+    await this.axios.post('/auth/logout')
   }
 
-  getGlobalTransferInfo() {
-    return this.axios.get('/transfer/info')
+  async getAppPreferences(): Promise<AppPreferences> {
+    return this.axios.get('/app/preferences').then(r => r.data)
   }
 
-  getAppPreferences() {
-    return this.axios.get('/app/preferences')
-  }
-
-  setPreferences(params) {
-    const data = new URLSearchParams({
+  async setPreferences(params: AppPreferencesPayload): Promise<void> {
+    const data = {
       json: JSON.stringify(params)
-    })
+    }
 
-    return this.axios.post('/app/setPreferences', data)
+    await this.execute('/app/setPreferences', data)
   }
 
-  getMainData(rid) {
+  async getMainData(rid?: number): Promise<MainDataResponse> {
     return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
-  switchToOldUi() {
-    return this.setPreferences({
-      alternative_webui_enabled: false
-    })
+  async toggleSpeedLimitsMode(): Promise<void> {
+    await this.execute('/transfer/toggleSpeedLimitsMode')
   }
 
-  toggleSpeedLimitsMode() {
-    return this.axios.post('/transfer/toggleSpeedLimitsMode')
-  }
-
-  /** Begin Torrent functions * */
-
-  // Get
-
-  getLogs(lastId) {
-    return this.axios.get('/log/main', {
-      last_known_id: lastId
-    })
-  }
-
-  getTorrents(payload) {
-    const params = {
+  async getTorrents(payload: SortOptions): Promise<Torrent[]> {
+    const params: Parameters = {
       sort: !payload.isCustomSortEnabled ? payload.sort : null,
       reverse: !payload.isCustomSortEnabled ? payload.reverse : null,
       hashes: payload.hashes.length > 0 ? payload.hashes.join('|') : null,
@@ -110,104 +102,111 @@ export class QBitApi {
 
     const data = new URLSearchParams(params)
 
-    return this.axios.get(`/torrents/info?${data.toString()}`)
+    return this.axios.get(`/torrents/info?${data.toString()}`).then(r => r.data)
   }
 
-  getTorrentTrackers(hash) {
-    return this.axios.get('/torrents/trackers', {
-      params: { hash }
-    })
+  async getTorrentTrackers(hash: string): Promise<Tracker[]> {
+    return this.axios
+        .get('/torrents/trackers', {
+          params: { hash }
+        })
+        .then(r => r.data)
   }
 
-  getTorrentPeers(hash, rid) {
+  async getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
     return this.axios.get('/sync/torrentPeers', {
       params: { hash, rid }
     })
   }
 
-  setTorrentName(hash, name) {
-    return this.execute('post', '/torrents/rename', { hash, name })
+  async setTorrentName(hash: string, name: string): Promise<void> {
+    await this.execute('/torrents/rename', { hash, name })
   }
 
-  getTorrentPieceStates(hash) {
-    return this.axios.get('/torrents/pieceStates', {
-      params: { hash }
-    })
+  async getTorrentPieceStates(hash: string): Promise<number[]> {
+    return this.axios
+        .get('/torrents/pieceStates', {
+          params: { hash }
+        })
+        .then(res => res.data)
   }
 
-  getTorrentFiles(hash) {
-    return this.axios.get('/torrents/files', {
-      params: { hash }
-    })
+  async getTorrentFiles(hash: string, indexes?: number[]): Promise<TorrentFile[]> {
+    return this.axios
+        .get('/torrents/files', {
+          params: { hash, indexes: indexes?.join('|') }
+        })
+        .then(res => res.data)
   }
 
-  getAvailableTags() {
+  async getAvailableTags(): Promise<string[]> {
     return this.axios.get('/torrents/tags').then(res => res.data)
   }
 
-  getTorrentProperties(hash) {
+  async getTorrentProperties(hash: string): Promise<TorrentProperties> {
     return this.axios
-      .get('/torrents/properties', {
-        params: { hash }
-      })
-      .then(res => res.data)
+        .get('/torrents/properties', {
+          params: { hash }
+        })
+        .then(res => res.data)
   }
 
   // RSS
 
-  createFeed(feed) {
-    return this.execute('post', '/rss/addFeed', {
-      url: feed.url,
-      path: feed.url
+  async createFeed(url: string, path?: string): Promise<void> {
+    await this.execute('/rss/addFeed', {
+      url: url,
+      path: path
     })
   }
 
-  createRule(ruleName, defs) {
-    return this.execute('post', '/rss/setRule', {
+  async createRule(ruleName: string, ruleDef: FeedRule) {
+    return this.execute('/rss/setRule', {
       ruleName: ruleName,
-      ruleDef: JSON.stringify(defs)
+      ruleDef: JSON.stringify(ruleDef, ['enabled', 'mustContain', 'mustNotContain', 'useRegex', 'affectedFeeds'])
     })
   }
 
-  getFeeds() {
-    return this.axios
-      .get('/rss/items')
-      .then(res => res.data)
-      .then(data =>
-        Object.entries(data).map(feed => {
-          return { name: feed[0], ...feed[1] }
-        })
-      )
+  async getFeeds(): Promise<Record<string, Feed>> {
+    return this.axios.get('/rss/items').then(res => res.data)
   }
 
-  getRules() {
-    return this.axios
-      .get('/rss/rules')
-      .then(res => res.data)
-      .then(data =>
-        Object.entries(data).map(rule => {
-          return { name: rule[0], ...rule[1] }
-        })
-      )
+  async getRules(): Promise<Record<string, FeedRule>> {
+    return this.axios.get('/rss/rules').then(res => res.data)
   }
 
-  deleteRule(ruleName) {
-    return this.execute('post', 'rss/removeRule', {
+  async editFeed(itemPath: string, destPath: string): Promise<void> {
+    await this.execute('/rss/moveItem', {
+      itemPath,
+      destPath
+    })
+  }
+
+  async editRule(ruleName: string, newRuleName: string): Promise<void> {
+    await this.execute('/rss/renameRule', {
+      ruleName,
+      newRuleName
+    })
+  }
+
+  async deleteRule(ruleName: string): Promise<void> {
+    await this.execute('rss/removeRule', {
       ruleName
     })
   }
 
-  deleteFeed(name) {
-    return this.execute('post', 'rss/removeItem', {
+  async deleteFeed(name: string): Promise<void> {
+    await this.execute('rss/removeItem', {
       path: name
     })
   }
 
   // Post
 
-  addTorrents(params, torrents) {
+  async addTorrents(params: AddTorrentPayload, torrents: File[]): Promise<void> {
     let data
     if (torrents) {
+      // torrent files
       const formData = new FormData()
       if (params) {
         for (const [key, value] of Object.entries(params)) {
@@ -221,283 +220,269 @@ export class QBitApi {
 
       data = formData
     } else {
-      data = new URLSearchParams(params)
+      // magnet links
+      data = new URLSearchParams(params as Parameters)
     }
 
-    return this.axios.post('/torrents/add', data)
+    await this.axios.post('/torrents/add', data)
   }
 
-  setTorrentFilePriority(hash, idList, priority) {
+  async setTorrentFilePriority(hash: string, idList: number[], priority: Priority): Promise<void> {
     const params = {
       hash,
       id: idList.join('|'),
       priority
     }
 
-    return this.execute('post', '/torrents/filePrio', params)
+    await this.execute('/torrents/filePrio', params)
   }
 
-  deleteTorrents(hashes, deleteFiles) {
+  async deleteTorrents(hashes: string[], deleteFiles: boolean): Promise<void> {
     if (!hashes.length) return
 
-    return this.torrentAction('delete', hashes, { deleteFiles })
+    await this.torrentAction('delete', hashes, { deleteFiles })
   }
 
-  pauseTorrents(hashes) {
-    return this.torrentAction('pause', hashes)
+  async pauseTorrents(hashes: string[]): Promise<void> {
+    await this.torrentAction('pause', hashes)
   }
 
-  resumeTorrents(hashes) {
-    return this.torrentAction('resume', hashes)
+  async resumeTorrents(hashes: string[]): Promise<void> {
+    await this.torrentAction('resume', hashes)
   }
 
-  forceStartTorrents(hashes) {
-    return this.torrentAction('setForceStart', hashes, { value: true })
+  async forceStartTorrents(hashes: string[]): Promise<void> {
+    await this.torrentAction('setForceStart', hashes, { value: true })
   }
 
-  toggleSequentialDownload(hashes) {
-    return this.torrentAction('toggleSequentialDownload', hashes)
+  async toggleSequentialDownload(hashes: string[]): Promise<void> {
+    await this.torrentAction('toggleSequentialDownload', hashes)
   }
 
-  toggleFirstLastPiecePriority(hashes) {
-    return this.torrentAction('toggleFirstLastPiecePrio', hashes)
+  async toggleFirstLastPiecePriority(hashes: string[]): Promise<void> {
+    await this.torrentAction('toggleFirstLastPiecePrio', hashes)
   }
 
-  setAutoTMM(hashes, enable) {
-    return this.torrentAction('setAutoManagement', hashes, { enable })
+  async setAutoTMM(hashes: string[], enable: boolean): Promise<void> {
+    await this.torrentAction('setAutoManagement', hashes, { enable })
   }
 
-  setDownloadLimit(hashes, limit) {
-    return this.torrentAction('setDownloadLimit', hashes, { limit })
+  async setDownloadLimit(hashes: string[], limit: number): Promise<void> {
+    await this.torrentAction('setDownloadLimit', hashes, { limit })
   }
 
-  setUploadLimit(hashes, limit) {
-    return this.torrentAction('setUploadLimit', hashes, { limit })
+  async setUploadLimit(hashes: string[], limit: number): Promise<void> {
+    await this.torrentAction('setUploadLimit', hashes, { limit })
   }
 
-  async getGlobalDownloadLimit() {
-    const { data } = await this.axios.get('/transfer/downloadLimit')
-
-    return data
+  /**
+   * @return current global download speed limit in bytes/second; this value will be zero if no limit is applied.
+   */
+  async getGlobalDownloadLimit(): Promise<number> {
+    return this.axios.get('/transfer/downloadLimit').then(res => res.data)
   }
 
-  async getGlobalUploadLimit() {
-    const { data } = await this.axios.get('/transfer/uploadLimit')
-
-    return data
+  /**
+   * @return current global upload speed limit in bytes/second; this value will be zero if no limit is applied.
+   */
+  async getGlobalUploadLimit(): Promise<number> {
+    return this.axios.get('/transfer/uploadLimit').then(res => res.data)
   }
 
-  setGlobalDownloadLimit(limit) {
-    const formData = new FormData()
-    formData.append('limit', limit)
+  /**
+   * @param limit - The global download speed limit to set in bytes/second
+   */
+  async setGlobalDownloadLimit(limit: number): Promise<void> {
+    const data = {
+      limit
+    }
 
-    return this.axios.post('/transfer/setDownloadLimit', formData)
+    await this.execute('/transfer/setDownloadLimit', data)
   }
 
-  setGlobalUploadLimit(limit) {
-    const formData = new FormData()
-    formData.append('limit', limit)
+  /**
+   * @param limit - The global upload speed limit to set in bytes/second
+   */
+  async setGlobalUploadLimit(limit: number): Promise<void> {
+    const data = {
+      limit
+    }
 
-    return this.axios.post('/transfer/setUploadLimit', formData)
+    await this.execute('/transfer/setUploadLimit', data)
   }
 
-  setShareLimit(hashes, ratioLimit, seedingTimeLimit) {
-    return this.torrentAction('setShareLimits', hashes, {
+  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number): Promise<void> {
+    await this.torrentAction('setShareLimits', hashes, {
       ratioLimit,
       seedingTimeLimit
     })
   }
 
-  reannounceTorrents(hashes) {
-    return this.torrentAction('reannounce', hashes)
+  async reannounceTorrents(hashes: string[]): Promise<void> {
+    await this.torrentAction('reannounce', hashes)
   }
 
-  recheckTorrents(hashes) {
-    return this.torrentAction('recheck', hashes)
+  async recheckTorrents(hashes: string[]): Promise<void> {
+    await this.torrentAction('recheck', hashes)
   }
 
-  setTorrentsCategory(hashes, category) {
-    return this.torrentAction('setCategory', hashes, { category })
+  async setTorrentLocation(hashes: string[], location: string): Promise<void> {
+    await this.torrentAction('setLocation', hashes, { location })
   }
 
-  editTracker(hash, origUrl, newUrl) {
-    return this.torrentAction('editTracker', [hash], { origUrl, newUrl })
+  async addTorrentTrackers(hash: string, trackers: string): Promise<void> {
+    await this.torrentAction('addTrackers', [hash], { urls: trackers })
   }
 
-  setTorrentLocation(hashes, location) {
-    return this.torrentAction('setLocation', hashes, { location })
+  async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
+    await this.torrentAction('removeTrackers', [hash], { urls: trackers.join('|') })
   }
 
-  addTorrenTrackers(hash, trackers) {
-    const params = {
-      hash,
-      urls: trackers
-    }
-
-    return this.execute('post', '/torrents/addTrackers', params)
+  async addTorrentPeers(hashes: string[], peers: string[]): Promise<void> {
+    await this.torrentAction('addPeers', hashes, { peers: peers.join('|') })
   }
 
-  removeTorrentTrackers(hash, trackers) {
-    const params = {
-      hash,
-      urls: trackers.join('|')
-    }
-
-    return this.execute('post', '/torrents/removeTrackers', params)
-  }
-
-  addTorrentPeers(hashes: Array<string>, peers: Array<string>) {
-    const params = {
-      hashes: hashes.join('|'),
-      peers: peers.join('|')
-    }
-
-    return this.execute('post', '/torrents/addPeers', params)
-  }
-
-  banPeers(peers: Array<string>) {
+  async banPeers(peers: string[]): Promise<void> {
     const params = {
       peers: peers.join('|')
     }
 
-    return this.execute('post', '/transfer/banPeers', params)
+    await this.execute('/transfer/banPeers', params)
   }
 
-  torrentAction(action, hashes, extra) {
+  async torrentAction(action: string, hashes: string[], extra?: Record<string, any>): Promise<any> {
     const params = {
       hashes: hashes.length ? hashes.join('|') : 'all',
       ...extra
     }
 
-    return this.execute('post', `/torrents/${action}`, params)
+    return this.execute(`/torrents/${action}`, params)
   }
 
-  renameFile(hash, oldPath, newPath) {
+  async renameFile(hash: string, oldPath: string, newPath: string): Promise<void> {
     const params = {
       hash,
       oldPath,
       newPath
     }
 
-    return this.execute('post', '/torrents/renameFile', params)
+    await this.execute('/torrents/renameFile', params)
   }
 
-  renameFolder(hash, oldPath, newPath) {
+  async renameFolder(hash: string, oldPath: string, newPath: string): Promise<void> {
     const params = {
       hash,
       oldPath,
       newPath
     }
 
-    return this.execute('post', '/torrents/renameFolder', params)
+    await this.execute('/torrents/renameFolder', params)
   }
 
   /** Torrent Priority **/
-  setTorrentPriority(hashes, priority) {
-    if (['increasePrio', 'decreasePrio', 'topPrio', 'bottomPrio'].includes(priority)) {
-      return this.execute('post', `/torrents/${priority}`, {
-        hashes: hashes.join('|')
-      })
-    }
+  async setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio'): Promise<void> {
+    await this.execute(`/torrents/${priority}`, {
+      hashes: hashes.join('|')
+    })
   }
 
   /** Begin Torrent Tags **/
-  removeTorrentTag(hashes, tag) {
-    return this.execute('post', '/torrents/removeTags', {
-      hashes: hashes.join('|'),
-      tags: tag
+  async removeTorrentTag(hashes: string[], tags: string[]): Promise<void> {
+    await this.torrentAction('removeTags', hashes, { tags: tags.join('|') })
+  }
+
+  async addTorrentTag(hashes: string[], tags: string[]): Promise<void> {
+    await this.torrentAction('addTags', hashes, { tags: tags.join('|') })
+  }
+
+  async createTag(tags: string[]): Promise<void> {
+    await this.execute('/torrents/createTags', {
+      tags: tags.join(',')
     })
   }
 
-  addTorrentTag(hashes, tag) {
-    return this.execute('post', '/torrents/addTags ', {
-      hashes: hashes.join('|'),
-      tags: tag
-    })
-  }
-
-  createTag(tag) {
-    return this.execute('post', '/torrents/createTags  ', {
-      tags: tag
-    })
-  }
-
-  deleteTag(tag) {
-    return this.execute('post', '/torrents/deleteTags', {
-      tags: tag
+  async deleteTag(tags: string[]): Promise<void> {
+    await this.execute('/torrents/deleteTags', {
+      tags: tags.join(',')
     })
   }
 
   /** Begin Categories **/
-  getCategories() {
-    return this.axios.get('/torrents/categories').then(res => res.data)
+  async getCategories(): Promise<Category[]> {
+    return this.axios
+        .get('/torrents/categories')
+        .then(res => res.data)
+        .then(data => Object.values(data))
   }
 
-  deleteCategory(categories) {
-    return this.execute('post', '/torrents/removeCategories', {
-      categories
+  async deleteCategory(categories: string[]): Promise<void> {
+    await this.execute('/torrents/removeCategories', {
+      categories: categories.join('\n')
     })
   }
 
-  createCategory(cat) {
-    return this.execute('post', '/torrents/createCategory', {
+  async createCategory(cat: Category): Promise<void> {
+    await this.execute('/torrents/createCategory', {
       category: cat.name,
       savePath: cat.savePath
     })
   }
 
-  setCategory(hashes, category) {
-    return this.torrentAction('setCategory', hashes, { category })
+  async setCategory(hashes: string[], category: string): Promise<void> {
+    await this.torrentAction('setCategory', hashes, { category })
   }
 
-  editCategory(cat) {
+  async editCategory(cat: Category): Promise<void> {
     const params = {
       category: cat.name,
       savePath: cat.savePath
     }
 
-    return this.execute('post', '/torrents/editCategory', params)
+    await this.execute('/torrents/editCategory', params)
   }
 
   /** Search **/
-  getSearchPlugins() {
+  async getSearchPlugins(): Promise<SearchPlugin[]> {
     return this.axios.get('/search/plugins').then(res => res.data)
   }
 
-  updateSearchPlugins() {
-    return this.execute('post', '/search/updatePlugins')
+  async updateSearchPlugins(): Promise<void> {
+    await this.execute('/search/updatePlugins')
   }
 
-  enableSearchPlugin(plugins, enable) {
+  async enableSearchPlugin(pluginNames: string[], enable: boolean): Promise<void> {
     const params = {
-      names: plugins.join('|'),
+      names: pluginNames.join('|'),
       enable
     }
 
-    return this.execute('post', '/search/enablePlugin', params)
+    await this.execute('/search/enablePlugin', params)
   }
 
-  startSearch(pattern, plugins) {
+  async startSearch(pattern: string, plugins: string[]): Promise<SearchJob> {
     const params = {
       pattern,
-      plugins: Array.isArray(plugins) ? plugins.join('|') : 'all',
+      plugins: plugins.length ? plugins.join('|') : 'enabled',
       category: 'all'
     }
 
-    return this.execute('post', '/search/start', params)
+    return this.execute('/search/start', params)
   }
 
-  stopSearch(id) {
-    return this.execute('post', '/search/stop', { id })
+  async stopSearch(id: number): Promise<void> {
+    await this.execute('/search/stop', { id })
   }
 
-  getSearchStatus(id) {
-    return this.execute('post', '/search/status', { id })
+  async getSearchStatus(id?: number): Promise<SearchStatus[]> {
+    const params = id !== undefined ? { id } : undefined
+    return this.execute('/search/status', params)
   }
 
-  getSearchResults(id) {
-    return this.execute('post', '/search/results', {
-      id
+  async getSearchResults(id: number, limit?: number, offset?: number): Promise<SearchResultsResponse> {
+    return this.execute('/search/results', {
+      id,
+      limit,
+      offset
     })
   }
 }

@@ -22,6 +22,7 @@
     "vue": "^2.7.14",
     "vue-apexcharts": "^1.6.2",
     "vue-i18n": "^8",
+    "vue-property-decorator": "^9.1.2",
     "vue-router": "^3.6.5",
     "vue-toastification": "^1.7.11",
     "vuedraggable": "^2.24.3",
@@ -33,6 +34,8 @@
     "@faker-js/faker": "^7.6.0",
     "@mdi/js": "^7",
     "@types/jsdom": "^20.0.1",
+    "@types/lodash": "^4.14.191",
+    "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
     "@vitejs/plugin-vue2": "^2",
@@ -49,8 +52,9 @@
     "vite": "^3",
     "vite-plugin-eslint": "^1",
     "vite-plugin-pwa": "^0.13",
-    "vitest": "^0.25",
-    "vue-template-compiler": "^2"
+    "vitest": "^0.25.8",
+    "vue-template-compiler": "^2",
+    "vue-typed-mixins": "^0.2.0"
   },
   "browserslist": [
     "> 1%",
