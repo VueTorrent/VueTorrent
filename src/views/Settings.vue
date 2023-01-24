@@ -111,10 +111,19 @@ export default {
   },
   mounted() {
     this.$store.dispatch('FETCH_SETTINGS')
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     close() {
       this.$router.back()
+    },
+    handleKeyboardShortcut(e) {
+      if (e.key === "Escape") {
+        this.close()
+      }
     }
   }
 }

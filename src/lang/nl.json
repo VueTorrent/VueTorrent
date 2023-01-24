@@ -1,0 +1,128 @@
+{
+  "category": "categorie",
+  "settings": "instellingen",
+  "pause": "pauzeer",
+  "delete": "verwijder",
+  "save": "opslaan",
+  "cancel": "annuleren",
+  "confirm": "bevestig",
+  "dashboard": {
+    "tooltips": {}
+  },
+  "torrent": {
+    "title": "titel",
+    "added": "toegevoegd op",
+    "availability": "beschikbaarheid",
+    "size": "grootte",
+    "progress": "vooruitgang",
+    "directory": "map",
+    "downloaded": "gedownload",
+    "uploaded": "geüpload",
+    "created": "gemaakt door",
+    "comments": "opmerkingen"
+  },
+  "navbar": {
+    "currentSpeed": "huidige snelheid",
+    "freeSpace": "vrije ruimte",
+    "topActions": {
+      "addTorrent": "voeg torrent toe",
+      "resumeSelected": "hervat geselecteerde torrents",
+      "pauseSelected": "pauzeer geselecteerde torrents",
+      "removeSelected": "verwijder geselecteerde torrents",
+      "openSettings": "open instellingen",
+      "searchNew": "zoek nieuwe torrent"
+    },
+    "sessionStats": {
+      "tooltip": "Sinds qBitorrent is opgestart"
+    },
+    "filters": {},
+    "action": {}
+  },
+  "modals": {
+    "newFeed": {},
+    "newRule": {
+      "def": {}
+    },
+    "pluginManager": {},
+    "search": {
+      "columnTitle": {}
+    },
+    "settings": {
+      "tabName": {},
+      "pageVueTorrent": {
+        "tabName": {},
+        "pageGeneral": {},
+        "pageDashboard": {
+          "properties": {}
+        }
+      },
+      "pageDownloads": {
+        "whenAddTorrent": {},
+        "publicSettings": {},
+        "saveManagement": {}
+      },
+      "pageConnection": {},
+      "pageBittorrent": {},
+      "pageRss": {
+        "tabName": {},
+        "pageRules": {},
+        "pageFeeds": {},
+        "pageGeneral": {
+          "input": {}
+        }
+      },
+      "pageWebUI": {},
+      "pageTagsAndCategories": {}
+    },
+    "shareLimit": {
+      "input": {}
+    },
+    "newCategory": {},
+    "newTag": {},
+    "detail": {
+      "pageInfo": {},
+      "pagePeers": {},
+      "pageTagsAndCategories": {},
+      "pageTrackers": {}
+    },
+    "add": {
+      "title": "Voeg torrent toe",
+      "selectFiles": "Selecteer bestanden"
+    },
+    "changeLocation": {},
+    "rename": {},
+    "sort": {
+      "sortBy": {}
+    },
+    "speedLimit": {},
+    "delete": {
+      "check": "Ook bestanden verwijderen"
+    }
+  },
+  "toast": {
+    "loginSuccess": "Inloggen gelukt! 🎉",
+    "loginFailed": "Inloggen mislukt 😕",
+    "settingsSaved": "Instellingen successvol opgeslagen!",
+    "categorySaved": "Categorie successvol opgeslagen!"
+  },
+  "rightClick": {
+    "resume": "hervat",
+    "forceResume": "geforceerd hervatten",
+    "advanced": {
+      "advanced": "geavanceerd",
+      "changeLocation": "verander locatie",
+      "rename": "hernoem"
+    },
+    "prio": {
+      "prio": "zet prioriteit",
+      "top": "top",
+      "bottom": "bottom",
+      "increase": "verhoog",
+      "decrease": "verlaag"
+    },
+    "category": "zet categorie",
+    "limit": "zet limiet",
+    "copy": "kopieer",
+    "info": "toon info"
+  }
+}

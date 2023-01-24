@@ -35,7 +35,9 @@ const propertiesTemplate = [
   { name: 'AddedOn', active: true },
   { name: 'Availability', active: true },
   { name: 'LastActivity', active: false },
-  { name: 'CompletedOn', active: false }
+  { name: 'CompletedOn', active: false },
+  { name: 'GlobalSpeed', active: false },
+  { name: 'GlobalVolume', active: false }
 ]
 
 export default new Vuex.Store({
@@ -65,6 +67,7 @@ export default new Vuex.Store({
     selected_torrents: [],
     authenticated: false,
     sort_options: {
+      isCustomSortEnabled: false,
       sort: 'priority',
       reverse: false,
       hashes: [],
@@ -94,8 +97,8 @@ export default new Vuex.Store({
       paginationSize: 15,
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
-      busyTorrentProperties: [...propertiesTemplate],
-      doneTorrentProperties: [...propertiesTemplate]
+      busyTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate)),
+      doneTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate))
     },
     categories: [],
     trackers: [],
