@@ -21,7 +21,7 @@ export default defineConfig(({ command, mode }) => {
         output: {
           manualChunks: {
             vue: ['vue', 'vue-router', 'vue-router/composables', 'vuex', 'vuex-persist'],
-            vuetify: ['vuetify', 'vuetify/components', 'vuetify/directives']
+            vuetify: ['vuetify']
           }
         }
       },
