@@ -129,7 +129,7 @@ export default {
       return isWindows()
     },
     async getTorrentPeers() {
-      const { data } = await qbit.getTorrentPeers(this.hash, this.rid + 1 || undefined)
+      const data = await qbit.getTorrentPeers(this.hash, this.rid + 1 || undefined)
 
       this.rid = data.rid
 

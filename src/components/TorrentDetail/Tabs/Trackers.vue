@@ -104,13 +104,12 @@ export default {
   },
   methods: {
     async getTorrentTrackers() {
-      const { data } = await qbit.getTorrentTrackers(this.hash)
-      this.tempTrackers = data
+      this.tempTrackers = await qbit.getTorrentTrackers(this.hash)
     },
     async addTrackers() {
       if (!this.newTrackers.length) return (this.trackerDialog = false)
 
-      qbit.addTorrentTrackers(this.hash, this.newTrackers)
+      await qbit.addTorrentTrackers(this.hash, this.newTrackers)
       this.newTrackers = ''
       await this.getTorrentTrackers()
       this.trackerDialog = false

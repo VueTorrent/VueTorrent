@@ -145,7 +145,7 @@
           </td>
           <td>
             <span v-for="trackersPart in splitString(torrent.tracker)" :key="trackersPart">
-              <a v-if="stringContainsUrl(trackersPart)" _target="blank" :href="trackersPart">{{ trackersPart }}</a>
+              <a v-if="stringContainsUrl(trackersPart)" target="_blank" :href="trackersPart">{{ trackersPart }}</a>
               <span v-else>{{ trackersPart }}</span>
             </span>
           </td>
@@ -156,7 +156,7 @@
           </td>
           <td>
             <span v-for="createdByPart in splitString(createdBy)" :key="createdByPart">
-              <a v-if="stringContainsUrl(createdByPart)" _target="blank" :href="createdByPart">{{ createdByPart }}</a>
+              <a v-if="stringContainsUrl(createdByPart)" target="_blank" :href="createdByPart">{{ createdByPart }}</a>
               <span v-else>{{ createdByPart }}</span>
             </span>
           </td>
@@ -167,7 +167,7 @@
           </td>
           <td>
             <span v-for="commentPart in splitString(comment)" :key="commentPart">
-              <a v-if="stringContainsUrl(commentPart)" _target="blank" :href="commentPart">{{ commentPart }}</a>
+              <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
               <span v-else>{{ commentPart }}</span>
             </span>
           </td>
@@ -272,8 +272,8 @@ export default {
     async renderTorrentPieceStates() {
       const canvas = document.querySelector('#pieceStates canvas')
 
-      const { data: files } = await qbit.getTorrentFiles(this.hash)
-      const { data: pieces } = await qbit.getTorrentPieceStates(this.hash)
+      const files = await qbit.getTorrentFiles(this.hash)
+      const pieces = await qbit.getTorrentPieceStates(this.hash)
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
       if (pieces) {
