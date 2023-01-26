@@ -8,8 +8,11 @@
       </v-card-title>
       <v-card-text>
         <v-form ref="feedForm" class="px-6 mt-3">
-          <v-container>
+          <v-container v-if="!hasInitialFeed">
             <v-text-field v-model="feed.url" :label="$t('modals.newFeed.url')" required />
+          </v-container>
+          <v-container>
+            <v-text-field v-model="feed.name" :label="$t('modals.newFeed.feedName')" required />
           </v-container>
         </v-form>
       </v-card-text>
@@ -30,7 +33,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
@@ -43,21 +45,19 @@ export default {
     initialFeed: Object
   },
   data: () => ({
-    feed: { url: '' },
+    feed: { url: '', name: '' },
     mdiCancel,
     mdiTagPlus,
     mdiPencil
   }),
   computed: {
-    ...mapGetters(['getSelectedFeed']),
     hasInitialFeed() {
-      return !!(this.initialFeed && this.initialFeed.name)
+      return !!(this.initialFeed && this.initialFeed.name && this.initialFeed.url)
     }
   },
   created() {
-    this.$store.commit('FETCH_FEEDS')
     if (this.hasInitialFeed) {
-      this.feed = this.initialFeed
+      this.feed = {...this.initialFeed}
     }
   },
   methods: {
@@ -70,7 +70,7 @@ export default {
       this.dialog = false
     },
     edit() {
-      qbit.editFeed(this.feed)
+      qbit.editFeed(this.initialFeed.name, this.feed.name)
       Vue.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
     }

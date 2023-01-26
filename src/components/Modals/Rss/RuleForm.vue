@@ -12,14 +12,14 @@
             <v-text-field v-model="rule.name" :label="$t('modals.newRule.name')" required />
           </v-container>
           <v-container>
-            <v-text-field v-model="rule.def.mustContain" :label="$t('modals.newRule.def.mustContain')" required />
+            <v-text-field v-model="rule.mustContain" :label="$t('modals.newRule.def.mustContain')" required />
           </v-container>
           <v-container>
             <v-subheader class="pa-0">
               {{ $t('modals.newRule.def.affectedFeeds') }}
             </v-subheader>
             <template v-for="(item, index) in availableFeeds">
-              <v-checkbox :key="index" v-model="rule.def.affectedFeeds" hide-details :label="item.name" :value="item.url" />
+              <v-checkbox :key="index" v-model="rule.affectedFeeds" hide-details :label="item.name" :value="item.url" />
             </template>
           </v-container>
         </v-form>
@@ -45,7 +45,6 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
-import Vue from 'vue'
 
 export default {
   name: 'RuleForm',
@@ -56,18 +55,16 @@ export default {
   data: () => ({
     rule: {
       name: '',
-      def: {
-        mustContain: '',
-        affectedFeeds: [],
-        enabled: true
-      }
+      mustContain: '',
+      affectedFeeds: [],
+      enabled: true
     },
     mdiCancel,
     mdiTagPlus,
     mdiPencil
   }),
   computed: {
-    ...mapGetters(['getSelectedRule', 'getFeeds']),
+    ...mapGetters(['getFeeds']),
     availableFeeds() {
       return this.getFeeds()
     },
@@ -83,7 +80,7 @@ export default {
   },
   methods: {
     create() {
-      qbit.createRule(this.rule.name, this.rule.def)
+      qbit.createRule(this.rule)
       this.cancel()
     },
     cancel() {
@@ -91,8 +88,8 @@ export default {
       this.dialog = false
     },
     edit() {
-      qbit.editRule(this.rule)
-      Vue.$toast.success(this.$t('toast.ruleSaved'))
+      qbit.renameRule(this.initialRule.name, this.rule.name)
+      this.$toast.success(this.$t('toast.ruleSaved'))
       this.cancel()
     }
   }

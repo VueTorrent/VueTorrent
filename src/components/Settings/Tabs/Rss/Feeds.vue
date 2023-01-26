@@ -9,6 +9,11 @@
               <v-list-item-title v-text="item.name" />
             </v-list-item-content>
             <v-list-item-action>
+              <v-icon @click="editFeed(item)">
+                {{ mdiPencil }}
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-action>
               <v-icon color="red" @click="deleteFeed(item)">
                 {{ mdiDelete }}
               </v-icon>
@@ -25,17 +30,21 @@
     </v-row>
   </v-card>
 </template>
-<script>
+
+<script lang="ts">
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiDelete } from '@mdi/js'
+import {mdiDelete, mdiPencil} from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
+import {Feed} from "@/types/vuetorrent";
+import {defineComponent} from "vue";
 
-export default {
+export default defineComponent({
   name: 'Feeds',
   mixins: [Tab, General, FullScreenModal],
   data: () => ({
+    mdiPencil,
     mdiDelete
   }),
   computed: {
@@ -51,7 +60,10 @@ export default {
     activeMethod() {
       this.$store.commit('FETCH_FEEDS')
     },
-    deleteFeed(item) {
+    editFeed(item: Feed) {
+      this.createModal('FeedForm', { initialFeed: {url: item.url, name: item.name}})
+    },
+    deleteFeed(item: Feed) {
       qbit.deleteFeed(item.name)
       this.$store.commit('FETCH_FEEDS')
     },
@@ -59,5 +71,5 @@ export default {
       this.createModal('FeedForm')
     }
   }
-}
+})
 </script>
