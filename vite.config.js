@@ -20,8 +20,7 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            vue: ['vue', 'vue-router', 'vue-router/composables', 'vuex', 'vuex-persist'],
-            vuetify: ['vuetify']
+            vue: ['vue', 'vue-router', 'vue-router/composables', 'vuex', 'vuex-persist']
           }
         }
       },

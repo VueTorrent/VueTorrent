@@ -78,7 +78,7 @@ export default {
   },
   FETCH_CATEGORIES: async (state: StoreState) => (state.categories = Object.values(await qbit.getCategories())),
   FETCH_TAGS: async (state: StoreState) => (state.tags = await qbit.getAvailableTags()),
-  FETCH_FEEDS: async (state: StoreState) => (state.rss.feeds = Object.entries(await qbit.getFeeds()).map(([key, value]) => ({ name: key, ...value }))),
+  FETCH_FEEDS: async (state: StoreState) => (state.rss.feeds = Object.entries(await qbit.getFeeds(true)).map(([key, value]) => ({ name: key, ...value }))),
   FETCH_RULES: async (state: StoreState) => (state.rss.rules = Object.entries(await qbit.getRules()).map(([key, value]) => ({ name: key, ...value }))),
   FETCH_SEARCH_PLUGINS: async (state: StoreState) => (state.searchPlugins = await qbit.getSearchPlugins()),
   SET_CURRENT_ITEM_COUNT: (state: StoreState, count: number) => (state.filteredTorrentsCount = count),

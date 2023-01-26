@@ -86,7 +86,8 @@
       "pauseSelected": "Pause selected torrents",
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
-      "searchNew": "Search new torrent"
+      "searchNew": "Search new torrent",
+      "rssArticles":  "View RSS feed articles"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -135,6 +136,21 @@
         "peers": "Peers",
         "search_engine": "Site",
         "action": ""
+      }
+    },
+    "rss": {
+      "title": "RSS Articles",
+      "columnTitle": {
+        "feedName": "Feed Name",
+        "author": "Author",
+        "category": "Category",
+        "date": "Date",
+        "description": "Description",
+        "id": "ID",
+        "link": "Link",
+        "title": "Title",
+        "torrentURL": "Torrent Download URL",
+        "actions": ""
       }
     },
     "settings": {
