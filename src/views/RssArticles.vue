@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import {FullScreenModal, General, Modal} from "@/mixins"
+import {General} from "@/mixins"
 import {mapState} from "vuex"
 import {defineComponent} from "vue"
 import {FeedArticle} from "@/types/vuetorrent/rss"
@@ -55,8 +55,8 @@ import {mdiClose, mdiDownload} from "@mdi/js";
 type RssState = {feeds: Feed[], rules: FeedRule[]}
 
 export default defineComponent({
-  name: 'RssItemsModal',
-  mixins: [Modal, FullScreenModal, General],
+  name: 'RssArticles',
+  mixins: [General],
   data() {
     return {
       headers: [
