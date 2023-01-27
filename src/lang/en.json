@@ -507,6 +507,7 @@
     "notags": "No Tags",
     "limit": "Set Limit",
     "copy": "Copy",
+    "export": "Export Torrent | Export Torrents",
     "info": "Show Info"
   }
 }

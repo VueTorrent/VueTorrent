@@ -442,6 +442,17 @@ export class QBitApi {
     await this.execute('/torrents/editCategory', params)
   }
 
+  async exportTorrent(hash: string): Promise<Blob> {
+    return this.axios.get('/torrents/export', {
+      params: {hash},
+      responseType: "arraybuffer",
+      headers: {
+        "Accept": "application/x-bittorrent"
+      }
+    })
+    .then(res => new Blob([res.data], {type: "application/x-bittorrent"}))
+  }
+
   /** Search **/
   async getSearchPlugins(): Promise<SearchPlugin[]> {
     return this.axios.get('/search/plugins').then(res => res.data)

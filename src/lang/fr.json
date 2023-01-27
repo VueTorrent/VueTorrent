@@ -496,6 +496,7 @@
     "notags": "Aucun tag",
     "limit": "Définir la limite",
     "copy": "Copier",
+    "export": "Exporter le torrent | Exporter les torrents",
     "info": "Propriétés"
   }
 }
