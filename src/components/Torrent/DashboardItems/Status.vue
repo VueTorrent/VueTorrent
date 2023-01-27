@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs6 sm1 md1 class="mr-4">
+  <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
       {{ $t('status') }}
     </div>

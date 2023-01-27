@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs6 sm2>
+  <v-flex xs6 sm1>
     <div class="caption grey--text">
       {{ $t('torrent.last_activity') | titleCase }}
     </div>
