@@ -1,128 +1,496 @@
 {
-  "category": "thể loại",
-  "settings": "cài đặt",
-  "pause": "tạm dừng",
-  "delete": "xóa",
-  "save": "lưu",
-  "cancel": "dừng",
-  "confirm": "xác nhận",
+  "category": "Danh mục",
+  "settings": "Cài đặt",
+  "pause": "Tạm ngừng",
+  "delete": "Xóa",
+  "save": "Lưu",
+  "cancel": "Hủy bỏ",
+  "confirm": "Xác nhận",
+  "edit": "Chỉnh sửa",
+  "createNew": "Tạo mới",
+  "path": "Đường dẫn",
+  "create": "Tạo",
+  "url": "URL",
+  "directory": "Vị trí lưu",
+  "unknown": "Không xác định",
+  "status": "Tình trạng",
+  "all": "Tất cả",
+  "downloading": "Đang tải xuống",
+  "seeding": "Đang chia sẻ",
+  "completed": "Hoàn thành",
+  "resumed": "Tiếp tục",
+  "paused": "Tạm dừng",
+  "active": "Hoạt động",
+  "inactive": "Không hoạt động",
+  "stalled": "Bị đình trệ",
+  "errored": "Bị lỗi",
+  "login": "Đăng nhập",
+  "logout": "Đăng xuất",
+  "download": "Tải xuống",
+  "downloaded": "Đã tải xuống",
+  "upload": "Tải lên",
+  "uploaded": "Đã tải lên",
+  "globalSpeed": "Global Speed",
+  "globalVolume": "Global Volume",
+  "ETA": "Dự kiến hoàn thành lúc",
+  "peers": "Ngang hàng",
+  "ratio": "Tỉ lệ",
+  "seeds": "Chia sẻ",
+  "tags": "Thẻ",
+  "tracker": "Máy theo dõi",
+  "share": "Chia sẻ",
+  "name": "Tên",
+  "hash": "Hash",
+  "magnet": "Liên kết nam châm",
+  "feed": "Nguồn cấp dữ liệu",
+  "rule": "Quy tắc",
+  "then": "Sau đó",
+  "of": "Của",
   "dashboard": {
-    "tooltips": {}
+    "tooltips": {
+      "toggleSearch": "Ẩn/Hiện thanh tìm kiếm",
+      "toggleSelect": "Bật/Tắt chế độ chọn",
+      "toggleSort": "Sắp xếp torrent",
+      "selectAll": "Chọn tất cả",
+      "selectAllCaption": "Chọn/Bỏ chọn tất cả (Ctrl A)"
+    },
+    "emptyTorrentList": "Không có gì ở đây cả !"
   },
   "torrent": {
-    "title": "tên",
-    "added": "added on",
-    "availability": "khả dụng",
-    "size": "kích thước",
-    "progress": "thực hiện",
-    "directory": "đường dẫn",
-    "downloaded": "tải xuống",
-    "uploaded": "tải lên",
-    "created": "tạo ra bởi",
-    "comments": "đánh giá"
+    "title": "Tên",
+    "added": "Đã thêm vào",
+    "availability": "Khả dụng",
+    "size": "Kích thước",
+    "progress": "Tiến độ",
+    "directory": "Vị trí lưu",
+    "downloaded": "Đã tải xuống",
+    "uploaded": "Đã tải lên",
+    "created": "Được tạo bởi",
+    "comments": "Bình luận",
+    "uploadedSession": "Phiên này đã tải lên",
+    "timeActive": "Thời gian hoạt động",
+    "seededFor": "Seeded For",
+    "last_activity": "Hoạt động cuối",
+    "completed_on": "Đã hoàn thành vào",
+    "globalSpeed": "Global Speed",
+    "globalVolume": "Global Volume"
   },
   "navbar": {
-    "currentSpeed": "tốc độ hiện tại",
-    "freeSpace": "bộ nhớ trống",
+    "currentSpeed": "Tốc độ hiện tại",
+    "alltimeTitle": "Thống kê toàn thời gian",
+    "sessionTitle": "Thống kê phiên này",
+    "freeSpace": "Còn trống",
     "topActions": {
       "addTorrent": "thêm torrent",
-      "resumeSelected": "tiếp tục các torrent đã chọn",
-      "pauseSelected": "dừng các torrent đã chọn",
-      "removeSelected": "gỡ các torrent đã chọn",
-      "openSettings": "mở cài đặt",
-      "searchNew": "tìm torrent mới"
+      "resumeSelected": "Tiếp tục các torrent đã chọn",
+      "pauseSelected": "Tạm dừng các torrent đã chọn",
+      "removeSelected": "Xóa các torrent đã chọn",
+      "openSettings": "Mở cài đặt",
+      "searchNew": "Tìm kiếm torrent mới"
     },
     "sessionStats": {
-      "tooltip": "Kể từ lần cuối qBittorent được khởi động lại"
+      "tooltip": "Kể từ lần cuối qBittorrent được khởi động lại"
     },
-    "filters": {},
-    "action": {}
+    "filters": {
+      "stalled_uploading": "Tải lên bị đình trệ",
+      "stalled_downloading": "Tải xuống bị đình trệ",
+      "uncategorized": "Chưa phân loại",
+      "untagged": "Không được gắn thẻ",
+      "not_working": "Không làm việc"
+    },
+    "action": {
+      "altSpeed": "Tốc độ thay thế",
+      "dark": "Giao diện tối",
+      "light": "Giao diện Sáng"
+    },
+    "torrentsCount": "Không có torrent | {n} torrent | {n} torrent"
   },
   "modals": {
-    "newFeed": {},
-    "newRule": {
-      "def": {}
+    "newFeed": {
+      "feedName": "Tên",
+      "url": "URL"
     },
-    "pluginManager": {},
+    "newRule": {
+      "titleCreate": "Tạo quy tắc mới",
+      "titleEdit": "Chỉnh sửa quy tắc",
+      "name": "Tên",
+      "def": {
+        "mustContain": "Phải chứa",
+        "mustNotContain": "Không được chứa",
+        "useRegex": "Sử dụng Biểu thức chính quy",
+        "affectedFeeds": "Áp dụng quy tắc cho nguồn cấp dữ liệu"
+      }
+    },
+    "pluginManager": {
+      "title": "Trình quản lý phần bổ trợ"
+    },
     "search": {
-      "columnTitle": {}
+      "title": "Tìm kiếm",
+      "btnStartSearch": "Tìm kiếm",
+      "btnStopSearch": "Dừng lại",
+      "columnTitle": {
+        "name": "Tên",
+        "size": "Kích thước",
+        "seeds": "Chia sẻ",
+        "peers": "Ngang hàng",
+        "search_engine": "Nguồn",
+        "action": ""
+      }
     },
     "settings": {
-      "tabName": {},
+      "tabName": {
+        "VueTorrent": "VueTorrent",
+        "downloads": "Tải xuống",
+        "connection": "Kết nối",
+        "bittorrent": "BitTorrent",
+        "rss": "RSS",
+        "webUI": "Web UI",
+        "tagsAndCategories": "Thẻ & Danh mục"
+      },
       "pageVueTorrent": {
-        "tabName": {},
-        "pageGeneral": {},
+        "tabName": {
+          "general": "Chung",
+          "dashboard": "Trang tổng quan"
+        },
+        "pageGeneral": {
+          "tip": "Đây là các cài đặt dành riêng cho VueTorrent",
+          "currentSpeed": "Hiển thị tốc độ hiện tại",
+          "speedGraph": "Hiển thị biểu đồ tốc độ",
+          "sessionStats": "Hiển thị số liệu thống kê phiên",
+          "allTimeStats": "Hiển thị thống kê toàn thời gian",
+          "freeSpace": "Hiển thị dung lượng trống",
+          "trackerFilter": "Hiển thị bộ lọc máy theo dõi",
+          "rightDrawer": "Hiển thị Side Bar ở bên phải",
+          "topPagination": "Hiển thị phân trang ở trên",
+          "language": "Ngôn ngữ:",
+          "paginationSize": "Số torrent trên một trang:",
+          "vueTorrentTitle": "Tiêu đề VueTorrent:",
+          "dateFormat": "Định dạng ngày tháng",
+          "openSideBarOnStart": "Mở Side Bar khi khởi động",
+          "currentVersion": "Phiên bản hiện tại:",
+          "qbittorrentVersion": "Phiên bản QBittorrent:",
+          "resetSettings": "Đặt lại cài đặt"
+        },
         "pageDashboard": {
-          "properties": {}
+          "busyTorrentTip": "Các thuộc tính để hiển thị cho các torrent chưa hoàn thành",
+          "completedTorrentTip": "Các thuộc tính để hiển thị cho các torrent đã hoàn thành",
+          "properties": {
+            "availability": "Khả dụng",
+            "category": "Danh mục",
+            "tags": "Thẻ",
+            "completed": "Hoàn thành",
+            "completion_on": "Hoàn thành lúc",
+            "downloaded": "Đã tải xuống",
+            "ETA": "ETA",
+            "name": "Tên",
+            "default": "Mặc định",
+            "last_activity": "Hoạt động cuối",
+            "peers": "Ngang hàng",
+            "seeds": "Chia sẻ",
+            "priority": "Mức ưu tiên",
+            "progress": "Tiến độ",
+            "ratio": "Tỉ lệ",
+            "save_path": "Vị trí lưu",
+            "size": "Kích thước",
+            "state": "Trạng thái",
+            "uploaded": "Đã tải lên",
+            "addedOn": "Đã thêm vào lúc",
+            "downloadSpeed": "Tốc độ tải về",
+            "timeActive": "Thời gian hoạt động",
+            "uploadSpeed": "Tốc độ tải lên",
+            "globalSpeed": "Global Speed",
+            "globalVolume": "Global Volume"
+          }
         }
       },
       "pageDownloads": {
-        "whenAddTorrent": {},
-        "publicSettings": {},
-        "saveManagement": {}
-      },
-      "pageConnection": {},
-      "pageBittorrent": {},
-      "pageRss": {
-        "tabName": {},
-        "pageRules": {},
-        "pageFeeds": {},
-        "pageGeneral": {
-          "input": {}
+        "subHeaderWhenAddTorrent": "Khi thêm một torrent",
+        "whenAddTorrent": {
+          "createSubFolder": "Tạo thư mục con cho torrent với nhiều tệp",
+          "donotAutoStart": "Không tự động bắt đầu tải xuống"
+        },
+        "subHeaderPublicSettings": "Cài đặt chung",
+        "publicSettings": {
+          "preAllocateDisk": "Phân bổ trước không gian đĩa cho tất cả các tệp",
+          "appendQBExtension": "Nối phần mở rộng .!qB vào các tệp chưa hoàn thành"
+        },
+        "subHeaderSaveManagement": "Cài đặt lưu",
+        "saveManagement": {
+          "autoManagement": "Quản lý torrent tự động",
+          "relocate": "Di chuyển torrent khi danh mục thay đổi",
+          "defaultSavePath": "Đường dẫn lưu mặc định",
+          "keepIncompleteIn": "Giữ các torrent chưa hoàn thành ở:",
+          "autoEnabled_onAdded": "Chạy chương trình bên ngoài khi thêm torrent:",
+          "autoLabel_onAdded": "Lệnh",
+          "autoEnabled_onFinished": "Chạy chương trình ngoài khi torrent hoàn thành:",
+          "autoLabel_onFinished": "Lệnh",
+          "supportParamTitle": "Các tham số được hỗ trợ (phân biệt chữ hoa chữ thường):",
+          "supportParamN": "%N: Tên torrent",
+          "supportParamL": "%L: Danh mục",
+          "supportParamG": "%G: Thẻ (được phân tách bằng dấu phẩy)",
+          "supportParamF": "%F: Đường dẫn nội dung (giống như đường dẫn gốc cho torrent nhiều tệp)",
+          "supportParamR": "%R: Đường dẫn gốc (đường dẫn thư mục con torrent đầu tiên)",
+          "supportParamD": "%D: Đường dẫn đến vị trí lưu",
+          "supportParamC": "%C: Số lượng tệp",
+          "supportParamZ": "%Z: Kích thước torrent (byte)",
+          "supportParamT": "%T: Máy theo dõi hiện tại",
+          "supportParamI": "%I: Băm thông tin v1",
+          "supportParamJ": "%J: Băm thông tin v2",
+          "supportParamK": "%K: ID torrent"
         }
       },
-      "pageWebUI": {},
-      "pageTagsAndCategories": {}
+      "pageConnection": {
+        "protocol": "Giao thức kết nối ngang hàng",
+        "listeningSubHeader": "Cổng",
+        "useUPnP": "Sử dụng chuyển tiếp cổng UPnP/NAT-PMP từ bộ định tuyến của tôi",
+        "incomingConnectionPort": "Cổng được sử dụng cho các kết nối đến",
+        "subHeader": "Giới hạn kết nối (-1 để tắt)",
+        "globalMaxConnection": "Số lượng kết nối tối đa chung",
+        "perTorrentMaxConnection": "Số lượng kết nối tối đa trên mỗi torrent",
+        "globalMaxUploadSlots": "Số vùng tải lên tối đa chung",
+        "perTorrentMaxUploadSlots": "Số lượng vị trí tải lên tối đa trên mỗi torrent",
+        "proxySubHeader": "Máy chủ proxy",
+        "proxyPeerConnections": "Sử dụng proxy cho các kết nối ngang hàng",
+        "proxyTorrentOnly": "Chỉ sử dụng proxy cho torrent",
+        "proxyAuth": "Xác thực"
+      },
+      "pageBittorrent": {
+        "subHeaderPrivacy": "Riêng tư",
+        "enableDHT": "Kích hoạt DHT (mạng phi tập trung) để tìm thêm máy ngang hàng",
+        "enablePeX": "Bật Trao đổi ngang hàng (PeX) để tìm thêm máy ngang hàng",
+        "enableLPD": "Bật Khám phá máy ngang hàng cục bộ để tìm thêm máy ngang hàng",
+        "enableAnonymous": "Bật chế độ ẩn danh",
+        "torrentQueue": "Hàng đợi torrent",
+        "maxActiveDownload": "Tối đa tải xuống cùng lúc",
+        "maxActiveUpload": "Tối đa tải lên cùng lúc",
+        "maxActiveTorrent": "Tối đa torrent hoạt động cùng lúc",
+        "excludeSlowTorrent": "Không tính các torrent chậm trong các giới hạn này",
+        "downloadRateLimit": "Ngưỡng tốc độ tải xuống KiB/s",
+        "uploadRateLimit": "Ngưỡng tốc độ tải lên KiB/s",
+        "torrentInactivityTimer": "Torrent inactivity timer",
+        "subHeaderSeedLimits": "Giới hạn chia sẻ",
+        "whenRatioReaches": "Khi tỷ lệ đạt",
+        "whenSeedingTimeReaches": "Khi thời gian chia sẻ đạt đến",
+        "maxRatioPauseTorrent": "Tạm dừng torrent",
+        "maxRatioRemoveTorrent": "Xóa torrent",
+        "maxRatioRemoveTorrentAndFiles": "Xóa torrent và tệp",
+        "maxRatioTorrentSuperseeding": "Kích hoạt tính năng siêu chia sẻ torrent"
+      },
+      "pageRss": {
+        "tabName": {
+          "general": "Chung",
+          "feeds": "Nguồn cấp dữ liệu",
+          "rules": "Quy tắc"
+        },
+        "pageRules": {
+          "rules": "Quy tắc",
+          "btnCreateNew": "Tạo quy tắc"
+        },
+        "pageFeeds": {
+          "feeds": "Nguồn cấp dữ liệu",
+          "btnCreateNew": "Thêm nguồn cấp dữ liệu"
+        },
+        "pageGeneral": {
+          "rssAutoProcessing": "RSS",
+          "rssAutoDownloader": "Trình tải xuống tự động RSS Torrent",
+          "input": {
+            "enableRssAutoDownload": "Cho phép tự động tải xuống các torrent RSS",
+            "enableRssProcessing": "Cho phép tìm nạp nguồn cấp RSS",
+            "feedsRefreshInterval": "Khoảng thời gian làm mới nguồn cấp dữ liệu (tính bằng phút)",
+            "feedsMaxArticles": "Số lượng torrent tối đa trên mỗi nguồn cấp dữ liệu"
+          }
+        }
+      },
+      "pageWebUI": {
+        "useAlternativeWebUI": "Sử dụng WebUI thay thế",
+        "filesLocation": "Vị trí WebUI",
+        "webUserInterface": "Giao diện người dùng web (Điều khiển từ xa)",
+        "ipAddress": "Địa chỉ IP:",
+        "port": "Cổng",
+        "authentication": "Xác thực",
+        "username": "Tên tài khoản",
+        "password": "Mật khẩu",
+        "maxAttempts": "Số lần thử tối đa",
+        "banDuration": "Thời gian cấm (giây)",
+        "sessionTimeout": "Thời gian chờ của phiên (giây)",
+        "bypassAuthenticationForClientsOnLocalhost": "Bỏ qua xác thực cho kết nối cục bộ (localhost)",
+        "bypassAuthenticationForClientsInWhitelisted": "Bỏ qua xác thực cho máy khách trong mạng con IP được liệt kê trong danh sách trắng",
+        "whiteListExample": "Ví dụ: 172.17.32.0/24, fdff:ffff:c8::/40"
+      },
+      "pageTagsAndCategories": {
+        "btnCreateNew": "Tạo mới",
+        "subHeaderTags": "Thẻ có sẵn:",
+        "subHeaderCategories": "Danh mục có sẵn:"
+      }
     },
     "shareLimit": {
-      "input": {}
+      "input": {
+        "globalLimit": "Sử dụng giới hạn chung",
+        "unlimited": "Không giới hạn"
+      },
+      "limitRatio": "Giới hạn tỉ lệ",
+      "titleDuration": "Giới hạn thời gian",
+      "titleRatio": "Tỉ lệ"
     },
-    "newCategory": {},
-    "newTag": {},
+    "newCategory": {
+      "categoryName": "Tên danh mục",
+      "Path": "Nơi lưu",
+      "tipOnNoName": "Tên danh mục là bắt buộc",
+      "tipOnNoPath": "Nơi lưu là bắt buộc"
+    },
+    "newTag": {
+      "createNewTag": "Tạo thẻ mới",
+      "tagName": "Tên thẻ"
+    },
     "detail": {
-      "pageInfo": {},
-      "pagePeers": {},
-      "pageTagsAndCategories": {},
-      "pageTrackers": {}
+      "title": "Chi tiết torrent",
+      "tabTitleInfo": "Thông tin",
+      "tabTitleTrackers": "Máy theo dõi",
+      "tabTitlePeers": "Mạng ngang hàng",
+      "tabTitleContent": "Nội dung",
+      "tabTitleTagsCategories": "Thẻ",
+      "pageInfo": {
+        "pieceStates": "Tiến độ",
+        "torrentTitle": "Tên torrent",
+        "hash": "Băm",
+        "ratio": "Tỉ lệ",
+        "downloadSpeed": "Tốc độ tải xuống",
+        "uploadSpeed": "Tốc độ tải lên",
+        "eta": "Dự kiến hoàn thành lúc",
+        "peers": "Ngang hàng",
+        "seeds": "Chia sẻ",
+        "status": "Tình trạng",
+        "trackers": "Máy theo dõi",
+        "createdBy": "Được tạo bởi",
+        "firstLastPiecePriority": "Ưu tiên mảnh đầu tiên/cuối cùng",
+        "sequentialDownload": "Tải xuống tuần tự",
+        "autoTMM": "Quản lý torrent tự động",
+        "shareRatioLimit": "Giới hạn tỷ lệ chia sẻ",
+        "shareTimeLimit": "Giới hạn thời gian chia sẻ (phút)",
+        "downloadLimit": "Giới hạn tải xuống",
+        "uploadLimit": "Giới hạn tải lên"
+      },
+      "pagePeers": {
+        "ip": "Địa chỉ IP",
+        "connection": "Kết nối",
+        "flags": "Cờ",
+        "client": "Máy khách",
+        "progress": "Tiến độ",
+        "downloadSpeed": "Tốc độ tải xuống",
+        "downloaded": "Đã tải xuống",
+        "upSpeed": "Tốc độ tải lên",
+        "uploaded": "Đã tải lên",
+        "relevance": "Mức độ liên quan",
+        "files": "Các tập tin"
+      },
+      "pageTagsAndCategories": {
+        "subHeaderTag": "Thẻ có sẵn:",
+        "subHeaderCategories": "Danh mục có sẵn:"
+      },
+      "pageTrackers": {
+        "url": "URL",
+        "status": "Tình trạng",
+        "peers": "Ngang hàng",
+        "seeds": "Chia sẻ",
+        "leeches": "Leeches",
+        "downloaded": "Đã tải xuống",
+        "message": "Tin nhắn"
+      }
     },
     "add": {
-      "title": "Thêm một torrent mới",
-      "selectFiles": "Chọn tệp của bạn"
+      "title": "Thêm một Torrent mới",
+      "selectFiles": "Chọn tệp của bạn",
+      "urlHint": "Một liên kết trên một dòng",
+      "downloadDirectory": "Thư mục tải xuống",
+      "starttorrent": "Bắt đầu torrent",
+      "skipHashCheck": "Bỏ qua kiểm tra",
+      "createSubfolder": "Tạo thư mục con",
+      "automaticTorrentManagement": "Quản lý torrent tự động",
+      "dropHereForAdd": "Thả vào đây để thêm",
+      "oneOrMoreFilesInvalidTorrent": "Một hoặc nhiều tệp không phải là torrent hợp lệ"
     },
-    "changeLocation": {},
-    "rename": {},
+    "changeLocation": {
+      "title": "Thay đổi vị trí lưu"
+    },
+    "rename": {
+      "title": "Đổi tên",
+      "torrentName": "Tên torrent"
+    },
     "sort": {
-      "sortBy": {}
+      "title": "Sắp xếp torrent",
+      "reverse": "Đảo ngược",
+      "sortBy": {
+        "availability": "Khả dụng",
+        "category": "Loại",
+        "completed": "Đã hoàn thành",
+        "completion_on": "Thời gian hoàn thành",
+        "downloaded": "Đã tải xuống",
+        "ETA": "ETA",
+        "name": "Tên",
+        "default": "Mặc định",
+        "last_activity": "Thời gian hoạt động cuối",
+        "peers": "Số lượng máy ngang hàng",
+        "priority": "Mức ưu tiên",
+        "progress": "Tiến độ",
+        "ratio": "Tỉ lệ",
+        "save_path": "Nơi lưu",
+        "size": "Kích thước",
+        "state": "Trang thái",
+        "uploaded": "Đã tải lên",
+        "addedOn": "Thời gian thêm",
+        "downloadSpeed": "Tốc độ tải về",
+        "timeActive": "Thời gian hoạt động",
+        "uploadSpeed": "Tốc độ tải lên",
+        "globalSpeed": "Global Speed",
+        "globalVolume": "Global Volume"
+      }
     },
-    "speedLimit": {},
+    "speedLimit": {
+      "speedLimit": "Giới hạn tốc độ"
+    },
     "delete": {
-      "check": "Đồng thời xóa luôn tệp dưới bộ nhớ"
+      "check": "Đồng thời xóa các tệp khỏi bộ nhớ"
     }
   },
   "toast": {
-    "loginSuccess": "Đăng nhập thành công! 🎉",
+    "loginSuccess": "Đã đăng nhập thành công! 🎉",
     "loginFailed": "Đăng nhập thất bại 😕",
-    "settingsSaved": "Cài đặt đã lưu thành công!",
-    "categorySaved": "Thể loại đã chỉnh sửa thành công!"
+    "settingsSaved": "Lưu cài đặt thành công!",
+    "categorySaved": "Chỉnh sửa danh mục thành công!",
+    "feedSaved": "Lưu nguồn cấp dữ liệu thành công!",
+    "ruleSaved": "Đã lưu quy tắc!",
+    "renameFileFailed": "Không thể đổi tên tệp",
+    "renameFolderFailed": "Không thể đổi tên thư mục",
+    "copySuccess": "Đã sao chép văn bản!",
+    "copyNotSupported": "Không thể sao chép, API khay nhớ tạm không khả dụng trên trình duyệt này",
+    "pasteSuccess": "Đã dán văn bản!",
+    "pasteNotSupported": "Không thể dán, API khay nhớ tạm không khả dụng trên trình duyệt này"
   },
   "rightClick": {
-    "resume": "tiếp tục",
-    "forceResume": "bắt tiếp tục",
+    "resume": "Tiếp tục",
+    "forceResume": "Buộc tiếp tục",
     "advanced": {
-      "advanced": "nâng cao",
-      "changeLocation": "thay đổi vị trí",
-      "rename": "thay đổi tên"
+      "advanced": "Nâng cao",
+      "changeLocation": "Thay đổi vị trí lưu",
+      "rename": "Đổi tên",
+      "forceRecheck": "Buộc kiểm tra lại",
+      "forceReannounce": "Buộc thông báo lại",
+      "sequentialDownload": "Tải xuống tuần tự",
+      "firstLastPriority": "Tải về phần đầu và phần cuối trước",
+      "automaticTorrentManagement": "Quản lý torrent tự động"
     },
     "prio": {
-      "prio": "xét sự ưu tiên",
-      "top": "trên cùng",
-      "bottom": "dưới cùng",
-      "increase": "tăng",
-      "decrease": "giảm"
+      "prio": "Đặt ưu tiên",
+      "top": "Cao nhất",
+      "bottom": "Thấp nhất",
+      "increase": "Tăng",
+      "decrease": "Giảm"
     },
-    "category": "thiết lập thể loại",
-    "limit": "thiết lập giới hạn",
-    "copy": "sao chép",
-    "info": "xem thông tin"
+    "category": "Đặt danh mục",
+    "tags": "Đặt thẻ",
+    "notags": "Không có thẻ",
+    "limit": "Đặt giới hạn",
+    "copy": "Sao chép",
+    "info": "Hiển thị thông tin"
   }
 }
