@@ -115,3 +115,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.v-data-table {
+  width: 100%;
+}
+</style>
