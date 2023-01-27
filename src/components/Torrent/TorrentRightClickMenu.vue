@@ -235,6 +235,12 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-list-item link @click="exportTorrents">
+      <v-icon>{{ (multiple) ? mdiDownloadMultiple : mdiDownload }}</v-icon>
+      <v-list-item-title class="ml-2 list-item__title">
+        {{ $tc('rightClick.export', (multiple) ? 2 : 1) | titleCase }}
+      </v-list-item-title>
+    </v-list-item>
     <v-divider v-if="!multiple" />
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
@@ -276,7 +282,9 @@ import {
   mdiShape,
   mdiSpeedometerSlow,
   mdiTag,
-  mdiTagOff
+  mdiTagOff,
+  mdiDownload,
+  mdiDownloadMultiple
 } from '@mdi/js'
 
 export default {
@@ -319,7 +327,9 @@ export default {
       mdiSpeedometerSlow,
       mdiChevronUp,
       mdiChevronDown,
-      mdiContentCopy
+      mdiContentCopy,
+      mdiDownload,
+      mdiDownloadMultiple
     }
   },
   computed: {
@@ -439,6 +449,20 @@ export default {
         document.body.removeChild(textArea)
       }
       this.$toast.success(this.$i18n.t("toast.copySuccess").toString())
+    },
+    async exportTorrents() {
+      this.hashes.forEach(hash => {
+        qbit.exportTorrent(hash).then(blob => {
+          const url = window.URL.createObjectURL(blob)
+          const link = document.createElement('a')
+          link.href = url
+          link.style.opacity = '0'
+          link.setAttribute('download', `${hash}.torrent`)
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        })
+      })
     }
   }
 }
