@@ -137,7 +137,7 @@ export default {
       })
     },
     async getTorrentFiles() {
-      const { data } = await qbit.getTorrentFiles(this.hash)
+      const data = await qbit.getTorrentFiles(this.hash)
       data.forEach((d, i) => {
         d.id = i
         d.name = d.name.replace('.unwanted/', '')
