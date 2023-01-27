@@ -20,6 +20,11 @@ const router = new Router({
       component: () => import('./views/Settings.vue')
     },
     {
+      path: '/rss',
+      name: 'rss',
+      component: () => import('./views/RssArticles.vue')
+    },
+    {
       path: '/torrent/:hash',
       name: 'torrentDetail',
       component: () => import('./views/TorrentDetail.vue')

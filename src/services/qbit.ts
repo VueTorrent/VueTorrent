@@ -5,7 +5,7 @@ import type {
   AppPreferences,
   Category,
   Feed,
-  FeedRule,
+  FeedRule as QbitFeedRule,
   SearchJob,
   SearchPlugin,
   SearchStatus,
@@ -15,8 +15,9 @@ import type {
   Torrent
 } from '@/types/qbit/models'
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import type { AddTorrentPayload, AppPreferencesPayload, LoginPayload } from '@/types/qbit/payloads'
+import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { SortOptions } from '@/types/vuetorrent'
+import type {FeedRule as VtFeedRule} from '@/types/vuetorrent/rss'
 import type { Priority } from '@/enums/qbit'
 
 type Parameters = Record<string, any>
@@ -153,25 +154,25 @@ export class QBitApi {
 
   // RSS
 
-  async createFeed(url: string, path?: string): Promise<void> {
+  async createFeed(payload: CreateFeedPayload): Promise<void> {
     await this.execute('/rss/addFeed', {
-      url: url,
-      path: path
+      url: payload.url,
+      path: payload.name
     })
   }
 
-  async createRule(ruleName: string, ruleDef: FeedRule) {
+  async createRule(rule: VtFeedRule) {
     return this.execute('/rss/setRule', {
-      ruleName: ruleName,
-      ruleDef: JSON.stringify(ruleDef, ['enabled', 'mustContain', 'mustNotContain', 'useRegex', 'affectedFeeds'])
+      ruleName: rule.name,
+      ruleDef: JSON.stringify(rule, ['enabled', 'mustContain', 'mustNotContain', 'useRegex', 'affectedFeeds'])
     })
   }
 
-  async getFeeds(): Promise<Record<string, Feed>> {
-    return this.axios.get('/rss/items').then(res => res.data)
+  async getFeeds(withData: boolean = false): Promise<Record<string, Feed>> {
+    return this.axios.get('/rss/items', { params: {withData}}).then(res => res.data)
   }
 
-  async getRules(): Promise<Record<string, FeedRule>> {
+  async getRules(): Promise<Record<string, QbitFeedRule>> {
     return this.axios.get('/rss/rules').then(res => res.data)
   }
 
@@ -182,7 +183,7 @@ export class QBitApi {
     })
   }
 
-  async editRule(ruleName: string, newRuleName: string): Promise<void> {
+  async renameRule(ruleName: string, newRuleName: string): Promise<void> {
     await this.execute('/rss/renameRule', {
       ruleName,
       newRuleName
