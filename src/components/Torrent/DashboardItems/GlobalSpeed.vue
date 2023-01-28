@@ -6,14 +6,20 @@
     <div>
       {{ torrent.globalSpeed | getDataValue(1) }}
       <span class="caption grey--text">
-        {{ torrent.globalSpeed | getDataUnit(1) }}/s
+        {{ torrent.globalSpeed | getDataUnit }}/s
       </span>
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import {defineComponent} from "vue"
+import {Torrent} from "@/models"
+
+export default defineComponent({
   name: 'GlobalSpeed',
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>

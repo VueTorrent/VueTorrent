@@ -8,5 +8,6 @@ export enum TorrentState {
   QUEUED = 'Queued',
   CHECKING = 'Checking',
   MOVING = 'Moving',
-  FAIL = 'Fail'
+  FAIL = 'Fail',
+  UNKNOWN = 'Unknown'
 }

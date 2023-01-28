@@ -119,12 +119,14 @@ export default class Torrent {
         return VtTorrentState.CHECKING
       case QbitTorrentState.MOVING:
         return VtTorrentState.MOVING
-      case QbitTorrentState.UNKNOWN:
       case QbitTorrentState.STALLED_DL:
         return VtTorrentState.STALLED
       case QbitTorrentState.MISSING_FILES:
-      default:
+      case QbitTorrentState.ERROR:
         return VtTorrentState.FAIL
+      case QbitTorrentState.UNKNOWN:
+      default:
+        return VtTorrentState.UNKNOWN
     }
   }
 
