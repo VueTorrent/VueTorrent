@@ -418,10 +418,10 @@ export default {
       else this.addTag(tag)
     },
     addTag(tag) {
-      qbit.addTorrentTag(this.hashes, tag)
+      qbit.addTorrentTag(this.hashes, [tag])
     },
     removeTag(tag) {
-      qbit.removeTorrentTag(this.hashes, tag)
+      qbit.removeTorrentTag(this.hashes, [tag])
     },
     toggleSeq() {
       qbit.toggleSequentialDownload(this.hashes)
