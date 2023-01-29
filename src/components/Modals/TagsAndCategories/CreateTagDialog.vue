@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     create() {
-      qbit.createTag(this.tagname)
+      qbit.createTag([this.tagname])
       this.cancel()
     },
     cancel() {
