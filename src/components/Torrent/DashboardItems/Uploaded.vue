@@ -13,8 +13,8 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue"
-import {Torrent} from "@/models"
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
 
 export default defineComponent({
   name: 'Uploaded',

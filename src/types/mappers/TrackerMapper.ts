@@ -1,6 +1,6 @@
-import type {Tracker as QbitTracker} from '@/types/qbit/models'
-import type {Tracker as VtTracker} from '@/types/vuetorrent'
-import type {BaseMapper} from "@/types/mappers/index"
+import type { Tracker as QbitTracker } from '@/types/qbit/models'
+import type { Tracker as VtTracker } from '@/types/vuetorrent'
+import type { BaseMapper } from '@/types/mappers/index'
 
 export default class TrackerMapper implements BaseMapper<QbitTracker, VtTracker> {
   public toVt(tracker: QbitTracker): VtTracker {

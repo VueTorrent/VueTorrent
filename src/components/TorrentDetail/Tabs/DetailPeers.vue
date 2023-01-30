@@ -90,17 +90,17 @@ export default {
     },
     headers() {
       return [
-        { text: this.$i18n.t('modals.detail.pagePeers.ip'), value: 'ip' },
-        { text: this.$i18n.t('modals.detail.pagePeers.connection'), value: 'connection' },
-        { text: this.$i18n.t('modals.detail.pagePeers.flags'), value: 'flags' },
-        { text: this.$i18n.t('modals.detail.pagePeers.client'), value: 'client' },
-        { text: this.$i18n.t('modals.detail.pagePeers.progress'), value: 'progress' },
-        { text: this.$i18n.t('modals.detail.pagePeers.downloadSpeed'), value: 'dl_speed' },
-        { text: this.$i18n.t('modals.detail.pagePeers.downloaded'), value: 'downloaded' },
-        { text: this.$i18n.t('modals.detail.pagePeers.upSpeed'), value: 'up_speed' },
-        { text: this.$i18n.t('modals.detail.pagePeers.uploaded'), value: 'uploaded' },
-        { text: this.$i18n.t('modals.detail.pagePeers.relevance'), value: 'relevance' },
-        { text: this.$i18n.t('modals.detail.pagePeers.files'), value: 'files' }
+        { text: this.$t('modals.detail.pagePeers.ip'), value: 'ip' },
+        { text: this.$t('modals.detail.pagePeers.connection'), value: 'connection' },
+        { text: this.$t('modals.detail.pagePeers.flags'), value: 'flags' },
+        { text: this.$t('modals.detail.pagePeers.client'), value: 'client' },
+        { text: this.$t('modals.detail.pagePeers.progress'), value: 'progress' },
+        { text: this.$t('modals.detail.pagePeers.downloadSpeed'), value: 'dl_speed' },
+        { text: this.$t('modals.detail.pagePeers.downloaded'), value: 'downloaded' },
+        { text: this.$t('modals.detail.pagePeers.upSpeed'), value: 'up_speed' },
+        { text: this.$t('modals.detail.pagePeers.uploaded'), value: 'uploaded' },
+        { text: this.$t('modals.detail.pagePeers.relevance'), value: 'relevance' },
+        { text: this.$t('modals.detail.pagePeers.files'), value: 'files' }
       ]
     }
   },

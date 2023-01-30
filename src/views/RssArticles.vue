@@ -17,14 +17,15 @@
 
     <v-row class="ma-0 pa-0">
       <v-data-table
-          id="articlesTable"
-          :headers="headers"
-          :items="articles"
-          :items-per-page="15"
-          :search="filter"
-          :custom-filter="customFilter"
-          :sort-by.sync="sortBy"
-          :sort-desc.sync="reverse">
+        id="articlesTable"
+        :headers="headers"
+        :items="articles"
+        :items-per-page="15"
+        :search="filter"
+        :custom-filter="customFilter"
+        :sort-by.sync="sortBy"
+        :sort-desc.sync="reverse"
+      >
         <template #top>
           <v-text-field ref="filterRef" v-model="filter" label="Filter" class="mx-4" />
         </template>
@@ -45,14 +46,14 @@
 </template>
 
 <script lang="ts">
-import {General} from "@/mixins"
-import {mapState} from "vuex"
-import {defineComponent} from "vue"
-import {FeedArticle} from "@/types/vuetorrent/rss"
-import {Feed, FeedRule} from "@/types/vuetorrent"
-import {mdiClose, mdiDownload} from "@mdi/js";
+import { General } from '@/mixins'
+import { mapState } from 'vuex'
+import { defineComponent } from 'vue'
+import { FeedArticle } from '@/types/vuetorrent/rss'
+import { Feed, FeedRule } from '@/types/vuetorrent'
+import { mdiClose, mdiDownload } from '@mdi/js'
 
-type RssState = {feeds: Feed[], rules: FeedRule[]}
+type RssState = { feeds: Feed[]; rules: FeedRule[] }
 
 export default defineComponent({
   name: 'RssArticles',
@@ -60,19 +61,19 @@ export default defineComponent({
   data() {
     return {
       headers: [
-        {text: this.$i18n.t('modals.rss.columnTitle.id'), value: 'id'},
-        {text: this.$i18n.t('modals.rss.columnTitle.title'), value: 'title'},
-        // {text: this.$i18n.t('modals.rss.columnTitle.description'), value: 'description'},
-        {text: this.$i18n.t('modals.rss.columnTitle.category'), value: 'category'},
-        {text: this.$i18n.t('modals.rss.columnTitle.author'), value: 'author'},
-        {text: this.$i18n.t('modals.rss.columnTitle.date'), value: 'parsedDate'},
-        {text: this.$i18n.t('modals.rss.columnTitle.feedName'), value: 'feedName'},
-        // {text: this.$i18n.t('modals.rss.columnTitle.link'), value: 'link'},
-        // {text: this.$i18n.t('modals.rss.columnTitle.torrentURL'), value: 'torrentURL'},
-        {text: this.$i18n.t('modals.rss.columnTitle.actions'), value: 'actions', sortable: false}
+        { text: this.$t('modals.rss.columnTitle.id'), value: 'id' },
+        { text: this.$t('modals.rss.columnTitle.title'), value: 'title' },
+        // {text: this.$t('modals.rss.columnTitle.description'), value: 'description'},
+        { text: this.$t('modals.rss.columnTitle.category'), value: 'category' },
+        { text: this.$t('modals.rss.columnTitle.author'), value: 'author' },
+        { text: this.$t('modals.rss.columnTitle.date'), value: 'parsedDate' },
+        { text: this.$t('modals.rss.columnTitle.feedName'), value: 'feedName' },
+        // {text: this.$t('modals.rss.columnTitle.link'), value: 'link'},
+        // {text: this.$t('modals.rss.columnTitle.torrentURL'), value: 'torrentURL'},
+        { text: this.$t('modals.rss.columnTitle.actions'), value: 'actions', sortable: false }
       ],
       filter: '',
-      sortBy: "date",
+      sortBy: 'date',
       reverse: true,
       mdiDownload,
       mdiClose
@@ -90,9 +91,9 @@ export default defineComponent({
   computed: {
     ...mapState(['rss']),
     articles(): FeedArticle[] {
-      const articles: FeedArticle[] = [];
-      (this.rss as RssState).feeds.forEach((feed: Feed) => {
-        feed.articles && articles.push(...feed.articles.map(article => ({feedName: feed.name, parsedDate: new Date(article.date), ...article})))
+      const articles: FeedArticle[] = []
+      ;(this.rss as RssState).feeds.forEach((feed: Feed) => {
+        feed.articles && articles.push(...feed.articles.map(article => ({ feedName: feed.name, parsedDate: new Date(article.date), ...article })))
       })
       return articles
     }
@@ -108,7 +109,7 @@ export default defineComponent({
       this.createModal('AddModal', { initialMagnet: item.torrentURL })
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         this.close()
       }
     }

@@ -1,10 +1,10 @@
 import { mapGetters } from 'vuex'
-import {defineComponent} from "vue"
-import {Torrent} from "@/models"
-import {TorrentState} from "@/enums/vuetorrent"
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+import { TorrentState } from '@/enums/vuetorrent'
 
 export default defineComponent({
-  name: "TorrentDashboardItem",
+  name: 'TorrentDashboardItem',
   props: {
     torrent: Torrent
   },
@@ -21,5 +21,5 @@ export default defineComponent({
       if (!this.torrent) return TorrentState.UNKNOWN.toString().toLowerCase()
       return this.torrent.state.toLowerCase()
     }
-  },
+  }
 })

@@ -1,133 +1,133 @@
 // Vitest Snapshot v1
 
 exports[`General > render correctly 1`] = `
-"<vuecomponent-stub data-v-7da6d3e2=\\"\\" loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\"> </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
+"<v-card-stub data-v-7da6d3e2=\\"\\" loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
+  <v-subheader-stub data-v-7da6d3e2=\\"\\"> </v-subheader-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"English\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"caption\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"English\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"caption\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"10\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"5,15,30,50\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"10\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"5,15,30,50\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"test\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"Default,Global Speed,First Torrent Status\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"9\\" tag=\\"div\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"test\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"Default,Global Speed,First Torrent Status\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"9\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
-        <vuecomponent-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" label=\\"using Dayjs\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" placeholder=\\"DD/MM/YYYY, HH:mm:ss\\" type=\\"text\\" class=\\"mb-2\\"></vuecomponent-stub>
-      </vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
+        <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" label=\\"using Dayjs\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" placeholder=\\"DD/MM/YYYY, HH:mm:ss\\" type=\\"text\\" class=\\"mb-2\\"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/WDaan/VueTorrent/releases/tag/vundefined\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/WDaan/VueTorrent/releases/tag/vundefined\\">
           <p data-v-7da6d3e2=\\"\\" class=\\"mb-2\\"></p>
-        </a></vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
+        </a></v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
-      </vuecomponent-stub>
-      <vuecomponent-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/qbittorrent/qBittorrent/releases/tag/release-v1.2.3\\">
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/qbittorrent/qBittorrent/releases/tag/release-v1.2.3\\">
           <p data-v-7da6d3e2=\\"\\" class=\\"mb-2\\"> v1.2.3 </p>
-        </a></vuecomponent-stub>
-    </vuecomponent-stub>
-  </vuecomponent-stub>
-  <vuecomponent-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"justify-center pb-2\\">
-    <vuecomponent-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"> </vuecomponent-stub>
-  </vuecomponent-stub>
-</vuecomponent-stub>"
+        </a></v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"justify-center pb-2\\">
+    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"> </v-btn-stub>
+  </v-list-item-stub>
+</v-card-stub>"
 `;

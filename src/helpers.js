@@ -1,17 +1,6 @@
-import * as _ from "lodash"
-import {isProduction} from './utils'
-import {
-  mdiLanguageHtml5,
-  mdiFileDocumentOutline,
-  mdiNodejs,
-  mdiFilePdfBox,
-  mdiFileExcel,
-  mdiCodeJson,
-  mdiFileImage,
-  mdiMovie,
-  mdiLanguageMarkdown,
-  mdiFile
-} from '@mdi/js'
+import * as _ from 'lodash'
+import { isProduction } from './utils'
+import { mdiLanguageHtml5, mdiFileDocumentOutline, mdiNodejs, mdiFilePdfBox, mdiFileExcel, mdiCodeJson, mdiFileImage, mdiMovie, mdiLanguageMarkdown, mdiFile } from '@mdi/js'
 
 export function formatBytes(a, b) {
   if (a === 0) return '0 B'
@@ -22,7 +11,6 @@ export function formatBytes(a, b) {
 
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
-
 
 export function getIconForFileType(type) {
   const types = {
@@ -69,12 +57,12 @@ export function codeToFlag(code) {
 
 export function treeify(paths) {
   let result = []
-  const level = {result}
+  const level = { result }
 
   paths.forEach(path => {
     path.name.split('/').reduce((r, name) => {
       if (!r[name]) {
-        r[name] = {result: []}
+        r[name] = { result: [] }
         r.result.push(createFile(path, name, r[name].result))
       }
 

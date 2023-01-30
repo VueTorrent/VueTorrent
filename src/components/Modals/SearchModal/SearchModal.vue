@@ -86,16 +86,16 @@ export default {
       loading: false,
       grid: {
         headers: [
-          { text: this.$i18n.t('modals.search.columnTitle.name'), value: 'fileName' },
-          { text: this.$i18n.t('modals.search.columnTitle.size'), value: 'fileSize' },
-          { text: this.$i18n.t('modals.search.columnTitle.seeds'), value: 'nbSeeders' },
-          { text: this.$i18n.t('modals.search.columnTitle.peers'), value: 'nbLeechers' },
+          { text: this.$t('modals.search.columnTitle.name'), value: 'fileName' },
+          { text: this.$t('modals.search.columnTitle.size'), value: 'fileSize' },
+          { text: this.$t('modals.search.columnTitle.seeds'), value: 'nbSeeders' },
+          { text: this.$t('modals.search.columnTitle.peers'), value: 'nbLeechers' },
           {
-            text: this.$i18n.t('modals.search.columnTitle.search_engine'),
+            text: this.$t('modals.search.columnTitle.search_engine'),
             value: 'siteUrl'
           },
           {
-            text: this.$i18n.t('modals.search.columnTitle.action'),
+            text: this.$t('modals.search.columnTitle.action'),
             value: 'actions',
             sortable: false
           }

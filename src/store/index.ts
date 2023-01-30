@@ -6,7 +6,7 @@ import getters from './getters'
 import mutations from './mutations'
 import type { StoreState } from '@/types/vuetorrent'
 import { Status } from '@/models'
-import {TitleOptions} from "@/enums/vuetorrent";
+import { TitleOptions } from '@/enums/vuetorrent'
 
 const vuexPersist = new VuexPersist<StoreState>({
   key: 'vuetorrent',
@@ -77,7 +77,7 @@ export default new Vuex.Store<StoreState>({
       tag: null,
       tracker: null
     },
-    status: new Status(),
+    status: {} as Status,
     tags: [],
     torrents: [],
     trackers: [],

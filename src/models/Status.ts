@@ -1,6 +1,7 @@
 import store from '@/store'
-import type {ServerState} from '@/types/qbit/models'
-import {ConnectionStatus} from '@/enums/qbit'
+import type { ServerState } from '@/types/qbit/models'
+import { ConnectionStatus } from '@/enums/qbit'
+import type { Optional } from '@/global'
 
 export default class Status {
   alltimeDownloaded: number = 0
@@ -15,7 +16,7 @@ export default class Status {
   upspeed: number = 0
   upspeedRaw: number = 0
 
-  constructor(in_state?: ServerState) {
+  constructor(in_state?: Optional<ServerState>) {
     if (!in_state) {
       return
     }

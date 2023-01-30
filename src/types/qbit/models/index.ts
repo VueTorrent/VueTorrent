@@ -12,7 +12,7 @@ import type SearchPlugin from './SearchPlugin'
 import type SearchJob from './SearchJob'
 import type SearchStatus from './SearchStatus'
 import type SearchResult from './SearchResult'
-import {FeedArticle} from "@/types/qbit/models/FeedArticle"
+import { FeedArticle } from '@/types/qbit/models/FeedArticle'
 
 type ApplicationVersion = string
 

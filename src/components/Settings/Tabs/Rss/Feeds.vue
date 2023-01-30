@@ -34,11 +34,11 @@
 <script lang="ts">
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import {mdiDelete, mdiPencil} from '@mdi/js'
+import { mdiDelete, mdiPencil } from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
-import {Feed} from "@/types/vuetorrent";
-import {defineComponent} from "vue";
+import { Feed } from '@/types/vuetorrent'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Feeds',
@@ -61,7 +61,7 @@ export default defineComponent({
       this.$store.commit('FETCH_FEEDS')
     },
     editFeed(item: Feed) {
-      this.createModal('FeedForm', { initialFeed: {url: item.url, name: item.name}})
+      this.createModal('FeedForm', { initialFeed: { url: item.url, name: item.name } })
     },
     deleteFeed(item: Feed) {
       qbit.deleteFeed(item.name)

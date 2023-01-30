@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
-import {defineComponent} from "vue"
-import {Torrent} from "@/models"
-import {TorrentState} from "@/enums/vuetorrent";
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+import { TorrentState } from '@/enums/vuetorrent'
 
 export default defineComponent({
   name: 'Status',

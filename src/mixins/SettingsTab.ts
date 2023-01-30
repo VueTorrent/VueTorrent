@@ -1,7 +1,7 @@
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import {Component, Vue} from "vue-property-decorator";
-import type {AppPreferences} from "@/types/qbit/models";
+import { Component, Vue } from 'vue-property-decorator'
+import type { AppPreferences } from '@/types/qbit/models'
 
 @Component({
   computed: mapGetters(['getSettings'])

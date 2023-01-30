@@ -171,7 +171,7 @@ export default {
             else return /^.*\.torrent$/.test(f.name)
           })
 
-          return result ? result : this.$i18n.t('modals.add.oneOrMoreFilesInvalidTorrent')
+          return result ? result : this.$t('modals.add.oneOrMoreFilesInvalidTorrent')
         }
       ],
       loading: false,
@@ -254,11 +254,11 @@ export default {
       } else {
         e.target.focus()
         if (!document.execCommand('paste')) {
-          this.$toast.error(this.$i18n.t("toast.pasteNotSupported").toString())
+          this.$toast.error(this.$t('toast.pasteNotSupported').toString())
           return
         }
       }
-      this.$toast.success(this.$i18n.t("toast.pasteSuccess").toString())
+      this.$toast.success(this.$t('toast.pasteSuccess').toString())
     },
     submit() {
       if (this.files.length || this.urls) {
@@ -300,7 +300,7 @@ export default {
       this.dialog = false
     },
     handleKeyboardShortcut(e) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         this.close()
       }
     }

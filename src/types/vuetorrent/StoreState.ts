@@ -6,9 +6,9 @@ import type SortOptions from './SortOptions'
 import type { AppPreferences } from '../qbit/models'
 import type { Optional } from '@/global'
 import type ModalTemplate from './ModalTemplate'
-import type {Status} from '@/models'
+import type { Status } from '@/models'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
-import type {SearchPlugin} from "@/types/qbit/models";
+import type { SearchPlugin } from '@/types/qbit/models'
 
 export default interface StoreState {
   authenticated: boolean

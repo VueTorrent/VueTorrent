@@ -1,8 +1,8 @@
-import {Component, Vue, Watch} from "vue-property-decorator";
+import { Component, Vue, Watch } from 'vue-property-decorator'
 
 @Component
 export default class FullScreenModal extends Vue {
-  tab!: string|null
+  tab!: string | null
 
   get phoneLayout() {
     return this.$vuetify.breakpoint.xsOnly

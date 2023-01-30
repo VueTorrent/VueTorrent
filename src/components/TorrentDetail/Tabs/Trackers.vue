@@ -82,13 +82,13 @@ export default {
     headers() {
       return [
         { text: '#', value: 'tier' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.url'), value: 'url' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.status'), value: 'status' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.peers'), value: 'num_peers' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.seeds'), value: 'num_seeds' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.leeches'), value: 'num_leeches' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.downloaded'), value: 'num_downloaded' },
-        { text: this.$i18n.t('modals.detail.pageTrackers.message'), value: 'msg' }
+        { text: this.$t('modals.detail.pageTrackers.url'), value: 'url' },
+        { text: this.$t('modals.detail.pageTrackers.status'), value: 'status' },
+        { text: this.$t('modals.detail.pageTrackers.peers'), value: 'num_peers' },
+        { text: this.$t('modals.detail.pageTrackers.seeds'), value: 'num_seeds' },
+        { text: this.$t('modals.detail.pageTrackers.leeches'), value: 'num_leeches' },
+        { text: this.$t('modals.detail.pageTrackers.downloaded'), value: 'num_downloaded' },
+        { text: this.$t('modals.detail.pageTrackers.message'), value: 'msg' }
       ]
     }
   },

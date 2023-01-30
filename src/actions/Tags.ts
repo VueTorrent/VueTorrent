@@ -1,6 +1,6 @@
 import store from '@/store'
-import {ArrayHelper} from '@/helpers'
-import type {MainDataResponse} from "@/types/qbit/responses";
+import { ArrayHelper } from '@/helpers'
+import type { MainDataResponse } from '@/types/qbit/responses'
 
 export class Tags {
   static update(response: MainDataResponse) {

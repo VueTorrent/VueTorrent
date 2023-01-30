@@ -1,4 +1,4 @@
-import { describe, beforeEach, it } from 'vitest'
+import { describe, beforeEach, it, expect } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 
 import BitTorrent from '@/components/Settings/Tabs/BitTorrent.vue'
@@ -27,9 +27,6 @@ const getSettingsMockRes = {
 const getCustomWrapper = getSettingsRes => {
   return shallowMount(BitTorrent, {
     mocks: {
-      $i18n: {
-        t: x => x
-      },
       $t: x => x,
       $store: {
         getters: {

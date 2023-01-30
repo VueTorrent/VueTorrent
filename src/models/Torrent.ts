@@ -1,9 +1,9 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import {TorrentState as QbitTorrentState} from "@/enums/qbit";
-import {TorrentState as VtTorrentState} from "@/enums/vuetorrent";
-import type {Torrent as QbitTorrent} from '@/types/qbit/models'
+import { TorrentState as QbitTorrentState } from '@/enums/qbit'
+import { TorrentState as VtTorrentState } from '@/enums/vuetorrent'
+import type { Torrent as QbitTorrent } from '@/types/qbit/models'
 
 dayjs.extend(duration)
 dayjs.extend(relativeTime)

@@ -1,5 +1,5 @@
 import type { Optional } from '@/global'
-import type {TorrentState} from "@/enums/vuetorrent"
+import type { TorrentState } from '@/enums/vuetorrent'
 
 export default interface SortOptions {
   isCustomSortEnabled: boolean

@@ -96,30 +96,30 @@ export default {
     ...mapState(['sort_options']),
     options() {
       return [
-        { value: null, name: this.$i18n.t('all') },
-        { value: 'downloading', name: this.$i18n.t('downloading') },
-        { value: 'seeding', name: this.$i18n.t('seeding') },
-        { value: 'completed', name: this.$i18n.t('completed') },
-        { value: 'resumed', name: this.$i18n.t('resumed') },
-        { value: 'paused', name: this.$i18n.t('paused') },
-        { value: 'active', name: this.$i18n.t('active') },
-        { value: 'inactive', name: this.$i18n.t('inactive') },
-        { value: 'stalled', name: this.$i18n.t('stalled') },
+        { value: null, name: this.$t('all') },
+        { value: 'downloading', name: this.$t('downloading') },
+        { value: 'seeding', name: this.$t('seeding') },
+        { value: 'completed', name: this.$t('completed') },
+        { value: 'resumed', name: this.$t('resumed') },
+        { value: 'paused', name: this.$t('paused') },
+        { value: 'active', name: this.$t('active') },
+        { value: 'inactive', name: this.$t('inactive') },
+        { value: 'stalled', name: this.$t('stalled') },
         {
           value: 'stalled_uploading',
-          name: this.$i18n.t('navbar.filters.stalled_uploading')
+          name: this.$t('navbar.filters.stalled_uploading')
         },
         {
           value: 'stalled_downloading',
-          name: this.$i18n.t('navbar.filters.stalled_downloading')
+          name: this.$t('navbar.filters.stalled_downloading')
         },
-        { value: 'errored', name: this.$i18n.t('errored') }
+        { value: 'errored', name: this.$t('errored') }
       ]
     },
     availableCategories() {
       const categories = [
-        { name: this.$i18n.t('all'), value: null },
-        { name: this.$i18n.t('navbar.filters.uncategorized'), value: '' }
+        { name: this.$t('all'), value: null },
+        { name: this.$t('navbar.filters.uncategorized'), value: '' }
       ]
       categories.push(
         ...this.getCategories().map(c => {
@@ -130,12 +130,12 @@ export default {
       return categories
     },
     availableTags() {
-      return [{ name: this.$i18n.t('all'), value: null }, { name: this.$i18n.t('navbar.filters.untagged'), value: '' }, ...this.getAvailableTags()]
+      return [{ name: this.$t('all'), value: null }, { name: this.$t('navbar.filters.untagged'), value: '' }, ...this.getAvailableTags()]
     },
     availableTrackers() {
       const trackers = [
-        { name: this.$i18n.t('all'), value: null },
-        { name: this.$i18n.t('navbar.filters.not_working'), value: '' }
+        { name: this.$t('all'), value: null },
+        { name: this.$t('navbar.filters.not_working'), value: '' }
       ]
 
       if (this.showTrackerFilter) {

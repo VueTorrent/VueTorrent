@@ -1,4 +1,4 @@
-import {TorrentState} from "./TorrentState"
-import {TitleOptions} from "./TitleOptions"
+import { TorrentState } from './TorrentState'
+import { TitleOptions } from './TitleOptions'
 
-export {TorrentState, TitleOptions}
+export { TorrentState, TitleOptions }

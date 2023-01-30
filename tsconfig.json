@@ -5,31 +5,18 @@
     "esModuleInterop": true,
     "importHelpers": true,
     "jsx": "preserve",
-    "lib": [
-      "WebWorker",
-      "DOM"
-    ],
+    "lib": ["WebWorker", "DOM"],
     "module": "esnext",
     "moduleResolution": "node",
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src/**/*.vue"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"]
 }

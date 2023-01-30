@@ -2,7 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueI18n from 'vue-i18n'
 
-import {defaultLocale, messages} from '@/lang'
+import { defaultLocale, messages } from '@/lang'
 
 Vue.use(VueI18n)
 

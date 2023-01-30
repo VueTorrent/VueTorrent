@@ -1,4 +1,4 @@
-import type {TitleOptions} from "@/enums/vuetorrent"
+import type { TitleOptions } from '@/enums/vuetorrent'
 
 export interface TorrentProperty {
   name: string
