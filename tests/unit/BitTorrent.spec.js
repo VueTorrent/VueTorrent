@@ -45,22 +45,7 @@ const getCustomWrapper = getSettingsRes => {
 
 describe('BitTorrent', () => {
   beforeEach(() => {
-    wrapper = shallowMount(BitTorrent, {
-      mocks: {
-        $i18n: {
-          t: x => x
-        },
-        $t: x => x,
-        $store: {
-          getters: {
-            getSettings: () => {
-              return getSettingsMockRes
-            }
-          },
-          state: {}
-        }
-      }
-    })
+    wrapper = getCustomWrapper(getSettingsMockRes)
   })
 
   it('render correctly', () => {
