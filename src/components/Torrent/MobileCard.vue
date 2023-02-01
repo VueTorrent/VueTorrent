@@ -7,7 +7,7 @@
     </v-flex>
     <v-flex xs12 row class="ma-1 mt-0 chipgap">
       <v-chip small class="caption white--text" :class="torrent.state.toLowerCase()" style="height: 20px">
-        {{ torrent.state }}
+        {{ stateString }}
       </v-chip>
       <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
@@ -73,15 +73,25 @@
 </template>
 <script>
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
+import {Torrent} from '@/models'
+
 export default {
   name: 'MobileCard',
   props: {
-    torrent: Object
+    torrent: Torrent
   },
   data: () => ({
     mdiChevronUp,
     mdiChevronDown
-  })
+  }),
+  computed: {
+    stateString() {
+      if (this.torrent.forced)
+        return `[F] ${this.torrent.state}`
+      else
+        return this.torrent.state
+    }
+  }
 }
 </script>
 
