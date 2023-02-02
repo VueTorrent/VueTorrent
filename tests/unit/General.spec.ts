@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { shallowMount, Wrapper } from '@vue/test-utils'
 import General from '@/components/Settings/Tabs/VueTorrent/VGeneral.vue'
-import { Qbit } from '../../src/services/qbit'
 
 let wrapper: Wrapper<any>
 

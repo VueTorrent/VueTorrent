@@ -10,13 +10,19 @@
     </v-row>
   </v-flex>
 </template>
-<script>
+
+<script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
-export default {
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+
+export default defineComponent({
   name: 'Tags',
   mixins: [TorrentDashboardItem],
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>
 
 <style>

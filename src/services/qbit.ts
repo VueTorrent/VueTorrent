@@ -17,7 +17,7 @@ import type {
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { SortOptions } from '@/types/vuetorrent'
-import type {FeedRule as VtFeedRule} from '@/types/vuetorrent/rss'
+import type { FeedRule as VtFeedRule } from '@/types/vuetorrent/rss'
 import type { Priority } from '@/enums/qbit'
 
 type Parameters = Record<string, any>
@@ -41,27 +41,27 @@ export class QBitApi {
   /** Begin General functions * */
   async getAppVersion(): Promise<ApplicationVersion> {
     return this.axios
-        .get('/app/version')
-        .then(res => res.data)
-        .then(version => (version.includes('v') ? version.substring(1) : version))
+      .get('/app/version')
+      .then(res => res.data)
+      .then(version => (version.includes('v') ? version.substring(1) : version))
   }
 
   async login(params: LoginPayload): Promise<string> {
     const payload = new URLSearchParams(params)
     const res = await this.axios
-        .post('/auth/login', payload, {
-          validateStatus: (status: number) => status === 200 || status === 403
-        })
-        .catch(err => console.log(err))
+      .post('/auth/login', payload, {
+        validateStatus: (status: number) => status === 200 || status === 403
+      })
+      .catch(err => console.log(err))
 
     return res?.data
   }
 
   async getAuthenticationStatus(): Promise<boolean> {
     return this.axios
-        .get('/app/version')
-        .then(() => true)
-        .catch(() => false)
+      .get('/app/version')
+      .then(() => true)
+      .catch(() => false)
   }
 
   async logout(): Promise<void> {
@@ -108,10 +108,10 @@ export class QBitApi {
 
   async getTorrentTrackers(hash: string): Promise<Tracker[]> {
     return this.axios
-        .get('/torrents/trackers', {
-          params: { hash }
-        })
-        .then(r => r.data)
+      .get('/torrents/trackers', {
+        params: { hash }
+      })
+      .then(r => r.data)
   }
 
   async getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
@@ -126,18 +126,18 @@ export class QBitApi {
 
   async getTorrentPieceStates(hash: string): Promise<number[]> {
     return this.axios
-        .get('/torrents/pieceStates', {
-          params: { hash }
-        })
-        .then(res => res.data)
+      .get('/torrents/pieceStates', {
+        params: { hash }
+      })
+      .then(res => res.data)
   }
 
   async getTorrentFiles(hash: string, indexes?: number[]): Promise<TorrentFile[]> {
     return this.axios
-        .get('/torrents/files', {
-          params: { hash, indexes: indexes?.join('|') }
-        })
-        .then(res => res.data)
+      .get('/torrents/files', {
+        params: { hash, indexes: indexes?.join('|') }
+      })
+      .then(res => res.data)
   }
 
   async getAvailableTags(): Promise<string[]> {
@@ -146,10 +146,10 @@ export class QBitApi {
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
     return this.axios
-        .get('/torrents/properties', {
-          params: { hash }
-        })
-        .then(res => res.data)
+      .get('/torrents/properties', {
+        params: { hash }
+      })
+      .then(res => res.data)
   }
 
   // RSS
@@ -169,7 +169,7 @@ export class QBitApi {
   }
 
   async getFeeds(withData: boolean = false): Promise<Record<string, Feed>> {
-    return this.axios.get('/rss/items', { params: {withData}}).then(res => res.data)
+    return this.axios.get('/rss/items', { params: { withData } }).then(res => res.data)
   }
 
   async getRules(): Promise<Record<string, QbitFeedRule>> {
@@ -411,9 +411,9 @@ export class QBitApi {
   /** Begin Categories **/
   async getCategories(): Promise<Category[]> {
     return this.axios
-        .get('/torrents/categories')
-        .then(res => res.data)
-        .then(data => Object.values(data))
+      .get('/torrents/categories')
+      .then(res => res.data)
+      .then(data => Object.values(data))
   }
 
   async deleteCategory(categories: string[]): Promise<void> {
@@ -443,14 +443,15 @@ export class QBitApi {
   }
 
   async exportTorrent(hash: string): Promise<Blob> {
-    return this.axios.get('/torrents/export', {
-      params: {hash},
-      responseType: "arraybuffer",
-      headers: {
-        "Accept": "application/x-bittorrent"
-      }
-    })
-    .then(res => new Blob([res.data], {type: "application/x-bittorrent"}))
+    return this.axios
+      .get('/torrents/export', {
+        params: { hash },
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/x-bittorrent'
+        }
+      })
+      .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
   }
 
   /** Search **/

@@ -148,19 +148,19 @@ export default {
       thenTypes: [
         {
           value: 0,
-          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
+          text: this.$t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
         },
         {
           value: 1,
-          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
+          text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
         },
         {
           value: 3,
-          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
+          text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
         },
         {
           value: 2,
-          text: this.$i18n.t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding')
+          text: this.$t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding')
         }
       ]
     }

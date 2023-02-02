@@ -6,7 +6,7 @@ import getters from './getters'
 import mutations from './mutations'
 import type { StoreState } from '@/types/vuetorrent'
 import { Status } from '@/models'
-import {TitleOptions} from "@/enums/vuetorrent";
+import { TitleOptions } from '@/enums/vuetorrent'
 
 const vuexPersist = new VuexPersist<StoreState>({
   key: 'vuetorrent',
@@ -77,7 +77,7 @@ export default new Vuex.Store<StoreState>({
       tag: null,
       tracker: null
     },
-    status: new Status(),
+    status: {} as Status,
     tags: [],
     torrents: [],
     trackers: [],
@@ -100,8 +100,8 @@ export default new Vuex.Store<StoreState>({
       paginationSize: 15,
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
-      busyTorrentProperties: [...propertiesTemplate],
-      doneTorrentProperties: [...propertiesTemplate]
+      busyTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate)),
+      doneTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate))
     }
   },
   // @ts-expect-error

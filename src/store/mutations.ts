@@ -1,9 +1,10 @@
 import qbit from '../services/qbit'
-import { DocumentTitle, Tags, Trackers, Torrents, Graph, ServerStatus } from '@/actions'
+import { DocumentTitle, Tags, Trackers, Torrents, Graph } from '@/actions'
 import { setLanguage } from '@/plugins/i18n'
 import type { ModalTemplate, StoreState } from '@/types/vuetorrent'
 import Torrent from '@/models/Torrent'
 import type { AppPreferences } from '@/types/qbit/models'
+import { Status } from '@/models'
 
 export default {
   SET_APP_VERSION(state: StoreState, version: string) {
@@ -54,7 +55,7 @@ export default {
     const response = await qbit.getMainData(state.rid || undefined)
     state.rid = response.rid || undefined
 
-    ServerStatus.update(response.server_state)
+    state.status = new Status(response.server_state)
     Tags.update(response)
     Graph.shiftValues()
 

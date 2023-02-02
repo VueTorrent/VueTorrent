@@ -15,19 +15,19 @@ import zh_hans from './zh-hans.json'
 import zh_hant from './zh-hant.json'
 
 export const messages: Record<Locales, any> = {
-    [Locales.EN]: en,
-    [Locales.ES]: es,
-    [Locales.FR]: fr,
-    [Locales.ID]: id,
-    [Locales.IT]: it,
-    [Locales.JA]: ja,
-    [Locales.NL]: nl,
-    [Locales.PT_BR]: pt_br,
-    [Locales.RU]: ru,
-    [Locales.UK]: uk,
-    [Locales.VI]: vi,
-    [Locales.ZH_HANS]: zh_hans,
-    [Locales.ZH_HANT]: zh_hant
+  [Locales.EN]: en,
+  [Locales.ES]: es,
+  [Locales.FR]: fr,
+  [Locales.ID]: id,
+  [Locales.IT]: it,
+  [Locales.JA]: ja,
+  [Locales.NL]: nl,
+  [Locales.PT_BR]: pt_br,
+  [Locales.RU]: ru,
+  [Locales.UK]: uk,
+  [Locales.VI]: vi,
+  [Locales.ZH_HANS]: zh_hans,
+  [Locales.ZH_HANT]: zh_hant
 }
 
 export const defaultLocale = Locales.EN

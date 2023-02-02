@@ -1,5 +1,5 @@
-import type {SearchResult} from "..";
-import type {Optional} from "@/global";
+import type { SearchResult } from '..'
+import type { Optional } from '@/global'
 
 export default interface SearchStatus {
   id: number

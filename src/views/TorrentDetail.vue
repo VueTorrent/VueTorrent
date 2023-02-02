@@ -100,7 +100,7 @@ export default {
       this.$router.back()
     },
     handleKeyboardShortcut(e) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         this.close()
       }
     }

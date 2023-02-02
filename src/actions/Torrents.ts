@@ -1,7 +1,7 @@
 import store from '@/store'
 import { Hostname } from '@/helpers'
-import {Torrent as VtTorrent} from '@/models'
-import type {Torrent as QbitTorrent} from '@/types/qbit/models'
+import { Torrent as VtTorrent } from '@/models'
+import type { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker'
 

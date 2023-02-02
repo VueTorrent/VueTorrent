@@ -87,7 +87,7 @@
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
       "searchNew": "Search new torrent",
-      "rssArticles":  "View RSS feed articles"
+      "rssArticles": "View RSS feed articles"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"

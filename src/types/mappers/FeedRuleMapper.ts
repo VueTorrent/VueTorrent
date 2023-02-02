@@ -1,6 +1,6 @@
-import type {FeedRule as QbitFeedRule} from '@/types/qbit/models'
-import type {FeedRule as VtFeedRule} from '@/types/vuetorrent'
-import type {BaseMapper} from "@/types/mappers/index";
+import type { FeedRule as QbitFeedRule } from '@/types/qbit/models'
+import type { FeedRule as VtFeedRule } from '@/types/vuetorrent'
+import type { BaseMapper } from '@/types/mappers/index'
 
 export default class FeedRuleMapper implements BaseMapper<QbitFeedRule, VtFeedRule> {
   public toQbit(rule: VtFeedRule): QbitFeedRule {

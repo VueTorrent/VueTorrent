@@ -33,6 +33,9 @@ $sideborder-margin: 6px;
 .sideborder.moving {
   border-left: #{$sideborder-margin} solid #{$torrent-moving};
 }
+.sideborder.unknown {
+  border-left: #{$sideborder-margin} solid #{$torrent-unknown};
+}
 .v-chip.done {
   background: #{$torrent-done} !important;
 }
@@ -62,6 +65,9 @@ $sideborder-margin: 6px;
 }
 .v-chip.moving {
   background: #{$torrent-moving} !important;
+}
+.v-chip.unknown {
+  background: #{$torrent-unknown} !important;
 }
 
 .v-text-field--outlined fieldset {

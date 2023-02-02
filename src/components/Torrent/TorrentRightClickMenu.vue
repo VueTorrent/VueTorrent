@@ -236,9 +236,9 @@
       </v-list>
     </v-menu>
     <v-list-item link @click="exportTorrents">
-      <v-icon>{{ (multiple) ? mdiDownloadMultiple : mdiDownload }}</v-icon>
+      <v-icon>{{ multiple ? mdiDownloadMultiple : mdiDownload }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $tc('rightClick.export', (multiple) ? 2 : 1) | titleCase }}
+        {{ $tc('rightClick.export', multiple ? 2 : 1) | titleCase }}
       </v-list-item-title>
     </v-list-item>
     <v-divider v-if="!multiple" />
@@ -443,12 +443,12 @@ export default {
         document.body.appendChild(textArea)
         textArea.select()
         if (!document.execCommand('copy')) {
-          this.$toast.error(this.$i18n.t("toast.copyNotSupported").toString())
+          this.$toast.error(this.$t('toast.copyNotSupported').toString())
           return
         }
         document.body.removeChild(textArea)
       }
-      this.$toast.success(this.$i18n.t("toast.copySuccess").toString())
+      this.$toast.success(this.$t('toast.copySuccess').toString())
     },
     async exportTorrents() {
       this.hashes.forEach(hash => {

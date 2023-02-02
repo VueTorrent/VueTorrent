@@ -6,14 +6,20 @@
     <div>
       {{ torrent.dloaded | getDataValue(2) }}
       <span class="caption grey--text">
-        {{ torrent.dloaded | getDataUnit(1) }}
+        {{ torrent.dloaded | getDataUnit }}
       </span>
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+
+export default defineComponent({
   name: 'Downloaded',
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>

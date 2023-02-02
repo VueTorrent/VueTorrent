@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 import { mapGetters } from 'vuex'
-import {defineComponent} from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   computed: {

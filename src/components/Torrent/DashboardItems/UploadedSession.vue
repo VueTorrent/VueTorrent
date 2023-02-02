@@ -1,7 +1,6 @@
 <template>
   <v-flex xs6 sm2 md2>
     <div class="caption grey--text">
-      Uploaded Session
       {{ $t('torrent.uploadedSession') }}
     </div>
     <div>
@@ -12,9 +11,15 @@
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+
+export default defineComponent({
   name: 'UploadedSession',
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>
