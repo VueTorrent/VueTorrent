@@ -497,6 +497,12 @@ export class QBitApi {
       offset
     })
   }
+
+  async shutdownApp(): Promise<boolean> {
+    return this.axios.post("/app/shutdown")
+    .then(() => true)
+    .catch(() => false)
+  }
 }
 
 export const Qbit = new QBitApi()

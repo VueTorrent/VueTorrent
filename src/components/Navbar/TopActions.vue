@@ -70,6 +70,16 @@
       </template>
       <span>{{ $t('navbar.topActions.openSettings') }}</span>
     </v-tooltip>
+    <v-tooltip bottom open-delay="400">
+      <template #activator="{ on }">
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.shutdownApp')" v-on="on" @click="shutdownApplication">
+          <v-icon color="grey">
+            {{ mdiPower }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>{{ $t('navbar.topActions.shutdownApp') }}</span>
+    </v-tooltip>
   </div>
 </template>
 
@@ -87,7 +97,8 @@ import {
   mdiPlus,
   mdiPlay,
   mdiPause,
-  mdiRss
+  mdiRss,
+  mdiPower
 } from '@mdi/js'
 
 export default {
@@ -97,16 +108,17 @@ export default {
   data() {
     return {
       fab: false,
-      mdiSort,
-      mdiPlus,
-      mdiSearchWeb,
-      mdiRss,
-      mdiPlay,
-      mdiPause,
-      mdiDelete,
-      mdiCog,
+      mdiCheckboxBlankOutline,
       mdiCheckboxMarked,
-      mdiCheckboxBlankOutline
+      mdiCog,
+      mdiDelete,
+      mdiPause,
+      mdiPlay,
+      mdiPlus,
+      mdiPower,
+      mdiRss,
+      mdiSearchWeb,
+      mdiSort
     }
   },
   computed: {
@@ -132,6 +144,16 @@ export default {
     },
     goToSettings() {
       if (this.$route.name !== 'settings') this.$router.push({ name: 'settings' })
+    },
+    async shutdownApplication() {
+      if (!await qbit.shutdownApp()) {
+        this.$toast.error(this.$t('toast.shutdownError').toString())
+        return
+      }
+
+      this.$store.state.authenticated = false
+      await this.$router.push({name: 'login'})
+      this.$toast.success(this.$t("toast.shutdownSuccess").toString())
     }
   }
 }
