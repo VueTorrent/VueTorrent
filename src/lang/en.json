@@ -87,7 +87,8 @@
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
       "searchNew": "Search new torrent",
-      "rssArticles": "View RSS feed articles"
+      "rssArticles":  "View RSS feed articles",
+      "shutdownApp": "Shutdown Application"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -480,7 +481,9 @@
     "copySuccess": "Text copied!",
     "copyNotSupported": "Unable to copy, clipboard API unavailable on this browser",
     "pasteSuccess": "Text pasted!",
-    "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser"
+    "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser",
+    "shutdownSuccess": "qBittorrent was shutdown successfully!",
+    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!"
   },
   "rightClick": {
     "resume": "resume",
