@@ -174,29 +174,29 @@ export default {
       searchFilterEnabled: false,
       sortEnabled: false,
       sortOptions: [
-        { value: '', text: this.$i18n.t('modals.sort.sortBy.default') },
-        { value: 'added_on', text: this.$i18n.t('modals.sort.sortBy.addedOn') },
-        { value: 'availability', text: this.$i18n.t('modals.sort.sortBy.availability') },
-        { value: 'category', text: this.$i18n.t('modals.sort.sortBy.category') },
-        { value: 'completed', text: this.$i18n.t('modals.sort.sortBy.completed') },
-        { value: 'completion_on', text: this.$i18n.t('modals.sort.sortBy.completion_on') },
-        { value: 'dlspeed', text: this.$i18n.t('modals.sort.sortBy.downloadSpeed') },
-        { value: 'downloaded', text: this.$i18n.t('modals.sort.sortBy.downloaded') },
-        { value: 'eta', text: this.$i18n.t('modals.sort.sortBy.ETA') },
-        { value: 'globalSpeed', text: this.$i18n.t('modals.sort.sortBy.globalSpeed') },
-        { value: 'globalVolume', text: this.$i18n.t('modals.sort.sortBy.globalVolume') },
-        { value: 'name', text: this.$i18n.t('modals.sort.sortBy.name') },
-        { value: 'num_leechs', text: this.$i18n.t('modals.sort.sortBy.peers') },
-        { value: 'last_activity', text: this.$i18n.t('modals.sort.sortBy.last_activity') },
-        { value: 'priority', text: this.$i18n.t('modals.sort.sortBy.priority') },
-        { value: 'progress', text: this.$i18n.t('modals.sort.sortBy.progress') },
-        { value: 'ratio', text: this.$i18n.t('modals.sort.sortBy.ratio') },
-        { value: 'save_path', text: this.$i18n.t('modals.sort.sortBy.save_path') },
-        { value: 'size', text: this.$i18n.t('modals.sort.sortBy.size') },
-        { value: 'state', text: this.$i18n.t('modals.sort.sortBy.state') },
-        { value: 'time_active', text: this.$i18n.t('modals.sort.sortBy.timeActive') },
-        { value: 'uploaded', text: this.$i18n.t('modals.sort.sortBy.uploaded') },
-        { value: 'upspeed', text: this.$i18n.t('modals.sort.sortBy.uploadSpeed') }
+        { value: '', text: this.$t('modals.sort.sortBy.default') },
+        { value: 'added_on', text: this.$t('modals.sort.sortBy.addedOn') },
+        { value: 'availability', text: this.$t('modals.sort.sortBy.availability') },
+        { value: 'category', text: this.$t('modals.sort.sortBy.category') },
+        { value: 'completed', text: this.$t('modals.sort.sortBy.completed') },
+        { value: 'completion_on', text: this.$t('modals.sort.sortBy.completion_on') },
+        { value: 'dlspeed', text: this.$t('modals.sort.sortBy.downloadSpeed') },
+        { value: 'downloaded', text: this.$t('modals.sort.sortBy.downloaded') },
+        { value: 'eta', text: this.$t('modals.sort.sortBy.ETA') },
+        { value: 'globalSpeed', text: this.$t('modals.sort.sortBy.globalSpeed') },
+        { value: 'globalVolume', text: this.$t('modals.sort.sortBy.globalVolume') },
+        { value: 'name', text: this.$t('modals.sort.sortBy.name') },
+        { value: 'num_leechs', text: this.$t('modals.sort.sortBy.peers') },
+        { value: 'last_activity', text: this.$t('modals.sort.sortBy.last_activity') },
+        { value: 'priority', text: this.$t('modals.sort.sortBy.priority') },
+        { value: 'progress', text: this.$t('modals.sort.sortBy.progress') },
+        { value: 'ratio', text: this.$t('modals.sort.sortBy.ratio') },
+        { value: 'save_path', text: this.$t('modals.sort.sortBy.save_path') },
+        { value: 'size', text: this.$t('modals.sort.sortBy.size') },
+        { value: 'state', text: this.$t('modals.sort.sortBy.state') },
+        { value: 'time_active', text: this.$t('modals.sort.sortBy.timeActive') },
+        { value: 'uploaded', text: this.$t('modals.sort.sortBy.uploaded') },
+        { value: 'upspeed', text: this.$t('modals.sort.sortBy.uploadSpeed') }
       ],
       mdiTextBoxSearch,
       mdiChevronLeftCircle,
@@ -213,8 +213,7 @@ export default {
     ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
       let torrents
-      if (!this.hasSearchFilter)
-        torrents = this.getTorrents()
+      if (!this.hasSearchFilter) torrents = this.getTorrents()
       else {
         const qs = new QuickScore(this.getTorrents(), ['name', 'size', 'state', 'hash', 'savePath', 'tags', 'category'])
         torrents = qs.search(this.input).map(el => el.item)

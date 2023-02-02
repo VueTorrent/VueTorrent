@@ -6,9 +6,15 @@
     <div>{{ torrent.added_on }}</div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+
+export default defineComponent({
   name: 'AddedOn',
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>

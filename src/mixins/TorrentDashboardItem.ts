@@ -1,22 +1,25 @@
 import { mapGetters } from 'vuex'
-import {Component, Prop, Vue} from "vue-property-decorator";
-import type {Torrent} from "@/models";
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+import { TorrentState } from '@/enums/vuetorrent'
 
-@Component({
-  computed: mapGetters(['getTheme'])
+export default defineComponent({
+  name: 'TorrentDashboardItem',
+  props: {
+    torrent: Torrent
+  },
+  computed: {
+    ...mapGetters(['getTheme']),
+    phoneLayout() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+    theme(): string {
+      // @ts-expect-error: TS2339: Property 'getTheme' does not exist on type 'CreateComponentPublicInstance { torrent: typeof Torrent; }>, {}, {}, { phoneLayout(): boolean; theme(): string; state(): string; }, {}, ComponentOptionsMixin, ... 11 more ..., {}>'.
+      return this.getTheme()
+    },
+    state() {
+      if (!this.torrent) return TorrentState.UNKNOWN.toString().toLowerCase()
+      return this.torrent.state.toLowerCase()
+    }
+  }
 })
-export default class TorrentDashboardItem extends Vue {
-  getTheme!: () => string
-
-  @Prop() torrent!: Torrent
-
-  get phoneLayout() {
-    return this.$vuetify.breakpoint.xsOnly
-  }
-  get theme() {
-    return this.getTheme()
-  }
-  get state() {
-    return this.torrent.state.toLowerCase()
-  }
-}

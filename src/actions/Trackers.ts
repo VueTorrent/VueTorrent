@@ -1,6 +1,6 @@
 import store from '@/store'
 import { Hostname } from '@/helpers'
-import type {Torrent} from "@/types/qbit/models";
+import type { Torrent } from '@/types/qbit/models'
 
 export class Trackers {
   static update(data: Torrent[]) {

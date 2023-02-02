@@ -1,5 +1,5 @@
 import { mapGetters } from 'vuex'
-import {Component, Prop, Vue} from "vue-property-decorator";
+import { Component, Prop, Vue } from 'vue-property-decorator'
 
 @Component({
   computed: mapGetters(['getModalState'])
@@ -26,7 +26,9 @@ export default class Modal extends Vue {
   // methods
   deleteModal() {
     //this.hndlDialog = false
-    setTimeout(() => { this.$store.commit('DELETE_MODAL', this.guid) }, 300)
+    setTimeout(() => {
+      this.$store.commit('DELETE_MODAL', this.guid)
+    }, 300)
   }
 
   beforeDestroy() {

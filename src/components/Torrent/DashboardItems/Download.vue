@@ -5,13 +5,19 @@
     </div>
     <div>
       {{ torrent.dlspeed | getDataValue(1) }}
-      <span class="caption grey--text"> {{ torrent.dlspeed | getDataUnit(1) }}/s </span>
+      <span class="caption grey--text"> {{ torrent.dlspeed | getDataUnit }}/s </span>
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+
+export default defineComponent({
   name: 'Download',
-  props: ['torrent']
-}
+  props: {
+    torrent: Torrent
+  }
+})
 </script>

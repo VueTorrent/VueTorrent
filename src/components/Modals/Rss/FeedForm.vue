@@ -57,7 +57,7 @@ export default {
   },
   created() {
     if (this.hasInitialFeed) {
-      this.feed = {...this.initialFeed}
+      this.feed = { ...this.initialFeed }
     }
   },
   methods: {

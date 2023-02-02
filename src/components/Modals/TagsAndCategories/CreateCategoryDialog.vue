@@ -56,10 +56,10 @@ export default {
       return !!(this.initialCategory && this.initialCategory.name)
     },
     nameRules() {
-      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoName')]
+      return [v => !!v || this.$t('modals.newCategory.tipOnNoName')]
     },
     PathRules() {
-      return [v => !!v || this.$i18n.t('modals.newCategory.tipOnNoPath')]
+      return [v => !!v || this.$t('modals.newCategory.tipOnNoPath')]
     }
   },
   created() {

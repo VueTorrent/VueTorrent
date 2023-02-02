@@ -1,4 +1,4 @@
-import {Component, Prop, Vue, Watch} from "vue-property-decorator";
+import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 
 @Component
 export default class Tab extends Vue {
