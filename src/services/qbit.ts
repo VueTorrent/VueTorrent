@@ -202,6 +202,13 @@ export class QBitApi {
     })
   }
 
+  async markAsRead(itemPath: string, articleId: string) {
+    await this.execute('rss/markAsRead', {
+      itemPath,
+      articleId
+    })
+  }
+
   // Post
 
   async addTorrents(params: AddTorrentPayload, torrents: File[]): Promise<void> {

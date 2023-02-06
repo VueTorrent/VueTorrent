@@ -36,6 +36,7 @@
           {{ item.parsedDate.toLocaleString() }}
         </template>
         <template #[`item.actions`]="{ item }">
+          <v-icon @click="markAsRead(item)">{{ mdiEmailOpen }}</v-icon>
           <v-icon @click="downloadTorrent(item)">
             {{ mdiDownload }}
           </v-icon>
@@ -51,7 +52,8 @@ import { mapState } from 'vuex'
 import { defineComponent } from 'vue'
 import { FeedArticle } from '@/types/vuetorrent/rss'
 import { Feed, FeedRule } from '@/types/vuetorrent'
-import { mdiClose, mdiDownload } from '@mdi/js'
+import { mdiClose, mdiDownload, mdiEmailOpen } from '@mdi/js'
+import qbit from "@/services/qbit";
 
 type RssState = { feeds: Feed[]; rules: FeedRule[] }
 
@@ -75,6 +77,7 @@ export default defineComponent({
       filter: '',
       sortBy: 'date',
       reverse: true,
+      mdiEmailOpen,
       mdiDownload,
       mdiClose
     }
@@ -107,6 +110,9 @@ export default defineComponent({
     },
     downloadTorrent(item: FeedArticle) {
       this.createModal('AddModal', { initialMagnet: item.torrentURL })
+    },
+    async markAsRead(item: FeedArticle) {
+      await qbit.markAsRead(item.feedName, item.id)
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
