@@ -25,6 +25,7 @@
         :custom-filter="customFilter"
         :sort-by.sync="sortBy"
         :sort-desc.sync="reverse"
+        :item-class="getRowStyle"
       >
         <template #top>
           <v-text-field ref="filterRef" v-model="filter" label="Filter" class="mx-4" />
@@ -36,9 +37,10 @@
           {{ item.parsedDate.toLocaleString() }}
         </template>
         <template #[`item.actions`]="{ item }">
-          <v-icon @click="downloadTorrent(item)">
-            {{ mdiDownload }}
-          </v-icon>
+          <span class="rss-actions">
+            <v-icon @click="markAsRead(item)">{{ mdiEmailOpen }}</v-icon>
+            <v-icon @click="downloadTorrent(item)">{{ mdiDownload }}</v-icon>
+          </span>
         </template>
       </v-data-table>
     </v-row>
@@ -51,7 +53,8 @@ import { mapState } from 'vuex'
 import { defineComponent } from 'vue'
 import { FeedArticle } from '@/types/vuetorrent/rss'
 import { Feed, FeedRule } from '@/types/vuetorrent'
-import { mdiClose, mdiDownload } from '@mdi/js'
+import { mdiClose, mdiDownload, mdiEmailOpen } from '@mdi/js'
+import qbit from "@/services/qbit";
 
 type RssState = { feeds: Feed[]; rules: FeedRule[] }
 
@@ -73,8 +76,9 @@ export default defineComponent({
         { text: this.$t('modals.rss.columnTitle.actions'), value: 'actions', sortable: false }
       ],
       filter: '',
-      sortBy: 'date',
+      sortBy: 'parsedDate',
       reverse: true,
+      mdiEmailOpen,
       mdiDownload,
       mdiClose
     }
@@ -105,8 +109,15 @@ export default defineComponent({
     customFilter(value: string, query: string, item?: any): boolean {
       return (item as FeedArticle).title.toLowerCase().indexOf(query.toLowerCase()) !== -1
     },
+    getRowStyle(item: FeedArticle) {
+      return item.isRead ? 'rss-read' : 'rss-unread'
+    },
     downloadTorrent(item: FeedArticle) {
       this.createModal('AddModal', { initialMagnet: item.torrentURL })
+    },
+    async markAsRead(item: FeedArticle) {
+      await qbit.markAsRead(item.feedName, item.id)
+      this.$store.commit('FETCH_FEEDS')
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
@@ -120,5 +131,19 @@ export default defineComponent({
 <style scoped>
 .v-data-table {
   width: 100%;
+}
+.rss-actions {
+  display: flex;
+  flex-direction: row;
+  /*column-gap: 5px;*/
+}
+</style>
+
+<style>
+.rss-unread {
+  color: white;
+}
+.rss-read {
+  color: grey;
 }
 </style>
