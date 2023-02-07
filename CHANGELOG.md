@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.3.0](https://github.com/WDaan/VueTorrent/compare/v1.2.0...v1.3.0) (2023-02-07)
+
+
+### Features
+
+* Add shutdown button in TopActions ([#633](https://github.com/WDaan/VueTorrent/issues/633)) @Larsluph ([ab75f32](https://github.com/WDaan/VueTorrent/commit/ab75f32c5f6225fb9b2615f2880b2ef40037820a))
+
+
+### Bug Fixes
+
+* Duplicate reference in dashboard settings ([#618](https://github.com/WDaan/VueTorrent/issues/618)) @Larsluph ([ea7e68c](https://github.com/WDaan/VueTorrent/commit/ea7e68ca2a48b19292d9b9b5388bcba8664d04bb))
+* Forced state not present in MobileCard ([#632](https://github.com/WDaan/VueTorrent/issues/632)) @Larsluph ([7114ce1](https://github.com/WDaan/VueTorrent/commit/7114ce12df6bf7a0992406245277093c52d16002))
+* Invalid deconstruct on qbit service ([#623](https://github.com/WDaan/VueTorrent/issues/623)) ([5a2ed4e](https://github.com/WDaan/VueTorrent/commit/5a2ed4ea99a81f5566e3276acb8faae42adcc035))
+* Unable to delete / create tags and categories ([#628](https://github.com/WDaan/VueTorrent/issues/628)) ([4fa63ac](https://github.com/WDaan/VueTorrent/commit/4fa63ac1625d9858f70bfe6e51f71abe6030bd6a))
+
+
+### Improvements
+
+* Add Enter / Escape keybinds to modals and views ([#608](https://github.com/WDaan/VueTorrent/issues/608)) @Larsluph ([ee9bbc1](https://github.com/WDaan/VueTorrent/commit/ee9bbc1245448768570547f37e3115ff7390b836))
+* Add export torrent to trc menu ([#625](https://github.com/WDaan/VueTorrent/issues/625)) @Larsluph ([353e26d](https://github.com/WDaan/VueTorrent/commit/353e26d51df1d44df16b7ea297f2b89144942977))
+* add mark as read behavior for rss articles ([#640](https://github.com/WDaan/VueTorrent/issues/640)) @Larsluph ([3cfc82f](https://github.com/WDaan/VueTorrent/commit/3cfc82f055bcc2a917e64e49c27137401d0a0810))
+* Add RSS articles view ([#622](https://github.com/WDaan/VueTorrent/issues/622)) @Larsluph ([f8fcafa](https://github.com/WDaan/VueTorrent/commit/f8fcafa1b114da877430daa258087fed6382258b))
+* Add toasts for copy/paste success/error ([#620](https://github.com/WDaan/VueTorrent/issues/620)) ([6cabef1](https://github.com/WDaan/VueTorrent/commit/6cabef1b56598f3fb896f37c619dc4a8effa6858))
+* Content tab for mobile users ([#602](https://github.com/WDaan/VueTorrent/issues/602)) @Larsluph ([fc371a2](https://github.com/WDaan/VueTorrent/commit/fc371a296cd8c2287b3fb45597f2d924d30c3847))
+* Convert locale data to json ([#616](https://github.com/WDaan/VueTorrent/issues/616)) @Larsluph ([e990d34](https://github.com/WDaan/VueTorrent/commit/e990d344d2b6d779c66af294bb168da78788200c))
+* Disable hide condition on page scroll ([#603](https://github.com/WDaan/VueTorrent/issues/603)) @Larsluph ([f175a6a](https://github.com/WDaan/VueTorrent/commit/f175a6af6521988c84357c761cddb1116e6f83e1))
+* Fill data table width to whole page ([#626](https://github.com/WDaan/VueTorrent/issues/626)) ([d2c0817](https://github.com/WDaan/VueTorrent/commit/d2c0817bee904ac5a4dcda5079307b705f1ac7e7))
+* full Typescript migration + restructure ([#612](https://github.com/WDaan/VueTorrent/issues/612)) @Larsluph ([e09e8a0](https://github.com/WDaan/VueTorrent/commit/e09e8a0300551b813432dfba5d867be3f6709694))
+* Rework desktop cards ([#627](https://github.com/WDaan/VueTorrent/issues/627)) @Larsluph ([5aeb653](https://github.com/WDaan/VueTorrent/commit/5aeb65352fc9335112b7747641420579fcd55c47))
+
 ## [1.2.0](https://github.com/WDaan/VueTorrent/compare/v1.1.0...v1.2.0) (2023-01-11)
 
 ### Features
