@@ -141,7 +141,7 @@ export default defineComponent({
 
 <style>
 .rss-unread {
-  color: white;
+  color: #ccc;
 }
 .rss-read {
   color: grey;
