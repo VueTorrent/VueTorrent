@@ -17,11 +17,18 @@ export default class Status {
   upspeedRaw: number = 0
 
   constructor(in_state?: Optional<ServerState>) {
+    const previous = store.state.status
+
     if (!in_state) {
+      this.alltimeDownloaded = previous.alltimeDownloaded
+      this.alltimeUploaded = previous.alltimeUploaded
+      this.freeDiskSpace = previous.freeDiskSpace
+      this.sessionDownloaded = previous.sessionDownloaded
+      this.sessionUploaded = previous.sessionUploaded
+      
+      Object.freeze(this)
       return
     }
-
-    const previous = store.state.status
 
     this.alltimeDownloaded = in_state.alltime_dl || previous.alltimeDownloaded
     this.alltimeUploaded = in_state.alltime_ul || previous.alltimeUploaded
