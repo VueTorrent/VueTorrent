@@ -506,8 +506,9 @@
       "decrease": "Decrease"
     },
     "category": "Set Category",
+    "nocategory": "No Category",
     "tags": "Set Tags",
-    "notags": "No Tags",
+    "notags": "No Tag",
     "limit": "Set Limit",
     "copy": "Copy",
     "export": "Export Torrent | Export Torrents",

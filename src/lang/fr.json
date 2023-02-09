@@ -492,6 +492,7 @@
       "decrease": "Diminuer"
     },
     "category": "Définir la catégorie",
+    "nocategory": "Aucune catégorie",
     "tags": "Définir les tags",
     "notags": "Aucun tag",
     "limit": "Définir la limite",
