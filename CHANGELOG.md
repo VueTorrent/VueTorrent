@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.3.1](https://github.com/WDaan/VueTorrent/compare/v1.3.0...v1.3.1) (2023-02-08)
+
+
+### Bug Fixes
+
+* change rss-unread color from white to #ccc ([#643](https://github.com/WDaan/VueTorrent/issues/643)) [@hqwuzhaoyi](https://github.com/hqwuzhaoyi) ([dd02cdb](https://github.com/WDaan/VueTorrent/commit/dd02cdb564803495af0ea60a61c65562b3fe8ea5))
+* chart flickering ([#644](https://github.com/WDaan/VueTorrent/issues/644)) @Hans1208 ([5e3d6b7](https://github.com/WDaan/VueTorrent/commit/5e3d6b778892fc6b157ba533f288e77ceed091c7))
+
 ## [1.3.0](https://github.com/WDaan/VueTorrent/compare/v1.2.0...v1.3.0) (2023-02-07)
 
 
