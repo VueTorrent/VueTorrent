@@ -73,7 +73,7 @@
               </v-row>
 
               <v-combobox v-model="tags" :items="availableTags" clearable :label="$t('tags')" :prepend-icon="mdiTag" multiple chips />
-              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiShape" @input="categoryChanged" />
+              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiLabel" @input="categoryChanged" />
 
               <v-text-field
                 v-model="directory"
@@ -142,7 +142,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiCloudUpload, mdiFolder, mdiTag, mdiShape, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { mdiCloudUpload, mdiFolder, mdiTag, mdiLabel, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal, Modal } from '@/mixins'
 
 export default {
@@ -180,7 +180,7 @@ export default {
       mdiCloudUpload,
       mdiFolder,
       mdiTag,
-      mdiShape,
+      mdiLabel,
       mdiPaperclip,
       mdiLink,
       mdiClose

@@ -149,10 +149,10 @@
         {{ $t('rightClick.notags') | titleCase }}
       </v-list-item-title>
     </v-list-item>
-    <v-menu :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+    <v-menu v-if="availableCategories.length > 1" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
-          <v-icon>{{ mdiShape }}</v-icon>
+          <v-icon>{{ mdiLabel }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
             {{ $t('rightClick.category') | titleCase }}
           </v-list-item-title>
@@ -169,6 +169,12 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-list-item v-else>
+      <v-icon>{{ mdiLabelOff }}</v-icon>
+      <v-list-item-title class="ml-2 list-item__title">
+        {{ $t('rightClick.nocategory') | titleCase }}
+      </v-list-item-title>
+    </v-list-item>
     <v-menu v-if="!multiple" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -271,6 +277,8 @@ import {
   mdiFolder,
   mdiHeadCog,
   mdiInformation,
+  mdiLabel,
+  mdiLabelOff,
   mdiMagnet,
   mdiPause,
   mdiPlay,
@@ -279,7 +287,6 @@ import {
   mdiPriorityLow,
   mdiRenameBox,
   mdiSelect,
-  mdiShape,
   mdiSpeedometerSlow,
   mdiTag,
   mdiTagOff,
@@ -318,7 +325,8 @@ export default {
       mdiPriorityHigh,
       mdiBullhorn,
       mdiChevronRight,
-      mdiShape,
+      mdiLabel,
+      mdiLabelOff,
       mdiTag,
       mdiTagOff,
       mdiHeadCog,
