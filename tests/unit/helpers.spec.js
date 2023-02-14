@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { splitByUrl } from '../../src/helpers'
+import { splitByUrl } from '@/helpers'
 
 describe('Helpers', () => {
   describe('splitByUrl()', () => {

@@ -88,7 +88,7 @@ export default {
       //this.$store.commit('DELETE_MODAL', this.guid)
     },
     handleKeyboardShortcut(e) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         this.close()
       } else if (e.keyCode === 13) {
         this.rename()

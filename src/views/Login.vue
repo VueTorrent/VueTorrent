@@ -46,7 +46,7 @@
 
 <script>
 import { mdiLock, mdiAccount } from '@mdi/js'
-import { isAuthenticated } from '@/services/auth.js'
+import { isAuthenticated } from '@/services/auth.ts'
 
 export default {
   name: 'Login',

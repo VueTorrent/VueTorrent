@@ -83,7 +83,8 @@
       "pauseSelected": "Mettre en pause les torrents sélectionnés",
       "removeSelected": "Supprimer les torrents sélectionnés",
       "openSettings": "Ouvrir les paramètres",
-      "searchNew": "Rechercher un nouveau torrent"
+      "searchNew": "Rechercher un nouveau torrent",
+      "rssArticles": "Voir les articles des flux RSS"
     },
     "sessionStats": {
       "tooltip": "Depuis le dernier redémarrage de qBittorrent"
@@ -131,6 +132,21 @@
         "peers": "Pairs",
         "search_engine": "Moteur de recherche",
         "action": "Action"
+      }
+    },
+    "rss": {
+      "title": "Articles RSS",
+      "columnTitle": {
+        "feedName": "Nom du Flux",
+        "author": "Auteur",
+        "category": "Catégorie",
+        "date": "Date",
+        "description": "Description",
+        "id": "ID",
+        "link": "Lien",
+        "title": "Titre",
+        "torrentURL": "URL du torrent",
+        "actions": ""
       }
     },
     "settings": {
@@ -450,8 +466,10 @@
     "ruleSaved": "Règle enregistrée !",
     "renameFileFailed": "Impossible de renommer le fichier",
     "renameFolderFailed": "Impossible de renommer le dossier",
-    "copyNotSupported": "Impossible de copier, clipboard API indisponible dans ce navigateur",
-    "pasteNotSupported": "Impossible de coller, clipboard API indisponible dans ce navigateur"
+    "copySuccess": "Texte copié!",
+    "copyNotSupported": "Impossible de copier, Clipboard API indisponible dans ce navigateur",
+    "pasteSuccess": "Texte collé!",
+    "pasteNotSupported": "Impossible de coller, Clipboard API indisponible dans ce navigateur"
   },
   "rightClick": {
     "resume": "Reprendre",
@@ -474,10 +492,12 @@
       "decrease": "Diminuer"
     },
     "category": "Définir la catégorie",
+    "nocategory": "Aucune catégorie",
     "tags": "Définir les tags",
     "notags": "Aucun tag",
     "limit": "Définir la limite",
     "copy": "Copier",
+    "export": "Exporter le torrent | Exporter les torrents",
     "info": "Propriétés"
   }
 }

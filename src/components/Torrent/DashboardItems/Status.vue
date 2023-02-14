@@ -1,5 +1,5 @@
 <template>
-  <v-flex xs6 sm1 md1 class="mr-4">
+  <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
       {{ $t('status') }}
     </div>
@@ -8,20 +8,30 @@
     </v-chip>
   </v-flex>
 </template>
-<script>
+
+<script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
-export default {
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+import { TorrentState } from '@/enums/vuetorrent'
+
+export default defineComponent({
   name: 'Status',
   mixins: [TorrentDashboardItem],
-  props: ['torrent'],
+  props: {
+    torrent: Torrent
+  },
   computed: {
     stateString() {
+      if (!this.torrent) return TorrentState.UNKNOWN
+
+      let finalState = this.torrent.state.toString()
       if (this.torrent.forced) {
-        return `[F] ${this.torrent.state}`
+        finalState = `[F] ${finalState}`
       }
 
-      return this.torrent.state
+      return finalState
     }
   }
-}
+})
 </script>

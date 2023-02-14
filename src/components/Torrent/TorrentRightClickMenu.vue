@@ -149,10 +149,10 @@
         {{ $t('rightClick.notags') | titleCase }}
       </v-list-item-title>
     </v-list-item>
-    <v-menu :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+    <v-menu v-if="availableCategories.length > 1" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
-          <v-icon>{{ mdiShape }}</v-icon>
+          <v-icon>{{ mdiLabel }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
             {{ $t('rightClick.category') | titleCase }}
           </v-list-item-title>
@@ -169,6 +169,12 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-list-item v-else>
+      <v-icon>{{ mdiLabelOff }}</v-icon>
+      <v-list-item-title class="ml-2 list-item__title">
+        {{ $t('rightClick.nocategory') | titleCase }}
+      </v-list-item-title>
+    </v-list-item>
     <v-menu v-if="!multiple" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
@@ -235,6 +241,12 @@
         </v-list-item>
       </v-list>
     </v-menu>
+    <v-list-item link @click="exportTorrents">
+      <v-icon>{{ multiple ? mdiDownloadMultiple : mdiDownload }}</v-icon>
+      <v-list-item-title class="ml-2 list-item__title">
+        {{ $tc('rightClick.export', multiple ? 2 : 1) | titleCase }}
+      </v-list-item-title>
+    </v-list-item>
     <v-divider v-if="!multiple" />
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
@@ -265,6 +277,8 @@ import {
   mdiFolder,
   mdiHeadCog,
   mdiInformation,
+  mdiLabel,
+  mdiLabelOff,
   mdiMagnet,
   mdiPause,
   mdiPlay,
@@ -273,10 +287,11 @@ import {
   mdiPriorityLow,
   mdiRenameBox,
   mdiSelect,
-  mdiShape,
   mdiSpeedometerSlow,
   mdiTag,
-  mdiTagOff
+  mdiTagOff,
+  mdiDownload,
+  mdiDownloadMultiple
 } from '@mdi/js'
 
 export default {
@@ -310,7 +325,8 @@ export default {
       mdiPriorityHigh,
       mdiBullhorn,
       mdiChevronRight,
-      mdiShape,
+      mdiLabel,
+      mdiLabelOff,
       mdiTag,
       mdiTagOff,
       mdiHeadCog,
@@ -319,7 +335,9 @@ export default {
       mdiSpeedometerSlow,
       mdiChevronUp,
       mdiChevronDown,
-      mdiContentCopy
+      mdiContentCopy,
+      mdiDownload,
+      mdiDownloadMultiple
     }
   },
   computed: {
@@ -408,10 +426,10 @@ export default {
       else this.addTag(tag)
     },
     addTag(tag) {
-      qbit.addTorrentTag(this.hashes, tag)
+      qbit.addTorrentTag(this.hashes, [tag])
     },
     removeTag(tag) {
-      qbit.removeTorrentTag(this.hashes, tag)
+      qbit.removeTorrentTag(this.hashes, [tag])
     },
     toggleSeq() {
       qbit.toggleSequentialDownload(this.hashes)
@@ -432,13 +450,27 @@ export default {
         textArea.style.opacity = '0'
         document.body.appendChild(textArea)
         textArea.select()
-        try {
-          document.execCommand('copy')
-        } catch (err) {
-          console.error('Unable to copy to clipboard', err)
+        if (!document.execCommand('copy')) {
+          this.$toast.error(this.$t('toast.copyNotSupported').toString())
+          return
         }
         document.body.removeChild(textArea)
       }
+      this.$toast.success(this.$t('toast.copySuccess').toString())
+    },
+    async exportTorrents() {
+      this.hashes.forEach(hash => {
+        qbit.exportTorrent(hash).then(blob => {
+          const url = window.URL.createObjectURL(blob)
+          const link = document.createElement('a')
+          link.href = url
+          link.style.opacity = '0'
+          link.setAttribute('download', `${hash}.torrent`)
+          document.body.appendChild(link)
+          link.click()
+          document.body.removeChild(link)
+        })
+      })
     }
   }
 }

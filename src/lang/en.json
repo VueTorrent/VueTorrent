@@ -86,7 +86,9 @@
       "pauseSelected": "Pause selected torrents",
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
-      "searchNew": "Search new torrent"
+      "searchNew": "Search new torrent",
+      "rssArticles":  "View RSS feed articles",
+      "shutdownApp": "Shutdown Application"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -135,6 +137,21 @@
         "peers": "Peers",
         "search_engine": "Site",
         "action": ""
+      }
+    },
+    "rss": {
+      "title": "RSS Articles",
+      "columnTitle": {
+        "feedName": "Feed Name",
+        "author": "Author",
+        "category": "Category",
+        "date": "Date",
+        "description": "Description",
+        "id": "ID",
+        "link": "Link",
+        "title": "Title",
+        "torrentURL": "Torrent Download URL",
+        "actions": ""
       }
     },
     "settings": {
@@ -461,8 +478,12 @@
     "ruleSaved": "Rule saved!",
     "renameFileFailed": "Unable to rename file",
     "renameFolderFailed": "Unable to rename file",
+    "copySuccess": "Text copied!",
     "copyNotSupported": "Unable to copy, clipboard API unavailable on this browser",
-    "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser"
+    "pasteSuccess": "Text pasted!",
+    "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser",
+    "shutdownSuccess": "qBittorrent was shutdown successfully!",
+    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!"
   },
   "rightClick": {
     "resume": "resume",
@@ -485,10 +506,12 @@
       "decrease": "Decrease"
     },
     "category": "Set Category",
+    "nocategory": "No Category",
     "tags": "Set Tags",
-    "notags": "No Tags",
+    "notags": "No Tag",
     "limit": "Set Limit",
     "copy": "Copy",
+    "export": "Export Torrent | Export Torrents",
     "info": "Show Info"
   }
 }

@@ -1,5 +1,5 @@
 export async function setup() {
-  console.log('📝[vitest] globalSetup2.')
+  console.log('📝[vitest] globalSetup.')
 }
 
 export async function teardown() {

@@ -82,10 +82,10 @@ export default {
         return this.deleteTag(tag)
       }
 
-      return qbit.addTorrentTag([this.hash], tag)
+      return qbit.addTorrentTag([this.hash], [tag])
     },
     deleteTag(tag) {
-      qbit.removeTorrentTag([this.hash], tag)
+      qbit.removeTorrentTag([this.hash], [tag])
     },
     setCategory(cat) {
       if (this.torrent.category === cat.name) {

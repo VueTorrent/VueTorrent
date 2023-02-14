@@ -70,7 +70,7 @@ export default {
       return this.getWebuiSettings()
     },
     theme() {
-      return this.isDarkMode() ? this.$i18n.t('navbar.action.dark') : this.$i18n.t('navbar.action.light')
+      return this.isDarkMode() ? this.$t('navbar.action.dark') : this.$t('navbar.action.light')
     },
     alarm() {
       return this.getAlarm()

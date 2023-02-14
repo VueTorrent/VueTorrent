@@ -97,7 +97,7 @@ export default {
         GlobalVolume: i18n.t(`${localePrefix}.globalVolume`)
       }
 
-      properties.forEach(property => property.label = localeMap[property.name])
+      properties.forEach(property => (property.label = localeMap[property.name]))
       return properties
     }
   }

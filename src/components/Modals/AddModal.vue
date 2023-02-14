@@ -73,7 +73,7 @@
               </v-row>
 
               <v-combobox v-model="tags" :items="availableTags" clearable :label="$t('tags')" :prepend-icon="mdiTag" multiple chips />
-              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiShape" @input="categoryChanged" />
+              <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiLabel" @input="categoryChanged" />
 
               <v-text-field
                 v-model="directory"
@@ -142,7 +142,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiCloudUpload, mdiFolder, mdiTag, mdiShape, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
+import { mdiCloudUpload, mdiFolder, mdiTag, mdiLabel, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal, Modal } from '@/mixins'
 
 export default {
@@ -171,7 +171,7 @@ export default {
             else return /^.*\.torrent$/.test(f.name)
           })
 
-          return result ? result : this.$i18n.t('modals.add.oneOrMoreFilesInvalidTorrent')
+          return result ? result : this.$t('modals.add.oneOrMoreFilesInvalidTorrent')
         }
       ],
       loading: false,
@@ -180,7 +180,7 @@ export default {
       mdiCloudUpload,
       mdiFolder,
       mdiTag,
-      mdiShape,
+      mdiLabel,
       mdiPaperclip,
       mdiLink,
       mdiClose
@@ -241,19 +241,24 @@ export default {
     startDropFile() {
       this.showWrapDrag = true
     },
-    DragLeave(e) {
+    DragLeave() {
       this.showWrapDrag = false
     },
     closeWrap() {
       if (this.showWrapDrag) this.showWrapDrag = false
       else this.close()
     },
-    async paste() {
+    async paste(e) {
       if (navigator.clipboard && window.isSecureContext) {
         this.urls = await navigator.clipboard.readText()
       } else {
-        this.urls = document.execCommand('paste')
+        e.target.focus()
+        if (!document.execCommand('paste')) {
+          this.$toast.error(this.$t('toast.pasteNotSupported').toString())
+          return
+        }
       }
+      this.$toast.success(this.$t('toast.pasteSuccess').toString())
     },
     submit() {
       if (this.files.length || this.urls) {
@@ -295,7 +300,7 @@ export default {
       this.dialog = false
     },
     handleKeyboardShortcut(e) {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         this.close()
       }
     }

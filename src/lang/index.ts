@@ -14,7 +14,7 @@ import vi from './vi.json'
 import zh_hans from './zh-hans.json'
 import zh_hant from './zh-hant.json'
 
-export const messages = {
+export const messages: Record<Locales, any> = {
   [Locales.EN]: en,
   [Locales.ES]: es,
   [Locales.FR]: fr,

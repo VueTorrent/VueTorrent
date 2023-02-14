@@ -32,7 +32,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.removeSelected')" v-on="on" @click="removeTorrents">
+        <v-btn :text="!mobile" small fab class="mr-0 ml-0" :aria-label="$t('navbar.topActions.removeSelected')" v-on="on" @click="removeTorrents">
           <v-icon color="grey">
             {{ mdiDelete }}
           </v-icon>
@@ -52,6 +52,16 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.rssArticles')" v-on="on" @click="goToRss">
+          <v-icon color="grey">
+            {{ mdiRss }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>{{ $t('navbar.topActions.rssArticles') }}</span>
+    </v-tooltip>
+    <v-tooltip bottom open-delay="400">
+      <template #activator="{ on }">
         <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.openSettings')" v-on="on" @click="goToSettings">
           <v-icon color="grey">
             {{ mdiCog }}
@@ -60,6 +70,16 @@
       </template>
       <span>{{ $t('navbar.topActions.openSettings') }}</span>
     </v-tooltip>
+    <v-tooltip bottom open-delay="400">
+      <template #activator="{ on }">
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.shutdownApp')" v-on="on" @click="shutdownApplication">
+          <v-icon color="grey">
+            {{ mdiPower }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>{{ $t('navbar.topActions.shutdownApp') }}</span>
+    </v-tooltip>
   </div>
 </template>
 
@@ -67,7 +87,7 @@
 import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause } from '@mdi/js'
+import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause, mdiRss, mdiPower } from '@mdi/js'
 
 export default {
   name: 'TopActions',
@@ -76,15 +96,17 @@ export default {
   data() {
     return {
       fab: false,
-      mdiSort,
-      mdiPlus,
-      mdiSearchWeb,
-      mdiPlay,
-      mdiPause,
-      mdiDelete,
-      mdiCog,
+      mdiCheckboxBlankOutline,
       mdiCheckboxMarked,
-      mdiCheckboxBlankOutline
+      mdiCog,
+      mdiDelete,
+      mdiPause,
+      mdiPlay,
+      mdiPlus,
+      mdiPower,
+      mdiRss,
+      mdiSearchWeb,
+      mdiSort
     }
   },
   computed: {
@@ -105,8 +127,21 @@ export default {
     addModal(name) {
       this.createModal(name)
     },
+    goToRss() {
+      if (this.$route.name !== 'rss') this.$router.push({ name: 'rss' })
+    },
     goToSettings() {
       if (this.$route.name !== 'settings') this.$router.push({ name: 'settings' })
+    },
+    async shutdownApplication() {
+      if (!await qbit.shutdownApp()) {
+        this.$toast.error(this.$t('toast.shutdownError').toString())
+        return
+      }
+
+      this.$store.state.authenticated = false
+      await this.$router.push({name: 'login'})
+      this.$toast.success(this.$t("toast.shutdownSuccess").toString())
     }
   }
 }
