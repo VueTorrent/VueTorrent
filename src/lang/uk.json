@@ -1,18 +1,18 @@
 {
   "category": "Категорії",
-  "settings": "налаштування",
-  "pause": "пауза",
-  "delete": "видалити",
-  "save": "зберегти",
-  "cancel": "відмінити",
-  "confirm": "підтвердити",
+  "settings": "Налаштування",
+  "pause": "Пауза",
+  "delete": "Видалити",
+  "save": "Зберегти",
+  "cancel": "Відмінити",
+  "confirm": "Підтвердити",
   "edit": "Редагувати",
   "createNew": "Створити новий",
   "path": "Шлях",
   "create": "Створити",
   "url": "URL",
   "directory": "Тека",
-  "unknown": "невідомий",
+  "unknown": "Невідомий",
   "status": "Стан",
   "all": "Все",
   "downloading": "Завантажуються",
@@ -26,10 +26,12 @@
   "errored": "З помилками",
   "login": "Увійти",
   "logout": "Вийти",
-  "downloaded": "Завантажено",
-  "uploaded": "Вивантажено",
-  "upload": "Вивантаження",
   "download": "Завантаження",
+  "downloaded": "Завантажено",
+  "upload": "Вивантаження",
+  "uploaded": "Вивантажено",
+  "globalSpeed": "Загальна швидкість",
+  "globalVolume": "Загальний об'єм",
   "ETA": "ОЧЗ",
   "peers": "Піри",
   "ratio": "Співвідношення",
@@ -40,9 +42,9 @@
   "name": "Ім'я",
   "hash": "Хеш",
   "magnet": "Магнет",
-  "feed": "стрічка",
-  "rule": "правило",
-  "then": "тоді",
+  "feed": "Стрічка",
+  "rule": "Правило",
+  "then": "Тоді",
   "of": "з",
   "dashboard": {
     "tooltips": {
@@ -55,34 +57,38 @@
     "emptyTorrentList": "Тут нічого нема, спробуй додати торрент!"
   },
   "torrent": {
-    "title": "заголовок",
-    "added": "додано о:",
-    "availability": "доступність",
-    "size": "розмір",
-    "progress": "прогрес",
-    "directory": "тека",
-    "downloaded": "завантажено",
+    "title": "Заголовок",
+    "added": "Додано о:",
+    "availability": "Доступність",
+    "size": "Розмір",
+    "progress": "Поступ",
+    "directory": "Тека",
+    "downloaded": "Завантажено",
     "uploaded": "Вивантажено",
-    "created": "створено",
-    "comments": "примітки",
+    "created": "Створено",
+    "comments": "Примітки",
     "uploadedSession": "Завантажено за сесію",
     "timeActive": "Часу активно ",
-    "seededFor": "роздано для",
-    "last_activity": "остання активність",
-    "completed_on": "Виконано о"
+    "seededFor": "Час роздачі",
+    "last_activity": "Остання активність",
+    "completed_on": "Виконано о",
+    "globalSpeed": "Загальна швидкість",
+    "globalVolume": "Загальний об'єм"
   },
   "navbar": {
-    "currentSpeed": "поточна швидкість",
+    "currentSpeed": "Поточна швидкість",
     "alltimeTitle": "Статистика за весь час",
     "sessionTitle": "Статистика сесії",
-    "freeSpace": "вільне місце",
+    "freeSpace": "Вільне місце",
     "topActions": {
-      "addTorrent": "додати торрент",
-      "resumeSelected": "відновити вибрані торенти",
-      "pauseSelected": "призупинити вибрані торенти",
-      "removeSelected": "видалити вибрані торенти",
-      "openSettings": "відкрити налаштування",
-      "searchNew": "шукати нові торенти"
+      "addTorrent": "Додати торрент",
+      "resumeSelected": "Відновити вибрані торенти",
+      "pauseSelected": "Призупинити вибрані торенти",
+      "removeSelected": "Видалити вибрані торенти",
+      "openSettings": "Відкрити налаштування",
+      "searchNew": "Шукати нові торенти",
+      "rssArticles":  "Переглянути заголовки RSS-стрічок",
+      "shutdownApp": "Завершити роботу"
     },
     "sessionStats": {
       "tooltip": "З моменту останнього перезапуску qBittorrent"
@@ -112,6 +118,8 @@
       "name": "Ім'я",
       "def": {
         "mustContain": "Має містити",
+        "mustNotContain": "Не повинно містити",
+        "useRegex": "Використати регулярний вираз",
         "affectedFeeds": "Застосувати правило до стрічок"
       }
     },
@@ -128,7 +136,22 @@
         "seeds": "Сіди",
         "peers": "Піри",
         "search_engine": "Пошуковий двигун",
-        "action": "Дії"
+        "action": ""
+      }
+    },
+    "rss": {
+      "title": "Заголовки RSS",
+      "columnTitle": {
+        "feedName": "Назва стрічки",
+        "author": "Автор",
+        "category": "Категорія",
+        "date": "Дата",
+        "description": "Опис",
+        "id": "Ідентифікатор",
+        "link": "Посилання",
+        "title": "Заголовок",
+        "torrentURL": "URL завантаження торренту",
+        "actions": ""
       }
     },
     "settings": {
@@ -181,7 +204,7 @@
             "last_activity": "Остання активність",
             "рeers": "Піри",
             "seeds": "Сіди",
-            "priority": "Приоритет",
+            "priority": "Пріоритет",
             "progress": "Поступ",
             "ratio": "Співвідношення",
             "save_path": "Тека",
@@ -191,7 +214,9 @@
             "addedOn": "Додано о",
             "downloadSpeed": "Швидкість завантаження",
             "timeActive": "Час активності",
-            "uploadSpeed": "Швидкість вивантаження"
+            "uploadSpeed": "Швидкість вивантаження",
+            "globalSpeed": "Загальна швидкість",
+            "globalVolume": "Загальний об'єм"
           }
         }
       },
@@ -226,6 +251,7 @@
           "supportParamC": "%C: Кількість файлів",
           "supportParamZ": "%Z: Розмір торренту (в байтах)",
           "supportParamT": "%T: Поточний трекер",
+          "supportParamI": "%I: Хеш інформації v1",
           "supportParamI": "%I: Хеш інформації v2",
           "supportParamK": "%K: ID торренту"
         }
@@ -310,7 +336,7 @@
       },
       "pageTagsAndCategories": {
         "btnCreateNew": "Створити категорію",
-        "subHeaderTags": "Доступні теги:",
+        "subHeaderTags": "Доступні мітки:",
         "subHeaderCategories": "Доступні категорії:"
       }
     },
@@ -326,12 +352,12 @@
     "newCategory": {
       "categoryName": "Назва категорії",
       "Path": "Шлях",
-      "tipOnNoName": "Потрібна назва категорії",
-      "tipOnNoPath": "Потрібний шлях"
+      "tipOnNoName": "Вкажіть назву категорії",
+      "tipOnNoPath": "Вкажіть шлях до теки"
     },
     "newTag": {
-      "createNewTag": "Створити новий тег",
-      "tagName": "Назва тегу"
+      "createNewTag": "Створити нову мітку",
+      "tagName": "Назва мітки"
     },
     "detail": {
       "title": "Деталі",
@@ -339,11 +365,11 @@
       "tabTitleTrackers": "Трекери",
       "tabTitlePeers": "Піри",
       "tabTitleContent": "Вміст",
-      "tabTitleTagsCategories": "Теги та категорії",
+      "tabTitleTagsCategories": "Мітки та категорії",
       "pageInfo": {
-        "pieceStates": "Прогрес",
+        "pieceStates": "Поступ",
         "torrentTitle": "Назва",
-        "hash": "хеш",
+        "hash": "Хеш",
         "ratio": "Співвідношення",
         "downloadSpeed": "Швидкість завантаження",
         "uploadSpeed": "Швидкість вивантаження",
@@ -366,16 +392,16 @@
         "connection": "Підключення",
         "flags": "Прапорці",
         "client": "Клієнт",
-        "progress": "Прогрес",
-        "downloadSpeed": "Швидкість зав.",
-        "downloaded": "Завант.",
-        "upSpeed": "Швидкість вивант.",
-        "uploaded": "Вивант.",
+        "progress": "Поступ",
+        "downloadSpeed": "Швидкість завантаження",
+        "downloaded": "Завантажено",
+        "upSpeed": "Швидкість вивантаження",
+        "uploaded": "Вивантажено",
         "relevance": "Відповідність",
         "files": "Файли"
       },
       "pageTagsAndCategories": {
-        "subHeaderTag": "Доступні теги:",
+        "subHeaderTag": "Доступні мітки:",
         "subHeaderCategories": "Доступні категорії:"
       },
       "pageTrackers": {
@@ -431,7 +457,9 @@
         "addOn": "Додано",
         "downloadSpeed": "Швидкість завантаження",
         "timeActive": "Час активний",
-        "uploadSpeed": "Швидкість вивантаження"
+        "uploadSpeed": "Швидкість вивантаження",
+        "globalSpeed": "Загальна швидкість",
+        "globalVolume": "Загальний об'єм"
       }
     },
     "speedLimit": {
@@ -449,7 +477,13 @@
     "feedSaved": "Стрічка збережена успішно!",
     "ruleSaved": "Правило збережено!",
     "renameFileFailed": "Не можу перейменувати файл",
-    "renameFolderFailed": "Не можу перейменувати теку"
+    "renameFolderFailed": "Не можу перейменувати теку",
+    "copySuccess": "Текст скопійовано!",
+    "copyNotSupported": "Неможливо скопійювати, буфер API недоступний в цьому браузері",
+    "pasteSuccess": "Текст вставлено!",
+    "pasteNotSupported": "Неможливо вставити, буфер API недоступний в цьому браузері",
+    "shutdownSuccess": "qBittorrent було вимкнено успішно!",
+    "shutdownError": "Неможливо завершити застосунок. Переконайтеся, що qBittorrent запущено!"
   },
   "rightClick": {
     "resume": "відновити",
@@ -472,10 +506,12 @@
       "decrease": "Зменшити"
     },
     "category": "Встановити категорію",
+    "nocategory": "Без категорії",
     "tags": "Встановити мітки",
     "notags": "Без міток",
     "limit": "Встановити ліміт",
     "copy": "Копіювати",
+    "export": "Експортувати торент | Експортувати торенти",
     "info": "Деталі"
   }
 }
