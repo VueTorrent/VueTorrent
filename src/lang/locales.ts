@@ -29,7 +29,7 @@ export const LOCALES: LocaleDef[] = [
   { value: Locales.NL, caption: 'Dutch' },
   { value: Locales.PT_BR, caption: 'Português' },
   { value: Locales.RU, caption: 'Русский язык' },
-  { value: Locales.UK, caption: 'українська мова' },
+  { value: Locales.UK, caption: 'Українська' },
   { value: Locales.VI, caption: 'Tiếng Việt' },
   { value: Locales.ZH_HANS, caption: '汉语' },
   { value: Locales.ZH_HANT, caption: '漢語' }
