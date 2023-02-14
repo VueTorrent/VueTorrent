@@ -26,6 +26,7 @@
   "errored": "Erreur",
   "login": "Se Connecter",
   "logout": "Se Déconnecter",
+  "shutdownApp": "Eteindre l'Appli",
   "download": "Téléchargement",
   "downloaded": "Téléchargé",
   "upload": "Téléversement",
@@ -43,6 +44,8 @@
   "feed": "Flux",
   "rule": "Règles",
   "then": "Alors",
+  "yes": "oui",
+  "no": "non",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Rechercher un torrent",
@@ -455,6 +458,10 @@
     },
     "delete": {
       "check": "Supprimer également les fichiers du disque"
+    },
+    "shutdown": {
+      "title": "Eteindre qBittorrent",
+      "content": "Voulez-vous vraiment éteindre qBittorrent ?"
     }
   },
   "toast": {

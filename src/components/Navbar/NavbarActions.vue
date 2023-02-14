@@ -39,25 +39,40 @@
         <span>{{ theme }}</span>
       </v-tooltip>
     </v-col>
+    <v-col>
+      <v-tooltip top>
+        <template #activator="{ on }">
+          <v-btn text tile block v-on="on" @click="createModal('ConfirmShutdownModal')">
+            <v-icon :class="commonStyle">
+              {{ mdiPower }}
+            </v-icon>
+          </v-btn>
+        </template>
+        <span>{{ $t('shutdownApp') }}</span>
+      </v-tooltip>
+    </v-col>
   </v-row>
 </template>
 
 <script>
 import qbit from '@/services/qbit'
 import { mapGetters, mapState } from 'vuex'
-import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
+import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiPower, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
 import ConnectionStatus from './ConnectionStatus.vue'
+import {General} from "@/mixins"
 
 export default {
   name: 'BottomActions',
   components: {
     ConnectionStatus
   },
+  mixins: [General],
   data: () => ({
     commonStyle: 'white--text',
     mdiBrightness4,
     mdiBrightness7,
     mdiSpeedometer,
+    mdiPower,
     mdiExitToApp,
     mdiSpeedometerSlow,
     mdiBell,
@@ -65,15 +80,12 @@ export default {
   }),
   computed: {
     ...mapState(['webuiSettings']),
-    ...mapGetters(['isDarkMode', 'getWebuiSettings', 'getStatus', 'getAlarm']),
+    ...mapGetters(['isDarkMode', 'getWebuiSettings', 'getStatus']),
     webuiSettings() {
       return this.getWebuiSettings()
     },
     theme() {
       return this.isDarkMode() ? this.$t('navbar.action.dark') : this.$t('navbar.action.light')
-    },
-    alarm() {
-      return this.getAlarm()
     },
     status() {
       return this.getStatus()
