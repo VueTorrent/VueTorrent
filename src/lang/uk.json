@@ -90,7 +90,7 @@
       "removeSelected": "Видалити вибрані торенти",
       "openSettings": "Відкрити налаштування",
       "searchNew": "Шукати нові торенти",
-      "rssArticles":  "Переглянути заголовки RSS-стрічок",
+      "rssArticles":  "Переглянути заголовки RSS-стрічок"
     },
     "sessionStats": {
       "tooltip": "З моменту останнього перезапуску qBittorrent"
