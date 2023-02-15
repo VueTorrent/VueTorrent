@@ -37,7 +37,7 @@
           :mobile-breakpoint="0"
         >
           <template #top>
-            <v-text-field ref="filterRef" v-model="filter" label="Filter" class="mx-4" />
+            <v-text-field ref="filterRef" v-model="filter" :label="$t('filter')" class="mx-4" />
           </template>
           <template #[`item.fileName`]="{ item }">
             <a :href="item.descrLink" target="_blank" v-text="item.fileName" />

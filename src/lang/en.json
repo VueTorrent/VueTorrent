@@ -49,6 +49,7 @@
   "of": "of",
   "yes": "yes",
   "no": "no",
+  "filter": "Filter",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
@@ -143,6 +144,7 @@
     },
     "rss": {
       "title": "RSS Articles",
+      "filterRead": "Unread articles only",
       "columnTitle": {
         "feedName": "Feed Name",
         "author": "Author",
