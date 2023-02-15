@@ -26,6 +26,7 @@
   "errored": "Errored",
   "login": "Login in",
   "logout": "Log out",
+  "shutdownApp": "Shutdown Application",
   "download": "Download",
   "downloaded": "Downloaded",
   "upload": "Upload",
@@ -46,6 +47,8 @@
   "rule": "Rule",
   "then": "Then",
   "of": "of",
+  "yes": "yes",
+  "no": "no",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
@@ -87,8 +90,7 @@
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
       "searchNew": "Search new torrent",
-      "rssArticles":  "View RSS feed articles",
-      "shutdownApp": "Shutdown Application"
+      "rssArticles":  "View RSS feed articles"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -467,6 +469,10 @@
     },
     "delete": {
       "check": "Also delete files from storage"
+    },
+    "shutdown": {
+      "title": "Shutdown qBittorrent",
+      "content": "Do you really want to shutdown qBittorrent?"
     }
   },
   "toast": {
