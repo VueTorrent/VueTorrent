@@ -103,7 +103,7 @@ export default defineComponent({
       ;(this.rss as RssState).feeds.forEach((feed: Feed) => {
         feed.articles && articles.push(...feed.articles.map(article => ({ feedName: feed.name, parsedDate: new Date(article.date), ...article })))
       })
-      return articles
+      return articles.filter(article => (this.filterUnread ? !article.isRead : true))
     }
   },
   methods: {
@@ -112,7 +112,7 @@ export default defineComponent({
     },
     customFilter(value: string, query: string, item?: any): boolean {
       const article = item as FeedArticle
-      return article.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 && (this.filterUnread ? !article.isRead : true)
+      return article.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
     },
     getRowStyle(item: FeedArticle) {
       return item.isRead ? 'rss-read' : 'rss-unread'
