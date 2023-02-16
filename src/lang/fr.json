@@ -46,6 +46,7 @@
   "then": "Alors",
   "yes": "oui",
   "no": "non",
+  "filter": "Filtre",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Rechercher un torrent",
@@ -139,6 +140,7 @@
     },
     "rss": {
       "title": "Articles RSS",
+      "filterUnread": "Articles non-lu uniquement",
       "columnTitle": {
         "feedName": "Nom du Flux",
         "author": "Auteur",
