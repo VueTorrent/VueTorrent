@@ -126,8 +126,15 @@ exports[`General > render correctly 1`] = `
         </a></v-col-stub>
     </v-row-stub>
   </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-textarea-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"\\" backgroundcolor=\\"\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" type=\\"text\\" rowheight=\\"24\\" rows=\\"5\\"></v-textarea-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"remove-after justify-content-evenly\\">
+    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+  </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"justify-center pb-2\\">
-    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"> </v-btn-stub>
+    <v-btn-stub data-v-7da6d3e2=\\"\\" color=\\"red\\" dark=\\"true\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
