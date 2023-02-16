@@ -26,6 +26,7 @@
   "errored": "З помилками",
   "login": "Увійти",
   "logout": "Вийти",
+  "shutdownApp": "Закрити застосунок",
   "download": "Завантаження",
   "downloaded": "Завантажено",
   "upload": "Вивантаження",
@@ -36,7 +37,7 @@
   "peers": "Піри",
   "ratio": "Співвідношення",
   "seeds": "Сіди",
-  "tags": "Теги",
+  "tags": "Мітки",
   "tracker": "Трекер",
   "share": "Поділитися",
   "name": "Ім'я",
@@ -46,6 +47,8 @@
   "rule": "Правило",
   "then": "Тоді",
   "of": "з",
+  "yes": "Так",
+  "no": "Ні",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Увімкнути фільтр пошуку",
@@ -87,8 +90,7 @@
       "removeSelected": "Видалити вибрані торенти",
       "openSettings": "Відкрити налаштування",
       "searchNew": "Шукати нові торенти",
-      "rssArticles":  "Переглянути заголовки RSS-стрічок",
-      "shutdownApp": "Завершити роботу"
+      "rssArticles":  "Переглянути заголовки RSS-стрічок"
     },
     "sessionStats": {
       "tooltip": "З моменту останнього перезапуску qBittorrent"
@@ -467,6 +469,10 @@
     },
     "delete": {
       "check": "Також видалити файли зі сховища"
+    },
+    "shutdown": {
+      "title": "Вимкнути qBittorrent",
+      "content": "Ви справді хочете вимкнути qBittorrent?"
     }
   },
   "toast": {
