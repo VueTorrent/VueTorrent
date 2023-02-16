@@ -74,7 +74,8 @@ export default {
     refreshTimer: '',
     peersObj: null,
     newPeers: '',
-    selectedPeers: []
+    selectedPeers: [],
+    isWindows
   }),
   computed: {
     rid: {
@@ -107,26 +108,19 @@ export default {
   watch: {
     isActive(active) {
       if (active) {
-        this.getTorrentPeers()
-        this.refreshTimer = setInterval(
-          function () {
-            this.getTorrentPeers()
-          }.bind(this),
-          2000
-        )
+        this.refreshTimer = setInterval(() => this.getTorrentPeers(), 2000)
       } else {
-        clearTimeout(this.refreshTimer)
+        clearInterval(this.refreshTimer)
       }
     }
   },
   created() {},
-  beforeDestroy() {},
+  beforeDestroy() {
+    clearInterval(this.refreshTimer)
+  },
   methods: {
     codeToFlag(val) {
       return codeToFlag(val)
-    },
-    isWindows() {
-      return isWindows()
     },
     async getTorrentPeers() {
       const data = await qbit.getTorrentPeers(this.hash, this.rid + 1 || undefined)
@@ -141,7 +135,7 @@ export default {
         return
       }
 
-      qbit.addTorrentPeers([this.hash], this.newPeers.split('\n'))
+      await qbit.addTorrentPeers([this.hash], this.newPeers.split('\n'))
       this.newPeers = ''
       await this.getTorrentPeers()
       this.peersDialog = false
@@ -153,7 +147,7 @@ export default {
     async banPeers() {
       if (this.selectedPeers.length === 0) return
 
-      qbit.banPeers(this.selectedPeers)
+      await qbit.banPeers(this.selectedPeers)
       this.selectedPeers = []
       await this.getTorrentPeers()
     }
