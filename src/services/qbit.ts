@@ -118,6 +118,7 @@ export class QBitApi {
     return this.axios.get('/sync/torrentPeers', {
       params: { hash, rid }
     })
+      .then(r => r.data)
   }
 
   async setTorrentName(hash: string, name: string): Promise<void> {
