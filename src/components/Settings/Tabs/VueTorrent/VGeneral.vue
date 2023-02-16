@@ -254,6 +254,13 @@ export default {
       this.Qbitversion = await Qbit.getAppVersion()
     },
     importSettings() {
+      try {
+        const userState = JSON.parse(this.settingsField)
+      } catch (e) {
+        alert('Invalid JSON!')
+        return
+      }
+
       window.localStorage.setItem('vuetorrent', this.settingsField)
       location.reload()
     },
