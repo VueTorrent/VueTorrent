@@ -507,7 +507,8 @@
     "pasteSuccess": "Text pasted!",
     "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser",
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
-    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!"
+    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
+    "invalidJson": "Invalid JSON!"
   },
   "rightClick": {
     "resume": "resume",

@@ -257,7 +257,7 @@ export default {
       try {
         const userState = JSON.parse(this.settingsField)
       } catch (e) {
-        alert('Invalid JSON!')
+        this.$toast.error(this.$t('toast.invalidJson').toString())
         return
       }
 
