@@ -1,36 +1,38 @@
 <template>
   <v-card flat>
     <v-card-text class="pa-0">
-      <v-data-table v-if="peers" v-model="selectedPeers" dense show-select :headers="headers" :items="peers" :items-per-page="-1" item-key="key" mobile-breakpoint="0">
+      <v-data-table v-if="peers" v-model="selectedPeers" dense show-select :headers="headers" :items="peers"
+                    :items-per-page="-1" item-key="key" mobile-breakpoint="0">
         <template #body="{ items }">
           <tbody>
-            <tr v-for="item in items" :key="item.key">
-              <td>
-                <v-checkbox v-model="selectedPeers" :value="item.key" hide-details class="pa-0 ma-0" color="accent" />
-              </td>
-              <td class="ip">
-                <template v-if="item.country_code">
-                  <img v-if="isWindows" class="country-flag" :title="item.country" :alt="codeToFlag(item.country_code).char" :src="codeToFlag(item.country_code).url" />
-                  <template v-else>
-                    {{ codeToFlag(item.country_code).char }}
-                  </template>
+          <tr v-for="item in items" :key="item.key">
+            <td>
+              <v-checkbox v-model="selectedPeers" :value="item.key" hide-details class="pa-0 ma-0" color="accent"/>
+            </td>
+            <td class="ip">
+              <template v-if="item.country_code">
+                <img v-if="isWindows" class="country-flag" :title="item.country"
+                     :alt="codeToFlag(item.country_code).char" :src="codeToFlag(item.country_code).url"/>
+                <template v-else>
+                  {{ codeToFlag(item.country_code).char }}
                 </template>
-                {{ item.ip }}
-                <span class="grey--text">:{{ item.port }}</span>
-              </td>
-              <td>{{ item.connection }}</td>
-              <td :title="item.flags_desc">
-                {{ item.flags }}
-              </td>
-              <td>{{ item.client }}</td>
-              <td>{{ item.progress | progress }}</td>
-              <td>{{ item.dl_speed | networkSpeed }}</td>
-              <td>{{ item.downloaded | networkSize }}</td>
-              <td>{{ item.up_speed | networkSpeed }}</td>
-              <td>{{ item.uploaded | networkSize }}</td>
-              <td>{{ item.relevance | progress }}</td>
-              <td>{{ item.files }}</td>
-            </tr>
+              </template>
+              {{ item.ip }}
+              <span class="grey--text">:{{ item.port }}</span>
+            </td>
+            <td>{{ item.connection }}</td>
+            <td :title="item.flags_desc">
+              {{ item.flags }}
+            </td>
+            <td>{{ item.client }}</td>
+            <td>{{ item.progress | progress }}</td>
+            <td>{{ item.dl_speed | networkSpeed }}</td>
+            <td>{{ item.downloaded | networkSize }}</td>
+            <td>{{ item.up_speed | networkSpeed }}</td>
+            <td>{{ item.uploaded | networkSize }}</td>
+            <td>{{ item.relevance | progress }}</td>
+            <td>{{ item.files }}</td>
+          </tr>
           </tbody>
         </template>
       </v-data-table>
@@ -46,10 +48,11 @@
             <h3>Add Peers</h3>
           </v-card-title>
           <v-card-text>
-            <v-textarea v-model="newPeers" label="Peers" rows="1" required autofocus auto-grow clearable hint="One link per line" />
+            <v-textarea v-model="newPeers" label="Peers" rows="1" required autofocus auto-grow clearable
+                        hint="One link per line"/>
           </v-card-text>
           <v-card-actions>
-            <v-spacer />
+            <v-spacer/>
             <v-btn color="red darken-1" text @click="closeAddPeers">Cancel</v-btn>
             <v-btn color="green darken-1" text @click="addPeers">Add</v-btn>
           </v-card-actions>
@@ -70,21 +73,15 @@ export default {
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
   data: () => ({
+    rid: 0,
     peersDialog: false,
     refreshTimer: '',
     peersObj: null,
     newPeers: '',
-    selectedPeers: []
+    selectedPeers: [],
+    isWindows
   }),
   computed: {
-    rid: {
-      get() {
-        return this.$store.state.rid
-      },
-      set(val) {
-        this.$store.state.rid = val
-      }
-    },
     peers() {
       return map(this.peersObj, (value, key) => merge({}, value, { key }))
     },
@@ -107,32 +104,24 @@ export default {
   watch: {
     isActive(active) {
       if (active) {
-        this.getTorrentPeers()
-        this.refreshTimer = setInterval(
-          function () {
-            this.getTorrentPeers()
-          }.bind(this),
-          2000
-        )
+        this.refreshTimer = setInterval(() => this.getTorrentPeers(), 2000)
       } else {
-        clearTimeout(this.refreshTimer)
+        clearInterval(this.refreshTimer)
       }
     }
   },
   created() {},
-  beforeDestroy() {},
+  beforeDestroy() {
+    clearInterval(this.refreshTimer)
+  },
   methods: {
     codeToFlag(val) {
       return codeToFlag(val)
-    },
-    isWindows() {
-      return isWindows()
     },
     async getTorrentPeers() {
       const data = await qbit.getTorrentPeers(this.hash, this.rid + 1 || undefined)
 
       this.rid = data.rid
-
       this.peersObj = data.peers
     },
     async addPeers() {
@@ -141,9 +130,8 @@ export default {
         return
       }
 
-      qbit.addTorrentPeers([this.hash], this.newPeers.split('\n'))
+      await qbit.addTorrentPeers([this.hash], this.newPeers.split('\n'))
       this.newPeers = ''
-      await this.getTorrentPeers()
       this.peersDialog = false
     },
     closeAddPeers() {
@@ -153,9 +141,8 @@ export default {
     async banPeers() {
       if (this.selectedPeers.length === 0) return
 
-      qbit.banPeers(this.selectedPeers)
+      await qbit.banPeers(this.selectedPeers)
       this.selectedPeers = []
-      await this.getTorrentPeers()
     }
   }
 }
@@ -183,13 +170,16 @@ export default {
   &:first-child {
     padding: 0 0 0 8px !important;
   }
+
   &:last-child {
     padding-right: 8px !important;
   }
 }
+
 :deep(.v-data-table-header) {
   white-space: nowrap;
 }
+
 :deep(td) {
   white-space: nowrap;
 }
