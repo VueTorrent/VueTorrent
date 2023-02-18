@@ -157,6 +157,7 @@ import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
 import { mdiCloudUpload, mdiFolder, mdiTag, mdiLabel, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
 import { FullScreenModal, Modal } from '@/mixins'
+import {ContentLayout, StopCondition} from '@/enums/qbit'
 
 export default {
   name: 'AddModal',
@@ -175,15 +176,15 @@ export default {
       skip_checking: false,
       contentLayout: 'Original',
       contentLayoutOptions: [
-        {text: this.$t('modals.add.contentLayoutOptions.original'), value: 'Original'},
-        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: 'Subfolder'},
-        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: 'NoSubfolder'}
+        {text: this.$t('modals.add.contentLayoutOptions.original'), value: ContentLayout.ORIGINAL},
+        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: ContentLayout.SUBFOLDER},
+        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: ContentLayout.NO_SUBFOLDER}
       ],
       stopCondition: 'None',
       stopConditionOptions: [
-        {text: this.$t('modals.add.stopConditionOptions.none'), value: 'None'},
-        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: 'MetadataReceived'},
-        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: 'FilesChecked'},
+        {text: this.$t('modals.add.stopConditionOptions.none'), value: StopCondition.NONE},
+        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: StopCondition.METADATA_RECEIVED},
+        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: StopCondition.FILES_CHECKED},
       ],
       autoTMM: true,
       sequentialDownload: false,
