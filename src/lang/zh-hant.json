@@ -396,7 +396,6 @@
       "downloadDirectory": "下載目錄",
       "starttorrent": "新增後開始",
       "skipHashCheck": "跳過雜湊值檢",
-      "createSubfolder": "建立子資料夾",
       "automaticTorrentManagement": "自動種子管理 (ATM)",
       "dropHereForAdd": "拖拽至此處新增",
       "oneOrMoreFilesInvalidTorrent": "存在無效的種子檔案"

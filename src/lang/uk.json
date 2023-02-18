@@ -254,7 +254,7 @@
           "supportParamZ": "%Z: Розмір торренту (в байтах)",
           "supportParamT": "%T: Поточний трекер",
           "supportParamI": "%I: Хеш інформації v1",
-          "supportParamI": "%I: Хеш інформації v2",
+          "supportParamJ": "%J: Хеш інформації v2",
           "supportParamK": "%K: ID торренту"
         }
       },
@@ -423,7 +423,6 @@
       "downloadDirectory": "Завантажити теку",
       "starttorrent": "Запустити торрент",
       "skipHashCheck": "Пропустити перевірку хешування",
-      "createSubfolder": "Створити підпапку",
       "automaticTorrentManagement": "Автоматичне керування торрентами",
       "dropHereForAdd": "Перетягнути для додавання",
       "oneOrMoreFilesInvalidTorrent": "Один або кілька файлів не є дійсним торрентом"

@@ -83,15 +83,28 @@
                 autocomplete="download-directory"
                 name="download-directory"
               />
+
+              <v-row no-gutters class="flex-gap">
+                <v-col>
+                  <div class="d-flex flex-column align-center">
+                    <p class="subtitle-1 mb-1">{{ $t('modals.add.contentLayout') }}</p>
+                    <v-select v-model="contentLayout" :label="$t('modals.add.contentLayout')" flat solo dense hide-details background-color="background" class="rounded-xl" :items="contentLayoutOptions" />
+                  </div>
+                </v-col>
+                <v-col>
+                  <div class="d-flex flex-column align-center">
+                    <p class="subtitle-1 mb-1">{{ $t('modals.add.stopCondition') }}</p>
+                    <v-select v-model="stopCondition" :label="$t('modals.add.stopCondition')" flat solo dense hide-details background-color="background" class="rounded-xl" :items="stopConditionOptions" />
+                  </div>
+                </v-col>
+              </v-row>
+
               <v-row no-gutters>
                 <v-flex xs12 sm6>
                   <v-checkbox v-model="start" :label="$t('modals.add.starttorrent')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox v-model="skip_checking" :label="$t('modals.add.skipHashCheck')" hide-details />
-                </v-flex>
-                <v-flex xs12 sm6>
-                  <v-checkbox v-model="root_folder" :label="$t('modals.add.createSubfolder')" hide-details />
                 </v-flex>
                 <v-flex xs12 sm6>
                   <v-checkbox v-model="autoTMM" :label="$t('modals.add.automaticTorrentManagement')" hide-details />
@@ -160,7 +173,18 @@ export default {
       directory: '',
       start: true,
       skip_checking: false,
-      root_folder: true,
+      contentLayout: 'Original',
+      contentLayoutOptions: [
+        {text: this.$t('modals.add.contentLayoutOptions.original'), value: 'Original'},
+        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: 'Subfolder'},
+        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: 'NoSubfolder'}
+      ],
+      stopCondition: 'None',
+      stopConditionOptions: [
+        {text: this.$t('modals.add.stopConditionOptions.none'), value: 'None'},
+        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: 'MetadataReceived'},
+        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: 'FilesChecked'},
+      ],
       autoTMM: true,
       sequentialDownload: false,
       firstLastPiecePrio: false,
@@ -175,7 +199,7 @@ export default {
         }
       ],
       loading: false,
-      urls: null,
+      urls: '',
       valid: false,
       mdiCloudUpload,
       mdiFolder,
@@ -188,9 +212,6 @@ export default {
   },
   computed: {
     ...mapGetters(['getSettings', 'getCategories', 'getAvailableTags']),
-    validFile() {
-      return this.Files.length > 0
-    },
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
     },
@@ -231,12 +252,11 @@ export default {
       const settings = this.getSettings()
       this.start = !settings.start_paused_enabled
       this.autoTMM = settings.auto_tmm_enabled
-      this.root_folder = settings.create_subfolder_enabled
       this.directory = this.savepath
     },
     addDropFile(e) {
       this.showWrapDrag = false
-      if (!this.urls) this.files.push(...Array.from(e.dataTransfer.files))
+      if (this.urls.length === 0) this.files.push(...Array.from(e.dataTransfer.files))
     },
     startDropFile() {
       this.showWrapDrag = true
@@ -260,30 +280,31 @@ export default {
       }
       this.$toast.success(this.$t('toast.pasteSuccess').toString())
     },
-    submit() {
-      if (this.files.length || this.urls) {
-        const torrents = []
-        const params = {
-          urls: null,
-          paused: !this.start,
-          skip_checking: this.skip_checking,
-          root_folder: this.root_folder,
-          autoTMM: this.autoTMM,
-          sequentialDownload: this.sequentialDownload,
-          firstLastPiecePrio: this.firstLastPiecePrio
-        }
-        if (this.files.length) torrents.push(...this.files)
-        if (this.urls) params.urls = this.urls
-        if (this.category) params.category = this.category.name
-        if (this.tags) params.tags = this.tags.join(',')
-        if (!this.autoTMM) params.savepath = this.directory
+    async submit() {
+      if (this.files.length === 0 && this.urls.length === 0) return;
 
-        qbit.addTorrents(params, torrents)
-
-        this.resetForm()
-
-        this.$store.commit('DELETE_MODAL', this.guid)
+      const torrents = []
+      const params = {
+        urls: null,
+        paused: !this.start,
+        skip_checking: this.skip_checking,
+        autoTMM: this.autoTMM,
+        sequentialDownload: this.sequentialDownload,
+        firstLastPiecePrio: this.firstLastPiecePrio,
+        contentLayout: this.contentLayout,
+        stopCondition: this.stopCondition
       }
+      if (this.files.length) torrents.push(...this.files)
+      if (this.urls) params.urls = this.urls
+      if (this.category) params.category = this.category.name
+      if (this.tags) params.tags = this.tags.join(',')
+      if (!this.autoTMM) params.savepath = this.directory
+
+      await qbit.addTorrents(params, torrents)
+
+      this.resetForm()
+
+      this.$store.commit('DELETE_MODAL', this.guid)
     },
     categoryChanged() {
       this.directory = this.savepath
@@ -324,5 +345,9 @@ export default {
   transform: translateY(-50%);
   color: #fff;
   padding: 0;
+}
+
+.flex-gap {
+  column-gap: 8px;
 }
 </style>

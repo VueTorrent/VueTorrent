@@ -425,10 +425,21 @@
       "downloadDirectory": "Download Directory",
       "starttorrent": "Start torrent",
       "skipHashCheck": "Skip hash check",
-      "createSubfolder": "Create subfolder",
       "automaticTorrentManagement": "Automatic Torrent Management",
       "dropHereForAdd": "Drop here for add",
-      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
+      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents",
+      "contentLayout": "Content Layout",
+      "contentLayoutOptions": {
+        "original": "Original",
+        "subfolder": "Create Subfolder",
+        "nosubfolder": "Remove Subfolder"
+      },
+      "stopCondition": "Stop Condition",
+      "stopConditionOptions": {
+        "none": "None",
+        "metadataReceived": "Metadata Received",
+        "filesChecked": "Files Checked"
+      }
     },
     "changeLocation": {
       "title": "Change Location"

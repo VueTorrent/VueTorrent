@@ -392,7 +392,6 @@
       "downloadDirectory": "下载目录",
       "starttorrent": "添加后立即开始",
       "skipHashCheck": "跳过哈希值检查",
-      "createSubfolder": "建立子目录",
       "automaticTorrentManagement": "自动种子管理 (ATM)",
       "dropHereForAdd": "拖拽到此处即可添加",
       "oneOrMoreFilesInvalidTorrent": "存在无效的种子文件"

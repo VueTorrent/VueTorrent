@@ -404,7 +404,6 @@
       "downloadDirectory": "Thư mục tải xuống",
       "starttorrent": "Bắt đầu torrent",
       "skipHashCheck": "Bỏ qua kiểm tra",
-      "createSubfolder": "Tạo thư mục con",
       "automaticTorrentManagement": "Quản lý torrent tự động",
       "dropHereForAdd": "Thả vào đây để thêm",
       "oneOrMoreFilesInvalidTorrent": "Một hoặc nhiều tệp không phải là torrent hợp lệ"

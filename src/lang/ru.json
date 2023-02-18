@@ -369,7 +369,6 @@
       "downloadDirectory": "Скачать папку",
       "starttorrent": "Запустить торрент",
       "skipHashCheck": "Пропустить проверку хэша",
-      "createSubfolder": "Создать подпапку",
       "automaticTorrentManagement": "Автоматическое управление торрентами",
       "dropHereForAdd": "Перетащить сюда для добавления",
       "oneOrMoreFilesInvalidTorrent": "Один или несколько файлов не являются действительным торрентом"
