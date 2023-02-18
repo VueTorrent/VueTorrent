@@ -219,8 +219,10 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Lors de l'ajout d'un torrent",
         "whenAddTorrent": {
-          "createSubFolder": "Créer un sous-dossier pour les torrents avec plusieurs fichiers",
-          "donotAutoStart": "Ne pas lancer le téléchargement automatiquement"
+          "contentLayout": "Disposition du contenu du torrent",
+          "donotAutoStart": "Ne pas lancer le téléchargement automatiquement",
+          "stopCondition": "Condition d'arrêt du torrent",
+          "autoDeleteMode": "Supprimer les fichers .torrent après"
         },
         "subHeaderPublicSettings": "Paramètres publics",
         "publicSettings": {

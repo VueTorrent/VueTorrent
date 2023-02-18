@@ -1,20 +1,20 @@
 <template>
   <v-dialog
-    v-model="dialog"
-    :transition="dTransition"
-    :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
-    max-width="500px"
-    :fullscreen="phoneLayout"
-    persistent
-    @keydown.enter.prevent="$refs.addTorrent.click"
+      v-model="dialog"
+      :transition="dTransition"
+      :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
+      max-width="500px"
+      :fullscreen="phoneLayout"
+      persistent
+      @keydown.enter.prevent="$refs.addTorrent.click"
   >
     <div
-      class="noselect"
-      style="position: fixed; left: 0; top: 0; width: 100%; height: 100%"
-      @drop.prevent="addDropFile"
-      @dragover.prevent="showWrapDrag = true"
-      @dragend.prevent="showWrapDrag = false"
-      @dragleave.prevent="DragLeave"
+        class="noselect"
+        style="position: fixed; left: 0; top: 0; width: 100%; height: 100%"
+        @drop.prevent="addDropFile"
+        @dragover.prevent="showWrapDrag = true"
+        @dragend.prevent="showWrapDrag = false"
+        @dragleave.prevent="DragLeave"
     />
     <v-card :class="showWrapDrag ? 'wrap-drag' : ''" @drop.prevent="addDropFile" @dragover.prevent="showWrapDrag = true" @dragend.prevent="showWrapDrag = false">
       <v-container :class="`pa-0 project done`">
@@ -34,16 +34,16 @@
               <v-row no-gutters>
                 <v-col ref="fileZone">
                   <v-file-input
-                    v-if="!urls"
-                    v-model="files"
-                    color="deep-purple accent-4"
-                    counter
-                    :label="$t('modals.add.selectFiles')"
-                    multiple
-                    :prepend-icon="mdiPaperclip"
-                    :rules="fileInputRules"
-                    outlined
-                    :show-size="1000"
+                      v-if="!urls"
+                      v-model="files"
+                      color="deep-purple accent-4"
+                      counter
+                      :label="$t('modals.add.selectFiles')"
+                      multiple
+                      :prepend-icon="mdiPaperclip"
+                      :rules="fileInputRules"
+                      outlined
+                      :show-size="1000"
                   >
                     <template #selection="{ index, text }">
                       <v-chip v-if="index < 2" color="deep-purple accent-4" dark label small>
@@ -56,18 +56,18 @@
                     </template>
                   </v-file-input>
                   <v-textarea
-                    v-if="files.length === 0"
-                    v-model="urls"
-                    style="max-height: 200px; overflow-x: hidden; overflow-y: auto"
-                    :label="$t('url')"
-                    :prepend-icon="mdiLink"
-                    rows="1"
-                    required
-                    :autofocus="!phoneLayout"
-                    auto-grow
-                    clearable
-                    :hint="$t('modals.add.urlHint')"
-                    @click:prepend="paste"
+                      v-if="files.length === 0"
+                      v-model="urls"
+                      style="max-height: 200px; overflow-x: hidden; overflow-y: auto"
+                      :label="$t('url')"
+                      :prepend-icon="mdiLink"
+                      rows="1"
+                      required
+                      :autofocus="!phoneLayout"
+                      auto-grow
+                      clearable
+                      :hint="$t('modals.add.urlHint')"
+                      @click:prepend="paste"
                   />
                 </v-col>
               </v-row>
@@ -76,25 +76,29 @@
               <v-combobox v-model="category" :items="availableCategories" clearable :label="$t('category')" item-text="name" :prepend-icon="mdiLabel" @input="categoryChanged" />
 
               <v-text-field
-                v-model="directory"
-                :disabled="autoTMM"
-                :label="$t('modals.add.downloadDirectory')"
-                :prepend-icon="mdiFolder"
-                autocomplete="download-directory"
-                name="download-directory"
+                  v-model="directory"
+                  :disabled="autoTMM"
+                  :label="$t('modals.add.downloadDirectory')"
+                  :prepend-icon="mdiFolder"
+                  autocomplete="download-directory"
+                  name="download-directory"
               />
 
               <v-row no-gutters class="flex-gap">
                 <v-col>
                   <div class="d-flex flex-column align-center">
                     <p class="subtitle-1 mb-1">{{ $t('modals.add.contentLayout') }}</p>
-                    <v-select v-model="contentLayout" :label="$t('modals.add.contentLayout')" flat solo dense hide-details background-color="background" class="rounded-xl" :items="contentLayoutOptions" />
+                    <v-select v-model="contentLayout" :label="$t('modals.add.contentLayout')" flat solo dense
+                              hide-details background-color="background" class="rounded-xl"
+                              :items="contentLayoutOptions"/>
                   </div>
                 </v-col>
                 <v-col>
                   <div class="d-flex flex-column align-center">
                     <p class="subtitle-1 mb-1">{{ $t('modals.add.stopCondition') }}</p>
-                    <v-select v-model="stopCondition" :label="$t('modals.add.stopCondition')" flat solo dense hide-details background-color="background" class="rounded-xl" :items="stopConditionOptions" />
+                    <v-select v-model="stopCondition" :label="$t('modals.add.stopCondition')" flat solo dense
+                              hide-details background-color="background" class="rounded-xl"
+                              :items="stopConditionOptions"/>
                   </div>
                 </v-col>
               </v-row>
@@ -134,9 +138,9 @@
       </v-container>
     </v-card>
     <div
-      v-show="showWrapDrag"
-      class="wrap-drag noselect"
-      style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; text-align: center; background-color: rgb(0, 0, 0, 0.5)"
+        v-show="showWrapDrag"
+        class="wrap-drag noselect"
+        style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; text-align: center; background-color: rgb(0, 0, 0, 0.5)"
     >
       <div class="align white--text">
         <div>
@@ -153,11 +157,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiCloudUpload, mdiFolder, mdiTag, mdiLabel, mdiPaperclip, mdiLink, mdiClose } from '@mdi/js'
-import { FullScreenModal, Modal } from '@/mixins'
-import {ContentLayout, StopCondition} from '@/enums/qbit'
+import {mdiCloudUpload, mdiFolder, mdiTag, mdiLabel, mdiPaperclip, mdiLink, mdiClose} from '@mdi/js'
+import {FullScreenModal, Modal} from '@/mixins'
+import {AppPreferences} from '@/enums/qbit'
 
 export default {
   name: 'AddModal',
@@ -176,15 +180,15 @@ export default {
       skip_checking: false,
       contentLayout: 'Original',
       contentLayoutOptions: [
-        {text: this.$t('modals.add.contentLayoutOptions.original'), value: ContentLayout.ORIGINAL},
-        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: ContentLayout.SUBFOLDER},
-        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: ContentLayout.NO_SUBFOLDER}
+        {text: this.$t('modals.add.contentLayoutOptions.original'), value: AppPreferences.ContentLayout.ORIGINAL},
+        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER},
+        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER}
       ],
       stopCondition: 'None',
       stopConditionOptions: [
-        {text: this.$t('modals.add.stopConditionOptions.none'), value: StopCondition.NONE},
-        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: StopCondition.METADATA_RECEIVED},
-        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: StopCondition.FILES_CHECKED},
+        {text: this.$t('modals.add.stopConditionOptions.none'), value: AppPreferences.StopCondition.NONE},
+        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED},
+        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED},
       ],
       autoTMM: true,
       sequentialDownload: false,
@@ -212,12 +216,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getSettings', 'getCategories', 'getAvailableTags']),
+    ...mapState(['settings']),
+    ...mapGetters(['getCategories', 'getAvailableTags']),
     phoneLayout() {
       return this.$vuetify.breakpoint.xsOnly
     },
     savepath() {
-      let savePath = this.getSettings().save_path
+      let savePath = this.settings.save_path
       if (this.category && this.category.savePath) {
         savePath = this.category.savePath
       }
@@ -250,10 +255,11 @@ export default {
       await this.$store.dispatch('FETCH_SETTINGS')
       await this.$store.commit('FETCH_CATEGORIES')
       await this.$store.commit('FETCH_TAGS')
-      const settings = this.getSettings()
-      this.start = !settings.start_paused_enabled
-      this.autoTMM = settings.auto_tmm_enabled
+      this.start = !this.settings.start_paused_enabled
+      this.autoTMM = this.settings.auto_tmm_enabled
       this.directory = this.savepath
+      this.contentLayout = this.settings.torrent_content_layout
+      this.stopCondition = this.settings.torrent_stop_condition
     },
     addDropFile(e) {
       this.showWrapDrag = false
@@ -311,12 +317,14 @@ export default {
       this.directory = this.savepath
     },
     resetForm() {
-      this.url = null
+      this.url = ''
       this.files = []
       this.category = null
       this.tags = []
       this.directory = this.savepath
-      this.skip_checking = null
+      this.skip_checking = false
+      this.contentLayout = this.settings.torrent_content_layout
+      this.stopCondition = this.settings.torrent_stop_condition
     },
     close() {
       this.dialog = false

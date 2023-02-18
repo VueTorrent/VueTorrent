@@ -4,6 +4,12 @@ export enum BitTorrentProtocol {
   uTP
 }
 
+export enum ContentLayout {
+  ORIGINAL = "Original",
+  SUBFOLDER = "Subfolder",
+  NO_SUBFOLDER = "NoSubfolder"
+}
+
 export enum DynDnsService {
   USE_DYNDNS,
   USE_NOIP
@@ -48,6 +54,12 @@ export enum SchedulerDays {
   EVERY_FRIDAY,
   EVERY_SATURDAY,
   EVERY_SUNDAY
+}
+
+export enum StopCondition {
+  NONE = "None",
+  METADATA_RECEIVED = "MetadataReceived",
+  FILES_CHECKED = "FilesChecked"
 }
 
 export enum UploadChokingAlgorithm {
