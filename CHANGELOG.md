@@ -1,5 +1,21 @@
 # Changelog
 
+### [1.3.2](https://github.com/WDaan/VueTorrent/compare/v1.3.1...v1.3.2) (2023-02-19)
+
+
+### Bug Fixes
+
+* dark theme color [#662](https://github.com/WDaan/VueTorrent/issues/662) ([2921cca](https://github.com/WDaan/VueTorrent/commit/2921cca79cb50280c4f6fbc84dc4aebb48aa0c39))
+* peers not showing up ([#660](https://github.com/WDaan/VueTorrent/issues/660)) ([d8ca97d](https://github.com/WDaan/VueTorrent/commit/d8ca97d92821eaf455079a4248d7af95d643fe34))
+* phone check shutdown modal ([ff9f159](https://github.com/WDaan/VueTorrent/commit/ff9f1594cdebb73aa2daf97f83e6520d77dbcd4b))
+* Replace root_folder param with contentLayout & stopCondition ([#665](https://github.com/WDaan/VueTorrent/issues/665)) @Larsluph ([f0ddc60](https://github.com/WDaan/VueTorrent/commit/f0ddc603bdab2c5ee155e2289d573818407cf4d9))
+* Unwanted torrent selection during search ([#664](https://github.com/WDaan/VueTorrent/issues/664)) @MBR-0001 ([a56aa63](https://github.com/WDaan/VueTorrent/commit/a56aa63ab9988a689b9fb40a34e345d8e239bafa))
+
+
+### Improvements
+
+* Add RSS unread filter ([#657](https://github.com/WDaan/VueTorrent/issues/657)) @Larsluph ([bc5695b](https://github.com/WDaan/VueTorrent/commit/bc5695b8703704c5a540c515fa754f6b53428fcb))
+
 ## [2.0.0](https://github.com/lyaschuchenko/VueTorrent/compare/v1.3.1...v2.0.0) (2023-02-15)
 
 
