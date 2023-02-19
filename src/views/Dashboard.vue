@@ -395,7 +395,7 @@ export default {
         return null
       }
       // 'ctrl + A' => select torrents
-      if (e.keyCode === 65 && e.ctrlKey) {
+      if (e.keyCode === 65 && e.ctrlKey && e.target?.tagName !== 'INPUT') {
         e.preventDefault()
 
         this.selectAllTorrents()
