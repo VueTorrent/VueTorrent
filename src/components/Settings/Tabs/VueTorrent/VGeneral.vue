@@ -224,8 +224,10 @@
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '@/services/qbit'
 import { LOCALES } from '@/lang/locales'
-import {General} from "@/mixins";
-import {TitleOptions} from "@/enums/vuetorrent";
+import { General } from '@/mixins'
+import { TitleOptions } from '@/enums/vuetorrent'
+import { validate } from 'jsonschema'
+import { StoreState } from '@/schemas'
 
 export default {
   name: 'VueTorrent-General',
@@ -254,9 +256,21 @@ export default {
       this.Qbitversion = await Qbit.getAppVersion()
     },
     importSettings() {
+      let isValidJson = true
+      let userState
       try {
-        const userState = JSON.parse(this.settingsField)
+        userState = JSON.parse(this.settingsField)
+        let validatorResult = validate(userState, StoreState)
+        console.log(userState)
+        console.log(validatorResult)
+        if (!validatorResult.valid)
+          isValidJson = false
       } catch (e) {
+        console.log(e)
+        isValidJson = false
+      }
+
+      if (!isValidJson) {
         this.$toast.error(this.$t('toast.invalidJson').toString())
         return
       }
