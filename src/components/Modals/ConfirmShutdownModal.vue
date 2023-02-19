@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="isPhone ? 'rounded-0' : 'rounded-form'" :fullscreen="isPhone">
+  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="false">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
