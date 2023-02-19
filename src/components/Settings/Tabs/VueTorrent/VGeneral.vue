@@ -217,6 +217,7 @@
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '@/services/qbit'
 import { LOCALES } from '@/lang/locales'
+import {TitleOptions} from "@/enums/vuetorrent";
 
 export default {
   name: 'VueTorrent-General',
@@ -224,7 +225,7 @@ export default {
     return {
       languages: LOCALES,
       paginationSizes: [5, 15, 30, 50],
-      titleOptions: ['Default', 'Global Speed', 'First Torrent Status'],
+      titleOptions: [TitleOptions.DEFAULT, TitleOptions.GLOBAL_SPEED, TitleOptions.FIRST_TORRENT_STATUS],
       Qbitversion: 0
     }
   },

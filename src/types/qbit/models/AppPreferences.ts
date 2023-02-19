@@ -1,11 +1,13 @@
 import type {
   BitTorrentProtocol,
+  ContentLayout,
   DynDnsService,
   Encryption,
   MaxRatioAction,
   ProxyType,
   ScanDirs,
   SchedulerDays,
+  StopCondition,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
   UtpTcpMixedMode
@@ -33,6 +35,7 @@ export default interface AppPreferences {
   anonymous_mode: boolean
   /** Number of asynchronous I/O threads */
   async_io_threads: number
+  /** Delete .torrent files afterwards */
   auto_delete_mode: number
   /** True if Automatic Torrent Management is enabled by default */
   auto_tmm_enabled: boolean
@@ -258,6 +261,10 @@ export default interface AppPreferences {
   temp_path_enabled: boolean
   /** True if torrent should be relocated when its Category changes */
   torrent_changed_tmm_enabled: boolean
+  /** Default content layout to select when adding a new torrent */
+  torrent_content_layout: ContentLayout
+  /** Default stop condition to select when adding a new torrent */
+  torrent_stop_condition: StopCondition
   /** Global upload speed limit in KiB/s; -1 means no limit is applied */
   up_limit: number
   /** Upload choking algorithm used (see list of possible values below) */

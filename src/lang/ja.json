@@ -336,7 +336,6 @@
       "downloadDirectory": "ダウンロード先",
       "starttorrent": "Torrentを開始",
       "skipHashCheck": "ハッシュ値確認をしない",
-      "createSubfolder": "サブフォルダ作成",
       "automaticTorrentManagement": "自動Torrent管理",
       "dropHereForAdd": "ドロップして追加",
       "oneOrMoreFilesInvalidTorrent": "一つまたは複数の無効なTorrentファイルが含まれています"

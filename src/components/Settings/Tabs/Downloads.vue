@@ -2,10 +2,16 @@
   <v-card flat>
     <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderWhenAddTorrent') }}</v-subheader>
     <v-list-item>
-      <v-checkbox v-model="settings.create_subfolder_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.whenAddTorrent.createSubFolder')" />
+      <v-select v-model="settings.torrent_content_layout" :label="$t('modals.settings.pageDownloads.whenAddTorrent.contentLayout')" outlined dense small-chips :items="contentLayoutOptions" />
     </v-list-item>
     <v-list-item>
       <v-checkbox v-model="settings.start_paused_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.whenAddTorrent.donotAutoStart')" />
+    </v-list-item>
+    <v-list-item>
+      <v-select v-model="settings.torrent_stop_condition" :label="$t('modals.settings.pageDownloads.whenAddTorrent.stopCondition')" outlined dense small-chips :items="stopConditionOptions" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="settings.auto_delete_mode" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.whenAddTorrent.autoDeleteMode')" />
     </v-list-item>
     <v-divider insert />
     <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderPublicSettings') }}</v-subheader>
@@ -107,9 +113,24 @@
 </template>
 <script>
 import { FullScreenModal, SettingsTab } from '@/mixins'
+import { AppPreferences } from '@/enums/qbit'
 
 export default {
   name: 'Downloads',
-  mixins: [SettingsTab, FullScreenModal]
+  mixins: [SettingsTab, FullScreenModal],
+  data() {
+    return {
+      contentLayoutOptions: [
+        {text: this.$t('modals.add.contentLayoutOptions.original'), value: AppPreferences.ContentLayout.ORIGINAL},
+        {text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER},
+        {text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER}
+      ],
+      stopConditionOptions: [
+        {text: this.$t('modals.add.stopConditionOptions.none'), value: AppPreferences.StopCondition.NONE},
+        {text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED},
+        {text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED},
+      ],
+    }
+  }
 }
 </script>

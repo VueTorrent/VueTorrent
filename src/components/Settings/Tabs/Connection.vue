@@ -98,6 +98,7 @@
 
 <script>
 import { SettingsTab, FullScreenModal } from '@/mixins'
+import {BitTorrentProtocol, ProxyType} from "@/enums/qbit/AppPreferences";
 
 export default {
   name: 'Connection',
@@ -106,40 +107,35 @@ export default {
     return {
       proxyTypes: [
         {
-          value: -1,
+          value: ProxyType.DISABLED,
           text: 'None'
         },
         {
-          value: 1,
+          value: ProxyType.HTTP_WITHOUT_AUTH,
           text: 'HTTP proxy without authentication'
         },
         {
-          value: 2,
+          value: ProxyType.SOCKS5_WITHOUT_AUTH,
           text: 'SOCKS5 proxy without authentication'
         },
         {
-          value: 3,
+          value: ProxyType.HTTP_WITH_AUTH,
           text: 'HTTP proxy with authentication'
         },
         {
-          value: 4,
+          value: ProxyType.SOCKS5_WITH_AUTH,
           text: 'SOCKS5 proxy with authentication'
         },
         {
-          value: 5,
+          value: ProxyType.SOCKS4_WITHOUT_AUTH,
           text: 'SOCKS4 proxy without authentication'
         }
       ],
       bittorrent_protocol: [
-        { value: 0, text: 'TCP and μTP' },
-        { value: 1, text: 'TCP' },
-        { value: 2, text: 'μTP' }
+        { value: BitTorrentProtocol.TCP_uTP, text: 'TCP and μTP' },
+        { value: BitTorrentProtocol.TCP, text: 'TCP' },
+        { value: BitTorrentProtocol.uTP, text: 'μTP' }
       ]
-    }
-  },
-  computed: {
-    getProxyTypeName(value) {
-      return this.proxyTypes.filter(item => item.value !== value)[0]
     }
   }
 }

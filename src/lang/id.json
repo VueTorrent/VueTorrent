@@ -341,7 +341,6 @@
       "downloadDirectory": "Direktori Unduhan",
       "starttorrent": "Mulai torrent",
       "skipHashCheck": "Lewati cek hash",
-      "createSubfolder": "Buat subfolder",
       "automaticTorrentManagement": "Manajemen Torrent Otomatis",
       "dropHereForAdd": "Jatuhkan di sini untuk menambah",
       "oneOrMoreFilesInvalidTorrent": "Satu atau lebih file bukan torrent yang valid"

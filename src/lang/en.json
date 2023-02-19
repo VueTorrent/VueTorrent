@@ -227,8 +227,10 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "When adding a torrent",
         "whenAddTorrent": {
-          "createSubFolder": "Create subfolder for torrents with multiple files",
-          "donotAutoStart": "Do not start the download automatically"
+          "contentLayout": "Torrent content layout",
+          "donotAutoStart": "Do not start the download automatically",
+          "stopCondition": "Torrent stop condition",
+          "autoDeleteMode": "Delete .torrent files afterwards"
         },
         "subHeaderPublicSettings": "Public Settings",
         "publicSettings": {
@@ -425,10 +427,21 @@
       "downloadDirectory": "Download Directory",
       "starttorrent": "Start torrent",
       "skipHashCheck": "Skip hash check",
-      "createSubfolder": "Create subfolder",
       "automaticTorrentManagement": "Automatic Torrent Management",
       "dropHereForAdd": "Drop here for add",
-      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
+      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents",
+      "contentLayout": "Content Layout",
+      "contentLayoutOptions": {
+        "original": "Original",
+        "subfolder": "Create Subfolder",
+        "nosubfolder": "Remove Subfolder"
+      },
+      "stopCondition": "Stop Condition",
+      "stopConditionOptions": {
+        "none": "None",
+        "metadataReceived": "Metadata Received",
+        "filesChecked": "Files Checked"
+      }
     },
     "changeLocation": {
       "title": "Change Location"

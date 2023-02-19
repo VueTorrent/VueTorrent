@@ -139,6 +139,7 @@
 
 <script>
 import { SettingsTab, FullScreenModal } from '@/mixins'
+import {MaxRatioAction} from "@/enums/qbit/AppPreferences";
 
 export default {
   name: 'BitTorrent',
@@ -147,19 +148,19 @@ export default {
     return {
       thenTypes: [
         {
-          value: 0,
+          value: MaxRatioAction.PAUSE_TORRENT,
           text: this.$t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
         },
         {
-          value: 1,
+          value: MaxRatioAction.REMOVE_TORRENT,
           text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
         },
         {
-          value: 3,
+          value: MaxRatioAction.REMOVE_TORRENT_AND_FILES,
           text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
         },
         {
-          value: 2,
+          value: MaxRatioAction.ENABLE_SUPERSEEDING,
           text: this.$t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding')
         }
       ]

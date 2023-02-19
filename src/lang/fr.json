@@ -219,8 +219,10 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Lors de l'ajout d'un torrent",
         "whenAddTorrent": {
-          "createSubFolder": "Créer un sous-dossier pour les torrents avec plusieurs fichiers",
-          "donotAutoStart": "Ne pas lancer le téléchargement automatiquement"
+          "contentLayout": "Disposition du contenu du torrent",
+          "donotAutoStart": "Ne pas lancer le téléchargement automatiquement",
+          "stopCondition": "Condition d'arrêt du torrent",
+          "autoDeleteMode": "Supprimer les fichers .torrent après"
         },
         "subHeaderPublicSettings": "Paramètres publics",
         "publicSettings": {
@@ -415,10 +417,21 @@
       "downloadDirectory": "Répertoire de téléchargement",
       "starttorrent": "Lancer le torrent",
       "skipHashCheck": "Passer la vérification du hash",
-      "createSubfolder": "Créer un sous-dossier",
       "automaticTorrentManagement": "Gestion automatique des torrents",
       "dropHereForAdd": "Déposez ici pour ajouter",
-      "oneOrMoreFilesInvalidTorrent": "Un ou plusieurs fichiers ne sont pas des torrents valides"
+      "oneOrMoreFilesInvalidTorrent": "Un ou plusieurs fichiers ne sont pas des torrents valides",
+      "contentLayout": "Disposition des fichiers",
+      "contentLayoutOptions": {
+        "original": "Original",
+        "subfolder": "Créer un sous-dossier",
+        "nosubfolder": "Supprimer le sous-dossier"
+      },
+      "stopCondition": "Condition d'arrêt",
+      "stopConditionOptions": {
+        "none": "Aucune",
+        "metadataReceived": "Metadonnées reçues",
+        "filesChecked": "Fichiers vérifiés"
+      }
     },
     "changeLocation": {
       "title": "Changement d'emplacement"
