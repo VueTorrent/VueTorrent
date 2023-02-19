@@ -51,7 +51,7 @@ export default new Vuetify({
       },
       dark: {
         accent: '#64CEAA',
-        background: colors.shades.black,
+        background: '#121212',
         selected: colors.grey.darken1,
         red: colors.red.accent3,
         ...variables
