@@ -92,7 +92,6 @@ export class QBitApi {
     const params: Parameters = {
       sort: !payload.isCustomSortEnabled ? payload.sort : null,
       reverse: !payload.isCustomSortEnabled ? payload.reverse : null,
-      hashes: payload.hashes.length > 0 ? payload.hashes.join('|') : null,
       filter: payload.filter ? payload.filter : null,
       category: payload.category !== null ? payload.category : null,
       tag: payload.tag !== null ? payload.tag : null

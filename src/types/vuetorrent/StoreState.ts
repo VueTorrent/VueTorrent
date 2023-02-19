@@ -4,7 +4,6 @@ import type Category from '../qbit/models/Category'
 import type Torrent from '@/models/Torrent'
 import type SortOptions from './SortOptions'
 import type { AppPreferences } from '../qbit/models'
-import type { Optional } from '@/global'
 import type ModalTemplate from './ModalTemplate'
 import type { Status } from '@/models'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
@@ -30,7 +29,7 @@ export default interface StoreState {
   searchPlugins: SearchPlugin[]
   selectMode: boolean
   selected_torrents: string[]
-  settings: Optional<AppPreferences>
+  settings: AppPreferences
   sort_options: SortOptions
   status: Status
   tags: string[]
