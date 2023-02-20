@@ -34,7 +34,7 @@
               <v-row no-gutters>
                 <v-col ref="fileZone">
                   <v-file-input
-                      v-if="!urls"
+                      v-if="urls.length === 0"
                       v-model="files"
                       color="deep-purple accent-4"
                       counter
@@ -237,7 +237,7 @@ export default {
     }
   },
   created() {
-    this.urls = this.initialMagnet
+    if (this.initialMagnet) this.urls = this.initialMagnet
     this.setSettings()
     if (this.openSuddenly === true) {
       this.dTransition = 'none'
