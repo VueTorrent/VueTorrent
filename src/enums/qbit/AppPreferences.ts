@@ -22,10 +22,10 @@ export enum Encryption {
 }
 
 export enum MaxRatioAction {
-  PAUSE_TORRENT,
-  REMOVE_TORRENT,
-  REMOVE_TORRENT_AND_FILES,
-  ENABLE_SUPERSEEDING
+  PAUSE_TORRENT = 0,
+  REMOVE_TORRENT = 1,
+  REMOVE_TORRENT_AND_FILES = 3,
+  ENABLE_SUPERSEEDING = 2
 }
 
 export enum ProxyType {
