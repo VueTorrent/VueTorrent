@@ -60,7 +60,7 @@ export function treeify(paths) {
   const level = { result }
 
   paths.forEach(path => {
-    path.name.split('/').reduce((r, name) => {
+    path.name.split('\\').join('/').split('/').reduce((r, name) => {
       if (!r[name]) {
         r[name] = { result: [] }
         r.result.push(createFile(path, name, r[name].result))
