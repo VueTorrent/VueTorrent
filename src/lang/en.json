@@ -500,9 +500,9 @@
     "renameFileFailed": "Unable to rename file",
     "renameFolderFailed": "Unable to rename file",
     "copySuccess": "Text copied!",
-    "copyNotSupported": "Unable to copy, clipboard API unavailable on this browser",
+    "copyNotSupported": "Unable to copy, context isn't secured",
     "pasteSuccess": "Text pasted!",
-    "pasteNotSupported": "Unable to paste, clipboard API unavailable on this browser",
+    "pasteNotSupported": "Unable to paste, context isn't secured",
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
     "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!"
   },
