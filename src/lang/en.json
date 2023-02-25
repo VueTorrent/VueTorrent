@@ -197,6 +197,7 @@
           "completedTorrentTip": "Properties to display for completed torrents",
           "properties": {
             "availability": "Availability",
+            "tracker": "Tracker",
             "category": "Category",
             "tags": "Tags",
             "completed": "Completed",

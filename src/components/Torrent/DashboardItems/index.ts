@@ -9,6 +9,7 @@ import ETA from './ETA.vue'
 import Peers from './Peers.vue'
 import Seeds from './Seeds.vue'
 import Status from './Status.vue'
+import Tracker from './Tracker.vue'
 import Category from './Category.vue'
 import Tags from './Tags.vue'
 import AddedOn from './AddedOn.vue'
@@ -33,6 +34,7 @@ export {
   Peers,
   Seeds,
   Status,
+  Tracker,
   Category,
   Tags,
   AddedOn,
