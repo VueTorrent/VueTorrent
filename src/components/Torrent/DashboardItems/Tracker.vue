@@ -3,7 +3,7 @@
     <div class="caption grey--text">
       {{ $t('tracker') }}
     </div>
-    <v-chip small class="trackers white--text caption">
+    <v-chip small class="moving white--text caption">
       {{ trackerString }}
     </v-chip>
   </v-flex>
@@ -28,9 +28,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style>
-.trackers {
-  background-color: #fbe777 !important;
-}
-</style>
