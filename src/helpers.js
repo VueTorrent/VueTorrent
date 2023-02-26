@@ -161,6 +161,15 @@ export function getBaseURL() {
   return import.meta.env['BASE_URL']
 }
 
+export function getDomainBody(string) {
+  const match = string.match(/:\/\/([^\/]+\.)?([^\/\.]+)\.[^\/\.:]+/i)
+  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2]
+  } else {
+    return ''
+  }
+}
+
 export class ArrayHelper {
   static remove(array, item) {
     const toRemove = Array.isArray(item) ? item : [item]

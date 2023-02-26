@@ -13,6 +13,7 @@
 import { TorrentDashboardItem } from '@/mixins'
 import { defineComponent } from 'vue'
 import { Torrent } from '@/models'
+import { getDomainBody } from '@/helpers'
 
 export default defineComponent({
   name: 'Tracker',
@@ -22,12 +23,7 @@ export default defineComponent({
   },
   computed: {
     trackerString() {
-      let trackerUrl = this.torrent.tracker.match(/:\/\/([^\/]+\.)?([^\/\.]+)\.[^\/\.:]+/i)
-      if (trackerUrl != null && trackerUrl.length > 2 && typeof trackerUrl[2] === 'string' && trackerUrl[2].length > 0) {
-        return trackerUrl[2]
-      } else {
-        return ''
-      }
+      return getDomainBody(this.torrent.tracker)
     }
   }
 })

@@ -77,6 +77,7 @@
 <script>
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import { Torrent } from '@/models'
+import { getDomainBody } from '@/helpers'
 
 export default {
   name: 'MobileCard',
@@ -93,12 +94,7 @@ export default {
       else return this.torrent.state
     },
     trackerHost() {
-      const match = this.torrent.tracker.match(/:\/\/([^\/]+\.)?([^\/\.]+)\.[^\/\.:]+/i)
-      if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-        return match[2]
-      } else {
-        return ''
-      }
+      return getDomainBody(this.torrent.tracker)
     }
   }
 }

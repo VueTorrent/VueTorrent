@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { splitByUrl } from '@/helpers'
+import { splitByUrl, getDomainBody } from '@/helpers'
 
 describe('Helpers', () => {
   describe('splitByUrl()', () => {
@@ -28,6 +28,20 @@ describe('Helpers', () => {
         ' some string and ',
         'https://onemoreurl.com'
       ])
+    })
+  })
+  describe('getDomainBody()', () => {
+    it('should not extract anyting', () => {
+      expect(getDomainBody('www.test.org')).toEqual('')
+    })
+    it('should extract if integrated url exists', () => {
+      expect(getDomainBody('https://test.org/announce.php?passkey=123abc')).toEqual('test')
+    })
+    it('should extract correctly from subdomain', () => {
+      expect(getDomainBody('https://ab.cd.test.org/announce.php?passkey=123abc')).toEqual('test')
+    })
+    it('should extract only the first one from multi urls', () => {
+      expect(getDomainBody('https://test.org/announce.php?passkey=123abc https://second.org/announce.php?passkey=123abc')).toEqual('test')
     })
   })
 })
