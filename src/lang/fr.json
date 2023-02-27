@@ -495,7 +495,7 @@
     "copySuccess": "Texte copié!",
     "copyNotSupported": "Impossible de copier, le contexte n'est pas sécurisé",
     "pasteSuccess": "Texte collé!",
-    "invalidJson": "JSON invalide!"
+    "invalidJson": "JSON invalide!",
     "pasteNotSupported": "Impossible de coller, le contexte n'est pas sécurisé"
   },
   "rightClick": {
