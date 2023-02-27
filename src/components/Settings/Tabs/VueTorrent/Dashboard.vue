@@ -87,6 +87,7 @@ export default {
         Seeds: i18n.t(`${localePrefix}.seeds`),
         Status: i18n.t(`${localePrefix}.state`),
         Ratio: i18n.t(`${localePrefix}.ratio`),
+        Tracker: i18n.t(`${localePrefix}.tracker`),
         Category: i18n.t(`${localePrefix}.category`),
         Tags: i18n.t(`${localePrefix}.tags`),
         AddedOn: i18n.t(`${localePrefix}.addedOn`),

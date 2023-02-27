@@ -60,7 +60,7 @@ export function treeify(paths) {
   const level = { result }
 
   paths.forEach(path => {
-    path.name.split('/').reduce((r, name) => {
+    path.name.split('\\').join('/').split('/').reduce((r, name) => {
       if (!r[name]) {
         r[name] = { result: [] }
         r.result.push(createFile(path, name, r[name].result))
@@ -159,6 +159,15 @@ export function getBaseURL() {
   }
 
   return import.meta.env['BASE_URL']
+}
+
+export function getDomainBody(string) {
+  const match = string.match(/:\/\/([^\/]+\.)?([^\/\.]+)\.[^\/\.:]+/i)
+  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2]
+  } else {
+    return ''
+  }
 }
 
 export class ArrayHelper {
