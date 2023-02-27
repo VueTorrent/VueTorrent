@@ -7,6 +7,7 @@ import mutations from './mutations'
 import type { StoreState } from '@/types/vuetorrent'
 import { Status } from '@/models'
 import { TitleOptions } from '@/enums/vuetorrent'
+import {AppPreferences} from "@/types/qbit/models";
 
 const vuexPersist = new VuexPersist<StoreState>({
   key: 'vuetorrent',
@@ -67,12 +68,11 @@ export default new Vuex.Store<StoreState>({
     searchPlugins: [],
     selectMode: false,
     selected_torrents: [],
-    settings: null,
+    settings: {} as AppPreferences,
     sort_options: {
       isCustomSortEnabled: false,
       sort: 'priority',
       reverse: false,
-      hashes: [],
       filter: null,
       category: null,
       tag: null,

@@ -47,6 +47,7 @@
   "yes": "oui",
   "no": "non",
   "filter": "Filtre",
+  "close": "Fermer",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Rechercher un torrent",
@@ -185,7 +186,10 @@
           "dateFormat": "Format de date",
           "openSideBarOnStart": "Ouvrir la barre latérale au lancement",
           "currentVersion": "Version actuelle:",
-          "qbittorrentVersion": "Version de QBittorrent:"
+          "qbittorrentVersion": "Version de QBittorrent:",
+          "importSettings": "Importer la configuration",
+          "exportSettings": "Exporter la configuration",
+          "resetSettings": "Réinitialiser la configuration"
         },
         "pageDashboard": {
           "busyTorrentTip": "Propriétés à afficher pour les torrents occupés",
@@ -491,6 +495,7 @@
     "copySuccess": "Texte copié!",
     "copyNotSupported": "Impossible de copier, le contexte n'est pas sécurisé",
     "pasteSuccess": "Texte collé!",
+    "invalidJson": "JSON invalide!"
     "pasteNotSupported": "Impossible de coller, le contexte n'est pas sécurisé"
   },
   "rightClick": {

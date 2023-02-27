@@ -207,8 +207,15 @@
         </v-col>
       </v-row>
     </v-list-item>
+    <v-list-item>
+      <v-textarea v-model="settingsField" />
+    </v-list-item>
+    <v-list-item class="remove-after justify-content-evenly">
+      <v-btn @click="importSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.importSettings') }}</v-btn>
+      <v-btn @click="exportSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.exportSettings') }}</v-btn>
+    </v-list-item>
     <v-list-item class="justify-center pb-2">
-      <v-btn @click="resetSettings"> {{ $t('modals.settings.pageVueTorrent.pageGeneral.resetSettings') }} </v-btn>
+      <v-btn dark color="red" @click="resetSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.resetSettings') }}</v-btn>
     </v-list-item>
   </v-card>
 </template>
@@ -217,16 +224,21 @@
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '@/services/qbit'
 import { LOCALES } from '@/lang/locales'
-import {TitleOptions} from "@/enums/vuetorrent";
+import { General } from '@/mixins'
+import { TitleOptions } from '@/enums/vuetorrent'
+import { validate } from 'jsonschema'
+import { StoreState } from '@/schemas'
 
 export default {
   name: 'VueTorrent-General',
+  mixins: [General],
   data() {
     return {
       languages: LOCALES,
       paginationSizes: [5, 15, 30, 50],
       titleOptions: [TitleOptions.DEFAULT, TitleOptions.GLOBAL_SPEED, TitleOptions.FIRST_TORRENT_STATUS],
-      Qbitversion: 0
+      Qbitversion: 0,
+      settingsField: ''
     }
   },
   computed: {
@@ -242,6 +254,32 @@ export default {
   methods: {
     async fetchQbitVersion() {
       this.Qbitversion = await Qbit.getAppVersion()
+    },
+    importSettings() {
+      let isValidJson = true
+      let userState
+      try {
+        userState = JSON.parse(this.settingsField)
+        let validatorResult = validate(userState, StoreState)
+        console.log(userState)
+        console.log(validatorResult)
+        if (!validatorResult.valid)
+          isValidJson = false
+      } catch (e) {
+        console.log(e)
+        isValidJson = false
+      }
+
+      if (!isValidJson) {
+        this.$toast.error(this.$t('toast.invalidJson').toString())
+        return
+      }
+
+      window.localStorage.setItem('vuetorrent', this.settingsField)
+      location.reload()
+    },
+    exportSettings() {
+      this.settingsField = window.localStorage.getItem('vuetorrent') ?? ''
     },
     resetSettings() {
       window.localStorage.clear()
@@ -260,5 +298,12 @@ export default {
 :deep(.v-input--reverse .v-input__slot) {
   @import 'src/styles/styles.scss';
   @include reverse-switch;
+}
+
+.justify-content-evenly {
+  justify-content: space-evenly;
+}
+.remove-after::after {
+  content: unset;
 }
 </style>

@@ -70,8 +70,7 @@ export default {
   FETCH_SETTINGS: async (state: StoreState, settings: AppPreferences) => {
     state.settings = settings
   },
-  UPDATE_SORT_OPTIONS: (state: StoreState, { hashes = [], filter = null, category = null, tag = null, tracker = null }) => {
-    state.sort_options.hashes = hashes
+  UPDATE_SORT_OPTIONS: (state: StoreState, { filter = null, category = null, tag = null, tracker = null }) => {
     state.sort_options.filter = filter
     state.sort_options.category = category
     state.sort_options.tag = tag

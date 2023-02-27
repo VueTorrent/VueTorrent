@@ -5,7 +5,6 @@ export default interface SortOptions {
   isCustomSortEnabled: boolean
   sort: string
   reverse: boolean
-  hashes: string[]
   filter: Optional<TorrentState>
   category: Optional<string>
   tag: Optional<string>

@@ -24,7 +24,7 @@
   "inactive": "Inactive",
   "stalled": "Stalled",
   "errored": "Errored",
-  "login": "Login in",
+  "login": "Log in",
   "logout": "Log out",
   "shutdownApp": "Shutdown Application",
   "download": "Download",
@@ -50,6 +50,7 @@
   "yes": "yes",
   "no": "no",
   "filter": "Filter",
+  "close": "Close",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
@@ -190,6 +191,8 @@
           "openSideBarOnStart": "Open Side Bar on launch",
           "currentVersion": "Current Version:",
           "qbittorrentVersion": "QBittorrent Version:",
+          "importSettings": "Import Settings",
+          "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
         },
         "pageDashboard": {
@@ -505,7 +508,8 @@
     "pasteSuccess": "Text pasted!",
     "pasteNotSupported": "Unable to paste, context isn't secured",
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
-    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!"
+    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
+    "invalidJson": "Invalid JSON!"
   },
   "rightClick": {
     "resume": "resume",
