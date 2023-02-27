@@ -9,6 +9,9 @@
       <v-chip small class="caption white--text" :class="torrent.state.toLowerCase()" style="height: 20px">
         {{ stateString }}
       </v-chip>
+      <v-chip v-if="torrent.tracker" small class="trackers caption white--text" style="height: 20px">
+        {{ trackerHost }}
+      </v-chip>
       <v-chip v-if="torrent.category" small class="upload caption white--text" style="height: 20px">
         {{ torrent.category }}
       </v-chip>
@@ -73,7 +76,8 @@
 </template>
 <script>
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-import {Torrent} from '@/models'
+import { Torrent } from '@/models'
+import { getDomainBody } from '@/helpers'
 
 export default {
   name: 'MobileCard',
@@ -86,10 +90,11 @@ export default {
   }),
   computed: {
     stateString() {
-      if (this.torrent.forced)
-        return `[F] ${this.torrent.state}`
-      else
-        return this.torrent.state
+      if (this.torrent.forced) return `[F] ${this.torrent.state}`
+      else return this.torrent.state
+    },
+    trackerHost() {
+      return getDomainBody(this.torrent.tracker)
     }
   }
 }

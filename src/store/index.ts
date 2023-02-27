@@ -34,6 +34,7 @@ const propertiesTemplate = [
   { name: 'Seeds', active: true },
   { name: 'Status', active: true },
   { name: 'Ratio', active: true },
+  { name: 'Tracker', active: false },
   { name: 'Category', active: true },
   { name: 'Tags', active: true },
   { name: 'AddedOn', active: true },
