@@ -1,7 +1,7 @@
-import type { TitleOptions } from '@/enums/vuetorrent'
+import type { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 
 export interface TorrentProperty {
-  name: string
+  name: DashboardProperty
   active: boolean
 }
 

@@ -226,8 +226,8 @@ import { Qbit } from '@/services/qbit'
 import { LOCALES } from '@/lang/locales'
 import { General } from '@/mixins'
 import { TitleOptions } from '@/enums/vuetorrent'
-import { validate } from 'jsonschema'
-import { StoreState } from '@/schemas'
+import Ajv from 'ajv'
+import { StoreStateSchema } from '@/schemas'
 
 export default {
   name: 'VueTorrent-General',
@@ -257,16 +257,14 @@ export default {
     },
     importSettings() {
       let isValidJson = true
-      let userState
       try {
-        userState = JSON.parse(this.settingsField)
-        let validatorResult = validate(userState, StoreState)
-        console.log(userState)
-        console.log(validatorResult)
-        if (!validatorResult.valid)
-          isValidJson = false
+        const userState = JSON.parse(this.settingsField)
+
+        const ajv = new Ajv()
+        const validate = ajv.compile(StoreStateSchema)
+        isValidJson = validate(userState)
       } catch (e) {
-        console.log(e)
+        console.error(e)
         isValidJson = false
       }
 
