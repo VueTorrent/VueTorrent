@@ -141,7 +141,7 @@ export class QBitApi {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.axios.get('/torrents/tags').then(res => res.data)
+    return this.axios.get('/torrents/tags').then(res => res.data.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, {sensitivity: 'base'})))
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
