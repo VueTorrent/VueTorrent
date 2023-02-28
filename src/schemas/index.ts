@@ -1,3 +1,3 @@
-import StoreState from './StoreState.json'
+import {StoreStateSchema} from './StoreState'
 
-export { StoreState }
+export { StoreStateSchema }

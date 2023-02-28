@@ -6,8 +6,8 @@ import getters from './getters'
 import mutations from './mutations'
 import type { StoreState } from '@/types/vuetorrent'
 import { Status } from '@/models'
-import { TitleOptions } from '@/enums/vuetorrent'
-import {AppPreferences} from "@/types/qbit/models";
+import { TitleOptions, DashboardProperty } from '@/enums/vuetorrent'
+import {AppPreferences} from '@/types/qbit/models'
 
 const vuexPersist = new VuexPersist<StoreState>({
   key: 'vuetorrent',
@@ -23,27 +23,27 @@ Vue.use(Vuex)
 
 // noinspection DuplicatedCode
 const propertiesTemplate = [
-  { name: 'Size', active: true },
-  { name: 'Progress', active: true },
-  { name: 'Download', active: true },
-  { name: 'Upload', active: true },
-  { name: 'Downloaded', active: true },
-  { name: 'Directory', active: false },
-  { name: 'Uploaded', active: true },
-  { name: 'ETA', active: true },
-  { name: 'Peers', active: true },
-  { name: 'Seeds', active: true },
-  { name: 'Status', active: true },
-  { name: 'Ratio', active: true },
-  { name: 'Tracker', active: false },
-  { name: 'Category', active: true },
-  { name: 'Tags', active: true },
-  { name: 'AddedOn', active: true },
-  { name: 'Availability', active: true },
-  { name: 'LastActivity', active: false },
-  { name: 'CompletedOn', active: false },
-  { name: 'GlobalSpeed', active: false },
-  { name: 'GlobalVolume', active: false }
+  { name: DashboardProperty.SIZE, active: true },
+  { name: DashboardProperty.PROGRESS, active: true },
+  { name: DashboardProperty.DOWNLOAD, active: true },
+  { name: DashboardProperty.UPLOAD, active: true },
+  { name: DashboardProperty.DOWNLOADED, active: true },
+  { name: DashboardProperty.DIRECTORY, active: false },
+  { name: DashboardProperty.UPLOADED, active: true },
+  { name: DashboardProperty.ETA, active: true },
+  { name: DashboardProperty.PEERS, active: true },
+  { name: DashboardProperty.SEEDS, active: true },
+  { name: DashboardProperty.STATUS, active: true },
+  { name: DashboardProperty.RAIO, active: true },
+  { name: DashboardProperty.TRACKER, active: false },
+  { name: DashboardProperty.CATEGORY, active: true },
+  { name: DashboardProperty.TAGS, active: true },
+  { name: DashboardProperty.ADDED_ON, active: true },
+  { name: DashboardProperty.AVAILABILITY, active: true },
+  { name: DashboardProperty.LAST_ACTIVITY, active: false },
+  { name: DashboardProperty.COMPLETED_ON, active: false },
+  { name: DashboardProperty.GLOBAL_SPEED, active: false },
+  { name: DashboardProperty.GLOBAL_VOLUME, active: false }
 ]
 
 export default new Vuex.Store<StoreState>({
