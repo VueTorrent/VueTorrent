@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.4.0](https://github.com/WDaan/VueTorrent/compare/v1.3.2...v1.4.0) (2023-02-28)
+
+
+### Features
+
+* Add import / export settings button ([#659](https://github.com/WDaan/VueTorrent/issues/659)) @Larsluph ([7caa19a](https://github.com/WDaan/VueTorrent/commit/7caa19ab889464d00d58630f93a84e98fbb82eca))
+* Add tracker host in Dashboard ([#679](https://github.com/WDaan/VueTorrent/issues/679)) [@flashlab](https://github.com/flashlab) ([bf9484b](https://github.com/WDaan/VueTorrent/commit/bf9484b1426ad8de166b725745b409c898cc56e5))
+
+
+### Bug Fixes
+
+* 400 when adding trackers ([#674](https://github.com/WDaan/VueTorrent/issues/674)) @Larsluph ([9d31ff4](https://github.com/WDaan/VueTorrent/commit/9d31ff4360997b03273751b7aa45c143b6ac0cf8))
+* Drag-and-Drop not working ([#669](https://github.com/WDaan/VueTorrent/issues/669)) @Larsluph ([141318a](https://github.com/WDaan/VueTorrent/commit/141318affc5e26e98abcd8d292e75e0636b7a3db))
+* Fix JSON validation not working ([#682](https://github.com/WDaan/VueTorrent/issues/682)) ([2784ab9](https://github.com/WDaan/VueTorrent/commit/2784ab97cf67f019ab259471eda2b957ed81f6a2))
+* Handle Windows path separators ([#675](https://github.com/WDaan/VueTorrent/issues/675)) @Larsluph ([f4646e2](https://github.com/WDaan/VueTorrent/commit/f4646e2e669191e51f06f1abeb0d37bf1aa7663c))
+* incorrect enum values for MaxRatioAction ([#673](https://github.com/WDaan/VueTorrent/issues/673)) @Larsluph ([afa9f0e](https://github.com/WDaan/VueTorrent/commit/afa9f0ef3065702c0d55f1a7ca5a78066610264c))
+
+
+### Improvements
+
+* Rework toast msg for clipboard API ([#677](https://github.com/WDaan/VueTorrent/issues/677)) ([3e2466a](https://github.com/WDaan/VueTorrent/commit/3e2466ac8fb383efb735845c74c89b3adf314045))
+* Sort tags alphabetically ([#683](https://github.com/WDaan/VueTorrent/issues/683)) @Larsluph ([3d1415d](https://github.com/WDaan/VueTorrent/commit/3d1415deab5a90ebca718e086bc8bfc13dca88cc))
+
 ### [1.3.2](https://github.com/WDaan/VueTorrent/compare/v1.3.1...v1.3.2) (2023-02-19)
 
 
