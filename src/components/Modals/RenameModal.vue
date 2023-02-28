@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="isPhone ? 'rounded-0' : 'rounded-form'" :fullscreen="isPhone">
+  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="phoneLayout">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -52,9 +52,6 @@ export default {
     ...mapGetters(['getTorrent']),
     torrent() {
       return this.getTorrent(this.hash)
-    },
-    isPhone() {
-      return this.$vuetify.breakpoint.xsOnly
     }
   },
   mounted() {
@@ -75,7 +72,7 @@ export default {
     isUrl() {
       this.enableUrlDecode = false
       if (this.name.indexOf(' ') === -1) {
-        const exp = /\+|%/
+        const exp = /[+%]/
         if (exp.test(this.name)) this.enableUrlDecode = true
       }
     },
