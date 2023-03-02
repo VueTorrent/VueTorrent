@@ -189,6 +189,7 @@
           "vueTorrentTitle": "VueTorrent title:",
           "dateFormat": "Date Format",
           "openSideBarOnStart": "Open Side Bar on launch",
+          "showShutdownButton": "Show shutdown button",
           "currentVersion": "Current Version:",
           "qbittorrentVersion": "QBittorrent Version:",
           "importSettings": "Import Settings",

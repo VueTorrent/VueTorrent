@@ -39,7 +39,7 @@
         <span>{{ theme }}</span>
       </v-tooltip>
     </v-col>
-    <v-col>
+    <v-col v-if="webuiSettings.showShutdownButton">
       <v-tooltip top>
         <template #activator="{ on }">
           <v-btn text tile block v-on="on" @click="createModal('ConfirmShutdownModal')">
@@ -80,10 +80,7 @@ export default {
   }),
   computed: {
     ...mapState(['webuiSettings']),
-    ...mapGetters(['isDarkMode', 'getWebuiSettings', 'getStatus']),
-    webuiSettings() {
-      return this.getWebuiSettings()
-    },
+    ...mapGetters(['isDarkMode', 'getStatus']),
     theme() {
       return this.isDarkMode() ? this.$t('navbar.action.dark') : this.$t('navbar.action.light')
     },

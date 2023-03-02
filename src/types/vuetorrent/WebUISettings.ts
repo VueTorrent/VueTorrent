@@ -26,6 +26,7 @@ export default interface WebUISettings {
   paginationSize: number
   dateFormat: string
   openSideBarOnStart: boolean
+  showShutdownButton: boolean
   busyTorrentProperties: TorrentProperty[]
   doneTorrentProperties: TorrentProperty[]
 }
