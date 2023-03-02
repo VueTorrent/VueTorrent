@@ -185,6 +185,7 @@
           "vueTorrentTitle": "Titre de la page:",
           "dateFormat": "Format de date",
           "openSideBarOnStart": "Ouvrir la barre latérale au lancement",
+          "showShutdownButton": "Afficher le bouton d'arrêt",
           "currentVersion": "Version actuelle:",
           "qbittorrentVersion": "Version de QBittorrent:",
           "importSettings": "Importer la configuration",
