@@ -143,8 +143,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "一般",
-          "dashboard": "Dashboard"
+          "general": "一般"
         },
         "pageGeneral": {
           "tip": "這些設定適用於自訂WebUI",
@@ -165,7 +164,7 @@
           "qbittorrentVersion": "QBittorrent 版本",
           "resetSettings": "重置設定"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "未完成種子所顯示的屬性",
           "completedTorrentTip": "已完成種子所顯示的屬性",
           "properties": {
@@ -193,7 +192,8 @@
             "timeActive": "經過時間",
             "uploadSpeed": "上傳速率"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "當新增種子時",

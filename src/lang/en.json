@@ -172,7 +172,8 @@
       "pageVueTorrent": {
         "tabName": {
           "general": "General",
-          "dashboard": "Dashboard"
+          "desktopCard": "Desktop Card",
+          "mobileCard": "Mobile Card"
         },
         "pageGeneral": {
           "tip": "These settings are for the custom WebUI itself",
@@ -196,9 +197,9 @@
           "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
         },
-        "pageDashboard": {
-          "busyTorrentTip": "Properties to display for busy torrents",
-          "completedTorrentTip": "Properties to display for completed torrents",
+        "pageDesktopCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on desktop",
+          "completedTorrentTip": "Properties to display for completed torrents on desktop",
           "properties": {
             "availability": "Availability",
             "tracker": "Tracker",
@@ -227,6 +228,10 @@
             "globalSpeed": "Global Speed",
             "globalVolume": "Global Volume"
           }
+        },
+        "pageMobileCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on mobile",
+          "completedTorrentTip": "Properties to display for completed torrents on mobile"
         }
       },
       "pageDownloads": {

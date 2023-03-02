@@ -30,9 +30,10 @@
       "pageVueTorrent": {
         "tabName": {},
         "pageGeneral": {},
-        "pageDashboard": {
+        "pageDesktopCard": {
           "properties": {}
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "whenAddTorrent": {},
