@@ -89,7 +89,7 @@ export const StoreStateSchema: JSONSchemaType<StoreState> = {
               DashboardProperty.PEERS,
               DashboardProperty.SEEDS,
               DashboardProperty.STATUS,
-              DashboardProperty.RAIO,
+              DashboardProperty.RATIO,
               DashboardProperty.TRACKER,
               DashboardProperty.CATEGORY,
               DashboardProperty.TAGS,
