@@ -30,10 +30,10 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import Modal from "../../mixins/Modal";
-import {FullScreenModal} from "@/mixins";
-import qbit from "@/services/qbit";
+import { defineComponent } from 'vue'
+import Modal from '../../mixins/Modal'
+import { FullScreenModal } from '@/mixins'
+import qbit from '@/services/qbit'
 
 export default defineComponent({
   name: 'ConfirmShutdownModal',
@@ -43,13 +43,12 @@ export default defineComponent({
       this.dialog = false
     },
     async shutdownApplication() {
-      if (!await qbit.shutdownApp()) {
+      if (!(await qbit.shutdownApp())) {
         this.$toast.error(this.$t('toast.shutdownError').toString())
-      }
-      else {
+      } else {
         this.$store.state.authenticated = false
-        await this.$router.push({name: 'login'})
-        this.$toast.success(this.$t("toast.shutdownSuccess").toString())
+        await this.$router.push({ name: 'login' })
+        this.$toast.success(this.$t('toast.shutdownSuccess').toString())
       }
 
       this.close()

@@ -1,38 +1,36 @@
 <template>
   <v-card flat>
     <v-card-text class="pa-0">
-      <v-data-table v-if="peers" v-model="selectedPeers" dense show-select :headers="headers" :items="peers"
-                    :items-per-page="-1" item-key="key" mobile-breakpoint="0">
+      <v-data-table v-if="peers" v-model="selectedPeers" dense show-select :headers="headers" :items="peers" :items-per-page="-1" item-key="key" mobile-breakpoint="0">
         <template #body="{ items }">
           <tbody>
-          <tr v-for="item in items" :key="item.key">
-            <td>
-              <v-checkbox v-model="selectedPeers" :value="item.key" hide-details class="pa-0 ma-0" color="accent"/>
-            </td>
-            <td class="ip">
-              <template v-if="item.country_code">
-                <img v-if="isWindows" class="country-flag" :title="item.country"
-                     :alt="codeToFlag(item.country_code).char" :src="codeToFlag(item.country_code).url"/>
-                <template v-else>
-                  {{ codeToFlag(item.country_code).char }}
+            <tr v-for="item in items" :key="item.key">
+              <td>
+                <v-checkbox v-model="selectedPeers" :value="item.key" hide-details class="pa-0 ma-0" color="accent" />
+              </td>
+              <td class="ip">
+                <template v-if="item.country_code">
+                  <img v-if="isWindows" class="country-flag" :title="item.country" :alt="codeToFlag(item.country_code).char" :src="codeToFlag(item.country_code).url" />
+                  <template v-else>
+                    {{ codeToFlag(item.country_code).char }}
+                  </template>
                 </template>
-              </template>
-              {{ item.ip }}
-              <span class="grey--text">:{{ item.port }}</span>
-            </td>
-            <td>{{ item.connection }}</td>
-            <td :title="item.flags_desc">
-              {{ item.flags }}
-            </td>
-            <td>{{ item.client }}</td>
-            <td>{{ item.progress | progress }}</td>
-            <td>{{ item.dl_speed | networkSpeed }}</td>
-            <td>{{ item.downloaded | networkSize }}</td>
-            <td>{{ item.up_speed | networkSpeed }}</td>
-            <td>{{ item.uploaded | networkSize }}</td>
-            <td>{{ item.relevance | progress }}</td>
-            <td>{{ item.files }}</td>
-          </tr>
+                {{ item.ip }}
+                <span class="grey--text">:{{ item.port }}</span>
+              </td>
+              <td>{{ item.connection }}</td>
+              <td :title="item.flags_desc">
+                {{ item.flags }}
+              </td>
+              <td>{{ item.client }}</td>
+              <td>{{ item.progress | progress }}</td>
+              <td>{{ item.dl_speed | networkSpeed }}</td>
+              <td>{{ item.downloaded | networkSize }}</td>
+              <td>{{ item.up_speed | networkSpeed }}</td>
+              <td>{{ item.uploaded | networkSize }}</td>
+              <td>{{ item.relevance | progress }}</td>
+              <td>{{ item.files }}</td>
+            </tr>
           </tbody>
         </template>
       </v-data-table>
@@ -48,11 +46,10 @@
             <h3>Add Peers</h3>
           </v-card-title>
           <v-card-text>
-            <v-textarea v-model="newPeers" label="Peers" rows="1" required autofocus auto-grow clearable
-                        hint="One link per line"/>
+            <v-textarea v-model="newPeers" label="Peers" rows="1" required autofocus auto-grow clearable hint="One link per line" />
           </v-card-text>
           <v-card-actions>
-            <v-spacer/>
+            <v-spacer />
             <v-btn color="red darken-1" text @click="closeAddPeers">Cancel</v-btn>
             <v-btn color="green darken-1" text @click="addPeers">Add</v-btn>
           </v-card-actions>

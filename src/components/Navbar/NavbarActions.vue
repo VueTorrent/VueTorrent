@@ -59,7 +59,7 @@ import qbit from '@/services/qbit'
 import { mapGetters, mapState } from 'vuex'
 import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiPower, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
 import ConnectionStatus from './ConnectionStatus.vue'
-import {General} from "@/mixins"
+import { General } from '@/mixins'
 
 export default {
   name: 'BottomActions',

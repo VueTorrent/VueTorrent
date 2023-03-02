@@ -149,7 +149,14 @@
         {{ $t('rightClick.notags') | titleCase }}
       </v-list-item-title>
     </v-list-item>
-    <v-menu v-if="availableCategories.length > 1" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+    <v-menu
+      v-if="availableCategories.length > 1"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
       <template #activator="{ on }">
         <v-list-item link v-on="on">
           <v-icon>{{ mdiLabel }}</v-icon>

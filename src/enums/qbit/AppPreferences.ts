@@ -5,9 +5,9 @@ export enum BitTorrentProtocol {
 }
 
 export enum ContentLayout {
-  ORIGINAL = "Original",
-  SUBFOLDER = "Subfolder",
-  NO_SUBFOLDER = "NoSubfolder"
+  ORIGINAL = 'Original',
+  SUBFOLDER = 'Subfolder',
+  NO_SUBFOLDER = 'NoSubfolder'
 }
 
 export enum DynDnsService {
@@ -57,9 +57,9 @@ export enum SchedulerDays {
 }
 
 export enum StopCondition {
-  NONE = "None",
-  METADATA_RECEIVED = "MetadataReceived",
-  FILES_CHECKED = "FilesChecked"
+  NONE = 'None',
+  METADATA_RECEIVED = 'MetadataReceived',
+  FILES_CHECKED = 'FilesChecked'
 }
 
 export enum UploadChokingAlgorithm {

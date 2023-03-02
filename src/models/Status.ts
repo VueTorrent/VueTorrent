@@ -25,7 +25,7 @@ export default class Status {
       this.freeDiskSpace = previous.freeDiskSpace
       this.sessionDownloaded = previous.sessionDownloaded
       this.sessionUploaded = previous.sessionUploaded
-      
+
       Object.freeze(this)
       return
     }
