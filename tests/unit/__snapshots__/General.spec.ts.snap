@@ -68,6 +68,13 @@ exports[`General > render correctly 1`] = `
   </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
     <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
       <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
         <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
       </v-col-stub>
