@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     injectLocalization(properties) {
-      const localePrefix = 'modals.settings.pageVueTorrent.pageDesktopCard.properties'
+      const localePrefix = 'modals.settings.pageVueTorrent.properties'
       const localeMap = {
         Size: i18n.t(`${localePrefix}.size`),
         Progress: i18n.t(`${localePrefix}.progress`),
