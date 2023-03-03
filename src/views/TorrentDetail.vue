@@ -84,16 +84,12 @@ export default {
     }
   },
   mounted() {
+    this.$store.dispatch('INIT_INTERVALS')
     document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
-  created() {
-    this.$store.dispatch('INIT_INTERVALS')
-  },
   beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
-  },
-  destroyed() {
     this.$store.commit('REMOVE_INTERVALS')
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     close() {

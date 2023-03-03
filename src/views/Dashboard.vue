@@ -289,13 +289,13 @@ export default {
     }
   },
   mounted() {
+    this.$store.dispatch('INIT_INTERVALS')
     document.addEventListener('keydown', this.handleKeyboardShortcut)
     document.addEventListener('dragenter', this.detectDragEnter)
     this.$store.state.selectMode = false
     window.scrollTo(0, 0)
   },
   created() {
-    this.$store.dispatch('INIT_INTERVALS')
     this.$store.commit('FETCH_CATEGORIES')
     this.$store.commit('FETCH_TAGS')
     if (this.input) this.searchFilterEnabled = true
