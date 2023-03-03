@@ -116,6 +116,11 @@ export default {
   beforeDestroy() {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
+  watch: {
+    tab() {
+      window.scrollTo(0, 0)
+    }
+  },
   methods: {
     close() {
       this.$router.back()
