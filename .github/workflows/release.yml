@@ -13,7 +13,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Run release please
-        uses: google-github-actions/release-please-action@v3.1.4
+        uses: google-github-actions/release-please-action@v3.7.4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
