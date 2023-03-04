@@ -17,21 +17,31 @@
 ![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml)
 ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
+
+
 ## Screenshots
 
 - Desktop
-  ![](readme_assets/screenshot-desktop.png)
+<p align="middle">
+  <img src="readme_assets/screenshot-desktop.png" width="800" />
+</p>
 
 - Desktop Dark Mode
-  ![](readme_assets/screenshot-desktop-dark-mode.png)
+<p align="middle">
+  <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" />
+</p>
 
 - Mobile
-  ![](readme_assets/screenshot-mobile.png)
-  ![](readme_assets/screenshot-mobile-navbar.png)
+<p align="middle">
+  <img src="readme_assets/screenshot-mobile.png" width="400" />
+  <img src="readme_assets/screenshot-mobile-navbar.png" width="400" /> 
+</p>
 
 - Mobile Dark Mode
-  ![](readme_assets/screenshot-mobile-dark-mode.png)
-  ![](readme_assets/screenshot-mobile-navbar-dark-mode.png)
+<p align="middle">
+  <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" />
+  <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" /> 
+</p>
 
 ## Installation
 
