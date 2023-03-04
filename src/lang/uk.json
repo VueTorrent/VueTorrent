@@ -92,7 +92,7 @@
       "removeSelected": "Видалити вибрані торенти",
       "openSettings": "Відкрити налаштування",
       "searchNew": "Шукати нові торенти",
-      "rssArticles":  "Переглянути заголовки RSS-стрічок"
+      "rssArticles": "Переглянути заголовки RSS-стрічок"
     },
     "sessionStats": {
       "tooltip": "З моменту останнього перезапуску qBittorrent"
@@ -204,9 +204,10 @@
         "pageMobileCard": {
           "busyTorrentTip": "Властивості для відображення зайнятих торрентів в мобільному режимі",
           "completedTorrentTip": "Властивості для відображення завершених торрентів в мобільному режимі"
-},
+        },
           "properties": {
             "availability": "Доступність",
+            "tracker": "Трекер",
             "category": "Категорія",
             "tags": "Мітки",
             "completed": "Завершено",
@@ -231,7 +232,6 @@
             "uploadSpeed": "Швидкість віддачі",
             "globalSpeed": "Загальна швидкість",
             "globalVolume": "Загальний об'єм"
-          }
         }
       },
       "pageDownloads": {
@@ -317,7 +317,7 @@
         },
         "pageRules": {
           "rules": "Правила",
-          "btnCreateNew": "Створити правило"
+          "btnCreateNew": "Створити правило",
         },
         "pageFeeds": {
           "feeds": "Стрічки",
