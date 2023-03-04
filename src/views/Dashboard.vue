@@ -9,6 +9,7 @@
       <v-expand-x-transition>
         <v-card v-show="searchFilterEnabled" id="searchFilter" flat xs7 md3 class="ma-0 pa-0 transparent">
           <v-text-field
+            id="searchInput"
             v-model="input"
             autofocus
             flat
@@ -399,6 +400,14 @@ export default {
         e.preventDefault()
 
         this.selectAllTorrents()
+      }
+
+      // 'ctrl + F' => Focus search filter field
+      if (e.keyCode === 70 && e.ctrlKey) {
+        e.preventDefault()
+
+        this.searchFilterEnabled = true
+        document.getElementById('searchInput').focus()
       }
 
       // 'Delete' => Delete modal
