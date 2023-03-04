@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.5.0](https://github.com/WDaan/VueTorrent/compare/v1.4.0...v1.5.0) (2023-03-04)
+
+
+### Features
+
+* Add settings to Show/Hide fields in mobile torrent card ([#687](https://github.com/WDaan/VueTorrent/issues/687)) @Larsluph ([88bc931](https://github.com/WDaan/VueTorrent/commit/88bc9317c9864145712b897905cce7cab073066c))
+
+
+### Bug Fixes
+
+* Duplicate intervals ([#689](https://github.com/WDaan/VueTorrent/issues/689)) @Larsluph ([a822702](https://github.com/WDaan/VueTorrent/commit/a822702e69ad1c2b2ff9f58d82b07dd89e8ec605))
+
+
+### Improvements
+
+* Add switch to hide Shutdown button ([#685](https://github.com/WDaan/VueTorrent/issues/685)) @Larsluph ([19e4eef](https://github.com/WDaan/VueTorrent/commit/19e4eef0b893a0e78580e04bd204fe2afb6af1fd))
+* scroll to top if tab is changed ([#688](https://github.com/WDaan/VueTorrent/issues/688)) ([763c3d3](https://github.com/WDaan/VueTorrent/commit/763c3d31e026a319f4ebf280954d8deb0fbb085c))
+
 ## [1.4.0](https://github.com/WDaan/VueTorrent/compare/v1.3.2...v1.4.0) (2023-02-28)
 
 ### Features
