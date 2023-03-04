@@ -123,8 +123,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "一般",
-          "dashboard": "ダッシュボード"
+          "general": "一般"
         },
         "pageGeneral": {
           "tip": "これらの設定は、このカスタム WebUI に対するものです",
@@ -141,11 +140,12 @@
           "currentVersion": "現在のバージョン:",
           "qbittorrentVersion": "QBittorrentのバージョン:"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "稼働中のTorrentに表示されるプロパティ",
           "completedTorrentTip": "完了したTorrentに表示されるプロパティ",
           "properties": {}
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Torrentを追加したとき",

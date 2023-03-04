@@ -134,8 +134,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Общее",
-          "dashboard": "Панель"
+          "general": "Общее"
         },
         "pageGeneral": {
           "tip": "Общие настройки пользовательского веб-интерфейса",
@@ -156,7 +155,7 @@
           "qbittorrentVersion": "Версия QBittorrent:",
           "resetSettings": "Сбросить настройки"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "Свойства для отображения активных торрентов",
           "completedTorrentTip": "Свойства для отображения завершенных торрентов",
           "properties": {
@@ -174,7 +173,8 @@
             "ratio": "Рейтинг",
             "size": "Размер"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "При добавлении торрента",

@@ -90,7 +90,7 @@
       "removeSelected": "Видалити вибрані торенти",
       "openSettings": "Відкрити налаштування",
       "searchNew": "Шукати нові торенти",
-      "rssArticles":  "Переглянути заголовки RSS-стрічок"
+      "rssArticles": "Переглянути заголовки RSS-стрічок"
     },
     "sessionStats": {
       "tooltip": "З моменту останнього перезапуску qBittorrent"
@@ -168,8 +168,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Загальне",
-          "dashboard": "Панель"
+          "general": "Загальне"
         },
         "pageGeneral": {
           "tip": "Ці налаштування призначені для користувацького веб-інтерфейсу",
@@ -190,7 +189,7 @@
           "qbittorrentVersion": "Версія QBittorrent:",
           "resetSettings": "Скинути налаштування"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "Властивості для відображення зайнятих торрентів",
           "completedTorrentTip": "Властивості для відображення завершених торрентів",
           "properties": {
@@ -220,7 +219,8 @@
             "globalSpeed": "Загальна швидкість",
             "globalVolume": "Загальний об'єм"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Коли додається торент",

@@ -4,12 +4,12 @@ import VuexPersist from 'vuex-persist'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import type { StoreState } from '@/types/vuetorrent'
+import type { StoreState, PersistentStoreState } from '@/types/vuetorrent'
 import { Status } from '@/models'
 import { TitleOptions, DashboardProperty } from '@/enums/vuetorrent'
-import {AppPreferences} from '@/types/qbit/models'
+import { AppPreferences } from '@/types/qbit/models'
 
-const vuexPersist = new VuexPersist<StoreState>({
+const vuexPersist = new VuexPersist<PersistentStoreState>({
   key: 'vuetorrent',
   storage: window.localStorage,
   reducer: state => ({
@@ -22,7 +22,7 @@ const vuexPersist = new VuexPersist<StoreState>({
 Vue.use(Vuex)
 
 // noinspection DuplicatedCode
-const propertiesTemplate = [
+const desktopPropertiesTemplate = [
   { name: DashboardProperty.SIZE, active: true },
   { name: DashboardProperty.PROGRESS, active: true },
   { name: DashboardProperty.DOWNLOAD, active: true },
@@ -34,7 +34,7 @@ const propertiesTemplate = [
   { name: DashboardProperty.PEERS, active: true },
   { name: DashboardProperty.SEEDS, active: true },
   { name: DashboardProperty.STATUS, active: true },
-  { name: DashboardProperty.RAIO, active: true },
+  { name: DashboardProperty.RATIO, active: true },
   { name: DashboardProperty.TRACKER, active: false },
   { name: DashboardProperty.CATEGORY, active: true },
   { name: DashboardProperty.TAGS, active: true },
@@ -44,6 +44,22 @@ const propertiesTemplate = [
   { name: DashboardProperty.COMPLETED_ON, active: false },
   { name: DashboardProperty.GLOBAL_SPEED, active: false },
   { name: DashboardProperty.GLOBAL_VOLUME, active: false }
+]
+
+const mobilePropertiesTemplate = [
+  { name: DashboardProperty.STATUS, active: true },
+  { name: DashboardProperty.TRACKER, active: true },
+  { name: DashboardProperty.CATEGORY, active: true },
+  { name: DashboardProperty.TAGS, active: true },
+  { name: DashboardProperty.SIZE, active: true },
+  { name: DashboardProperty.PROGRESS, active: true },
+  { name: DashboardProperty.RATIO, active: true },
+  { name: DashboardProperty.UPLOADED, active: true },
+  { name: DashboardProperty.ETA, active: true },
+  { name: DashboardProperty.SEEDS, active: true },
+  { name: DashboardProperty.PEERS, active: true },
+  { name: DashboardProperty.DOWNLOAD, active: true },
+  { name: DashboardProperty.UPLOAD, active: true }
 ]
 
 export default new Vuex.Store<StoreState>({
@@ -102,8 +118,10 @@ export default new Vuex.Store<StoreState>({
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
       showShutdownButton: true,
-      busyTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate)),
-      doneTorrentProperties: JSON.parse(JSON.stringify(propertiesTemplate))
+      busyDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
+      doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
+      busyMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate)),
+      doneMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate))
     }
   },
   // @ts-expect-error

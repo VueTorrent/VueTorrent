@@ -143,8 +143,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "常规",
-          "dashboard": "面板"
+          "general": "常规"
         },
         "pageGeneral": {
           "tip": "这些设置适用于自定义 WebUI 本身",
@@ -164,7 +163,7 @@
           "currentVersion": "当前版本",
           "qbittorrentVersion": "QBittorrent 版本"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "未完成的种子要显示的属性",
           "completedTorrentTip": "已完成的种子要显示的属性",
           "properties": {
@@ -191,7 +190,8 @@
             "timeActive": "活跃时间",
             "uploadSpeed": "上传速率"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "当添加种子时",

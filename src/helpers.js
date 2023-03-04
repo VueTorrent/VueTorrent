@@ -60,14 +60,18 @@ export function treeify(paths) {
   const level = { result }
 
   paths.forEach(path => {
-    path.name.split('\\').join('/').split('/').reduce((r, name) => {
-      if (!r[name]) {
-        r[name] = { result: [] }
-        r.result.push(createFile(path, name, r[name].result))
-      }
+    path.name
+      .split('\\')
+      .join('/')
+      .split('/')
+      .reduce((r, name) => {
+        if (!r[name]) {
+          r[name] = { result: [] }
+          r.result.push(createFile(path, name, r[name].result))
+        }
 
-      return r[name]
-    }, level)
+        return r[name]
+      }, level)
   })
 
   // parse folders
@@ -162,7 +166,7 @@ export function getBaseURL() {
 }
 
 export function getDomainBody(string) {
-  const match = string.match(/:\/\/([^\/]+\.)?([^\/\.]+)\.[^\/\.:]+/i)
+  const match = string.match(/:\/\/([^\/]+\.)?([^\/.]+)\.[^\/.:]+/i)
   if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
     return match[2]
   } else {

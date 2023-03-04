@@ -124,11 +124,11 @@
       <v-row dense>
         <v-col>
           <v-switch
-              v-model="webuiSettings.showShutdownButton"
-              class="v-input--reverse pa-0 ma-0"
-              hide-details
-              inset
-              :label="$t('modals.settings.pageVueTorrent.pageGeneral.showShutdownButton')"
+            v-model="webuiSettings.showShutdownButton"
+            class="v-input--reverse pa-0 ma-0"
+            hide-details
+            inset
+            :label="$t('modals.settings.pageVueTorrent.pageGeneral.showShutdownButton')"
           />
         </v-col>
       </v-row>

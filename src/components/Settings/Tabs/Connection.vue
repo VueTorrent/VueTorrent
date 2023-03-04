@@ -98,7 +98,7 @@
 
 <script>
 import { SettingsTab, FullScreenModal } from '@/mixins'
-import {BitTorrentProtocol, ProxyType} from "@/enums/qbit/AppPreferences";
+import { BitTorrentProtocol, ProxyType } from '@/enums/qbit/AppPreferences'
 
 export default {
   name: 'Connection',

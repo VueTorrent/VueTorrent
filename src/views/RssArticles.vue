@@ -57,7 +57,7 @@ import { defineComponent } from 'vue'
 import { FeedArticle } from '@/types/vuetorrent/rss'
 import { Feed, FeedRule } from '@/types/vuetorrent'
 import { mdiClose, mdiDownload, mdiEmailOpen } from '@mdi/js'
-import qbit from "@/services/qbit";
+import qbit from '@/services/qbit'
 
 type RssState = { feeds: Feed[]; rules: FeedRule[] }
 

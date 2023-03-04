@@ -149,8 +149,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Chung",
-          "dashboard": "Trang tổng quan"
+          "general": "Chung"
         },
         "pageGeneral": {
           "tip": "Đây là các cài đặt dành riêng cho VueTorrent",
@@ -171,7 +170,7 @@
           "qbittorrentVersion": "Phiên bản QBittorrent:",
           "resetSettings": "Đặt lại cài đặt"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "Các thuộc tính để hiển thị cho các torrent chưa hoàn thành",
           "completedTorrentTip": "Các thuộc tính để hiển thị cho các torrent đã hoàn thành",
           "properties": {
@@ -201,7 +200,8 @@
             "globalSpeed": "Global Speed",
             "globalVolume": "Global Volume"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Khi thêm một torrent",

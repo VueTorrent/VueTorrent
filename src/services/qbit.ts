@@ -114,9 +114,10 @@ export class QBitApi {
   }
 
   async getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
-    return this.axios.get('/sync/torrentPeers', {
-      params: { hash, rid }
-    })
+    return this.axios
+      .get('/sync/torrentPeers', {
+        params: { hash, rid }
+      })
       .then(r => r.data)
   }
 
@@ -141,7 +142,7 @@ export class QBitApi {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.axios.get('/torrents/tags').then(res => res.data.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, {sensitivity: 'base'})))
+    return this.axios.get('/torrents/tags').then(res => res.data.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
@@ -512,9 +513,10 @@ export class QBitApi {
   }
 
   async shutdownApp(): Promise<boolean> {
-    return this.axios.post("/app/shutdown")
-    .then(() => true)
-    .catch(() => false)
+    return this.axios
+      .post('/app/shutdown')
+      .then(() => true)
+      .catch(() => false)
   }
 }
 

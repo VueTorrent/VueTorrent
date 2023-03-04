@@ -139,7 +139,7 @@
 
 <script>
 import { SettingsTab, FullScreenModal } from '@/mixins'
-import {MaxRatioAction} from "@/enums/qbit/AppPreferences";
+import { MaxRatioAction } from '@/enums/qbit/AppPreferences'
 
 export default {
   name: 'BitTorrent',

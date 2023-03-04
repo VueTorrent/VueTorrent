@@ -167,8 +167,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Général",
-          "dashboard": "Tableau de bord"
+          "general": "Général"
         },
         "pageGeneral": {
           "tip": "Ces paramètres concernent la WebUI",
@@ -192,7 +191,7 @@
           "exportSettings": "Exporter la configuration",
           "resetSettings": "Réinitialiser la configuration"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "Propriétés à afficher pour les torrents occupés",
           "completedTorrentTip": "Propriétés à afficher pour les torrents terminés",
           "properties": {
@@ -219,7 +218,8 @@
             "timeActive": "Temps actif",
             "uploadSpeed": "Vitesse d'upload"
           }
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Lors de l'ajout d'un torrent",

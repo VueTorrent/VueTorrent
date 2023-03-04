@@ -3,12 +3,12 @@
     <v-row dense>
       <v-col cols="12" md="6">
         <v-subheader>
-          {{ $t('modals.settings.pageVueTorrent.pageDashboard.busyTorrentTip') }}
+          {{ $t('modals.settings.pageVueTorrent.pageDesktopCard.busyTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">
-            <draggable :list="busyTorrentProperties" tag="tbody">
-              <v-list-item v-for="(item, index) in busyTorrentProperties" :key="index" class="ma-2 elevation-2 rounded-lg pointer">
+            <draggable :list="busyDesktopTorrentProperties" tag="tbody">
+              <v-list-item v-for="(item, index) in busyDesktopTorrentProperties" :key="index" class="ma-2 elevation-2 rounded-lg pointer">
                 <v-checkbox v-model="item.active" dense hide-details class="pa-0 ma-0" />
                 <v-list-item-content>
                   <v-list-item-title class="truncate" v-text="item.label" />
@@ -26,12 +26,12 @@
 
       <v-col cols="12" md="6">
         <v-subheader>
-          {{ $t('modals.settings.pageVueTorrent.pageDashboard.completedTorrentTip') }}
+          {{ $t('modals.settings.pageVueTorrent.pageDesktopCard.completedTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">
-            <draggable :list="doneTorrentProperties" tag="tbody">
-              <v-list-item v-for="(item, index) in doneTorrentProperties" :key="index" class="ma-2 elevation-2 rounded-lg pointer">
+            <draggable :list="doneDesktopTorrentProperties" tag="tbody">
+              <v-list-item v-for="(item, index) in doneDesktopTorrentProperties" :key="index" class="ma-2 elevation-2 rounded-lg pointer">
                 <v-checkbox v-model="item.active" dense hide-details class="pa-0 ma-0" />
                 <v-list-item-content>
                   <v-list-item-title class="truncate" v-text="item.label" />
@@ -56,7 +56,7 @@ import { mdiMenu } from '@mdi/js'
 import { i18n } from '@/plugins/i18n'
 
 export default {
-  name: 'Dashboard',
+  name: 'VDesktopCard',
   components: {
     draggable
   },
@@ -64,16 +64,16 @@ export default {
     mdiMenu
   }),
   computed: {
-    busyTorrentProperties() {
-      return this.injectLocalization(this.$store.state.webuiSettings.busyTorrentProperties)
+    busyDesktopTorrentProperties() {
+      return this.injectLocalization(this.$store.state.webuiSettings.busyDesktopTorrentProperties)
     },
-    doneTorrentProperties() {
-      return this.injectLocalization(this.$store.state.webuiSettings.doneTorrentProperties)
+    doneDesktopTorrentProperties() {
+      return this.injectLocalization(this.$store.state.webuiSettings.doneDesktopTorrentProperties)
     }
   },
   methods: {
     injectLocalization(properties) {
-      const localePrefix = 'modals.settings.pageVueTorrent.pageDashboard.properties'
+      const localePrefix = 'modals.settings.pageVueTorrent.properties'
       const localeMap = {
         Size: i18n.t(`${localePrefix}.size`),
         Progress: i18n.t(`${localePrefix}.progress`),

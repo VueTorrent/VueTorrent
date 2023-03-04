@@ -6,8 +6,9 @@ import type SearchResult from './search/SearchResult'
 import type ModalTemplate from './ModalTemplate'
 import type SortOptions from './SortOptions'
 import type StoreState from './StoreState'
+import type { PersistentStoreState } from './StoreState'
 import type { TreeNode, TreeFile, TreeFolder } from './TreeObjects'
-import type { TorrentProperty, TorrentPropertyLocalized } from '@/types/vuetorrent/WebUISettings'
+import type { TorrentProperty, TorrentPropertyLocalized } from './WebUISettings'
 import type Tracker from './Tracker'
 
 export type ComponentRule = (value: string) => boolean | string
@@ -20,6 +21,7 @@ export {
   SearchResult,
   ModalTemplate,
   SortOptions,
+  PersistentStoreState,
   StoreState,
   TreeNode,
   TreeFile,

@@ -10,7 +10,7 @@ export enum DashboardProperty {
   PEERS = 'Peers',
   SEEDS = 'Seeds',
   STATUS = 'Status',
-  RAIO = 'Ratio',
+  RATIO = 'Ratio',
   TRACKER = 'Tracker',
   CATEGORY = 'Category',
   TAGS = 'Tags',

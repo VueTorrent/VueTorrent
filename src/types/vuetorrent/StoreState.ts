@@ -9,8 +9,13 @@ import type { Status } from '@/models'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
 import type { SearchPlugin } from '@/types/qbit/models'
 
-export default interface StoreState {
+export interface PersistentStoreState {
   authenticated: boolean
+  sort_options: SortOptions
+  webuiSettings: WebUISettings
+}
+
+export default interface StoreState extends PersistentStoreState {
   categories: Category[]
   dashboard: {
     currentPage: number
@@ -30,12 +35,10 @@ export default interface StoreState {
   selectMode: boolean
   selected_torrents: string[]
   settings: AppPreferences
-  sort_options: SortOptions
   status: Status
   tags: string[]
   torrents: Torrent[]
   trackers: string[]
   upload_data: number[]
   version: string
-  webuiSettings: WebUISettings
 }

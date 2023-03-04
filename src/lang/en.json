@@ -92,7 +92,7 @@
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
       "searchNew": "Search new torrent",
-      "rssArticles":  "View RSS feed articles"
+      "rssArticles": "View RSS feed articles"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -172,7 +172,8 @@
       "pageVueTorrent": {
         "tabName": {
           "general": "General",
-          "dashboard": "Dashboard"
+          "desktopCard": "Desktop Card",
+          "mobileCard": "Mobile Card"
         },
         "pageGeneral": {
           "tip": "These settings are for the custom WebUI itself",
@@ -196,37 +197,41 @@
           "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
         },
-        "pageDashboard": {
-          "busyTorrentTip": "Properties to display for busy torrents",
-          "completedTorrentTip": "Properties to display for completed torrents",
-          "properties": {
-            "availability": "Availability",
-            "tracker": "Tracker",
-            "category": "Category",
-            "tags": "Tags",
-            "completed": "Completed",
-            "completion_on": "Completed On",
-            "downloaded": "Downloaded",
-            "ETA": "ETA",
-            "name": "Name",
-            "default": "Default",
-            "last_activity": "Last Activity",
-            "peers": "Peers",
-            "seeds": "Seeds",
-            "priority": "Priority",
-            "progress": "Progress",
-            "ratio": "Ratio",
-            "save_path": "Directory",
-            "size": "Size",
-            "state": "State",
-            "uploaded": "Uploaded",
-            "addedOn": "Added On",
-            "downloadSpeed": "Download Speed",
-            "timeActive": "Time Active",
-            "uploadSpeed": "Upload Speed",
-            "globalSpeed": "Global Speed",
-            "globalVolume": "Global Volume"
-          }
+        "pageDesktopCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on desktop",
+          "completedTorrentTip": "Properties to display for completed torrents on desktop"
+        },
+        "pageMobileCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on mobile",
+          "completedTorrentTip": "Properties to display for completed torrents on mobile"
+        },
+        "properties": {
+          "availability": "Availability",
+          "tracker": "Tracker",
+          "category": "Category",
+          "tags": "Tags",
+          "completed": "Completed",
+          "completion_on": "Completed On",
+          "downloaded": "Downloaded",
+          "ETA": "ETA",
+          "name": "Name",
+          "default": "Default",
+          "last_activity": "Last Activity",
+          "peers": "Peers",
+          "seeds": "Seeds",
+          "priority": "Priority",
+          "progress": "Progress",
+          "ratio": "Ratio",
+          "save_path": "Directory",
+          "size": "Size",
+          "state": "State",
+          "uploaded": "Uploaded",
+          "addedOn": "Added On",
+          "downloadSpeed": "Download Speed",
+          "timeActive": "Time Active",
+          "uploadSpeed": "Upload Speed",
+          "globalSpeed": "Global Speed",
+          "globalVolume": "Global Volume"
         }
       },
       "pageDownloads": {

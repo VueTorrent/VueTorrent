@@ -10,7 +10,7 @@
 </template>
 <script>
 import * as Fields from './DashboardItems'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 
 export default {
   name: 'DesktopCard',
@@ -21,13 +21,13 @@ export default {
     torrent: Object
   },
   computed: {
-    ...mapGetters(['getWebuiSettings']),
+    ...mapState(['webuiSettings']),
     properties() {
       if (this.torrent.progress === 100) {
-        return this.getWebuiSettings().doneTorrentProperties.filter(i => i.active)
+        return this.webuiSettings.doneDesktopTorrentProperties.filter(i => i.active)
       }
 
-      return this.getWebuiSettings().busyTorrentProperties.filter(i => i.active)
+      return this.webuiSettings.busyDesktopTorrentProperties.filter(i => i.active)
     }
   }
 }

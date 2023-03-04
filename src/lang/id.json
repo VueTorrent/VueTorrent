@@ -122,8 +122,7 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Umum",
-          "dashboard": "Dashboard"
+          "general": "Umum"
         },
         "pageGeneral": {
           "tip": "Pengaturan berikut hanya untuk WebUI kustom",
@@ -142,11 +141,12 @@
           "currentVersion": "Versi saat ini:",
           "qbittorrentVersion": "Versi qBittorrent:"
         },
-        "pageDashboard": {
+        "pageDesktopCard": {
           "busyTorrentTip": "Properti ditampilkan pada torrent yang sibuk",
           "completedTorrentTip": "Properti ditampilkan pada torrent yang selesai",
           "properties": {}
-        }
+        },
+        "pageMobileCard": {}
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Saat menambahkan torrent",

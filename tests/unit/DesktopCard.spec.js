@@ -1,13 +1,13 @@
 import { describe, beforeEach, it, expect, vi } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 
-import Dashboard from '@/components/Settings/Tabs/VueTorrent/Dashboard.vue'
+import DesktopCard from '@/components/Settings/Tabs/VueTorrent/VDesktopCard.vue'
 
 let wrapper
 
-describe('Dashboard', () => {
+describe('DesktopCard', () => {
   beforeEach(() => {
-    wrapper = shallowMount(Dashboard, {
+    wrapper = shallowMount(DesktopCard, {
       mocks: {
         $t: x => x,
         $store: {
@@ -27,7 +27,7 @@ describe('Dashboard', () => {
               title: 'Default',
               rightDrawer: false,
               paginationSize: 15,
-              busyTorrentProperties: [
+              busyDesktopTorrentProperties: [
                 { name: 'Size', active: true },
                 { name: 'Progress', active: true },
                 { name: 'Download', active: true },
@@ -44,7 +44,7 @@ describe('Dashboard', () => {
                 { name: 'AddedOn', active: true },
                 { name: 'Availability', active: true }
               ],
-              doneTorrentProperties: [
+              doneDesktopTorrentProperties: [
                 { name: 'Size', active: true },
                 { name: 'Progress', active: true },
                 { name: 'Download', active: true },
@@ -72,8 +72,8 @@ describe('Dashboard', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
-  it('tests busyTorrentProperties', () => {
-    const busyTorrentProperties = [
+  it('tests busyDesktopTorrentProperties', () => {
+    const busyDesktopTorrentProperties = [
       { name: 'Size', label: 'Size', active: true },
       { name: 'Progress', label: 'Progress', active: true },
       { name: 'Download', label: 'Download Speed', active: true },
@@ -90,11 +90,11 @@ describe('Dashboard', () => {
       { name: 'AddedOn', label: 'Added On', active: true },
       { name: 'Availability', label: 'Availability', active: true }
     ]
-    expect(wrapper.vm.busyTorrentProperties).toEqual(busyTorrentProperties)
+    expect(wrapper.vm.busyDesktopTorrentProperties).toEqual(busyDesktopTorrentProperties)
   })
 
-  it('tests doneTorrentProperties', () => {
-    const doneTorrentProperties = [
+  it('tests doneDesktopTorrentProperties', () => {
+    const doneDesktopTorrentProperties = [
       { name: 'Size', label: 'Size', active: true },
       { name: 'Progress', label: 'Progress', active: true },
       { name: 'Download', label: 'Download Speed', active: true },
@@ -111,6 +111,6 @@ describe('Dashboard', () => {
       { name: 'AddedOn', label: 'Added On', active: true },
       { name: 'Availability', label: 'Availability', active: true }
     ]
-    expect(wrapper.vm.doneTorrentProperties).toEqual(doneTorrentProperties)
+    expect(wrapper.vm.doneDesktopTorrentProperties).toEqual(doneDesktopTorrentProperties)
   })
 })
