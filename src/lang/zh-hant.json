@@ -2,7 +2,7 @@
   "category": "分類",
   "settings": "設定",
   "pause": "暫停",
-  "delete": "刪除",
+  "delete": "移除",
   "save": "儲存",
   "cancel": "取消",
   "confirm": "確認",
@@ -26,10 +26,13 @@
   "errored": "錯誤",
   "login": "登入",
   "logout": "登出",
+  "shutdownApp": "結束應用程式",
   "download": "下載",
   "downloaded": "已下載",
   "upload": "上傳",
   "uploaded": "已上傳",
+  "globalSpeed": "全域速率",
+  "globalVolume": "全域大小",
   "ETA": "預估剩餘時間",
   "peers": "下載者",
   "ratio": "分享率",
@@ -44,6 +47,10 @@
   "rule": "規則",
   "then": "然後",
   "of": "of",
+  "yes": "是",
+  "no": "否",
+  "filter": "過濾器",
+  "close": "關閉",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "搜尋過濾器",
@@ -69,7 +76,9 @@
     "timeActive": "經過時間",
     "seededFor": "已做種",
     "last_activity": "最後活動",
-    "completed_on": "完成於"
+    "completed_on": "完成於",
+    "globalSpeed": "全域速率",
+    "globalVolume": "全域大小"
   },
   "navbar": {
     "currentSpeed": "當前速率",
@@ -80,9 +89,10 @@
       "addTorrent": "新增種子",
       "resumeSelected": "繼續已選中種子",
       "pauseSelected": "暫停已選中種子",
-      "removeSelected": "刪除已選中種子",
+      "removeSelected": "移除已選中種子",
       "openSettings": "打開設定",
-      "searchNew": "搜尋新種子"
+      "searchNew": "搜尋新種子",
+      "rssArticles": "查看 RSS 訂閱文章"
     },
     "sessionStats": {
       "tooltip": "自 qBittorrent 上次重新啟動以來"
@@ -112,6 +122,8 @@
       "name": "名稱",
       "def": {
         "mustContain": "必須包含",
+        "mustNotContain": "必須不包含",
+        "useRegex": "使用正規表達式",
         "affectedFeeds": "套用至以下訂閱源"
       }
     },
@@ -131,6 +143,22 @@
         "action": ""
       }
     },
+    "rss": {
+      "title": "RSS 文章",
+      "filterRead": "僅限未讀文章",
+      "columnTitle": {
+        "feedName": "訂閱源名稱",
+        "author": "作者",
+        "category": "分類",
+        "date": "日期",
+        "description": "描述",
+        "id": "ID",
+        "link": "連結",
+        "title": "標題",
+        "torrentURL": "種子下載連結",
+        "actions": ""
+      }
+    },
     "settings": {
       "tabName": {
         "VueTorrent": "VueTorrent",
@@ -143,7 +171,9 @@
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "一般"
+          "general": "一般",
+          "desktopCard": "桌面版卡片",
+          "mobileCard": "行動版卡片"
         },
         "pageGeneral": {
           "tip": "這些設定適用於自訂WebUI",
@@ -160,46 +190,57 @@
           "vueTorrentTitle": "VueTorrent 標題",
           "dateFormat": "日期格式",
           "openSideBarOnStart": "啟動時顯示側邊欄",
+          "showShutdownButton": "顯示結束按鈕",
           "currentVersion": "當前版本",
           "qbittorrentVersion": "QBittorrent 版本",
+          "importSettings": "匯入設定",
+          "exportSettings": "匯出設定",
           "resetSettings": "重置設定"
         },
         "pageDesktopCard": {
-          "busyTorrentTip": "未完成種子所顯示的屬性",
-          "completedTorrentTip": "已完成種子所顯示的屬性",
-          "properties": {
-            "availability": "可得性",
-            "category": "分類",
-            "tags": "標籤",
-            "completed": "已完成",
-            "completion_on": "完成於",
-            "downloaded": "已下載",
-            "ETA": "預估剩餘時間",
-            "name": "名稱",
-            "default": "預設",
-            "last_activity": "最後活動",
-            "peers": "下載者",
-            "seeds": "種子",
-            "priority": "優先級",
-            "progress": "進度",
-            "ratio": "分享率",
-            "save_path": "儲存路徑",
-            "size": "大小",
-            "state": "狀態",
-            "uploaded": "已上傳",
-            "addedOn": "新增於",
-            "downloadSpeed": "下載速率",
-            "timeActive": "經過時間",
-            "uploadSpeed": "上傳速率"
-          }
+          "busyTorrentTip": "桌面版上未完成種子所顯示的屬性",
+          "completedTorrentTip": "桌面版上已完成種子所顯示的屬性"
         },
-        "pageMobileCard": {}
+        "pageMobileCard": {
+          "busyTorrentTip": "行動版上未完成種子所顯示的屬性",
+          "completedTorrentTip": "行動版上未完成種子所顯示的屬性"
+        },
+        "properties": {
+          "availability": "可得性",
+          "tracker": "Tracker",
+          "category": "分類",
+          "tags": "標籤",
+          "completed": "已完成",
+          "completion_on": "完成於",
+          "downloaded": "已下載",
+          "ETA": "預估剩餘時間",
+          "name": "名稱",
+          "default": "預設",
+          "last_activity": "最後活動",
+          "peers": "下載者",
+          "seeds": "種子",
+          "priority": "優先級",
+          "progress": "進度",
+          "ratio": "分享率",
+          "save_path": "儲存路徑",
+          "size": "大小",
+          "state": "狀態",
+          "uploaded": "已上傳",
+          "addedOn": "新增於",
+          "downloadSpeed": "下載速率",
+          "timeActive": "經過時間",
+          "uploadSpeed": "上傳速率",
+          "globalSpeed": "全域速率",
+          "globalVolume": "全域大小"
+        }
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "當新增種子時",
         "whenAddTorrent": {
-          "createSubFolder": "為包含多個檔案的種子建立子資料夾",
-          "donotAutoStart": "不要自動開始下載"
+          "contentLayout": "種子內容佈局",
+          "donotAutoStart": "不要自動開始下載",
+          "stopCondition": "種子停止條件",
+          "autoDeleteMode": "事後移除 .torrent 檔案"
         },
         "subHeaderPublicSettings": "公共設定",
         "publicSettings": {
@@ -376,7 +417,7 @@
         "files": "檔案"
       },
       "pageTagsAndCategories": {
-        "subHeaderTag": "可用標竹：",
+        "subHeaderTag": "可用標籤：",
         "subHeaderCategories": "可用分類："
       },
       "pageTrackers": {
@@ -395,10 +436,22 @@
       "urlHint": "每行一個連結",
       "downloadDirectory": "下載目錄",
       "starttorrent": "新增後開始",
-      "skipHashCheck": "跳過雜湊值檢",
+      "skipHashCheck": "跳過雜湊值檢查",
       "automaticTorrentManagement": "自動種子管理 (ATM)",
       "dropHereForAdd": "拖拽至此處新增",
-      "oneOrMoreFilesInvalidTorrent": "存在無效的種子檔案"
+      "oneOrMoreFilesInvalidTorrent": "存在無效的種子檔案",
+      "contentLayout": "內容佈局",
+      "contentLayoutOptions": {
+        "original": "原始",
+        "subfolder": "建立子資料夾",
+        "nosubfolder": "移除子資料夾"
+      },
+      "stopCondition": "停止條件",
+      "stopConditionOptions": {
+        "none": "無",
+        "metadataReceived": "收到元資料後",
+        "filesChecked": "檢查檔案後"
+      }
     },
     "changeLocation": {
       "title": "更改位置"
@@ -431,14 +484,20 @@
         "addedOn": "新增於",
         "downloadSpeed": "下載速率",
         "timeActive": "經過時間",
-        "uploadSpeed": "上傳速率"
+        "uploadSpeed": "上傳速率",
+        "globalSpeed": "全域速率",
+        "globalVolume": "全域大小"
       }
     },
     "speedLimit": {
       "speedLimit": "速率限制"
     },
     "delete": {
-      "check": "同時從儲存空間中刪除"
+      "check": "同時從儲存空間中移除"
+    },
+    "shutdown": {
+      "title": "結束 qBittorrent",
+      "content": "你確認想要結束 qBittorrent 嗎？"
     }
   },
   "toast": {
@@ -449,7 +508,14 @@
     "feedSaved": "訂閱源儲存成功！",
     "ruleSaved": "規則保存成功！",
     "renameFileFailed": "重新命名失敗",
-    "renameFolderFailed": "重新命名失敗"
+    "renameFolderFailed": "重新命名失敗",
+    "copySuccess": "文字已複製！",
+    "copyNotSupported": "無法複製，非安全環境",
+    "pasteSuccess": "文字已貼上！",
+    "pasteNotSupported": "無法貼上，非安全環境",
+    "shutdownSuccess": "已成功結束 qBittorrent!",
+    "shutdownError": "無法結束應用，請確認 qBittorrent 正在運行！",
+    "invalidJson": "無效的 JSON!"
   },
   "rightClick": {
     "resume": "繼續",
@@ -472,10 +538,12 @@
       "decrease": "降低"
     },
     "category": "設定分類",
+    "nocategory": "無分類",
     "tags": "新增標籤",
     "notags": "無標籤",
     "limit": "設定限制",
     "copy": "複製",
+    "export": "匯出種子 | 匯出種子",
     "info": "顯示詳情"
   }
 }
