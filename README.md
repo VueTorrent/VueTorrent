@@ -26,16 +26,12 @@
   ![](readme_assets/screenshot-desktop-dark-mode.png)
 
 - Mobile
-<div style="display: flex; gap: 15px;">
-  <img align="left" style="max-width: 45%" src="readme_assets/screenshot-mobile.png" />
-  <img align="right" style="max-width: 45%" src="readme_assets/screenshot-mobile-navbar.png" />
-</div>
+  ![](readme_assets/screenshot-mobile.png)
+  ![](readme_assets/screenshot-mobile-navbar.png)
 
 - Mobile Dark Mode
-<div style="display: flex; gap: 15px;">
-  <img style="float: left; max-width: 45%" src="readme_assets/screenshot-mobile-dark-mode.png" />
-  <img style="float: right; max-width: 45%" src="readme_assets/screenshot-mobile-navbar-dark-mode.png" />
-</div>
+  ![](readme_assets/screenshot-mobile-dark-mode.png)
+  ![](readme_assets/screenshot-mobile-navbar-dark-mode.png)
 
 ## Installation
 
