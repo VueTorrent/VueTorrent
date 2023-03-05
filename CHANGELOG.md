@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.5.0](https://github.com/WDaan/VueTorrent/compare/v1.4.0...v1.5.0) (2023-03-05)
+
+
+### Features
+
+* Add settings to Show/Hide fields in mobile torrent card ([#687](https://github.com/WDaan/VueTorrent/issues/687)) @Larsluph ([88bc931](https://github.com/WDaan/VueTorrent/commit/88bc9317c9864145712b897905cce7cab073066c))
+
+
+### Bug Fixes
+
+* Duplicate intervals ([#689](https://github.com/WDaan/VueTorrent/issues/689)) @Larsluph ([a822702](https://github.com/WDaan/VueTorrent/commit/a822702e69ad1c2b2ff9f58d82b07dd89e8ec605))
+* error from context menu when deleting torrent ([2dcf9d2](https://github.com/WDaan/VueTorrent/commit/2dcf9d268cc12a3705955c51aaccdc67193a22d0))
+* mobile page search layout [#635](https://github.com/WDaan/VueTorrent/issues/635) ([d1def31](https://github.com/WDaan/VueTorrent/commit/d1def31d055cb51a01bfeae12b1385dbca0b7e71))
+* redirect to login when auth expires [#607](https://github.com/WDaan/VueTorrent/issues/607) ([0cc22ae](https://github.com/WDaan/VueTorrent/commit/0cc22ae1ea14649e4ca01620671f87181d10469f))
+
+
+### Improvements
+
+* Add 'Ctrl + F' shortcut to focus search filter ([#692](https://github.com/WDaan/VueTorrent/issues/692)) @Larsluph ([cff2191](https://github.com/WDaan/VueTorrent/commit/cff2191c760a18331bb89289062840bf44efa8c8))
+* Add switch to hide Shutdown button ([#685](https://github.com/WDaan/VueTorrent/issues/685)) @Larsluph ([19e4eef](https://github.com/WDaan/VueTorrent/commit/19e4eef0b893a0e78580e04bd204fe2afb6af1fd))
+* scroll to top if tab is changed ([#688](https://github.com/WDaan/VueTorrent/issues/688)) ([763c3d3](https://github.com/WDaan/VueTorrent/commit/763c3d31e026a319f4ebf280954d8deb0fbb085c))
+* support command key for mac + unfocus on escape ([acb75a6](https://github.com/WDaan/VueTorrent/commit/acb75a6a81e9634531f53107876b7ccbeeecf82a))
+
 ## [1.4.0](https://github.com/WDaan/VueTorrent/compare/v1.3.2...v1.4.0) (2023-02-28)
 
 ### Features
