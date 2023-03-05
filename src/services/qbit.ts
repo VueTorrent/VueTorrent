@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 import type { AxiosInstance } from 'axios'
 import type {
   ApplicationVersion,
@@ -81,7 +81,7 @@ export class QBitApi {
   }
 
   async getMainData(rid?: number): Promise<MainDataResponse> {
-    return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
+    return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)     
   }
 
   async toggleSpeedLimitsMode(): Promise<void> {

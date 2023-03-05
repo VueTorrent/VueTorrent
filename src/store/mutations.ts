@@ -5,6 +5,7 @@ import type { ModalTemplate, StoreState } from '@/types/vuetorrent'
 import Torrent from '@/models/Torrent'
 import type { AppPreferences } from '@/types/qbit/models'
 import { Status } from '@/models'
+import router from '@/router'
 
 export default {
   SET_APP_VERSION(state: StoreState, version: string) {
@@ -52,20 +53,28 @@ export default {
     state.authenticated = payload
   },
   updateMainData: async (state: StoreState) => {
-    const response = await qbit.getMainData(state.rid || undefined)
-    state.rid = response.rid || undefined
+    try {
+      const response = await qbit.getMainData(state.rid || undefined)
+      state.rid = response.rid || undefined
 
-    state.status = new Status(response.server_state)
-    Tags.update(response)
-    Graph.shiftValues()
+      state.status = new Status(response.server_state)
+      Tags.update(response)
+      Graph.shiftValues()
 
-    // fetch torrent data
-    state.sort_options.isCustomSortEnabled = Torrent.computedValues.indexOf(state.sort_options.sort) !== -1
-    const data = await qbit.getTorrents(state.sort_options)
+      // fetch torrent data
+      state.sort_options.isCustomSortEnabled = Torrent.computedValues.indexOf(state.sort_options.sort) !== -1
+      const data = await qbit.getTorrents(state.sort_options)
 
-    Trackers.update(data)
-    Torrents.update(data)
-    DocumentTitle.update()
+      Trackers.update(data)
+      Torrents.update(data)
+      DocumentTitle.update()
+    } catch (error: any) {
+       if(error?.response?.status === 403){
+        console.error("No longer authtenticated, logging out...")
+        state.authenticated = false
+        router.push({ name: 'login' })
+       }
+    }
   },
   FETCH_SETTINGS: async (state: StoreState, settings: AppPreferences) => {
     state.settings = settings
