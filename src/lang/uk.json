@@ -29,8 +29,8 @@
   "shutdownApp": "Закрити застосунок",
   "download": "Завантаження",
   "downloaded": "Завантажено",
-  "upload": "Вивантаження",
-  "uploaded": "Вивантажено",
+  "upload": "Віддача",
+  "uploaded": "Віддано",
   "globalSpeed": "Загальна швидкість",
   "globalVolume": "Загальний об'єм",
   "ETA": "ОЧЗ",
@@ -49,6 +49,8 @@
   "of": "з",
   "yes": "Так",
   "no": "Ні",
+  "filter": "Фільтр",
+  "close": "Закрити",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Увімкнути фільтр пошуку",
@@ -67,7 +69,7 @@
     "progress": "Поступ",
     "directory": "Тека",
     "downloaded": "Завантажено",
-    "uploaded": "Вивантажено",
+    "uploaded": "Віддано",
     "created": "Створено",
     "comments": "Примітки",
     "uploadedSession": "Завантажено за сесію",
@@ -96,7 +98,7 @@
       "tooltip": "З моменту останнього перезапуску qBittorrent"
     },
     "filters": {
-      "stalled_uploading": "Залиплі вивантаження",
+      "stalled_uploading": "Залиплі віддачі",
       "stalled_downloading": "Залиплі завантаження",
       "uncategorized": "Невідома",
       "untagged": "Без міток",
@@ -143,6 +145,7 @@
     },
     "rss": {
       "title": "Заголовки RSS",
+      "filterRead": "Тільки непрочитані",
       "columnTitle": {
         "feedName": "Назва стрічки",
         "author": "Автор",
@@ -161,14 +164,16 @@
         "VueTorrent": "VueTorrent",
         "downloads": "Завантаження",
         "connection": "Зв'язок",
-        "bittorrent": "bittorrent",
+        "bittorrent": "BitTorrent",
         "rss": "Стрічки",
         "webUI": "Bеб-інтерфейс",
-        "tagsAndCategories": "Теги та категорії"
+        "tagsAndCategories": "Мітки та категорії"
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "Загальне"
+          "general": "Загальне",
+          "desktopCard": "Десктоп",
+          "mobileCard": "Мобільний"
         },
         "pageGeneral": {
           "tip": "Ці налаштування призначені для користувацького веб-інтерфейсу",
@@ -185,48 +190,57 @@
           "vueTorrentTitle": "Заголовок VueTorrent:",
           "dateFormat": "Формат дати",
           "openSideBarOnStart": "Відкривати бокову панель при запуску",
+          "showShutdownButton": "Показувати кнопку вимкнення",
           "currentVersion": "Поточна версія",
           "qbittorrentVersion": "Версія QBittorrent:",
+          "importSettings": "Імпорт налаштувань",
+          "exportSettings": "Експорт налаштувань",
           "resetSettings": "Скинути налаштування"
         },
         "pageDesktopCard": {
           "busyTorrentTip": "Властивості для відображення зайнятих торрентів",
-          "completedTorrentTip": "Властивості для відображення завершених торрентів",
-          "properties": {
-            "availability": "Доступність",
-            "category": "Категорія",
-            "tags": "Мітки",
-            "completed": "Завершено",
-            "completion_on": "Виконано о",
-            "downloaded": "Завантажено",
-            "ETA": "ОЧЗ",
-            "name": "Назва",
-            "default": "За замовчуванням",
-            "last_activity": "Остання активність",
-            "рeers": "Піри",
-            "seeds": "Сіди",
-            "priority": "Пріоритет",
-            "progress": "Поступ",
-            "ratio": "Співвідношення",
-            "save_path": "Тека",
-            "size": "Розмір",
-            "state": "Стан",
-            "uploaded": "Завантажено",
-            "addedOn": "Додано о",
-            "downloadSpeed": "Швидкість завантаження",
-            "timeActive": "Час активності",
-            "uploadSpeed": "Швидкість вивантаження",
-            "globalSpeed": "Загальна швидкість",
-            "globalVolume": "Загальний об'єм"
-          }
+          "completedTorrentTip": "Властивості для відображення завершених торрентів"
         },
-        "pageMobileCard": {}
+        "pageMobileCard": {
+          "busyTorrentTip": "Властивості для відображення для зайнятих торрентів на мобільному пристрої",
+          "completedTorrentTip": "Властивості для відображення завершених торрентів на мобільному пристрої"
+        },
+        "properties": {
+          "availability": "Доступність",
+          "tracker": "Трекер",
+          "category": "Категорія",
+          "tags": "Мітки",
+          "completed": "Завершено",
+          "completion_on": "Виконано о",
+          "downloaded": "Завантажено",
+          "ETA": "ОЧЗ",
+          "name": "Назва",
+          "default": "За замовчуванням",
+          "last_activity": "Остання активність",
+          "рeers": "Піри",
+          "seeds": "Сіди",
+          "priority": "Пріоритет",
+          "progress": "Поступ",
+          "ratio": "Співвідношення",
+          "save_path": "Тека",
+          "size": "Розмір",
+          "state": "Стан",
+          "uploaded": "Завантажено",
+          "addedOn": "Додано о",
+          "downloadSpeed": "Швидкість завантаження",
+          "timeActive": "Час активності",
+          "uploadSpeed": "Швидкість віддачі",
+          "globalSpeed": "Загальна швидкість",
+          "globalVolume": "Загальний об'єм"
+        }
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Коли додається торент",
         "whenAddTorrent": {
-          "createSubFolder": "Створити підпапку для торрентів з кількома файлами",
-          "donotAutoStart": "Не запускати завантаження автоматично"
+          "contentLayout": "Оформлення контенту торрента",
+          "donotAutoStart": "Не запускати завантаження автоматично",
+          "stopCondition": "Умови зупинки торрентк",
+          "autoDeleteMode": "Видаляти .torrent файли після завершення"
         },
         "subHeaderPublicSettings": "Загальні налаштування",
         "publicSettings": {
@@ -281,11 +295,11 @@
         "enableAnonymous": "Увімкнути анонімний режим",
         "torrentQueue": "Черга торрентів",
         "maxActiveDownload": "Максимальна кількість активних завантажень",
-        "maxActiveUpload": "Максимальна кількість активних вивантажень",
+        "maxActiveUpload": "Максимальна кількість активних віддач",
         "maxActiveTorrent": "Максимальна кількість активних торрентів",
         "excludeSlowTorrent": "Не враховувати повільні торренти в цих межах",
         "downloadRateLimit": "Порогове значення швидкості завантаження КіБ/с",
-        "uploadRateLimit": "Поріг швидкості вивантаження КіБ/с",
+        "uploadRateLimit": "Поріг швидкості віддачі КіБ/с",
         "torrentInactivityTimer": "Таймер неактивності торренту",
         "subHeaderSeedLimits": "Обмеження сідування",
         "whenRatioReaches": "Коли співвідношення досягне",
@@ -374,7 +388,7 @@
         "hash": "Хеш",
         "ratio": "Співвідношення",
         "downloadSpeed": "Швидкість завантаження",
-        "uploadSpeed": "Швидкість вивантаження",
+        "uploadSpeed": "Швидкість віддачі",
         "eta": "ОЧЗ",
         "peers": "Піри",
         "seeds": "Сіди",
@@ -387,7 +401,7 @@
         "shareRatioLimit": "Обмеження співвідношення частки",
         "shareTimeLimit": "Ліміт часу спільного використання (хвилини)",
         "downloadLimit": "Ліміт завантаження",
-        "uploadLimit": "Ліміт вивантаження"
+        "uploadLimit": "Ліміт віддачі"
       },
       "pagePeers": {
         "ip": "IP",
@@ -397,8 +411,8 @@
         "progress": "Поступ",
         "downloadSpeed": "Швидкість завантаження",
         "downloaded": "Завантажено",
-        "upSpeed": "Швидкість вивантаження",
-        "uploaded": "Вивантажено",
+        "upSpeed": "Швидкість віддачі",
+        "uploaded": "Віддано",
         "relevance": "Відповідність",
         "files": "Файли"
       },
@@ -425,7 +439,19 @@
       "skipHashCheck": "Пропустити перевірку хешування",
       "automaticTorrentManagement": "Автоматичне керування торрентами",
       "dropHereForAdd": "Перетягнути для додавання",
-      "oneOrMoreFilesInvalidTorrent": "Один або кілька файлів не є дійсним торрентом"
+      "oneOrMoreFilesInvalidTorrent": "Один або кілька файлів не є дійсним торрентом",
+      "contentLayout": "Макет вмісту",
+      "contentLayoutOptions": {
+        "original": "Оригінал",
+        "subfolder": "Створити підпапку",
+        "nosubfolder": "Видалити підпапку"
+      },
+      "stopCondition": "Умови зупинки",
+      "stopConditionOptions": {
+        "none": "Немає",
+        "metadataReceived": "Метадані отримано",
+        "filesChecked": "Файли перевірено"
+      }
     },
     "changeLocation": {
       "title": "Змінити місцезнаходження"
@@ -454,11 +480,11 @@
         "save_path": "Тека",
         "size": "Розмір",
         "state": "Стан",
-        "uploaded": "Вивантажено",
+        "uploaded": "Віддано",
         "addOn": "Додано",
         "downloadSpeed": "Швидкість завантаження",
-        "timeActive": "Час активний",
-        "uploadSpeed": "Швидкість вивантаження",
+        "timeActive": "Час активності",
+        "uploadSpeed": "Швидкість віддачі",
         "globalSpeed": "Загальна швидкість",
         "globalVolume": "Загальний об'єм"
       }
@@ -488,7 +514,8 @@
     "pasteSuccess": "Текст вставлено!",
     "pasteNotSupported": "Неможливо вставити, буфер API недоступний в цьому браузері",
     "shutdownSuccess": "qBittorrent було вимкнено успішно!",
-    "shutdownError": "Неможливо завершити застосунок. Переконайтеся, що qBittorrent запущено!"
+    "shutdownError": "Неможливо завершити застосунок. Переконайтеся, що qBittorrent запущено!",
+    "invalidJson": "Некоректний JSON!"
   },
   "rightClick": {
     "resume": "відновити",
