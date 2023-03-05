@@ -152,6 +152,7 @@ import Torrent from '@/components/Torrent/Torrent.vue'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 import { TorrentSelect, General } from '@/mixins'
+import { doesCommand } from '@/helpers'
 
 export default {
   name: 'Dashboard',
@@ -396,18 +397,23 @@ export default {
         return null
       }
       // 'ctrl + A' => select torrents
-      if (e.keyCode === 65 && e.ctrlKey && e.target?.tagName !== 'INPUT') {
+      if (e.keyCode === 65 && doesCommand(e) && e.target?.tagName !== 'INPUT') {
         e.preventDefault()
 
         this.selectAllTorrents()
       }
 
       // 'ctrl + F' => Focus search filter field
-      if (e.keyCode === 70 && e.ctrlKey) {
+      if (e.keyCode === 70 && doesCommand(e)) {
         e.preventDefault()
 
         this.searchFilterEnabled = true
         document.getElementById('searchInput').focus()
+      }
+
+      if (e.keyCode === 27) {
+        document.getElementById('searchInput').blur()
+        this.searchFilterEnabled = false
       }
 
       // 'Delete' => Delete modal

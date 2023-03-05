@@ -69,11 +69,11 @@ export default {
       Torrents.update(data)
       DocumentTitle.update()
     } catch (error: any) {
-       if(error?.response?.status === 403){
-        console.error("No longer authtenticated, logging out...")
+      if (error?.response?.status === 403) {
+        console.error('No longer authtenticated, logging out...')
         state.authenticated = false
         router.push({ name: 'login' })
-       }
+      }
     }
   },
   FETCH_SETTINGS: async (state: StoreState, settings: AppPreferences) => {

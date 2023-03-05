@@ -197,3 +197,11 @@ export class Hostname {
     }
   }
 }
+
+export function isMac() {
+  return window.navigator.userAgent.toUpperCase().indexOf('MAC') >= 0
+}
+
+export function doesCommand(e) {
+  return isMac ? e.metaKey : e.ctrlKey
+}
