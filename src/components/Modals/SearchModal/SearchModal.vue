@@ -34,7 +34,6 @@
           :custom-filter="customFilter"
           :sort-by.sync="sortBy"
           :sort-desc.sync="sortDesc"
-          :mobile-breakpoint="0"
         >
           <template #top>
             <v-text-field ref="filterRef" v-model="filter" :label="$t('filter')" class="mx-4" />
