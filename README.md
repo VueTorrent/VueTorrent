@@ -81,7 +81,6 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
   - delete selected torrents with <kbd>delete</kbd>
-  - select with <kbd>Ctrl</kbd>+click
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)

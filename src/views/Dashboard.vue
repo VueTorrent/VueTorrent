@@ -411,6 +411,7 @@ export default {
         document.getElementById('searchInput').focus()
       }
 
+      // 'Escape' => Remove focus from search field
       if (e.keyCode === 27) {
         document.getElementById('searchInput').blur()
         this.searchFilterEnabled = false
