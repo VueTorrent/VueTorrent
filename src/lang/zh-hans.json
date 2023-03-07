@@ -205,35 +205,35 @@
           "busyTorrentTip": "未完成的种子要显示的属性",
           "completedTorrentTip": "已完成的种子要显示的属性"
         },
-          "properties": {
-            "availability": "可用性",
-            "tracker": "Tracker",
-            "category": "分类",
-            "tags": "标签",
-            "completed": "已完成",
-            "completion_on": "完成于",
-            "downloaded": "已下载",
-            "ETA": "剩余时间",
-            "name": "名称",
-            "default": "默认",
-            "last_activity": "最后活跃",
-            "peers": "下载者",
-            "seeds": "种子",
-            "priority": "优先级",
-            "progress": "进度",
-            "ratio": "分享率",
-            "save_path": "存储路径",
-            "size": "大小",
-            "state": "状态",
-            "uploaded": "已上传",
-            "addedOn": "添加于",
-            "downloadSpeed": "下载速率",
-            "timeActive": "活跃时间",
-            "uploadSpeed": "上传速率",
-            "globalSpeed": "速度合计",
-            "globalVolume": "总数据量"
-          }
-        },
+        "properties": {
+          "availability": "可用性",
+          "tracker": "Tracker",
+          "category": "分类",
+          "tags": "标签",
+          "completed": "已完成",
+          "completion_on": "完成于",
+          "downloaded": "已下载",
+          "ETA": "剩余时间",
+          "name": "名称",
+          "default": "默认",
+          "last_activity": "最后活跃",
+          "peers": "下载者",
+          "seeds": "种子",
+          "priority": "优先级",
+          "progress": "进度",
+          "ratio": "分享率",
+          "save_path": "存储路径",
+          "size": "大小",
+          "state": "状态",
+          "uploaded": "已上传",
+          "addedOn": "添加于",
+          "downloadSpeed": "下载速率",
+          "timeActive": "活跃时间",
+          "uploadSpeed": "上传速率",
+          "globalSpeed": "速度合计",
+          "globalVolume": "总数据量"
+        }
+      },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "当添加种子时",
         "whenAddTorrent": {
@@ -494,7 +494,7 @@
     },
     "delete": {
       "check": "同时从存储中删除"
-    },    
+    },
     "shutdown": {
       "title": "关闭qBittorrent",
       "content": "你真的想关闭qBittorrent吗?"
