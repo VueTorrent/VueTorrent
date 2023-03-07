@@ -6,7 +6,7 @@
           <tbody>
             <tr v-for="item in items" :key="item.url">
               <td>
-                <v-checkbox v-if="item.isSelectable" v-model="selectedTrackers" :value="item" hide-details class="pa-0 ma-0" color="accent" />
+                <v-checkbox v-if="item.isSelectable" v-model="selectedTrackers" multiple :value="item" hide-details class="pa-0 ma-0" color="accent" />
               </td>
               <td>{{ item.tier }}</td>
               <td>{{ item.url }}</td>
