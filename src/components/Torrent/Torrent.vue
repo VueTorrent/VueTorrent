@@ -12,6 +12,8 @@ import { General, TorrentSelect } from '@/mixins'
 import { mapState } from 'vuex'
 import DesktopCard from './DesktopCard.vue'
 import MobileCard from './MobileCard.vue'
+import {Torrent} from '@/models'
+import {doesCommand} from "@/helpers";
 
 export default {
   name: 'Torrent',
@@ -21,28 +23,22 @@ export default {
   },
   mixins: [General, TorrentSelect],
   props: {
-    torrent: Object,
+    torrent: Torrent,
     index: Number
   },
   computed: {
-    ...mapState(['selected_torrents', 'selectMode']),
-    isSelected() {
-      return this.selected_torrents.includes(this.torrent.hash)
-    },
+    ...mapState(['selectMode']),
     style() {
-      const state = this.torrent.state.toLowerCase()
-
-      return `sideborder ${state} ${this.isSelected ? `torrent-${state}` : ''}`
+      const state = this.torrent.state.toString().toLowerCase()
+      return `sideborder ${state} ${this.isAlreadySelected(this.torrent.hash) ? `torrent-${state}` : ''}`
     }
   },
   methods: {
     evtClicnk: function (event) {
       if (event.shiftKey) {
         this.selectUntil(this.torrent.hash, this.index)
-      } else if (event.ctrlKey) {
+      } else if (doesCommand(event) || this.selectMode) {
         this.selectTorrent(this.torrent.hash)
-      } else {
-        this.selectMode && this.selectTorrent(this.torrent.hash)
       }
     }
   }
