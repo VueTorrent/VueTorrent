@@ -8,9 +8,11 @@
     <component :is="item.name" v-for="item in properties" :key="item.name" :torrent="torrent" />
   </v-layout>
 </template>
+
 <script>
 import * as Fields from './DashboardItems'
 import { mapState } from 'vuex'
+import {Torrent} from '@/models'
 
 export default {
   name: 'DesktopCard',
@@ -18,7 +20,7 @@ export default {
     ...Fields
   },
   props: {
-    torrent: Object
+    torrent: Torrent
   },
   computed: {
     ...mapState(['webuiSettings']),
