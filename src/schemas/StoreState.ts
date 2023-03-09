@@ -66,7 +66,9 @@ export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
         'openSideBarOnStart',
         'showShutdownButton',
         'busyDesktopTorrentProperties',
-        'doneDesktopTorrentProperties'
+        'doneDesktopTorrentProperties',
+        'busyMobileCardProperties',
+        'doneMobileCardProperties'
       ]
     }
   },
