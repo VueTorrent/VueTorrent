@@ -349,7 +349,12 @@ export class QBitApi {
   }
 
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
-    await this.torrentAction('removeTrackers', [hash], { urls: trackers.join('|') })
+    const params = {
+      hash,
+      urls: trackers.join('|')
+    }
+
+    await this.execute(`/torrents/removeTrackers`, params)
   }
 
   async addTorrentPeers(hashes: string[], peers: string[]): Promise<void> {

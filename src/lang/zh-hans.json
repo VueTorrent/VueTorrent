@@ -25,11 +25,14 @@
   "stalled": "低速",
   "errored": "错误",
   "login": "登录",
-  "logout": "退出",
-  "downloaded": "已下载",
-  "uploaded": "已上传",
-  "upload": "上传",
+  "logout": "登出",
+  "shutdownApp": "关闭qBittorrent",
   "download": "下载",
+  "downloaded": "已下载",
+  "upload": "上传",
+  "uploaded": "已上传",
+  "globalSpeed": "速度合计",
+  "globalVolume": "总数据量",
   "ETA": "剩余时间",
   "peers": "用户",
   "ratio": "比率",
@@ -43,6 +46,11 @@
   "feed": "订阅源",
   "rule": "规则",
   "then": "则",
+  "of": "of",
+  "yes": "是",
+  "no": "否",
+  "filter": "文件类型",
+  "close": "关闭",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "切换搜索筛选器",
@@ -51,7 +59,7 @@
       "selectAll": "全选",
       "selectAllCaption": "选中/释放所有 (Ctrl + A)"
     },
-    "emptyTorrentList": "什么都没有呢！"
+    "emptyTorrentList": "什么都没有！"
   },
   "torrent": {
     "title": "标题",
@@ -83,7 +91,8 @@
       "pauseSelected": "暂停选中种子",
       "removeSelected": "删除选中种子",
       "openSettings": "打开设置",
-      "searchNew": "搜索新种子"
+      "searchNew": "搜索新种子",
+      "rssArticles": "查看RSS订阅"
     },
     "sessionStats": {
       "tooltip": "自 qBittorrent 上次重启以来"
@@ -99,7 +108,8 @@
       "altSpeed": "备用速率限制",
       "dark": "暗色界面",
       "light": "亮色界面"
-    }
+    },
+    "torrentsCount": "无种子 | {n} 种子 | {n} 种子"
   },
   "modals": {
     "newFeed": {
@@ -112,6 +122,8 @@
       "name": "名称",
       "def": {
         "mustContain": "必须包含",
+        "mustNotContain": "必须不包含",
+        "useRegex": "使用正则表达式",
         "affectedFeeds": "应用于以下订阅源"
       }
     },
@@ -131,19 +143,37 @@
         "action": "操作"
       }
     },
+    "rss": {
+      "title": "RSS 订阅",
+      "filterRead": "仅显示未读",
+      "columnTitle": {
+        "feedName": "订阅名称",
+        "author": "作者",
+        "category": "类别",
+        "date": "日期",
+        "description": "描述",
+        "id": "ID",
+        "link": "链接",
+        "title": "标题",
+        "torrentURL": "种子下载URL",
+        "actions": ""
+      }
+    },
     "settings": {
       "tabName": {
         "VueTorrent": "VueTorrent",
         "downloads": "下载",
         "connection": "连接",
-        "bittorrent": "bittorrent",
+        "bittorrent": "BitTorrent",
         "rss": "RSS",
         "webUI": "网页界面",
         "tagsAndCategories": "标签和分类"
       },
       "pageVueTorrent": {
         "tabName": {
-          "general": "常规"
+          "general": "常规",
+          "desktopCard": "桌面端标签",
+          "mobileCard": "移动端标签"
         },
         "pageGeneral": {
           "tip": "这些设置适用于自定义 WebUI 本身",
@@ -160,44 +190,57 @@
           "vueTorrentTitle": "VueTorrent 标题",
           "dateFormat": "日期格式",
           "openSideBarOnStart": "启动时打开侧栏",
+          "showShutdownButton": "显示关闭qBittorrent按钮",
           "currentVersion": "当前版本",
-          "qbittorrentVersion": "QBittorrent 版本"
+          "qbittorrentVersion": "QBittorrent 版本",
+          "importSettings": "导入设置",
+          "exportSettings": "导出设置",
+          "resetSettings": "重设设置"
         },
         "pageDesktopCard": {
           "busyTorrentTip": "未完成的种子要显示的属性",
-          "completedTorrentTip": "已完成的种子要显示的属性",
-          "properties": {
-            "availability": "可用性",
-            "category": "分类",
-            "tags": "标签",
-            "completed": "已完成",
-            "downloaded": "已下载",
-            "ETA": "剩余时间",
-            "name": "名称",
-            "default": "默认",
-            "last_activity": "最后活跃",
-            "peers": "下载者",
-            "seeds": "种子",
-            "priority": "优先级",
-            "progress": "进度",
-            "ratio": "分享率",
-            "save_path": "存储路径",
-            "size": "大小",
-            "state": "状态",
-            "uploaded": "已上传",
-            "addedOn": "添加于",
-            "downloadSpeed": "下载速率",
-            "timeActive": "活跃时间",
-            "uploadSpeed": "上传速率"
-          }
+          "completedTorrentTip": "已完成的种子要显示的属性"
         },
-        "pageMobileCard": {}
+        "pageMobileCard": {
+          "busyTorrentTip": "未完成的种子要显示的属性",
+          "completedTorrentTip": "已完成的种子要显示的属性"
+        },
+        "properties": {
+          "availability": "可用性",
+          "tracker": "Tracker",
+          "category": "分类",
+          "tags": "标签",
+          "completed": "已完成",
+          "completion_on": "完成于",
+          "downloaded": "已下载",
+          "ETA": "剩余时间",
+          "name": "名称",
+          "default": "默认",
+          "last_activity": "最后活跃",
+          "peers": "下载者",
+          "seeds": "种子",
+          "priority": "优先级",
+          "progress": "进度",
+          "ratio": "分享率",
+          "save_path": "存储路径",
+          "size": "大小",
+          "state": "状态",
+          "uploaded": "已上传",
+          "addedOn": "添加于",
+          "downloadSpeed": "下载速率",
+          "timeActive": "活跃时间",
+          "uploadSpeed": "上传速率",
+          "globalSpeed": "速度合计",
+          "globalVolume": "总数据量"
+        }
       },
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "当添加种子时",
         "whenAddTorrent": {
-          "createSubFolder": "为包含多个文件的种子创建子文件夹",
-          "donotAutoStart": "不要自动开始下载"
+          "contentLayout": "下载内容布局",
+          "donotAutoStart": "不要开始自动下载",
+          "stopCondition": "停止条件",
+          "autoDeleteMode": "随后删除 .torrent 文件"
         },
         "subHeaderPublicSettings": "公共设置",
         "publicSettings": {
@@ -211,9 +254,9 @@
           "defaultSavePath": "默认保存路径",
           "keepIncompleteIn": "将未完成的种子保存在：",
           "autoEnabled_onAdded": "当添加种子后执行外部程序",
-          "autoLabel_onAdded": "命令",
-          "autoEnabled_onFinished": "启用自动运行：",
-          "autoLabel_onFinished": "自动运行的程序",
+          "autoLabel_onAdded": "命令行",
+          "autoEnabled_onFinished": "当种子完成后执行外部程序：",
+          "autoLabel_onFinished": "命令行",
           "supportParamTitle": "支持的参数 (大小写敏感)：",
           "supportParamN": "%N: 种子名称",
           "supportParamL": "%L: 分类",
@@ -224,7 +267,9 @@
           "supportParamC": "%C: 文件数量",
           "supportParamZ": "%Z: 种子大小 (单位为字节 byte)",
           "supportParamT": "%T: 当前 tracker",
-          "supportParamI": "%I: 信息哈希值"
+          "supportParamI": "%I: 信息哈希值 v1",
+          "supportParamJ": "%J: 信息哈希值 v2",
+          "supportParamK": "%K: 种子 ID"
         }
       },
       "pageConnection": {
@@ -394,7 +439,19 @@
       "skipHashCheck": "跳过哈希值检查",
       "automaticTorrentManagement": "自动种子管理 (ATM)",
       "dropHereForAdd": "拖拽到此处即可添加",
-      "oneOrMoreFilesInvalidTorrent": "存在无效的种子文件"
+      "oneOrMoreFilesInvalidTorrent": "存在无效的种子文件",
+      "contentLayout": "下载内容布局",
+      "contentLayoutOptions": {
+        "original": "原始",
+        "subfolder": "创建子文件夹",
+        "nosubfolder": "移除子文件夹"
+      },
+      "stopCondition": "种子停止条件",
+      "stopConditionOptions": {
+        "none": "无",
+        "metadataReceived": "接受元数据后",
+        "filesChecked": "检查文件后"
+      }
     },
     "changeLocation": {
       "title": "更改位置"
@@ -410,6 +467,7 @@
         "availability": "可用性",
         "category": "分类",
         "completed": "已完成",
+        "completion_on": "完成时间",
         "downloaded": "下载量",
         "ETA": "剩余时间",
         "name": "名称",
@@ -427,8 +485,8 @@
         "downloadSpeed": "下载速率",
         "timeActive": "活跃时间",
         "uploadSpeed": "上传速率",
-        "globalSpeed": "全局速率",
-        "globalVolume": "全局传输量"
+        "globalSpeed": "速度合计",
+        "globalVolume": "总数据量"
       }
     },
     "speedLimit": {
@@ -436,6 +494,10 @@
     },
     "delete": {
       "check": "同时从存储中删除"
+    },
+    "shutdown": {
+      "title": "关闭qBittorrent",
+      "content": "你真的想关闭qBittorrent吗?"
     }
   },
   "toast": {
@@ -446,7 +508,14 @@
     "feedSaved": "订阅源保存成功！",
     "ruleSaved": "规则保存成功！",
     "renameFileFailed": "无法重命名文件",
-    "renameFolderFailed": "无法重命名文件夹"
+    "renameFolderFailed": "无法重命名文件夹",
+    "copySuccess": "文本已复制!",
+    "copyNotSupported": "无法复制，上下文不安全",
+    "pasteSuccess": "文本已粘贴!",
+    "pasteNotSupported": "无法粘贴，上下文不安全",
+    "shutdownSuccess": "qBittorrent被成功关闭!",
+    "shutdownError": "无法关闭,请确保qBittorrent正在运行!",
+    "invalidJson": "非法JSON格式!"
   },
   "rightClick": {
     "resume": "继续",
@@ -469,10 +538,12 @@
       "decrease": "降低"
     },
     "category": "设置分类",
+    "nocategory": "无分类",
     "tags": "设置标签",
     "notags": "无标签",
     "limit": "设置限制",
     "copy": "复制",
+    "export": "导出种子 | 导出种子",
     "info": "显示详情"
   }
 }

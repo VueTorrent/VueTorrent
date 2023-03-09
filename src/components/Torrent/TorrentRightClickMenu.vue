@@ -1,5 +1,5 @@
 <template>
-  <v-list class="noselect">
+  <v-list v-if="torrent" class="noselect">
     <v-list-item link @click="resume">
       <v-icon>{{ mdiPlay }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">

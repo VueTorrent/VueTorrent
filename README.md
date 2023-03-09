@@ -4,20 +4,13 @@
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
 </div>
 
-![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen)
-![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
+![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
 ![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen)
 
-![stars](https://img.shields.io/github/stars/WDaan/VueTorrent)
-![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
-![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent)
-![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
-![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent)
-![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
-![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml)
-![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
-
-
+![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
+![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
+![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent) ![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
+![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
 ## Screenshots
 
@@ -88,7 +81,6 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
   - delete selected torrents with <kbd>delete</kbd>
-  - select with <kbd>Ctrl</kbd>+click
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
