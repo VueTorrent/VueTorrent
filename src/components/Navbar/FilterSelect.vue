@@ -85,12 +85,14 @@ import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
-  data: () => ({
-    selectedState: null,
-    selectedCategory: null,
-    selectedTag: null,
-    selectedTracker: null
-  }),
+  data() {
+    return {
+      selectedState: null,
+          selectedCategory: null,
+        selectedTag: null,
+        selectedTracker: null
+    }
+  },
   computed: {
     ...mapGetters(['getCategories', 'getAvailableTags', 'getTrackers']),
     ...mapState(['sort_options']),
@@ -155,6 +157,20 @@ export default {
   mounted() {
     this.loadFilter()
   },
+  watch: {
+    selectedState() {
+      this.resetSelectedTorrents()
+    },
+    selectedCategory() {
+      this.resetSelectedTorrents()
+    },
+    selectedTag() {
+      this.resetSelectedTorrents()
+    },
+    selectedTracker() {
+      this.resetSelectedTorrents()
+    }
+  },
   methods: {
     commitFilter() {
       this.$store.commit('UPDATE_SORT_OPTIONS', {
@@ -185,6 +201,9 @@ export default {
     setTracker(value) {
       this.selectedTracker = value
       this.commitFilter()
+    },
+    resetSelectedTorrents() {
+      this.$store.commit('RESET_SELECTED')
     }
   }
 }
