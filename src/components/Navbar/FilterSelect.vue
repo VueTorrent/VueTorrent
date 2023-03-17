@@ -88,9 +88,9 @@ export default {
   data() {
     return {
       selectedState: null,
-          selectedCategory: null,
-        selectedTag: null,
-        selectedTracker: null
+      selectedCategory: null,
+      selectedTag: null,
+      selectedTracker: null
     }
   },
   computed: {
