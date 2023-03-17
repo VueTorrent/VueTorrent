@@ -1,11 +1,13 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('torrent.properties.global_speed') }}
+      {{ $t('torrent.properties.amount_left') | titleCase }}
     </div>
     <div>
-      {{ torrent.globalSpeed | getDataValue(1) }}
-      <span class="caption grey--text"> {{ torrent.globalSpeed | getDataUnit }}/s </span>
+      {{ torrent.amount_left | getDataValue(2) }}
+      <span class="caption grey--text">
+        {{ torrent.amount_left | getDataUnit }}
+      </span>
     </div>
   </v-flex>
 </template>
@@ -15,7 +17,7 @@ import { defineComponent } from 'vue'
 import { Torrent } from '@/models'
 
 export default defineComponent({
-  name: 'GlobalSpeed',
+  name: 'AmountLeft',
   props: {
     torrent: Torrent
   }

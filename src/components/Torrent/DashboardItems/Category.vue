@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="torrent.category" xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('category') }}
+      {{ $t('torrent.properties.category') }}
     </div>
     <v-chip small class="upload white--text caption">
       {{ torrent.category }}

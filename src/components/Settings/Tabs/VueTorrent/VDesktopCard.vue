@@ -54,6 +54,7 @@
 import draggable from 'vuedraggable'
 import { mdiMenu } from '@mdi/js'
 import { i18n } from '@/plugins/i18n'
+import { mapState } from 'vuex'
 
 export default {
   name: 'VDesktopCard',
@@ -64,41 +65,23 @@ export default {
     mdiMenu
   }),
   computed: {
+    ...mapState(['webuiSettings']),
     busyDesktopTorrentProperties() {
-      return this.injectLocalization(this.$store.state.webuiSettings.busyDesktopTorrentProperties)
+      return this.injectLocalization(this.webuiSettings.busyDesktopTorrentProperties)
     },
     doneDesktopTorrentProperties() {
-      return this.injectLocalization(this.$store.state.webuiSettings.doneDesktopTorrentProperties)
+      return this.injectLocalization(this.webuiSettings.doneDesktopTorrentProperties)
     }
   },
   methods: {
     injectLocalization(properties) {
-      const localePrefix = 'modals.settings.pageVueTorrent.properties'
-      const localeMap = {
-        Size: i18n.t(`${localePrefix}.size`),
-        Progress: i18n.t(`${localePrefix}.progress`),
-        Download: i18n.t(`${localePrefix}.downloadSpeed`),
-        Upload: i18n.t(`${localePrefix}.uploadSpeed`),
-        Downloaded: i18n.t(`${localePrefix}.downloaded`),
-        Directory: i18n.t(`${localePrefix}.save_path`),
-        Uploaded: i18n.t(`${localePrefix}.uploaded`),
-        ETA: i18n.t(`${localePrefix}.ETA`),
-        Peers: i18n.t(`${localePrefix}.peers`),
-        Seeds: i18n.t(`${localePrefix}.seeds`),
-        Status: i18n.t(`${localePrefix}.state`),
-        Ratio: i18n.t(`${localePrefix}.ratio`),
-        Tracker: i18n.t(`${localePrefix}.tracker`),
-        Category: i18n.t(`${localePrefix}.category`),
-        Tags: i18n.t(`${localePrefix}.tags`),
-        AddedOn: i18n.t(`${localePrefix}.addedOn`),
-        Availability: i18n.t(`${localePrefix}.availability`),
-        LastActivity: i18n.t(`${localePrefix}.last_activity`),
-        CompletedOn: i18n.t(`${localePrefix}.completion_on`),
-        GlobalSpeed: i18n.t(`${localePrefix}.globalSpeed`),
-        GlobalVolume: i18n.t(`${localePrefix}.globalVolume`)
-      }
-
-      properties.forEach(property => (property.label = localeMap[property.name]))
+      properties.forEach(property => {
+        // convert component name from PascalCase to snake_case to match locale key
+        const value = property.name
+            .replace(/\.?([A-Z]+)/g, (x, y) => "_" + y.toLowerCase())
+            .replace(/^_/, "")
+        property.label = i18n.t(`torrent.properties.${value}`)
+      })
       return properties
     }
   }
