@@ -204,5 +204,5 @@ export function isMac() {
 }
 
 export function doesCommand(e) {
-  return isMac ? e.metaKey : e.ctrlKey
+  return isMac() ? e.metaKey : e.ctrlKey
 }
