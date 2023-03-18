@@ -2,23 +2,24 @@ import { describe, beforeEach, it, expect, vi } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 
 import MobileCard from '@/components/Settings/Tabs/VueTorrent/VMobileCard.vue'
+import {DashboardProperty} from '@/enums/vuetorrent'
 
 let wrapper
 
 const mobilePropertiesTemplate = [
-  { name: 'Status', active: true },
-  { name: 'Tracker', active: true },
-  { name: 'Category', active: true },
-  { name: 'Tags', active: true },
-  { name: 'Size', active: true },
-  { name: 'Progress', active: true },
-  { name: 'Ratio', active: true },
-  { name: 'Uploaded', active: true },
-  { name: 'ETA', active: true },
-  { name: 'Seeds', active: true },
-  { name: 'Peers', active: true },
-  { name: 'DownloadSpeed', active: true },
-  { name: 'UploadSpeed', active: true }
+  { name: DashboardProperty.STATUS, active: true },
+  { name: DashboardProperty.TRACKER, active: true },
+  { name: DashboardProperty.CATEGORY, active: true },
+  { name: DashboardProperty.TAGS, active: true },
+  { name: DashboardProperty.SIZE, active: true },
+  { name: DashboardProperty.PROGRESS, active: true },
+  { name: DashboardProperty.RATIO, active: true },
+  { name: DashboardProperty.UPLOADED, active: true },
+  { name: DashboardProperty.ETA, active: true },
+  { name: DashboardProperty.SEEDS, active: true },
+  { name: DashboardProperty.PEERS, active: true },
+  { name: DashboardProperty.DOWNLOAD_SPEED, active: true },
+  { name: DashboardProperty.UPLOAD_SPEED, active: true }
 ]
 const mobilePropertiesTemplateExpected = [
   { name: 'Status', label: 'Status', active: true },
