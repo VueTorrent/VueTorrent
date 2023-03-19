@@ -1,7 +1,7 @@
 <template>
-  <v-flex xs6 sm2 md2>
+  <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('torrent.uploadedSession') }}
+      {{ $t('torrent.properties.uploaded_session') | titleCase }}
     </div>
     <div>
       {{ torrent.uploaded_session | getDataValue }}

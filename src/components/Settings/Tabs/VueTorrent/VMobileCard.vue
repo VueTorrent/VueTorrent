@@ -61,24 +61,12 @@ export default {
   },
   methods: {
     injectLocalization(properties) {
-      const localePrefix = 'modals.settings.pageVueTorrent.properties'
-      const localeMap = {
-        Size: i18n.t(`${localePrefix}.size`),
-        Progress: i18n.t(`${localePrefix}.progress`),
-        Download: i18n.t(`${localePrefix}.downloadSpeed`),
-        Upload: i18n.t(`${localePrefix}.uploadSpeed`),
-        ETA: i18n.t(`${localePrefix}.ETA`),
-        Peers: i18n.t(`${localePrefix}.peers`),
-        Seeds: i18n.t(`${localePrefix}.seeds`),
-        Status: i18n.t(`${localePrefix}.state`),
-        Ratio: i18n.t(`${localePrefix}.ratio`),
-        Uploaded: i18n.t(`${localePrefix}.uploaded`),
-        Tracker: i18n.t(`${localePrefix}.tracker`),
-        Category: i18n.t(`${localePrefix}.category`),
-        Tags: i18n.t(`${localePrefix}.tags`)
-      }
-
-      properties.forEach(property => (property.label = localeMap[property.name]))
+      properties.forEach(property => {
+        const value = property.name
+            .replace(/\.?([A-Z]+)/g, (x, y) => "_" + y.toLowerCase())
+            .replace(/^_/, "")
+        property.label = i18n.t(`torrent.properties.${value}`)
+      })
       return properties
     }
   }

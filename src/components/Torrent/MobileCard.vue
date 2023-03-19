@@ -22,8 +22,8 @@
     <v-flex xs12 class="pa-0 ma-1 row spangap">
       <span v-if="isSizeActive">
         <span class="downloaded">
-          <span class="body-2">{{ torrent.dloaded | getDataValue }} </span>
-          <span class="grey--text caption">{{ torrent.dloaded | getDataUnit }}</span>
+          <span class="body-2">{{ torrent.downloaded | getDataValue }} </span>
+          <span class="grey--text caption">{{ torrent.downloaded | getDataUnit }}</span>
         </span>
         <span class="grey--text caption">/</span>
         <span class="size">
@@ -58,14 +58,14 @@
       <div v-if="isPeersActive" class="caption grey--text">{{ torrent.num_leechs }}/{{ torrent.available_peers }} peers</div>
       <v-spacer />
       <div>
-        <span v-if="isDownloadActive && torrent.dlspeed">
+        <span v-if="isDownloadSpeedActive && torrent.dlspeed">
           <v-icon small class="grey--text">
             {{ mdiChevronDown }}
           </v-icon>
           <span class="caption font-weight-medium grey--text">{{ torrent.dlspeed | getDataValue(1) }} </span>
           <span class="caption grey--text" style="font-size: 0.6em !important"> {{ torrent.dlspeed | getDataUnit }}/s </span>
         </span>
-        <span v-if="isUploadActive && torrent.upspeed">
+        <span v-if="isUploadSpeedActive && torrent.upspeed">
           <v-icon small class="grey--text">
             {{ mdiChevronUp }}
           </v-icon>
@@ -141,11 +141,11 @@ export default {
     isPeersActive() {
       return this.properties.find(e => e.name === DashboardProperty.PEERS).active
     },
-    isDownloadActive() {
-      return this.properties.find(e => e.name === DashboardProperty.DOWNLOAD).active
+    isDownloadSpeedActive() {
+      return this.properties.find(e => e.name === DashboardProperty.DOWNLOAD_SPEED).active
     },
-    isUploadActive() {
-      return this.properties.find(e => e.name === DashboardProperty.UPLOAD).active
+    isUploadSpeedActive() {
+      return this.properties.find(e => e.name === DashboardProperty.UPLOAD_SPEED).active
     }
   }
 }

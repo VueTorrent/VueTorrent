@@ -25,10 +25,10 @@ Vue.use(Vuex)
 const desktopPropertiesTemplate = [
   { name: DashboardProperty.SIZE, active: true },
   { name: DashboardProperty.PROGRESS, active: true },
-  { name: DashboardProperty.DOWNLOAD, active: true },
-  { name: DashboardProperty.UPLOAD, active: true },
+  { name: DashboardProperty.DOWNLOAD_SPEED, active: true },
+  { name: DashboardProperty.UPLOAD_SPEED, active: true },
   { name: DashboardProperty.DOWNLOADED, active: true },
-  { name: DashboardProperty.DIRECTORY, active: false },
+  { name: DashboardProperty.SAVE_PATH, active: false },
   { name: DashboardProperty.UPLOADED, active: true },
   { name: DashboardProperty.ETA, active: true },
   { name: DashboardProperty.PEERS, active: true },
@@ -42,6 +42,20 @@ const desktopPropertiesTemplate = [
   { name: DashboardProperty.AVAILABILITY, active: true },
   { name: DashboardProperty.LAST_ACTIVITY, active: false },
   { name: DashboardProperty.COMPLETED_ON, active: false },
+  { name: DashboardProperty.AMOUNT_LEFT, active: false },
+  { name: DashboardProperty.CONTENT_PATH, active: false },
+  { name: DashboardProperty.DOWNLOADED_SESSION, active: false },
+  { name: DashboardProperty.DOWNLOAD_LIMIT, active: false },
+  { name: DashboardProperty.DOWNLOAD_PATH, active: false },
+  { name: DashboardProperty.HASH, active: false },
+  { name: DashboardProperty.INFOHASH_V1, active: false },
+  { name: DashboardProperty.INFOHASH_V2, active: false },
+  { name: DashboardProperty.SEEN_COMPLETE, active: false },
+  { name: DashboardProperty.TIME_ACTIVE, active: false },
+  { name: DashboardProperty.TOTAL_SIZE, active: false },
+  { name: DashboardProperty.TRACKERS_COUND, active: false },
+  { name: DashboardProperty.UPLOADED_SESSION, active: false },
+  { name: DashboardProperty.UPLOAD_LIMIT, active: false },
   { name: DashboardProperty.GLOBAL_SPEED, active: false },
   { name: DashboardProperty.GLOBAL_VOLUME, active: false }
 ]
@@ -58,8 +72,8 @@ const mobilePropertiesTemplate = [
   { name: DashboardProperty.ETA, active: true },
   { name: DashboardProperty.SEEDS, active: true },
   { name: DashboardProperty.PEERS, active: true },
-  { name: DashboardProperty.DOWNLOAD, active: true },
-  { name: DashboardProperty.UPLOAD, active: true }
+  { name: DashboardProperty.DOWNLOAD_SPEED, active: true },
+  { name: DashboardProperty.UPLOAD_SPEED, active: true }
 ]
 
 export default new Vuex.Store<StoreState>({

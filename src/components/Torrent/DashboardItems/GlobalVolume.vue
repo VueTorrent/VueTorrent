@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('globalVolume') }}
+      {{ $t('torrent.properties.global_volume') }}
     </div>
     <div>
       {{ torrent.globalVolume | getDataValue }}

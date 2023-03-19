@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('torrent.size') | titleCase }}
+      {{ $t('torrent.properties.size') | titleCase }}
     </div>
     <div>
       {{ torrent.size | getDataValue }}

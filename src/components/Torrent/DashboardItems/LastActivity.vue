@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1>
     <div class="caption grey--text">
-      {{ $t('torrent.last_activity') | titleCase }}
+      {{ $t('torrent.properties.last_activity') | titleCase }}
     </div>
     <div>{{ torrent.last_activity }}</div>
   </v-flex>

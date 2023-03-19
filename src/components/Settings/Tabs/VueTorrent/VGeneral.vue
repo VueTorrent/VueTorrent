@@ -276,6 +276,7 @@ export default {
         const ajv = new Ajv()
         const validate = ajv.compile(StoreStateSchema)
         isValidJson = validate(userState)
+        console.error(validate.errors)
       } catch (e) {
         console.error(e)
         isValidJson = false
