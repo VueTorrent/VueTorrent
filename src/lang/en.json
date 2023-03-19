@@ -139,6 +139,8 @@
     "filters": {
       "stalled_uploading": "Stalled Uploading",
       "stalled_downloading": "Stalled Downloading",
+      "checking": "Checking",
+      "moving": "Moving",
       "uncategorized": "Uncategorized",
       "untagged": "Untagged",
       "not_working": "Not Working"
