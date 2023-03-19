@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.5.1](https://github.com/WDaan/VueTorrent/compare/v1.5.0...v1.5.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* cmd select torrent ([#702](https://github.com/WDaan/VueTorrent/issues/702)) ([97f7705](https://github.com/WDaan/VueTorrent/commit/97f77050f0b9926fd2c40da0fd2e6d8c5e930fe9))
+* Ctrl key not being handled on Windows ([#715](https://github.com/WDaan/VueTorrent/issues/715)) ([ba77afb](https://github.com/WDaan/VueTorrent/commit/ba77afb35dcddc658de778da61b233ed113e9e0c))
+* Trackers view ([#700](https://github.com/WDaan/VueTorrent/issues/700)) ([ee4cb7e](https://github.com/WDaan/VueTorrent/commit/ee4cb7ec1f6de1f362962f1545e2d361c0baab46))
+
+
+### Improvements
+
+* Add missing fields in dashboard / sortOptions ([#713](https://github.com/WDaan/VueTorrent/issues/713)) @Larsluph ([57b9aca](https://github.com/WDaan/VueTorrent/commit/57b9acaeef407e16853103593a440a725b6f3964))
+* add refresh icon to RSS feeds ([#709](https://github.com/WDaan/VueTorrent/issues/709)) ([a583b42](https://github.com/WDaan/VueTorrent/commit/a583b42d68864c7280d6667706a7902b9b4e9fd1))
+* Add seeds sort options ([#711](https://github.com/WDaan/VueTorrent/issues/711)) ([2c3afa5](https://github.com/WDaan/VueTorrent/commit/2c3afa57994f651457b1aa29ee4205583eb72d44))
+* reset selected torrents when changing filters ([#712](https://github.com/WDaan/VueTorrent/issues/712)) ([b1b3212](https://github.com/WDaan/VueTorrent/commit/b1b32127e8fb811d01ec376e42694761a48ba23c))
+* Sort files alphabetically in Content tab ([#714](https://github.com/WDaan/VueTorrent/issues/714)) ([baf17c7](https://github.com/WDaan/VueTorrent/commit/baf17c769544c7dba62ae504d4e8f57932c0ebf1))
+
 ## [1.5.0](https://github.com/WDaan/VueTorrent/compare/v1.4.0...v1.5.0) (2023-03-05)
 
 ### Features
