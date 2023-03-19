@@ -157,22 +157,9 @@ export default {
   mounted() {
     this.loadFilter()
   },
-  watch: {
-    selectedState() {
-      this.resetSelectedTorrents()
-    },
-    selectedCategory() {
-      this.resetSelectedTorrents()
-    },
-    selectedTag() {
-      this.resetSelectedTorrents()
-    },
-    selectedTracker() {
-      this.resetSelectedTorrents()
-    }
-  },
   methods: {
     commitFilter() {
+      this.$store.commit('RESET_SELECTED')
       this.$store.commit('UPDATE_SORT_OPTIONS', {
         filter: this.selectedState,
         category: this.selectedCategory,
@@ -201,9 +188,6 @@ export default {
     setTracker(value) {
       this.selectedTracker = value
       this.commitFilter()
-    },
-    resetSelectedTorrents() {
-      this.$store.commit('RESET_SELECTED')
     }
   }
 }
