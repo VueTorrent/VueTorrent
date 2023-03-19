@@ -115,6 +115,8 @@ export default {
           value: 'stalled_downloading',
           name: this.$t('navbar.filters.stalled_downloading')
         },
+        { value: 'checking', name: this.$t('navbar.filters.checking') },
+        { value: 'moving', name: this.$t('navbar.filters.moving') },
         { value: 'errored', name: this.$t('errored') }
       ]
     },
