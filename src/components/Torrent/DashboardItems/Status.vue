@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('status') }}
+      {{ $t('torrent.properties.status') }}
     </div>
     <v-chip style="height: 1.3em" class="caption white--text px-2" :class="state">
       {{ stateString }}

@@ -210,6 +210,12 @@ export class QBitApi {
     })
   }
 
+  async refreshFeed(itemPath: string) {
+    await this.execute('rss/refreshItem', {
+      itemPath
+    })
+  }
+
   // Post
 
   async addTorrents(params: AddTorrentPayload, torrents: File[]): Promise<void> {

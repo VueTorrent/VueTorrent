@@ -1,7 +1,7 @@
 <template>
   <v-flex v-if="torrent.tracker" xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('tracker') }}
+      {{ $t('torrent.properties.tracker') }}
     </div>
     <v-chip small class="moving white--text caption">
       {{ trackerString }}
@@ -23,7 +23,7 @@ export default defineComponent({
   },
   computed: {
     trackerString() {
-      return getDomainBody(this.torrent.tracker)
+      return getDomainBody(this.torrent?.tracker)
     }
   }
 })

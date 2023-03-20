@@ -105,6 +105,7 @@ function createFile(data, name, children) {
 }
 
 function createFolder(parent, name, children) {
+  children.sort((a,b) => a.name.localeCompare(b.name))
   return {
     name: name,
     fullName: parent === undefined ? name : `${parent.fullName}/${name}`,
@@ -203,5 +204,5 @@ export function isMac() {
 }
 
 export function doesCommand(e) {
-  return isMac ? e.metaKey : e.ctrlKey
+  return isMac() ? e.metaKey : e.ctrlKey
 }

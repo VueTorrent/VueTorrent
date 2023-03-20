@@ -58,8 +58,8 @@
             {{ $t('torrent.downloaded') | titleCase }}
           </td>
           <td>
-            {{ torrent.dloaded | getDataValue }}
-            {{ torrent.dloaded | getDataUnit(1) }}
+            {{ torrent.downloaded | getDataValue }}
+            {{ torrent.downloaded | getDataUnit(1) }}
           </td>
         </tr>
         <tr>
