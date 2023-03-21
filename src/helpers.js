@@ -100,12 +100,18 @@ function createFile(data, name, children) {
     size: formatBytes(data.size),
     icon: getIconForFileType(name.split('.').pop()),
     priority: data.priority,
-    children: children
+    children: children,
+    type: 'file'
   }
 }
 
 function createFolder(parent, name, children) {
-  children.sort((a, b) => a.name.localeCompare(b.name))
+  children.sort((a, b) => {
+    if (a.type === b.type) return a.name.localeCompare(b.name)
+    else if (a.type === 'directory') return -1
+    else return 1
+  })
+
   return {
     name: name,
     fullName: parent === undefined ? name : `${parent.fullName}/${name}`,
