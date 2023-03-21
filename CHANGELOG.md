@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* Missing state filters ([#718](https://github.com/WDaan/VueTorrent/issues/718)) ([74cfeca](https://github.com/WDaan/VueTorrent/commit/74cfecace0a46abc4fbe843b15131ce85e8fbb79))
+* state glitching [#724](https://github.com/WDaan/VueTorrent/issues/724) ([260c1c6](https://github.com/WDaan/VueTorrent/commit/260c1c6960dcd7e505e8643db9f362b0acc3cbc7))
+* translation of properties ([3e95230](https://github.com/WDaan/VueTorrent/commit/3e95230ae822673d6340874518e7557e0e20bf52))
+
+
+### Improvements
+
+* Progress component sizing on Desktop ([#720](https://github.com/WDaan/VueTorrent/issues/720)) ([c991417](https://github.com/WDaan/VueTorrent/commit/c9914172b55ac1f3e1cdf89a01caec2666f153e3))
+
 ## [1.5.1](https://github.com/WDaan/VueTorrent/compare/v1.5.0...v1.5.1) (2023-03-19)
 
 ### Bug Fixes
