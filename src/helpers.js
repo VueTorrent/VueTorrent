@@ -105,7 +105,7 @@ function createFile(data, name, children) {
 }
 
 function createFolder(parent, name, children) {
-  children.sort((a,b) => a.name.localeCompare(b.name))
+  children.sort((a, b) => a.name.localeCompare(b.name))
   return {
     name: name,
     fullName: parent === undefined ? name : `${parent.fullName}/${name}`,

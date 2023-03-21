@@ -19,28 +19,17 @@ export default class Status {
   constructor(in_state?: Optional<ServerState>) {
     const previous = store.state.status
 
-    if (!in_state) {
-      this.alltimeDownloaded = previous.alltimeDownloaded
-      this.alltimeUploaded = previous.alltimeUploaded
-      this.freeDiskSpace = previous.freeDiskSpace
-      this.sessionDownloaded = previous.sessionDownloaded
-      this.sessionUploaded = previous.sessionUploaded
-
-      Object.freeze(this)
-      return
-    }
-
-    this.alltimeDownloaded = in_state.alltime_dl || previous.alltimeDownloaded
-    this.alltimeUploaded = in_state.alltime_ul || previous.alltimeUploaded
-    this.altSpeed = in_state.use_alt_speed_limits !== undefined ? in_state.use_alt_speed_limits : previous.altSpeed
-    this.dlspeed = in_state.dl_info_speed || 0
-    this.dlspeedRaw = this.formatSpeed(in_state.dl_info_speed) || 0
-    this.freeDiskSpace = in_state.free_space_on_disk || previous.freeDiskSpace
-    this.sessionDownloaded = in_state.dl_info_data || previous.sessionDownloaded
-    this.sessionUploaded = in_state.up_info_data || previous.sessionUploaded
-    this.status = in_state.connection_status || previous.status
-    this.upspeed = in_state.up_info_speed || 0
-    this.upspeedRaw = this.formatSpeed(in_state.up_info_speed) || 0
+    this.alltimeDownloaded = in_state?.alltime_dl || previous.alltimeDownloaded
+    this.alltimeUploaded = in_state?.alltime_ul || previous.alltimeUploaded
+    this.altSpeed = in_state?.use_alt_speed_limits !== undefined ? in_state.use_alt_speed_limits : previous.altSpeed
+    this.dlspeed = in_state?.dl_info_speed || 0
+    this.dlspeedRaw = this.formatSpeed(in_state?.dl_info_speed || 0)
+    this.freeDiskSpace = in_state?.free_space_on_disk || previous.freeDiskSpace
+    this.sessionDownloaded = in_state?.dl_info_data || previous.sessionDownloaded
+    this.sessionUploaded = in_state?.up_info_data || previous.sessionUploaded
+    this.status = in_state?.connection_status || previous.status
+    this.upspeed = in_state?.up_info_speed || 0
+    this.upspeedRaw = this.formatSpeed(in_state?.up_info_speed || 0)
 
     Object.freeze(this)
   }

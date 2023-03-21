@@ -77,9 +77,7 @@ export default {
     injectLocalization(properties) {
       properties.forEach(property => {
         // convert component name from PascalCase to snake_case to match locale key
-        const value = property.name
-            .replace(/\.?([A-Z]+)/g, (x, y) => "_" + y.toLowerCase())
-            .replace(/^_/, "")
+        const value = property.name.replace(/\.?([A-Z]+)/g, (x, y) => '_' + y.toLowerCase()).replace(/^_/, '')
         property.label = i18n.t(`torrent.properties.${value}`)
       })
       return properties

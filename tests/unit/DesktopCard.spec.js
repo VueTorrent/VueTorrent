@@ -2,7 +2,7 @@ import { describe, beforeEach, it, expect, vi } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 
 import DesktopCard from '@/components/Settings/Tabs/VueTorrent/VDesktopCard.vue'
-import {DashboardProperty} from "@/enums/vuetorrent";
+import { DashboardProperty } from '@/enums/vuetorrent'
 
 let wrapper
 

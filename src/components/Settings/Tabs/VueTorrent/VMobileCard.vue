@@ -62,9 +62,7 @@ export default {
   methods: {
     injectLocalization(properties) {
       properties.forEach(property => {
-        const value = property.name
-            .replace(/\.?([A-Z]+)/g, (x, y) => "_" + y.toLowerCase())
-            .replace(/^_/, "")
+        const value = property.name.replace(/\.?([A-Z]+)/g, (x, y) => '_' + y.toLowerCase()).replace(/^_/, '')
         property.label = i18n.t(`torrent.properties.${value}`)
       })
       return properties

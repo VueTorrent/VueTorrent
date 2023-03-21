@@ -1,10 +1,10 @@
 import dayjs from 'dayjs'
 import duration from 'dayjs/plugin/duration'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import {Priority, TorrentState as QbitTorrentState} from '@/enums/qbit'
+import { Priority, TorrentState as QbitTorrentState } from '@/enums/qbit'
 import { TorrentState as VtTorrentState } from '@/enums/vuetorrent'
 import type { Torrent as QbitTorrent } from '@/types/qbit/models'
-import i18n from "@/plugins/i18n";
+import i18n from '@/plugins/i18n'
 
 dayjs.extend(duration)
 dayjs.extend(relativeTime)
@@ -27,7 +27,7 @@ export default class Torrent {
   dlspeed: number
   download_path: string
   downloaded: number
-  downloaded_session : number
+  downloaded_session: number
   eta: string
   f_l_piece_prio: boolean
   forced: boolean
@@ -70,9 +70,7 @@ export default class Torrent {
     this.available_peers = data.num_incomplete
     this.available_seeds = data.num_complete
     this.category = data.category
-    this.completed_on = data.completion_on > 0
-        ? dayjs(data.completion_on * 1000).format(format)
-        : i18n.t('dashboard.not_complete').toString()
+    this.completed_on = data.completion_on > 0 ? dayjs(data.completion_on * 1000).format(format) : i18n.t('dashboard.not_complete').toString()
     this.content_path = data.content_path
     this.dl_limit = data.dl_limit
     this.dlspeed = data.dlspeed

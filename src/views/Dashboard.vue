@@ -212,7 +212,7 @@ export default {
       { value: 'uploaded_session', text: this.$t('modals.sort.sortBy.uploaded_session') },
       { value: 'upspeed', text: this.$t('modals.sort.sortBy.upspeed') }
     ]
-    sortOptions.sort((a,b) => a.text.localeCompare(b.text))
+    sortOptions.sort((a, b) => a.text.localeCompare(b.text))
 
     return {
       data: null,
@@ -230,10 +230,7 @@ export default {
       trcMoveTick: 0,
       searchFilterEnabled: false,
       sortEnabled: false,
-      sortOptions: [
-        { value: '', text: this.$t('modals.sort.sortBy.default') },
-        ...sortOptions
-      ],
+      sortOptions: [{ value: '', text: this.$t('modals.sort.sortBy.default') }, ...sortOptions],
       mdiTextBoxSearch,
       mdiChevronLeftCircle,
       mdiMagnify,

@@ -64,10 +64,10 @@
   },
   "torrent": {
     "properties": {
-    "added_on": "Додано",
-    "amount_left": "Залишилось",
-    "availability": "Доступність",
-    "category": "Категорія",
+      "added_on": "Додано",
+      "amount_left": "Залишилось",
+      "availability": "Доступність",
+      "category": "Категорія",
       "completed_on": "Виконано о",
       "content_path": "Зберегти в",
       "download_limit": "Ліміт завантаження",
