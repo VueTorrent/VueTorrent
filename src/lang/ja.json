@@ -150,7 +150,6 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Torrentを追加したとき",
         "whenAddTorrent": {
-          "createSubFolder": "複数のファイルが有るときはサブフォルダーを作成する",
           "donotAutoStart": "自動でダウンロードを開始しない"
         },
         "subHeaderPublicSettings": "全体の設定",

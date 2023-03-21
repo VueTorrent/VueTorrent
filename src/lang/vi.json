@@ -206,7 +206,6 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Khi thêm một torrent",
         "whenAddTorrent": {
-          "createSubFolder": "Tạo thư mục con cho torrent với nhiều tệp",
           "donotAutoStart": "Không tự động bắt đầu tải xuống"
         },
         "subHeaderPublicSettings": "Cài đặt chung",

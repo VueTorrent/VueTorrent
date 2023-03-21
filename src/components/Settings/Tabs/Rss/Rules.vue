@@ -8,6 +8,16 @@
             <v-list-item-content>
               <v-list-item-title v-text="item.name" />
             </v-list-item-content>
+            <v-list-item-action class="icon">
+              <v-icon @click="previewMatchingArticles(item.name)">
+                {{ mdiEye }}
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-action class="icon">
+              <v-icon @click="editRule(item)">
+                {{ mdiPencil }}
+              </v-icon>
+            </v-list-item-action>
             <v-list-item-action>
               <v-icon color="red" @click="deleteRule(item)">
                 {{ mdiDelete }}
@@ -28,7 +38,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiDelete } from '@mdi/js'
+import { mdiEye, mdiPencil, mdiDelete } from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
 
@@ -36,6 +46,8 @@ export default {
   name: 'Rules',
   mixins: [Tab, General, FullScreenModal],
   data: () => ({
+    mdiEye,
+    mdiPencil,
     mdiDelete
   }),
   computed: {
@@ -57,7 +69,19 @@ export default {
     },
     createRule() {
       this.createModal('RuleForm')
+    },
+    editRule(item) {
+      this.createModal('RuleForm', {initialRule: item})
+    },
+    previewMatchingArticles(ruleName) {
+      this.createModal('MatchingArticles', {ruleName})
     }
   }
 }
 </script>
+
+<style scoped>
+.icon {
+  margin-left: 16px;
+}
+</style>

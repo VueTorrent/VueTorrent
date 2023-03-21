@@ -179,7 +179,6 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "При добавлении торрента",
         "whenAddTorrent": {
-          "createSubFolder": "Создать подкаталог для торрентов с несколькими файлами",
           "donotAutoStart": "Не начинать загрузку автоматически"
         },
         "subHeaderPublicSettings": "Общие настройки",

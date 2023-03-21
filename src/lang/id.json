@@ -151,7 +151,6 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Saat menambahkan torrent",
         "whenAddTorrent": {
-          "createSubFolder": "Buat subfolder untuk torrent dengan banyak file",
           "donotAutoStart": "Jangan mengunduh secara otomatis"
         },
         "subHeaderPublicSettings": "Pengaturan Publik",
