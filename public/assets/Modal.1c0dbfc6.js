@@ -1,0 +1,1 @@
+import{d as t}from"./vue.7fbf5199.js";const d=t({name:"Modal",props:{guid:String},data:()=>({hndlDialog:!0}),beforeDestroy(){this.deleteModal()},computed:{dialog:{get(){return this.hndlDialog},set(e){this.hndlDialog=e,e||this.deleteModal()}}},methods:{deleteModal(){setTimeout(()=>{this.$store.commit("DELETE_MODAL",this.guid)},300)}}});export{d as M};
