@@ -56,6 +56,7 @@ export default defineComponent({
   computed: {
     ...mapGetters(['getFeeds']),
     availableFeeds() {
+      // @ts-expect-error: TS2349: This expression is not callable. Type 'never' has no call signatures.
       return this.getFeeds()
     }
   },

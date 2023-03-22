@@ -278,9 +278,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Коли додається торент",
         "whenAddTorrent": {
-          "contentLayout": "Оформлення контенту торрента",
           "donotAutoStart": "Не запускати завантаження автоматично",
-          "stopCondition": "Умови зупинки торрентк",
           "autoDeleteMode": "Видаляти .torrent файли після завершення"
         },
         "subHeaderPublicSettings": "Загальні налаштування",
@@ -480,19 +478,7 @@
       "skipHashCheck": "Пропустити перевірку хешування",
       "automaticTorrentManagement": "Автоматичне керування торрентами",
       "dropHereForAdd": "Перетягнути для додавання",
-      "oneOrMoreFilesInvalidTorrent": "Один або кілька файлів не є дійсним торрентом",
-      "contentLayout": "Макет вмісту",
-      "contentLayoutOptions": {
-        "original": "Оригінал",
-        "subfolder": "Створити підпапку",
-        "nosubfolder": "Видалити підпапку"
-      },
-      "stopCondition": "Умови зупинки",
-      "stopConditionOptions": {
-        "none": "Немає",
-        "metadataReceived": "Метадані отримано",
-        "filesChecked": "Файли перевірено"
-      }
+      "oneOrMoreFilesInvalidTorrent": "Один або кілька файлів не є дійсним торрентом"
     },
     "changeLocation": {
       "title": "Змінити місцезнаходження"
@@ -615,5 +601,19 @@
     "copy": "Копіювати",
     "export": "Експортувати торент | Експортувати торенти",
     "info": "Деталі"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Макет вмісту",
+      "original": "Оригінал",
+      "subfolder": "Створити підпапку",
+      "nosubfolder": "Видалити підпапку"
+    },
+    "stopCondition": {
+      "title": "Умови зупинки",
+      "none": "Немає",
+      "metadataReceived": "Метадані отримано",
+      "filesChecked": "Файли перевірено"
+    }
   }
 }

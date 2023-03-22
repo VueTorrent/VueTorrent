@@ -51,6 +51,7 @@
   "no": "no",
   "filter": "Filter",
   "close": "Close",
+  "useGlobalSettings": "Use Global Settings",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
@@ -163,10 +164,28 @@
       "name": "Name",
       "def": {
         "mustContain": "Must Contain",
-        "mustNotContain": "Must Not Contain",
         "useRegex": "Use Regular Expressions",
+        "mustNotContain": "Must Not Contain",
+        "smartFilter": "Use Smart Episode Filter",
+        "episodeFilter": "Episode Filter",
+        "assignedCategory": "Assign Category",
+        "savePath": "Save to",
+        "ignoreDays": "Ignore Subsequent Matches for (0 to Disable)",
+        "lastMatch": {
+          "title": "Last Match",
+          "knownValue": "%1 days ago",
+          "unknownValue": "Unknown"
+        },
+        "addPaused": {
+          "title": "Add Paused",
+          "always": "Always",
+          "never": "Never"
+        },
         "affectedFeeds": "Apply Rule to Feeds"
       }
+    },
+    "matchingArticles": {
+      "title": "Matching RSS Articles"
     },
     "pluginManager": {
       "title": "Plugin manager"
@@ -278,9 +297,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "When adding a torrent",
         "whenAddTorrent": {
-          "contentLayout": "Torrent content layout",
           "donotAutoStart": "Do not start the download automatically",
-          "stopCondition": "Torrent stop condition",
           "autoDeleteMode": "Delete .torrent files afterwards"
         },
         "subHeaderPublicSettings": "Public Settings",
@@ -480,19 +497,7 @@
       "skipHashCheck": "Skip hash check",
       "automaticTorrentManagement": "Automatic Torrent Management",
       "dropHereForAdd": "Drop here for add",
-      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents",
-      "contentLayout": "Content Layout",
-      "contentLayoutOptions": {
-        "original": "Original",
-        "subfolder": "Create Subfolder",
-        "nosubfolder": "Remove Subfolder"
-      },
-      "stopCondition": "Stop Condition",
-      "stopConditionOptions": {
-        "none": "None",
-        "metadataReceived": "Metadata Received",
-        "filesChecked": "Files Checked"
-      }
+      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
     },
     "changeLocation": {
       "title": "Change Location"
@@ -615,5 +620,19 @@
     "copy": "Copy",
     "export": "Export Torrent | Export Torrents",
     "info": "Show Info"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Torrent content layout",
+      "original": "Original",
+      "subfolder": "Create Subfolder",
+      "nosubfolder": "Remove Subfolder"
+    },
+    "stopCondition": {
+      "title": "Torrent stop condition",
+      "none": "None",
+      "metadataReceived": "Metadata Received",
+      "filesChecked": "Files Checked"
+    }
   }
 }

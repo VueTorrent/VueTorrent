@@ -237,9 +237,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "當新增種子時",
         "whenAddTorrent": {
-          "contentLayout": "種子內容佈局",
           "donotAutoStart": "不要自動開始下載",
-          "stopCondition": "種子停止條件",
           "autoDeleteMode": "事後移除 .torrent 檔案"
         },
         "subHeaderPublicSettings": "公共設定",
@@ -439,19 +437,7 @@
       "skipHashCheck": "跳過雜湊值檢查",
       "automaticTorrentManagement": "自動種子管理 (ATM)",
       "dropHereForAdd": "拖拽至此處新增",
-      "oneOrMoreFilesInvalidTorrent": "存在無效的種子檔案",
-      "contentLayout": "內容佈局",
-      "contentLayoutOptions": {
-        "original": "原始",
-        "subfolder": "建立子資料夾",
-        "nosubfolder": "移除子資料夾"
-      },
-      "stopCondition": "停止條件",
-      "stopConditionOptions": {
-        "none": "無",
-        "metadataReceived": "收到元資料後",
-        "filesChecked": "檢查檔案後"
-      }
+      "oneOrMoreFilesInvalidTorrent": "存在無效的種子檔案"
     },
     "changeLocation": {
       "title": "更改位置"
@@ -545,5 +531,19 @@
     "copy": "複製",
     "export": "匯出種子 | 匯出種子",
     "info": "顯示詳情"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "內容佈局",
+      "original": "原始",
+      "subfolder": "建立子資料夾",
+      "nosubfolder": "移除子資料夾"
+    },
+    "stopCondition": {
+      "title": "停止條件",
+      "none": "無",
+      "metadataReceived": "收到元資料後",
+      "filesChecked": "檢查檔案後"
+    }
   }
 }

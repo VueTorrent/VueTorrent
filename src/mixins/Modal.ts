@@ -1,37 +1,32 @@
-import { mapGetters } from 'vuex'
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { defineComponent } from 'vue'
 
-@Component({
-  computed: mapGetters(['getModalState'])
-})
-export default class Modal extends Vue {
-  //data
-  hndlDialog = true
-
-  //props
-  @Prop() guid!: string
-
-  // mapGetters
-  getModalState!: () => any
-
-  // computed
-  get dialog() {
-    return this.hndlDialog
-  }
-  set dialog(val) {
-    this.hndlDialog = val
-    if (!val) this.deleteModal()
-  }
-
-  // methods
-  deleteModal() {
-    //this.hndlDialog = false
-    setTimeout(() => {
-      this.$store.commit('DELETE_MODAL', this.guid)
-    }, 300)
-  }
-
+export default defineComponent({
+  name: 'Modal',
+  props: {
+    guid: String
+  },
+  data: () => ({
+    hndlDialog: true
+  }),
   beforeDestroy() {
     this.deleteModal()
+  },
+  computed: {
+    dialog: {
+      get() {
+        return this.hndlDialog
+      },
+      set(val: boolean) {
+        this.hndlDialog = val
+        if (!val) this.deleteModal()
+      }
+    }
+  },
+  methods: {
+    deleteModal() {
+      setTimeout(() => {
+        this.$store.commit('DELETE_MODAL', this.guid)
+      }, 300)
+    }
   }
-}
+})

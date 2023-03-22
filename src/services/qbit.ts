@@ -16,8 +16,7 @@ import type {
 } from '@/types/qbit/models'
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
-import type { SortOptions } from '@/types/vuetorrent'
-import type { FeedRule as VtFeedRule } from '@/types/vuetorrent/rss'
+import type { FeedRule as VtFeedRule, SortOptions } from '@/types/vuetorrent'
 import type { Priority } from '@/enums/qbit'
 
 type Parameters = Record<string, any>
@@ -162,10 +161,10 @@ export class QBitApi {
     })
   }
 
-  async createRule(rule: VtFeedRule) {
+  async setRule(rule: VtFeedRule) {
     return this.execute('/rss/setRule', {
       ruleName: rule.name,
-      ruleDef: JSON.stringify(rule, ['enabled', 'mustContain', 'mustNotContain', 'useRegex', 'affectedFeeds'])
+      ruleDef: JSON.stringify(rule)
     })
   }
 
@@ -214,6 +213,10 @@ export class QBitApi {
     await this.execute('rss/refreshItem', {
       itemPath
     })
+  }
+
+  async getMatchingArticles(ruleName: string): Promise<Record<string, string[]>> {
+    return this.axios.get('/rss/matchingArticles', {params: {ruleName}}).then(r => r.data)
   }
 
   // Post

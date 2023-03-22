@@ -1,16 +1,5 @@
-export default interface FeedRule {
-  addPaused?: boolean
-  affectedFeeds?: string[]
-  assignedCategory?: string
-  enabled: boolean
-  episodeFilter?: string
-  ignoreDays?: number
-  lastMatch?: string
-  mustContain?: string
-  mustNotContain?: string
+import { FeedRule as QbitFeedRule } from '@/types/qbit/models'
+
+export default interface FeedRule extends Partial<QbitFeedRule> {
   name: string
-  previouslyMatchedEpisodes?: unknown[]
-  savePath?: string
-  smartFilter?: boolean
-  useRegex?: boolean
 }

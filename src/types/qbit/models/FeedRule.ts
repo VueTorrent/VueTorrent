@@ -1,6 +1,8 @@
+import { AppPreferences } from '@/enums/qbit'
+
 export default interface FeedRule {
   /** Add matched torrent in paused mode */
-  addPaused: boolean
+  addPaused: boolean | null
   /** The feed URLs the rule applied to */
   affectedFeeds: string[]
   /** Assign category to the torrent */
@@ -9,7 +11,7 @@ export default interface FeedRule {
   enabled: boolean
   /** Episode filter definition */
   episodeFilter: string
-  /** Ignore sunsequent rule matches */
+  /** Ignore subsequent rule matches */
   ignoreDays: number
   /** The rule last match time */
   lastMatch: string
@@ -23,7 +25,8 @@ export default interface FeedRule {
   savePath: string
   /** Enable smart episode filter */
   smartFilter: boolean
-  torrentContentLayout?: unknown
+  /** Torrent content layout to use with matched torrent */
+  torrentContentLayout: AppPreferences.ContentLayout | null
   /** Enable regex mode in "mustContain" and "mustNotContain" */
   useRegex: boolean
 }

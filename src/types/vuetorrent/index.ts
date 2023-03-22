@@ -1,6 +1,5 @@
 import type Category from './Category'
-import type Feed from './rss/Feed'
-import type FeedRule from './rss/FeedRule'
+import type { Feed, FeedArticle, FeedRule } from './rss'
 import type SearchStatus from './search/SearchStatus'
 import type SearchResult from './search/SearchResult'
 import type ModalTemplate from './ModalTemplate'

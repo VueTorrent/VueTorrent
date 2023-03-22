@@ -4,7 +4,7 @@
     <v-list-item>
       <v-select
         v-model="settings.torrent_content_layout"
-        :label="$t('modals.settings.pageDownloads.whenAddTorrent.contentLayout')"
+        :label="$t('enums.contentLayout.title')"
         outlined
         dense
         small-chips
@@ -17,7 +17,7 @@
     <v-list-item>
       <v-select
         v-model="settings.torrent_stop_condition"
-        :label="$t('modals.settings.pageDownloads.whenAddTorrent.stopCondition')"
+        :label="$t('enums.stopCondition.title')"
         outlined
         dense
         small-chips
@@ -135,14 +135,14 @@ export default {
   data() {
     return {
       contentLayoutOptions: [
-        { text: this.$t('modals.add.contentLayoutOptions.original'), value: AppPreferences.ContentLayout.ORIGINAL },
-        { text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-        { text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
+        { text: this.$t('enums.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
+        { text: this.$t('enums.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
+        { text: this.$t('enums.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
       ],
       stopConditionOptions: [
-        { text: this.$t('modals.add.stopConditionOptions.none'), value: AppPreferences.StopCondition.NONE },
-        { text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-        { text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
+        { text: this.$t('enums.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
+        { text: this.$t('enums.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
+        { text: this.$t('enums.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
       ]
     }
   }
