@@ -2,6 +2,7 @@ export interface TreeNode {
   name: string
   fullName: string
   children: TreeNode[]
+  type: 'file' | 'directory'
 }
 
 export interface TreeFile extends TreeNode {
@@ -10,6 +11,7 @@ export interface TreeFile extends TreeNode {
   size: string
   icon: string
   priority: number
+  type: 'file'
 }
 
 export interface TreeFolder extends TreeNode {
