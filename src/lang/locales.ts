@@ -31,6 +31,6 @@ export const LOCALES: LocaleDef[] = [
   { value: Locales.RU, caption: 'Русский язык' },
   { value: Locales.UK, caption: 'Українська' },
   { value: Locales.VI, caption: 'Tiếng Việt' },
-  { value: Locales.ZH_HANS, caption: '汉语' },
-  { value: Locales.ZH_HANT, caption: '漢語' }
+  { value: Locales.ZH_HANS, caption: '简体中文' },
+  { value: Locales.ZH_HANT, caption: '繁体中文' }
 ]
