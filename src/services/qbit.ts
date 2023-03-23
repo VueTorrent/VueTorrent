@@ -216,7 +216,7 @@ export class QBitApi {
   }
 
   async getMatchingArticles(ruleName: string): Promise<Record<string, string[]>> {
-    return this.axios.get('/rss/matchingArticles', {params: {ruleName}}).then(r => r.data)
+    return this.axios.get('/rss/matchingArticles', { params: { ruleName } }).then(r => r.data)
   }
 
   // Post
