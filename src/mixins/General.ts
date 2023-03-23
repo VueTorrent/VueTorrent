@@ -6,6 +6,7 @@ export default defineComponent({
   computed: {
     ...mapGetters(['getTheme']),
     theme() {
+      // @ts-expect-error: TS2339: Property 'getTheme' does not exist on type 'CreateComponentPublicInstance{}, unknown, {}, {}, {}, ComponentOptionsMixin, ComponentOptionsMixin, {}, {}, {}, false, OptionTypesType{}, {}, {}, {}, {}, {}>, ... 5 more ..., {}>'.
       return this.getTheme()
     },
     isMobile() {

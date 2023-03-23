@@ -1,12 +1,12 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('downloaded') }}
+      {{ $t('torrent.properties.downloaded') }}
     </div>
     <div>
-      {{ torrent.dloaded | getDataValue(2) }}
+      {{ torrent.downloaded | getDataValue(2) }}
       <span class="caption grey--text">
-        {{ torrent.dloaded | getDataUnit }}
+        {{ torrent.downloaded | getDataUnit }}
       </span>
     </div>
   </v-flex>

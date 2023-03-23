@@ -12,7 +12,7 @@
 <script>
 import * as Fields from './DashboardItems'
 import { mapState } from 'vuex'
-import {Torrent} from '@/models'
+import { Torrent } from '@/models'
 
 export default {
   name: 'DesktopCard',

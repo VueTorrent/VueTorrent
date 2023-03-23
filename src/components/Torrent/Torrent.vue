@@ -12,8 +12,8 @@ import { General, TorrentSelect } from '@/mixins'
 import { mapState } from 'vuex'
 import DesktopCard from './DesktopCard.vue'
 import MobileCard from './MobileCard.vue'
-import {Torrent} from '@/models'
-import {doesCommand} from "@/helpers";
+import { Torrent } from '@/models'
+import { doesCommand } from '@/helpers'
 
 export default {
   name: 'Torrent',

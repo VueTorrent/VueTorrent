@@ -1,7 +1,7 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('ETA') }}
+      {{ $t('torrent.properties.eta') }}
     </div>
     <div>
       {{ torrent.eta }}

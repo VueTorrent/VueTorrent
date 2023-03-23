@@ -51,6 +51,7 @@
   "no": "no",
   "filter": "Filter",
   "close": "Close",
+  "useGlobalSettings": "Use Global Settings",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
@@ -59,17 +60,56 @@
       "selectAll": "Select All",
       "selectAllCaption": "Select / Release All (Ctrl + A)"
     },
-    "emptyTorrentList": "Nothing to see here!"
+    "emptyTorrentList": "Nothing to see here!",
+    "not_complete": "Not Yet Completed"
   },
   "torrent": {
+    "properties": {
+      "added_on": "Added On",
+      "amount_left": "Amount Left",
+      "availability": "Availability",
+      "category": "Category",
+      "completed_on": "Completed On",
+      "content_path": "Content Path",
+      "download_limit": "Download Limit",
+      "download_speed": "Download Speed",
+      "downloaded": "Downloaded (global)",
+      "downloaded_session": "Downloaded (session)",
+      "download_path": "Download Path",
+      "eta": "ETA",
+      "global_speed": "Global Speed",
+      "global_volume": "Global Volume",
+      "hash": "Hash",
+      "info_hash_v1": "Infohash v1",
+      "info_hash_v2": "Infohash v2",
+      "last_activity": "Last Activity",
+      "peers": "Peers",
+      "priority": "Priority",
+      "progress": "Progress",
+      "ratio": "Ratio",
+      "save_path": "Save Path",
+      "seeds": "Seeds",
+      "seen_complete": "Seen Complete",
+      "size": "Size",
+      "status": "Status",
+      "tags": "Tags",
+      "time_active": "Time Active",
+      "total_size": "Total Size",
+      "tracker": "Tracker",
+      "trackers_count": "Trackers Count",
+      "upload_limit": "Upload Limit",
+      "upload_speed": "Upload Speed",
+      "uploaded": "Uploaded (global)",
+      "uploaded_session": "Uploaded (session)",
+      "download": "Download",
+      "upload": "Upload",
+      "directory": "Directory"
+    },
     "title": "Title",
     "added": "Added On",
     "availability": "Availability",
     "size": "Size",
     "progress": "Progress",
-    "directory": "Directory",
-    "downloaded": "Downloaded",
-    "uploaded": "Uploaded",
     "created": "Created By",
     "comments": "Comments",
     "uploadedSession": "Uploaded Session",
@@ -100,6 +140,8 @@
     "filters": {
       "stalled_uploading": "Stalled Uploading",
       "stalled_downloading": "Stalled Downloading",
+      "checking": "Checking",
+      "moving": "Moving",
       "uncategorized": "Uncategorized",
       "untagged": "Untagged",
       "not_working": "Not Working"
@@ -122,10 +164,28 @@
       "name": "Name",
       "def": {
         "mustContain": "Must Contain",
-        "mustNotContain": "Must Not Contain",
         "useRegex": "Use Regular Expressions",
+        "mustNotContain": "Must Not Contain",
+        "smartFilter": "Use Smart Episode Filter",
+        "episodeFilter": "Episode Filter",
+        "assignedCategory": "Assign Category",
+        "savePath": "Save to",
+        "ignoreDays": "Ignore Subsequent Matches for (0 to Disable)",
+        "lastMatch": {
+          "title": "Last Match",
+          "knownValue": "%1 days ago",
+          "unknownValue": "Unknown"
+        },
+        "addPaused": {
+          "title": "Add Paused",
+          "always": "Always",
+          "never": "Never"
+        },
         "affectedFeeds": "Apply Rule to Feeds"
       }
+    },
+    "matchingArticles": {
+      "title": "Matching RSS Articles"
     },
     "pluginManager": {
       "title": "Plugin manager"
@@ -237,9 +297,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "When adding a torrent",
         "whenAddTorrent": {
-          "contentLayout": "Torrent content layout",
           "donotAutoStart": "Do not start the download automatically",
-          "stopCondition": "Torrent stop condition",
           "autoDeleteMode": "Delete .torrent files afterwards"
         },
         "subHeaderPublicSettings": "Public Settings",
@@ -439,19 +497,7 @@
       "skipHashCheck": "Skip hash check",
       "automaticTorrentManagement": "Automatic Torrent Management",
       "dropHereForAdd": "Drop here for add",
-      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents",
-      "contentLayout": "Content Layout",
-      "contentLayoutOptions": {
-        "original": "Original",
-        "subfolder": "Create Subfolder",
-        "nosubfolder": "Remove Subfolder"
-      },
-      "stopCondition": "Stop Condition",
-      "stopConditionOptions": {
-        "none": "None",
-        "metadataReceived": "Metadata Received",
-        "filesChecked": "Files Checked"
-      }
+      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
     },
     "changeLocation": {
       "title": "Change Location"
@@ -464,29 +510,58 @@
       "title": "Sort Torrents",
       "reverse": "Reverse",
       "sortBy": {
+        "default": "Default",
+        "added_on": "Added On",
+        "amount_left": "Amount Left",
+        "auto_tmm": "Auto TMM",
         "availability": "Availability",
         "category": "Category",
         "completed": "Completed",
         "completion_on": "Completed On",
-        "downloaded": "Downloaded",
-        "ETA": "ETA",
-        "name": "Name",
-        "default": "Default",
+        "content_path": "Content Path",
+        "dl_limit": "Download Limit",
+        "dlspeed": "Download Speed",
+        "download_path": "Download Path",
+        "downloaded": "Downloaded (Global)",
+        "downloaded_session": "Downloaded (Session)",
+        "eta": "ETA",
+        "f_l_piece_prio": "First / Last Piece Priority",
+        "force_start": "Force Start",
+        "globalSpeed": "Global Speed",
+        "globalVolume": "Global Volume",
+        "hash": "Hash",
+        "infohash_v1": "Infohash v1",
+        "infohash_v2": "Infohash v2",
         "last_activity": "Last Activity",
-        "peers": "Peers",
+        "magnet_uri": "Magnet URI",
+        "max_ratio": "Max Ratio",
+        "max_seeding_time": "Max Seeding Time",
+        "name": "Name",
+        "num_complete": "Seeds (swarm)",
+        "num_incomplete": "Peers (swarm)",
+        "num_leechs": "Peers (connected)",
+        "num_seeds": "Seeds (connected)",
         "priority": "Priority",
         "progress": "Progress",
         "ratio": "Ratio",
-        "save_path": "Directory",
+        "ratio_limit": "Ratio Limit",
+        "save_path": "Save Path",
+        "seeding_time": "Seeding Time",
+        "seeding_time_limit": "Seeding Time Limit",
+        "seen_complete": "Seen Complete",
+        "seq_dl": "Sequential Download",
         "size": "Size",
         "state": "State",
-        "uploaded": "Uploaded",
-        "addedOn": "Added On",
-        "downloadSpeed": "Download Speed",
-        "timeActive": "Time Active",
-        "uploadSpeed": "Upload Speed",
-        "globalSpeed": "Global Speed",
-        "globalVolume": "Global Volume"
+        "super_seeding": "Super Seeding",
+        "tags": "Tags",
+        "time_active": "Time Active",
+        "total_size": "Total Size",
+        "tracker": "Tracker",
+        "trackers_count": "Trackers Count",
+        "up_limit": "Upload Limit",
+        "uploaded": "Uploaded (Global)",
+        "uploaded_session": "Uploaded (Session)",
+        "upspeed": "Upload Speed"
       }
     },
     "speedLimit": {
@@ -515,7 +590,7 @@
     "pasteNotSupported": "Unable to paste, context isn't secured",
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
     "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
-    "invalidJson": "Invalid JSON!"
+    "invalidJson": "Invalid JSON! Check console for details"
   },
   "rightClick": {
     "resume": "resume",
@@ -545,5 +620,19 @@
     "copy": "Copy",
     "export": "Export Torrent | Export Torrents",
     "info": "Show Info"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Torrent content layout",
+      "original": "Original",
+      "subfolder": "Create Subfolder",
+      "nosubfolder": "Remove Subfolder"
+    },
+    "stopCondition": {
+      "title": "Torrent stop condition",
+      "none": "None",
+      "metadataReceived": "Metadata Received",
+      "filesChecked": "Files Checked"
+    }
   }
 }

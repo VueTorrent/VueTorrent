@@ -224,9 +224,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "Lors de l'ajout d'un torrent",
         "whenAddTorrent": {
-          "contentLayout": "Disposition du contenu du torrent",
           "donotAutoStart": "Ne pas lancer le téléchargement automatiquement",
-          "stopCondition": "Condition d'arrêt du torrent",
           "autoDeleteMode": "Supprimer les fichers .torrent après"
         },
         "subHeaderPublicSettings": "Paramètres publics",
@@ -424,19 +422,7 @@
       "skipHashCheck": "Passer la vérification du hash",
       "automaticTorrentManagement": "Gestion automatique des torrents",
       "dropHereForAdd": "Déposez ici pour ajouter",
-      "oneOrMoreFilesInvalidTorrent": "Un ou plusieurs fichiers ne sont pas des torrents valides",
-      "contentLayout": "Disposition des fichiers",
-      "contentLayoutOptions": {
-        "original": "Original",
-        "subfolder": "Créer un sous-dossier",
-        "nosubfolder": "Supprimer le sous-dossier"
-      },
-      "stopCondition": "Condition d'arrêt",
-      "stopConditionOptions": {
-        "none": "Aucune",
-        "metadataReceived": "Metadonnées reçues",
-        "filesChecked": "Fichiers vérifiés"
-      }
+      "oneOrMoreFilesInvalidTorrent": "Un ou plusieurs fichiers ne sont pas des torrents valides"
     },
     "changeLocation": {
       "title": "Changement d'emplacement"
@@ -527,5 +513,19 @@
     "copy": "Copier",
     "export": "Exporter le torrent | Exporter les torrents",
     "info": "Propriétés"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Disposition du contenu du torrent",
+      "original": "Original",
+      "subfolder": "Créer un sous-dossier",
+      "nosubfolder": "Supprimer le sous-dossier"
+    },
+    "stopCondition": {
+      "title": "Condition d'arrêt du torrent",
+      "none": "Aucune",
+      "metadataReceived": "Metadonnées reçues",
+      "filesChecked": "Fichiers vérifiés"
+    }
   }
 }

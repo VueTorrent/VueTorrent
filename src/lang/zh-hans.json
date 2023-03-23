@@ -237,9 +237,7 @@
       "pageDownloads": {
         "subHeaderWhenAddTorrent": "当添加种子时",
         "whenAddTorrent": {
-          "contentLayout": "下载内容布局",
           "donotAutoStart": "不要开始自动下载",
-          "stopCondition": "停止条件",
           "autoDeleteMode": "随后删除 .torrent 文件"
         },
         "subHeaderPublicSettings": "公共设置",
@@ -439,19 +437,7 @@
       "skipHashCheck": "跳过哈希值检查",
       "automaticTorrentManagement": "自动种子管理 (ATM)",
       "dropHereForAdd": "拖拽到此处即可添加",
-      "oneOrMoreFilesInvalidTorrent": "存在无效的种子文件",
-      "contentLayout": "下载内容布局",
-      "contentLayoutOptions": {
-        "original": "原始",
-        "subfolder": "创建子文件夹",
-        "nosubfolder": "移除子文件夹"
-      },
-      "stopCondition": "种子停止条件",
-      "stopConditionOptions": {
-        "none": "无",
-        "metadataReceived": "接受元数据后",
-        "filesChecked": "检查文件后"
-      }
+      "oneOrMoreFilesInvalidTorrent": "存在无效的种子文件"
     },
     "changeLocation": {
       "title": "更改位置"
@@ -545,5 +531,19 @@
     "copy": "复制",
     "export": "导出种子 | 导出种子",
     "info": "显示详情"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "下载内容布局",
+      "original": "原始",
+      "subfolder": "创建子文件夹",
+      "nosubfolder": "移除子文件夹"
+    },
+    "stopCondition": {
+      "title": "种子停止条件",
+      "none": "无",
+      "metadataReceived": "接受元数据后",
+      "filesChecked": "检查文件后"
+    }
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('torrent.properties.global_speed') }}
+      {{ $t('torrent.properties.upload_limit') }}
     </div>
     <div>
-      {{ torrent.globalSpeed | getDataValue(1) }}
-      <span class="caption grey--text"> {{ torrent.globalSpeed | getDataUnit }}/s </span>
+      {{ torrent.up_limit | getDataValue(1) }}
+      <span class="caption grey--text"> {{ torrent.up_limit | getDataUnit(1) }}/s </span>
     </div>
   </v-flex>
 </template>
@@ -15,7 +15,7 @@ import { defineComponent } from 'vue'
 import { Torrent } from '@/models'
 
 export default defineComponent({
-  name: 'GlobalSpeed',
+  name: 'UploadLimit',
   props: {
     torrent: Torrent
   }

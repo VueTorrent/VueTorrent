@@ -87,10 +87,9 @@
               <v-row no-gutters class="flex-gap">
                 <v-col>
                   <div class="d-flex flex-column align-center">
-                    <p class="subtitle-1 mb-1">{{ $t('modals.add.contentLayout') }}</p>
+                     <p class="subtitle-1 mb-1">{{ $t('enums.contentLayout.title') }}</p>
                     <v-select
                       v-model="contentLayout"
-                      :label="$t('modals.add.contentLayout')"
                       flat
                       solo
                       dense
@@ -103,10 +102,9 @@
                 </v-col>
                 <v-col>
                   <div class="d-flex flex-column align-center">
-                    <p class="subtitle-1 mb-1">{{ $t('modals.add.stopCondition') }}</p>
+                    <p class="subtitle-1 mb-1">{{ $t('enums.stopCondition.title') }}</p>
                     <v-select
                       v-model="stopCondition"
-                      :label="$t('modals.add.stopCondition')"
                       flat
                       solo
                       dense
@@ -196,15 +194,15 @@ export default {
       skip_checking: false,
       contentLayout: 'Original',
       contentLayoutOptions: [
-        { text: this.$t('modals.add.contentLayoutOptions.original'), value: AppPreferences.ContentLayout.ORIGINAL },
-        { text: this.$t('modals.add.contentLayoutOptions.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-        { text: this.$t('modals.add.contentLayoutOptions.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
+        { text: this.$t('enums.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
+        { text: this.$t('enums.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
+        { text: this.$t('enums.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
       ],
       stopCondition: 'None',
       stopConditionOptions: [
-        { text: this.$t('modals.add.stopConditionOptions.none'), value: AppPreferences.StopCondition.NONE },
-        { text: this.$t('modals.add.stopConditionOptions.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-        { text: this.$t('modals.add.stopConditionOptions.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
+        { text: this.$t('enums.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
+        { text: this.$t('enums.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
+        { text: this.$t('enums.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
       ],
       autoTMM: true,
       sequentialDownload: false,

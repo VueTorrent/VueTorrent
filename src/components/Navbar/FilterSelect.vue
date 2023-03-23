@@ -85,12 +85,14 @@ import { mapGetters, mapState } from 'vuex'
 export default {
   name: 'FilterSelect',
   props: ['showTrackerFilter'],
-  data: () => ({
-    selectedState: null,
-    selectedCategory: null,
-    selectedTag: null,
-    selectedTracker: null
-  }),
+  data() {
+    return {
+      selectedState: null,
+      selectedCategory: null,
+      selectedTag: null,
+      selectedTracker: null
+    }
+  },
   computed: {
     ...mapGetters(['getCategories', 'getAvailableTags', 'getTrackers']),
     ...mapState(['sort_options']),
@@ -113,6 +115,8 @@ export default {
           value: 'stalled_downloading',
           name: this.$t('navbar.filters.stalled_downloading')
         },
+        { value: 'checking', name: this.$t('navbar.filters.checking') },
+        { value: 'moving', name: this.$t('navbar.filters.moving') },
         { value: 'errored', name: this.$t('errored') }
       ]
     },
@@ -157,6 +161,7 @@ export default {
   },
   methods: {
     commitFilter() {
+      this.$store.commit('RESET_SELECTED')
       this.$store.commit('UPDATE_SORT_OPTIONS', {
         filter: this.selectedState,
         category: this.selectedCategory,

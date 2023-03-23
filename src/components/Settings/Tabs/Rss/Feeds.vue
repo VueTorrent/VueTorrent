@@ -8,12 +8,17 @@
             <v-list-item-content>
               <v-list-item-title v-text="item.name" />
             </v-list-item-content>
-            <v-list-item-action>
+            <v-list-item-action class="icon">
+              <v-icon @click="updateFeed(item)">
+                {{ mdiSync }}
+              </v-icon>
+            </v-list-item-action>
+            <v-list-item-action class="icon">
               <v-icon @click="editFeed(item)">
                 {{ mdiPencil }}
               </v-icon>
             </v-list-item-action>
-            <v-list-item-action>
+            <v-list-item-action class="icon">
               <v-icon color="red" @click="deleteFeed(item)">
                 {{ mdiDelete }}
               </v-icon>
@@ -34,7 +39,7 @@
 <script lang="ts">
 import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiDelete, mdiPencil } from '@mdi/js'
+import { mdiDelete, mdiPencil, mdiSync } from '@mdi/js'
 
 import { Tab, General, FullScreenModal } from '@/mixins'
 import { Feed } from '@/types/vuetorrent'
@@ -45,11 +50,13 @@ export default defineComponent({
   mixins: [Tab, General, FullScreenModal],
   data: () => ({
     mdiPencil,
-    mdiDelete
+    mdiDelete,
+    mdiSync
   }),
   computed: {
     ...mapGetters(['getFeeds']),
     availableFeeds() {
+      // @ts-expect-error: TS2349: This expression is not callable. Type 'never' has no call signatures.
       return this.getFeeds()
     }
   },
@@ -59,6 +66,9 @@ export default defineComponent({
   methods: {
     activeMethod() {
       this.$store.commit('FETCH_FEEDS')
+    },
+    async updateFeed(item: Feed) {
+      await qbit.refreshFeed(item.name)
     },
     editFeed(item: Feed) {
       this.createModal('FeedForm', { initialFeed: { url: item.url, name: item.name } })
@@ -73,3 +83,9 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.icon {
+  margin-left: 16px;
+}
+</style>
