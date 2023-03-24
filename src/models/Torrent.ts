@@ -95,7 +95,7 @@ export default class Torrent {
     this.ratio_time_limit = data.max_seeding_time
     this.savePath = data.save_path
     this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat) : null
-    this.seen_complete = dayjs(data.seen_complete * 1000).format(format)
+    this.seen_complete = data.seen_complete > 0 ? dayjs(data.seen_complete * 1000).format(format) : i18n.t('dashboard.not_complete').toString()
     this.seq_dl = data.seq_dl
     this.size = data.size
     this.state = this.formatState(data.state)
