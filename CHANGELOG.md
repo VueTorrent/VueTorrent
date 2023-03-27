@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.3](https://github.com/WDaan/VueTorrent/compare/v1.5.2...v1.5.3) (2023-03-27)
+
+
+### Bug Fixes
+
+* capitalization [#740](https://github.com/WDaan/VueTorrent/issues/740) ([54b4f57](https://github.com/WDaan/VueTorrent/commit/54b4f578d1b3c0491d16024e6d377090d520cac5))
+
+
+### Improvements
+
+* complete RSS rule settings ([#731](https://github.com/WDaan/VueTorrent/issues/731)) @Larsluph ([3690170](https://github.com/WDaan/VueTorrent/commit/36901701c31ada48196b7258381fdf8725abda55))
+* improve format when using timestamp 0 on SeenComplete ([#737](https://github.com/WDaan/VueTorrent/issues/737)) ([3d5f6c8](https://github.com/WDaan/VueTorrent/commit/3d5f6c86dfc48ea76223685634e641d086f7c50b))
+* Sort folders before files ([#730](https://github.com/WDaan/VueTorrent/issues/730)) ([521c6e6](https://github.com/WDaan/VueTorrent/commit/521c6e6c7f0aaacd80c764f056498ad3bf53dc1a))
+
 ## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
 
 ### Bug Fixes
