@@ -87,32 +87,14 @@
               <v-row no-gutters class="flex-gap">
                 <v-col>
                   <div class="d-flex flex-column align-center">
-                     <p class="subtitle-1 mb-1">{{ $t('enums.contentLayout.title') }}</p>
-                    <v-select
-                      v-model="contentLayout"
-                      flat
-                      solo
-                      dense
-                      hide-details
-                      background-color="background"
-                      class="rounded-xl"
-                      :items="contentLayoutOptions"
-                    />
+                    <p class="subtitle-1 mb-1">{{ $t('enums.contentLayout.title') }}</p>
+                    <v-select v-model="contentLayout" flat solo dense hide-details background-color="background" class="rounded-xl" :items="contentLayoutOptions" />
                   </div>
                 </v-col>
                 <v-col>
                   <div class="d-flex flex-column align-center">
                     <p class="subtitle-1 mb-1">{{ $t('enums.stopCondition.title') }}</p>
-                    <v-select
-                      v-model="stopCondition"
-                      flat
-                      solo
-                      dense
-                      hide-details
-                      background-color="background"
-                      class="rounded-xl"
-                      :items="stopConditionOptions"
-                    />
+                    <v-select v-model="stopCondition" flat solo dense hide-details background-color="background" class="rounded-xl" :items="stopConditionOptions" />
                   </div>
                 </v-col>
               </v-row>

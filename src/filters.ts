@@ -94,6 +94,16 @@ export function titleCase(str: string): string {
 
 Vue.filter('titleCase', titleCase)
 
+export function capitalize(str: string): string {
+  if (str.length == 0) return str
+
+  str = str.toLowerCase()
+
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+Vue.filter('capitalize', capitalize)
+
 export function limitToValue(value: number): string {
   if (value === -2) {
     return 'global'

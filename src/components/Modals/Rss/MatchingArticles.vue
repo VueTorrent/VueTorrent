@@ -40,7 +40,7 @@ export default defineComponent({
   },
   data() {
     return {
-      matchingArticles: [] as { type: string, value?: string }[],
+      matchingArticles: [] as { type: string; value?: string }[],
       mdiClose
     }
   },
@@ -53,14 +53,13 @@ export default defineComponent({
     const articles = await qbit.getMatchingArticles(this.ruleName)
     for (const feedName in articles) {
       const feedArticles = articles[feedName]
-      if (this.matchingArticles.length > 0)
-        this.matchingArticles.push({ type: 'divider' })
+      if (this.matchingArticles.length > 0) this.matchingArticles.push({ type: 'divider' })
 
-      this.matchingArticles.push({type: 'subheader', value: feedName})
+      this.matchingArticles.push({ type: 'subheader', value: feedName })
 
       for (const i in feedArticles) {
         const article = feedArticles[i]
-        this.matchingArticles.push({type: 'item', value: article})
+        this.matchingArticles.push({ type: 'item', value: article })
       }
     }
   },

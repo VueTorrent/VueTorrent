@@ -71,10 +71,10 @@ export default {
       this.createModal('RuleForm')
     },
     editRule(item) {
-      this.createModal('RuleForm', {initialRule: item})
+      this.createModal('RuleForm', { initialRule: item })
     },
     previewMatchingArticles(ruleName) {
-      this.createModal('MatchingArticles', {ruleName})
+      this.createModal('MatchingArticles', { ruleName })
     }
   }
 }
