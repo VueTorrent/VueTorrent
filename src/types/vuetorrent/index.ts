@@ -7,10 +7,8 @@ import type SortOptions from './SortOptions'
 import type StoreState from './StoreState'
 import type { PersistentStoreState } from './StoreState'
 import type { TreeNode, TreeFile, TreeFolder } from './TreeObjects'
-import type { TorrentProperty, TorrentPropertyLocalized } from './WebUISettings'
+import { TorrentProperty } from './WebUISettings'
 import type Tracker from './Tracker'
-
-export type ComponentRule = (value: string) => boolean | string
 
 export {
   Category,
@@ -26,6 +24,5 @@ export {
   TreeFile,
   TreeFolder,
   TorrentProperty,
-  TorrentPropertyLocalized,
   Tracker
 }

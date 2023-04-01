@@ -1,12 +1,13 @@
 import type { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 
-export interface TorrentProperty {
+export class TorrentProperty {
   name: DashboardProperty
   active: boolean
-}
 
-export interface TorrentPropertyLocalized extends TorrentProperty {
-  label: string
+  constructor(name: DashboardProperty, active: boolean) {
+    this.name = name
+    this.active = active
+  }
 }
 
 export default interface WebUISettings {
