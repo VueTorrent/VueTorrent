@@ -23,8 +23,14 @@ export default defineComponent({
   props: { isDraggable: Boolean, property: TorrentProperty },
   data: () => ({ mdiMenu }),
   computed: {
-    active() {
-      return this.property?.active
+    active: {
+      get: function () {
+        return this.property?.active
+      },
+      // setter
+      set: function (newValue: boolean) {
+        if (this.property) this.property.active = newValue
+      }
     },
     label() {
       if (!this.property?.name) return ''
