@@ -22,19 +22,19 @@ const mobilePropertiesTemplate = [
   { name: DashboardProperty.UPLOAD_SPEED, active: true }
 ]
 const mobilePropertiesTemplateExpected = [
-  { name: 'Status', label: 'Status', active: true },
-  { name: 'Tracker', label: 'Tracker', active: true },
-  { name: 'Category', label: 'Category', active: true },
-  { name: 'Tags', label: 'Tags', active: true },
-  { name: 'Size', label: 'Size', active: true },
-  { name: 'Progress', label: 'Progress', active: true },
-  { name: 'Ratio', label: 'Ratio', active: true },
-  { name: 'Uploaded', label: 'Uploaded (global)', active: true },
-  { name: 'ETA', label: 'ETA', active: true },
-  { name: 'Seeds', label: 'Seeds', active: true },
-  { name: 'Peers', label: 'Peers', active: true },
-  { name: 'DownloadSpeed', label: 'Download Speed', active: true },
-  { name: 'UploadSpeed', label: 'Upload Speed', active: true }
+  { name: 'Status', active: true },
+  { name: 'Tracker', active: true },
+  { name: 'Category', active: true },
+  { name: 'Tags', active: true },
+  { name: 'Size', active: true },
+  { name: 'Progress', active: true },
+  { name: 'Ratio', active: true },
+  { name: 'Uploaded', active: true },
+  { name: 'ETA', active: true },
+  { name: 'Seeds', active: true },
+  { name: 'Peers', active: true },
+  { name: 'DownloadSpeed', active: true },
+  { name: 'UploadSpeed', active: true }
 ]
 
 describe('MobileCard', () => {
@@ -76,10 +76,10 @@ describe('MobileCard', () => {
   })
 
   it('tests busyMobileCardProperties', () => {
-    expect(wrapper.vm.busyMobileCardProperties).toEqual(mobilePropertiesTemplateExpected)
+    expect(wrapper.vm.webuiSettings.busyMobileCardProperties).toEqual(mobilePropertiesTemplateExpected)
   })
 
   it('tests doneMobileCardProperties', () => {
-    expect(wrapper.vm.doneMobileCardProperties).toEqual(mobilePropertiesTemplateExpected)
+    expect(wrapper.vm.webuiSettings.doneMobileCardProperties).toEqual(mobilePropertiesTemplateExpected)
   })
 })
