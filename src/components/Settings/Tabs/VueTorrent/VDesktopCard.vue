@@ -11,7 +11,7 @@
               <v-list-item v-for="(item, index) in busyDesktopTorrentProperties" :key="index" class="ma-2 elevation-2 rounded-lg pointer">
                 <v-checkbox v-model="item.active" dense hide-details class="pa-0 ma-0" />
                 <v-list-item-content>
-                  <v-list-item-title class="truncate" v-text="item.label" />
+                  <v-list-item-title class="truncate" v-text="getLabel(item.name)" />
                 </v-list-item-content>
                 <v-list-item-action>
                   <v-icon>
@@ -67,20 +67,17 @@ export default {
   computed: {
     ...mapState(['webuiSettings']),
     busyDesktopTorrentProperties() {
-      return this.injectLocalization(this.webuiSettings.busyDesktopTorrentProperties)
+      return this.webuiSettings.busyDesktopTorrentProperties
     },
     doneDesktopTorrentProperties() {
-      return this.injectLocalization(this.webuiSettings.doneDesktopTorrentProperties)
+      return this.webuiSettings.doneDesktopTorrentProperties
     }
   },
   methods: {
-    injectLocalization(properties) {
-      properties.forEach(property => {
-        // convert component name from PascalCase to snake_case to match locale key
-        const value = property.name.replace(/\.?([A-Z]+)/g, (x, y) => '_' + y.toLowerCase()).replace(/^_/, '')
-        property.label = i18n.t(`torrent.properties.${value}`)
-      })
-      return properties
+    getLabel(propertyName) {
+      // convert component name from PascalCase to snake_case to match locale key
+      const value = propertyName.replace(/\.?([A-Z]+)/g, (x, y) => '_' + y.toLowerCase()).replace(/^_/, '')
+      return i18n.t(`torrent.properties.${value}`)
     }
   }
 }
