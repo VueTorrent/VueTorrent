@@ -6,7 +6,11 @@
           {{ $t('modals.settings.pageVueTorrent.pageDesktopCard.busyTorrentTip') }}
         </v-subheader>
         <v-row dense>
-          <VPropertiesList :isDraggable="true" :properties="webuiSettings.busyDesktopTorrentProperties" />
+          <v-list flat class="ma-2 pa-0">
+            <draggable :list="busyProperties" tag="tbody">
+              <VDashboardItem :isDraggable="true" :property="item" v-for="item in busyProperties" :key="item.name" />
+            </draggable>
+          </v-list>
         </v-row>
       </v-col>
 
@@ -15,20 +19,33 @@
           {{ $t('modals.settings.pageVueTorrent.pageDesktopCard.completedTorrentTip') }}
         </v-subheader>
         <v-row dense>
-          <VPropertiesList :isDraggable="true" :properties="webuiSettings.doneDesktopTorrentProperties" />
+          <v-list flat class="ma-2 pa-0">
+            <draggable :list="doneProperties" tag="tbody">
+              <VDashboardItem :isDraggable="true" :property="item" v-for="item in doneProperties" :key="item.name" />
+            </draggable>
+          </v-list>
         </v-row>
       </v-col>
     </v-row>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
-import VPropertiesList from './VPropertiesList.vue'
+import draggable from 'vuedraggable'
+import VDashboardItem from './VDashboardItem.vue'
 
 export default {
   name: 'VDesktopCard',
-  components: { VPropertiesList },
-  computed: mapState(['webuiSettings'])
+  components: { VDashboardItem, draggable },
+  computed: {
+    ...mapState(['webuiSettings']),
+    busyProperties() {
+      return this.webuiSettings.busyDesktopTorrentProperties
+    },
+    doneProperties() {
+      return this.webuiSettings.doneDesktopTorrentProperties
+    }
+  }
 }
 </script>

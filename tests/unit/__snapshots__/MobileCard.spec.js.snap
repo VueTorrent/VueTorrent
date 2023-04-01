@@ -6,13 +6,41 @@ exports[`MobileCard > render correctly 1`] = `
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
       <v-subheader-stub> modals.settings.pageVueTorrent.pageMobileCard.busyTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
-        <vpropertieslist-stub properties=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></vpropertieslist-stub>
+        <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+        </v-list-stub>
       </v-row-stub>
     </v-col-stub>
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
       <v-subheader-stub> modals.settings.pageVueTorrent.pageMobileCard.completedTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
-        <vpropertieslist-stub properties=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></vpropertieslist-stub>
+        <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+          <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
+        </v-list-stub>
       </v-row-stub>
     </v-col-stub>
   </v-row-stub>

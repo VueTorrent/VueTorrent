@@ -6,13 +6,89 @@ exports[`DesktopCard > render correctly 1`] = `
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
       <v-subheader-stub> modals.settings.pageVueTorrent.pageDesktopCard.busyTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
-        <vpropertieslist-stub isdraggable=\\"true\\" properties=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></vpropertieslist-stub>
+        <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
+          <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+          </draggable-stub>
+        </v-list-stub>
       </v-row-stub>
     </v-col-stub>
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
       <v-subheader-stub> modals.settings.pageVueTorrent.pageDesktopCard.completedTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
-        <vpropertieslist-stub isdraggable=\\"true\\" properties=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\"></vpropertieslist-stub>
+        <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
+          <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+          </draggable-stub>
+        </v-list-stub>
       </v-row-stub>
     </v-col-stub>
   </v-row-stub>

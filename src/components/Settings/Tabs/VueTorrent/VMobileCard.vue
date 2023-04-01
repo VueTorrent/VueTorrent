@@ -6,7 +6,9 @@
           {{ $t('modals.settings.pageVueTorrent.pageMobileCard.busyTorrentTip') }}
         </v-subheader>
         <v-row dense>
-          <VPropertiesList :isDraggable="false" :properties="webuiSettings.busyMobileCardProperties" />
+          <v-list flat class="ma-2 pa-0">
+            <VDashboardItem :isDraggable="false" :property="item" v-for="item in busyProperties" :key="item.name" />
+          </v-list>
         </v-row>
       </v-col>
 
@@ -15,20 +17,30 @@
           {{ $t('modals.settings.pageVueTorrent.pageMobileCard.completedTorrentTip') }}
         </v-subheader>
         <v-row dense>
-          <VPropertiesList :isDraggable="false" :properties="webuiSettings.doneMobileCardProperties" />
+          <v-list flat class="ma-2 pa-0">
+            <VDashboardItem :isDraggable="false" :property="item" v-for="item in doneProperties" :key="item.name" />
+          </v-list>
         </v-row>
       </v-col>
     </v-row>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import { mapState } from 'vuex'
-import VPropertiesList from './VPropertiesList.vue'
+import VDashboardItem from './VDashboardItem.vue'
 
 export default {
   name: 'VMobileCard',
-  components: { VPropertiesList },
-  computed: mapState(['webuiSettings'])
+  components: { VDashboardItem },
+  computed: {
+    ...mapState(['webuiSettings']),
+    busyProperties() {
+      return this.webuiSettings.busyMobileCardProperties
+    },
+    doneProperties() {
+      return this.webuiSettings.doneMobileCardProperties
+    }
+  }
 }
 </script>
