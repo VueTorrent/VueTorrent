@@ -15,10 +15,22 @@ export default interface TorrentProperties {
   dl_speed: number
   /** Torrent average download speed (bytes/second) */
   dl_speed_avg: number
+  /** Torrent download path */
+  download_path: string
   /** Torrent ETA (seconds) */
   eta: number
+  /** Torrent hash */
+  hash: string
+  /** Torrent Infohash V1 */
+  infohash_v1: string
+  /** Torrent Infohash V2 */
+  infohash_v2: string
+  /** Whether torrent is private or not */
+  is_private: boolean
   /** Last seen complete date (unix timestamp) */
   last_seen: number
+  /** Torrent name */
+  name: string
   /** Torrent connection count */
   nb_connections: number
   /** Torrent connection count limit */

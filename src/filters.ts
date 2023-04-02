@@ -20,13 +20,7 @@ export function formatSize(value: number): string {
     index++
   }
 
-  const unit = index < 0 ? 'B' : `${units[index]}iB`
-
-  if (index < 0) {
-    return `${value} ${unit}`
-  }
-
-  return `${toPrecision(value, 3)} ${unit}`
+  return index < 0 ? `${value} B` : `${toPrecision(value, 3)} ${units[index]}iB`
 }
 
 Vue.filter('formatSize', formatSize)

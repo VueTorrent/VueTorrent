@@ -101,13 +101,8 @@
       "uploaded": "Uploaded (global)",
       "uploaded_session": "Uploaded (session)"
     },
-    "directory": "Directory",
-    "size": "Size",
-    "timeActive": "Time Active",
     "downloaded": "Downloaded",
-    "uploaded": "Uploaded",
-    "added": "Added On",
-    "availability": "Availability"
+    "uploaded": "Uploaded"
   },
   "navbar": {
     "currentSpeed": "Current Speed",
@@ -413,14 +408,23 @@
         "seeds": "Seeds",
         "status": "Status",
         "trackers": "Trackers",
+        "comments": "Comments",
         "createdBy": "Created By",
+        "seededFor": "Seeded For $0",
         "firstLastPiecePriority": "First/Last Piece Priority",
         "sequentialDownload": "Sequential Download",
         "autoTMM": "Automatic Torrent Management",
         "shareRatioLimit": "Share Ratio Limit",
         "shareTimeLimit": "Share Time Limit (minutes)",
         "downloadLimit": "Download Limit",
-        "uploadLimit": "Upload Limit"
+        "uploadLimit": "Upload Limit",
+        "creation_date": "Creation Date",
+        "dl_speed_average": "Download Speed Average",
+        "up_speed_average": "Upload Speed Average",
+        "is_private": "Torrent Private",
+        "piece_owned": "Collected pieces",
+        "piece_size": "Piece Size",
+        "wasted_size": "Wasted"
       },
       "pagePeers": {
         "ip": "IP",
