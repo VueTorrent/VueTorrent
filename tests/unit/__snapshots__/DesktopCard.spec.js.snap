@@ -8,321 +8,41 @@ exports[`DesktopCard > render correctly 1`] = `
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Size</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Progress</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Upload Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Downloaded (global)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Save Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Uploaded (global)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">ETA</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Peers</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Seeds</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Status</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Ratio</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Tracker</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Category</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Tags</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Added On</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Availability</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Last Activity</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Completed On</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Amount Left</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Content Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Downloaded (session)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Limit</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Hash</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Infohash v1</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Infohash v2</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Seen Complete</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Time Active</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Total Size</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Trackers Count</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Uploaded (session)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Upload Limit</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Global Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Global Volume</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
           </draggable-stub>
         </v-list-stub>
       </v-row-stub>
@@ -332,321 +52,41 @@ exports[`DesktopCard > render correctly 1`] = `
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Size</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Progress</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Upload Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Downloaded (global)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Save Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Uploaded (global)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">ETA</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Peers</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Seeds</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Status</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Ratio</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Tracker</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Category</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Tags</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Added On</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Availability</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Last Activity</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Completed On</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Amount Left</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Content Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Downloaded (session)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Limit</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Download Path</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Hash</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Infohash v1</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Infohash v2</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Seen Complete</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Time Active</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Total Size</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Trackers Count</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Uploaded (session)</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Upload Limit</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Global Speed</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
-            <v-list-item-stub activeclass=\\"\\" tag=\\"div\\" class=\\"ma-2 elevation-2 rounded-lg pointer\\">
-              <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"pa-0 ma-0\\"></v-checkbox-stub>
-              <v-list-item-content-stub tag=\\"div\\">
-                <v-list-item-title-stub tag=\\"div\\" class=\\"truncate\\">Global Volume</v-list-item-title-stub>
-              </v-list-item-content-stub>
-              <v-list-item-action-stub>
-                <v-icon-stub> M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z </v-icon-stub>
-              </v-list-item-action-stub>
-            </v-list-item-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
+            <vdashboarditem-stub isdraggable=\\"true\\" property=\\"[object Object]\\"></vdashboarditem-stub>
           </draggable-stub>
         </v-list-stub>
       </v-row-stub>
