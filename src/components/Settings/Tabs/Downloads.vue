@@ -2,27 +2,13 @@
   <v-card flat>
     <v-subheader>{{ $t('modals.settings.pageDownloads.subHeaderWhenAddTorrent') }}</v-subheader>
     <v-list-item>
-      <v-select
-        v-model="settings.torrent_content_layout"
-        :label="$t('enums.contentLayout.title')"
-        outlined
-        dense
-        small-chips
-        :items="contentLayoutOptions"
-      />
+      <v-select v-model="settings.torrent_content_layout" :label="$t('enums.contentLayout.title')" outlined dense small-chips :items="contentLayoutOptions" />
     </v-list-item>
     <v-list-item>
       <v-checkbox v-model="settings.start_paused_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.whenAddTorrent.donotAutoStart')" />
     </v-list-item>
     <v-list-item>
-      <v-select
-        v-model="settings.torrent_stop_condition"
-        :label="$t('enums.stopCondition.title')"
-        outlined
-        dense
-        small-chips
-        :items="stopConditionOptions"
-      />
+      <v-select v-model="settings.torrent_stop_condition" :label="$t('enums.stopCondition.title')" outlined dense small-chips :items="stopConditionOptions" />
     </v-list-item>
     <v-list-item>
       <v-checkbox v-model="settings.auto_delete_mode" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.whenAddTorrent.autoDeleteMode')" />

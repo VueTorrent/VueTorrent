@@ -3,19 +3,19 @@
     <v-list-item link @click="resume">
       <v-icon>{{ mdiPlay }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('rightClick.resume') | titleCase }}
+        {{ $t('rightClick.resume') | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="forceResume">
       <v-icon>{{ mdiFastForward }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('rightClick.forceResume') | titleCase }}
+        {{ $t('rightClick.forceResume') | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-list-item link @click="pause">
       <v-icon>{{ mdiPause }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('pause') | titleCase }}
+        {{ $t('pause') | capitalize }}
       </v-list-item-title>
     </v-list-item>
 
@@ -25,7 +25,7 @@
         {{ mdiDelete }}
       </v-icon>
       <v-list-item-title class="ml-2 red--text list-item__title">
-        {{ $t('delete') | titleCase }}
+        {{ $t('delete') | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-divider />
@@ -34,7 +34,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiHeadCog }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.advanced') | titleCase }}
+            {{ $t('rightClick.advanced.advanced') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -45,25 +45,25 @@
         <v-list-item link @click="location">
           <v-icon>{{ mdiFolder }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.changeLocation') | titleCase }}
+            {{ $t('rightClick.advanced.changeLocation') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="rename">
           <v-icon>{{ mdiRenameBox }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.rename') | titleCase }}
+            {{ $t('rightClick.advanced.rename') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="recheck">
           <v-icon>{{ mdiPlaylistCheck }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.forceRecheck') | titleCase }}
+            {{ $t('rightClick.advanced.forceRecheck') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item link @click="reannounce">
           <v-icon>{{ mdiBullhorn }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.forceReannounce') | titleCase }}
+            {{ $t('rightClick.advanced.forceReannounce') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleSeq">
@@ -71,7 +71,7 @@
             {{ torrent.seq_dl ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
           </v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.sequentialDownload') | titleCase }}
+            {{ $t('rightClick.advanced.sequentialDownload') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleFL">
@@ -79,7 +79,7 @@
             {{ torrent.f_l_piece_prio ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
           </v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.firstLastPriority') | titleCase }}
+            {{ $t('rightClick.advanced.firstLastPriority') | capitalize }}
           </v-list-item-title>
         </v-list-item>
         <v-list-item v-if="!multiple" link @click="toggleAutoTMM">
@@ -87,7 +87,7 @@
             {{ torrent.auto_tmm ? mdiCheckboxMarked : mdiCheckboxBlankOutline }}
           </v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.advanced.automaticTorrentManagement') | titleCase }}
+            {{ $t('rightClick.advanced.automaticTorrentManagement') | capitalize }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -97,7 +97,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiPriorityHigh }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.prio.prio') | titleCase }}
+            {{ $t('rightClick.prio.prio') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -108,7 +108,7 @@
         <v-list-item v-for="(item, index) in priority_options" :key="index" link @click="setPriority(item.action)">
           <v-icon>{{ item.icon }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.prio.' + item.name) | titleCase }}
+            {{ $t('rightClick.prio.' + item.name) | capitalize }}
           </v-list-item-title>
         </v-list-item>
       </v-list>
@@ -125,7 +125,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiTag }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.tags') | titleCase }}
+            {{ $t('rightClick.tags') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -146,7 +146,7 @@
     <v-list-item v-else>
       <v-icon>{{ mdiTagOff }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('rightClick.notags') | titleCase }}
+        {{ $t('rightClick.notags') | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-menu
@@ -161,7 +161,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiLabel }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.category') | titleCase }}
+            {{ $t('rightClick.category') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -179,7 +179,7 @@
     <v-list-item v-else>
       <v-icon>{{ mdiLabelOff }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('rightClick.nocategory') | titleCase }}
+        {{ $t('rightClick.nocategory') | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-menu v-if="!multiple" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
@@ -187,7 +187,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiSpeedometerSlow }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.limit') | titleCase }}
+            {{ $t('rightClick.limit') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -220,7 +220,7 @@
         <v-list-item link v-on="on">
           <v-icon>{{ mdiContentCopy }}</v-icon>
           <v-list-item-title class="ml-2 list-item__title">
-            {{ $t('rightClick.copy') | titleCase }}
+            {{ $t('rightClick.copy') | capitalize }}
           </v-list-item-title>
           <v-list-item-action>
             <v-icon>{{ mdiChevronRight }}</v-icon>
@@ -251,14 +251,14 @@
     <v-list-item link @click="exportTorrents">
       <v-icon>{{ multiple ? mdiDownloadMultiple : mdiDownload }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $tc('rightClick.export', multiple ? 2 : 1) | titleCase }}
+        {{ $tc('rightClick.export', multiple ? 2 : 1) | capitalize }}
       </v-list-item-title>
     </v-list-item>
     <v-divider v-if="!multiple" />
     <v-list-item v-if="!multiple" link @click="showInfo">
       <v-icon>{{ mdiInformation }}</v-icon>
       <v-list-item-title class="ml-2 list-item__title">
-        {{ $t('rightClick.info') | titleCase }}
+        {{ $t('rightClick.info') | capitalize }}
       </v-list-item-title>
     </v-list-item>
   </v-list>

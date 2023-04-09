@@ -51,6 +51,7 @@
   "no": "Ні",
   "filter": "Фільтр",
   "close": "Закрити",
+  "useGlobalSettings": "Використовувати глобальні настройки",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Увімкнути фільтр пошуку",
@@ -71,8 +72,8 @@
       "completed_on": "Виконано о",
       "content_path": "Зберегти в",
       "download_limit": "Ліміт завантаження",
-      "download_speed": "Швидкість завантаження",
-      "downloaded": "Всього авантажено",
+      "download_speed": "Швидкість завант.",
+      "downloaded": "Завантажено",
       "downloaded_session": "Завантажено за сесію",
       "download_path": "Збережено в",
       "eta": "ОЧЗ",
@@ -83,7 +84,6 @@
       "info_hash_v2": "Хеш інформації v2",
       "last_activity": "Остання активність",
       "peers": "Піри",
-      "priority": "Приорітет",
       "progress": "Поступ",
       "ratio": "Співвідношення",
       "save_path": "Збережено в",
@@ -97,27 +97,17 @@
       "tracker": "Трекер",
       "trackers_count": "Кількість трекерів",
       "upload_limit": "Ліміт віддачі",
-      "upload_speed": "Щвидкість віддачі",
-      "uploaded": "Всього віддано",
-      "uploaded_session": "Віддано за сесію",
-      "download": "Завантаження",
-      "upload": "Віддача",
-      "directory": "Тека"
+      "upload_speed": "Швидкість віддачі",
+      "uploaded": "Віддано",
+      "uploaded_session": "Віддано за сесію"
     },
-    "title": "Заголовок",
-    "added": "Додано о",
-    "availability": "Доступність",
+    "directory": "Тека",
     "size": "Розмір",
-    "progress": "Поступ",
-    "created": "Створено через",
-    "comments": "Примітки",
-    "uploadedSession": "Віддано за сесію",
     "timeActive": "Активно",
-    "seededFor": "Віддається для",
-    "last_activity": "Остання активність",
-    "completed_on": "Завершено о",
-    "globalSpeed": "Загальна швидкість",
-    "globalVolume": "Загальний об'єм"
+    "downloaded": "Завантажено",
+    "uploaded": "Віддано",
+    "added": "Додано о",
+    "availability": "Доступність"
   },
   "navbar": {
     "currentSpeed": "Поточна швидкість",
@@ -163,10 +153,28 @@
       "name": "Ім'я",
       "def": {
         "mustContain": "Має містити",
-        "mustNotContain": "Не повинно містити",
         "useRegex": "Використати регулярний вираз",
+        "mustNotContain": "Не повинно містити",
+        "smartFilter": "Використовувати розумний фільтр епізодів",
+        "episodeFilter": "Фільтр епізодів",
+        "assignedCategory": "Призначити категорію",
+        "savePath": "Зберегти до",
+        "ignoreDays": "Ігнорувати наступні збіги (0 - вимкнено)",
+        "lastMatch": {
+          "title": "Останній збіг",
+          "knownValue": "%1 днів тому",
+          "unknownValue": "Невідомо"
+        },
+        "addPaused": {
+          "title": "Додати призупинені",
+          "always": "Завжди",
+          "never": "Ніколи"
+        },
         "affectedFeeds": "Застосувати правило до стрічок"
       }
+    },
+    "matchingArticles": {
+      "title": "Відповідні заголовки RSS"
     },
     "pluginManager": {
       "title": "Менеджер плагінів"
@@ -245,34 +253,6 @@
         "pageMobileCard": {
           "busyTorrentTip": "Властивості для відображення для зайнятих торрентів на мобільному пристрої",
           "completedTorrentTip": "Властивості для відображення завершених торрентів на мобільному пристрої"
-        },
-        "properties": {
-          "availability": "Доступність",
-          "tracker": "Трекер",
-          "category": "Категорія",
-          "tags": "Мітки",
-          "completed": "Завершено",
-          "completion_on": "Виконано о",
-          "downloaded": "Завантажено",
-          "ETA": "ОЧЗ",
-          "name": "Назва",
-          "default": "За замовчуванням",
-          "last_activity": "Остання активність",
-          "рeers": "Піри",
-          "seeds": "Сіди",
-          "priority": "Пріоритет",
-          "progress": "Поступ",
-          "ratio": "Співвідношення",
-          "save_path": "Тека",
-          "size": "Розмір",
-          "state": "Стан",
-          "uploaded": "Завантажено",
-          "addedOn": "Додано о",
-          "downloadSpeed": "Швидкість завантаження",
-          "timeActive": "Час активності",
-          "uploadSpeed": "Швидкість віддачі",
-          "globalSpeed": "Загальна швидкість",
-          "globalVolume": "Загальний об'єм"
         }
       },
       "pageDownloads": {

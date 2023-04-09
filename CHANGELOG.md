@@ -1,18 +1,31 @@
 # Changelog
 
-## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
+## [1.5.3](https://github.com/WDaan/VueTorrent/compare/v1.5.2...v1.5.3) (2023-03-27)
 
 
 ### Bug Fixes
 
-* Missing state filters ([#718](https://github.com/WDaan/VueTorrent/issues/718)) ([74cfeca](https://github.com/WDaan/VueTorrent/commit/74cfecace0a46abc4fbe843b15131ce85e8fbb79))
-* state glitching [#724](https://github.com/WDaan/VueTorrent/issues/724) ([260c1c6](https://github.com/WDaan/VueTorrent/commit/260c1c6960dcd7e505e8643db9f362b0acc3cbc7))
-* translation of properties ([3e95230](https://github.com/WDaan/VueTorrent/commit/3e95230ae822673d6340874518e7557e0e20bf52))
+* capitalization [#740](https://github.com/WDaan/VueTorrent/issues/740) ([54b4f57](https://github.com/WDaan/VueTorrent/commit/54b4f578d1b3c0491d16024e6d377090d520cac5))
 
 
 ### Improvements
 
-* Progress component sizing on Desktop ([#720](https://github.com/WDaan/VueTorrent/issues/720)) ([c991417](https://github.com/WDaan/VueTorrent/commit/c9914172b55ac1f3e1cdf89a01caec2666f153e3))
+* complete RSS rule settings ([#731](https://github.com/WDaan/VueTorrent/issues/731)) @Larsluph ([3690170](https://github.com/WDaan/VueTorrent/commit/36901701c31ada48196b7258381fdf8725abda55))
+* improve format when using timestamp 0 on SeenComplete ([#737](https://github.com/WDaan/VueTorrent/issues/737)) ([3d5f6c8](https://github.com/WDaan/VueTorrent/commit/3d5f6c86dfc48ea76223685634e641d086f7c50b))
+* Sort folders before files ([#730](https://github.com/WDaan/VueTorrent/issues/730)) ([521c6e6](https://github.com/WDaan/VueTorrent/commit/521c6e6c7f0aaacd80c764f056498ad3bf53dc1a))
+
+## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
+
+### Bug Fixes
+
+- Missing state filters ([#718](https://github.com/WDaan/VueTorrent/issues/718)) ([74cfeca](https://github.com/WDaan/VueTorrent/commit/74cfecace0a46abc4fbe843b15131ce85e8fbb79))
+- state glitching [#724](https://github.com/WDaan/VueTorrent/issues/724) ([260c1c6](https://github.com/WDaan/VueTorrent/commit/260c1c6960dcd7e505e8643db9f362b0acc3cbc7))
+- translation of properties ([3e95230](https://github.com/WDaan/VueTorrent/commit/3e95230ae822673d6340874518e7557e0e20bf52))
+
+### Improvements
+
+- Progress component sizing on Desktop ([#720](https://github.com/WDaan/VueTorrent/issues/720))
+  ([c991417](https://github.com/WDaan/VueTorrent/commit/c9914172b55ac1f3e1cdf89a01caec2666f153e3))
 
 ## [1.5.1](https://github.com/WDaan/VueTorrent/compare/v1.5.0...v1.5.1) (2023-03-19)
 

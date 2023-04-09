@@ -20,13 +20,7 @@ export function formatSize(value: number): string {
     index++
   }
 
-  const unit = index < 0 ? 'B' : `${units[index]}iB`
-
-  if (index < 0) {
-    return `${value} ${unit}`
-  }
-
-  return `${toPrecision(value, 3)} ${unit}`
+  return index < 0 ? `${value} B` : `${toPrecision(value, 3)} ${units[index]}iB`
 }
 
 Vue.filter('formatSize', formatSize)
@@ -93,6 +87,16 @@ export function titleCase(str: string): string {
 }
 
 Vue.filter('titleCase', titleCase)
+
+export function capitalize(str: string): string {
+  if (str.length == 0) return str
+
+  str = str.toLowerCase()
+
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+Vue.filter('capitalize', capitalize)
 
 export function limitToValue(value: number): string {
   if (value === -2) {
