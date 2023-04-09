@@ -5,4 +5,11 @@ import type { AppPreferencesPayload } from './AppPreferencesPayload'
 import type CreateFeedPayload from './CreateFeedPayload'
 import type BasePayload from './BasePayload'
 
-export { AppPreferencesPayload, LoginPayload, AddTorrentPayload, PeerLogPayload, BasePayload, CreateFeedPayload }
+export {
+  AppPreferencesPayload,
+  LoginPayload,
+  AddTorrentPayload,
+  PeerLogPayload,
+  BasePayload,
+  CreateFeedPayload
+}

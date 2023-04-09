@@ -10,9 +10,8 @@ services:
       - UMASK_SET=022
       - WEBUI_PORT=8080
     volumes:
-      - ./config:/config
-      - ./Downloads:/downloads
-      - ./vuetorrent:/vuetorrent
+      - ./qbit/config:/config
+      - ./qbit/Downloads:/downloads
     ports:
       - 8080:8080
     restart: unless-stopped

@@ -1,18 +1,13 @@
-import Vue from 'vue'
-import type { Framework } from 'vuetify'
-import Vuetify from 'vuetify/lib'
-import { Ripple } from 'vuetify/lib/directives'
+/**
+ * plugins/vuetify.ts
+ *
+ * Framework documentation: https://vuetifyjs.com`
+ */
 
-Vue.use(Vuetify, {
-  directives: {
-    Ripple
-  }
-})
+// Styles
+import 'vuetify/styles'
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
-import colors from 'vuetify/lib/util/colors'
-
-// import variables from '@/styles/colors.scss'
-// broke the variable import when updating deps
 const variables = {
   // Main colors
   primary: '#35495e',
@@ -32,37 +27,41 @@ const variables = {
   'torrent-moving': '#ffaa2c'
 }
 
-export default new Vuetify({
+// @ts-expect-error
+import colors from 'vuetify/lib/util/colors'
+
+// Composables
+import { createVuetify } from 'vuetify'
+
+// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+export default createVuetify({
   icons: {
-    iconfont: 'mdiSvg'
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi
+    }
   },
   theme: {
-    options: {
-      customProperties: true
-    },
-    dark: false,
     themes: {
       light: {
-        accent: '#64CEAA',
-        background: colors.grey.lighten4,
-        selected: colors.grey.lighten2,
-        red: colors.red.accent2,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          background: colors.grey.lighten4,
+          selected: colors.grey.lighten2,
+          red: colors.red.accent2,
+          ...variables
+        }
       },
       dark: {
-        accent: '#64CEAA',
-        background: '#121212',
-        selected: colors.grey.darken1,
-        red: colors.red.accent3,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          background: '#121212',
+          selected: colors.grey.darken1,
+          red: colors.red.accent3,
+          ...variables
+        }
       }
     }
   }
 })
-
-declare module 'vue/types/vue' {
-  // this.$vuetify inside Vue components
-  interface Vue {
-    $vuetify: Framework
-  }
-}

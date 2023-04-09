@@ -1,31 +1,24 @@
+<script setup lang="ts">
+import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
+
+// props
+const props = defineProps<{
+  status: boolean
+}>()
+</script>
+
 <template>
   <div v-if="status">
     <div class="text-uppercase white--text caption ml-4 font-weight-medium">
       {{ $t('navbar.currentSpeed') }}
     </div>
-    <v-row dense class="mx-1 pt-1">
-      <v-col>
-        <SpeedCard :icon="mdiChevronDown" color="download" :value="status.dlspeed" />
-      </v-col>
-      <v-col>
-        <SpeedCard :icon="mdiChevronUp" color="upload" :value="status.upspeed" />
-      </v-col>
-    </v-row>
+    <VRow dense class="mx-1 pt-1">
+      <VCol>
+        <SpeedCard :icon="mdiChevronDown" color="download" value="231" />
+      </VCol>
+      <VCol>
+        <SpeedCard :icon="mdiChevronUp" color="upload" value="23" />
+      </VCol>
+    </VRow>
   </div>
 </template>
-
-<script>
-import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
-export default {
-  name: 'CurrentSpeed',
-  components: {
-    SpeedCard
-  },
-  props: ['status'],
-  data: () => ({
-    mdiChevronUp,
-    mdiChevronDown
-  })
-}
-</script>

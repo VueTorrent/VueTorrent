@@ -1,29 +1,15 @@
-import Vue from 'vue'
-import App from '@/App.vue'
-import router from '@/router'
-import store from '@/store'
-import 'typeface-roboto'
-import 'typeface-roboto-mono'
+import { createApp } from 'vue'
+// import { createPinia } from 'pinia'
+import { registerPlugins } from './plugins'
 
-import '@/filters.js'
-import '@/styles/styles.scss'
+import App from './App.vue'
+// import router from './router'
 
-import vuetify from './plugins/vuetify'
-import i18n from './plugins/i18n'
-import { toast, config } from './plugins/toast'
-Vue.use(toast, config)
+const app = createApp(App)
 
-// register modals
-const components = import.meta.glob('./components/Modals/**/*.vue')
-Object.entries(components).forEach(([path, definition]) => {
-  const componentName = (path.split('/').pop() as string).replace(/\.\w+$/, '')
-  Vue.component(componentName, definition)
-})
+registerPlugins(app)
 
-new Vue({
-  router,
-  store,
-  vuetify,
-  i18n,
-  render: h => h(App)
-}).$mount('#app')
+// app.use(createPinia())
+// app.use(router)
+
+app.mount('#app')

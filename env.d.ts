@@ -1,9 +1,12 @@
-declare module '*.vue' {
-  import Vue from 'vue'
-  export default Vue
+/// <reference types="vite/client" />
+
+interface ImportMetaEnv {
+  readonly VITE_USE_FAKE_TORRENTS: boolean
+  readonly VITE_FAKE_TORRENT_COUNT: number
+  readonly VITE_QBITTORRENT_PORT: number
+  readonly VITE_QBITTORRENT_TARGET: string
 }
 
-declare module 'vuetify/lib/framework' {
-  import Vuetify from 'vuetify'
-  export default Vuetify
+interface ImportMeta {
+  readonly env: ImportMetaEnv
 }
