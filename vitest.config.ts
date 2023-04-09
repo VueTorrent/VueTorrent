@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitest/config'
-import vue from '@vitejs/plugin-vue2'
+import { defineConfig } from 'vitest'
+import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
 import { fileURLToPath, URL } from 'node:url'
@@ -7,8 +7,7 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      '~': fileURLToPath(new URL('./node_modules', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   plugins: [
