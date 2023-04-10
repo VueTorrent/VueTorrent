@@ -3,24 +3,23 @@ import { useTheme } from 'vuetify/lib/framework.mjs'
 import VueApexCharts, { type VueApexChartsComponent } from 'vue3-apexcharts'
 import { getDataUnit, getDataValue } from '@/utils/dataParse'
 import { useQuery } from '@tanstack/vue-query'
+import type { SpeedInfoResponse } from '@/types/qbit/responses'
 
 // composables
 const theme = useTheme()
 
-const globalInfo = useQuery({
+const globalInfo = useQuery<SpeedInfoResponse>({
   queryKey: ['globalInfo']
 })
-
-// pull from vue-query to get the latest speed data
 
 const series = [
   {
     name: 'Download',
-    data: [0, 0]
+    data: []
   },
   {
     name: 'Upload',
-    data: [0, 0]
+    data: []
   }
 ]
 

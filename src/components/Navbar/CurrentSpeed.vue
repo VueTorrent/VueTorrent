@@ -2,19 +2,9 @@
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import { useQuery } from '@tanstack/vue-query'
 import { useAxios } from '@/composables/useAxios'
+import type { SpeedInfoResponse } from '@/types/qbit/responses'
 
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-
-interface GlobalInfo {
-  connection_status: string
-  dht_nodes: number
-  dl_info_data: number
-  dl_info_speed: number
-  dl_rate_limit: number
-  up_info_data: number
-  up_info_speed: number
-  up_rate_limit: number
-}
 
 // composables
 const axios = useAxios()
@@ -22,7 +12,7 @@ const axios = useAxios()
 const globalInfo = useQuery({
   queryKey: ['globalInfo'],
   queryFn: async () => {
-    const info = await axios.get('transfer/info').then((r) => r.data as GlobalInfo)
+    const info = await axios.get('transfer/info').then((r) => r.data as SpeedInfoResponse)
     return info
   },
   refetchInterval: 1000
