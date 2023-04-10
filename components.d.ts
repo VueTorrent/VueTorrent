@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ConnectionStatus: typeof import('./src/components/Navbar/ConnectionStatus.vue')['default']
     CurrentSpeed: typeof import('./src/components/Navbar/CurrentSpeed.vue')['default']
+    FreeSpace: typeof import('./src/components/Navbar/FreeSpace.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
     IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
@@ -22,7 +23,9 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SpeedCard: typeof import('./src/components/Core/SpeedCard.vue')['default']
     SpeedGraph: typeof import('./src/components/Navbar/SpeedGraph.vue')['default']
+    StorageCard: typeof import('./src/components/Core/StorageCard.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
+    TransferStats: typeof import('./src/components/Navbar/TransferStats.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }
 }

@@ -30,6 +30,6 @@
       "vuetify",
       "vite-plugin-pwa/client",
       "@types/webfontloader"
-    ],
+    ]
   }
 }

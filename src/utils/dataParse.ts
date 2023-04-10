@@ -16,3 +16,7 @@ export const getDataValue = (data: number, precision: number = 2) => {
 
   return `${parseFloat((data / Math.pow(c, f)).toFixed(precision))}`
 }
+
+export const titleCase = (str: string) => {
+  return str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase())
+}

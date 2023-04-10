@@ -1,29 +1,27 @@
 <script setup lang="ts">
-import { useTheme } from 'vuetify/lib/framework.mjs'
-import VueApexCharts, { type VueApexChartsComponent } from 'vue3-apexcharts'
+import { useSessionInfoStore } from '@/stores/info'
 import { getDataUnit, getDataValue } from '@/utils/dataParse'
-import { useQuery } from '@tanstack/vue-query'
-import type { SpeedInfoResponse } from '@/types/qbit/responses'
+import type { ApexOptions } from 'apexcharts'
+import VueApexCharts, { type VueApexChartsComponent } from 'vue3-apexcharts'
+import { useTheme } from 'vuetify/lib/framework.mjs'
 
 // composables
 const theme = useTheme()
 
-const globalInfo = useQuery<SpeedInfoResponse>({
-  queryKey: ['globalInfo']
-})
+const sessionInfo = useSessionInfoStore()
 
 const series = [
   {
     name: 'Download',
-    data: []
+    data: [...sessionInfo.data.dl]
   },
   {
     name: 'Upload',
-    data: []
+    data: [...sessionInfo.data.up]
   }
 ]
 
-const chartOptions = {
+const chartOptions: ApexOptions = {
   chart: {
     sparkline: {
       enabled: true
@@ -54,7 +52,7 @@ const chartOptions = {
     }
   },
   tooltip: {
-    theme: 'dark',
+    theme: theme.global.current.value.dark ? 'dark' : 'light',
     x: {
       formatter: (value: number) => {
         const val = 32 - value * 2

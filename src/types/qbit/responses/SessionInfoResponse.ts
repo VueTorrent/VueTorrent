@@ -1,5 +1,7 @@
-export interface SpeedInfoResponse {
-  connection_status: string
+import type { ConnectionStatus } from '@/enums/qbit'
+
+export interface SessionInfoResponse {
+  connection_status: ConnectionStatus
   dht_nodes: number
   dl_info_data: number
   dl_info_speed: number
