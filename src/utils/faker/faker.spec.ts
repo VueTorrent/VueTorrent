@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { generateMultiple, generateTorrent } from './faker'
+import { generateMultiple, generateTorrent } from '../faker/faker'
 
 describe('faker to generate fake torrents', () => {
   it('can generate a fake torrent', () => {

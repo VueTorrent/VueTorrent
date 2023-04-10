@@ -16,11 +16,6 @@ interface GlobalInfo {
   up_rate_limit: number
 }
 
-// props
-const props = defineProps<{
-  status: boolean
-}>()
-
 // composables
 const axios = useAxios()
 
@@ -28,36 +23,30 @@ const globalInfo = useQuery({
   queryKey: ['globalInfo'],
   queryFn: async () => {
     const info = await axios.get('transfer/info').then((r) => r.data as GlobalInfo)
-    return { info }
+    return info
   },
   refetchInterval: 1000
 })
 </script>
 
 <template>
-  <VContainer v-if="status">
-    <VRow>
-      <VCol>
-        <span class="text-uppercase caption ml-4 font-weight-medium">
-          {{ $t('navbar.currentSpeed') }}
-        </span>
-      </VCol>
-    </VRow>
-    <VRow dense class="mx-1 pt-1">
-      <VCol>
-        <SpeedCard
-          :icon="mdiChevronDown"
-          color="download"
-          :value="globalInfo.data.value?.info.dl_info_speed || 0"
-        />
-      </VCol>
-      <VCol>
-        <SpeedCard
-          :icon="mdiChevronUp"
-          color="upload"
-          :value="globalInfo.data.value?.info.up_info_speed || 0"
-        />
-      </VCol>
-    </VRow>
-  </VContainer>
+  <div class="text-uppercase text-caption ml-4 font-weight-medium">
+    {{ $t('navbar.currentSpeed') }}
+  </div>
+  <VRow dense class="mx-1 pt-1">
+    <VCol>
+      <SpeedCard
+        :icon="mdiChevronDown"
+        color="download"
+        :value="globalInfo.data.value?.dl_info_speed || 0"
+      />
+    </VCol>
+    <VCol>
+      <SpeedCard
+        :icon="mdiChevronUp"
+        color="upload"
+        :value="globalInfo.data.value?.up_info_speed || 0"
+      />
+    </VCol>
+  </VRow>
 </template>

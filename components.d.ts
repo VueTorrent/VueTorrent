@@ -21,6 +21,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SpeedCard: typeof import('./src/components/Core/SpeedCard.vue')['default']
+    SpeedGraph: typeof import('./src/components/Navbar/SpeedGraph.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }

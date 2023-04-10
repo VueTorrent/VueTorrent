@@ -3,12 +3,12 @@
   "include": [
     "vite.config.ts",
     "typed-router.d.ts",
+    "components.d.ts",
     "*.d.ts",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "components.d.ts"
+    "src/**/*.vue"
   ],
   "exclude": [
     "src/**/__tests__/*"
