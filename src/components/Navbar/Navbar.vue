@@ -12,11 +12,14 @@ const authStore = useAuthStore()
   <nav>
     <VAppBar>
       <VAppBarNavIcon
-        class="grey--text text--lighten-1"
+        class="text-grey"
         aria-label="Open Navigation Drawer"
         @click.stop="drawer = !drawer"
       />
-      <VToolbarTitle>
+      <VToolbarTitle
+        v-if="!$vuetify.display.xs"
+        :class="['text-grey', { 'subheading ml-0': $vuetify.display.smAndDown }]"
+      >
         <span class="font-weight-light">qBit</span>
         <span>torrent</span>
       </VToolbarTitle>
@@ -33,7 +36,7 @@ const authStore = useAuthStore()
       height="100%"
       disableResizeWatcher
     >
-      <VCard v-if="true" style="display: flex; flex-direction: column" class="pt-3 primary" flat>
+      <VCard style="display: flex; flex-direction: column" class="pt-3 primary" flat>
         <CurrentSpeed v-if="status" :status="status" />
       </VCard>
     </VNavigationDrawer>

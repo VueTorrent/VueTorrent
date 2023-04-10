@@ -2,31 +2,20 @@
 import { mdiCheckNetwork, mdiNetworkOff, mdiCloseNetwork, mdiHelpNetwork } from '@mdi/js'
 
 const props = defineProps<{
-  status: 'connected' | 'disconnected' | 'connecting' | 'error'
+  status: 'connected' | 'disconnected' | 'firewalled'
 }>()
 
 const currentIcon = computed(() => {
-  //   switch (props.status) {
-  //     case 'connected':
-  //       return mdiCheckNetwork
-  //     case 'disconnected':
-  //       return mdiNetworkOff
-  //     case 'connecting':
-  //       return mdiCloseNetwork
-  //     case 'error':
-  //       return mdiHelpNetwork
-  //   }
-  const icons = {
-    connected: mdiCheckNetwork,
-    disconnected: mdiNetworkOff,
-    firewalled: mdiCloseNetwork
+  switch (props.status) {
+    case 'connected':
+      return mdiCheckNetwork
+    case 'disconnected':
+      return mdiNetworkOff
+    case 'firewalled':
+      return mdiCloseNetwork
+    default:
+      return mdiHelpNetwork
   }
-
-  const icon = icons[props.status]
-
-  if (!props.status || !icon) return mdiHelpNetwork
-
-  return icon
 })
 </script>
 

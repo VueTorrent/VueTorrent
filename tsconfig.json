@@ -1,45 +1,14 @@
 {
-	"extends": "@vue/tsconfig/tsconfig.web.json",
-	"include": [
-		"vite.config.ts",
-		"typed-router.d.ts",
-		"*.d.ts",
-		"src/**/*.ts",
-		"src/**/*.d.ts",
-		"src/**/*.tsx",
-		"src/**/*.vue",
-		"components.d.ts"
-	],
-	"compilerOptions": {
-		"baseUrl": ".",
-		// "target": "ESNext",
-		// "useDefineForClassFields": true,
-		// "allowSyntheticDefaultImports": true,
-		// "composite": true,
-		// "module": "esnext",
-		// "moduleResolution": "nodenext",
-		// "strict": true,
-		// "resolveJsonModule": true,
-		// "esModuleInterop": true,
-		"lib": [
-			"esnext",
-			"dom",
-			"WebWorker"
-		],
-		"types": [
-			"vuetify",
-			"vite-plugin-pwa/client",
-			"@types/webfontloader"
-		],
-		"paths": {
-			"@/*": [
-				"./src/*"
-			]
-		}
-	},
-	"references": [
-		{
-			"path": "./tsconfig.node.json"
-		}
-	]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.vitest.json"
+    }
+  ]
 }

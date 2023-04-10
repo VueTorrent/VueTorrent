@@ -1,36 +1,15 @@
-import { defineConfig } from 'vitest'
-import vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath } from 'node:url'
+import { mergeConfig } from 'vite'
+import { configDefaults, defineConfig } from 'vitest/config'
+import viteConfig from './vite.config'
 
-export default defineConfig({
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+export default mergeConfig(
+  viteConfig,
+  defineConfig({
+    test: {
+      environment: 'jsdom',
+      exclude: [...configDefaults.exclude, 'e2e/*'],
+      root: fileURLToPath(new URL('./', import.meta.url))
     }
-  },
-  plugins: [
-    vue(),
-    Components({
-      dts: false,
-      directives: false,
-      resolvers: [VuetifyResolver()],
-      types: [
-        {
-          from: 'vue-router',
-          names: ['RouterLink', 'RouterView']
-        }
-      ]
-    })
-  ],
-  test: {
-    // https://vitest.dev/guide/#configuring-vitest
-    globals: true,
-    globalSetup: [fileURLToPath(new URL('./vitest/setup.ts', import.meta.url))],
-    environment: 'jsdom',
-    deps: {
-      inline: ['vuetify']
-    }
-  }
-})
+  })
+)

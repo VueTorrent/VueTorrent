@@ -3,42 +3,66 @@
 const props = defineProps<{
   color: string
   icon: string
-  value: string
+  value: string | number
 }>()
 
 // data
 const open = ref(false)
 
 //methods
-const getSpeedValue = (input: string | number) => {
-  if (!input) return '0'
-
-  // convert value to a number
-  const value = Number(input)
+const getSpeedValue = (value: string | number) => {
+  if (!value) return '0'
+  const data = Number(value)
   const c = 1024
-  const d = value > 1048576 ? 1 : 0 // 2 decimals when MB
-  const f = Math.floor(Math.log(value) / Math.log(c))
-  return `${parseFloat((value / Math.pow(c, f)).toFixed(d))}`
+  const d = data > 1048576 ? 1 : 0 // 2 decimals when MB
+  const f = Math.floor(Math.log(data) / Math.log(c))
+
+  return `${parseFloat((data / Math.pow(c, f)).toFixed(d))}`
+}
+
+const getDataUnit = (data: number) => {
+  if (data === -1) return null
+  if (!data) return 'B'
+  const c = 1024
+  const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+  const f = Math.floor(Math.log(data) / Math.log(c))
+
+  return `${e[f]}`
 }
 </script>
 
 <template>
-  <VDialog v-model="open" width="500">
+  <VDialog v-model="open">
     <template #activator>
       <VCard v-ripple flat rounded="md" color="secondary" class="speedCard" @click="open = !open">
-        <VLayout row align-center :class="color + '--text'">
-          <div class="d-flex" v-if="icon">
+        <!-- <VContainer>
+          <VRow justify="space-evenly">
+            <VCol>
+              <VIcon :icon="icon" />
+            </VCol>
+            <VCol :class="`text-${color}`">
+              {{ getSpeedValue(value) }}
+            </VCol>
+          </VRow>
+          <VRow>
+            <VCol>
+              <span data-testid="SpeedCard-unit"> {{ getDataUnit(1) }}/s </span>
+            </VCol>
+          </VRow>
+        </VContainer> -->
+        <VLayout row align-center :class="`text-${color}`">
+          <div class="d-flex pl-1" v-if="icon">
             <VIcon :icon="icon" />
           </div>
-          <VLayout column xs10>
-            <!-- <v-flex class="text-center font-weight-bold robot-mono"> -->
-            <span data-testid="SpeedCard-value">
-              {{ value || getSpeedValue(value) }}
-            </span>
-            <!-- </v-flex> -->
-            <!-- <v-flex class="caption robot-mono text-center mt-n1"> -->
-            <!-- <span data-testid="SpeedCard-unit"> {{ value || getDataUnit(1) }}/s </span> -->
-            <!-- </v-flex> -->
+          <VLayout class="justify-space-between flex-column">
+            <div>
+              <span data-testid="SpeedCard-value">
+                {{ getSpeedValue(value) }}
+              </span>
+            </div>
+            <div>
+              <span data-testid="SpeedCard-unit"> {{ getDataUnit(1) }}/s </span>
+            </div>
           </VLayout>
         </VLayout>
       </VCard>
