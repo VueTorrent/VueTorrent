@@ -1,15 +1,7 @@
-import Vue from 'vue'
-import type { Framework } from 'vuetify'
-import Vuetify from 'vuetify/lib'
-import { Ripple } from 'vuetify/lib/directives'
+import { createVuetify } from 'vuetify'
+import { aliases, mdi } from 'vuetify/iconsets/mdi'
+// import colors from 'vuetify/lib/util/colors'
 
-Vue.use(Vuetify, {
-  directives: {
-    Ripple
-  }
-})
-
-import colors from 'vuetify/lib/util/colors'
 
 // import variables from '@/styles/colors.scss'
 // broke the variable import when updating deps
@@ -32,37 +24,37 @@ const variables = {
   'torrent-moving': '#ffaa2c'
 }
 
-export default new Vuetify({
+const vuetify = createVuetify({
   icons: {
-    iconfont: 'mdiSvg'
+    defaultSet: 'mdiSvg',
+    aliases,
+    sets: {
+      mdi
+    }
   },
   theme: {
-    options: {
-      customProperties: true
-    },
-    dark: false,
+    defaultTheme: 'dark',
     themes: {
       light: {
-        accent: '#64CEAA',
-        background: colors.grey.lighten4,
-        selected: colors.grey.lighten2,
-        red: colors.red.accent2,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          // background: color.grey.lighten4,
+          // selected: colors.grey.lighten2,
+          // red: colors.red.accent2,
+          ...variables
+        }
       },
       dark: {
-        accent: '#64CEAA',
-        background: '#121212',
-        selected: colors.grey.darken1,
-        red: colors.red.accent3,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          background: '#121212',
+          // selected: colors.grey.darken1,
+          // red: colors.red.accent3,
+          ...variables
+        }
       }
     }
   }
 })
 
-declare module 'vue/types/vue' {
-  // this.$vuetify inside Vue components
-  interface Vue {
-    $vuetify: Framework
-  }
-}
+export default vuetify

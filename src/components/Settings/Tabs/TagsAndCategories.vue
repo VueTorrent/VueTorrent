@@ -3,8 +3,8 @@
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderTags') }}</v-subheader>
-        <template v-for="(item, index) in availableTags">
-          <v-list-item :key="item.title">
+        <template v-for="(item, index) in availableTags" :key="item.title">
+          <v-list-item>
             <v-list-item-content>
               <v-list-item-title v-text="item" />
             </v-list-item-content>
@@ -25,8 +25,8 @@
 
       <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
-        <template v-for="(item, index) in availableCategories">
-          <v-list-item :key="item.title">
+        <template v-for="(item, index) in availableCategories" :key="item.title">
+          <v-list-item>
             <v-list-item-content>
               <v-list-item-title v-text="item.name" />
             </v-list-item-content>

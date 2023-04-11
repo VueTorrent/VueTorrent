@@ -1,5 +1,5 @@
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue2'
+import createVuePlugin from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 import Components from 'unplugin-vue-components/vite'
 import { VuetifyResolver } from 'unplugin-vue-components/resolvers'
@@ -31,7 +31,15 @@ export default defineConfig(({ command, mode }) => {
       'process.env': {}
     },
     plugins: [
-      vue(),
+      createVuePlugin({
+        template: {
+          compilerOptions: {
+            compatConfig: {
+              MODE: 2
+            }
+          }
+        }
+      }),
       Components({
         dts: false,
         directives: false,
@@ -116,7 +124,8 @@ export default defineConfig(({ command, mode }) => {
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~': fileURLToPath(new URL('./node_modules', import.meta.url))
+        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
+        vue: '@vue/compat'
       },
       extensions: ['.js', '.json', '.jsx', '.ts', '.tsx', '.vue']
     },

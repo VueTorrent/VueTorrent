@@ -1,13 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { getBaseURL } from './helpers.js'
 import { isAuthenticated } from './services/auth.js'
 
-Vue.use(Router)
-
-const router = new Router({
-  base: getBaseURL(),
-  mode: 'hash',
+const router = createRouter({
+  history: createWebHashHistory(getBaseURL()),
   routes: [
     {
       path: '/',

@@ -1,19 +1,10 @@
-import Vue from 'vue'
 import { createLocalVue, mount } from '@vue/test-utils'
-import Vuetify from 'vuetify'
-import { Ripple } from 'vuetify/lib/directives'
+import { createVuetify } from 'vuetify'
 
-import filters from '@/filters'
-
-Vue.use(Vuetify, {
-  directives: {
-    Ripple
-  }
-})
 
 export function setup(component, propsData) {
   const localVue = createLocalVue() // because of vuetify, we should use a localVue instance
-  const vuetify = new Vuetify()
+  const vuetify = createVuetify()
 
   return mount(component, {
     localVue,
