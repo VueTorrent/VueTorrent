@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
-import { useAxios } from '@/composables/useAxios'
-import { useQuery } from '@tanstack/vue-query'
 import type { SessionInfoResponse } from '@/types/qbit/responses'
+import { useSessionInfo } from '@/composables/api/info'
 
 export const useSessionInfoStore = defineStore('sessionInfo', () => {
   const stats = ref({} as SessionInfoResponse)
@@ -11,16 +10,7 @@ export const useSessionInfoStore = defineStore('sessionInfo', () => {
     up: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   })
 
-  const axios = useAxios()
-
-  useQuery({
-    queryKey: ['sessionInfo'],
-    queryFn: async () => {
-      const info = await axios.get('transfer/info').then((r) => r.data as SessionInfoResponse)
-      stats.value = info
-    },
-    refetchInterval: 1000
-  })
+  const { data: sessionInfo } = useSessionInfo()
 
   watch(
     stats,
@@ -32,6 +22,7 @@ export const useSessionInfoStore = defineStore('sessionInfo', () => {
     },
     { deep: true }
   )
+
   return {
     stats,
     data
@@ -40,6 +31,4 @@ export const useSessionInfoStore = defineStore('sessionInfo', () => {
 
 export const useAllTimeInfoStore = defineStore('allTimeInfo', () => {
   const stats = ref({} as SessionInfoResponse)
-
-  const axios = useAxios()
 })

@@ -1,4 +1,4 @@
-import { useAxios } from '@/composables/useAxios'
+// import { useAxios } from '@/composables/useAxios'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
 import { useQuery } from '@tanstack/vue-query'
 import { defineStore } from 'pinia'
@@ -59,24 +59,6 @@ const mobilePropertiesTemplate = [
   { name: DashboardProperty.UPLOAD_SPEED, active: true }
 ]
 
-export const usePreferenceStore = defineStore('preferences', async () => {
-  const webUISettings = ref({} as WebUISettings)
-
-  const axios = useAxios()
-
-  useQuery({
-    queryKey: ['settings'],
-    queryFn: async () => {
-      const { data } = await axios.get('app/preferences')
-      return data
-    }
-  })
-
-  return {
-    webUISettings
-  }
-})
-
 export const useWebUISettingsStore = defineStore('webUISettings', () => {
   const webUISettings = useStorage<WebUISettings>('webUISettings', {
     lang: 'en',
@@ -100,11 +82,11 @@ export const useWebUISettingsStore = defineStore('webUISettings', () => {
     doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
     busyMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate)),
     doneMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate))
-  })
+  }).value
 
   const title = useTitle()
 
-  title.value = webUISettings.value.title
+  title.value = webUISettings.title
 
   return {
     webUISettings
