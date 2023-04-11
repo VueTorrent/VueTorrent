@@ -1,48 +1,50 @@
-<template>
-  <div v-if="status" class="mt-3 mb-3">
-    <label class="text-uppercase white--text caption font-weight-medium ml-4">
-      {{ this.isSession ? $t('navbar.sessionTitle') : $t('navbar.alltimeTitle') }}
-    </label>
-    <v-tooltip v-if="isSession" bottom>
-      <template #activator="{ on }">
-        <v-icon color="white" style="opacity: 0.3" small v-on="on">
-          {{ mdiInformationOutline }}
-        </v-icon>
-      </template>
-      <span>{{ $t('navbar.sessionStats.tooltip') }}</span>
-    </v-tooltip>
-    <StorageCard class="mb-4 mt-4" :label="titleCase($t('downloaded'))" color="download" :value="getDownload" />
-    <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload" />
-  </div>
-</template>
-
-<script>
+<script setup lang="ts">
+import { useSessionInfoStore } from '@/stores/info'
+import { titleCase } from '@/utils/dataParse'
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '../Core/StorageCard.vue'
-import { titleCase } from '@/filters'
 
-export default {
-  name: 'TransferStats',
-  components: { StorageCard },
-  props: ['status', 'session'],
-  data: () => ({
-    mdiInformationOutline
-  }),
-  computed: {
-    isSession() {
-      return this.session
-    },
-    getDownload() {
-      return this.isSession ? this.status.sessionDownloaded : this.status.alltimeDownloaded
-    },
-    getUpload() {
-      return this.isSession ? this.status.sessionUploaded : this.status.alltimeUploaded
-    }
-  },
-  methods: {
-    titleCase(str) {
-      return titleCase(str)
-    }
-  }
+// props
+const props = defineProps<{
+  isSession?: boolean
+}>()
+
+// composables
+const sessionInfo = useSessionInfoStore()
+
+// methods
+const getDownload = () => {
+  return (props.isSession ? sessionInfo.stats?.dl_info_data : sessionInfo.stats?.dl_info_data) || 0
+}
+
+const getUpload = () => {
+  return (props.isSession ? sessionInfo.stats?.up_info_data : sessionInfo.stats?.up_info_data) || 0
 }
 </script>
+
+<template>
+  <div class="my-3">
+    <label class="text-uppercase text-white text-caption font-eight-medium ml-4">
+      {{ isSession ? $t('navbar.sessionTitle') : $t('navbar.alltimeTitle') }}
+    </label>
+    <VTooltip v-if="isSession">
+      <template #activator="{ props }">
+        <VIcon
+          v-bind="props"
+          color="white"
+          style="opacity: 0.3"
+          size="small"
+          :icon="mdiInformationOutline"
+        />
+      </template>
+      <span>{{ $t('navbar.sessionStats.tooltip') }}</span>
+    </VTooltip>
+    <StorageCard
+      class="my-4"
+      :label="titleCase($t('downloaded'))"
+      color="download"
+      :value="getDownload()"
+    />
+    <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload()" />
+  </div>
+</template>

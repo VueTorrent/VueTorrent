@@ -1,102 +1,76 @@
-<template>
-  <div class="mt-4">
-    <apexcharts ref="chart" type="line" :options="chartOptions" :series="series" />
-  </div>
-</template>
+<script setup lang="ts">
+import { useSessionInfoStore } from '@/stores/info'
+import { getDataUnit, getDataValue } from '@/utils/dataParse'
+import type { ApexOptions } from 'apexcharts'
+import VueApexCharts, { type VueApexChartsComponent } from 'vue3-apexcharts'
+import { useTheme } from 'vuetify/lib/framework.mjs'
 
-<script>
-import VueApexCharts from 'vue-apexcharts'
-import { mapGetters } from 'vuex'
-import { getDataUnit, getDataValue } from '@/filters'
+// composables
+const theme = useTheme()
 
-export default {
-  name: 'SpeedGraph',
-  components: {
-    apexcharts: VueApexCharts
+const sessionInfo = useSessionInfoStore()
+
+const series = [
+  {
+    name: 'Download',
+    data: [...sessionInfo.data.dl]
   },
-  data() {
-    return {
-      chartOptions: {
-        chart: {
-          sparkline: {
-            enabled: true
-          },
-          animations: {
-            enabled: false,
-            dynamicAnimation: {
-              speed: 1000
-            }
-          }
-        },
-        colors: [this.$vuetify.theme.currentTheme.upload, this.$vuetify.theme.currentTheme.download],
-        stroke: {
-          show: true,
-          curve: 'smooth',
-          lineCap: 'round',
-          width: 4
-        },
-        fill: {
-          type: 'gradient',
-          gradient: {
-            shade: 'dark',
-            type: 'vertical',
-            shadeIntensity: 0.5,
-            opacityFrom: 0.6,
-            opacityTo: 0.5,
-            stops: [0, 50, 100]
-          }
-        },
-        tooltip: {
-          theme: 'light',
-          x: {
-            formatter: value => {
-              const val = 32 - value * 2
+  {
+    name: 'Upload',
+    data: [...sessionInfo.data.up]
+  }
+]
 
-              return val + ' seconds ago'
-            }
-          },
-          y: {
-            formatter: value => {
-              return `${getDataValue(value, 0)} ${getDataUnit(value)}/s`
-            }
-          }
-        }
+const chartOptions: ApexOptions = {
+  chart: {
+    sparkline: {
+      enabled: true
+    },
+    animations: {
+      enabled: false,
+      dynamicAnimation: {
+        speed: 1000
       }
     }
   },
-  computed: {
-    series() {
-      return [
-        {
-          name: 'upload',
-          type: 'area',
-          data: this.$store.state.upload_data
-        },
-        {
-          name: 'download',
-          type: 'area',
-          data: this.$store.state.download_data
-        }
-      ]
+  colors: [theme.current.value.colors.upload, theme.current.value.colors.download],
+  stroke: {
+    show: true,
+    curve: 'smooth',
+    lineCap: 'round',
+    width: 4
+  },
+  fill: {
+    type: 'gradient',
+    gradient: {
+      shade: theme.global.current.value.dark ? 'dark' : 'light',
+      type: 'vertical',
+      shadeIntensity: 0.5,
+      opacityFrom: 0.6,
+      opacityTo: 0.5,
+      stops: [0, 50, 100]
+    }
+  },
+  tooltip: {
+    theme: theme.global.current.value.dark ? 'dark' : 'light',
+    x: {
+      formatter: (value: number) => {
+        const val = 32 - value * 2
+
+        return val + ' seconds ago'
+      }
     },
-    ...mapGetters(['getTheme']),
-    theme() {
-      return this.getTheme()
-    }
-  },
-  watch: {
-    theme(newValue) {
-      this.setChartTooltipTheme(newValue)
-    }
-  },
-  mounted() {
-    this.setChartTooltipTheme(this.theme)
-  },
-  methods: {
-    setChartTooltipTheme(theme) {
-      this.chartOptions.tooltip.theme = theme.toLowerCase()
-      this.$refs.chart.updateOptions(this.chartOptions)
+    y: {
+      formatter: (value: number) => {
+        return `${getDataValue(value, 0)} ${getDataUnit(value)}/s`
+      }
     }
   }
 }
 </script>
+
+<template>
+  <div class="mt-4">
+    <VueApexCharts ref="chart" type="line" :options="chartOptions" :series="series" />
+  </div>
+</template>

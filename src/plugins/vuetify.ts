@@ -1,18 +1,14 @@
-import Vue from 'vue'
-import type { Framework } from 'vuetify'
-import Vuetify from 'vuetify/lib'
-import { Ripple } from 'vuetify/lib/directives'
+/**
+ * plugins/vuetify.ts
+ *
+ * Framework documentation: https://vuetifyjs.com`
+ */
 
-Vue.use(Vuetify, {
-  directives: {
-    Ripple
-  }
-})
+// Styles
+import 'vuetify/styles'
+import { md3 } from 'vuetify/blueprints'
+import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 
-import colors from 'vuetify/lib/util/colors'
-
-// import variables from '@/styles/colors.scss'
-// broke the variable import when updating deps
 const variables = {
   // Main colors
   primary: '#35495e',
@@ -32,37 +28,72 @@ const variables = {
   'torrent-moving': '#ffaa2c'
 }
 
-export default new Vuetify({
+// @ts-expect-error
+import colors from 'vuetify/lib/util/colors'
+
+// Composables
+import { createVuetify } from 'vuetify'
+
+// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
+export default createVuetify({
+  blueprint: md3,
   icons: {
-    iconfont: 'mdiSvg'
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi
+    }
   },
   theme: {
-    options: {
-      customProperties: true
-    },
-    dark: false,
     themes: {
       light: {
-        accent: '#64CEAA',
-        background: colors.grey.lighten4,
-        selected: colors.grey.lighten2,
-        red: colors.red.accent2,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          background: colors.grey.lighten4,
+          selected: colors.grey.lighten2,
+          red: colors.red.accent2,
+          // Main colors
+          primary: '#35495e',
+          secondary: '#3e556d',
+          download: '#64CEAA',
+          upload: '#00b3fa',
+          // Torrent status colors
+          'torrent-done': '#16573e',
+          'torrent-downloading': '#5bb974',
+          'torrent-fail': '#f83e70',
+          'torrent-paused': '#9CA3AF',
+          'torrent-queued': '#2e5eaa',
+          'torrent-seeding': '#4ecde6',
+          'torrent-checking': '#ff7043',
+          'torrent-stalled': '#4ADE80',
+          'torrent-metadata': '#7e57c2',
+          'torrent-moving': '#ffaa2c'
+        }
       },
       dark: {
-        accent: '#64CEAA',
-        background: '#121212',
-        selected: colors.grey.darken1,
-        red: colors.red.accent3,
-        ...variables
+        colors: {
+          accent: '#64CEAA',
+          background: '#121212',
+          selected: colors.grey.darken1,
+          red: colors.red.accent3,
+          // Main colors
+          primary: '#35495e',
+          secondary: '#3e556d',
+          download: '#64CEAA',
+          upload: '#00b3fa',
+          // Torrent status colors
+          'torrent-done': '#16573e',
+          'torrent-downloading': '#5bb974',
+          'torrent-fail': '#f83e70',
+          'torrent-paused': '#9CA3AF',
+          'torrent-queued': '#2e5eaa',
+          'torrent-seeding': '#4ecde6',
+          'torrent-checking': '#ff7043',
+          'torrent-stalled': '#4ADE80',
+          'torrent-metadata': '#7e57c2',
+          'torrent-moving': '#ffaa2c'
+        }
       }
     }
   }
 })
-
-declare module 'vue/types/vue' {
-  // this.$vuetify inside Vue components
-  interface Vue {
-    $vuetify: Framework
-  }
-}

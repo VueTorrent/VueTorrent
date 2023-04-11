@@ -1,70 +1,41 @@
-<template>
-  <v-app>
-    <component :is="modal.component" v-for="modal in modals" :key="modal.guid" v-bind="{ guid: modal.guid, ...modal.props }" />
-    <Navbar v-if="isAuthenticated" />
-    <v-main class="background">
-      <router-view />
-    </v-main>
-  </v-app>
-</template>
+<script setup lang="ts">
+import { useTheme } from 'vuetify'
+import { usePreferredDark } from '@vueuse/core'
+import Navbar from './components/Navbar/Navbar.vue'
+import { useAuthStore } from './stores/auth'
+import { useRouter } from 'vue-router/auto'
 
-<script>
-import { mapState, mapGetters } from 'vuex'
-import Navbar from '@/components/Navbar/Navbar.vue'
-import qbit from '@/services/qbit'
-import { General } from '@/mixins'
-import { getVersion } from './helpers'
+// composables
+const theme = useTheme()
+const prefersDark = usePreferredDark()
+const router = useRouter()
 
-export default {
-  name: 'App',
-  components: { Navbar },
-  mixins: [General],
-  computed: {
-    ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
-    ...mapGetters(['getAuthenticated']),
-    isAuthenticated() {
-      return this.getAuthenticated()
-    },
-    onLoginPage() {
-      return this.$router.currentRoute.name?.includes('login')
-    }
-  },
-  created() {
-    this.$vuetify.theme.dark = this.webuiSettings.darkTheme
-    this.$store.commit('SET_APP_VERSION', getVersion())
-    this.$store.commit('SET_LANGUAGE')
-    this.checkAuthentication()
-    this.blockContextMenu()
-  },
-  methods: {
-    async checkAuthentication() {
-      const authenticated = await qbit.getAuthenticationStatus()
-      if (authenticated) {
-        this.$store.commit('LOGIN', true)
-        this.$store.commit('updateMainData')
-        await this.$store.dispatch('FETCH_SETTINGS')
-        if (this.onLoginPage) return this.$router.push('/')
+const authStore = useAuthStore()
 
-        return
-      }
-
-      this.$store.commit('LOGIN', false)
-      if (!this.onLoginPage) return this.$router.push('login')
-    },
-    blockContextMenu() {
-      document.addEventListener('contextmenu', event => {
-        if (!event.target) return
-        const nodeName = event.target.nodeName.toLowerCase()
-        const nodeType = event.target.getAttribute('type')
-
-        if (nodeName === 'textarea') return
-        if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
-
-        event.preventDefault()
-
-        return false
-      })
-    }
-  }
+if (prefersDark.value) {
+  theme.global.name.value = 'dark'
+} else {
+  theme.global.name.value = 'light'
 }
+
+authStore.checkAuth().then((res) => {
+  if (!res) {
+    router.push('/login')
+  } else {
+    router.push('/dashboard')
+  }
+})
 </script>
+
+<template>
+  <VApp>
+    <Navbar v-if="authStore.isAuthenticated" />
+    <VMain>
+      <VContainer fluid>
+        <Suspense>
+          <RouterView />
+        </Suspense>
+      </VContainer>
+    </VMain>
+  </VApp>
+</template>

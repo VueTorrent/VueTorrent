@@ -1,9 +1,11 @@
 import Toast, { POSITION } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
+import type { PluginOptions } from 'vue-toastification/src/types'
 
-export const toast = Toast
-export const config = {
+const config: PluginOptions = {
   maxToasts: 5,
   timeout: 2000,
   position: POSITION.BOTTOM_RIGHT
 }
+
+export { Toast, config }

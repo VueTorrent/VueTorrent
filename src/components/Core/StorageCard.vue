@@ -1,26 +1,30 @@
+<script setup lang="ts">
+import { getDataUnit } from '@/utils/dataParse'
+import { getDataValue } from '@/utils/dataParse'
+
+const props = defineProps<{
+  label: string
+  color: string
+  value: number
+}>()
+</script>
+
 <template>
-  <v-card flat color="secondary" class="mr-2 ml-2">
-    <v-layout row wrap class="pa-3 mx-auto">
-      <v-flex md6>
-        <div style="margin-top: 6px" :class="color + '--text'" data-testid="StorageCard-label">
+  <VCard flat color="secondary" class="mt-2 mb-2">
+    <VRow class="pa-3 mx-auto">
+      <VCol>
+        <div style="margin-top: 6px" :class="`text-${color}`" data-testid="StorageCard-label">
           {{ label }}
         </div>
-      </v-flex>
-      <v-flex md6>
-        <span data-testid="StorageCard-Wrapper" :class="color + '--text title'">
-          <span data-testid="StorageCard-value"> {{ value | getDataValue(2) }} </span>
-          <span data-testid="StorageCard-unit" class="caption">
-            {{ value | getDataUnit }}
+      </VCol>
+      <VCol>
+        <span data-testid="StorageCard-Wrapper" :class="`text-${color} text-h6`">
+          <span data-testid="StorageCard-value" class="mr-4">{{ getDataValue(value) }}</span>
+          <span data-testid="StorageCard-unit" class="text-caption">
+            {{ getDataUnit(value) }}
           </span>
         </span>
-      </v-flex>
-    </v-layout>
-  </v-card>
+      </VCol>
+    </VRow>
+  </VCard>
 </template>
-
-<script>
-export default {
-  name: 'StorageCard',
-  props: ['color', 'label', 'value']
-}
-</script>

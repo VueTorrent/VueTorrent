@@ -1,35 +1,32 @@
-<template>
-  <v-tooltip top>
-    <template #activator="{ on }">
-      <div class="d-flex justify-center fill-height">
-        <v-icon class="white--text" v-on="on">
-          {{ currentIcon }}
-        </v-icon>
-      </div>
-    </template>
-
-    <span>{{ (status || $t('unknown')) | titleCase }}</span>
-  </v-tooltip>
-</template>
-
-<script>
+<script setup lang="ts">
 import { mdiCheckNetwork, mdiNetworkOff, mdiCloseNetwork, mdiHelpNetwork } from '@mdi/js'
 
-export default {
-  props: ['status'],
-  computed: {
-    currentIcon() {
-      const icons = {
-        connected: mdiCheckNetwork,
-        disconnected: mdiNetworkOff,
-        firewalled: mdiCloseNetwork
-      }
-      const icon = icons?.[this.status]
+const props = defineProps<{
+  status: 'connected' | 'disconnected' | 'firewalled'
+}>()
 
-      if (!this.status || !icon) return mdiHelpNetwork
-
-      return icon
-    }
+const currentIcon = computed(() => {
+  switch (props.status) {
+    case 'connected':
+      return mdiCheckNetwork
+    case 'disconnected':
+      return mdiNetworkOff
+    case 'firewalled':
+      return mdiCloseNetwork
+    default:
+      return mdiHelpNetwork
   }
-}
+})
 </script>
+
+<template>
+  <VTooltip>
+    <template #activator="{ props }">
+      <div class="d-flex justify-center fill-height">
+        <VIcon v-bind="props">
+          {{ currentIcon }}
+        </VIcon>
+      </div>
+    </template>
+  </VTooltip>
+</template>
