@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-import { useSessionInfoStore } from '@/stores/info'
+import { useMainData, useSessionInfo } from '@/composables/api/info'
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js'
 
 // composables
 
-const sessionInfo = useSessionInfoStore()
+const sessionInfo = useSessionInfo()
+const mainData = useMainData()
 </script>
 
 <template>
@@ -17,14 +18,14 @@ const sessionInfo = useSessionInfoStore()
       <SpeedCard
         :icon="mdiChevronDown"
         color="download"
-        :value="sessionInfo.stats?.dl_info_speed || 0"
+        :value="sessionInfo.data.value?.dl_info_speed || 0"
       />
     </VCol>
     <VCol>
       <SpeedCard
         :icon="mdiChevronUp"
         color="upload"
-        :value="sessionInfo.stats?.up_info_speed || 0"
+        :value="sessionInfo.data.value?.up_info_speed || 0"
       />
     </VCol>
   </VRow>

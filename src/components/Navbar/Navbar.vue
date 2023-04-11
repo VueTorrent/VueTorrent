@@ -1,15 +1,21 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
-import { usePreferenceStore } from '@/stores/settings'
+import { useWebUISettingsStore } from '@/stores/settings'
 import SpeedGraph from './SpeedGraph.vue'
 import CurrentSpeed from './CurrentSpeed.vue'
 import TransferStats from './TransferStats.vue'
 import FreeSpace from './FreeSpace.vue'
+import { useMainData } from '@/composables/api/info'
+import { useDisplay } from 'vuetify'
 
-const drawer = ref(false)
-
+// composables
 const authStore = useAuthStore()
-const settingsStore = usePreferenceStore()
+const settingsStore = useWebUISettingsStore()
+const mainData = useMainData()
+const { mobile } = useDisplay()
+
+// data
+const drawer = ref(mobile.value ? false : true)
 </script>
 
 <template>
@@ -21,15 +27,12 @@ const settingsStore = usePreferenceStore()
     disableResizeWatcher
     color="primary"
   >
-    <VCard style="display: flex; flex-direction: column" class="pt-3" flat color="primary">
+    <VCard class="pa-1 pt-3" flat color="primary">
       <CurrentSpeed />
-
       <SpeedGraph />
-
       <TransferStats :isSession="false" />
       <TransferStats :isSession="true" />
-
-      <FreeSpace />
+      <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
     </VCard>
   </VNavigationDrawer>
 

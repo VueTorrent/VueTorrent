@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useSessionInfoStore } from '@/stores/info'
 import { titleCase } from '@/utils/dataParse'
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '../Core/StorageCard.vue'
+import { useMainData, useSessionInfo } from '@/composables/api/info'
 
 // props
 const props = defineProps<{
@@ -10,15 +10,24 @@ const props = defineProps<{
 }>()
 
 // composables
-const sessionInfo = useSessionInfoStore()
+const sessionInfo = useSessionInfo()
+const mainData = useMainData()
 
 // methods
 const getDownload = () => {
-  return (props.isSession ? sessionInfo.stats?.dl_info_data : sessionInfo.stats?.dl_info_data) || 0
+  return (
+    (props.isSession
+      ? sessionInfo.data.value?.dl_info_data
+      : mainData.data.value?.server_state?.alltime_dl) || 0
+  )
 }
 
 const getUpload = () => {
-  return (props.isSession ? sessionInfo.stats?.up_info_data : sessionInfo.stats?.up_info_data) || 0
+  return (
+    (props.isSession
+      ? sessionInfo.data.value?.up_info_data
+      : mainData.data.value?.server_state?.alltime_ul) || 0
+  )
 }
 </script>
 

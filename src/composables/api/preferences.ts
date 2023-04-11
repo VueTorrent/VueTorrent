@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/vue-query'
-import { useAxios } from '@vueuse/integrations'
+import { useAxios } from '@vueuse/integrations/useAxios'
 import { instance } from './axiosInstance'
 
 export const usePreferences = () => {
