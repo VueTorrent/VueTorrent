@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const instance = axios.create({
+export const axiosInstance = axios.create({
   baseURL: 'api/v2',
   headers: {
     post: {

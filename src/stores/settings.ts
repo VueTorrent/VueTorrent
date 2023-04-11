@@ -1,6 +1,4 @@
-// import { useAxios } from '@/composables/useAxios'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
-import { useQuery } from '@tanstack/vue-query'
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
 import { TitleOptions, DashboardProperty } from '@/enums/vuetorrent'

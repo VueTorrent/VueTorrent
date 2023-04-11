@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
-import { usePreferenceStore } from '@/stores/settings'
+import { useWebUISettingsStore } from '@/stores/settings'
 import SpeedGraph from './SpeedGraph.vue'
 import CurrentSpeed from './CurrentSpeed.vue'
 import TransferStats from './TransferStats.vue'
@@ -9,7 +9,7 @@ import FreeSpace from './FreeSpace.vue'
 const drawer = ref(false)
 
 const authStore = useAuthStore()
-const settingsStore = usePreferenceStore()
+const settingsStore = useWebUISettingsStore()
 </script>
 
 <template>

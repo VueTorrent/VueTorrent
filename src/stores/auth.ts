@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import type { LoginPayload } from '@/types/qbit/payloads'
 // import axios from 'axios'
 import { useToast } from 'vue-toastification'
-import { useAxios } from '@/composables/useAxios'
+import { axiosInstance } from '@/composables/api/axiosInstance'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -10,12 +10,11 @@ export const useAuthStore = defineStore('auth', () => {
   const toast = useToast()
   const i18n = useI18n()
   const router = useRouter()
-  const axios = useAxios()
 
   const login = async (params: LoginPayload) => {
     const payload = new URLSearchParams(params)
 
-    await axios
+    await axiosInstance
       .post('auth/login', payload, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -35,18 +34,14 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   const logout = async () => {
-    const axios = useAxios()
-
-    return await axios
+    return await axiosInstance
       .post('auth/logout')
       .then(() => ((isAuthenticated.value = false), router.push('/login')))
       .catch((err) => console.log(err))
   }
 
   const checkAuth = async () => {
-    const axios = useAxios()
-
-    const res = await axios
+    const res = await axiosInstance
       .get('app/version')
       .then(() => true)
       .catch(() => false)
