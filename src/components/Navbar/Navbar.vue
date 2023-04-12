@@ -5,6 +5,7 @@ import SpeedGraph from './SpeedGraph.vue'
 import CurrentSpeed from './CurrentSpeed.vue'
 import TransferStats from './TransferStats.vue'
 import FreeSpace from './FreeSpace.vue'
+import FilterSelect from './FilterSelect.vue'
 import { useMainData } from '@/composables/api/info'
 import { useDisplay } from 'vuetify'
 
@@ -33,6 +34,7 @@ const drawer = ref(mobile.value ? false : true)
       <TransferStats :isSession="false" />
       <TransferStats :isSession="true" />
       <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
+      <FilterSelect :show-tracker-filter="true" />
     </VCard>
   </VNavigationDrawer>
 
