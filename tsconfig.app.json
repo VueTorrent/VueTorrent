@@ -30,6 +30,8 @@
       "vuetify",
       "vite-plugin-pwa/client",
       "@types/webfontloader"
-    ]
+    ],
+    "sourceMap": true,
+    "strict": true
   }
 }

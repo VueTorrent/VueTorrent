@@ -120,7 +120,8 @@ export default defineConfig(({ mode }) => {
       })
     ],
     define: {
-      // vue
+      'import.meta.env.VITE_PACKAGE_VERSION': version,
+      'process.env': {},
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: false
     },
@@ -129,9 +130,12 @@ export default defineConfig(({ mode }) => {
       legalComments: 'none',
       format: 'esm'
     },
+    build: {
+      outDir: './vuetorrent/public'
+    },
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url))
+        '@': fileURLToPath(new URL('src', import.meta.url))
       }
     }
   }
