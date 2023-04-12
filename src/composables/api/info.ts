@@ -7,11 +7,14 @@ export const useSessionInfo = () => {
   return useQuery({
     queryKey: ['session'],
     queryFn: async () => {
-      const { data } = await useAxios<SessionInfoResponse>('/transfer/info', instance)
-
+      const { data, error } = await useAxios<SessionInfoResponse>('/transfer/info', instance)
+      if (error) {
+        throw new Error(error.value?.message)
+      }
       return data.value
     },
-    refetchInterval: 1000
+    refetchInterval: 1000,
+    enabled: import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS ? false : true
   })
 }
 
@@ -19,7 +22,7 @@ export const useMainData = (rid?: number) => {
   return useQuery({
     queryKey: ['maindata'],
     queryFn: async () => {
-      const { data } = await useAxios<MainDataResponse>(
+      const { data, error } = await useAxios<MainDataResponse>(
         '/sync/maindata',
         {
           params: {
@@ -29,8 +32,13 @@ export const useMainData = (rid?: number) => {
         instance
       )
 
+      if (error) {
+        throw new Error(error.value?.message)
+      }
+
       return data.value
     },
-    refetchInterval: 1000
+    refetchInterval: 1000,
+    enabled: import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS ? false : true
   })
 }
