@@ -1,11 +1,6 @@
 name: Test Core Components
 on:
-  pull_request:
-    branches:
-      - master
   push:
-    branches:
-      - master
 
 jobs:
   test-core:
