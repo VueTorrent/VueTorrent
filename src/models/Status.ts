@@ -21,7 +21,10 @@ export default class Status {
 
     this.alltimeDownloaded = in_state?.alltime_dl || previous.alltimeDownloaded
     this.alltimeUploaded = in_state?.alltime_ul || previous.alltimeUploaded
-    this.altSpeed = in_state?.use_alt_speed_limits !== undefined ? in_state.use_alt_speed_limits : previous.altSpeed
+    this.altSpeed =
+      in_state?.use_alt_speed_limits !== undefined
+        ? in_state.use_alt_speed_limits
+        : previous.altSpeed
     this.dlspeed = in_state?.dl_info_speed || 0
     this.dlspeedRaw = this.formatSpeed(in_state?.dl_info_speed || 0)
     this.freeDiskSpace = in_state?.free_space_on_disk || previous.freeDiskSpace

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker'
-import Torrent from '@/models/Torrent'
+import Torrent from '../../models/Torrent'
 
 export function generateMultiple(count: number = 1): Torrent[] {
   const torrents: Torrent[] = []

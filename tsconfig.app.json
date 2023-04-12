@@ -11,7 +11,7 @@
     "src/**/*.vue"
   ],
   "exclude": [
-    "src/**/__tests__/*"
+    "src/**.spec.ts"
   ],
   "compilerOptions": {
     "composite": true,
@@ -32,6 +32,7 @@
       "@types/webfontloader"
     ],
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "module": "ESNext"
   }
 }

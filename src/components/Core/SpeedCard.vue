@@ -4,7 +4,7 @@ import { getDataUnit } from '@/utils/dataParse'
 const props = defineProps<{
   color: string
   icon: string
-  value: string | number
+  value: number
 }>()
 
 // data

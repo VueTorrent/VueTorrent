@@ -1,9 +1,3 @@
-/**
- * plugins/vuetify.ts
- *
- * Framework documentation: https://vuetifyjs.com`
- */
-
 // Styles
 import 'vuetify/styles'
 import { md3 } from 'vuetify/blueprints'
@@ -31,10 +25,8 @@ const variables = {
 // @ts-expect-error
 import colors from 'vuetify/lib/util/colors'
 
-// Composables
 import { createVuetify } from 'vuetify'
 
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   blueprint: md3,
   icons: {

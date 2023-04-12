@@ -17,20 +17,20 @@ $torrent-moving: #ffaa2c;
 $torrent-unknown: #000000;
 
 :export {
-    primary: $primary;
-    secondary: $secondary;
-    download: $download;
-    upload: $upload;
+  primary: $primary;
+  secondary: $secondary;
+  download: $download;
+  upload: $upload;
 
-    torrent-done-color: $torrent-done;
-    torrent-downloading-color: $torrent-downloading;
-    torrent-fail-color: $torrent-fail;
-    torrent-paused-color: $torrent-paused;
-    torrent-queued-color: $torrent-queued;
-    torrent-seeding-color: $torrent-seeding;
-    torrent-checking-color: $torrent-checking;
-    torrent-stalled-color: $torrent-stalled;
-    torrent-metadata-color: $torrent-metadata;
-    torrent-moving-color: $torrent-moving;
-    torrent-unknown-color: $torrent-unknown;
+  torrent-done-color: $torrent-done;
+  torrent-downloading-color: $torrent-downloading;
+  torrent-fail-color: $torrent-fail;
+  torrent-paused-color: $torrent-paused;
+  torrent-queued-color: $torrent-queued;
+  torrent-seeding-color: $torrent-seeding;
+  torrent-checking-color: $torrent-checking;
+  torrent-stalled-color: $torrent-stalled;
+  torrent-metadata-color: $torrent-metadata;
+  torrent-moving-color: $torrent-moving;
+  torrent-unknown-color: $torrent-unknown;
 }

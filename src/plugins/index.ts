@@ -17,6 +17,7 @@ const loadFont = async () => {
 
 export const registerPlugins = (app: App) => {
   loadFont()
+  app.use(createPinia())
   app.use(vuetify)
   app.use(VueApexCharts)
   app.use(i18n)
