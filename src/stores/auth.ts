@@ -3,7 +3,7 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axios as instance } from '@/services/qbit/actions'
+import { axiosInstance } from '@/services/qbit/actions'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -42,7 +42,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   const logout = async () => {
-    const { data } = useAxios('/auth/logout', { method: 'POST' }, instance)
+    const { data } = useAxios('/auth/logout', { method: 'POST' }, axiosInstance)
     console.log(data.value)
     if (data.value === 'Ok.') {
       toast.success(i18n.t('toast.logoutSuccess'.toString()))

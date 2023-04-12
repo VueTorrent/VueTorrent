@@ -1,5 +1,5 @@
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axios as axiosInstance } from '@/services/qbit/actions'
+import { axiosInstance } from '@/services/qbit/actions'
 import type { Category } from '@/types/vuetorrent'
 
 export const useCategories = async () => {

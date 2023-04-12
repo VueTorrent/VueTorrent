@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/vue-query'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axios as axiosInstance } from '@/services/qbit/actions'
+import { axiosInstance } from '@/services/qbit/actions'
 import type { MainDataResponse, SessionInfoResponse } from '@/types/qbit/responses'
 
 export const useSessionInfo = () => {
