@@ -3,7 +3,7 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { instance } from '@/composables/api/axiosInstance'
+import { instance } from '@/services/qbit/actions'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)

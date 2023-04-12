@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/vue-query'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { instance } from './axiosInstance'
+import { axios as axiosInstance } from '@/services/qbit/actions'
 import type { MainDataResponse, SessionInfoResponse } from '@/types/qbit/responses'
 
 export const useSessionInfo = () => {
   return useQuery({
     queryKey: ['session'],
     queryFn: async () => {
-      const { data, error } = await useAxios<SessionInfoResponse>('/transfer/info', instance)
+      const { data, error } = await useAxios<SessionInfoResponse>('/transfer/info', axiosInstance)
       if (error) {
         throw new Error(error.value?.message)
       }
@@ -29,7 +29,7 @@ export const useMainData = (rid?: number) => {
             rid
           }
         },
-        instance
+        axiosInstance
       )
 
       if (error) {

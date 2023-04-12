@@ -18,6 +18,7 @@ declare module '@vue/runtime-core' {
     SpeedCard: typeof import('./src/components/Core/SpeedCard.vue')['default']
     SpeedGraph: typeof import('./src/components/Navbar/SpeedGraph.vue')['default']
     StorageCard: typeof import('./src/components/Core/StorageCard.vue')['default']
+    TopActions: typeof import('./src/components/Navbar/TopActions.vue')['default']
     TransferStats: typeof import('./src/components/Navbar/TransferStats.vue')['default']
   }
 }
