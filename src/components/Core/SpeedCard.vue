@@ -4,7 +4,7 @@ import { getDataUnit } from '@/utils/dataParse'
 const props = defineProps<{
   color: string
   icon: string
-  value: string | number
+  value: number
 }>()
 
 // data
@@ -27,8 +27,8 @@ const getSpeedValue = (value: string | number) => {
     <template #activator>
       <VCard v-ripple flat rounded="md" color="secondary" class="speedCard" @click="open = !open">
         <VLayout row align-center :class="`text-${color}`">
-          <div class="d-flex pl-1" v-if="icon">
-            <VIcon :icon="icon" />
+          <div class="d-flex pl-1">
+            <VIcon data-testid="SpeedCard-icon" :icon="icon" />
           </div>
           <VLayout class="justify-space-between flex-column" xs10>
             <div class="align-self-center font-weight-bold">
@@ -37,7 +37,7 @@ const getSpeedValue = (value: string | number) => {
               </span>
             </div>
             <div class="text-caption align-self-center mt-n1">
-              <span data-testid="SpeedCard-unit"> {{ getDataUnit(1) }}/s </span>
+              <span data-testid="SpeedCard-unit"> {{ getDataUnit(value) }}/s </span>
             </div>
           </VLayout>
         </VLayout>
