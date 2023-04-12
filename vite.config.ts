@@ -1,8 +1,9 @@
 import { fileURLToPath, URL } from 'node:url'
 
 import { defineConfig, loadEnv } from 'vite'
-import vue from '@vitejs/plugin-vue'
 
+// Plugins
+import vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import vuetify from 'vite-plugin-vuetify'
 import { VitePWA } from 'vite-plugin-pwa'
@@ -33,10 +34,10 @@ export default defineConfig(({ mode }) => {
       }
     },
     plugins: [
+      vue(),
       VueRouter({
         routesFolder: 'src/pages'
       }),
-      vue(),
       vuetify({
         autoImport: true
       }),
@@ -133,11 +134,20 @@ export default defineConfig(({ mode }) => {
       format: 'esm'
     },
     build: {
-      outDir: './vuetorrent/public'
+      outDir: './vuetorrent/public',
+      target: 'esnext',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            core: ['@vueuse/core', 'vue', 'vue-router', 'vuetify'],
+            charts: ['vue3-apexcharts'],
+          }
+        }
+      }
     },
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('src', import.meta.url)),
+        '@': fileURLToPath(new URL('src', import.meta.url))
       }
     }
   }

@@ -22,6 +22,8 @@ describe('StorageCard.vue', () => {
     const color = 'download'
     const wrapper = setup(StorageCard, { color })
     expect(wrapper.find('[data-testid="StorageCard-label"]').classes()).toContain(color + '--text')
-    expect(wrapper.find('[data-testid="StorageCard-Wrapper"]').classes()).toContain(color + '--text')
+    expect(wrapper.find('[data-testid="StorageCard-Wrapper"]').classes()).toContain(
+      color + '--text'
+    )
   })
 })

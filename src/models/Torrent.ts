@@ -70,7 +70,10 @@ export default class Torrent {
     this.available_peers = data.num_incomplete
     this.available_seeds = data.num_complete
     this.category = data.category
-    this.completed_on = data.completion_on > 0 ? dayjs(data.completion_on * 1000).format(format) : i18n.t('dashboard.not_complete').toString()
+    this.completed_on =
+      data.completion_on > 0
+        ? dayjs(data.completion_on * 1000).format(format)
+        : i18n.global.t('dashboard.not_complete').toString()
     this.content_path = data.content_path
     this.dl_limit = data.dl_limit
     this.dlspeed = data.dlspeed
@@ -94,13 +97,19 @@ export default class Torrent {
     this.ratio_limit = data.max_ratio
     this.ratio_time_limit = data.max_seeding_time
     this.savePath = data.save_path
-    this.seeding_time = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat) : null
-    this.seen_complete = data.seen_complete > 0 ? dayjs(data.seen_complete * 1000).format(format) : i18n.t('dashboard.not_complete').toString()
+    this.seeding_time =
+      data.seeding_time > 0
+        ? dayjs.duration(data.seeding_time, 'seconds').format(durationFormat)
+        : null
+    this.seen_complete =
+      data.seen_complete > 0
+        ? dayjs(data.seen_complete * 1000).format(format)
+        : i18n.global.t('dashboard.not_complete').toString()
     this.seq_dl = data.seq_dl
     this.size = data.size
     this.state = this.formatState(data.state)
     this.super_seeding = data.super_seeding
-    this.tags = data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : null
+    this.tags = data.tags.length > 0 ? data.tags.split(', ').map((t) => t.trim()) : null
     this.time_active = dayjs.duration(data.time_active, 'seconds').format(durationFormat)
     this.total_size = data.total_size
     this.tracker = data.tracker
