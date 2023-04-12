@@ -4,8 +4,8 @@
    <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p> 
  </div> 
   
- ![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen) 
- ![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen) 
+ ![Vue](https://img.shields.io/badge/Vue-%5E3.2.47-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen) 
+ ![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.1.13-brightgreen) 
   
  ![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent) 
  ![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent) 
