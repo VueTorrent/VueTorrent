@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
 vuetorrent
-qbit
+qbit/**
