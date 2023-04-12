@@ -37,27 +37,27 @@ const options = computed(() => {
   ]
 })
 
-const availableCategories = computed(async () => {
+const availableCategories = async () => {
   const categories = [
     { name: $t('all'), value: null },
     { name: $t('navbar.filters.uncategorized'), value: '' }
   ]
 
-  await useCategories().then((r) => {
-    r.data.value?.map((c) => {
-      categories.push({ name: c.name, value: c.name })
-    })
-  })
+  // await useCategories().then((r) => {
+  //   r.data.value?.map((c) => {
+  //     categories.push({ name: c.name, value: c.name })
+  //   })
+  // })
 
   return categories
-})
+}
 
-const availableTags = computed(async () => {
+const availableTags = async () => {
   return [
     { name: $t('all'), value: null },
     { name: $t('navbar.filters.untagged'), value: '' }
   ]
-})
+}
 </script>
 
 <template>
@@ -79,7 +79,6 @@ const availableTags = computed(async () => {
         color="download"
         item-color="download"
         background-color="secondary"
-        @input="setState"
       />
     </div>
     <div id="category_filter">
@@ -93,12 +92,11 @@ const availableTags = computed(async () => {
         solo
         class="ml-2 mr-2"
         :label="$t('category')"
-        :items="availableCategories"
+        :items="availableCategories()"
         item-text="name"
         color="download"
         item-color="download"
         background-color="secondary"
-        @input="setCategory"
       />
     </div>
     <div id="tag_filter">
@@ -117,10 +115,9 @@ const availableTags = computed(async () => {
         color="download"
         item-color="download"
         background-color="secondary"
-        @input="setTag"
       />
     </div>
-    <div id="tracker_filter" v-if="showTrackerFilter">
+    <div id="tracker_filter" v-if="true">
       <label class="text-white text-uppercase font-weight-medium text-caption ml-4">
         {{ $t('tracker') }}
       </label>
@@ -136,7 +133,6 @@ const availableTags = computed(async () => {
         color="download"
         item-color="download"
         background-color="secondary"
-        @input="setTracker"
       />
     </div>
   </div>

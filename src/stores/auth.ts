@@ -3,7 +3,7 @@ import axios from 'axios'
 import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axiosInstance } from '@/services/qbit/actions'
+import { axiosInstance } from '@/services/qbit'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -55,7 +55,7 @@ export const useAuthStore = defineStore('auth', () => {
       isAuthenticated.value = true
       toast.success(i18n.t('toast.loginSuccess'.toString()))
       router.push('/dashboard')
-      return
+      return true
     }
 
     const res = await axios

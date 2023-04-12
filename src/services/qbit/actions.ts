@@ -1,14 +1,5 @@
 import { useAxios } from '@vueuse/integrations/useAxios'
-import Axios from 'axios'
-
-export const axiosInstance = Axios.create({
-  baseURL: '/api/v2',
-  headers: {
-    post: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    }
-  }
-})
+import { axiosInstance } from './index'
 
 export const execute = async (action: string, params?: Record<string, any>) => {
   const data = new URLSearchParams(params)

@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from '@tanstack/vue-query'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axiosInstance } from '@/services/qbit/actions'
+import { axiosInstance } from '@/services/qbit'
 import type { AppPreferencesPayload } from '@/types/qbit/payloads'
 
 export const usePreferences = () => {
