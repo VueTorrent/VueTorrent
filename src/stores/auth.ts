@@ -1,8 +1,9 @@
-import { defineStore } from 'pinia'
 import type { LoginPayload } from '@/types/qbit/payloads'
-// import axios from 'axios'
+import axios from 'axios'
+import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
-import { axiosInstance } from '@/composables/api/axiosInstance'
+import { useAxios } from '@vueuse/integrations/useAxios'
+import { axiosInstance } from '@/services/qbit'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -14,8 +15,8 @@ export const useAuthStore = defineStore('auth', () => {
   const login = async (params: LoginPayload) => {
     const payload = new URLSearchParams(params)
 
-    await axiosInstance
-      .post('auth/login', payload, {
+    await axios
+      .post('/api/v2/auth/login', payload, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -34,15 +35,17 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   const logout = async () => {
-    return await axiosInstance
-      .post('auth/logout')
-      .then(() => ((isAuthenticated.value = false), router.push('/login')))
-      .catch((err) => console.log(err))
+    const { data } = useAxios('/auth/logout', { method: 'POST' }, axiosInstance)
+    console.log(data.value)
+    if (data.value === 'Ok.') {
+      toast.success(i18n.t('toast.logoutSuccess'.toString()))
+      isAuthenticated.value = false
+      router.push('/login')
+    }
   }
-
   const checkAuth = async () => {
-    const res = await axiosInstance
-      .get('app/version')
+    const res = await axios
+      .get('/api/v2/app/version')
       .then(() => true)
       .catch(() => false)
 

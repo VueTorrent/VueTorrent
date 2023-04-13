@@ -24,8 +24,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     server: {
-      host: '0.0.0.0',
-      port: 3000,
       proxy: {
         '/api': {
           target: `${proxyTarget}`,
@@ -140,7 +138,7 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             core: ['@vueuse/core', 'vue', 'vue-router', 'vuetify'],
-            charts: ['vue3-apexcharts'],
+            charts: ['vue3-apexcharts']
           }
         }
       }

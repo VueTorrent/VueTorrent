@@ -1,32 +1,33 @@
 import { useQuery } from '@tanstack/vue-query'
 import { useAxios } from '@vueuse/integrations/useAxios'
-import { axiosInstance } from './axiosInstance'
-import type { SessionInfoResponse } from '@/types/qbit/responses'
+import { axiosInstance } from '@/services/qbit'
+import type { MainDataResponse, SessionInfoResponse } from '@/types/qbit/responses'
+
+const pollinRate = 1000
 
 export const useSessionInfo = () => {
   return useQuery({
     queryKey: ['session'],
-    queryFn: () => {
-      return useAxios<SessionInfoResponse>('app/session', axiosInstance)
-    }
+    queryFn: async () => {
+      const { data } = await useAxios<SessionInfoResponse>('/transfer/info', axiosInstance)
+      return data.value
+    },
+    refetchInterval: pollinRate
   })
 }
 
-export const useAllTimeInfo = (rid?: number) => {
+export const useMainData = (rid?: number) => {
   return useQuery({
-    queryKey: ['alltime'],
-    queryFn: () => {
-      const { data } = useAxios<SessionInfoResponse>(
-        `sync/maindata`,
-        {
-          params: {
-            rid
-          }
-        },
-        axiosInstance
-      )
+    queryKey: ['maindata'],
+    queryFn: async () => {
+      const { data } = await useAxios<MainDataResponse>('/api/v2/sync/maindata', {
+        params: {
+          rid
+        }
+      })
 
-      return data
-    }
+      return data.value
+    },
+    refetchInterval: pollinRate
   })
 }

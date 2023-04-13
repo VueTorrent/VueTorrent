@@ -1,25 +1,30 @@
 <script setup lang="ts">
-import { useSessionInfoStore } from '@/stores/info'
+import { useMainData, useSessionInfo } from '@/composables/api/info'
 import { getDataUnit, getDataValue } from '@/utils/dataParse'
 import type { ApexOptions } from 'apexcharts'
-import VueApexCharts, { type VueApexChartsComponent } from 'vue3-apexcharts'
+import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify/lib/framework.mjs'
 
 // composables
 const theme = useTheme()
 
-const sessionInfo = useSessionInfoStore()
+const sessionInfo = useSessionInfo()
 
-const series = [
-  {
-    name: 'Download',
-    data: [...sessionInfo.data.dl]
-  },
+// data
+const uploadData = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+const downloadData = ref([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+const series = ref([
   {
     name: 'Upload',
-    data: [...sessionInfo.data.up]
+
+    data: uploadData
+  },
+  {
+    name: 'Download',
+    data: downloadData
   }
-]
+])
 
 const chartOptions: ApexOptions = {
   chart: {
@@ -33,23 +38,10 @@ const chartOptions: ApexOptions = {
       }
     }
   },
-  colors: [theme.current.value.colors.upload, theme.current.value.colors.download],
   stroke: {
-    show: true,
     curve: 'smooth',
     lineCap: 'round',
     width: 4
-  },
-  fill: {
-    type: 'gradient',
-    gradient: {
-      shade: theme.global.current.value.dark ? 'dark' : 'light',
-      type: 'vertical',
-      shadeIntensity: 0.5,
-      opacityFrom: 0.6,
-      opacityTo: 0.5,
-      stops: [0, 50, 100]
-    }
   },
   tooltip: {
     theme: theme.global.current.value.dark ? 'dark' : 'light',
@@ -67,10 +59,19 @@ const chartOptions: ApexOptions = {
     }
   }
 }
+
+// computed
+setInterval(() => {
+  uploadData.value.shift()
+  uploadData.value.push(sessionInfo.data.value?.up_info_speed || 0)
+
+  downloadData.value.shift()
+  downloadData.value.push(sessionInfo.data.value?.dl_info_speed || 0)
+}, 1000)
 </script>
 
 <template>
   <div class="mt-4">
-    <VueApexCharts ref="chart" type="line" :options="chartOptions" :series="series" />
+    <VueApexCharts ref="chart" type="area" :options="chartOptions" :series="series" />
   </div>
 </template>
