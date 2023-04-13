@@ -101,13 +101,8 @@
       "uploaded": "全局上传量",
       "uploaded_session": "本次会话上传量"
     },
-    "directory": "储存路径",
-    "size": "总大小",
-    "timeActive": "活跃时间",
     "downloaded": "下载",
-    "uploaded": "上传",
-    "added": "添加于",
-    "availability": "可用性"
+    "uploaded": "上传"
   },
   "navbar": {
     "currentSpeed": "当前速度",
@@ -413,14 +408,23 @@
         "seeds": "做种数",
         "status": "状态",
         "trackers": "Trackers",
+        "comments": "注释",
         "createdBy": "创建者",
+        "seededFor": "Seeded For $0",
         "firstLastPiecePriority": "首末块优先",
         "sequentialDownload": "顺序下载",
         "autoTMM": "自动种子管理",
         "shareRatioLimit": "分享率限制",
         "shareTimeLimit": "时间限制(分钟)",
         "downloadLimit": "下载限制",
-        "uploadLimit": "上传限制"
+        "uploadLimit": "上传限制",
+        "creation_date": "创建日期",
+        "dl_speed_average": "平均下载速度",
+        "up_speed_average": "平均上传速度",
+        "is_private": "种子私有性",
+        "piece_owned": "已接收区块",
+        "piece_size": "区块大小",
+        "wasted_size": "已丢弃"
       },
       "pagePeers": {
         "ip": "IP",
@@ -446,7 +450,7 @@
         "seeds": "做种",
         "leeches": "下载",
         "downloaded": "下载次数",
-        "message": "消息"
+        "message": "报错消息"
       }
     },
     "add": {
@@ -560,7 +564,7 @@
       "advanced": "高级",
       "changeLocation": "修改保存位置",
       "rename": "重命名",
-      "forceRecheck": "强制重新检查",
+      "forceRecheck": "强制重新校验",
       "forceReannounce": "强制重新汇报",
       "sequentialDownload": "顺序下载",
       "firstLastPriority": "首尾优先",
