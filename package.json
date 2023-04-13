@@ -47,8 +47,6 @@
     "prettier": "^2.8.7",
     "sass": "^1.62.0",
     "typescript": "~5.0.4",
-    "unplugin-auto-import": "^0.15.2",
-    "unplugin-vue-components": "^0.24.1",
     "unplugin-vue-router": "^0.5.4",
     "vite": "^4.2.1",
     "vite-plugin-pwa": "^0.14.7",
