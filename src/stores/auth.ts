@@ -15,13 +15,6 @@ export const useAuthStore = defineStore('auth', () => {
   const login = async (params: LoginPayload) => {
     const payload = new URLSearchParams(params)
 
-    if (import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS) {
-      isAuthenticated.value = true
-      toast.success(i18n.t('toast.loginSuccess'.toString()))
-      router.push('/dashboard')
-      return
-    }
-
     await axios
       .post('/api/v2/auth/login', payload, {
         headers: {
@@ -51,13 +44,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
   const checkAuth = async () => {
-    if (import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS) {
-      isAuthenticated.value = true
-      toast.success(i18n.t('toast.loginSuccess'.toString()))
-      router.push('/dashboard')
-      return true
-    }
-
     const res = await axios
       .get('/api/v2/app/version')
       .then(() => true)

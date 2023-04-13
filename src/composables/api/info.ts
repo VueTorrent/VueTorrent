@@ -13,8 +13,7 @@ export const useSessionInfo = () => {
       }
       return data.value
     },
-    refetchInterval: 1000,
-    enabled: import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS ? false : true
+    refetchInterval: 1000
   })
 }
 
@@ -38,7 +37,6 @@ export const useMainData = (rid?: number) => {
 
       return data.value
     },
-    refetchInterval: 1000,
-    enabled: import.meta.env.VITE_OVERRIDE_QBITTORRENT_CREDENTIALS ? false : true
+    refetchInterval: 1000
   })
 }

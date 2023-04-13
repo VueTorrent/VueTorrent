@@ -6,5 +6,6 @@ export const axiosInstance = Axios.create({
     post: {
       'Content-Type': 'application/x-www-form-urlencoded'
     }
-  }
+  },
+  maxRate: 1000
 })
