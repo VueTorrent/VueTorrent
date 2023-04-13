@@ -46,7 +46,7 @@
   "feed": "订阅源",
   "rule": "规则",
   "then": "时",
-  "of": "of",
+  "of": "中的",
   "yes": "是",
   "no": "否",
   "filter": "文件类型",
@@ -135,7 +135,7 @@
       "dark": "浅色模式",
       "light": "深色模式"
     },
-    "torrentsCount": "列表中无种子 | 共 {n} 个种子 | 共 {n} 个种子"
+    "torrentsCount": "列表中无种子 | {n} 个种子 | {n} 个种子"
   },
   "modals": {
     "newFeed": {
