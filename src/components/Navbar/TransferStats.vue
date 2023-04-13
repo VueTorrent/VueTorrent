@@ -49,7 +49,7 @@ const getUpload = () => {
       <span>{{ $t('navbar.sessionStats.tooltip') }}</span>
     </VTooltip>
     <StorageCard
-      class="my-4"
+      class="mb-4 mt-4"
       :label="titleCase($t('downloaded'))"
       color="download"
       :value="getDownload()"

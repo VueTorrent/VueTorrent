@@ -3,6 +3,8 @@ import { useAxios } from '@vueuse/integrations/useAxios'
 import { axiosInstance } from '@/services/qbit'
 import type { MainDataResponse, SessionInfoResponse } from '@/types/qbit/responses'
 
+const pollinRate = 1000
+
 export const useSessionInfo = () => {
   return useQuery({
     queryKey: ['session'],
@@ -10,7 +12,7 @@ export const useSessionInfo = () => {
       const { data } = await useAxios<SessionInfoResponse>('/transfer/info', axiosInstance)
       return data.value
     },
-    refetchInterval: 1000
+    refetchInterval: pollinRate
   })
 }
 
@@ -26,6 +28,6 @@ export const useMainData = (rid?: number) => {
 
       return data.value
     },
-    refetchInterval: 1000
+    refetchInterval: pollinRate
   })
 }
