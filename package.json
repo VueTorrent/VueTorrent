@@ -2,7 +2,7 @@
   "name": "vuetorrent",
   "version": "1.5.3",
   "scripts": {
-    "start": "vite build --watch",
+    "start": "vite --host",
     "dev": "vite -d",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
