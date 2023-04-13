@@ -15,7 +15,6 @@ declare module '@vue/runtime-core' {
     FilterSelect: typeof import('./src/components/Navbar/FilterSelect.vue')['default']
     FreeSpace: typeof import('./src/components/Navbar/FreeSpace.vue')['default']
     Navbar: typeof import('./src/components/Navbar/Navbar.vue')['default']
-    NavbarActions: typeof import('./src/components/Navbar/NavbarActions.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SpeedCard: typeof import('./src/components/Core/SpeedCard.vue')['default']

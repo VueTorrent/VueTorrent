@@ -33,6 +33,7 @@ const getSpeedValue = (value: string | number) => {
         @click="open = !open"
         :prependIcon="icon"
         height="50"
+        data-testid="SpeedCard-icon"
       >
         <VLayout class="justify-space-between flex-column" align-center justify-center>
           <span data-testid="SpeedCard-value" class="align-self-center font-weight-bold">
