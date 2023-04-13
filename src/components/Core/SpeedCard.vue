@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { getDataUnit } from '@/utils/dataParse'
+import { ref } from 'vue'
+
 // props
-const props = defineProps<{
+defineProps<{
   color: string
   icon: string
   value: number

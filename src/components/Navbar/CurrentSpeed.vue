@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-import { useMainData, useSessionInfo } from '@/composables/api/info'
+import { useSessionInfo } from '@/composables/api/info'
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js'
 
 // composables
 
 const sessionInfo = useSessionInfo()
-const mainData = useMainData()
 </script>
 
 <template>

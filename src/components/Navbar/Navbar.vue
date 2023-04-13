@@ -1,9 +1,14 @@
 <script setup lang="ts">
+import { useMainData } from '@/composables/api/info'
 import { useAuthStore } from '@/stores/auth'
 import { useWebUISettingsStore } from '@/stores/settings'
-
-import { useMainData } from '@/composables/api/info'
+import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
+import BottomActions from './BottomActions.vue'
+import CurrentSpeed from './CurrentSpeed.vue'
+import FreeSpace from './FreeSpace.vue'
+import SpeedGraph from './SpeedGraph.vue'
+import TransferStats from './TransferStats.vue'
 
 // composables
 const authStore = useAuthStore()

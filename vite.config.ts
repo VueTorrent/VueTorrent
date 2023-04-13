@@ -39,15 +39,15 @@ export default defineConfig(({ mode }) => {
       vuetify({
         autoImport: true
       }),
-      Components({
-        dts: true
-      }),
-      AutoImport({
-        eslintrc: {
-          enabled: true
-        },
-        imports: [VueRouterAutoImports, 'vue', '@vueuse/core', 'pinia', 'vue-i18n']
-      }),
+      // Components({
+      //   dts: true
+      // }),
+      // AutoImport({
+      //   eslintrc: {
+      //     enabled: true
+      //   },
+      //   imports: [VueRouterAutoImports, 'vue', '@vueuse/core', 'pinia', 'vue-i18n']
+      // }),
       VueI18nPlugin({
         fullInstall: false,
         runtimeOnly: true

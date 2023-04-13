@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useMainData, useSessionInfo } from '@/composables/api/info'
+import { useSessionInfo } from '@/composables/api/info'
 import { getDataUnit, getDataValue } from '@/utils/dataParse'
 import type { ApexOptions } from 'apexcharts'
+import { ref } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify/lib/framework.mjs'
 

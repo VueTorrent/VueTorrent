@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { titleCase } from '@/utils/dataParse'
 import StorageCard from '@/components/Core/StorageCard.vue'
-const props = defineProps<{
+
+defineProps<{
   space: number
 }>()
 </script>
