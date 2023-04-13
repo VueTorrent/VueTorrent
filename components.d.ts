@@ -9,11 +9,13 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    BottomActions: typeof import('./src/components/Navbar/BottomActions.vue')['default']
     ConnectionStatus: typeof import('./src/components/Navbar/ConnectionStatus.vue')['default']
     CurrentSpeed: typeof import('./src/components/Navbar/CurrentSpeed.vue')['default']
     FilterSelect: typeof import('./src/components/Navbar/FilterSelect.vue')['default']
     FreeSpace: typeof import('./src/components/Navbar/FreeSpace.vue')['default']
     Navbar: typeof import('./src/components/Navbar/Navbar.vue')['default']
+    NavbarActions: typeof import('./src/components/Navbar/NavbarActions.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SpeedCard: typeof import('./src/components/Core/SpeedCard.vue')['default']

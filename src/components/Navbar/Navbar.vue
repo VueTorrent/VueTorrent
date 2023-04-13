@@ -1,11 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
 import { useWebUISettingsStore } from '@/stores/settings'
-import SpeedGraph from './SpeedGraph.vue'
-import CurrentSpeed from './CurrentSpeed.vue'
-import TransferStats from './TransferStats.vue'
-import FreeSpace from './FreeSpace.vue'
-import FilterSelect from './FilterSelect.vue'
+
 import { useMainData } from '@/composables/api/info'
 import { useDisplay } from 'vuetify'
 
@@ -36,6 +32,11 @@ const drawer = ref(mobile.value ? false : true)
       <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
       <!-- <FilterSelect :show-tracker-filter="true" /> -->
     </VCard>
+    <template #append>
+      <div class="pa-2">
+        <BottomActions />
+      </div>
+    </template>
   </VNavigationDrawer>
 
   <VAppBar>

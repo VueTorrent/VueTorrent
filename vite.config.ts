@@ -138,7 +138,7 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             core: ['@vueuse/core', 'vue', 'vue-router', 'vuetify'],
-            charts: ['vue3-apexcharts'],
+            charts: ['vue3-apexcharts']
           }
         }
       }
