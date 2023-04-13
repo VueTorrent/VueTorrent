@@ -34,7 +34,7 @@ const drawer = ref(mobile.value ? false : true)
       <TransferStats :isSession="false" />
       <TransferStats :isSession="true" />
       <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
-      <FilterSelect :show-tracker-filter="true" />
+      <!-- <FilterSelect :show-tracker-filter="true" /> -->
     </VCard>
   </VNavigationDrawer>
 
