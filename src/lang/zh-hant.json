@@ -46,7 +46,7 @@
   "feed": "訂閱源",
   "rule": "規則",
   "then": "然後",
-  "of": "of",
+  "of": "中的",
   "yes": "是",
   "no": "否",
   "filter": "過濾器",
@@ -135,7 +135,7 @@
       "dark": "暗色介面",
       "light": "亮色介面"
     },
-    "torrentsCount": "No torrents | {n} torrent | {n} torrents"
+    "torrentsCount": "無種子 | {n} 個種子 | {n} 個種子"
   },
   "modals": {
     "newFeed": {
