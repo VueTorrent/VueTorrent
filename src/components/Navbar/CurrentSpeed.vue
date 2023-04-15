@@ -4,7 +4,6 @@ import { useSessionInfo } from '@/composables/api/info'
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js'
 
 // composables
-
 const sessionInfo = useSessionInfo()
 </script>
 

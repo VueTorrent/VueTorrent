@@ -4,6 +4,7 @@ import VueApexCharts from 'vue3-apexcharts'
 import i18n from './i18n'
 import { Toast, config } from './toast'
 import { VueQueryPlugin } from '@tanstack/vue-query'
+import { createPinia } from 'pinia'
 
 const loadFont = async () => {
   const webFontLoader = await import('webfontloader')

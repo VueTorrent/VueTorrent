@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth'
 import { ref } from 'vue'
-import { definePage } from 'vue-router/auto'
+import { definePage, useRouter } from 'vue-router/auto'
 import { mdiAccount, mdiLock } from '@mdi/js'
 
 definePage({
@@ -35,7 +35,7 @@ const login = () => {
 </script>
 
 <template>
-  <VLayout class="justify-center align-center mt-5">
+  <VLayout style="padding-bottom: 16em;" class="justify-center align-center h-screen">
     <VCard width="295">
       <VCardTitle>
         <VToolbarTitle class="text-center pa-3">
