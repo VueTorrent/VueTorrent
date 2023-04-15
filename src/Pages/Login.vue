@@ -35,7 +35,7 @@ const login = () => {
 </script>
 
 <template>
-  <VLayout style="padding-bottom: 16em;" class="justify-center align-center h-screen">
+  <VLayout style="padding-bottom: 16em" class="justify-center align-center h-screen">
     <VCard width="295">
       <VCardTitle>
         <VToolbarTitle class="text-center pa-3">

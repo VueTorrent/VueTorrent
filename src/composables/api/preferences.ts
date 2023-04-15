@@ -19,11 +19,7 @@ export const updatePreferences = (params: AppPreferencesPayload) => {
   const payload = new URLSearchParams(data)
   return useMutation({
     mutationFn: async () => {
-      return await useAxios(
-        'app/preferences',
-        { method: 'POST', params: { payload } },
-        axiosInstance
-      )
+      return useAxios('app/preferences', { method: 'POST', params: { payload } }, axiosInstance)
     }
   })
 }
