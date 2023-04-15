@@ -35,10 +35,10 @@ const login = () => {
 </script>
 
 <template>
-  <VLayout class="justify-center align-center mt-5" fullHeight>
+  <VLayout class="justify-center align-center mt-5">
     <VCard width="295">
       <VCardTitle>
-        <VToolbarTitle>
+        <VToolbarTitle class="text-center pa-3">
           <span class="font-weight-light">qBit</span>
           <span>torrent</span>
         </VToolbarTitle>
@@ -72,7 +72,7 @@ const login = () => {
         </VForm>
       </VCardText>
       <VCardActions class="justify-center">
-        <VBtn color="accent" class="wite-text" variant="flat" @click="authStore.login(user)">
+        <VBtn color="accent" rounded="xs" width="80" variant="flat" @click="authStore.login(user)">
           Login
         </VBtn>
       </VCardActions>
