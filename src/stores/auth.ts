@@ -4,6 +4,9 @@ import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
 import { useAxios } from '@vueuse/integrations/useAxios'
 import { axiosInstance } from '@/services/qbit'
+import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
@@ -40,7 +43,6 @@ export const useAuthStore = defineStore('auth', () => {
     isAuthenticated.value = false
     router.push('/login')
   }
-
   const checkAuth = async () => {
     const res = await axios
       .get('/api/v2/app/version')

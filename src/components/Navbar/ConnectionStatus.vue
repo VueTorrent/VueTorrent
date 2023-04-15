@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { mdiCheckNetwork, mdiNetworkOff, mdiCloseNetwork, mdiHelpNetwork } from '@mdi/js'
+import { mdiCheckNetwork, mdiCloseNetwork, mdiHelpNetwork, mdiNetworkOff } from '@mdi/js'
+import { computed } from 'vue'
 
 const props = defineProps<{
   status: 'connected' | 'disconnected' | 'firewalled'

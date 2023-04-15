@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { mdiExitToApp } from '@mdi/js'
 import { useAuthStore } from '@/stores/auth'
+import { mdiExitToApp } from '@mdi/js'
 
 const authStore = useAuthStore()
 </script>
@@ -10,9 +10,7 @@ const authStore = useAuthStore()
     <VCol>
       <VTooltip>
         <template #activator="{ props }">
-          <div class="d-flex justify-center fill-height">
-            <VIcon v-bind="props" :icon="mdiExitToApp"  @click="authStore.logout()" />
-          </div>
+          <VBtn :icon="mdiExitToApp" flat block v-bind="props" @click="authStore.logout()" />
         </template>
         <span>{{ $t('logout') }}</span>
       </VTooltip>

@@ -3,14 +3,11 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 
 // Plugins
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
-import vuetify from 'vite-plugin-vuetify'
 import { VitePWA } from 'vite-plugin-pwa'
-import Components from 'unplugin-vue-components/vite'
-import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
+import vuetify from 'vite-plugin-vuetify'
 
 const version =
   process.env.NODE_ENV === 'production'
@@ -24,8 +21,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     server: {
-      host: '0.0.0.0',
-      port: 3000,
       proxy: {
         '/api': {
           target: `${proxyTarget}`,
@@ -40,15 +35,6 @@ export default defineConfig(({ mode }) => {
       }),
       vuetify({
         autoImport: true
-      }),
-      Components({
-        dts: true
-      }),
-      AutoImport({
-        eslintrc: {
-          enabled: true
-        },
-        imports: [VueRouterAutoImports, 'vue', '@vueuse/core', 'pinia', 'vue-i18n']
       }),
       VueI18nPlugin({
         fullInstall: false,
