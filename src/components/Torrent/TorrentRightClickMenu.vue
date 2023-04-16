@@ -36,9 +36,20 @@ import {
 } from '@mdi/js'
 import { computed, ref, watch } from 'vue'
 import { capitalize } from '@/utils/textFormatting'
+import {
+  deleteTorrents,
+  forceStartTorrents,
+  resumeTorrents,
+  pauseTorrents,
+  setAutoTMM,
+  setDownloadLimit,
+  setUploadLimit,
+  toggleFirstLastPiecePriority,
+  toggleSequentialDownload,
+  toggleSpeedLimitsMode
+} from '@/composables/api/actions'
 
 // props
-
 const props = defineProps<{
   hash: string
   touchmode: boolean
@@ -84,30 +95,29 @@ watch(
 </script>
 
 <template>
-  <VList class="noselect">
-    <VListItem link @click="resume">
-      <VIcon :icon="mdiPlay" />
-      <VListItemTitle class="ml-2">
+  <VList class="noselect" maxWidth="300">
+    <VListItem link @click="resumeTorrents" :prependIcon="mdiPlay">
+      <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('resume')) }}
       </VListItemTitle>
     </VListItem>
-    <VListItem link @click="forceResume">
-      <VIcon :icon="mdiFastForward" />
-      <VListItemTitle class="ml-2">
-        {{ capitalize($t('forceResume')) }}
+    <VListItem link @click="forceStartTorrents" :prependIcon="mdiFastForward">
+      <VListItemTitle class="ml-2 list-item__title">
+        {{ capitalize($t('rightClick.forceResume')) }}
       </VListItemTitle>
     </VListItem>
-    <VListItem link @click="pause">
-      <VIcon :icon="mdiPause" />
-      <VListItemTitle class="ml-2">
+    <VListItem link @click="pauseTorrents" :prependIcon="mdiPause">
+      <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('pause')) }}
       </VListItemTitle>
     </VListItem>
 
     <VDivider />
-    <VListItem link @click="removeTorrent">
-      <VIcon color="red" :icon="mdiDelete" />
-      <VListItemTitle class="ml-2 text-red">
+    <VListItem link @click="deleteTorrents">
+      <template #prepend>
+        <VIcon :icon="mdiDelete" color="red" />
+      </template>
+      <VListItemTitle class="ml-2 text-red list-item__title">
         {{ capitalize($t('delete')) }}
       </VListItemTitle>
     </VListItem>
@@ -120,56 +130,60 @@ watch(
       :left="isRightside"
     >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiHeadCog" />
-          <VListItemTitle class="ml-2">
+        <VListItem link v-bind="props" :prependIcon="mdiHeadCog" :appendIcon="mdiChevronRight">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.advanced')) }}
           </VListItemTitle>
-          <VListItemAction>
-            <VIcon :icon="mdiChevronRight" />
-          </VListItemAction>
         </VListItem>
       </template>
       <VList>
-        <VListItem link @click="location">
-          <VIcon :icon="mdiFolder" />
-          <VListItemTitle class="ml-2">
+        <VListItem link @click="location" :prependIcon="mdiFolder">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.changeLocation')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem v-if="!multiple" link @click="rename">
-          <VIcon :icon="mdiRenameBox" />
-          <VListItemTitle class="ml-2">
+        <VListItem v-if="!multiple" link @click="rename" :prependIcon="mdiRenameBox">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.rename')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem link @click="recheck">
-          <VIcon :icon="mdiPlaylistCheck" />
-          <VListItemTitle class="ml-2">
+        <VListItem link @click="recheck" :prependIcon="mdiPlaylistCheck">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.forceRecheck')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem link @click="reannounce">
-          <VIcon :icon="mdiBullhorn" />
-          <VListItemTitle class="ml-2">
+        <VListItem link @click="reannounce" :prependIcon="mdiBullhorn">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.forceReannounce')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem v-if="!multiple" link @click="toggleSeq">
-          <VIcon :icon="torrent.seq_dl ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
-          <VListItemTitle class="ml2">
+        <VListItem
+          v-if="!multiple"
+          link
+          @click="toggleSeq"
+          :prependIcon="torrent.seq_dl ? mdiCheckboxMarked : mdiCheckboxBlankOutline"
+        >
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.sequentialDownload')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem v-if="!multiple" link @click="toggleFL">
-          <VIcon :icon="torrent.f_l_piece_prio ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
-          <VListItemTitle class="ml-2">
+        <VListItem
+          v-if="!multiple"
+          link
+          @click="toggleFL"
+          :prependIcon="torrent.f_l_piece_prio ? mdiCheckboxMarked : mdiCheckboxBlankOutline"
+        >
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.firstLastPriority')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem v-if="!multiple" link @click="toggleAutoTMM">
-          <VIcon :icon="torrent.auto_tmm ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
-          <VListItemTitle class="ml-2">
+        <VListItem
+          v-if="!multiple"
+          link
+          @click="toggleAutoTMM"
+          :prependIcon="torrent.auto_tmm ? mdiCheckboxMarked : mdiCheckboxBlankOutline"
+        >
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.advanced.automaticTorrentManagement')) }}
           </VListItemTitle>
         </VListItem>
@@ -182,30 +196,10 @@ watch(
       :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
       :left="isRightside"
     >
-      <template #activator="props">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiPriorityLow" />
-          <VListItemTitle class="ml-2">
-            {{ capitalize($t('rightClick.prio.prio')) }}
-          </VListItemTitle>
-          <VListItemAction>
-            <VIcon :icon="mdiChevronRight" />
-          </VListItemAction>
-        </VListItem>
-      </template>
-    </VMenu>
-    <VMenu
-      :open-on-hover="!touchmode"
-      top
-      offset-x
-      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
-      :left="isRightside"
-    >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiPriorityHigh" />
-          <VListItemTitle class="ml-2">
-            {{ capitalize($t('rightClick.queue.queue')) }}
+        <VListItem link v-bind="props" :prependIcon="mdiPriorityHigh" :appendIcon="mdiChevronRight">
+          <VListItemTitle class="ml-2 list-item__title">
+            {{ capitalize($t('rightClick.prio.prio')) }}
           </VListItemTitle>
         </VListItem>
       </template>
@@ -215,9 +209,9 @@ watch(
           :key="index"
           link
           @click="setPriority(item.action)"
+          :prependIcon="item.icon"
         >
-          <VIcon :icon="item.icon" />
-          <VListItemTitle class="ml-2">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.prio.' + item.name)) }}
           </VListItemTitle>
         </VListItem>
@@ -232,20 +226,21 @@ watch(
       :left="isRightside"
     >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiTag" />
-          <VListItemTitle class="ml-2">
+        <VListItem link v-bind="props" :prependIcon="mdiTag" :appendIcon="mdiChevronRight">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.tags')) }}
           </VListItemTitle>
-          <VListItemAction>
-            <VIcon :icon="mdiChevronRight" />
-          </VListItemAction>
         </VListItem>
       </template>
       <VList>
-        <VListItem v-for="(tag, index) in availableTags" :key="index" link @click="setTag(tag)">
-          <VIcon :icon="torrent.tags.includes(tag) ? mdiTag : mdiTagOutline" />
-          <VListItemTitle class="ml-2">
+        <VListItem
+          v-for="(tag, index) in availableTags"
+          :key="index"
+          link
+          @click="setTag(tag)"
+          :prependIcon="torrent.tags.includes(tag) ? mdiTag : mdiTagOutline"
+        >
+          <VListItemTitle class="ml-2 list-item__title">
             {{ tag }}
           </VListItemTitle>
         </VListItem>
@@ -260,14 +255,10 @@ watch(
       :left="isRightside"
     >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiLabel" />
-          <VListItemTitle class="ml-2">
+        <VListItem link v-bind="props" :prependIcon="mdiLabel" :appendIcon="mdiChevronRight">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('rightClick.category')) }}
           </VListItemTitle>
-          <VListItemAction>
-            <VIcon :icon="mdiChevronRight" />
-          </VListItemAction>
         </VListItem>
       </template>
       <VList>
@@ -277,7 +268,7 @@ watch(
           link
           @click="setCategory(category)"
         >
-          <VListItemTitle class="ml-2">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ category }}
           </VListItemTitle>
         </VListItem>
@@ -292,33 +283,30 @@ watch(
       :left="isRightside"
     >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiSpeedometerSlow">
-            <VListItemTitle class="ml-2">
-              {{ capitalize($t('rightClick.limit')) }}
-            </VListItemTitle>
-            <VListItemAction>
-              <VIcon :icon="mdiChevronRight" />
-            </VListItemAction>
-          </VIcon>
+        <VListItem
+          link
+          v-bind="props"
+          :prependIcon="mdiSpeedometerSlow"
+          :appendIcon="mdiChevronRight"
+        >
+          <VListItemTitle class="ml-2 list-item__title">
+            {{ capitalize($t('rightClick.limit')) }}
+          </VListItemTitle>
         </VListItem>
       </template>
       <VList>
-        <VListItem @click="setLimit('download')">
-          <VIcon :icon="mdiChevronDown" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="setLimit('download')" :prependIcon="mdiChevronDown">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('download')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem @click="setLimit('upload')">
-          <VIcon :icon="mdiChevronUp" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="setLimit('upload')" :prependIcon="mdiChevronUp">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('upload')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem @click="setShareLimit()">
-          <VIcon :icon="mdiAccountGroup" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="setShareLimit()" :prependIcon="mdiAccountGroup">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('share')) }}
           </VListItemTitle>
         </VListItem>
@@ -333,47 +321,41 @@ watch(
       :left="isRightside"
     >
       <template #activator="{ props }">
-        <VListItem link v-bind="props">
-          <VIcon :icon="mdiContentCopy">
-            <VListItemTitle class="ml-2">
-              {{ capitalize($t('rightClick.copy')) }}
-            </VListItemTitle>
-            <VListItemAction>
-              <VIcon :icon="mdiChevronRight" />
-            </VListItemAction>
-          </VIcon>
+        <VListItem link v-bind="props" :prependIcon="mdiContentCopy" :appendIcon="mdiChevronRight">
+          <VListItemTitle class="ml-2 list-item__title">
+            {{ capitalize($t('rightClick.copy')) }}
+          </VListItemTitle>
         </VListItem>
       </template>
       <VList>
-        <VListItem @click="copyToClipboard(torrent.name)">
-          <VIcon :icon="mdiContentCopy" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="copyToClipboard(torrent.name)" :prependIcon="mdiContentCopy">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('name')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem @click="copyToClipboard(torrent.hash)">
-          <VIcon :icon="mdiContentCopy" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="copyToClipboard(torrent.hash)" :prependIcon="mdiContentCopy">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('hash')) }}
           </VListItemTitle>
         </VListItem>
-        <VListItem @click="copyToClipboard(torrent.magnet)">
-          <VIcon :icon="mdiMagnet" />
-          <VListItemTitle class="ml-2">
+        <VListItem @click="copyToClipboard(torrent.magnet)" :prependIcon="mdiMagnet">
+          <VListItemTitle class="ml-2 list-item__title">
             {{ capitalize($t('magnet')) }}
           </VListItemTitle>
         </VListItem>
       </VList>
     </VMenu>
-    <VListItem link @click="exportTorrents">
-      <v-icon>{{ multiple ? mdiDownloadMultiple : mdiDownload }}</v-icon>
+    <VListItem
+      link
+      @click="exportTorrents"
+      :prependIcon="multiple ? mdiDownloadMultiple : mdiDownload"
+    >
       <VListItemTitle class="ml-2 list-item__title">
-        {{ capitalize($tc('rightClick.export', multiple ? 2 : 1)) }}
+        {{ capitalize($t('rightClick.export', multiple ? 2 : 1)) }}
       </VListItemTitle>
     </VListItem>
     <v-divider v-if="!multiple" />
-    <VListItem v-if="!multiple" link @click="showInfo">
-      <v-icon>{{ mdiInformation }}</v-icon>
+    <VListItem v-if="!multiple" link @click="showInfo" :prependIcon="mdiInformation">
       <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('rightClick.info')) }}
       </VListItemTitle>
