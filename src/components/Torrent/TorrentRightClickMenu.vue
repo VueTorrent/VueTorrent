@@ -193,19 +193,6 @@ watch(
           </VListItemAction>
         </VListItem>
       </template>
-      <VList>
-        <VListItem
-          v-for="(item, index) in priorityOptions"
-          :key="index"
-          link
-          @click="setPriority(item.action)"
-        >
-          <VIcon :icon="item.icon" />
-          <VListItemTitle class="ml-2">
-            {{ capitalize($t('rightClick.prio.' + item.name)) }}
-          </VListItemTitle>
-        </VListItem>
-      </VList>
     </VMenu>
     <VMenu
       :open-on-hover="!touchmode"
@@ -222,6 +209,120 @@ watch(
           </VListItemTitle>
         </VListItem>
       </template>
+      <VList>
+        <VListItem
+          v-for="(item, index) in priorityOptions"
+          :key="index"
+          link
+          @click="setPriority(item.action)"
+        >
+          <VIcon :icon="item.icon" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.prio.' + item.name)) }}
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </VMenu>
+    <VMenu
+      v-if="availableTags.length > 0"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiTag" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.tags')) }}
+          </VListItemTitle>
+          <VListItemAction>
+            <VIcon :icon="mdiChevronRight" />
+          </VListItemAction>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem v-for="(tag, index) in availableTags" :key="index" link @click="setTag(tag)">
+          <VIcon :icon="torrent.tags.includes(tag) ? mdiTag : mdiTagOutline" />
+          <VListItemTitle class="ml-2">
+            {{ tag }}
+          </VListItemTitle>
+        </VListItem>
+        <VMenu
+          v-if="availableCategories.length > 1"
+          :open-on-hover="!touchmode"
+          top
+          offset-x
+          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+          :left="isRightside"
+        >
+          <template #activator="{ props }">
+            <VListItem link v-bind="props">
+              <VIcon :icon="mdiLabel" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('rightClick.category')) }}
+              </VListItemTitle>
+              <VListItemAction>
+                <VIcon :icon="mdiChevronRight" />
+              </VListItemAction>
+            </VListItem>
+          </template>
+          <VList>
+            <VListItem
+              v-for="(category, index) in availableCategories"
+              :key="index"
+              link
+              @click="setCategory(category)"
+            >
+              <VListItemTitle class="ml-2">
+                {{ category }}
+              </VListItemTitle>
+            </VListItem>
+          </VList>
+        </VMenu>
+        <VMenu
+          v-if="!multiple"
+          :open-on-hover="!touchmode"
+          top
+          offset-x
+          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+          :left="isRightside"
+        >
+          <template #activator="{ props }">
+            <VListItem link v-bind="props">
+              <VIcon :icon="mdiSpeedometerSlow">
+                <VListItemTitle class="ml-2">
+                  {{ capitalize($t('rightClick.limit')) }}
+                </VListItemTitle>
+                <VListItemAction>
+                  <VIcon :icon="mdiChevronRight" />
+                </VListItemAction>
+              </VIcon>
+            </VListItem>
+          </template>
+          <VList>
+            <VListItem @click="setLimit('download')">
+              <VIcon :icon="mdiChevronDown" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('download')) }}
+              </VListItemTitle>
+            </VListItem>
+            <VListItem @click="setLimit('upload')">
+              <VIcon :icon="mdiChevronUp" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('upload')) }}
+              </VListItemTitle>
+            </VListItem>
+            <VListItem @click="setShareLimit()">
+              <VIcon :icon="mdiDownload" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('share')) }}
+              </VListItemTitle>
+            </VListItem>
+          </VList>
+        </VMenu>
+      </VList>
     </VMenu>
   </VList>
 </template>
