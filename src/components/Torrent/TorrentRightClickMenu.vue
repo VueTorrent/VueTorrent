@@ -315,15 +315,69 @@ watch(
               </VListItemTitle>
             </VListItem>
             <VListItem @click="setShareLimit()">
-              <VIcon :icon="mdiDownload" />
+              <VIcon :icon="mdiAccountGroup" />
               <VListItemTitle class="ml-2">
                 {{ capitalize($t('share')) }}
               </VListItemTitle>
             </VListItem>
           </VList>
         </VMenu>
+        <VMenu
+          v-if="!multiple"
+          :open-on-hover="!touchmode"
+          top
+          offset-x
+          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+          :left="isRightside"
+        >
+          <template #activator="{ props }">
+            <VListItem link v-bind="props">
+              <VIcon :icon="mdiContentCopy">
+                <VListItemTitle class="ml-2">
+                  {{ capitalize($t('rightClick.copy')) }}
+                </VListItemTitle>
+                <VListItemAction>
+                  <VIcon :icon="mdiChevronRight" />
+                </VListItemAction>
+              </VIcon>
+            </VListItem>
+          </template>
+          <VList>
+            <VListItem @click="copyToClipboard(torrent.name)">
+              <VIcon :icon="mdiContentCopy" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('name')) }}
+              </VListItemTitle>
+            </VListItem>
+            <VListItem @click="copyToClipboard(torrent.hash)">
+              <VIcon :icon="mdiContentCopy" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('hash')) }}
+              </VListItemTitle>
+            </VListItem>
+            <VListItem @click="copyToClipboard(torrent.magnet)">
+              <VIcon :icon="mdiMagnet" />
+              <VListItemTitle class="ml-2">
+                {{ capitalize($t('magnet')) }}
+              </VListItemTitle>
+            </VListItem>
+          </VList>
+        </VMenu>
       </VList>
     </VMenu>
+    <VListItem link @click="exportTorrents">
+      <v-icon>{{ multiple ? mdiDownloadMultiple : mdiDownload }}</v-icon>
+      <VListItemTitle class="ml-2 list-item__title">
+        {{ capitalize($tc('rightClick.export', multiple ? 2 : 1)) }}
+      </VListItemTitle>
+    </VListItem>
+    <v-divider v-if="!multiple" />
+    <VListItem v-if="!multiple" link @click="showInfo">
+      <v-icon>{{ mdiInformation }}</v-icon>
+      <VListItemTitle class="ml-2 list-item__title">
+        {{ capitalize($t('rightClick.info')) }}
+      </VListItemTitle>
+    </VListItem>
   </VList>
 </template>
 
