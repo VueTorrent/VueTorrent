@@ -7,7 +7,7 @@ export const usePreferences = () => {
   return useQuery({
     queryKey: ['settings'],
     queryFn: () => {
-      return useAxios('app/preferences', axiosInstance)
+      return useAxios('/app/preferences', axiosInstance)
     }
   })
 }
@@ -19,7 +19,7 @@ export const updatePreferences = (params: AppPreferencesPayload) => {
   const payload = new URLSearchParams(data)
   return useMutation({
     mutationFn: async () => {
-      return useAxios('app/preferences', { method: 'POST', params: { payload } }, axiosInstance)
+      return useAxios('/app/preferences', { method: 'POST', params: { payload } }, axiosInstance)
     }
   })
 }
