@@ -31,9 +31,11 @@ import {
   mdiTag,
   mdiTagOff,
   mdiDownload,
-  mdiDownloadMultiple
+  mdiDownloadMultiple,
+  mdiCog
 } from '@mdi/js'
 import { computed, ref, watch } from 'vue'
+import { capitalize } from '@/utils/textFormatting'
 
 // props
 
@@ -44,7 +46,7 @@ const props = defineProps<{
 }>()
 
 // data
-const isRightSide = ref(true)
+const isRightside = ref(true)
 const priorityOptions = [
   { name: 'top', icon: mdiPriorityHigh, action: 'topPrio' },
   { name: 'increase', icon: mdiArrowUp, action: 'increasePrio' },
@@ -76,7 +78,7 @@ const availableTags = () => {
 watch(
   () => props.x,
   (x) => {
-    isRightSide.value = document.documentElement.clientWidth < x + 380
+    isRightside.value = document.documentElement.clientWidth < x + 380
   }
 )
 </script>
@@ -86,15 +88,141 @@ watch(
     <VListItem link @click="resume">
       <VIcon :icon="mdiPlay" />
       <VListItemTitle class="ml-2">
-        {{ capitalize($t('rightClick.resume')) }}
+        {{ capitalize($t('resume')) }}
       </VListItemTitle>
     </VListItem>
     <VListItem link @click="forceResume">
       <VIcon :icon="mdiFastForward" />
       <VListItemTitle class="ml-2">
-        {{ capitalize($t('rightClick.forceResume')) }}
+        {{ capitalize($t('forceResume')) }}
       </VListItemTitle>
     </VListItem>
+    <VListItem link @click="pause">
+      <VIcon :icon="mdiPause" />
+      <VListItemTitle class="ml-2">
+        {{ capitalize($t('pause')) }}
+      </VListItemTitle>
+    </VListItem>
+
+    <VDivider />
+    <VListItem link @click="removeTorrent">
+      <VIcon color="red" :icon="mdiDelete" />
+      <VListItemTitle class="ml-2 text-red">
+        {{ capitalize($t('delete')) }}
+      </VListItemTitle>
+    </VListItem>
+    <VDivider />
+    <VMenu
+      :openOnHover="!touchmode"
+      top
+      :offset="x"
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiHeadCog" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.advanced')) }}
+          </VListItemTitle>
+          <VListItemAction>
+            <VIcon :icon="mdiChevronRight" />
+          </VListItemAction>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem link @click="location">
+          <VIcon :icon="mdiFolder" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.changeLocation')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem v-if="!multiple" link @click="rename">
+          <VIcon :icon="mdiRenameBox" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.rename')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem link @click="recheck">
+          <VIcon :icon="mdiPlaylistCheck" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.forceRecheck')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem link @click="reannounce">
+          <VIcon :icon="mdiBullhorn" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.forceReannounce')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem v-if="!multiple" link @click="toggleSeq">
+          <VIcon :icon="torrent.seq_dl ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
+          <VListItemTitle class="ml2">
+            {{ capitalize($t('rightClick.advanced.sequentialDownload')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem v-if="!multiple" link @click="toggleFL">
+          <VIcon :icon="torrent.f_l_piece_prio ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.firstLastPriority')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem v-if="!multiple" link @click="toggleAutoTMM">
+          <VIcon :icon="torrent.auto_tmm ? mdiCheckboxMarked : mdiCheckboxBlankOutline" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.advanced.automaticTorrentManagement')) }}
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </VMenu>
+    <VMenu
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="props">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiPriorityLow" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.prio.prio')) }}
+          </VListItemTitle>
+          <VListItemAction>
+            <VIcon :icon="mdiChevronRight" />
+          </VListItemAction>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem
+          v-for="(item, index) in priorityOptions"
+          :key="index"
+          link
+          @click="setPriority(item.action)"
+        >
+          <VIcon :icon="item.icon" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.prio.' + item.name)) }}
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </VMenu>
+    <VMenu
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiPriorityHigh" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.queue.queue')) }}
+          </VListItemTitle>
+        </VListItem>
+      </template>
+    </VMenu>
   </VList>
 </template>
 
