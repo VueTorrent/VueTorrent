@@ -26,7 +26,3 @@ export function formatBytes(a: number, b?: number): string {
 
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
-
-export const titleCase = (str: string) => {
-  return str.toLowerCase().replace(/\b(\w)/g, (s) => s.toUpperCase())
-}
