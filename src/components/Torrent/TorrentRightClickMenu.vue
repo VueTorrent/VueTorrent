@@ -249,120 +249,120 @@ watch(
             {{ tag }}
           </VListItemTitle>
         </VListItem>
-        <VMenu
-          v-if="availableCategories.length > 1"
-          :open-on-hover="!touchmode"
-          top
-          offset-x
-          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
-          :left="isRightside"
+      </VList>
+    </VMenu>
+    <VMenu
+      v-if="availableCategories.length > 1"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiLabel" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('rightClick.category')) }}
+          </VListItemTitle>
+          <VListItemAction>
+            <VIcon :icon="mdiChevronRight" />
+          </VListItemAction>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem
+          v-for="(category, index) in availableCategories"
+          :key="index"
+          link
+          @click="setCategory(category)"
         >
-          <template #activator="{ props }">
-            <VListItem link v-bind="props">
-              <VIcon :icon="mdiLabel" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('rightClick.category')) }}
-              </VListItemTitle>
-              <VListItemAction>
-                <VIcon :icon="mdiChevronRight" />
-              </VListItemAction>
-            </VListItem>
-          </template>
-          <VList>
-            <VListItem
-              v-for="(category, index) in availableCategories"
-              :key="index"
-              link
-              @click="setCategory(category)"
-            >
-              <VListItemTitle class="ml-2">
-                {{ category }}
-              </VListItemTitle>
-            </VListItem>
-          </VList>
-        </VMenu>
-        <VMenu
-          v-if="!multiple"
-          :open-on-hover="!touchmode"
-          top
-          offset-x
-          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
-          :left="isRightside"
-        >
-          <template #activator="{ props }">
-            <VListItem link v-bind="props">
-              <VIcon :icon="mdiSpeedometerSlow">
-                <VListItemTitle class="ml-2">
-                  {{ capitalize($t('rightClick.limit')) }}
-                </VListItemTitle>
-                <VListItemAction>
-                  <VIcon :icon="mdiChevronRight" />
-                </VListItemAction>
-              </VIcon>
-            </VListItem>
-          </template>
-          <VList>
-            <VListItem @click="setLimit('download')">
-              <VIcon :icon="mdiChevronDown" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('download')) }}
-              </VListItemTitle>
-            </VListItem>
-            <VListItem @click="setLimit('upload')">
-              <VIcon :icon="mdiChevronUp" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('upload')) }}
-              </VListItemTitle>
-            </VListItem>
-            <VListItem @click="setShareLimit()">
-              <VIcon :icon="mdiAccountGroup" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('share')) }}
-              </VListItemTitle>
-            </VListItem>
-          </VList>
-        </VMenu>
-        <VMenu
-          v-if="!multiple"
-          :open-on-hover="!touchmode"
-          top
-          offset-x
-          :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
-          :left="isRightside"
-        >
-          <template #activator="{ props }">
-            <VListItem link v-bind="props">
-              <VIcon :icon="mdiContentCopy">
-                <VListItemTitle class="ml-2">
-                  {{ capitalize($t('rightClick.copy')) }}
-                </VListItemTitle>
-                <VListItemAction>
-                  <VIcon :icon="mdiChevronRight" />
-                </VListItemAction>
-              </VIcon>
-            </VListItem>
-          </template>
-          <VList>
-            <VListItem @click="copyToClipboard(torrent.name)">
-              <VIcon :icon="mdiContentCopy" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('name')) }}
-              </VListItemTitle>
-            </VListItem>
-            <VListItem @click="copyToClipboard(torrent.hash)">
-              <VIcon :icon="mdiContentCopy" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('hash')) }}
-              </VListItemTitle>
-            </VListItem>
-            <VListItem @click="copyToClipboard(torrent.magnet)">
-              <VIcon :icon="mdiMagnet" />
-              <VListItemTitle class="ml-2">
-                {{ capitalize($t('magnet')) }}
-              </VListItemTitle>
-            </VListItem>
-          </VList>
-        </VMenu>
+          <VListItemTitle class="ml-2">
+            {{ category }}
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </VMenu>
+    <VMenu
+      v-if="!multiple"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiSpeedometerSlow">
+            <VListItemTitle class="ml-2">
+              {{ capitalize($t('rightClick.limit')) }}
+            </VListItemTitle>
+            <VListItemAction>
+              <VIcon :icon="mdiChevronRight" />
+            </VListItemAction>
+          </VIcon>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem @click="setLimit('download')">
+          <VIcon :icon="mdiChevronDown" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('download')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem @click="setLimit('upload')">
+          <VIcon :icon="mdiChevronUp" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('upload')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem @click="setShareLimit()">
+          <VIcon :icon="mdiAccountGroup" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('share')) }}
+          </VListItemTitle>
+        </VListItem>
+      </VList>
+    </VMenu>
+    <VMenu
+      v-if="!multiple"
+      :open-on-hover="!touchmode"
+      top
+      offset-x
+      :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'"
+      :left="isRightside"
+    >
+      <template #activator="{ props }">
+        <VListItem link v-bind="props">
+          <VIcon :icon="mdiContentCopy">
+            <VListItemTitle class="ml-2">
+              {{ capitalize($t('rightClick.copy')) }}
+            </VListItemTitle>
+            <VListItemAction>
+              <VIcon :icon="mdiChevronRight" />
+            </VListItemAction>
+          </VIcon>
+        </VListItem>
+      </template>
+      <VList>
+        <VListItem @click="copyToClipboard(torrent.name)">
+          <VIcon :icon="mdiContentCopy" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('name')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem @click="copyToClipboard(torrent.hash)">
+          <VIcon :icon="mdiContentCopy" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('hash')) }}
+          </VListItemTitle>
+        </VListItem>
+        <VListItem @click="copyToClipboard(torrent.magnet)">
+          <VIcon :icon="mdiMagnet" />
+          <VListItemTitle class="ml-2">
+            {{ capitalize($t('magnet')) }}
+          </VListItemTitle>
+        </VListItem>
       </VList>
     </VMenu>
     <VListItem link @click="exportTorrents">
