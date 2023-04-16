@@ -1,6 +1,7 @@
 {
   "name": "vuetorrent",
   "version": "1.5.4",
+  "private": true,
   "scripts": {
     "dev": "vite -d",
     "build": "run-p type-check build-only",
