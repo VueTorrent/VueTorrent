@@ -39,7 +39,6 @@ export const useAuthStore = defineStore('auth', () => {
 
   const logout = async () => {
     useAxios('/auth/logout', { method: 'POST' }, axiosInstance)
-    toast.success(i18n.t('toast.logoutSuccess'.toString()))
     isAuthenticated.value = false
     router.push('/login')
   }

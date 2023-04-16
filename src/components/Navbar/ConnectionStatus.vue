@@ -3,7 +3,7 @@ import { mdiCheckNetwork, mdiCloseNetwork, mdiHelpNetwork, mdiNetworkOff } from 
 import { computed } from 'vue'
 
 const props = defineProps<{
-  status: 'connected' | 'disconnected' | 'firewalled'
+  status: 'connected' | 'disconnected' | 'firewalled' | undefined
 }>()
 
 const currentIcon = computed(() => {
@@ -23,11 +23,8 @@ const currentIcon = computed(() => {
 <template>
   <VTooltip>
     <template #activator="{ props }">
-      <div class="d-flex justify-center fill-height">
-        <VIcon v-bind="props">
-          {{ currentIcon }}
-        </VIcon>
-      </div>
+      <VBtn :icon="currentIcon" flat block v-bind="props" />
     </template>
+    <span>{{ status }}</span>
   </VTooltip>
 </template>
