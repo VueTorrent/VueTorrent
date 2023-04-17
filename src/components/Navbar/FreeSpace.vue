@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { titleCase } from '@/utils/dataParse'
+import { titleCase } from '@/utils/textFormatting'
 import StorageCard from '@/components/Core/StorageCard.vue'
 
 defineProps<{

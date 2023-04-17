@@ -1,17 +1,15 @@
 {
   "name": "vuetorrent",
   "version": "1.5.4",
+  "private": true,
   "scripts": {
-    "start": "vite --host",
     "dev": "vite -d",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "test": "npm run test:unit",
-    "test:unit": "vitest run"
+    "format": "prettier --write src/"
   },
   "dependencies": {
     "@mdi/js": "^7.2.96",

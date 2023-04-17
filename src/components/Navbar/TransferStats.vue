@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { titleCase } from '@/utils/dataParse'
+import { titleCase } from '@/utils/textFormatting'
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '../Core/StorageCard.vue'
 import { useMainData, useSessionInfo } from '@/composables/api/info'

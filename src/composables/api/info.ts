@@ -20,11 +20,15 @@ export const useMainData = (rid?: number) => {
   return useQuery({
     queryKey: ['maindata'],
     queryFn: async () => {
-      const { data } = await useAxios<MainDataResponse>('/api/v2/sync/maindata', {
-        params: {
-          rid
-        }
-      })
+      const { data } = await useAxios<MainDataResponse>(
+        '/sync/maindata',
+        {
+          params: {
+            rid
+          }
+        },
+        axiosInstance
+      )
 
       return data.value
     },
