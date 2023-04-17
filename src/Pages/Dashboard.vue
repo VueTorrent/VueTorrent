@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { definePage } from 'vue-router/auto'
 import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
 
 definePage({

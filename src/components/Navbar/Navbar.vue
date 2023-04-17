@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useMainData } from '@/composables/api/info'
 import { useAuthStore } from '@/stores/auth'
-import { useWebUISettingsStore } from '@/stores/settings'
 import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
 import BottomActions from './BottomActions.vue'
@@ -12,7 +11,6 @@ import TransferStats from './TransferStats.vue'
 
 // composables
 const authStore = useAuthStore()
-const settingsStore = useWebUISettingsStore()
 const mainData = useMainData()
 const { mobile } = useDisplay()
 

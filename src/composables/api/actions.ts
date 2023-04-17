@@ -61,5 +61,3 @@ export const setDownloadLimit = async (hashes: string[], limit: number) => {
 export const setUploadLimit = async (hashes: string[], limit: number) => {
   await torrentAction('setUploadLimit', hashes, { limit })
 }
-
-export const rename
