@@ -335,7 +335,8 @@
         },
         "pageFeeds": {
           "feeds": "Feeds",
-          "btnCreateNew": "Add feed"
+          "btnCreateNew": "Add feed",
+          "refreshAll": "Refresh All"
         },
         "pageGeneral": {
           "rssAutoProcessing": "RSS Reader",
