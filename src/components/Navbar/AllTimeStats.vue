@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { mdiInformationOutline } from '@mdi/js'
 import { titleCase } from '@/filters'
 import StorageCard from '../Core/StorageCard.vue'
 import StringCard from "../Core/StringCard.vue";
@@ -19,9 +18,6 @@ export default {
   name: 'TransferStats',
   components: { StorageCard, StringCard },
   props: ['status'],
-  data: () => ({
-    mdiInformationOutline
-  }),
   computed: {
     getDownload() {
       return this.status.alltimeDownloaded

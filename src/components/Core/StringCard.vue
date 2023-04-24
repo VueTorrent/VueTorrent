@@ -17,7 +17,7 @@
 
 <script>
 export default {
-  name: 'StorageCard',
+  name: 'StringCard',
   props: ['color', 'label', 'value']
 }
 </script>
