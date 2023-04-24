@@ -13,6 +13,7 @@
     </v-tooltip>
     <StorageCard class="mb-4 mt-4" :label="titleCase($t('downloaded'))" color="download" :value="getDownload" />
     <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload" />
+    <StringCard v-if="!isSession" class="mt-4" :label="titleCase($t('ratio'))" color="ratio" :value="getRatio" />
   </div>
 </template>
 
@@ -38,6 +39,9 @@ export default {
     },
     getUpload() {
       return this.isSession ? this.status.sessionUploaded : this.status.alltimeUploaded
+    },
+    getRatio() {
+      return this.isSession ? "" : this.status.alltimeRatio
     }
   },
   methods: {
