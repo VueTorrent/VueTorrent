@@ -6,6 +6,7 @@ import type { Optional } from '@/global'
 export default class Status {
   alltimeDownloaded: number = 0
   alltimeUploaded: number = 0
+  alltimeRatio: string = ""
   altSpeed: boolean = false
   dlspeed: number = 0
   dlspeedRaw: number = 0
@@ -21,6 +22,7 @@ export default class Status {
 
     this.alltimeDownloaded = in_state?.alltime_dl || previous.alltimeDownloaded
     this.alltimeUploaded = in_state?.alltime_ul || previous.alltimeUploaded
+    this.alltimeRatio = in_state?.global_ratio || previous.alltimeRatio
     this.altSpeed = in_state?.use_alt_speed_limits !== undefined ? in_state.use_alt_speed_limits : previous.altSpeed
     this.dlspeed = in_state?.dl_info_speed || 0
     this.dlspeedRaw = this.formatSpeed(in_state?.dl_info_speed || 0)

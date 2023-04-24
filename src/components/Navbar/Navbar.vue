@@ -18,7 +18,7 @@
 
         <SpeedGraph v-if="webuiSettings.showSpeedGraph" />
 
-        <TransferStats v-if="webuiSettings.showAlltimeStat" :session="false" :status="status" />
+        <AllTimeStats v-if="webuiSettings.showAlltimeStat" :status="status" />
 
         <TransferStats v-if="webuiSettings.showSessionStat" :session="true" :status="status" />
 
@@ -40,7 +40,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { BottomActions, TopMenu, SpeedGraph, FreeSpace, TransferStats, CurrentSpeed, FilterSelect } from './index'
+import { BottomActions, TopMenu, SpeedGraph, FreeSpace, AllTimeStats, TransferStats, CurrentSpeed, FilterSelect } from './index'
 
 export default {
   name: 'Navbar',
@@ -49,6 +49,7 @@ export default {
     BottomActions,
     TopMenu,
     SpeedGraph,
+    AllTimeStats,
     TransferStats,
     CurrentSpeed,
     FilterSelect
