@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.5](https://github.com/WDaan/VueTorrent/compare/v1.5.4...v1.5.5) (2023-04-25)
+
+
+### Bug Fixes
+
+* Chinese word order problem ([#765](https://github.com/WDaan/VueTorrent/issues/765)) ([f1bb9b7](https://github.com/WDaan/VueTorrent/commit/f1bb9b7b354ab2ba47f5d0180dfe3d4a8f824e43))
+
+
+### Improvements
+
+* Add Refresh All button for RSS feeds ([#775](https://github.com/WDaan/VueTorrent/issues/775)) ([3e1d5fb](https://github.com/WDaan/VueTorrent/commit/3e1d5fb76598ee7a432a56ea8b073a2bfe7dcba7))
+* all-time ratio card ([#777](https://github.com/WDaan/VueTorrent/issues/777)) ([f970564](https://github.com/WDaan/VueTorrent/commit/f970564bf90aa82b553eb0e92911d3100b2e6150))
+
 ## [1.5.4](https://github.com/WDaan/VueTorrent/compare/v1.5.3...v1.5.4) (2023-04-02)
 
 
