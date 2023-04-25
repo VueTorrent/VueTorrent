@@ -3,6 +3,7 @@ import type { ConnectionStatus } from '@/enums/qbit'
 export default interface ServerState {
   alltime_dl: number
   alltime_ul: number
+  alltime_ratio: number
   average_time_queue: number
   connection_status: ConnectionStatus
   dht_nodes: number
