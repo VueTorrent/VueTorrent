@@ -6,7 +6,7 @@ import type { Optional } from '@/global'
 export default class Status {
   alltimeDownloaded: number = 0
   alltimeUploaded: number = 0
-  alltimeRatio: string = ""
+  alltimeRatio: string = ''
   altSpeed: boolean = false
   dlspeed: number = 0
   dlspeedRaw: number = 0

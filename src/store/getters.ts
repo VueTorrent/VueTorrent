@@ -21,9 +21,9 @@ export default {
   getAuthenticated: (state: StoreState) => () => state.authenticated,
   getTorrentCountString: (state: StoreState) => () => {
     if (state.selected_torrents && state.selected_torrents.length) {
-      if (i18n.locale === 'zh-hans'||i18n.locale === 'zh-hant') {
+      if (i18n.locale === 'zh-hans' || i18n.locale === 'zh-hant') {
         return `${i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)}${i18n.t('of')} ${state.selected_torrents.length}`
-      }else{
+      } else {
         return `${state.selected_torrents.length} ${i18n.t('of')} ${i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)}`
       }
     }

@@ -20,7 +20,7 @@
 <script>
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '../Core/StorageCard.vue'
-import StringCard from "../Core/StringCard.vue";
+import StringCard from '../Core/StringCard.vue'
 import { titleCase } from '@/filters'
 
 export default {
@@ -41,7 +41,7 @@ export default {
       return this.isSession ? this.status.sessionUploaded : this.status.alltimeUploaded
     },
     getRatio() {
-      return this.isSession ? "" : this.status.alltimeRatio
+      return this.isSession ? '' : this.status.alltimeRatio
     }
   },
   methods: {
