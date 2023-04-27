@@ -237,6 +237,8 @@
           "showShutdownButton": "Show shutdown button",
           "currentVersion": "Current Version:",
           "qbittorrentVersion": "QBittorrent Version:",
+          "registerMagnetHeader": "Register to handle magnet links...",
+          "registerMagnetButton": "Register",
           "importSettings": "Import Settings",
           "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
@@ -556,7 +558,8 @@
     "pasteNotSupported": "Unable to paste, context isn't secured",
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
     "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
-    "invalidJson": "Invalid JSON! Check console for details"
+    "invalidJson": "Invalid JSON! Check console for details",
+    "magnetHandlerNotSupported": "Unable to register handler, context isn't secured!"
   },
   "rightClick": {
     "resume": "resume",
