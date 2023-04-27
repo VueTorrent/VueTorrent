@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.6](https://github.com/WDaan/VueTorrent/compare/v1.5.5...v1.5.6) (2023-04-27)
+
+
+### Bug Fixes
+
+* Remove unneeded classes to prevent unexpected color background in MobileCard ([#782](https://github.com/WDaan/VueTorrent/issues/782)) ([6745c91](https://github.com/WDaan/VueTorrent/commit/6745c91a3ca20476bdc97127d506d182bb899560))
+
 ## [1.5.5](https://github.com/WDaan/VueTorrent/compare/v1.5.4...v1.5.5) (2023-04-25)
 
 
