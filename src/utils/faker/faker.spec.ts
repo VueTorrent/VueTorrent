@@ -7,7 +7,7 @@ describe('faker to generate fake torrents', () => {
     expect(t.name).toBe('Test')
   })
 
-  it('can generate multile', () => {
+  it('can generate multiple', () => {
     const ts = generateMultiple(3)
     expect(ts.length).toBe(3)
     expect(ts[0]?.name).toBe('Torrent - 0')

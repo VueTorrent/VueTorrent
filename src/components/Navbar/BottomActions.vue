@@ -30,6 +30,10 @@ const darkThemeEnabled = computed(() => {
   return settings.webUISettings.darkTheme
 })
 
+const connectionStatus = computed(() => {
+  return sessionInfo.data.value?.connection_status || 'unknown'
+})
+
 const theme = useTheme()
 const toggleTheme = () => {
   settings.webUISettings.darkTheme = !settings.webUISettings.darkTheme
@@ -63,7 +67,7 @@ const toggleTheme = () => {
       </VTooltip>
     </VCol>
     <VCol>
-      <ConnectionStatus :status="sessionInfo.data.value?.connection_status" />
+      <ConnectionStatus :status="connectionStatus" />
     </VCol>
     <VCol>
       <VTooltip>

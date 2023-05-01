@@ -4,6 +4,8 @@ import { useAuthStore } from '@/stores/auth'
 import { ref } from 'vue'
 import { useDisplay } from 'vuetify'
 import BottomActions from './BottomActions.vue'
+import TopActions from './TopActions.vue'
+
 import CurrentSpeed from './CurrentSpeed.vue'
 import FreeSpace from './FreeSpace.vue'
 import SpeedGraph from './SpeedGraph.vue'
@@ -55,7 +57,7 @@ const drawer = ref(mobile.value ? false : true)
       <span class="font-weight-light">qBit</span>
       <span>torrent</span>
     </VToolbarTitle>
-    <VBtn @click="authStore.logout()"> Logout </VBtn>
+    <TopActions />
   </VAppBar>
 </template>
 

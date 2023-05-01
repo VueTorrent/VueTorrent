@@ -3,7 +3,7 @@ import { mdiCheckNetwork, mdiCloseNetwork, mdiHelpNetwork, mdiNetworkOff } from 
 import { computed } from 'vue'
 
 const props = defineProps<{
-  status: 'connected' | 'disconnected' | 'firewalled' | undefined
+  status: 'connected' | 'disconnected' | 'firewalled' | 'unknown'
 }>()
 
 const currentIcon = computed(() => {

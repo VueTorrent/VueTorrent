@@ -59,7 +59,7 @@ const mobilePropertiesTemplate = [
 ]
 
 export const useWebUISettingsStore = defineStore('webUISettings', () => {
-  const webUISettings = useStorage<WebUISettings>('webUISettings', {
+  const webUISettings = useStorage<WebUISettings>('vuetorrent', {
     lang: 'en',
     darkTheme: false,
     showFreeSpace: true,

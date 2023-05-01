@@ -10,13 +10,6 @@ definePage({
 })
 
 const authStore = useAuthStore()
-const router = useRouter()
-
-authStore.checkAuth().then((res) => {
-  if (res) {
-    router.push('/dashboard')
-  }
-})
 
 const inputRules = [
   (v: string) => !!v || 'This field is required',

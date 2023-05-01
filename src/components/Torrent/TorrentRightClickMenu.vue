@@ -96,24 +96,25 @@ watch(
 
 <template>
   <VList class="noselect" maxWidth="300">
-    <VListItem link @click="resumeTorrents" :prependIcon="mdiPlay">
+    <VListItem link :click="resumeTorrents" :prependIcon="mdiPlay">
       <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('resume')) }}
       </VListItemTitle>
     </VListItem>
-    <VListItem link @click="forceStartTorrents" :prependIcon="mdiFastForward">
+    <VListItem link @click="forceStartTorrents([hash])" :prependIcon="mdiFastForward">
       <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('rightClick.forceResume')) }}
       </VListItemTitle>
     </VListItem>
-    <VListItem link @click="pauseTorrents" :prependIcon="mdiPause">
+    <VListItem link @click="pauseTorrents([hash])" :prependIcon="mdiPause">
       <VListItemTitle class="ml-2 list-item__title">
         {{ capitalize($t('pause')) }}
       </VListItemTitle>
     </VListItem>
 
     <VDivider />
-    <VListItem link @click="deleteTorrents">
+    <!-- This should open the delete modal -->
+    <VListItem link @click="deleteTorrents([hash], true)">
       <template #prepend>
         <VIcon :icon="mdiDelete" color="red" />
       </template>

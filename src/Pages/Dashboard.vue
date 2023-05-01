@@ -1,13 +1,45 @@
 <script setup lang="ts">
+import { useMainData } from '@/composables/api/info'
 import { definePage } from 'vue-router/auto'
-import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vue'
+import { computed } from 'vue'
+import type { Torrent } from '@/models'
+import { isProduction } from '@/utils'
+import { generateMultiple } from '@/utils/faker/faker'
+import MobileCardVue from '@/components/Torrent/MobileCard.vue'
 
 definePage({
   path: '/dashboard',
   name: 'Dashboard'
 })
+
+const mainData = useMainData()
+
+const torrents = computed(() => {
+  const torrents: Torrent[] = []
+
+  // const ts = mainData.data.value?.torrents
+  // for (let t in ts) {
+  //   torrents.push(new Torrent(ts[t]))
+  // }
+
+  if (isProduction()) return torrents
+  if (import.meta.env.VITE_USE_FAKE_TORRENTS === false) return torrents
+  const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
+  torrents.push(...generateMultiple(count))
+
+  return torrents
+})
 </script>
 
 <template>
-  <TorrentRightClickMenu :hash="'123123'" :touchmode="false" :x="123" />
+  <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
+    <p class="grey--text">{{ $t('dashboard.emptyTorrentList') }}</p>
+  </div>
+  <div v-else>
+    <VList class="pa-0 transparent">
+      <VListItem v-for="torrent in torrents" :key="torrent.hash">
+        <MobileCardVue :torrent="torrent" />
+      </VListItem>
+    </VList>
+  </div>
 </template>
