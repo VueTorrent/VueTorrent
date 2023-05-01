@@ -254,39 +254,71 @@
         }
       },
       "pageDownloads": {
-        "subHeaderWhenAddTorrent": "When adding a torrent",
         "whenAddTorrent": {
+          "subheader": "When adding a torrent",
           "donotAutoStart": "Do not start the download automatically",
           "autoDeleteMode": "Delete .torrent files afterwards"
         },
-        "subHeaderPublicSettings": "Public Settings",
         "publicSettings": {
           "preAllocateDisk": "Pre-allocate disk space for all files",
           "appendQBExtension": "Append .!qB extension to incomplete files"
         },
-        "subHeaderSaveManagement": "Saving Management",
         "saveManagement": {
-          "autoManagement": "Automatic Torrent Management",
-          "relocate": "Relocate torrent when category changes",
+          "subheader": "Saving Management",
+          "autoTMMEnabled": "Default Torrent Management Mode",
+          "defaultTMMOptions": {
+            "manual": "Manual",
+            "automatic": "Automatic"
+          },
+          "torrentChangedTMM": "When Torrent Category changed",
+          "savePathChangedTMM": "When Default Save Path changed",
+          "categoryChangedTMM": "When Category Save Path changed",
+          "paramChangedTMMOptions": {
+            "relocateTorrent": "Relocate torrent",
+            "switchToManual": "Switch torrent to Manual Mode"
+          },
           "defaultSavePath": "Default Save Path",
-          "keepIncompleteIn": "Keep incomplete torrents in:",
-          "autoEnabled_onAdded": "Run external program on torrent added:",
-          "autoLabel_onAdded": "Command",
-          "autoEnabled_onFinished": "Run external program on torrent finished:",
-          "autoLabel_onFinished": "Command",
-          "supportParamTitle": "Supported parameters (case sensitive):",
-          "supportParamN": "%N: Torrent name",
-          "supportParamL": "%L: Category",
-          "supportParamG": "%G: Tags (separated by comma)",
-          "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
-          "supportParamR": "%R: Root path (first torrent subdirectory path)",
-          "supportParamD": "%D: Save path",
-          "supportParamC": "%C: Number of files",
-          "supportParamZ": "%Z: Torrent size (bytes)",
-          "supportParamT": "%T: Current tracker",
-          "supportParamI": "%I: Info hash v1",
-          "supportParamJ": "%J: Info hash v2",
-          "supportParamK": "%K: Torrent ID"
+          "keepIncompleteIn": "Keep incomplete torrents in",
+          "exportDir": "Copy .torrent files to",
+          "exportDirFinished": "Copy .torrent files for finished downloads to",
+          "monitoredFolders": {
+            "subheader": "Monitored Folders"
+          },
+          "excludedFileNames": {
+            "label": "Excluded file names",
+            "hint": "One file name per line"
+          },
+          "mailNotification": {
+            "enabled": "Email notification upon download completion",
+            "from": "From",
+            "to": "To",
+            "smtpServer": "SMTP server",
+            "sslEnabled": "This server requires a secure connection (SSL)",
+            "authEnabled": "Authentication",
+            "username": "Username",
+            "password": "Password"
+          },
+          "runExternalProgram": {
+            "subheader": "Run external program",
+            "onAddedEnabled": "Run external program on torrent added:",
+            "onAddedLabel": "Command",
+            "onFinishedEnabled": "Run external program on torrent finished:",
+            "onFinishedLabel": "Command",
+            "supportParamTitle": "Supported parameters (case sensitive):",
+            "supportParamN": "%N: Torrent name",
+            "supportParamL": "%L: Category",
+            "supportParamG": "%G: Tags (separated by comma)",
+            "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
+            "supportParamR": "%R: Root path (first torrent subdirectory path)",
+            "supportParamD": "%D: Save path",
+            "supportParamC": "%C: Number of files",
+            "supportParamZ": "%Z: Torrent size (bytes)",
+            "supportParamT": "%T: Current tracker",
+            "supportParamI": "%I: Info hash v1",
+            "supportParamJ": "%J: Info hash v2",
+            "supportParamK": "%K: Torrent ID",
+            "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
+          }
         }
       },
       "pageConnection": {
