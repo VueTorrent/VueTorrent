@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@mdi/js": "^7.2.96",
-    "@tanstack/vue-query": "^4.29.1",
+    "@tanstack/vue-query": "^4.29.5",
     "@vueuse/core": "^10.0.2",
     "@vueuse/integrations": "10.0.2",
     "apexcharts": "^3.38.0",

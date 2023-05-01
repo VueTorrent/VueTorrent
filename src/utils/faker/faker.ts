@@ -21,6 +21,8 @@ export function generateTorrent(data: Partial<QbitTorrent>): Torrent {
     hash: faker.datatype.uuid(),
     size: faker.datatype.number({ min: 1000000, max: 50000000000 }),
     tags: [],
+    upspeed: faker.datatype.number({ min: 0, max: 5000000 }),
+    dlspeed: faker.datatype.number({ min: 0, max: 5000000 }),
     progress: faker.datatype.number({ min: 0, max: 1, precision: 0.01 }),
     state: faker.helpers.arrayElement(Object.values(TorrentState)),
     eta: faker.datatype.number({ min: 1000, max: 900000 }),

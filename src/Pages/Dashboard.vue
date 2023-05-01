@@ -2,7 +2,7 @@
 import { useMainData } from '@/composables/api/info'
 import { definePage } from 'vue-router/auto'
 import { computed } from 'vue'
-import type { Torrent } from '@/models'
+import { Torrent } from '@/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker/faker'
 import MobileCardVue from '@/components/Torrent/MobileCard.vue'
@@ -19,7 +19,9 @@ const torrents = computed(() => {
 
   // const ts = mainData.data.value?.torrents
   // for (let t in ts) {
-  //   torrents.push(new Torrent(ts[t]))
+  //   let data = ts[t]
+  //   console.log(data)
+  //   // torrents.push(new Torrent({ ...data }))
   // }
 
   if (isProduction()) return torrents
@@ -37,8 +39,10 @@ const torrents = computed(() => {
   </div>
   <div v-else>
     <VList class="pa-0 transparent">
-      <VListItem v-for="torrent in torrents" :key="torrent.hash">
-        <MobileCardVue :torrent="torrent" />
+      <VListItem class="px-0" v-for="torrent in torrents" :key="torrent.hash">
+        <VCard :class="'sideborder ' + torrent.state">
+          <MobileCardVue :torrent="torrent" />
+        </VCard>
       </VListItem>
     </VList>
   </div>

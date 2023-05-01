@@ -62,6 +62,7 @@ export default class Torrent {
   upspeed: number
   globalSpeed: number
   globalVolume: number
+
   constructor(data: QbitTorrent, format = 'DD/MM/YYYY, HH:mm:ss') {
     this.added_on = dayjs(data.added_on * 1000).format(format)
     this.amount_left = data.amount_left
