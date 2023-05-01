@@ -134,6 +134,16 @@ exports[`General > render correctly 1`] = `
     </v-row-stub>
   </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"7\\" sm=\\"7\\" md=\\"10\\" tag=\\"div\\">
+        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
+        <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
     <v-textarea-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"\\" backgroundcolor=\\"\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" type=\\"text\\" rowheight=\\"24\\" rows=\\"5\\"></v-textarea-stub>
   </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"remove-after justify-content-evenly\\">
