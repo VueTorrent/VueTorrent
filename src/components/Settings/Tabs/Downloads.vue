@@ -31,17 +31,53 @@
     <v-subheader>{{ $t('modals.settings.pageDownloads.saveManagement.subheader') }}</v-subheader>
 
     <v-list-item>
-      <v-select class="mb-3" v-model="settings.auto_tmm_enabled" flat dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.autoTMMEnabled')" :items="defaultTMMOptions" />
+      <v-select
+        class="mb-3"
+        v-model="settings.auto_tmm_enabled"
+        flat
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.autoTMMEnabled')"
+        :items="defaultTMMOptions"
+      />
     </v-list-item>
 
     <v-list-item>
-      <v-select class="mb-3" v-model="settings.torrent_changed_tmm_enabled" flat dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.torrentChangedTMM')" :items="paramChangedTMMOptions" />
+      <v-select
+        class="mb-3"
+        v-model="settings.torrent_changed_tmm_enabled"
+        flat
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.torrentChangedTMM')"
+        :items="paramChangedTMMOptions"
+      />
     </v-list-item>
     <v-list-item>
-      <v-select class="mb-3" v-model="settings.save_path_changed_tmm_enabled" flat dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.savePathChangedTMM')" :items="paramChangedTMMOptions" />
+      <v-select
+        class="mb-3"
+        v-model="settings.save_path_changed_tmm_enabled"
+        flat
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.savePathChangedTMM')"
+        :items="paramChangedTMMOptions"
+      />
     </v-list-item>
     <v-list-item>
-      <v-select class="mb-3" v-model="settings.category_changed_tmm_enabled" flat dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.categoryChangedTMM')" :items="paramChangedTMMOptions" />
+      <v-select
+        class="mb-3"
+        v-model="settings.category_changed_tmm_enabled"
+        flat
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.categoryChangedTMM')"
+        :items="paramChangedTMMOptions"
+      />
     </v-list-item>
 
     <v-list-item>
@@ -74,34 +110,97 @@
     <v-divider insert />
 
     <v-list-item>
-      <v-checkbox v-model="settings.excluded_file_names_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.excludedFileNames.label')" />
+      <v-checkbox
+        v-model="settings.excluded_file_names_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.pageDownloads.saveManagement.excludedFileNames.label')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-textarea :disabled="!settings.excluded_file_names_enabled" v-model="settings.excluded_file_names" outlined required auto-grow clearable :hint="$t('modals.settings.pageDownloads.saveManagement.excludedFileNames.hint')" />
+      <v-textarea
+        :disabled="!settings.excluded_file_names_enabled"
+        v-model="settings.excluded_file_names"
+        outlined
+        required
+        auto-grow
+        clearable
+        :hint="$t('modals.settings.pageDownloads.saveManagement.excludedFileNames.hint')"
+      />
     </v-list-item>
 
     <v-divider insert />
 
     <v-list-item>
-      <v-checkbox v-model="settings.mail_notification_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.enabled')" />
+      <v-checkbox
+        v-model="settings.mail_notification_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.enabled')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-text-field :disabled="!settings.mail_notification_enabled" v-model="settings.mail_notification_sender" dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.from')" />
+      <v-text-field
+        :disabled="!settings.mail_notification_enabled"
+        v-model="settings.mail_notification_sender"
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.from')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-text-field :disabled="!settings.mail_notification_enabled" v-model="settings.mail_notification_email" dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.to')" />
+      <v-text-field
+        :disabled="!settings.mail_notification_enabled"
+        v-model="settings.mail_notification_email"
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.to')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-text-field :disabled="!settings.mail_notification_enabled" v-model="settings.mail_notification_smtp" dense hide-details outlined :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.smtpServer')" />
+      <v-text-field
+        :disabled="!settings.mail_notification_enabled"
+        v-model="settings.mail_notification_smtp"
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.smtpServer')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-checkbox :disabled="!settings.mail_notification_enabled" v-model="settings.mail_notification_ssl_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.sslEnabled')"/>
+      <v-checkbox
+        :disabled="!settings.mail_notification_enabled"
+        v-model="settings.mail_notification_ssl_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.sslEnabled')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-checkbox :disabled="!settings.mail_notification_enabled" v-model="settings.mail_notification_auth_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.authEnabled')" />
+      <v-checkbox
+        :disabled="!settings.mail_notification_enabled"
+        v-model="settings.mail_notification_auth_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.authEnabled')"
+      />
       <v-card flat class="ms-6">
-        <v-text-field :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled" v-model="settings.mail_notification_username" dense hide-details :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.username')" />
-        <v-text-field :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled" v-model="settings.mail_notification_password" dense hide-details :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.password')" />
+        <v-text-field
+          :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled"
+          v-model="settings.mail_notification_username"
+          dense
+          hide-details
+          :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.username')"
+        />
+        <v-text-field
+          :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled"
+          v-model="settings.mail_notification_password"
+          dense
+          hide-details
+          :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.password')"
+        />
       </v-card>
     </v-list-item>
 
@@ -127,10 +226,22 @@
       />
     </v-list-item>
     <v-list-item>
-      <v-checkbox v-model="settings.autorun_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageDownloads.saveManagement.runExternalProgram.onFinishedEnabled')" />
+      <v-checkbox
+        v-model="settings.autorun_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.pageDownloads.saveManagement.runExternalProgram.onFinishedEnabled')"
+      />
     </v-list-item>
     <v-list-item v-if="settings.autorun_enabled">
-      <v-text-field v-model="settings.autorun_program" class="mb-2" outlined dense :label="$t('modals.settings.pageDownloads.saveManagement.runExternalProgram.onFinishedLabel')" hide-details />
+      <v-text-field
+        v-model="settings.autorun_program"
+        class="mb-2"
+        outlined
+        dense
+        :label="$t('modals.settings.pageDownloads.saveManagement.runExternalProgram.onFinishedLabel')"
+        hide-details
+      />
     </v-list-item>
     <v-list-item class="mb-4">
       <v-card flat color="grey--text selected">
@@ -184,7 +295,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 import { FullScreenModal, SettingsTab } from '@/mixins'
 import { AppPreferences } from '@/enums/qbit'
 
@@ -205,14 +316,14 @@ export default defineComponent({
       ],
       defaultTMMOptions: [
         { text: this.$t('modals.settings.pageDownloads.saveManagement.defaultTMMOptions.manual'), value: false },
-        { text: this.$t('modals.settings.pageDownloads.saveManagement.defaultTMMOptions.automatic'), value: true },
+        { text: this.$t('modals.settings.pageDownloads.saveManagement.defaultTMMOptions.automatic'), value: true }
       ],
       paramChangedTMMOptions: [
         { text: this.$t('modals.settings.pageDownloads.saveManagement.paramChangedTMMOptions.relocateTorrent'), value: true },
-        {text: this.$t('modals.settings.pageDownloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false },
+        { text: this.$t('modals.settings.pageDownloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false }
       ],
       export_dir_enabled: false,
-      export_dir_fin_enabled: false,
+      export_dir_fin_enabled: false
     }
   },
 
