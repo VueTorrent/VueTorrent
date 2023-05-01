@@ -221,6 +221,18 @@
       </v-row>
     </v-list-item>
     <v-list-item>
+      <v-row dense>
+        <v-col cols="7" sm="7" md="10">
+          <p class="subtitle-1">
+            {{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetHeader') }}
+          </p>
+        </v-col>
+        <v-col cols="4" sm="4" md="2">
+          <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetButton') }}</v-btn>
+        </v-col>
+      </v-row>
+    </v-list-item>
+    <v-list-item>
       <v-textarea v-model="settingsField" />
     </v-list-item>
     <v-list-item class="remove-after justify-content-evenly">
@@ -296,6 +308,15 @@ export default {
     resetSettings() {
       window.localStorage.clear()
       location.reload()
+    },
+    registerMagnetHandler() {
+      if (typeof navigator.registerProtocolHandler !== 'function') {
+        this.$toast.error(this.$t("toast.magnetHandlerNotSupported").toString());
+        return;
+      }
+
+      const templateUrl = location.href.replace('/settings', '/download=%s')
+      navigator.registerProtocolHandler('magnet', templateUrl);
     }
   }
 }
