@@ -62,7 +62,7 @@
     <v-list-item v-if="settings.autorun_enabled">
       <v-text-field v-model="settings.autorun_program" class="mb-2" outlined dense :label="$t('modals.settings.pageDownloads.saveManagement.autoLabel_onFinished')" hide-details />
     </v-list-item>
-    <v-list-item v-if="settings.autorun_enabled" class="mb-4">
+    <v-list-item v-if="settings.autorun_on_torrent_added_enabled || settings.autorun_enabled" class="mb-4">
       <v-card flat color="grey--text selected">
         <v-card-text>
           <h5>
