@@ -260,7 +260,7 @@
         "listeningSubHeader": "Port d'écoute",
         "useUPnP": "Utiliser la redirection de port UPnP / NAT-PMP de mon routeur",
         "incomingConnectionPort": "Port utilisé pour les connexions entrantes",
-        "subHeader": "Limites de connexion (-1 pour désactiver)",
+        "subHeader": "Limites de connexion",
         "globalMaxConnection": "Nombre max de connexions globales",
         "perTorrentMaxConnection": "Nombre max de connexions par torrent",
         "globalMaxUploadSlots": "Nombre maximum de slots d'upload global",

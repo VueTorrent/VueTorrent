@@ -29,12 +29,10 @@ export enum MaxRatioAction {
 }
 
 export enum ProxyType {
-  DISABLED = -1,
-  HTTP_WITHOUT_AUTH = 1,
-  SOCKS5_WITHOUT_AUTH,
-  HTTP_WITH_AUTH,
-  SOCKS5_WITH_AUTH,
-  SOCKS4_WITHOUT_AUTH
+  DISABLED = 0,
+  HTTP = 1,
+  SOCKS5 = 2,
+  SOCKS4 = 5
 }
 
 enum ScanDirsEnum {

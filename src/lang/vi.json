@@ -243,7 +243,7 @@
         "listeningSubHeader": "Cổng",
         "useUPnP": "Sử dụng chuyển tiếp cổng UPnP/NAT-PMP từ bộ định tuyến của tôi",
         "incomingConnectionPort": "Cổng được sử dụng cho các kết nối đến",
-        "subHeader": "Giới hạn kết nối (-1 để tắt)",
+        "subHeader": "Giới hạn kết nối",
         "globalMaxConnection": "Số lượng kết nối tối đa chung",
         "perTorrentMaxConnection": "Số lượng kết nối tối đa trên mỗi torrent",
         "globalMaxUploadSlots": "Số vùng tải lên tối đa chung",

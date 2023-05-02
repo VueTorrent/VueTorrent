@@ -291,7 +291,7 @@
         "listeningSubHeader": "監聽埠",
         "useUPnP": "使用從路由器轉送的 UPnP / NAT-PMP 連接埠",
         "incomingConnectionPort": "連入連線時使用的埠",
-        "subHeader": "連線限制 (-1 以禁用)",
+        "subHeader": "連線限制",
         "globalMaxConnection": "全域最大連線數",
         "perTorrentMaxConnection": "單個種子的最大連線數",
         "globalMaxUploadSlots": "全域上傳通道最大數",
