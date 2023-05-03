@@ -138,8 +138,9 @@ export default defineComponent({
     },
     async markAllAsRead() {
       for (const article of this.unreadArticles) {
-        await this.markAsRead(article)
+        await qbit.markAsRead(article.feedName, article.id)
       }
+      this.$store.commit('FETCH_FEEDS')
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
