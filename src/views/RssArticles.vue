@@ -28,7 +28,7 @@
         :item-class="getRowStyle"
       >
         <template #top>
-          <div class="mx-4">
+          <div class="mx-4 mb-5">
             <v-text-field v-model="filter" :label="$t('filter')" />
             <v-row>
               <v-col>
@@ -41,6 +41,7 @@
               </v-col>
             </v-row>
           </div>
+          <v-divider insert />
         </template>
         <template #[`item.title`]="{ item }">
           <a :href="item.link" target="_blank" v-text="item.title" />
