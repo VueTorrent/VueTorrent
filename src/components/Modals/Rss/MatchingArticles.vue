@@ -45,6 +45,8 @@ export default defineComponent({
     }
   },
   async mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+
     if (this.ruleName === undefined) {
       this.close()
       return
@@ -63,9 +65,17 @@ export default defineComponent({
       }
     }
   },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
+  },
   methods: {
     close() {
       this.dialog = false
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        this.close()
+      }
     }
   }
 })

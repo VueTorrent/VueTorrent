@@ -17,8 +17,6 @@
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn v-if="enableUrlDecode" class="info white--text elevation-0 px-4" @click="urlDecode"> URL DECODE </v-btn>
-        <v-spacer />
         <v-btn class="accent white--text elevation-0 px-4" @click="rename">
           {{ $t('save') }}
         </v-btn>
@@ -30,13 +28,15 @@
   </v-dialog>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
 import { mdiFile } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
-export default {
+import {defineComponent} from "vue";
+
+export default defineComponent({
   name: 'RenameModal',
   mixins: [Modal, FullScreenModal],
   props: {
@@ -45,6 +45,7 @@ export default {
   data() {
     return {
       name: '',
+
       mdiFile
     }
   },
@@ -59,7 +60,6 @@ export default {
   },
   created() {
     this.name = this.torrent.name
-    this.isUrl()
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
@@ -67,14 +67,6 @@ export default {
   methods: {
     urlDecode() {
       this.name = decodeURIComponent(this.name)
-      this.isUrl()
-    },
-    isUrl() {
-      this.enableUrlDecode = false
-      if (this.name.indexOf(' ') === -1) {
-        const exp = /[+%]/
-        if (exp.test(this.name)) this.enableUrlDecode = true
-      }
     },
     async rename() {
       await qbit.setTorrentName(this.hash, this.name)
@@ -82,15 +74,14 @@ export default {
     },
     close() {
       this.dialog = false
-      //this.$store.commit('DELETE_MODAL', this.guid)
     },
-    handleKeyboardShortcut(e) {
+    handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         this.close()
-      } else if (e.keyCode === 13) {
+      } else if (e.key === 'Enter') {
         this.rename()
       }
     }
   }
-}
+})
 </script>

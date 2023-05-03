@@ -150,13 +150,18 @@ export default defineComponent({
       this.rule = { ...this.initialRule }
     }
   },
+  mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
+  },
   methods: {
     async setRule() {
       if (this.hasInitialRule && this.initialRule.name !== this.rule.name) {
         await qbit.renameRule(this.initialRule.name, this.rule.name)
       }
       await qbit.setRule(this.rule)
-      this.$toast.success(this.$t('toast.ruleSaved'))
       this.cancel()
     },
     cancel() {
@@ -165,6 +170,13 @@ export default defineComponent({
     },
     close() {
       this.dialog = false
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        this.cancel()
+      } else if (e.key === 'Enter') {
+        this.setRule()
+      }
     }
   }
 })

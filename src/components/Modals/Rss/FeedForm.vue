@@ -32,13 +32,13 @@
   </v-dialog>
 </template>
 
-<script>
+<script lang="ts">
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
-import Vue from 'vue'
+import Vue, {defineComponent} from 'vue'
 
-export default {
+export default defineComponent({
   name: 'FeedForm',
   mixins: [Modal],
   props: {
@@ -60,6 +60,12 @@ export default {
       this.feed = { ...this.initialFeed }
     }
   },
+  mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
+  },
   methods: {
     create() {
       qbit.createFeed(this.feed)
@@ -73,9 +79,15 @@ export default {
       qbit.editFeed(this.initialFeed.name, this.feed.name)
       Vue.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        this.cancel()
+      } else if (e.key === 'Enter') {
+        if (this.hasInitialFeed) this.edit()
+        else this.create()
+      }
     }
   }
-}
+})
 </script>
-
-<style></style>
