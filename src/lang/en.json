@@ -190,6 +190,7 @@
     "rss": {
       "title": "RSS Articles",
       "filterRead": "Unread articles only",
+      "markAllAsRead": "Mark all as read",
       "columnTitle": {
         "feedName": "Feed Name",
         "author": "Author",
