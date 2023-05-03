@@ -206,7 +206,7 @@
     },
     "settings": {
       "tabName": {
-        "VueTorrent": "VueTorrent",
+        "vueTorrent": "VueTorrent",
         "downloads": "Downloads",
         "connection": "Connection",
         "speed": "Speed",
@@ -360,6 +360,9 @@
           "bannedIpsHint": "one on each line"
         }
       },
+      "speed": {
+
+      },
       "bittorrent": {
         "privacy": {
           "subheader": "Privacy",
@@ -436,6 +439,9 @@
         "btnCreateNew": "Create new",
         "subHeaderTags": "Available Tags:",
         "subHeaderCategories": "Available Categories:"
+      },
+      "advanced": {
+
       }
     },
     "shareLimit": {

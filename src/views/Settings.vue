@@ -21,7 +21,7 @@
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
         <v-tab class="white--text" href="#vuetorrent">
-          <h4>{{ $t('modals.settings.tabName.VueTorrent') }}</h4>
+          <h4>{{ $t('modals.settings.tabName.vueTorrent') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#downloads">
           <h4>{{ $t('modals.settings.tabName.downloads') }}</h4>
