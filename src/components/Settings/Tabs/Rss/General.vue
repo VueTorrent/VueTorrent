@@ -1,10 +1,10 @@
 <template>
   <v-card flat>
     <v-subheader>
-      {{ $t('modals.settings.pageRss.pageGeneral.rssAutoProcessing') }}
+      {{ $t('modals.settings.rss.general.rssAutoProcessing') }}
     </v-subheader>
     <v-list-item>
-      <v-checkbox v-model="settings.rss_processing_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageRss.pageGeneral.input.enableRssProcessing')" />
+      <v-checkbox v-model="settings.rss_processing_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.rss.general.input.enableRssProcessing')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
@@ -14,7 +14,7 @@
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageRss.pageGeneral.input.feedsRefreshInterval')"
+        :label="$t('modals.settings.rss.general.input.feedsRefreshInterval')"
         :disabled="!settings.rss_processing_enabled"
       />
     </v-list-item>
@@ -26,16 +26,16 @@
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageRss.pageGeneral.input.feedsMaxArticles')"
+        :label="$t('modals.settings.rss.general.input.feedsMaxArticles')"
         :disabled="!settings.rss_processing_enabled"
       />
     </v-list-item>
     <v-divider />
     <v-subheader>
-      {{ $t('modals.settings.pageRss.pageGeneral.rssAutoDownloader') }}
+      {{ $t('modals.settings.rss.general.rssAutoDownloader') }}
     </v-subheader>
     <v-list-item>
-      <v-checkbox v-model="settings.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageRss.pageGeneral.input.enableRssAutoDownload')" />
+      <v-checkbox v-model="settings.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.rss.general.input.enableRssAutoDownload')" />
     </v-list-item>
   </v-card>
 </template>

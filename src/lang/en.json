@@ -214,13 +214,13 @@
         "webUI": "WebUI",
         "tagsAndCategories": "Tags & Categories"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "General",
           "desktopCard": "Desktop Card",
           "mobileCard": "Mobile Card"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "These settings are for the custom WebUI itself",
           "currentSpeed": "Show Current Speed",
           "speedGraph": "Show Speed Graph",
@@ -244,16 +244,16 @@
           "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Properties to display for busy torrents on desktop",
           "completedTorrentTip": "Properties to display for completed torrents on desktop"
         },
-        "pageMobileCard": {
+        "mobileCard": {
           "busyTorrentTip": "Properties to display for busy torrents on mobile",
           "completedTorrentTip": "Properties to display for completed torrents on mobile"
         }
       },
-      "pageDownloads": {
+      "downloads": {
         "whenAddTorrent": {
           "subheader": "When adding a torrent",
           "donotAutoStart": "Do not start the download automatically",
@@ -321,7 +321,7 @@
           }
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "Peer connection protocol",
         "listeningPort": {
           "subheader": "Listening Port",
@@ -354,47 +354,47 @@
           "subheader": "IP Filtering",
           "filterPath": "Filter path (.dat, .p2p, .p2b)",
           "applyToTrackers": "Apply to trackers",
-          "bannedIps": "Manually banned IP addresses (one on each line)"
+          "bannedIps": "Manually banned IP addresses",
+          "bannedIpsHint": "one on each line"
         }
       },
-      "pageBittorrent": {
-        "subHeaderPrivacy": "Privacy",
-        "enableDHT": "Enable DHT (decentralized network) to find more peers",
-        "enablePeX": "Enable Peer Exchange (PeX) to find more peers",
-        "enableLPD": "Enable Local Peer Discovery to find more peers",
-        "enableAnonymous": "Enable anonymous mode",
-        "torrentQueue": "Torrent Queueing",
-        "maxActiveDownload": "Maximum active downloads",
-        "maxActiveUpload": "Maximum active uploads",
-        "maxActiveTorrent": "Maximum active torrents",
-        "excludeSlowTorrent": "Do not count slow torrents in these limits",
-        "downloadRateLimit": "Download rate threshold KiB/s",
-        "uploadRateLimit": "Upload rate threshold KiB/s",
-        "torrentInactivityTimer": "Torrent inactivity timer",
-        "subHeaderSeedLimits": "Seed Limits",
-        "whenRatioReaches": "When ratio reaches",
-        "whenSeedingTimeReaches": "When seeding time reaches",
-        "maxRatioPauseTorrent": "Pause torrent",
-        "maxRatioRemoveTorrent": "Remove torrent",
-        "maxRatioRemoveTorrentAndFiles": "Remove torrent and files",
-        "maxRatioTorrentSuperseeding": "Enable torrent super seeding"
+      "bittorrent": {
+        "privacy": {
+          "subheader": "Privacy",
+          "enableDHT": "Enable DHT (decentralized network) to find more peers",
+          "enablePeX": "Enable Peer Exchange (PeX) to find more peers",
+          "enableLPD": "Enable Local Peer Discovery to find more peers",
+          "encryptionMode": "Encryption Mode",
+          "enableAnonymous": "Enable anonymous mode",
+          "moreInfo": "More Information"
+        },
+        "maxActiveCheckingTorrents": "Max active checking torrents",
+        "torrentQueueing": {
+          "subheader": "Torrent Queueing",
+          "maxActiveDownload": "Maximum active downloads",
+          "maxActiveUpload": "Maximum active uploads",
+          "maxActiveTorrent": "Maximum active torrents",
+          "excludeSlowTorrent": "Do not count slow torrents in these limits",
+          "downloadRateLimit": "Download rate threshold (in KiB/s)",
+          "uploadRateLimit": "Upload rate threshold (in KiB/s)",
+          "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
+        },
+        "seedLimits": {
+          "subheader": "Seed Limits",
+          "whenRatioReaches": "When ratio reaches",
+          "whenSeedingTimeReaches": "When seeding time reaches",
+          "then": "Then"
+        },
+        "autoAddTrackers": "Automatically add these trackers to new downloads",
+        "autoAddTrackersHint": "One tracker per line"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "General",
           "feeds": "Feeds",
           "rules": "Rules"
         },
-        "pageRules": {
-          "rules": "Rules",
-          "btnCreateNew": "Create Rule"
-        },
-        "pageFeeds": {
-          "feeds": "Feeds",
-          "btnCreateNew": "Add feed",
-          "refreshAll": "Refresh All"
-        },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "RSS Reader",
           "rssAutoDownloader": "RSS Torrent Auto Downloader",
           "input": {
@@ -403,9 +403,18 @@
             "feedsRefreshInterval": "Feeds refresh interval (in minutes)",
             "feedsMaxArticles": "Maximum number of articles per feed"
           }
+        },
+        "rules": {
+          "rules": "Rules",
+          "btnCreateNew": "Create Rule"
+        },
+        "feeds": {
+          "feeds": "Feeds",
+          "btnCreateNew": "Add feed",
+          "refreshAll": "Refresh All"
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Use Alternative WebUI",
         "filesLocation": "Files location",
         "webUserInterface": "Web User Interface (Remote Control)",
@@ -421,7 +430,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Bypass authentication for clients in whitelisted IP subnets",
         "whiteListExample": "Example: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Create new",
         "subHeaderTags": "Available Tags:",
         "subHeaderCategories": "Available Categories:"
@@ -496,7 +505,7 @@
         "relevance": "Relevance",
         "files": "Files"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Available Tags:",
         "subHeaderCategories": "Available Categories:"
       },
@@ -661,6 +670,17 @@
       "tcp_utp": "TCP and μTP",
       "tcp": "TCP",
       "utp": "μTP"
+    },
+    "encryption": {
+      "preferEncryption": "Allow Encryption",
+      "forceOn": "Require Encryption",
+      "forceOff": "Disable Encryption"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Pause torrent",
+      "removeTorrent": "Remove torrent",
+      "removeTorrentAndFiles": "Remove torrent and its files",
+      "torrentSuperseeding": "Enable super seeding for torrent"
     }
   }
 }

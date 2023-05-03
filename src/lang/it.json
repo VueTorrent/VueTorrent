@@ -27,31 +27,31 @@
     },
     "settings": {
       "tabName": {},
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {},
-        "pageGeneral": {},
-        "pageDesktopCard": {
+        "general": {},
+        "desktopCard": {
           "properties": {}
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "whenAddTorrent": {},
         "publicSettings": {},
         "saveManagement": {}
       },
-      "pageConnection": {},
-      "pageBittorrent": {},
-      "pageRss": {
+      "connection": {},
+      "bittorrent": {},
+      "rss": {
         "tabName": {},
-        "pageRules": {},
-        "pageFeeds": {},
-        "pageGeneral": {
+        "rules": {},
+        "feeds": {},
+        "general": {
           "input": {}
         }
       },
-      "pageWebUI": {},
-      "pageTagsAndCategories": {}
+      "webUI": {},
+      "tagsAndCategories": {}
     },
     "shareLimit": {
       "input": {}
@@ -61,7 +61,7 @@
     "detail": {
       "pageInfo": {},
       "pagePeers": {},
-      "pageTagsAndCategories": {},
+      "tagsAndCategories": {},
       "pageTrackers": {}
     },
     "add": {

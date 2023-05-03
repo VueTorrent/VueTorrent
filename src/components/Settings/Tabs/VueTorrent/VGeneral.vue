@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <v-subheader>
-      {{ $t('modals.settings.pageVueTorrent.pageGeneral.tip') }}
+      {{ $t('modals.settings.vueTorrent.general.tip') }}
     </v-subheader>
     <v-list-item>
       <v-row dense>
@@ -11,7 +11,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.currentSpeed')"
+            :label="$t('modals.settings.vueTorrent.general.currentSpeed')"
           />
         </v-col>
       </v-row>
@@ -24,7 +24,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.speedGraph')"
+            :label="$t('modals.settings.vueTorrent.general.speedGraph')"
           />
         </v-col>
       </v-row>
@@ -37,7 +37,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')"
+            :label="$t('modals.settings.vueTorrent.general.allTimeStats')"
           />
         </v-col>
       </v-row>
@@ -50,7 +50,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
+            :label="$t('modals.settings.vueTorrent.general.sessionStats')"
           />
         </v-col>
       </v-row>
@@ -63,7 +63,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')"
+            :label="$t('modals.settings.vueTorrent.general.freeSpace')"
           />
         </v-col>
       </v-row>
@@ -76,7 +76,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.trackerFilter')"
+            :label="$t('modals.settings.vueTorrent.general.trackerFilter')"
           />
         </v-col>
       </v-row>
@@ -89,7 +89,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.rightDrawer')"
+            :label="$t('modals.settings.vueTorrent.general.rightDrawer')"
           />
         </v-col>
       </v-row>
@@ -102,7 +102,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.topPagination')"
+            :label="$t('modals.settings.vueTorrent.general.topPagination')"
           />
         </v-col>
       </v-row>
@@ -115,7 +115,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.openSideBarOnStart')"
+            :label="$t('modals.settings.vueTorrent.general.openSideBarOnStart')"
           />
         </v-col>
       </v-row>
@@ -128,7 +128,7 @@
             class="v-input--reverse pa-0 ma-0"
             hide-details
             inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.showShutdownButton')"
+            :label="$t('modals.settings.vueTorrent.general.showShutdownButton')"
           />
         </v-col>
       </v-row>
@@ -137,7 +137,7 @@
       <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.language') }}
+            {{ $t('modals.settings.vueTorrent.general.language') }}
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
@@ -149,7 +149,7 @@
       <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.paginationSize') }}
+            {{ $t('modals.settings.vueTorrent.general.paginationSize') }}
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
@@ -161,7 +161,7 @@
       <v-row dense>
         <v-col cols="8" sm="8" md="10">
           <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.vueTorrentTitle') }}
+            {{ $t('modals.settings.vueTorrent.general.vueTorrentTitle') }}
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
@@ -173,7 +173,7 @@
       <v-row dense>
         <v-col sm="6" md="9">
           <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.dateFormat') }}
+            {{ $t('modals.settings.vueTorrent.general.dateFormat') }}
           </p>
         </v-col>
         <v-col sm="6" md="3">
@@ -183,7 +183,7 @@
             outlined
             dense
             hide-details
-            :aria-label="$t('modals.settings.pageVueTorrent.pageGeneral.dateFormat')"
+            :aria-label="$t('modals.settings.vueTorrent.general.dateFormat')"
             placeholder="DD/MM/YYYY, HH:mm:ss"
             label="using Dayjs"
           />
@@ -194,7 +194,7 @@
       <v-row dense>
         <v-col cols="10" sm="10" md="11">
           <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.currentVersion') }}
+            {{ $t('modals.settings.vueTorrent.general.currentVersion') }}
           </p>
         </v-col>
         <v-col cols="2" sm="2" md="1">
@@ -208,7 +208,7 @@
       <v-row dense>
         <v-col cols="10" sm="10" md="11">
           <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.qbittorrentVersion') }}
+            {{ $t('modals.settings.vueTorrent.general.qbittorrentVersion') }}
           </p>
         </v-col>
         <v-col cols="2" sm="2" md="1">
@@ -224,11 +224,11 @@
       <v-row dense>
         <v-col cols="7" sm="7" md="10">
           <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetHeader') }}
+            {{ $t('modals.settings.vueTorrent.general.registerMagnetHeader') }}
           </p>
         </v-col>
         <v-col cols="4" sm="4" md="2">
-          <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetButton') }}</v-btn>
+          <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.vueTorrent.general.registerMagnetButton') }}</v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -236,11 +236,11 @@
       <v-textarea v-model="settingsField" />
     </v-list-item>
     <v-list-item class="remove-after justify-content-evenly">
-      <v-btn @click="importSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.importSettings') }}</v-btn>
-      <v-btn @click="exportSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.exportSettings') }}</v-btn>
+      <v-btn @click="importSettings">{{ $t('modals.settings.vueTorrent.general.importSettings') }}</v-btn>
+      <v-btn @click="exportSettings">{{ $t('modals.settings.vueTorrent.general.exportSettings') }}</v-btn>
     </v-list-item>
     <v-list-item class="justify-center pb-2">
-      <v-btn dark color="red" @click="resetSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.resetSettings') }}</v-btn>
+      <v-btn dark color="red" @click="resetSettings">{{ $t('modals.settings.vueTorrent.general.resetSettings') }}</v-btn>
     </v-list-item>
   </v-card>
 </template>

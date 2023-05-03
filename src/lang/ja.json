@@ -121,11 +121,11 @@
         "webUI": "WEB UI",
         "tagsAndCategories": "タグ と カテゴリ"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "一般"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "これらの設定は、このカスタム WebUI に対するものです",
           "currentSpeed": "現在の速度を表示する",
           "speedGraph": "速度グラフを表示する",
@@ -140,14 +140,14 @@
           "currentVersion": "現在のバージョン:",
           "qbittorrentVersion": "QBittorrentのバージョン:"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "稼働中のTorrentに表示されるプロパティ",
           "completedTorrentTip": "完了したTorrentに表示されるプロパティ",
           "properties": {}
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "Torrentを追加したとき",
         "whenAddTorrent": {
           "donotAutoStart": "自動でダウンロードを開始しない"
@@ -178,7 +178,7 @@
           "supportParamI": "%I: info ハッシュ"
         }
       },
-      "pageConnection": {
+      "connection": {
         "subHeader": "接続制限",
         "globalMaxConnection": "全体の最大接続数",
         "perTorrentMaxConnection": "Torrentあたりの最大接続数",
@@ -189,7 +189,7 @@
         "proxyTorrentOnly": "Torrentに対してのみプロキシを使う",
         "proxyAuth": "認証"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "プライバシー",
         "enableDHT": "より多くのピアを見つけるために DHT (分散ネットワーク) を有効にする",
         "enablePeX": "より多くのピアを見つけるために ピア交換 (PeX) を有効にする",
@@ -207,21 +207,21 @@
         "whenRatioReaches": "シード制限する共有比",
         "whenSeedingTimeReaches": "シード制限するシード時間 (分)"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "一般",
           "feeds": "フィード",
           "rules": "ルール"
         },
-        "pageRules": {
+        "rules": {
           "rules": "ルール",
           "btnCreateNew": "ルールを作成"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "フィード",
           "btnCreateNew": "フィードを追加"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "RSSリーダー",
           "rssAutoDownloader": "RSS Torrent自動ダウンロード",
           "input": {
@@ -232,7 +232,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "カスタム WebUI を使用する",
         "filesLocation": "ファイルの場所",
         "webUserInterface": "ウェブユーザーインターフェース (遠隔操作)",
@@ -248,7 +248,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "ホワイトリストに登録された IP サブネットのクライアントは認証を行わない",
         "whiteListExample": "例: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "作成",
         "subHeaderTags": "利用可能なタグ:",
         "subHeaderCategories": "利用可能なカテゴリ:"
@@ -314,7 +314,7 @@
         "relevance": "関連",
         "files": "ファイル"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "利用可能タグ:",
         "subHeaderCategories": "利用可能タグ:"
       },

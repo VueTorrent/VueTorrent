@@ -41,7 +41,7 @@
               </v-col>
             </v-row>
           </div>
-          <v-divider insert />
+          <v-divider />
         </template>
         <template #[`item.title`]="{ item }">
           <a :href="item.link" target="_blank" v-text="item.title" />

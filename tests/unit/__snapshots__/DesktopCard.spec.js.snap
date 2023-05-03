@@ -4,7 +4,7 @@ exports[`DesktopCard > render correctly 1`] = `
 "<v-card-stub loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
   <v-row-stub tag=\\"div\\" dense=\\"true\\">
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
-      <v-subheader-stub> modals.settings.pageVueTorrent.pageDesktopCard.busyTorrentTip </v-subheader-stub>
+      <v-subheader-stub> modals.settings.vueTorrent.desktopCard.busyTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">
@@ -48,7 +48,7 @@ exports[`DesktopCard > render correctly 1`] = `
       </v-row-stub>
     </v-col-stub>
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
-      <v-subheader-stub> modals.settings.pageVueTorrent.pageDesktopCard.completedTorrentTip </v-subheader-stub>
+      <v-subheader-stub> modals.settings.vueTorrent.desktopCard.completedTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <draggable-stub list=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" clone=\\"[Function]\\" element=\\"div\\" tag=\\"tbody\\">

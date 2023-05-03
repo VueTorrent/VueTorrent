@@ -4,7 +4,7 @@ exports[`MobileCard > render correctly 1`] = `
 "<v-card-stub loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
   <v-row-stub tag=\\"div\\" dense=\\"true\\">
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
-      <v-subheader-stub> modals.settings.pageVueTorrent.pageMobileCard.busyTorrentTip </v-subheader-stub>
+      <v-subheader-stub> modals.settings.vueTorrent.mobileCard.busyTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
@@ -24,7 +24,7 @@ exports[`MobileCard > render correctly 1`] = `
       </v-row-stub>
     </v-col-stub>
     <v-col-stub cols=\\"12\\" md=\\"6\\" tag=\\"div\\">
-      <v-subheader-stub> modals.settings.pageVueTorrent.pageMobileCard.completedTorrentTip </v-subheader-stub>
+      <v-subheader-stub> modals.settings.vueTorrent.mobileCard.completedTorrentTip </v-subheader-stub>
       <v-row-stub tag=\\"div\\" dense=\\"true\\">
         <v-list-stub tag=\\"div\\" flat=\\"true\\" class=\\"ma-2 pa-0\\">
           <vdashboarditem-stub property=\\"[object Object]\\"></vdashboarditem-stub>
