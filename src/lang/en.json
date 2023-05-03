@@ -209,10 +209,12 @@
         "VueTorrent": "VueTorrent",
         "downloads": "Downloads",
         "connection": "Connection",
+        "speed": "Speed",
         "bittorrent": "BitTorrent",
         "rss": "RSS",
         "webUI": "WebUI",
-        "tagsAndCategories": "Tags & Categories"
+        "tagsAndCategories": "Tags & Categories",
+        "advanced": "Advanced"
       },
       "vueTorrent": {
         "tabName": {
