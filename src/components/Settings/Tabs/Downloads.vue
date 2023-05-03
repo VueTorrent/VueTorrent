@@ -178,7 +178,7 @@
         :label="$t('modals.settings.pageDownloads.saveManagement.mailNotification.sslEnabled')"
       />
     </v-list-item>
-    <v-list-item>
+    <v-list-item class="mb-5">
       <v-checkbox
         :disabled="!settings.mail_notification_enabled"
         v-model="settings.mail_notification_auth_enabled"

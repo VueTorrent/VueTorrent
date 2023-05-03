@@ -5,30 +5,30 @@
     </v-list-item>
 
     <v-divider insert />
-    <v-subheader>{{ $t('modals.settings.pageConnection.listeningSubHeader') }}</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageConnection.listeningPort.subheader') }}</v-subheader>
 
     <v-list-item>
       <v-row>
         <v-col cols="auto">
-          <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.incomingConnectionPort')" />
+          <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.listeningPort.incomingConnectionPort')" />
         </v-col>
         <v-col cols="auto">
-          <v-btn @click="generateRandomPort">Random</v-btn>
+          <v-btn @click="generateRandomPort">{{ $t('modals.settings.pageConnection.listeningPort.randomPort') }}</v-btn>
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="settings.upnp" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.useUPnP')" />
+      <v-checkbox v-model="settings.upnp" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.listeningPort.useUPnP')" />
     </v-list-item>
 
     <v-divider insert />
-    <v-subheader>{{ $t('modals.settings.pageConnection.subHeader') }}</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageConnection.connectionLimits.subheader') }}</v-subheader>
 
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-checkbox v-model="max_conn_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.globalMaxConnection')" />
+          <v-checkbox v-model="max_conn_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.connectionLimits.globalMaxConnection')" />
         </v-col>
         <v-col cols="4">
           <v-text-field :disabled="!max_conn_enabled" v-model="settings.max_connec" type="number" class="ms-2" dense hide-details />
@@ -39,7 +39,7 @@
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-checkbox v-model="max_conn_per_torrent_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.perTorrentMaxConnection')" />
+          <v-checkbox v-model="max_conn_per_torrent_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.connectionLimits.perTorrentMaxConnection')" />
         </v-col>
         <v-col cols="4">
           <v-text-field :disabled="!max_conn_per_torrent_enabled" v-model="settings.max_connec_per_torrent" type="number" class="ms-2" dense hide-details />
@@ -50,7 +50,7 @@
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-checkbox v-model="max_uploads_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.globalMaxUploadSlots')" />
+          <v-checkbox v-model="max_uploads_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.connectionLimits.globalMaxUploadSlots')" />
         </v-col>
         <v-col cols="4">
           <v-text-field :disabled="!max_uploads_enabled" v-model="settings.max_uploads" type="number" class="ms-2" dense hide-details />
@@ -61,7 +61,7 @@
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-checkbox v-model="max_uploads_per_torrent_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.perTorrentMaxUploadSlots')" />
+          <v-checkbox v-model="max_uploads_per_torrent_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.connectionLimits.perTorrentMaxUploadSlots')" />
         </v-col>
         <v-col cols="4">
           <v-text-field :disabled="!max_uploads_per_torrent_enabled" v-model="settings.max_uploads_per_torrent" type="number" class="ms-2" dense hide-details />
@@ -70,7 +70,7 @@
     </v-list-item>
 
     <v-divider insert />
-    <v-subheader>{{ $t('modals.settings.pageConnection.proxySubHeader') }}</v-subheader>
+    <v-subheader>{{ $t('modals.settings.pageConnection.proxy.subheader') }}</v-subheader>
 
     <v-list-item>
       <v-row class="mx-1 pb-4">
@@ -78,47 +78,76 @@
           <v-select v-model="settings.proxy_type" outlined dense hide-details small-chips :items="proxyTypes" />
         </v-col>
         <v-col cols="4" class="pa-0">
-          <v-text-field :disabled="settings.proxy_type === 0" v-model="settings.proxy_ip" class="mr-1" outlined dense hide-details :label="$t('modals.settings.pageConnection.proxyHost')" />
+          <v-text-field :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_ip" class="mr-1" outlined dense hide-details :label="$t('modals.settings.pageConnection.proxy.host')" />
         </v-col>
         <v-col cols="3" class="pa-0">
-          <v-text-field :disabled="settings.proxy_type === 0" v-model="settings.proxy_port" class="ml-1" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.proxyPort')" />
+          <v-text-field :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_port" class="ml-1" outlined dense type="number" hide-details :label="$t('modals.settings.pageConnection.proxy.port')" />
         </v-col>
       </v-row>
     </v-list-item>
 
-    <!-- TODO -->
+    <v-list-item>
+      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_peer_connections" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxy.peerConnections')" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4" v-model="settings.proxy_torrents_only" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxy.torrentOnly')" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4" v-model="settings.proxy_hostname_lookup" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxy.hostNameLookup')" />
+    </v-list-item>
+
+    <v-list-item class="mb-5">
+      <v-checkbox
+          :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+          v-model="settings.proxy_auth_enabled"
+          hide-details
+          class="ma-0 pa-0"
+          :label="$t('modals.settings.pageConnection.authEnabled')"
+      />
+      <v-card flat class="ms-6">
+        <v-text-field
+            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+            v-model="settings.proxy_username"
+            dense
+            hide-details
+            :label="$t('modals.settings.pageConnection.proxy.auth.username')"
+        />
+        <v-text-field
+            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled"
+            v-model="settings.proxy_password"
+            dense
+            hide-details
+            :label="$t('modals.settings.pageConnection.proxy.auth.password')"
+        />
+      </v-card>
+    </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="settings.proxy_peer_connections" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxyPeerConnections')" />
+      <h5>{{ $t('modals.settings.pageConnection.proxy.auth.tip') }}</h5>
+    </v-list-item>
+
+    <v-divider insert />
+    <v-subheader>{{ $t('modals.settings.pageConnection.ipFiltering.subheader') }}</v-subheader>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.ip_filter_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.ipFiltering.filterPath')" />
+      <v-text-field :disabled="!settings.ip_filter_enabled" v-model="settings.ip_filter_path" class="ms-2" dense hide-details />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.ip_filter_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.ipFiltering.applyToTrackers')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-subheader>{{ $t('modals.settings.pageConnection.ipFiltering.bannedIps') }}</v-subheader>
     </v-list-item>
     <v-list-item>
-      <v-checkbox v-model="settings.proxy_torrents_only" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxyTorrentOnly')" />
-    </v-list-item>
-    <v-divider />
-    <v-list-item>
-      <v-checkbox v-model="settings.proxy_auth_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageConnection.proxyAuth')" />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field
-        v-model="settings.proxy_username"
-        class="mb-2"
-        outlined
-        dense
-        hide-details
-        :disabled="!settings.proxy_auth_enabled"
-        :label="$t('modals.settings.pageWebUI.username')"
-      />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field
-        v-model="settings.proxy_password"
-        class="mb-2"
-        outlined
-        dense
-        hide-details
-        type="password"
-        :disabled="!settings.proxy_auth_enabled"
-        :label="$t('modals.settings.pageWebUI.password')"
+      <v-textarea
+          v-model="settings.banned_IPs"
+          outlined
+          required
+          auto-grow
+          clearable
       />
     </v-list-item>
   </v-card>
@@ -131,6 +160,11 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: 'Connection',
+  computed: {
+    ProxyType() {
+      return ProxyType
+    }
+  },
   mixins: [SettingsTab, FullScreenModal],
   data() {
     return {
@@ -140,22 +174,22 @@ export default defineComponent({
           text: '(None)'
         },
         {
-          value: ProxyType.HTTP,
-          text: 'HTTP'
+          value: ProxyType.SOCKS4,
+          text: 'SOCKS4'
         },
         {
           value: ProxyType.SOCKS5,
           text: 'SOCKS5'
         },
         {
-          value: ProxyType.SOCKS4,
-          text: 'SOCKS4'
+          value: ProxyType.HTTP,
+          text: 'HTTP'
         }
       ],
       bittorrent_protocol: [
-        { value: BitTorrentProtocol.TCP_uTP, text: 'TCP and μTP' },
-        { value: BitTorrentProtocol.TCP, text: 'TCP' },
-        { value: BitTorrentProtocol.uTP, text: 'μTP' }
+        { value: BitTorrentProtocol.TCP_uTP, text: this.$t('enums.bittorrentProtocols.tcp_utp') },
+        { value: BitTorrentProtocol.TCP, text: this.$t('enums.bittorrentProtocols.tcp') },
+        { value: BitTorrentProtocol.uTP, text: this.$t('enums.bittorrentProtocols.utp') }
       ],
       max_conn_enabled: false,
       max_conn_per_torrent_enabled: false,

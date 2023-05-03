@@ -323,20 +323,39 @@
       },
       "pageConnection": {
         "protocol": "Peer connection protocol",
-        "listeningSubHeader": "Listening Port",
-        "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router",
-        "incomingConnectionPort": "Port used for incoming connections",
-        "subHeader": "Connection Limits",
-        "globalMaxConnection": "Global maximum number of connections",
-        "perTorrentMaxConnection": "Maximum number of connections per torrent",
-        "globalMaxUploadSlots": "Global maximum number of upload slots",
-        "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent",
-        "proxySubHeader": "Proxy Server",
-        "proxyHost": "Host",
-        "proxyPort": "Port",
-        "proxyPeerConnections": "Use proxy for peer connections",
-        "proxyTorrentOnly": "Use proxy only for torrents",
-        "proxyAuth": "Authentication"
+        "listeningPort": {
+          "subheader": "Listening Port",
+          "incomingConnectionPort": "Port used for incoming connections",
+          "randomPort": "Random Port",
+          "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router"
+        },
+        "connectionLimits": {
+          "subheader": "Connection Limits",
+          "globalMaxConnection": "Global maximum number of connections",
+          "perTorrentMaxConnection": "Maximum number of connections per torrent",
+          "globalMaxUploadSlots": "Global maximum number of upload slots",
+          "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent"
+        },
+        "proxy": {
+          "subheader": "Proxy Server",
+          "host": "Host",
+          "port": "Port",
+          "peerConnections": "Use proxy for peer connections",
+          "torrentOnly": "Use proxy only for torrents",
+          "hostNameLookup": "Use proxy for hostname lookup",
+          "auth": {
+            "subtitle": "Authentication",
+            "username": "Username",
+            "password": "Password",
+            "tip": "Info: The password is saved unencrypted"
+          }
+        },
+        "ipFiltering": {
+          "subheader": "IP Filtering",
+          "filterPath": "Filter path (.dat, .p2p, .p2b)",
+          "applyToTrackers": "Apply to trackers",
+          "bannedIps": "Manually banned IP addresses (one on each line)"
+        }
       },
       "pageBittorrent": {
         "subHeaderPrivacy": "Privacy",
@@ -637,6 +656,11 @@
       "none": "None",
       "metadataReceived": "Metadata Received",
       "filesChecked": "Files Checked"
+    },
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP and μTP",
+      "tcp": "TCP",
+      "utp": "μTP"
     }
   }
 }
