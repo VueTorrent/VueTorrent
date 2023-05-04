@@ -53,6 +53,9 @@ export default {
     state.authenticated = payload
   },
   updateMainData: async (state: StoreState) => {
+    if (state.isUpdatingMainData) return
+    state.isUpdatingMainData = true
+
     try {
       const response = await qbit.getMainData(state.rid || undefined)
       state.rid = response.rid || undefined
@@ -74,6 +77,8 @@ export default {
         state.authenticated = false
         router.push({ name: 'login' })
       }
+    } finally {
+      state.isUpdatingMainData = false
     }
   },
   FETCH_SETTINGS: async (state: StoreState, settings: AppPreferences) => {
