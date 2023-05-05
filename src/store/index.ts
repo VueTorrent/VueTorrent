@@ -88,6 +88,7 @@ export default new Vuex.Store<StoreState>({
     download_data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     filteredTorrentsCount: 0,
     intervals: [],
+    isUpdatingMainData: false,
     latestSelectedTorrent: -1,
     modals: [],
     rid: 0,
