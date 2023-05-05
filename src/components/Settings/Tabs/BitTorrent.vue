@@ -155,8 +155,7 @@
           </v-subheader>
         </v-col>
         <v-col>
-          <v-select v-if="settings.max_ratio_enabled || settings.max_seeding_time_enabled" v-model="settings.max_ratio_act" height="1" flat dense hide-details outlined :items="thenTypes" />
-          <v-text-field v-else :disabled="true" v-model="settings.max_ratio_act"  />
+          <v-select :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled" v-model="settings.max_ratio_act" height="1" flat dense hide-details outlined :items="thenTypes" />
         </v-col>
       </v-row>
     </v-list-item>

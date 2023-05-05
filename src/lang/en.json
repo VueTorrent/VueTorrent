@@ -361,7 +361,26 @@
         }
       },
       "speed": {
-
+        "subheader": {
+          "global": "Global Rate Limits",
+          "alternative": "Alternative Rate Limits",
+          "settings": "Rate Limits Settings"
+        },
+        "upload": "Upload (in B/s)",
+        "download": "Download (in B/s)",
+        "tip": "0 means unlimited",
+        "scheduler": {
+          "subheader": "Schedule the use of alternative rate limits",
+          "from": "From",
+          "to": "To",
+          "selectButtonLabel": "Select time",
+          "when": "When"
+        },
+        "settings": {
+          "applyToUtp": "Apply rate limit to µTP protocol",
+          "applyToTransportOverhead": "Apply rate limit to transport overhead",
+          "applyToPeersOnLan": "Apply rate limit to peers on LAN"
+        }
       },
       "bittorrent": {
         "privacy": {
@@ -689,6 +708,18 @@
       "removeTorrent": "Remove torrent",
       "removeTorrentAndFiles": "Remove torrent and its files",
       "torrentSuperseeding": "Enable super seeding for torrent"
+    },
+    "scheduler": {
+      "everyDay": "Every day",
+      "everyWeekday": "Weekdays",
+      "everyWeekend": "Weekends",
+      "everyMonday": "Monday",
+      "everyTuesday": "Tuesday",
+      "everyWednesday": "Wednesday",
+      "everyThursday": "Thursday",
+      "everyFriday": "Friday",
+      "everySaturday": "Saturday",
+      "everySunday": "Sunday"
     }
   }
 }

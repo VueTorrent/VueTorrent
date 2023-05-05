@@ -281,7 +281,7 @@ export default interface AppPreferences {
   torrent_content_layout: ContentLayout
   /** Default stop condition to select when adding a new torrent */
   torrent_stop_condition: StopCondition
-  /** Global upload speed limit in KiB/s; -1 means no limit is applied */
+  /** Global upload speed limit in KiB/s; 0 means no limit is applied */
   up_limit: number
   /** Upload choking algorithm used (see list of possible values below) */
   upload_choking_algorithm: UploadChokingAlgorithm
