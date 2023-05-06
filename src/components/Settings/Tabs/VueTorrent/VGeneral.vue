@@ -135,36 +135,36 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="8" sm="8" md="10">
+        <v-col cols="8" md="10">
           <p class="subtitle-1 mt-2">
             {{ $t('modals.settings.vueTorrent.general.language') }}
           </p>
         </v-col>
-        <v-col cols="4" sm="4" md="2">
+        <v-col cols="4" md="2">
           <v-select v-model="webuiSettings.lang" flat solo dense hide-details background-color="background" class="rounded-xl" :items="languages" item-text="caption" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="8" sm="8" md="10">
+        <v-col cols="8" md="10">
           <p class="subtitle-1 mt-2">
             {{ $t('modals.settings.vueTorrent.general.paginationSize') }}
           </p>
         </v-col>
-        <v-col cols="4" sm="4" md="2">
+        <v-col cols="4" md="2">
           <v-select v-model="webuiSettings.paginationSize" flat solo dense hide-details background-color="background" class="rounded-xl" :items="paginationSizes" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="8" sm="8" md="10">
+        <v-col cols="8" md="10">
           <p class="subtitle-1 mt-2">
             {{ $t('modals.settings.vueTorrent.general.vueTorrentTitle') }}
           </p>
         </v-col>
-        <v-col cols="4" sm="4" md="2">
+        <v-col cols="4" md="2">
           <v-select v-model="webuiSettings.title" flat solo dense hide-details background-color="background" class="rounded-xl" :items="titleOptions" />
         </v-col>
       </v-row>
@@ -192,12 +192,12 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="10" sm="10" md="11">
+        <v-col cols="10" md="11">
           <p class="subtitle-1">
             {{ $t('modals.settings.vueTorrent.general.currentVersion') }}
           </p>
         </v-col>
-        <v-col cols="2" sm="2" md="1">
+        <v-col cols="2" md="1">
           <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">
             <p class="mb-2">{{ version }}</p>
           </a>
@@ -206,12 +206,12 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="10" sm="10" md="11">
+        <v-col cols="10" md="11">
           <p class="subtitle-1">
             {{ $t('modals.settings.vueTorrent.general.qbittorrentVersion') }}
           </p>
         </v-col>
-        <v-col cols="2" sm="2" md="1">
+        <v-col cols="2" md="1">
           <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
             <p class="mb-2">
               {{ Qbitversion }}
@@ -222,12 +222,12 @@
     </v-list-item>
     <v-list-item>
       <v-row dense>
-        <v-col cols="7" sm="7" md="10">
+        <v-col cols="7" md="10">
           <p class="subtitle-1">
             {{ $t('modals.settings.vueTorrent.general.registerMagnetHeader') }}
           </p>
         </v-col>
-        <v-col cols="4" sm="4" md="2">
+        <v-col cols="4" md="2">
           <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.vueTorrent.general.registerMagnetButton') }}</v-btn>
         </v-col>
       </v-row>

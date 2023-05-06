@@ -216,90 +216,97 @@
     <v-divider />
     <v-subheader>{{ $t('modals.settings.downloads.saveManagement.runExternalProgram.subheader') }}</v-subheader>
 
-    <v-list-item>
-      <v-checkbox
-        v-model="settings.autorun_on_torrent_added_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedEnabled')"
-      />
-    </v-list-item>
-    <v-list-item v-if="settings.autorun_on_torrent_added_enabled">
-      <v-text-field
-        v-model="settings.autorun_on_torrent_added_program"
-        class="mb-2"
-        outlined
-        dense
-        :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedLabel')"
-        hide-details
-      />
-    </v-list-item>
-    <v-list-item>
-      <v-checkbox
-        v-model="settings.autorun_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedEnabled')"
-      />
-    </v-list-item>
-    <v-list-item v-if="settings.autorun_enabled">
-      <v-text-field
-        v-model="settings.autorun_program"
-        class="mb-2"
-        outlined
-        dense
-        :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedLabel')"
-        hide-details
-      />
-    </v-list-item>
-    <v-list-item class="mb-4">
-      <v-card flat color="grey--text selected">
-        <v-card-text>
-          <h5>
-            {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamTitle') }}
-          </h5>
-          <ul>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamN') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamL') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamG') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamF') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamR') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamD') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamC') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamZ') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamT') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamI') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamJ') }}
-            </li>
-            <li>
-              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamK') }}
-            </li>
-          </ul>
-          <h5>{{ $t('modals.settings.downloads.saveManagement.runExternalProgram.tip') }}</h5>
-        </v-card-text>
-      </v-card>
-    </v-list-item>
+    <v-row class="mb-3">
+      <v-col cols="12" md="6">
+        <v-list-item>
+          <v-checkbox
+              v-model="settings.autorun_on_torrent_added_enabled"
+              hide-details
+              class="ma-0 pa-0"
+              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedEnabled')"
+          />
+        </v-list-item>
+        <v-list-item>
+          <v-text-field
+              :disabled="!settings.autorun_on_torrent_added_enabled"
+              v-model="settings.autorun_on_torrent_added_program"
+              class="mb-2"
+              outlined
+              dense
+              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedLabel')"
+              hide-details
+          />
+        </v-list-item>
+        <v-list-item>
+          <v-checkbox
+              v-model="settings.autorun_enabled"
+              hide-details
+              class="ma-0 pa-0"
+              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedEnabled')"
+          />
+        </v-list-item>
+        <v-list-item>
+          <v-text-field
+              :disabled="!settings.autorun_enabled"
+              v-model="settings.autorun_program"
+              class="mb-2"
+              outlined
+              dense
+              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedLabel')"
+              hide-details
+          />
+        </v-list-item>
+      </v-col>
+
+      <v-col cols="12" md="6">
+        <v-card flat color="grey--text selected">
+          <v-card-text>
+            <h5>
+              {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamTitle') }}
+            </h5>
+            <ul>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamN') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamL') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamG') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamF') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamR') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamD') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamC') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamZ') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamT') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamI') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamJ') }}
+              </li>
+              <li>
+                {{ $t('modals.settings.downloads.saveManagement.runExternalProgram.supportParamK') }}
+              </li>
+            </ul>
+            <h5>{{ $t('modals.settings.downloads.saveManagement.runExternalProgram.tip') }}</h5>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 

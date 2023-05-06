@@ -1,14 +1,14 @@
 <template>
   <v-card flat>
     <v-row class="mb-0">
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.settings.speed.subheader.global') }}</v-subheader>
 
         <v-row class="mx-1">
-          <v-col cols="6">
+          <v-col cols="12" md="6">
             <v-text-field v-model="settings.up_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.upload')" />
           </v-col>
-          <v-col cols="6">
+          <v-col cols="12" md="6">
             <v-text-field v-model="settings.dl_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.download')" />
           </v-col>
         </v-row>
@@ -20,14 +20,14 @@
 
       <v-divider vertical />
 
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <v-subheader>{{ $t('modals.settings.speed.subheader.alternative') }}</v-subheader>
 
         <v-row class="mx-1">
-          <v-col cols="6">
+          <v-col cols="12" md="6">
             <v-text-field v-model="settings.alt_up_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.upload')" />
           </v-col>
-          <v-col cols="6">
+          <v-col cols="12" md="6">
             <v-text-field v-model="settings.alt_dl_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.download')" />
           </v-col>
         </v-row>

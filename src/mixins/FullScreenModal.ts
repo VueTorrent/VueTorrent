@@ -1,18 +1,23 @@
-import { Component, Vue, Watch } from 'vue-property-decorator'
+import { defineComponent } from 'vue'
 
-@Component
-export default class FullScreenModal extends Vue {
-  tab!: string | null
-
-  get phoneLayout() {
-    return this.$vuetify.breakpoint.xsOnly
+export default defineComponent({
+  name: 'FullScreenModal',
+  data() {
+    return {
+      tab: null as string | null
+    }
+  },
+  computed: {
+    phoneLayout() {
+      return this.$vuetify.breakpoint.xsOnly
+    },
+    dialogWidth() {
+      return this.phoneLayout ? '100%' : '80%'
+    }
+  },
+  watch: {
+    dialog(visible: boolean) {
+      if (!visible) this.tab = null
+    }
   }
-  get dialogWidth() {
-    return this.phoneLayout ? '100%' : '80%'
-  }
-
-  @Watch('dialog')
-  onDialogChanged(visible: boolean) {
-    if (!visible) this.tab = null
-  }
-}
+})
