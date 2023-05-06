@@ -496,7 +496,44 @@
         "subHeaderCategories": "Available Categories:"
       },
       "advanced": {
-
+        "openDoc": "Open documentation",
+        "qbittorrent": {
+          "subheader": "qBittorrent Section",
+          "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
+          "allocatedRamHint": "in MiB",
+          "networkInterfaces": {
+            "label": "Network interface",
+            "any": "Any interface"
+          },
+          "ipAddress": {
+            "label": "Optional IP address to bind to",
+            "all": "All addresses",
+            "allIPv4": "All IPv4 addresses",
+            "allIPv6": "All IPv6 addresses"
+          },
+          "saveInterval": "Save resume data interval",
+          "recheckOnCompletion": "Recheck torrents on completion",
+          "refreshInterval": "Refresh interval",
+          "resolveCountries": "Resolve peer countries",
+          "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
+          "enableEmbeddedTracker": "Enable embedded tracker",
+          "embeddedTrackerPort": "Embedded tracker port",
+          "embeddedTrackerPortForwarding": "Enable port forwarding for embedded tracker"
+        },
+        "libtorrent": {
+          "subheader": "libtorrent Section",
+          "asyncIoThreads": "Asynchronous I/O threads",
+          "hashingThreads": "Hashing threads (libtorrent >= 2.0)",
+          "filePoolSize": "File pool size",
+          "outstandingMemory": "Outstanding memory when checking torrents",
+          "outstandingMemoryHint": "In MiB",
+          "diskCache": "Disk cache (libtorrent < 2.0)",
+          "diskCacheHint": "In MiB",
+          "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
+          "diskCacheExpiryHint": "In seconds",
+          "diskQueueSize": "Disk queue size",
+          "diskQueueSizeHint": "In KiB"
+        }
       }
     },
     "shareLimit": {
