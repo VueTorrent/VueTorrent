@@ -439,20 +439,56 @@
         }
       },
       "webUI": {
-        "useAlternativeWebUI": "Use Alternative WebUI",
-        "filesLocation": "Files location",
-        "webUserInterface": "Web User Interface (Remote Control)",
-        "ipAddress": "IP Address:",
-        "port": "Port",
-        "authentication": "Authentication",
-        "username": "Username",
-        "password": "Password",
-        "maxAttempts": "Max attempts",
-        "banDuration": "Ban Duration (seconds)",
-        "sessionTimeout": "Session timeout (seconds)",
-        "bypassAuthenticationForClientsOnLocalhost": "Bypass authentication for clients on localhost",
-        "bypassAuthenticationForClientsInWhitelisted": "Bypass authentication for clients in whitelisted IP subnets",
-        "whiteListExample": "Example: 172.17.32.0/24, fdff:ffff:c8::/40"
+        "interface": {
+          "subheader": "Web User Interface (Remote Control)",
+          "ipAddress": "IP Address",
+          "port": "Port",
+          "useAlternativeWebUI": "Use Alternative WebUI",
+          "filesLocation": "Files location"
+        },
+        "authentication": {
+          "subheader": "Authentication",
+          "username": "Username",
+          "password": "Password",
+          "passwordPlaceholder": "(unchanged)",
+          "bypassLocalhost": "Bypass authentication for clients on localhost",
+          "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
+          "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "Max attempts",
+          "banDuration": "Ban Duration (seconds)",
+          "sessionTimeout": "Session timeout (seconds)"
+        },
+        "https": {
+          "subheader": "Use HTTPS",
+          "certificate": "Certificate",
+          "key": "Key",
+          "tip": "Information about certificates"
+        },
+        "security": {
+          "subheader": "Security",
+          "clickjacking": "Enable clickjacking protection",
+          "csrf": "Enable Cross-Site Request Forgery (CSRF) protection",
+          "secureCookie": "Enable cookie secure flag (requires HTTPS)",
+          "hostHeaderValidation": "Enable Host header validation",
+          "serverDomains": "Server Domains"
+        },
+        "customHeaders": "Add custom HTTP headers",
+        "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
+        "customHeadersHint": "one per line",
+        "reverseProxySupport": "Enable reverse proxy support",
+        "proxiesList": "Trusted proxies list",
+        "proxiesListHint": "Seperate IPs with semicolon ( ; )",
+        "dynDns": {
+          "subheader": "Update my dynamic domain name",
+          "providers": {
+            "dynDns":"DynDNS",
+            "noIp": "NO-IP"
+          },
+          "registerBtn": "Register",
+          "domainName": "Domain name",
+          "username": "Username",
+          "password": "Password"
+        }
       },
       "tagsAndCategories": {
         "btnCreateNew": "Create new",

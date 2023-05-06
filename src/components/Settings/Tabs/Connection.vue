@@ -144,6 +144,7 @@
     <v-list-item>
       <v-subheader>{{ $t('modals.settings.connection.ipFiltering.bannedIps') }}</v-subheader>
     </v-list-item>
+
     <v-list-item>
       <v-textarea
           v-model="settings.banned_IPs"
@@ -224,7 +225,7 @@ export default defineComponent({
   },
   methods: {
     generateRandomPort() {
-      //source: https://github.com/qbittorrent/qBittorrent/blob/d83b2a61311b0dc3bc31ee52d1b9eaac715c3cdf/src/webui/www/private/views/preferences.html#L1729-L1734
+      // source: https://github.com/qbittorrent/qBittorrent/blob/d83b2a61311b0dc3bc31ee52d1b9eaac715c3cdf/src/webui/www/private/views/preferences.html#L1729-L1734
       const min = 1024;
       const max = 65535;
       this.settings.listen_port = Math.floor(Math.random() * (max - min + 1) + min)
