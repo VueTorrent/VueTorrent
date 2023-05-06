@@ -34,7 +34,7 @@ import Modal from '@/mixins/Modal'
 import { mdiFile } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
-import {defineComponent} from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'RenameModal',

@@ -114,12 +114,7 @@
     <v-divider />
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.excluded_file_names_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.downloads.saveManagement.excludedFileNames.label')"
-      />
+      <v-checkbox v-model="settings.excluded_file_names_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.downloads.saveManagement.excludedFileNames.label')" />
     </v-list-item>
     <v-list-item>
       <v-textarea
@@ -137,12 +132,7 @@
     <v-divider />
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.mail_notification_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.downloads.saveManagement.mailNotification.enabled')"
-      />
+      <v-checkbox v-model="settings.mail_notification_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.downloads.saveManagement.mailNotification.enabled')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
@@ -203,11 +193,11 @@
             :label="$t('modals.settings.downloads.saveManagement.mailNotification.username')"
           />
           <v-text-field
-              :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled"
-              v-model="settings.mail_notification_password"
-              dense
-              hide-details
-              :label="$t('modals.settings.downloads.saveManagement.mailNotification.password')"
+            :disabled="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled"
+            v-model="settings.mail_notification_password"
+            dense
+            hide-details
+            :label="$t('modals.settings.downloads.saveManagement.mailNotification.password')"
           />
         </v-col>
       </v-row>
@@ -220,40 +210,40 @@
       <v-col cols="12" md="6">
         <v-list-item>
           <v-checkbox
-              v-model="settings.autorun_on_torrent_added_enabled"
-              hide-details
-              class="ma-0 pa-0"
-              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedEnabled')"
+            v-model="settings.autorun_on_torrent_added_enabled"
+            hide-details
+            class="ma-0 pa-0"
+            :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedEnabled')"
           />
         </v-list-item>
         <v-list-item>
           <v-text-field
-              :disabled="!settings.autorun_on_torrent_added_enabled"
-              v-model="settings.autorun_on_torrent_added_program"
-              class="mb-2"
-              outlined
-              dense
-              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedLabel')"
-              hide-details
+            :disabled="!settings.autorun_on_torrent_added_enabled"
+            v-model="settings.autorun_on_torrent_added_program"
+            class="mb-2"
+            outlined
+            dense
+            :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onAddedLabel')"
+            hide-details
           />
         </v-list-item>
         <v-list-item>
           <v-checkbox
-              v-model="settings.autorun_enabled"
-              hide-details
-              class="ma-0 pa-0"
-              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedEnabled')"
+            v-model="settings.autorun_enabled"
+            hide-details
+            class="ma-0 pa-0"
+            :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedEnabled')"
           />
         </v-list-item>
         <v-list-item>
           <v-text-field
-              :disabled="!settings.autorun_enabled"
-              v-model="settings.autorun_program"
-              class="mb-2"
-              outlined
-              dense
-              :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedLabel')"
-              hide-details
+            :disabled="!settings.autorun_enabled"
+            v-model="settings.autorun_program"
+            class="mb-2"
+            outlined
+            dense
+            :label="$t('modals.settings.downloads.saveManagement.runExternalProgram.onFinishedLabel')"
+            hide-details
           />
         </v-list-item>
       </v-col>

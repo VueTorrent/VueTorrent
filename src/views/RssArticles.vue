@@ -36,7 +36,7 @@
               </v-col>
               <v-col>
                 <v-btn style="float: right" small elevation="3" @click="markAllAsRead">
-                  {{  $t('modals.rss.markAllAsRead') }}
+                  {{ $t('modals.rss.markAllAsRead') }}
                 </v-btn>
               </v-col>
             </v-row>

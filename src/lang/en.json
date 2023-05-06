@@ -481,7 +481,7 @@
         "dynDns": {
           "subheader": "Update my dynamic domain name",
           "providers": {
-            "dynDns":"DynDNS",
+            "dynDns": "DynDNS",
             "noIp": "NO-IP"
           },
           "registerBtn": "Register",

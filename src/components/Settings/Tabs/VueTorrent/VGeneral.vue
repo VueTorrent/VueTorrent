@@ -6,65 +6,35 @@
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.showCurrentSpeed"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.currentSpeed')"
-          />
+          <v-switch v-model="webuiSettings.showCurrentSpeed" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.currentSpeed')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.showSpeedGraph"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.speedGraph')"
-          />
+          <v-switch v-model="webuiSettings.showSpeedGraph" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.speedGraph')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.showAlltimeStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.allTimeStats')"
-          />
+          <v-switch v-model="webuiSettings.showAlltimeStat" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.allTimeStats')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.showSessionStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.sessionStats')"
-          />
+          <v-switch v-model="webuiSettings.showSessionStat" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.sessionStats')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.showFreeSpace"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.freeSpace')"
-          />
+          <v-switch v-model="webuiSettings.showFreeSpace" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.freeSpace')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -84,26 +54,14 @@
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.rightDrawer"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.rightDrawer')"
-          />
+          <v-switch v-model="webuiSettings.rightDrawer" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.rightDrawer')" />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-switch
-            v-model="webuiSettings.topPagination"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.vueTorrent.general.topPagination')"
-          />
+          <v-switch v-model="webuiSettings.topPagination" class="v-input--reverse pa-0 ma-0" hide-details inset :label="$t('modals.settings.vueTorrent.general.topPagination')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -311,12 +269,12 @@ export default {
     },
     registerMagnetHandler() {
       if (typeof navigator.registerProtocolHandler !== 'function') {
-        this.$toast.error(this.$t("toast.magnetHandlerNotSupported").toString());
-        return;
+        this.$toast.error(this.$t('toast.magnetHandlerNotSupported').toString())
+        return
       }
 
       const templateUrl = location.href.replace('/settings', '/download=%s')
-      navigator.registerProtocolHandler('magnet', templateUrl);
+      navigator.registerProtocolHandler('magnet', templateUrl)
     }
   }
 }

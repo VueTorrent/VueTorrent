@@ -36,7 +36,7 @@
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
-import Vue, {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'FeedForm',
@@ -77,7 +77,7 @@ export default defineComponent({
     },
     edit() {
       qbit.editFeed(this.initialFeed.name, this.feed.name)
-      Vue.$toast.success(this.$t('toast.feedSaved'))
+      this.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
     },
     handleKeyboardShortcut(e: KeyboardEvent) {

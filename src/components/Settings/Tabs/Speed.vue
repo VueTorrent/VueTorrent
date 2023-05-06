@@ -14,7 +14,9 @@
         </v-row>
 
         <v-list-item>
-          <h5><i>{{ $t('modals.settings.speed.tip') }}</i></h5>
+          <h5>
+            <i>{{ $t('modals.settings.speed.tip') }}</i>
+          </h5>
         </v-list-item>
       </v-col>
 
@@ -33,7 +35,9 @@
         </v-row>
 
         <v-list-item>
-          <h5><i>{{ $t('modals.settings.speed.tip') }}</i></h5>
+          <h5>
+            <i>{{ $t('modals.settings.speed.tip') }}</i>
+          </h5>
         </v-list-item>
       </v-col>
     </v-row>
@@ -41,12 +45,7 @@
     <v-divider />
 
     <v-list-item>
-      <v-checkbox
-          v-model="settings.scheduler_enabled"
-          hide-details
-          class="ma-0 pa-0"
-          :label="$t('modals.settings.speed.scheduler.subheader')"
-      />
+      <v-checkbox v-model="settings.scheduler_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.speed.scheduler.subheader')" />
     </v-list-item>
 
     <v-row class="align-center">
@@ -98,7 +97,18 @@
     </v-row>
 
     <v-list-item>
-      <v-select :disabled="!settings.scheduler_enabled" v-model="settings.scheduler_days" class="mb-5" height="1" flat dense hide-details outlined :items="schedulerOptions" :label="$t('modals.settings.speed.scheduler.when')" />
+      <v-select
+        :disabled="!settings.scheduler_enabled"
+        v-model="settings.scheduler_days"
+        class="mb-5"
+        height="1"
+        flat
+        dense
+        hide-details
+        outlined
+        :items="schedulerOptions"
+        :label="$t('modals.settings.speed.scheduler.when')"
+      />
     </v-list-item>
 
     <v-divider />
@@ -122,7 +132,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { FullScreenModal, SettingsTab } from '@/mixins'
-import {SchedulerDays} from "@/enums/qbit/AppPreferences";
+import { SchedulerDays } from '@/enums/qbit/AppPreferences'
 
 export default defineComponent({
   name: 'Speed',
@@ -175,7 +185,7 @@ export default defineComponent({
         this.scheduler.to.hours = parseInt(hours)
         this.scheduler.to.minutes = parseInt(minutes)
       }
-    },
+    }
   },
   mounted() {
     this.scheduler.from.hours = this.settings.schedule_from_hour

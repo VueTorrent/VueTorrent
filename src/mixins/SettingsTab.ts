@@ -1,7 +1,7 @@
 import { mapGetters } from 'vuex'
 import { defineComponent } from 'vue'
 import qbit from '@/services/qbit'
-import {AppPreferences} from "@/types/qbit/models";
+import { AppPreferences } from '@/types/qbit/models'
 
 export default defineComponent({
   name: 'SettingsTab',

@@ -1,7 +1,16 @@
 <template>
   <v-card flat>
     <v-list-item class="my-5">
-      <v-select v-model="settings.bittorrent_protocol" height="1" flat dense hide-details outlined :items="bittorrent_protocol" :label="$t('modals.settings.connection.protocol')" />
+      <v-select
+        v-model="settings.bittorrent_protocol"
+        height="1"
+        flat
+        dense
+        hide-details
+        outlined
+        :items="bittorrent_protocol"
+        :label="$t('modals.settings.connection.protocol')"
+      />
     </v-list-item>
 
     <v-divider />
@@ -10,7 +19,15 @@
     <v-list-item>
       <v-row>
         <v-col cols="auto">
-          <v-text-field v-model="settings.listen_port" class="mb-2" outlined dense type="number" hide-details :label="$t('modals.settings.connection.listeningPort.incomingConnectionPort')" />
+          <v-text-field
+            v-model="settings.listen_port"
+            class="mb-2"
+            outlined
+            dense
+            type="number"
+            hide-details
+            :label="$t('modals.settings.connection.listeningPort.incomingConnectionPort')"
+          />
         </v-col>
         <v-col cols="auto">
           <v-btn @click="generateRandomPort">{{ $t('modals.settings.connection.listeningPort.randomPort') }}</v-btn>
@@ -61,7 +78,12 @@
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-checkbox v-model="max_uploads_per_torrent_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
+          <v-checkbox
+            v-model="max_uploads_per_torrent_enabled"
+            hide-details
+            class="ma-0 pa-0"
+            :label="$t('modals.settings.connection.connectionLimits.perTorrentMaxUploadSlots')"
+          />
         </v-col>
         <v-col cols="4">
           <v-text-field :disabled="!max_uploads_per_torrent_enabled" v-model="settings.max_uploads_per_torrent" type="number" class="ms-2" dense hide-details />
@@ -78,48 +100,83 @@
           <v-select v-model="settings.proxy_type" height="1" outlined dense hide-details :items="proxyTypes" />
         </v-col>
         <v-col cols="4" class="pa-0">
-          <v-text-field :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_ip" class="mr-1" outlined dense hide-details :label="$t('modals.settings.connection.proxy.host')" />
+          <v-text-field
+            :disabled="settings.proxy_type === ProxyType.DISABLED"
+            v-model="settings.proxy_ip"
+            class="mr-1"
+            outlined
+            dense
+            hide-details
+            :label="$t('modals.settings.connection.proxy.host')"
+          />
         </v-col>
         <v-col cols="3" class="pa-0">
-          <v-text-field :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_port" class="ml-1" outlined dense type="number" hide-details :label="$t('modals.settings.connection.proxy.port')" />
+          <v-text-field
+            :disabled="settings.proxy_type === ProxyType.DISABLED"
+            v-model="settings.proxy_port"
+            class="ml-1"
+            outlined
+            dense
+            type="number"
+            hide-details
+            :label="$t('modals.settings.connection.proxy.port')"
+          />
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED" v-model="settings.proxy_peer_connections" hide-details class="ma-0 pa-0" :label="$t('modals.settings.connection.proxy.peerConnections')" />
+      <v-checkbox
+        :disabled="settings.proxy_type === ProxyType.DISABLED"
+        v-model="settings.proxy_peer_connections"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.connection.proxy.peerConnections')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4" v-model="settings.proxy_torrents_only" hide-details class="ma-0 pa-0" :label="$t('modals.settings.connection.proxy.torrentOnly')" />
+      <v-checkbox
+        :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+        v-model="settings.proxy_torrents_only"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.connection.proxy.torrentOnly')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-checkbox :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4" v-model="settings.proxy_hostname_lookup" hide-details class="ma-0 pa-0" :label="$t('modals.settings.connection.proxy.hostNameLookup')" />
+      <v-checkbox
+        :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+        v-model="settings.proxy_hostname_lookup"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.connection.proxy.hostNameLookup')"
+      />
     </v-list-item>
 
     <v-list-item class="mb-5">
       <v-checkbox
-          :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
-          v-model="settings.proxy_auth_enabled"
-          hide-details
-          class="ma-0 pa-0"
-          :label="$t('modals.settings.connection.proxy.auth.subtitle')"
+        :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+        v-model="settings.proxy_auth_enabled"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.connection.proxy.auth.subtitle')"
       />
       <v-row class="ms-6">
         <v-col>
           <v-text-field
-              :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
-              v-model="settings.proxy_username"
-              dense
-              hide-details
-              class="mb-5"
-              :label="$t('modals.settings.connection.proxy.auth.username')"
+            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+            v-model="settings.proxy_username"
+            dense
+            hide-details
+            class="mb-5"
+            :label="$t('modals.settings.connection.proxy.auth.username')"
           />
           <v-text-field
-              :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled"
-              v-model="settings.proxy_password"
-              dense
-              hide-details
-              :label="$t('modals.settings.connection.proxy.auth.password')"
+            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled"
+            v-model="settings.proxy_password"
+            dense
+            hide-details
+            :label="$t('modals.settings.connection.proxy.auth.password')"
           />
         </v-col>
       </v-row>
@@ -146,23 +203,15 @@
     </v-list-item>
 
     <v-list-item>
-      <v-textarea
-          v-model="settings.banned_IPs"
-          outlined
-          required
-          auto-grow
-          clearable
-          persistent-hint
-          :hint="$t('modals.settings.connection.ipFiltering.bannedIpsHint')"
-      />
+      <v-textarea v-model="settings.banned_IPs" outlined required auto-grow clearable persistent-hint :hint="$t('modals.settings.connection.ipFiltering.bannedIpsHint')" />
     </v-list-item>
   </v-card>
 </template>
 
 <script lang="ts">
-import {FullScreenModal, SettingsTab} from '@/mixins'
-import {BitTorrentProtocol, ProxyType} from '@/enums/qbit/AppPreferences'
-import {defineComponent} from "vue";
+import { FullScreenModal, SettingsTab } from '@/mixins'
+import { BitTorrentProtocol, ProxyType } from '@/enums/qbit/AppPreferences'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Connection',
@@ -226,8 +275,8 @@ export default defineComponent({
   methods: {
     generateRandomPort() {
       // source: https://github.com/qbittorrent/qBittorrent/blob/d83b2a61311b0dc3bc31ee52d1b9eaac715c3cdf/src/webui/www/private/views/preferences.html#L1729-L1734
-      const min = 1024;
-      const max = 65535;
+      const min = 1024
+      const max = 65535
       this.settings.listen_port = Math.floor(Math.random() * (max - min + 1) + min)
     }
   }

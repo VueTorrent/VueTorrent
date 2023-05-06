@@ -15,7 +15,16 @@
     </v-list-item>
 
     <v-list-item>
-      <v-select v-model="settings.encryption" height="1" flat dense hide-details outlined :items="encyptionModeOptions" :label="$t('modals.settings.bittorrent.privacy.encryptionMode')" />
+      <v-select
+        v-model="settings.encryption"
+        height="1"
+        flat
+        dense
+        hide-details
+        outlined
+        :items="encyptionModeOptions"
+        :label="$t('modals.settings.bittorrent.privacy.encryptionMode')"
+      />
     </v-list-item>
 
     <v-list-item>
@@ -27,25 +36,20 @@
 
     <v-list-item>
       <v-text-field
-          v-model="settings.max_active_checking_torrents"
-          type="number"
-          dense
-          hide-details
-          outlined
-          class="my-5"
-          :label="$t('modals.settings.bittorrent.maxActiveCheckingTorrents')"
+        v-model="settings.max_active_checking_torrents"
+        type="number"
+        dense
+        hide-details
+        outlined
+        class="my-5"
+        :label="$t('modals.settings.bittorrent.maxActiveCheckingTorrents')"
       />
     </v-list-item>
 
     <v-divider />
 
     <v-list-item>
-      <v-checkbox
-          v-model="settings.queueing_enabled"
-          hide-details
-          class="ma-0 pa-0"
-          :label="$t('modals.settings.bittorrent.torrentQueueing.subheader')"
-      />
+      <v-checkbox v-model="settings.queueing_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.torrentQueueing.subheader')" />
     </v-list-item>
 
     <v-list-item>
@@ -85,7 +89,13 @@
     </v-list-item>
 
     <v-list-item class="ms-8">
-      <v-checkbox :disabled="!settings.queueing_enabled" v-model="settings.dont_count_slow_torrents" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.torrentQueueing.excludeSlowTorrent')" />
+      <v-checkbox
+        :disabled="!settings.queueing_enabled"
+        v-model="settings.dont_count_slow_torrents"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.excludeSlowTorrent')"
+      />
     </v-list-item>
     <v-list-item class="ms-8">
       <v-text-field
@@ -155,7 +165,16 @@
           </v-subheader>
         </v-col>
         <v-col>
-          <v-select :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled" v-model="settings.max_ratio_act" height="1" flat dense hide-details outlined :items="thenTypes" />
+          <v-select
+            :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
+            v-model="settings.max_ratio_act"
+            height="1"
+            flat
+            dense
+            hide-details
+            outlined
+            :items="thenTypes"
+          />
         </v-col>
       </v-row>
     </v-list-item>
@@ -163,24 +182,10 @@
     <v-divider />
 
     <v-list-item>
-      <v-checkbox
-          v-model="settings.add_trackers"
-          hide-details
-          class="ma-0 pa-0"
-          :label="$t('modals.settings.bittorrent.autoAddTrackers')"
-      />
+      <v-checkbox v-model="settings.add_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
     </v-list-item>
     <v-list-item>
-      <v-textarea
-          :disabled="!settings.add_trackers"
-          v-model="settings.excluded_file_names"
-          outlined
-          required
-          auto-grow
-          clearable
-          persistent-hint
-          hint="one per line"
-      />
+      <v-textarea :disabled="!settings.add_trackers" v-model="settings.excluded_file_names" outlined required auto-grow clearable persistent-hint hint="one per line" />
     </v-list-item>
   </v-card>
 </template>
@@ -198,7 +203,7 @@ export default defineComponent({
       encyptionModeOptions: [
         { value: Encryption.PREFER_ENCRYPTION, text: this.$t('enums.encryption.preferEncryption') },
         { value: Encryption.FORCE_ON, text: this.$t('enums.encryption.forceOn') },
-        { value: Encryption.FORCE_OFF, text: this.$t('enums.encryption.forceOff') },
+        { value: Encryption.FORCE_OFF, text: this.$t('enums.encryption.forceOff') }
       ],
       thenTypes: [
         { value: MaxRatioAction.PAUSE_TORRENT, text: this.$t('enums.maxRatioAction.pauseTorrent') },
