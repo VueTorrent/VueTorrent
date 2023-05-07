@@ -419,23 +419,32 @@
           "rules": "Rules"
         },
         "general": {
-          "rssAutoProcessing": "RSS Reader",
-          "rssAutoDownloader": "RSS Torrent Auto Downloader",
-          "input": {
-            "enableRssAutoDownload": "Enable auto downloading of RSS torrents",
-            "enableRssProcessing": "Enable fetching RSS feeds",
-            "feedsRefreshInterval": "Feeds refresh interval (in minutes)",
-            "feedsMaxArticles": "Maximum number of articles per feed"
+          "reader": {
+            "subheader": "RSS Reader",
+            "enableProcessing": "Enable fetching RSS feeds",
+            "feedsRefreshInterval": "Feeds refresh interval",
+            "feedsRefreshIntervalHint": "In minutes",
+            "maximumArticlesPerFeed": "Maximum number of articles per feed"
+          },
+          "autoDownloader": {
+            "subheader": "RSS Torrent Auto Downloader",
+            "enable": "Enable auto downloading of RSS torrents"
+          },
+          "smartEpisodeFilter": {
+            "subheader": "RSS Smart Episode Filter",
+            "downloadEpisodes": "Download REPACK/PROPER episodes",
+            "filters": "Filters",
+            "filtersHint": "One per line"
           }
-        },
-        "rules": {
-          "rules": "Rules",
-          "btnCreateNew": "Create Rule"
         },
         "feeds": {
           "feeds": "Feeds",
           "btnCreateNew": "Add feed",
           "refreshAll": "Refresh All"
+        },
+        "rules": {
+          "rules": "Rules",
+          "btnCreateNew": "Create Rule"
         }
       },
       "webUI": {
