@@ -164,7 +164,7 @@
       <v-row class="ms-6">
         <v-col>
           <v-text-field
-            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
+            :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled"
             v-model="settings.proxy_username"
             dense
             hide-details
@@ -177,6 +177,9 @@
             dense
             hide-details
             :label="$t('modals.settings.connection.proxy.auth.password')"
+            :type="showPassword ? 'text' : 'password'"
+            :append-icon="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled ? '' : showPassword ? mdiEye : mdiEyeOff"
+            @click:append="showPassword = !showPassword"
           />
         </v-col>
       </v-row>
@@ -212,6 +215,7 @@
 import { FullScreenModal, SettingsTab } from '@/mixins'
 import { BitTorrentProtocol, ProxyType } from '@/enums/qbit/AppPreferences'
 import { defineComponent } from 'vue'
+import { mdiEye, mdiEyeOff } from '@mdi/js'
 
 export default defineComponent({
   name: 'Connection',
@@ -249,7 +253,10 @@ export default defineComponent({
       max_conn_enabled: false,
       max_conn_per_torrent_enabled: false,
       max_uploads_enabled: false,
-      max_uploads_per_torrent_enabled: false
+      max_uploads_per_torrent_enabled: false,
+      showPassword: false,
+      mdiEye,
+      mdiEyeOff
     }
   },
   mounted() {

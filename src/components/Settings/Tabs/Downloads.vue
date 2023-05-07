@@ -198,6 +198,9 @@
             dense
             hide-details
             :label="$t('modals.settings.downloads.saveManagement.mailNotification.password')"
+            :type="showPassword ? 'text' : 'password'"
+            :append-icon="!settings.mail_notification_enabled || !settings.mail_notification_auth_enabled ? '' : showPassword ? mdiEye : mdiEyeOff"
+            @click:append="showPassword = !showPassword"
           />
         </v-col>
       </v-row>
@@ -206,7 +209,7 @@
     <v-divider />
     <v-subheader>{{ $t('modals.settings.downloads.saveManagement.runExternalProgram.subheader') }}</v-subheader>
 
-    <v-row class="mb-3">
+    <v-row>
       <v-col cols="12" md="6">
         <v-list-item>
           <v-checkbox
@@ -248,7 +251,7 @@
         </v-list-item>
       </v-col>
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="pt-0">
         <v-card flat color="grey--text selected">
           <v-card-text>
             <h5>
@@ -304,6 +307,7 @@
 import { defineComponent } from 'vue'
 import { FullScreenModal, SettingsTab } from '@/mixins'
 import { AppPreferences } from '@/enums/qbit'
+import { mdiEye, mdiEyeOff } from '@mdi/js'
 
 export default defineComponent({
   name: 'Downloads',
@@ -329,7 +333,10 @@ export default defineComponent({
         { text: this.$t('modals.settings.downloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false }
       ],
       export_dir_enabled: false,
-      export_dir_fin_enabled: false
+      export_dir_fin_enabled: false,
+      showPassword: false,
+      mdiEye,
+      mdiEyeOff
     }
   },
 

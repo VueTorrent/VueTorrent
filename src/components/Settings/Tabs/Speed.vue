@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
-    <v-row class="mb-0">
-      <v-col cols="12" md="6">
+    <v-row class="mb-0" :class="phoneLayout ? 'flex-column' : 'flex-row'">
+      <v-col cols="12" sm="6">
         <v-subheader>{{ $t('modals.settings.speed.subheader.global') }}</v-subheader>
 
         <v-row class="mx-1">
@@ -20,9 +20,9 @@
         </v-list-item>
       </v-col>
 
-      <v-divider vertical />
+      <v-divider :vertical="!phoneLayout" />
 
-      <v-col cols="12" md="6">
+      <v-col cols="12" sm="6">
         <v-subheader>{{ $t('modals.settings.speed.subheader.alternative') }}</v-subheader>
 
         <v-row class="mx-1">

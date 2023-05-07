@@ -29,7 +29,7 @@
 
     <v-list-item>
       <v-checkbox v-model="settings.anonymous_mode" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.privacy.enableAnonymous')" />
-      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" class="ml-3 grey--text" target="_blank">{{ $t('modals.settings.bittorrent.privacy.moreInfo') }}</a>
+      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" class="ml-3" target="_blank">{{ $t('modals.settings.bittorrent.privacy.moreInfo') }}</a>
     </v-list-item>
 
     <v-divider />
@@ -185,7 +185,7 @@
       <v-checkbox v-model="settings.add_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
     </v-list-item>
     <v-list-item>
-      <v-textarea :disabled="!settings.add_trackers" v-model="settings.excluded_file_names" outlined required auto-grow clearable persistent-hint hint="one per line" />
+      <v-textarea :disabled="!settings.add_trackers" v-model="settings.excluded_file_names" outlined required auto-grow clearable persistent-hint :hint="$t('modals.settings.bittorrent.autoAddTrackersHint')" />
     </v-list-item>
   </v-card>
 </template>

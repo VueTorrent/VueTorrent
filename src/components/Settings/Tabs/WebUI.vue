@@ -90,11 +90,11 @@
     <v-list-item>
       <v-text-field
         v-model="settings.web_ui_ban_duration"
-        class="mb-5"
         outlined
         dense
         type="number"
-        hide-details="true"
+        persistent-hint
+        :hint="$t('modals.settings.webUI.authentication.banDurationHint')"
         :label="$t('modals.settings.webUI.authentication.banDuration')"
       />
     </v-list-item>
@@ -102,11 +102,11 @@
     <v-list-item>
       <v-text-field
         v-model="settings.web_ui_session_timeout"
-        class="mb-4"
         outlined
         dense
         type="number"
-        hide-details="true"
+        persistent-hint
+        :hint="$t('modals.settings.webUI.authentication.sessionTimeoutHint')"
         :label="$t('modals.settings.webUI.authentication.sessionTimeout')"
       />
     </v-list-item>
@@ -170,9 +170,11 @@
         auto-grow
         clearable
         persistent-hint
-        :hint="$t('modals.settings.downloads.saveManagement.excludedFileNames.hint')"
+        :hint="$t('modals.settings.webUI.security.hostHeaderValidationHint')"
       />
     </v-list-item>
+
+    <v-divider />
 
     <v-list-item>
       <v-checkbox v-model="settings.web_ui_use_custom_http_headers_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.webUI.customHeaders')" />
@@ -191,6 +193,8 @@
       />
     </v-list-item>
 
+    <v-divider />
+
     <v-list-item>
       <v-checkbox v-model="settings.web_ui_reverse_proxy_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.webUI.reverseProxySupport')" />
     </v-list-item>
@@ -207,6 +211,8 @@
         :label="$t('modals.settings.webUI.proxiesList')"
       />
     </v-list-item>
+
+    <v-divider />
 
     <v-list-item>
       <v-checkbox v-model="settings.dyndns_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.webUI.dynDns.subheader')" />
@@ -227,15 +233,14 @@
       <v-text-field :disabled="!settings.dyndns_enabled" v-model="settings.dyndns_domain" dense hide-details outlined :label="$t('modals.settings.webUI.dynDns.domainName')" />
     </v-list-item>
 
-    <v-list-item>
+    <v-list-item class="mb-4">
       <v-row>
         <v-col cols="12" md="6">
           <v-text-field
             :disabled="!settings.dyndns_enabled"
             v-model="settings.dyndns_username"
-            outlined
             dense
-            hide-details="true"
+            hide-details
             :label="$t('modals.settings.webUI.dynDns.username')"
           />
         </v-col>
@@ -243,10 +248,12 @@
           <v-text-field
             :disabled="!settings.dyndns_enabled"
             v-model="settings.dyndns_password"
-            outlined
             dense
-            hide-details="true"
+            hide-details
             :label="$t('modals.settings.webUI.dynDns.password')"
+            :type="showPassword ? 'text' : 'password'"
+            :append-icon="!settings.dyndns_enabled ? '' : showPassword ? mdiEye : mdiEyeOff"
+            @click:append="showPassword = !showPassword"
           />
         </v-col>
       </v-row>
@@ -257,6 +264,7 @@
 <script lang="ts">
 import { FullScreenModal, SettingsTab } from '@/mixins'
 import { defineComponent } from 'vue'
+import { mdiEye, mdiEyeOff } from '@mdi/js'
 
 export default defineComponent({
   name: 'WebUI',
@@ -273,7 +281,10 @@ export default defineComponent({
           text: this.$t('modals.settings.webUI.dynDns.providers.noIp'),
           value: 'http://www.no-ip.com/services/managed_dns/free_dynamic_dns.html'
         }
-      ]
+      ],
+      showPassword: false,
+      mdiEye,
+      mdiEyeOff
     }
   },
   methods: {

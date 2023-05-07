@@ -232,14 +232,14 @@
           "trackerFilter": "Show Tracker Filter",
           "rightDrawer": "Right Drawer",
           "topPagination": "Top Pagination",
-          "language": "Language:",
-          "paginationSize": "Pagination size:",
-          "vueTorrentTitle": "VueTorrent title:",
+          "language": "Language",
+          "paginationSize": "Pagination size",
+          "vueTorrentTitle": "VueTorrent title",
           "dateFormat": "Date Format",
           "openSideBarOnStart": "Open Side Bar on launch",
           "showShutdownButton": "Show shutdown button",
-          "currentVersion": "Current Version:",
-          "qbittorrentVersion": "QBittorrent Version:",
+          "currentVersion": "Current Version",
+          "qbittorrentVersion": "QBittorrent Version",
           "registerMagnetHeader": "Register to handle magnet links...",
           "registerMagnetButton": "Register",
           "importSettings": "Import Settings",
@@ -357,7 +357,7 @@
           "filterPath": "Filter path (.dat, .p2p, .p2b)",
           "applyToTrackers": "Apply to trackers",
           "bannedIps": "Manually banned IP addresses",
-          "bannedIpsHint": "one on each line"
+          "bannedIpsHint": "One on each line"
         }
       },
       "speed": {
@@ -455,8 +455,10 @@
           "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
           "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
           "maxAttempts": "Max attempts",
-          "banDuration": "Ban Duration (seconds)",
-          "sessionTimeout": "Session timeout (seconds)"
+          "banDuration": "Ban Duration",
+          "banDurationHint": "In seconds",
+          "sessionTimeout": "Session timeout",
+          "sessionTimeoutHint": "In seconds"
         },
         "https": {
           "subheader": "Use HTTPS",
@@ -470,11 +472,12 @@
           "csrf": "Enable Cross-Site Request Forgery (CSRF) protection",
           "secureCookie": "Enable cookie secure flag (requires HTTPS)",
           "hostHeaderValidation": "Enable Host header validation",
+          "hostHeaderValidationHint": "Seperated with semi-colon ( ; )",
           "serverDomains": "Server Domains"
         },
         "customHeaders": "Add custom HTTP headers",
         "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
-        "customHeadersHint": "one per line",
+        "customHeadersHint": "One per line",
         "reverseProxySupport": "Enable reverse proxy support",
         "proxiesList": "Trusted proxies list",
         "proxiesListHint": "Seperate IPs with semicolon ( ; )",
