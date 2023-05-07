@@ -47,51 +47,33 @@
     <v-list-item class="mb-3">
       <v-row>
         <v-col cols="12" sm="6" md="3">
-          <v-select
-              v-model="settings.lang"
-              height="1"
-              flat
-              dense
-              hide-details
-              outlined
-              :items="languages"
-              :label="$t('modals.settings.vueTorrent.general.language')"
-          />
+          <v-select v-model="settings.lang" height="1" flat dense hide-details outlined :items="languages" :label="$t('modals.settings.vueTorrent.general.language')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-select
-              v-model="settings.paginationSize"
-              height="1"
-              flat
-              dense
-              hide-details
-              outlined
-              :items="paginationSizes"
-              :label="$t('modals.settings.vueTorrent.general.paginationSize')"
+            v-model="settings.paginationSize"
+            height="1"
+            flat
+            dense
+            hide-details
+            outlined
+            :items="paginationSizes"
+            :label="$t('modals.settings.vueTorrent.general.paginationSize')"
           />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-select
-              v-model="settings.title"
-              height="1"
-              flat
-              dense
-              hide-details
-              outlined
-              :items="titleOptions"
-              :label="$t('modals.settings.vueTorrent.general.vueTorrentTitle')"
-          />
+          <v-select v-model="settings.title" height="1" flat dense hide-details outlined :items="titleOptions" :label="$t('modals.settings.vueTorrent.general.vueTorrentTitle')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-text-field
-              v-model="settings.dateFormat"
-              class="mb-2"
-              outlined
-              dense
-              hide-details
-              placeholder="DD/MM/YYYY, HH:mm:ss"
-              hint="using Dayjs"
-              :label="$t('modals.settings.vueTorrent.general.dateFormat')"
+            v-model="settings.dateFormat"
+            class="mb-2"
+            outlined
+            dense
+            hide-details
+            placeholder="DD/MM/YYYY, HH:mm:ss"
+            hint="using Dayjs"
+            :label="$t('modals.settings.vueTorrent.general.dateFormat')"
           />
         </v-col>
       </v-row>
@@ -103,14 +85,18 @@
           <h3>{{ $t('modals.settings.vueTorrent.general.currentVersion') }}</h3>
         </v-col>
         <v-col cols="6" md="2" class="d-flex align-center justify-start">
-          <h3><a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a></h3>
+          <h3>
+            <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a>
+          </h3>
         </v-col>
 
         <v-col cols="6" md="2" class="d-flex align-center justify-end">
           <h3>{{ $t('modals.settings.vueTorrent.general.qbittorrentVersion') }}</h3>
         </v-col>
         <v-col cols="6" md="2" class="d-flex align-center justify-start">
-          <h3><a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">{{ Qbitversion }}</a></h3>
+          <h3>
+            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">{{ Qbitversion }}</a>
+          </h3>
         </v-col>
 
         <v-col cols="12" md="4" class="d-flex align-center justify-center">

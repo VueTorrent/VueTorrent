@@ -8,24 +8,24 @@
 
     <v-list-item>
       <v-text-field
-          v-model="settings.rss_refresh_interval"
-          type="number"
-          dense
-          outlined
-          :hint="$t('modals.settings.rss.general.reader.feedsRefreshIntervalHint')"
-          :label="$t('modals.settings.rss.general.reader.feedsRefreshInterval')"
+        v-model="settings.rss_refresh_interval"
+        type="number"
+        dense
+        outlined
+        :hint="$t('modals.settings.rss.general.reader.feedsRefreshIntervalHint')"
+        :label="$t('modals.settings.rss.general.reader.feedsRefreshInterval')"
       />
     </v-list-item>
 
     <v-list-item>
       <v-text-field
-          v-model="settings.rss_max_articles_per_feed"
-          class="mb-3"
-          type="number"
-          dense
-          hide-details
-          outlined
-          :label="$t('modals.settings.rss.general.reader.maximumArticlesPerFeed')"
+        v-model="settings.rss_max_articles_per_feed"
+        class="mb-3"
+        type="number"
+        dense
+        hide-details
+        outlined
+        :label="$t('modals.settings.rss.general.reader.maximumArticlesPerFeed')"
       />
     </v-list-item>
 
@@ -40,18 +40,23 @@
     <v-subheader>{{ $t('modals.settings.rss.general.smartEpisodeFilter.subheader') }}</v-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="settings.rss_download_repack_proper_episodes" hide-details class="ma-0 pa-0" :label="$t('modals.settings.rss.general.smartEpisodeFilter.downloadEpisodes')" />
+      <v-checkbox
+        v-model="settings.rss_download_repack_proper_episodes"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.rss.general.smartEpisodeFilter.downloadEpisodes')"
+      />
     </v-list-item>
 
     <v-list-item>
       <v-textarea
-          v-model="settings.rss_smart_episode_filters"
-          outlined
-          auto-grow
-          clearable
-          persistent-hint
-          :hint="$t('modals.settings.rss.general.smartEpisodeFilter.filtersHint')"
-          :label="$t('modals.settings.rss.general.smartEpisodeFilter.filters')"
+        v-model="settings.rss_smart_episode_filters"
+        outlined
+        auto-grow
+        clearable
+        persistent-hint
+        :hint="$t('modals.settings.rss.general.smartEpisodeFilter.filtersHint')"
+        :label="$t('modals.settings.rss.general.smartEpisodeFilter.filters')"
       />
     </v-list-item>
   </v-card>
