@@ -240,8 +240,7 @@
           "showShutdownButton": "Show shutdown button",
           "currentVersion": "Current Version",
           "qbittorrentVersion": "QBittorrent Version",
-          "registerMagnetHeader": "Register to handle magnet links...",
-          "registerMagnetButton": "Register",
+          "registerMagnet": "Register magnet links",
           "importSettings": "Import Settings",
           "exportSettings": "Export Settings",
           "resetSettings": "Reset Settings"
