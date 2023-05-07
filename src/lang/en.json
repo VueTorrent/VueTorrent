@@ -512,8 +512,10 @@
             "allIPv6": "All IPv6 addresses"
           },
           "saveInterval": "Save resume data interval",
+          "saveIntervalHint": "In minutes",
           "recheckOnCompletion": "Recheck torrents on completion",
           "refreshInterval": "Refresh interval",
+          "refreshIntervalHint": "In milliseconds",
           "resolveCountries": "Resolve peer countries",
           "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
           "enableEmbeddedTracker": "Enable embedded tracker",
@@ -532,7 +534,45 @@
           "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
           "diskCacheExpiryHint": "In seconds",
           "diskQueueSize": "Disk queue size",
-          "diskQueueSizeHint": "In KiB"
+          "diskQueueSizeHint": "In KiB",
+          "diskIoType": "Disk IO Type (libtorrent >= 2.0; requires restart)",
+          "diskIoReadMode": "Disk IO read mode",
+          "diskIoWriteMode": "Disk IO write mode",
+          "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)",
+          "pieceExtentAffinity": "Use piece extent affinity",
+          "sendUploadPieceSuggestions": "Send upload piece suggestions",
+          "sendBufferWatermark": "Send buffer watermark",
+          "sendBufferWatermarkHint": "In KiB",
+          "sendBufferLowWatermark": "Send buffer low watermark",
+          "sendBufferLowWatermarkHint": "In KiB",
+          "sendBufferWatermarkFactor": "Send buffer watermark factor",
+          "sendBufferWatermarkFactorHint": "In %",
+          "outgoingConnectionsPerSecond": "Outgoing connections per second",
+          "socketBacklogSize": "Socket backlog size",
+          "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]",
+          "outgoingPortsMax": "Outgoing ports (Max) [0: Disabled]",
+          "upnpLeaseDuration": "UPnP lease duration [0: Permanent lease]",
+          "peerTos": "DSCP value for connections to peers",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP mixed mode algorithm",
+          "idnSupport": "Enable Internationalized Domain Name (IDN) support",
+          "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+          "validateHTTPSTrackerCertificate": "Validate HTTPS tracker certificate",
+          "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
+          "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
+          "uploadSlotsBehavior": "Upload slots behavior",
+          "uploadChokingAlgorithm": "Upload choking algorithm",
+          "announceAllTrackers": "Always announce to all trackers in a tier",
+          "announceAllTiers": "Always announce to all tiers",
+          "announceIP": "IP address reported to trackers (requires restart)",
+          "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
+          "stopTrackerTimeout": "Stop tracker timeout",
+          "peerTurnover": "Peer turnover disconnect percentage",
+          "peerTurnoverHint": "In %",
+          "peerTurnoverCutoff": "Peer turnover threshold percentage",
+          "peerTurnoverCutoffHint": "In %",
+          "peerTurnoverInterval": "Peer turnover disconnect interval",
+          "peerTurnoverIntervalHint": "In seconds",
+          "requestQueueSize": "Maximum outstanding requests to a single peer"
         }
       }
     },
@@ -793,6 +833,29 @@
       "everyFriday": "Friday",
       "everySaturday": "Saturday",
       "everySunday": "Sunday"
+    },
+    "diskIoType": {
+      "default": "Default",
+      "memoryMappedFiles": "Memory mapped files",
+      "posixCompliant": "POSIX-compliant"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Disable OS cache",
+      "enableOsCache": "Enable OS cache",
+      "writeThrough": "Write-through (libtorrent >= 2.0.6)"
+    },
+    "utpTcpMixedMode": {
+      "preferTcp": "Prefer TCP",
+      "peerProportional": "Peer proportional (throttles TCP)"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Fixed slots",
+      "uploadRateBased": "Upload rate based"
+    },
+    "uploadChokingAlgorithm": {
+      "roundRobin": "Round-robin",
+      "fastestUpload": "Fastest upload",
+      "antiLeech": "Anti-leech"
     }
   }
 }

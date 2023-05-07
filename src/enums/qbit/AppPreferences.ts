@@ -75,3 +75,15 @@ export enum UtpTcpMixedMode {
   PREFER_TCP,
   PEER_PROPORTIONAL
 }
+
+export enum DiskIOType {
+  DEFAULT,
+  MEMORY_MAPPED_FILES,
+  POSIX_COMPLIANT
+}
+
+export enum DiskIOMode {
+  DISABLE_OS_CACHE,
+  ENABLE_OS_CACHE,
+  WRITE_THROUGH,
+}

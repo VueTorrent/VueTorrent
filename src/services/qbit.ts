@@ -12,8 +12,8 @@ import type {
   TorrentFile,
   TorrentProperties,
   Tracker,
-  Torrent
-} from '@/types/qbit/models'
+  Torrent, NetworkInterface
+} from "@/types/qbit/models";
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { FeedRule as VtFeedRule, SortOptions } from '@/types/vuetorrent'
@@ -531,6 +531,22 @@ export class QBitApi {
       .post('/app/shutdown')
       .then(() => true)
       .catch(() => false)
+  }
+
+  async getNetworkInterfaces(): Promise<NetworkInterface[]> {
+    return this.axios
+      .get('/app/networkInterfaceList')
+      .then(r => r.data)
+  }
+
+  async getAddresses(iface: string = ''): Promise<string[]> {
+    const params = {
+      iface
+    }
+
+    return this.axios
+      .get('/app/networkInterfaceAddressList', { params })
+      .then(r => r.data)
   }
 }
 

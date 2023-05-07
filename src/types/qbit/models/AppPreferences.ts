@@ -10,8 +10,15 @@ import type {
   StopCondition,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
-  UtpTcpMixedMode
+  UtpTcpMixedMode,
+  DiskIOType
 } from '@/enums/qbit/AppPreferences'
+import { DiskIOMode } from "@/enums/qbit/AppPreferences";
+
+export interface NetworkInterface {
+  name: string
+  value: string
+}
 
 export default interface AppPreferences {
   /** List of trackers to add to new torrent */
@@ -73,9 +80,9 @@ export default interface AppPreferences {
   disk_cache: number
   /** Disk cache expiry interval in seconds */
   disk_cache_ttl: number
-  disk_io_read_mode: number
-  disk_io_type: number
-  disk_io_write_mode: number
+  disk_io_read_mode: DiskIOMode
+  disk_io_type: DiskIOType
+  disk_io_write_mode: DiskIOMode
   disk_queue_size: number
   /** Global download speed limit in KiB/s; -1 means no limit is applied */
   dl_limit: number
