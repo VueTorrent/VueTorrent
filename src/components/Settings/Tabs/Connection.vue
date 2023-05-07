@@ -178,7 +178,9 @@
             hide-details
             :label="$t('modals.settings.connection.proxy.auth.password')"
             :type="showPassword ? 'text' : 'password'"
-            :append-icon="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled ? '' : showPassword ? mdiEye : mdiEyeOff"
+            :append-icon="
+              settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4 || !settings.proxy_auth_enabled ? '' : showPassword ? mdiEye : mdiEyeOff
+            "
             @click:append="showPassword = !showPassword"
           />
         </v-col>

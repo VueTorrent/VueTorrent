@@ -1,8 +1,9 @@
 <template>
   <v-card flat>
     <v-subheader>
-      {{ $t('modals.settings.advanced.qbittorrent.subheader')}}
-      (<a href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced" target="_blank">{{ $t('modals.settings.advanced.openDoc')}}</a>)
+      {{ $t('modals.settings.advanced.qbittorrent.subheader') }}
+      (<a href="https://github.com/qbittorrent/qBittorrent/wiki/Explanation-of-Options-in-qBittorrent#Advanced" target="_blank">{{ $t('modals.settings.advanced.openDoc') }}</a
+      >)
     </v-subheader>
 
     <v-list-item>
@@ -58,11 +59,7 @@
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.recheck_completed_torrents"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.qbittorrent.recheckOnCompletion')" />
+      <v-checkbox v-model="settings.recheck_completed_torrents" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.qbittorrent.recheckOnCompletion')" />
     </v-list-item>
 
     <v-list-item>
@@ -77,27 +74,15 @@
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.resolve_peer_countries"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.qbittorrent.resolveCountries')" />
+      <v-checkbox v-model="settings.resolve_peer_countries" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.qbittorrent.resolveCountries')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.reannounce_when_address_changed"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.qbittorrent.reannounceOnIpPortChanged')" />
+      <v-checkbox v-model="settings.reannounce_when_address_changed" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.qbittorrent.reannounceOnIpPortChanged')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.enable_embedded_tracker"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.qbittorrent.enableEmbeddedTracker')" />
+      <v-checkbox v-model="settings.enable_embedded_tracker" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.qbittorrent.enableEmbeddedTracker')" />
     </v-list-item>
 
     <v-list-item>
@@ -117,49 +102,27 @@
         v-model="settings.embedded_tracker_port_forwarding"
         hide-details
         class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.qbittorrent.embeddedTrackerPortForwarding')" />
+        :label="$t('modals.settings.advanced.qbittorrent.embeddedTrackerPortForwarding')"
+      />
     </v-list-item>
 
     <v-divider />
     <v-subheader>
-      {{ $t('modals.settings.advanced.libtorrent.subheader')}}
-      (<a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">{{ $t('modals.settings.advanced.openDoc')}}</a>)
+      {{ $t('modals.settings.advanced.libtorrent.subheader') }}
+      (<a href="https://www.libtorrent.org/reference-Settings.html" target="_blank">{{ $t('modals.settings.advanced.openDoc') }}</a
+      >)
     </v-subheader>
 
     <v-list-item>
-      <v-text-field
-        v-model="settings.async_io_threads"
-        type="number"
-        dense
-        hide-details
-        outlined
-        class="my-5"
-        :label="$t('modals.settings.advanced.libtorrent.asyncIoThreads')"
-      />
+      <v-text-field v-model="settings.async_io_threads" type="number" dense hide-details outlined class="my-5" :label="$t('modals.settings.advanced.libtorrent.asyncIoThreads')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="settings.hashing_threads"
-        type="number"
-        dense
-        hide-details
-        outlined
-        class="my-5"
-        :label="$t('modals.settings.advanced.libtorrent.hashingThreads')"
-      />
+      <v-text-field v-model="settings.hashing_threads" type="number" dense hide-details outlined class="my-5" :label="$t('modals.settings.advanced.libtorrent.hashingThreads')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="settings.file_pool_size"
-        type="number"
-        dense
-        hide-details
-        outlined
-        class="my-5"
-        :label="$t('modals.settings.advanced.libtorrent.filePoolSize')"
-      />
+      <v-text-field v-model="settings.file_pool_size" type="number" dense hide-details outlined class="my-5" :label="$t('modals.settings.advanced.libtorrent.filePoolSize')" />
     </v-list-item>
 
     <v-list-item>
@@ -249,27 +212,15 @@
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.enable_coalesce_read_write"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.coalesceReadsWrites')" />
+      <v-checkbox v-model="settings.enable_coalesce_read_write" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.coalesceReadsWrites')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.enable_piece_extent_affinity"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.pieceExtentAffinity')" />
+      <v-checkbox v-model="settings.enable_piece_extent_affinity" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.pieceExtentAffinity')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.enable_upload_suggestions"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.sendUploadPieceSuggestions')" />
+      <v-checkbox v-model="settings.enable_upload_suggestions" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.sendUploadPieceSuggestions')" />
     </v-list-item>
 
     <v-list-item>
@@ -372,15 +323,7 @@
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="settings.peer_tos"
-        type="number"
-        dense
-        hide-details
-        outlined
-        class="my-5"
-        :label="$t('modals.settings.advanced.libtorrent.peerTos')"
-      />
+      <v-text-field v-model="settings.peer_tos" type="number" dense hide-details outlined class="my-5" :label="$t('modals.settings.advanced.libtorrent.peerTos')" />
     </v-list-item>
 
     <v-list-item>
@@ -398,11 +341,7 @@
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.idn_support_enabled"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.idnSupport')" />
+      <v-checkbox v-model="settings.idn_support_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.idnSupport')" />
     </v-list-item>
 
     <v-list-item>
@@ -410,7 +349,8 @@
         v-model="settings.enable_multi_connections_from_same_ip"
         hide-details
         class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.allowMultipleConnectionsFromTheSameIPAddress')" />
+        :label="$t('modals.settings.advanced.libtorrent.allowMultipleConnectionsFromTheSameIPAddress')"
+      />
     </v-list-item>
 
     <v-list-item>
@@ -418,15 +358,12 @@
         v-model="settings.validate_https_tracker_certificate"
         hide-details
         class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.validateHTTPSTrackerCertificate')" />
+        :label="$t('modals.settings.advanced.libtorrent.validateHTTPSTrackerCertificate')"
+      />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.ssrf_mitigation"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.mitigateSSRF')" />
+      <v-checkbox v-model="settings.ssrf_mitigation" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.mitigateSSRF')" />
     </v-list-item>
 
     <v-list-item>
@@ -434,7 +371,8 @@
         v-model="settings.block_peers_on_privileged_ports"
         hide-details
         class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.blockPeersOnPrivilegedPorts')" />
+        :label="$t('modals.settings.advanced.libtorrent.blockPeersOnPrivilegedPorts')"
+      />
     </v-list-item>
 
     <v-list-item>
@@ -466,31 +404,15 @@
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.announce_to_all_trackers"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.announceAllTrackers')" />
+      <v-checkbox v-model="settings.announce_to_all_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.announceAllTrackers')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="settings.announce_to_all_tiers"
-        hide-details
-        class="ma-0 pa-0"
-        :label="$t('modals.settings.advanced.libtorrent.announceAllTiers')" />
+      <v-checkbox v-model="settings.announce_to_all_tiers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.advanced.libtorrent.announceAllTiers')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="settings.announce_ip"
-        type="number"
-        dense
-        hide-details
-        outlined
-        class="my-5"
-        :label="$t('modals.settings.advanced.libtorrent.announceIP')"
-      />
+      <v-text-field v-model="settings.announce_ip" type="number" dense hide-details outlined class="my-5" :label="$t('modals.settings.advanced.libtorrent.announceIP')" />
     </v-list-item>
 
     <v-list-item>
@@ -571,25 +493,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { FullScreenModal, SettingsTab } from "@/mixins";
-import {
-  DiskIOMode,
-  DiskIOType,
-  UploadChokingAlgorithm,
-  UploadSlotsBehavior,
-  UtpTcpMixedMode
-} from "@/enums/qbit/AppPreferences";
-import qbit from "@/services/qbit";
+import { defineComponent } from 'vue'
+import { FullScreenModal, SettingsTab } from '@/mixins'
+import { DiskIOMode, DiskIOType, UploadChokingAlgorithm, UploadSlotsBehavior, UtpTcpMixedMode } from '@/enums/qbit/AppPreferences'
+import qbit from '@/services/qbit'
 
 export default defineComponent({
   name: 'Advanced',
   mixins: [SettingsTab, FullScreenModal],
   data() {
     return {
-      networkInterfaceOptions: [
-        { text: this.$t('modals.settings.advanced.qbittorrent.networkInterfaces.any'), value: '' }
-      ],
+      networkInterfaceOptions: [{ text: this.$t('modals.settings.advanced.qbittorrent.networkInterfaces.any'), value: '' }],
       ipAddressesOptions: [
         { text: this.$t('modals.settings.advanced.qbittorrent.ipAddress.all'), value: '' },
         { text: this.$t('modals.settings.advanced.qbittorrent.ipAddress.allIPv4'), value: '0.0.0.0' },
@@ -598,29 +512,29 @@ export default defineComponent({
       diskIoTypeOptions: [
         { text: this.$t('enums.diskIoType.default'), value: DiskIOType.DEFAULT },
         { text: this.$t('enums.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
-        { text: this.$t('enums.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
+        { text: this.$t('enums.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT }
       ],
       diskIoModeReadOptions: [
         { text: this.$t('enums.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
-        { text: this.$t('enums.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
+        { text: this.$t('enums.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE }
       ],
       diskIoModeWriteOptions: [
         { text: this.$t('enums.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
         { text: this.$t('enums.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
-        { text: this.$t('enums.diskIoMode.writeThrough'), value: DiskIOMode.WRITE_THROUGH },
+        { text: this.$t('enums.diskIoMode.writeThrough'), value: DiskIOMode.WRITE_THROUGH }
       ],
       utpTcpMixedModeOptions: [
         { text: this.$t('enums.utpTcpMixedMode.preferTcp'), value: UtpTcpMixedMode.PREFER_TCP },
-        { text: this.$t('enums.utpTcpMixedMode.peerProportional'), value: UtpTcpMixedMode.PEER_PROPORTIONAL },
+        { text: this.$t('enums.utpTcpMixedMode.peerProportional'), value: UtpTcpMixedMode.PEER_PROPORTIONAL }
       ],
       uploadSlotsBehaviorOptions: [
         { text: this.$t('enums.uploadSlotsBehavior.fixedSlots'), value: UploadSlotsBehavior.FIXED_SLOTS },
-        { text: this.$t('enums.uploadSlotsBehavior.uploadRateBased'), value: UploadSlotsBehavior.UPLOAD_RATE_BASED },
+        { text: this.$t('enums.uploadSlotsBehavior.uploadRateBased'), value: UploadSlotsBehavior.UPLOAD_RATE_BASED }
       ],
       uploadChokingAlgorithmOptions: [
         { text: this.$t('enums.uploadChokingAlgorithm.roundRobin'), value: UploadChokingAlgorithm.ROUND_ROBIN },
         { text: this.$t('enums.uploadChokingAlgorithm.fastestUpload'), value: UploadChokingAlgorithm.FASTEST_UPLOAD },
-        { text: this.$t('enums.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH },
+        { text: this.$t('enums.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH }
       ]
     }
   },

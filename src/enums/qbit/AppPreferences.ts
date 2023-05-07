@@ -85,5 +85,5 @@ export enum DiskIOType {
 export enum DiskIOMode {
   DISABLE_OS_CACHE,
   ENABLE_OS_CACHE,
-  WRITE_THROUGH,
+  WRITE_THROUGH
 }

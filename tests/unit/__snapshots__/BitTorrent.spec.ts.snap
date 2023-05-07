@@ -16,7 +16,7 @@ exports[`BitTorrent > render correctly 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -84,7 +84,7 @@ exports[`BitTorrent > render correctly 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -105,7 +105,7 @@ exports[`BitTorrent > render correctly when anonymous_mode is false 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -173,7 +173,7 @@ exports[`BitTorrent > render correctly when anonymous_mode is false 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -194,7 +194,7 @@ exports[`BitTorrent > render correctly when dont_count_slow_torrents is false 1`
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -262,7 +262,7 @@ exports[`BitTorrent > render correctly when dont_count_slow_torrents is false 1`
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -283,7 +283,7 @@ exports[`BitTorrent > render correctly when max_active_downloads is 2 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -351,7 +351,7 @@ exports[`BitTorrent > render correctly when max_active_downloads is 2 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -372,7 +372,7 @@ exports[`BitTorrent > render correctly when max_active_torrents is 3 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -440,7 +440,7 @@ exports[`BitTorrent > render correctly when max_active_torrents is 3 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -461,7 +461,7 @@ exports[`BitTorrent > render correctly when max_ratio_enabled is false 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -529,7 +529,7 @@ exports[`BitTorrent > render correctly when max_ratio_enabled is false 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -550,7 +550,7 @@ exports[`BitTorrent > render correctly when max_seeding_time_enabled is false 1`
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -618,7 +618,7 @@ exports[`BitTorrent > render correctly when max_seeding_time_enabled is false 1`
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -639,7 +639,7 @@ exports[`BitTorrent > render correctly when queueing_enabled is false 1`] = `
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -707,7 +707,7 @@ exports[`BitTorrent > render correctly when queueing_enabled is false 1`] = `
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -728,7 +728,7 @@ exports[`BitTorrent > render correctly when slow_torrent_dl_rate_threshold is 25
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -796,7 +796,7 @@ exports[`BitTorrent > render correctly when slow_torrent_dl_rate_threshold is 25
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
@@ -817,7 +817,7 @@ exports[`BitTorrent > render correctly when slow_torrent_ul_rate_threshold is 24
     <v-select-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.encryptionMode\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3 grey--text\\">modals.settings.bittorrent.privacy.moreInfo</a>
+    <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.privacy.enableAnonymous\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub><a href=\\"https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode\\" target=\\"_blank\\" class=\\"ml-3\\">modals.settings.bittorrent.privacy.moreInfo</a>
   </v-list-item-stub>
   <v-divider-stub></v-divider-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
@@ -885,7 +885,7 @@ exports[`BitTorrent > render correctly when slow_torrent_ul_rate_threshold is 24
     <v-checkbox-stub errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" label=\\"modals.settings.bittorrent.autoAddTrackers\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
   <v-list-item-stub activeclass=\\"\\" tag=\\"div\\">
-    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"one per line\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
+    <v-textarea-stub disabled=\\"true\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hint=\\"modals.settings.bittorrent.autoAddTrackersHint\\" persistenthint=\\"true\\" loaderheight=\\"2\\" clearable=\\"true\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"text\\" autogrow=\\"true\\" rowheight=\\"24\\" rows=\\"5\\" required=\\"\\"></v-textarea-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;

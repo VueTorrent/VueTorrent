@@ -185,7 +185,16 @@
       <v-checkbox v-model="settings.add_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
     </v-list-item>
     <v-list-item>
-      <v-textarea :disabled="!settings.add_trackers" v-model="settings.excluded_file_names" outlined required auto-grow clearable persistent-hint :hint="$t('modals.settings.bittorrent.autoAddTrackersHint')" />
+      <v-textarea
+        :disabled="!settings.add_trackers"
+        v-model="settings.excluded_file_names"
+        outlined
+        required
+        auto-grow
+        clearable
+        persistent-hint
+        :hint="$t('modals.settings.bittorrent.autoAddTrackersHint')"
+      />
     </v-list-item>
   </v-card>
 </template>

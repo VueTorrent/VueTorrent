@@ -236,13 +236,7 @@
     <v-list-item class="mb-4">
       <v-row>
         <v-col cols="12" md="6">
-          <v-text-field
-            :disabled="!settings.dyndns_enabled"
-            v-model="settings.dyndns_username"
-            dense
-            hide-details
-            :label="$t('modals.settings.webUI.dynDns.username')"
-          />
+          <v-text-field :disabled="!settings.dyndns_enabled" v-model="settings.dyndns_username" dense hide-details :label="$t('modals.settings.webUI.dynDns.username')" />
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field
