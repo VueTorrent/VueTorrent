@@ -35,7 +35,8 @@ export enum ProxyType {
   SOCKS4 = 5
 }
 
-enum ScanDirsEnum {
+export enum ScanDirsEnum {
+  OTHER = -1,
   MONITORED_FOLDER,
   DEFAULT_SAVE_PATH
 }

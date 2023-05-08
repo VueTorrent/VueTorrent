@@ -105,10 +105,28 @@
 
     <v-divider />
     <v-subheader>{{ $t('modals.settings.downloads.saveManagement.monitoredFolders.subheader') }}</v-subheader>
+    <!-- TODO: Monitored folder -->
 
     <v-list-item>
-      <!-- TODO: Monitored folder -->
-      <v-btn :disabled="true">Coming soon!</v-btn>
+      <v-row>
+        <v-col cols="4">Monitored Folder</v-col>
+        <v-col cols="4">Override Save Location</v-col>
+        <v-col cols="4">Save Path</v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-divider class="mx-16" />
+
+    <template v-for="monitoredFolder in monitoredFolders">
+      <v-list-item>
+        <MonitoredFolderRow :folder="monitoredFolder" />
+      </v-list-item>
+
+      <v-divider class="mx-16" />
+    </template>
+
+    <v-list-item>
+      <v-btn class="accent" @click="addRow">Add row</v-btn>
     </v-list-item>
 
     <v-divider />
@@ -304,14 +322,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { FullScreenModal, SettingsTab } from '@/mixins'
-import { AppPreferences } from '@/enums/qbit'
-import { mdiEye, mdiEyeOff } from '@mdi/js'
+import {defineComponent} from 'vue'
+import {FullScreenModal, SettingsTab} from '@/mixins'
+import {AppPreferences} from '@/enums/qbit'
+import {mdiEye, mdiEyeOff} from '@mdi/js'
+import MonitoredFolderRow from '../blocks'
+import {ScanDirsEnum} from '@/enums/qbit/AppPreferences'
+
+type MonitoredFolder = {path: string, type: ScanDirsEnum, savePath: string}
 
 export default defineComponent({
   name: 'Downloads',
   mixins: [SettingsTab, FullScreenModal],
+  components: { MonitoredFolderRow },
   data() {
     return {
       contentLayoutOptions: [
@@ -335,22 +358,35 @@ export default defineComponent({
       export_dir_enabled: false,
       export_dir_fin_enabled: false,
       showPassword: false,
+      monitoredFolders: [] as MonitoredFolder[],
       mdiEye,
       mdiEyeOff
     }
   },
-
   mounted() {
     this.export_dir_enabled = this.settings.export_dir.length > 0
     this.export_dir_fin_enabled = this.settings.export_dir_fin.length > 0
-  },
 
+    for (const [key, value] of Object.entries(this.settings.scan_dirs)) {
+      if (typeof value === 'string') {
+        this.monitoredFolders.push({path: key, type: ScanDirsEnum.OTHER, savePath: value})
+      }
+      else {
+        this.monitoredFolders.push({path: key, type: value, savePath: ''},)
+      }
+    }
+  },
   watch: {
     export_dir_enabled(newValue) {
       this.settings.export_dir = newValue ? this.settings.export_dir : ''
     },
     export_dir_fin_enabled(newValue) {
       this.settings.export_dir_fin = newValue ? this.settings.export_dir_fin : ''
+    }
+  },
+  methods: {
+    addRow() {
+      this.monitoredFolders.push({path: '', type: ScanDirsEnum.DEFAULT_SAVE_PATH, savePath: ''},)
     }
   }
 })
