@@ -23,5 +23,9 @@ export class Torrents {
     if (import.meta.env.VITE_USE_FAKE_TORRENTS === 'false') return
     const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
     store.state.torrents.push(...generateMultiple(count))
+
+    // filter out deleted torrents from selection
+    const hash_index = store.state.torrents.map(torrent => torrent.hash)
+    store.state.selected_torrents = store.state.selected_torrents.filter(hash => hash_index.includes(hash))
   }
 }
