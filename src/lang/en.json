@@ -47,7 +47,6 @@
   "feed": "Feed",
   "rule": "Rule",
   "then": "Then",
-  "of": "of",
   "yes": "yes",
   "no": "no",
   "filter": "Filter",
@@ -62,7 +61,9 @@
       "selectAllCaption": "Select / Release All (Ctrl + A)"
     },
     "emptyTorrentList": "Nothing to see here!",
-    "not_complete": "Not Yet Completed"
+    "not_complete": "Not Yet Completed",
+    "torrentsCount": "No torrent | {n} torrent | {n} torrents",
+    "selectedTorrentsCount": "No torrent | $0 of {n} torrent ($1) | $0 of {n} torrents ($1)"
   },
   "torrent": {
     "properties": {
@@ -135,8 +136,7 @@
       "altSpeed": "Alt Speeds",
       "dark": "Dark",
       "light": "Light"
-    },
-    "torrentsCount": "No torrents | {n} torrent | {n} torrents"
+    }
   },
   "modals": {
     "newFeed": {

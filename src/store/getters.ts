@@ -1,5 +1,6 @@
 import { i18n } from '@/plugins/i18n'
 import type { StoreState } from '@/types/vuetorrent'
+import {formatSize} from '@/filters'
 
 export default {
   getAppVersion: (state: StoreState) => () => state.version,
@@ -20,14 +21,17 @@ export default {
   getTrackers: (state: StoreState) => () => state.trackers,
   getAuthenticated: (state: StoreState) => () => state.authenticated,
   getTorrentCountString: (state: StoreState) => () => {
-    if (state.selected_torrents && state.selected_torrents.length) {
-      if (i18n.locale === 'zh-hans' || i18n.locale === 'zh-hant') {
-        return `${i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)}${i18n.t('of')} ${state.selected_torrents.length}`
-      } else {
-        return `${state.selected_torrents.length} ${i18n.t('of')} ${i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)}`
-      }
+    if (state.selected_torrents.length) {
+      let selectedSize = state.selected_torrents.map(hash => state.torrents.filter(el => el.hash === hash)[0])
+          .map(torrent => torrent.size)
+          .reduce((partialSum, newVal) => partialSum + newVal)
+
+      return i18n.tc('dashboard.selectedTorrentsCount', state.filteredTorrentsCount)
+        .replace('$0', state.selected_torrents.length.toString())
+        .replace('$1', formatSize(selectedSize))
+    } else {
+      return i18n.tc('dashboard.torrentsCount', state.filteredTorrentsCount)
     }
-    return i18n.tc('navbar.torrentsCount', state.filteredTorrentsCount)
   },
   getSearchPlugins: (state: StoreState) => () => state.searchPlugins
 }
