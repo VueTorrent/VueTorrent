@@ -482,8 +482,6 @@ export default defineComponent({
       this.monitoredFoldersData.forEach(folder => {
         this.settings.scan_dirs[folder.monitoredFolderPath] = folder.saveType === -1 ? folder.otherPath : folder.saveType
       })
-      console.log(this.monitoredFoldersData)
-      console.log(this.settings.scan_dirs)
     },
     close() {
       this.monitoredFoldersDialog = false
