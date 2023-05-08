@@ -29,12 +29,10 @@ export enum MaxRatioAction {
 }
 
 export enum ProxyType {
-  DISABLED = -1,
-  HTTP_WITHOUT_AUTH = 1,
-  SOCKS5_WITHOUT_AUTH,
-  HTTP_WITH_AUTH,
-  SOCKS5_WITH_AUTH,
-  SOCKS4_WITHOUT_AUTH
+  DISABLED = 0,
+  HTTP = 1,
+  SOCKS5 = 2,
+  SOCKS4 = 5
 }
 
 enum ScanDirsEnum {
@@ -76,4 +74,16 @@ export enum UploadSlotsBehavior {
 export enum UtpTcpMixedMode {
   PREFER_TCP,
   PEER_PROPORTIONAL
+}
+
+export enum DiskIOType {
+  DEFAULT,
+  MEMORY_MAPPED_FILES,
+  POSIX_COMPLIANT
+}
+
+export enum DiskIOMode {
+  DISABLE_OS_CACHE,
+  ENABLE_OS_CACHE,
+  WRITE_THROUGH
 }

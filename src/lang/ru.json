@@ -132,11 +132,11 @@
         "webUI": "Веб-интерфейс",
         "tagsAndCategories": "Метки и категории"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "Общее"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "Общие настройки пользовательского веб-интерфейса",
           "currentSpeed": "Показывать текущую скорость",
           "speedGraph": "Показывать график скорости",
@@ -155,7 +155,7 @@
           "qbittorrentVersion": "Версия QBittorrent:",
           "resetSettings": "Сбросить настройки"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Свойства для отображения активных торрентов",
           "completedTorrentTip": "Свойства для отображения завершенных торрентов",
           "properties": {
@@ -174,9 +174,9 @@
             "size": "Размер"
           }
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "При добавлении торрента",
         "whenAddTorrent": {
           "donotAutoStart": "Не начинать загрузку автоматически"
@@ -211,7 +211,7 @@
           "supportParamK": "%K: ID торрента"
         }
       },
-      "pageConnection": {
+      "connection": {
         "subHeader": "Ограничение соединений",
         "globalMaxConnection": "Глобальное максимальное количество соединений",
         "perTorrentMaxConnection": "Максимальное количество соединений на торрент",
@@ -222,7 +222,7 @@
         "proxyTorrentOnly": "Использовать прокси только для торрентов",
         "proxyAuth": "Аутентификация"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "Конфиденциальность",
         "enableDHT": "Включить DHT (децентрализованную сеть), чтобы найти больше одноранговых устройств (пиров)",
         "enablePeX": "Включить Peer Exchange (PeX), чтобы найти больше одноранговых устройств (пиров)",
@@ -240,21 +240,21 @@
         "whenRatioReaches": "По достижении рейтинга раздачи",
         "whenSeedingTimeReaches": "По достижении времени раздачи"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "Общие",
           "feeds": "Каналы",
           "rules": "Правила"
         },
-        "pageRules": {
+        "rules": {
           "rules": "Правила",
           "btnCreateNew": "Создать правило"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "Каналы",
           "btnCreateNew": "Добавить ленту"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "Чтение RSS",
           "rssAutoDownloader": "Автозагрузчик Торрентов RSS",
           "input": {
@@ -265,7 +265,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Использовать альтернативный веб-интерфейс",
         "filesLocation": "Расположение файла",
         "webUserInterface": "Веб-интерфейс (удаленное управление)",
@@ -281,7 +281,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Пропустить аутентификацию для клиентов в подсетях IP из белого списка",
         "whiteListExample": "Пример: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Создать категорию",
         "subHeaderTags": "Доступные теги:",
         "subHeaderCategories": "Доступные категории:"
@@ -347,7 +347,7 @@
         "relevance": "Актуальность",
         "files": "Файлы"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Доступные таги:",
         "subHeaderCategories": "Доступные категории:"
       },

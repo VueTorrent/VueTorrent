@@ -213,13 +213,13 @@
         "webUI": "網頁介面",
         "tagsAndCategories": "標籤和分類"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "一般",
           "desktopCard": "桌面版卡片",
           "mobileCard": "行動版卡片"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "這些設定適用於自訂WebUI",
           "currentSpeed": "顯示當前速率",
           "speedGraph": "顯示速率圖表",
@@ -241,16 +241,16 @@
           "exportSettings": "匯出設定",
           "resetSettings": "重置設定"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "桌面版上未完成種子所顯示的屬性",
           "completedTorrentTip": "桌面版上已完成種子所顯示的屬性"
         },
-        "pageMobileCard": {
+        "mobileCard": {
           "busyTorrentTip": "行動版上未完成種子所顯示的屬性",
           "completedTorrentTip": "行動版上未完成種子所顯示的屬性"
         }
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "當新增種子時",
         "whenAddTorrent": {
           "donotAutoStart": "不要自動開始下載",
@@ -286,12 +286,12 @@
           "supportParamK": "%K: 種子 ID"
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "下載者連線協定",
         "listeningSubHeader": "監聽埠",
         "useUPnP": "使用從路由器轉送的 UPnP / NAT-PMP 連接埠",
         "incomingConnectionPort": "連入連線時使用的埠",
-        "subHeader": "連線限制 (-1 以禁用)",
+        "subHeader": "連線限制",
         "globalMaxConnection": "全域最大連線數",
         "perTorrentMaxConnection": "單個種子的最大連線數",
         "globalMaxUploadSlots": "全域上傳通道最大數",
@@ -301,7 +301,7 @@
         "proxyTorrentOnly": "只對種子使用代理伺服器",
         "proxyAuth": "驗證"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "隱私",
         "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多下載者",
         "enablePeX": "啟用節點交換 (PeX) 以尋找更多下載者",
@@ -323,21 +323,21 @@
         "maxRatioRemoveTorrentAndFiles": "移除種子與其檔案",
         "maxRatioTorrentSuperseeding": "為種子啟用超級做種"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "一般",
           "feeds": "訂閱源",
           "rules": "規則"
         },
-        "pageRules": {
+        "rules": {
           "rules": "規則",
           "btnCreateNew": "新增規則"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "訂閱源",
           "btnCreateNew": "新增訂閱"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "RSS 閱讀器",
           "rssAutoDownloader": "RSS 種子自動下載器",
           "input": {
@@ -348,7 +348,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "使用替補 WebUI",
         "filesLocation": "檔案路徑",
         "webUserInterface": "網頁介面 (遠端控制)",
@@ -364,7 +364,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "跳過白名單內 IP 子網中客戶端的驗證",
         "whiteListExample": "範例：172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "新增",
         "subHeaderTags": "可用標籤：",
         "subHeaderCategories": "可用分類："
@@ -439,7 +439,7 @@
         "relevance": "關聯",
         "files": "檔案"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "可用標籤：",
         "subHeaderCategories": "可用分類："
       },

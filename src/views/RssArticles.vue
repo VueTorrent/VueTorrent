@@ -28,7 +28,7 @@
         :item-class="getRowStyle"
       >
         <template #top>
-          <div class="mx-4">
+          <div class="mx-4 mb-5">
             <v-text-field v-model="filter" :label="$t('filter')" />
             <v-row>
               <v-col>
@@ -36,11 +36,12 @@
               </v-col>
               <v-col>
                 <v-btn style="float: right" small elevation="3" @click="markAllAsRead">
-                  {{  $t('modals.rss.markAllAsRead') }}
+                  {{ $t('modals.rss.markAllAsRead') }}
                 </v-btn>
               </v-col>
             </v-row>
           </div>
+          <v-divider />
         </template>
         <template #[`item.title`]="{ item }">
           <a :href="item.link" target="_blank" v-text="item.title" />

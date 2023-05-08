@@ -213,13 +213,13 @@
         "webUI": "WebUI",
         "tagsAndCategories": "标签&分类"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "常规",
           "desktopCard": "桌面端标签",
           "mobileCard": "移动端标签"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "这些设置适用于 Vuetorrent 本身",
           "currentSpeed": "显示当前速度",
           "speedGraph": "显示速度图形化",
@@ -241,16 +241,16 @@
           "exportSettings": "导出设置",
           "resetSettings": "重设为默认"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "未完成种子显示属性",
           "completedTorrentTip": "已完成种子显示属性"
         },
-        "pageMobileCard": {
+        "mobileCard": {
           "busyTorrentTip": "未完成种子显示属性",
           "completedTorrentTip": "已完成种子显示属性"
         }
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "当添加种子时",
         "whenAddTorrent": {
           "donotAutoStart": "不要开始自动下载",
@@ -286,7 +286,7 @@
           "supportParamK": "%K: 种子 ID"
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "对等连接协议",
         "listeningSubHeader": "监听端口",
         "useUPnP": "使用路由器的 UPnP/NAT-PMP 端口转发",
@@ -301,7 +301,7 @@
         "proxyTorrentOnly": "只对 torrents 使用代理",
         "proxyAuth": "认证"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "隐私",
         "enableDHT": "启用 DHT (分散网络) 寻找更多终端",
         "enablePeX": "启用 PeX (对等交换) 寻找更多终端",
@@ -323,21 +323,21 @@
         "maxRatioRemoveTorrentAndFiles": "移除种子和文件",
         "maxRatioTorrentSuperseeding": "启用超级做种"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "常规",
           "feeds": "订阅源",
           "rules": "规则"
         },
-        "pageRules": {
+        "rules": {
           "rules": "规则",
           "btnCreateNew": "创建规则"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "订阅源",
           "btnCreateNew": "添加订阅"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "RSS 阅读器",
           "rssAutoDownloader": "RSS Torrent 自动下载器",
           "input": {
@@ -348,7 +348,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "使用自定义WEBUI",
         "filesLocation": "文件路径",
         "webUserInterface": "WEBUI设置 (远程控制)",
@@ -364,7 +364,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "绕过白名单IP子网中客户端的身份验证",
         "whiteListExample": "示例：172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "新增",
         "subHeaderTags": "可用标签：",
         "subHeaderCategories": "可用分类："
@@ -439,7 +439,7 @@
         "relevance": "关联",
         "files": "文件"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "可用标签：",
         "subHeaderCategories": "可用分类："
       },

@@ -1,251 +1,134 @@
 <template>
   <v-card flat>
     <v-subheader>
-      {{ $t('modals.settings.pageVueTorrent.pageGeneral.tip') }}
+      {{ $t('modals.settings.vueTorrent.general.tip') }}
     </v-subheader>
+
     <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showCurrentSpeed"
-            class="v-input--reverse pa-0 ma-0"
+      <v-checkbox v-model="settings.showCurrentSpeed" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.currentSpeed')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.showSpeedGraph" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.speedGraph')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.showAlltimeStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.allTimeStats')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.showSessionStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.sessionStats')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.showFreeSpace" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.freeSpace')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.showTrackerFilter" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.trackerFilter')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.rightDrawer" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.rightDrawer')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.topPagination" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.topPagination')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="settings.openSideBarOnStart" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.openSideBarOnStart')" />
+    </v-list-item>
+
+    <v-list-item class="mb-3">
+      <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
+    </v-list-item>
+
+    <v-list-item class="mb-3">
+      <v-row>
+        <v-col cols="12" sm="6" md="3">
+          <v-select v-model="settings.lang" height="1" flat dense hide-details outlined :items="languages" :label="$t('modals.settings.vueTorrent.general.language')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="3">
+          <v-select
+            v-model="settings.paginationSize"
+            height="1"
+            flat
+            dense
             hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.currentSpeed')"
+            outlined
+            :items="paginationSizes"
+            :label="$t('modals.settings.vueTorrent.general.paginationSize')"
           />
         </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showSpeedGraph"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.speedGraph')"
-          />
+        <v-col cols="12" sm="6" md="3">
+          <v-select v-model="settings.title" height="1" flat dense hide-details outlined :items="titleOptions" :label="$t('modals.settings.vueTorrent.general.vueTorrentTitle')" />
         </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showAlltimeStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.allTimeStats')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showSessionStat"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.sessionStats')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showFreeSpace"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.freeSpace')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showTrackerFilter"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.trackerFilter')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.rightDrawer"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.rightDrawer')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.topPagination"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.topPagination')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.openSideBarOnStart"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.openSideBarOnStart')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col>
-          <v-switch
-            v-model="webuiSettings.showShutdownButton"
-            class="v-input--reverse pa-0 ma-0"
-            hide-details
-            inset
-            :label="$t('modals.settings.pageVueTorrent.pageGeneral.showShutdownButton')"
-          />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col cols="8" sm="8" md="10">
-          <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.language') }}
-          </p>
-        </v-col>
-        <v-col cols="4" sm="4" md="2">
-          <v-select v-model="webuiSettings.lang" flat solo dense hide-details background-color="background" class="rounded-xl" :items="languages" item-text="caption" />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col cols="8" sm="8" md="10">
-          <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.paginationSize') }}
-          </p>
-        </v-col>
-        <v-col cols="4" sm="4" md="2">
-          <v-select v-model="webuiSettings.paginationSize" flat solo dense hide-details background-color="background" class="rounded-xl" :items="paginationSizes" />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col cols="8" sm="8" md="10">
-          <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.vueTorrentTitle') }}
-          </p>
-        </v-col>
-        <v-col cols="4" sm="4" md="2">
-          <v-select v-model="webuiSettings.title" flat solo dense hide-details background-color="background" class="rounded-xl" :items="titleOptions" />
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col sm="6" md="9">
-          <p class="subtitle-1 mt-2">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.dateFormat') }}
-          </p>
-        </v-col>
-        <v-col sm="6" md="3">
+        <v-col cols="12" sm="6" md="3">
           <v-text-field
-            v-model="webuiSettings.dateFormat"
+            v-model="settings.dateFormat"
             class="mb-2"
             outlined
             dense
             hide-details
-            :aria-label="$t('modals.settings.pageVueTorrent.pageGeneral.dateFormat')"
             placeholder="DD/MM/YYYY, HH:mm:ss"
-            label="using Dayjs"
+            hint="using Dayjs"
+            :label="$t('modals.settings.vueTorrent.general.dateFormat')"
           />
         </v-col>
       </v-row>
     </v-list-item>
+
     <v-list-item>
-      <v-row dense>
-        <v-col cols="10" sm="10" md="11">
-          <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.currentVersion') }}
-          </p>
+      <v-row>
+        <v-col cols="6" md="2" class="d-flex align-center justify-end">
+          <h3>{{ $t('modals.settings.vueTorrent.general.currentVersion') }}</h3>
         </v-col>
-        <v-col cols="2" sm="2" md="1">
-          <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">
-            <p class="mb-2">{{ version }}</p>
-          </a>
+        <v-col cols="6" md="2" class="d-flex align-center justify-start">
+          <h3>
+            <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a>
+          </h3>
+        </v-col>
+
+        <v-col cols="6" md="2" class="d-flex align-center justify-end">
+          <h3>{{ $t('modals.settings.vueTorrent.general.qbittorrentVersion') }}</h3>
+        </v-col>
+        <v-col cols="6" md="2" class="d-flex align-center justify-start">
+          <h3>
+            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">{{ Qbitversion }}</a>
+          </h3>
+        </v-col>
+
+        <v-col cols="12" md="4" class="d-flex align-center justify-center">
+          <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.vueTorrent.general.registerMagnet') }}</v-btn>
         </v-col>
       </v-row>
     </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col cols="10" sm="10" md="11">
-          <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.qbittorrentVersion') }}
-          </p>
-        </v-col>
-        <v-col cols="2" sm="2" md="1">
-          <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${Qbitversion}`">
-            <p class="mb-2">
-              {{ Qbitversion }}
-            </p>
-          </a>
-        </v-col>
-      </v-row>
-    </v-list-item>
-    <v-list-item>
-      <v-row dense>
-        <v-col cols="7" sm="7" md="10">
-          <p class="subtitle-1">
-            {{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetHeader') }}
-          </p>
-        </v-col>
-        <v-col cols="4" sm="4" md="2">
-          <v-btn @click="registerMagnetHandler">{{ $t('modals.settings.pageVueTorrent.pageGeneral.registerMagnetButton') }}</v-btn>
-        </v-col>
-      </v-row>
-    </v-list-item>
+
     <v-list-item>
       <v-textarea v-model="settingsField" />
     </v-list-item>
-    <v-list-item class="remove-after justify-content-evenly">
-      <v-btn @click="importSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.importSettings') }}</v-btn>
-      <v-btn @click="exportSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.exportSettings') }}</v-btn>
-    </v-list-item>
-    <v-list-item class="justify-center pb-2">
-      <v-btn dark color="red" @click="resetSettings">{{ $t('modals.settings.pageVueTorrent.pageGeneral.resetSettings') }}</v-btn>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="12" sm="6" class="d-flex align-center justify-center">
+          <v-btn @click="importSettings">{{ $t('modals.settings.vueTorrent.general.importSettings') }}</v-btn>
+        </v-col>
+
+        <v-col cols="12" sm="6" class="d-flex align-center justify-center">
+          <v-btn @click="exportSettings">{{ $t('modals.settings.vueTorrent.general.exportSettings') }}</v-btn>
+        </v-col>
+
+        <v-col cols="12" class="d-flex align-center justify-center">
+          <v-btn dark color="red" @click="resetSettings">{{ $t('modals.settings.vueTorrent.general.resetSettings') }}</v-btn>
+        </v-col>
+      </v-row>
     </v-list-item>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { mapState, mapGetters } from 'vuex'
 import { Qbit } from '@/services/qbit'
 import { LOCALES } from '@/lang/locales'
@@ -253,8 +136,9 @@ import { General } from '@/mixins'
 import { TitleOptions } from '@/enums/vuetorrent'
 import Ajv from 'ajv'
 import { StoreStateSchema } from '@/schemas'
+import WebUISettings from '@/types/vuetorrent/WebUISettings'
 
-export default {
+export default defineComponent({
   name: 'VueTorrent-General',
   mixins: [General],
   data() {
@@ -262,7 +146,7 @@ export default {
       languages: LOCALES,
       paginationSizes: [5, 15, 30, 50],
       titleOptions: [TitleOptions.DEFAULT, TitleOptions.GLOBAL_SPEED, TitleOptions.FIRST_TORRENT_STATUS],
-      Qbitversion: 0,
+      Qbitversion: '',
       settingsField: ''
     }
   },
@@ -271,6 +155,9 @@ export default {
     ...mapGetters(['getAppVersion']),
     version() {
       return this.getAppVersion()
+    },
+    settings(): WebUISettings {
+      return this.webuiSettings
     }
   },
   created() {
@@ -311,32 +198,20 @@ export default {
     },
     registerMagnetHandler() {
       if (typeof navigator.registerProtocolHandler !== 'function') {
-        this.$toast.error(this.$t("toast.magnetHandlerNotSupported").toString());
-        return;
+        this.$toast.error(this.$t('toast.magnetHandlerNotSupported').toString())
+        return
       }
 
       const templateUrl = location.href.replace('/settings', '/download=%s')
-      navigator.registerProtocolHandler('magnet', templateUrl);
+      navigator.registerProtocolHandler('magnet', templateUrl)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
 :deep(.v-select .v-select__selection) {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
-}
-// Reversed input variant
-:deep(.v-input--reverse .v-input__slot) {
-  @import 'src/styles/styles.scss';
-  @include reverse-switch;
-}
-
-.justify-content-evenly {
-  justify-content: space-evenly;
-}
-.remove-after::after {
-  content: unset;
 }
 </style>

@@ -3,7 +3,7 @@
     <v-row dense>
       <v-col cols="12" md="6">
         <v-subheader>
-          {{ $t('modals.settings.pageVueTorrent.pageMobileCard.busyTorrentTip') }}
+          {{ $t('modals.settings.vueTorrent.mobileCard.busyTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">
@@ -14,7 +14,7 @@
 
       <v-col cols="12" md="6">
         <v-subheader>
-          {{ $t('modals.settings.pageVueTorrent.pageMobileCard.completedTorrentTip') }}
+          {{ $t('modals.settings.vueTorrent.mobileCard.completedTorrentTip') }}
         </v-subheader>
         <v-row dense>
           <v-list flat class="ma-2 pa-0">

@@ -165,11 +165,11 @@
         "webUI": "WEB UI",
         "tagsAndCategories": "tags & catégories"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "Général"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "Ces paramètres concernent la WebUI",
           "currentSpeed": "Afficher la vitesse actuelle",
           "speedGraph": "Afficher le graphique de vitesse",
@@ -191,7 +191,7 @@
           "exportSettings": "Exporter la configuration",
           "resetSettings": "Réinitialiser la configuration"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Propriétés à afficher pour les torrents occupés",
           "completedTorrentTip": "Propriétés à afficher pour les torrents terminés",
           "properties": {
@@ -219,9 +219,9 @@
             "uploadSpeed": "Vitesse d'upload"
           }
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "Lors de l'ajout d'un torrent",
         "whenAddTorrent": {
           "donotAutoStart": "Ne pas lancer le téléchargement automatiquement",
@@ -255,12 +255,12 @@
           "supportParamI": "%I: Info hash"
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "Protocol de connexion aux pairs",
         "listeningSubHeader": "Port d'écoute",
         "useUPnP": "Utiliser la redirection de port UPnP / NAT-PMP de mon routeur",
         "incomingConnectionPort": "Port utilisé pour les connexions entrantes",
-        "subHeader": "Limites de connexion (-1 pour désactiver)",
+        "subHeader": "Limites de connexion",
         "globalMaxConnection": "Nombre max de connexions globales",
         "perTorrentMaxConnection": "Nombre max de connexions par torrent",
         "globalMaxUploadSlots": "Nombre maximum de slots d'upload global",
@@ -270,7 +270,7 @@
         "proxyTorrentOnly": "Utiliser le proxy uniquement pour les torrents",
         "proxyAuth": "Authentification"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "Vie privée",
         "enableDHT": "Activer le DHT (réseau décentralisé) pour trouver plus de pairs",
         "enablePeX": "Activer l'échange de pairs (PeX) pour trouver plus de pairs",
@@ -292,21 +292,21 @@
         "maxRatioRemoveTorrentAndFiles": "Suprimer le torrent & son contenu",
         "maxRatioTorrentSuperseeding": "Activer le mode super seeding"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "Général",
           "feeds": "Flux",
           "rules": "Règles"
         },
-        "pageRules": {
+        "rules": {
           "rules": "Règles",
           "btnCreateNew": "Créer une règle"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "Flux",
           "btnCreateNew": "Ajouter un flux"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "Lecteur RSS",
           "rssAutoDownloader": "Downloader automatique des torrents RSS",
           "input": {
@@ -317,7 +317,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Utiliser une interface Web alternative",
         "filesLocation": "Emplacement de l'interface",
         "webUserInterface": "Interface utilisateur Web (accès à distance)",
@@ -333,7 +333,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Désactiver l'authentification pour les clients dans les sous-réseaux IP de la liste blanche",
         "whiteListExample": "Exemple: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Créer un nouveau",
         "subHeaderTags": "Tags disponibles :",
         "subHeaderCategories": "Catégories disponibles :"
@@ -399,7 +399,7 @@
         "relevance": "Pertinence",
         "files": "Fichiers"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Tags disponibles:",
         "subHeaderCategories": "Catégories disponibles:"
       },

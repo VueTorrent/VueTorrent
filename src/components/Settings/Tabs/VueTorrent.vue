@@ -2,13 +2,13 @@
   <v-card flat>
     <v-tabs v-model="tab">
       <v-tab href="#general">
-        {{ $t('modals.settings.pageVueTorrent.tabName.general') }}
+        {{ $t('modals.settings.vueTorrent.tabName.general') }}
       </v-tab>
       <v-tab href="#desktopCard">
-        {{ $t('modals.settings.pageVueTorrent.tabName.desktopCard') }}
+        {{ $t('modals.settings.vueTorrent.tabName.desktopCard') }}
       </v-tab>
       <v-tab href="#mobileCard">
-        {{ $t('modals.settings.pageVueTorrent.tabName.mobileCard') }}
+        {{ $t('modals.settings.vueTorrent.tabName.mobileCard') }}
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab" touchless>

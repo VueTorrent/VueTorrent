@@ -120,11 +120,11 @@
         "webUI": "WEBUI",
         "tagsAndCategories": "tag & kategori"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "Umum"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "Pengaturan berikut hanya untuk WebUI kustom",
           "currentSpeed": "Tampilkan Kec. Terkini",
           "speedGraph": "Tampilkan Grafik Kecepatan",
@@ -141,14 +141,14 @@
           "currentVersion": "Versi saat ini:",
           "qbittorrentVersion": "Versi qBittorrent:"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Properti ditampilkan pada torrent yang sibuk",
           "completedTorrentTip": "Properti ditampilkan pada torrent yang selesai",
           "properties": {}
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "Saat menambahkan torrent",
         "whenAddTorrent": {
           "donotAutoStart": "Jangan mengunduh secara otomatis"
@@ -179,7 +179,7 @@
           "supportParamI": "%I: Info hash"
         }
       },
-      "pageConnection": {
+      "connection": {
         "subHeader": "Batas Koneksi",
         "globalMaxConnection": "Jumlah maksimum koneksi global",
         "perTorrentMaxConnection": "Jumlah maksimum koneksi per torrent",
@@ -190,7 +190,7 @@
         "proxyTorrentOnly": "Gunakan proxy hanya untuk torrent",
         "proxyAuth": "Autentikasi"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "Privasi",
         "enableDHT": "Aktifkan DHT (jaringan terdesentralisasi) untuk menemukan banyak peer",
         "enablePeX": "Aktifkan Peer Exchange (PeX) untuk menemukan banyak peer",
@@ -212,21 +212,21 @@
         "maxRatioRemoveTorrentAndFiles": "Hapus torrent beserta file",
         "maxRatioTorrentSuperseeding": "Aktifkan torrent super seeding"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "Umum",
           "feeds": "Feed",
           "rules": "Aturan"
         },
-        "pageRules": {
+        "rules": {
           "rules": "Aturan",
           "btnCreateNew": "Buat Aturan"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "Feed",
           "btnCreateNew": "Tambah feed"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "Pembaca RSS",
           "rssAutoDownloader": "Pengunduh Otomatis RSS Torrent",
           "input": {
@@ -237,7 +237,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Gunakan WebUI Alternatif",
         "filesLocation": "Lokasi file",
         "webUserInterface": "Web User Interface (Remote Control)",
@@ -253,7 +253,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Lewati autentikasi untuk klien pada whitelist subnet IP",
         "whiteListExample": "Contoh: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Buat baru",
         "subHeaderTags": "Tag Tersedia:",
         "subHeaderCategories": "Kategori Tersedia:"
@@ -319,7 +319,7 @@
         "relevance": "Relevansi",
         "files": "File"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Tag Tersedia:",
         "subHeaderCategories": "Kategori Tersedia:"
       },

@@ -4,141 +4,66 @@ exports[`General > render correctly 1`] = `
 "<v-card-stub data-v-7da6d3e2=\\"\\" loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
   <v-subheader-stub data-v-7da6d3e2=\\"\\"> </v-subheader-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"mb-3\\">
+    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  </v-list-item-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"mb-3\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"English\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"10\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"5,15,30,50\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
+        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"test\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"\\" dense=\\"true\\" height=\\"1\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" outlined=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"Default,Global Speed,First Torrent Status\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\"></v-select-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
+        <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" hint=\\"using Dayjs\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" placeholder=\\"DD/MM/YYYY, HH:mm:ss\\" type=\\"text\\" class=\\"mb-2\\"></v-text-field-stub>
       </v-col-stub>
     </v-row-stub>
   </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"6\\" md=\\"2\\" tag=\\"div\\" class=\\"d-flex align-center justify-end\\">
+        <h3 data-v-7da6d3e2=\\"\\"></h3>
       </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"6\\" md=\\"2\\" tag=\\"div\\" class=\\"d-flex align-center justify-start\\">
+        <h3 data-v-7da6d3e2=\\"\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/WDaan/VueTorrent/releases/tag/vundefined\\"></a></h3>
       </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"6\\" md=\\"2\\" tag=\\"div\\" class=\\"d-flex align-center justify-end\\">
+        <h3 data-v-7da6d3e2=\\"\\"></h3>
       </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"6\\" md=\\"2\\" tag=\\"div\\" class=\\"d-flex align-center justify-start\\">
+        <h3 data-v-7da6d3e2=\\"\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/qbittorrent/qBittorrent/releases/tag/release-v1.2.3\\">v1.2.3</a></h3>
       </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
-        <v-switch-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inset=\\"true\\" class=\\"v-input--reverse pa-0 ma-0\\"></v-switch-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"English\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"caption\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"10\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"5,15,30,50\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"8\\" sm=\\"8\\" md=\\"10\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
-        <v-select-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"test\\" appendicon=\\"$dropdown\\" backgroundcolor=\\"background\\" dense=\\"true\\" hidedetails=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" flat=\\"true\\" solo=\\"true\\" type=\\"text\\" valuecomparator=\\"[Function]\\" nodatatext=\\"$vuetify.noDataText\\" items=\\"Default,Global Speed,First Torrent Status\\" itemcolor=\\"primary\\" itemdisabled=\\"disabled\\" itemtext=\\"text\\" itemvalue=\\"value\\" menuprops=\\"[object Object]\\" class=\\"rounded-xl\\"></v-select-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"9\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1 mt-2\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" sm=\\"6\\" md=\\"3\\" tag=\\"div\\">
-        <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" hidedetails=\\"true\\" label=\\"using Dayjs\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" placeholder=\\"DD/MM/YYYY, HH:mm:ss\\" type=\\"text\\" class=\\"mb-2\\"></v-text-field-stub>
-      </v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/WDaan/VueTorrent/releases/tag/vundefined\\">
-          <p data-v-7da6d3e2=\\"\\" class=\\"mb-2\\"></p>
-        </a></v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"10\\" sm=\\"10\\" md=\\"11\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"2\\" sm=\\"2\\" md=\\"1\\" tag=\\"div\\"><a data-v-7da6d3e2=\\"\\" target=\\"_blank\\" href=\\"https://github.com/qbittorrent/qBittorrent/releases/tag/release-v1.2.3\\">
-          <p data-v-7da6d3e2=\\"\\" class=\\"mb-2\\"> v1.2.3 </p>
-        </a></v-col-stub>
-    </v-row-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\" dense=\\"true\\">
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"7\\" sm=\\"7\\" md=\\"10\\" tag=\\"div\\">
-        <p data-v-7da6d3e2=\\"\\" class=\\"subtitle-1\\"> </p>
-      </v-col-stub>
-      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"4\\" sm=\\"4\\" md=\\"2\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" md=\\"4\\" tag=\\"div\\" class=\\"d-flex align-center justify-center\\">
         <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
       </v-col-stub>
     </v-row-stub>
@@ -146,12 +71,18 @@ exports[`General > render correctly 1`] = `
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
     <v-textarea-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" value=\\"\\" backgroundcolor=\\"\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" type=\\"text\\" rowheight=\\"24\\" rows=\\"5\\"></v-textarea-stub>
   </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"remove-after justify-content-evenly\\">
-    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
-    <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"justify-center pb-2\\">
-    <v-btn-stub data-v-7da6d3e2=\\"\\" color=\\"red\\" dark=\\"true\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\" class=\\"d-flex align-center justify-center\\">
+        <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\" class=\\"d-flex align-center justify-center\\">
+        <v-btn-stub data-v-7da6d3e2=\\"\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" tag=\\"div\\" class=\\"d-flex align-center justify-center\\">
+        <v-btn-stub data-v-7da6d3e2=\\"\\" color=\\"red\\" dark=\\"true\\" tag=\\"button\\" activeclass=\\"\\" type=\\"button\\"></v-btn-stub>
+      </v-col-stub>
+    </v-row-stub>
   </v-list-item-stub>
 </v-card-stub>"
 `;
