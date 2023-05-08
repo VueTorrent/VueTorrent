@@ -3,6 +3,7 @@
   "settings": "Settings",
   "pause": "Pause",
   "delete": "Delete",
+  "ok": "OK",
   "save": "Save",
   "cancel": "Cancel",
   "confirm": "Confirm",
@@ -257,7 +258,7 @@
       "downloads": {
         "whenAddTorrent": {
           "subheader": "When adding a torrent",
-          "donotAutoStart": "Do not start the download automatically",
+          "doNotAutoStart": "Do not start the download automatically",
           "autoDeleteMode": "Delete .torrent files afterwards"
         },
         "publicSettings": {
@@ -281,45 +282,53 @@
           "defaultSavePath": "Default Save Path",
           "keepIncompleteIn": "Keep incomplete torrents in",
           "exportDir": "Copy .torrent files to",
-          "exportDirFinished": "Copy .torrent files for finished downloads to",
-          "monitoredFolders": {
-            "subheader": "Monitored Folders"
-          },
-          "excludedFileNames": {
-            "label": "Excluded file names",
-            "hint": "One file name per line"
-          },
-          "mailNotification": {
-            "enabled": "Email notification upon download completion",
-            "from": "From",
-            "to": "To",
-            "smtpServer": "SMTP server",
-            "sslEnabled": "This server requires a secure connection (SSL)",
-            "authEnabled": "Authentication",
-            "username": "Username",
-            "password": "Password"
-          },
-          "runExternalProgram": {
-            "subheader": "Run external program",
-            "onAddedEnabled": "Run external program on torrent added:",
-            "onAddedLabel": "Command",
-            "onFinishedEnabled": "Run external program on torrent finished:",
-            "onFinishedLabel": "Command",
-            "supportParamTitle": "Supported parameters (case sensitive):",
-            "supportParamN": "%N: Torrent name",
-            "supportParamL": "%L: Category",
-            "supportParamG": "%G: Tags (separated by comma)",
-            "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
-            "supportParamR": "%R: Root path (first torrent subdirectory path)",
-            "supportParamD": "%D: Save path",
-            "supportParamC": "%C: Number of files",
-            "supportParamZ": "%Z: Torrent size (bytes)",
-            "supportParamT": "%T: Current tracker",
-            "supportParamI": "%I: Info hash v1",
-            "supportParamJ": "%J: Info hash v2",
-            "supportParamK": "%K: Torrent ID",
-            "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
-          }
+          "exportDirFinished": "Copy .torrent files for finished downloads to"
+        },
+        "monitoredFolders": {
+          "subheader": "Monitored Folders",
+          "newItem": "New Item",
+          "editItem": "Edit Item",
+          "monitoredFolderPath": "Monitored Folder",
+          "saveType": "Override Save Location",
+          "otherPath": "Other Path",
+          "actions": "Actions",
+          "confirmDelete": "Are you sure you want to delete this item?",
+          "noData": "No monitored folder yet"
+        },
+        "excludedFileNames": {
+          "label": "Excluded file names",
+          "hint": "One file name per line"
+        },
+        "mailNotification": {
+          "enabled": "Email notification upon download completion",
+          "from": "From",
+          "to": "To",
+          "smtpServer": "SMTP server",
+          "sslEnabled": "This server requires a secure connection (SSL)",
+          "authEnabled": "Authentication",
+          "username": "Username",
+          "password": "Password"
+        },
+        "runExternalProgram": {
+          "subheader": "Run external program",
+          "onAddedEnabled": "Run external program on torrent added:",
+          "onAddedLabel": "Command",
+          "onFinishedEnabled": "Run external program on torrent finished:",
+          "onFinishedLabel": "Command",
+          "supportParamTitle": "Supported parameters (case sensitive):",
+          "supportParamN": "%N: Torrent name",
+          "supportParamL": "%L: Category",
+          "supportParamG": "%G: Tags (separated by comma)",
+          "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
+          "supportParamR": "%R: Root path (first torrent subdirectory path)",
+          "supportParamD": "%D: Save path",
+          "supportParamC": "%C: Number of files",
+          "supportParamZ": "%Z: Torrent size (bytes)",
+          "supportParamT": "%T: Current tracker",
+          "supportParamI": "%I: Info hash v1",
+          "supportParamJ": "%J: Info hash v2",
+          "supportParamK": "%K: Torrent ID",
+          "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
         }
       },
       "connection": {
@@ -867,6 +876,11 @@
       "roundRobin": "Round-robin",
       "fastestUpload": "Fastest upload",
       "antiLeech": "Anti-leech"
+    },
+    "monitoredFolderSaveLocation": {
+      "monitoredFolder": "Monitored Folder Location",
+      "defaultSavePath": "Default Save Path",
+      "other": "Other"
     }
   }
 }
