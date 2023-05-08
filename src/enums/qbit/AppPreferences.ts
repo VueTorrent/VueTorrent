@@ -36,7 +36,6 @@ export enum ProxyType {
 }
 
 export enum ScanDirsEnum {
-  OTHER = -1,
   MONITORED_FOLDER,
   DEFAULT_SAVE_PATH
 }
