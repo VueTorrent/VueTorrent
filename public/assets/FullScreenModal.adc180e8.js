@@ -1,0 +1,1 @@
+import{d as e}from"./vue.7fbf5199.js";const o=e({name:"FullScreenModal",data(){return{tab:null}},computed:{phoneLayout(){return this.$vuetify.breakpoint.xsOnly},dialogWidth(){return this.phoneLayout?"100%":"80%"}},watch:{dialog(t){t||(this.tab=null)}}});export{o as F};
