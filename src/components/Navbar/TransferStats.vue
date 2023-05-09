@@ -11,9 +11,9 @@
       </template>
       <span>{{ $t('navbar.sessionStats.tooltip') }}</span>
     </v-tooltip>
-    <StorageCard class="mb-4 mt-4" :label="titleCase($t('downloaded'))" color="download" :value="getDownload" />
-    <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload" />
-    <StringCard v-if="!isSession" class="mt-4" :label="titleCase($t('ratio'))" color="ratio" :value="getRatio" />
+    <StorageCard class="mb-4 mt-4" :label="$t('downloaded')" color="download" :value="getDownload" />
+    <StorageCard :label="$t('uploaded')" color="upload" :value="getUpload" />
+    <StringCard v-if="!isSession" class="mt-4" :label="$t('ratio')" color="ratio" :value="getRatio" />
   </div>
 </template>
 
