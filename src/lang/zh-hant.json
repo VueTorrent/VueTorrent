@@ -3,6 +3,7 @@
   "settings": "設定",
   "pause": "暫停",
   "delete": "移除",
+  "ok": "確認",
   "save": "儲存",
   "cancel": "取消",
   "confirm": "確認",
@@ -46,7 +47,6 @@
   "feed": "訂閱源",
   "rule": "規則",
   "then": "然後",
-  "of": "中的",
   "yes": "是",
   "no": "否",
   "filter": "過濾器",
@@ -61,7 +61,9 @@
       "selectAllCaption": "選擇 / 取消選擇全部 (Ctrl + A)"
     },
     "emptyTorrentList": "這裡沒東西可看！",
-    "not_complete": "未完成"
+    "not_complete": "未完成",
+    "torrentsCount": "無種子 | {n} 個種子 | {n} 個種子",
+    "selectedTorrentsCount": "無種子 | {n} 個種子中的 $0 個 ($1) | {n} 個種子中的 $0 個 ($1)"
   },
   "torrent": {
     "properties": {
@@ -134,8 +136,7 @@
       "altSpeed": "替補速率限制",
       "dark": "暗色介面",
       "light": "亮色介面"
-    },
-    "torrentsCount": "無種子 | {n} 個種子 | {n} 個種子"
+    }
   },
   "modals": {
     "newFeed": {
@@ -190,6 +191,7 @@
     "rss": {
       "title": "RSS 文章",
       "filterRead": "僅限未讀文章",
+      "markAllAsRead": "標記全部項目為已讀",
       "columnTitle": {
         "feedName": "訂閱源名稱",
         "author": "作者",
@@ -205,13 +207,15 @@
     },
     "settings": {
       "tabName": {
-        "VueTorrent": "VueTorrent",
+        "vueTorrent": "VueTorrent",
         "downloads": "下載",
         "connection": "連線",
+        "speed": "速率",
         "bittorrent": "Bittorrent",
         "rss": "RSS",
         "webUI": "網頁介面",
-        "tagsAndCategories": "標籤和分類"
+        "tagsAndCategories": "標籤和分類",
+        "advanced": "進階"
       },
       "vueTorrent": {
         "tabName": {
@@ -237,6 +241,7 @@
           "showShutdownButton": "顯示結束按鈕",
           "currentVersion": "當前版本",
           "qbittorrentVersion": "QBittorrent 版本",
+          "registerMagnet": "註冊磁力連結",
           "importSettings": "匯入設定",
           "exportSettings": "匯出設定",
           "resetSettings": "重置設定"
@@ -247,31 +252,70 @@
         },
         "mobileCard": {
           "busyTorrentTip": "行動版上未完成種子所顯示的屬性",
-          "completedTorrentTip": "行動版上未完成種子所顯示的屬性"
+          "completedTorrentTip": "行動版上已完成種子所顯示的屬性"
         }
       },
       "downloads": {
-        "subHeaderWhenAddTorrent": "當新增種子時",
         "whenAddTorrent": {
-          "donotAutoStart": "不要自動開始下載",
+          "subheader": "當新增種子時",
+          "doNotAutoStart": "不要自動開始下載",
           "autoDeleteMode": "事後移除 .torrent 檔案"
         },
-        "subHeaderPublicSettings": "公共設定",
         "publicSettings": {
           "preAllocateDisk": "為所有檔案事先分配硬碟空間",
           "appendQBExtension": "在未完成檔案加上 .!qB 副檔名"
         },
-        "subHeaderSaveManagement": "存檔管理",
         "saveManagement": {
-          "autoManagement": "自動管理種子",
-          "relocate": "當分類變更時重新定位種子",
+          "subheader": "存檔管理",
+          "autoTMMEnabled": "預設種子管理模式",
+          "defaultTMMOptions": {
+            "manual": "手動",
+            "automatic": "自動"
+          },
+          "torrentChangedTMM": "當種子分類變更時",
+          "savePathChangedTMM": "當預設儲存路徑變更時",
+          "categoryChangedTMM": "當分類儲存路徑變更時",
+          "paramChangedTMMOptions": {
+            "relocateTorrent": "重新定位種子",
+            "switchToManual": "切換種子至手動模式"
+          },
           "defaultSavePath": "預設儲存路徑",
           "keepIncompleteIn": "保留未完成的種子於：",
-          "autoEnabled_onAdded": "當新增種子時執行外部程式：",
-          "autoLabel_onAdded": "命令",
-          "autoEnabled_onFinished": "當種子下載結束時執行外部程式：",
-          "autoLabel_onFinished": "命令",
-          "supportParamTitle": "支援的參數 (區分大小寫)",
+          "exportDir": "複製 .torrent 檔案到",
+          "exportDirFinished": "複製已完成的 .torrent 檔案到"
+        },
+        "monitoredFolders": {
+          "subheader": "已監視的資料夾",
+          "newItem": "新項目",
+          "editItem": "編輯項目",
+          "monitoredFolderPath": "已監視的資料夾",
+          "saveType": "覆寫儲存位置",
+          "otherPath": "其他路徑",
+          "actions": "動作",
+          "confirmDelete": "你確認想要移除此項目？",
+          "noData": "沒有已監視的資料夾"
+        },
+        "excludedFileNames": {
+          "label": "排除的檔案名稱",
+          "hint": "每行一個檔案名稱"
+        },
+        "mailNotification": {
+          "enabled": "下載完成時使用電子郵件通知",
+          "from": "從",
+          "to": "到",
+          "smtpServer": "SMTP 伺服器",
+          "sslEnabled": "這個伺服器需要加密連線 (SSL)",
+          "authEnabled": "驗證",
+          "username": "使用者名稱",
+          "password": "密碼"
+        },
+        "runExternalProgram": {
+          "subheader": "執行外部程式",
+          "onAddedEnabled": "當新增種子時執行外部程式：",
+          "onAddedLabel": "命令",
+          "onFinishedEnabled": "當種子下載結束時執行外部程式：",
+          "onFinishedLabel": "命令",
+          "supportParamTitle": "支援的參數 (區分大小寫)：",
           "supportParamN": "%N: 種子名稱",
           "supportParamL": "%L: 分類",
           "supportParamG": "%G: 標籤 (以逗號分隔)",
@@ -283,45 +327,98 @@
           "supportParamT": "%T: 當前的追蹤者",
           "supportParamI": "%I: 資訊雜湊值 v1",
           "supportParamJ": "%J: 資訊雜湊值 v2",
-          "supportParamK": "%K: 種子 ID"
+          "supportParamK": "%K: 種子 ID",
+          "tip": "提示：把參數以引號包起來以避免被空格切斷 (例如：\"%N\")"
         }
       },
       "connection": {
         "protocol": "下載者連線協定",
-        "listeningSubHeader": "監聽埠",
-        "useUPnP": "使用從路由器轉送的 UPnP / NAT-PMP 連接埠",
-        "incomingConnectionPort": "連入連線時使用的埠",
-        "subHeader": "連線限制",
-        "globalMaxConnection": "全域最大連線數",
-        "perTorrentMaxConnection": "單個種子的最大連線數",
-        "globalMaxUploadSlots": "全域上傳通道最大數",
-        "perTorrentMaxUploadSlots": "單個種子的上傳通道最大數",
-        "proxySubHeader": "代理伺服器",
-        "proxyPeerConnections": "使用代理伺服器來連線下載者",
-        "proxyTorrentOnly": "只對種子使用代理伺服器",
-        "proxyAuth": "驗證"
+        "listeningPort": {
+          "subheader": "監聽埠",
+          "incomingConnectionPort": "連入連線時使用的埠",
+          "randomPort": "隨機連接埠",
+          "useUPnP": "使用從路由器轉送的 UPnP / NAT-PMP 連接埠"
+        },
+        "connectionLimits": {
+          "subheader": "連線限制",
+          "globalMaxConnection": "全域最大連線數",
+          "perTorrentMaxConnection": "單個種子的最大連線數",
+          "globalMaxUploadSlots": "全域上傳通道最大數",
+          "perTorrentMaxUploadSlots": "單個種子的上傳通道最大數"
+        },
+        "proxy": {
+          "subheader": "代理伺服器",
+          "host": "主機",
+          "port": "埠",
+          "peerConnections": "使用代理來連線下載者",
+          "torrentOnly": "只對種子使用代理",
+          "hostNameLookup": "為主機名稱查詢使用代理",
+          "auth": {
+            "subtitle": "驗證",
+            "username": "使用者名稱",
+            "password": "密碼",
+            "tip": "資訊：密碼以未加密的形式儲存"
+          }
+        },
+        "ipFiltering": {
+          "subheader": "IP 過濾",
+          "filterPath": "過濾器路徑 (.dat, .p2p, .p2b)",
+          "applyToTrackers": "套用到追蹤者",
+          "bannedIps": "手動封鎖的 IP 位置",
+          "bannedIpsHint": "每行一個"
+        }
+      },
+      "speed": {
+        "subheader": {
+          "global": "全域速率限制",
+          "alternative": "替補速率限制",
+          "settings": "速率限制設定"
+        },
+        "upload": "上傳 (B/s)",
+        "download": "下載 (B/s)",
+        "tip": "0 代表無限制",
+        "scheduler": {
+          "subheader": "預約使用替補速率限制",
+          "from": "從",
+          "to": "到",
+          "selectButtonLabel": "選擇時間",
+          "when": "何時"
+        },
+        "settings": {
+          "applyToUtp": "套用速率限制至 µTP 協定",
+          "applyToTransportOverhead": "套用速率限制至傳輸負載",
+          "applyToPeersOnLan": "套用速率限制至 LAN 上的下載者"
+        }
       },
       "bittorrent": {
-        "subHeaderPrivacy": "隱私",
-        "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多下載者",
-        "enablePeX": "啟用節點交換 (PeX) 以尋找更多下載者",
-        "enableLPD": "啟用本地下載者搜尋以尋找更多下載者",
-        "enableAnonymous": "啟用匿名模式",
-        "torrentQueue": "種子佇列",
-        "maxActiveDownload": "最大活躍下載數",
-        "maxActiveUpload": "最大活躍上傳數",
-        "maxActiveTorrent": "最大活躍種子數",
-        "excludeSlowTorrent": "不要在這些限制範圍內計算速率慢的種子",
-        "downloadRateLimit": "下載速率閾值 KiB/s",
-        "uploadRateLimit": "上傳速率閾值 KiB/s",
-        "torrentInactivityTimer": "種子不活躍計時器",
-        "subHeaderSeedLimits": "做種限制",
-        "whenRatioReaches": "當分享率達到",
-        "whenSeedingTimeReaches": "當做種時間達到 (分鐘)",
-        "maxRatioPauseTorrent": "暫停種子",
-        "maxRatioRemoveTorrent": "移除種子",
-        "maxRatioRemoveTorrentAndFiles": "移除種子與其檔案",
-        "maxRatioTorrentSuperseeding": "為種子啟用超級做種"
+        "privacy": {
+          "subheader": "隱私",
+          "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多下載者",
+          "enablePeX": "啟用節點交換 (PeX) 以尋找更多下載者",
+          "enableLPD": "啟用本地下載者搜尋以尋找更多下載者",
+          "encryptionMode": "加密模式",
+          "enableAnonymous": "啟用匿名模式",
+          "moreInfo": "更多資訊"
+        },
+        "maxActiveCheckingTorrents": "最大活躍的正在檢查種子數",
+        "torrentQueueing": {
+          "subheader": "種子佇列",
+          "maxActiveDownload": "最大活躍下載數",
+          "maxActiveUpload": "最大活躍上傳數",
+          "maxActiveTorrent": "最大活躍種子數",
+          "excludeSlowTorrent": "不要在這些限制範圍內計算速率慢的種子",
+          "downloadRateLimit": "下載速率閾值 (KiB/s)",
+          "uploadRateLimit": "上傳速率閾值 (KiB/s)",
+          "torrentInactivityTimer": "種子不活躍計時器"
+        },
+        "seedLimits": {
+          "subheader": "做種限制",
+          "whenRatioReaches": "當分享率達到",
+          "whenSeedingTimeReaches": "當做種時間達到",
+          "then": "然後"
+        },
+        "autoAddTrackers": "自動新增這些追蹤者至新的下載中",
+        "autoAddTrackersHint": "每行一個追蹤者"
       },
       "rss": {
         "tabName": {
@@ -329,45 +426,174 @@
           "feeds": "訂閱源",
           "rules": "規則"
         },
-        "rules": {
-          "rules": "規則",
-          "btnCreateNew": "新增規則"
+        "general": {
+          "reader": {
+            "subheader": "RSS 閱讀器",
+            "enableProcessing": "啟用抓取 RSS 訂閱",
+            "feedsRefreshInterval": "訂閱源更新區間",
+            "feedsRefreshIntervalHint": "分鐘",
+            "maximumArticlesPerFeed": "每個訂閱源的最大文章數"
+          },
+          "autoDownloader": {
+            "subheader": "RSS 種子自動下載器",
+            "enable": "啟用 RSS 種子自動下載器"
+          },
+          "smartEpisodeFilter": {
+            "subheader": "RSS 智慧型章節過濾器",
+            "downloadEpisodes": "下載 REPACK/PROPER 章節",
+            "filters": "過濾器",
+            "filtersHint": "每個一行"
+          }
         },
         "feeds": {
           "feeds": "訂閱源",
-          "btnCreateNew": "新增訂閱"
+          "btnCreateNew": "新增訂閱",
+          "refreshAll": "重新整理全部"
         },
-        "general": {
-          "rssAutoProcessing": "RSS 閱讀器",
-          "rssAutoDownloader": "RSS 種子自動下載器",
-          "input": {
-            "enableRssAutoDownload": "啟用自動 RSS 種子下載",
-            "enableRssProcessing": "啟用抓取 RSS 訂閱",
-            "feedsRefreshInterval": "訂閱源更新區間 (分鐘)",
-            "feedsMaxArticles": "每個訂閱源的最大文章數"
-          }
+        "rules": {
+          "rules": "規則",
+          "btnCreateNew": "新增規則"
         }
       },
       "webUI": {
-        "useAlternativeWebUI": "使用替補 WebUI",
-        "filesLocation": "檔案路徑",
-        "webUserInterface": "網頁介面 (遠端控制)",
-        "ipAddress": "IP 位置",
-        "port": "埠",
-        "authentication": "驗證",
-        "username": "使用者名稱",
-        "password": "密碼",
-        "maxAttempts": "最大嘗試次數",
-        "banDuration": "封鎖時長 (秒)",
-        "sessionTimeout": "會話逾時 (秒)",
-        "bypassAuthenticationForClientsOnLocalhost": "跳過本機客戶端的驗證",
-        "bypassAuthenticationForClientsInWhitelisted": "跳過白名單內 IP 子網中客戶端的驗證",
-        "whiteListExample": "範例：172.17.32.0/24, fdff:ffff:c8::/40"
+        "interface": {
+          "subheader": "網頁介面 (遠端控制)",
+          "ipAddress": "IP 位置",
+          "port": "埠",
+          "useAlternativeWebUI": "使用替補 WebUI",
+          "filesLocation": "檔案路徑"
+        },
+        "authentication": {
+          "subheader": "驗證",
+          "username": "使用者名稱",
+          "password": "密碼",
+          "passwordPlaceholder": "(不變更)",
+          "bypassLocalhost": "跳過本機客戶端的驗證",
+          "bypassWhitelist": "跳過白名單內 IP 子網中客戶端的驗證",
+          "whitelistExamples": "範例：172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "最大嘗試次數",
+          "banDuration": "封鎖時長",
+          "banDurationHint": "秒",
+          "sessionTimeout": "會話逾時",
+          "sessionTimeoutHint": "秒"
+        },
+        "https": {
+          "subheader": "使用 HTTPS",
+          "certificate": "憑證",
+          "key": "鍵值",
+          "tip": "關於憑證的資訊"
+        },
+        "security": {
+          "subheader": "安全",
+          "clickjacking": "啟用點選劫持保護",
+          "csrf": "啟用跨站請求偽造 (CSRF) 保護",
+          "secureCookie": "啟用 cookie 安全旗標（需要 HTTPS）",
+          "hostHeaderValidation": "啟用主機標頭驗證",
+          "hostHeaderValidationHint": "使用分號分隔 ( ; )",
+          "serverDomains": "伺服器網域"
+        },
+        "customHeaders": "新增自訂 HTTP 標頭",
+        "customHeadersPlaceholder": "標頭1: 鍵值1\n標頭2: 鍵值2\n...",
+        "customHeadersHint": "每行一個",
+        "reverseProxySupport": "啟用反向代理支援",
+        "proxiesList": "受信任的代理伺服器清單",
+        "proxiesListHint": "使用分號分隔 IP ( ; )",
+        "dynDns": {
+          "subheader": "更新我的動態網域名稱",
+          "providers": {
+            "dynDns": "DynDNS",
+            "noIp": "NO-IP"
+          },
+          "registerBtn": "註冊",
+          "domainName": "網域名稱",
+          "username": "使用者名稱",
+          "password": "密碼"
+        }
       },
       "tagsAndCategories": {
         "btnCreateNew": "新增",
         "subHeaderTags": "可用標籤：",
         "subHeaderCategories": "可用分類："
+      },
+      "advanced": {
+        "openDoc": "開啟文檔",
+        "qbittorrent": {
+          "subheader": "qBittorrent 部分",
+          "allocatedRam": "實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)",
+          "allocatedRamHint": "MiB",
+          "networkInterfaces": {
+            "label": "網路介面",
+            "any": "任何介面"
+          },
+          "ipAddress": {
+            "label": "可選擇綁定的 IP 位置",
+            "all": "所有地址",
+            "allIPv4": "所有 IPv4 位置",
+            "allIPv6": "所有 IPv6 位置"
+          },
+          "saveInterval": "儲存復原資料區間",
+          "saveIntervalHint": "分鐘",
+          "recheckOnCompletion": "完成後重新檢查種子",
+          "refreshInterval": "重新整理區間",
+          "refreshIntervalHint": "亳秒",
+          "resolveCountries": "解析下載者國家",
+          "reannounceOnIpPortChanged": "當 IP 或連接埠變更時通知所有追蹤者",
+          "enableEmbeddedTracker": "啟用嵌入追蹤者",
+          "embeddedTrackerPort": "嵌入追蹤者埠",
+          "embeddedTrackerPortForwarding": "為嵌入追蹤者啟用連接埠轉發"
+        },
+        "libtorrent": {
+          "subheader": "libtorrent 部分",
+          "asyncIoThreads": "異步 I/O 執行緒",
+          "hashingThreads": "雜湊執行緒 (libtorrent >= 2.0)",
+          "filePoolSize": "檔案叢集大小",
+          "outstandingMemory": "檢查種子時的未完成記憶體",
+          "outstandingMemoryHint": "MiB",
+          "diskCache": "硬碟快取 (libtorrent < 2.0)",
+          "diskCacheHint": "MiB",
+          "diskCacheExpiry": "硬碟快取過期區間 (libtorrent < 2.0)",
+          "diskCacheExpiryHint": "秒",
+          "diskQueueSize": "硬碟佇列大小",
+          "diskQueueSizeHint": "KiB",
+          "diskIoType": "硬碟 IO 類型 (libtorrent >= 2.0; 需要重新啟動)",
+          "diskIoReadMode": "硬碟 IO 讀取模式",
+          "diskIoWriteMode": "硬碟 IO 寫入模式",
+          "coalesceReadsWrites": "合併讀寫 (libtorrent < 2.0)",
+          "pieceExtentAffinity": "使用分塊範圍關聯",
+          "sendUploadPieceSuggestions": "傳送上傳分塊建議",
+          "sendBufferWatermark": "傳送緩衝浮水印",
+          "sendBufferWatermarkHint": "KiB",
+          "sendBufferLowWatermark": "傳送緩衝低浮水印",
+          "sendBufferLowWatermarkHint": "KiB",
+          "sendBufferWatermarkFactor": "傳送緩衝浮水印因子",
+          "sendBufferWatermarkFactorHint": "%",
+          "outgoingConnectionsPerSecond": "每秒對外連線數",
+          "socketBacklogSize": "Socket 紀錄檔大小",
+          "outgoingPortsMin": "連出埠（最小）[0：停用]",
+          "outgoingPortsMax": "連出埠（最大）[0：停用]",
+          "upnpLeaseDuration": "UPnP 租約期限 [0：永久租約]",
+          "peerTos": "連接到下載者的 DSCP 值",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP 混合模式演算法",
+          "idnSupport": "啟用國際化域名 (IDN)支援",
+          "allowMultipleConnectionsFromTheSameIPAddress": "允許從同一個 IP 位置而來的多重連線",
+          "validateHTTPSTrackerCertificate": "驗證 HTTPS 追蹤器憑證",
+          "mitigateSSRF": "伺服器端請求偽造 (SSRF) 緩解",
+          "blockPeersOnPrivilegedPorts": "不允許連線到在特權連接埠上的下載者",
+          "uploadSlotsBehavior": "上傳通道行為",
+          "uploadChokingAlgorithm": "上傳演算法",
+          "announceAllTrackers": "總是發佈到同一追蹤者群組內的所有追蹤者",
+          "announceAllTiers": "總是發佈到所有追蹤者群組",
+          "announceIP": "向追蹤器回報的 IP 位置（需要重新啟動）",
+          "maxConcurrentHTTPAnnounces": "最大並行 HTTP 發佈",
+          "stopTrackerTimeout": "停止追蹤器逾時",
+          "peerTurnover": "下載者流動斷線百分比",
+          "peerTurnoverHint": "%",
+          "peerTurnoverCutoff": "下載者流動閾值百分比",
+          "peerTurnoverCutoffHint": "%",
+          "peerTurnoverInterval": "下載者流動斷線區間",
+          "peerTurnoverIntervalHint": "秒",
+          "requestQueueSize": "對單個下載者的最多未完成請求"
+        }
       }
     },
     "shareLimit": {
@@ -542,7 +768,7 @@
   },
   "toast": {
     "loginSuccess": "登入成功！🎉",
-    "loginFailed": "登入失敗…😕",
+    "loginFailed": "登入失敗 😕",
     "settingsSaved": "設定儲存成功！",
     "categorySaved": "分類編輯成功！",
     "feedSaved": "訂閱源儲存成功！",
@@ -555,7 +781,8 @@
     "pasteNotSupported": "無法貼上，非安全環境",
     "shutdownSuccess": "已成功結束 qBittorrent!",
     "shutdownError": "無法結束應用，請確認 qBittorrent 正在運行！",
-    "invalidJson": "無效的 JSON!"
+    "invalidJson": "無效的 JSON! 檢查終端以了解詳情",
+    "magnetHandlerNotSupported": "無法註冊處理器，非安全環境"
   },
   "rightClick": {
     "resume": "繼續",
@@ -598,6 +825,62 @@
       "none": "無",
       "metadataReceived": "收到元資料後",
       "filesChecked": "檢查檔案後"
+    },
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP 與 μTP",
+      "tcp": "TCP",
+      "utp": "μTP"
+    },
+    "encryption": {
+      "preferEncryption": "允許加密",
+      "forceOn": "要求加密",
+      "forceOff": "停用加密"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "暫停種子",
+      "removeTorrent": "移除種子",
+      "removeTorrentAndFiles": "移除種子與其檔案",
+      "torrentSuperseeding": "為種子啟用超級做種"
+    },
+    "scheduler": {
+      "everyDay": "每天",
+      "everyWeekday": "平日",
+      "everyWeekend": "週末",
+      "everyMonday": "星期一",
+      "everyTuesday": "星期二",
+      "everyWednesday": "星期三",
+      "everyThursday": "星期四",
+      "everyFriday": "星期五",
+      "everySaturday": "星期六",
+      "everySunday": "星期天"
+    },
+    "diskIoType": {
+      "default": "預設",
+      "memoryMappedFiles": "記憶體對映檔案",
+      "posixCompliant": "遵循 POSIX"
+    },
+    "diskIoMode": {
+      "disableOsCache": "停用作業系統快取",
+      "enableOsCache": "啟用作業系統快取",
+      "writeThrough": "連續寫入 (libtorrent >= 2.0.6)"
+    },
+    "utpTcpMixedMode": {
+      "preferTcp": "偏好 TCP",
+      "peerProportional": "下載者比例 (TCP 節流)"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "固定通道",
+      "uploadRateBased": "基於上傳速率"
+    },
+    "uploadChokingAlgorithm": {
+      "roundRobin": "循環",
+      "fastestUpload": "上傳最快",
+      "antiLeech": "反蝗族"
+    },
+    "monitoredFolderSaveLocation": {
+      "monitoredFolder": "已監視的資料夾",
+      "defaultSavePath": "預設儲存路徑",
+      "other": "其他"
     }
   }
 }
