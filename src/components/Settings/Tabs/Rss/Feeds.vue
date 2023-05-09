@@ -2,7 +2,7 @@
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.settings.pageRss.pageFeeds.feeds') }}</v-subheader>
+        <v-subheader>{{ $t('modals.settings.rss.feeds.feeds') }}</v-subheader>
         <template v-for="(item, index) in availableFeeds">
           <v-list-item :key="item.uid">
             <v-list-item-content>
@@ -28,7 +28,10 @@
         </template>
         <v-list-item>
           <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createFeed">
-            {{ $t('modals.settings.pageRss.pageFeeds.btnCreateNew') }}
+            {{ $t('modals.settings.rss.feeds.btnCreateNew') }}
+          </v-btn>
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="refreshAll">
+            {{ $t('modals.settings.rss.feeds.refreshAll') }}
           </v-btn>
         </v-list-item>
       </v-col>
@@ -57,7 +60,7 @@ export default defineComponent({
     ...mapGetters(['getFeeds']),
     availableFeeds() {
       // @ts-expect-error: TS2349: This expression is not callable. Type 'never' has no call signatures.
-      return this.getFeeds()
+      return this.getFeeds() as Feed[]
     }
   },
   created() {
@@ -79,6 +82,11 @@ export default defineComponent({
     },
     createFeed() {
       this.createModal('FeedForm')
+    },
+    async refreshAll() {
+      for (const feed of this.availableFeeds) {
+        await this.updateFeed(feed)
+      }
     }
   }
 })

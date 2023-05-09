@@ -1,18 +1,78 @@
 # Changelog
 
-## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
+## [1.5.7](https://github.com/WDaan/VueTorrent/compare/v1.5.6...v1.5.7) (2023-05-09)
 
 
 ### Bug Fixes
 
-* Missing state filters ([#718](https://github.com/WDaan/VueTorrent/issues/718)) ([74cfeca](https://github.com/WDaan/VueTorrent/commit/74cfecace0a46abc4fbe843b15131ce85e8fbb79))
-* state glitching [#724](https://github.com/WDaan/VueTorrent/issues/724) ([260c1c6](https://github.com/WDaan/VueTorrent/commit/260c1c6960dcd7e505e8643db9f362b0acc3cbc7))
-* translation of properties ([3e95230](https://github.com/WDaan/VueTorrent/commit/3e95230ae822673d6340874518e7557e0e20bf52))
+* prevent mark all to send useless requests between single mark ([#799](https://github.com/WDaan/VueTorrent/issues/799)) ([2fdeb63](https://github.com/WDaan/VueTorrent/commit/2fdeb63c83eee6bbcdcc0bc639a4d3d303f10e20))
 
 
 ### Improvements
 
-* Progress component sizing on Desktop ([#720](https://github.com/WDaan/VueTorrent/issues/720)) ([c991417](https://github.com/WDaan/VueTorrent/commit/c9914172b55ac1f3e1cdf89a01caec2666f153e3))
+* Add Escape / Enter keybinds to RSS modals ([#797](https://github.com/WDaan/VueTorrent/issues/797)) ([b276004](https://github.com/WDaan/VueTorrent/commit/b276004b2875391cf648247abbec026b71b598b5))
+* Add mark all as read button in RssArticles view ([#798](https://github.com/WDaan/VueTorrent/issues/798)) ([93d3fdc](https://github.com/WDaan/VueTorrent/commit/93d3fdc85ae714ffe55a3fbf6c2330c2b6c4c89d))
+* Add Monitored folders ([#802](https://github.com/WDaan/VueTorrent/issues/802)) ([0deb6f8](https://github.com/WDaan/VueTorrent/commit/0deb6f8e47e3fcd4b4d2a1b0cf0aa560ab219493))
+* Add sum of selected torrents' size to selectedTorrentCountString ([#803](https://github.com/WDaan/VueTorrent/issues/803)) ([cf66103](https://github.com/WDaan/VueTorrent/commit/cf66103aca48ae80822e92f573b26df19d54c0a0))
+* include all settings ([#793](https://github.com/WDaan/VueTorrent/issues/793)) ([3e7f351](https://github.com/WDaan/VueTorrent/commit/3e7f35107b1b70aef0e0fb13f9d5c322154e87d2))
+* limit updateMainData to one request at once ([#800](https://github.com/WDaan/VueTorrent/issues/800)) ([30bedda](https://github.com/WDaan/VueTorrent/commit/30beddaab425348d020e762bab49b3399f86b9be))
+* Register magnet handler ([#784](https://github.com/WDaan/VueTorrent/issues/784)) ([82310c8](https://github.com/WDaan/VueTorrent/commit/82310c843d270e203705fa6ed8d98f355ffdb2e9))
+* Show autorun command tooltip when either checkbox is checked ([#789](https://github.com/WDaan/VueTorrent/issues/789)) ([d1ffa2b](https://github.com/WDaan/VueTorrent/commit/d1ffa2b143c87d9875c4c05b2c97c37705b68ca5))
+
+## [1.5.6](https://github.com/WDaan/VueTorrent/compare/v1.5.5...v1.5.6) (2023-04-27)
+
+
+### Bug Fixes
+
+* Remove unneeded classes to prevent unexpected color background in MobileCard ([#782](https://github.com/WDaan/VueTorrent/issues/782)) ([6745c91](https://github.com/WDaan/VueTorrent/commit/6745c91a3ca20476bdc97127d506d182bb899560))
+
+## [1.5.5](https://github.com/WDaan/VueTorrent/compare/v1.5.4...v1.5.5) (2023-04-25)
+
+
+### Bug Fixes
+
+* Chinese word order problem ([#765](https://github.com/WDaan/VueTorrent/issues/765)) ([f1bb9b7](https://github.com/WDaan/VueTorrent/commit/f1bb9b7b354ab2ba47f5d0180dfe3d4a8f824e43))
+
+
+### Improvements
+
+* Add Refresh All button for RSS feeds ([#775](https://github.com/WDaan/VueTorrent/issues/775)) ([3e1d5fb](https://github.com/WDaan/VueTorrent/commit/3e1d5fb76598ee7a432a56ea8b073a2bfe7dcba7))
+* all-time ratio card ([#777](https://github.com/WDaan/VueTorrent/issues/777)) ([f970564](https://github.com/WDaan/VueTorrent/commit/f970564bf90aa82b553eb0e92911d3100b2e6150))
+
+## [1.5.4](https://github.com/WDaan/VueTorrent/compare/v1.5.3...v1.5.4) (2023-04-02)
+
+
+### Improvements
+
+* Add missing torrent properties to TorrentDetail &gt; Info ([#744](https://github.com/WDaan/VueTorrent/issues/744)) ([ecd8a4e](https://github.com/WDaan/VueTorrent/commit/ecd8a4e608d687c80209ee6d5b6dad6a26bb943c))
+* Prevent storing dashboard items label in store ([#748](https://github.com/WDaan/VueTorrent/issues/748)) ([237de79](https://github.com/WDaan/VueTorrent/commit/237de79e3392ac12f2f84e21c30a89c036413118))
+
+## [1.5.3](https://github.com/WDaan/VueTorrent/compare/v1.5.2...v1.5.3) (2023-03-27)
+
+
+### Bug Fixes
+
+* capitalization [#740](https://github.com/WDaan/VueTorrent/issues/740) ([54b4f57](https://github.com/WDaan/VueTorrent/commit/54b4f578d1b3c0491d16024e6d377090d520cac5))
+
+
+### Improvements
+
+* complete RSS rule settings ([#731](https://github.com/WDaan/VueTorrent/issues/731)) @Larsluph ([3690170](https://github.com/WDaan/VueTorrent/commit/36901701c31ada48196b7258381fdf8725abda55))
+* improve format when using timestamp 0 on SeenComplete ([#737](https://github.com/WDaan/VueTorrent/issues/737)) ([3d5f6c8](https://github.com/WDaan/VueTorrent/commit/3d5f6c86dfc48ea76223685634e641d086f7c50b))
+* Sort folders before files ([#730](https://github.com/WDaan/VueTorrent/issues/730)) ([521c6e6](https://github.com/WDaan/VueTorrent/commit/521c6e6c7f0aaacd80c764f056498ad3bf53dc1a))
+
+## [1.5.2](https://github.com/WDaan/VueTorrent/compare/v1.5.1...v1.5.2) (2023-03-21)
+
+### Bug Fixes
+
+- Missing state filters ([#718](https://github.com/WDaan/VueTorrent/issues/718)) ([74cfeca](https://github.com/WDaan/VueTorrent/commit/74cfecace0a46abc4fbe843b15131ce85e8fbb79))
+- state glitching [#724](https://github.com/WDaan/VueTorrent/issues/724) ([260c1c6](https://github.com/WDaan/VueTorrent/commit/260c1c6960dcd7e505e8643db9f362b0acc3cbc7))
+- translation of properties ([3e95230](https://github.com/WDaan/VueTorrent/commit/3e95230ae822673d6340874518e7557e0e20bf52))
+
+### Improvements
+
+- Progress component sizing on Desktop ([#720](https://github.com/WDaan/VueTorrent/issues/720))
+  ([c991417](https://github.com/WDaan/VueTorrent/commit/c9914172b55ac1f3e1cdf89a01caec2666f153e3))
 
 ## [1.5.1](https://github.com/WDaan/VueTorrent/compare/v1.5.0...v1.5.1) (2023-03-19)
 

@@ -19,7 +19,7 @@
       <v-data-table
         id="articlesTable"
         :headers="headers"
-        :items="articles"
+        :items="filterUnread ? unreadArticles : articles"
         :items-per-page="15"
         :search="filter"
         :custom-filter="customFilter"
@@ -28,10 +28,20 @@
         :item-class="getRowStyle"
       >
         <template #top>
-          <div class="mx-4">
+          <div class="mx-4 mb-5">
             <v-text-field v-model="filter" :label="$t('filter')" />
-            <v-checkbox v-model="filterUnread" :label="$t('modals.rss.filterRead')" hide-details />
+            <v-row>
+              <v-col>
+                <v-checkbox class="my-0" v-model="filterUnread" :label="$t('modals.rss.filterRead')" hide-details />
+              </v-col>
+              <v-col>
+                <v-btn style="float: right" small elevation="3" @click="markAllAsRead">
+                  {{ $t('modals.rss.markAllAsRead') }}
+                </v-btn>
+              </v-col>
+            </v-row>
           </div>
+          <v-divider />
         </template>
         <template #[`item.title`]="{ item }">
           <a :href="item.link" target="_blank" v-text="item.title" />
@@ -103,7 +113,10 @@ export default defineComponent({
       ;(this.rss as RssState).feeds.forEach((feed: Feed) => {
         feed.articles && articles.push(...feed.articles.map(article => ({ feedName: feed.name, parsedDate: new Date(article.date), ...article })))
       })
-      return articles.filter(article => (this.filterUnread ? !article.isRead : true))
+      return articles
+    },
+    unreadArticles() {
+      return this.articles.filter(article => !article.isRead)
     }
   },
   methods: {
@@ -122,6 +135,12 @@ export default defineComponent({
     },
     async markAsRead(item: FeedArticle) {
       await qbit.markAsRead(item.feedName, item.id)
+      this.$store.commit('FETCH_FEEDS')
+    },
+    async markAllAsRead() {
+      for (const article of this.unreadArticles) {
+        await qbit.markAsRead(article.feedName, article.id)
+      }
       this.$store.commit('FETCH_FEEDS')
     },
     handleKeyboardShortcut(e: KeyboardEvent) {

@@ -1,103 +1,146 @@
 <template>
   <v-card flat>
-    <v-subheader>{{ $t('modals.settings.pageBittorrent.subHeaderPrivacy') }}</v-subheader>
+    <v-subheader>{{ $t('modals.settings.bittorrent.privacy.subheader') }}</v-subheader>
+
     <v-list-item>
-      <v-checkbox v-model="settings.dht" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.enableDHT')" />
+      <v-checkbox v-model="settings.dht" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.privacy.enableDHT')" />
     </v-list-item>
+
     <v-list-item>
-      <v-checkbox v-model="settings.pex" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.enablePeX')" />
+      <v-checkbox v-model="settings.pex" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.privacy.enablePeX')" />
     </v-list-item>
+
     <v-list-item>
-      <v-checkbox v-model="settings.lsd" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.enableLPD')" />
+      <v-checkbox v-model="settings.lsd" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.privacy.enableLPD')" />
     </v-list-item>
+
     <v-list-item>
-      <v-checkbox v-model="settings.anonymous_mode" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.enableAnonymous')" />
+      <v-select
+        v-model="settings.encryption"
+        height="1"
+        flat
+        dense
+        hide-details
+        outlined
+        :items="encyptionModeOptions"
+        :label="$t('modals.settings.bittorrent.privacy.encryptionMode')"
+      />
     </v-list-item>
-    <v-divider insert />
+
     <v-list-item>
-      <v-checkbox v-model="settings.queueing_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.torrentQueue')" />
+      <v-checkbox v-model="settings.anonymous_mode" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.privacy.enableAnonymous')" />
+      <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" class="ml-3" target="_blank">{{ $t('modals.settings.bittorrent.privacy.moreInfo') }}</a>
     </v-list-item>
+
+    <v-divider />
+
     <v-list-item>
       <v-text-field
+        v-model="settings.max_active_checking_torrents"
+        type="number"
+        dense
+        hide-details
+        outlined
+        class="my-5"
+        :label="$t('modals.settings.bittorrent.maxActiveCheckingTorrents')"
+      />
+    </v-list-item>
+
+    <v-divider />
+
+    <v-list-item>
+      <v-checkbox v-model="settings.queueing_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.torrentQueueing.subheader')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-text-field
+        :disabled="!settings.queueing_enabled"
         v-model="settings.max_active_downloads"
-        class="mb-2"
+        class="mb-5"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.maxActiveDownload')"
-        :disabled="!settings.queueing_enabled"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.maxActiveDownload')"
       />
     </v-list-item>
     <v-list-item>
       <v-text-field
+        :disabled="!settings.queueing_enabled"
         v-model="settings.max_active_uploads"
-        class="mb-2"
+        class="mb-5"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.maxActiveUpload')"
-        :disabled="!settings.queueing_enabled"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.maxActiveUpload')"
       />
     </v-list-item>
     <v-list-item>
       <v-text-field
+        :disabled="!settings.queueing_enabled"
         v-model="settings.max_active_torrents"
-        class="mb-2"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.maxActiveTorrent')"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.maxActiveTorrent')"
+      />
+    </v-list-item>
+
+    <v-list-item class="ms-8">
+      <v-checkbox
         :disabled="!settings.queueing_enabled"
+        v-model="settings.dont_count_slow_torrents"
+        hide-details
+        class="ma-0 pa-0"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.excludeSlowTorrent')"
       />
     </v-list-item>
-    <v-list-item>
-      <v-checkbox v-model="settings.dont_count_slow_torrents" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.excludeSlowTorrent')" />
-    </v-list-item>
-    <v-list-item>
+    <v-list-item class="ms-8">
       <v-text-field
+        :disabled="!settings.queueing_enabled || !settings.dont_count_slow_torrents"
         v-model="settings.slow_torrent_dl_rate_threshold"
-        class="mb-2"
+        class="mb-5"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.downloadRateLimit')"
-        :disabled="!settings.dont_count_slow_torrents"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.downloadRateLimit')"
       />
     </v-list-item>
-    <v-list-item>
+    <v-list-item class="ms-8">
       <v-text-field
+        :disabled="!settings.queueing_enabled || !settings.dont_count_slow_torrents"
         v-model="settings.slow_torrent_ul_rate_threshold"
-        class="mb-2"
+        class="mb-5"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.uploadRateLimit')"
-        :disabled="!settings.dont_count_slow_torrents"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.uploadRateLimit')"
       />
     </v-list-item>
-    <v-list-item>
+    <v-list-item class="ms-8">
       <v-text-field
+        :disabled="!settings.queueing_enabled || !settings.dont_count_slow_torrents"
         v-model="settings.slow_torrent_inactive_timer"
-        class="mb-2"
+        class="mb-5"
         outlined
         dense
         type="number"
         hide-details
-        :label="$t('modals.settings.pageBittorrent.torrentInactivityTimer')"
-        :disabled="!settings.dont_count_slow_torrents"
+        :label="$t('modals.settings.bittorrent.torrentQueueing.torrentInactivityTimer')"
       />
     </v-list-item>
-    <v-divider insert />
-    <v-subheader>{{ $t('modals.settings.pageBittorrent.subHeaderSeedLimits') }}</v-subheader>
+
+    <v-divider />
+    <v-subheader>{{ $t('modals.settings.bittorrent.seedLimits.subheader') }}</v-subheader>
+
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-checkbox v-model="settings.max_ratio_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.whenRatioReaches')" />
+          <v-checkbox v-model="settings.max_ratio_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.seedLimits.whenRatioReaches')" />
         </v-col>
         <v-col>
           <v-text-field v-model="settings.max_ratio" class="mb-2" outlined dense type="number" hide-details :disabled="!settings.max_ratio_enabled" />
@@ -107,7 +150,7 @@
     <v-list-item>
       <v-row dense>
         <v-col>
-          <v-checkbox v-model="settings.max_seeding_time_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.pageBittorrent.whenSeedingTimeReaches')" />
+          <v-checkbox v-model="settings.max_seeding_time_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.seedLimits.whenSeedingTimeReaches')" />
         </v-col>
         <v-col>
           <v-text-field v-model="settings.max_seeding_time" class="mb-2" outlined dense type="number" hide-details :disabled="!settings.max_seeding_time_enabled" />
@@ -118,53 +161,66 @@
       <v-row dense>
         <v-col>
           <v-subheader>
-            {{ $t('then') }}
+            {{ $t('modals.settings.bittorrent.seedLimits.then') }}
           </v-subheader>
         </v-col>
         <v-col>
           <v-select
-            v-model="settings.max_ratio_act"
-            class="mb-2"
-            outlined
             :disabled="!settings.max_ratio_enabled && !settings.max_seeding_time_enabled"
+            v-model="settings.max_ratio_act"
+            height="1"
+            flat
             dense
-            small-chips
+            hide-details
+            outlined
             :items="thenTypes"
           />
         </v-col>
       </v-row>
     </v-list-item>
+
+    <v-divider />
+
+    <v-list-item>
+      <v-checkbox v-model="settings.add_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
+    </v-list-item>
+    <v-list-item>
+      <v-textarea
+        :disabled="!settings.add_trackers"
+        v-model="settings.excluded_file_names"
+        outlined
+        required
+        auto-grow
+        clearable
+        persistent-hint
+        :hint="$t('modals.settings.bittorrent.autoAddTrackersHint')"
+      />
+    </v-list-item>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { SettingsTab, FullScreenModal } from '@/mixins'
-import { MaxRatioAction } from '@/enums/qbit/AppPreferences'
+import { Encryption, MaxRatioAction } from '@/enums/qbit/AppPreferences'
 
-export default {
+export default defineComponent({
   name: 'BitTorrent',
   mixins: [SettingsTab, FullScreenModal],
   data() {
     return {
+      encyptionModeOptions: [
+        { value: Encryption.PREFER_ENCRYPTION, text: this.$t('enums.encryption.preferEncryption') },
+        { value: Encryption.FORCE_ON, text: this.$t('enums.encryption.forceOn') },
+        { value: Encryption.FORCE_OFF, text: this.$t('enums.encryption.forceOff') }
+      ],
       thenTypes: [
-        {
-          value: MaxRatioAction.PAUSE_TORRENT,
-          text: this.$t('modals.settings.pageBittorrent.maxRatioPauseTorrent')
-        },
-        {
-          value: MaxRatioAction.REMOVE_TORRENT,
-          text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrent')
-        },
-        {
-          value: MaxRatioAction.REMOVE_TORRENT_AND_FILES,
-          text: this.$t('modals.settings.pageBittorrent.maxRatioRemoveTorrentAndFiles')
-        },
-        {
-          value: MaxRatioAction.ENABLE_SUPERSEEDING,
-          text: this.$t('modals.settings.pageBittorrent.maxRatioTorrentSuperseeding')
-        }
+        { value: MaxRatioAction.PAUSE_TORRENT, text: this.$t('enums.maxRatioAction.pauseTorrent') },
+        { value: MaxRatioAction.REMOVE_TORRENT, text: this.$t('enums.maxRatioAction.removeTorrent') },
+        { value: MaxRatioAction.REMOVE_TORRENT_AND_FILES, text: this.$t('enums.maxRatioAction.removeTorrentAndFiles') },
+        { value: MaxRatioAction.ENABLE_SUPERSEEDING, text: this.$t('enums.maxRatioAction.torrentSuperseeding') }
       ]
     }
   }
-}
+})
 </script>

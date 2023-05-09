@@ -21,7 +21,7 @@
     </v-flex>
     <v-flex xs12 class="pa-0 ma-1 row spangap">
       <span v-if="isSizeActive">
-        <span class="downloaded">
+        <span>
           <span class="body-2">{{ torrent.downloaded | getDataValue }} </span>
           <span class="grey--text caption">{{ torrent.downloaded | getDataUnit }}</span>
         </span>
@@ -32,17 +32,17 @@
         </span>
       </span>
       <span v-if="isSizeActive && isProgressActive" class="grey--text" style="margin-top: 3px">•</span>
-      <span v-if="isProgressActive" class="progress">
+      <span v-if="isProgressActive">
         <span class="body-2">{{ torrent.progress }} </span>
         <span class="grey--text caption">%</span>
       </span>
       <span v-if="(isSizeActive || isProgressActive) && isRatioActive" class="grey--text" style="margin-top: 3px">•</span>
-      <span v-if="isRatioActive" class="ratio">
+      <span v-if="isRatioActive">
         <span class="grey--text caption">R: </span>
         <span class="body-2">{{ torrent.ratio }}</span>
       </span>
       <span v-if="(isSizeActive || isProgressActive || isRatioActive) && isUploadedActive" class="grey--text" style="margin-top: 3px">•</span>
-      <span v-if="isUploadedActive" class="uploaded">
+      <span v-if="isUploadedActive">
         <span class="body-2">{{ torrent.uploaded | getDataValue }} </span>
         <span class="grey--text caption">{{ torrent.uploaded | getDataUnit }}</span>
       </span>

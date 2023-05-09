@@ -218,13 +218,13 @@
         "webUI": "Bеб-інтерфейс",
         "tagsAndCategories": "Мітки та категорії"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "Загальне",
           "desktopCard": "Десктоп",
           "mobileCard": "Мобільний"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "Ці налаштування призначені для користувацького веб-інтерфейсу",
           "currentSpeed": "Відображати поточну швидкість",
           "speedGraph": "Показувати графік швидкості",
@@ -246,16 +246,16 @@
           "exportSettings": "Експорт налаштувань",
           "resetSettings": "Скинути налаштування"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Властивості для відображення зайнятих торрентів",
           "completedTorrentTip": "Властивості для відображення завершених торрентів"
         },
-        "pageMobileCard": {
+        "mobileCard": {
           "busyTorrentTip": "Властивості для відображення для зайнятих торрентів на мобільному пристрої",
           "completedTorrentTip": "Властивості для відображення завершених торрентів на мобільному пристрої"
         }
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "Коли додається торент",
         "whenAddTorrent": {
           "donotAutoStart": "Не запускати завантаження автоматично",
@@ -291,7 +291,7 @@
           "supportParamK": "%K: ID торренту"
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "Протокол підключення пірів",
         "listeningSubHeader": "Прослуховуваний порт",
         "useUPnP": "Використовувати переспрямування портів UPnP / NAT-PMP з мого маршрутизатора",
@@ -306,7 +306,7 @@
         "proxyTorrentOnly": "Використовувати проксі тільки для торрентів",
         "proxyAuth": "Аутентифікація"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "Конфіденційність",
         "enableDHT": "Увімкнути DHT (децентралізовану мережу), щоб знайти більше однорангових пристроїв",
         "enablePeX": "Увімкнути Peer Exchange (PeX), щоб знайти більше однорангових партнерів",
@@ -328,21 +328,21 @@
         "maxRatioRemoveTorrentAndFiles": "Видалити торрент та файли",
         "maxRatioTorrentSuperseeding": "Ввімкнути режим суперсіда"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "Загальні",
           "feeds": "Стрічки",
           "rules": "Правила"
         },
-        "pageRules": {
+        "rules": {
           "rules": "Правила",
           "btnCreateNew": "Створити правило"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "Стрічки",
           "btnCreateNew": "Додати стрічку"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "Зчитувач RSS",
           "rssAutoDownloader": "Автозавантаження торрентів через RSS",
           "input": {
@@ -353,7 +353,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Використовувати альтернативний веб-інтерфейс",
         "filesLocation": "Розташування файлів",
         "webUserInterface": "Веб-інтерфейс користувача (дистанційне керування)",
@@ -369,7 +369,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Обійти автентифікацію для клієнтів у підмережах IP із білого списку",
         "whiteListExample": "Приклад: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Створити категорію",
         "subHeaderTags": "Доступні мітки:",
         "subHeaderCategories": "Доступні категорії:"
@@ -435,7 +435,7 @@
         "relevance": "Відповідність",
         "files": "Файли"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Доступні мітки:",
         "subHeaderCategories": "Доступні категорії:"
       },

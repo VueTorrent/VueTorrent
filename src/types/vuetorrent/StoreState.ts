@@ -24,6 +24,7 @@ export default interface StoreState extends PersistentStoreState {
   download_data: number[]
   filteredTorrentsCount: number
   intervals: NodeJS.Timer[]
+  isUpdatingMainData: boolean
   latestSelectedTorrent: number
   modals: ModalTemplate[]
   rid?: number

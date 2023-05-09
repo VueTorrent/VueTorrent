@@ -2,7 +2,7 @@
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderTags') }}</v-subheader>
+        <v-subheader>{{ $t('modals.settings.tagsAndCategories.subHeaderTags') }}</v-subheader>
         <template v-for="(item, index) in availableTags">
           <v-list-item :key="item.title">
             <v-list-item-content>
@@ -18,13 +18,13 @@
         </template>
         <v-list-item>
           <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createTag">
-            {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
+            {{ $t('modals.settings.tagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
       </v-col>
 
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
+        <v-subheader>{{ $t('modals.settings.tagsAndCategories.subHeaderCategories') }}</v-subheader>
         <template v-for="(item, index) in availableCategories">
           <v-list-item :key="item.title">
             <v-list-item-content>
@@ -46,7 +46,7 @@
         </template>
         <v-list-item>
           <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createCategory">
-            {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
+            {{ $t('modals.settings.tagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
       </v-col>

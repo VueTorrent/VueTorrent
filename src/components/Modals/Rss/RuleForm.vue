@@ -41,31 +41,13 @@
                 <v-col>
                   <div class="d-flex flex-column align-center">
                     <p class="subtitle-1 mb-1">{{ $t('modals.newRule.def.addPaused.title') }}</p>
-                    <v-select
-                        v-model="rule.addPaused"
-                        flat
-                        solo
-                        dense
-                        hide-details
-                        background-color="background"
-                        class="rounded-xl"
-                        :items="addPausedOptions"
-                    />
+                    <v-select v-model="rule.addPaused" flat solo dense hide-details background-color="background" class="rounded-xl" :items="addPausedOptions" />
                   </div>
                 </v-col>
                 <v-col>
                   <div class="d-flex flex-column align-center">
                     <p class="subtitle-1 mb-1">{{ $t('enums.contentLayout.title') }}</p>
-                    <v-select
-                        v-model="rule.torrentContentLayout"
-                        flat
-                        solo
-                        dense
-                        hide-details
-                        background-color="background"
-                        class="rounded-xl"
-                        :items="contentLayoutOptions"
-                    />
+                    <v-select v-model="rule.torrentContentLayout" flat solo dense hide-details background-color="background" class="rounded-xl" :items="contentLayoutOptions" />
                   </div>
                 </v-col>
               </v-row>
@@ -101,8 +83,8 @@ import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 import { mdiClose } from '@mdi/js'
 import i18n from '@/plugins/i18n'
-import {AppPreferences} from '@/enums/qbit'
-import {Category} from "@/types/vuetorrent";
+import { AppPreferences } from '@/enums/qbit'
+import { Category } from '@/types/vuetorrent'
 
 export default defineComponent({
   name: 'RuleForm',
@@ -142,12 +124,13 @@ export default defineComponent({
   computed: {
     ...mapGetters(['getFeeds', 'getCategories']),
     lastMatch() {
-      if (this.rule.lastMatch === '')
-        return i18n.t('modals.newRule.def.lastMatch.unknownValue').toString()
+      if (this.rule.lastMatch === '') return i18n.t('modals.newRule.def.lastMatch.unknownValue').toString()
 
       const delta = new Date().getTime() - new Date(this.rule.lastMatch).getTime()
-      return i18n.t('modals.newRule.def.lastMatch.knownValue').toString()
-          .replace('%1', Math.floor(delta / (1000 * 60 * 60 * 24)).toString())
+      return i18n
+        .t('modals.newRule.def.lastMatch.knownValue')
+        .toString()
+        .replace('%1', Math.floor(delta / (1000 * 60 * 60 * 24)).toString())
     },
     availableFeeds() {
       // @ts-expect-error: TS2349: This expression is not callable. Type 'never' has no call signatures.
@@ -164,8 +147,14 @@ export default defineComponent({
   created() {
     this.$store.commit('FETCH_RULES')
     if (this.hasInitialRule) {
-      this.rule = {...this.initialRule}
+      this.rule = { ...this.initialRule }
     }
+  },
+  mounted() {
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     async setRule() {
@@ -173,7 +162,6 @@ export default defineComponent({
         await qbit.renameRule(this.initialRule.name, this.rule.name)
       }
       await qbit.setRule(this.rule)
-      this.$toast.success(this.$t('toast.ruleSaved'))
       this.cancel()
     },
     cancel() {
@@ -182,6 +170,13 @@ export default defineComponent({
     },
     close() {
       this.dialog = false
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape') {
+        this.cancel()
+      } else if (e.key === 'Enter') {
+        this.setRule()
+      }
     }
   }
 })

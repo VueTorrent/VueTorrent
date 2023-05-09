@@ -38,7 +38,7 @@
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
           <v-tab-item eager value="info">
-            <info v-if="torrent" :torrent="torrent" :hash="hash" />
+            <Info v-if="torrent" :torrent="torrent" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="trackers">
             <Trackers :is-active="tab === 'trackers'" :hash="hash" />
@@ -69,8 +69,6 @@ export default {
   data() {
     return {
       tab: null,
-      items: [{ tab: 'Info' }, { tab: 'Content' }],
-      peers: [],
       mdiClose
     }
   },

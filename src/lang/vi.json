@@ -147,11 +147,11 @@
         "webUI": "Web UI",
         "tagsAndCategories": "Thẻ & Danh mục"
       },
-      "pageVueTorrent": {
+      "vueTorrent": {
         "tabName": {
           "general": "Chung"
         },
-        "pageGeneral": {
+        "general": {
           "tip": "Đây là các cài đặt dành riêng cho VueTorrent",
           "currentSpeed": "Hiển thị tốc độ hiện tại",
           "speedGraph": "Hiển thị biểu đồ tốc độ",
@@ -170,7 +170,7 @@
           "qbittorrentVersion": "Phiên bản QBittorrent:",
           "resetSettings": "Đặt lại cài đặt"
         },
-        "pageDesktopCard": {
+        "desktopCard": {
           "busyTorrentTip": "Các thuộc tính để hiển thị cho các torrent chưa hoàn thành",
           "completedTorrentTip": "Các thuộc tính để hiển thị cho các torrent đã hoàn thành",
           "properties": {
@@ -201,9 +201,9 @@
             "globalVolume": "Global Volume"
           }
         },
-        "pageMobileCard": {}
+        "mobileCard": {}
       },
-      "pageDownloads": {
+      "downloads": {
         "subHeaderWhenAddTorrent": "Khi thêm một torrent",
         "whenAddTorrent": {
           "donotAutoStart": "Không tự động bắt đầu tải xuống"
@@ -238,12 +238,12 @@
           "supportParamK": "%K: ID torrent"
         }
       },
-      "pageConnection": {
+      "connection": {
         "protocol": "Giao thức kết nối ngang hàng",
         "listeningSubHeader": "Cổng",
         "useUPnP": "Sử dụng chuyển tiếp cổng UPnP/NAT-PMP từ bộ định tuyến của tôi",
         "incomingConnectionPort": "Cổng được sử dụng cho các kết nối đến",
-        "subHeader": "Giới hạn kết nối (-1 để tắt)",
+        "subHeader": "Giới hạn kết nối",
         "globalMaxConnection": "Số lượng kết nối tối đa chung",
         "perTorrentMaxConnection": "Số lượng kết nối tối đa trên mỗi torrent",
         "globalMaxUploadSlots": "Số vùng tải lên tối đa chung",
@@ -253,7 +253,7 @@
         "proxyTorrentOnly": "Chỉ sử dụng proxy cho torrent",
         "proxyAuth": "Xác thực"
       },
-      "pageBittorrent": {
+      "bittorrent": {
         "subHeaderPrivacy": "Riêng tư",
         "enableDHT": "Kích hoạt DHT (mạng phi tập trung) để tìm thêm máy ngang hàng",
         "enablePeX": "Bật Trao đổi ngang hàng (PeX) để tìm thêm máy ngang hàng",
@@ -275,21 +275,21 @@
         "maxRatioRemoveTorrentAndFiles": "Xóa torrent và tệp",
         "maxRatioTorrentSuperseeding": "Kích hoạt tính năng siêu chia sẻ torrent"
       },
-      "pageRss": {
+      "rss": {
         "tabName": {
           "general": "Chung",
           "feeds": "Nguồn cấp dữ liệu",
           "rules": "Quy tắc"
         },
-        "pageRules": {
+        "rules": {
           "rules": "Quy tắc",
           "btnCreateNew": "Tạo quy tắc"
         },
-        "pageFeeds": {
+        "feeds": {
           "feeds": "Nguồn cấp dữ liệu",
           "btnCreateNew": "Thêm nguồn cấp dữ liệu"
         },
-        "pageGeneral": {
+        "general": {
           "rssAutoProcessing": "RSS",
           "rssAutoDownloader": "Trình tải xuống tự động RSS Torrent",
           "input": {
@@ -300,7 +300,7 @@
           }
         }
       },
-      "pageWebUI": {
+      "webUI": {
         "useAlternativeWebUI": "Sử dụng WebUI thay thế",
         "filesLocation": "Vị trí WebUI",
         "webUserInterface": "Giao diện người dùng web (Điều khiển từ xa)",
@@ -316,7 +316,7 @@
         "bypassAuthenticationForClientsInWhitelisted": "Bỏ qua xác thực cho máy khách trong mạng con IP được liệt kê trong danh sách trắng",
         "whiteListExample": "Ví dụ: 172.17.32.0/24, fdff:ffff:c8::/40"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "btnCreateNew": "Tạo mới",
         "subHeaderTags": "Thẻ có sẵn:",
         "subHeaderCategories": "Danh mục có sẵn:"
@@ -382,7 +382,7 @@
         "relevance": "Mức độ liên quan",
         "files": "Các tập tin"
       },
-      "pageTagsAndCategories": {
+      "tagsAndCategories": {
         "subHeaderTag": "Thẻ có sẵn:",
         "subHeaderCategories": "Danh mục có sẵn:"
       },

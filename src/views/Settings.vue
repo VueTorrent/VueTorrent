@@ -3,7 +3,7 @@
     <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
-          {{ $t('settings') | titleCase }}
+          {{ $t('settings').toString() | titleCase }}
         </h1>
       </v-col>
       <v-col class="align-center justify-center">
@@ -21,13 +21,16 @@
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
         <v-tab class="white--text" href="#vuetorrent">
-          <h4>{{ $t('modals.settings.tabName.VueTorrent') }}</h4>
+          <h4>{{ $t('modals.settings.tabName.vueTorrent') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#downloads">
           <h4>{{ $t('modals.settings.tabName.downloads') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#connection">
           <h4>{{ $t('modals.settings.tabName.connection') }}</h4>
+        </v-tab>
+        <v-tab class="white--text" href="#speed">
+          <h4>{{ $t('modals.settings.tabName.speed') }}</h4>
         </v-tab>
         <v-tab class="white--text" href="#bittorrent">
           <h4>{{ $t('modals.settings.tabName.bittorrent') }}</h4>
@@ -41,9 +44,11 @@
         <v-tab class="white--text" href="#tagsAndCategories">
           <h4>{{ $t('modals.settings.tabName.tagsAndCategories') }}</h4>
         </v-tab>
+        <v-tab class="white--text" href="#advanced">
+          <h4>{{ $t('modals.settings.tabName.advanced') }}</h4>
+        </v-tab>
       </v-tabs>
 
-      <!--<v-divider />-->
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
           <v-tab-item eager value="vuetorrent">
@@ -54,6 +59,9 @@
           </v-tab-item>
           <v-tab-item eager value="connection">
             <Connection :is-active="tab === 'connection'" />
+          </v-tab-item>
+          <v-tab-item eager value="speed">
+            <Speed :is-active="tab === 'speed'" />
           </v-tab-item>
           <v-tab-item eager value="bittorrent">
             <BitTorrent :is-active="tab === 'bittorrent'" />
@@ -67,33 +75,39 @@
           <v-tab-item eager value="tagsAndCategories">
             <TagsAndCategories :is-active="tab === 'tagsAndCategories'" />
           </v-tab-item>
+          <v-tab-item eager value="advanced">
+            <Advanced :is-active="tab === 'advanced'" />
+          </v-tab-item>
         </v-tabs-items>
       </v-card-text>
     </v-row>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
 import { mdiClose, mdiContentSave } from '@mdi/js'
-import { WebUI, BitTorrent, Downloads, VueTorrent, TagsAndCategories, Connection, Rss } from '../components/Settings/Tabs'
+import { VueTorrent, Downloads, Connection, Speed, BitTorrent, Rss, WebUI, TagsAndCategories, Advanced } from '../components/Settings/Tabs'
 import { SettingsTab } from '../mixins'
 
-export default {
+export default defineComponent({
   name: 'Settings',
   components: {
-    WebUI,
-    BitTorrent,
-    Downloads,
     VueTorrent,
-    TagsAndCategories,
+    Downloads,
     Connection,
-    Rss
+    Speed,
+    BitTorrent,
+    Rss,
+    WebUI,
+    TagsAndCategories,
+    Advanced
   },
   mixins: [SettingsTab],
   data() {
     return {
-      tab: null,
+      tab: 'vuetorrent',
       items: [],
       peers: [],
       mdiClose,
@@ -125,11 +139,11 @@ export default {
     close() {
       this.$router.back()
     },
-    handleKeyboardShortcut(e) {
+    handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         this.close()
       }
     }
   }
-}
+})
 </script>
