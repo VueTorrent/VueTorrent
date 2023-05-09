@@ -50,7 +50,7 @@
 
     <v-row class="align-center">
       <v-col cols="1">
-        <v-subheader>From</v-subheader>
+        <v-subheader>{{ $t('modals.settings.speed.scheduler.from') }}</v-subheader>
       </v-col>
       <v-col cols="1">
         <v-text-field :disabled="true" v-model="settings.schedule_from_hour" />
@@ -73,7 +73,7 @@
       </v-col>
 
       <v-col cols="1">
-        <v-subheader>To</v-subheader>
+        <v-subheader>{{ $t('modals.settings.speed.scheduler.to') }}</v-subheader>
       </v-col>
       <v-col cols="1">
         <v-text-field :disabled="true" v-model="settings.schedule_to_hour" />
