@@ -364,7 +364,7 @@
           "subheader": "IP фільтрація",
           "filterPath": "Шлях до фільтру (.dat, .p2p, .p2b)",
           "applyToTrackers": "Застосувати до трекерів",
-          "bannedIps": "Заблоковані вручну IP-адреси",
+          "bannedIps": "Заблоковані вручну IP адреси",
           "bannedIpsHint": "Одна адреса на лінію"
         }
       },
@@ -378,7 +378,7 @@
         "download": "Завантаження (в Б/с)",
         "tip": "0 дорівнює необмежено",
         "scheduler": {
-          "subheader": "явикористовувати графік для ввімкнення альтернативних обмежень швидкості",
+          "subheader": "Використовувати графік для ввімкнення альтернативних обмежень швидкості",
           "from": "З",
           "to": "До",
           "selectButtonLabel": "Вибрати час",
@@ -407,9 +407,9 @@
           "maxActiveUpload": "Максимальна кількість активних віддач",
           "maxActiveTorrent": "Максимальна кількість активних торрентів",
           "excludeSlowTorrent": "Не враховувати повільні торренти в цих межах",
-          "downloadRateLimit": "Порогове значення швидкості завантаження КіБ/с",
-          "uploadRateLimit": "Поріг швидкості віддачі КіБ/с",
-          "torrentInactivityTimer": "Таймер неактивності торренту",
+          "downloadRateLimit": "Порогове значення швидкості завантаження (в КіБ/с)",
+          "uploadRateLimit": "Поріг швидкості віддачі (в КіБ/с)",
+          "torrentInactivityTimer": "Таймер неактивності торренту (в сек)",
         },
         "seedLimits": {
           "subheader": "Обмеження сідування",
@@ -458,16 +458,16 @@
       "webUI": {
         "interface": {
           "subheader": "Веб-інтерфейс користувача (дистанційне керування)",
-          "ipAddress": "IP-адреса:",
+          "ipAddress": "IP адреса:",
           "port": "Порт",
           "useAlternativeWebUI": "Використовувати альтернативний веб-інтерфейс",
           "filesLocation": "Розташування файлів"
         },
         "authentication": {
-          "subheader": "Аутентифікація",
+          "subheader": "Автентифікація",
           "username": "Ім'я користувача",
           "password": "Пароль",
-          "passwordPlaceholder": "без змін",
+          "passwordPlaceholder": "(без змін)",
           "bypassLocalhost": "Обійти автентифікацію для клієнтів на локальному хості",
           "bypassWhitelist": "Обійти автентифікацію для клієнтів у підмережах IP із білого списку",
           "whitelistExamples": "Приклад: 172.17.32.0/24, fdff:ffff:c8::/40",
@@ -486,7 +486,7 @@
         "security": {
           "subheader": "Безпека",
           "clickjacking": "Увімкнути захист від клікджекінгу",
-          "csrf": "Увімкніть захист від підробки міжсайтових запитів (CSRF).",
+          "csrf": "Увімкніть захист від підробки міжсайтових запитів (CSRF)",
           "secureCookie": "Увімкнути прапор безпеки cookie (потрібен HTTPS)",
           "hostHeaderValidation": "Увімкнути перевірку заголовка хосту",
           "hostHeaderValidationHint": "Розділіть крапкою з комою ( ; )",
@@ -520,7 +520,7 @@
         "qbittorrent": {
           "subheader": "Секція qBittorrent",
           "allocatedRam": "Ліміт використання фізичної пам’яті (RAM) (libtorrent >= 2.0)",
-          "allocatedRamHint": "в MiБ",
+          "allocatedRamHint": "в МіБ",
           "networkInterfaces": {
             "label": "Мережеві інтерфейси",
             "any": "Будь-який інтерфейс"
@@ -531,7 +531,7 @@
             "allIPv4": "Всі адреси IPv4",
             "allIPv6": "Всі адреси IPv6"
           },
-          "saveInterval": "Зберегти інтервал даних резюме",
+          "saveInterval": "Зберегти інтервал відновлення даних",
           "saveIntervalHint": "В хвилинах",
           "recheckOnCompletion": "Перевірити торренти після завершення",
           "refreshInterval": "Інтервал оновлення",
@@ -839,7 +839,7 @@
     "maxRatioAction": {
       "pauseTorrent": "Призупинити торрент",
       "removeTorrent": "Видалити торрент",
-      "removeTorrentAndFiles": "Видалити торрент і його файли",
+      "removeTorrentAndFiles": "Видалити торрент та його файли",
       "torrentSuperseeding": "Увімкнути режим суперсіда"
     },
     "scheduler": {
