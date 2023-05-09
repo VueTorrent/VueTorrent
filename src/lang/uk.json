@@ -409,7 +409,7 @@
           "excludeSlowTorrent": "Не враховувати повільні торренти в цих межах",
           "downloadRateLimit": "Порогове значення швидкості завантаження (в КіБ/с)",
           "uploadRateLimit": "Поріг швидкості віддачі (в КіБ/с)",
-          "torrentInactivityTimer": "Таймер неактивності торренту (в сек)",
+          "torrentInactivityTimer": "Таймер неактивності торренту (в сек)"
         },
         "seedLimits": {
           "subheader": "Обмеження сідування",
@@ -458,7 +458,7 @@
       "webUI": {
         "interface": {
           "subheader": "Веб-інтерфейс користувача (дистанційне керування)",
-          "ipAddress": "IP адреса:",
+          "ipAddress": "IP адреса",
           "port": "Порт",
           "useAlternativeWebUI": "Використовувати альтернативний веб-інтерфейс",
           "filesLocation": "Розташування файлів"
@@ -577,7 +577,7 @@
           "idnSupport": "Увімкніть підтримку інтернаціоналізованих доменних імен (IDN).",
           "allowMultipleConnectionsFromTheSameIPAddress": "Дозволити кілька підключень з однієї IP-адреси",
           "validateHTTPSTrackerCertificate": "Перевіряти сертифікат трекера HTTPS",
-          "mitigateSSRF": "Захист від підробки запитів на стороні сервера (SSRF).",
+          "mitigateSSRF": "Захист від підробки запитів на стороні сервера (SSRF)",
           "blockPeersOnPrivilegedPorts": "Заборонити підключення до вузлів на привілейованих портах",
           "uploadSlotsBehavior": "Поведінка слотів завантаження",
           "uploadChokingAlgorithm": "Завантажити алгоритм задушення",
