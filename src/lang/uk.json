@@ -3,6 +3,7 @@
   "settings": "Налаштування",
   "pause": "Пауза",
   "delete": "Видалити",
+  "ok": "Гаразд",
   "save": "Зберегти",
   "cancel": "Відмінити",
   "confirm": "Підтвердити",
@@ -46,7 +47,6 @@
   "feed": "Стрічка",
   "rule": "Правило",
   "then": "Тоді",
-  "of": "з",
   "yes": "Так",
   "no": "Ні",
   "filter": "Фільтр",
@@ -61,7 +61,9 @@
       "selectAllCaption": "Вибрати / Скинути все (Ctrl + A)"
     },
     "emptyTorrentList": "Тут нічого нема, спробуй додати торрент!",
-    "not_complete": "Не завершено"
+    "not_complete": "Не завершено",
+    "torrentsCount": "Немає торрентів | {n} торренти | {n} торрентів",
+    "selectedTorrentsCount": "Немає торрентів | $0 з {n} торрентів ($1) | $0 з {n} торрентів ($1)"
   },
   "torrent": {
     "properties": {
@@ -101,13 +103,8 @@
       "uploaded": "Віддано",
       "uploaded_session": "Віддано за сесію"
     },
-    "directory": "Тека",
-    "size": "Розмір",
-    "timeActive": "Активно",
     "downloaded": "Завантажено",
-    "uploaded": "Віддано",
-    "added": "Додано о",
-    "availability": "Доступність"
+    "uploaded": "Віддано"
   },
   "navbar": {
     "currentSpeed": "Поточна швидкість",
@@ -139,8 +136,7 @@
       "altSpeed": "Обмеження швидкості",
       "dark": "Темна",
       "light": "Світла"
-    },
-    "torrentsCount": "Немає торрентів | {n} торрент | {n} торрентів"
+    }
   },
   "modals": {
     "newFeed": {
@@ -195,6 +191,7 @@
     "rss": {
       "title": "Заголовки RSS",
       "filterRead": "Тільки непрочитані",
+      "markAllAsRead": "Позначити всі як прочитані",
       "columnTitle": {
         "feedName": "Назва стрічки",
         "author": "Автор",
@@ -210,13 +207,15 @@
     },
     "settings": {
       "tabName": {
-        "VueTorrent": "VueTorrent",
+        "vueTorrent": "VueTorrent",
         "downloads": "Завантаження",
         "connection": "Зв'язок",
+        "speed": "Швидкість",
         "bittorrent": "BitTorrent",
         "rss": "Стрічки",
         "webUI": "Bеб-інтерфейс",
-        "tagsAndCategories": "Мітки та категорії"
+        "tagsAndCategories": "Мітки та категорії",
+        "advanced": "Розширені"
       },
       "vueTorrent": {
         "tabName": {
@@ -242,6 +241,7 @@
           "showShutdownButton": "Показувати кнопку вимкнення",
           "currentVersion": "Поточна версія",
           "qbittorrentVersion": "Версія QBittorrent:",
+          "registerMagnet": "Зареєструвати магнет-посилання",
           "importSettings": "Імпорт налаштувань",
           "exportSettings": "Експорт налаштувань",
           "resetSettings": "Скинути налаштування"
@@ -256,26 +256,65 @@
         }
       },
       "downloads": {
-        "subHeaderWhenAddTorrent": "Коли додається торент",
         "whenAddTorrent": {
-          "donotAutoStart": "Не запускати завантаження автоматично",
+          "subheader": "Коли додається торент",
+          "doNotAutoStart": "Не запускати завантаження автоматично",
           "autoDeleteMode": "Видаляти .torrent файли після завершення"
         },
-        "subHeaderPublicSettings": "Загальні налаштування",
         "publicSettings": {
           "preAllocateDisk": "Попередньо виділити місце на диску для всіх файлів",
           "appendQBExtension": "Додати розширення .!qB до неповних файлів"
         },
-        "subHeaderSaveManagement": "Управління збереженням",
         "saveManagement": {
-          "autoManagement": "Автоматичне керування торрентами",
-          "relocate": "Переміщення торенту при зміні категорії",
+          "subheader": "Управління збереженням",
+          "autoTMMEnabled": "Режим управління торрентами за замовчуванням",
+          "defaultTMMOptions": {
+            "manual": "Вручну",
+            "automatic": "Автоматично"
+          },
+          "torrentChangedTMM": "Коли категорію торренту змінено",
+          "savePathChangedTMM": "Коли шлях збереження за замовчуванням змінено",
+          "categoryChangedTMM": "Коли щлях збереження в категорії змінено",
+          "paramChangedTMMOptions": {
+            "relocateTorrent": "Перемістити торрент",
+            "switchToManual": "Перемкнути торрент в ручний режим"
+          },
           "defaultSavePath": "Шлях збереження за замовчуванням",
-          "keepIncompleteIn": "Зберігати незавершені торренти в:",
-          "autoEnabled_onAdded": "Запуск зовнішньої програми при додаванні торренту:",
-          "autoLabel_onAdded": "Команда",
-          "autoEnabled_onFinished": "Запуск зовнішньої програми при завершенні торренту:",
-          "autoLabel_onFinished": "Команда",
+          "keepIncompleteIn": "Залишати незавершені торренти в",
+          "exportDir": "Копіювати файли .torrent в",
+          "exportDirFinished": "Копіювати файли .torrent для завершених завантажень в"
+        },
+        "monitoredFolders": {
+          "subheader": "Спостерігати за теками",
+          "newItem": "Новий елемент",
+          "editItem": "Редагувати елемент",
+          "monitoredFolderPath": "Тека спостереження",
+          "saveType": "Змінити шлях збереження",
+          "otherPath": "Інша тека",
+          "actions": "Дії",
+          "confirmDelete": "Ви впевнені, що хочете видалити цей елемент?",
+          "noData": "Немає тек зі спостереженням"
+        },
+        "excludedFileNames": {
+          "label": "Виключати імена файдів",
+          "hint": "Одне ім'я файлу на рядок"
+        },
+        "mailNotification": {
+          "enabled": "Надсилати сповіщення на емейл при завершенні завантаження",
+          "from": "Від",
+          "to": "Кому",
+          "smtpServer": "SMTP сервер",
+          "sslEnabled": "Цей сервер вимагає захищеного з'єднання (SSL)",
+          "authEnabled": "Автентифікація",
+          "username": "Логін",
+          "password": "Пароль"
+        },
+        "runExternalProgram": {
+          "subheader": "Запустити зовнішню програму",
+          "onAddedEnabled": "Запустити зовнішню програму при додаванні торренту:",
+          "onAddedLabel": "Команда",
+          "onFinishedEnabled": "Запустити зовнішню програму при завершенні торренту:",
+          "onFinishedLabel": "Команда",
           "supportParamTitle": "Підтримувані параметри (з урахуванням регістру):",
           "supportParamN": "%N: Назва торрента",
           "supportParamL": "%L: Категорія",
@@ -288,45 +327,98 @@
           "supportParamT": "%T: Поточний трекер",
           "supportParamI": "%I: Хеш інформації v1",
           "supportParamJ": "%J: Хеш інформації v2",
-          "supportParamK": "%K: ID торренту"
+          "supportParamK": "%K: ID торренту",
+          "tip": "Підказка: Впишіть параметр у лапки, щоб уникнути обрізання тексту через пробіли (наприклад, \"%N\")"
         }
       },
       "connection": {
         "protocol": "Протокол підключення пірів",
-        "listeningSubHeader": "Прослуховуваний порт",
-        "useUPnP": "Використовувати переспрямування портів UPnP / NAT-PMP з мого маршрутизатора",
-        "incomingConnectionPort": "Порти, використані для вхідних з'єднань",
-        "subHeader": "Обмеження підключення",
-        "globalMaxConnection": "Глобальна максимальна кількість з'єднань",
-        "perTorrentMaxConnection": "Максимальна кількість з'єднань на торрент",
-        "globalMaxUploadSlots": "Глобальна максимальна кількість слотів для завантаження",
-        "perTorrentMaxUploadSlots": "Максимальна кількість слотів для завантаження на торрент",
-        "proxySubHeader": "Проксі-сервер",
-        "proxyPeerConnections": "Використовувати проксі для підключень пірів",
-        "proxyTorrentOnly": "Використовувати проксі тільки для торрентів",
-        "proxyAuth": "Аутентифікація"
+        "listeningPort": {
+          "subheader": "Прослуховуваний порт",
+          "incomingConnectionPort": "Порти, використані для вхідних з'єднань",
+          "randomPort": "Випадковий порт",
+          "useUPnP": "Використовувати переспрямування портів UPnP / NAT-PMP з мого маршрутизатора"
+        },
+        "connectionLimits": {
+          "subheader": "Обмеження підключень",
+          "globalMaxConnection": "Глобальна максимальна кількість з'єднань",
+          "perTorrentMaxConnection": "Максимальна кількість з'єднань на торрент",
+          "globalMaxUploadSlots": "Глобальна максимальна кількість слотів для завантаження",
+          "perTorrentMaxUploadSlots": "Максимальна кількість слотів для завантаження на торрент"
+        },
+        "proxy": {
+          "subheader": "Проксі-сервер",
+          "host": "Хост",
+          "port": "Порт",
+          "peerConnections": "Використовувати проксі для підключень пірів",
+          "torrentOnly": "Використовувати проксі тільки для торрентів",
+          "hostNameLookup": "Використовувати проксі для визначення імен",
+          "auth": {
+            "subtitle": "Автентифікація",
+            "username": "Логін",
+            "password": "Пароль",
+            "tip": "Інформація: Пароль при збереженні не шифрується"
+          }
+        },
+        "ipFiltering": {
+          "subheader": "IP фільтрація",
+          "filterPath": "Шлях до фільтру (.dat, .p2p, .p2b)",
+          "applyToTrackers": "Застосувати до трекерів",
+          "bannedIps": "Заблоковані вручну IP адреси",
+          "bannedIpsHint": "Одна адреса на лінію"
+        }
+      },
+      "speed": {
+        "subheader": {
+          "global": "Глобальне обмеження швидкості",
+          "alternative": "Альтернативне обмеження швидкості",
+          "settings": "Налаштування обмежень швидкості"
+        },
+        "upload": "Віддача (в Б/с)",
+        "download": "Завантаження (в Б/с)",
+        "tip": "0 дорівнює необмежено",
+        "scheduler": {
+          "subheader": "Використовувати графік для ввімкнення альтернативних обмежень швидкості",
+          "from": "З",
+          "to": "До",
+          "selectButtonLabel": "Вибрати час",
+          "when": "Коли"
+        },
+        "settings": {
+          "applyToUtp": "Застосувати обмеження до µTP протоколу",
+          "applyToTransportOverhead": "Застосувати обмеження до службового трафіку",
+          "applyToPeersOnLan": "Застосувати обмеження до пірів LAN"
+        }
       },
       "bittorrent": {
-        "subHeaderPrivacy": "Конфіденційність",
-        "enableDHT": "Увімкнути DHT (децентралізовану мережу), щоб знайти більше однорангових пристроїв",
-        "enablePeX": "Увімкнути Peer Exchange (PeX), щоб знайти більше однорангових партнерів",
-        "enableLPD": "Увімкнути локальне виявлення однорангових пристроїв, щоб знайти більше однорангових пристроїв",
-        "enableAnonymous": "Увімкнути анонімний режим",
-        "torrentQueue": "Черга торрентів",
-        "maxActiveDownload": "Максимальна кількість активних завантажень",
-        "maxActiveUpload": "Максимальна кількість активних віддач",
-        "maxActiveTorrent": "Максимальна кількість активних торрентів",
-        "excludeSlowTorrent": "Не враховувати повільні торренти в цих межах",
-        "downloadRateLimit": "Порогове значення швидкості завантаження КіБ/с",
-        "uploadRateLimit": "Поріг швидкості віддачі КіБ/с",
-        "torrentInactivityTimer": "Таймер неактивності торренту",
-        "subHeaderSeedLimits": "Обмеження сідування",
-        "whenRatioReaches": "Коли співвідношення досягне",
-        "whenSeedingTimeReaches": "Коли сідування досягне часу",
-        "maxRatioPauseTorrent": "Призупинити торрент",
-        "maxRatioRemoveTorrent": "Видалити торрент",
-        "maxRatioRemoveTorrentAndFiles": "Видалити торрент та файли",
-        "maxRatioTorrentSuperseeding": "Ввімкнути режим суперсіда"
+        "privacy": {
+          "subheader": "Конфіденційність",
+          "enableDHT": "Увімкнути DHT (децентралізовану мережу), щоб знайти більше однорангових пристроїв",
+          "enablePeX": "Увімкнути Peer Exchange (PeX), щоб знайти більше однорангових партнерів",
+          "enableLPD": "Увімкнути локальне виявлення однорангових пристроїв, щоб знайти більше однорангових пристроїв",
+          "encryptionMode": "Режим щифрування",
+          "enableAnonymous": "Увімкнути анонімний режим",
+          "moreInfo": "Більше інформації"
+        },
+        "maxActiveCheckingTorrents": "Максимально активна перевірка торрентів",
+        "torrentQueueing": {
+          "subheader": "Черга торрентів",
+          "maxActiveDownload": "Максимальна кількість активних завантажень",
+          "maxActiveUpload": "Максимальна кількість активних віддач",
+          "maxActiveTorrent": "Максимальна кількість активних торрентів",
+          "excludeSlowTorrent": "Не враховувати повільні торренти в цих межах",
+          "downloadRateLimit": "Порогове значення швидкості завантаження (в КіБ/с)",
+          "uploadRateLimit": "Поріг швидкості віддачі (в КіБ/с)",
+          "torrentInactivityTimer": "Таймер неактивності торренту (в сек)"
+        },
+        "seedLimits": {
+          "subheader": "Обмеження сідування",
+          "whenRatioReaches": "Коли співвідношення досягне",
+          "whenSeedingTimeReaches": "Коли сідування досягне часу",
+          "then": "Тоді"        
+        },
+        "autoAddTrackers": "Автоматично додати ці трекери до нових завантажень",
+        "autoAddTrackersHint": "Один трекер на рядок"
       },
       "rss": {
         "tabName": {
@@ -334,45 +426,174 @@
           "feeds": "Стрічки",
           "rules": "Правила"
         },
-        "rules": {
-          "rules": "Правила",
-          "btnCreateNew": "Створити правило"
+        "general": {
+          "reader": {
+            "subheader": "Стрічки RSS",
+            "enableProcessing": "Ввімкнути отримання стрічок RSS",
+            "feedsRefreshInterval": "Інтервал оновлення потоку",
+            "feedsRefreshIntervalHint": "В хвилинах",
+            "maximumArticlesPerFeed": "Максимальна кількість заголовків на потік"
+          },
+          "autoDownloader": {
+            "subheader": "Автозавантажувач торрентів з стрічок RSS",
+            "enable": "Ввімкнути автозавантажування торрентів з стрічок RSS"
+          },
+          "smartEpisodeFilter": {
+            "subheader": "Розумний фільтр епізодів для стрічок RSS",
+            "downloadEpisodes": "Завантажувати REPACK/PROPER епізоди",
+            "filters": "ФІльтри",
+            "filtersHint": "Один на рядок"
+          }
         },
         "feeds": {
           "feeds": "Стрічки",
-          "btnCreateNew": "Додати стрічку"
+          "btnCreateNew": "Додати стрічку",
+          "refreshAll": "Оновити всі"
         },
-        "general": {
-          "rssAutoProcessing": "Зчитувач RSS",
-          "rssAutoDownloader": "Автозавантаження торрентів через RSS",
-          "input": {
-            "enableRssAutoDownload": "Ввімкнути автозавантаження торрентів через RSS",
-            "enableRssProcessing": "Ввімкнути отримування RSS стрічок",
-            "feedsRefreshInterval": "Час оновлення стрічок",
-            "feedsMaxArticles": "Максимальна кількість заголовків для стрічки"
+          "rules": {
+            "rules": "Правила",
+            "btnCreateNew": "Створити правило"        
           }
-        }
-      },
+        },
       "webUI": {
-        "useAlternativeWebUI": "Використовувати альтернативний веб-інтерфейс",
-        "filesLocation": "Розташування файлів",
-        "webUserInterface": "Веб-інтерфейс користувача (дистанційне керування)",
-        "ipAddress": "IP-адреса:",
-        "port": "Порт",
-        "authentication": "Аутентифікація",
-        "username": "Ім'я користувача",
-        "password": "пароль",
-        "maxAttempts": "Максимальна кількість спроб",
-        "banDuration": "Тривалість бану (секунди)",
-        "sessionTimeout": "Час очікування сеансу (секунди)",
-        "bypassAuthenticationForClientsOnLocalhost": "Обійти автентифікацію для клієнтів на локальному хості",
-        "bypassAuthenticationForClientsInWhitelisted": "Обійти автентифікацію для клієнтів у підмережах IP із білого списку",
-        "whiteListExample": "Приклад: 172.17.32.0/24, fdff:ffff:c8::/40"
+        "interface": {
+          "subheader": "Веб-інтерфейс користувача (дистанційне керування)",
+          "ipAddress": "IP адреса",
+          "port": "Порт",
+          "useAlternativeWebUI": "Використовувати альтернативний веб-інтерфейс",
+          "filesLocation": "Розташування файлів"
+        },
+        "authentication": {
+          "subheader": "Автентифікація",
+          "username": "Ім'я користувача",
+          "password": "Пароль",
+          "passwordPlaceholder": "(без змін)",
+          "bypassLocalhost": "Обійти автентифікацію для клієнтів на локальному хості",
+          "bypassWhitelist": "Обійти автентифікацію для клієнтів у підмережах IP із білого списку",
+          "whitelistExamples": "Приклад: 172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "Максимальна кількість спроб",
+          "banDuration": "Тривалість бану",
+          "banDurationHint": "В секундах",
+          "sessionTimeout": "Час очікування сеансу",
+          "sessionTimeoutHint": "В секундах"
+        },
+        "https": {
+          "subheader": "Використовувати HTTPS",
+          "certificate": "Сертифікат",
+          "key": "Ключ",
+          "tip": "Інформація про сертифікати"
+        },
+        "security": {
+          "subheader": "Безпека",
+          "clickjacking": "Увімкнути захист від клікджекінгу",
+          "csrf": "Увімкніть захист від підробки міжсайтових запитів (CSRF)",
+          "secureCookie": "Увімкнути прапор безпеки cookie (потрібен HTTPS)",
+          "hostHeaderValidation": "Увімкнути перевірку заголовка хосту",
+          "hostHeaderValidationHint": "Розділіть крапкою з комою ( ; )",
+          "serverDomains": "Домени серверів"
+        },
+        "customHeaders": "Додати свої заголовки HTTP",
+        "customHeadersPlaceholder": "Заголовок1: value1\nЗаголовок2: value2\n...",
+        "customHeadersHint": "Один на лінію",
+        "reverseProxySupport": "Увімкнути підтримку зворотного проксі",
+        "proxiesList": "Список довірених проксі",
+        "proxiesListHint": "Розділяйте IP-адреси крапкою з комою ( ; )",
+        "dynDns": {
+          "subheader": "Оновити моє динамічне доменне ім’я",
+          "providers": {
+            "dynDns": "DynDNS",
+            "noIp": "NO-IP"
+          },
+          "registerBtn": "Зареєструватись",
+          "domainName": "Ім'я домену",
+          "username": "Логін",
+          "password": "Пароль"
+        }
       },
       "tagsAndCategories": {
         "btnCreateNew": "Створити категорію",
         "subHeaderTags": "Доступні мітки:",
         "subHeaderCategories": "Доступні категорії:"
+      },
+      "advanced": {
+        "openDoc": "Відкрити документацію",
+        "qbittorrent": {
+          "subheader": "Секція qBittorrent",
+          "allocatedRam": "Ліміт використання фізичної пам’яті (RAM) (libtorrent >= 2.0)",
+          "allocatedRamHint": "в МіБ",
+          "networkInterfaces": {
+            "label": "Мережеві інтерфейси",
+            "any": "Будь-який інтерфейс"
+          },
+          "ipAddress": {
+            "label": "Додаткова IP-адреса для прив’язки",
+            "all": "Всі адреси",
+            "allIPv4": "Всі адреси IPv4",
+            "allIPv6": "Всі адреси IPv6"
+          },
+          "saveInterval": "Зберегти інтервал відновлення даних",
+          "saveIntervalHint": "В хвилинах",
+          "recheckOnCompletion": "Перевірити торренти після завершення",
+          "refreshInterval": "Інтервал оновлення",
+          "refreshIntervalHint": "В мсек",
+          "resolveCountries": "Розв'язати країни пірів",
+          "reannounceOnIpPortChanged": "Повторне сповіщення для всіх трекерів при зміні IP або порту",
+          "enableEmbeddedTracker": "Увімкнути вбудований трекер",
+          "embeddedTrackerPort": "Вбудований порт трекера",
+          "embeddedTrackerPortForwarding": "Увімкнути переадресацію портів для вбудованого трекера"
+        },
+        "libtorrent": {
+          "subheader": "Секція libtorrent",
+          "asyncIoThreads": "Асинхронні потоки введення-виведення",
+          "hashingThreads": "Хешування потоків (libtorrent >= 2.0)",
+          "filePoolSize": "Розмір пулу файлів",
+          "outstandingMemory": "Виключена пам'ять при перевірці торрентів",
+          "outstandingMemoryHint": "В MiБ",
+          "diskCache": "Дисковий кеш (libtorrent < 2.0)",
+          "diskCacheHint": "В MiБ",
+          "diskCacheExpiry": "Інтервал дії дискового кешу (libtorrent < 2.0)",
+          "diskCacheExpiryHint": "В сек",
+          "diskQueueSize": "Розмір черги диска",
+          "diskQueueSizeHint": "В KiБ",
+          "diskIoType": "Тип диска IO (libtorrent >= 2.0; потрібен перезапуск)",
+          "diskIoReadMode": "Режим читання дискового вводу-виводу",
+          "diskIoWriteMode": "Режим запису дискового вводу-виводу",
+          "coalesceReadsWrites": "Об'єднувати читання та запис (libtorrent < 2.0)",
+          "pieceExtentAffinity": "Використовувати спорідненість розміру частини",
+          "sendUploadPieceSuggestions": "Надсилати пропозиції щодо завантаження",
+          "sendBufferWatermark": "Надіслати водяний знак буфера",
+          "sendBufferWatermarkHint": "В KiБ",
+          "sendBufferLowWatermark": "Надіслати низький водяний знак буфера",
+          "sendBufferLowWatermarkHint": "В KiБ",
+          "sendBufferWatermarkFactor": "Надсилати буфер фактору водяного знака",
+          "sendBufferWatermarkFactorHint": "В %",
+          "outgoingConnectionsPerSecond": "Вихідних з'єднань за секунду",
+          "socketBacklogSize": "Розмір відставання сокета",
+          "outgoingPortsMin": "Вихідні порти (мін.) [0: вимкнено]",
+          "outgoingPortsMax": "Вихідні порти (макс.) [0: вимкнено]",
+          "upnpLeaseDuration": "Тривалість оренди UPnP [0: Постійна оренда]",
+          "peerTos": "Значення DSCP для підключень до однорангових вузлів",
+          "utpTcpMixedModeAlgorithm": "Алгоритм змішаного режиму μTP-TCP",
+          "idnSupport": "Увімкніть підтримку інтернаціоналізованих доменних імен (IDN).",
+          "allowMultipleConnectionsFromTheSameIPAddress": "Дозволити кілька підключень з однієї IP-адреси",
+          "validateHTTPSTrackerCertificate": "Перевіряти сертифікат трекера HTTPS",
+          "mitigateSSRF": "Захист від підробки запитів на стороні сервера (SSRF)",
+          "blockPeersOnPrivilegedPorts": "Заборонити підключення до вузлів на привілейованих портах",
+          "uploadSlotsBehavior": "Поведінка слотів завантаження",
+          "uploadChokingAlgorithm": "Завантажити алгоритм задушення",
+          "announceAllTrackers": "Завжди повідомляти всім трекерам на рівні",
+          "announceAllTiers": "Завжди повідомляти всім рівням",
+          "announceIP": "IP-адресу повідомлено трекерам (потрібно перезапустити)",
+          "maxConcurrentHTTPAnnounces": "Максимальна кількість одночасних HTTP-оголошень",
+          "stopTrackerTimeout": "Час очікування зупинки трекеру",
+          "peerTurnover": "Відсоток відключення однорангового оборотуe",
+          "peerTurnoverHint": "В %",
+          "peerTurnoverCutoff": "Пороговий відсоток плинності пірів",
+          "peerTurnoverCutoffHint": "В %",
+          "peerTurnoverInterval": "Інтервал відключення однорангового обміну",
+          "peerTurnoverIntervalHint": "В сек",
+          "requestQueueSize": "Максимальна кількість невиконаних запитів до одного вузла"
+        }
       }
     },
     "shareLimit": {
@@ -413,14 +634,23 @@
         "seeds": "Сіди",
         "status": "Стан",
         "trackers": "Трекери",
+        "comments": "Коментарі",
         "createdBy": "Створено",
+        "seededFor": "Роздано $0",
         "firstLastPiecePriority": "Пріоритет першої/останньої частини",
         "sequentialDownload": "Послідовне завантаження",
         "autoTMM": "Auto TMM",
         "shareRatioLimit": "Обмеження співвідношення частки",
         "shareTimeLimit": "Ліміт часу спільного використання (хвилини)",
         "downloadLimit": "Ліміт завантаження",
-        "uploadLimit": "Ліміт віддачі"
+        "uploadLimit": "Ліміт віддачі",
+        "creation_date": "Дата створення",
+        "dl_speed_average": "Середня швидкість завантаження",
+        "up_speed_average": "Середня швидкість віддачі",
+        "is_private": "Приватний торрент",
+        "piece_owned": "Зібрано фрагментів",
+        "piece_size": "Розмір фрагменту",
+        "wasted_size": "Змарновано"
       },
       "pagePeers": {
         "ip": "IP",
@@ -551,7 +781,8 @@
     "pasteNotSupported": "Неможливо вставити, буфер API недоступний в цьому браузері",
     "shutdownSuccess": "qBittorrent було вимкнено успішно!",
     "shutdownError": "Неможливо завершити застосунок. Переконайтеся, що qBittorrent запущено!",
-    "invalidJson": "Некоректний JSON!"
+    "invalidJson": "Некоректний JSON!",
+    "magnetHandlerNotSupported": "Неможливо зареєструвати обробник, контекст не захищено!"
   },
   "rightClick": {
     "resume": "відновити",
@@ -594,6 +825,62 @@
       "none": "Немає",
       "metadataReceived": "Метадані отримано",
       "filesChecked": "Файли перевірено"
+    },
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP та μTP",
+      "tcp": "TCP",
+      "utp": "μTP"
+    },
+    "encryption": {
+      "preferEncryption": "Дозволити шифрування",
+      "forceOn": "Вимагати шифрування",
+      "forceOff": "Вимкнути шифрування"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Призупинити торрент",
+      "removeTorrent": "Видалити торрент",
+      "removeTorrentAndFiles": "Видалити торрент та його файли",
+      "torrentSuperseeding": "Увімкнути режим суперсіда"
+    },
+    "scheduler": {
+      "everyDay": "Щоденно",
+      "everyWeekday": "Щотижня",
+      "everyWeekend": "Вихідні",
+      "everyMonday": "Понеділок",
+      "everyTuesday": "Вівторок",
+      "everyWednesday": "Середа",
+      "everyThursday": "Четвер",
+      "everyFriday": "П'ятниця",
+      "everySaturday": "Субота",
+      "everySunday": "Неділя"
+    },
+    "diskIoType": {
+      "default": "За замовчуванням",
+      "memoryMappedFiles": "Файли з відображенням пам'яті",
+      "posixCompliant": "POSIX-сумісний"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Вимкнути кешування ОС",
+      "enableOsCache": "Ввімкнути кешування ОС",
+      "writeThrough": "Наскрізний запис (libtorrent >= 2.0.6)"
+    },
+    "utpTcpMixedMode": {
+      "preferTcp": "Віддавати перевагу TCP",
+      "peerProportional": "Однорангова пропорційність (регулює TCP)"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Фіксовані слоти",
+      "uploadRateBased": "На основі швидкості завантаження"
+    },
+    "uploadChokingAlgorithm": {
+      "roundRobin": "Кругова",
+      "fastestUpload": "Найшвидша віддача",
+      "antiLeech": "Анти-ліч"
+    },
+    "monitoredFolderSaveLocation": {
+      "monitoredFolder": "Контрольоване розташування папки",
+      "defaultSavePath": "Шлях збереження за умовчанням",
+      "other": "Інша"
     }
   }
 }
