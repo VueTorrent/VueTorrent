@@ -1,31 +1,29 @@
 <template>
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
-      <template v-for="(item, index) in availableFeeds">
-        <v-col cols="12" sm="6" lg="4" xl="2">
-          <v-list-item :key="item.uid">
-            <v-list-item-content>
-              <v-list-item-title v-text="item.name" />
-            </v-list-item-content>
-            <v-list-item-action class="icon">
-              <v-icon @click="updateFeed(item)">
-                {{ mdiSync }}
-              </v-icon>
-            </v-list-item-action>
-            <v-list-item-action class="icon">
-              <v-icon @click="editFeed(item)">
-                {{ mdiPencil }}
-              </v-icon>
-            </v-list-item-action>
-            <v-list-item-action class="icon">
-              <v-icon color="red" @click="deleteFeed(item)">
-                {{ mdiDelete }}
-              </v-icon>
-            </v-list-item-action>
-          </v-list-item>
-          <v-divider :key="index" />
-        </v-col>
-      </template>
+      <v-col cols="12" sm="6" lg="3" v-for="item in availableFeeds" :key="item.uid">
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.name" />
+          </v-list-item-content>
+          <v-list-item-action class="icon">
+            <v-icon @click="updateFeed(item)">
+              {{ mdiSync }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-action class="icon">
+            <v-icon @click="editFeed(item)">
+              {{ mdiPencil }}
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-action class="icon">
+            <v-icon color="red" @click="deleteFeed(item)">
+              {{ mdiDelete }}
+            </v-icon>
+          </v-list-item-action>
+        </v-list-item>
+        <v-divider />
+      </v-col>
     </v-row>
     <v-row class="mb-3">
       <v-col cols="6" class="d-flex align-center justify-center">
