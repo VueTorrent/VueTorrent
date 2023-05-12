@@ -446,12 +446,10 @@
           }
         },
         "feeds": {
-          "feeds": "Feeds",
           "btnCreateNew": "Add feed",
           "refreshAll": "Refresh All"
         },
         "rules": {
-          "rules": "Rules",
           "btnCreateNew": "Create Rule"
         }
       },
