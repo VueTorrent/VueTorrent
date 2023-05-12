@@ -201,12 +201,16 @@ export default {
   color: #64ceaa !important;
 }
 .v-select__slot > label {
-  color: white !important;
+  &.theme--dark {
+    color: white !important;
+  }
+  &.theme--light {
+    color: black !important;
+  }
 }
 #app .v-select .v-text-field__details {
   display: none;
 }
-
 #app .v-select .v-select__selection {
   padding: 16px 0;
   margin: 0;
