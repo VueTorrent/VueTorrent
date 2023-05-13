@@ -23,8 +23,9 @@
         :items-per-page="15"
         :search="filter"
         :custom-filter="customFilter"
-        :sort-by.sync="sortBy"
-        :sort-desc.sync="reverse"
+        multi-sort
+        :sort-by="['parsedDate']"
+        :sort-desc="[true]"
         :item-class="getRowStyle"
       >
         <template #top>
@@ -90,8 +91,6 @@ export default defineComponent({
       ],
       filter: '',
       filterUnread: false,
-      sortBy: 'parsedDate',
-      reverse: true,
       mdiEmailOpen,
       mdiDownload,
       mdiClose
