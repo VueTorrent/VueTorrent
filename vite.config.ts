@@ -117,7 +117,9 @@ export default defineConfig(({ mode }) => {
       __VUE_PROD_DEVTOOLS__: false
     },
     esbuild: {
-      drop: ['console', 'debugger'],
+      drop: process.env.NODE_ENV === 'development' 
+        ? undefined 
+        : ['console', 'debugger'],
       legalComments: 'none',
       format: 'esm'
     },
