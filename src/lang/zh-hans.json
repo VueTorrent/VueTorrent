@@ -446,12 +446,10 @@
           }
         },
         "feeds": {
-          "feeds": "订阅源",
           "btnCreateNew": "添加订阅",
           "refreshAll": "刷新全部"
         },
         "rules": {
-          "rules": "规则",
           "btnCreateNew": "创建规则"
         }
       },
