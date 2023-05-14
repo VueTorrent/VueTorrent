@@ -446,12 +446,10 @@
           }
         },
         "feeds": {
-          "feeds": "訂閱源",
           "btnCreateNew": "新增訂閱",
           "refreshAll": "重新整理全部"
         },
         "rules": {
-          "rules": "規則",
           "btnCreateNew": "新增規則"
         }
       },
