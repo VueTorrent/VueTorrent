@@ -21,6 +21,7 @@
         :headers="headers"
         :items="filterUnread ? unreadArticles : articles"
         :items-per-page="15"
+        item-key="key"
         :search="filter"
         :custom-filter="customFilter"
         multi-sort
@@ -110,7 +111,7 @@ export default defineComponent({
     articles(): FeedArticle[] {
       const articles: FeedArticle[] = []
       ;(this.rss as RssState).feeds.forEach((feed: Feed) => {
-        feed.articles && articles.push(...feed.articles.map(article => ({ feedName: feed.name, parsedDate: new Date(article.date), ...article })))
+        feed.articles && articles.push(...feed.articles.map(article => ({ key: `${feed.uid}|${article.id}`, feedName: feed.name, parsedDate: new Date(article.date), ...article })))
       })
       return articles
     },
