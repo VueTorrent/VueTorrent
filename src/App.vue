@@ -5,6 +5,8 @@ import Navbar from './components/Navbar/Navbar.vue'
 import { useAuthStore } from './stores/auth'
 import { useRouter } from 'vue-router/auto'
 import { useRoute } from 'vue-router'
+import { useModalsStore } from './stores/modals';
+import { storeToRefs } from 'pinia'
 
 // composables
 const theme = useTheme()
@@ -12,6 +14,9 @@ const prefersDark = usePreferredDark()
 const router = useRouter()
 const route = useRoute()
 const authStore = useAuthStore()
+const modalsStore = useModalsStore()
+
+const { modals } = storeToRefs(modalsStore) 
 
 if (prefersDark.value) {
   theme.global.name.value = 'dark'
@@ -32,6 +37,9 @@ authStore.checkAuth().then(async (res) => {
 
 <template>
   <VApp>
+    <template v-for="modal in modals" :key="modal.guid">
+      <component :is="modal.componentName" v-bind="{ guid: modal.guid, ...modal.props }" />
+    </template>
     <Navbar v-if="authStore.isAuthenticated" />
     <VMain>
       <VContainer fluid>

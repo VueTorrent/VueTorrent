@@ -2,7 +2,7 @@
 import { useMainData } from '@/composables/api/info'
 import { definePage } from 'vue-router/auto'
 import { computed } from 'vue'
-import { Torrent } from '@/models'
+import type { Torrent } from '@/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker/faker'
 import MobileCardVue from '@/components/Torrent/MobileCard.vue'
