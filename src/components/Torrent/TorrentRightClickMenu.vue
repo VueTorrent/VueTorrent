@@ -387,11 +387,11 @@ export default {
     detectRightside() {
       this.isRightside = document.documentElement.clientWidth < this.x + 380
     },
-    resume() {
-      qbit.resumeTorrents(this.hashes)
+    async resume() {
+      await qbit.resumeTorrents(this.hashes)
     },
-    pause() {
-      qbit.pauseTorrents(this.hashes)
+    async pause() {
+      await qbit.pauseTorrents(this.hashes)
     },
     location() {
       this.createModal('ChangeLocationModal', { hashes: this.multiple ? this.selected_torrents : [this.torrent.hash] })
@@ -399,22 +399,22 @@ export default {
     rename() {
       this.createModal('RenameModal', { hash: this.torrent.hash })
     },
-    reannounce() {
-      qbit.reannounceTorrents(this.hashes)
+    async reannounce() {
+      await qbit.reannounceTorrents(this.hashes)
     },
     removeTorrent() {
       this.$store.state.selected_torrents = this.hashes
 
       return this.createModal('ConfirmDeleteModal')
     },
-    recheck() {
-      qbit.recheckTorrents(this.hashes)
+    async recheck() {
+      await qbit.recheckTorrents(this.hashes)
     },
     showInfo() {
       this.$router.push({ name: 'torrentDetail', params: { hash: this.torrent.hash } })
     },
-    setPriority(priority) {
-      qbit.setTorrentPriority(this.hashes, priority)
+    async setPriority(priority) {
+      await qbit.setTorrentPriority(this.hashes, priority)
     },
     setLimit(mode) {
       this.createModal('SpeedLimitModal', { hash: this.torrent.hash, mode })
@@ -422,30 +422,30 @@ export default {
     setShareLimit() {
       this.createModal('ShareLimitModal', { hash: this.torrent.hash })
     },
-    forceResume() {
-      qbit.forceStartTorrents(this.hashes)
+    async forceResume() {
+      await qbit.forceStartTorrents(this.hashes)
     },
-    setCategory(cat) {
-      qbit.setCategory(this.hashes, cat)
+    async setCategory(cat) {
+      await qbit.setCategory(this.hashes, cat)
     },
-    setTag(tag) {
-      if (this.torrent.tags && this.torrent.tags.includes(tag)) this.removeTag(tag)
-      else this.addTag(tag)
+    async setTag(tag) {
+      if (this.torrent.tags && this.torrent.tags.includes(tag)) await this.removeTag(tag)
+      else await this.addTag(tag)
     },
-    addTag(tag) {
-      qbit.addTorrentTag(this.hashes, [tag])
+    async addTag(tag) {
+      await qbit.addTorrentTag(this.hashes, [tag])
     },
-    removeTag(tag) {
-      qbit.removeTorrentTag(this.hashes, [tag])
+    async removeTag(tag) {
+      await qbit.removeTorrentTag(this.hashes, [tag])
     },
-    toggleSeq() {
-      qbit.toggleSequentialDownload(this.hashes)
+    async toggleSeq() {
+      await qbit.toggleSequentialDownload(this.hashes)
     },
-    toggleFL() {
-      qbit.toggleFirstLastPiecePriority(this.hashes)
+    async toggleFL() {
+      await qbit.toggleFirstLastPiecePriority(this.hashes)
     },
-    toggleAutoTMM() {
-      qbit.setAutoTMM(this.hashes, !this.torrent.auto_tmm)
+    async toggleAutoTMM() {
+      await qbit.setAutoTMM(this.hashes, !this.torrent.auto_tmm)
     },
     copyToClipBoard(text) {
       if (navigator.clipboard && window.isSecureContext) {

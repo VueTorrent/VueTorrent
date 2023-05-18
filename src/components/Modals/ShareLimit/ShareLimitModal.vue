@@ -46,8 +46,8 @@ export default {
     }
   },
   methods: {
-    save() {
-      qbit.setShareLimit([this.hash], this.$refs.ratio.export(), this.$refs.time.export())
+    async save() {
+      await qbit.setShareLimit([this.hash], this.$refs.ratio.export(), this.$refs.time.export())
       this.close()
     },
     close() {

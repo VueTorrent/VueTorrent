@@ -95,12 +95,12 @@ export default {
     createCategory() {
       this.createModal('CreateCategoryDialog')
     },
-    deleteCategory(category) {
-      qbit.deleteCategory([category.name])
+    async deleteCategory(category) {
+      await qbit.deleteCategory([category.name])
       this.$store.commit('FETCH_CATEGORIES')
     },
-    deleteTag(item) {
-      qbit.deleteTag([item])
+    async deleteTag(item) {
+      await qbit.deleteTag([item])
       this.$store.commit('FETCH_TAGS')
     },
     editCategory(cat) {

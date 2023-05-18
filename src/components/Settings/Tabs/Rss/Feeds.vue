@@ -76,8 +76,8 @@ export default defineComponent({
     editFeed(item: Feed) {
       this.createModal('FeedForm', { initialFeed: { url: item.url, name: item.name } })
     },
-    deleteFeed(item: Feed) {
-      qbit.deleteFeed(item.name)
+    async deleteFeed(item: Feed) {
+      await qbit.deleteFeed(item.name)
       this.$store.commit('FETCH_FEEDS')
     },
     createFeed() {

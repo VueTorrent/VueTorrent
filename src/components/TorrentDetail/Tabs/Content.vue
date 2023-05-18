@@ -175,7 +175,7 @@ export default {
       item.newName = item.name
       this.toggleEditing(item)
     },
-    renameFile(item) {
+    async renameFile(item) {
       const lastPathSep = item.fullName.lastIndexOf('/')
       const args = [this.hash]
 
@@ -185,12 +185,12 @@ export default {
         args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
       }
 
-      qbit.renameFile(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
+      await qbit.renameFile(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
 
       item.name = item.newName
       this.toggleEditing(item)
     },
-    renameFolder(item) {
+    async renameFolder(item) {
       const lastPathSep = item.fullName.lastIndexOf('/')
       const args = [this.hash]
 
@@ -200,13 +200,13 @@ export default {
         args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
       }
 
-      qbit.renameFolder(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
+      await qbit.renameFolder(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
 
       item.name = item.newName
       this.toggleEditing(item)
     },
-    setFilePrio(fileId, priority) {
-      qbit.setTorrentFilePriority(this.hash, [fileId], priority).then(() => this.initFiles())
+    async setFilePrio(fileId, priority) {
+      await qbit.setTorrentFilePriority(this.hash, [fileId], priority).then(() => this.initFiles())
     }
   }
 }

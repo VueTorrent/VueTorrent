@@ -67,16 +67,16 @@ export default defineComponent({
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
-    create() {
-      qbit.createFeed(this.feed)
+    async create() {
+      await qbit.createFeed(this.feed)
       this.cancel()
     },
     cancel() {
       this.$store.commit('FETCH_FEEDS')
       this.dialog = false
     },
-    edit() {
-      qbit.editFeed(this.initialFeed.name, this.feed.name)
+    async edit() {
+      await qbit.editFeed(this.initialFeed.name, this.feed.name)
       this.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
     },

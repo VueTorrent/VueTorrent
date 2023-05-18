@@ -103,11 +103,11 @@ export default {
     ...mapState(['selected_torrents'])
   },
   methods: {
-    pauseTorrents() {
-      qbit.pauseTorrents(this.selected_torrents)
+    async pauseTorrents() {
+      await qbit.pauseTorrents(this.selected_torrents)
     },
-    resumeTorrents() {
-      qbit.resumeTorrents(this.selected_torrents)
+    async resumeTorrents() {
+      await qbit.resumeTorrents(this.selected_torrents)
     },
     removeTorrents() {
       if (!this.selected_torrents.length) return

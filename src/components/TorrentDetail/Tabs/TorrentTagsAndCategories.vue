@@ -77,25 +77,25 @@ export default {
     this.$store.commit('FETCH_TAGS')
   },
   methods: {
-    addTag(tag) {
+    async addTag(tag) {
       if (this.activeTags.includes(this.availableTags.indexOf(tag))) {
-        return this.deleteTag(tag)
+        await this.deleteTag(tag)
       }
 
-      return qbit.addTorrentTag([this.hash], [tag])
+      await qbit.addTorrentTag([this.hash], [tag])
     },
-    deleteTag(tag) {
-      qbit.removeTorrentTag([this.hash], [tag])
+    async deleteTag(tag) {
+      await qbit.removeTorrentTag([this.hash], [tag])
     },
-    setCategory(cat) {
+    async setCategory(cat) {
       if (this.torrent.category === cat.name) {
-        return this.deleteCategory()
+        await this.deleteCategory()
       }
 
-      return qbit.setCategory([this.hash], cat.name)
+      await qbit.setCategory([this.hash], cat.name)
     },
-    deleteCategory() {
-      qbit.setCategory([this.hash], '')
+    async deleteCategory() {
+      await qbit.setCategory([this.hash], '')
     }
   }
 }

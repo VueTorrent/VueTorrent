@@ -84,20 +84,20 @@ export default {
     }
   },
   methods: {
-    setLimit() {
+    async setLimit() {
       switch (this.mode) {
         case 'download':
           if (this.isGlobal()) {
-            qbit.setGlobalDownloadLimit(this.exportLimit())
+            await qbit.setGlobalDownloadLimit(this.exportLimit())
           } else {
-            qbit.setDownloadLimit([this.hash], this.exportLimit())
+            await qbit.setDownloadLimit([this.hash], this.exportLimit())
           }
           break
         case 'upload':
           if (this.isGlobal()) {
-            qbit.setGlobalUploadLimit(this.exportLimit())
+            await qbit.setGlobalUploadLimit(this.exportLimit())
           } else {
-            qbit.setUploadLimit([this.hash], this.exportLimit())
+            await qbit.setUploadLimit([this.hash], this.exportLimit())
           }
           break
         default:
@@ -107,7 +107,7 @@ export default {
       this.close()
     },
     isGlobal() {
-      return this.torrent ? false : true
+      return !this.torrent
     },
     formatLimit(limit) {
       return limit > 0 ? limit / 1024 : '∞'

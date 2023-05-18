@@ -1,7 +1,7 @@
 <template>
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
-      <v-col cols="12" sm="6" lg="3" v-for="(item, index) in availableRules" :key="item.uid">
+      <v-col cols="12" sm="6" lg="3" v-for="item in availableRules" :key="item.uid">
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title v-text="item.name" />
@@ -62,8 +62,8 @@ export default {
     activeMethod() {
       this.$store.commit('FETCH_RULES')
     },
-    deleteRule(item) {
-      qbit.deleteRule(item.name)
+    async deleteRule(item) {
+      await qbit.deleteRule(item.name)
       this.$store.commit('FETCH_RULES')
     },
     createRule() {

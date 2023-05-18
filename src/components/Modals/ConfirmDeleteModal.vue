@@ -54,8 +54,8 @@ export default {
     close() {
       this.dialog = false
     },
-    deleteTorrent() {
-      qbit.deleteTorrents(this.selected_torrents, this.settings.deleteWithFiles)
+    async deleteTorrent() {
+      await qbit.deleteTorrents(this.selected_torrents, this.settings.deleteWithFiles)
       this.close()
     }
   }
