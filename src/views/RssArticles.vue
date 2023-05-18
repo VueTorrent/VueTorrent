@@ -81,13 +81,10 @@ export default defineComponent({
       headers: [
         { text: this.$t('modals.rss.columnTitle.id'), value: 'id' },
         { text: this.$t('modals.rss.columnTitle.title'), value: 'title' },
-        // {text: this.$t('modals.rss.columnTitle.description'), value: 'description'},
         { text: this.$t('modals.rss.columnTitle.category'), value: 'category' },
         { text: this.$t('modals.rss.columnTitle.author'), value: 'author' },
         { text: this.$t('modals.rss.columnTitle.date'), value: 'parsedDate' },
         { text: this.$t('modals.rss.columnTitle.feedName'), value: 'feedName' },
-        // {text: this.$t('modals.rss.columnTitle.link'), value: 'link'},
-        // {text: this.$t('modals.rss.columnTitle.torrentURL'), value: 'torrentURL'},
         { text: this.$t('modals.rss.columnTitle.actions'), value: 'actions', sortable: false }
       ],
       filter: '',

@@ -107,6 +107,11 @@
     "downloaded": "Downloaded",
     "uploaded": "Uploaded"
   },
+  "search": {
+    "title": "Search torrents",
+    "runNewSearch": "Search",
+    "stopSearch": "Stop"
+  },
   "navbar": {
     "currentSpeed": "Current Speed",
     "alltimeTitle": "All-Time Stats",

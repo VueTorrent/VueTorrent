@@ -478,14 +478,14 @@ export class QBitApi {
   }
 
   /** Search **/
-  async startSearch(pattern: string, category: string, plugins?: string[]): Promise<SearchJob> {
+  async startSearch(pattern: string, category: string, plugins: string[]): Promise<SearchJob> {
     const params = {
       pattern,
       category,
-      plugins: plugins && plugins.length > 0 ? plugins.join('|') : 'enabled'
+      plugins: plugins.join('|')
     }
 
-    return this.execute('/search/start', params).then(res => res.data)
+    return this.execute('/search/start', params)
   }
 
   async stopSearch(id: number): Promise<boolean> {
