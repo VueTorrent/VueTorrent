@@ -1,7 +1,7 @@
 import type { Optional } from '@/global'
-import type { BasePayload } from '.'
+import type { QbBasePayload } from '.'
 
-export default interface PeerLogPayload extends BasePayload {
+export default interface QbPeerLogPayload extends QbBasePayload {
   // Exclude messages with "message id" <= last_known_id (default: -1)
   last_known_id: Optional<number>
 }
