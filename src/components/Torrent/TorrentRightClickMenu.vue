@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAvailableTags } from '@/composables/api/torrents'
+import { useTags } from '@/composables/api/torrents'
 import { useCategories } from '@/composables/api/torrents'
 import {
   mdiAccountGroup,
@@ -80,7 +80,7 @@ const availableCategories = () => {
 }
 
 const availableTags = () => {
-  return useAvailableTags().then((t) => {
+  return useTags().then((t) => {
     return t
   })
 }

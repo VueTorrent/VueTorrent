@@ -15,21 +15,15 @@ definePage({
 const mainData = useMainData()
 
 const torrents = computed(() => {
-  const torrents: Torrent[] = []
+  // temp
+  const _torrents = Object.values((mainData.data.value?.torrents as any))
 
-  // const ts = mainData.data.value?.torrents
-  // for (let t in ts) {
-  //   let data = ts[t]
-  //   console.log(data)
-  //   // torrents.push(new Torrent({ ...data }))
-  // }
+  // if (isProduction()) return torrents
+  // if (import.meta.env.VITE_USE_FAKE_TORRENTS === false) return torrents
+  // const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
+  // torrents.push(...generateMultiple(count))
 
-  if (isProduction()) return torrents
-  if (import.meta.env.VITE_USE_FAKE_TORRENTS === false) return torrents
-  const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
-  torrents.push(...generateMultiple(count))
-
-  return torrents
+  return _torrents
 })
 </script>
 
@@ -39,9 +33,9 @@ const torrents = computed(() => {
   </div>
   <div v-else>
     <VList class="pa-0 transparent">
-      <VListItem class="px-0" v-for="torrent in torrents" :key="torrent.hash">
-        <VCard :class="'sideborder ' + torrent.state">
-          <MobileCardVue :torrent="torrent" />
+      <VListItem class="px-0" v-for="torrent in torrents" :key="(torrent as any).hash">
+        <VCard :class="'sideborder ' + (torrent as any).state">
+          <MobileCardVue :torrent="(torrent as any)" />
         </VCard>
       </VListItem>
     </VList>
