@@ -25,6 +25,11 @@ const router = new Router({
       component: () => import('./views/RssArticles.vue')
     },
     {
+      path: '/search',
+      name: 'search',
+      component: () => import('./views/SearchEngine.vue')
+    },
+    {
       path: '/torrent/:hash',
       name: 'torrentDetail',
       component: () => import('./views/TorrentDetail.vue')
