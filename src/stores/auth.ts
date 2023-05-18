@@ -1,4 +1,4 @@
-import type { LoginPayload } from '@/types/qbit/payloads'
+import type { QbLoginPayload } from '@/types/qbit/payloads'
 import axios from 'axios'
 import { defineStore } from 'pinia'
 import { useToast } from 'vue-toastification'
@@ -15,7 +15,7 @@ export const useAuthStore = defineStore('auth', () => {
   const i18n = useI18n()
   const router = useRouter()
 
-  const login = async (params: LoginPayload) => {
+  const login = async (params: QbLoginPayload) => {
     const payload = new URLSearchParams(params)
 
     await axios

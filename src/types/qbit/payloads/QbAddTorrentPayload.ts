@@ -1,6 +1,6 @@
-import type { BasePayload } from '.'
+import type { QbBasePayload } from '.'
 
-export default interface AddTorrentPayload extends BasePayload {
+export default interface QbAddTorrentPayload extends QbBasePayload {
   /** Whether Automatic Torrent Management should be used */
   autoTMM?: boolean
   /** Category for the torrent */

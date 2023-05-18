@@ -1,18 +1,20 @@
 import { useQuery, useMutation } from '@tanstack/vue-query'
 import { useAxios } from '@vueuse/integrations/useAxios'
 import { axiosInstance } from '@/services/qbit'
-import type { AppPreferencesPayload } from '@/types/qbit/payloads'
+import type { QbAppPreferencesPayload } from '@/types/qbit/payloads'
+import type { AppPreferences } from '@/types/qbit/models'
 
 export const usePreferences = () => {
   return useQuery({
-    queryKey: ['settings'],
-    queryFn: () => {
-      return useAxios('/app/preferences', axiosInstance)
+    queryKey: ['preferences'],
+    queryFn: async () => {
+      const { data: preferences } = await useAxios<AppPreferences>('/app/preferences', axiosInstance)
+      return preferences
     }
   })
 }
 
-export const updatePreferences = (params: AppPreferencesPayload) => {
+export const updatePreferences = (params: QbAppPreferencesPayload) => {
   const data = {
     json: JSON.stringify(params)
   }
