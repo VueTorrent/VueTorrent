@@ -48,8 +48,10 @@ export class QBitApi {
 
   async login(params: LoginPayload): Promise<string> {
     const payload = new URLSearchParams(params)
-    return this.axios.post('/auth/login', payload, { validateStatus: (status: number) => status === 200 || status === 403 })
-      .then(res => res.data, err => console.log(err))
+    return this.axios.post('/auth/login', payload, { validateStatus: (status: number) => status === 200 || status === 403 }).then(
+      res => res.data,
+      err => console.log(err)
+    )
   }
 
   async getAuthenticationStatus(): Promise<boolean> {
@@ -487,14 +489,16 @@ export class QBitApi {
   }
 
   async stopSearch(id: number): Promise<boolean> {
-    return this.execute('/search/stop', { id }).then(() => true, () => false)
+    return this.execute('/search/stop', { id }).then(
+      () => true,
+      () => false
+    )
   }
 
   async getSearchStatus(id?: number): Promise<SearchStatus[]> {
     return this.execute('/search/status', {
       id: id !== undefined ? id : 0
-    })
-      .then(res => res.data)
+    }).then(res => res.data)
   }
 
   async getSearchResults(id: number, limit?: number, offset?: number): Promise<SearchResultsResponse> {
@@ -506,8 +510,10 @@ export class QBitApi {
   }
 
   async deleteSearchPlugin(id: number): Promise<boolean> {
-    return this.execute('/search/delete', { id })
-      .then(() => true, () => false)
+    return this.execute('/search/delete', { id }).then(
+      () => true,
+      () => false
+    )
   }
 
   async getSearchPlugins(): Promise<SearchPlugin[]> {
@@ -515,8 +521,10 @@ export class QBitApi {
   }
 
   async installSearchPlugin(sources: string[]) {
-    return this.execute('/search/installPlugin', { sources: sources.join('|') })
-      .then(() => true, () => false)
+    return this.execute('/search/installPlugin', { sources: sources.join('|') }).then(
+      () => true,
+      () => false
+    )
   }
 
   async uninstallSearchPlugin(names: string[]) {

@@ -121,7 +121,10 @@ export default {
     async DeleteTrackers() {
       if (!this.selectedTrackers.length) return
 
-      await qbit.removeTorrentTrackers(this.hash, this.selectedTrackers.map(t => t.url))
+      await qbit.removeTorrentTrackers(
+        this.hash,
+        this.selectedTrackers.map(t => t.url)
+      )
 
       this.selectedTrackers = []
       await this.getTorrentTrackers()
