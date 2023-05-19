@@ -182,12 +182,12 @@
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="settings.add_trackers" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
+      <v-checkbox v-model="settings.add_trackers_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.autoAddTrackers')" />
     </v-list-item>
     <v-list-item>
       <v-textarea
-        :disabled="!settings.add_trackers"
-        v-model="settings.excluded_file_names"
+        :disabled="!settings.add_trackers_enabled"
+        v-model="settings.add_trackers"
         outlined
         required
         auto-grow
