@@ -43,7 +43,12 @@
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model="settings.web_ui_password"
+            v-model="webUiPassword"
+            :type="showWebuiPassword ? 'text' : 'password'"
+            :append-icon="showWebuiPassword ? mdiEye : mdiEyeOff"
+            @click:append="showWebuiPassword = !showWebuiPassword"
+            autocomplete="current password"
+            autocapitalize="none"
             outlined
             dense
             hide-details="true"
@@ -245,9 +250,9 @@
             dense
             hide-details
             :label="$t('modals.settings.webUI.dynDns.password')"
-            :type="showPassword ? 'text' : 'password'"
-            :append-icon="!settings.dyndns_enabled ? '' : showPassword ? mdiEye : mdiEyeOff"
-            @click:append="showPassword = !showPassword"
+            :type="showDynDnsPassword ? 'text' : 'password'"
+            :append-icon="!settings.dyndns_enabled ? '' : showDynDnsPassword ? mdiEye : mdiEyeOff"
+            @click:append="showDynDnsPassword = !showDynDnsPassword"
           />
         </v-col>
       </v-row>
@@ -276,9 +281,21 @@ export default defineComponent({
           value: 'http://www.no-ip.com/services/managed_dns/free_dynamic_dns.html'
         }
       ],
-      showPassword: false,
+      webUiPassword: '',
+      showWebuiPassword: false,
+      showDynDnsPassword: false,
       mdiEye,
       mdiEyeOff
+    }
+  },
+  watch: {
+    webUiPassword(newValue: string) {
+      if (newValue === '') {
+        this.settings.web_ui_password = undefined
+      }
+      else {
+        this.settings.web_ui_password = newValue
+      }
     }
   },
   methods: {
