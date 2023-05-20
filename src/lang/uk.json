@@ -415,7 +415,7 @@
           "subheader": "Обмеження сідування",
           "whenRatioReaches": "Коли співвідношення досягне",
           "whenSeedingTimeReaches": "Коли сідування досягне часу",
-          "then": "Тоді"        
+          "then": "Тоді"
         },
         "autoAddTrackers": "Автоматично додати ці трекери до нових завантажень",
         "autoAddTrackersHint": "Один трекер на рядок"
@@ -450,11 +450,11 @@
           "btnCreateNew": "Додати стрічку",
           "refreshAll": "Оновити всі"
         },
-          "rules": {
-            "rules": "Правила",
-            "btnCreateNew": "Створити правило"        
-          }
-        },
+        "rules": {
+          "rules": "Правила",
+          "btnCreateNew": "Створити правило"
+        }
+      },
       "webUI": {
         "interface": {
           "subheader": "Веб-інтерфейс користувача (дистанційне керування)",

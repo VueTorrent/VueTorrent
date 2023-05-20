@@ -38,6 +38,6 @@ export default {
     if (store.state.oldSettingsDetected) return
 
     store.state.oldSettingsDetected = true
-    Vue.$toast.error(i18n.t('toast.resetSettingsNeeded').toString(), {timeout: 2500})
+    Vue.$toast.error(i18n.t('toast.resetSettingsNeeded').toString(), { timeout: 2500 })
   }
 }

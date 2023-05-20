@@ -1,6 +1,6 @@
 import { i18n } from '@/plugins/i18n'
 import type { StoreState } from '@/types/vuetorrent'
-import {formatSize} from '@/filters'
+import { formatSize } from '@/filters'
 
 export default {
   getAppVersion: (state: StoreState) => () => state.version,
@@ -22,11 +22,13 @@ export default {
   getAuthenticated: (state: StoreState) => () => state.authenticated,
   getTorrentCountString: (state: StoreState) => () => {
     if (state.selected_torrents.length) {
-      let selectedSize = state.selected_torrents.map(hash => state.torrents.filter(el => el.hash === hash)[0])
-          .map(torrent => torrent.size)
-          .reduce((partialSum, newVal) => partialSum + newVal)
+      let selectedSize = state.selected_torrents
+        .map(hash => state.torrents.filter(el => el.hash === hash)[0])
+        .map(torrent => torrent.size)
+        .reduce((partialSum, newVal) => partialSum + newVal)
 
-      return i18n.tc('dashboard.selectedTorrentsCount', state.filteredTorrentsCount)
+      return i18n
+        .tc('dashboard.selectedTorrentsCount', state.filteredTorrentsCount)
         .replace('$0', state.selected_torrents.length.toString())
         .replace('$1', formatSize(selectedSize))
     } else {

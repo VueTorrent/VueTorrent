@@ -152,7 +152,7 @@ import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vu
 
 import { TorrentSelect, General } from '@/mixins'
 import { doesCommand } from '@/helpers'
-import {DashboardProperty} from "@/enums/vuetorrent";
+import { DashboardProperty } from '@/enums/vuetorrent'
 
 export default {
   name: 'Dashboard',
