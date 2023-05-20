@@ -19,6 +19,7 @@ export enum DashboardProperty {
   LAST_ACTIVITY = 'LastActivity',
   PEERS = 'Peers',
   PROGRESS = 'Progress',
+  PROGRESS_BAR = 'ProgressBar',
   RATIO = 'Ratio',
   SAVE_PATH = 'SavePath',
   SEEDS = 'Seeds',

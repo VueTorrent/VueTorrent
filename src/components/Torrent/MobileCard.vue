@@ -49,7 +49,7 @@
       <v-spacer />
       <span v-if="isEtaActive" class="body-2">{{ torrent.eta }}</span>
     </v-flex>
-    <v-flex xs12 class="ma-1">
+    <v-flex xs12 class="ma-1" v-if="isProgressBarActive">
       <v-progress-linear rounded color="upload" height="5" :value="torrent.progress" />
     </v-flex>
     <v-flex row xs12 class="ma-1">
@@ -109,43 +109,54 @@ export default {
       return this.webuiSettings.busyMobileCardProperties
     },
     isStatusActive() {
-      return this.properties.find(e => e.name === DashboardProperty.STATUS).active
+      return this.processProperty(DashboardProperty.STATUS)
     },
     isTrackerActive() {
-      return this.properties.find(e => e.name === DashboardProperty.TRACKER).active
+      return this.processProperty(DashboardProperty.TRACKER)
     },
     isCategoryActive() {
-      return this.properties.find(e => e.name === DashboardProperty.CATEGORY).active
+      return this.processProperty(DashboardProperty.CATEGORY)
     },
     isTagsActive() {
-      return this.properties.find(e => e.name === DashboardProperty.TAGS).active
+      return this.processProperty(DashboardProperty.TAGS)
     },
     isSizeActive() {
-      return this.properties.find(e => e.name === DashboardProperty.SIZE).active
+      return this.processProperty(DashboardProperty.SIZE)
     },
     isProgressActive() {
-      return this.properties.find(e => e.name === DashboardProperty.PROGRESS).active
+      return this.processProperty(DashboardProperty.PROGRESS)
+    },
+    isProgressBarActive() {
+      return this.processProperty(DashboardProperty.PROGRESS_BAR)
     },
     isRatioActive() {
-      return this.properties.find(e => e.name === DashboardProperty.RATIO).active
+      return this.processProperty(DashboardProperty.RATIO)
     },
     isUploadedActive() {
-      return this.properties.find(e => e.name === DashboardProperty.UPLOADED).active
+      return this.processProperty(DashboardProperty.UPLOADED)
     },
     isEtaActive() {
-      return this.properties.find(e => e.name === DashboardProperty.ETA).active
+      return this.processProperty(DashboardProperty.ETA)
     },
     isSeedsActive() {
-      return this.properties.find(e => e.name === DashboardProperty.SEEDS).active
+      return this.processProperty(DashboardProperty.SEEDS)
     },
     isPeersActive() {
-      return this.properties.find(e => e.name === DashboardProperty.PEERS).active
+      return this.processProperty(DashboardProperty.PEERS)
     },
     isDownloadSpeedActive() {
-      return this.properties.find(e => e.name === DashboardProperty.DOWNLOAD_SPEED).active
+      return this.processProperty(DashboardProperty.DOWNLOAD_SPEED)
     },
     isUploadSpeedActive() {
-      return this.properties.find(e => e.name === DashboardProperty.UPLOAD_SPEED).active
+      return this.processProperty(DashboardProperty.UPLOAD_SPEED)
+    }
+  },
+  methods: {
+    processProperty(ppt) {
+      const value = this.properties.find(e => e.name === ppt)
+
+      if (value === undefined) return true
+      else return value.active
     }
   }
 }

@@ -67,6 +67,7 @@ const mobilePropertiesTemplate = [
   { name: DashboardProperty.TAGS, active: true },
   { name: DashboardProperty.SIZE, active: true },
   { name: DashboardProperty.PROGRESS, active: true },
+  { name: DashboardProperty.PROGRESS_BAR, active: true },
   { name: DashboardProperty.RATIO, active: true },
   { name: DashboardProperty.UPLOADED, active: true },
   { name: DashboardProperty.ETA, active: true },
@@ -80,6 +81,7 @@ export default new Vuex.Store<StoreState>({
   plugins: [vuexPersist.plugin],
   state: {
     authenticated: false,
+    oldSettingsDetected: false,
     categories: [],
     dashboard: {
       currentPage: 1,

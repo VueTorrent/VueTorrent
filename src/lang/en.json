@@ -87,6 +87,7 @@
       "last_activity": "Last Activity",
       "peers": "Peers",
       "progress": "Progress",
+      "progress_bar": "Progress Bar",
       "ratio": "Ratio",
       "save_path": "Save Path",
       "seeds": "Seeds",
@@ -780,7 +781,8 @@
     "shutdownSuccess": "qBittorrent was shutdown successfully!",
     "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
     "invalidJson": "Invalid JSON! Check console for details",
-    "magnetHandlerNotSupported": "Unable to register handler, context isn't secured!"
+    "magnetHandlerNotSupported": "Unable to register handler, context isn't secured!",
+    "resetSettingsNeeded": "Old version of settings detected, reset them for the best experience!"
   },
   "rightClick": {
     "resume": "resume",
