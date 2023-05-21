@@ -127,7 +127,6 @@
             </v-expand-x-transition>
             <v-list-item-content class="pa-0 rounded">
               <Torrent :torrent="torrent" :index="index" />
-              <v-divider v-if="index < paginatedData.length - 1" :key="index" />
             </v-list-item-content>
           </template>
         </v-list-item>
@@ -153,6 +152,7 @@ import TorrentRightClickMenu from '@/components/Torrent/TorrentRightClickMenu.vu
 
 import { TorrentSelect, General } from '@/mixins'
 import { doesCommand } from '@/helpers'
+import { DashboardProperty } from '@/enums/vuetorrent'
 
 export default {
   name: 'Dashboard',
@@ -327,6 +327,11 @@ export default {
     document.addEventListener('dragenter', this.detectDragEnter)
     this.$store.state.selectMode = false
     window.scrollTo(0, 0)
+
+    const ppt = this.getWebuiSettings().busyMobileCardProperties.find(e => e.name === DashboardProperty.PROGRESS_BAR)
+    if (ppt === undefined) {
+      this.$store.dispatch('ALERT_OLD_SETTINGS')
+    }
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')

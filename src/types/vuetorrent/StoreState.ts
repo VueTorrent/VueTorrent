@@ -27,6 +27,7 @@ export default interface StoreState extends PersistentStoreState {
   isUpdatingMainData: boolean
   latestSelectedTorrent: number
   modals: ModalTemplate[]
+  oldSettingsDetected: boolean
   rid?: number
   rss: {
     feeds: Feed[]

@@ -33,5 +33,11 @@ export default {
     store.commit('FETCH_SETTINGS', data)
 
     return data
+  },
+  ALERT_OLD_SETTINGS: async (store: Store<StoreState>) => {
+    if (store.state.oldSettingsDetected) return
+
+    store.state.oldSettingsDetected = true
+    Vue.$toast.error(i18n.t('toast.resetSettingsNeeded').toString(), { timeout: 2500 })
   }
 }
