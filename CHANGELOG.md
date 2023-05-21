@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.5.8](https://github.com/WDaan/VueTorrent/compare/v1.5.7...v1.5.8) (2023-05-21)
+
+
+### Bug Fixes
+
+* Add custom key to prevent duplicate keys ([#814](https://github.com/WDaan/VueTorrent/issues/814)) ([b63a7e0](https://github.com/WDaan/VueTorrent/commit/b63a7e039d3b39a61dd6a647ad45b015490cba40))
+* invalid v-model for auto add trackers ([#820](https://github.com/WDaan/VueTorrent/issues/820)) ([9d4b30c](https://github.com/WDaan/VueTorrent/commit/9d4b30c5647571757786db5d334d1089084af854))
+* Remove capitalization ([#807](https://github.com/WDaan/VueTorrent/issues/807)) ([856b3d7](https://github.com/WDaan/VueTorrent/commit/856b3d7b5ce4f750f7961e88f27789a6bba8d3e5))
+* select label color is white (regardless of the selected theme) ([#812](https://github.com/WDaan/VueTorrent/issues/812)) ([ef333b2](https://github.com/WDaan/VueTorrent/commit/ef333b23668916430b864f620ab849b6511cd7d2))
+* WebUI Password may be sent as empty string ([#823](https://github.com/WDaan/VueTorrent/issues/823)) ([abdaa0f](https://github.com/WDaan/VueTorrent/commit/abdaa0fefb61587774eb189d1cb5c6f8af6d0806))
+
+
+### Improvements
+
+* add multi-sort support ([#815](https://github.com/WDaan/VueTorrent/issues/815)) ([a253f17](https://github.com/WDaan/VueTorrent/commit/a253f17f2e81ff451a45ac4ac0fa75b61cdfdb03))
+* Add progress bar toggle for mobile card ([#822](https://github.com/WDaan/VueTorrent/issues/822)) ([2c43383](https://github.com/WDaan/VueTorrent/commit/2c4338383b3f131fa7df231d2dd128ed158f4d42))
+* Extend RSS Feeds / Rules to use full width instead of half ([#811](https://github.com/WDaan/VueTorrent/issues/811)) ([5056133](https://github.com/WDaan/VueTorrent/commit/5056133c256013bd30355f027ca7984b4bbdf022))
+
 ## [1.5.7](https://github.com/WDaan/VueTorrent/compare/v1.5.6...v1.5.7) (2023-05-09)
 
 
