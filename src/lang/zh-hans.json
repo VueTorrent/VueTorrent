@@ -87,6 +87,7 @@
       "last_activity": "最近活动",
       "peers": "用户",
       "progress": "进度",
+      "progress_bar": "进度条",
       "ratio": "分享率",
       "save_path": "保存路径",
       "seeds": "做种数",
@@ -780,7 +781,8 @@
     "shutdownSuccess": "qBittorrent被成功关闭!",
     "shutdownError": "无法关闭,请确保qBittorrent正在运行!",
     "invalidJson": "JSON格式非法!",
-    "magnetHandlerNotSupported": "无法注册处理程序，上下文不安全！"
+    "magnetHandlerNotSupported": "无法注册处理程序，上下文不安全！",
+    "resetSettingsNeeded": "检测到旧版本的设置，重置它们以获得最佳体验！"
   },
   "rightClick": {
     "resume": "继续",
