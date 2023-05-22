@@ -416,6 +416,7 @@
           "subheader": "Seed Limits",
           "whenRatioReaches": "When ratio reaches",
           "whenSeedingTimeReaches": "When seeding time reaches",
+          "whenSeedingTimeReachesHint": "In minutes",
           "then": "Then"
         },
         "autoAddTrackers": "Automatically add these trackers to new downloads",
