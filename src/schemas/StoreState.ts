@@ -134,8 +134,8 @@ export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
       $id: '/schemas/mobileDashboardProperties',
       type: 'array',
       uniqueItems: true,
-      minItems: 13,
-      maxItems: 13,
+      minItems: 14,
+      maxItems: 14,
       items: {
         type: 'object',
         properties: {
@@ -144,6 +144,7 @@ export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
             enum: [
               DashboardProperty.SIZE,
               DashboardProperty.PROGRESS,
+              DashboardProperty.PROGRESS_BAR,
               DashboardProperty.DOWNLOAD_SPEED,
               DashboardProperty.UPLOAD_SPEED,
               DashboardProperty.ETA,
