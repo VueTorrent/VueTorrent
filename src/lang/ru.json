@@ -3,6 +3,7 @@
   "settings": "Настройки",
   "pause": "Пауза",
   "delete": "Удалить",
+  "ok": "OK",
   "save": "Сохранить",
   "cancel": "Отменить",
   "confirm": "Подтвердить",
@@ -26,11 +27,14 @@
   "errored": "Ошибка",
   "login": "Войти",
   "logout": "Выйти",
+  "shutdownApp": "Закрыть приложение",
   "download": "Загрузка",
   "downloaded": "Загружено",
   "upload": "Раздача",
   "uploaded": "Роздано",
-  "ETA": "ETA",
+  "globalSpeed": "Общая скорость",
+  "globalVolume": "Роздано/загружено всего",
+  "ETA": "Расчётное время",
   "peers": "Пиры",
   "ratio": "Рейтинг",
   "seeds": "Сиды",
@@ -42,7 +46,12 @@
   "magnet": "Магнет-ссылка",
   "feed": "Канал",
   "rule": "Правило",
-  "of": "из",
+  "then": "Тогда",
+  "yes": "да",
+  "no": "нет",
+  "filter": "Фильтр",
+  "close": "Закрыть",
+  "useGlobalSettings": "Использовать глобальные настройки",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Переключить режим поиска",
@@ -50,20 +59,53 @@
       "toggleSort": "Отсортировать торренты",
       "selectAll": "Выбрать все",
       "selectAllCaption": "Выбрать / снять все (Ctrl+A)"
-    }
+    },
+    "emptyTorrentList": "Тут ничего нет!",
+    "not_complete": "Ещё не завершено",
+    "torrentsCount": "Нет торрентов | {n} торрент | {n} торрента | {n} торрентов",
+    "selectedTorrentsCount": "Нет торрентов | $0 из {n} торрента ($1) | $0 of {n} торрентов ($1)"
   },
   "torrent": {
-    "title": "Заголовок",
-    "added": "Добавлено",
-    "availability": "Доступность",
-    "size": "Размер",
-    "progress": "Прогресс",
-    "directory": "Каталог",
+    "properties": {
+      "added_on": "Добавлено",
+      "amount_left": "Осталось",
+      "availability": "Доступность",
+      "category": "Категория",
+      "completed_on": "Завершено",
+      "content_path": "Путь содержимого",
+      "download_limit": "Лимит загрузки",
+      "download_speed": "Скорость загрузки",
+      "downloaded": "Скачано (всего)",
+      "downloaded_session": "Скачано (за сессию)",
+      "download_path": "Путь загрузки",
+      "eta": "Расчётное время",
+      "global_speed": "Общая скорость",
+      "global_volume": "Роздано/загружено всего",
+      "hash": "Хэш",
+      "info_hash_v1": "Infohash v1",
+      "info_hash_v2": "Infohash v2",
+      "last_activity": "Последняя активность",
+      "peers": "Пиры",
+      "progress": "Прогресс",
+      "progress_bar": "Прогресс-бар",
+      "ratio": "Рейтинг",
+      "save_path": "Путь сохранения",
+      "seeds": "Сиды",
+      "seen_complete": "Замечен завершенным",
+      "size": "Размер",
+      "status": "Статус",
+      "tags": "Тэги",
+      "time_active": "Время активности",
+      "total_size": "Итоговый размер",
+      "tracker": "Трэкер",
+      "trackers_count": "Количество трэкеров",
+      "upload_limit": "Лимит отдачи",
+      "upload_speed": "Скорость отдачи",
+      "uploaded": "Роздано (всего)",
+      "uploaded_session": "Роздано (за сессию)"
+    },
     "downloaded": "Скачано",
-    "uploaded": "Роздано",
-    "created": "Создано",
-    "comments": "Комментарии",
-    "uploadedSession": "Роздано за сессию"
+    "uploaded": "Роздано"
   },
   "navbar": {
     "currentSpeed": "Текущая скорость",
@@ -76,7 +118,8 @@
       "pauseSelected": "Приостановить выбранные торренты",
       "removeSelected": "Удалить выбранные торрент",
       "openSettings": "Открыть настройки",
-      "searchNew": "Искать новый торрент"
+      "searchNew": "Искать новый торрент",
+      "rssArticles": "Посмотреть ленту RSS"
     },
     "sessionStats": {
       "tooltip": "С момента последнего перезапуска qBittorrent"
@@ -84,15 +127,17 @@
     "filters": {
       "stalled_uploading": "Отдача стоит",
       "stalled_downloading": "Загрузка стоит",
+      "checking": "Проверка",
+      "moving": "Перемещение",
       "uncategorized": "Без категории",
-      "untagged": "Без метки"
+      "untagged": "Без метки",
+      "not_working": "Не работает"
     },
     "action": {
       "altSpeed": "Альтернативные скорости",
       "dark": "Тёмная тема",
       "light": "Светлая тема"
-    },
-    "torrentsCount": "Нет торрентов | {n} торрент | {n} торрента | {n} торрентов"
+    }
   },
   "modals": {
     "newFeed": {
@@ -100,11 +145,33 @@
       "url": "URL"
     },
     "newRule": {
+      "titleCreate": "Создать новое правило",
+      "titleEdit": "Редактировать правило",
       "name": "Имя",
       "def": {
         "mustContain": "Должен содержать",
+        "useRegex": "Использовать регулярное выражение",
+        "mustNotContain": "Не должен содержать",
+        "smartFilter": "Использовать умный фильтр эпизодов",
+        "episodeFilter": "Фильтр эпизодов",
+        "assignedCategory": "Назначить категорию",
+        "savePath": "Сохранить в",
+        "ignoreDays": "Игнорировать последующие совпадения для (0 чтобы отключить)",
+        "lastMatch": {
+          "title": "Последнее совпадение",
+          "knownValue": "%1 дней назад",
+          "unknownValue": "Неизвестно"
+        },
+        "addPaused": {
+          "title": "Приостанавливать",
+          "always": "Всегда",
+          "never": "Никогда"
+        },
         "affectedFeeds": "Применить правило к каналам"
       }
+    },
+    "matchingArticles": {
+      "title": "Соответствующие записи RSS"
     },
     "pluginManager": {
       "title": "Менеджер плагинов"
@@ -122,19 +189,40 @@
         "action": "Действия"
       }
     },
+    "rss": {
+      "title": "RSS записи",
+      "filterRead": "Только непрочитанные записи",
+      "markAllAsRead": "Отметить всё как прочитанное",
+      "columnTitle": {
+        "feedName": "Название фида",
+        "author": "Автор",
+        "category": "Категория",
+        "date": "Дата",
+        "description": "Описание",
+        "id": "ID",
+        "link": "Ссылка",
+        "title": "Заголовок",
+        "torrentURL": "URL для загрузки торрента",
+        "actions": "Действия"
+      }
+    },
     "settings": {
       "tabName": {
-        "VueTorrent": "vuetorrent",
+        "vueTorrent": "VueTorrent",
         "downloads": "Загрузки",
         "connection": "Соединение",
+        "speed": "Скорость",
         "bittorrent": "Bittorrent",
         "rss": "RSS",
         "webUI": "Веб-интерфейс",
-        "tagsAndCategories": "Метки и категории"
+        "tagsAndCategories": "Метки и категории",
+        "advanced": "Дополнительно"
       },
       "vueTorrent": {
         "tabName": {
-          "general": "Общее"
+          "general": "Общее",
+          "desktopCard": "Отображение на ПК",
+          "mobileCard": "Отображение на телефоне"
         },
         "general": {
           "tip": "Общие настройки пользовательского веб-интерфейса",
@@ -151,51 +239,83 @@
           "vueTorrentTitle": "Заголовок VueTorrent:",
           "dateFormat": "Формат даты",
           "openSideBarOnStart": "Открывать боковую панель при запуске",
+          "showShutdownButton": "Отображать кнопку выключения",
           "currentVersion": "Текущая версия",
           "qbittorrentVersion": "Версия QBittorrent:",
+          "registerMagnet": "По умолчанию открывать магнет-ссылки здесь",
+          "importSettings": "Импорт настроек",
+          "exportSettings": "Экспорт настроек",
           "resetSettings": "Сбросить настройки"
         },
         "desktopCard": {
-          "busyTorrentTip": "Свойства для отображения активных торрентов",
-          "completedTorrentTip": "Свойства для отображения завершенных торрентов",
-          "properties": {
-            "availability": "Доступность",
-            "category": "Категория",
-            "tags": "Метки",
-            "ETA": "ETA",
-            "name": "Имя",
-            "default": "По-умолчанию",
-            "last_activity": "Последняя активность",
-            "peers": "Пиры",
-            "seeds": "Сиды",
-            "priority": "Приоритет",
-            "progress": "Прогресс",
-            "ratio": "Рейтинг",
-            "size": "Размер"
-          }
+          "busyTorrentTip": "Свойства для отображения активных торрентов на ПК",
+          "completedTorrentTip": "Свойства для отображения завершенных торрентов на ПК"
         },
-        "mobileCard": {}
+        "mobileCard": {
+          "busyTorrentTip": "Свойства для отображения активных торрентов на телефоне",
+          "completedTorrentTip": "Свойства для отображения завершенных торрентов на телефоне"
+        }
       },
       "downloads": {
-        "subHeaderWhenAddTorrent": "При добавлении торрента",
         "whenAddTorrent": {
-          "donotAutoStart": "Не начинать загрузку автоматически"
+          "subheader": "При добавлении торрента",
+          "doNotAutoStart": "Не начинать загрузку автоматически",
+          "autoDeleteMode": "Автоматически удалять файлы .torrent"
         },
-        "subHeaderPublicSettings": "Общие настройки",
         "publicSettings": {
           "preAllocateDisk": "Резервировать место на диске для всех файлов",
           "appendQBExtension": "Добавлять расширение .!qB к незавершённым файлам"
         },
-        "subHeaderSaveManagement": "Управление сохранением",
         "saveManagement": {
-          "autoManagement": "Автоматический режим управления торрентом по умолчанию",
-          "relocate": "Переместить торрент при изменении категории",
+          "subheader": "Управление сохранением",
+          "autoTMMEnabled": "Автоматический режим управления торрентом по умолчанию",
+          "defaultTMMOptions": {
+            "manual": "Вручную",
+            "automatic": "Автоматически"
+          },
+          "torrentChangedTMM": "При изменении категории торрента",
+          "savePathChangedTMM": "При изменении пути загрузки по умолчанию",
+          "categoryChangedTMM": "При изменении пути загрузки категории",
+          "paramChangedTMMOptions": {
+            "relocateTorrent": "Переместить торрент",
+            "switchToManual": "Переключить торрент в Ручной Режим"
+          },
           "defaultSavePath": "Путь сохранения по умолчанию:",
           "keepIncompleteIn": "Хранить незавершённые торренты в:",
-          "autoEnabled_onAdded": "Запускать внешнюю программу по добавлении торрента:",
-          "autoLabel_onAdded": "Команда",
-          "autoEnabled_onFinished": "Запускать внешнюю программу по завершении торрента:",
-          "autoLabel_onFinished": "Команда",
+          "exportDir": "Копировать файлы .torrent в",
+          "exportDirFinished": "Для завершенный загрузок копировать файлы .torrent в"
+        },
+        "monitoredFolders": {
+          "subheader": "Отслеживаемые папки",
+          "newItem": "Новая запись",
+          "editItem": "Редактировать запись",
+          "monitoredFolderPath": "Отслеживаемая папка",
+          "saveType": "Перезаписать путь сохранения",
+          "otherPath": "Другой путь",
+          "actions": "Действия",
+          "confirmDelete": "Вы уверены что хотите удалить эту запись?",
+          "noData": "Ещё нет отслеживаемых папок"
+        },
+        "excludedFileNames": {
+          "label": "Исключенные имена файлов",
+          "hint": "Одно название файла на строку"
+        },
+        "mailNotification": {
+          "enabled": "Отправлять уведомление на Email когда загрузка завершится",
+          "from": "От",
+          "to": "Кому",
+          "smtpServer": "SMTP сервер",
+          "sslEnabled": "Этот сервер требует защищённое соединение (SSL)",
+          "authEnabled": "Авторизация",
+          "username": "Логин",
+          "password": "Пароль"
+        },
+        "runExternalProgram": {
+          "subheader": "Запускать внешнюю программу",
+          "onAddedEnabled": "Запустить внешнюю программу при добавлении торрента:",
+          "onAddedLabel": "Команда",
+          "onFinishedEnabled": "Запустить внешнюю программу при завершении торрента:",
+          "onFinishedLabel": "Команда",
           "supportParamTitle": "Поддерживаемые параметры (с учетом регистра):",
           "supportParamN": "%N: Имя торрента",
           "supportParamL": "%L: Категория",
@@ -208,83 +328,272 @@
           "supportParamT": "%T: Текущий трекер",
           "supportParamI": "%I: Инфо-хеш v1",
           "supportParamJ": "%J: Инфо-хеш v2",
-          "supportParamK": "%K: ID торрента"
+          "supportParamK": "%K: ID торрента",
+          "tip": "Совет: Заключите параметр в кавычки, чтобы избежать обрезания текста по пробелам (вот так \"%N\")"
         }
       },
       "connection": {
-        "subHeader": "Ограничение соединений",
-        "globalMaxConnection": "Глобальное максимальное количество соединений",
-        "perTorrentMaxConnection": "Максимальное количество соединений на торрент",
-        "globalMaxUploadSlots": "Глобальное максимальное количество слотов для раздачи",
-        "perTorrentMaxUploadSlots": "Максимальное количество слотов для раздачи на торрент",
-        "proxySubHeader": "Прокси сервер",
-        "proxyPeerConnections": "Использовать прокси для одноранговых (пир) соединений",
-        "proxyTorrentOnly": "Использовать прокси только для торрентов",
-        "proxyAuth": "Аутентификация"
+        "protocol": "Протокол подключения к пирам",
+        "listeningPort": {
+          "subheader": "Прослушиваемый порт",
+          "incomingConnectionPort": "Используемый порт для входящих соединений",
+          "randomPort": "Случайный порт",
+          "useUPnP": "Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"
+        },
+        "connectionLimits": {
+          "subheader": "Ограничение соединений",
+          "globalMaxConnection": "Глобальное максимальное количество соединений",
+          "perTorrentMaxConnection": "Максимальное количество соединений на торрент",
+          "globalMaxUploadSlots": "Глобальное максимальное количество слотов для раздачи",
+          "perTorrentMaxUploadSlots": "Максимальное количество слотов для раздачи на торрент"
+        },
+        "proxy": {
+          "subheader": "Прокси сервер",
+          "host": "Хост",
+          "port": "Порт",
+          "peerConnections": "Использовать прокси для соединения с пирами",
+          "torrentOnly": "Использовать прокси только для торрентов",
+          "hostNameLookup": "Использовать прокси для поиска доменного имени хоста",
+          "auth": {
+            "subtitle": "Аутентификация",
+            "username": "Имя пользователя",
+            "password": "Пароль",
+            "tip": "Примечание: Пароль хранится в незашифрованном виде"
+          }
+        },
+        "ipFiltering": {
+          "subheader": "Фильтрация по IP",
+          "filterPath": "Путь к фильтрам (.dat, .p2p, .p2b):",
+          "applyToTrackers": "Применить к трекерам",
+          "bannedIps": "Вручную запрещённые IP-адреса",
+          "bannedIpsHint": "По одному на строку"
+        }
+      },
+      "speed": {
+        "subheader": {
+          "global": "Общие ограничения скорости",
+          "alternative": "Особые ограничения скорости",
+          "settings": "Настройки ограничений скорости"
+        },
+        "upload": "Отдача (в B/s)",
+        "download": "Загрузка (в B/s)",
+        "tip": "0 означает неограниченно",
+        "scheduler": {
+          "subheader": "Запланировать включение особых ограничений скорости",
+          "from": "С",
+          "to": "До",
+          "selectButtonLabel": "Выбрать время",
+          "when": "Когда"
+        },
+        "settings": {
+          "applyToUtp": "Применять ограничения скорости к протоколу µTP",
+          "applyToTransportOverhead": "Применять ограничения скорости к служебному трафику",
+          "applyToPeersOnLan": "Применять ограничения скорости к локальным пирам"
+        }
       },
       "bittorrent": {
-        "subHeaderPrivacy": "Конфиденциальность",
-        "enableDHT": "Включить DHT (децентрализованную сеть), чтобы найти больше одноранговых устройств (пиров)",
-        "enablePeX": "Включить Peer Exchange (PeX), чтобы найти больше одноранговых устройств (пиров)",
-        "enableLPD": "Включить локальное обнаружение одноранговых устройств, чтобы найти больше одноранговых устройств (пиров)",
-        "enableAnonymous": "Включить анонимный режим",
-        "torrentQueue": "Очередь торрентов",
-        "maxActiveDownload": "Максимальное количество активных скачиваний",
-        "maxActiveUpload": "Максимальное количество активных отдач",
-        "maxActiveTorrent": "Максимальное количество активных торрентов",
-        "excludeSlowTorrent": "Не учитывать медленные торренты в этих пределах",
-        "downloadRateLimit": "Пороговое значение скорости скачивания Киб/с",
-        "uploadRateLimit": "Порог скорости отдачи Киб/с",
-        "torrentInactivityTimer": "Таймер неактивности торрента",
-        "subHeaderSeedLimits": "Ограничение раздачи",
-        "whenRatioReaches": "По достижении рейтинга раздачи",
-        "whenSeedingTimeReaches": "По достижении времени раздачи"
+        "privacy": {
+          "subheader": "Конфиденциальность",
+          "enableDHT": "Включить DHT (децентрализованную сеть) для поиска пиров",
+          "enablePeX": "Включить обмен пирами (PeX)",
+          "enableLPD": "Искать пиров в вашей локальной сети",
+          "encryptionMode": "Режим шифрования",
+          "enableAnonymous": "Включить анонимный режим",
+          "moreInfo": "Подробнее"
+        },
+        "maxActiveCheckingTorrents": "Максимум активных проверок торрентов",
+        "torrentQueueing": {
+          "subheader": "Очередность торрентов",
+          "maxActiveDownload": "Максимум активных загрузок",
+          "maxActiveUpload": "Максимум активных отдач",
+          "maxActiveTorrent": "Максимум активных торрентов",
+          "excludeSlowTorrent": "Не учитывать медленные торренты в этих ограничениях",
+          "downloadRateLimit": "Порог скорости загрузки (в KiB/s)",
+          "uploadRateLimit": "Порог скорости отдачи (в KiB/s)",
+          "torrentInactivityTimer": "Таймер бездействия торрента (в секундах)"
+        },
+        "seedLimits": {
+          "subheader": "Ограничение раздачи",
+          "whenRatioReaches": "По достижении рейтинга раздачи",
+          "whenSeedingTimeReaches": "По достижении времени раздачи",
+          "whenSeedingTimeReachesHint": "В минутах",
+          "then": "Затем"
+        },
+        "autoAddTrackers": "Автоматически добавлять эти трекеры к новым загрузкам",
+        "autoAddTrackersHint": "Один трекер на строку"
       },
       "rss": {
         "tabName": {
           "general": "Общие",
-          "feeds": "Каналы",
+          "feeds": "Ленты",
           "rules": "Правила"
         },
-        "rules": {
-          "rules": "Правила",
-          "btnCreateNew": "Создать правило"
+        "general": {
+          "reader": {
+            "subheader": "Менеджер RSS",
+            "enableProcessing": "Включить получение RSS-лент",
+            "feedsRefreshInterval": "Интервал обновления лент",
+            "feedsRefreshIntervalHint": "В минутах",
+            "maximumArticlesPerFeed": "Максимум статей для ленты"
+          },
+          "autoDownloader": {
+            "subheader": "Автозагрузчик торрентов из RSS",
+            "enable": "Включить автозагрузку торрентов из RSS"
+          },
+          "smartEpisodeFilter": {
+            "subheader": "Умный фильтр эпизодов RSS",
+            "downloadEpisodes": "Загружать эпизоды REPACK/PROPER",
+            "filters": "Фильтры",
+            "filtersHint": "По одному на строку"
+          }
         },
         "feeds": {
-          "feeds": "Каналы",
-          "btnCreateNew": "Добавить ленту"
+          "btnCreateNew": "Добавить ленту",
+          "refreshAll": "Обновить все"
         },
-        "general": {
-          "rssAutoProcessing": "Чтение RSS",
-          "rssAutoDownloader": "Автозагрузчик Торрентов RSS",
-          "input": {
-            "enableRssAutoDownload": "Включить автоматическую загрузку торрентов через RSS",
-            "enableRssProcessing": "Включить получение RSS-каналов",
-            "feedsRefreshInterval": "Интервал обновления каналов",
-            "feedsMaxArticles": "Максимальное количество статей в ленте"
-          }
+        "rules": {
+          "btnCreateNew": "Создать правило"
         }
       },
       "webUI": {
-        "useAlternativeWebUI": "Использовать альтернативный веб-интерфейс",
-        "filesLocation": "Расположение файла",
-        "webUserInterface": "Веб-интерфейс (удаленное управление)",
-        "ipAddress": "IP-адрес",
-        "port": "Порт",
-        "authentication": "Авторизация",
-        "username": "Имя пользователя",
-        "password": "Пароль",
-        "maxAttempts": "Максимальное количество попыток",
-        "banDuration": "Продолжительность блокировки (секунды)",
-        "sessionTimeout": "Время ожидания сеанса (секунды)",
-        "bypassAuthenticationForClientsOnLocalhost": "Пропустить аутентификацию для клиентов на локальном хосте",
-        "bypassAuthenticationForClientsInWhitelisted": "Пропустить аутентификацию для клиентов в подсетях IP из белого списка",
-        "whiteListExample": "Пример: 172.17.32.0/24, fdff:ffff:c8::/40"
+        "interface": {
+          "subheader": "Веб-интерфейс (удалённое управление)",
+          "ipAddress": "IP Адрес",
+          "port": "Порт",
+          "useAlternativeWebUI": "Использовать альтернативный веб-интерфейс",
+          "filesLocation": "Расположение файлов"
+        },
+        "authentication": {
+          "subheader": "Аутентификация",
+          "username": "Имя пользователя",
+          "password": "Пароль",
+          "passwordPlaceholder": "(без изменений)",
+          "bypassLocalhost": "Пропускать аутентификацию клиентов для localhost",
+          "bypassWhitelist": "Пропускать аутентификацию клиентов для разрешённых подсетей",
+          "whitelistExamples": "Пример: 172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "Максимум попыток",
+          "banDuration": "Время блокировки",
+          "banDurationHint": "В секундах",
+          "sessionTimeout": "Тайм-аут сессии",
+          "sessionTimeoutHint": "В секундах"
+        },
+        "https": {
+          "subheader": "Использовать HTTPS",
+          "certificate": "Сертификат",
+          "key": "Ключ",
+          "tip": "Сведения о сертификатах"
+        },
+        "security": {
+          "subheader": "Безопасность",
+          "clickjacking": "Включить защиту от кликджекинга",
+          "csrf": "Включить защиту от межсайтовой подделки запроса (CSRF)",
+          "secureCookie": "Включить защиту куки (требует HTTPS)",
+          "hostHeaderValidation": "Включить проверку заголовка хоста",
+          "hostHeaderValidationHint": "Перечисляйте через точку с запятой ( ; )",
+          "serverDomains": "Домены сервера"
+        },
+        "customHeaders": "Добавить пользовательские заголовки HTTP",
+        "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
+        "customHeadersHint": "Одна пара значений на строку",
+        "reverseProxySupport": "Включить поддержку обратного прокси-сервера",
+        "proxiesList": "Список доверенных прокси-серверов",
+        "proxiesListHint": "Перечисляйте IP через точку с запятой ( ; )",
+        "dynDns": {
+          "subheader": "Обновлять динамическое доменное имя",
+          "providers": {
+            "dynDns": "DynDNS",
+            "noIp": "NO-IP"
+          },
+          "registerBtn": "Регистрация",
+          "domainName": "Доменное имя",
+          "username": "Имя пользователя",
+          "password": "Пароль"
+        }
       },
       "tagsAndCategories": {
-        "btnCreateNew": "Создать категорию",
-        "subHeaderTags": "Доступные теги:",
-        "subHeaderCategories": "Доступные категории:"
+        "btnCreateNew": "Создать",
+        "subHeaderTags": "Доступные Тэги:",
+        "subHeaderCategories": "Доступные Категории:"
+      },
+      "advanced": {
+        "openDoc": "Открыть документацию",
+        "qbittorrent": {
+          "subheader": "Раздел qBittorrent",
+          "allocatedRam": "Предел виртуальной памяти (libtorrent >= 2.0)",
+          "allocatedRamHint": "в MiB",
+          "networkInterfaces": {
+            "label": "Сетевой интерфейс",
+            "any": "Любой интерфейс"
+          },
+          "ipAddress": {
+            "label": "Необязательный IP-адрес для привязки",
+            "all": "Все адреса",
+            "allIPv4": "Все IPv4 адреса",
+            "allIPv6": "Все IPv6 адреса"
+          },
+          "saveInterval": "Save resume data interval",
+          "saveIntervalHint": "В минутах",
+          "recheckOnCompletion": "Перепроверять торренты по завершении",
+          "refreshInterval": "Интервал обновления",
+          "refreshIntervalHint": "В миллисекундах",
+          "resolveCountries": "Определять страну пира",
+          "reannounceOnIpPortChanged": "Переанонсировать на все трекеры по смене IP/порта",
+          "enableEmbeddedTracker": "Включить встроенный трекер",
+          "embeddedTrackerPort": "Порт встроенного трекера",
+          "embeddedTrackerPortForwarding": "Включить проброс портов для встроенного трекера"
+        },
+        "libtorrent": {
+          "subheader": "Раздел libtorrent",
+          "asyncIoThreads": "Потоки асинхронного ввода-вывода",
+          "hashingThreads": "Потоки хеширования (libtorrent >= 2.0)",
+          "filePoolSize": "Размер пула файлов",
+          "outstandingMemory": "Накладная память при проверке торрентов",
+          "outstandingMemoryHint": "В MiB",
+          "diskCache": "Кэш диска в памяти (libtorrent < 2.0)",
+          "diskCacheHint": "В MiB",
+          "diskCacheExpiry": "Интервал очистки кэша диска (libtorrent < 2.0)",
+          "diskCacheExpiryHint": "В секундах",
+          "diskQueueSize": "Размер очереди диска",
+          "diskQueueSizeHint": "В KiB",
+          "diskIoType": "Тип ввода-вывода диска (libtorrent >= 2.0; требует перезапуск)",
+          "diskIoReadMode": "Режим чтения ввода-вывода с диска",
+          "diskIoWriteMode": "Режим записи ввода-вывода с диска",
+          "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)",
+          "pieceExtentAffinity": "Группировать смежные части",
+          "sendUploadPieceSuggestions": "Отправлять предложения частей отдачи",
+          "sendBufferWatermark": "Отметка буфера отправки",
+          "sendBufferWatermarkHint": "В KiB",
+          "sendBufferLowWatermark": "Нижняя отметка буфера отправки",
+          "sendBufferLowWatermarkHint": "В KiB",
+          "sendBufferWatermarkFactor": "Фактор отметки буфера отправки",
+          "sendBufferWatermarkFactorHint": "В %",
+          "outgoingConnectionsPerSecond": "Исходящие соединения в секунду",
+          "socketBacklogSize": "Размер очереди сокета",
+          "outgoingPortsMin": "Минимум исходящих портов [0: отключено]",
+          "outgoingPortsMax": "Максимум исходящих портов [0: отключено]",
+          "upnpLeaseDuration": "Срок аренды UPnP [0: постоянный]",
+          "peerTos": "DSCP value for connections to peers",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP mixed mode algorithm",
+          "idnSupport": "Enable Internationalized Domain Name (IDN) support",
+          "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+          "validateHTTPSTrackerCertificate": "Validate HTTPS tracker certificate",
+          "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
+          "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
+          "uploadSlotsBehavior": "Upload slots behavior",
+          "uploadChokingAlgorithm": "Upload choking algorithm",
+          "announceAllTrackers": "Always announce to all trackers in a tier",
+          "announceAllTiers": "Always announce to all tiers",
+          "announceIP": "IP address reported to trackers (requires restart)",
+          "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
+          "stopTrackerTimeout": "Stop tracker timeout",
+          "peerTurnover": "Peer turnover disconnect percentage",
+          "peerTurnoverHint": "В %",
+          "peerTurnoverCutoff": "Peer turnover threshold percentage",
+          "peerTurnoverCutoffHint": "В %",
+          "peerTurnoverInterval": "Peer turnover disconnect interval",
+          "peerTurnoverIntervalHint": "В секундах",
+          "requestQueueSize": "Maximum outstanding requests to a single peer"
+        }
       }
     },
     "shareLimit": {
@@ -303,8 +612,8 @@
       "tipOnNoPath": "Нужный путь"
     },
     "newTag": {
-      "createNewTag": "Создать новую метку",
-      "tagName": "метка"
+      "createNewTag": "Создать новый тэг",
+      "tagName": "Название тэга"
     },
     "detail": {
       "title": "Детали",
@@ -312,7 +621,7 @@
       "tabTitleTrackers": "Трекеры",
       "tabTitlePeers": "Пиры",
       "tabTitleContent": "Файлы",
-      "tabTitleTagsCategories": "Метки и категории",
+      "tabTitleTagsCategories": "Тэги и категории",
       "pageInfo": {
         "pieceStates": "Прогресс",
         "torrentTitle": "Название",
@@ -320,19 +629,28 @@
         "ratio": "Рейтинг",
         "downloadSpeed": "Скорость скачивания",
         "uploadSpeed": "Скорость раздачи",
-        "eta": "ETA",
+        "eta": "Расчётное время",
         "peers": "Пиры",
         "seeds": "Сиды",
         "status": "Состояние",
         "trackers": "Трекеры",
+        "comments": "Комментарии",
         "createdBy": "Создано",
-        "firstLastPiecePriority": "Приоритет первой/последней части",
-        "sequentialDownload": "Последовательная загрузка",
-        "autoTMM": "Авто TMM",
+        "seededFor": "Сидируется в течении $0",
+        "firstLastPiecePriority": "Начинать с первой и последней части",
+        "sequentialDownload": "Загрузить последовательно",
+        "autoTMM": "Автоматический режим управления торрентом",
         "shareRatioLimit": "Лимит по рейтингу",
         "shareTimeLimit": "Лимит времени раздачи (минуты)",
         "downloadLimit": "Лимит скачивания",
-        "uploadLimit": "Лимит отдачи"
+        "uploadLimit": "Лимит отдачи",
+        "creation_date": "Дата создания",
+        "dl_speed_average": "Средняя скорость загрузки",
+        "up_speed_average": "Средняя скорость отдачи",
+        "is_private": "Приватный торрент",
+        "piece_owned": "Получено частей",
+        "piece_size": "Размер части",
+        "wasted_size": "Потеряно"
       },
       "pagePeers": {
         "ip": "IP",
@@ -348,7 +666,7 @@
         "files": "Файлы"
       },
       "tagsAndCategories": {
-        "subHeaderTag": "Доступные таги:",
+        "subHeaderTag": "Доступные тэги:",
         "subHeaderCategories": "Доступные категории:"
       },
       "pageTrackers": {
@@ -383,23 +701,58 @@
       "title": "Сортировать торренты",
       "reverse": "Обратный порядок",
       "sortBy": {
+        "default": "По умолчанию",
+        "added_on": "Добавлено в",
+        "amount_left": "Осталось",
+        "auto_tmm": "Автоматическое упр. тор-ом",
         "availability": "Доступность",
         "category": "Категория",
         "completed": "Завершено",
-        "downloaded": "Загружено",
-        "ETA": "ETA",
+        "completion_on": "Завершено в",
+        "content_path": "Путь содержимого",
+        "dl_limit": "Ограничение загрузки",
+        "dlspeed": "Скорость загрузки",
+        "download_path": "Путь загрузки",
+        "downloaded": "Загружено (всего)",
+        "downloaded_session": "Downloaded (за сессию)",
+        "eta": "Расчетное время",
+        "f_l_piece_prio": "Загружать с первой и последней части",
+        "force_start": "Начать принудительно",
+        "globalSpeed": "Общая скорость",
+        "globalVolume": "Роздано/загружено всего",
+        "hash": "Хэш",
+        "infohash_v1": "Infohash v1",
+        "infohash_v2": "Infohash v2",
+        "last_activity": "Последняя активность",
+        "magnet_uri": "Магнит URI",
+        "max_ratio": "Максимальный рейтинг",
+        "max_seeding_time": "Максимальное время сидирования",
         "name": "Имя",
-        "peers": "Пиры",
+        "num_complete": "Сиды (рой)",
+        "num_incomplete": "Пиры (рой)",
+        "num_leechs": "Сиды (подключено)",
+        "num_seeds": "Пиры (подключено)",
         "priority": "Приоритет",
         "progress": "Прогресс",
-        "ratio": "Ратио",
+        "ratio": "Рэй тинг",
+        "ratio_limit": "Лимит рейтинга",
+        "save_path": "Save Path",
+        "seeding_time": "Время сидирования",
+        "seeding_time_limit": "Ограничения времени раздачи",
+        "seen_complete": "Замечен целиком",
+        "seq_dl": "Последовательная загрузка",
         "size": "Размер",
         "state": "Состояние",
-        "uploaded": "Роздано",
-        "addedOn": "Добавлено",
-        "downloadSpeed": "Скорость загрузки",
-        "timeActive": "Активен",
-        "uploadSpeed": "Скорость отдачи"
+        "super_seeding": "Режим Супер Сида",
+        "tags": "Теги",
+        "time_active": "Время активности",
+        "total_size": "Общий размер",
+        "tracker": "Трекер",
+        "trackers_count": "Количество трекеров",
+        "up_limit": "Лимит раздачи",
+        "uploaded": "Роздано (всего)",
+        "uploaded_session": "Роздано (за сессию)",
+        "upspeed": "Скорость отдачи"
       }
     },
     "speedLimit": {
@@ -407,6 +760,10 @@
     },
     "delete": {
       "check": "Удалить файлы из хранилища"
+    },
+    "shutdown": {
+      "title": "Завершить qBittorrent",
+      "content": "Вы точно хотите выключить qBittorrent?"
     }
   },
   "toast": {
@@ -415,7 +772,18 @@
     "settingsSaved": "Настройки успешно сохранены!",
     "categorySaved": "Категория успешно отредактирована!",
     "feedSaved": "Канал успешно сохранен!",
-    "ruleSaved": "Правила сохранены!"
+    "ruleSaved": "Правила сохранены!",
+    "renameFileFailed": "Невозможно переименовать файл",
+    "renameFolderFailed": "Невозможно переименовать папку",
+    "copySuccess": "Текст скопирован!",
+    "copyNotSupported": "Невозможно скопировать, контекст не защищен",
+    "pasteSuccess": "Текст вставлен!",
+    "pasteNotSupported": "Невозможно вставить, контекст не защищен",
+    "shutdownSuccess": "qBittorrent завершен успешно!",
+    "shutdownError": "Невозможно заверщить программу. Убедитесь что qBittorrent запущен!",
+    "invalidJson": "Некорректный JSON! Посмотрите в консоль за подробностями",
+    "magnetHandlerNotSupported": "Не удалось зарегистрировать обработчик, контекст не защищен!",
+    "resetSettingsNeeded": "Обнаружена старая версия настроек, сбросьте их, чтобы получить наилучшие впечатления!"
   },
   "rightClick": {
     "resume": "Возобновить",
@@ -427,7 +795,7 @@
       "forceRecheck": "Принудительная проверка",
       "forceReannounce": "Принудительно анонсировать",
       "sequentialDownload": "Последовательная загрузка",
-      "firstLastPriority": "Первый/последний приоритет",
+      "firstLastPriority": "Загрузка с начала и конца",
       "automaticTorrentManagement": "Автоматическое управление торрентами"
     },
     "prio": {
@@ -438,8 +806,82 @@
       "decrease": "Уменьшить"
     },
     "category": "Задать категорию",
+    "nocategory": "Нет категории",
+    "tags": "Задать тег",
+    "notags": "Нет тега",
     "limit": "Задать лимит",
     "copy": "Копировать",
+    "export": "Экспортировать Торрент | Экспортировать Торренты",
     "info": "Детали"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Шаблон содержимого торрента",
+      "original": "Стандартный",
+      "subfolder": "Создать подпапку",
+      "nosubfolder": "Удалить подпапку"
+    },
+    "stopCondition": {
+      "title": "Torrent stop condition",
+      "none": "Отсутствует",
+      "metadataReceived": "Метадата получена",
+      "filesChecked": "Файлы проверены"
+    },
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP и μTP",
+      "tcp": "TCP",
+      "utp": "μTP"
+    },
+    "encryption": {
+      "preferEncryption": "Разрешить шифрование",
+      "forceOn": "Требовать шифрование",
+      "forceOff": "Отключить шифрование"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Остановить торрент",
+      "removeTorrent": "Удалить торрент",
+      "removeTorrentAndFiles": "Удалить торрент и его файлы",
+      "torrentSuperseeding": "Включить режим Супер Сида для торрента"
+    },
+    "scheduler": {
+      "everyDay": "Каждый день",
+      "everyWeekday": "Будни",
+      "everyWeekend": "Выходные",
+      "everyMonday": "Понедельник",
+      "everyTuesday": "Вторник",
+      "everyWednesday": "Среда",
+      "everyThursday": "Четверг",
+      "everyFriday": "Пятница",
+      "everySaturday": "Суббота",
+      "everySunday": "Воскресенье"
+    },
+    "diskIoType": {
+      "default": "По умолчанию",
+      "memoryMappedFiles": "Файлы, отображаемые в память",
+      "posixCompliant": "Совместимый с POSIX"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Отключить кэш ОС",
+      "enableOsCache": "Включить кэш ОС",
+      "writeThrough": "Сквозная запись (libtorrent >= 2.0.6)"
+    },
+    "utpTcpMixedMode": {
+      "preferTcp": "Предпочитать TCP",
+      "peerProportional": "Соразмерно пирам (регулирует TCP)"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Фиксированные слоты",
+      "uploadRateBased": "На основе скорости отдачи"
+    },
+    "uploadChokingAlgorithm": {
+      "roundRobin": "Каждому по кругу",
+      "fastestUpload": "Быстрейшая отдача",
+      "antiLeech": "Анти-лич"
+    },
+    "monitoredFolderSaveLocation": {
+      "monitoredFolder": "Местоположение контролируемой папки",
+      "defaultSavePath": "Путь сохранения по умолчанию",
+      "other": "Прочее"
+    }
   }
 }
