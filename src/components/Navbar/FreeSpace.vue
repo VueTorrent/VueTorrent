@@ -1,6 +1,6 @@
 <template>
   <div v-if="space" class="mb-4">
-    <StorageCard v-if="space" class="mt-8" :label="$t('navbar.freeSpace') | titleCase" color="upload" :value="space" />
+    <StorageCard v-if="space" class="mt-8" :label="$t('navbar.freeSpace')" color="upload" :value="space" />
   </div>
 </template>
 
