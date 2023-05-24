@@ -156,7 +156,7 @@
     <v-list-item class="mb-5">
       <v-checkbox
         :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
-        v-model="settings.proxy_auth_enabled"
+        v-model="proxyAuth"
         hide-details
         class="ma-0 pa-0"
         :label="$t('modals.settings.connection.proxy.auth.subtitle')"
@@ -253,6 +253,7 @@ export default defineComponent({
       max_uploads_per_torrent_enabled: false,
       showPassword: false,
       proxyType: 'none',
+      proxyAuth: false,
       mdiEye,
       mdiEyeOff,
       ProxyType
@@ -279,6 +280,7 @@ export default defineComponent({
       default:
         this.proxyType = 'none'
     }
+    this.proxyAuth = this.settings.proxy_auth_enabled
   },
   watch: {
     max_conn_enabled(newValue) {
@@ -293,24 +295,11 @@ export default defineComponent({
     max_uploads_per_torrent_enabled(newValue) {
       this.settings.max_uploads_per_torrent = newValue ? this.settings.max_uploads_per_torrent : -1
     },
-    proxyType(newValue) {
-      switch (newValue) {
-        case 'socks5':
-          this.settings.proxy_type = this.settings.proxy_auth_enabled ? ProxyType.SOCKS5_PW : ProxyType.SOCKS5
-          break
-        case 'socks4':
-          this.settings.proxy_type = ProxyType.SOCKS4
-          this.settings.proxy_auth_enabled = false
-          break
-        case 'http':
-          this.settings.proxy_type = this.settings.proxy_auth_enabled ? ProxyType.HTTP_PW : ProxyType.HTTP
-          break
-        case 'none':
-        default:
-          this.settings.proxy_type = ProxyType.DISABLED
-          this.settings.proxy_auth_enabled = false
-          break
-      }
+    proxyType() {
+      this.updateProxyType()
+    },
+    proxyAuth() {
+      this.updateProxyType()
     }
   },
   methods: {
@@ -319,6 +308,27 @@ export default defineComponent({
       const min = 1024
       const max = 65535
       this.settings.listen_port = Math.floor(Math.random() * (max - min + 1) + min)
+    },
+    updateProxyType() {
+      switch (this.proxyType) {
+        case 'socks5':
+          this.settings.proxy_type = this.proxyAuth ? ProxyType.SOCKS5_PW : ProxyType.SOCKS5
+          this.settings.proxy_auth_enabled = this.proxyAuth
+          break
+        case 'http':
+          this.settings.proxy_type = this.proxyAuth ? ProxyType.HTTP_PW : ProxyType.HTTP
+          this.settings.proxy_auth_enabled = this.proxyAuth
+          break
+        case 'socks4':
+          this.settings.proxy_type = ProxyType.SOCKS4
+          this.settings.proxy_auth_enabled = false
+          break
+        case 'none':
+        default:
+          this.settings.proxy_type = ProxyType.DISABLED
+          this.settings.proxy_auth_enabled = false
+          break
+      }
     }
   }
 })
