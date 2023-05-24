@@ -97,7 +97,7 @@
     <v-list-item>
       <v-row class="mx-1 pb-4">
         <v-col cols="5" class="pa-0 pr-2">
-          <v-select v-model="settings.proxy_type" height="1" outlined dense hide-details :items="proxyTypes" />
+          <v-select v-model="proxyType" height="1" outlined dense hide-details :items="proxyTypes" />
         </v-col>
         <v-col cols="4" class="pa-0">
           <v-text-field
@@ -156,7 +156,7 @@
     <v-list-item class="mb-5">
       <v-checkbox
         :disabled="settings.proxy_type === ProxyType.DISABLED || settings.proxy_type === ProxyType.SOCKS4"
-        v-model="settings.proxy_auth_enabled"
+        v-model="proxyAuth"
         hide-details
         class="ma-0 pa-0"
         :label="$t('modals.settings.connection.proxy.auth.subtitle')"
@@ -221,29 +221,24 @@ import { mdiEye, mdiEyeOff } from '@mdi/js'
 
 export default defineComponent({
   name: 'Connection',
-  computed: {
-    ProxyType() {
-      return ProxyType
-    }
-  },
   mixins: [SettingsTab, FullScreenModal],
   data() {
     return {
       proxyTypes: [
         {
-          value: ProxyType.DISABLED,
+          value: 'none',
           text: '(None)'
         },
         {
-          value: ProxyType.SOCKS4,
+          value: 'socks4',
           text: 'SOCKS4'
         },
         {
-          value: ProxyType.SOCKS5,
+          value: 'socks5',
           text: 'SOCKS5'
         },
         {
-          value: ProxyType.HTTP,
+          value: 'http',
           text: 'HTTP'
         }
       ],
@@ -257,8 +252,11 @@ export default defineComponent({
       max_uploads_enabled: false,
       max_uploads_per_torrent_enabled: false,
       showPassword: false,
+      proxyType: 'none',
+      proxyAuth: false,
       mdiEye,
-      mdiEyeOff
+      mdiEyeOff,
+      ProxyType
     }
   },
   mounted() {
@@ -266,6 +264,23 @@ export default defineComponent({
     this.max_conn_per_torrent_enabled = this.settings.max_connec_per_torrent > 0
     this.max_uploads_enabled = this.settings.max_uploads > 0
     this.max_uploads_per_torrent_enabled = this.settings.max_uploads_per_torrent > 0
+
+    switch (this.settings.proxy_type) {
+      case ProxyType.SOCKS4:
+        this.proxyType = 'socks4'
+        break
+      case ProxyType.SOCKS5:
+      case ProxyType.SOCKS5_PW:
+        this.proxyType = 'socks5'
+        break
+      case ProxyType.HTTP:
+      case ProxyType.HTTP_PW:
+        this.proxyType = 'http'
+        break
+      default:
+        this.proxyType = 'none'
+    }
+    this.proxyAuth = this.settings.proxy_auth_enabled
   },
   watch: {
     max_conn_enabled(newValue) {
@@ -279,6 +294,12 @@ export default defineComponent({
     },
     max_uploads_per_torrent_enabled(newValue) {
       this.settings.max_uploads_per_torrent = newValue ? this.settings.max_uploads_per_torrent : -1
+    },
+    proxyType() {
+      this.updateProxyType()
+    },
+    proxyAuth() {
+      this.updateProxyType()
     }
   },
   methods: {
@@ -287,6 +308,27 @@ export default defineComponent({
       const min = 1024
       const max = 65535
       this.settings.listen_port = Math.floor(Math.random() * (max - min + 1) + min)
+    },
+    updateProxyType() {
+      switch (this.proxyType) {
+        case 'socks5':
+          this.settings.proxy_type = this.proxyAuth ? ProxyType.SOCKS5_PW : ProxyType.SOCKS5
+          this.settings.proxy_auth_enabled = this.proxyAuth
+          break
+        case 'http':
+          this.settings.proxy_type = this.proxyAuth ? ProxyType.HTTP_PW : ProxyType.HTTP
+          this.settings.proxy_auth_enabled = this.proxyAuth
+          break
+        case 'socks4':
+          this.settings.proxy_type = ProxyType.SOCKS4
+          this.settings.proxy_auth_enabled = false
+          break
+        case 'none':
+        default:
+          this.settings.proxy_type = ProxyType.DISABLED
+          this.settings.proxy_auth_enabled = false
+          break
+      }
     }
   }
 })

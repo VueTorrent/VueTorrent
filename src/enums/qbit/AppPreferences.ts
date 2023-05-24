@@ -32,6 +32,8 @@ export enum ProxyType {
   DISABLED = 0,
   HTTP = 1,
   SOCKS5 = 2,
+  HTTP_PW = 3,
+  SOCKS5_PW = 4,
   SOCKS4 = 5
 }
 

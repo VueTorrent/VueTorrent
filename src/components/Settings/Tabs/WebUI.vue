@@ -290,12 +290,7 @@ export default defineComponent({
   },
   watch: {
     webUiPassword(newValue: string) {
-      if (newValue === '') {
-        this.settings.web_ui_password = undefined
-      }
-      else {
-        this.settings.web_ui_password = newValue
-      }
+      this.settings.web_ui_password = newValue === '' ? undefined : newValue
     }
   },
   methods: {
