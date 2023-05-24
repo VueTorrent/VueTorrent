@@ -153,7 +153,16 @@
           <v-checkbox v-model="settings.max_seeding_time_enabled" hide-details class="ma-0 pa-0" :label="$t('modals.settings.bittorrent.seedLimits.whenSeedingTimeReaches')" />
         </v-col>
         <v-col>
-          <v-text-field v-model="settings.max_seeding_time" class="mb-2" outlined dense persistent-hint :hint="$t('modals.settings.bittorrent.seedLimits.whenSeedingTimeReachesHint')" type="number" :disabled="!settings.max_seeding_time_enabled" />
+          <v-text-field
+            v-model="settings.max_seeding_time"
+            class="mb-2"
+            outlined
+            dense
+            persistent-hint
+            :hint="$t('modals.settings.bittorrent.seedLimits.whenSeedingTimeReachesHint')"
+            type="number"
+            :disabled="!settings.max_seeding_time_enabled"
+          />
         </v-col>
       </v-row>
     </v-list-item>
