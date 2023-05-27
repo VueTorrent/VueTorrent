@@ -7,7 +7,7 @@ import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import { VitePWA } from 'vite-plugin-pwa'
-import vuetify from 'vite-plugin-vuetify'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 
 const version =
   process.env.NODE_ENV === 'production'
@@ -31,9 +31,13 @@ export default defineConfig(({ mode }) => {
       }
     },
     plugins: [
-      vue(),
       VueRouter({
         routesFolder: 'src/pages'
+      }),
+      vue({
+        template: {
+          transformAssetUrls
+        }
       }),
       vuetify({
         autoImport: true
