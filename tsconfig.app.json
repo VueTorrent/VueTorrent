@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": "@vue/tsconfig.dom.json",
   "include": [
     "vite.config.ts",
     "typed-router.d.ts",
@@ -31,7 +31,6 @@
       "@types/webfontloader"
     ],
     "sourceMap": true,
-    "strict": true,
-    "module": "ESNext"
+    "strict": true
   }
 }
