@@ -2,9 +2,9 @@
 import { useSessionInfo } from '@/composables/api/info'
 import { getDataUnit, getDataValue } from '@/utils/dataParse'
 import type { ApexOptions } from 'apexcharts'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import VueApexCharts from 'vue3-apexcharts'
-import { useTheme } from 'vuetify/lib/framework.mjs'
+import { useTheme } from 'vuetify'
 
 // composables
 const theme = useTheme()
@@ -61,14 +61,16 @@ const chartOptions: ApexOptions = {
   }
 }
 
-// computed
-setInterval(() => {
-  uploadData.value.shift()
-  uploadData.value.push(sessionInfo.data.value?.up_info_speed || 0)
+watch(
+  () => sessionInfo.data.value,
+  () => {
+    uploadData.value.shift()
+    uploadData.value.push(sessionInfo.data.value?.up_info_speed || 0)
 
-  downloadData.value.shift()
-  downloadData.value.push(sessionInfo.data.value?.dl_info_speed || 0)
-}, 1000)
+    downloadData.value.shift()
+    downloadData.value.push(sessionInfo.data.value?.dl_info_speed || 0)
+  }
+)
 </script>
 
 <template>
