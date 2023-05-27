@@ -13,10 +13,6 @@ const { mobile } = useDisplay()
 </script>
 
 <template>
-  <VCard class="pointer">
-    <VLayout>
-      <MobileCard v-if="mobile" :torrent="torrent" />
-      <DesktopCard v-else :torrent="torrent" />
-    </VLayout>
-  </VCard>
+  <MobileCard v-if="mobile" :torrent="torrent" />
+  <DesktopCard v-else :torrent="torrent" />
 </template>

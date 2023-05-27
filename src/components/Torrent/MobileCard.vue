@@ -22,7 +22,7 @@ const stateString = computed(() => {
       </span>
     </VCol>
     <VCol xs12 class="pa-0 mt-0 chipgap">
-      <VChip small :color="'torrent-' + torrent.state" variant="flat" rounded style="height: 20px">
+      <VChip small :color="`torrent-${torrent.state}`" variant="flat" rounded style="height: 20px">
         {{ stateString }}
       </VChip>
       <VChip v-if="torrent.category" rounded color="upload" style="height: 20px">
@@ -63,7 +63,7 @@ const stateString = computed(() => {
       <span class="body-2">{{ torrent.eta }}</span>
     </VRow>
     <VCol xs12 class="pa-1">
-      <v-progress-linear rounded color="upload" height="5" :model-value="torrent.progress" />
+      <VProgressLinear rounded color="upload" height="5" :model-value="torrent.progress" />
     </VCol>
     <VRow cols="12" class="ma-1">
       <div class="text-text-caption text-grey">
