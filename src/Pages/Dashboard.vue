@@ -6,6 +6,7 @@ import type { Torrent } from '@/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker/faker'
 import MobileCardVue from '@/components/Torrent/MobileCard.vue'
+import torrent from '@/components/Torrent/Torrent.vue'
 
 definePage({
   path: '/dashboard',
@@ -41,7 +42,7 @@ const torrents = computed(() => {
     <VList class="pa-0 transparent">
       <VListItem class="px-0" v-for="torrent in torrents" :key="torrent.hash">
         <VCard :class="'sideborder ' + torrent.state">
-          <MobileCardVue :torrent="torrent" />
+          <torrent :torrent="torrent" />
         </VCard>
       </VListItem>
     </VList>
