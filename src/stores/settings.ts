@@ -1,7 +1,7 @@
 // import { useAxios } from '@/composables/useAxios'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
 import { defineStore } from 'pinia'
-import { useStorage, useTitle } from '@vueuse/core'
+import { useStorage, useTitle, type RemovableRef } from '@vueuse/core'
 import { TitleOptions, DashboardProperty } from '@/enums/vuetorrent'
 
 const desktopPropertiesTemplate = [
@@ -81,11 +81,11 @@ export const useWebUISettingsStore = defineStore('webUISettings', () => {
     doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
     busyMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate)),
     doneMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate))
-  }).value
+  })
 
   // Todo: update with title class once we have torrents
   const title = useTitle()
-  title.value = webUISettings.title
+  title.value = webUISettings.value.title
 
   return {
     webUISettings

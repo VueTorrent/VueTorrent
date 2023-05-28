@@ -17,7 +17,7 @@ export const getDataValue = (data: number, precision: number = 2) => {
   return `${parseFloat((data / Math.pow(c, f)).toFixed(precision))}`
 }
 
-export function formatBytes(a: number, b?: number): string {
+export const formatBytes = (a: number, b?: number): string => {
   if (a === 0) return '0 B'
   const c = 1024
   const d = b || 2
@@ -25,4 +25,13 @@ export function formatBytes(a: number, b?: number): string {
   const f = Math.floor(Math.log(a) / Math.log(c))
 
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
+}
+
+export const getDomain = (url: string) => {
+  const match = url.match(/:\/\/([^/]+\.)?([^/.]+)\.[^/.:]+/i)
+  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2]
+  } else {
+    return ''
+  }
 }

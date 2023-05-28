@@ -16,7 +16,7 @@ import { toggleSpeedLimitsMode } from '@/composables/api/actions'
 // composables
 import { useMainData, useSessionInfo } from '@/composables/api/info'
 import { useWebUISettingsStore } from '@/stores/settings'
-import { useTheme } from 'vuetify/lib/framework.mjs'
+import { useTheme } from 'vuetify'
 const authStore = useAuthStore()
 const sessionInfo = useSessionInfo()
 const mainInfo = useMainData()
