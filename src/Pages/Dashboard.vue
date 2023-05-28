@@ -15,16 +15,12 @@ definePage({
 
 const mainData = useMainData()
 
-const torrents = computed(() => {
-  // temp
-  const _torrents = Object.values((mainData.data.value?.torrents as any))
-
+const torrents = computed<Torrent[]>(() => {
+  return Object.values((mainData.data.value?.torrents))
   // if (isProduction()) return torrents
   // if (import.meta.env.VITE_USE_FAKE_TORRENTS === false) return torrents
   // const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
   // torrents.push(...generateMultiple(count))
-
-  return _torrents
 })
 </script>
 
