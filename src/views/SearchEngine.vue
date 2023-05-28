@@ -27,6 +27,7 @@
                 dense
                 hide-details
                 clearable
+                :rules="[v => !!v || 'Search term is required']"
                 label="Search pattern"
             />
           </v-col>
@@ -44,7 +45,7 @@
           </v-col>
           <v-col cols="6" sm="5" md="2">
             <v-select
-                v-model="searchPlugins"
+                v-model="searchPlugin"
                 height="1"
                 flat
                 dense
@@ -73,6 +74,7 @@
             id="searchResultsTable"
             :headers="headers"
             :items="queryResults"
+            :search="resultFilter"
         >
           <template v-slot:top>
             <v-row class="mt-2">
@@ -85,6 +87,9 @@
                 />
               </v-col>
             </v-row>
+          </template>
+          <template v-slot:item.fileSize="{ item }">
+            {{ item.fileSize | formatSize }}
           </template>
           <template v-slot:item.actions="{ item }">
             <span class="search-actions">
@@ -99,10 +104,11 @@
 
 <script lang="ts">
 import {defineComponent} from 'vue'
+import { mapState } from 'vuex'
 import { mdiClose, mdiDownload, mdiToyBrick } from '@mdi/js'
 import qbit from "@/services/qbit";
 import { General } from '@/mixins'
-import { SearchResult } from "@/types/qbit/models";
+import {SearchPlugin, SearchResult} from "@/types/qbit/models";
 
 export default defineComponent({
   name: "SearchEngine",
@@ -110,7 +116,6 @@ export default defineComponent({
   data() {
     return {
       headers: [
-        { text: 'Description Link', value: 'descrLink' },
         { text: 'Filename', value: 'fileName' },
         { text: 'File Size', value: 'fileSize' },
         { text: 'Seeders', value: 'nbSeeders' },
@@ -120,7 +125,7 @@ export default defineComponent({
       ],
       searchPattern: '',
       searchCategory: 'all',
-      searchPlugins: 'enabled',
+      searchPlugin: 'enabled',
       queryId: 0,
       queryTimer: NaN as NodeJS.Timer,
       queryResults: [] as SearchResult[],
@@ -131,6 +136,7 @@ export default defineComponent({
     }
   },
   computed: {
+    ...mapState(['searchPlugins']),
     categories() {
       const cats = [
         { text: 'Movies', value: 'movies' },
@@ -147,11 +153,18 @@ export default defineComponent({
       return [{ text: 'All categories', value: 'all' }, ...cats]
     },
     plugins() {
-      return [
+      const plugins = [
         { text: 'All plugins', value: 'all' },
         { text: 'Only enabled', value: 'enabled' }
       ]
+
+      this.searchPlugins.filter((plugin: SearchPlugin) => plugin.enabled).forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
+
+      return plugins
     }
+  },
+  mounted() {
+    this.$store.commit('FETCH_SEARCH_PLUGINS')
   },
   async beforeDestroy() {
     await this.stopSearch()
@@ -159,12 +172,13 @@ export default defineComponent({
   methods: {
     openPluginManager() {
       //TODO
+      alert('open plugin manager')
     },
     close() {
       this.$router.back()
     },
     async runNewSearch() {
-      const searchJob = await qbit.startSearch(this.searchPattern, this.searchCategory, [this.searchPlugins])
+      const searchJob = await qbit.startSearch(this.searchPattern, this.searchCategory, [this.searchPlugin])
       this.queryId = searchJob.id
       this.queryTimer = setInterval(() => this.refreshResults(), 1000)
     },
@@ -191,5 +205,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-
+.search-actions {
+  display: flex;
+  flex-direction: row;
+}
 </style>
