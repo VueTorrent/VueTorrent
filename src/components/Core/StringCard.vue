@@ -1,21 +1,21 @@
 <template>
   <v-card flat color="secondary" class="mr-2 ml-2">
-    <v-layout row wrap class="pa-3 mx-auto">
-      <v-flex md6>
-        <div style="margin-top: 6px" :class="color + '--text'" data-testid="StringCard-label">
+    <v-row class="px-3">
+      <v-col cols="6" class="d-flex align-center">
+        <div :class="color + '--text'" data-testid="StringCard-label">
           {{ label }}
         </div>
-      </v-flex>
-      <v-flex md6>
+      </v-col>
+      <v-col cols="6" class="d-flex align-center">
         <span data-testid="StringCard-Wrapper" :class="color + '--text title'">
-          <span data-testid="StringCard-value"> {{ value }} </span>
+          <span data-testid="StringCard-value">{{ value }}</span>
         </span>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'StringCard',
   props: ['color', 'label', 'value']
