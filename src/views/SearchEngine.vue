@@ -73,10 +73,11 @@
             style="width: 100%"
             id="searchResultsTable"
             :headers="headers"
-            :items="queryResults"
+            :items="filteredResults"
             :search="resultFilter"
         >
           <template v-slot:top>
+            <!-- TODO: Add filters on columns -->
             <v-row class="mt-2">
               <v-col cols="12" md="6">
                 <v-text-field
@@ -161,6 +162,9 @@ export default defineComponent({
       this.searchPlugins.filter((plugin: SearchPlugin) => plugin.enabled).forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
 
       return plugins
+    },
+    filteredResults() {
+      return this.queryResults
     }
   },
   async mounted() {
