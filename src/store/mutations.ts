@@ -3,7 +3,7 @@ import { DocumentTitle, Tags, Trackers, Torrents, Graph } from '@/actions'
 import { setLanguage } from '@/plugins/i18n'
 import type { ModalTemplate, StoreState } from '@/types/vuetorrent'
 import Torrent from '@/models/Torrent'
-import type { AppPreferences } from '@/types/qbit/models'
+import type {AppPreferences, SearchPlugin} from '@/types/qbit/models'
 import { Status } from '@/models'
 import router from '@/router'
 
@@ -94,7 +94,7 @@ export default {
   FETCH_TAGS: async (state: StoreState) => (state.tags = await qbit.getAvailableTags()),
   FETCH_FEEDS: async (state: StoreState) => (state.rss.feeds = Object.entries(await qbit.getFeeds(true)).map(([key, value]) => ({ name: key, ...value }))),
   FETCH_RULES: async (state: StoreState) => (state.rss.rules = Object.entries(await qbit.getRules()).map(([key, value]) => ({ name: key, ...value }))),
-  FETCH_SEARCH_PLUGINS: async (state: StoreState) => (state.searchPlugins = await qbit.getSearchPlugins()),
+  UPDATE_SEARCH_PLUGINS: async (state: StoreState, plugins: SearchPlugin[]) => (state.searchPlugins = plugins),
   SET_CURRENT_ITEM_COUNT: (state: StoreState, count: number) => (state.filteredTorrentsCount = count),
   SET_LANGUAGE: async (state: StoreState) => setLanguage(state.webuiSettings.lang)
 }

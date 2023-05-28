@@ -163,8 +163,8 @@ export default defineComponent({
       return plugins
     }
   },
-  mounted() {
-    this.$store.commit('FETCH_SEARCH_PLUGINS')
+  async mounted() {
+    await this.$store.dispatch('FETCH_SEARCH_PLUGINS')
   },
   async beforeDestroy() {
     await this.stopSearch()
