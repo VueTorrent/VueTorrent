@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.5.9](https://github.com/WDaan/VueTorrent/compare/v1.5.8...v1.5.9) (2023-05-28)
+
+
+### Bug Fixes
+
+* navbar capitalisation ([#835](https://github.com/WDaan/VueTorrent/issues/835)) ([8ad5b94](https://github.com/WDaan/VueTorrent/commit/8ad5b9425e0eca17cc73a04ab0fe4f218b42be7e))
+* revert old proxy types ([#832](https://github.com/WDaan/VueTorrent/issues/832)) ([f3694e9](https://github.com/WDaan/VueTorrent/commit/f3694e990aa6e90fcc0654ac66e00a10fb006ea9))
+
+
+### Improvements
+
+* Add whenSeedingTimeReaches hint ([#826](https://github.com/WDaan/VueTorrent/issues/826)) ([2e5ddcb](https://github.com/WDaan/VueTorrent/commit/2e5ddcb319cb1c2d5d83098ea1c6b8e90e9b4ca9))
+
 ## [1.5.8](https://github.com/WDaan/VueTorrent/compare/v1.5.7...v1.5.8) (2023-05-21)
 
 
