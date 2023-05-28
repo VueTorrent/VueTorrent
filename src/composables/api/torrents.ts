@@ -59,7 +59,7 @@ export const useTorrents = () => {
     const params: QbAddTorrentPayload = {
       autoTMM: payload.autoTMM,
       category: payload.category?.name,
-      cookie: payload.category?.name,
+      cookie: payload.cookie?.name,
       dlLimit: payload?.dlLimit,
       firstLastPiecePrio: payload.firstLastPiecePriority,
       paused: !payload.start,
