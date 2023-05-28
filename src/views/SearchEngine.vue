@@ -171,8 +171,7 @@ export default defineComponent({
   },
   methods: {
     openPluginManager() {
-      //TODO
-      alert('open plugin manager')
+      this.createModal('SearchPluginManager')
     },
     close() {
       this.$router.back()

@@ -178,8 +178,13 @@
     "matchingArticles": {
       "title": "Matching RSS Articles"
     },
-    "pluginManager": {
-      "title": "Plugin manager"
+    "searchPluginManager": {
+      "title": "Plugin manager",
+      "checkForUpdates": "Check for Updates",
+      "install": {
+        "title": "Install new plugin",
+        "label": "URL or file path"
+      }
     },
     "search": {
       "title": "Search",
