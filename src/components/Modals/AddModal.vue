@@ -132,7 +132,7 @@ watch(
         <v-card-title class="justify-center">
           <v-toolbar flat dense class="transparent pb-4">
             <v-toolbar-title>
-              <h2 class="text-center">{{ $t('modals.add.title') }}</h2>
+              <h2 class="text-center">{{ t('modals.add.title') }}</h2>
             </v-toolbar-title>
             <v-btn :icon="mdiClose" @click="dialog = false">
           </v-btn>
@@ -148,7 +148,7 @@ watch(
               v-model="params.files"
               color="deep-purple accent-4"
               counter
-              :label="$t('modals.add.selectFiles')"
+              :label="t('modals.add.selectFiles')"
               multiple
               :prepend-icon="mdiPaperclip"
               :rules="[ torrentFilesRule ]"
@@ -162,7 +162,7 @@ watch(
               v-if="!params.files.length"
               v-model="params.urls"
               color="deep-purple accent-4"
-              :label="$t('url')"
+              :label="t('url')"
               :prepend-icon="mdiLink"
               rows="1"
               required
@@ -170,7 +170,7 @@ watch(
               auto-grow
               variant="underlined"
               clearable
-              :hint="$t('modals.add.urlHint')"
+              :hint="t('modals.add.urlHint')"
             />
 
             <!-- Add Tags -->
@@ -180,7 +180,7 @@ watch(
               variant="underlined"
               :items="availableTags" 
               clearable 
-              :label="$t('tags')" 
+              :label="t('tags')" 
               :prepend-icon="mdiTag" 
               multiple
               chips
@@ -194,7 +194,7 @@ watch(
               :items="availableCategories" 
               clearable
               item-title="name"
-              :label="$t('category')" 
+              :label="t('category')" 
               item-text="name" 
               :prepend-icon="mdiLabel" 
             />
@@ -205,14 +205,14 @@ watch(
               :disabled="params.autoTMM"
               variant="underlined" 
               color="deep-purple accent-4"
-              :label="$t('modals.add.downloadDirectory')"
+              :label="t('modals.add.downloadDirectory')"
               :prepend-icon="mdiFolder"
             />
 
             <v-row no-gutters class="flex-gap my-4">
               <v-col>
                 <div class="d-flex flex-column align-center">
-                  <p class="subtitle-1 mb-1 text-center pb-4">{{ $t('enums.contentLayout.title') }}</p>
+                  <p class="subtitle-1 mb-1 text-center pb-4">{{ t('enums.contentLayout.title') }}</p>
                   <v-select 
                     v-model="params.contentLayout"
                     color="deep-purple accent-4"
@@ -229,7 +229,7 @@ watch(
               </v-col>
               <v-col>
                 <div class="d-flex flex-column align-center">
-                  <p class="subtitle-1 mb-1 text-center pb-4">{{ $t('enums.stopCondition.title') }}</p>
+                  <p class="subtitle-1 mb-1 text-center pb-4">{{ t('enums.stopCondition.title') }}</p>
                   <v-select 
                     v-model="params.stopCondition"
                     color="deep-purple accent-4"
@@ -251,7 +251,7 @@ watch(
                 <v-checkbox 
                   color="deep-purple accent-4" 
                   v-model="params.start" 
-                  :label="$t('modals.add.starttorrent')" 
+                  :label="t('modals.add.starttorrent')" 
                   hide-details
                 />
               </v-flex>
@@ -259,7 +259,7 @@ watch(
                 <v-checkbox 
                   color="deep-purple accent-4" 
                   v-model="params.skipHashChecking" 
-                  :label="$t('modals.add.skipHashCheck')"
+                  :label="t('modals.add.skipHashCheck')"
                   hide-details
                 />
               </v-flex>
@@ -267,7 +267,7 @@ watch(
                 <v-checkbox
                   color="deep-purple accent-4" 
                   v-model="params.autoTMM" 
-                  :label="$t('modals.add.automaticTorrentManagement')"
+                  :label="t('modals.add.automaticTorrentManagement')"
                   hide-details 
                 />
               </v-flex>
@@ -275,7 +275,7 @@ watch(
                 <v-checkbox 
                   color="deep-purple accent-4"
                   v-model="params.sequentialDownload" 
-                  :label="$t('rightClick.advanced.sequentialDownload')"
+                  :label="t('rightClick.advanced.sequentialDownload')"
                   hide-details 
                 />
               </v-flex>
@@ -283,7 +283,7 @@ watch(
                 <v-checkbox 
                   color="deep-purple accent-4" 
                   v-model="params.firstLastPiecePriority"
-                  :label="$t('rightClick.advanced.firstLastPriority')" 
+                  :label="t('rightClick.advanced.firstLastPriority')" 
                   hide-details 
                 />
               </v-flex>
@@ -316,7 +316,7 @@ watch(
     >
       <div class="h-100 d-flex flex-column flex-col justify-center align-center white--text">
         <v-icon :icon="mdiCloudUpload" size="40" class="white--text"></v-icon>
-        <h3>{{ $t('modals.add.dropHereForAdd') }}</h3>
+        <h3>{{ t('modals.add.dropHereForAdd') }}</h3>
       </div>
     </div>
 
