@@ -3,6 +3,7 @@ import { titleCase } from '@/utils/textFormatting'
 import { mdiInformationOutline } from '@mdi/js'
 import StorageCard from '../Core/StorageCard.vue'
 import { useMainData, useSessionInfo } from '@/composables/api/info'
+import StringCard from '../Core/StringCard.vue'
 
 // props
 const props = defineProps<{
@@ -28,6 +29,10 @@ const getUpload = () => {
       ? sessionInfo.data.value?.up_info_data
       : mainData.data.value?.server_state?.alltime_ul) || 0
   )
+}
+
+const getRatio = () => {
+  return Number(mainData.data.value?.server_state?.global_ratio) || 0
 }
 </script>
 
@@ -55,5 +60,12 @@ const getUpload = () => {
       :value="getDownload()"
     />
     <StorageCard :label="titleCase($t('uploaded'))" color="upload" :value="getUpload()" />
+    <StringCard
+      class="mt-4"
+      v-if="!isSession"
+      :label="titleCase($t('ratio'))"
+      color="upload"
+      :value="getRatio()"
+    />
   </div>
 </template>

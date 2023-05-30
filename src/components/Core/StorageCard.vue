@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { getDataUnit } from '@/utils/dataParse'
-import { getDataValue } from '@/utils/dataParse'
+import { getDataUnit, getDataValue } from '@/utils/dataParse'
 
 defineProps<{
   label: string

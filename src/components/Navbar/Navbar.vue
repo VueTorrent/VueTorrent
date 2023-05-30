@@ -32,8 +32,8 @@ const drawer = ref(mobile.value ? false : true)
     <VCard class="pa-1 pt-3" flat color="primary">
       <CurrentSpeed />
       <SpeedGraph />
-      <TransferStats :isSession="false" />
-      <TransferStats :isSession="true" />
+      <TransferStats />
+      <TransferStats isSession />
       <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
       <!-- <FilterSelect :show-tracker-filter="true" /> -->
     </VCard>
