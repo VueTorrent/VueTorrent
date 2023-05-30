@@ -75,6 +75,7 @@ export const useWebUISettingsStore = defineStore('webUISettings', () => {
     topPagination: false,
     paginationSize: 15,
     dateFormat: 'DD/MM/YYYY, HH:mm:ss',
+    durationFormat: 'D[d] H[h] m[m] s[s]',
     openSideBarOnStart: true,
     showShutdownButton: true,
     busyDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),

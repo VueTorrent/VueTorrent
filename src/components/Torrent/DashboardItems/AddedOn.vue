@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import type { Torrent } from '@/models'
+import dayjs from 'dayjs'
+import type { Torrent } from '@/types/qbit/models'
 import { titleCase } from '@/utils/textFormatting'
+import { useWebUISettingsStore } from '@/stores/settings'
 
 defineProps<{
   torrent: Torrent
 }>()
+
+const settings = useWebUISettingsStore()
 </script>
 
 <template>
@@ -12,6 +16,6 @@ defineProps<{
     <div class="text-caption text-grey">
       {{ titleCase($t('torrent.properties.added_on')) }}
     </div>
-    <div>{{ torrent.added_on }}</div>
+    <div>{{ dayjs(torrent.added_on * 1000).format(settings.webUISettings.dateFormat) }}</div>
   </v-col>
 </template>

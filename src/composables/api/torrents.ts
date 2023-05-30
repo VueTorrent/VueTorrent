@@ -9,8 +9,11 @@ export const useCategories = () => {
   const categories = ref<Category[]>()
 
   async function fetchCategories(): Promise<Category[]> {
-    const { data } = await useAxios<{[key: string]: Category}>('/torrents/categories', axiosInstance)
-    categories.value = Object.values((data.value as {[key: string]: Category}))
+    const { data } = await useAxios<{ [key: string]: Category }>(
+      '/torrents/categories',
+      axiosInstance
+    )
+    categories.value = Object.values(data.value as { [key: string]: Category })
     return categories.value
   }
 
@@ -20,12 +23,11 @@ export const useCategories = () => {
 
   return {
     fetchCategories,
-    categories,
+    categories
   }
 }
 
 export const useTags = () => {
-
   const tags = ref<string[]>()
 
   async function fetchTags(): Promise<string[] | undefined> {
@@ -41,7 +43,7 @@ export const useTags = () => {
   onMounted(() => {
     fetchTags()
   })
-  
+
   return {
     fetchTags,
     tags
@@ -49,10 +51,8 @@ export const useTags = () => {
 }
 
 export const useTorrents = () => {
-
   async function addTorrents(payload: AddTorrentsPayload): Promise<any> {
-    
-    let requestBody: FormData | URLSearchParams | null = null;
+    let requestBody: FormData | URLSearchParams | null = null
     const files: File[] = payload.files
 
     // Map params
@@ -76,11 +76,11 @@ export const useTorrents = () => {
     }
 
     // Remove undefined values because qbit considers them as strings
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
       if (params[key] === undefined) {
-        delete params[key];
+        delete params[key]
       }
-    });
+    })
 
     // Magnet links
     if (!files.length) {
@@ -96,11 +96,11 @@ export const useTorrents = () => {
     }
 
     const response = await useAxios(
-      '/torrents/add', 
-      { 
-        method: 'POST', 
+      '/torrents/add',
+      {
+        method: 'POST',
         data: requestBody
-      }, 
+      },
       axiosInstance,
       { immediate: true }
     )
@@ -109,7 +109,6 @@ export const useTorrents = () => {
   }
 
   return {
-    addTorrents,
+    addTorrents
   }
-
 }

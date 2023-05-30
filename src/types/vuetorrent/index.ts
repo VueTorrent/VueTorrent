@@ -21,5 +21,5 @@ export {
   TreeNode,
   TreeFile,
   TreeFolder,
-  TorrentProperty,
+  TorrentProperty
 }

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { TorrentState } from '@/enums/qbit'
 import type { Torrent } from '@/models'
-import { getDataUnit, getDataValue } from '@/utils/dataParse'
-import { titleCase } from '@/utils/textFormatting'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -26,8 +24,10 @@ const stateString = computed(() => {
     </div>
     <VChip
       style="height: 1.3em"
-      class="caption white--text px-2"
-      :class="`torrent-${torrent.state}`"
+      class="px-1"
+      :color="`torrent-${torrent.state}`"
+      rounded
+      variant="flat"
     >
       {{ stateString }}
     </VChip>

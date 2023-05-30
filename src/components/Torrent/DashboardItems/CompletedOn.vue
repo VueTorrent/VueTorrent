@@ -8,12 +8,10 @@ defineProps<{
 </script>
 
 <template>
-  <VCol cols="6" sm="1" md="1">
+  <v-col cols="6" sm="2">
     <div class="text-caption text-grey">
-      {{ titleCase($t('torrent.properties.time_active')) }}
+      {{ titleCase($t('torrent.properties.completed_on')) }}
     </div>
-    <div>
-      {{ torrent.time_active }}
-    </div>
-  </VCol>
+    <div>{{ torrent.completed_on }}</div>
+  </v-col>
 </template>

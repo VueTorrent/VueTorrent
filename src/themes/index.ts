@@ -24,7 +24,7 @@ export const lightTheme = {
     accent: '#64CEAA',
     background: '#f5f5f5',
     selected: '#e0e0e0',
-    red: '#ff5252',
+    red: '#ff5252'
   }
 }
 
@@ -34,6 +34,6 @@ export const darkTheme = {
     accent: '#64CEAA',
     background: '#121212',
     selected: '#757575',
-    red: '#ff1744',
+    red: '#ff1744'
   }
 }

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar.vue'
 import { useAuthStore } from './stores/auth'
 import { useRouter } from 'vue-router/auto'
 import { useRoute } from 'vue-router'
-import { useModalsStore } from './stores/modals';
+import { useModalsStore } from './stores/modals'
 import { storeToRefs } from 'pinia'
 
 // composables
@@ -16,7 +16,7 @@ const route = useRoute()
 const authStore = useAuthStore()
 const modalsStore = useModalsStore()
 
-const { modals } = storeToRefs(modalsStore) 
+const { modals } = storeToRefs(modalsStore)
 
 if (prefersDark.value) {
   theme.global.name.value = 'dark'

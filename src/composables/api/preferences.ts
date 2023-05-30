@@ -8,7 +8,10 @@ export const usePreferences = () => {
   return useQuery({
     queryKey: ['preferences'],
     queryFn: async () => {
-      const { data: preferences } = await useAxios<AppPreferences>('/app/preferences', axiosInstance)
+      const { data: preferences } = await useAxios<AppPreferences>(
+        '/app/preferences',
+        axiosInstance
+      )
       return preferences
     }
   })

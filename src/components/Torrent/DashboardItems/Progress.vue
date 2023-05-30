@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Torrent } from '@/models'
-import { getDataUnit, getDataValue } from '@/utils/dataParse'
 import { titleCase } from '@/utils/textFormatting'
 
 defineProps<{
@@ -14,13 +13,12 @@ defineProps<{
       {{ titleCase($t('torrent.properties.progress')) }}
     </div>
     <VProgressLinear
-      :value="torrent.progress"
+      :model-value="Math.round(torrent.progress * 10000) / 100"
       height="20"
-      style="width: 90%"
       :color="`torrent-${torrent.state}`"
       rounded
     >
-      <span class="text-caption text-white">{{ torrent.progress }}%</span>
+      <span class="text-caption text-white">{{ Math.round(torrent.progress * 10000) / 100 }}%</span>
     </VProgressLinear>
   </VCol>
 </template>

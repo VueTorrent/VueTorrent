@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import * as Fields from './DashboardItems'
 import { computed } from 'vue'
-import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import type { Torrent } from '@/models'
 import { useWebUISettingsStore } from '@/stores/settings'
 
@@ -28,6 +27,12 @@ const properties = computed(() => {
         {{ torrent.name }}
       </div>
     </VCol>
+    <component
+      :is="Fields[item.name]"
+      v-for="item in properties"
+      :key="item.name"
+      :torrent="torrent"
+    />
   </VRow>
 </template>
 

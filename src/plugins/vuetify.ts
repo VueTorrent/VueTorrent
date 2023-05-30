@@ -10,13 +10,13 @@ export default createVuetify({
     defaultSet: 'mdi',
     aliases,
     sets: {
-      mdi,
-    },
+      mdi
+    }
   },
   theme: {
     themes: {
       light: lightTheme,
-      dark: darkTheme,
-    },
-  },
+      dark: darkTheme
+    }
+  }
 })

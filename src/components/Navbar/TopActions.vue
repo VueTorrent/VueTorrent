@@ -23,7 +23,12 @@ const goToSettings = () => router.push({ name: 'Settings' })
 
 <template>
   <div class="d-flex flex-row justify-end ml-0'">
-    <Tooltip location="bottom" :icon="mdiPlus" label="navbar.topActions.addTorrent" :action="() => createModal('AddModal')" />
+    <Tooltip
+      location="bottom"
+      :icon="mdiPlus"
+      label="navbar.topActions.addTorrent"
+      :action="() => createModal('AddModal')"
+    />
     <Tooltip location="bottom" :icon="mdiPlay" label="navbar.topActions.resumeSelected" />
     <Tooltip location="bottom" :icon="mdiPause" label="navbar.topActions.pauseSelected" />
     <Tooltip location="bottom" :icon="mdiDelete" label="navbar.topActions.removeSelected" />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Torrent } from '@/models'
+import type { Torrent } from '@/types/qbit/models'
 import { titleCase } from '@/utils/textFormatting'
 
 defineProps<{
@@ -14,7 +14,7 @@ defineProps<{
     </div>
     <div>
       {{ torrent.num_seeds }}
-      <span class="text-grey text-caption"> / {{ torrent.available_seeds }} </span>
+      <span class="text-grey text-caption"> / {{ torrent.num_complete }} </span>
     </div>
   </VCol>
 </template>

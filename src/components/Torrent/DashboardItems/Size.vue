@@ -11,7 +11,7 @@ defineProps<{
 <template>
   <VCol cols="6" sm="1" md="1">
     <div class="text-caption text-grey">
-      {{ titleCase($t('torrent.properties.infohash_v2')) }}
+      {{ titleCase($t('torrent.properties.size')) }}
     </div>
     <div>
       {{ getDataValue(torrent.size) }}

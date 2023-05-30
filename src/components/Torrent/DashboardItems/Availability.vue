@@ -9,7 +9,7 @@ const props = defineProps<{
 
 const availability = computed(() => {
   if (props.torrent && props.torrent.availability !== -1) {
-    return props.torrent.availability
+    return props.torrent.availability.toFixed(2)
   }
   return 'N/A'
 })
