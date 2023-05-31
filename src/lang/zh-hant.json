@@ -87,6 +87,7 @@
       "last_activity": "最後活動",
       "peers": "下載者",
       "progress": "進度",
+      "progress_bar": "進度列",
       "ratio": "分享率",
       "save_path": "儲存路徑",
       "seeds": "種子",
@@ -105,6 +106,11 @@
     },
     "downloaded": "已下載",
     "uploaded": "已上傳"
+  },
+  "search": {
+    "title": "搜尋種子",
+    "runNewSearch": "搜尋",
+    "stopSearch": "停止"
   },
   "navbar": {
     "currentSpeed": "當前速率",
@@ -172,8 +178,13 @@
     "matchingArticles": {
       "title": "匹配 RSS 文章"
     },
-    "pluginManager": {
-      "title": "外掛管理器"
+    "searchPluginManager": {
+      "title": "外掛管理器",
+      "checkForUpdates": "檢查更新",
+      "install": {
+        "title": "安裝新外掛",
+        "label": "URL 或檔案路徑"
+      }
     },
     "search": {
       "title": "搜尋",
@@ -415,6 +426,7 @@
           "subheader": "做種限制",
           "whenRatioReaches": "當分享率達到",
           "whenSeedingTimeReaches": "當做種時間達到",
+          "whenSeedingTimeReachesHint": "分鐘",
           "then": "然後"
         },
         "autoAddTrackers": "自動新增這些追蹤者至新的下載中",
@@ -780,7 +792,8 @@
     "shutdownSuccess": "已成功結束 qBittorrent!",
     "shutdownError": "無法結束應用，請確認 qBittorrent 正在運行！",
     "invalidJson": "無效的 JSON! 檢查終端以了解詳情",
-    "magnetHandlerNotSupported": "無法註冊處理器，非安全環境"
+    "magnetHandlerNotSupported": "無法註冊處理器，非安全環境",
+    "resetSettingsNeeded": "檢測到舊版本設定，重置設定以獲得最佳體驗！"
   },
   "rightClick": {
     "resume": "繼續",
