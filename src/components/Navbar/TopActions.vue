@@ -42,7 +42,7 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.searchNew')" v-on="on" @click="addModal('SearchModal')">
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.searchNew')" v-on="on" @click="goToSearch">
           <v-icon color="grey">
             {{ mdiSearchWeb }}
           </v-icon>
@@ -103,11 +103,11 @@ export default {
     ...mapState(['selected_torrents'])
   },
   methods: {
-    pauseTorrents() {
-      qbit.pauseTorrents(this.selected_torrents)
+    async pauseTorrents() {
+      await qbit.pauseTorrents(this.selected_torrents)
     },
-    resumeTorrents() {
-      qbit.resumeTorrents(this.selected_torrents)
+    async resumeTorrents() {
+      await qbit.resumeTorrents(this.selected_torrents)
     },
     removeTorrents() {
       if (!this.selected_torrents.length) return
@@ -116,6 +116,9 @@ export default {
     },
     addModal(name) {
       this.createModal(name)
+    },
+    goToSearch() {
+      if (this.$route.name !== 'search') this.$router.push({ name: 'search' })
     },
     goToRss() {
       if (this.$route.name !== 'rss') this.$router.push({ name: 'rss' })

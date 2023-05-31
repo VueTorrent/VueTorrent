@@ -39,5 +39,8 @@ export default {
 
     store.state.oldSettingsDetected = true
     Vue.$toast.error(i18n.t('toast.resetSettingsNeeded').toString(), { timeout: 2500 })
+  },
+  FETCH_SEARCH_PLUGINS: async (store: Store<StoreState>) => {
+    await qbit.getSearchPlugins().then(plugins => store.commit('UPDATE_SEARCH_PLUGINS', plugins))
   }
 }

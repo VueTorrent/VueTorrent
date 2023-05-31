@@ -73,8 +73,8 @@ export default {
     this.newPath = this.torrents[0].savePath
   },
   methods: {
-    setLocation() {
-      qbit.setTorrentLocation(this.hashes, this.newPath)
+    async setLocation() {
+      await qbit.setTorrentLocation(this.hashes, this.newPath)
       this.close()
     },
     close() {

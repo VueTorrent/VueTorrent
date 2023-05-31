@@ -69,16 +69,16 @@ export default {
     }
   },
   methods: {
-    create() {
-      qbit.createCategory(this.category)
+    async create() {
+      await qbit.createCategory(this.category)
       this.cancel()
     },
     cancel() {
       this.$store.commit('FETCH_CATEGORIES')
       this.dialog = false
     },
-    edit() {
-      qbit.editCategory(this.category)
+    async edit() {
+      await qbit.editCategory(this.category)
       Vue.$toast.success(this.$t('toast.categorySaved'))
       this.cancel()
     }

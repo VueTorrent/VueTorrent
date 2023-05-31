@@ -101,8 +101,8 @@ export default {
       this.$store.commit('LOGOUT')
       this.$router.push({ name: 'login' })
     },
-    toggleSpeed() {
-      qbit.toggleSpeedLimitsMode()
+    async toggleSpeed() {
+      await qbit.toggleSpeedLimitsMode()
     },
     toggleTheme() {
       this.webuiSettings.darkTheme = !this.webuiSettings.darkTheme

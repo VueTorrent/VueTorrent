@@ -48,13 +48,10 @@ export class QBitApi {
 
   async login(params: LoginPayload): Promise<string> {
     const payload = new URLSearchParams(params)
-    const res = await this.axios
-      .post('/auth/login', payload, {
-        validateStatus: (status: number) => status === 200 || status === 403
-      })
-      .catch(err => console.log(err))
-
-    return res?.data
+    return this.axios.post('/auth/login', payload, { validateStatus: (status: number) => status === 200 || status === 403 }).then(
+      res => res.data,
+      err => console.log(err)
+    )
   }
 
   async getAuthenticationStatus(): Promise<boolean> {
@@ -65,7 +62,7 @@ export class QBitApi {
   }
 
   async logout(): Promise<void> {
-    await this.axios.post('/auth/logout')
+    return this.axios.post('/auth/logout')
   }
 
   async getAppPreferences(): Promise<AppPreferences> {
@@ -77,7 +74,7 @@ export class QBitApi {
       json: JSON.stringify(params)
     }
 
-    await this.execute('/app/setPreferences', data)
+    return this.execute('/app/setPreferences', data)
   }
 
   async getMainData(rid?: number): Promise<MainDataResponse> {
@@ -85,7 +82,7 @@ export class QBitApi {
   }
 
   async toggleSpeedLimitsMode(): Promise<void> {
-    await this.execute('/transfer/toggleSpeedLimitsMode')
+    return this.execute('/transfer/toggleSpeedLimitsMode')
   }
 
   async getTorrents(payload: SortOptions): Promise<Torrent[]> {
@@ -122,7 +119,7 @@ export class QBitApi {
   }
 
   async setTorrentName(hash: string, name: string): Promise<void> {
-    await this.execute('/torrents/rename', { hash, name })
+    return this.execute('/torrents/rename', { hash, name })
   }
 
   async getTorrentPieceStates(hash: string): Promise<number[]> {
@@ -156,7 +153,7 @@ export class QBitApi {
   // RSS
 
   async createFeed(payload: CreateFeedPayload): Promise<void> {
-    await this.execute('/rss/addFeed', {
+    return this.execute('/rss/addFeed', {
       url: payload.url,
       path: payload.name
     })
@@ -178,40 +175,38 @@ export class QBitApi {
   }
 
   async editFeed(itemPath: string, destPath: string): Promise<void> {
-    await this.execute('/rss/moveItem', {
+    return this.execute('/rss/moveItem', {
       itemPath,
       destPath
     })
   }
 
   async renameRule(ruleName: string, newRuleName: string): Promise<void> {
-    await this.execute('/rss/renameRule', {
+    return this.execute('/rss/renameRule', {
       ruleName,
       newRuleName
     })
   }
 
   async deleteRule(ruleName: string): Promise<void> {
-    await this.execute('rss/removeRule', {
-      ruleName
-    })
+    return this.execute('rss/removeRule', { ruleName })
   }
 
   async deleteFeed(name: string): Promise<void> {
-    await this.execute('rss/removeItem', {
+    return this.execute('rss/removeItem', {
       path: name
     })
   }
 
   async markAsRead(itemPath: string, articleId: string) {
-    await this.execute('rss/markAsRead', {
+    return this.execute('rss/markAsRead', {
       itemPath,
       articleId
     })
   }
 
   async refreshFeed(itemPath: string) {
-    await this.execute('rss/refreshItem', {
+    return this.execute('rss/refreshItem', {
       itemPath
     })
   }
@@ -243,7 +238,7 @@ export class QBitApi {
       data = new URLSearchParams(params as Parameters)
     }
 
-    await this.axios.post('/torrents/add', data)
+    return this.axios.post('/torrents/add', data)
   }
 
   async setTorrentFilePriority(hash: string, idList: number[], priority: Priority): Promise<void> {
@@ -253,45 +248,45 @@ export class QBitApi {
       priority
     }
 
-    await this.execute('/torrents/filePrio', params)
+    return this.execute('/torrents/filePrio', params)
   }
 
   async deleteTorrents(hashes: string[], deleteFiles: boolean): Promise<void> {
     if (!hashes.length) return
 
-    await this.torrentAction('delete', hashes, { deleteFiles })
+    return this.torrentAction('delete', hashes, { deleteFiles })
   }
 
   async pauseTorrents(hashes: string[]): Promise<void> {
-    await this.torrentAction('pause', hashes)
+    return this.torrentAction('pause', hashes)
   }
 
   async resumeTorrents(hashes: string[]): Promise<void> {
-    await this.torrentAction('resume', hashes)
+    return this.torrentAction('resume', hashes)
   }
 
   async forceStartTorrents(hashes: string[]): Promise<void> {
-    await this.torrentAction('setForceStart', hashes, { value: true })
+    return this.torrentAction('setForceStart', hashes, { value: true })
   }
 
   async toggleSequentialDownload(hashes: string[]): Promise<void> {
-    await this.torrentAction('toggleSequentialDownload', hashes)
+    return this.torrentAction('toggleSequentialDownload', hashes)
   }
 
   async toggleFirstLastPiecePriority(hashes: string[]): Promise<void> {
-    await this.torrentAction('toggleFirstLastPiecePrio', hashes)
+    return this.torrentAction('toggleFirstLastPiecePrio', hashes)
   }
 
   async setAutoTMM(hashes: string[], enable: boolean): Promise<void> {
-    await this.torrentAction('setAutoManagement', hashes, { enable })
+    return this.torrentAction('setAutoManagement', hashes, { enable })
   }
 
   async setDownloadLimit(hashes: string[], limit: number): Promise<void> {
-    await this.torrentAction('setDownloadLimit', hashes, { limit })
+    return this.torrentAction('setDownloadLimit', hashes, { limit })
   }
 
   async setUploadLimit(hashes: string[], limit: number): Promise<void> {
-    await this.torrentAction('setUploadLimit', hashes, { limit })
+    return this.torrentAction('setUploadLimit', hashes, { limit })
   }
 
   /**
@@ -316,7 +311,7 @@ export class QBitApi {
       limit
     }
 
-    await this.execute('/transfer/setDownloadLimit', data)
+    return this.execute('/transfer/setDownloadLimit', data)
   }
 
   /**
@@ -327,26 +322,26 @@ export class QBitApi {
       limit
     }
 
-    await this.execute('/transfer/setUploadLimit', data)
+    return this.execute('/transfer/setUploadLimit', data)
   }
 
   async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number): Promise<void> {
-    await this.torrentAction('setShareLimits', hashes, {
+    return this.torrentAction('setShareLimits', hashes, {
       ratioLimit,
       seedingTimeLimit
     })
   }
 
   async reannounceTorrents(hashes: string[]): Promise<void> {
-    await this.torrentAction('reannounce', hashes)
+    return this.torrentAction('reannounce', hashes)
   }
 
   async recheckTorrents(hashes: string[]): Promise<void> {
-    await this.torrentAction('recheck', hashes)
+    return this.torrentAction('recheck', hashes)
   }
 
   async setTorrentLocation(hashes: string[], location: string): Promise<void> {
-    await this.torrentAction('setLocation', hashes, { location })
+    return this.torrentAction('setLocation', hashes, { location })
   }
 
   async addTorrentTrackers(hash: string, trackers: string): Promise<void> {
@@ -355,7 +350,7 @@ export class QBitApi {
       urls: trackers
     }
 
-    await this.execute(`/torrents/addTrackers`, params)
+    return this.execute(`/torrents/addTrackers`, params)
   }
 
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
@@ -364,11 +359,11 @@ export class QBitApi {
       urls: trackers.join('|')
     }
 
-    await this.execute(`/torrents/removeTrackers`, params)
+    return this.execute(`/torrents/removeTrackers`, params)
   }
 
   async addTorrentPeers(hashes: string[], peers: string[]): Promise<void> {
-    await this.torrentAction('addPeers', hashes, { peers: peers.join('|') })
+    return this.torrentAction('addPeers', hashes, { peers: peers.join('|') })
   }
 
   async banPeers(peers: string[]): Promise<void> {
@@ -376,7 +371,7 @@ export class QBitApi {
       peers: peers.join('|')
     }
 
-    await this.execute('/transfer/banPeers', params)
+    return this.execute('/transfer/banPeers', params)
   }
 
   async torrentAction(action: string, hashes: string[], extra?: Record<string, any>): Promise<any> {
@@ -395,7 +390,7 @@ export class QBitApi {
       newPath
     }
 
-    await this.execute('/torrents/renameFile', params)
+    return this.execute('/torrents/renameFile', params)
   }
 
   async renameFolder(hash: string, oldPath: string, newPath: string): Promise<void> {
@@ -405,33 +400,33 @@ export class QBitApi {
       newPath
     }
 
-    await this.execute('/torrents/renameFolder', params)
+    return this.execute('/torrents/renameFolder', params)
   }
 
   /** Torrent Priority **/
   async setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio'): Promise<void> {
-    await this.execute(`/torrents/${priority}`, {
+    return this.execute(`/torrents/${priority}`, {
       hashes: hashes.join('|')
     })
   }
 
   /** Begin Torrent Tags **/
   async removeTorrentTag(hashes: string[], tags: string[]): Promise<void> {
-    await this.torrentAction('removeTags', hashes, { tags: tags.join('|') })
+    return this.torrentAction('removeTags', hashes, { tags: tags.join('|') })
   }
 
   async addTorrentTag(hashes: string[], tags: string[]): Promise<void> {
-    await this.torrentAction('addTags', hashes, { tags: tags.join('|') })
+    return this.torrentAction('addTags', hashes, { tags: tags.join('|') })
   }
 
   async createTag(tags: string[]): Promise<void> {
-    await this.execute('/torrents/createTags', {
+    return this.execute('/torrents/createTags', {
       tags: tags.join(',')
     })
   }
 
   async deleteTag(tags: string[]): Promise<void> {
-    await this.execute('/torrents/deleteTags', {
+    return this.execute('/torrents/deleteTags', {
       tags: tags.join(',')
     })
   }
@@ -445,20 +440,20 @@ export class QBitApi {
   }
 
   async deleteCategory(categories: string[]): Promise<void> {
-    await this.execute('/torrents/removeCategories', {
+    return this.execute('/torrents/removeCategories', {
       categories: categories.join('\n')
     })
   }
 
   async createCategory(cat: Category): Promise<void> {
-    await this.execute('/torrents/createCategory', {
+    return this.execute('/torrents/createCategory', {
       category: cat.name,
       savePath: cat.savePath
     })
   }
 
   async setCategory(hashes: string[], category: string): Promise<void> {
-    await this.torrentAction('setCategory', hashes, { category })
+    return this.torrentAction('setCategory', hashes, { category })
   }
 
   async editCategory(cat: Category): Promise<void> {
@@ -467,7 +462,7 @@ export class QBitApi {
       savePath: cat.savePath
     }
 
-    await this.execute('/torrents/editCategory', params)
+    return this.execute('/torrents/editCategory', params)
   }
 
   async exportTorrent(hash: string): Promise<Blob> {
@@ -483,40 +478,27 @@ export class QBitApi {
   }
 
   /** Search **/
-  async getSearchPlugins(): Promise<SearchPlugin[]> {
-    return this.axios.get('/search/plugins').then(res => res.data)
-  }
-
-  async updateSearchPlugins(): Promise<void> {
-    await this.execute('/search/updatePlugins')
-  }
-
-  async enableSearchPlugin(pluginNames: string[], enable: boolean): Promise<void> {
-    const params = {
-      names: pluginNames.join('|'),
-      enable
-    }
-
-    await this.execute('/search/enablePlugin', params)
-  }
-
-  async startSearch(pattern: string, plugins: string[]): Promise<SearchJob> {
+  async startSearch(pattern: string, category: string, plugins: string[]): Promise<SearchJob> {
     const params = {
       pattern,
-      plugins: plugins.length ? plugins.join('|') : 'enabled',
-      category: 'all'
+      category,
+      plugins: plugins.join('|')
     }
 
     return this.execute('/search/start', params)
   }
 
-  async stopSearch(id: number): Promise<void> {
-    await this.execute('/search/stop', { id })
+  async stopSearch(id: number): Promise<boolean> {
+    return this.execute('/search/stop', { id }).then(
+      () => true,
+      () => false
+    )
   }
 
   async getSearchStatus(id?: number): Promise<SearchStatus[]> {
-    const params = id !== undefined ? { id } : undefined
-    return this.execute('/search/status', params)
+    return this.execute('/search/status', {
+      id: id !== undefined ? id : 0
+    }).then(res => res.data)
   }
 
   async getSearchResults(id: number, limit?: number, offset?: number): Promise<SearchResultsResponse> {
@@ -525,6 +507,41 @@ export class QBitApi {
       limit,
       offset
     })
+  }
+
+  async deleteSearchPlugin(id: number): Promise<boolean> {
+    return this.execute('/search/delete', { id }).then(
+      () => true,
+      () => false
+    )
+  }
+
+  async getSearchPlugins(): Promise<SearchPlugin[]> {
+    return this.axios.get('/search/plugins').then(res => res.data)
+  }
+
+  async installSearchPlugin(sources: string[]) {
+    return this.execute('/search/installPlugin', { sources: sources.join('|') }).then(
+      () => true,
+      () => false
+    )
+  }
+
+  async uninstallSearchPlugin(names: string[]) {
+    return this.execute('/search/uninstallPlugin', { names: names.join('|') })
+  }
+
+  async enableSearchPlugin(names: string[], enable: boolean): Promise<void> {
+    const params = {
+      names: names.join('|'),
+      enable
+    }
+
+    return this.execute('/search/enablePlugin', params)
+  }
+
+  async updateSearchPlugins(): Promise<void> {
+    return this.execute('/search/updatePlugins')
   }
 
   async shutdownApp(): Promise<boolean> {
