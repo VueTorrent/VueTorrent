@@ -77,15 +77,15 @@ import qbit from '@/services/qbit'
 import { mdiDelete } from '@mdi/js'
 
 export default defineComponent({
-  name: "SearchPluginManager",
+  name: 'SearchPluginManager',
   mixins: [Modal, FullScreenModal],
   data() {
     return {
       headers: [
-        {text: 'Name', value: 'fullName'},
-        {text: 'Version', value: 'version'},
-        {text: 'URL', value: 'url'},
-        {text: 'Actions', value: 'actions'}
+        { text: 'Name', value: 'fullName' },
+        { text: 'Version', value: 'version' },
+        { text: 'URL', value: 'url' },
+        { text: 'Actions', value: 'actions' }
       ],
       enabledPlugins: [],
       loading: false,
@@ -112,17 +112,20 @@ export default defineComponent({
       await this.$store.dispatch('FETCH_SEARCH_PLUGINS')
       this.enabledPlugins = this.searchPlugins.filter((plugin: SearchPlugin) => plugin.enabled)
     },
-    async onTogglePlugin(payload: { item: SearchPlugin, value: boolean }) {
+    async onTogglePlugin(payload: { item: SearchPlugin; value: boolean }) {
       this.loading = true
 
       await qbit.enableSearchPlugin([payload.item.name], payload.value)
 
       this.loading = false
     },
-    async onToggleAllPlugins(payload: { items: SearchPlugin[], value: boolean }) {
+    async onToggleAllPlugins(payload: { items: SearchPlugin[]; value: boolean }) {
       this.loading = true
 
-      await qbit.enableSearchPlugin(payload.items.map(plugin => plugin.name), payload.value)
+      await qbit.enableSearchPlugin(
+        payload.items.map(plugin => plugin.name),
+        payload.value
+      )
 
       this.loading = false
     },
@@ -166,5 +169,5 @@ export default defineComponent({
       }
     }
   }
-});
+})
 </script>

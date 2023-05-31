@@ -22,38 +22,13 @@
       <v-list-item class="searchCriterias">
         <v-row class="my-2">
           <v-col cols="12" md="6">
-            <v-text-field
-                v-model="searchPattern"
-                dense
-                hide-details
-                clearable
-                :rules="[v => !!v || 'Search term is required']"
-                label="Search pattern"
-            />
+            <v-text-field v-model="searchPattern" dense hide-details clearable :rules="[v => !!v || 'Search term is required']" label="Search pattern" />
           </v-col>
           <v-col cols="6" sm="5" md="2">
-            <v-select
-                v-model="searchCategory"
-                height="1"
-                flat
-                dense
-                hide-details
-                outlined
-                :items="categories"
-                label="Search category"
-            />
+            <v-select v-model="searchCategory" height="1" flat dense hide-details outlined :items="categories" label="Search category" />
           </v-col>
           <v-col cols="6" sm="5" md="2">
-            <v-select
-                v-model="searchPlugin"
-                height="1"
-                flat
-                dense
-                hide-details
-                outlined
-                :items="plugins"
-                label="Search plugins"
-            />
+            <v-select v-model="searchPlugin" height="1" flat dense hide-details outlined :items="plugins" label="Search plugins" />
           </v-col>
           <v-col cols="12" sm="2" class="d-flex align-center justify-center">
             <v-btn v-if="queryId === 0" class="mx-auto accent white--text elevation-0 px-4" @click="runNewSearch">
@@ -69,23 +44,11 @@
 
     <v-card flat class="mt-5">
       <v-list-item class="searchResults">
-        <v-data-table
-            style="width: 100%"
-            id="searchResultsTable"
-            :headers="headers"
-            :items="filteredResults"
-            :search="resultFilter"
-        >
+        <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :search="resultFilter">
           <template v-slot:top>
-            <!-- TODO: Add filters on columns -->
             <v-row class="mt-2">
               <v-col cols="12" md="6">
-                <v-text-field
-                    v-model="resultFilter"
-                    dense
-                    hide-details
-                    label="Filter"
-                />
+                <v-text-field v-model="resultFilter" dense hide-details label="Filter" />
               </v-col>
             </v-row>
           </template>
@@ -104,15 +67,15 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
 import { mdiClose, mdiDownload, mdiToyBrick } from '@mdi/js'
-import qbit from "@/services/qbit";
+import qbit from '@/services/qbit'
 import { General } from '@/mixins'
-import {SearchPlugin, SearchResult} from "@/types/qbit/models";
+import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 
 export default defineComponent({
-  name: "SearchEngine",
+  name: 'SearchEngine',
   mixins: [General],
   data() {
     return {
@@ -147,7 +110,7 @@ export default defineComponent({
         { text: 'Anime', value: 'anime' },
         { text: 'Software', value: 'software' },
         { text: 'Pictures', value: 'pictures' },
-        { text: 'Books', value: 'books' },
+        { text: 'Books', value: 'books' }
       ]
       cats.sort((a, b) => a.text.localeCompare(b.text))
 
@@ -202,7 +165,7 @@ export default defineComponent({
     },
     downloadTorrent(item: SearchResult) {
       this.createModal('AddModal', { initialMagnet: item.fileUrl })
-    },
+    }
   }
 })
 </script>

@@ -3,7 +3,7 @@ import { DocumentTitle, Tags, Trackers, Torrents, Graph } from '@/actions'
 import { setLanguage } from '@/plugins/i18n'
 import type { ModalTemplate, StoreState } from '@/types/vuetorrent'
 import Torrent from '@/models/Torrent'
-import type {AppPreferences, SearchPlugin} from '@/types/qbit/models'
+import type { AppPreferences, SearchPlugin } from '@/types/qbit/models'
 import { Status } from '@/models'
 import router from '@/router'
 
