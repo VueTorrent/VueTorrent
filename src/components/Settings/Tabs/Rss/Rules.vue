@@ -7,11 +7,6 @@
             <v-list-item-title v-text="item.name" />
           </v-list-item-content>
           <v-list-item-action class="icon">
-            <v-icon @click="previewMatchingArticles(item.name)">
-              {{ mdiEye }}
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-action class="icon">
             <v-icon @click="editRule(item)">
               {{ mdiPencil }}
             </v-icon>
@@ -71,9 +66,6 @@ export default {
     },
     editRule(item) {
       this.createModal('RuleForm', { initialRule: item })
-    },
-    previewMatchingArticles(ruleName) {
-      this.createModal('MatchingArticles', { ruleName })
     }
   }
 }
