@@ -5,7 +5,7 @@
         <v-card-title class="justify-center">
           <v-toolbar flat dense class="transparent">
             <v-toolbar-title class="mx-auto">
-              <h2>{{ hasInitialRule ? $t('modals.newRule.titleEdit') : $t('modals.newRule.titleCreate') }}</h2>
+              <h2>{{ this.lastSavedName !== '' ? $t('modals.newRule.titleEdit') : $t('modals.newRule.titleCreate') }}</h2>
             </v-toolbar-title>
             <v-btn fab small class="transparent elevation-0" @click="close">
               <v-icon>{{ mdiClose }}</v-icon>
@@ -78,14 +78,11 @@
         </v-card-text>
         <v-divider />
         <v-card-actions class="justify-end">
-          <v-btn v-if="!hasInitialRule" class="accent white--text elevation-0 px-4" @click="setRule">
-            {{ $t('create') }}
+          <v-btn class="accent white--text elevation-0 px-4" @click="setRule">
+            {{ $t('save') }}
           </v-btn>
-          <v-btn v-else class="accent white--text elevation-0 px-4" @click="setRule">
-            {{ $t('edit') }}
-          </v-btn>
-          <v-btn class="error white--text elevation-0 px-4" @click="cancel">
-            {{ $t('cancel') }}
+          <v-btn class="white--text elevation-0 px-4" @click="close">
+            {{ $t('close') }}
           </v-btn>
         </v-card-actions>
       </v-container>
@@ -139,6 +136,7 @@ export default defineComponent({
     ],
     loading: false,
     matchingArticles: [] as FormattedArticle[],
+    lastSavedName: '',
     mdiClose,
     mdiContentSave
   }),
@@ -169,6 +167,7 @@ export default defineComponent({
     this.$store.commit('FETCH_RULES')
     if (this.hasInitialRule) {
       this.rule = { ...this.initialRule }
+      this.lastSavedName = this.initialRule.name
     }
   },
   mounted() {
@@ -181,20 +180,21 @@ export default defineComponent({
   },
   methods: {
     async setRule() {
-      if (this.hasInitialRule && this.initialRule.name !== this.rule.name) {
-        await qbit.renameRule(this.initialRule.name, this.rule.name)
+      if ((this.hasInitialRule || this.lastSavedName !== '') && this.lastSavedName !== this.rule.name) {
+        await qbit.renameRule(this.lastSavedName, this.rule.name)
       }
       await qbit.setRule(this.rule)
+      this.lastSavedName = this.rule.name
       this.$store.commit('FETCH_RULES')
       await this.updateArticles()
     },
     async updateArticles() {
-      if (!this.hasInitialRule) return
+      if (this.lastSavedName === '') return
 
       this.loading = true
 
       const formattedArticles = []
-      const articles = await qbit.getMatchingArticles(this.initialRule.name)
+      const articles = await qbit.getMatchingArticles(this.lastSavedName)
       for (const feedName in articles) {
         const feedArticles = articles[feedName]
         if (formattedArticles.length > 0) formattedArticles.push({ type: 'divider' })
@@ -207,22 +207,15 @@ export default defineComponent({
         }
       }
 
-      console.log(this.matchingArticles)
       this.matchingArticles = formattedArticles
-      console.log(this.matchingArticles)
-
       this.loading = false
-    },
-    cancel() {
-      this.$store.commit('FETCH_RULES')
-      this.close()
     },
     close() {
       this.dialog = false
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
-        this.cancel()
+        this.close()
       } else if (e.key === 'Enter') {
         this.setRule()
       }
