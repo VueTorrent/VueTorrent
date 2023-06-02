@@ -12,7 +12,7 @@ dayjs.extend(relativeTime)
 const durationFormat = 'D[d] H[h] m[m] s[s]'
 
 export default class Torrent {
-  static computedValues = ['globalSpeed', 'globalVolume']
+  static computedValues = ['globalSpeed', 'globalVolume', 'priority']
 
   added_on: string
   amount_left: number
