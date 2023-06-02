@@ -253,7 +253,16 @@ export default {
       }
 
       if (this.sort_options.isCustomSortEnabled) {
-        torrents.sort((a, b) => a[this.sort_options.sort] - b[this.sort_options.sort] || a.added_on - b.added_on)
+        if (this.sort_options.sort === 'priority') {
+          torrents.sort((a, b) => {
+            if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
+            else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
+            else if (a.priority <= 0) return 1
+            else return -1
+          })
+        } else {
+          torrents.sort((a, b) => a[this.sort_options.sort] - b[this.sort_options.sort] || a.added_on - b.added_on)
+        }
         if (this.sort_options.reverse) torrents.reverse()
       }
       return torrents
