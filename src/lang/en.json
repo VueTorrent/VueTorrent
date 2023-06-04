@@ -52,12 +52,13 @@
   "filter": "Filter",
   "close": "Close",
   "useGlobalSettings": "Use Global Settings",
+  "selectAll": "Select All",
+  "selectNone": "Select None",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "Toggle Search Filter",
       "toggleSelect": "Toggle Select Mode",
       "toggleSort": "Sort Torrents",
-      "selectAll": "Select All",
       "selectAllCaption": "Select / Release All (Ctrl + A)"
     },
     "emptyTorrentList": "Nothing to see here!",

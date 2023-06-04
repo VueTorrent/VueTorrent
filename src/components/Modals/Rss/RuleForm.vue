@@ -39,7 +39,7 @@
 
                   <v-divider />
 
-                  <v-row no-gutters class="my-2 flex-gap">
+                  <v-row class="my-2 flex-gap">
                     <v-col>
                       <div class="d-flex flex-column align-center">
                         <p class="subtitle-1 mb-1">{{ $t('modals.newRule.def.addPaused.title') }}</p>
@@ -57,6 +57,16 @@
                   <v-subheader class="pa-0">
                     {{ $t('modals.newRule.def.affectedFeeds') }}
                   </v-subheader>
+
+                  <v-row>
+                    <v-col cols="6" class="d-flex align-center justify-center">
+                      <v-btn color="accent" @click="selectAll">{{ $t('selectAll') }}</v-btn>
+                    </v-col>
+                    <v-col cols="6" class="d-flex align-center justify-center">
+                      <v-btn color="primary" @click="selectNone">{{ $t('selectNone') }}</v-btn>
+                    </v-col>
+                  </v-row>
+
                   <v-checkbox v-for="(item, index) in availableFeeds" :key="index" v-model="rule.affectedFeeds" hide-details :label="item.name" :value="item.url" />
                 </v-container>
               </v-form>
@@ -81,7 +91,7 @@
           <v-btn class="accent white--text elevation-0 px-4" @click="setRule">
             {{ $t('save') }}
           </v-btn>
-          <v-btn class="white--text elevation-0 px-4" @click="close">
+          <v-btn color="primary" class="white--text elevation-0 px-4" @click="close">
             {{ $t('close') }}
           </v-btn>
         </v-card-actions>
@@ -98,7 +108,7 @@ import { Modal } from '@/mixins'
 import { mdiClose, mdiContentSave } from '@mdi/js'
 import i18n from '@/plugins/i18n'
 import { AppPreferences } from '@/enums/qbit'
-import { Category } from '@/types/vuetorrent'
+import {Category, Feed} from '@/types/vuetorrent'
 
 type FormattedArticle = { type: string; value?: string }
 
@@ -209,6 +219,12 @@ export default defineComponent({
 
       this.matchingArticles = formattedArticles
       this.loading = false
+    },
+    selectNone() {
+      this.rule.affectedFeeds = []
+    },
+    selectAll() {
+      this.rule.affectedFeeds = this.availableFeeds.map((feed: Feed) => feed.url)
     },
     close() {
       this.dialog = false
