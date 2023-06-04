@@ -94,7 +94,7 @@
                 </v-icon>
               </v-btn>
             </template>
-            <span>{{ $t('dashboard.tooltips.selectAll') }}</span>
+            <span>{{ $t('selectAll') }}</span>
           </v-tooltip>
           <span class="grey--text">{{ $t('dashboard.tooltips.selectAllCaption') }}</span>
         </v-card>
