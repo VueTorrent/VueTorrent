@@ -52,12 +52,13 @@
   "filter": "過濾器",
   "close": "關閉",
   "useGlobalSettings": "使用全域設定",
+  "selectAll": "選擇全部",
+  "selectNone": "取消選擇全部",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "搜尋過濾器",
       "toggleSelect": "選擇模式",
       "toggleSort": "種子排序",
-      "selectAll": "全選",
       "selectAllCaption": "選擇 / 取消選擇全部 (Ctrl + A)"
     },
     "emptyTorrentList": "這裡沒東西可看！",
