@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.10](https://github.com/WDaan/VueTorrent/compare/v1.5.9...v1.5.10) (2023-06-05)
+
+
+### Bug Fixes
+
+* context-menu not appearing ([#848](https://github.com/WDaan/VueTorrent/issues/848)) ([6810ec7](https://github.com/WDaan/VueTorrent/commit/6810ec7cb4234088004709b4ae3c97c0d5d6a989))
+
+
+### Improvements
+
+* enable manual sort for priority ([#845](https://github.com/WDaan/VueTorrent/issues/845)) ([3bf470b](https://github.com/WDaan/VueTorrent/commit/3bf470b890fae52a51e545cc3dec00796e040d9a))
+* Merge MatchingArticles into RuleForm ([#844](https://github.com/WDaan/VueTorrent/issues/844)) ([2e3efe7](https://github.com/WDaan/VueTorrent/commit/2e3efe7b2a08861b426825db91fa85c64f3eef0e))
+* Rework search engine ([#819](https://github.com/WDaan/VueTorrent/issues/819)) ([834827f](https://github.com/WDaan/VueTorrent/commit/834827fed40902b318613f1aa509c69819a126b8))
+* **rss-rules:** Add Select All / None buttons ([#849](https://github.com/WDaan/VueTorrent/issues/849)) ([e9a0ad7](https://github.com/WDaan/VueTorrent/commit/e9a0ad72ff85a7034c7a8e4e3b2303ffc9541c8b))
+
 ## [1.5.9](https://github.com/WDaan/VueTorrent/compare/v1.5.8...v1.5.9) (2023-05-28)
 
 
