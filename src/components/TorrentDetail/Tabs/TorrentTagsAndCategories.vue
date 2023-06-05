@@ -80,6 +80,7 @@ export default {
     async addTag(tag) {
       if (this.activeTags.includes(this.availableTags.indexOf(tag))) {
         await this.deleteTag(tag)
+        return
       }
 
       await qbit.addTorrentTag([this.hash], [tag])
@@ -90,6 +91,7 @@ export default {
     async setCategory(cat) {
       if (this.torrent.category === cat.name) {
         await this.deleteCategory()
+        return
       }
 
       await qbit.setCategory([this.hash], cat.name)
