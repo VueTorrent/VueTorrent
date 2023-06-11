@@ -52,6 +52,8 @@
   "filter": "文件类型",
   "close": "关闭",
   "useGlobalSettings": "使用全局设置",
+  "selectAll": "全选",
+  "selectNone": "全不选",
   "dashboard": {
     "tooltips": {
       "toggleSearch": "搜索筛选",
@@ -269,7 +271,7 @@
       "downloads": {
         "whenAddTorrent": {
           "subheader": "添加种子时",
-          "donotAutoStart": "不要开始自动下载",
+          "doNotAutoStart": "不要开始自动下载",
           "autoDeleteMode": "随后删除 .torrent 文件"
         },
         "publicSettings": {
@@ -385,8 +387,8 @@
           "alternative": "备用速率限制",
           "settings": "速率限制设置"
         },
-        "upload": "上传 (B/s为单位)",
-        "download": "下载 (B/s为单位)",
+        "upload": "上传 (B/s)",
+        "download": "下载 (B/s)",
         "tip": "设置为0为无限",
         "scheduler": {
           "subheader": "定时使用备用速率限制",
@@ -420,7 +422,7 @@
           "excludeSlowTorrent": "不要在这些限制范围内计算慢速种子",
           "downloadRateLimit": "下载速度限制为 KiB/s",
           "uploadRateLimit": "上传速度限制为 KiB/s",
-          "torrentInactivityTimer": "不活跃种子计时器 (秒为单位)"
+          "torrentInactivityTimer": "不活跃种子计时器 (秒)"
         },
         "seedLimits": {
           "subheader": "做种限制",
