@@ -7,10 +7,10 @@ export default {
   containsTorrent: (state: StoreState) => (hash: string) => state.selected_torrents.includes(hash),
   isDarkMode: (state: StoreState) => () => state.webuiSettings.darkTheme,
   getTheme: (state: StoreState) => () => state.webuiSettings.darkTheme ? 'dark' : 'light',
-  getModalState: (state: StoreState) => (guid: string) => state.modals.filter(m => m.guid === guid)[0],
+  getModalState: (state: StoreState) => (guid: string) => state.modals.find(m => m.guid === guid),
   getSettings: (state: StoreState) => () => state.settings,
   getStatus: (state: StoreState) => () => state.status,
-  getTorrent: (state: StoreState) => (hash: string) => state.torrents.filter(el => el.hash === hash)[0],
+  getTorrent: (state: StoreState) => (hash: string) => state.torrents.find(el => el.hash === hash),
   getWebuiSettings: (state: StoreState) => () => state.webuiSettings,
   getAvailableTags: (state: StoreState) => () => state.tags,
   getCategories: (state: StoreState) => () => state.categories,
@@ -20,11 +20,11 @@ export default {
   getTorrents: (state: StoreState) => () => state.torrents,
   getTrackers: (state: StoreState) => () => state.trackers,
   getAuthenticated: (state: StoreState) => () => state.authenticated,
-  getTorrentCountString: (state: StoreState) => () => {
+  getTorrentCountString: (state: StoreState, getters: any) => () => {
     if (state.selected_torrents.length) {
       let selectedSize = state.selected_torrents
-        .map(hash => state.torrents.filter(el => el.hash === hash)[0])
-        .map(torrent => torrent.size)
+        .map(hash => getters.getTorrent(hash))
+        .map(torrent => torrent.size | 0)
         .reduce((partialSum, newVal) => partialSum + newVal)
 
       return i18n
