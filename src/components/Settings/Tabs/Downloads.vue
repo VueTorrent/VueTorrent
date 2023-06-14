@@ -170,7 +170,7 @@
         </v-toolbar>
       </template>
       <template v-slot:item.saveType="{ item }">
-        {{ monitoredFoldersMonitorTypeOptions.filter(value => value.value === item.saveType)[0].text }}
+        {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.saveType).text }}
       </template>
       <template v-slot:item.actions="{ item }">
         <v-icon small class="mr-2" @click="editItem(item)">{{ mdiPencil }}</v-icon>
