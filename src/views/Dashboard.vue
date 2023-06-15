@@ -450,10 +450,12 @@ export default {
 
       // 'ctrl + F' => Focus search filter field
       if (e.keyCode === 70 && doesCommand(e)) {
-        e.preventDefault()
-
-        this.searchFilterEnabled = true
-        document.getElementById('searchInput').focus()
+        const searchInput = document.getElementById('searchInput')
+        if (document.activeElement !== searchInput) {
+          e.preventDefault()
+          this.searchFilterEnabled = true
+          searchInput.focus()
+        }
       }
 
       // 'Escape' => Remove focus from search field
