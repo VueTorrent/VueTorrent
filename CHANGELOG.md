@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.5.11](https://github.com/WDaan/VueTorrent/compare/v1.5.10...v1.5.11) (2023-06-15)
+
+
+### Bug Fixes
+
+* bugs introduced with search engine ([#853](https://github.com/WDaan/VueTorrent/issues/853)) ([ff301f2](https://github.com/WDaan/VueTorrent/commit/ff301f249ca76d7fb0f26d3a26f78ddeaf43df17))
+* size error when deleting torrents under certain conditions ([#862](https://github.com/WDaan/VueTorrent/issues/862)) ([fe1f962](https://github.com/WDaan/VueTorrent/commit/fe1f962c3308ed398f652ccea60a1e864b20827a))
+
+
+### Improvements
+
+* Allow native find ([#864](https://github.com/WDaan/VueTorrent/issues/864)) ([7221a3d](https://github.com/WDaan/VueTorrent/commit/7221a3db4f7d465bcde5187174e52aa344d4692d))
+* Improve responsive design on AddModal ([#865](https://github.com/WDaan/VueTorrent/issues/865)) ([a92b583](https://github.com/WDaan/VueTorrent/commit/a92b583b8b48a8b3dd1c4b2de37c939a34b7d27f))
+
 ## [1.5.10](https://github.com/WDaan/VueTorrent/compare/v1.5.9...v1.5.10) (2023-06-05)
 
 
