@@ -7,10 +7,46 @@
         <span class="font-weight-light">qBit</span>
         <span>torrent</span>
       </v-toolbar-title>
+
+      <v-slide-x-transition>
+        <v-speed-dial v-if="!drawer && filterCount > 0" v-model="filters_fab" open-on-hover transition="slide-y-transition" direction="bottom" class="ml-5">
+          <template #activator>
+            <v-btn color="primary" rounded small v-model="filters_fab">{{$t('navbar.active_tooltip.btn_label').replace('$0', filterCount)}}</v-btn>
+          </template>
+          <div class="d-flex flex-column align-start" style="width: 100%; row-gap: 8px">
+            <v-tooltip bottom open-delay="400">
+              <template #activator="{ on }">
+                <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{sort_options.filter}}</v-chip>
+              </template>
+              <span>{{ $t('status') }}</span>
+            </v-tooltip>
+            <v-tooltip bottom open-delay="400">
+              <template #activator="{ on }">
+                <v-chip v-if="sort_options.category !== null" small class="category white--text caption">{{sort_options.category === '' ? $t('navbar.filters.uncategorized') : sort_options.category}}</v-chip>
+              </template>
+              <span>{{ $t('category') }}</span>
+            </v-tooltip>
+            <v-tooltip bottom open-delay="400">
+              <template #activator="{ on }">
+                <v-chip v-if="sort_options.tag !== null" small class="tags white--text caption">{{sort_options.tag === '' ? $t('navbar.filters.untagged') : sort_options.tag}}</v-chip>
+              </template>
+              <span>{{ $t('tags') }}</span>
+            </v-tooltip>
+            <v-tooltip bottom open-delay="400">
+              <template #activator="{ on }">
+                <v-chip v-if="sort_options.tracker !== null" small class="tracker white--text caption">{{sort_options.tracker === '' ? $t('navbar.filters.not_working') : sort_options.tracker}}</v-chip>
+              </template>
+              <span>{{ $t('tracker') }}</span>
+            </v-tooltip>
+          </div>
+        </v-speed-dial>
+      </v-slide-x-transition>
+
       <v-spacer />
 
       <TopMenu />
     </v-app-bar>
+
     <!--navigation drawer itself -->
     <v-navigation-drawer v-model="drawer" app class="primary drawer" style="position: fixed" width="256" height="100%" disable-resize-watcher :right="webuiSettings.rightDrawer">
       <v-card v-if="status" style="display: flex; flex-direction: column" class="pt-3 primary" flat>
@@ -38,8 +74,8 @@
   </nav>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { mapGetters, mapState } from 'vuex'
 import { BottomActions, TopMenu, SpeedGraph, FreeSpace, TransferStats, CurrentSpeed, FilterSelect } from './index'
 
 export default {
@@ -55,11 +91,13 @@ export default {
   },
   data() {
     return {
-      drawer: this.$vuetify.breakpoint.mdAndUp
+      drawer: this.$vuetify.breakpoint.mdAndUp,
+      filters_fab: false
     }
   },
   computed: {
     ...mapGetters(['getWebuiSettings', 'getStatus', 'getTorrentCountString']),
+    ...mapState(['sort_options']),
     webuiSettings() {
       return this.getWebuiSettings()
     },
@@ -68,6 +106,9 @@ export default {
     },
     torrentCountString() {
       return this.getTorrentCountString()
+    },
+    filterCount() {
+      return (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
     }
   },
   created() {

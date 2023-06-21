@@ -24,9 +24,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style>
-.tags {
-  background-color: #048b9a !important;
-}
-</style>

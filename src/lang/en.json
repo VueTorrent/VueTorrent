@@ -135,9 +135,12 @@
       "stalled_downloading": "Stalled Downloading",
       "checking": "Checking",
       "moving": "Moving",
-      "uncategorized": "Uncategorized",
-      "untagged": "Untagged",
-      "not_working": "Not Working"
+      "uncategorized": "(Uncategorized)",
+      "untagged": "(Untagged)",
+      "not_working": "(Not Working)"
+    },
+    "active_tooltip": {
+      "btn_label": "Filters active: $0"
     },
     "action": {
       "altSpeed": "Alt Speeds",

@@ -169,7 +169,4 @@ export default {
 .spangap {
   gap: 4px;
 }
-.tags {
-  background-color: #048b9a !important;
-}
 </style>
