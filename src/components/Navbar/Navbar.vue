@@ -16,7 +16,7 @@
           <div class="d-flex flex-column align-start" style="width: 100%; row-gap: 8px">
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{sort_options.filter}}</v-chip>
+                <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{$t(`navbar.filters.${sort_options.filter}`)}}</v-chip>
               </template>
               <span>{{ $t('status') }}</span>
             </v-tooltip>
