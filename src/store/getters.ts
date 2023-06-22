@@ -23,8 +23,9 @@ export default {
   getTorrentCountString: (state: StoreState, getters: any) => () => {
     if (state.selected_torrents.length) {
       let selectedSize = state.selected_torrents
-        .map(hash => getters.getTorrent(hash))
-        .map(torrent => torrent.size | 0)
+        .map(getters.getTorrent)
+        .filter(torrent => torrent !== undefined)
+        .map(torrent => torrent.size)
         .reduce((partialSum, newVal) => partialSum + newVal)
 
       return i18n
