@@ -9,7 +9,7 @@
       </v-toolbar-title>
 
       <v-slide-x-transition>
-        <v-speed-dial v-if="!drawer && filterCount > 0" v-model="filters_fab" open-on-hover transition="slide-y-transition" direction="bottom" class="ml-5">
+        <v-speed-dial v-if="filterCount > 0" v-model="filters_fab" open-on-hover transition="slide-y-transition" direction="bottom" class="ml-5">
           <template #activator>
             <v-btn color="primary" rounded small v-model="filters_fab">{{$t('navbar.active_tooltip.btn_label').replace('$0', filterCount)}}</v-btn>
           </template>
