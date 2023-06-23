@@ -19,7 +19,7 @@
     "quick-score": "^0.2.0",
     "typeface-roboto": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
-    "uuid": "^8.3.2",
+    "uuid": "^9.0.0",
     "vue": "~2.7.14",
     "vue-apexcharts": "^1.6.2",
     "vue-i18n": "^8",
