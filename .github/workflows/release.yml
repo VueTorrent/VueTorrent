@@ -76,7 +76,7 @@ jobs:
       - name: Build VueTorrent
         run: npm run build
       - name: Push to latest-release
-        uses: JamesIves/github-pages-deploy-action@3.7.1
+        uses: JamesIves/github-pages-deploy-action@v4.4.2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: latest-release
