@@ -20,7 +20,7 @@
     "typeface-roboto": "^1.1.13",
     "typeface-roboto-mono": "^1.1.13",
     "uuid": "^8.3.2",
-    "vue": "^2.7.14",
+    "vue": "^3.3.4",
     "vue-apexcharts": "^1.6.2",
     "vue-i18n": "^8",
     "vue-property-decorator": "^9.1.2",
