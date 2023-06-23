@@ -52,7 +52,7 @@
     "unplugin-vue-components": "^0.22",
     "vite": "^3",
     "vite-plugin-eslint": "^1",
-    "vite-plugin-pwa": "^0.13",
+    "vite-plugin-pwa": "^0.16.4",
     "vitest": "^0.25.8",
     "vue-template-compiler": "^2",
     "vue-typed-mixins": "^0.2.0"
