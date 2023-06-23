@@ -326,7 +326,6 @@ export default defineComponent({
   name: 'Info',
   mixins: [FullScreenModal],
   props: {
-    hash: String,
     torrent: Torrent,
     isActive: Boolean
   },
@@ -361,9 +360,14 @@ export default defineComponent({
       return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
     }
   },
+  watch: {
+    torrent() {
+      this.renderTorrentPieceStates()
+    }
+  },
   methods: {
     async getTorrentProperties() {
-      const props = await qbit.getTorrentProperties(this.hash as string)
+      const props = await qbit.getTorrentProperties(this.torrent?.hash as string)
       this.comment = props.comment
       this.createdBy = props.created_by
       // @ts-expect-error: TS2339: Property 'dateFormat' does not exist on type 'never'.
@@ -380,8 +384,8 @@ export default defineComponent({
       const canvas: HTMLCanvasElement | null = document.querySelector('#pieceStates canvas')
       if (canvas === null) return
 
-      const files = await qbit.getTorrentFiles(this.hash as string)
-      const pieces = await qbit.getTorrentPieceStates(this.hash as string)
+      const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
+      const pieces = await qbit.getTorrentPieceStates(this.torrent?.hash as string)
       if (!pieces) return
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
