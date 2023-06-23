@@ -11,30 +11,38 @@
       <v-slide-x-transition>
         <v-speed-dial v-if="filterCount > 0" v-model="filters_fab" open-on-hover transition="slide-y-transition" direction="bottom" class="ml-5">
           <template #activator>
-            <v-btn color="primary" rounded small v-model="filters_fab">{{$t('navbar.active_tooltip.btn_label').replace('$0', filterCount)}}</v-btn>
+            <v-btn color="primary" rounded small v-model="filters_fab">{{ $t('navbar.active_tooltip.btn_label').replace('$0', filterCount) }}</v-btn>
           </template>
           <div class="d-flex flex-column align-start" style="width: 100%; row-gap: 8px">
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{$t(`navbar.filters.${sort_options.filter}`)}}</v-chip>
+                <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{
+                  $t(`navbar.filters.${sort_options.filter}`)
+                }}</v-chip>
               </template>
               <span>{{ $t('status') }}</span>
             </v-tooltip>
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="sort_options.category !== null" small class="category white--text caption">{{sort_options.category === '' ? $t('navbar.filters.uncategorized') : sort_options.category}}</v-chip>
+                <v-chip v-if="sort_options.category !== null" small class="category white--text caption">{{
+                  sort_options.category === '' ? $t('navbar.filters.uncategorized') : sort_options.category
+                }}</v-chip>
               </template>
               <span>{{ $t('category') }}</span>
             </v-tooltip>
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="sort_options.tag !== null" small class="tags white--text caption">{{sort_options.tag === '' ? $t('navbar.filters.untagged') : sort_options.tag}}</v-chip>
+                <v-chip v-if="sort_options.tag !== null" small class="tags white--text caption">{{
+                  sort_options.tag === '' ? $t('navbar.filters.untagged') : sort_options.tag
+                }}</v-chip>
               </template>
               <span>{{ $t('tags') }}</span>
             </v-tooltip>
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="sort_options.tracker !== null" small class="tracker white--text caption">{{sort_options.tracker === '' ? $t('navbar.filters.not_working') : sort_options.tracker}}</v-chip>
+                <v-chip v-if="sort_options.tracker !== null" small class="tracker white--text caption">{{
+                  sort_options.tracker === '' ? $t('navbar.filters.not_working') : sort_options.tracker
+                }}</v-chip>
               </template>
               <span>{{ $t('tracker') }}</span>
             </v-tooltip>

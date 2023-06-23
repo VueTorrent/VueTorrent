@@ -108,7 +108,7 @@ import { Modal } from '@/mixins'
 import { mdiClose, mdiContentSave } from '@mdi/js'
 import i18n from '@/plugins/i18n'
 import { AppPreferences } from '@/enums/qbit'
-import {Category, Feed} from '@/types/vuetorrent'
+import { Category, Feed } from '@/types/vuetorrent'
 
 type FormattedArticle = { type: string; value?: string }
 

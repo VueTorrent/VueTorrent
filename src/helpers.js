@@ -161,7 +161,8 @@ export function getVersion() {
     return 'import.meta.env.VITE_PACKAGE_VERSION'
   }
 
-  return import.meta.env['VITE_PACKAGE_VERSION']
+  // return import.meta.env['VITE_PACKAGE_VERSION']
+  return 'undefined'
 }
 
 export function getBaseURL() {
@@ -169,7 +170,8 @@ export function getBaseURL() {
     return 'import.meta.env.BASE_URL'
   }
 
-  return import.meta.env['BASE_URL']
+  // return import.meta.env['BASE_URL']
+  return 'undefined'
 }
 
 export function getDomainBody(string) {
