@@ -46,7 +46,7 @@
     "eslint-config-prettier": "^8",
     "eslint-plugin-prettier": "^4",
     "eslint-plugin-vue": "^9",
-    "jsdom": "^20.0.2",
+    "jsdom": "^22.1.0",
     "prettier": "^2",
     "sass": "~1.32.12",
     "unplugin-vue-components": "^0.22",
