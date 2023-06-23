@@ -50,7 +50,7 @@
     "prettier": "^2",
     "sass": "~1.32.12",
     "unplugin-vue-components": "^0.22",
-    "vite": "^3",
+    "vite": "^4",
     "vite-plugin-eslint": "^1",
     "vite-plugin-pwa": "^0.16.4",
     "vitest": "^0.32.2",
