@@ -82,7 +82,9 @@ import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchW
 export default {
   name: 'TopActions',
   mixins: [General],
-  props: ['mobile'],
+  props: {
+    mobile: () => false
+  },
   data() {
     return {
       fab: false,

@@ -19,7 +19,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <TopActions :mobile="true" />
+      <TopActions mobile />
     </v-speed-dial>
   </div>
 </template>

@@ -99,14 +99,14 @@ export default {
     options() {
       return [
         { value: null, name: this.$t('all') },
-        { value: 'downloading', name: this.$t('downloading') },
-        { value: 'seeding', name: this.$t('seeding') },
-        { value: 'completed', name: this.$t('completed') },
-        { value: 'resumed', name: this.$t('resumed') },
-        { value: 'paused', name: this.$t('paused') },
-        { value: 'active', name: this.$t('active') },
-        { value: 'inactive', name: this.$t('inactive') },
-        { value: 'stalled', name: this.$t('stalled') },
+        { value: 'downloading', name: this.$t('navbar.filters.downloading') },
+        { value: 'seeding', name: this.$t('navbar.filters.seeding') },
+        { value: 'completed', name: this.$t('navbar.filters.completed') },
+        { value: 'resumed', name: this.$t('navbar.filters.resumed') },
+        { value: 'paused', name: this.$t('navbar.filters.paused') },
+        { value: 'active', name: this.$t('navbar.filters.active') },
+        { value: 'inactive', name: this.$t('navbar.filters.inactive') },
+        { value: 'stalled', name: this.$t('navbar.filters.stalled') },
         {
           value: 'stalled_uploading',
           name: this.$t('navbar.filters.stalled_uploading')
@@ -117,7 +117,7 @@ export default {
         },
         { value: 'checking', name: this.$t('navbar.filters.checking') },
         { value: 'moving', name: this.$t('navbar.filters.moving') },
-        { value: 'errored', name: this.$t('errored') }
+        { value: 'errored', name: this.$t('navbar.filters.errored') }
       ]
     },
     availableCategories() {

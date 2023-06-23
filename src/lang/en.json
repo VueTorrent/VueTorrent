@@ -16,15 +16,6 @@
   "unknown": "Unknown",
   "status": "Status",
   "all": "All",
-  "downloading": "Downloading",
-  "seeding": "Seeding",
-  "completed": "Completed",
-  "resumed": "Resumed",
-  "paused": "Paused",
-  "active": "Active",
-  "inactive": "Inactive",
-  "stalled": "Stalled",
-  "errored": "Errored",
   "login": "Log in",
   "logout": "Log out",
   "shutdownApp": "Shutdown Application",
@@ -131,13 +122,25 @@
       "tooltip": "Since the last time qBittorrent was restarted"
     },
     "filters": {
+      "downloading": "Downloading",
+      "seeding": "Seeding",
+      "completed": "Completed",
+      "resumed": "Resumed",
+      "paused": "Paused",
+      "active": "Active",
+      "inactive": "Inactive",
+      "stalled": "Stalled",
+      "errored": "Errored",
       "stalled_uploading": "Stalled Uploading",
       "stalled_downloading": "Stalled Downloading",
       "checking": "Checking",
       "moving": "Moving",
-      "uncategorized": "Uncategorized",
-      "untagged": "Untagged",
-      "not_working": "Not Working"
+      "uncategorized": "(Uncategorized)",
+      "untagged": "(Untagged)",
+      "not_working": "(Not Working)"
+    },
+    "active_tooltip": {
+      "btn_label": "Filters active: $0"
     },
     "action": {
       "altSpeed": "Alt Speeds",
