@@ -57,7 +57,7 @@ export default {
         const nodeName = event.target.nodeName.toLowerCase()
         const nodeType = event.target.getAttribute('type')
 
-        if (nodeName === 'textarea') return
+        if (['textarea', 'a'].includes(nodeName)) return
         if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
 
         event.preventDefault()
