@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+ width="512" height="512" viewBox="0 0 512 512"
+ preserveAspectRatio="xMidYMid meet">
+<metadata>
+Created by potrace 1.11, written by Peter Selinger 2001-2013, rewritten by Larsluph 2023
+</metadata>
+<style>
+.primary {
+  fill: #3FB27F;
+}
+.secondary {
+  fill: #33475B;
+}
+</style>
+<rect width="100%" height="100%" fill="white" rx="50"/>
+<!-- V left -->
+<g class="primary" stroke="none"><path d="M 70 85 L 70 430 L 150 430 L 150 85 Z"/></g>
+<!-- V right -->
+<g class="secondary" stroke="none"><path d="M 150 430 L 430 85 L 350 85 L 150 325 Z"/></g>
+<!-- top -->
+<g class="secondary" stroke="none"><path d="M 366 245 L 442 245 L 378 325 L 302 325 Z"/></g>
+<!-- bottom -->
+<g class="primary" stroke="none"><path d="M 274 360 L 434 360 L 374 430 L 214 430 Z"/></g>
+</svg>
