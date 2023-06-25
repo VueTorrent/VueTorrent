@@ -62,6 +62,16 @@
     </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
+        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.logs')" v-on="on" @click="goToLogs">
+          <v-icon color="grey">
+            {{ mdiFileDocumentMultiple }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span>{{ $t('navbar.topActions.logs') }}</span>
+    </v-tooltip>
+    <v-tooltip bottom open-delay="400">
+      <template #activator="{ on }">
         <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.openSettings')" v-on="on" @click="goToSettings">
           <v-icon color="grey">
             {{ mdiCog }}
@@ -77,7 +87,7 @@
 import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause, mdiRss, mdiPower } from '@mdi/js'
+import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause, mdiRss, mdiFileDocumentMultiple, mdiPower } from '@mdi/js'
 
 export default {
   name: 'TopActions',
@@ -98,7 +108,8 @@ export default {
       mdiPower,
       mdiRss,
       mdiSearchWeb,
-      mdiSort
+      mdiSort,
+      mdiFileDocumentMultiple
     }
   },
   computed: {
@@ -124,6 +135,9 @@ export default {
     },
     goToRss() {
       if (this.$route.name !== 'rss') this.$router.push({ name: 'rss' })
+    },
+    goToLogs() {
+      if (this.$route.name !== 'logs') this.$router.push({ name: 'logs' })
     },
     goToSettings() {
       if (this.$route.name !== 'settings') this.$router.push({ name: 'settings' })

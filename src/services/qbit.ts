@@ -13,7 +13,8 @@ import type {
   TorrentProperties,
   Tracker,
   Torrent,
-  NetworkInterface
+  NetworkInterface,
+  Log
 } from '@/types/qbit/models'
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
@@ -561,6 +562,10 @@ export class QBitApi {
     }
 
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
+  }
+
+  async getLogs(): Promise<Log[]> {
+    return this.axios.get('/log/main').then(r => r.data)
   }
 }
 
