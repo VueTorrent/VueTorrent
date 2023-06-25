@@ -8,7 +8,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 const version = process.env.NODE_ENV === 'production' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const theEnv = loadEnv(mode, process.cwd())
   const qBittorrentPort = theEnv.VITE_QBITTORRENT_PORT ?? 8080
   const proxyTarget = theEnv.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
@@ -46,14 +46,8 @@ export default defineConfig(({ command, mode }) => {
       VitePWA({
         includeAssets: [
           'favicon.ico',
-          'robots.txt',
-          './icons/android-chrome-192x192.png',
-          './icons/android-chrome-512x512.png',
-          './icons/android-chrome-maskable-192x192.png',
-          './icons/android-chrome-maskable-512x512.png',
-          './icons/apple-touch-icon.png',
-          './icons/safari-pinned-tab.svg',
-          './icons/msapplication-icon-144x144.png'
+          'icon.svg',
+          'robots.txt'
         ],
         manifest: {
           name: 'VueTorrent',
@@ -62,44 +56,8 @@ export default defineConfig(({ command, mode }) => {
           start_url: '.',
           background_color: '#000',
           icons: [
-            {
-              src: './icons/android-chrome-192x192.png',
-              sizes: '192x192',
-              type: 'image/png'
-            },
-            {
-              src: './icons/android-chrome-512x512.png',
-              sizes: '512x512',
-              type: 'image/png'
-            },
-            {
-              src: './icons/android-chrome-maskable-192x192.png',
-              sizes: '192x192',
-              type: 'image/png',
-              purpose: 'maskable'
-            },
-            {
-              src: './icons/android-chrome-maskable-512x512.png',
-              sizes: '512x512',
-              type: 'image/png',
-              purpose: 'maskable'
-            },
-
-            {
-              src: './icons/apple-touch-icon.png',
-              sizes: '180x180',
-              type: 'image/png'
-            },
-            {
-              src: './icons/safari-pinned-tab.svg',
-              sizes: '683x683',
-              type: 'image/svg+xml'
-            },
-            {
-              src: './icons/msapplication-icon-144x144.png',
-              sizes: '144x144',
-              type: 'image/png'
-            }
+            { "src": "./icon-192.png", "type": "image/png", "sizes": "192x192" },
+            { "src": "./icon-512.png", "type": "image/png", "sizes": "512x512" }
           ]
         },
         // Other options
