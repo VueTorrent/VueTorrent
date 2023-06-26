@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="phoneLayout">
+  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="phoneLayout" @keydown.esc.prevent="close">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -98,14 +98,9 @@ export default defineComponent({
     ...mapState(['searchPlugins'])
   },
   mounted() {
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-
     this.loading = true
     this.updatePluginList()
     this.loading = false
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     async updatePluginList() {
@@ -162,11 +157,6 @@ export default defineComponent({
     },
     closeInstallDialog() {
       this.installDialog = false
-    },
-    handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        this.close()
-      }
     }
   }
 })

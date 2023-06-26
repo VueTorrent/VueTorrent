@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="hasInitialFeed ? edit : create" @keydown.esc.prevent="cancel">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -60,12 +60,6 @@ export default defineComponent({
       this.feed = { ...this.initialFeed }
     }
   },
-  mounted() {
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
-  },
   methods: {
     async create() {
       await qbit.createFeed(this.feed)
@@ -79,14 +73,6 @@ export default defineComponent({
       await qbit.editFeed(this.initialFeed.name, this.feed.name)
       this.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
-    },
-    handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        this.cancel()
-      } else if (e.key === 'Enter') {
-        if (this.hasInitialFeed) this.edit()
-        else this.create()
-      }
     }
   }
 })
