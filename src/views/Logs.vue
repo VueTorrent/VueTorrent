@@ -15,31 +15,74 @@
       </v-col>
     </v-row>
 
-    <v-list-item v-for="log in logs" :key="log.id" :class="getLogTypeName(log)">
-      <v-list-item-content>
-        <v-list-item-title>
-          {{ formatLog(log) }}
-        </v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
+    <v-row class="ma-0 pa-0">
+      <v-data-table
+        id="logsTable"
+        :headers="headers"
+        :footer-props="{itemsPerPageOptions: [50, 100, 250, 500, 1000, -1]}"
+        :items="filteredLogs"
+        :items-per-page="50"
+        item-key="id"
+        multi-sort
+        :sort-by="['id']"
+        :sort-desc="[true]"
+        :item-class="getLogTypeClassName">
+        <template #top>
+          <div class="mx-4 mb-5">
+            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('modals.logs.filters.type')" multiple chips>
+              <template v-slot:prepend-item>
+                <v-list-item ripple @mousedown.prevent @click="toggleSelectAll">
+                  <v-list-item-action>
+                    <v-icon>{{ selectAllIcon }}</v-icon>
+                  </v-list-item-action>
+                  <v-list-item-content>
+                    <v-list-item-title>{{ $t('selectAll') }}</v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </template>
+            </v-select>
+          </div>
+          <v-divider />
+        </template>
+        <template #[`item.type`]="{ item }">
+          {{ getLogTypeName(item) }}
+        </template>
+        <template #[`item.timestamp`]="{ item }">
+          {{ formatLogTimestamp(item) }}
+        </template>
+      </v-data-table>
+    </v-row>
   </div>
 </template>
 
 <script lang="ts">
-import { General } from '@/mixins'
-import { defineComponent } from 'vue'
-import { mdiClose } from '@mdi/js'
+import {General} from '@/mixins'
+import {defineComponent} from 'vue'
+import {mdiClose, mdiCloseBox, mdiMinusBox, mdiCheckboxBlankOutline} from '@mdi/js'
 import qbit from '@/services/qbit'
-import { Log } from '@/types/qbit/models'
-import { LogType } from '@/enums/qbit'
+import {Log} from '@/types/qbit/models'
+import {LogType} from '@/enums/qbit'
 import dayjs from "dayjs";
-import { mapState } from "vuex";
+import {mapState} from "vuex";
 
 export default defineComponent({
   name: 'Logs',
   mixins: [General],
   data() {
     return {
+      headers: [
+        { text: this.$t('modals.logs.table.id'), value: 'id', sortable: true },
+        { text: this.$t('modals.logs.table.type'), value: 'type', sortable: true },
+        { text: this.$t('modals.logs.table.message'), value: 'message', sortable: true },
+        { text: this.$t('modals.logs.table.timestamp'), value: 'timestamp', sortable: true },
+      ],
+      logTypeOptions: [
+        { text: LogType[LogType.NORMAL], value: LogType.NORMAL },
+        { text: LogType[LogType.INFO], value: LogType.INFO },
+        { text: LogType[LogType.WARNING], value: LogType.WARNING },
+        { text: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
+      ],
+      logTypeFilter: [1, 2, 4, 8] as LogType[],
       timer: null as NodeJS.Timer | null,
       logs: [] as Log[],
       mdiClose
@@ -49,6 +92,18 @@ export default defineComponent({
     ...mapState(['webuiSettings']),
     lastFetchedId() {
       return this.logs.length > 0 ? this.logs[this.logs.length-1].id : -1
+    },
+    filteredLogs() {
+      return this.logs.filter(log => this.logTypeFilter.includes(log.type))
+    },
+    selectAllIcon() {
+      if (this.logTypeFilter.length === 0) {
+        return mdiCheckboxBlankOutline
+      } else if (this.logTypeFilter.length === this.logTypeOptions.length) {
+        return mdiCloseBox
+      } else {
+        return mdiMinusBox
+      }
     }
   },
   mounted() {
@@ -65,12 +120,22 @@ export default defineComponent({
       this.logs.push(...await qbit.getLogs(this.lastFetchedId))
       await this.$nextTick()
     },
-    getLogTypeName(log: Log) {
+    getLogTypeClassName(log: Log) {
       return `logtype-${LogType[log.type].toLowerCase()}`
     },
-    formatLog(log: Log) {
-      const formattedDate = dayjs(log.timestamp * 1000).format(this.webuiSettings.dateFormat)
-      return `[${formattedDate}] ${log.message}`
+    getLogTypeName(log: Log) {
+      return LogType[log.type]
+    },
+    formatLogTimestamp(log: Log) {
+      return dayjs(log.timestamp * 1000).format(this.webuiSettings.dateFormat)
+    },
+    async toggleSelectAll() {
+      if (this.logTypeFilter.length === this.logTypeOptions.length) {
+        this.logTypeFilter = []
+      } else {
+        this.logTypeFilter = this.logTypeOptions.map(option => option.value)
+      }
+      await this.$nextTick()
     },
     close() {
       this.$router.back()
@@ -84,7 +149,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .logtype-normal {
   color: white !important;
 }

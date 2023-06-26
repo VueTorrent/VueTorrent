@@ -150,9 +150,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.v-data-table {
-  width: 100%;
-}
 .rss-actions {
   display: flex;
   flex-direction: row;

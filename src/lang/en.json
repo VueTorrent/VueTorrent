@@ -222,7 +222,16 @@
       }
     },
     "logs": {
-      "title": "qBittorrent Logs"
+      "title": "qBittorrent Logs",
+      "table":  {
+        "id": "Log ID",
+        "type": "Log Level",
+        "message": "Message",
+        "timestamp": "Log Date"
+      },
+      "filters": {
+        "type": "Log Level"
+      }
     },
     "settings": {
       "tabName": {
