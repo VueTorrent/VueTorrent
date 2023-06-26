@@ -22,7 +22,15 @@
       <v-list-item class="searchCriterias">
         <v-row class="my-2">
           <v-col cols="12" md="6">
-            <v-text-field v-model="searchPattern" dense hide-details clearable :rules="[v => !!v || 'Search term is required']" label="Search pattern" />
+            <v-text-field
+              v-model="searchPattern"
+              dense
+              hide-details
+              clearable
+              :rules="[v => !!v || 'Search term is required']"
+              label="Search pattern"
+              @keydown.enter.prevent="runNewSearch"
+            />
           </v-col>
           <v-col cols="6" sm="5" md="2">
             <v-select v-model="searchCategory" height="1" flat dense hide-details outlined :items="categories" label="Search category" />
@@ -44,7 +52,7 @@
 
     <v-card flat class="mt-5">
       <v-list-item class="searchResults">
-        <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :search="resultFilter">
+        <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :search="resultFilter" :custom-filter="customFilter">
           <template v-slot:top>
             <v-row class="mt-2">
               <v-col cols="12" md="6">
@@ -165,6 +173,11 @@ export default defineComponent({
     },
     downloadTorrent(item: SearchResult) {
       this.createModal('AddModal', { initialMagnet: item.fileUrl })
+    },
+    customFilter(value, search, item) {
+      const searchArr = search.trim().toLowerCase().split(' ')
+
+      return value != null && search != null && typeof value === 'string' && searchArr.every(i => value.toString().toLowerCase().indexOf(i) !== -1)
     }
   }
 })
