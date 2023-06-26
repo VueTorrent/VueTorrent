@@ -15,10 +15,10 @@
       </v-col>
     </v-row>
 
-    <v-list-item v-for="log in logs" :key="log.id">
+    <v-list-item v-for="log in logs" :key="log.id" :class="getLogTypeName(log)">
       <v-list-item-content>
-        <v-list-item-title :class="log.type.toString()">
-          {{ log.message }}
+        <v-list-item-title>
+          {{ formatLog(log) }}
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
@@ -31,6 +31,9 @@ import { defineComponent } from 'vue'
 import { mdiClose } from '@mdi/js'
 import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
+import { LogType } from '@/enums/qbit'
+import dayjs from "dayjs";
+import { mapState } from "vuex";
 
 export default defineComponent({
   name: 'Logs',
@@ -42,9 +45,16 @@ export default defineComponent({
       mdiClose
     }
   },
+  computed: {
+    ...mapState(['webuiSettings']),
+    lastFetchedId() {
+      return this.logs.length > 0 ? this.logs[this.logs.length-1].id : -1
+    }
+  },
   mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
     this.timer = setInterval(this.updateLogs, 15000)
+    this.updateLogs()
   },
   beforeDestroy() {
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
@@ -52,8 +62,15 @@ export default defineComponent({
   },
   methods: {
     async updateLogs() {
-      this.logs = await qbit.getLogs()
+      this.logs.push(...await qbit.getLogs(this.lastFetchedId))
       await this.$nextTick()
+    },
+    getLogTypeName(log: Log) {
+      return `logtype-${LogType[log.type].toLowerCase()}`
+    },
+    formatLog(log: Log) {
+      const formattedDate = dayjs(log.timestamp * 1000).format(this.webuiSettings.dateFormat)
+      return `[${formattedDate}] ${log.message}`
     },
     close() {
       this.$router.back()
@@ -66,3 +83,18 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped lang="scss">
+.logtype-normal {
+  color: white !important;
+}
+.logtype-info {
+  color: grey !important;
+}
+.logtype-warning {
+  color: darkgoldenrod !important;
+}
+.logtype-critical {
+  color: darkred !important;
+}
+</style>

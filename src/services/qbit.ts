@@ -564,8 +564,11 @@ export class QBitApi {
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
   }
 
-  async getLogs(): Promise<Log[]> {
-    return this.axios.get('/log/main').then(r => r.data)
+  async getLogs(afterId?: number): Promise<Log[]> {
+    return this.axios.get('/log/main', {params: {
+        last_known_id: afterId
+      }})
+      .then(r => r.data)
   }
 }
 
