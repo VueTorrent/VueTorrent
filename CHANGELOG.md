@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.12](https://github.com/WDaan/VueTorrent/compare/v1.5.11...v1.5.12) (2023-06-26)
+
+
+### Bug Fixes
+
+* favicons ([#898](https://github.com/WDaan/VueTorrent/issues/898)) ([942b1a9](https://github.com/WDaan/VueTorrent/commit/942b1a9f65798dab602ce40f945c81ee53db8ce2))
+* size error when deleting torrents under certain conditions ([#870](https://github.com/WDaan/VueTorrent/issues/870)) ([09828cb](https://github.com/WDaan/VueTorrent/commit/09828cb9ab33c12c4d3176695a0a6ddedae35e4b))
+
+
+### Improvements
+
+* Add active filter ([#868](https://github.com/WDaan/VueTorrent/issues/868)) ([e007289](https://github.com/WDaan/VueTorrent/commit/e007289b4817dbbc2ea65961ab675a17a315e38d))
+* Add hook to repaint piece state canvas on update ([#869](https://github.com/WDaan/VueTorrent/issues/869)) ([87038f4](https://github.com/WDaan/VueTorrent/commit/87038f48b9a4d8ace9f5234f9e36f62892c1f940))
+* Add right click exception on link elements ([#899](https://github.com/WDaan/VueTorrent/issues/899)) ([b8324d9](https://github.com/WDaan/VueTorrent/commit/b8324d96d8aae2d068fa775cddc4599a2aaa115a))
+
 ## [1.5.11](https://github.com/WDaan/VueTorrent/compare/v1.5.10...v1.5.11) (2023-06-15)
 
 ### Bug Fixes
