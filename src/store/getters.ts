@@ -26,7 +26,7 @@ export default {
         .map(getters.getTorrent)
         .filter(torrent => torrent !== undefined)
         .map(torrent => torrent.size)
-        .reduce((partialSum, newVal) => partialSum + newVal)
+        .reduce((partialSum, newVal) => partialSum + newVal, 0)
 
       return i18n
         .tc('dashboard.selectedTorrentsCount', state.filteredTorrentsCount)
