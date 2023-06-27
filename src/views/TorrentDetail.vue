@@ -1,5 +1,5 @@
 <template>
-  <div class="px-1 px-sm-5 background noselect" @keydown.esc.prevent="close">
+  <div class="px-1 px-sm-5 background noselect">
     <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
@@ -83,13 +83,20 @@ export default {
   },
   mounted() {
     this.$store.dispatch('INIT_INTERVALS')
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     close() {
       this.$router.back()
+    },
+    handleKeyboardShortcut(e) {
+      if (e.key === 'Escape') {
+        this.close()
+      }
     }
   }
 }
