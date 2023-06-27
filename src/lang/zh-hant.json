@@ -116,7 +116,8 @@
       "removeSelected": "移除已選中種子",
       "openSettings": "打開設定",
       "searchNew": "搜尋新種子",
-      "rssArticles": "查看 RSS 訂閱文章"
+      "rssArticles": "查看 RSS 訂閱文章",
+      "logs": "查看 qBittorrent 日誌"
     },
     "sessionStats": {
       "tooltip": "自 qBittorrent 上次重新啟動以來"
@@ -218,6 +219,18 @@
         "title": "標題",
         "torrentURL": "種子下載連結",
         "actions": ""
+      }
+    },
+    "logs": {
+      "title": "qBittorrent 日誌",
+      "table":  {
+        "id": "日誌 ID",
+        "type": "日誌等級",
+        "message": "訊息",
+        "timestamp": "日誌日期"
+      },
+      "filters": {
+        "type": "日誌等級"
       }
     },
     "settings": {
