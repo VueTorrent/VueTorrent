@@ -7,6 +7,7 @@
     :fullscreen="phoneLayout"
     persistent
     @keydown.enter.prevent="$refs.addTorrent.click"
+    @keydown.esc.prevent="close"
   >
     <div
       class="noselect"
@@ -241,10 +242,6 @@ export default {
   },
   mounted() {
     this.dTransition = 'scale-transition'
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     async setSettings() {
@@ -324,11 +321,6 @@ export default {
     },
     close() {
       this.dialog = false
-    },
-    handleKeyboardShortcut(e) {
-      if (e.key === 'Escape') {
-        this.close()
-      }
     }
   }
 }

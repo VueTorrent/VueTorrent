@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="phoneLayout">
+  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="phoneLayout" @keydown.enter.prevent="rename" @keydown.esc.prevent="close">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -55,14 +55,8 @@ export default defineComponent({
       return this.getTorrent(this.hash)
     }
   },
-  mounted() {
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-  },
   created() {
     this.name = this.torrent.name
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     urlDecode() {
@@ -74,13 +68,6 @@ export default defineComponent({
     },
     close() {
       this.dialog = false
-    },
-    handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        this.close()
-      } else if (e.key === 'Enter') {
-        this.rename()
-      }
     }
   }
 })

@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" max-width="1000px">
+  <v-dialog v-model="dialog" max-width="1000px" @keydown.enter.prevent="setRule" @keydown.esc.prevent="close">
     <v-card flat :loading="loading">
       <v-container class="pa-0 project done">
         <v-card-title class="justify-center">
@@ -181,12 +181,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-
     this.updateArticles()
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     async setRule() {
@@ -228,13 +223,6 @@ export default defineComponent({
     },
     close() {
       this.dialog = false
-    },
-    handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        this.close()
-      } else if (e.key === 'Enter') {
-        this.setRule()
-      }
     }
   }
 })

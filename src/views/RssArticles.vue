@@ -1,5 +1,5 @@
 <template>
-  <div class="px-1 px-sm-5 background noselect">
+  <div class="px-1 px-sm-5 background noselect" @keydown.esc.prevent="close">
     <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
@@ -94,14 +94,8 @@ export default defineComponent({
       mdiClose
     }
   },
-  mounted() {
-    document.addEventListener('keydown', this.handleKeyboardShortcut)
-  },
   created() {
     this.$store.commit('FETCH_FEEDS')
-  },
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   computed: {
     ...mapState(['rss']),
@@ -139,11 +133,6 @@ export default defineComponent({
         await qbit.markAsRead(article.feedName, article.id)
       }
       this.$store.commit('FETCH_FEEDS')
-    },
-    handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        this.close()
-      }
     }
   }
 })
