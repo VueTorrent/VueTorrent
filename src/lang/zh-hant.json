@@ -135,9 +135,12 @@
       "stalled_downloading": "停止下載",
       "checking": "正在檢查",
       "moving": "正在移動",
-      "uncategorized": "未分類",
-      "untagged": "未標籤",
-      "not_working": "無追蹤者"
+      "uncategorized": "(未分類)",
+      "untagged": "(未標籤)",
+      "not_working": "(無追蹤者)"
+    },
+    "active_tooltip": {
+      "btn_label": "啟用中的過濾器: $0"
     },
     "action": {
       "altSpeed": "替補速率限制",
