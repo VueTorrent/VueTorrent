@@ -25,6 +25,11 @@ const router = new Router({
       component: () => import('./views/RssArticles.vue')
     },
     {
+      path: '/logs',
+      name: 'logs',
+      component: () => import('./views/Logs.vue')
+    },
+    {
       path: '/search',
       name: 'search',
       component: () => import('./views/SearchEngine.vue')

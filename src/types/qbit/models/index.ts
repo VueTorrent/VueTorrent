@@ -14,6 +14,7 @@ import type SearchStatus from './SearchStatus'
 import type SearchResult from './SearchResult'
 import { FeedArticle } from './FeedArticle'
 import { NetworkInterface } from './AppPreferences'
+import type Log from './Log'
 
 type ApplicationVersion = string
 
@@ -34,5 +35,6 @@ export type {
   SearchPlugin,
   SearchJob,
   SearchStatus,
-  SearchResult
+  SearchResult,
+  Log
 }

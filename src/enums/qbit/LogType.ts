@@ -1,6 +1,8 @@
 export enum LogType {
-  NORMAL = 1,
-  INFO = 2,
-  WARNING = 4,
-  CRITICAL = 8
+  NONE = 0,
+  NORMAL = 1 << 0,
+  INFO = 1 << 1,
+  WARNING = 1 << 2,
+  CRITICAL = 1 << 3,
+  ALL = NORMAL | INFO | WARNING | CRITICAL
 }

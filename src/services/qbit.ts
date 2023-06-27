@@ -13,12 +13,14 @@ import type {
   TorrentProperties,
   Tracker,
   Torrent,
-  NetworkInterface
+  NetworkInterface,
+  Log
 } from '@/types/qbit/models'
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { FeedRule as VtFeedRule, SortOptions } from '@/types/vuetorrent'
 import type { Priority } from '@/enums/qbit'
+import {LogType} from "@/enums/qbit";
 
 type Parameters = Record<string, any>
 
@@ -561,6 +563,18 @@ export class QBitApi {
     }
 
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
+  }
+
+  async getLogs(afterId?: number, logsToInclude: LogType = LogType.ALL): Promise<Log[]> {
+    const params = {
+      last_known_id: afterId,
+      info: (logsToInclude & LogType.INFO) == LogType.INFO,
+      normal: (logsToInclude & LogType.NORMAL) == LogType.NORMAL,
+      warning: (logsToInclude & LogType.WARNING) == LogType.WARNING,
+      critical: (logsToInclude & LogType.CRITICAL) == LogType.CRITICAL
+    }
+
+    return this.axios.get('/log/main', {params}).then(r => r.data)
   }
 }
 

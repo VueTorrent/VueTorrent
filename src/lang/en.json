@@ -116,7 +116,8 @@
       "removeSelected": "Remove selected torrents",
       "openSettings": "Open settings",
       "searchNew": "Search new torrent",
-      "rssArticles": "View RSS feed articles"
+      "rssArticles": "View RSS feed articles",
+      "logs": "View qBittorrent logs"
     },
     "sessionStats": {
       "tooltip": "Since the last time qBittorrent was restarted"
@@ -218,6 +219,18 @@
         "title": "Title",
         "torrentURL": "Torrent Download URL",
         "actions": ""
+      }
+    },
+    "logs": {
+      "title": "qBittorrent Logs",
+      "table":  {
+        "id": "Log ID",
+        "type": "Log Level",
+        "message": "Message",
+        "timestamp": "Log Date"
+      },
+      "filters": {
+        "type": "Log Level"
       }
     },
     "settings": {
