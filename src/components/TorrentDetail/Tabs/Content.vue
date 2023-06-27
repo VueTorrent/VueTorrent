@@ -10,8 +10,8 @@
         </v-icon>
       </template>
       <template #label="{ item }">
-        <span class="item-name" v-if="!item.editing">{{ item.name }}</span>
         <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
+        <span class="item-name" v-else>{{ item.name }}</span>
       </template>
       <template #append="{ item }">
         <div v-if="!item.icon">

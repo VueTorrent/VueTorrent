@@ -1,326 +1,58 @@
 <template>
-  <v-card flat>
-    <v-simple-table>
-      <tbody>
-        <tr id="torrentName">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.torrentTitle') }}
-          </td>
-          <td>
-            {{ torrent.name }}
-          </td>
-        </tr>
-        <tr id="torrentComment" v-if="comment">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.comments') | titleCase }}
-          </td>
-          <td>
-            <span v-for="commentPart in splitString(comment)" :key="commentPart">
-              <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
-              <span v-else>{{ commentPart }}</span>
-            </span>
-          </td>
-        </tr>
-        <tr id="torrentPieceState">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.pieceStates') }}
-          </td>
-          <td id="pieceStates" class="d-flex">
-            <span class="mr-2 align-center d-flex"> {{ torrent.progress }}% </span>
-            <canvas width="0" height="1" />
-          </td>
-        </tr>
-        <tr id="torrentSavePath">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.save_path') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.savePath }}
-          </td>
-        </tr>
-        <tr id="torrentHash">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.hash') }}
-          </td>
-          <td>
-            {{ torrent.hash }}
-          </td>
-        </tr>
-        <tr id="torrentSize">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.size') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.size | getDataValue }}
-            {{ torrent.size | getDataUnit }}
-          </td>
-        </tr>
-        <tr id="torrentTotalSize">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.total_size') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.total_size | getDataValue }}
-            {{ torrent.total_size | getDataUnit }}
-          </td>
-        </tr>
-        <tr id="torrentTimeActive">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.time_active') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.time_active }}
-            <span>{{ seedingTime }}</span>
-          </td>
-        </tr>
-        <tr id="torrentDownloaded">
-          <td :class="commonStyle">
-            {{ $t('torrent.downloaded') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.downloaded | getDataValue }}
-            {{ torrent.downloaded | getDataUnit }}
-          </td>
-        </tr>
-        <tr id="torrentUploaded">
-          <td :class="commonStyle">
-            {{ $t('torrent.uploaded') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.uploaded | getDataValue }}
-            {{ torrent.uploaded | getDataUnit }}
-          </td>
-        </tr>
-        <tr id="torrentRatio">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.ratio') }}
-          </td>
-          <td>
-            {{ torrent.ratio }}
-          </td>
-        </tr>
-        <tr id="torrentDlSpeed">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.downloadSpeed') }}
-          </td>
-          <td>
-            {{ torrent.dlspeed | getDataValue }}
-            {{ torrent.dlspeed | getDataUnit }}/s
-          </td>
-        </tr>
-        <tr id="torrentDlSpeedAvg">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.dl_speed_average') | titleCase }}
-          </td>
-          <td>
-            {{ downloadSpeedAvg | getDataValue }}
-            {{ downloadSpeedAvg | getDataUnit }}/s
-          </td>
-        </tr>
-        <tr id="torrentUpSpeed">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.uploadSpeed') }}
-          </td>
-          <td>
-            {{ torrent.upspeed | getDataValue }}
-            {{ torrent.upspeed | getDataUnit }}/s
-          </td>
-        </tr>
-        <tr id="torrentUpSpeedAvg">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.up_speed_average') | titleCase }}
-          </td>
-          <td>
-            {{ uploadSpeedAvg | getDataValue }}
-            {{ uploadSpeedAvg | getDataUnit }}/s
-          </td>
-        </tr>
-        <tr id="torrentEta">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.eta') }}
-          </td>
-          <td>
-            {{ torrent.eta }}
-          </td>
-        </tr>
-        <tr id="torrentPeers">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.peers') }}
-          </td>
-          <td>
-            {{ torrent.num_leechs }}<span :class="commonStyle">/{{ torrent.available_peers }}</span>
-          </td>
-        </tr>
-        <tr id="torrentSeeds">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.seeds') }}
-          </td>
-          <td>
-            {{ torrent.num_seeds }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
-          </td>
-        </tr>
-        <tr id="torrentAddedOn">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.added_on') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.added_on }}
-          </td>
-        </tr>
-        <tr id="torrentCreationDate">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.creation_date') | titleCase }}
-          </td>
-          <td>
-            {{ creationDate }}
-          </td>
-        </tr>
-        <tr id="torrentState">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.status') }}
-          </td>
-          <td>
-            <v-chip small :class="`${torrentStateClass} white--text caption`">
-              {{ torrent.state }}
-            </v-chip>
-          </td>
-        </tr>
-        <tr id="torrentTrackers" v-if="torrent?.tracker">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.trackers') }}
-          </td>
-          <td>
-            <span v-for="trackersPart in splitString(torrent.tracker)" :key="trackersPart">
-              <a v-if="stringContainsUrl(trackersPart)" target="_blank" :href="trackersPart">{{ trackersPart }}</a>
-              <span v-else>{{ trackersPart }}</span>
-            </span>
-          </td>
-        </tr>
-        <tr id="torrentCreatedBy" v-if="createdBy">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.createdBy') }}
-          </td>
-          <td>
-            <span v-for="createdByPart in splitString(createdBy)" :key="createdByPart">
-              <a v-if="stringContainsUrl(createdByPart)" target="_blank" :href="createdByPart">{{ createdByPart }}</a>
-              <span v-else>{{ createdByPart }}</span>
-            </span>
-          </td>
-        </tr>
-
-        <tr id="torrentFLPiecePrio">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.firstLastPiecePriority') }}
-          </td>
-          <td>
-            {{ torrent.f_l_piece_prio }}
-          </td>
-        </tr>
-        <tr id="torrentSeqDl">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.sequentialDownload') }}
-          </td>
-          <td>
-            {{ torrent.seq_dl }}
-          </td>
-        </tr>
-        <tr id="torrentAutoTMM">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.autoTMM') }}
-          </td>
-          <td>
-            {{ torrent.auto_tmm }}
-          </td>
-        </tr>
-        <tr id="torrentRatioLimit">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.shareRatioLimit') }}
-          </td>
-          <td>
-            {{ torrent.ratio_limit | limitToValue }}
-          </td>
-        </tr>
-        <tr id="torrentRatioTimeLimit">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.shareTimeLimit') }}
-          </td>
-          <td>
-            {{ torrent.ratio_time_limit | limitToValue }}
-          </td>
-        </tr>
-        <tr id="torrentDlLimit">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.downloadLimit') }}
-          </td>
-          <td v-if="torrent?.dl_limit > 0">
-            {{ torrent.dl_limit | getDataValue }}
-            {{ torrent.dl_limit | getDataUnit }}<span>/s </span>
-          </td>
-          <td v-else>∞</td>
-        </tr>
-        <tr id="torrentUpLimit">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.uploadLimit') }}
-          </td>
-          <td v-if="torrent?.up_limit > 0">
-            {{ torrent.up_limit | getDataValue }}
-            {{ torrent.up_limit | getDataUnit }}<span>/s </span>
-          </td>
-          <td v-else>∞</td>
-        </tr>
-        <tr id="torrentAvailability">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.availability') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.availability }}
-          </td>
-        </tr>
-        <tr id="torrentPrivate">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.is_private') | titleCase }}
-          </td>
-          <td>
-            {{ isPrivateTorrent }}
-          </td>
-        </tr>
-        <tr id="torrentPieceCount">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.piece_owned') | titleCase }}
-          </td>
-          <td>{{ torrentPieceOwned }} / {{ torrentPieceCount }}</td>
-        </tr>
-        <tr id="torrentPieceSize">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.piece_size') | titleCase }}
-          </td>
-          <td>
-            {{ torrentPieceSize | getDataValue }}
-            {{ torrentPieceSize | getDataUnit }}
-          </td>
-        </tr>
-        <tr id="torrentWastedSize">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.wasted_size') | titleCase }}
-          </td>
-          <td>
-            {{ wastedSize | getDataValue }}
-            {{ wastedSize | getDataUnit }}
-          </td>
-        </tr>
-      </tbody>
-    </v-simple-table>
-  </v-card>
+  <v-flex>
+    <v-row>
+      <v-col cols="6">
+        <v-card flat>
+          <v-card-title>{{ torrent.name }}</v-card-title>
+          <v-card-subtitle><v-btn text @click="copyHash">{{ torrent.hash }}</v-btn></v-card-subtitle>
+          <v-card-text>
+            <v-row>
+              <v-col cols="3">
+                <v-progress-circular :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
+              </v-col>
+              <v-col cols="9" class="d-flex align-center justify-center">
+                <canvas id="pieceStates" width="0" height="1" />
+              </v-col>
+            </v-row>
+          </v-card-text>
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card flat>
+          <v-card-text>
+            <v-list-item>
+              {{ $t('modals.detail.pageInfo.status') }}:
+              <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
+            </v-list-item>
+            <v-list-item>
+              {{ $t('torrent.properties.category') }}:
+              <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : '(no cat)' }}</v-chip>
+            </v-list-item>
+            <v-list-item>
+              {{ $t('torrent.properties.tracker') }}:
+              <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : '(no tracker)' }}</v-chip>
+            </v-list-item>
+            <v-list-item>
+              {{ $t('torrent.properties.tags') }}:
+              <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption ml-2">{{ tag }}</v-chip>
+              <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">(no tags)</v-chip>
+            </v-list-item>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-flex>
 </template>
 
 <script lang="ts">
 import dayjs from 'dayjs'
 import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
-import { splitByUrl, stringContainsUrl } from '@/helpers'
+import {getDomainBody, splitByUrl, stringContainsUrl} from '@/helpers'
 import { defineComponent } from 'vue'
 import { Torrent } from '@/models'
 import { mapState } from 'vuex'
+import { mdiPencil, mdiContentSave, mdiClose } from '@mdi/js'
 
 export default defineComponent({
   name: 'Info',
@@ -341,10 +73,14 @@ export default defineComponent({
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
       wastedSize: 0,
-      uploadSpeedAvg: 0
+      uploadSpeedAvg: 0,
+      mdiClose,
+      mdiPencil,
+      mdiContentSave
     }
   },
   async mounted() {
+    console.log(this.torrent?.tags && this.torrent.tags.length > 0)
     await this.getTorrentProperties()
     await this.renderTorrentPieceStates()
   },
@@ -366,6 +102,7 @@ export default defineComponent({
     }
   },
   methods: {
+    getDomainBody,
     async getTorrentProperties() {
       const props = await qbit.getTorrentProperties(this.torrent?.hash as string)
       this.comment = props.comment
@@ -381,7 +118,7 @@ export default defineComponent({
       this.uploadSpeedAvg = props.up_speed_avg
     },
     async renderTorrentPieceStates() {
-      const canvas: HTMLCanvasElement | null = document.querySelector('#pieceStates canvas')
+      const canvas: HTMLCanvasElement | null = document.querySelector('canvas#pieceStates')
       if (canvas === null) return
 
       const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
@@ -443,6 +180,14 @@ export default defineComponent({
     },
     splitString(string: string) {
       return splitByUrl(string)
+    },
+    async copyHash() {
+      try {
+        await navigator.clipboard.writeText(this.torrent?.hash as string);
+        console.log('Content copied to clipboard');
+      } catch (err) {
+        console.error('Failed to copy: ', err);
+      }
     }
   }
 })
@@ -467,13 +212,9 @@ export default defineComponent({
   width: 20%;
 }
 
-#pieceStates {
-  display: block;
-
-  canvas {
-    height: 100%;
-    width: 75%;
-    border: 1px dotted;
-  }
+canvas#pieceStates {
+  height: 50%;
+  width: 100%;
+  border: 1px dotted;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-flex v-if="torrent.tags && torrent.tags.length" xs6 sm2>
+  <v-flex v-if="torrent?.tags && torrent.tags.length" xs6 sm2>
     <div class="caption grey--text">
       {{ $t('torrent.properties.tags') }}
     </div>
