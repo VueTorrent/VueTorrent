@@ -1,5 +1,5 @@
 <template>
-  <div class="px-1 px-sm-5 background noselect" @keydown.esc.prevent="close">
+  <div class="px-1 px-sm-5 background noselect">
     <v-row no-gutters class="grey--text" align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
@@ -115,7 +115,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapGetters(['getSettings']),
+    ...mapGetters(['getSettings', 'getModals']),
     settings() {
       return this.getSettings()
     },
@@ -125,6 +125,10 @@ export default defineComponent({
   },
   mounted() {
     this.$store.dispatch('FETCH_SETTINGS')
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
+  },
+  beforeDestroy() {
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   watch: {
     tab() {
@@ -134,6 +138,11 @@ export default defineComponent({
   methods: {
     close() {
       this.$router.back()
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape' && this.getModals().length === 0) {
+        this.close()
+      }
     }
   }
 })

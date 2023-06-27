@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="create">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -7,15 +7,13 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
-        <v-form ref="tagForm" v-model="valid" class="px-6 mt-3">
-          <v-container>
-            <v-text-field v-model="tagname" :rules="rules" :label="$t('modals.newTag.tagName')" required />
-          </v-container>
-        </v-form>
+        <v-container>
+          <v-text-field v-model="tagname" :rules="rules" :label="$t('modals.newTag.tagName')" required />
+        </v-container>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn class="accent white--text elevation-0 px-4" @click="create" :disabled="!valid">
+        <v-btn class="accent white--text elevation-0 px-4" @click="create" :disabled="!isValid">
           {{ $t('create') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
@@ -34,14 +32,19 @@ export default {
   mixins: [Modal],
   data: () => ({
     tagname: '',
-    rules: [v => !!v || 'Tag is required'],
-    valid: false
+    rules: [v => !!v || 'Tag is required']
   }),
+  computed: {
+    isValid() {
+      return !!this.tagname
+    }
+  },
   created() {
     this.$store.commit('FETCH_TAGS')
   },
   methods: {
     async create() {
+      if (!this.isValid) return
       await qbit.createTag([this.tagname])
       this.cancel()
     },
@@ -52,5 +55,3 @@ export default {
   }
 }
 </script>
-
-<style></style>
