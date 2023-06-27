@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" max-width="1000px" @keydown.enter.prevent="setRule" @keydown.esc.prevent="close">
+  <v-dialog v-model="dialog" max-width="1000px" @keydown.enter.prevent="setRule">
     <v-card flat :loading="loading">
       <v-container class="pa-0 project done">
         <v-card-title class="justify-center">

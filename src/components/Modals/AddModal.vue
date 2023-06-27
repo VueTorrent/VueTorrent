@@ -6,8 +6,7 @@
     max-width="500px"
     :fullscreen="phoneLayout"
     persistent
-    @keydown.enter.prevent="$refs.addTorrent.click"
-    @keydown.esc.prevent="close"
+    @keydown.enter.prevent="submit"
   >
     <div
       class="noselect"
@@ -124,7 +123,7 @@
         <v-spacer />
         <v-form>
           <v-card-actions class="justify-center">
-            <v-btn ref="addTorrent" text :disabled="!valid" class="accent white--text mx-0 mt-3" @click="submit"> Add Torrent </v-btn>
+            <v-btn text :disabled="!valid" class="accent white--text mx-0 mt-3" @click="submit"> Add Torrent </v-btn>
             <v-fab-transition v-if="phoneLayout">
               <v-btn color="red" dark absolute bottom right @click="close">
                 <v-icon>{{ mdiClose }}</v-icon>

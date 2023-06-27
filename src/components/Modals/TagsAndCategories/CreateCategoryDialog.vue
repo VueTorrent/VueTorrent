@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="submit">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -7,19 +7,17 @@
         </v-toolbar-title>
       </v-card-title>
       <v-card-text>
-        <v-form ref="categoryForm" v-model="valid" class="px-6 mt-3">
-          <v-container>
-            <v-text-field v-model="category.name" :rules="nameRules" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
-            <v-text-field v-model="category.savePath" :rules="PathRules" :label="$t('path')" required />
-          </v-container>
-        </v-form>
+        <v-container>
+          <v-text-field v-model="category.name" :rules="nameRules" :label="$t('modals.newCategory.categoryName')" required :disabled="hasInitialCategory" />
+          <v-text-field v-model="category.savePath" :rules="pathRules" :label="$t('path')" required />
+        </v-container>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create" :disabled="!valid">
+        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create" :disabled="!isValid">
           {{ $t('create') }}
         </v-btn>
-        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit" :disabled="!valid">
+        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit" :disabled="!isValid">
           {{ $t('edit') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
@@ -47,8 +45,7 @@ export default {
     category: { name: '', savePath: '' },
     mdiCancel,
     mdiTagPlus,
-    mdiPencil,
-    valid: false
+    mdiPencil
   }),
   computed: {
     ...mapGetters(['getSelectedCategory']),
@@ -58,8 +55,11 @@ export default {
     nameRules() {
       return [v => !!v || this.$t('modals.newCategory.tipOnNoName')]
     },
-    PathRules() {
+    pathRules() {
       return [v => !!v || this.$t('modals.newCategory.tipOnNoPath')]
+    },
+    isValid() {
+      return !!this.category.name && !!this.category.savePath
     }
   },
   created() {
@@ -69,21 +69,28 @@ export default {
     }
   },
   methods: {
+    async submit() {
+      if (this.hasInitialCategory) {
+        await this.edit()
+      } else {
+        await this.create()
+      }
+    },
     async create() {
+      if (!this.isValid) return
       await qbit.createCategory(this.category)
+      this.cancel()
+    },
+    async edit() {
+      if (!this.isValid) return
+      await qbit.editCategory(this.category)
+      Vue.$toast.success(this.$t('toast.categorySaved'))
       this.cancel()
     },
     cancel() {
       this.$store.commit('FETCH_CATEGORIES')
       this.dialog = false
-    },
-    async edit() {
-      await qbit.editCategory(this.category)
-      Vue.$toast.success(this.$t('toast.categorySaved'))
-      this.cancel()
     }
   }
 }
 </script>
-
-<style></style>

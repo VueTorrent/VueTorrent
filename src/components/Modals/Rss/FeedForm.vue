@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="hasInitialFeed ? edit : create" @keydown.esc.prevent="cancel">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="hasInitialFeed ? edit : create">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
