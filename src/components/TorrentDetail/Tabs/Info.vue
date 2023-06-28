@@ -4,7 +4,13 @@
       <v-col cols="6">
         <v-card flat>
           <v-card-title>{{ torrent.name }}</v-card-title>
-          <v-card-subtitle><v-btn text @click="copyHash">{{ torrent.hash }}</v-btn></v-card-subtitle>
+          <v-card-subtitle>
+            <span v-for="commentPart in splitString(comment)" :key="commentPart">
+              <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
+              <span v-else>{{ commentPart }}</span>
+            </span>
+            <v-btn text @click="copyHash">{{ torrent.hash }}</v-btn>
+          </v-card-subtitle>
           <v-card-text>
             <v-row>
               <v-col cols="3">
