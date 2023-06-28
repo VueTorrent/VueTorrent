@@ -48,6 +48,32 @@
         </v-card>
       </v-col>
     </v-row>
+    <v-row>
+      <v-simple-table>
+        <tbody>
+          <tr id="torrentSavePath">
+            <td :class="commonStyle">
+              {{ $t('torrent.properties.save_path') }}
+            </td>
+            <td>
+              {{ torrent.savePath }}
+            </td>
+          </tr>
+          <tr id="torrentSize">
+            <td :class="commonStyle">
+              Selected Size
+            </td>
+            <td>
+              {{ torrent.size | getDataValue }}
+              {{ torrent.size | getDataUnit }}
+              /
+              {{ torrent.total_size | getDataValue }}
+              {{ torrent.total_size | getDataUnit }}
+            </td>
+          </tr>
+        </tbody>
+      </v-simple-table>
+    </v-row>
   </v-flex>
 </template>
 
@@ -84,11 +110,11 @@ export default defineComponent({
       uploadSpeedAvg: 0,
       mdiClose,
       mdiPencil,
-      mdiContentSave
+      mdiContentSave,
+      TorrentState
     }
   },
   async mounted() {
-    console.log(this.torrent?.tags && this.torrent.tags.length > 0)
     await this.getTorrentProperties()
     await this.renderTorrentPieceStates()
   },
