@@ -140,8 +140,9 @@
       "untagged": "(Untagged)",
       "not_working": "(Not Working)"
     },
-    "active_tooltip": {
-      "btn_label": "Filters active: $0"
+    "active_filter": {
+      "btn_label": "Filters active: $0",
+      "search_filter": "Text filter: $0"
     },
     "action": {
       "altSpeed": "Alt Speeds",
