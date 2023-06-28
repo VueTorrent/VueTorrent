@@ -8,7 +8,8 @@
           <v-card-text>
             <v-row>
               <v-col cols="3">
-                <v-progress-circular :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
+                <v-progress-circular v-if="torrent?.state === TorrentState.METADATA" indeterminate :size="100" color="torrent-metadata">Fetching...</v-progress-circular>
+                <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
               </v-col>
               <v-col cols="9" class="d-flex align-center justify-center">
                 <canvas id="pieceStates" width="0" height="1" />
@@ -45,14 +46,15 @@
 </template>
 
 <script lang="ts">
-import dayjs from 'dayjs'
-import { FullScreenModal } from '@/mixins'
-import qbit from '@/services/qbit'
-import {getDomainBody, splitByUrl, stringContainsUrl} from '@/helpers'
-import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
-import { mapState } from 'vuex'
-import { mdiPencil, mdiContentSave, mdiClose } from '@mdi/js'
+import dayjs from "dayjs";
+import { FullScreenModal } from "@/mixins";
+import qbit from "@/services/qbit";
+import { getDomainBody, splitByUrl, stringContainsUrl } from "@/helpers";
+import { defineComponent } from "vue";
+import { Torrent } from "@/models";
+import { mapState } from "vuex";
+import { mdiClose, mdiContentSave, mdiPencil } from "@mdi/js";
+import { TorrentState } from "@/enums/vuetorrent";
 
 export default defineComponent({
   name: 'Info',
