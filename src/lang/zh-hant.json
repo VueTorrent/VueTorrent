@@ -140,7 +140,7 @@
       "untagged": "(未標籤)",
       "not_working": "(無追蹤者)"
     },
-    "active_tooltip": {
+    "active_filter": {
       "btn_label": "啟用中的過濾器: $0"
     },
     "action": {

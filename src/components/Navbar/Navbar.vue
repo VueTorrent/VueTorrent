@@ -11,9 +11,17 @@
       <v-slide-x-transition>
         <v-speed-dial v-if="filterCount > 0" v-model="filters_fab" open-on-hover transition="slide-y-transition" direction="bottom" class="ml-5">
           <template #activator>
-            <v-btn color="primary" rounded small v-model="filters_fab">{{ $t('navbar.active_tooltip.btn_label').replace('$0', filterCount) }}</v-btn>
+            <v-btn color="primary" rounded small v-model="filters_fab">{{ $t('navbar.active_filter.btn_label').replace('$0', filterCount) }}</v-btn>
           </template>
           <div class="d-flex flex-column align-start" style="width: 100%; row-gap: 8px">
+            <v-tooltip bottom open-delay="400">
+              <template #activator="{ on }">
+                <v-chip v-if="dashboard.searchFilter.length > 0" small class="white--text caption">
+                  {{ $t('navbar.active_filter.search_filter').replace('$0', dashboard.searchFilter) }}
+                </v-chip>
+              </template>
+              <span>{{ $t('status') }}</span>
+            </v-tooltip>
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
                 <v-chip v-if="sort_options.filter !== null" small :class="`torrent-${sort_options.filter}`" class="white--text caption">{{
@@ -105,7 +113,7 @@ export default {
   },
   computed: {
     ...mapGetters(['getWebuiSettings', 'getStatus', 'getTorrentCountString']),
-    ...mapState(['sort_options']),
+    ...mapState(['dashboard', 'sort_options']),
     webuiSettings() {
       return this.getWebuiSettings()
     },
@@ -116,7 +124,7 @@ export default {
       return this.getTorrentCountString()
     },
     filterCount() {
-      return (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
+      return (this.dashboard.searchFilter.length > 0) + (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
     }
   },
   created() {
