@@ -1,49 +1,98 @@
 <template>
   <v-flex>
     <v-row>
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <v-card flat>
           <v-card-title>{{ torrent.name }}</v-card-title>
           <v-card-subtitle>
-            <span v-for="commentPart in splitString(comment)" :key="commentPart">
+            <div v-for="commentPart in splitString(comment)" :key="commentPart">
               <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
               <span v-else>{{ commentPart }}</span>
-            </span>
-            <v-btn text @click="copyHash">{{ torrent.hash }}</v-btn>
+            </div>
+            {{ torrent.hash }}
+            <v-btn rounded @click="copyHash">{{ $t('rightClick.copy') }}</v-btn>
           </v-card-subtitle>
           <v-card-text>
             <v-row>
-              <v-col cols="3">
+              <v-col cols="4" md="3">
                 <v-progress-circular v-if="torrent?.state === TorrentState.METADATA" indeterminate :size="100" color="torrent-metadata">Fetching...</v-progress-circular>
+                <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
+                  <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
+                </v-progress-circular>
                 <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
               </v-col>
-              <v-col cols="9" class="d-flex align-center justify-center">
-                <canvas id="pieceStates" width="0" height="1" />
+              <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
+                <div>
+                  <canvas id="pieceStates" width="0" height="1" />
+                </div>
+                <div>
+                  <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ torrentPieceSize | getDataValue }} {{ torrentPieceSize | getDataUnit }})</span>
+                </div>
+                <div>
+                  <v-icon>{{ mdiArrowDown }}</v-icon>
+                  {{ torrent?.dlspeed | networkSpeed }}
+                  <v-icon>{{ mdiArrowUp }}</v-icon>
+                  {{ torrent?.upspeed | networkSpeed }}
+                </div>
               </v-col>
             </v-row>
           </v-card-text>
         </v-card>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="12" md="6">
         <v-card flat>
           <v-card-text>
-            <v-list-item>
-              {{ $t('modals.detail.pageInfo.status') }}:
-              <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
-            </v-list-item>
-            <v-list-item>
-              {{ $t('torrent.properties.category') }}:
-              <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : '(no cat)' }}</v-chip>
-            </v-list-item>
-            <v-list-item>
-              {{ $t('torrent.properties.tracker') }}:
-              <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : '(no tracker)' }}</v-chip>
-            </v-list-item>
-            <v-list-item>
-              {{ $t('torrent.properties.tags') }}:
-              <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption ml-2">{{ tag }}</v-chip>
-              <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">(no tags)</v-chip>
-            </v-list-item>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.status') }}:
+                <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
+              </v-col>
+              <v-col cols="6">
+                {{ $t('torrent.properties.category') }}:
+                <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : '(no cat)' }}</v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('torrent.properties.tracker') }}:
+                <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : '(no tracker)' }}</v-chip>
+              </v-col>
+              <v-col cols="6">
+                {{ $t('torrent.properties.tags') }}:
+                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption ml-2">{{ tag }}</v-chip>
+                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">(no tags)</v-chip>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.selectedFileSize') }}:<br/>
+                {{ torrent?.size | getDataValue }} {{ torrent?.size | getDataUnit }} / {{ torrent?.total_size | getDataValue }} {{ torrent?.total_size | getDataUnit }}
+              </v-col>
+              <v-col cols="6">
+                {{ $t('ratio') }}:<br/>
+                {{ torrent?.ratio }}
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('downloaded') }}:<br/>
+                {{ torrent?.downloaded | getDataValue }} {{ torrent?.downloaded | getDataUnit }}
+              </v-col>
+              <v-col cols="6">
+                {{ $t('uploaded') }}:<br/>
+                {{ torrent?.uploaded | getDataValue }} {{ torrent?.uploaded | getDataUnit }}
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.dl_speed_average') }}:<br/>
+                {{ downloadSpeedAvg | networkSpeed }}
+              </v-col>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.up_speed_average') }}:<br/>
+                {{ uploadSpeedAvg | networkSpeed }}
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -59,7 +108,7 @@ import { getDomainBody, splitByUrl, stringContainsUrl } from "@/helpers";
 import { defineComponent } from "vue";
 import { Torrent } from "@/models";
 import { mapState } from "vuex";
-import { mdiClose, mdiContentSave, mdiPencil } from "@mdi/js";
+import { mdiClose, mdiContentSave, mdiPencil, mdiArrowDown, mdiArrowUp, mdiCheck } from "@mdi/js";
 import { TorrentState } from "@/enums/vuetorrent";
 
 export default defineComponent({
@@ -80,11 +129,13 @@ export default defineComponent({
       torrentPieceSize: 0,
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
-      wastedSize: 0,
       uploadSpeedAvg: 0,
       mdiClose,
       mdiPencil,
       mdiContentSave,
+      mdiArrowUp,
+      mdiArrowDown,
+      mdiCheck,
       TorrentState
     }
   },
@@ -106,7 +157,10 @@ export default defineComponent({
   },
   watch: {
     torrent() {
-      this.renderTorrentPieceStates()
+      this.getTorrentProperties()
+      if (this.torrentPieceCount < 5000) {
+        this.renderTorrentPieceStates()
+      }
     }
   },
   methods: {
@@ -122,7 +176,6 @@ export default defineComponent({
       this.torrentPieceSize = props.piece_size
       this.torrentPieceOwned = props.pieces_have
       this.torrentPieceCount = props.pieces_num
-      this.wastedSize = props.total_wasted
       this.uploadSpeedAvg = props.up_speed_avg
     },
     async renderTorrentPieceStates() {
@@ -192,9 +245,9 @@ export default defineComponent({
     async copyHash() {
       try {
         await navigator.clipboard.writeText(this.torrent?.hash as string);
-        console.log('Content copied to clipboard');
+        this.$toast.success(this.$t('toast.copySuccess').toString())
       } catch (err) {
-        console.error('Failed to copy: ', err);
+        this.$toast.error(this.$t('toast.copyNotSupported').toString())
       }
     }
   }
@@ -221,8 +274,12 @@ export default defineComponent({
 }
 
 canvas#pieceStates {
-  height: 50%;
+  height: 100%;
   width: 100%;
   border: 1px dotted;
+}
+
+.v-card__title {
+  word-break: normal;
 }
 </style>
