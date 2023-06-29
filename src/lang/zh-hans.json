@@ -50,7 +50,6 @@
       "toggleSearch": "搜索筛选",
       "toggleSelect": "复选框",
       "toggleSort": "排序",
-      "selectAll": "全选/全不选",
       "selectAllCaption": "全选/全不选 (Ctrl + A)"
     },
     "emptyTorrentList": "当前无内容显示",
@@ -117,7 +116,8 @@
       "removeSelected": "删除",
       "openSettings": "设置",
       "searchNew": "搜索",
-      "rssArticles": "RSS订阅"
+      "rssArticles": "RSS订阅",
+      "logs": "运行日志"
     },
     "sessionStats": {
       "tooltip": "自 qBittorrent 启动以来"
@@ -136,9 +136,13 @@
       "stalled_downloading": "下载限速",
       "checking": "正在检查",
       "moving": "正在移动",
-      "uncategorized": "未分类",
-      "untagged": "无标签",
-      "not_working": "未工作"
+      "uncategorized": "(未分类)",
+      "untagged": "(无标签)",
+      "not_working": "(未工作)"
+    },
+    "active_filter": {
+      "btn_label": "过滤器: $0",
+      "search_filter": "关键词: $0"
     },
     "action": {
       "altSpeed": "备用速度限制",
@@ -216,6 +220,18 @@
         "title": "标题",
         "torrentURL": "种子下载URL",
         "actions": "操作"
+      }
+    },
+    "logs": {
+      "title": "qBittorrent日志",
+      "table":  {
+        "id": "日志ID",
+        "type": "日志等级",
+        "message": "信息",
+        "timestamp": "日期"
+      },
+      "filters": {
+        "type": "日志等级"
       }
     },
     "settings": {
