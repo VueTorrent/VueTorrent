@@ -644,6 +644,7 @@
     },
     "detail": {
       "title": "Torrent Detail",
+      "tabTitleOverview": "Overview",
       "tabTitleInfo": "Info",
       "tabTitleTrackers": "Trackers",
       "tabTitlePeers": "Peers",
