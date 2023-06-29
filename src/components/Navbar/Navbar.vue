@@ -16,7 +16,7 @@
           <div class="d-flex flex-column align-start" style="width: 100%; row-gap: 8px">
             <v-tooltip bottom open-delay="400">
               <template #activator="{ on }">
-                <v-chip v-if="dashboard.searchFilter.length > 0" small class="white--text caption">
+                <v-chip v-if="dashboard.searchFilter?.length > 0" small class="white--text caption">
                   {{ $t('navbar.active_filter.search_filter').replace('$0', dashboard.searchFilter) }}
                 </v-chip>
               </template>
@@ -124,7 +124,7 @@ export default {
       return this.getTorrentCountString()
     },
     filterCount() {
-      return (this.dashboard.searchFilter.length > 0) + (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
+      return (this.dashboard.searchFilter?.length > 0) + (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
     }
   },
   created() {
