@@ -44,7 +44,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.status') }}:
+                {{ $t('torrent.properties.status') }}:
                 <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
               </v-col>
               <v-col cols="6">
