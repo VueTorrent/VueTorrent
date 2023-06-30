@@ -18,6 +18,9 @@
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
         <v-tabs-slider color="white" />
+        <v-tab class="white--text" href="#overview">
+          <h4>{{ $t('modals.detail.tabTitleOverview') }}</h4>
+        </v-tab>
         <v-tab class="white--text" href="#info">
           <h4>{{ $t('modals.detail.tabTitleInfo') }}</h4>
         </v-tab>
@@ -37,6 +40,9 @@
 
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
+          <v-tab-item eager value="overview">
+            <Overview v-if="torrent" :is-active="tab === 'overview'" :torrent="torrent" />
+          </v-tab-item>
           <v-tab-item eager value="info">
             <Info v-if="torrent" :is-active="tab === 'info'" :torrent="torrent" />
           </v-tab-item>
@@ -58,14 +64,15 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapGetters } from 'vuex'
 import { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
+import Overview from "@/components/TorrentDetail/Tabs/Overview.vue";
 
 export default {
   name: 'TorrentDetail',
-  components: { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories },
+  components: { Overview, Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories },
   data() {
     return {
       tab: null,
@@ -77,7 +84,7 @@ export default {
     torrent() {
       return this.getTorrent(this.hash)
     },
-    hash() {
+    hash(): string {
       return this.$route.params.hash
     }
   },
@@ -93,7 +100,7 @@ export default {
     close() {
       this.$router.back()
     },
-    handleKeyboardShortcut(e) {
+    handleKeyboardShortcut(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         this.close()
       }

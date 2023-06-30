@@ -35,10 +35,6 @@ export function formatProgress(progress: number): string {
 Vue.filter('progress', formatProgress)
 
 export function formatNetworkSpeed(speed: number): string | null {
-  if (speed === 0) {
-    return null
-  }
-
   return `${formatSize(speed)}/s`
 }
 

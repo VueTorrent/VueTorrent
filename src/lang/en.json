@@ -138,6 +138,7 @@
       "moving": "Moving",
       "uncategorized": "(Uncategorized)",
       "untagged": "(Untagged)",
+      "untracked": "(Untracked)",
       "not_working": "(Not Working)"
     },
     "active_filter": {
@@ -645,22 +646,22 @@
     },
     "detail": {
       "title": "Torrent Detail",
+      "tabTitleOverview": "Overview",
       "tabTitleInfo": "Info",
       "tabTitleTrackers": "Trackers",
       "tabTitlePeers": "Peers",
       "tabTitleContent": "Content",
       "tabTitleTagsCategories": "Tags & Categories",
+      "pageOverview": {
+        "fetchingMetadata": "Fetching...",
+        "selectedFileSize": "Selected Files' Size",
+        "dlSpeedAverage": "Download Speed Average",
+        "upSpeedAverage": "Upload Speed Average"
+      },
       "pageInfo": {
-        "pieceStates": "Progress",
-        "torrentTitle": "Torrent title",
-        "hash": "Hash",
-        "ratio": "Ratio",
-        "downloadSpeed": "DL Speed",
-        "uploadSpeed": "UP Speed",
         "eta": "ETA",
         "peers": "Peers",
         "seeds": "Seeds",
-        "status": "Status",
         "trackers": "Trackers",
         "comments": "Comments",
         "createdBy": "Created By",
@@ -673,11 +674,7 @@
         "downloadLimit": "Download Limit",
         "uploadLimit": "Upload Limit",
         "creation_date": "Creation Date",
-        "dl_speed_average": "Download Speed Average",
-        "up_speed_average": "Upload Speed Average",
         "is_private": "Torrent Private",
-        "piece_owned": "Collected pieces",
-        "piece_size": "Piece Size",
         "wasted_size": "Wasted"
       },
       "pagePeers": {

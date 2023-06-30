@@ -5,7 +5,7 @@ import type { MainDataResponse } from '@/types/qbit/responses'
 export class Tags {
   static update(response: MainDataResponse) {
     if (response?.fullUpdate === true) {
-      store.state.tags = response.tags || []
+      store.state.tags = response.tags
 
       return
     }

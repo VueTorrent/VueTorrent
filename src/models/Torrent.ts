@@ -100,7 +100,7 @@ export default class Torrent {
     this.size = data.size
     this.state = this.formatState(data.state)
     this.super_seeding = data.super_seeding
-    this.tags = data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : null
+    this.tags = data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : []
     this.time_active = dayjs.duration(data.time_active, 'seconds').format(durationFormat)
     this.total_size = data.total_size
     this.tracker = data.tracker
