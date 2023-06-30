@@ -27,6 +27,14 @@
             {{ torrent.eta }}
           </td>
         </tr>
+        <tr id="torrentLastActivity">
+          <td :class="commonStyle">
+            {{ $t('torrent.properties.last_activity') }}
+          </td>
+          <td>
+            {{ torrent.last_activity }}
+          </td>
+        </tr>
         <tr id="torrentPeers">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.peers') }}
@@ -200,7 +208,6 @@ export default defineComponent({
   },
   async mounted() {
     await this.getTorrentProperties()
-    await this.renderTorrentPieceStates()
   },
   computed: {
     ...mapState(['webuiSettings']),
@@ -214,11 +221,6 @@ export default defineComponent({
       return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
     }
   },
-  watch: {
-    torrent() {
-      this.renderTorrentPieceStates()
-    }
-  },
   methods: {
     async getTorrentProperties() {
       const props = await qbit.getTorrentProperties(this.torrent?.hash as string)
@@ -228,64 +230,6 @@ export default defineComponent({
       this.creationDate = dayjs(props.creation_date * 1000).format(this.webuiSettings.dateFormat)
       this.isPrivateTorrent = props.is_private
       this.wastedSize = props.total_wasted
-    },
-    async renderTorrentPieceStates() {
-      const canvas: HTMLCanvasElement | null = document.querySelector('#pieceStates canvas')
-      if (canvas === null) return
-
-      const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
-      const pieces = await qbit.getTorrentPieceStates(this.torrent?.hash as string)
-      if (!pieces) return
-
-      // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
-      canvas.width = pieces.length
-      const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-      // Group contiguous colors together and draw as a single rectangle
-      let color = ''
-      let rectWidth = 1
-
-      for (let i = 0; i < pieces.length; ++i) {
-        const status = pieces[i]
-        let newColor = ''
-
-        if (status === 1)
-          // requested / downloading
-          newColor = this.$vuetify.theme.currentTheme['torrent-downloading'] as string
-        else if (status === 2)
-          // already downloaded
-          newColor = this.$vuetify.theme.currentTheme['torrent-done'] as string
-        else {
-          // pending download
-          const selected_piece_ranges = files.filter(file => file.priority !== 0).map(file => file.piece_range)
-          for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
-            if (i > min_piece_range && i < max_piece_range) {
-              newColor = this.$vuetify.theme.currentTheme['torrent-paused'] as string
-              break
-            }
-          }
-        }
-
-        if (newColor === color) {
-          ++rectWidth
-          continue
-        }
-
-        if (color !== '') {
-          ctx.fillStyle = color
-          ctx.fillRect(i - rectWidth, 0, rectWidth, canvas.height)
-        }
-
-        rectWidth = 1
-        color = newColor
-      }
-
-      // Fill a rect at the end of the canvas if one is needed
-      if (color !== '') {
-        ctx.fillStyle = color
-        ctx.fillRect(pieces.length - rectWidth, 0, rectWidth, canvas.height)
-      }
     },
     stringContainsUrl(string: string) {
       return stringContainsUrl(string)
