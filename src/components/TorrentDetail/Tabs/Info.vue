@@ -2,14 +2,6 @@
   <v-card flat>
     <v-simple-table>
       <tbody>
-        <tr id="torrentSavePath">
-          <td :class="commonStyle">
-            {{ $t('torrent.properties.save_path') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.savePath }}
-          </td>
-        </tr>
         <tr id="torrentTimeActive">
           <td :class="commonStyle">
             {{ $t('torrent.properties.time_active') | titleCase }}

@@ -36,6 +36,16 @@
                 </div>
               </v-col>
             </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('torrent.properties.save_path') }}:<br/>
+                {{ torrent.savePath }}
+              </v-col>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.fileCount') }}:<br/>
+                {{ torrentFileCount }} <span v-if="torrentFileCount === 1">({{ torrentFileName }})</span>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -126,6 +136,8 @@ export default defineComponent({
       creationDate: '',
       downloadSpeedAvg: 0,
       isPrivateTorrent: false,
+      torrentFileCount: 0,
+      torrentFileName: null,
       torrentPieceSize: 0,
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
@@ -142,6 +154,14 @@ export default defineComponent({
   async mounted() {
     await this.getTorrentProperties()
     await this.renderTorrentPieceStates()
+
+    await qbit.getTorrentFiles(this.torrent?.hash as string)
+      .then(files => {
+        this.torrentFileCount = files.length
+        if (this.torrentFileCount === 1) {
+          this.torrentFileName = files[0].name
+        }
+      })
   },
   computed: {
     ...mapState(['webuiSettings']),
