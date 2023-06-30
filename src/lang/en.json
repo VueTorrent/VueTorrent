@@ -138,6 +138,7 @@
       "moving": "Moving",
       "uncategorized": "(Uncategorized)",
       "untagged": "(Untagged)",
+      "untracked": "(Untracked)",
       "not_working": "(Not Working)"
     },
     "active_tooltip": {
@@ -651,9 +652,10 @@
       "tabTitleContent": "Content",
       "tabTitleTagsCategories": "Tags & Categories",
       "pageOverview": {
+        "fetchingMetadata": "Fetching...",
         "selectedFileSize": "Selected Files' Size",
-        "dl_speed_average": "Download Speed Average",
-        "up_speed_average": "Upload Speed Average"
+        "dlSpeedAverage": "Download Speed Average",
+        "upSpeedAverage": "Upload Speed Average"
       },
       "pageInfo": {
         "eta": "ETA",

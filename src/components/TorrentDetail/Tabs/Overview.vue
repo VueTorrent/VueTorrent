@@ -15,7 +15,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" md="3">
-                <v-progress-circular v-if="torrent?.state === TorrentState.METADATA" indeterminate :size="100" color="torrent-metadata">Fetching...</v-progress-circular>
+                <v-progress-circular v-if="torrent?.state === TorrentState.METADATA" indeterminate :size="100" color="torrent-metadata">{{ $t('modals.detail.pageOverview.fetchingMetadata') }}</v-progress-circular>
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
@@ -49,18 +49,18 @@
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.category') }}:
-                <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : '(no cat)' }}</v-chip>
+                <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}</v-chip>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
                 {{ $t('torrent.properties.tracker') }}:
-                <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : '(no tracker)' }}</v-chip>
+                <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}</v-chip>
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.tags') }}:
                 <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption ml-2">{{ tag }}</v-chip>
-                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">(no tags)</v-chip>
+                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">{{ $t('navbar.filters.untagged') }}</v-chip>
               </v-col>
             </v-row>
             <v-row>
@@ -85,11 +85,11 @@
             </v-row>
             <v-row>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.dl_speed_average') }}:<br/>
+                {{ $t('modals.detail.pageOverview.dlSpeedAverage') }}:<br/>
                 {{ downloadSpeedAvg | networkSpeed }}
               </v-col>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.up_speed_average') }}:<br/>
+                {{ $t('modals.detail.pageOverview.upSpeedAverage') }}:<br/>
                 {{ uploadSpeedAvg | networkSpeed }}
               </v-col>
             </v-row>
