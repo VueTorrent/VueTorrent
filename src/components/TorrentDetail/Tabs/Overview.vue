@@ -155,13 +155,12 @@ export default defineComponent({
     await this.getTorrentProperties()
     await this.renderTorrentPieceStates()
 
-    await qbit.getTorrentFiles(this.torrent?.hash as string)
-      .then(files => {
-        this.torrentFileCount = files.length
-        if (this.torrentFileCount === 1) {
-          this.torrentFileName = files[0].name
-        }
-      })
+    const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
+
+    this.torrentFileCount = files.length
+    if (this.torrentFileCount === 1) {
+      this.torrentFileName = files[0].name
+    }
   },
   computed: {
     ...mapState(['webuiSettings']),
