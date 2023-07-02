@@ -138,10 +138,12 @@
       "moving": "正在移動",
       "uncategorized": "(未分類)",
       "untagged": "(未標籤)",
+      "untracked": "(未追蹤)",
       "not_working": "(無追蹤者)"
     },
     "active_filter": {
-      "btn_label": "啟用中的過濾器: $0"
+      "btn_label": "啟用中的過濾器: $0",
+      "search_filter": "文本過濾器: $0"
     },
     "action": {
       "altSpeed": "替補速率限制",
@@ -644,22 +646,23 @@
     },
     "detail": {
       "title": "種子詳情",
+      "tabTitleOverview": "概覽",
       "tabTitleInfo": "資訊",
       "tabTitleTrackers": "追蹤者",
       "tabTitlePeers": "下載者",
       "tabTitleContent": "內容",
       "tabTitleTagsCategories": "標籤和分類",
+      "pageOverview": {
+        "fetchingMetadata": "正在抓取...",
+        "selectedFileSize": "選中的檔案大小",
+        "dlSpeedAverage": "平均下載速率",
+        "upSpeedAverage": "平均上傳速率",
+        "fileCount": "檔案數"
+      },
       "pageInfo": {
-        "pieceStates": "進度",
-        "torrentTitle": "種子標題",
-        "hash": "雜湊值",
-        "ratio": "分享率",
-        "downloadSpeed": "下載速率",
-        "uploadSpeed": "上傳速率",
         "eta": "預估剩餘時間",
         "peers": "下載者",
         "seeds": "種子",
-        "status": "狀態",
         "trackers": "追蹤者",
         "comments": "註解",
         "createdBy": "製作器",
@@ -672,11 +675,7 @@
         "downloadLimit": "下載限制",
         "uploadLimit": "上傳限制",
         "creation_date": "製作時間",
-        "dl_speed_average": "平均下載速率",
-        "up_speed_average": "平均上傳速率",
         "is_private": "私有種子",
-        "piece_owned": "已完成分塊",
-        "piece_size": "分塊大小",
         "wasted_size": "已丟棄"
       },
       "pagePeers": {
