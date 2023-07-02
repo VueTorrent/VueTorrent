@@ -36,6 +36,16 @@
                 </div>
               </v-col>
             </v-row>
+            <v-row>
+              <v-col cols="6">
+                {{ $t('torrent.properties.save_path') }}:<br/>
+                {{ torrent.savePath }}
+              </v-col>
+              <v-col cols="6">
+                {{ $t('modals.detail.pageOverview.fileCount') }}:<br/>
+                {{ torrentFileCount }} <span v-if="torrentFileCount === 1">({{ torrentFileName }})</span>
+              </v-col>
+            </v-row>
           </v-card-text>
         </v-card>
       </v-col>
@@ -44,7 +54,7 @@
           <v-card-text>
             <v-row>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.status') }}:
+                {{ $t('torrent.properties.status') }}:
                 <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
               </v-col>
               <v-col cols="6">
@@ -126,6 +136,8 @@ export default defineComponent({
       creationDate: '',
       downloadSpeedAvg: 0,
       isPrivateTorrent: false,
+      torrentFileCount: 0,
+      torrentFileName: null,
       torrentPieceSize: 0,
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
@@ -142,6 +154,13 @@ export default defineComponent({
   async mounted() {
     await this.getTorrentProperties()
     await this.renderTorrentPieceStates()
+
+    const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
+
+    this.torrentFileCount = files.length
+    if (this.torrentFileCount === 1) {
+      this.torrentFileName = files[0].name
+    }
   },
   computed: {
     ...mapState(['webuiSettings']),

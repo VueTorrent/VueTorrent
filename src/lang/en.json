@@ -656,7 +656,8 @@
         "fetchingMetadata": "Fetching...",
         "selectedFileSize": "Selected Files' Size",
         "dlSpeedAverage": "Download Speed Average",
-        "upSpeedAverage": "Upload Speed Average"
+        "upSpeedAverage": "Upload Speed Average",
+        "fileCount": "File Count"
       },
       "pageInfo": {
         "eta": "ETA",
