@@ -81,7 +81,6 @@ export default new Vuex.Store<StoreState>({
   plugins: [vuexPersist.plugin],
   state: {
     authenticated: false,
-    oldSettingsDetected: false,
     categories: [],
     dashboard: {
       currentPage: 1,
@@ -93,6 +92,7 @@ export default new Vuex.Store<StoreState>({
     isUpdatingMainData: false,
     latestSelectedTorrent: -1,
     modals: [],
+    oldSettingsDetected: false,
     rid: 0,
     rss: {
       feeds: [],

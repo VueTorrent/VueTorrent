@@ -20,6 +20,7 @@ describe('General', () => {
         $store: {
           getters: { getAppVersion: vi.fn() },
           state: {
+            version: 'test',
             webuiSettings: {
               showCurrentSpeed: 100,
               showSpeedGraph: true,

@@ -96,7 +96,8 @@
         </v-col>
         <v-col cols="6" md="2" class="d-flex align-center justify-start">
           <h3>
-            <a v-if="version.endsWith('-dev')" target="_blank" href="https://github.com/WDaan/VueTorrent/">{{ version }}</a>
+            <span v-if="!version">undefined</span>
+            <a v-else-if="version.endsWith('-dev')" target="_blank" href="https://github.com/WDaan/VueTorrent/">{{ version }}</a>
             <a v-else target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a>
           </h3>
         </v-col>
