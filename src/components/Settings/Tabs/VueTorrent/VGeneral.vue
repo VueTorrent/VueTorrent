@@ -45,6 +45,16 @@
     </v-list-item>
 
     <v-list-item class="mb-3">
+      <v-text-field
+          v-model="settings.refreshInterval"
+          type="number"
+          dense
+          outlined
+          :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
+          :label="$t('modals.settings.vueTorrent.general.refreshInterval')" />
+    </v-list-item>
+
+    <v-list-item class="mb-3">
       <v-row>
         <v-col cols="12" sm="6" md="3">
           <v-select v-model="settings.lang" height="1" flat dense hide-details outlined :items="languages" :label="$t('modals.settings.vueTorrent.general.language')" />
@@ -86,7 +96,8 @@
         </v-col>
         <v-col cols="6" md="2" class="d-flex align-center justify-start">
           <h3>
-            <a target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a>
+            <a v-if="version.endsWith('-dev')" target="_blank" href="https://github.com/WDaan/VueTorrent/">{{ version }}</a>
+            <a v-else target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${version}`">{{ version }}</a>
           </h3>
         </v-col>
 

@@ -161,8 +161,7 @@ export function getVersion() {
     return 'import.meta.env.VITE_PACKAGE_VERSION'
   }
 
-  // return import.meta.env['VITE_PACKAGE_VERSION']
-  return 'undefined'
+  return `${import.meta.env['VITE_PACKAGE_VERSION']}-dev`
 }
 
 export function getBaseURL() {

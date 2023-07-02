@@ -135,6 +135,7 @@ export default new Vuex.Store<StoreState>({
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
       showShutdownButton: true,
+      refreshInterval: 2000,
       busyDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
       doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
       busyMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate)),
