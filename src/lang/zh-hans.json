@@ -138,6 +138,7 @@
       "moving": "正在移动",
       "uncategorized": "(未分类)",
       "untagged": "(无标签)",
+      "untracked": "(未跟踪)",
       "not_working": "(未工作)"
     },
     "active_filter": {
@@ -645,22 +646,22 @@
     },
     "detail": {
       "title": "种子信息",
+      "tabTitleOverview": "预览",
       "tabTitleInfo": "详细",
       "tabTitleTrackers": "Trackers",
       "tabTitlePeers": "用户",
       "tabTitleContent": "内容",
       "tabTitleTagsCategories": "标签&分类",
+      "pageOverview": {
+        "fetchingMetadata": "正在获取...",
+        "selectedFileSize": "所选文件大小",
+        "dlSpeedAverage": "平均下载速度",
+        "upSpeedAverage": "平均上传速度"
+      },
       "pageInfo": {
-        "pieceStates": "进度",
-        "torrentTitle": "种子标题",
-        "hash": "哈希值",
-        "ratio": "分享率",
-        "downloadSpeed": "下载速度",
-        "uploadSpeed": "上传速度",
         "eta": "剩余时间",
         "peers": "用户",
         "seeds": "做种数",
-        "status": "状态",
         "trackers": "Trackers",
         "comments": "注释",
         "createdBy": "创建者",
@@ -673,11 +674,7 @@
         "downloadLimit": "下载限制",
         "uploadLimit": "上传限制",
         "creation_date": "创建日期",
-        "dl_speed_average": "平均下载速度",
-        "up_speed_average": "平均上传速度",
         "is_private": "种子私有性",
-        "piece_owned": "已接收区块",
-        "piece_size": "区块大小",
         "wasted_size": "已丢弃"
       },
       "pagePeers": {
@@ -840,7 +837,7 @@
     "limit": "设置限制",
     "copy": "复制",
     "export": "导出种子 | 导出所选种子",
-    "info": "显示详情"
+    "info": "种子信息"
   },
   "enums": {
     "contentLayout": {
