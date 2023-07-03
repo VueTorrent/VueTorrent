@@ -9,7 +9,7 @@ export default {
   INIT_INTERVALS: async (store: Store<StoreState>) => {
     store.state.intervals[0] = setInterval(() => {
       store.commit('updateMainData')
-    }, 2000)
+    }, store.state.webuiSettings.refreshInterval)
   },
   LOGIN: async (store: Store<StoreState>, payload: LoginPayload) => {
     const res = await qbit.login(payload)

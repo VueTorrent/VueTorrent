@@ -330,6 +330,11 @@ export default {
       }
     }
   },
+  created() {
+    this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
+    if (this.input) this.searchFilterEnabled = true
+  },
   mounted() {
     this.$store.dispatch('INIT_INTERVALS')
     document.addEventListener('keydown', this.handleKeyboardShortcut)
@@ -341,11 +346,6 @@ export default {
     if (ppt === undefined) {
       this.$store.dispatch('ALERT_OLD_SETTINGS')
     }
-  },
-  created() {
-    this.$store.commit('FETCH_CATEGORIES')
-    this.$store.commit('FETCH_TAGS')
-    if (this.input) this.searchFilterEnabled = true
   },
   beforeDestroy() {
     this.$store.commit('REMOVE_INTERVALS')

@@ -28,6 +28,7 @@ export default interface WebUISettings {
   dateFormat: string
   openSideBarOnStart: boolean
   showShutdownButton: boolean
+  refreshInterval: number
   busyDesktopTorrentProperties: TorrentProperty[]
   doneDesktopTorrentProperties: TorrentProperty[]
   busyMobileCardProperties: TorrentProperty[]
