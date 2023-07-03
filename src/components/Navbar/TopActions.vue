@@ -2,16 +2,6 @@
   <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn :text="!mobile" small fab color="grey--text" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="addModal('AddModal')">
-          <v-icon color="grey">
-            {{ mdiPlus }}
-          </v-icon>
-        </v-btn>
-      </template>
-      <span> {{ $t('navbar.topActions.addTorrent') }}</span>
-    </v-tooltip>
-    <v-tooltip bottom open-delay="400">
-      <template #activator="{ on }">
         <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.resumeSelected')" v-on="on" @click="resumeTorrents">
           <v-icon color="grey">
             {{ mdiPlay }}
@@ -93,7 +83,7 @@ export default {
   name: 'TopActions',
   mixins: [General],
   props: {
-    mobile: () => false
+    mobile: Boolean
   },
   data() {
     return {
