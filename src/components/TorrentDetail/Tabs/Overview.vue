@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" md="6">
         <v-card flat>
-          <v-card-title>{{ torrent.name }}</v-card-title>
+          <v-card-title class="overflow-wrap">{{ torrent.name }}</v-card-title>
           <v-card-subtitle>
             <div v-for="commentPart in splitString(comment)" :key="commentPart">
               <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
@@ -22,14 +22,20 @@
                 <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
               </v-col>
               <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
-                <div>
+                <div v-if="shouldRenderPieceStates">
                   <canvas id="pieceStates" width="0" height="1" />
                 </div>
-                <div>
+                <div v-if="shouldRenderPieceStates">
                   <span>
                     {{ torrentPieceOwned }} / {{ torrentPieceCount }}
                     ({{ torrentPieceSize | getDataValue }} {{ torrentPieceSize | getDataUnit }})
                   </span>
+                </div>
+                <div v-if="!shouldRenderPieceStates">
+                  <span>No piece in torrent</span>
+                </div>
+                <div v-if="!shouldRefreshPieceState">
+                  <span>Refresh disabled to save perf</span>
                 </div>
                 <div>
                   <v-icon>{{ mdiArrowDown }}</v-icon>
@@ -59,30 +65,38 @@
             <v-row>
               <v-col cols="6">
                 {{ $t('torrent.properties.status') }}:
-                <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
+                <div>
+                  <v-chip small :class="torrentStateClass" class="white--text caption">{{ torrent.state }}</v-chip>
+                </div>
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.category') }}:
-                <v-chip small class="upload white--text caption ml-2">
-                  {{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}
-                </v-chip>
+                <div>
+                  <v-chip small class="upload white--text caption">
+                    {{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}
+                  </v-chip>
+                </div>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
                 {{ $t('torrent.properties.tracker') }}:
-                <v-chip small class="moving white--text caption ml-2">
-                  {{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}
-                </v-chip>
+                <div>
+                  <v-chip small class="moving white--text caption">
+                    {{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}
+                  </v-chip>
+                </div>
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.tags') }}:
-                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small
-                        class="tags white--text caption ml-2">{{ tag }}
-                </v-chip>
-                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">
-                  {{ $t('navbar.filters.untagged') }}
-                </v-chip>
+                <div class="d-flex flex-wrap chipgap">
+                  <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption">
+                    {{ tag }}
+                  </v-chip>
+                  <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption">
+                    {{ $t('navbar.filters.untagged') }}
+                  </v-chip>
+                </div>
               </v-col>
             </v-row>
             <v-row>
@@ -189,13 +203,20 @@ export default defineComponent({
     },
     torrentStateClass() {
       return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
+    },
+    shouldRenderPieceStates() {
+      return this.torrentPieceCount > 0
+    },
+    shouldRefreshPieceState() {
+      //TODO: set limit in settings
+      return this.shouldRenderPieceStates && this.torrentPieceCount < 5000
     }
   },
   watch: {
-    torrent() {
-      this.getTorrentProperties()
-      if (this.torrentPieceCount < 5000) {
-        this.renderTorrentPieceStates()
+    async torrent() {
+      await this.getTorrentProperties()
+      if (this.shouldRefreshPieceState) {
+        await this.renderTorrentPieceStates()
       }
     }
   },
@@ -220,10 +241,9 @@ export default defineComponent({
 
       const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
       const pieces = await qbit.getTorrentPieceStates(this.torrent?.hash as string)
-      if (!pieces) return
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
-      canvas.width = pieces.length
+      canvas.width = pieces.length || -1
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -317,5 +337,13 @@ canvas#pieceStates {
 
 .v-card__title {
   word-break: normal;
+}
+
+.chipgap {
+  gap: 4px;
+}
+
+.overflow-wrap {
+  overflow-wrap: anywhere;
 }
 </style>
