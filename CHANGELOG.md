@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.6.0](https://github.com/WDaan/VueTorrent/compare/v1.5.12...v1.6.0) (2023-07-03)
+
+
+### Features
+
+* add logs view ([#904](https://github.com/WDaan/VueTorrent/issues/904)) ([0c6e9d8](https://github.com/WDaan/VueTorrent/commit/0c6e9d86d599679eb5f352fed7a5a51190cfb927))
+* Add TorrentDetail overview tab ([#917](https://github.com/WDaan/VueTorrent/issues/917)) ([4e67040](https://github.com/WDaan/VueTorrent/commit/4e6704081dd8210f9de2559f6755f789bfa09034))
+
+
+### Bug Fixes
+
+* events not working properly on views ([#912](https://github.com/WDaan/VueTorrent/issues/912)) ([906da74](https://github.com/WDaan/VueTorrent/commit/906da74ee4a167e8fcd8d908d3f84fbfffcdbca3))
+* searchFilter is sometimes null ([#918](https://github.com/WDaan/VueTorrent/issues/918)) ([f5adce6](https://github.com/WDaan/VueTorrent/commit/f5adce657de72b421d22d6ae19e53daa6b7ed909))
+* size error ([#900](https://github.com/WDaan/VueTorrent/issues/900)) ([d1d5498](https://github.com/WDaan/VueTorrent/commit/d1d5498e31c6d672ba5a413784aad7c50f152c43))
+
+
+### Improvements
+
+* Add qbit refresh interval setting ([#923](https://github.com/WDaan/VueTorrent/issues/923)) ([d2cae69](https://github.com/WDaan/VueTorrent/commit/d2cae697b83988da8d496c693b821c8af51c8ac3))
+* Add text filter in active filter tooltip ([#915](https://github.com/WDaan/VueTorrent/issues/915)) ([b0d7a25](https://github.com/WDaan/VueTorrent/commit/b0d7a257525c8e348a762b0b28748ac50fa44333))
+* change manual keyboard shortcuts to vue events ([#905](https://github.com/WDaan/VueTorrent/issues/905)) ([e7171dc](https://github.com/WDaan/VueTorrent/commit/e7171dca90d744211f43d610b6d7d5c97727e36f))
+* overview improvements ([#920](https://github.com/WDaan/VueTorrent/issues/920)) ([e0c5fb5](https://github.com/WDaan/VueTorrent/commit/e0c5fb5488638da09fd3db4e0ea94bb6bd3a9468))
+* search on enter and customfilter ([#903](https://github.com/WDaan/VueTorrent/issues/903)) ([754aeb9](https://github.com/WDaan/VueTorrent/commit/754aeb9959353a8f08ca39f83ebb07048c03118f))
+
 ## [1.5.12](https://github.com/WDaan/VueTorrent/compare/v1.5.11...v1.5.12) (2023-06-26)
 
 
