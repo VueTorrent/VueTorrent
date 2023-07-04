@@ -40,11 +40,6 @@ export default {
       mdiClose,
       mdiPlus
     }
-  },
-  methods: {
-    addModal(name) {
-      this.createModal(name)
-    }
   }
 }
 </script>

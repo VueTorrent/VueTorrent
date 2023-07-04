@@ -1,5 +1,15 @@
 <template>
   <div :class="mobile ? '' : 'flex-shrink-0 ml-0'">
+    <v-tooltip v-if="!mobile" bottom open-delay="400">
+      <template #activator="{ on }">
+        <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="createModal('AddModal')">
+          <v-icon color="grey">
+            {{ mdiPlus }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <span> {{ $t('navbar.topActions.addTorrent') }}</span>
+    </v-tooltip>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
         <v-btn small fab :text="!mobile" class="mr-0 ml-0" :aria-label="$t('navbar.topActions.resumeSelected')" v-on="on" @click="resumeTorrents">
@@ -116,9 +126,6 @@ export default {
       if (!this.selected_torrents.length) return
 
       return this.createModal('ConfirmDeleteModal')
-    },
-    addModal(name) {
-      this.createModal(name)
     },
     goToSearch() {
       if (this.$route.name !== 'search') this.$router.push({ name: 'search' })
