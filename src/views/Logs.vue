@@ -150,16 +150,33 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.logtype-normal {
-  color: white !important;
+.theme--dark {
+  .logtype-normal {
+    color: white !important;
+  }
+  .logtype-info {
+    color: grey !important;
+  }
+  .logtype-warning {
+    color: darkgoldenrod !important;
+  }
+  .logtype-critical {
+    color: darkred !important;
+  }
 }
-.logtype-info {
-  color: grey !important;
-}
-.logtype-warning {
-  color: darkgoldenrod !important;
-}
-.logtype-critical {
-  color: darkred !important;
+
+.theme--light {
+  .logtype-normal {
+    color: black !important;
+  }
+  .logtype-info {
+    color: grey !important;
+  }
+  .logtype-warning {
+    color: goldenrod !important;
+  }
+  .logtype-critical {
+    color: red !important;
+  }
 }
 </style>
