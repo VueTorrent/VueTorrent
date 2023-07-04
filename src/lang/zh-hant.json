@@ -269,6 +269,8 @@
           "dateFormat": "日期格式",
           "openSideBarOnStart": "啟動時顯示側邊欄",
           "showShutdownButton": "顯示結束按鈕",
+          "refreshInterval": "qBittorrent API 更新區間",
+          "refreshIntervalHint": "毫秒",
           "currentVersion": "當前版本",
           "qbittorrentVersion": "QBittorrent 版本",
           "registerMagnet": "註冊磁力連結",
