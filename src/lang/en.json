@@ -684,6 +684,15 @@
         "is_private": "Torrent Private",
         "wasted_size": "Wasted"
       },
+      "pageTrackers": {
+        "url": "URL",
+        "status": "Status",
+        "peers": "Peers",
+        "seeds": "Seeds",
+        "leeches": "Leeches",
+        "downloaded": "Downloaded",
+        "message": "Message"
+      },
       "pagePeers": {
         "ip": "IP",
         "connection": "Connection",
@@ -697,18 +706,14 @@
         "relevance": "Relevance",
         "files": "Files"
       },
+      "pageContent": {
+        "rootNode": "(Root Node)",
+        "fileInfo": "No file | {n} file | {n} files",
+        "folderInfo": "No folder | {n} folder | {n} folders"
+      },
       "tagsAndCategories": {
         "subHeaderTag": "Available Tags:",
         "subHeaderCategories": "Available Categories:"
-      },
-      "pageTrackers": {
-        "url": "URL",
-        "status": "Status",
-        "peers": "Peers",
-        "seeds": "Seeds",
-        "leeches": "Leeches",
-        "downloaded": "Downloaded",
-        "message": "Message"
       }
     },
     "add": {
@@ -805,8 +810,7 @@
     "categorySaved": "Category edited successfully!",
     "feedSaved": "Feed saved successfully!",
     "ruleSaved": "Rule saved!",
-    "renameFileFailed": "Unable to rename file",
-    "renameFolderFailed": "Unable to rename file",
+    "renameFailed": "Unable to rename node",
     "copySuccess": "Text copied!",
     "copyNotSupported": "Unable to copy, context isn't secured",
     "pasteSuccess": "Text pasted!",
