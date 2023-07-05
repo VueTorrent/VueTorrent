@@ -1,35 +1,46 @@
 <template>
-  <v-card flat>
-    <v-treeview v-model="selected" :items="fileTree" :open.sync="opened" activatable selectable item-key="fullName" open-all>
-      <template #prepend="{ item, open }">
-        <v-icon v-if="!item.icon">
+  <v-card flat :loading="loading">
+    <v-treeview
+        v-model="fileSelection"
+        :open.sync="openedItems"
+        :items="fileTree"
+        activatable
+        selectable
+        item-key="fullName"
+    >
+      <template v-slot:prepend="{ item: node, open }">
+        <v-icon v-if="node.type === 'root'">
+          {{ mdiFileTree }}
+        </v-icon>
+        <v-icon v-if="node.type === 'folder'">
           {{ open ? mdiFolderOpen : mdiFolder }}
         </v-icon>
-        <v-icon v-else>
-          {{ item.icon }}
+        <v-icon v-else-if="node.type === 'file'">
+          {{ node | fileIcon }}
         </v-icon>
       </template>
-      <template #label="{ item }">
-        <v-text-field v-if="item.editing" v-model="item.newName" autofocus />
-        <span class="item-name" v-else>{{ item.name }}</span>
+      <template #label="{ item: node }">
+        <v-text-field v-if="node.editing" v-model="node.newName" autofocus @keydown.enter.prevent="renameNode(node)" />
+        <span class="item-name" v-else>{{ node.type === 'root' ? $t('modals.detail.pageContent.rootNode') : node.name }}</span>
       </template>
-      <template #append="{ item }">
-        <div v-if="!item.icon">
-          <span class="ml-4">{{ item.children.length }} Files</span>
-          <v-btn v-if="!item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="edit(item)">
+      <template #append="{ item: node }">
+        <div v-if="node.type === 'root'"></div>
+        <div v-else-if="node.type === 'folder'">
+          <span class="ml-4">{{ node | nodeContent }}</span>
+          <v-btn v-if="!node.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="toggleEditing(node)">
             <v-icon>{{ mdiPencil }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFolder(item)">
+          <v-btn v-if="node.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameNode(node)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(item)">
+          <v-btn v-if="node.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(node)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
         <div v-else>
-          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing">[{{ item.size }}]</span>
-          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing" class="ml-4">{{ item.progress }}%</span>
-          <span v-if="!$vuetify.breakpoint.xsOnly && !item.editing" class="ml-4">[ {{ item.priority | priority }} ]</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !node.editing">[{{ node.size | formatSize }}]</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !node.editing" class="ml-4">{{ node.progress | progress }}</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly && !node.editing" class="ml-4">[ {{ getNodePriority(node) }} ]</span>
           <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
               <v-btn fab x-small class="accent white--text elevation-0 px-4 ml-2" v-on="on">
@@ -37,7 +48,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item v-for="prio in priority_options" :key="prio.value" link @click="setFilePrio(item.id, prio.value)">
+              <v-list-item v-for="prio in filePriorityOptions" :key="prio.value" link @click="setFilePrio(node, prio.value)">
                 <v-icon>{{ prio.icon }}</v-icon>
                 <v-list-item-title class="caption">
                   {{ prio.name }}
@@ -45,13 +56,13 @@
               </v-list-item>
             </v-list>
           </v-menu>
-          <v-btn v-if="!item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="edit(item)">
+          <v-btn v-if="!node.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="toggleEditing(node)">
             <v-icon>{{ mdiPencil }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameFile(item)">
+          <v-btn v-if="node.editing" fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameNode(node)">
             <v-icon>{{ mdiContentSave }}</v-icon>
           </v-btn>
-          <v-btn v-if="item.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(item)">
+          <v-btn v-if="node.editing" fab x-small class="error white--text elevation-0 px-4 ml-2" @click="toggleEditing(node)">
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </div>
@@ -60,44 +71,62 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
+import {
+  mdiFolder,
+  mdiFolderOpen,
+  mdiFileTree,
+  mdiLanguageHtml5,
+  mdiFileDocumentOutline,
+  mdiNodejs,
+  mdiFilePdfBox,
+  mdiFileExcel,
+  mdiCodeJson,
+  mdiFileImage,
+  mdiMovie,
+  mdiLanguageMarkdown,
+  mdiFile,
+  mdiPriorityHigh,
+  mdiArrowUp,
+  mdiArrowDown,
+  mdiPriorityLow,
+  mdiTrendingUp,
+  mdiPencil,
+  mdiContentSave,
+  mdiClose
+} from '@mdi/js'
+import {TreeFile, TreeFolder, TreeNode, TreeRoot} from '@/types/vuetorrent'
+import {Priority} from '@/enums/qbit'
 import qbit from '@/services/qbit'
-import { treeify } from '@/helpers'
-import { FullScreenModal } from '@/mixins'
-import { mdiClose, mdiContentSave, mdiPencil, mdiFolderOpen, mdiFolder, mdiFile, mdiTrendingUp, mdiPriorityHigh, mdiArrowUp, mdiArrowDown, mdiPriorityLow } from '@mdi/js'
-import Vue from 'vue'
+import i18n from "@/plugins/i18n";
+import {TorrentFile} from "@/types/qbit/models";
+import {genFileTree} from "@/helpers";
 
-const FILE_PRIORITY_OPTIONS = [
-  { name: 'Max', icon: mdiPriorityHigh, value: 7 },
-  { name: 'High', icon: mdiArrowUp, value: 6 },
-  { name: 'Normal', icon: mdiArrowDown, value: 1 },
-  { name: 'Unwanted', icon: mdiPriorityLow, value: 0 }
-]
-
-export default {
-  name: 'Content',
-  filters: {
-    priority(value) {
-      const res = FILE_PRIORITY_OPTIONS.find(el => el.value === value)
-
-      return res ? res.name : 'undefined'
-    }
-  },
-  mixins: [FullScreenModal],
+export default defineComponent({
+  name: "Content",
   props: {
     hash: String,
     isActive: Boolean
   },
   data() {
     return {
-      inited: false,
-      opened: null,
-      selected: [],
-      treeData: null,
-      priority_options: FILE_PRIORITY_OPTIONS,
+      timer: null as NodeJS.Timeout | null,
+      loading: false,
+      cachedFiles: [] as TorrentFile[],
+      fileTree: [{}] as [TreeRoot],
+      openedItems: [] as string[],
+      fileSelection: [] as string[],
+      filePriorityOptions: [
+        {name: 'Max', icon: mdiPriorityHigh, value: Priority.MAXIMAL},
+        {name: 'High', icon: mdiArrowUp, value: Priority.HIGH},
+        {name: 'Normal', icon: mdiArrowDown, value: Priority.NORMAL},
+        {name: 'Unwanted', icon: mdiPriorityLow, value: Priority.DO_NOT_DOWNLOAD}
+      ],
       mdiFolderOpen,
       mdiFolder,
-      mdiFile,
+      mdiFileTree,
       mdiTrendingUp,
       mdiPencil,
       mdiContentSave,
@@ -105,58 +134,25 @@ export default {
     }
   },
   computed: {
-    fileTree() {
-      if (this.treeData) {
-        return treeify(this.treeData)
-      }
-
-      return []
+    ...mapGetters(['getApiRefreshInterval']),
+    torrentHash(): string {
+      return this.hash as string
     }
   },
   watch: {
-    isActive(active) {
-      if (active) {
-        if (this.inited) {
-          this.getTorrentFiles()
-        } else {
-          this.initFiles()
-          this.inited = true
-        }
-      }
-    },
-    selected(newValue, oldValue) {
-      this.changeFilePriorities(newValue, oldValue)
-    }
-  },
-  created() {},
-  methods: {
-    initFiles() {
-      this.getTorrentFiles().then(() => {
-        this.opened = []
-        this.selected = this.treeData.filter(file => file.priority !== 0).map(file => file.name)
-      })
-    },
-    async getTorrentFiles() {
-      const data = await qbit.getTorrentFiles(this.hash)
-      data.forEach((d, i) => {
-        d.id = i
-        d.name = d.name.replace('.unwanted/', '')
-      })
-      this.treeData = data
-    },
-    async changeFilePriorities(newValue, oldValue) {
+    async fileSelection(newValue: string[], oldValue: string[]) {
       if (newValue.length === oldValue.length) return
 
       const filesToExclude = oldValue
-        .filter(f => !newValue.includes(f))
-        .map(name => this.treeData.find(f => f.name === name))
-        .filter(f => f.priority !== 0)
-        .map(f => f.id)
+          .filter(file => !newValue.includes(file))
+          .map(name => this.cachedFiles.find(f => f.name === name))
+          .filter(f => f.priority !== 0)
+          .map(f => f.index)
       const filesToInclude = newValue
-        .filter(f => !oldValue.includes(f))
-        .map(name => this.treeData.find(f => f.name === name))
-        .filter(f => f.priority === 0)
-        .map(f => f.id)
+          .filter(f => !oldValue.includes(f))
+          .map(name => this.cachedFiles.find(f => f.name === name))
+          .filter(f => f.priority === 0)
+          .map(f => f.index)
 
       if (filesToExclude.length) {
         await qbit.setTorrentFilePriority(this.hash, filesToExclude, 0)
@@ -165,55 +161,133 @@ export default {
         await qbit.setTorrentFilePriority(this.hash, filesToInclude, 1)
       }
       if (filesToExclude.length || filesToInclude.length) {
-        await this.getTorrentFiles()
+        await this.updateFileTree()
       }
     },
-    toggleEditing(item) {
-      item.editing = !item.editing
-    },
-    edit(item) {
-      item.newName = item.name
-      this.toggleEditing(item)
-    },
-    renameFile(item) {
-      const lastPathSep = item.fullName.lastIndexOf('/')
-      const args = [this.hash]
+    isActive(newValue: boolean) {
+      if (newValue) {
+        this.updateFileTree().then(() => this.openedItems.push(''))
 
-      if (lastPathSep === -1) args.push(item.name, item.newName)
-      else {
-        const prefix = item.fullName.substring(0, lastPathSep)
-        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+        //@ts-expect-error: TS2339: Property 'getApiRefreshInterval' does not exist on type 'CreateComponentPublicInstance...'.
+        this.timer = setInterval(this.updateFileTree, this.getApiRefreshInterval())
+      } else {
+        clearInterval(this.timer as NodeJS.Timeout)
+      }
+    }
+  },
+  beforeDestroy() {
+    clearInterval(this.timer as NodeJS.Timeout)
+  },
+  filters: {
+    fileIcon(file: TreeFile) {
+      const types: Record<string, string> = {
+        html: mdiLanguageHtml5,
+        js: mdiNodejs,
+        json: mdiCodeJson,
+        md: mdiLanguageMarkdown,
+        pdf: mdiFilePdfBox,
+        png: mdiFileImage,
+        txt: mdiFileDocumentOutline,
+        sub: mdiFileDocumentOutline,
+        idx: mdiFileDocumentOutline,
+        xls: mdiFileExcel,
+        xlsx: mdiFileExcel,
+        avi: mdiMovie,
+        mp4: mdiMovie,
+        mkv: mdiMovie,
+        mov: mdiMovie,
+        wmv: mdiMovie
       }
 
-      qbit.renameFile(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFileFailed')))
-
-      item.name = item.newName
-      this.toggleEditing(item)
+      const type = file.name.split('.').pop() || ''
+      return types[type] || mdiFile
     },
-    renameFolder(item) {
-      const lastPathSep = item.fullName.lastIndexOf('/')
-      const args = [this.hash]
-
-      if (lastPathSep === -1) args.push(item.name, item.newName)
-      else {
-        const prefix = item.fullName.substring(0, lastPathSep)
-        args.push(`${prefix}/${item.name}`, `${prefix}/${item.newName}`)
+    nodeContent(node: TreeRoot | TreeFolder) {
+      let fileCount = 0
+      let folderCount = 0
+      for (const child of node.children) {
+        if (child.type === 'file') {
+          fileCount++
+        } else if (child.type === 'folder') {
+          folderCount++
+        }
       }
 
-      qbit.renameFolder(...args).catch(() => Vue.$toast.error(this.$t('toast.renameFolderFailed')))
+      const res = []
+      if (fileCount > 0) {
+        res.push(i18n.tc('modals.detail.pageContent.fileInfo', fileCount).toString())
+      }
+      if (folderCount > 0) {
+        res.push(i18n.tc('modals.detail.pageContent.folderInfo', folderCount).toString())
+      }
 
-      item.name = item.newName
-      this.toggleEditing(item)
+      return res.join(', ')
+    }
+  },
+  methods: {
+    getNodePriority(node: TreeFile) {
+      const res = this.filePriorityOptions.find(el => el.value === node.priority)
+
+      return res ? res.name : 'undefined'
     },
-    setFilePrio(fileId, priority) {
-      qbit.setTorrentFilePriority(this.hash, [fileId], priority).then(() => this.initFiles())
+    toggleEditing(node: TreeNode) {
+      if (!node.editing) {
+        node.newName = node.name
+      }
+      node.editing = !node.editing
+    },
+    async renameNode(node: TreeNode) {
+      if (node.type === 'root') return
+
+      const lastPathSep = node.fullName.lastIndexOf('/')
+      let oldPath: string, newPath: string
+
+      if (lastPathSep === -1) {
+        [oldPath, newPath] = [node.name, node.newName]
+      } else {
+        const prefix = node.fullName.substring(0, lastPathSep);
+        [oldPath, newPath] = [`${prefix}/${node.name}`, `${prefix}/${node.newName}`]
+      }
+
+      let res = false
+      if (node.type === 'file') {
+        res = await qbit.renameFile(this.torrentHash, oldPath, newPath)
+            .then(() => true, () => false)
+      }
+      else if (node.type === 'folder') {
+        res = await qbit.renameFolder(this.torrentHash, oldPath, newPath)
+            .then(() => true, () => false)
+      }
+
+      if (!res) {
+        this.$toast.error(this.$t('toast.renameFailed'))
+        return
+      }
+
+      this.toggleEditing(node)
+      await this.updateFileTree()
+
+      this.openedItems.forEach((el: string, index: number) => {
+        if (el.startsWith(oldPath)) {
+          this.openedItems[index] = el.substring(0, oldPath.length) + newPath
+        }
+      })
+    },
+    async setFilePrio(file: TreeFile, prio: Priority) {
+      await qbit.setTorrentFilePriority(this.torrentHash, [file.index], prio)
+    },
+    async updateFileTree() {
+      this.loading = true
+
+      this.cachedFiles = await qbit.getTorrentFiles(this.torrentHash)
+      this.fileTree = [await genFileTree(this.cachedFiles)]
+      this.fileSelection = this.cachedFiles
+          .filter(f => f.priority !== 0)
+          .map(f => f.name)
+
+      await this.$nextTick()
+      this.loading = false
     }
   }
-}
+})
 </script>
-
-<style scoped lang="scss">
-.item-name {
-  white-space: normal;
-}
-</style>

@@ -53,8 +53,7 @@
             <DetailPeers :is-active="tab === 'peers'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="content">
-            <!-- TODO: rename to Content -->
-            <ContentRework :is-active="tab === 'content'" :hash="hash" />
+            <Content :is-active="tab === 'content'" :hash="hash" />
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
             <TorrentTagsAndCategories v-if="torrent" :torrent="torrent" :is-active="tab === 'tagsAndCategories'" :hash="hash" />
@@ -70,8 +69,9 @@ import { mapGetters } from 'vuex'
 import { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
 import Overview from "@/components/TorrentDetail/Tabs/Overview.vue";
+import {defineComponent} from 'vue'
 
-export default {
+export default defineComponent({
   name: 'TorrentDetail',
   components: { Overview, Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories },
   data() {
@@ -83,6 +83,7 @@ export default {
   computed: {
     ...mapGetters(['getTorrent']),
     torrent() {
+      //@ts-expect-error: TS2339: Property 'getTorrent' does not exist on type 'CreateComponentPublicInstance...'.
       return this.getTorrent(this.hash)
     },
     hash(): string {
@@ -107,5 +108,5 @@ export default {
       }
     }
   }
-}
+})
 </script>

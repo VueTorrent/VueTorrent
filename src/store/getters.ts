@@ -37,5 +37,6 @@ export default {
       return i18n.tc('dashboard.torrentsCount', state.filteredTorrentsCount)
     }
   },
-  getSearchPlugins: (state: StoreState) => () => state.searchPlugins
+  getSearchPlugins: (state: StoreState) => () => state.searchPlugins,
+  getApiRefreshInterval: (state: StoreState) => () => state.webuiSettings.refreshInterval,
 }

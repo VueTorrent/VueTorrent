@@ -13,6 +13,7 @@ import type Tracker from './Tracker'
 export {
   Category,
   Feed,
+  FeedArticle,
   FeedRule,
   SearchStatus,
   SearchResult,
