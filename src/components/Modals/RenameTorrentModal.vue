@@ -37,7 +37,7 @@ import qbit from '@/services/qbit'
 import {defineComponent} from 'vue'
 
 export default defineComponent({
-  name: 'RenameModal',
+  name: 'RenameTorrentModal',
   mixins: [Modal, FullScreenModal],
   props: {
     hash: String

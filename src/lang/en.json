@@ -732,7 +732,10 @@
     },
     "rename": {
       "title": "Rename",
-      "torrentName": "Torrent Name"
+      "torrentName": "Torrent Name",
+      "oldPath": "Old Path",
+      "newPath": "New Path",
+      "errorConflict": "A file or folder with the same name already exists"
     },
     "sort": {
       "title": "Sort Torrents",

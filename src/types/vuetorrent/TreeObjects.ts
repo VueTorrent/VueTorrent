@@ -7,10 +7,6 @@ export interface TreeNode {
   name: string
   /** Represents the full path of the file/folder (name included) */
   fullName: string
-  /** Whether the object is being edited */
-  editing: boolean
-  /** Represents the new name of the file/folder (if being edited) */
-  newName: string
 }
 
 export interface TreeFile extends TreeNode {
@@ -38,7 +34,5 @@ export interface TreeRoot extends TreeNode {
   type: 'root'
   name: ''
   fullName: ''
-  editing: false
-  newName: ''
   children: TreeNode[]
 }
