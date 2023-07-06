@@ -7,6 +7,7 @@
         activatable
         selectable
         item-key="fullName"
+        @input="setFileSelection"
     >
       <template v-slot:prepend="{ item: node, open }">
         <v-icon v-if="node.type === 'root'">
@@ -43,7 +44,8 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item v-for="prio in filePriorityOptions" :key="prio.value" link @click="setFilePrio(node, prio.value)">
+              <v-list-item v-for="prio in filePriorityOptions" :key="prio.value" link
+                           @click="setFilePrio(node, prio.value)">
                 <v-icon>{{ prio.icon }}</v-icon>
                 <v-list-item-title class="caption">
                   {{ prio.name }}
@@ -64,25 +66,25 @@
 import {defineComponent} from 'vue'
 import {mapGetters} from 'vuex'
 import {
+  mdiArrowDown,
+  mdiArrowUp,
+  mdiCodeJson,
+  mdiFile,
+  mdiFileDocumentOutline,
+  mdiFileExcel,
+  mdiFileImage,
+  mdiFilePdfBox,
+  mdiFileTree,
   mdiFolder,
   mdiFolderOpen,
-  mdiFileTree,
   mdiLanguageHtml5,
-  mdiFileDocumentOutline,
-  mdiNodejs,
-  mdiFilePdfBox,
-  mdiFileExcel,
-  mdiCodeJson,
-  mdiFileImage,
-  mdiMovie,
   mdiLanguageMarkdown,
-  mdiFile,
+  mdiMovie,
+  mdiNodejs,
+  mdiPencil,
   mdiPriorityHigh,
-  mdiArrowUp,
-  mdiArrowDown,
   mdiPriorityLow,
-  mdiTrendingUp,
-  mdiPencil
+  mdiTrendingUp
 } from '@mdi/js'
 import {TreeFile, TreeFolder, TreeNode, TreeRoot} from '@/types/vuetorrent'
 import {Priority} from '@/enums/qbit'
@@ -127,30 +129,6 @@ export default defineComponent({
     }
   },
   watch: {
-    async fileSelection(newValue: string[], oldValue: string[]) {
-      if (newValue.length === oldValue.length) return
-
-      const filesToExclude = oldValue
-          .filter(file => !newValue.includes(file))
-          .map(name => this.cachedFiles.find(f => f.name === name))
-          .filter(f => f.priority !== 0)
-          .map(f => f.index)
-      const filesToInclude = newValue
-          .filter(f => !oldValue.includes(f))
-          .map(name => this.cachedFiles.find(f => f.name === name))
-          .filter(f => f.priority === 0)
-          .map(f => f.index)
-
-      if (filesToExclude.length) {
-        await qbit.setTorrentFilePriority(this.torrentHash, filesToExclude, 0)
-      }
-      if (filesToInclude.length) {
-        await qbit.setTorrentFilePriority(this.torrentHash, filesToInclude, 1)
-      }
-      if (filesToExclude.length || filesToInclude.length) {
-        await this.updateFileTree()
-      }
-    },
     isActive(newValue: boolean) {
       if (newValue) {
         this.updateFileTree().then(() => this.openedItems.push(''))
@@ -216,37 +194,35 @@ export default defineComponent({
 
       return res ? res.name : 'undefined'
     },
+    async setFileSelection(currentSelection: string[]) {
+      const oldValue = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.index)
+      const newValue = currentSelection.map(path => this.cachedFiles.find(f => f.name === path)).map(f => f.index)
+
+      const filesToExclude = oldValue
+          .filter(index => !newValue.includes(index))
+          .map(index => this.cachedFiles.find(f => f.index === index))
+          .filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD)
+          .map(f => f.index)
+      const filesToInclude = newValue
+          .filter(index => !oldValue.includes(index))
+          .map(index => this.cachedFiles.find(f => f.index === index))
+          .filter(f => f.priority === Priority.DO_NOT_DOWNLOAD)
+          .map(f => f.index)
+
+      if (filesToExclude.length) {
+        await qbit.setTorrentFilePriority(this.torrentHash, filesToExclude, Priority.DO_NOT_DOWNLOAD)
+      }
+      if (filesToInclude.length) {
+        await qbit.setTorrentFilePriority(this.torrentHash, filesToInclude, Priority.NORMAL)
+      }
+    },
     async renameNode(node: TreeNode) {
-      this.createModal('RenameTorrentFileModal', {hash: this.torrentHash, isFolder: node.type === 'folder', oldName: node.fullName})
-      // if (node.type === 'root') return
-      //
-      // const lastPathSep = node.fullName.lastIndexOf('/')
-      // let oldPath: string, newPath: string
-      //
-      // if (lastPathSep === -1) {
-      //   [oldPath, newPath] = [node.name, node.newName]
-      // } else {
-      //   const prefix = node.fullName.substring(0, lastPathSep);
-      //   [oldPath, newPath] = [`${prefix}/${node.name}`, `${prefix}/${node.newName}`]
-      // }
-      //
-      // let res = false
-      // if (node.type === 'file') {
-      //   res = await qbit.renameFile(this.torrentHash, oldPath, newPath)
-      //       .then(() => true, () => false)
-      // }
-      // else if (node.type === 'folder') {
-      //   res = await qbit.renameFolder(this.torrentHash, oldPath, newPath)
-      //       .then(() => true, () => false)
-      // }
-      //
-      // if (!res) {
-      //   this.$toast.error(this.$t('toast.renameFailed'))
-      //   return
-      // }
-      //
-      // await this.updateFileTree()
-      //
+      this.createModal('RenameTorrentFileModal', {
+        hash: this.torrentHash,
+        isFolder: node.type === 'folder',
+        oldName: node.fullName
+      })
+
       // this.openedItems.forEach((el: string, index: number) => {
       //   if (el.startsWith(oldPath)) {
       //     this.openedItems[index] = el.substring(0, oldPath.length) + newPath
@@ -261,9 +237,7 @@ export default defineComponent({
 
       this.cachedFiles = await qbit.getTorrentFiles(this.torrentHash)
       this.fileTree = [await genFileTree(this.cachedFiles)]
-      this.fileSelection = this.cachedFiles
-          .filter(f => f.priority !== 0)
-          .map(f => f.name)
+      this.fileSelection = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.name)
 
       await this.$nextTick()
       this.loading = false
