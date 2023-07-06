@@ -64,7 +64,7 @@
 
 <script lang="ts">
 import { General } from '@/mixins'
-import { mapState } from 'vuex'
+import {mapGetters, mapState } from 'vuex'
 import { defineComponent } from 'vue'
 import { FeedArticle } from '@/types/vuetorrent/rss'
 import { Feed, FeedRule } from '@/types/vuetorrent'
@@ -105,6 +105,7 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['rss']),
+    ...mapGetters(['getModals']),
     articles(): FeedArticle[] {
       const articles: FeedArticle[] = []
       ;(this.rss as RssState).feeds.forEach((feed: Feed) => {
@@ -141,7 +142,7 @@ export default defineComponent({
       this.$store.commit('FETCH_FEEDS')
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && this.getModals().length === 0) {
         this.close()
       }
     }

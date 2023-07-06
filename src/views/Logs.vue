@@ -63,7 +63,7 @@ import qbit from '@/services/qbit'
 import {Log} from '@/types/qbit/models'
 import {LogType} from '@/enums/qbit'
 import dayjs from "dayjs";
-import {mapState} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default defineComponent({
   name: 'Logs',
@@ -90,6 +90,7 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['webuiSettings']),
+    ...mapGetters(['getModals']),
     lastFetchedId() {
       return this.logs.length > 0 ? this.logs[this.logs.length-1].id : -1
     },
@@ -141,7 +142,7 @@ export default defineComponent({
       this.$router.back()
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && this.getModals().length === 0) {
         this.close()
       }
     }

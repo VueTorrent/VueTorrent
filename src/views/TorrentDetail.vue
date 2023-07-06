@@ -17,7 +17,7 @@
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" align-with-title show-arrows background-color="primary">
-        <v-tabs-slider color="white" />
+        <v-tabs-slider color="white"/>
         <v-tab class="white--text" href="#overview">
           <h4>{{ $t('modals.detail.tabTitleOverview') }}</h4>
         </v-tab>
@@ -41,22 +41,23 @@
       <v-card-text class="pa-0">
         <v-tabs-items v-model="tab" touchless>
           <v-tab-item eager value="overview">
-            <Overview v-if="torrent" :is-active="tab === 'overview'" :torrent="torrent" />
+            <Overview v-if="torrent" :is-active="tab === 'overview'" :torrent="torrent"/>
           </v-tab-item>
           <v-tab-item eager value="info">
-            <Info v-if="torrent" :is-active="tab === 'info'" :torrent="torrent" />
+            <Info v-if="torrent" :is-active="tab === 'info'" :torrent="torrent"/>
           </v-tab-item>
           <v-tab-item eager value="trackers">
-            <Trackers :is-active="tab === 'trackers'" :hash="hash" />
+            <Trackers :is-active="tab === 'trackers'" :hash="hash"/>
           </v-tab-item>
           <v-tab-item eager value="peers">
-            <DetailPeers :is-active="tab === 'peers'" :hash="hash" />
+            <DetailPeers :is-active="tab === 'peers'" :hash="hash"/>
           </v-tab-item>
           <v-tab-item eager value="content">
-            <Content :is-active="tab === 'content'" :hash="hash" />
+            <Content :is-active="tab === 'content'" :hash="hash"/>
           </v-tab-item>
           <v-tab-item eager value="tagsAndCategories">
-            <TorrentTagsAndCategories v-if="torrent" :torrent="torrent" :is-active="tab === 'tagsAndCategories'" :hash="hash" />
+            <TorrentTagsAndCategories v-if="torrent" :torrent="torrent" :is-active="tab === 'tagsAndCategories'"
+                                      :hash="hash"/>
           </v-tab-item>
         </v-tabs-items>
       </v-card-text>
@@ -65,14 +66,15 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex'
-import { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories } from '../components/TorrentDetail/Tabs'
-import { mdiClose } from '@mdi/js'
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
+import {Content, DetailPeers, Info, TorrentTagsAndCategories, Trackers} from '../components/TorrentDetail/Tabs'
+import {mdiClose} from '@mdi/js'
 import Overview from "@/components/TorrentDetail/Tabs/Overview.vue";
 
-export default {
+export default defineComponent({
   name: 'TorrentDetail',
-  components: { Overview, Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories },
+  components: {Overview, Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories},
   data() {
     return {
       tab: null,
@@ -80,9 +82,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['getTorrent']),
+    ...mapGetters(['getTorrent', 'getModals']),
     torrent() {
-      return this.getTorrent(this.hash)
+      //@ts-expect-error: TS2339: Property 'getTorrent' does not exist on type 'CreateComponentPublicInstance...'
+      return this.getTorrent(this.hash as string)
     },
     hash(): string {
       return this.$route.params.hash
@@ -101,10 +104,11 @@ export default {
       this.$router.back()
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
+      //@ts-expect-error: TS2339: Property 'getModals' does not exist on type 'CreateComponentPublicInstance...'
+      if (e.key === 'Escape' && this.getModals().length === 0) {
         this.close()
       }
     }
   }
-}
+})
 </script>
