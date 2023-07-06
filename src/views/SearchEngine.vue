@@ -76,7 +76,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { mdiClose, mdiDownload, mdiToyBrick } from '@mdi/js'
 import qbit from '@/services/qbit'
 import { General } from '@/mixins'
@@ -108,7 +108,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapState(['searchPlugins']),
+    ...mapGetters(['getSearchPlugins', 'getModals']),
     categories() {
       const cats = [
         { text: 'Movies', value: 'movies' },
@@ -130,7 +130,7 @@ export default defineComponent({
         { text: 'Only enabled', value: 'enabled' }
       ]
 
-      this.searchPlugins.filter((plugin: SearchPlugin) => plugin.enabled).forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
+      this.getSearchPlugins().filter((plugin: SearchPlugin) => plugin.enabled).forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
 
       return plugins
     },
@@ -140,9 +140,11 @@ export default defineComponent({
   },
   async mounted() {
     await this.$store.dispatch('FETCH_SEARCH_PLUGINS')
+    document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
   async beforeDestroy() {
     await this.stopSearch()
+    document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
     openPluginManager() {
@@ -174,10 +176,16 @@ export default defineComponent({
     downloadTorrent(item: SearchResult) {
       this.createModal('AddModal', { initialMagnet: item.fileUrl })
     },
-    customFilter(value, search, item) {
-      const searchArr = search.trim().toLowerCase().split(' ')
-
-      return value != null && search != null && typeof value === 'string' && searchArr.every(i => value.toString().toLowerCase().indexOf(i) !== -1)
+    customFilter(value: any, search: string | null, item: any) {
+      return value != null
+          && search != null
+          && typeof value === 'string'
+          && search.trim().toLowerCase().split(' ').every(i => value.toString().toLowerCase().indexOf(i) !== -1)
+    },
+    handleKeyboardShortcut(e: KeyboardEvent) {
+      if (e.key === 'Escape' && this.getModals().length === 0) {
+        this.close()
+      }
     }
   }
 })
