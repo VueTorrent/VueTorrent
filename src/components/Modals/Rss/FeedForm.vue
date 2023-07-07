@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="hasInitialFeed ? edit : create">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="submit">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -9,20 +9,17 @@
       <v-card-text>
         <v-form ref="feedForm" class="px-6 mt-3">
           <v-container v-if="!hasInitialFeed">
-            <v-text-field v-model="feed.url" :label="$t('modals.newFeed.url')" required />
+            <v-text-field v-model="feed.url" :rules="rules" :label="$t('modals.newFeed.url')" required />
           </v-container>
           <v-container>
-            <v-text-field v-model="feed.name" :label="$t('modals.newFeed.feedName')" required />
+            <v-text-field v-model="feed.name" :rules="rules" :label="$t('modals.newFeed.feedName')" required />
           </v-container>
         </v-form>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn v-if="!hasInitialFeed" class="accent white--text elevation-0 px-4" @click="create">
-          {{ $t('create') }}
-        </v-btn>
-        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit">
-          {{ $t('edit') }}
+        <v-btn class="accent white--text elevation-0 px-4" @click="submit">
+          {{ $t(hasInitialFeed ? 'edit' : 'create') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
           {{ $t('cancel') }}
@@ -46,6 +43,9 @@ export default defineComponent({
   },
   data: () => ({
     feed: { url: '', name: '' },
+    rules: [
+      (v: string) => !!v || 'Required'
+    ],
     mdiCancel,
     mdiTagPlus,
     mdiPencil
@@ -61,18 +61,23 @@ export default defineComponent({
     }
   },
   methods: {
-    async create() {
-      await qbit.createFeed(this.feed)
-      this.cancel()
-    },
     cancel() {
       this.$store.commit('FETCH_FEEDS')
       this.dialog = false
+    },
+    async create() {
+      await qbit.createFeed(this.feed)
+      this.cancel()
     },
     async edit() {
       await qbit.editFeed(this.initialFeed.name, this.feed.name)
       this.$toast.success(this.$t('toast.feedSaved'))
       this.cancel()
+    },
+    async submit() {
+      if (this.feed.name === '' || this.feed.url === '') return
+      if (this.hasInitialFeed) await this.edit()
+      else await this.create()
     }
   }
 })
