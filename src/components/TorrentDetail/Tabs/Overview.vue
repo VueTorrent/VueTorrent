@@ -26,7 +26,10 @@
                   <canvas id="pieceStates" width="0" height="1" />
                 </div>
                 <div>
-                  <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ torrentPieceSize | getDataValue }} {{ torrentPieceSize | getDataUnit }})</span>
+                  <span>
+                    {{ torrentPieceOwned }} / {{ torrentPieceCount }}
+                    ({{ torrentPieceSize | getDataValue }} {{ torrentPieceSize | getDataUnit }})
+                  </span>
                 </div>
                 <div>
                   <v-icon>{{ mdiArrowDown }}</v-icon>
@@ -43,7 +46,8 @@
               </v-col>
               <v-col cols="6">
                 {{ $t('modals.detail.pageOverview.fileCount') }}:<br/>
-                {{ torrentFileCount }} <span v-if="torrentFileCount === 1">({{ torrentFileName }})</span>
+                {{ selectedFileCount }} / {{ torrentFileCount }}
+                <span v-if="selectedFileCount === 1">({{ torrentFileName }})</span>
               </v-col>
             </v-row>
           </v-card-text>
@@ -59,24 +63,33 @@
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.category') }}:
-                <v-chip small class="upload white--text caption ml-2">{{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}</v-chip>
+                <v-chip small class="upload white--text caption ml-2">
+                  {{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}
+                </v-chip>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
                 {{ $t('torrent.properties.tracker') }}:
-                <v-chip small class="moving white--text caption ml-2">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}</v-chip>
+                <v-chip small class="moving white--text caption ml-2">
+                  {{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}
+                </v-chip>
               </v-col>
               <v-col cols="6">
                 {{ $t('torrent.properties.tags') }}:
-                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption ml-2">{{ tag }}</v-chip>
-                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">{{ $t('navbar.filters.untagged') }}</v-chip>
+                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small
+                        class="tags white--text caption ml-2">{{ tag }}
+                </v-chip>
+                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">
+                  {{ $t('navbar.filters.untagged') }}
+                </v-chip>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
                 {{ $t('modals.detail.pageOverview.selectedFileSize') }}:<br/>
-                {{ torrent?.size | getDataValue }} {{ torrent?.size | getDataUnit }} / {{ torrent?.total_size | getDataValue }} {{ torrent?.total_size | getDataUnit }}
+                {{ torrent?.size | getDataValue }} {{ torrent?.size | getDataUnit }} /
+                {{ torrent?.total_size | getDataValue }} {{ torrent?.total_size | getDataUnit }}
               </v-col>
               <v-col cols="6">
                 {{ $t('ratio') }}:<br/>
@@ -112,14 +125,15 @@
 
 <script lang="ts">
 import dayjs from "dayjs";
-import { FullScreenModal } from "@/mixins";
+import {FullScreenModal} from "@/mixins";
 import qbit from "@/services/qbit";
-import { getDomainBody, splitByUrl, stringContainsUrl } from "@/helpers";
-import { defineComponent } from "vue";
-import { Torrent } from "@/models";
-import { mapState } from "vuex";
-import { mdiClose, mdiContentSave, mdiPencil, mdiArrowDown, mdiArrowUp, mdiCheck } from "@mdi/js";
-import { TorrentState } from "@/enums/vuetorrent";
+import {getDomainBody, splitByUrl, stringContainsUrl} from "@/helpers";
+import {defineComponent} from "vue";
+import {Torrent} from "@/models";
+import {mapState} from "vuex";
+import {mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiContentSave, mdiPencil} from "@mdi/js";
+import {TorrentState} from "@/enums/vuetorrent";
+import {Priority} from "@/enums/qbit";
 
 export default defineComponent({
   name: 'Overflow',
@@ -136,8 +150,9 @@ export default defineComponent({
       creationDate: '',
       downloadSpeedAvg: 0,
       isPrivateTorrent: false,
+      selectedFileCount: 0,
       torrentFileCount: 0,
-      torrentFileName: null,
+      torrentFileName: '',
       torrentPieceSize: 0,
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
@@ -156,10 +171,12 @@ export default defineComponent({
     await this.renderTorrentPieceStates()
 
     const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
+    const selectedFiles = files.filter(f => f.priority != Priority.DO_NOT_DOWNLOAD)
 
+    this.selectedFileCount = selectedFiles.length
     this.torrentFileCount = files.length
-    if (this.torrentFileCount === 1) {
-      this.torrentFileName = files[0].name
+    if (this.selectedFileCount === 1) {
+      this.torrentFileName = selectedFiles[0].name
     }
   },
   computed: {
