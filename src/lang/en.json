@@ -225,7 +225,7 @@
     },
     "logs": {
       "title": "qBittorrent Logs",
-      "table":  {
+      "table": {
         "id": "Log ID",
         "type": "Log Level",
         "message": "Message",
@@ -659,7 +659,7 @@
         "selectedFileSize": "Selected Files' Size",
         "dlSpeedAverage": "Download Speed Average",
         "upSpeedAverage": "Upload Speed Average",
-        "fileCount": "File Count"
+        "fileCount": "Selected Files"
       },
       "pageInfo": {
         "eta": "ETA",

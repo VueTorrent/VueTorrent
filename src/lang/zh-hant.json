@@ -225,7 +225,7 @@
     },
     "logs": {
       "title": "qBittorrent 日誌",
-      "table":  {
+      "table": {
         "id": "日誌 ID",
         "type": "日誌等級",
         "message": "訊息",
@@ -658,8 +658,7 @@
         "fetchingMetadata": "正在抓取...",
         "selectedFileSize": "選中的檔案大小",
         "dlSpeedAverage": "平均下載速率",
-        "upSpeedAverage": "平均上傳速率",
-        "fileCount": "檔案數"
+        "upSpeedAverage": "平均上傳速率"
       },
       "pageInfo": {
         "eta": "預估剩餘時間",
