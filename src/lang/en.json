@@ -271,6 +271,8 @@
           "showShutdownButton": "Show shutdown button",
           "refreshInterval": "qBittorrent API refresh interval",
           "refreshIntervalHint": "In milliseconds",
+          "torrentPieceCountRenderThreshold": "Torrent piece count to disable rendering",
+          "torrentPieceCountRenderThresholdHint": "In milliseconds",
           "currentVersion": "Current Version",
           "qbittorrentVersion": "QBittorrent Version",
           "registerMagnet": "Register magnet links",
@@ -656,6 +658,8 @@
       "tabTitleTagsCategories": "Tags & Categories",
       "pageOverview": {
         "fetchingMetadata": "Fetching...",
+        "waitingForMetadata": "Waiting for metadata...",
+        "disabledCanvas": "Canvas disabled to save performance",
         "selectedFileSize": "Selected Files' Size",
         "dlSpeedAverage": "Download Speed Average",
         "upSpeedAverage": "Upload Speed Average",

@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" md="6">
         <v-card flat>
-          <v-card-title>{{ torrent.name }}</v-card-title>
+          <v-card-title class="overflow-wrap">{{ torrent.name }}</v-card-title>
           <v-card-subtitle>
             <div v-for="commentPart in splitString(comment)" :key="commentPart">
               <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
@@ -15,25 +15,31 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" md="3">
-                <v-progress-circular v-if="torrent?.state === TorrentState.METADATA" indeterminate :size="100" color="torrent-metadata">{{ $t('modals.detail.pageOverview.fetchingMetadata') }}</v-progress-circular>
+                <v-progress-circular v-if="isFetchingMetadata" indeterminate :size="100" color="torrent-metadata">{{ $t('modals.detail.pageOverview.fetchingMetadata') }}</v-progress-circular>
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
                 <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
               </v-col>
               <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
-                <div>
+                <div v-if="shouldRenderPieceStates">
                   <canvas id="pieceStates" width="0" height="1" />
                 </div>
-                <div>
+                <div v-else-if="isFetchingMetadata">
                   <span>
-                    {{ torrentPieceOwned }} / {{ torrentPieceCount }}
-                    ({{ torrentPieceSize | getDataValue }} {{ torrentPieceSize | getDataUnit }})
+                    {{ $t('modals.detail.pageOverview.waitingForMetadata') }}
                   </span>
+                </div>
+                <div v-else>
+                  <span>{{ $t('modals.detail.pageOverview.disabledCanvas') }}</span>
+                </div>
+                <div v-if="torrentPieceCount !== -1">
+                  <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ torrentPieceSize | getData }})</span>
                 </div>
                 <div>
                   <v-icon>{{ mdiArrowDown }}</v-icon>
                   {{ torrent?.dlspeed | networkSpeed }}
+
                   <v-icon>{{ mdiArrowUp }}</v-icon>
                   {{ torrent?.upspeed | networkSpeed }}
                 </div>
@@ -41,13 +47,15 @@
             </v-row>
             <v-row>
               <v-col cols="6">
-                {{ $t('torrent.properties.save_path') }}:<br/>
-                {{ torrent.savePath }}
+                <div>{{ $t('torrent.properties.save_path') }}:</div>
+                <div>{{ torrent.savePath }}</div>
               </v-col>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.fileCount') }}:<br/>
-                {{ selectedFileCount }} / {{ torrentFileCount }}
-                <span v-if="selectedFileCount === 1">({{ torrentFileName }})</span>
+                <div>{{ $t('modals.detail.pageOverview.fileCount') }}:</div>
+                <div>
+                  {{ selectedFileCount }} / {{torrentFileCount }}
+                  <span v-if="selectedFileCount === 1">({{ torrentFileName }})</span>
+                </div>
               </v-col>
             </v-row>
           </v-card-text>
@@ -58,62 +66,67 @@
           <v-card-text>
             <v-row>
               <v-col cols="6">
-                {{ $t('torrent.properties.status') }}:
-                <v-chip small :class="`${torrentStateClass} white--text caption ml-2`">{{ torrent.state }}</v-chip>
+                <div>
+                  {{ $t('torrent.properties.status') }}:
+                </div>
+                <v-chip small :class="torrentStateClass" class="white--text caption">{{ torrent.state }}</v-chip>
               </v-col>
               <v-col cols="6">
-                {{ $t('torrent.properties.category') }}:
-                <v-chip small class="upload white--text caption ml-2">
+                <div>
+                  {{ $t('torrent.properties.category') }}:
+                </div>
+                <v-chip small class="upload white--text caption">
                   {{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}
                 </v-chip>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
-                {{ $t('torrent.properties.tracker') }}:
-                <v-chip small class="moving white--text caption ml-2">
-                  {{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}
-                </v-chip>
+                <div>
+                  {{ $t('torrent.properties.tracker') }}:
+                </div>
+                <v-chip small class="moving white--text caption">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}</v-chip>
               </v-col>
               <v-col cols="6">
-                {{ $t('torrent.properties.tags') }}:
-                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small
-                        class="tags white--text caption ml-2">{{ tag }}
+                <div class="d-flex flex-wrap chipgap">
+                  {{ $t('torrent.properties.tags') }}:
+                </div>
+                <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption">
+                  {{ tag }}
                 </v-chip>
-                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption ml-2">
+                <v-chip v-if="!torrent?.tags || torrent.tags.length === 0" small class="tags white--text caption">
                   {{ $t('navbar.filters.untagged') }}
                 </v-chip>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.selectedFileSize') }}:<br/>
-                {{ torrent?.size | getDataValue }} {{ torrent?.size | getDataUnit }} /
-                {{ torrent?.total_size | getDataValue }} {{ torrent?.total_size | getDataUnit }}
+                <div>{{ $t('modals.detail.pageOverview.selectedFileSize') }}:</div>
+                <div>{{ torrent?.size | getData }} / {{ torrent?.total_size | getData }}</div>
               </v-col>
               <v-col cols="6">
-                {{ $t('ratio') }}:<br/>
-                {{ torrent?.ratio }}
-              </v-col>
-            </v-row>
-            <v-row>
-              <v-col cols="6">
-                {{ $t('downloaded') }}:<br/>
-                {{ torrent?.downloaded | getDataValue }} {{ torrent?.downloaded | getDataUnit }}
-              </v-col>
-              <v-col cols="6">
-                {{ $t('uploaded') }}:<br/>
-                {{ torrent?.uploaded | getDataValue }} {{ torrent?.uploaded | getDataUnit }}
+                <div>{{ $t('ratio') }}:</div>
+                <div>{{ torrent?.ratio }}</div>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.dlSpeedAverage') }}:<br/>
-                {{ downloadSpeedAvg | networkSpeed }}
+                <div>{{ $t('downloaded') }}:</div>
+                <div>{{ torrent?.downloaded | getData }}</div>
               </v-col>
               <v-col cols="6">
-                {{ $t('modals.detail.pageOverview.upSpeedAverage') }}:<br/>
-                {{ uploadSpeedAvg | networkSpeed }}
+                <div>{{ $t('uploaded') }}:</div>
+                <div>{{ torrent?.uploaded | getData }}</div>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="6">
+                <div>{{ $t('modals.detail.pageOverview.dlSpeedAverage') }}:</div>
+                <div>{{ downloadSpeedAvg | networkSpeed }}</div>
+              </v-col>
+              <v-col cols="6">
+                <div>{{ $t('modals.detail.pageOverview.upSpeedAverage') }}:</div>
+                <div>{{ uploadSpeedAvg | networkSpeed }}</div>
               </v-col>
             </v-row>
           </v-card-text>
@@ -189,13 +202,21 @@ export default defineComponent({
     },
     torrentStateClass() {
       return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
+    },
+    isFetchingMetadata() {
+      return this.torrent?.state === TorrentState.METADATA
+    },
+    shouldRenderPieceStates() {
+      return !this.isFetchingMetadata
+          && this.torrentPieceCount > 0
+          && this.torrentPieceCount < this.webuiSettings.torrentPieceCountRenderThreshold
     }
   },
   watch: {
-    torrent() {
-      this.getTorrentProperties()
-      if (this.torrentPieceCount < 5000) {
-        this.renderTorrentPieceStates()
+    async torrent() {
+      await this.getTorrentProperties()
+      if (this.shouldRenderPieceStates) {
+        await this.renderTorrentPieceStates()
       }
     }
   },
@@ -205,7 +226,6 @@ export default defineComponent({
       const props = await qbit.getTorrentProperties(this.torrent?.hash as string)
       this.comment = props.comment
       this.createdBy = props.created_by
-      // @ts-expect-error: TS2339: Property 'dateFormat' does not exist on type 'never'.
       this.creationDate = dayjs(props.creation_date * 1000).format(this.webuiSettings.dateFormat)
       this.downloadSpeedAvg = props.dl_speed_avg
       this.isPrivateTorrent = props.is_private
@@ -220,10 +240,9 @@ export default defineComponent({
 
       const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
       const pieces = await qbit.getTorrentPieceStates(this.torrent?.hash as string)
-      if (!pieces) return
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
-      canvas.width = pieces.length
+      canvas.width = pieces.length || -1
       const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -317,5 +336,13 @@ canvas#pieceStates {
 
 .v-card__title {
   word-break: normal;
+}
+
+.chipgap {
+  gap: 4px;
+}
+
+.overflow-wrap {
+  overflow-wrap: anywhere;
 }
 </style>

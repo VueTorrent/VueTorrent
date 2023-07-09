@@ -73,6 +73,12 @@ export function getDataValue(data: number, precision: number = 2) {
 
 Vue.filter('getDataValue', getDataValue)
 
+export function getData(data: number, precision: number = 2) {
+  return `${getDataValue(data, precision)} ${getDataUnit(data)}`
+}
+
+Vue.filter('getData', getData)
+
 export function titleCase(str: string): string {
   if (str.length == 0) return str
 
