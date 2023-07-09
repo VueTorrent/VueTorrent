@@ -40,18 +40,31 @@
       <v-checkbox v-model="settings.openSideBarOnStart" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.openSideBarOnStart')" />
     </v-list-item>
 
-    <v-list-item class="mb-3">
+    <v-list-item>
       <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
     </v-list-item>
 
-    <v-list-item class="mb-3">
-      <v-text-field
-          v-model="settings.refreshInterval"
-          type="number"
-          dense
-          outlined
-          :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
-          :label="$t('modals.settings.vueTorrent.general.refreshInterval')" />
+    <v-list-item class="my-2">
+      <v-row>
+        <v-col cols="12" sm="6" class="mb-n4">
+          <v-text-field
+              v-model="settings.refreshInterval"
+              type="number"
+              dense
+              outlined
+              :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
+              :label="$t('modals.settings.vueTorrent.general.refreshInterval')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-text-field
+              v-model="settings.torrentPieceCountRenderThreshold"
+              type="number"
+              dense
+              outlined
+              :hint="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThresholdHint')"
+              :label="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThreshold')" />
+        </v-col>
+      </v-row>
     </v-list-item>
 
     <v-list-item class="mb-3">
@@ -140,14 +153,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapState, mapGetters } from 'vuex'
-import { Qbit } from '@/services/qbit'
-import { LOCALES } from '@/lang/locales'
-import { General } from '@/mixins'
-import { TitleOptions } from '@/enums/vuetorrent'
+import {defineComponent} from 'vue'
+import {mapGetters, mapState} from 'vuex'
+import {Qbit} from '@/services/qbit'
+import {LOCALES} from '@/lang/locales'
+import {General} from '@/mixins'
+import {TitleOptions} from '@/enums/vuetorrent'
 import Ajv from 'ajv'
-import { StoreStateSchema } from '@/schemas'
+import {StoreStateSchema} from '@/schemas'
 import WebUISettings from '@/types/vuetorrent/WebUISettings'
 
 export default defineComponent({
