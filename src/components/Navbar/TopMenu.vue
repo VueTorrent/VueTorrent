@@ -1,15 +1,16 @@
 <template>
-  <TopActions v-if="!$vuetify.breakpoint.xsOnly" />
+  <TopActions v-if="$vuetify.breakpoint.smAndUp" />
   <div v-else>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn text small fab color="grey--text" class="mr-16 ml-0 mb-1" :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="addModal('AddModal')">
+        <v-btn text small fab color="grey--text" class="mr-16 ml-0 mb-1"
+               :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="createModal('AddModal')">
           <v-icon color="grey">
             {{ mdiPlus }}
           </v-icon>
         </v-btn>
       </template>
-      <span> {{ $t('navbar.topActions.addTorrent') | titleCase }}</span>
+      <span>{{ $t('navbar.topActions.addTorrent') | titleCase }}</span>
     </v-tooltip>
     <v-speed-dial v-model="fab" transition="slide-y-transition" direction="bottom" style="position: absolute; top: 0.3em; right: 1em">
       <template #activator>
@@ -24,14 +25,15 @@
   </div>
 </template>
 
-<script>
-import { General } from '@/mixins'
+<script lang="ts">
+import {defineComponent} from 'vue'
+import {General} from '@/mixins'
 import TopActions from './TopActions.vue'
-import { mdiDotsVertical, mdiClose, mdiPlus } from '@mdi/js'
+import {mdiClose, mdiDotsVertical, mdiPlus} from '@mdi/js'
 
-export default {
+export default defineComponent({
   name: 'TopMenu',
-  components: { TopActions },
+  components: {TopActions},
   mixins: [General],
   data() {
     return {
@@ -41,5 +43,5 @@ export default {
       mdiPlus
     }
   }
-}
+})
 </script>
