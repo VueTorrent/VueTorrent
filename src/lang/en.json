@@ -656,6 +656,8 @@
       "tabTitleTagsCategories": "Tags & Categories",
       "pageOverview": {
         "fetchingMetadata": "Fetching...",
+        "waitingForMetadata": "Waiting for metadata...",
+        "disabledCanvas": "Canvas disabled to save performance",
         "selectedFileSize": "Selected Files' Size",
         "dlSpeedAverage": "Download Speed Average",
         "upSpeedAverage": "Upload Speed Average",

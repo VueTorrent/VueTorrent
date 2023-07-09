@@ -4,10 +4,10 @@ import VuexPersist from 'vuex-persist'
 import actions from './actions'
 import getters from './getters'
 import mutations from './mutations'
-import type { StoreState, PersistentStoreState } from '@/types/vuetorrent'
-import { Status } from '@/models'
-import { TitleOptions, DashboardProperty } from '@/enums/vuetorrent'
-import { AppPreferences } from '@/types/qbit/models'
+import type {PersistentStoreState, StoreState} from '@/types/vuetorrent'
+import {Status} from '@/models'
+import {DashboardProperty, TitleOptions} from '@/enums/vuetorrent'
+import {AppPreferences} from '@/types/qbit/models'
 
 const vuexPersist = new VuexPersist<PersistentStoreState>({
   key: 'vuetorrent',
@@ -136,13 +136,14 @@ export default new Vuex.Store<StoreState>({
       openSideBarOnStart: true,
       showShutdownButton: true,
       refreshInterval: 2000,
+      torrentPieceCountRenderThreshold: 5000,
       busyDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
       doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
       busyMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate)),
       doneMobileCardProperties: JSON.parse(JSON.stringify(mobilePropertiesTemplate))
     }
   },
-  // @ts-expect-error
+  //@ts-expect-error: TS2322: Type '...' is not assignable to type 'ActionTree<StoreState, StoreState>'.
   actions: {
     ...actions
   },
