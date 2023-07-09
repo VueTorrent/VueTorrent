@@ -75,12 +75,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapGetters } from 'vuex'
-import { mdiClose, mdiDownload, mdiToyBrick } from '@mdi/js'
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
+import {mdiClose, mdiDownload, mdiToyBrick} from '@mdi/js'
 import qbit from '@/services/qbit'
-import { General } from '@/mixins'
-import { SearchPlugin, SearchResult } from '@/types/qbit/models'
+import {General} from '@/mixins'
+import {SearchPlugin, SearchResult} from '@/types/qbit/models'
 
 export default defineComponent({
   name: 'SearchEngine',
@@ -165,7 +165,7 @@ export default defineComponent({
       clearInterval(this.queryTimer)
     },
     async refreshResults() {
-      const response = await qbit.getSearchResults(this.queryId, 100, this.queryResults.length)
+      const response = await qbit.getSearchResults(this.queryId, this.queryResults.length)
       this.queryResults.push(...response.results)
 
       if (response.status === 'Stopped') {
@@ -176,7 +176,7 @@ export default defineComponent({
     downloadTorrent(item: SearchResult) {
       this.createModal('AddModal', { initialMagnet: item.fileUrl })
     },
-    customFilter(value: any, search: string | null, item: any) {
+    customFilter(value: any, search: string | null) {
       return value != null
           && search != null
           && typeof value === 'string'

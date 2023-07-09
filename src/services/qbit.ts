@@ -1,20 +1,20 @@
+import type {AxiosInstance} from 'axios'
 import axios from 'axios'
-import type { AxiosInstance } from 'axios'
 import type {
   ApplicationVersion,
   AppPreferences,
   Category,
   Feed,
   FeedRule as QbitFeedRule,
+  Log,
+  NetworkInterface,
   SearchJob,
   SearchPlugin,
   SearchStatus,
+  Torrent,
   TorrentFile,
   TorrentProperties,
-  Tracker,
-  Torrent,
-  NetworkInterface,
-  Log
+  Tracker
 } from '@/types/qbit/models'
 import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
@@ -503,7 +503,7 @@ export class QBitApi {
     }).then(res => res.data)
   }
 
-  async getSearchResults(id: number, limit?: number, offset?: number): Promise<SearchResultsResponse> {
+  async getSearchResults(id: number, offset?: number, limit?: number): Promise<SearchResultsResponse> {
     return this.execute('/search/results', {
       id,
       limit,
