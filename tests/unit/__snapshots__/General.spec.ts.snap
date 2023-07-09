@@ -30,11 +30,18 @@ exports[`General > render correctly 1`] = `
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
     <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"mb-3\\">
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
     <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
   </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"mb-3\\">
-    <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"number\\"></v-text-field-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"my-2\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\" class=\\"mb-n4\\">
+        <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"number\\"></v-text-field-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-text-field-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" dense=\\"true\\" loaderheight=\\"2\\" clearicon=\\"$clear\\" outlined=\\"true\\" type=\\"number\\"></v-text-field-stub>
+      </v-col-stub>
+    </v-row-stub>
   </v-list-item-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"mb-3\\">
     <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
