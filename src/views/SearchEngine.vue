@@ -30,6 +30,7 @@
               :rules="[v => !!v || 'Search term is required']"
               label="Search pattern"
               @keydown.enter.prevent="runNewSearch"
+              autofocus
             />
           </v-col>
           <v-col cols="6" sm="5" md="2">

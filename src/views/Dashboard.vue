@@ -473,6 +473,9 @@ export default {
 
         return this.createModal('ConfirmDeleteModal')
       }
+
+      // 'Search' => Search view
+      if (e.key === "/" && this.$route.name !== 'search') this.$router.push({ name: 'search' })
     }
   }
 }
