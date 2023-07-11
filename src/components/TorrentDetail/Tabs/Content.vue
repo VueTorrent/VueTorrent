@@ -223,12 +223,6 @@ export default defineComponent({
         isFolder: node.type === 'folder',
         oldName: node.fullName
       })
-
-      // this.openedItems.forEach((el: string, index: number) => {
-      //   if (el.startsWith(oldPath)) {
-      //     this.openedItems[index] = el.substring(0, oldPath.length) + newPath
-      //   }
-      // })
     },
     async setFilePrio(file: TreeFile, prio: Priority) {
       await qbit.setTorrentFilePriority(this.torrentHash, [file.index], prio)

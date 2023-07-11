@@ -62,11 +62,11 @@ export default defineComponent({
   mounted() {
     const input = document.getElementById('newPathInput') as HTMLInputElement
 
-    const startIndex = this.newName.lastIndexOf('/') + 1
+    const startIndex = this.newName.lastIndexOf('/')
     const endIndex = this.newName.lastIndexOf('.')
 
-    if (input && startIndex > -1 && endIndex > -1) {
-      input.setSelectionRange(startIndex, endIndex)
+    if (input) {
+      input.setSelectionRange(startIndex + 1, endIndex == -1 ? this.newName.length : endIndex)
     }
   },
   methods: {
