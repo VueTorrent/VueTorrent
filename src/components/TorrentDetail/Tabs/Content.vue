@@ -7,7 +7,7 @@
         activatable
         selectable
         item-key="fullName"
-        @input="setFileSelection"
+        @input="updateSelection"
     >
       <template v-slot:prepend="{ item: node, open }">
         <v-icon v-if="node.type === 'root'">
@@ -104,6 +104,7 @@ export default defineComponent({
   data() {
     return {
       timer: null as NodeJS.Timeout | null,
+      apiLock: false,
       loading: false,
       cachedFiles: [] as TorrentFile[],
       fileTree: [{}] as [TreeRoot],
@@ -194,7 +195,7 @@ export default defineComponent({
 
       return res ? res.name : 'undefined'
     },
-    async setFileSelection(currentSelection: string[]) {
+    async updateSelection(currentSelection: string[]) {
       const oldValue = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.index)
       const newValue = currentSelection.map(path => this.cachedFiles.find(f => f.name === path)).map(f => f.index)
 
@@ -233,6 +234,8 @@ export default defineComponent({
       await qbit.setTorrentFilePriority(this.torrentHash, [file.index], prio)
     },
     async updateFileTree() {
+      if (this.apiLock) return
+      this.apiLock = true
       this.loading = true
 
       this.cachedFiles = await qbit.getTorrentFiles(this.torrentHash)
@@ -241,6 +244,7 @@ export default defineComponent({
 
       await this.$nextTick()
       this.loading = false
+      this.apiLock = false
     }
   }
 })
