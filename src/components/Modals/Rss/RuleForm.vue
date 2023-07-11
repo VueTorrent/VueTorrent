@@ -17,7 +17,7 @@
             <v-col cols="12" sm="6">
               <v-form ref="form">
                 <v-container>
-                  <v-text-field v-model="rule.name" :label="$t('modals.newRule.name')" required />
+                  <v-text-field v-model="rule.name" :label="$t('modals.newRule.name')" autofocus required />
 
                   <v-divider />
 
@@ -101,14 +101,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { mapGetters } from 'vuex'
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
 import qbit from '@/services/qbit'
-import { Modal } from '@/mixins'
-import { mdiClose, mdiContentSave } from '@mdi/js'
+import {Modal} from '@/mixins'
+import {mdiClose, mdiContentSave} from '@mdi/js'
 import i18n from '@/plugins/i18n'
-import { AppPreferences } from '@/enums/qbit'
-import { Category, Feed } from '@/types/vuetorrent'
+import {AppPreferences} from '@/enums/qbit'
+import {Category, Feed} from '@/types/vuetorrent'
 
 type FormattedArticle = { type: string; value?: string }
 

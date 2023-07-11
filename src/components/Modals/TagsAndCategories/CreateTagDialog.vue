@@ -8,7 +8,7 @@
       </v-card-title>
       <v-card-text>
         <v-container>
-          <v-text-field v-model="tagname" :rules="rules" :label="$t('modals.newTag.tagName')" required />
+          <v-text-field v-model="tagname" :rules="rules" :label="$t('modals.newTag.tagName')" autofocus required />
         </v-container>
       </v-card-text>
       <v-divider />
@@ -26,7 +26,8 @@
 
 <script>
 import qbit from '@/services/qbit'
-import { Modal } from '@/mixins'
+import {Modal} from '@/mixins'
+
 export default {
   name: 'CreateTagDialog',
   mixins: [Modal],
