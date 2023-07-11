@@ -10,7 +10,7 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-text-field v-model="name" clearable :label="$t('modals.rename.torrentName')" :prepend-inner-icon="mdiFile" />
+              <v-text-field v-model="name" clearable :label="$t('modals.rename.torrentName')" autofocus :prepend-inner-icon="mdiFile" />
             </v-col>
           </v-row>
         </v-container>
@@ -29,12 +29,12 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex'
+import {mapGetters} from 'vuex'
 import Modal from '@/mixins/Modal'
-import { mdiFile } from '@mdi/js'
-import { FullScreenModal } from '@/mixins'
+import {mdiFile} from '@mdi/js'
+import {FullScreenModal} from '@/mixins'
 import qbit from '@/services/qbit'
-import { defineComponent } from 'vue'
+import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: 'RenameModal',
