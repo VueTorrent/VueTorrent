@@ -14,7 +14,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item>
-          <v-text-field v-model="newName" :label="$t('modals.rename.newPath')" autofocus :prepend-inner-icon="mdiFile" />
+          <v-text-field v-model="newName" id="newPathInput" :label="$t('modals.rename.newPath')" autofocus :prepend-inner-icon="mdiFile" />
         </v-list-item>
       </v-card-text>
       <v-divider />
@@ -58,6 +58,16 @@ export default defineComponent({
   },
   created() {
     this.newName = this.oldName as string
+  },
+  mounted() {
+    const input = document.getElementById('newPathInput') as HTMLInputElement
+
+    const startIndex = this.newName.lastIndexOf('/') + 1
+    const endIndex = this.newName.lastIndexOf('.')
+
+    if (input && startIndex > -1 && endIndex > -1) {
+      input.setSelectionRange(startIndex, endIndex)
+    }
   },
   methods: {
     async rename() {
