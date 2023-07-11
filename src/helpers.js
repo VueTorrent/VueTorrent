@@ -50,6 +50,7 @@ export function genFileTree(files) {
     type: 'root',
     name: '',
     fullName: '',
+    id: '',
     children: []
   }
 
@@ -65,6 +66,7 @@ export function genFileTree(files) {
           type: 'file',
           name: nodeName,
           fullName: nextPath,
+          id: file.index,
           availability: file.availability,
           index: file.index,
           is_seed: file.is_seed,
@@ -85,6 +87,7 @@ export function genFileTree(files) {
             type: 'folder',
             name: nodeName,
             fullName: nextPath,
+            id: nextPath,
             children: []
           }
           cursor.children.push(newFolder)

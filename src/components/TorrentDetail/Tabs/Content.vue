@@ -6,7 +6,7 @@
         :items="fileTree"
         activatable
         selectable
-        item-key="fullName"
+        item-key="id"
         @input="updateSelection"
     >
       <template v-slot:prepend="{ item: node, open }">
@@ -109,7 +109,7 @@ export default defineComponent({
       cachedFiles: [] as TorrentFile[],
       fileTree: [{}] as [TreeRoot],
       openedItems: [] as string[],
-      fileSelection: [] as string[],
+      fileSelection: [] as number[],
       filePriorityOptions: [
         {name: 'Max', icon: mdiPriorityHigh, value: Priority.MAXIMAL},
         {name: 'High', icon: mdiArrowUp, value: Priority.HIGH},
@@ -195,9 +195,8 @@ export default defineComponent({
 
       return res ? res.name : 'undefined'
     },
-    async updateSelection(currentSelection: string[]) {
+    async updateSelection(newValue: number[]) {
       const oldValue = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.index)
-      const newValue = currentSelection.map(path => this.cachedFiles.find(f => f.name === path)).map(f => f.index)
 
       const filesToExclude = oldValue
           .filter(index => !newValue.includes(index))
@@ -234,7 +233,7 @@ export default defineComponent({
 
       this.cachedFiles = await qbit.getTorrentFiles(this.torrentHash)
       this.fileTree = [await genFileTree(this.cachedFiles)]
-      this.fileSelection = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.name)
+      this.fileSelection = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.index)
 
       await this.$nextTick()
       this.loading = false

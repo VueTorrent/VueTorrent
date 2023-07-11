@@ -7,10 +7,16 @@ export interface TreeNode {
   name: string
   /** Represents the full path of the file/folder (name included) */
   fullName: string
+  /** Represents the ID of the node
+   * the ID is the file index for a TreeFile
+   * otherwise it's the node's fullName */
+  id: string | number
 }
 
 export interface TreeFile extends TreeNode {
   type: 'file'
+  /** File index */
+  id: number
   /** file pieces currently available (percentage/100) */
   availability: number
   /** File index */
@@ -27,6 +33,7 @@ export interface TreeFile extends TreeNode {
 
 export interface TreeFolder extends TreeNode {
   type: 'folder'
+  id: string
   children: TreeNode[]
 }
 
@@ -34,5 +41,6 @@ export interface TreeRoot extends TreeNode {
   type: 'root'
   name: ''
   fullName: ''
+  id: ''
   children: TreeNode[]
 }
