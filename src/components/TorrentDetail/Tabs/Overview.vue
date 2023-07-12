@@ -87,8 +87,8 @@
                 </div>
                 <v-chip small class="moving white--text caption">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}</v-chip>
               </v-col>
-              <v-col cols="6">
-                <div class="d-flex flex-wrap chipgap">
+              <v-col cols="6" class="d-flex flex-wrap chipgap">
+                <div>
                   {{ $t('torrent.properties.tags') }}:
                 </div>
                 <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption">
