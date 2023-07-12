@@ -46,7 +46,7 @@
             {{ item.fileSize | formatSize }}
           </template>
           <template v-slot:item.actions="{ item }">
-            <span class="search-actions">
+            <span class="d-flex flex-row">
               <v-icon @click="downloadTorrent(item)">{{ mdiDownload }}</v-icon>
             </span>
           </template>

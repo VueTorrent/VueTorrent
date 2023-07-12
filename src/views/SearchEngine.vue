@@ -19,8 +19,8 @@
     </v-row>
 
     <v-row class="ma-0 pa-0">
-      <v-container class="d-flex align-center justify-center pa-0 primary">
-        <v-tabs v-model="tab" align-with-title show-arrows background-color="primary" slider-color="white">
+      <v-container class="d-flex align-center justify-center ma-0 pa-0 primary" fluid>
+        <v-tabs v-model="tab" align-with-title show-arrows background-color="primary" slider-color="white" class="overflow-auto">
           <v-tab v-for="t in tabs" :href="`#${t.value}`" class="white--text">
             <h4>{{ $t('search.tabHeaderTemplate').replace("$0", t.id) }}</h4>
           </v-tab>
@@ -34,7 +34,7 @@
         </v-btn>
       </v-container>
 
-      <v-tabs-items v-model="tab" touchless>
+      <v-tabs-items v-model="tab" touchless class="full-width">
         <v-tab-item v-for="t in tabs" :key="t.id" eager :value="t.value">
           <SearchTab />
         </v-tab-item>
@@ -107,8 +107,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-.search-actions {
-  display: flex;
-  flex-direction: row;
+.full-width {
+  width: 100%;
 }
 </style>
