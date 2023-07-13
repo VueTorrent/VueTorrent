@@ -39,4 +39,5 @@ export default {
   },
   getSearchPlugins: (state: StoreState) => () => state.searchPlugins,
   getApiRefreshInterval: (state: StoreState) => () => state.webuiSettings.refreshInterval,
+  getContentInterval: (state: StoreState) => () => state.webuiSettings.contentInterval,
 }

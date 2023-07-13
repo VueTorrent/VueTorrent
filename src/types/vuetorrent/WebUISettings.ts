@@ -29,6 +29,7 @@ export default interface WebUISettings {
   openSideBarOnStart: boolean
   showShutdownButton: boolean
   refreshInterval: number
+  contentInterval: number
   torrentPieceCountRenderThreshold: number
   busyDesktopTorrentProperties: TorrentProperty[]
   doneDesktopTorrentProperties: TorrentProperty[]

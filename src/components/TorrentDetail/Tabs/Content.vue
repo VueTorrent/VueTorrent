@@ -124,7 +124,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapGetters(['getApiRefreshInterval']),
+    ...mapGetters(['getContentInterval']),
     torrentHash(): string {
       return this.hash as string
     }
@@ -134,7 +134,7 @@ export default defineComponent({
       if (newValue) {
         this.updateFileTree().then(() => this.openedItems.push(''))
 
-        this.timer = setInterval(this.updateFileTree, this.getApiRefreshInterval())
+        this.timer = setInterval(this.updateFileTree, this.getContentInterval())
       } else {
         clearInterval(this.timer as NodeJS.Timeout)
       }
