@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.6.1](https://github.com/WDaan/VueTorrent/compare/v1.6.0...v1.6.1) (2023-07-13)
+
+
+### Bug Fixes
+
+* AddModal button not present on desktop ([#935](https://github.com/WDaan/VueTorrent/issues/935)) ([8a2e2bf](https://github.com/WDaan/VueTorrent/commit/8a2e2bf8a215d66b8cc5a17375e6a7372bd3b675))
+* light theme handling ([#937](https://github.com/WDaan/VueTorrent/issues/937)) ([3d3b1bf](https://github.com/WDaan/VueTorrent/commit/3d3b1bf4d847bf2c7ffc86e6fe6fcc3a286261e2))
+* mobile plus button not working ([#945](https://github.com/WDaan/VueTorrent/issues/945)) ([d1fda81](https://github.com/WDaan/VueTorrent/commit/d1fda8155d79ed6be7417f4984911370fa96b595))
+* Repair broken keybinds ([#942](https://github.com/WDaan/VueTorrent/issues/942)) ([5a861de](https://github.com/WDaan/VueTorrent/commit/5a861deeb25eeda086ac3e07bc31815c67a0f165))
+* **search:** remove limit parameter ([#946](https://github.com/WDaan/VueTorrent/issues/946)) ([7b77162](https://github.com/WDaan/VueTorrent/commit/7b77162871bc1eae202ac6a13a5236471d344928))
+* **tags:** Fix tags being duplicated ([#959](https://github.com/WDaan/VueTorrent/issues/959)) ([2cca039](https://github.com/WDaan/VueTorrent/commit/2cca039e1860d0eb7dc2fdb483243f61c5ccabfa))
+* transparent bg for speed dial ([#927](https://github.com/WDaan/VueTorrent/issues/927)) ([5b1a1bc](https://github.com/WDaan/VueTorrent/commit/5b1a1bc91758cb7998203e468283c40bdac6f0d4)), closes [#926](https://github.com/WDaan/VueTorrent/issues/926)
+
+
+### Improvements
+
+* **modals:** add autofocus ([#955](https://github.com/WDaan/VueTorrent/issues/955)) ([5f33d94](https://github.com/WDaan/VueTorrent/commit/5f33d94d88eff213bbbecf59876fcd9c4f3e90be))
+* **overview:** Disable canvas generation on large torrents ([#947](https://github.com/WDaan/VueTorrent/issues/947)) ([b56caef](https://github.com/WDaan/VueTorrent/commit/b56caef1dbc6fe6d5276e4f362be2bd34f40a192))
+* **overview:** Fixes spacing for tag chips ([#957](https://github.com/WDaan/VueTorrent/issues/957)) ([373e825](https://github.com/WDaan/VueTorrent/commit/373e825cca5d76fa8974026ec25e116c1b11fef0))
+* **overview:** Use selected file count instead of total file count to preview filename ([#944](https://github.com/WDaan/VueTorrent/issues/944)) ([cf5e53c](https://github.com/WDaan/VueTorrent/commit/cf5e53cbca22df9496fc6fc00f4d8d9745a52ae5))
+* Rework Content tab ([#940](https://github.com/WDaan/VueTorrent/issues/940)) ([516f1d7](https://github.com/WDaan/VueTorrent/commit/516f1d7913f934a7fcd5f9718cefc9244dde7774))
+* **search:** Add tabs + reset results on new search ([#958](https://github.com/WDaan/VueTorrent/issues/958)) ([2de5f85](https://github.com/WDaan/VueTorrent/commit/2de5f85798cf879c39732edd3c3ecf374110b5ce))
+
 ## [1.6.0](https://github.com/WDaan/VueTorrent/compare/v1.5.12...v1.6.0) (2023-07-03)
 
 
