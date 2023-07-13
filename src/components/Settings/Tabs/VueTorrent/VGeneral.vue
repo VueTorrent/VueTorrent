@@ -44,9 +44,11 @@
       <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
     </v-list-item>
 
+    <v-divider class="mb-5" />
+
     <v-list-item class="my-2">
       <v-row>
-        <v-col cols="12" sm="6" class="mb-n4">
+        <v-col cols="12" sm="6" md="4" class="mb-n4">
           <v-text-field
               v-model="settings.refreshInterval"
               type="number"
@@ -55,17 +57,28 @@
               :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
               :label="$t('modals.settings.vueTorrent.general.refreshInterval')" />
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" md="4" class="mb-n4">
+          <v-text-field
+            v-model="settings.contentInterval"
+            type="number"
+            dense
+            outlined
+            :hint="$t('modals.settings.vueTorrent.general.contentIntervalHint')"
+            :label="$t('modals.settings.vueTorrent.general.contentInterval')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4">
           <v-text-field
               v-model="settings.torrentPieceCountRenderThreshold"
               type="number"
               dense
               outlined
-              :hint="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThresholdHint')"
+              hide-details
               :label="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThreshold')" />
         </v-col>
       </v-row>
     </v-list-item>
+
+    <v-divider class="my-5" />
 
     <v-list-item class="mb-3">
       <v-row>

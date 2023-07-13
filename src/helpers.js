@@ -1,7 +1,12 @@
 import * as _ from 'lodash'
 import { isProduction } from './utils'
-import { mdiLanguageHtml5, mdiFileDocumentOutline, mdiNodejs, mdiFilePdfBox, mdiFileExcel, mdiCodeJson, mdiFileImage, mdiMovie, mdiLanguageMarkdown, mdiFile } from '@mdi/js'
 
+/**
+ * Format bytes to human readable string
+ * @param a {number}
+ * @param b {number}
+ * @return {string}
+ */
 export function formatBytes(a, b) {
   if (a === 0) return '0 B'
   const c = 1024
@@ -12,32 +17,11 @@ export function formatBytes(a, b) {
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
 
-export function getIconForFileType(type) {
-  const types = {
-    html: mdiLanguageHtml5,
-    js: mdiNodejs,
-    json: mdiCodeJson,
-    md: mdiLanguageMarkdown,
-    pdf: mdiFilePdfBox,
-    png: mdiFileImage,
-    txt: mdiFileDocumentOutline,
-    sub: mdiFileDocumentOutline,
-    idx: mdiFileDocumentOutline,
-    xls: mdiFileExcel,
-    avi: mdiMovie,
-    mp4: mdiMovie,
-    mkv: mdiMovie
-  }
-
-  if (!types[type]) return mdiFile
-
-  return types[type]
-}
-
-export const isWindows = navigator.userAgent.includes('Windows')
+export const isWindows = navigator.userAgent.includes('Windows');
 
 /**
- * @param {string} code
+ * Convert code to flag
+ * @param code {string}
  * @return {{char: string, url: string}}
  */
 export function codeToFlag(code) {
@@ -55,77 +39,81 @@ export function codeToFlag(code) {
   }
 }
 
-export function treeify(paths) {
-  let result = []
-  const level = { result }
+/**
+ * Generates a file tree from a list of files
+ * @param files {TorrentFile[]}
+ * @return {TreeRoot}
+ */
+export function genFileTree(files) {
+  /** @type {TreeRoot} */
+  const rootNode = {
+    type: 'root',
+    name: '',
+    fullName: '',
+    id: '',
+    children: []
+  }
 
-  paths.forEach(path => {
-    path.name
-      .split('\\')
-      .join('/')
-      .split('/')
-      .reduce((r, name) => {
-        if (!r[name]) {
-          r[name] = { result: [] }
-          r.result.push(createFile(path, name, r[name].result))
+  for (const file of files) {
+    /** @type {TreeRoot | TreeFolder} */
+    let cursor = rootNode
+    file.name.replace('\\', '/').split('/').reduce((parentPath, nodeName) => {
+      const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
+
+      if (file.name.endsWith(nodeName)) {
+        /** @type {TreeFile} */
+        const newFile = {
+          type: 'file',
+          name: nodeName,
+          fullName: nextPath,
+          id: file.index,
+          availability: file.availability,
+          index: file.index,
+          is_seed: file.is_seed,
+          priority: file.priority,
+          progress: file.progress,
+          size: file.size
         }
+        cursor.children.push(newFile)
+      } else {
+        /** @type {TreeFolder | undefined} */
+        const folder = cursor.children.find(el => el.name === nodeName)
+        if (folder) {
+          cursor = folder
+        } else {
+          // if not found, create folder and set cursor to folder
+          /** @type {TreeFolder} */
+          const newFolder = {
+            type: 'folder',
+            name: nodeName,
+            fullName: nextPath,
+            id: nextPath,
+            children: []
+          }
+          cursor.children.push(newFolder)
+          cursor = newFolder
+        }
+      }
 
-        return r[name]
-      }, level)
-  })
-
-  // parse folders
-  result = result.map(el => parseFolder(el))
-
-  function parseFolder(el, parent) {
-    if (el.children.length !== 0) {
-      const folder = createFolder(parent, el.name, el.children)
-      folder.children = folder.children.map(child => parseFolder(child, folder))
-
-      return folder
-    }
-
-    return el
+      return nextPath
+    }, '')
   }
 
-  return result
-}
-
-function createFile(data, name, children) {
-  return {
-    id: data.id,
-    name: name,
-    fullName: data.name,
-    progress: Math.round(data.progress * 100),
-    size: formatBytes(data.size),
-    icon: getIconForFileType(name.split('.').pop()),
-    priority: data.priority,
-    children: children,
-    type: 'file'
-  }
-}
-
-function createFolder(parent, name, children) {
-  children.sort((a, b) => {
-    if (a.type === b.type) return a.name.localeCompare(b.name)
-    else if (a.type === 'directory') return -1
-    else return 1
-  })
-
-  return {
-    name: name,
-    fullName: parent === undefined ? name : `${parent.fullName}/${name}`,
-    type: 'directory',
-    children: children
-  }
+  return rootNode
 }
 
 const urlRegExp = new RegExp(
   /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.\S{2,}|www\.[a-zA-Z0-9]+\.\S{2,})/gi
 )
 
+/**
+ * Split string by separating urls
+ * @param string
+ * @return {string[]}
+ */
 export function splitByUrl(string) {
   const urls = string.match(urlRegExp)
+  /** @type {string[]} */
   let resultArray = []
 
   if (urls) {
@@ -152,10 +140,19 @@ export function splitByUrl(string) {
   return resultArray
 }
 
+/**
+ * Check if string contains url
+ * @param string {string}
+ * @return {boolean}
+ */
 export function stringContainsUrl(string) {
   return urlRegExp.test(string)
 }
 
+/**
+ * Get version from import.meta
+ * @return {string}
+ */
 export function getVersion() {
   if (isProduction()) {
     return 'import.meta.env.VITE_PACKAGE_VERSION'
@@ -165,6 +162,10 @@ export function getVersion() {
   return 'undefined'
 }
 
+/**
+ * Get base url from import.meta
+ * @return {string}
+ */
 export function getBaseURL() {
   if (isProduction()) {
     return 'import.meta.env.BASE_URL'
@@ -174,6 +175,11 @@ export function getBaseURL() {
   return 'undefined'
 }
 
+/**
+ * Get domain from url
+ * @param string {string}
+ * @return {string}
+ */
 export function getDomainBody(string) {
   const match = string.match(/:\/\/([^\/]+\.)?([^\/.]+)\.[^\/.:]+/i)
   if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
@@ -184,6 +190,13 @@ export function getDomainBody(string) {
 }
 
 export class ArrayHelper {
+  /**
+   * Remove item from array
+   * @typedef T
+   * @param array {T[]}
+   * @param item {T | T[]} Item or array of items to remove
+   * @return {T[]}
+   */
   static remove(array, item) {
     const toRemove = Array.isArray(item) ? item : [item]
     _.remove(array, item => toRemove.indexOf(item) > -1)
@@ -191,12 +204,24 @@ export class ArrayHelper {
     return array
   }
 
+  /**
+   * Concatenate two arrays together
+   * @typedef T
+   * @param a {T[]} First array
+   * @param b {T[]} Second array
+   * @return {T[]}
+   */
   static concat(a, b) {
     return _.concat(a, b)
   }
 }
 
 export class Hostname {
+  /**
+   * Get hostname from url
+   * @param url {string}
+   * @return {string}
+   */
   static get(url) {
     const match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i)
     if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
@@ -207,10 +232,19 @@ export class Hostname {
   }
 }
 
+/**
+ * Check if user is on mac
+ * @return {boolean}
+ */
 export function isMac() {
   return window.navigator.userAgent.toUpperCase().indexOf('MAC') >= 0
 }
 
+/**
+ * Check ctrl/cmd key
+ * @param e {KeyboardEvent}
+ * @return {boolean}
+ */
 export function doesCommand(e) {
   return isMac() ? e.metaKey : e.ctrlKey
 }

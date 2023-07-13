@@ -136,6 +136,7 @@ export default new Vuex.Store<StoreState>({
       openSideBarOnStart: true,
       showShutdownButton: true,
       refreshInterval: 2000,
+      contentInterval: 5000,
       torrentPieceCountRenderThreshold: 5000,
       busyDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
       doneDesktopTorrentProperties: JSON.parse(JSON.stringify(desktopPropertiesTemplate)),
