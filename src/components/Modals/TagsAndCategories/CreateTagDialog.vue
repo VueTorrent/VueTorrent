@@ -24,24 +24,31 @@
   </v-dialog>
 </template>
 
-<script>
+<script lang="ts">
+import {defineComponent} from 'vue'
+import {mapGetters} from 'vuex'
 import qbit from '@/services/qbit'
 import {Modal} from '@/mixins'
 
-export default {
+export default defineComponent({
   name: 'CreateTagDialog',
   mixins: [Modal],
-  data: () => ({
-    tagname: '',
-    rules: [v => !!v || 'Tag is required']
-  }),
-  computed: {
-    isValid() {
-      return !!this.tagname
+  data() {
+    return {
+      tagname: '',
+      tags: [] as string[],
+      rules: [(v: string) => !!v || 'Tag is required', (v: string) => this.tags.indexOf(v) === -1 || 'Tag already exists']
     }
   },
-  created() {
-    this.$store.commit('FETCH_TAGS')
+  computed: {
+    ...mapGetters(['getAvailableTags']),
+    isValid() {
+      return !!this.tagname && this.tags.indexOf(this.tagname) === -1
+    }
+  },
+  async mounted() {
+    await this.$store.commit('FETCH_TAGS')
+    Object.assign(this.tags, this.getAvailableTags())
   },
   methods: {
     async create() {
@@ -54,5 +61,5 @@ export default {
       this.dialog = false
     }
   }
-}
+})
 </script>
