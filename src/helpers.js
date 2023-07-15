@@ -17,7 +17,7 @@ export function formatBytes(a, b) {
   return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
 }
 
-export const isWindows = navigator.userAgent.includes('Windows');
+export const isWindows = navigator.userAgent.includes('Windows')
 
 /**
  * Convert code to flag
@@ -57,46 +57,49 @@ export function genFileTree(files) {
   for (const file of files) {
     /** @type {TreeRoot | TreeFolder} */
     let cursor = rootNode
-    file.name.replace('\\', '/').split('/').reduce((parentPath, nodeName) => {
-      const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
+    file.name
+      .replace('\\', '/')
+      .split('/')
+      .reduce((parentPath, nodeName) => {
+        const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
 
-      if (file.name.endsWith(nodeName)) {
-        /** @type {TreeFile} */
-        const newFile = {
-          type: 'file',
-          name: nodeName,
-          fullName: nextPath,
-          id: file.index,
-          availability: file.availability,
-          index: file.index,
-          is_seed: file.is_seed,
-          priority: file.priority,
-          progress: file.progress,
-          size: file.size
-        }
-        cursor.children.push(newFile)
-      } else {
-        /** @type {TreeFolder | undefined} */
-        const folder = cursor.children.find(el => el.name === nodeName)
-        if (folder) {
-          cursor = folder
-        } else {
-          // if not found, create folder and set cursor to folder
-          /** @type {TreeFolder} */
-          const newFolder = {
-            type: 'folder',
+        if (file.name.endsWith(nodeName)) {
+          /** @type {TreeFile} */
+          const newFile = {
+            type: 'file',
             name: nodeName,
             fullName: nextPath,
-            id: nextPath,
-            children: []
+            id: file.index,
+            availability: file.availability,
+            index: file.index,
+            is_seed: file.is_seed,
+            priority: file.priority,
+            progress: file.progress,
+            size: file.size
           }
-          cursor.children.push(newFolder)
-          cursor = newFolder
+          cursor.children.push(newFile)
+        } else {
+          /** @type {TreeFolder | undefined} */
+          const folder = cursor.children.find(el => el.name === nodeName)
+          if (folder) {
+            cursor = folder
+          } else {
+            // if not found, create folder and set cursor to folder
+            /** @type {TreeFolder} */
+            const newFolder = {
+              type: 'folder',
+              name: nodeName,
+              fullName: nextPath,
+              id: nextPath,
+              children: []
+            }
+            cursor.children.push(newFolder)
+            cursor = newFolder
+          }
         }
-      }
 
-      return nextPath
-    }, '')
+        return nextPath
+      }, '')
   }
 
   return rootNode

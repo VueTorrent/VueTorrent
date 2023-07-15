@@ -69,12 +69,12 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {FullScreenModal, Modal} from '@/mixins'
-import {mapState} from 'vuex'
-import {SearchPlugin} from '@/types/qbit/models'
+import { defineComponent } from 'vue'
+import { FullScreenModal, Modal } from '@/mixins'
+import { mapState } from 'vuex'
+import { SearchPlugin } from '@/types/qbit/models'
 import qbit from '@/services/qbit'
-import {mdiDelete} from '@mdi/js'
+import { mdiDelete } from '@mdi/js'
 
 export default defineComponent({
   name: 'SearchPluginManager',

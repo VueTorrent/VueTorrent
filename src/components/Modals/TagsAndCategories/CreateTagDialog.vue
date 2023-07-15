@@ -25,10 +25,10 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {mapGetters} from 'vuex'
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import {Modal} from '@/mixins'
+import { Modal } from '@/mixins'
 
 export default defineComponent({
   name: 'CreateTagDialog',

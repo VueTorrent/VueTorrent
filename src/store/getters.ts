@@ -1,13 +1,13 @@
 import { i18n } from '@/plugins/i18n'
 import type { StoreState } from '@/types/vuetorrent'
 import { formatSize } from '@/filters'
-import {Torrent} from "@/models";
+import { Torrent } from '@/models'
 
 export default {
   getAppVersion: (state: StoreState) => () => state.version,
   containsTorrent: (state: StoreState) => (hash: string) => state.selected_torrents.includes(hash),
   isDarkMode: (state: StoreState) => () => state.webuiSettings.darkTheme,
-  getTheme: (state: StoreState) => () => state.webuiSettings.darkTheme ? 'dark' : 'light',
+  getTheme: (state: StoreState) => () => (state.webuiSettings.darkTheme ? 'dark' : 'light'),
   getModalState: (state: StoreState) => (guid: string) => state.modals.find(m => m.guid === guid),
   getSettings: (state: StoreState) => () => state.settings,
   getStatus: (state: StoreState) => () => state.status,
@@ -39,5 +39,5 @@ export default {
   },
   getSearchPlugins: (state: StoreState) => () => state.searchPlugins,
   getApiRefreshInterval: (state: StoreState) => () => state.webuiSettings.refreshInterval,
-  getContentInterval: (state: StoreState) => () => state.webuiSettings.contentInterval,
+  getContentInterval: (state: StoreState) => () => state.webuiSettings.contentInterval
 }

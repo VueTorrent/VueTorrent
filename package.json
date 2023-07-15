@@ -38,7 +38,7 @@
     "@types/lodash": "^4.14.191",
     "@types/uuid": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^6",
-    "@typescript-eslint/parser": "^5",
+    "@typescript-eslint/parser": "^6",
     "@vitejs/plugin-vue2": "^2",
     "@vue/eslint-config-typescript": "^11",
     "@vue/test-utils": "^1",

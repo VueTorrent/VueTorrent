@@ -22,7 +22,7 @@
       <v-container class="d-flex align-center justify-center ma-0 pa-0 primary" fluid>
         <v-tabs v-model="tab" align-with-title show-arrows background-color="primary" slider-color="white" class="overflow-auto">
           <v-tab v-for="t in tabs" :href="`#${t.value}`" class="white--text">
-            <h4>{{ $t('search.tabHeaderTemplate').replace("$0", t.id) }}</h4>
+            <h4>{{ $t('search.tabHeaderTemplate').replace('$0', t.id) }}</h4>
           </v-tab>
         </v-tabs>
         <v-spacer />
@@ -44,19 +44,19 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {mapGetters} from 'vuex'
-import {mdiClose, mdiToyBrick, mdiPlusCircleOutline, mdiMinusCircleOutline} from '@mdi/js'
-import {FullScreenModal, General} from '@/mixins'
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
+import { mdiClose, mdiToyBrick, mdiPlusCircleOutline, mdiMinusCircleOutline } from '@mdi/js'
+import { FullScreenModal, General } from '@/mixins'
 import SearchTab from '@/components/SearchEngine/SearchTab.vue'
 
 export default defineComponent({
   name: 'SearchEngine',
-  components: {SearchTab},
+  components: { SearchTab },
   mixins: [General, FullScreenModal],
   data() {
     return {
-      tabs: [] as { id: number, value: string }[],
+      tabs: [] as { id: number; value: string }[],
       tabCount: 0,
       mdiClose,
       mdiToyBrick,

@@ -1,6 +1,6 @@
-import {JSONSchemaType} from 'ajv'
-import {PersistentStoreState} from '@/types/vuetorrent'
-import {DashboardProperty, TitleOptions} from '@/enums/vuetorrent'
+import { JSONSchemaType } from 'ajv'
+import { PersistentStoreState } from '@/types/vuetorrent'
+import { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 
 export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
   type: 'object',

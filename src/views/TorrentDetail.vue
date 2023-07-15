@@ -68,8 +68,8 @@
 import { mapGetters } from 'vuex'
 import { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories } from '../components/TorrentDetail/Tabs'
 import { mdiClose } from '@mdi/js'
-import Overview from "@/components/TorrentDetail/Tabs/Overview.vue";
-import {defineComponent} from 'vue'
+import Overview from '@/components/TorrentDetail/Tabs/Overview.vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'TorrentDetail',

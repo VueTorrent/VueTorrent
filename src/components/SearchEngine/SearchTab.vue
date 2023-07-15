@@ -5,13 +5,13 @@
         <v-row class="my-2">
           <v-col cols="12" md="6">
             <v-text-field
-                v-model="searchPattern"
-                dense
-                hide-details
-                clearable
-                :rules="[v => !!v || 'Search term is required']"
-                label="Search pattern"
-                @keydown.enter.prevent="runNewSearch"
+              v-model="searchPattern"
+              dense
+              hide-details
+              clearable
+              :rules="[v => !!v || 'Search term is required']"
+              label="Search pattern"
+              @keydown.enter.prevent="runNewSearch"
             />
           </v-col>
           <v-col cols="6" sm="5" md="2">
@@ -57,15 +57,15 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {mapGetters} from 'vuex'
-import {mdiDownload} from '@mdi/js'
-import {SearchPlugin, SearchResult} from "@/types/qbit/models";
-import {General} from "@/mixins";
-import qbit from "@/services/qbit";
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
+import { mdiDownload } from '@mdi/js'
+import { SearchPlugin, SearchResult } from '@/types/qbit/models'
+import { General } from '@/mixins'
+import qbit from '@/services/qbit'
 
 export default defineComponent({
-  name: "SearchTab",
+  name: 'SearchTab',
   mixins: [General],
   data() {
     return {
@@ -113,7 +113,9 @@ export default defineComponent({
         { text: 'Only enabled', value: 'enabled' }
       ]
 
-      this.getSearchPlugins().filter((plugin: SearchPlugin) => plugin.enabled).forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
+      this.getSearchPlugins()
+        .filter((plugin: SearchPlugin) => plugin.enabled)
+        .forEach((plugin: SearchPlugin) => plugins.push({ text: plugin.fullName, value: plugin.name }))
 
       return plugins
     },
@@ -138,10 +140,16 @@ export default defineComponent({
       clearInterval(this.queryTimer)
     },
     customFilter(value: any, search: string | null) {
-      return value != null
-          && search != null
-          && typeof value === 'string'
-          && search.trim().toLowerCase().split(' ').every(i => value.toString().toLowerCase().indexOf(i) !== -1)
+      return (
+        value != null &&
+        search != null &&
+        typeof value === 'string' &&
+        search
+          .trim()
+          .toLowerCase()
+          .split(' ')
+          .every(i => value.toString().toLowerCase().indexOf(i) !== -1)
+      )
     },
     async refreshResults() {
       const response = await qbit.getSearchResults(this.queryId, this.queryResults.length)
@@ -151,11 +159,9 @@ export default defineComponent({
         this.queryId = 0
         await this.stopSearch()
       }
-    },
+    }
   }
 })
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

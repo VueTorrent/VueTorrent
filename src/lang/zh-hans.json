@@ -225,7 +225,7 @@
     },
     "logs": {
       "title": "qBittorrent日志",
-      "table":  {
+      "table": {
         "id": "日志ID",
         "type": "日志等级",
         "message": "信息",

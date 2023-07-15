@@ -8,7 +8,14 @@
       </v-card-title>
       <v-card-text>
         <v-container>
-          <v-text-field v-model="category.name" :rules="nameRules" :label="$t('modals.newCategory.categoryName')" required :autofocus="!hasInitialCategory" :disabled="hasInitialCategory" />
+          <v-text-field
+            v-model="category.name"
+            :rules="nameRules"
+            :label="$t('modals.newCategory.categoryName')"
+            required
+            :autofocus="!hasInitialCategory"
+            :disabled="hasInitialCategory"
+          />
           <v-text-field v-model="category.savePath" :rules="pathRules" :label="$t('path')" required :autofocus="hasInitialCategory" />
         </v-container>
       </v-card-text>
@@ -29,10 +36,10 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import qbit from '@/services/qbit'
-import {Modal} from '@/mixins'
-import {mdiCancel, mdiPencil, mdiTagPlus} from '@mdi/js'
+import { Modal } from '@/mixins'
+import { mdiCancel, mdiPencil, mdiTagPlus } from '@mdi/js'
 import Vue from 'vue'
 
 export default {

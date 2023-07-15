@@ -1,14 +1,6 @@
 <template>
   <v-card flat :loading="loading">
-    <v-treeview
-        v-model="fileSelection"
-        :open.sync="openedItems"
-        :items="fileTree"
-        activatable
-        selectable
-        item-key="id"
-        @input="updateSelection"
-    >
+    <v-treeview v-model="fileSelection" :open.sync="openedItems" :items="fileTree" activatable selectable item-key="id" @input="updateSelection">
       <template v-slot:prepend="{ item: node, open }">
         <v-icon v-if="node.type === 'root'">
           {{ mdiFileTree }}
@@ -24,9 +16,7 @@
         <span class="item-name">{{ node.type === 'root' ? $t('modals.detail.pageContent.rootNode') : node.name }}</span>
       </template>
       <template #append="{ item: node }">
-        <div v-if="node.type === 'root'">
-
-        </div>
+        <div v-if="node.type === 'root'"></div>
         <div v-else-if="node.type === 'folder'">
           <span class="ml-4">{{ node | nodeContent }}</span>
           <v-btn fab x-small class="accent white--text elevation-0 px-4 ml-2" @click="renameNode(node)">
@@ -44,8 +34,7 @@
               </v-btn>
             </template>
             <v-list>
-              <v-list-item v-for="prio in filePriorityOptions" :key="prio.value" link
-                           @click="setFilePrio(node, prio.value)">
+              <v-list-item v-for="prio in filePriorityOptions" :key="prio.value" link @click="setFilePrio(node, prio.value)">
                 <v-icon>{{ prio.icon }}</v-icon>
                 <v-list-item-title class="caption">
                   {{ prio.name }}
@@ -63,8 +52,8 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {mapGetters} from 'vuex'
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
 import {
   mdiArrowDown,
   mdiArrowUp,
@@ -86,16 +75,16 @@ import {
   mdiPriorityLow,
   mdiTrendingUp
 } from '@mdi/js'
-import {TreeFile, TreeFolder, TreeNode, TreeRoot} from '@/types/vuetorrent'
-import {Priority} from '@/enums/qbit'
+import { TreeFile, TreeFolder, TreeNode, TreeRoot } from '@/types/vuetorrent'
+import { Priority } from '@/enums/qbit'
 import qbit from '@/services/qbit'
-import i18n from "@/plugins/i18n";
-import {TorrentFile} from "@/types/qbit/models";
-import {genFileTree} from "@/helpers";
-import {General} from "@/mixins";
+import i18n from '@/plugins/i18n'
+import { TorrentFile } from '@/types/qbit/models'
+import { genFileTree } from '@/helpers'
+import { General } from '@/mixins'
 
 export default defineComponent({
-  name: "Content",
+  name: 'Content',
   props: {
     hash: String,
     isActive: Boolean
@@ -111,10 +100,10 @@ export default defineComponent({
       openedItems: [] as string[],
       fileSelection: [] as number[],
       filePriorityOptions: [
-        {name: 'Max', icon: mdiPriorityHigh, value: Priority.MAXIMAL},
-        {name: 'High', icon: mdiArrowUp, value: Priority.HIGH},
-        {name: 'Normal', icon: mdiArrowDown, value: Priority.NORMAL},
-        {name: 'Unwanted', icon: mdiPriorityLow, value: Priority.DO_NOT_DOWNLOAD}
+        { name: 'Max', icon: mdiPriorityHigh, value: Priority.MAXIMAL },
+        { name: 'High', icon: mdiArrowUp, value: Priority.HIGH },
+        { name: 'Normal', icon: mdiArrowDown, value: Priority.NORMAL },
+        { name: 'Unwanted', icon: mdiPriorityLow, value: Priority.DO_NOT_DOWNLOAD }
       ],
       mdiFolderOpen,
       mdiFolder,
@@ -199,15 +188,15 @@ export default defineComponent({
       const oldValue = this.cachedFiles.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).map(f => f.index)
 
       const filesToExclude = oldValue
-          .filter(index => !newValue.includes(index))
-          .map(index => this.cachedFiles.find(f => f.index === index))
-          .filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD)
-          .map(f => f.index)
+        .filter(index => !newValue.includes(index))
+        .map(index => this.cachedFiles.find(f => f.index === index))
+        .filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD)
+        .map(f => f.index)
       const filesToInclude = newValue
-          .filter(index => !oldValue.includes(index))
-          .map(index => this.cachedFiles.find(f => f.index === index))
-          .filter(f => f.priority === Priority.DO_NOT_DOWNLOAD)
-          .map(f => f.index)
+        .filter(index => !oldValue.includes(index))
+        .map(index => this.cachedFiles.find(f => f.index === index))
+        .filter(f => f.priority === Priority.DO_NOT_DOWNLOAD)
+        .map(f => f.index)
 
       if (filesToExclude.length) {
         await qbit.setTorrentFilePriority(this.torrentHash, filesToExclude, Priority.DO_NOT_DOWNLOAD)
