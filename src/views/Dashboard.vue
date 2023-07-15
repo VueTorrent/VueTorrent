@@ -473,6 +473,10 @@ export default {
 
         return this.createModal('ConfirmDeleteModal')
       }
+
+      // 'Search' => Search view
+      if (e.key === "/" && this.$route.name !== 'search' && document.activeElement !== document.getElementById('searchInput'))
+        this.$router.push({ name: 'search' })
     }
   }
 }
