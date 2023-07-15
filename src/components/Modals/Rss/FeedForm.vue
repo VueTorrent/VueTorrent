@@ -31,9 +31,9 @@
 
 <script lang="ts">
 import qbit from '@/services/qbit'
-import {Modal} from '@/mixins'
-import {mdiCancel, mdiPencil, mdiTagPlus} from '@mdi/js'
-import {defineComponent} from 'vue'
+import { Modal } from '@/mixins'
+import { mdiCancel, mdiPencil, mdiTagPlus } from '@mdi/js'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'FeedForm',
@@ -43,9 +43,7 @@ export default defineComponent({
   },
   data: () => ({
     feed: { url: '', name: '' },
-    rules: [
-      (v: string) => !!v || 'Required'
-    ],
+    rules: [(v: string) => !!v || 'Required'],
     mdiCancel,
     mdiTagPlus,
     mdiPencil

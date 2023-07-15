@@ -50,12 +50,13 @@
       <v-row>
         <v-col cols="12" sm="6" md="4" class="mb-n4">
           <v-text-field
-              v-model="settings.refreshInterval"
-              type="number"
-              dense
-              outlined
-              :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
-              :label="$t('modals.settings.vueTorrent.general.refreshInterval')" />
+            v-model="settings.refreshInterval"
+            type="number"
+            dense
+            outlined
+            :hint="$t('modals.settings.vueTorrent.general.refreshIntervalHint')"
+            :label="$t('modals.settings.vueTorrent.general.refreshInterval')"
+          />
         </v-col>
         <v-col cols="12" sm="6" md="4" class="mb-n4">
           <v-text-field
@@ -64,16 +65,18 @@
             dense
             outlined
             :hint="$t('modals.settings.vueTorrent.general.contentIntervalHint')"
-            :label="$t('modals.settings.vueTorrent.general.contentInterval')" />
+            :label="$t('modals.settings.vueTorrent.general.contentInterval')"
+          />
         </v-col>
         <v-col cols="12" sm="6" md="4">
           <v-text-field
-              v-model="settings.torrentPieceCountRenderThreshold"
-              type="number"
-              dense
-              outlined
-              hide-details
-              :label="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThreshold')" />
+            v-model="settings.torrentPieceCountRenderThreshold"
+            type="number"
+            dense
+            outlined
+            hide-details
+            :label="$t('modals.settings.vueTorrent.general.torrentPieceCountRenderThreshold')"
+          />
         </v-col>
       </v-row>
     </v-list-item>
@@ -166,14 +169,14 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {mapGetters, mapState} from 'vuex'
-import {Qbit} from '@/services/qbit'
-import {LOCALES} from '@/lang/locales'
-import {General} from '@/mixins'
-import {TitleOptions} from '@/enums/vuetorrent'
+import { defineComponent } from 'vue'
+import { mapGetters, mapState } from 'vuex'
+import { Qbit } from '@/services/qbit'
+import { LOCALES } from '@/lang/locales'
+import { General } from '@/mixins'
+import { TitleOptions } from '@/enums/vuetorrent'
 import Ajv from 'ajv'
-import {StoreStateSchema} from '@/schemas'
+import { StoreStateSchema } from '@/schemas'
 import WebUISettings from '@/types/vuetorrent/WebUISettings'
 
 export default defineComponent({

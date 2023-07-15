@@ -1,4 +1,4 @@
-import {Priority} from "@/enums/qbit";
+import { Priority } from '@/enums/qbit'
 
 export interface TreeNode {
   /** Represents the type of the node */

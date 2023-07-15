@@ -44,13 +44,7 @@ export default defineConfig(({ mode }) => {
         ]
       }),
       VitePWA({
-        includeAssets: [
-          'favicon.ico',
-          'icon.svg',
-          'icon-192.png',
-          'icon-512.png',
-          'robots.txt'
-        ],
+        includeAssets: ['favicon.ico', 'icon.svg', 'icon-192.png', 'icon-512.png', 'robots.txt'],
         manifest: {
           name: 'VueTorrent',
           short_name: 'VueTorrent',
@@ -58,8 +52,8 @@ export default defineConfig(({ mode }) => {
           start_url: '.',
           background_color: '#000',
           icons: [
-            { "src": "./icon-192.png", "type": "image/png", "sizes": "192x192" },
-            { "src": "./icon-512.png", "type": "image/png", "sizes": "512x512" }
+            { src: './icon-192.png', type: 'image/png', sizes: '192x192' },
+            { src: './icon-512.png', type: 'image/png', sizes: '512x512' }
           ]
         },
         // Other options

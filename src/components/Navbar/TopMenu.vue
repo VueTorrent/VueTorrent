@@ -3,8 +3,7 @@
   <div v-else>
     <v-tooltip bottom open-delay="400">
       <template #activator="{ on }">
-        <v-btn text small fab color="grey--text" class="mr-16 ml-0 mb-1"
-               :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="createModal('AddModal')">
+        <v-btn text small fab color="grey--text" class="mr-16 ml-0 mb-1" :aria-label="$t('navbar.topActions.addTorrent')" v-on="on" @click="createModal('AddModal')">
           <v-icon color="grey">
             {{ mdiPlus }}
           </v-icon>
@@ -26,14 +25,14 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from 'vue'
-import {General} from '@/mixins'
+import { defineComponent } from 'vue'
+import { General } from '@/mixins'
 import TopActions from './TopActions.vue'
-import {mdiClose, mdiDotsVertical, mdiPlus} from '@mdi/js'
+import { mdiClose, mdiDotsVertical, mdiPlus } from '@mdi/js'
 
 export default defineComponent({
   name: 'TopMenu',
-  components: {TopActions},
+  components: { TopActions },
   mixins: [General],
   data() {
     return {

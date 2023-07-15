@@ -124,7 +124,13 @@ export default {
       return this.getTorrentCountString()
     },
     filterCount() {
-      return (this.dashboard.searchFilter?.length > 0) + (this.sort_options.filter !== null) + (this.sort_options.category !== null) + (this.sort_options.tag !== null) + (this.sort_options.tracker !== null)
+      return (
+        (this.dashboard.searchFilter?.length > 0) +
+        (this.sort_options.filter !== null) +
+        (this.sort_options.category !== null) +
+        (this.sort_options.tag !== null) +
+        (this.sort_options.tracker !== null)
+      )
     }
   },
   created() {

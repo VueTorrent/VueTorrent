@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
-import {mdiClose, mdiFile, mdiFolder} from '@mdi/js'
-import {FullScreenModal, Modal} from '@/mixins'
+import { mapGetters } from 'vuex'
+import { mdiClose, mdiFile, mdiFolder } from '@mdi/js'
+import { FullScreenModal, Modal } from '@/mixins'
 import qbit from '@/services/qbit'
 
 export default {

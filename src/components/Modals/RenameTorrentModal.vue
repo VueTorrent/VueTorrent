@@ -1,5 +1,13 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="phoneLayout" @keydown.enter.prevent="rename" @keydown.esc.prevent="close">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    max-width="750px"
+    :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
+    :fullscreen="phoneLayout"
+    @keydown.enter.prevent="rename"
+    @keydown.esc.prevent="close"
+  >
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -29,12 +37,12 @@
 </template>
 
 <script lang="ts">
-import {mapGetters} from 'vuex'
+import { mapGetters } from 'vuex'
 import Modal from '@/mixins/Modal'
-import {mdiFile} from '@mdi/js'
-import {FullScreenModal} from '@/mixins'
+import { mdiFile } from '@mdi/js'
+import { FullScreenModal } from '@/mixins'
 import qbit from '@/services/qbit'
-import {defineComponent} from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'RenameTorrentModal',

@@ -79,8 +79,8 @@ export default defineComponent({
       }
 
       result.then(
-          () => this.close(),
-          () => this.$toast.error(this.$t('modals.rename.errorConflict'))
+        () => this.close(),
+        () => this.$toast.error(this.$t('modals.rename.errorConflict'))
       )
     },
     close() {
