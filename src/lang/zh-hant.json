@@ -101,6 +101,7 @@
   },
   "search": {
     "title": "搜尋種子",
+    "tabHeaderTemplate": "分頁 #$0",
     "runNewSearch": "搜尋",
     "stopSearch": "停止"
   },
@@ -271,6 +272,9 @@
           "showShutdownButton": "顯示結束按鈕",
           "refreshInterval": "qBittorrent API 更新區間",
           "refreshIntervalHint": "毫秒",
+          "contentInterval": "種子檔案內容更新區間",
+          "contentIntervalHint": "毫秒",
+          "torrentPieceCountRenderThreshold": "種子分塊閾值以禁用渲染",
           "currentVersion": "當前版本",
           "qbittorrentVersion": "QBittorrent 版本",
           "registerMagnet": "註冊磁力連結",
@@ -656,9 +660,12 @@
       "tabTitleTagsCategories": "標籤和分類",
       "pageOverview": {
         "fetchingMetadata": "正在抓取...",
+        "waitingForMetadata": "正在等待元資料...",
+        "disabledCanvas": "已禁用 Canvas 以節省效能",
         "selectedFileSize": "選中的檔案大小",
         "dlSpeedAverage": "平均下載速率",
-        "upSpeedAverage": "平均上傳速率"
+        "upSpeedAverage": "平均上傳速率",
+        "fileCount": "已選擇檔案"
       },
       "pageInfo": {
         "eta": "預估剩餘時間",
@@ -679,6 +686,15 @@
         "is_private": "私有種子",
         "wasted_size": "已丟棄"
       },
+      "pageTrackers": {
+        "url": "URL",
+        "status": "狀態",
+        "peers": "下載者",
+        "seeds": "種子",
+        "leeches": "蝗族",
+        "downloaded": "已下載",
+        "message": "訊息"
+      },
       "pagePeers": {
         "ip": "IP",
         "connection": "連線",
@@ -692,18 +708,14 @@
         "relevance": "關聯",
         "files": "檔案"
       },
+      "pageContent": {
+        "rootNode": "(根節點)",
+        "fileInfo": "無檔案 | {n} 個檔案 | {n} 個檔案",
+        "folderInfo": "無資料夾 | {n} 個資料夾 | {n} 個資料夾"
+      },
       "tagsAndCategories": {
         "subHeaderTag": "可用標籤：",
         "subHeaderCategories": "可用分類："
-      },
-      "pageTrackers": {
-        "url": "URL",
-        "status": "狀態",
-        "peers": "下載者",
-        "seeds": "種子",
-        "leeches": "蝗族",
-        "downloaded": "已下載",
-        "message": "訊息"
       }
     },
     "add": {
@@ -722,7 +734,10 @@
     },
     "rename": {
       "title": "重新命名",
-      "torrentName": "種子名稱"
+      "torrentName": "種子名稱",
+      "oldPath": "舊路徑",
+      "newPath": "新路徑",
+      "errorConflict": "一個相同名稱的檔案或資料夾已經存在"
     },
     "sort": {
       "title": "種子排序",
@@ -800,8 +815,7 @@
     "categorySaved": "分類編輯成功！",
     "feedSaved": "訂閱源儲存成功！",
     "ruleSaved": "規則保存成功！",
-    "renameFileFailed": "重新命名失敗",
-    "renameFolderFailed": "重新命名失敗",
+    "renameFailed": "重新命名失敗",
     "copySuccess": "文字已複製！",
     "copyNotSupported": "無法複製，非安全環境",
     "pasteSuccess": "文字已貼上！",
