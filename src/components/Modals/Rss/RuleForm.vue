@@ -17,7 +17,7 @@
             <v-col cols="12" sm="6">
               <v-form ref="form">
                 <v-container>
-                  <v-text-field v-model="rule.name" :label="$t('modals.newRule.name')" required />
+                  <v-text-field v-model="rule.name" :label="$t('modals.newRule.name')" autofocus required />
 
                   <v-divider />
 

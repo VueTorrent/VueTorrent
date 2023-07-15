@@ -1,5 +1,13 @@
 <template>
-  <v-dialog v-model="dialog" scrollable max-width="750px" :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'" :fullscreen="phoneLayout" @keydown.enter.prevent="rename" @keydown.esc.prevent="close">
+  <v-dialog
+    v-model="dialog"
+    scrollable
+    max-width="750px"
+    :content-class="phoneLayout ? 'rounded-0' : 'rounded-form'"
+    :fullscreen="phoneLayout"
+    @keydown.enter.prevent="rename"
+    @keydown.esc.prevent="close"
+  >
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -10,7 +18,7 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-text-field v-model="name" clearable :label="$t('modals.rename.torrentName')" :prepend-inner-icon="mdiFile" />
+              <v-text-field v-model="name" id="torrentNameInput" clearable :label="$t('modals.rename.torrentName')" autofocus :prepend-inner-icon="mdiFile" />
             </v-col>
           </v-row>
         </v-container>
@@ -37,7 +45,7 @@ import qbit from '@/services/qbit'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'RenameModal',
+  name: 'RenameTorrentModal',
   mixins: [Modal, FullScreenModal],
   props: {
     hash: String
@@ -58,10 +66,13 @@ export default defineComponent({
   created() {
     this.name = this.torrent.name
   },
+  mounted() {
+    const input = document.getElementById('torrentNameInput') as HTMLInputElement
+    if (input) {
+      input.select()
+    }
+  },
   methods: {
-    urlDecode() {
-      this.name = decodeURIComponent(this.name)
-    },
     async rename() {
       await qbit.setTorrentName(this.hash, this.name)
       this.close()

@@ -1,14 +1,19 @@
-import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
+import { defineComponent } from 'vue'
 
-@Component
-export default class Tab extends Vue {
-  @Prop() hash!: string
-  @Prop() isActive!: boolean
-
-  activeMethod!: () => void
-
-  @Watch('isActive')
-  isActiveChanged(active: boolean) {
-    if (active) this.activeMethod()
+export default defineComponent({
+  name: 'Tab',
+  props: {
+    hash: String,
+    isActive: Boolean
+  },
+  watch: {
+    isActive() {
+      if (this.isActive) this.activeMethod()
+    }
+  },
+  methods: {
+    activeMethod() {
+      throw new Error('Method not implemented.')
+    }
   }
-}
+})

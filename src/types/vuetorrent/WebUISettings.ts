@@ -1,4 +1,4 @@
-import type {DashboardProperty, TitleOptions} from '@/enums/vuetorrent'
+import type { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 
 export class TorrentProperty {
   name: DashboardProperty
@@ -29,6 +29,7 @@ export default interface WebUISettings {
   openSideBarOnStart: boolean
   showShutdownButton: boolean
   refreshInterval: number
+  contentInterval: number
   torrentPieceCountRenderThreshold: number
   busyDesktopTorrentProperties: TorrentProperty[]
   doneDesktopTorrentProperties: TorrentProperty[]

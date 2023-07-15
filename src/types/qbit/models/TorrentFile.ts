@@ -3,7 +3,7 @@ import type { Priority } from '@/enums/qbit'
 export default interface TorrentFile {
   /** Percentage of file pieces currently available (percentage/100) */
   availability: number
-  /** File index */
+  /** File index (starting at 0) */
   index: number
   /** True if file is seeding/complete */
   is_seed: boolean
@@ -15,6 +15,6 @@ export default interface TorrentFile {
   priority: Priority
   /** File progress (percentage/100) */
   progress: number
-  /** File size (bytes) */
+  /** File size in bytes */
   size: number
 }

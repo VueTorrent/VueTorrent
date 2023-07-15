@@ -9,10 +9,10 @@
       <v-card-text>
         <v-form ref="feedForm" class="px-6 mt-3">
           <v-container v-if="!hasInitialFeed">
-            <v-text-field v-model="feed.url" :rules="rules" :label="$t('modals.newFeed.url')" required />
+            <v-text-field v-model="feed.url" :rules="rules" :label="$t('modals.newFeed.url')" autofocus required />
           </v-container>
           <v-container>
-            <v-text-field v-model="feed.name" :rules="rules" :label="$t('modals.newFeed.feedName')" required />
+            <v-text-field v-model="feed.name" :rules="rules" :label="$t('modals.newFeed.feedName')" autofocus required />
           </v-container>
         </v-form>
       </v-card-text>
@@ -32,7 +32,7 @@
 <script lang="ts">
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
-import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
+import { mdiCancel, mdiPencil, mdiTagPlus } from '@mdi/js'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -43,9 +43,7 @@ export default defineComponent({
   },
   data: () => ({
     feed: { url: '', name: '' },
-    rules: [
-      (v: string) => !!v || 'Required'
-    ],
+    rules: [(v: string) => !!v || 'Required'],
     mdiCancel,
     mdiTagPlus,
     mdiPencil

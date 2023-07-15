@@ -1,6 +1,6 @@
-import {JSONSchemaType} from 'ajv'
-import {PersistentStoreState} from '@/types/vuetorrent'
-import {DashboardProperty, TitleOptions} from '@/enums/vuetorrent'
+import { JSONSchemaType } from 'ajv'
+import { PersistentStoreState } from '@/types/vuetorrent'
+import { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 
 export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
   type: 'object',
@@ -43,6 +43,7 @@ export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
         openSideBarOnStart: { type: 'boolean' },
         showShutdownButton: { type: 'boolean' },
         refreshInterval: { type: 'number' },
+        contentInterval: { type: 'number' },
         torrentPieceCountRenderThreshold: { type: 'number' },
         busyDesktopTorrentProperties: { $ref: '/schemas/desktopDashboardProperties' },
         doneDesktopTorrentProperties: { $ref: '/schemas/desktopDashboardProperties' },
@@ -68,6 +69,7 @@ export const StoreStateSchema: JSONSchemaType<PersistentStoreState> = {
         'openSideBarOnStart',
         'showShutdownButton',
         'refreshInterval',
+        'contentInterval',
         'torrentPieceCountRenderThreshold',
         'busyDesktopTorrentProperties',
         'doneDesktopTorrentProperties',

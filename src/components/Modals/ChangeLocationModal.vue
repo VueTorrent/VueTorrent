@@ -19,7 +19,7 @@
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
-              <v-text-field v-model="newPath" :label="$t('directory')" :prepend-icon="mdiFolder" @keydown.enter="setLocation" />
+              <v-text-field v-model="newPath" :label="$t('directory')" :prepend-icon="mdiFolder" autofocus @keydown.enter="setLocation" />
             </v-col>
           </v-row>
         </v-container>
@@ -39,8 +39,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { mdiFile, mdiFolder, mdiClose } from '@mdi/js'
-import { Modal, FullScreenModal } from '@/mixins'
+import { mdiClose, mdiFile, mdiFolder } from '@mdi/js'
+import { FullScreenModal, Modal } from '@/mixins'
 import qbit from '@/services/qbit'
 
 export default {

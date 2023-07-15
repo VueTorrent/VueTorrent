@@ -87,7 +87,20 @@
 import { General } from '@/mixins'
 import { mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import { mdiSort, mdiCog, mdiCheckboxBlankOutline, mdiCheckboxMarked, mdiSearchWeb, mdiDelete, mdiPlus, mdiPlay, mdiPause, mdiRss, mdiFileDocumentMultiple, mdiPower } from '@mdi/js'
+import {
+  mdiSort,
+  mdiCog,
+  mdiCheckboxBlankOutline,
+  mdiCheckboxMarked,
+  mdiSearchWeb,
+  mdiDelete,
+  mdiPlus,
+  mdiPlay,
+  mdiPause,
+  mdiRss,
+  mdiFileDocumentMultiple,
+  mdiPower
+} from '@mdi/js'
 
 export default {
   name: 'TopActions',

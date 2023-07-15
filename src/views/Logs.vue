@@ -19,14 +19,15 @@
       <v-data-table
         id="logsTable"
         :headers="headers"
-        :footer-props="{itemsPerPageOptions: [50, 100, 250, 500, 1000, -1]}"
+        :footer-props="{ itemsPerPageOptions: [50, 100, 250, 500, 1000, -1] }"
         :items="filteredLogs"
         :items-per-page="50"
         item-key="id"
         multi-sort
         :sort-by="['id']"
         :sort-desc="[true]"
-        :item-class="getLogTypeClassName">
+        :item-class="getLogTypeClassName"
+      >
         <template #top>
           <div class="mx-4 mb-5">
             <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('modals.logs.filters.type')" multiple chips>
@@ -56,14 +57,14 @@
 </template>
 
 <script lang="ts">
-import {General} from '@/mixins'
-import {defineComponent} from 'vue'
-import {mdiClose, mdiCloseBox, mdiMinusBox, mdiCheckboxBlankOutline} from '@mdi/js'
+import { General } from '@/mixins'
+import { defineComponent } from 'vue'
+import { mdiClose, mdiCloseBox, mdiMinusBox, mdiCheckboxBlankOutline } from '@mdi/js'
 import qbit from '@/services/qbit'
-import {Log} from '@/types/qbit/models'
-import {LogType} from '@/enums/qbit'
-import dayjs from "dayjs";
-import {mapGetters, mapState} from "vuex";
+import { Log } from '@/types/qbit/models'
+import { LogType } from '@/enums/qbit'
+import dayjs from 'dayjs'
+import { mapGetters, mapState } from 'vuex'
 
 export default defineComponent({
   name: 'Logs',
@@ -74,7 +75,7 @@ export default defineComponent({
         { text: this.$t('modals.logs.table.id'), value: 'id', sortable: true },
         { text: this.$t('modals.logs.table.type'), value: 'type', sortable: true },
         { text: this.$t('modals.logs.table.message'), value: 'message', sortable: true },
-        { text: this.$t('modals.logs.table.timestamp'), value: 'timestamp', sortable: true },
+        { text: this.$t('modals.logs.table.timestamp'), value: 'timestamp', sortable: true }
       ],
       logTypeOptions: [
         { text: LogType[LogType.NORMAL], value: LogType.NORMAL },
@@ -92,7 +93,7 @@ export default defineComponent({
     ...mapState(['webuiSettings']),
     ...mapGetters(['getModals']),
     lastFetchedId() {
-      return this.logs.length > 0 ? this.logs[this.logs.length-1].id : -1
+      return this.logs.length > 0 ? this.logs[this.logs.length - 1].id : -1
     },
     filteredLogs() {
       return this.logs.filter(log => this.logTypeFilter.includes(log.type))
@@ -118,7 +119,7 @@ export default defineComponent({
   },
   methods: {
     async updateLogs() {
-      this.logs.push(...await qbit.getLogs(this.lastFetchedId))
+      this.logs.push(...(await qbit.getLogs(this.lastFetchedId)))
       await this.$nextTick()
     },
     getLogTypeClassName(log: Log) {

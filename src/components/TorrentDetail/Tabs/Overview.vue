@@ -15,7 +15,9 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" md="3">
-                <v-progress-circular v-if="isFetchingMetadata" indeterminate :size="100" color="torrent-metadata">{{ $t('modals.detail.pageOverview.fetchingMetadata') }}</v-progress-circular>
+                <v-progress-circular v-if="isFetchingMetadata" indeterminate :size="100" color="torrent-metadata">{{
+                  $t('modals.detail.pageOverview.fetchingMetadata')
+                }}</v-progress-circular>
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
@@ -53,7 +55,7 @@
               <v-col cols="6">
                 <div>{{ $t('modals.detail.pageOverview.fileCount') }}:</div>
                 <div>
-                  {{ selectedFileCount }} / {{torrentFileCount }}
+                  {{ selectedFileCount }} / {{ torrentFileCount }}
                   <span v-if="selectedFileCount === 1">({{ torrentFileName }})</span>
                 </div>
               </v-col>
@@ -66,15 +68,11 @@
           <v-card-text>
             <v-row>
               <v-col cols="6">
-                <div>
-                  {{ $t('torrent.properties.status') }}:
-                </div>
+                <div>{{ $t('torrent.properties.status') }}:</div>
                 <v-chip small :class="torrentStateClass" class="white--text caption">{{ torrent.state }}</v-chip>
               </v-col>
               <v-col cols="6">
-                <div>
-                  {{ $t('torrent.properties.category') }}:
-                </div>
+                <div>{{ $t('torrent.properties.category') }}:</div>
                 <v-chip small class="upload white--text caption">
                   {{ torrent.category.length ? torrent.category : $t('navbar.filters.uncategorized') }}
                 </v-chip>
@@ -82,15 +80,11 @@
             </v-row>
             <v-row>
               <v-col cols="6">
-                <div>
-                  {{ $t('torrent.properties.tracker') }}:
-                </div>
+                <div>{{ $t('torrent.properties.tracker') }}:</div>
                 <v-chip small class="moving white--text caption">{{ this.torrent?.tracker ? getDomainBody(this.torrent?.tracker) : $t('navbar.filters.untracked') }}</v-chip>
               </v-col>
-              <v-col cols="6">
-                <div class="d-flex flex-wrap chipgap">
-                  {{ $t('torrent.properties.tags') }}:
-                </div>
+              <v-col cols="6" class="d-flex flex-wrap chipgap">
+                <div>{{ $t('torrent.properties.tags') }}:</div>
                 <v-chip v-if="torrent?.tags" v-for="tag in torrent.tags" :key="tag" small class="tags white--text caption">
                   {{ tag }}
                 </v-chip>
@@ -137,16 +131,16 @@
 </template>
 
 <script lang="ts">
-import dayjs from "dayjs";
-import {FullScreenModal} from "@/mixins";
-import qbit from "@/services/qbit";
-import {getDomainBody, splitByUrl, stringContainsUrl} from "@/helpers";
-import {defineComponent} from "vue";
-import {Torrent} from "@/models";
-import {mapState} from "vuex";
-import {mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiContentSave, mdiPencil} from "@mdi/js";
-import {TorrentState} from "@/enums/vuetorrent";
-import {Priority} from "@/enums/qbit";
+import dayjs from 'dayjs'
+import { FullScreenModal } from '@/mixins'
+import qbit from '@/services/qbit'
+import { getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
+import { defineComponent } from 'vue'
+import { Torrent } from '@/models'
+import { mapState } from 'vuex'
+import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiContentSave, mdiPencil } from '@mdi/js'
+import { TorrentState } from '@/enums/vuetorrent'
+import { Priority } from '@/enums/qbit'
 
 export default defineComponent({
   name: 'Overflow',
@@ -207,9 +201,7 @@ export default defineComponent({
       return this.torrent?.state === TorrentState.METADATA
     },
     shouldRenderPieceStates() {
-      return !this.isFetchingMetadata
-          && this.torrentPieceCount > 0
-          && this.torrentPieceCount < this.webuiSettings.torrentPieceCountRenderThreshold
+      return !this.isFetchingMetadata && this.torrentPieceCount > 0 && this.torrentPieceCount < this.webuiSettings.torrentPieceCountRenderThreshold
     }
   },
   watch: {
@@ -255,10 +247,10 @@ export default defineComponent({
         let newColor = ''
 
         if (status === 1)
-            // requested / downloading
+          // requested / downloading
           newColor = this.$vuetify.theme.currentTheme['torrent-downloading'] as string
         else if (status === 2)
-            // already downloaded
+          // already downloaded
           newColor = this.$vuetify.theme.currentTheme['torrent-done'] as string
         else {
           // pending download
@@ -299,7 +291,7 @@ export default defineComponent({
     },
     async copyHash() {
       try {
-        await navigator.clipboard.writeText(this.torrent?.hash as string);
+        await navigator.clipboard.writeText(this.torrent?.hash as string)
         this.$toast.success(this.$t('toast.copySuccess').toString())
       } catch (err) {
         this.$toast.error(this.$t('toast.copyNotSupported').toString())

@@ -64,7 +64,7 @@
 
 <script lang="ts">
 import { General } from '@/mixins'
-import {mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import { defineComponent } from 'vue'
 import { FeedArticle } from '@/types/vuetorrent/rss'
 import { Feed, FeedRule } from '@/types/vuetorrent'

@@ -19,7 +19,7 @@
             </v-card-title>
 
             <v-card-text>
-              <v-text-field v-model="installInput" :label="$t('modals.searchPluginManager.install.label')" required />
+              <v-text-field v-model="installInput" :label="$t('modals.searchPluginManager.install.label')" autofocus required />
             </v-card-text>
 
             <v-card-actions>

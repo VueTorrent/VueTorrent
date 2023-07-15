@@ -1,5 +1,5 @@
 import qbit from '../services/qbit'
-import { DocumentTitle, Tags, Trackers, Torrents, Graph } from '@/actions'
+import { DocumentTitle, Trackers, Torrents, Graph } from '@/actions'
 import { setLanguage } from '@/plugins/i18n'
 import type { ModalTemplate, StoreState } from '@/types/vuetorrent'
 import Torrent from '@/models/Torrent'
@@ -61,7 +61,6 @@ export default {
       state.rid = response.rid || undefined
 
       state.status = new Status(response.server_state)
-      Tags.update(response)
       Graph.shiftValues()
 
       // fetch torrent data
