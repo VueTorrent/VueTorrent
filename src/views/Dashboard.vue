@@ -475,7 +475,8 @@ export default {
       }
 
       // 'Search' => Search view
-      if (e.key === "/" && this.$route.name !== 'search') this.$router.push({ name: 'search' })
+      if (e.key === "/" && this.$route.name !== 'search' && document.activeElement !== document.getElementById('searchInput'))
+        this.$router.push({ name: 'search' })
     }
   }
 }
