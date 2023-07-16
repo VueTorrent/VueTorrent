@@ -366,7 +366,7 @@ export default {
     hashes() {
       if (this.multiple) return this.selected_torrents
 
-      return [this.torrent.hash]
+      return [this.hash]
     },
     multiple() {
       return this.selected_torrents.length > 1
@@ -394,10 +394,10 @@ export default {
       await qbit.pauseTorrents(this.hashes)
     },
     location() {
-      this.createModal('ChangeLocationModal', { hashes: this.multiple ? this.selected_torrents : [this.torrent.hash] })
+      this.createModal('ChangeLocationModal', { hashes: this.multiple ? this.selected_torrents : [this.hash] })
     },
     rename() {
-      this.createModal('RenameTorrentModal', { hash: this.torrent.hash })
+      this.createModal('RenameTorrentModal', { hash: this.hash })
     },
     async reannounce() {
       await qbit.reannounceTorrents(this.hashes)
@@ -411,16 +411,16 @@ export default {
       await qbit.recheckTorrents(this.hashes)
     },
     showInfo() {
-      this.$router.push({ name: 'torrentDetail', params: { hash: this.torrent.hash } })
+      this.$router.push({ name: 'torrentDetail', params: { hash: this.hash } })
     },
     async setPriority(priority) {
       await qbit.setTorrentPriority(this.hashes, priority)
     },
     setLimit(mode) {
-      this.createModal('SpeedLimitModal', { hash: this.torrent.hash, mode })
+      this.createModal('SpeedLimitModal', { hash: this.hash, mode })
     },
     setShareLimit() {
-      this.createModal('ShareLimitModal', { hash: this.torrent.hash })
+      this.createModal('ShareLimitModal', { hash: this.hash })
     },
     async forceResume() {
       await qbit.forceStartTorrents(this.hashes)

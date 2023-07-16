@@ -110,7 +110,7 @@
           :key="torrent.hash"
           class="pa-0"
           :class="isMobile ? 'mb-1' : 'mb-2'"
-          @mousedown="trcMenu.show = false"
+          @mousedown="hideTorrentRightClickMenu"
           @touchstart="strTouchStart($event, { torrent })"
           @touchmove="strTouchMove($event)"
           @touchend="strTouchEnd($event)"
@@ -135,7 +135,7 @@
         <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
       </div>
     </div>
-    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute>
+    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute @input="hideTorrentRightClickMenu">
       <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
     </v-menu>
   </div>
@@ -355,7 +355,7 @@ export default {
   methods: {
     strTouchStart(e, data) {
       this.trcMoveTick = 0
-      this.trcMenu.show = false
+      this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
       if (e.touches.length === 1) {
         // one finger only
@@ -377,7 +377,7 @@ export default {
       if (this.trcMenu.show === true && e.touches.length > 1) {
         e.preventDefault()
       } else if (this.trcMoveTick > 1 && e.touches.length === 1) {
-        if (this.tmCalc.LastFinger === 1) this.trcMenu.show = false
+        if (this.tmCalc.LastFinger === 1) this.hideTorrentRightClickMenu(e)
         clearTimeout(this.tmCalc.TouchTimer)
       }
     },
@@ -389,11 +389,25 @@ export default {
       if (this.trcMenu.show) return false
       this.data = data
       if (e.preventDefault) e.preventDefault()
+
+      if (!this.selectMode) {
+        this.$store.commit('SET_SELECTED', {type: 'add', hash: data.torrent.hash})
+      }
+
       this.tmCalc.TouchMode = touchmode
       this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
       this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
       this.$nextTick(() => {
         this.trcMenu.show = true
+      })
+    },
+    hideTorrentRightClickMenu(e) {
+      if (!this.selectMode) {
+        this.resetSelected()
+      }
+
+      this.$nextTick(() => {
+        this.trcMenu.show = false
       })
     },
     detectDragEnter() {
@@ -422,9 +436,6 @@ export default {
         return (this.$store.state.selectMode = false)
       }
       this.$store.state.selectMode = true
-    },
-    addModal(name) {
-      this.createModal(name)
     },
     selectAllTorrents() {
       if (this.allTorrentsSelected) {
