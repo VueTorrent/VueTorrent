@@ -15,24 +15,24 @@
           <v-card-text>
             <v-row>
               <v-col cols="4" md="3">
-                <v-progress-circular v-if="isFetchingMetadata" indeterminate :size="100" color="torrent-metadata">{{
-                  $t('modals.detail.pageOverview.fetchingMetadata')
-                }}</v-progress-circular>
+                <v-progress-circular v-if="isFetchingMetadata" indeterminate :size="100" color="torrent-metadata">
+                  {{ $t('modals.detail.pageOverview.fetchingMetadata') }}
+                </v-progress-circular>
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
                 <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
               </v-col>
               <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
-                <div v-if="shouldRenderPieceStates">
-                  <canvas id="pieceStates" width="0" height="1" />
-                </div>
-                <div v-else-if="isFetchingMetadata">
+                <div v-if="isFetchingMetadata">
                   <span>
                     {{ $t('modals.detail.pageOverview.waitingForMetadata') }}
                   </span>
                 </div>
                 <div v-else>
+                  <canvas id="pieceStates" width="0" height="1" />
+                </div>
+                <div v-if="!isFetchingMetadata && !shouldRenderPieceStates">
                   <span>{{ $t('modals.detail.pageOverview.disabledCanvas') }}</span>
                 </div>
                 <div v-if="torrentPieceCount !== -1">
@@ -51,13 +51,17 @@
               <v-col cols="6">
                 <div>{{ $t('torrent.properties.save_path') }}:</div>
                 <div>{{ torrent.savePath }}</div>
+                <v-btn fab x-small color="accent" @click="changeLocation">
+                  <v-icon>{{ mdiPencil }}</v-icon>
+                </v-btn>
               </v-col>
               <v-col cols="6">
                 <div>{{ $t('modals.detail.pageOverview.fileCount') }}:</div>
-                <div>
-                  {{ selectedFileCount }} / {{ torrentFileCount }}
-                  <span v-if="selectedFileCount === 1">({{ torrentFileName }})</span>
-                </div>
+                <div>{{ selectedFileCount }} / {{ torrentFileCount }}</div>
+                <div v-if="selectedFileCount === 1">{{ torrentFileName }}</div>
+                <v-btn v-if="selectedFileCount === 1" fab x-small color="accent" @click="renameTorrentFile">
+                  <v-icon>{{ mdiPencil }}</v-icon>
+                </v-btn>
               </v-col>
             </v-row>
           </v-card-text>
@@ -132,19 +136,20 @@
 
 <script lang="ts">
 import dayjs from 'dayjs'
-import { FullScreenModal } from '@/mixins'
+import {FullScreenModal, General} from '@/mixins'
 import qbit from '@/services/qbit'
 import { getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
 import { defineComponent } from 'vue'
 import { Torrent } from '@/models'
 import { mapState } from 'vuex'
-import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiContentSave, mdiPencil } from '@mdi/js'
+import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiPencil } from '@mdi/js'
 import { TorrentState } from '@/enums/vuetorrent'
 import { Priority } from '@/enums/qbit'
+import {TorrentFile} from '@/types/qbit/models'
 
 export default defineComponent({
   name: 'Overflow',
-  mixins: [FullScreenModal],
+  mixins: [General, FullScreenModal],
   props: {
     torrent: Torrent,
     isActive: Boolean
@@ -156,6 +161,7 @@ export default defineComponent({
       createdBy: '',
       creationDate: '',
       downloadSpeedAvg: 0,
+      files: [] as TorrentFile[],
       isPrivateTorrent: false,
       selectedFileCount: 0,
       torrentFileCount: 0,
@@ -164,36 +170,21 @@ export default defineComponent({
       torrentPieceOwned: 0,
       torrentPieceCount: 0,
       uploadSpeedAvg: 0,
-      mdiClose,
-      mdiPencil,
-      mdiContentSave,
       mdiArrowUp,
       mdiArrowDown,
       mdiCheck,
+      mdiClose,
+      mdiPencil,
       TorrentState
     }
   },
   async mounted() {
     await this.getTorrentProperties()
+    await this.updateSelectedFiles()
     await this.renderTorrentPieceStates()
-
-    const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
-    const selectedFiles = files.filter(f => f.priority != Priority.DO_NOT_DOWNLOAD)
-
-    this.selectedFileCount = selectedFiles.length
-    this.torrentFileCount = files.length
-    if (this.selectedFileCount === 1) {
-      this.torrentFileName = selectedFiles[0].name
-    }
   },
   computed: {
     ...mapState(['webuiSettings']),
-    seedingTime() {
-      if (!this.torrent?.seeding_time) return ''
-
-      const content = this.$t('modals.detail.pageInfo.seededFor').toString().replace('$0', this.torrent.seeding_time)
-      return `(${content})`
-    },
     torrentStateClass() {
       return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
     },
@@ -206,7 +197,10 @@ export default defineComponent({
   },
   watch: {
     async torrent() {
+      if (!this.isActive) return
+
       await this.getTorrentProperties()
+      await this.updateSelectedFiles()
       if (this.shouldRenderPieceStates) {
         await this.renderTorrentPieceStates()
       }
@@ -230,7 +224,6 @@ export default defineComponent({
       const canvas: HTMLCanvasElement | null = document.querySelector('canvas#pieceStates')
       if (canvas === null) return
 
-      const files = await qbit.getTorrentFiles(this.torrent?.hash as string)
       const pieces = await qbit.getTorrentPieceStates(this.torrent?.hash as string)
 
       // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
@@ -254,7 +247,7 @@ export default defineComponent({
           newColor = this.$vuetify.theme.currentTheme['torrent-done'] as string
         else {
           // pending download
-          const selected_piece_ranges = files.filter(file => file.priority !== 0).map(file => file.piece_range)
+          const selected_piece_ranges = this.files.filter(file => file.priority !== 0).map(file => file.piece_range)
           for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
             if (i > min_piece_range && i < max_piece_range) {
               newColor = this.$vuetify.theme.currentTheme['torrent-paused'] as string
@@ -283,6 +276,16 @@ export default defineComponent({
         ctx.fillRect(pieces.length - rectWidth, 0, rectWidth, canvas.height)
       }
     },
+    async updateSelectedFiles() {
+      this.files = await qbit.getTorrentFiles(this.torrent?.hash as string)
+      const selectedFiles = this.files.filter(f => f.priority != Priority.DO_NOT_DOWNLOAD)
+
+      this.selectedFileCount = selectedFiles.length
+      this.torrentFileCount = this.files.length
+      if (this.selectedFileCount === 1) {
+        this.torrentFileName = selectedFiles[0].name
+      }
+    },
     stringContainsUrl(string: string) {
       return stringContainsUrl(string)
     },
@@ -296,6 +299,16 @@ export default defineComponent({
       } catch (err) {
         this.$toast.error(this.$t('toast.copyNotSupported').toString())
       }
+    },
+    async changeLocation() {
+      this.createModal('ChangeLocationModal', {hashes: [this.torrent?.hash as string]})
+    },
+    async renameTorrentFile() {
+      this.createModal('RenameTorrentFileModal', {
+        hash: this.torrent?.hash as string,
+        isFolder: false,
+        oldName: this.torrentFileName
+      })
     }
   }
 })
