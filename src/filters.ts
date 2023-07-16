@@ -79,6 +79,32 @@ export function getData(data: number, precision: number = 2) {
 
 Vue.filter('getData', getData)
 
+function formatDataWithoutUnits(data: number, isBinary: boolean) {
+  const base = isBinary ? 1024 : 1000
+
+  let result
+  if (data === -1) result = 'None'
+  else if (!data) result = '0'
+  else {
+    const f = Math.round(Math.log(data) / Math.log(base))
+
+    const units = ['', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
+    result = (data / Math.pow(base, f)).toFixed(2) + ' ' + units[f] + (isBinary ? 'i' : '');
+  }
+  return result
+}
+
+export function formatData(data: number, isBinary: boolean) {
+  return formatDataWithoutUnits(data, isBinary) + 'B'
+}
+
+export function formatSpeed(data: number, isBits: boolean) {
+  if (isBits) data *= 8
+
+  const final = formatDataWithoutUnits(data, false)
+  return final + (isBits ? 'bps' : 'B/s')
+}
+
 export function titleCase(str: string): string {
   if (str.length == 0) return str
 

@@ -3,8 +3,6 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
 import { Ripple } from 'vuetify/lib/directives'
 
-import filters from '@/filters'
-
 Vue.use(Vuetify, {
   directives: {
     Ripple
