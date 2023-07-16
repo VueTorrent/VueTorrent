@@ -661,7 +661,6 @@
       "pageOverview": {
         "fetchingMetadata": "正在抓取...",
         "waitingForMetadata": "正在等待元資料...",
-        "disabledCanvas": "已禁用 Canvas 以節省效能",
         "selectedFileSize": "選中的檔案大小",
         "dlSpeedAverage": "平均下載速率",
         "upSpeedAverage": "平均上傳速率",
