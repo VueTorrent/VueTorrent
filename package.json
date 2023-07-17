@@ -44,7 +44,7 @@
     "@vue/test-utils": "^1",
     "eslint": "^8",
     "eslint-config-prettier": "^8",
-    "eslint-plugin-prettier": "^4",
+    "eslint-plugin-prettier": "^5",
     "eslint-plugin-vue": "^9",
     "jsdom": "^22.1.0",
     "prettier": "^3",
