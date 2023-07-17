@@ -92,7 +92,7 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <v-menu :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
+    <v-menu v-if="settings.queueing_enabled" :open-on-hover="!touchmode" top offset-x :transition="isRightside ? 'slide-x-reverse-transition' : 'slide-x-transition'" :left="isRightside">
       <template #activator="{ on }">
         <v-list-item link v-on="on">
           <v-icon>{{ mdiPriorityHigh }}</v-icon>
@@ -349,7 +349,7 @@ export default {
   },
   computed: {
     ...mapGetters(['getCategories', 'getAvailableTags', 'getTorrent']),
-    ...mapState(['selected_torrents']),
+    ...mapState(['selected_torrents', 'settings']),
     availableCategories() {
       const categories = [{ name: 'None', value: '' }]
       categories.push(
