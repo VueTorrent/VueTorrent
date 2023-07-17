@@ -16,15 +16,15 @@
             :autofocus="!hasInitialCategory"
             :disabled="hasInitialCategory"
           />
-          <v-text-field v-model="category.savePath" :rules="pathRules" :label="$t('path')" required :autofocus="hasInitialCategory" />
+          <v-text-field v-model="category.savePath" :label="$t('path')" :autofocus="hasInitialCategory" />
         </v-container>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" @click="create" :disabled="!isValid">
+        <v-btn v-if="!hasInitialCategory" class="accent white--text elevation-0 px-4" :disabled="!isValid" @click="create">
           {{ $t('create') }}
         </v-btn>
-        <v-btn v-else class="accent white--text elevation-0 px-4" @click="edit" :disabled="!isValid">
+        <v-btn v-else class="accent white--text elevation-0 px-4" :disabled="!isValid" @click="edit">
           {{ $t('edit') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="cancel">
@@ -62,11 +62,8 @@ export default {
     nameRules() {
       return [v => !!v || this.$t('modals.newCategory.tipOnNoName')]
     },
-    pathRules() {
-      return [v => !!v || this.$t('modals.newCategory.tipOnNoPath')]
-    },
     isValid() {
-      return !!this.category.name && !!this.category.savePath
+      return !!this.category.name
     }
   },
   created() {
