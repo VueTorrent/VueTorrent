@@ -81,7 +81,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapGetters(['getTorrent']),
+    ...mapGetters(['getTorrent', 'getModals']),
     torrent() {
       //@ts-expect-error: TS2339: Property 'getTorrent' does not exist on type 'CreateComponentPublicInstance...'.
       return this.getTorrent(this.hash)
@@ -103,7 +103,7 @@ export default defineComponent({
       this.$router.back()
     },
     handleKeyboardShortcut(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
+      if (e.key === 'Escape' && this.getModals().length === 0) {
         this.close()
       }
     }
