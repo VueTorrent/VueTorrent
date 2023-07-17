@@ -1,4 +1,4 @@
-import CreateNewTagDialog from './CreateTagDialog.vue'
-import CreateNewCategoryDialog from './CreateCategoryDialog.vue'
+import CreateNewTagDialog from './CreateNewTagDialog.vue'
+import CreateNewCategoryDialog from './CreateNewCategoryDialog.vue'
 
 export { CreateNewTagDialog, CreateNewCategoryDialog }
