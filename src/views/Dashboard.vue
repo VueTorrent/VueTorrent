@@ -243,7 +243,7 @@ export default {
   },
   computed: {
     ...mapState(['selected_torrents', 'dashboard', 'sort_options']),
-    ...mapGetters(['getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
+    ...mapGetters(['getModals', 'getTorrents', 'getTorrentCountString', 'getWebuiSettings']),
     torrents() {
       let torrents
       if (!this.hasSearchFilter) torrents = this.getTorrents()
@@ -402,7 +402,7 @@ export default {
       })
     },
     hideTorrentRightClickMenu(e) {
-      if (!this.selectMode) {
+      if (!this.selectMode && this.getModals().length === 0) {
         this.resetSelected()
       }
 
@@ -411,7 +411,7 @@ export default {
       })
     },
     detectDragEnter() {
-      if (this.selected_torrents.length === 0 && this.$store.state.modals.length < 1) {
+      if (this.selected_torrents.length === 0 && this.getModals().length < 1) {
         this.createModal('AddModal', { openSuddenly: true })
       }
 
@@ -447,7 +447,7 @@ export default {
       return (this.$store.state.selected_torrents = hashes)
     },
     handleKeyboardShortcut(e) {
-      if (this.$store.state.modals.length > 0) {
+      if (this.getModals().length > 0) {
         //e.preventDefault()
 
         return null
@@ -482,7 +482,7 @@ export default {
         // no torrents select to delete
         if (!this.selected_torrents.length) return
 
-        return this.createModal('ConfirmDeleteModal')
+        return this.createModal('ConfirmDeleteModal', { hashes: this.hashes })
       }
 
       // 'Search' => Search view

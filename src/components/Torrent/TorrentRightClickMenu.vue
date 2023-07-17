@@ -394,7 +394,7 @@ export default {
       await qbit.pauseTorrents(this.hashes)
     },
     location() {
-      this.createModal('ChangeLocationModal', { hashes: this.multiple ? this.selected_torrents : [this.hash] })
+      this.createModal('ChangeLocationModal', { hashes: this.hashes })
     },
     rename() {
       this.createModal('RenameTorrentModal', { hash: this.hash })
@@ -403,9 +403,7 @@ export default {
       await qbit.reannounceTorrents(this.hashes)
     },
     removeTorrent() {
-      this.$store.state.selected_torrents = this.hashes
-
-      return this.createModal('ConfirmDeleteModal')
+      return this.createModal('ConfirmDeleteModal', { hashes: this.hashes })
     },
     async recheck() {
       await qbit.recheckTorrents(this.hashes)

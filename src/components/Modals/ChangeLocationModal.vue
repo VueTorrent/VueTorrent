@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="isPhone">
+  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="isPhone" @input="close">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -37,17 +37,18 @@
   </v-dialog>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { mapGetters, mapState } from 'vuex'
 import { mdiClose, mdiFile, mdiFolder } from '@mdi/js'
 import { FullScreenModal, Modal } from '@/mixins'
 import qbit from '@/services/qbit'
 
-export default {
+export default defineComponent({
   name: 'ChangeLocationModal',
   mixins: [Modal, FullScreenModal],
   props: {
-    hashes: Array
+    hashes: Array<string>
   },
   data() {
     return {
@@ -58,6 +59,7 @@ export default {
     }
   },
   computed: {
+    ...mapState(['selectMode']),
     ...mapGetters(['getTorrent', 'getSettings']),
     dialogWidth() {
       return this.phoneLayout ? '100%' : '750px'
@@ -79,8 +81,10 @@ export default {
     },
     close() {
       this.dialog = false
-      //this.$store.commit('DELETE_MODAL', this.guid)
+      if (!this.selectMode) {
+        this.$store.commit('RESET_SELECTED')
+      }
     }
   }
-}
+})
 </script>

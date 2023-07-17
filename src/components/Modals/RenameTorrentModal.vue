@@ -7,6 +7,7 @@
     :fullscreen="phoneLayout"
     @keydown.enter.prevent="rename"
     @keydown.esc.prevent="close"
+    @input="close"
   >
     <v-card>
       <v-card-title class="pa-0">
@@ -37,7 +38,7 @@
 </template>
 
 <script lang="ts">
-import { mapGetters } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import Modal from '@/mixins/Modal'
 import { mdiFile } from '@mdi/js'
 import { FullScreenModal } from '@/mixins'
@@ -53,11 +54,11 @@ export default defineComponent({
   data() {
     return {
       name: '',
-
       mdiFile
     }
   },
   computed: {
+    ...mapState(['selectMode']),
     ...mapGetters(['getTorrent']),
     torrent() {
       return this.getTorrent(this.hash)
@@ -74,11 +75,14 @@ export default defineComponent({
   },
   methods: {
     async rename() {
-      await qbit.setTorrentName(this.hash, this.name)
+      await qbit.setTorrentName(this.hash as string, this.name)
       this.close()
     },
     close() {
       this.dialog = false
+      if (!this.selectMode) {
+        this.$store.commit('RESET_SELECTED')
+      }
     }
   }
 })

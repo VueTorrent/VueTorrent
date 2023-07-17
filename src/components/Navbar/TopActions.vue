@@ -138,7 +138,7 @@ export default {
     removeTorrents() {
       if (!this.selected_torrents.length) return
 
-      return this.createModal('ConfirmDeleteModal')
+      return this.createModal('ConfirmDeleteModal', { hashes: this.selected_torrents })
     },
     goToSearch() {
       if (this.$route.name !== 'search') this.$router.push({ name: 'search' })
