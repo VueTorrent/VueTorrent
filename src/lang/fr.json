@@ -351,8 +351,7 @@
     "newCategory": {
       "categoryName": "Nom de la catégorie",
       "Path": "Chemin d'accès",
-      "tipOnNoName": "Le nom de la catégorie est obligatoire",
-      "tipOnNoPath": "Le chemin d'accès est obligatoire"
+      "tipOnNoName": "Le nom de la catégorie est obligatoire"
     },
     "newTag": {
       "createNewTag": "Créer un nouveau tag",

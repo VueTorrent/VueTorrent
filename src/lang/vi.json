@@ -334,8 +334,7 @@
     "newCategory": {
       "categoryName": "Tên danh mục",
       "Path": "Nơi lưu",
-      "tipOnNoName": "Tên danh mục là bắt buộc",
-      "tipOnNoPath": "Nơi lưu là bắt buộc"
+      "tipOnNoName": "Tên danh mục là bắt buộc"
     },
     "newTag": {
       "createNewTag": "Tạo thẻ mới",

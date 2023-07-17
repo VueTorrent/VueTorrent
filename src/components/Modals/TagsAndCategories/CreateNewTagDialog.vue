@@ -31,7 +31,7 @@ import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
 
 export default defineComponent({
-  name: 'CreateTagDialog',
+  name: 'CreateNewTagDialog',
   mixins: [Modal],
   data() {
     return {

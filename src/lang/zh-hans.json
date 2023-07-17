@@ -637,8 +637,7 @@
     "newCategory": {
       "categoryName": "分类名称",
       "Path": "路径",
-      "tipOnNoName": "分类名称是必须的",
-      "tipOnNoPath": "路径是必须的"
+      "tipOnNoName": "分类名称是必须的"
     },
     "newTag": {
       "createNewTag": "新建标签",

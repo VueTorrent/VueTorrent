@@ -90,10 +90,10 @@ export default {
       this.$store.commit('FETCH_TAGS')
     },
     createTag() {
-      this.createModal('CreateTagDialog')
+      this.createModal('CreateNewTagDialog')
     },
     createCategory() {
-      this.createModal('CreateCategoryDialog')
+      this.createModal('CreateNewCategoryDialog')
     },
     async deleteCategory(category) {
       await qbit.deleteCategory([category.name])
@@ -104,7 +104,7 @@ export default {
       this.$store.commit('FETCH_TAGS')
     },
     editCategory(cat) {
-      this.createModal('CreateCategoryDialog', { initialCategory: cat })
+      this.createModal('CreateNewCategoryDialog', { initialCategory: cat })
     }
   }
 }

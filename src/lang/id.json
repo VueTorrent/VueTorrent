@@ -271,8 +271,7 @@
     "newCategory": {
       "categoryName": "Nama kategori",
       "Path": "Path",
-      "tipOnNoName": "Nama kategori diperlukan",
-      "tipOnNoPath": "Path is required"
+      "tipOnNoName": "Nama kategori diperlukan"
     },
     "newTag": {
       "createNewTag": "Buat Tag Baru",

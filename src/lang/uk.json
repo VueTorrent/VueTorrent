@@ -608,8 +608,7 @@
     "newCategory": {
       "categoryName": "Назва категорії",
       "Path": "Шлях",
-      "tipOnNoName": "Вкажіть назву категорії",
-      "tipOnNoPath": "Вкажіть шлях до теки"
+      "tipOnNoName": "Вкажіть назву категорії"
     },
     "newTag": {
       "createNewTag": "Створити нову мітку",

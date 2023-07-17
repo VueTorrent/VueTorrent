@@ -643,8 +643,7 @@
     "newCategory": {
       "categoryName": "Category name",
       "Path": "Path",
-      "tipOnNoName": "Category name is required",
-      "tipOnNoPath": "Path is required"
+      "tipOnNoName": "Category name is required"
     },
     "newTag": {
       "createNewTag": "Create New Tag",
