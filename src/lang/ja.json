@@ -266,8 +266,7 @@
     "newCategory": {
       "categoryName": "カテゴリ名",
       "Path": "パス",
-      "tipOnNoName": "カテゴリ名が必要です",
-      "tipOnNoPath": "パスが必要です"
+      "tipOnNoName": "カテゴリ名が必要です"
     },
     "newTag": {
       "createNewTag": "タグを作成",

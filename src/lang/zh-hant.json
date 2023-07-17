@@ -643,8 +643,7 @@
     "newCategory": {
       "categoryName": "分類名稱",
       "Path": "路徑",
-      "tipOnNoName": "必須填寫分類名稱",
-      "tipOnNoPath": "必須填寫路徑"
+      "tipOnNoName": "必須填寫分類名稱"
     },
     "newTag": {
       "createNewTag": "新增標籤",

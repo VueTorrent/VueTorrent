@@ -608,8 +608,7 @@
     "newCategory": {
       "categoryName": "Название категории",
       "Path": "Путь",
-      "tipOnNoName": "Требуется название категории",
-      "tipOnNoPath": "Нужный путь"
+      "tipOnNoName": "Требуется название категории"
     },
     "newTag": {
       "createNewTag": "Создать новый тэг",
