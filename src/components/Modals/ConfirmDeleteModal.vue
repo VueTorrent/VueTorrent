@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" scrollable content-class="rounded-form" max-width="600px">
+  <v-dialog v-model="dialog" scrollable content-class="rounded-form" max-width="600px" @input="close">
     <v-card class="pa-2">
       <v-card-title class="pa-0">
         <v-toolbar-title class="mx-4 mt-2">
@@ -30,34 +30,45 @@
   </v-dialog>
 </template>
 
-<script>
-import { mapState, mapGetters } from 'vuex'
-import Modal from '@/mixins/Modal'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { mapGetters, mapState } from 'vuex'
 import qbit from '@/services/qbit'
-export default {
+import {FullScreenModal, Modal} from '@/mixins'
+import {Torrent} from '@/models'
+import WebUISettings from '@/types/vuetorrent/WebUISettings'
+
+export default defineComponent({
   name: 'ConfirmDeleteModal',
-  mixins: [Modal],
+  props: {
+    hashes: Array<string>
+  },
+  mixins: [Modal, FullScreenModal],
   computed: {
-    ...mapState(['selected_torrents']),
+    ...mapState(['selectMode']),
     ...mapGetters(['getTorrents', 'getWebuiSettings']),
-    torrents() {
-      return this.getTorrents().filter(t => this.selected_torrents.includes(t.hash))
+    selection(): string[] {
+      return this.hashes ?? []
     },
-    settings() {
+    torrents(): Torrent[] {
+      return (this.getTorrents() as Torrent[]).filter(t => this.selection.includes(t.hash))
+    },
+    settings(): WebUISettings {
       return this.getWebuiSettings()
     }
-  },
-  beforeDestroy() {
-    this.$store.state.selected_torrents = []
   },
   methods: {
     close() {
       this.dialog = false
+      if (!this.selectMode) {
+        this.$store.commit('RESET_SELECTED')
+      }
     },
     async deleteTorrent() {
-      await qbit.deleteTorrents(this.selected_torrents, this.settings.deleteWithFiles)
+      await qbit.deleteTorrents(this.selection, this.settings.deleteWithFiles)
+      this.$store.commit('RESET_SELECTED')
       this.close()
     }
   }
-}
+})
 </script>
