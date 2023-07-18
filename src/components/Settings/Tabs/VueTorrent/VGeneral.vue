@@ -44,6 +44,17 @@
       <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
     </v-list-item>
 
+    <v-list-item>
+      <v-row>
+        <v-col cols="6">
+          <v-checkbox v-model="settings.useBitSpeed" hide-details class="ma-0 pa-0" label="Use Bit Units" />
+        </v-col>
+        <v-col cols="6">
+          <v-checkbox v-model="settings.useBinaryUnits" hide-details class="ma-0 pa-0" label="Use Binary Units" />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
     <v-divider class="mb-5" />
 
     <v-list-item class="my-2">

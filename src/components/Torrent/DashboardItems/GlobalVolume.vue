@@ -4,9 +4,9 @@
       {{ $t('torrent.properties.global_volume') }}
     </div>
     <div>
-      {{ torrent.globalVolume | getDataValue }}
+      {{ torrent.globalVolume | formatDataValue(shouldUseBinaryData()) }}
       <span class="caption grey--text">
-        {{ torrent.globalVolume | getDataUnit }}
+        {{ torrent.globalVolume | formatDataUnit(shouldUseBinaryData()) }}
       </span>
     </div>
   </v-flex>
@@ -14,12 +14,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'GlobalVolume',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

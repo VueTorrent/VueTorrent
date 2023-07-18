@@ -24,10 +24,10 @@
               </td>
               <td>{{ item.client }}</td>
               <td>{{ item.progress | progress }}</td>
-              <td>{{ item.dl_speed | networkSpeed }}</td>
-              <td>{{ item.downloaded | networkSize }}</td>
-              <td>{{ item.up_speed | networkSpeed }}</td>
-              <td>{{ item.uploaded | networkSize }}</td>
+              <td>{{ item.dl_speed | formatSpeed(shouldUseBitSpeed()) }}</td>
+              <td>{{ item.downloaded | formatData(shouldUseBinaryData()) }}</td>
+              <td>{{ item.up_speed | formatSpeed(shouldUseBitSpeed()) }}</td>
+              <td>{{ item.uploaded | formatData(shouldUseBinaryData()) }}</td>
               <td>{{ item.relevance | progress }}</td>
               <td>{{ item.files }}</td>
             </tr>
@@ -59,13 +59,15 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
 import { map, merge } from 'lodash'
 import qbit from '@/services/qbit'
 import { codeToFlag, isWindows } from '@/helpers'
 import { FullScreenModal } from '@/mixins'
 
-export default {
+export default defineComponent({
   name: 'DetailPeers',
   mixins: [FullScreenModal],
   props: { hash: String, isActive: Boolean },
@@ -79,6 +81,7 @@ export default {
     isWindows
   }),
   computed: {
+    ...mapGetters(['shouldUseBinaryData', 'shouldUseBitSpeed']),
     peers() {
       return map(this.peersObj, (value, key) => merge({}, value, { key }))
     },
@@ -142,7 +145,7 @@ export default {
       this.selectedPeers = []
     }
   }
-}
+})
 </script>
 
 <style scoped>

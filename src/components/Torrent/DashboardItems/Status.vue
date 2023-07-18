@@ -3,7 +3,7 @@
     <div class="caption grey--text">
       {{ $t('torrent.properties.status') }}
     </div>
-    <v-chip style="height: 1.3em" class="caption white--text px-2" :class="state">
+    <v-chip style="height: 1.3em" class="caption white--text px-2" :class="torrentStateClass">
       {{ stateString }}
     </v-chip>
   </v-flex>
@@ -12,15 +12,11 @@
 <script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
 import { TorrentState } from '@/enums/vuetorrent'
 
 export default defineComponent({
   name: 'Status',
   mixins: [TorrentDashboardItem],
-  props: {
-    torrent: Torrent
-  },
   computed: {
     stateString() {
       if (!this.torrent) return TorrentState.UNKNOWN

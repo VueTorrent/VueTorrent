@@ -21,7 +21,7 @@
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
-                <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ torrent.progress ?? 0 }} %</v-progress-circular>
+                <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ (torrent.progress ?? 0) | progress }}</v-progress-circular>
               </v-col>
               <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
                 <div v-if="isFetchingMetadata">
@@ -36,14 +36,14 @@
                   <span>{{ $t('modals.detail.pageOverview.canvasRefreshDisabled') }}</span>
                 </div>
                 <div v-if="torrentPieceCount !== -1">
-                  <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ torrentPieceSize | getData }})</span>
+                  <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ pieceSize }})</span>
                 </div>
                 <div>
                   <v-icon>{{ mdiArrowDown }}</v-icon>
-                  {{ torrent?.dlspeed | networkSpeed }}
+                  {{ torrent?.dlspeed | formatSpeed(shouldUseBitSpeed()) }}
 
                   <v-icon>{{ mdiArrowUp }}</v-icon>
-                  {{ torrent?.upspeed | networkSpeed }}
+                  {{ torrent?.upspeed | formatSpeed(shouldUseBitSpeed()) }}
                 </div>
               </v-col>
             </v-row>
@@ -100,7 +100,7 @@
             <v-row>
               <v-col cols="6">
                 <div>{{ $t('modals.detail.pageOverview.selectedFileSize') }}:</div>
-                <div>{{ torrent?.size | getData }} / {{ torrent?.total_size | getData }}</div>
+                <div>{{ torrent?.size | formatData(shouldUseBinaryData()) }} / {{ torrent?.total_size | formatData(shouldUseBinaryData()) }}</div>
               </v-col>
               <v-col cols="6">
                 <div>{{ $t('ratio') }}:</div>
@@ -110,21 +110,21 @@
             <v-row>
               <v-col cols="6">
                 <div>{{ $t('downloaded') }}:</div>
-                <div>{{ torrent?.downloaded | getData }}</div>
+                <div>{{ torrent?.downloaded | formatData(shouldUseBinaryData()) }}</div>
               </v-col>
               <v-col cols="6">
                 <div>{{ $t('uploaded') }}:</div>
-                <div>{{ torrent?.uploaded | getData }}</div>
+                <div>{{ torrent?.uploaded | formatData(shouldUseBinaryData()) }}</div>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="6">
                 <div>{{ $t('modals.detail.pageOverview.dlSpeedAverage') }}:</div>
-                <div>{{ downloadSpeedAvg | networkSpeed }}</div>
+                <div>{{ downloadSpeedAvg | formatSpeed(shouldUseBitSpeed()) }}</div>
               </v-col>
               <v-col cols="6">
                 <div>{{ $t('modals.detail.pageOverview.upSpeedAverage') }}:</div>
-                <div>{{ uploadSpeedAvg | networkSpeed }}</div>
+                <div>{{ uploadSpeedAvg | formatSpeed(shouldUseBitSpeed()) }}</div>
               </v-col>
             </v-row>
           </v-card-text>
@@ -136,22 +136,21 @@
 
 <script lang="ts">
 import dayjs from 'dayjs'
-import {FullScreenModal, General} from '@/mixins'
+import {FullScreenModal, General, TorrentDashboardItem} from '@/mixins'
 import qbit from '@/services/qbit'
 import { getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
 import { mapState } from 'vuex'
 import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiPencil } from '@mdi/js'
 import { TorrentState } from '@/enums/vuetorrent'
 import { Priority } from '@/enums/qbit'
 import {TorrentFile} from '@/types/qbit/models'
+import {formatDataUnit, formatDataValue} from '@/filters'
 
 export default defineComponent({
   name: 'Overflow',
-  mixins: [General, FullScreenModal],
+  mixins: [General, FullScreenModal, TorrentDashboardItem],
   props: {
-    torrent: Torrent,
     isActive: Boolean
   },
   data() {
@@ -185,8 +184,8 @@ export default defineComponent({
   },
   computed: {
     ...mapState(['webuiSettings']),
-    torrentStateClass() {
-      return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
+    pieceSize() {
+      return `${parseInt(formatDataValue(this.torrentPieceSize, true))} ${formatDataUnit(this.torrentPieceSize, true)}`
     },
     isFetchingMetadata() {
       return this.torrent?.state === TorrentState.METADATA

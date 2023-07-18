@@ -4,9 +4,9 @@
       {{ $t('torrent.properties.downloaded') }}
     </div>
     <div>
-      {{ torrent.downloaded | getDataValue(2) }}
+      {{ torrent.downloaded | formatDataValue(shouldUseBinaryData()) }}
       <span class="caption grey--text">
-        {{ torrent.downloaded | getDataUnit }}
+        {{ torrent.downloaded | formatDataUnit(shouldUseBinaryData()) }}
       </span>
     </div>
   </v-flex>
@@ -14,12 +14,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'Downloaded',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

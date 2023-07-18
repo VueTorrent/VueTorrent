@@ -4,20 +4,20 @@
       {{ $t('torrent.properties.upload_speed') }}
     </div>
     <div>
-      {{ torrent.upspeed | getDataValue(1) }}
-      <span class="caption grey--text"> {{ torrent.upspeed | getDataUnit(1) }}/s </span>
+      {{ torrent.upspeed | formatSpeedValue(shouldUseBitSpeed()) }}
+      <span class="caption grey--text">
+        {{ torrent.upspeed | formatSpeedUnit(shouldUseBitSpeed()) }}
+      </span>
     </div>
   </v-flex>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'UploadSpeed',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

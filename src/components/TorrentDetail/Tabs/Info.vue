@@ -127,8 +127,8 @@
             {{ $t('modals.detail.pageInfo.downloadLimit') }}
           </td>
           <td v-if="torrent?.dl_limit > 0">
-            {{ torrent.dl_limit | getDataValue }}
-            {{ torrent.dl_limit | getDataUnit }}<span>/s </span>
+            {{ torrent.dl_limit | formatSpeedValue(shouldUseBitSpeed()) }}
+            <span>{{ torrent.dl_limit | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
           </td>
           <td v-else>∞</td>
         </tr>
@@ -137,8 +137,8 @@
             {{ $t('modals.detail.pageInfo.uploadLimit') }}
           </td>
           <td v-if="torrent?.up_limit > 0">
-            {{ torrent.up_limit | getDataValue }}
-            {{ torrent.up_limit | getDataUnit }}<span>/s </span>
+            {{ torrent.up_limit | formatSpeedValue(shouldUseBitSpeed()) }}
+            <span>{{ torrent.up_limit | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
           </td>
           <td v-else>∞</td>
         </tr>
@@ -163,8 +163,7 @@
             {{ $t('modals.detail.pageInfo.wasted_size') | titleCase }}
           </td>
           <td>
-            {{ wastedSize | getDataValue }}
-            {{ wastedSize | getDataUnit }}
+            {{ wastedSize | formatData(shouldUseBinaryData()) }}
           </td>
         </tr>
       </tbody>
@@ -174,18 +173,16 @@
 
 <script lang="ts">
 import dayjs from 'dayjs'
-import { FullScreenModal } from '@/mixins'
+import {FullScreenModal, TorrentDashboardItem} from '@/mixins'
 import qbit from '@/services/qbit'
 import { splitByUrl, stringContainsUrl } from '@/helpers'
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
 import { mapState } from 'vuex'
 
 export default defineComponent({
   name: 'Info',
-  mixins: [FullScreenModal],
+  mixins: [FullScreenModal, TorrentDashboardItem],
   props: {
-    torrent: Torrent,
     isActive: Boolean
   },
   data() {
@@ -208,9 +205,6 @@ export default defineComponent({
 
       const content = this.$t('modals.detail.pageInfo.seededFor').toString().replace('$0', this.torrent.seeding_time)
       return `(${content})`
-    },
-    torrentStateClass() {
-      return this.torrent?.state ? this.torrent.state.toLowerCase() : ''
     }
   },
   methods: {

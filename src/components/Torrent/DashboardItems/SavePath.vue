@@ -3,7 +3,7 @@
     <div class="caption grey--text">
       {{ $t('torrent.properties.save_path') | titleCase }}
     </div>
-    <div class="truncate" :title="torrent.savePath">
+    <div class="truncate" :title="torrent?.savePath">
       {{ torrent.savePath }}
     </div>
   </v-flex>
@@ -11,12 +11,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'SavePath',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

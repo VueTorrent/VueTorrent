@@ -1,6 +1,6 @@
 import { i18n } from '@/plugins/i18n'
 import type { StoreState } from '@/types/vuetorrent'
-import { formatSize } from '@/filters'
+import { formatData } from '@/filters'
 import { Torrent } from '@/models'
 
 export default {
@@ -32,12 +32,14 @@ export default {
       return i18n
         .tc('dashboard.selectedTorrentsCount', state.filteredTorrentsCount)
         .replace('$0', state.selected_torrents.length.toString())
-        .replace('$1', formatSize(selectedSize))
+        .replace('$1', formatData(selectedSize, getters.shouldUseBinaryData()))
     } else {
       return i18n.tc('dashboard.torrentsCount', state.filteredTorrentsCount)
     }
   },
   getSearchPlugins: (state: StoreState) => () => state.searchPlugins,
   getApiRefreshInterval: (state: StoreState) => () => state.webuiSettings.refreshInterval,
-  getContentInterval: (state: StoreState) => () => state.webuiSettings.contentInterval
+  getContentInterval: (state: StoreState) => () => state.webuiSettings.contentInterval,
+  shouldUseBinaryData: (state: StoreState) => () => state.webuiSettings.useBinaryUnits,
+  shouldUseBitSpeed: (state: StoreState) => () => state.webuiSettings.useBitSpeed
 }
