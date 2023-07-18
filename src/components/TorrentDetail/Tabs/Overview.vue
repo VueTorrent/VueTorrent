@@ -33,7 +33,7 @@
                   <canvas id="pieceStates" width="0" height="1" />
                 </div>
                 <div v-if="!isFetchingMetadata && !shouldRenderPieceStates">
-                  <span>{{ $t('modals.detail.pageOverview.disabledCanvas') }}</span>
+                  <span>{{ $t('modals.detail.pageOverview.canvasRefreshDisabled') }}</span>
                 </div>
                 <div v-if="torrentPieceCount !== -1">
                   <span>{{ torrentPieceOwned }} / {{ torrentPieceCount }} ({{ torrentPieceSize | getData }})</span>
