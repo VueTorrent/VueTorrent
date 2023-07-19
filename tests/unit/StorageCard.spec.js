@@ -1,16 +1,34 @@
-import { describe, it, expect } from 'vitest'
-import { setup } from '../helpers'
+import { describe, beforeEach, it, expect, vi } from 'vitest'
+import { shallowMount } from '@vue/test-utils'
+
 import StorageCard from '@/components/Core/StorageCard.vue'
 
+const label = 'Downloaded'
+const value = 10000
+const color = 'download'
+
+let wrapper
 describe('StorageCard.vue', () => {
+  beforeEach(() => {
+    wrapper = shallowMount(StorageCard, {
+      propsData: {label, value, color},
+      filters: {
+        formatDataValue: vi.fn().mockReturnValue('9.77'),
+        formatDataUnit: vi.fn().mockReturnValue('KB')
+      },
+      mocks: {
+        $store: {
+          getters: { shouldUseBinaryData: vi.fn().mockReturnValue(true) },
+        }
+      }
+    })
+  })
+
   it('should render the label', () => {
-    const label = 'Downloaded'
-    const wrapper = setup(StorageCard, { label })
     expect(wrapper.find('[data-testid="StorageCard-label"]').text()).toEqual(label)
   })
 
   it('should render value and unit & be formatted', () => {
-    const wrapper = setup(StorageCard, { value: 10000 })
     expect(wrapper.find('[data-testid="StorageCard-value"]').exists()).toBe(true)
     expect(wrapper.find('[data-testid="StorageCard-value"]').text()).toBe('9.77')
 
@@ -19,8 +37,6 @@ describe('StorageCard.vue', () => {
   })
 
   it('text should have the passed-in color', () => {
-    const color = 'download'
-    const wrapper = setup(StorageCard, { color })
     expect(wrapper.find('[data-testid="StorageCard-label"]').classes()).toContain(color + '--text')
     expect(wrapper.find('[data-testid="StorageCard-Wrapper"]').classes()).toContain(color + '--text')
   })

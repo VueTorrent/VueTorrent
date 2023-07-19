@@ -9,13 +9,14 @@ Vue.use(Vuetify, {
   }
 })
 
-export function setup(component, propsData) {
+export function setup(component, propsData, mocks) {
   const localVue = createLocalVue() // because of vuetify, we should use a localVue instance
   const vuetify = new Vuetify()
 
   return mount(component, {
     localVue,
     vuetify,
-    propsData
+    propsData,
+    mocks
   })
 }

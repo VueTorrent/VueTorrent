@@ -136,7 +136,7 @@ export default new Vuex.Store<StoreState>({
       openSideBarOnStart: true,
       showShutdownButton: true,
       useBitSpeed: false,
-      useBinaryUnits: true,
+      useBinaryUnits: false,
       refreshInterval: 2000,
       contentInterval: 5000,
       torrentPieceCountRenderThreshold: 5000,

@@ -23,6 +23,14 @@ describe('Filters', () => {
     expect(toPrecision(256, 3)).toEqual('256')
     expect(toPrecision(25.6, 3)).toEqual('25.6')
     expect(toPrecision(2.56, 3)).toEqual('2.56')
+
+    expect(toPrecision(0.12345, 3)).toEqual('0.12')
+    expect(toPrecision(123.45, 3)).toEqual('123')
+  })
+
+  it('formatData: null', () => {
+    expect(formatData(null, false)).toEqual('0 B')
+    expect(formatData(null, true)).toEqual('0 B')
   })
 
   it('formatData: 0', () => {
@@ -50,11 +58,15 @@ describe('Filters', () => {
     expect(formatData(256_000_000, true)).toEqual('244 MiB')
   })
 
-  it('formatSpeed', () => {
+  it('formatSpeed: 0', () => {
     expect(formatSpeed(0, false)).toEqual('0 B/s')
     expect(formatSpeed(0, true)).toEqual('0 bps')
+  })
+
+  it('formatSpeed: base values', () => {
     expect(formatSpeed(1, false)).toEqual('1 B/s')
-    expect(formatSpeed(1000, false)).toEqual('1.00 kB/s')
     expect(formatSpeed(1, true)).toEqual('8 bps')
+    expect(formatSpeed(1000, false)).toEqual('1.00 kB/s')
+    expect(formatSpeed(1000, true)).toEqual('8.00 kbps')
   })
 })

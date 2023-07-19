@@ -33,7 +33,7 @@
       </span>
       <span v-if="isSizeActive && isProgressActive" class="grey--text" style="margin-top: 3px">•</span>
       <span v-if="isProgressActive">
-        <span class="body-2">{{ toPrecision(torrent.progress, 3) }} </span>
+        <span class="body-2">{{ formattedProgress }} </span>
         <span class="grey--text caption">%</span>
       </span>
       <span v-if="(isSizeActive || isProgressActive) && isRatioActive" class="grey--text" style="margin-top: 3px">•</span>
@@ -85,6 +85,7 @@ import { getDomainBody } from '@/helpers'
 import { DashboardProperty } from '@/enums/vuetorrent'
 import {TorrentDashboardItem} from '@/mixins'
 import {toPrecision} from '@/filters'
+import {TorrentProperty} from '@/types/vuetorrent'
 
 export default defineComponent({
   name: 'MobileCard',
@@ -99,10 +100,13 @@ export default defineComponent({
       if (this.torrent.forced) return `[F] ${this.torrent.state}`
       else return this.torrent.state
     },
+    formattedProgress() {
+      return toPrecision(this.torrent.progress, 3)
+    },
     trackerHost() {
       return getDomainBody(this.torrent.tracker)
     },
-    properties() {
+    properties(): TorrentProperty[] {
       if (this.torrent.progress === 100) {
         return this.webuiSettings.doneMobileCardProperties
       }
@@ -153,8 +157,7 @@ export default defineComponent({
     }
   },
   methods: {
-    toPrecision,
-    processProperty(ppt) {
+    processProperty(ppt: DashboardProperty): boolean {
       const value = this.properties.find(e => e.name === ppt)
 
       if (value === undefined) return true

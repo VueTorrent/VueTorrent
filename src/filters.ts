@@ -18,7 +18,7 @@ Vue.filter('progress', formatProgress)
 
 export function formatDataValue(data: number, isBinary: boolean) {
   const base = isBinary ? 1024 : 1000
-  if (data === 0) return '0'
+  if (!data || data === 0) return '0'
 
   let i = 1
   while (data >= base ** i) {
