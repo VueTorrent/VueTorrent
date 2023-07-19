@@ -270,6 +270,8 @@
           "dateFormat": "Date Format",
           "openSideBarOnStart": "Open Side Bar on launch",
           "showShutdownButton": "Show shutdown button",
+          "useBinaryUnits": "Replace data values by binary units (kB -> KiB)",
+          "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
           "refreshInterval": "qBittorrent API refresh interval",
           "refreshIntervalHint": "In milliseconds",
           "contentInterval": "Torrent file content refresh interval",
