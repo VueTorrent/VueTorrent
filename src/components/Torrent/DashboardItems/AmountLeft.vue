@@ -4,9 +4,9 @@
       {{ $t('torrent.properties.amount_left') | titleCase }}
     </div>
     <div>
-      {{ torrent.amount_left | getDataValue(2) }}
+      {{ torrent.amount_left | formatDataValue(shouldUseBinaryData()) }}
       <span class="caption grey--text">
-        {{ torrent.amount_left | getDataUnit }}
+        {{ torrent.amount_left | formatDataUnit(shouldUseBinaryData()) }}
       </span>
     </div>
   </v-flex>
@@ -14,12 +14,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'AmountLeft',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

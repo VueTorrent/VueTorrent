@@ -28,6 +28,8 @@ export default interface WebUISettings {
   dateFormat: string
   openSideBarOnStart: boolean
   showShutdownButton: boolean
+  useBitSpeed: boolean
+  useBinaryUnits: boolean
   refreshInterval: number
   contentInterval: number
   torrentPieceCountRenderThreshold: number

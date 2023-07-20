@@ -14,13 +14,9 @@
 <script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
 
 export default defineComponent({
   name: 'Tags',
-  mixins: [TorrentDashboardItem],
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

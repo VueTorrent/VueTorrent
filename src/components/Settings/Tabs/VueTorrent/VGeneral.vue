@@ -4,44 +4,45 @@
       {{ $t('modals.settings.vueTorrent.general.tip') }}
     </v-subheader>
 
-    <v-list-item>
-      <v-checkbox v-model="settings.showCurrentSpeed" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.currentSpeed')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showSpeedGraph" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.speedGraph')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showAlltimeStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.allTimeStats')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showSessionStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.sessionStats')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showFreeSpace" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.freeSpace')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showTrackerFilter" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.trackerFilter')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.rightDrawer" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.rightDrawer')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.topPagination" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.topPagination')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.openSideBarOnStart" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.openSideBarOnStart')" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
+    <v-list-item class="my-3">
+      <v-row>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showCurrentSpeed" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.currentSpeed')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showSpeedGraph" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.speedGraph')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showAlltimeStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.allTimeStats')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showSessionStat" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.sessionStats')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showFreeSpace" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.freeSpace')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showTrackerFilter" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.trackerFilter')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.rightDrawer" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.rightDrawer')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.topPagination" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.topPagination')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.openSideBarOnStart" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.openSideBarOnStart')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.showShutdownButton" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.showShutdownButton')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.useBinaryUnits" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.useBinaryUnits')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="settings.useBitSpeed" hide-details class="ma-0 pa-0" :label="$t('modals.settings.vueTorrent.general.useBitSpeed')" />
+        </v-col>
+      </v-row>
     </v-list-item>
 
     <v-divider class="mb-5" />

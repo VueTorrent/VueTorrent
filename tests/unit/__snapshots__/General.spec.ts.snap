@@ -3,35 +3,45 @@
 exports[`General > render correctly 1`] = `
 "<v-card-stub data-v-7da6d3e2=\\"\\" loaderheight=\\"4\\" tag=\\"div\\" flat=\\"true\\">
   <v-subheader-stub data-v-7da6d3e2=\\"\\"> </v-subheader-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
-  </v-list-item-stub>
-  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\">
-    <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+  <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"my-3\\">
+    <v-row-stub data-v-7da6d3e2=\\"\\" tag=\\"div\\">
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"100\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"true\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" inputvalue=\\"10\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
+    </v-row-stub>
   </v-list-item-stub>
   <v-divider-stub data-v-7da6d3e2=\\"\\" class=\\"mb-5\\"></v-divider-stub>
   <v-list-item-stub data-v-7da6d3e2=\\"\\" activeclass=\\"\\" tag=\\"div\\" class=\\"my-2\\">

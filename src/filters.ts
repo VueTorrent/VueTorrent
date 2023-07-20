@@ -11,73 +11,59 @@ export function toPrecision(value: number, precision: number): string {
   return value.toFixed(precision - 1)
 }
 
-export function formatSize(value: number): string {
-  const units = 'KMGTP'
-  let index = -1
-
-  while (value >= 1000) {
-    value /= 1024
-    index++
-  }
-
-  return index < 0 ? `${value} B` : `${toPrecision(value, 3)} ${units[index]}iB`
-}
-
-Vue.filter('formatSize', formatSize)
-Vue.filter('size', formatSize)
-
 export function formatProgress(progress: number): string {
-  progress *= 100
-
-  return `${toPrecision(progress, 3)}%`
+  return `${toPrecision(progress, 3)} %`
 }
-
 Vue.filter('progress', formatProgress)
 
-export function formatNetworkSpeed(speed: number): string | null {
-  return `${formatSize(speed)}/s`
-}
+export function formatDataValue(data: number, isBinary: boolean) {
+  const base = isBinary ? 1024 : 1000
+  if (!data || data === 0) return '0'
 
-Vue.filter('networkSpeed', formatNetworkSpeed)
-
-export function networkSize(size: number) {
-  if (size === 0) {
-    return null
+  let i = 1
+  while (data >= base ** i) {
+    i++
   }
-
-  return formatSize(size)
+  return toPrecision(data / base ** (i - 1), i > 1 ? 3 : 1)
 }
+Vue.filter('formatDataValue', formatDataValue)
 
-Vue.filter('networkSize', networkSize)
+export function formatDataUnit(data: number, isBinary: boolean) {
+  const base = isBinary ? 1024 : 1000
+  const units = ['', 'k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y']
 
-export function getDataUnit(data: number) {
-  if (data === -1) return null
-  if (!data) return 'B'
-  const c = 1024
-  const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  const f = Math.floor(Math.log(data) / Math.log(c))
+  if (data === 0) return 'B'
 
-  return `${e[f]}`
+  let i = 1
+  while (data >= base ** i) {
+    i++
+  }
+  return `${units[i - 1]}${isBinary && i > 1 ? 'i' : ''}B`
 }
+Vue.filter('formatDataUnit', formatDataUnit)
 
-Vue.filter('getDataUnit', getDataUnit)
-
-export function getDataValue(data: number, precision: number = 2) {
-  if (data === -1) return 'None'
-  if (!data) return '0'
-  const c = 1024
-  const f = Math.floor(Math.log(data) / Math.log(c))
-
-  return `${parseFloat((data / Math.pow(c, f)).toFixed(precision))}`
+export function formatData(data: number, isBinary: boolean) {
+  return `${formatDataValue(data, isBinary)} ${formatDataUnit(data, isBinary)}`
 }
+Vue.filter('formatData', formatData)
 
-Vue.filter('getDataValue', getDataValue)
-
-export function getData(data: number, precision: number = 2) {
-  return `${getDataValue(data, precision)} ${getDataUnit(data)}`
+export function formatSpeedValue(speed: number, isBits: boolean) {
+  if (isBits) speed *= 8
+  return formatDataValue(speed, false)
 }
+Vue.filter('formatSpeedValue', formatSpeedValue)
 
-Vue.filter('getData', getData)
+export function formatSpeedUnit(speed: number, isBits: boolean) {
+  if (isBits) speed *= 8
+  const unit = formatDataUnit(speed, false).slice(0, -1)
+  return `${unit}${isBits ? 'bps' : 'B/s'}`
+}
+Vue.filter('formatSpeedUnit', formatSpeedUnit)
+
+export function formatSpeed(speed: number, isBits: boolean) {
+  return `${formatSpeedValue(speed, isBits)} ${formatSpeedUnit(speed, isBits)}`
+}
+Vue.filter('formatSpeed', formatSpeed)
 
 export function titleCase(str: string): string {
   if (str.length == 0) return str

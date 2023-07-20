@@ -135,6 +135,8 @@ export default new Vuex.Store<StoreState>({
       dateFormat: 'DD/MM/YYYY, HH:mm:ss',
       openSideBarOnStart: true,
       showShutdownButton: true,
+      useBitSpeed: false,
+      useBinaryUnits: false,
       refreshInterval: 2000,
       contentInterval: 5000,
       torrentPieceCountRenderThreshold: 5000,

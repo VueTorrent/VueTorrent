@@ -1,5 +1,5 @@
 <template>
-  <v-flex v-if="torrent.category" xs6 sm1 md1>
+  <v-flex v-if="torrent?.category" xs6 sm1 md1>
     <div class="caption grey--text">
       {{ $t('torrent.properties.category') }}
     </div>
@@ -11,12 +11,10 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'Category',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

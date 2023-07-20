@@ -4,20 +4,20 @@
       {{ $t('torrent.properties.global_speed') }}
     </div>
     <div>
-      {{ torrent.globalSpeed | getDataValue(1) }}
-      <span class="caption grey--text"> {{ torrent.globalSpeed | getDataUnit }}/s </span>
+      {{ torrent.globalSpeed | formatSpeedValue(shouldUseBitSpeed()) }}
+      <span class="caption grey--text">
+        {{ torrent.globalSpeed | formatSpeedUnit(shouldUseBitSpeed()) }}
+      </span>
     </div>
   </v-flex>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'GlobalSpeed',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>

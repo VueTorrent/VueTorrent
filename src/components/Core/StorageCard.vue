@@ -8,8 +8,8 @@
       </v-col>
       <v-col cols="6" class="d-flex align-center">
         <span data-testid="StorageCard-Wrapper" :class="color + '--text title'">
-          <span data-testid="StorageCard-value">{{ value | getDataValue(2) }} </span>
-          <span data-testid="StorageCard-unit" class="caption">{{ value | getDataUnit }}</span>
+          <span data-testid="StorageCard-value">{{ value | formatDataValue(shouldUseBinaryData()) }} </span>
+          <span data-testid="StorageCard-unit" class="caption">{{ value | formatDataUnit(shouldUseBinaryData()) }}</span>
         </span>
       </v-col>
     </v-row>
@@ -17,8 +17,14 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
+
+export default defineComponent({
   name: 'StorageCard',
-  props: ['color', 'label', 'value']
-}
+  props: ['color', 'label', 'value'],
+  computed: {
+    ...mapGetters(['shouldUseBinaryData'])
+  }
+})
 </script>

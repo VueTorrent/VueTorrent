@@ -24,8 +24,8 @@
           </v-btn>
         </div>
         <div v-else>
-          <span v-if="!$vuetify.breakpoint.xsOnly">[{{ node.size | formatSize }}]</span>
-          <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">{{ node.progress | progress }}</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly">[{{ node.size | formatData(shouldUseBinaryData()) }}]</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">{{ node.progress }} %</span>
           <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">[ {{ getNodePriority(node) }} ]</span>
           <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
@@ -113,7 +113,7 @@ export default defineComponent({
     }
   },
   computed: {
-    ...mapGetters(['getContentInterval']),
+    ...mapGetters(['getContentInterval', 'shouldUseBinaryData']),
     torrentHash(): string {
       return this.hash as string
     }

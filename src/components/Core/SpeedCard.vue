@@ -8,41 +8,34 @@
       </v-flex>
       <v-layout column xs10>
         <v-flex class="text-center font-weight-bold robot-mono">
-          <span data-testid="SpeedCard-value">
-            {{ value | getSpeedValue }}
-          </span>
+          <span data-testid="SpeedCard-value">{{ value | formatSpeedValue(shouldUseBitSpeed()) }}</span>
         </v-flex>
         <v-flex class="caption robot-mono text-center mt-n1">
-          <span data-testid="SpeedCard-unit"> {{ value | getDataUnit(1) }}/s </span>
+          <span data-testid="SpeedCard-unit">{{ value | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
         </v-flex>
       </v-layout>
     </v-layout>
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { mapGetters } from 'vuex'
 import { General } from '@/mixins'
 
-export default {
+export default defineComponent({
   name: 'SpeedCard',
-  filters: {
-    getSpeedValue(value) {
-      if (!value) return '0'
-      const c = 1024
-      const d = value > 1048576 ? 1 : 0 // 2 decimals when MB
-      const f = Math.floor(Math.log(value) / Math.log(c))
-
-      return `${parseFloat((value / Math.pow(c, f)).toFixed(d))}`
-    }
-  },
   mixins: [General],
   props: ['color', 'icon', 'value'],
+  computed: {
+    ...mapGetters(['shouldUseBitSpeed'])
+  },
   methods: {
     open() {
       this.createModal('SpeedLimitModal', { mode: this.color })
     }
   }
-}
+})
 </script>
 
 <style scoped>

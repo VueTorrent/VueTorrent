@@ -4,8 +4,6 @@ import { shallowMount } from '@vue/test-utils'
 import DesktopCard from '@/components/Settings/Tabs/VueTorrent/VDesktopCard.vue'
 import { DashboardProperty } from '@/enums/vuetorrent'
 
-let wrapper
-
 const desktopPropertiesTemplate = [
   { name: DashboardProperty.SIZE, active: true },
   { name: DashboardProperty.PROGRESS, active: true },
@@ -81,6 +79,7 @@ const desktopPropertiesTemplateExpected = [
   { name: 'GlobalVolume', active: false }
 ]
 
+let wrapper
 describe('DesktopCard', () => {
   beforeEach(() => {
     wrapper = shallowMount(DesktopCard, {

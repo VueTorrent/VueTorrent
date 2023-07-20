@@ -1,5 +1,7 @@
-import { formatBytes } from '@/helpers'
 import store from '@/store'
+import {formatSpeed} from '@/filters'
+import {formatProgress} from '@/filters'
+import {Torrent} from '@/models'
 
 export class DocumentTitle {
   private static setDefault() {
@@ -8,25 +10,26 @@ export class DocumentTitle {
 
   private static setGlobalSpeed() {
     const status = store.getters.getStatus()
-    this.set(`[D: ${formatBytes(status.dlspeed)}/s, U: ${formatBytes(status.upspeed)}/s] VueTorrent`)
+    const useBitSpeed = store.state.webuiSettings.useBitSpeed
+    this.set(`[D: ${formatSpeed(status.dlspeed, useBitSpeed)}, U: ${formatSpeed(status.upspeed, useBitSpeed)}] VueTorrent`)
   }
 
   private static setFirstTorrentStatus() {
-    const torrents = store.getters.getTorrents()
-    if (!torrents && !torrents.length) return
+    const useBitSpeed = store.state.webuiSettings.useBitSpeed
+    const torrents: Torrent[] = store.getters.getTorrents()
+    if (!torrents || !torrents.length) return
     const torrent = torrents[0]
-    this.set(`[D: ${formatBytes(torrent.dlspeed)}/s, U: ${formatBytes(torrent.upspeed)}/s] ${torrent.progress}%`)
+    this.set(`[D: ${formatSpeed(torrent.dlspeed, useBitSpeed)}, U: ${formatSpeed(torrent.upspeed, useBitSpeed)}] ${formatProgress(torrent.progress)}`)
   }
 
   public static update() {
     const mode = store.getters.getWebuiSettings().title
     switch (mode) {
-      case 'Default':
-        return this.setDefault()
       case 'Global Speed':
         return this.setGlobalSpeed()
       case 'First Torrent Status':
         return this.setFirstTorrentStatus()
+      case 'Default':
       default:
         return this.setDefault()
     }

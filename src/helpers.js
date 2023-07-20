@@ -1,22 +1,6 @@
 import * as _ from 'lodash'
 import { isProduction } from './utils'
 
-/**
- * Format bytes to human readable string
- * @param a {number}
- * @param b {number}
- * @return {string}
- */
-export function formatBytes(a, b) {
-  if (a === 0) return '0 B'
-  const c = 1024
-  const d = b || 2
-  const e = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-  const f = Math.floor(Math.log(a) / Math.log(c))
-
-  return `${parseFloat((a / Math.pow(c, f)).toFixed(d))} ${e[f]}`
-}
-
 export const isWindows = navigator.userAgent.includes('Windows')
 
 /**

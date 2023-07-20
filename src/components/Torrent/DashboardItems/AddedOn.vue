@@ -8,13 +8,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { Torrent } from '@/models'
+import {defineComponent} from 'vue'
+import {TorrentDashboardItem} from '@/mixins'
 
 export default defineComponent({
   name: 'AddedOn',
-  props: {
-    torrent: Torrent
-  }
+  mixins: [TorrentDashboardItem]
 })
 </script>
