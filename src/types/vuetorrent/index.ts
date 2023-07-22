@@ -1,7 +1,6 @@
 import type Category from './Category'
 import type { Feed, FeedArticle, FeedRule } from './rss'
-import type SearchStatus from './search/SearchStatus'
-import type SearchResult from './search/SearchResult'
+import type { SearchData, SearchFilters } from './search'
 import type ModalTemplate from './ModalTemplate'
 import type SortOptions from './SortOptions'
 import type StoreState from './StoreState'
@@ -15,8 +14,8 @@ export {
   Feed,
   FeedArticle,
   FeedRule,
-  SearchStatus,
-  SearchResult,
+  SearchData,
+  SearchFilters,
   ModalTemplate,
   SortOptions,
   PersistentStoreState,

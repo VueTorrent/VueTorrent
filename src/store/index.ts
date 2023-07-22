@@ -98,6 +98,7 @@ export default new Vuex.Store<StoreState>({
       feeds: [],
       rules: []
     },
+    searchData: [],
     searchPlugins: [],
     selectMode: false,
     selected_torrents: [],
