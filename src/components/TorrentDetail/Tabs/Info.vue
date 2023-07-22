@@ -173,7 +173,7 @@
 
 <script lang="ts">
 import dayjs from 'dayjs'
-import {FullScreenModal, TorrentDashboardItem} from '@/mixins'
+import { FullScreenModal, TorrentDashboardItem } from '@/mixins'
 import qbit from '@/services/qbit'
 import { splitByUrl, stringContainsUrl } from '@/helpers'
 import { defineComponent } from 'vue'

@@ -28,4 +28,4 @@ export {
   TorrentProperty,
   Tracker,
   WebUISettings
-};
+}

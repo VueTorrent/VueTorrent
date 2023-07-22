@@ -1,7 +1,7 @@
 import store from '@/store'
-import {formatSpeed} from '@/filters'
-import {formatProgress} from '@/filters'
-import {Torrent} from '@/models'
+import { formatSpeed } from '@/filters'
+import { formatProgress } from '@/filters'
+import { Torrent } from '@/models'
 
 export class DocumentTitle {
   private static setDefault() {

@@ -12,7 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import {TorrentDashboardItem} from '@/mixins'
+import { TorrentDashboardItem } from '@/mixins'
 
 export default defineComponent({
   name: 'Seeds',

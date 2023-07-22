@@ -21,7 +21,9 @@
                 <v-progress-circular v-else-if="torrent?.progress === 100" :size="100" :width="15" :value="100" color="torrent-seeding">
                   <v-icon color="torrent-seeding">{{ mdiCheck }}</v-icon>
                 </v-progress-circular>
-                <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">{{ (torrent.progress ?? 0) | progress }}</v-progress-circular>
+                <v-progress-circular v-else :rotate="-90" :size="100" :width="15" :value="torrent?.progress ?? 0" color="accent">
+                  {{ (torrent.progress ?? 0) | progress }}
+                </v-progress-circular>
               </v-col>
               <v-col cols="8" md="9" class="d-flex align-center justify-center flex-column">
                 <div v-if="isFetchingMetadata">
@@ -136,7 +138,7 @@
 
 <script lang="ts">
 import dayjs from 'dayjs'
-import {FullScreenModal, General, TorrentDashboardItem} from '@/mixins'
+import { FullScreenModal, General, TorrentDashboardItem } from '@/mixins'
 import qbit from '@/services/qbit'
 import { getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
 import { defineComponent } from 'vue'
@@ -144,8 +146,8 @@ import { mapState } from 'vuex'
 import { mdiArrowDown, mdiArrowUp, mdiCheck, mdiClose, mdiPencil } from '@mdi/js'
 import { TorrentState } from '@/enums/vuetorrent'
 import { Priority } from '@/enums/qbit'
-import {TorrentFile} from '@/types/qbit/models'
-import {formatDataUnit, formatDataValue} from '@/filters'
+import { TorrentFile } from '@/types/qbit/models'
+import { formatDataUnit, formatDataValue } from '@/filters'
 
 export default defineComponent({
   name: 'Overflow',
@@ -300,7 +302,7 @@ export default defineComponent({
       }
     },
     async changeLocation() {
-      this.createModal('ChangeLocationModal', {hashes: [this.torrent?.hash as string]})
+      this.createModal('ChangeLocationModal', { hashes: [this.torrent?.hash as string] })
     },
     async renameTorrentFile() {
       this.createModal('RenameTorrentFileModal', {

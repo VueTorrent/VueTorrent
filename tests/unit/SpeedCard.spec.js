@@ -1,12 +1,8 @@
-import { describe, beforeEach, it, expect, vi } from 'vitest'
-import { shallowMount } from '@vue/test-utils'
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import { Ripple } from 'vuetify/lib/directives'
+import { describe, expect, it, vi } from "vitest";
 
-import { mdiChevronDown } from '@mdi/js'
-import SpeedCard from '@/components/Core/SpeedCard.vue'
-import {setup} from "../helpers";
+import { mdiChevronDown } from "@mdi/js";
+import SpeedCard from "@/components/Core/SpeedCard.vue";
+import { setup } from "../helpers";
 
 describe('SpeedCard.vue', () => {
   it('should render the card', () => {

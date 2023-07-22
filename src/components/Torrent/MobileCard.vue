@@ -83,9 +83,9 @@ import { mapState } from 'vuex'
 import { mdiChevronUp, mdiChevronDown } from '@mdi/js'
 import { getDomainBody } from '@/helpers'
 import { DashboardProperty } from '@/enums/vuetorrent'
-import {TorrentDashboardItem} from '@/mixins'
-import {toPrecision} from '@/filters'
-import {TorrentProperty} from '@/types/vuetorrent'
+import { TorrentDashboardItem } from '@/mixins'
+import { toPrecision } from '@/filters'
+import { TorrentProperty } from '@/types/vuetorrent'
 
 export default defineComponent({
   name: 'MobileCard',
