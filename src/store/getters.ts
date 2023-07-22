@@ -20,7 +20,7 @@ export default {
   getModals: (state: StoreState) => () => state.modals,
   getTorrents: (state: StoreState) => () => state.torrents,
   getTrackers: (state: StoreState) => () => state.trackers,
-  getAuthenticated: (state: StoreState) => () => state.authenticated,
+  isAuthenticated: (state: StoreState) => () => state.authenticated,
   getTorrentCountString: (state: StoreState, getters: any) => () => {
     if (state.selected_torrents.length) {
       let selectedSize = state.selected_torrents

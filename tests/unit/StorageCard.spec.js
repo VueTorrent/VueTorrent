@@ -11,14 +11,14 @@ let wrapper
 describe('StorageCard.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(StorageCard, {
-      propsData: {label, value, color},
+      propsData: { label, value, color },
       filters: {
         formatDataValue: vi.fn().mockReturnValue('9.77'),
         formatDataUnit: vi.fn().mockReturnValue('KB')
       },
       mocks: {
         $store: {
-          getters: { shouldUseBinaryData: vi.fn().mockReturnValue(true) },
+          getters: { shouldUseBinaryData: vi.fn().mockReturnValue(true) }
         }
       }
     })

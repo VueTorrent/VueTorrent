@@ -7,7 +7,7 @@ import type SortOptions from './SortOptions'
 import type StoreState from './StoreState'
 import type { PersistentStoreState } from './StoreState'
 import type { TreeNode, TreeFile, TreeFolder, TreeRoot } from './TreeObjects'
-import { TorrentProperty } from './WebUISettings'
+import WebUISettings, { TorrentProperty } from './WebUISettings'
 import type Tracker from './Tracker'
 
 export {
@@ -26,5 +26,6 @@ export {
   TreeFolder,
   TreeRoot,
   TorrentProperty,
-  Tracker
+  Tracker,
+  WebUISettings
 }

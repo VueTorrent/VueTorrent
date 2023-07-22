@@ -20,11 +20,8 @@ export default {
   components: { Navbar },
   mixins: [General],
   computed: {
-    ...mapState(['rid', 'mainData', 'preferences', 'modals', 'webuiSettings']),
-    ...mapGetters(['getAuthenticated']),
-    isAuthenticated() {
-      return this.getAuthenticated()
-    },
+    ...mapState(['modals', 'webuiSettings']),
+    ...mapGetters(['isAuthenticated']),
     onLoginPage() {
       return this.$router.currentRoute.name?.includes('login')
     }

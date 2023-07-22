@@ -34,9 +34,9 @@
 import { defineComponent } from 'vue'
 import { mapGetters, mapState } from 'vuex'
 import qbit from '@/services/qbit'
-import {FullScreenModal, Modal} from '@/mixins'
-import {Torrent} from '@/models'
-import WebUISettings from '@/types/vuetorrent/WebUISettings'
+import { FullScreenModal, Modal } from '@/mixins'
+import { Torrent } from '@/models'
+import { WebUISettings } from '@/types/vuetorrent'
 
 export default defineComponent({
   name: 'ConfirmDeleteModal',

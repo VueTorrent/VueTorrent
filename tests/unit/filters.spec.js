@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import {titleCase, capitalize, formatData, formatSpeed, toPrecision} from '@/filters'
+import { titleCase, capitalize, formatData, formatSpeed, toPrecision } from '@/filters'
 
 describe('Filters', () => {
   it('titleCase', () => {

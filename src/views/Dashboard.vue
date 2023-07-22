@@ -391,7 +391,7 @@ export default {
       if (e.preventDefault) e.preventDefault()
 
       if (!this.selectMode) {
-        this.$store.commit('SET_SELECTED', {type: 'add', hash: data.torrent.hash})
+        this.$store.commit('SET_SELECTED', { type: 'add', hash: data.torrent.hash })
       }
 
       this.tmCalc.TouchMode = touchmode
@@ -401,7 +401,7 @@ export default {
         this.trcMenu.show = true
       })
     },
-    hideTorrentRightClickMenu(e) {
+    hideTorrentRightClickMenu() {
       if (!this.selectMode && this.getModals().length === 0) {
         this.resetSelected()
       }
@@ -486,8 +486,7 @@ export default {
       }
 
       // 'Search' => Search view
-      if (e.key === "/" && this.$route.name !== 'search' && document.activeElement !== document.getElementById('searchInput'))
-        this.$router.push({ name: 'search' })
+      if (e.key === '/' && this.$route.name !== 'search' && document.activeElement !== document.getElementById('searchInput')) this.$router.push({ name: 'search' })
     }
   }
 }
