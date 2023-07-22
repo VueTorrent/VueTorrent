@@ -31,7 +31,7 @@
       >
         <template #top>
           <div class="mx-4 mb-5">
-            <v-text-field v-model="filter" :label="$t('filter')" />
+            <v-text-field v-model="filter" clearable :label="$t('filter')" />
             <v-row>
               <v-col>
                 <v-checkbox class="my-0" v-model="filterUnread" :label="$t('modals.rss.filterRead')" hide-details />
@@ -66,7 +66,7 @@
 import { General } from '@/mixins'
 import { mapGetters, mapState } from 'vuex'
 import { defineComponent } from 'vue'
-import { FeedArticle } from '@/types/vuetorrent/rss'
+import { FeedArticle } from '@/types/vuetorrent'
 import { Feed, FeedRule } from '@/types/vuetorrent'
 import { mdiClose, mdiDownload, mdiEmailOpen } from '@mdi/js'
 import qbit from '@/services/qbit'
