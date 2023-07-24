@@ -6,6 +6,7 @@ export default interface SearchData {
   id: number
   timer: NodeJS.Timer | null
   query: string
+  itemsPerPage: number
   filters: SearchFilters
   results: SearchResult[]
 }

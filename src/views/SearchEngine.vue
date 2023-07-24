@@ -75,7 +75,7 @@
 
       <v-card flat class="mt-5">
         <v-list-item class="searchResults">
-          <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :search="selectedTab.filters.title" :custom-filter="customFilter">
+          <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage" :search="selectedTab.filters.title" :custom-filter="customFilter">
             <template v-slot:top>
               <v-row class="mt-2">
                 <v-col cols="12" md="6">
@@ -204,6 +204,7 @@ export default defineComponent({
         uniqueId: genUuid(),
         id: 0,
         query: '',
+        itemsPerPage: 10,
         filters: {
           title: '',
           category: 'all',
