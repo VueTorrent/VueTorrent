@@ -8,6 +8,7 @@ import type ModalTemplate from './ModalTemplate'
 import type { Status } from '@/models'
 import type WebUISettings from './WebUISettings'
 import type { SearchPlugin } from '@/types/qbit/models'
+import { SearchData } from "@/types/vuetorrent/search";
 
 export interface PersistentStoreState {
   authenticated: boolean
@@ -33,6 +34,7 @@ export default interface StoreState extends PersistentStoreState {
     feeds: Feed[]
     rules: FeedRule[]
   }
+  searchData: SearchData[]
   searchPlugins: SearchPlugin[]
   selectMode: boolean
   selected_torrents: string[]

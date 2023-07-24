@@ -101,7 +101,7 @@
   },
   "search": {
     "title": "Search torrents",
-    "tabHeaderTemplate": "Tab #$0",
+    "tabHeaderEmpty": "(Empty Query)",
     "runNewSearch": "Search",
     "stopSearch": "Stop"
   },
