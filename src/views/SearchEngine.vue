@@ -24,7 +24,7 @@
     <v-row class="ma-0 pa-0">
       <v-container class="d-flex align-center justify-center ma-0 pa-0 primary" fluid>
         <v-tabs v-model="tabIndex" ref="tabs" align-with-title show-arrows background-color="primary" slider-color="white" class="overflow-auto">
-          <v-tab v-for="t in tabs" class="white--text">
+          <v-tab v-for="t in tabs" :key="t.uniqueId" class="white--text">
             <h4>{{ !t.query || t.query.length === 0 ? $t('search.tabHeaderEmpty') : t.query }}</h4>
           </v-tab>
         </v-tabs>
@@ -107,6 +107,7 @@ import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import qbit from '@/services/qbit'
 import { SearchData } from '@/types/vuetorrent'
 import { Optional } from '@/global'
+import { v1 as genUuid } from 'uuid'
 
 export default defineComponent({
   name: 'SearchEngine',
@@ -200,6 +201,7 @@ export default defineComponent({
     },
     createNewTab() {
       this.tabs.push({
+        uniqueId: genUuid(),
         id: 0,
         query: '',
         filters: {
