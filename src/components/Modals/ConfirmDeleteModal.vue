@@ -68,6 +68,10 @@ export default defineComponent({
       await qbit.deleteTorrents(this.selection, this.settings.deleteWithFiles)
       this.$store.commit('RESET_SELECTED')
       this.close()
+
+      if (this.$route.name === 'torrentDetail') {
+        this.$router.push({ name: 'dashboard' })
+      }
     }
   }
 })

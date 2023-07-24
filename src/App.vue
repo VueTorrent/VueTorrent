@@ -40,7 +40,7 @@ export default {
         this.$store.commit('LOGIN', true)
         this.$store.commit('updateMainData')
         await this.$store.dispatch('FETCH_SETTINGS')
-        if (this.onLoginPage) return this.$router.push('/')
+        if (this.onLoginPage) return this.$router.push('dashboard')
 
         return
       }

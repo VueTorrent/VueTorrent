@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     if (isAuthenticated()) {
-      this.$router.push('/')
+      this.$router.push('dashboard')
     }
   },
   methods: {
@@ -72,7 +72,7 @@ export default {
       })
 
       if (authenticated) {
-        this.$router.push('/')
+        this.$router.push('dashboard')
       }
     }
   }

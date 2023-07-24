@@ -83,9 +83,10 @@
   </div>
 </template>
 
-<script>
-import { General } from '@/mixins'
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { mapState } from 'vuex'
+import { General } from '@/mixins'
 import qbit from '@/services/qbit'
 import {
   mdiSort,
@@ -102,7 +103,7 @@ import {
   mdiPower
 } from '@mdi/js'
 
-export default {
+export default defineComponent({
   name: 'TopActions',
   mixins: [General],
   props: {
@@ -126,19 +127,27 @@ export default {
     }
   },
   computed: {
-    ...mapState(['selected_torrents'])
+    ...mapState(['selected_torrents']),
+    isOnTorrentDetail() {
+      return this.$route.name === 'torrentDetail'
+    },
+    hashes(): string[] {
+      return (this.isOnTorrentDetail)
+          ? [this.$route.params.hash]
+          : this.selected_torrents
+    }
   },
   methods: {
     async pauseTorrents() {
-      await qbit.pauseTorrents(this.selected_torrents)
+      await qbit.pauseTorrents(this.hashes)
     },
     async resumeTorrents() {
-      await qbit.resumeTorrents(this.selected_torrents)
+      await qbit.resumeTorrents(this.hashes)
     },
     removeTorrents() {
-      if (!this.selected_torrents.length) return
+      if (!this.hashes.length) return
 
-      return this.createModal('ConfirmDeleteModal', { hashes: this.selected_torrents })
+      return this.createModal('ConfirmDeleteModal', { hashes: this.hashes })
     },
     goToSearch() {
       if (this.$route.name !== 'search') this.$router.push({ name: 'search' })
@@ -153,5 +162,5 @@ export default {
       if (this.$route.name !== 'settings') this.$router.push({ name: 'settings' })
     }
   }
-}
+})
 </script>
