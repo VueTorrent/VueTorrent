@@ -190,11 +190,6 @@ export default defineComponent({
       !!tab.timer && clearInterval(tab.timer)
     }
   },
-  watch: {
-    tabIndex(newValue) {
-      console.log(newValue)
-    }
-  },
   methods: {
     openPluginManager() {
       this.createModal('SearchPluginManager')
