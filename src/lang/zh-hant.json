@@ -101,6 +101,7 @@
   },
   "search": {
     "title": "搜尋種子",
+    "tabHeaderEmpty": "(空查詢)",
     "runNewSearch": "搜尋",
     "stopSearch": "停止"
   },
@@ -269,6 +270,8 @@
           "dateFormat": "日期格式",
           "openSideBarOnStart": "啟動時顯示側邊欄",
           "showShutdownButton": "顯示結束按鈕",
+          "useBinaryUnits": "以二進位制取代容量單位 (kB -> KiB)",
+          "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
           "refreshInterval": "qBittorrent API 更新區間",
           "refreshIntervalHint": "毫秒",
           "contentInterval": "種子檔案內容更新區間",
@@ -659,6 +662,7 @@
       "pageOverview": {
         "fetchingMetadata": "正在抓取...",
         "waitingForMetadata": "正在等待元資料...",
+        "canvasRefreshDisabled": "已禁用 Canvas 更新以節省效能",
         "selectedFileSize": "選中的檔案大小",
         "dlSpeedAverage": "平均下載速率",
         "upSpeedAverage": "平均上傳速率",
