@@ -91,11 +91,9 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.$store.dispatch('INIT_INTERVALS')
     document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
   beforeDestroy() {
-    this.$store.commit('REMOVE_INTERVALS')
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
   },
   methods: {
