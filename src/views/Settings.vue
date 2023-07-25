@@ -123,8 +123,10 @@ export default defineComponent({
       return this.$vuetify.breakpoint.xsOnly
     }
   },
-  mounted() {
+  beforeMount() {
     this.$store.dispatch('FETCH_SETTINGS')
+  },
+  mounted() {
     document.addEventListener('keydown', this.handleKeyboardShortcut)
   },
   beforeDestroy() {

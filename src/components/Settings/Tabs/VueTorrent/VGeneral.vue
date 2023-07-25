@@ -178,7 +178,7 @@ import { General } from '@/mixins'
 import { TitleOptions } from '@/enums/vuetorrent'
 import Ajv from 'ajv'
 import { StoreStateSchema } from '@/schemas'
-import { WebUISettings } from '@/types/vuetorrent'
+import WebUISettings from '@/types/vuetorrent/WebUISettings'
 
 export default defineComponent({
   name: 'VueTorrent-General',

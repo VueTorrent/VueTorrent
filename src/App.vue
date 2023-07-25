@@ -50,6 +50,7 @@ export default {
       if (authenticated) {
         this.$store.commit('LOGIN', true)
         this.$store.dispatch('INIT_INTERVALS')
+        this.$store.dispatch('FETCH_SETTINGS')
         if (this.onLoginPage) this.redirectOnSuccess()
         return
       }
