@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { getBaseURL } from './helpers.js'
-import { isAuthenticated } from './services/auth.js'
 
 Vue.use(Router)
 
@@ -56,9 +55,9 @@ const router = new Router({
   ]
 })
 
-router.beforeEach(async (to, from, next) => {
+router.beforeResolve(async (to, from, next) => {
   const isPublic = to.matched.some(record => record.meta.public)
-  const authenticated = isAuthenticated()
+  const authenticated = router.app.$store.state.authenticated
 
   if (!isPublic && !authenticated) {
     return next({

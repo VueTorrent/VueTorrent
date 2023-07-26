@@ -75,7 +75,16 @@
 
       <v-card flat class="mt-5">
         <v-list-item class="searchResults">
-          <v-data-table style="width: 100%" id="searchResultsTable" :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage" :search="selectedTab.filters.title" :custom-filter="customFilter">
+          <v-data-table
+            style="width: 100%"
+            id="searchResultsTable"
+            :headers="headers"
+            :items="filteredResults"
+            :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
+            :items-per-page.sync="selectedTab.itemsPerPage"
+            :search="selectedTab.filters.title"
+            :custom-filter="customFilter"
+          >
             <template v-slot:top>
               <v-row class="mt-2">
                 <v-col cols="12" md="6">
@@ -87,9 +96,9 @@
               {{ item.fileSize | formatData(shouldUseBinaryData()) }}
             </template>
             <template v-slot:item.actions="{ item }">
-          <span class="d-flex flex-row">
-            <v-icon @click="downloadTorrent(item)">{{ mdiDownload }}</v-icon>
-          </span>
+              <span class="d-flex flex-row">
+                <v-icon @click="downloadTorrent(item)">{{ mdiDownload }}</v-icon>
+              </span>
             </template>
           </v-data-table>
         </v-list-item>
@@ -208,7 +217,7 @@ export default defineComponent({
         results: [],
         timer: null
       })
-      this.tabIndex = this.tabs.length - 1;
+      this.tabIndex = this.tabs.length - 1
       const input = this.$refs.queryInput as Optional<HTMLInputElement>
       input && input.focus()
     },

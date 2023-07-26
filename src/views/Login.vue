@@ -45,11 +45,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { mdiLock, mdiAccount } from '@mdi/js'
-import { isAuthenticated } from '@/services/auth.ts'
 
 export default {
   name: 'Login',
+  ...mapState(['authenticated']),
   data() {
     return {
       username: '',
@@ -60,7 +61,7 @@ export default {
     }
   },
   mounted() {
-    if (isAuthenticated()) {
+    if (this.authenticated) {
       this.redirectOnSuccess()
     }
   },

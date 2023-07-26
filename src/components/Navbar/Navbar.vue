@@ -83,7 +83,7 @@
       </v-card>
       <template #append>
         <div class="pa-2">
-          <BottomActions />
+          <NavbarActions />
         </div>
       </template>
     </v-navigation-drawer>
@@ -92,13 +92,14 @@
 
 <script lang="ts">
 import { mapGetters, mapState } from 'vuex'
-import { BottomActions, TopMenu, SpeedGraph, FreeSpace, TransferStats, CurrentSpeed, FilterSelect } from './index'
+import { NavbarActions, TopMenu, SpeedGraph, FreeSpace, TransferStats, CurrentSpeed, FilterSelect } from './index'
+import WebUISettings from '@/types/vuetorrent/WebUISettings'
 
 export default {
   name: 'Navbar',
   components: {
     FreeSpace,
-    BottomActions,
+    NavbarActions,
     TopMenu,
     SpeedGraph,
     TransferStats,
@@ -114,7 +115,7 @@ export default {
   computed: {
     ...mapGetters(['getWebuiSettings', 'getStatus', 'getTorrentCountString']),
     ...mapState(['dashboard', 'sort_options']),
-    webuiSettings() {
+    webuiSettings(): WebUISettings {
       return this.getWebuiSettings()
     },
     status() {

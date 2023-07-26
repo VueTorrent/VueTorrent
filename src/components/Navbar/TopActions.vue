@@ -132,9 +132,7 @@ export default defineComponent({
       return this.$route.name === 'torrentDetail'
     },
     hashes(): string[] {
-      return (this.isOnTorrentDetail)
-          ? [this.$route.params.hash]
-          : this.selected_torrents
+      return this.isOnTorrentDetail ? [this.$route.params.hash] : this.selected_torrents
     }
   },
   methods: {

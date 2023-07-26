@@ -8,9 +8,11 @@ import type { LoginPayload } from '@/types/qbit/payloads'
 export default {
   INIT_INTERVALS: async (store: Store<StoreState>) => {
     store.commit('REMOVE_INTERVALS')
-    store.state.intervals.push(setInterval(() => {
-      store.commit('updateMainData')
-    }, store.getters.getApiRefreshInterval()))
+    store.state.intervals.push(
+      setInterval(() => {
+        store.commit('updateMainData')
+      }, store.getters.getApiRefreshInterval())
+    )
   },
   LOGIN: async (store: Store<StoreState>, payload: LoginPayload) => {
     const res = await qbit.login(payload)

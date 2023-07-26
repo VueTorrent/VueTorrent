@@ -8,7 +8,7 @@ import type ModalTemplate from './ModalTemplate'
 import type { Status } from '@/models'
 import type WebUISettings from '@/types/vuetorrent/WebUISettings'
 import type { SearchPlugin } from '@/types/qbit/models'
-import { SearchData } from "@/types/vuetorrent/search";
+import { SearchData } from '@/types/vuetorrent/search'
 
 export interface PersistentStoreState {
   authenticated: boolean

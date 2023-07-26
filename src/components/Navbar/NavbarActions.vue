@@ -62,7 +62,7 @@ import ConnectionStatus from './ConnectionStatus.vue'
 import { General } from '@/mixins'
 
 export default {
-  name: 'BottomActions',
+  name: 'NavbarActions',
   components: {
     ConnectionStatus
   },
@@ -97,8 +97,8 @@ export default {
     }
   },
   methods: {
-    logout() {
-      this.$store.commit('LOGOUT')
+    async logout() {
+      await this.$store.commit('LOGOUT')
       this.$router.push({ name: 'login' })
     },
     async toggleSpeed() {

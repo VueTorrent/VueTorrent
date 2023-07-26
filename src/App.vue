@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <component :is="modal.component" v-for="modal in modals" :key="modal.guid" v-bind="{ guid: modal.guid, ...modal.props }" />
-    <Navbar v-if="isAuthenticated" />
+    <Navbar v-if="authenticated" />
     <v-main class="background">
       <router-view />
     </v-main>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState } from 'vuex'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import qbit from '@/services/qbit'
 import { General } from '@/mixins'
@@ -21,7 +21,6 @@ export default {
   mixins: [General],
   computed: {
     ...mapState(['modals', 'webuiSettings', 'authenticated']),
-    ...mapGetters(['isAuthenticated']),
     onLoginPage() {
       return this.$router.currentRoute.name?.includes('login')
     }
@@ -55,8 +54,8 @@ export default {
         return
       }
 
-      this.$store.commit('LOGIN', false)
-      if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
+      // this.$store.commit('LOGIN', false)
+      // if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
     },
     blockContextMenu() {
       document.addEventListener('contextmenu', event => {
