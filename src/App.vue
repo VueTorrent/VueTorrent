@@ -20,7 +20,7 @@ export default {
   components: { Navbar },
   mixins: [General],
   computed: {
-    ...mapState(['modals', 'webuiSettings']),
+    ...mapState(['modals', 'webuiSettings', 'authenticated']),
     ...mapGetters(['isAuthenticated']),
     onLoginPage() {
       return this.$router.currentRoute.name?.includes('login')
@@ -33,20 +33,30 @@ export default {
     this.checkAuthentication()
     this.blockContextMenu()
   },
+  watch: {
+    authenticated(newValue) {
+      if (newValue) {
+        this.$store.dispatch('INIT_INTERVALS')
+        this.$store.commit('updateMainData')
+        this.$store.dispatch('FETCH_SETTINGS')
+      } else {
+        this.$store.commit('REMOVE_INTERVALS')
+      }
+    }
+  },
   methods: {
     async checkAuthentication() {
       const authenticated = await qbit.getAuthenticationStatus()
       if (authenticated) {
         this.$store.commit('LOGIN', true)
-        this.$store.commit('updateMainData')
-        await this.$store.dispatch('FETCH_SETTINGS')
-        if (this.onLoginPage) return this.$router.push('dashboard')
-
+        this.$store.dispatch('INIT_INTERVALS')
+        this.$store.dispatch('FETCH_SETTINGS')
+        if (this.onLoginPage) this.redirectOnSuccess()
         return
       }
 
       this.$store.commit('LOGIN', false)
-      if (!this.onLoginPage) return this.$router.push('login')
+      if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
     },
     blockContextMenu() {
       document.addEventListener('contextmenu', event => {
@@ -61,6 +71,11 @@ export default {
 
         return false
       })
+    },
+    redirectOnSuccess() {
+      const redirect = this.$route.query.redirect
+      if (redirect) return this.$router.push(redirect)
+      this.$router.push({ name: 'dashboard' })
     }
   }
 }

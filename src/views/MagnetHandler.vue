@@ -10,7 +10,7 @@ export default {
   props: ['magnet'],
   created() {
     this.createModal('AddModal', { initialMagnet: this.magnet })
-    this.$router.push('dashboard')
+    this.$router.push({ name: 'dashboard' })
   }
 }
 </script>

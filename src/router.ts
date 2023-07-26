@@ -62,7 +62,7 @@ router.beforeEach(async (to, from, next) => {
 
   if (!isPublic && !authenticated) {
     return next({
-      path: '/login',
+      name: 'login',
       // Store the full path to redirect the user to after login
       query: { redirect: to.fullPath }
     })

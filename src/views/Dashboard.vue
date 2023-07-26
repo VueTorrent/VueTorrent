@@ -336,7 +336,6 @@ export default {
     if (this.input) this.searchFilterEnabled = true
   },
   mounted() {
-    this.$store.dispatch('INIT_INTERVALS')
     document.addEventListener('keydown', this.handleKeyboardShortcut)
     document.addEventListener('dragenter', this.detectDragEnter)
     this.$store.state.selectMode = false
@@ -348,7 +347,6 @@ export default {
     }
   },
   beforeDestroy() {
-    this.$store.commit('REMOVE_INTERVALS')
     document.removeEventListener('keydown', this.handleKeyboardShortcut)
     document.removeEventListener('dragenter', this.detectDragEnter)
   },

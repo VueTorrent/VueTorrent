@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     if (isAuthenticated()) {
-      this.$router.push('dashboard')
+      this.redirectOnSuccess()
     }
   },
   methods: {
@@ -72,7 +72,14 @@ export default {
       })
 
       if (authenticated) {
-        this.$router.push('dashboard')
+        this.redirectOnSuccess()
+      }
+    },
+    redirectOnSuccess() {
+      if (this.$route.query.redirect !== undefined) {
+        this.$router.push(this.$route.query.redirect)
+      } else {
+        this.$router.push({ name: 'dashboard' })
       }
     }
   }

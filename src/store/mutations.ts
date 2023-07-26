@@ -13,6 +13,7 @@ export default {
   },
   REMOVE_INTERVALS: (state: StoreState) => {
     state.intervals.forEach(el => clearInterval(el))
+    state.intervals.splice(0, state.intervals.length)
   },
   ADD_MODAL(state: StoreState, modal: ModalTemplate) {
     state.modals.push(modal)
@@ -72,9 +73,9 @@ export default {
       DocumentTitle.update()
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        console.error('No longer authtenticated, logging out...')
-        state.authenticated = false
-        router.push({ name: 'login' })
+        console.error('No longer authenticated, logging out...')
+        store.commit('LOGIN', false)
+        router.push({ name: 'login', query: { redirect: router.currentRoute.fullPath } })
       }
     } finally {
       state.isUpdatingMainData = false
