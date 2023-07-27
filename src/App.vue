@@ -54,8 +54,8 @@ export default {
         return
       }
 
-      // this.$store.commit('LOGIN', false)
-      // if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
+      this.$store.commit('LOGIN', false)
+      if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
     },
     blockContextMenu() {
       document.addEventListener('contextmenu', event => {
