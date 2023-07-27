@@ -25,7 +25,7 @@
         </div>
         <div v-else>
           <span v-if="!$vuetify.breakpoint.xsOnly">[{{ node.size | formatData(shouldUseBinaryData()) }}]</span>
-          <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">{{ node.progress }} %</span>
+          <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">{{ (node.progress*100) | progress }}</span>
           <span v-if="!$vuetify.breakpoint.xsOnly" class="ml-4">[ {{ getNodePriority(node) }} ]</span>
           <v-menu open-on-hover offset-y>
             <template #activator="{ on }">
