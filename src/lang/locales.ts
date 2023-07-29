@@ -15,22 +15,22 @@ export enum Locales {
 }
 
 type LocaleDef = {
+  text: string
   value: Locales
-  caption: string
 }
 
 export const LOCALES: LocaleDef[] = [
-  { value: Locales.EN, caption: 'English' },
-  { value: Locales.ES, caption: 'Español' },
-  { value: Locales.FR, caption: 'Français' },
-  { value: Locales.ID, caption: 'Bahasa Indonesia' },
-  { value: Locales.IT, caption: 'Italiano' },
-  { value: Locales.JA, caption: '日本語' },
-  { value: Locales.NL, caption: 'Dutch' },
-  { value: Locales.PT_BR, caption: 'Português' },
-  { value: Locales.RU, caption: 'Русский язык' },
-  { value: Locales.UK, caption: 'Українська' },
-  { value: Locales.VI, caption: 'Tiếng Việt' },
-  { value: Locales.ZH_HANS, caption: '简体中文' },
-  { value: Locales.ZH_HANT, caption: '繁體中文' }
+  { text: 'English', value: Locales.EN },
+  { text: 'Español', value: Locales.ES },
+  { text: 'Français', value: Locales.FR },
+  { text: 'Bahasa Indonesia', value: Locales.ID },
+  { text: 'Italiano', value: Locales.IT },
+  { text: '日本語', value: Locales.JA },
+  { text: 'Dutch', value: Locales.NL },
+  { text: 'Português', value: Locales.PT_BR },
+  { text: 'Русский язык', value: Locales.RU },
+  { text: 'Українська', value: Locales.UK },
+  { text: 'Tiếng Việt', value: Locales.VI },
+  { text: '简体中文', value: Locales.ZH_HANS },
+  { text: '繁體中文', value: Locales.ZH_HANT }
 ]
