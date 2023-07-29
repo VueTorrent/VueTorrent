@@ -3,6 +3,19 @@ import { mdiClose, mdiContentSave } from '@mdi/js'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router/auto'
 import { definePage } from 'vue-router/auto'
+import Advanced from '@/components/Settings/Advanced.vue'
+import BitTorrent from '@/components/Settings/BitTorrent.vue'
+import Connection from '@/components/Settings/Connection.vue'
+import Downloads from '@/components/Settings/Downloads.vue'
+import Speed from '@/components/Settings/Speed.vue'
+import TagsAndCategories from '@/components/Settings/TagsAndCategories.vue'
+import WebUI from '@/components/Settings/WebUI.vue'
+import RGeneral from '@/components/Settings/RSS/General.vue'
+import RFeeds from '@/components/Settings/RSS/Feeds.vue'
+import RRules from '@/components/Settings/RSS/Rules.vue'
+import VGeneral from '@/components/Settings/VueTorrent/General.vue'
+import VDesktopCard from '@/components/Settings/VueTorrent/DesktopCard.vue'
+import VMobileCard from '@/components/Settings/VueTorrent/MobileCard.vue'
 
 definePage({
   path: '/settings',
@@ -12,8 +25,10 @@ definePage({
 // composables
 const router = useRouter()
 
-// variabls
+// variables
 const tab = ref('vuetorrent')
+const innerTabV = ref('general')
+const innerTabR = ref('general')
 
 // methods
 const close = () => router.push({ name: 'Dashboard' })
@@ -22,52 +37,131 @@ const saveSettings = () => {}
 
 <template>
   <div class="px-1 px-sm-5 background noselect">
-    <VRow>
-      <VCol>
-        <h1 style="font-size: 1.6em !important">
+    <v-row :no-gutters="true" class="grey--text" align="center" justify="center">
+      <v-col>
+        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           {{ $t('settings') }}
         </h1>
-      </VCol>
-      <VCol class="align-center justify-center">
+      </v-col>
+      <v-col class="align-center justify-center">
         <v-card-actions class="justify-end">
-          <VBtn color="accent" :icon="mdiContentSave" small elevation="0" @click="saveSettings" />
-          <VBtn :icon="mdiClose" small elevation="0" @click="close" />
+          <v-btn color="accent" :icon="mdiContentSave" small elevation="0" @click="saveSettings" />
+          <v-btn :icon="mdiClose" small elevation="0" @click="close" />
         </v-card-actions>
-      </VCol>
-    </VRow>
+      </v-col>
+    </v-row>
 
-    <VCard class="ma-0 pa-0">
-      <v-tabs v-model="tab" background-color="primary">
+    <v-card class="ma-0 pa-0">
+      <v-tabs v-model="tab" bg-color="primary">
         <v-tab value="vuetorrent">
-          <h4>{{ $t('modals.settings.tabName.VueTorrent') }}</h4>
+          {{ $t('modals.settings.tabName.vueTorrent') }}
         </v-tab>
         <v-tab value="downloads">
-          <h4>{{ $t('modals.settings.tabName.downloads') }}</h4>
+          {{ $t('modals.settings.tabName.downloads') }}
         </v-tab>
         <v-tab value="connection">
-          <h4>{{ $t('modals.settings.tabName.connection') }}</h4>
+          {{ $t('modals.settings.tabName.connection') }}
+        </v-tab>
+        <v-tab value="speed">
+          {{ $t('modals.settings.tabName.speed') }}
         </v-tab>
         <v-tab value="bittorrent">
-          <h4>{{ $t('modals.settings.tabName.bittorrent') }}</h4>
+          {{ $t('modals.settings.tabName.bittorrent') }}
         </v-tab>
         <v-tab value="rss">
-          <h4>{{ $t('modals.settings.tabName.rss') }}</h4>
+          {{ $t('modals.settings.tabName.rss') }}
         </v-tab>
         <v-tab value="webui">
-          <h4>{{ $t('modals.settings.tabName.webUI') }}</h4>
+          {{ $t('modals.settings.tabName.webUI') }}
         </v-tab>
         <v-tab value="tagsAndCategories">
-          <h4>{{ $t('modals.settings.tabName.tagsAndCategories') }}</h4>
+          {{ $t('modals.settings.tabName.tagsAndCategories') }}
+        </v-tab>
+        <v-tab value="advanced">
+          {{ $t('modals.settings.tabName.advanced') }}
         </v-tab>
       </v-tabs>
-      <v-card-text>
+      <v-card-text class="pa-0">
         <v-window v-model="tab">
-          <v-window-item value="vuetorrent"> vuetorrent </v-window-item>
-        </v-window>
-        <v-window v-model="tab">
-          <v-window-item value="downloads"> downloads </v-window-item>
+          <v-window-item value="vuetorrent">
+            <v-card class="ma-0 pa-0">
+              <v-tabs v-model="innerTabV" bg-color="secondary">
+                <v-tab value="general">
+                  {{ $t('modals.settings.vueTorrent.tabName.general') }}
+                </v-tab>
+                <v-tab value="desktopCard">
+                  {{ $t('modals.settings.vueTorrent.tabName.desktopCard') }}
+                </v-tab>
+                <v-tab value="mobileCard">
+                  {{ $t('modals.settings.vueTorrent.tabName.mobileCard') }}
+                </v-tab>
+              </v-tabs>
+              <v-card-text>
+                <v-window v-model="innerTabV">
+                  <v-window-item value="general">
+                    <VGeneral />
+                  </v-window-item>
+                  <v-window-item value="desktopCard">
+                    <VDesktopCard />
+                  </v-window-item>
+                  <v-window-item value="mobileCard">
+                    <VMobileCard />
+                  </v-window-item>
+                </v-window>
+              </v-card-text>
+            </v-card>
+          </v-window-item>
+          <v-window-item value="downloads">
+            <Downloads />
+          </v-window-item>
+          <v-window-item value="connection">
+            <Connection />
+          </v-window-item>
+          <v-window-item value="speed">
+            <Speed />
+          </v-window-item>
+          <v-window-item value="bittorrent">
+            <BitTorrent />
+          </v-window-item>
+          <v-window-item value="rss">
+            <v-card class="ma-0 pa-0">
+              <v-tabs v-model="innerTabR" bg-color="secondary">
+                <v-tab value="general">
+                  {{ $t('modals.settings.rss.tabName.general') }}
+                </v-tab>
+                <v-tab value="feeds">
+                  {{ $t('modals.settings.rss.tabName.feeds') }}
+                </v-tab>
+                <v-tab value="rules">
+                  {{ $t('modals.settings.rss.tabName.rules') }}
+                </v-tab>
+              </v-tabs>
+              <v-card-text>
+                <v-window v-model="innerTabR">
+                  <v-window-item value="general">
+                    <RGeneral />
+                  </v-window-item>
+                  <v-window-item value="feeds">
+                    <RFeeds />
+                  </v-window-item>
+                  <v-window-item value="rules">
+                    <RRules />
+                  </v-window-item>
+                </v-window>
+              </v-card-text>
+            </v-card>
+          </v-window-item>
+          <v-window-item value="webui">
+            <WebUI />
+          </v-window-item>
+          <v-window-item value="tagsAndCategories">
+            <TagsAndCategories />
+          </v-window-item>
+          <v-window-item value="advanced">
+            <Advanced />
+          </v-window-item>
         </v-window>
       </v-card-text>
-    </VCard>
+    </v-card>
   </div>
 </template>
