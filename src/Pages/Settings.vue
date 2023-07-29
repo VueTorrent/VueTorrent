@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { mdiClose, mdiContentSave } from '@mdi/js'
-import { ref } from 'vue'
+import { ref, reactive, watch } from 'vue'
 import { useRouter } from 'vue-router/auto'
 import { definePage } from 'vue-router/auto'
 import Advanced from '@/components/Settings/Advanced.vue'
@@ -16,6 +16,8 @@ import RRules from '@/components/Settings/RSS/Rules.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
 import VDesktopCard from '@/components/Settings/VueTorrent/DesktopCard.vue'
 import VMobileCard from '@/components/Settings/VueTorrent/MobileCard.vue'
+import {updatePreferences, usePreferences} from '@/composables/api/preferences'
+import type {AppPreferences} from '@/types/qbit/models'
 
 definePage({
   path: '/settings',
@@ -29,10 +31,25 @@ const router = useRouter()
 const tab = ref('vuetorrent')
 const innerTabV = ref('general')
 const innerTabR = ref('general')
+const preferences = ref<AppPreferences>()
+const preferencesQuery = usePreferences()
 
 // methods
 const close = () => router.push({ name: 'Dashboard' })
-const saveSettings = () => {}
+const saveSettings = () => {
+  if (preferences.value) {
+    updatePreferences(preferences.value)
+  }
+}
+
+watch(
+    () => preferencesQuery.isLoading.value,
+    (value) => {
+      if (!value && preferencesQuery.isSuccess.value) {
+        preferences.value = preferencesQuery.data.value
+      }
+    }
+)
 </script>
 
 <template>
