@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import {useCategories, useTags} from '@/composables/api/torrents'
+import {Category} from '@/types/vuetorrent'
 
 // composables
 const { t: $t } = useI18n()
@@ -37,27 +39,38 @@ const options = computed(() => {
   ]
 })
 
-const availableCategories = async () => {
-  const categories = [
+const availableCategories = computed(() => {
+  const categories: {name: string, value: string|null}[] = [
     { name: $t('all'), value: null },
     { name: $t('navbar.filters.uncategorized'), value: '' }
   ]
 
-  // await useCategories().then((r) => {
-  //   r.data.value?.map((c) => {
-  //     categories.push({ name: c.name, value: c.name })
-  //   })
-  // })
+  useCategories().categories.value?.map((c: Category) => {
+    categories.push({ name: c.name, value: c.name })
+  })
 
   return categories
-}
+})
 
-const availableTags = async () => {
-  return [
+const availableTags = computed(() => {
+  const tags = [
     { name: $t('all'), value: null },
     { name: $t('navbar.filters.untagged'), value: '' }
   ]
-}
+
+  useTags().tags.value?.map((t: string) => {
+    tags.push({ name: t, value: t })
+  })
+
+  return tags
+})
+
+const availableTrackers = computed(() => {
+  return [
+    { name: $t('all'), value: null },
+    { name: $t('navbar.filters.not_working'), value: '' }
+  ]
+})
 </script>
 
 <template>
@@ -72,7 +85,7 @@ const availableTags = async () => {
         :value="selectedState"
         class="ml-2 mr-2"
         :label="$t('status')"
-        flat
+        :flat="true"
         solo
         :items="options"
         item-text="name"
@@ -88,11 +101,11 @@ const availableTags = async () => {
       <v-select
         aria-label="category_filter"
         :value="selectedCategory"
-        flat
+        :flat="true"
         solo
         class="ml-2 mr-2"
         :label="$t('category')"
-        :items="availableCategories()"
+        :items="availableCategories"
         item-text="name"
         color="download"
         item-color="download"
@@ -106,7 +119,7 @@ const availableTags = async () => {
       <v-select
         aria-label="tag_filter"
         :value="selectedTag"
-        flat
+        :flat="true"
         solo
         class="ml-2 mr-2"
         :label="$t('tag')"
@@ -124,7 +137,7 @@ const availableTags = async () => {
       <v-select
         aria-label="tracker_filter"
         :value="selectedTracker"
-        flat
+        :flat="true"
         solo
         class="ml-2 mr-2"
         label="TRACKER"

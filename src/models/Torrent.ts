@@ -4,7 +4,9 @@ import relativeTime from 'dayjs/plugin/relativeTime'
 import { Priority, TorrentState as QbitTorrentState } from '@/enums/qbit'
 import { TorrentState as VtTorrentState } from '@/enums/vuetorrent'
 import type { Torrent as QbitTorrent } from '@/types/qbit/models'
-import i18n from '@/plugins/i18n'
+import {useI18n} from 'vue-i18n'
+
+const { t } = useI18n()
 
 dayjs.extend(duration)
 dayjs.extend(relativeTime)
@@ -74,7 +76,7 @@ export default class Torrent {
     this.completed_on =
       data.completion_on > 0
         ? dayjs(data.completion_on * 1000).format(format)
-        : i18n.global.t('dashboard.not_complete').toString()
+        : t('dashboard.not_complete').toString()
     this.content_path = data.content_path
     this.dl_limit = data.dl_limit
     this.dlspeed = data.dlspeed
@@ -105,7 +107,7 @@ export default class Torrent {
     this.seen_complete =
       data.seen_complete > 0
         ? dayjs(data.seen_complete * 1000).format(format)
-        : i18n.global.t('dashboard.not_complete').toString()
+        : t('dashboard.not_complete').toString()
     this.seq_dl = data.seq_dl
     this.size = data.size
     this.state = this.formatState(data.state)
@@ -175,7 +177,7 @@ export default class Torrent {
 
     let index = 0
     let unitSize = 0
-    const parts = []
+    const parts = [] as string[]
 
     const defaultOptions = {
       maxUnitSize: 2,

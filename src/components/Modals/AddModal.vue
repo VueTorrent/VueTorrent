@@ -1,24 +1,17 @@
 <script setup lang="ts">
-import { ref, reactive, computed, watch } from 'vue'
-import { useDisplay } from 'vuetify'
-import { useI18n } from 'vue-i18n'
-import { useModal } from '@/composables/modal'
-import { usePreferences } from '@/composables/api/preferences'
-import { useCategories, useTags, useTorrents } from '@/composables/api/torrents'
-import { useValidator } from '@/composables/validator'
-import { DEFAULT_DEST_FOLDER_PATH } from '@/constants'
-import {
-  mdiClose,
-  mdiCloudUpload,
-  mdiPaperclip,
-  mdiLink,
-  mdiTag,
-  mdiLabel,
-  mdiFolder
-} from '@mdi/js'
+import {computed, reactive, ref, watch} from 'vue'
+import {useDisplay} from 'vuetify'
+import {useI18n} from 'vue-i18n'
+import {useModal} from '@/composables/modal'
+import {usePreferences} from '@/composables/api/preferences'
+import {useCategories, useTags, useTorrents} from '@/composables/api/torrents'
+import {useValidator} from '@/composables/validator'
+import {DEFAULT_DEST_FOLDER_PATH} from '@/constants'
+import {mdiClose, mdiCloudUpload, mdiFolder, mdiLabel, mdiLink, mdiPaperclip, mdiTag} from '@mdi/js'
 
-import type { AddTorrentsPayload } from '@/types/vuetorrent/payloads/AddTorrentsPayload'
-import { AppPreferences } from '@/enums/qbit'
+import type AddTorrentsPayload from '@/types/vuetorrent/payloads/AddTorrentsPayload'
+import {AppPreferences} from '@/enums/qbit'
+import {ContentLayout, StopCondition} from '@/enums/qbit/AppPreferences'
 
 const props = defineProps<{
   guid: string
@@ -51,7 +44,10 @@ const params = reactive<AddTorrentsPayload>({
   stopCondition: AppPreferences.StopCondition.NONE,
   skipHashChecking: false,
   sequentialDownload: false,
-  firstLastPiecePriority: false
+  firstLastPiecePriority: false,
+  rootFolder: false,
+  rename: '',
+  cookie: ''
 })
 
 const contentLayoutOptions = ref([
@@ -82,8 +78,8 @@ function setPreferences() {
   params.start = !preferences.value?.start_paused_enabled
   params.autoTMM = !!preferences.value?.auto_tmm_enabled
   params.directory = destinationFolderPath.value
-  params.contentLayout = preferences.value?.torrent_content_layout
-  params.stopCondition = preferences.value?.torrent_stop_condition
+  params.contentLayout = preferences.value?.torrent_content_layout ?? ContentLayout.ORIGINAL
+  params.stopCondition = preferences.value?.torrent_stop_condition ?? StopCondition.NONE
 }
 
 function onDropFile(event: DragEvent) {

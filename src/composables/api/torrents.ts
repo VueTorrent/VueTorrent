@@ -2,7 +2,7 @@ import { onMounted, ref } from 'vue'
 import { useAxios } from '@vueuse/integrations/useAxios'
 import { axiosInstance } from '@/services/qbit'
 import type { Category } from '@/types/vuetorrent'
-import type { AddTorrentsPayload } from '@/types/vuetorrent/payloads/AddTorrentsPayload'
+import type AddTorrentsPayload from '@/types/vuetorrent/payloads/AddTorrentsPayload'
 import type { QbAddTorrentPayload } from '@/types/qbit/payloads'
 
 export const useCategories = () => {
@@ -59,7 +59,7 @@ export const useTorrents = () => {
     const params: QbAddTorrentPayload = {
       autoTMM: payload.autoTMM,
       category: payload.category?.name,
-      cookie: payload.cookie?.name,
+      cookie: payload.cookie,
       dlLimit: payload?.dlLimit,
       firstLastPiecePrio: payload.firstLastPiecePriority,
       paused: !payload.start,

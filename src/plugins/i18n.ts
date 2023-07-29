@@ -5,6 +5,7 @@ const i18n = createI18n({
   locale: defaultLocale, // set locale
   fallbackLocale: defaultLocale,
   silentTranslationWarn: true,
+  allowComposition: true,
   messages,
   legacy: false,
   pluralRules: {

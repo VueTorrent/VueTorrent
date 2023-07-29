@@ -1,4 +1,3 @@
-import store from '@/store'
 import type { ServerState } from '@/types/qbit/models'
 import { ConnectionStatus } from '@/enums/qbit'
 import type { Optional } from '@/global'
@@ -17,20 +16,18 @@ export default class Status {
   upspeedRaw: number = 0
 
   constructor(in_state?: Optional<ServerState>) {
-    const previous = store.state.status
-
-    this.alltimeDownloaded = in_state?.alltime_dl || previous.alltimeDownloaded
-    this.alltimeUploaded = in_state?.alltime_ul || previous.alltimeUploaded
+    this.alltimeDownloaded = in_state?.alltime_dl || 0
+    this.alltimeUploaded = in_state?.alltime_ul || 0
     this.altSpeed =
       in_state?.use_alt_speed_limits !== undefined
         ? in_state.use_alt_speed_limits
-        : previous.altSpeed
+        : false
     this.dlspeed = in_state?.dl_info_speed || 0
     this.dlspeedRaw = this.formatSpeed(in_state?.dl_info_speed || 0)
-    this.freeDiskSpace = in_state?.free_space_on_disk || previous.freeDiskSpace
-    this.sessionDownloaded = in_state?.dl_info_data || previous.sessionDownloaded
-    this.sessionUploaded = in_state?.up_info_data || previous.sessionUploaded
-    this.status = in_state?.connection_status || previous.status
+    this.freeDiskSpace = in_state?.free_space_on_disk || 0
+    this.sessionDownloaded = in_state?.dl_info_data || 0
+    this.sessionUploaded = in_state?.up_info_data || 0
+    this.status = in_state?.connection_status || ConnectionStatus.UNKNOWN
     this.upspeed = in_state?.up_info_speed || 0
     this.upspeedRaw = this.formatSpeed(in_state?.up_info_speed || 0)
 

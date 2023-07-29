@@ -42,7 +42,7 @@ const toggleTheme = () => {
 </script>
 
 <template>
-  <VRow noGutters>
+  <VRow :no-gutters="true">
     <VCol>
       <VTooltip>
         <template #activator="{ props }">

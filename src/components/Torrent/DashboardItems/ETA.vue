@@ -20,7 +20,7 @@ const formatEta = (value: number): string => {
 
   let index = 0
   let unitSize = 0
-  const parts = []
+  const parts: string[] = []
 
   const defaultOptions = {
     maxUnitSize: 2,

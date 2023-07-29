@@ -1,5 +1,6 @@
 export enum ConnectionStatus {
   CONNECTED = 'connected',
   FIREWALLED = 'firewalled',
-  DISCONNECTED = 'disconnected'
+  DISCONNECTED = 'disconnected',
+  UNKNOWN = 'unknown'
 }

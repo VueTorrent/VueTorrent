@@ -2,7 +2,7 @@
 import { useMainData } from '@/composables/api/info'
 import { definePage } from 'vue-router/auto'
 import { computed } from 'vue'
-import type { Torrent } from '@/models'
+import { Torrent } from '@/models'
 import { isProduction } from '@/utils'
 import { generateMultiple } from '@/utils/faker/faker'
 import MobileCardVue from '@/components/Torrent/MobileCard.vue'
@@ -16,7 +16,8 @@ definePage({
 const mainData = useMainData()
 
 const torrents = computed<Torrent[]>(() => {
-  return Object.values(mainData.data.value?.torrents)
+  return Object.values(mainData.data.value?.torrents ?? {})
+      .map(t => new Torrent(t))
   // if (isProduction()) return torrents
   // if (import.meta.env.VITE_USE_FAKE_TORRENTS === false) return torrents
   // const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
