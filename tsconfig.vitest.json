@@ -1,6 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "exclude": [],
+  "include": [
+    "**/*.spec.js",
+    "**/*.spec.ts"
+  ],
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",

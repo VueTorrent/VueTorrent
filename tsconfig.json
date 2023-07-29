@@ -9,17 +9,43 @@
     "src/**/*.tsx",
     "src/**/*.vue"
   ],
-  "exclude": ["src/**.spec.ts"],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+    "coverage",
+    "vuetorrent",
+    "**/*.spec.js",
+    "**/*.spec.ts"
+  ],
   "compilerOptions": {
-    "composite": true,
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": false,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "lib": ["esnext", "dom", "WebWorker"],
-    "types": ["vuetify", "vite-plugin-pwa/client", "@types/webfontloader"],
-    "sourceMap": true,
-    "strict": true
+    "types": [
+      "vite/client",
+      "vuetify",
+      "vite-plugin-pwa/client",
+      "@types/webfontloader"
+    ],
+    "lib": [
+      "dom",
+      "esnext"
+    ]
   },
   "references": [
     {
