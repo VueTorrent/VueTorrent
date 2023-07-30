@@ -5,6 +5,7 @@
   },
   "settings": {
     "title": "Paramètres",
+    "language": "Langue",
     "goBack": "Page précédente"
   }
 }

@@ -5,6 +5,7 @@
   },
   "settings": {
     "title": "Settings",
+    "language": "Language",
     "goBack": "Go back"
   }
 }
