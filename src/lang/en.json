@@ -6,6 +6,8 @@
   "settings": {
     "title": "Settings",
     "language": "Language",
+    "save": "Save",
+    "saveSuccess": "Settings saved successfully!",
     "goBack": "Go back"
   }
 }

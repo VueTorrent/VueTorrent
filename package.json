@@ -13,6 +13,7 @@
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.2.4",
+    "vue3-toastify": "^0.1.11",
     "vuetify": "^3.3.10"
   },
   "devDependencies": {

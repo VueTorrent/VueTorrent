@@ -6,6 +6,8 @@
   "settings": {
     "title": "Paramètres",
     "language": "Langue",
+    "save": "Sauvegarder",
+    "saveSuccess": "Paramètres sauvegardés avec succès!",
     "goBack": "Page précédente"
   }
 }

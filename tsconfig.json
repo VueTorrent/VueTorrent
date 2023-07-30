@@ -22,7 +22,10 @@
 
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": [
+      "vue3-toastify/global"
+    ]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
