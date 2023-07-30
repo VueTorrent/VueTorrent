@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 import {useI18n} from 'vue-i18n'
-import { LOCALES } from '@/lang/locales.ts'
+import { LOCALES } from '@/locales/locales.ts'
 import { toast } from 'vue3-toastify'
 
 const router = useRouter()
