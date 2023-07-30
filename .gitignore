@@ -26,5 +26,5 @@ coverage
 *.sw?
 
 # Custom
-vuetorrent
+vuetorrent/**
 qbit/**
