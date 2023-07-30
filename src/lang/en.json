@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "goToSettings": "Go to settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "goBack": "Go back"
+  }
+}

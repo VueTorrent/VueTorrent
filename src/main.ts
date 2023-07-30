@@ -8,7 +8,11 @@ import router from '@/plugins/router'
 // Vuetify
 import vuetify from '@/plugins/vuetify'
 
+// Vue-i18n
+import i18n from '@/plugins/i18n'
+
 createApp(App)
   .use(router)
   .use(vuetify)
+  .use(i18n)
   .mount('#app')

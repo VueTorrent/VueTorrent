@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "goToSettings": "Aller aux paramètres"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "goBack": "Page précédente"
+  }
+}
