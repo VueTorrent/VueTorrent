@@ -1,28 +1,17 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import AppPreferences from '@/types/qbit/models/AppPreferences.ts'
-import { useQbitApi } from '@/composables'
+import { qbit } from '@/services'
 
 export const usePrerefenceStore = defineStore('preferences', () => {
   const preferences = ref<AppPreferences | null>(null)
 
   async function fetchPreferences() {
-    const { data, error, getData } = useQbitApi('app/preferences')
-
-    await getData()
-
-    if (error.value) {
-      console.error(error.value)
-      return false
-    } else {
-      preferences.value = data.value
-      return true
-    }
+    preferences.value = await qbit.getAppPreferences()
   }
 
   async function setPreferences() {
-    const { postData } = useQbitApi('app/setPreferences')
-    await postData(preferences)
+    await qbit.setPreferences(preferences.value!)
   }
 
   return { preferences, fetchPreferences, setPreferences }

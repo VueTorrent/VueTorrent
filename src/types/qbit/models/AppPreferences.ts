@@ -1,6 +1,19 @@
 import type {
-  AppPreferences as QbitAppPreferences
-} from '@/enums/qbit'
+  BitTorrentProtocol,
+  ContentLayout,
+  DynDnsService,
+  Encryption,
+  MaxRatioAction,
+  ProxyType,
+  ScanDirs,
+  SchedulerDays,
+  StopCondition,
+  UploadChokingAlgorithm,
+  UploadSlotsBehavior,
+  UtpTcpMixedMode,
+  DiskIOMode,
+  DiskIOType
+} from '@/enums/qbit/AppPreferences'
 
 export interface NetworkInterface {
   name: string
@@ -44,7 +57,7 @@ export default interface AppPreferences {
   /** List of banned IPs */
   banned_IPs: string
   /** Bittorrent Protocol to use (see list of possible values below) */
-  bittorrent_protocol: QbitAppPreferences.BitTorrentProtocol
+  bittorrent_protocol: BitTorrentProtocol
   block_peers_on_privileged_ports: boolean
   /** (White)list of ipv4/ipv6 subnets for which webui authentication should be bypassed; list entries are separated by commas */
   bypass_auth_subnet_whitelist: string
@@ -67,9 +80,9 @@ export default interface AppPreferences {
   disk_cache: number
   /** Disk cache expiry interval in seconds */
   disk_cache_ttl: number
-  disk_io_read_mode: QbitAppPreferences.DiskIOMode
-  disk_io_type: QbitAppPreferences.DiskIOType
-  disk_io_write_mode: QbitAppPreferences.DiskIOMode
+  disk_io_read_mode: DiskIOMode
+  disk_io_type: DiskIOType
+  disk_io_write_mode: DiskIOMode
   disk_queue_size: number
   /** Global download speed limit in KiB/s; -1 means no limit is applied */
   dl_limit: number
@@ -82,7 +95,7 @@ export default interface AppPreferences {
   /** Password for DDNS service */
   dyndns_password: string
   /** See list of possible values here below */
-  dyndns_service: QbitAppPreferences.DynDnsService
+  dyndns_service: DynDnsService
   /** Username for DDNS service */
   dyndns_username: string
   /** Port used for embedded tracker */
@@ -99,7 +112,7 @@ export default interface AppPreferences {
   /** True enables sending of upload piece suggestions */
   enable_upload_suggestions: boolean
   /** See list of possible values here below */
-  encryption: QbitAppPreferences.Encryption
+  encryption: Encryption
   excluded_file_names: string
   excluded_file_names_enabled: boolean
   /** Path to directory to copy .torrent files to. Slashes are used as path separators */
@@ -161,7 +174,7 @@ export default interface AppPreferences {
   /** Get the global share ratio limit */
   max_ratio: number
   /** Action performed when a torrent reaches the maximum share ratio. See list of possible values here below. */
-  max_ratio_act: QbitAppPreferences.MaxRatioAction
+  max_ratio_act: MaxRatioAction
   /** True if share ratio limit is enabled */
   max_ratio_enabled: boolean
   /** Number of minutes to seed a torrent */
@@ -200,7 +213,7 @@ export default interface AppPreferences {
   /** True if proxy is only used for torrents */
   proxy_torrents_only: boolean
   /** See list of possible values here below */
-  proxy_type: QbitAppPreferences.ProxyType
+  proxy_type: ProxyType
   /** Username for proxy authentication */
   proxy_username: string
   /** True if torrent queuing is enabled */
@@ -233,7 +246,7 @@ export default interface AppPreferences {
   /** Save resume data interval in min */
   save_resume_data_interval: number
   /** Property: directory to watch for torrent files, value: where torrents loaded from this directory should be downloaded to (see list of possible values below). Slashes are used as path separators; multiple key/value pairs can be specified */
-  scan_dirs: Record<string, QbitAppPreferences.ScanDirs>
+  scan_dirs: Record<string, ScanDirs>
   /** Scheduler starting hour */
   schedule_from_hour: number
   /** Scheduler starting minute */
@@ -243,7 +256,7 @@ export default interface AppPreferences {
   /** Scheduler ending minute */
   schedule_to_min: number
   /** Scheduler days. See possible values here below */
-  scheduler_days: QbitAppPreferences.SchedulerDays
+  scheduler_days: SchedulerDays
   /** True if alternative limits should be applied according to schedule */
   scheduler_enabled: boolean
   /** Send buffer low watermark in KiB */
@@ -272,15 +285,15 @@ export default interface AppPreferences {
   /** True if torrent should be relocated when its Category changes */
   torrent_changed_tmm_enabled: boolean
   /** Default content layout to select when adding a new torrent */
-  torrent_content_layout: QbitAppPreferences.ContentLayout
+  torrent_content_layout: ContentLayout
   /** Default stop condition to select when adding a new torrent */
-  torrent_stop_condition: QbitAppPreferences.StopCondition
+  torrent_stop_condition: StopCondition
   /** Global upload speed limit in KiB/s; 0 means no limit is applied */
   up_limit: number
   /** Upload choking algorithm used (see list of possible values below) */
-  upload_choking_algorithm: QbitAppPreferences.UploadChokingAlgorithm
+  upload_choking_algorithm: UploadChokingAlgorithm
   /** Upload slots behavior used (see list of possible values below) */
-  upload_slots_behavior: QbitAppPreferences.UploadSlotsBehavior
+  upload_slots_behavior: UploadSlotsBehavior
   /** True if UPnP/NAT-PMP is enabled */
   upnp: boolean
   /** UPnP lease duration (0: Permanent lease) */
@@ -289,7 +302,7 @@ export default interface AppPreferences {
   /** True if WebUI HTTPS access is enabled */
   use_https: boolean
   /** μTP-TCP mixed mode algorithm (see list of possible values below) */
-  utp_tcp_mixed_mode: QbitAppPreferences.UtpTcpMixedMode
+  utp_tcp_mixed_mode: UtpTcpMixedMode
   validate_https_tracker_certificate: boolean
   /** IP address to use for the WebUI */
   web_ui_address: string
