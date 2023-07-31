@@ -27,4 +27,4 @@ coverage
 
 # Custom
 vuetorrent/**
-qbit/**
+docker/**
