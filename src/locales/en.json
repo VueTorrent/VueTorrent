@@ -9,5 +9,14 @@
     "save": "Save",
     "saveSuccess": "Settings saved successfully!",
     "goBack": "Go back"
+  },
+  "login": {
+    "title": "Login",
+    "subtitle": "Enter your credentials",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Login",
+    "success": "Login successful!",
+    "error": "Login failed!"
   }
 }

@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import {computed, onBeforeMount, watch} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
-import { useTheme } from 'vuetify'
 
-import {useAppStore, useModalStore, usePreferenceStore, useVueTorrentStore} from '@/stores'
+import { useAuthStore, useModalStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 import Navbar from '@/components/Navbar.vue'
 
 
 const router = useRouter()
 const route = useRoute()
-const theme = useTheme()
 
-const appStore = useAppStore()
+const authStore = useAuthStore()
 const modalStore = useModalStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -20,16 +18,14 @@ const vuetorrentStore = useVueTorrentStore()
 const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
 
 const checkAuthentication = async () => {
-  await appStore.updateAuthStatus()
+  await authStore.updateAuthStatus()
 
-  if (appStore.isAuthenticated) {
-    // TODO: init intervals
-    preferencesStore.fetchPreferences()
-    if (onLoginPage.value) redirectOnSuccess()
-    return
+  if (authStore.isAuthenticated && onLoginPage.value) {
+    redirectOnSuccess()
   }
-
-  if (!onLoginPage.value) router.push({ name: 'login', query: { redirect: router.currentRoute.value.fullPath } })
+  else if (!onLoginPage.value) {
+    await router.push({name: 'login', query: {redirect: router.currentRoute.value.fullPath}})
+  }
 }
 
 const blockContextMenu = () => {
@@ -55,15 +51,14 @@ const redirectOnSuccess = () => {
 }
 
 onBeforeMount(() => {
-  theme.global.name.value = vuetorrentStore.getThemeName()
-  appStore.fetchVersion()
+  vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(vuetorrentStore.language)
   checkAuthentication()
   blockContextMenu()
 })
 
 watch(
-  () => appStore.isAuthenticated,
+  () => authStore.isAuthenticated,
   async (isAuthenticated) => {
     if (isAuthenticated) {
       // TODO: init intervals
@@ -77,13 +72,13 @@ watch(
 </script>
 
 <template>
-  <v-app>
+  <v-layout>
     <component v-for="modal in modalStore.modals" :key="modal.guid" :is="modal.component" v-bind="{ guid: modal.guid, ...modal.props }" />
-    <Navbar />
+    <Navbar v-if="authStore.isAuthenticated" />
     <v-main class="background">
       <router-view />
     </v-main>
-  </v-app>
+  </v-layout>
 </template>
 
 <style scoped>

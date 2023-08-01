@@ -1,23 +1,29 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 
-import { RouteRecordRaw } from 'vue-router'
-import Dashboard from '@/pages/Dashboard.vue'
-import Settings from '@/pages/Settings.vue'
+import {RouteRecordRaw} from 'vue-router'
 
 const routes: RouteRecordRaw[] = [
   {
     name: 'dashboard',
     path: '/',
-    component: Dashboard,
+    component: () => import('@/pages/Dashboard.vue'),
   },
   {
     name: 'settings',
     path: '/settings',
-    component: Settings,
+    component: () => import('@/pages/Settings.vue'),
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('@/pages/Login.vue'),
+    meta: {
+      public: true // Allow access even if not logged in
+    },
   },
 ]
 
 export default createRouter({
   history: createWebHashHistory(),
-  routes
+  routes,
 })
