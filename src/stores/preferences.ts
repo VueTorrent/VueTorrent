@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import AppPreferences from '@/types/qbit/models/AppPreferences.ts'
 import { qbit } from '@/services'
 
-export const usePrerefenceStore = defineStore('preferences', () => {
+export const usePreferenceStore = defineStore('preferences', () => {
   const preferences = ref<AppPreferences | null>(null)
 
   async function fetchPreferences() {

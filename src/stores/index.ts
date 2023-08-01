@@ -1,5 +1,11 @@
-import { usePrerefenceStore } from './preferences'
+import { useAppStore } from './app'
+import { useModalStore } from './modals'
+import { usePreferenceStore } from './preferences'
+import { useVueTorrentStore } from './vuetorrent'
 
 export {
-  usePrerefenceStore
+  useAppStore,
+  useModalStore,
+  usePreferenceStore,
+  useVueTorrentStore
 }
