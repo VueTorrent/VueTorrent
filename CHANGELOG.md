@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.7.0](https://github.com/WDaan/VueTorrent/compare/v1.6.1...v1.7.0) (2023-08-01)
+
+
+### Features
+
+* **units:** customizable units ([#984](https://github.com/WDaan/VueTorrent/issues/984)) ([0594af3](https://github.com/WDaan/VueTorrent/commit/0594af387f9679610fd1bc887db3915ce345c65b))
+
+
+### Bug Fixes
+
+* App not redirecting to login page ([#1008](https://github.com/WDaan/VueTorrent/issues/1008)) ([cd1e77b](https://github.com/WDaan/VueTorrent/commit/cd1e77b0c22d7905ee34478187205f252856e4b9))
+* **Content:** Fix percent progress not displaying properly ([#1007](https://github.com/WDaan/VueTorrent/issues/1007)) ([ef546cb](https://github.com/WDaan/VueTorrent/commit/ef546cb96cc0ce255883bd9c2b2645c3abb48784))
+* **dashboard:** Not able to delete torrent in certain cases ([#975](https://github.com/WDaan/VueTorrent/issues/975)) ([4445d37](https://github.com/WDaan/VueTorrent/commit/4445d371390463d4a801dc6fa1edc04bf76b7847))
+* locale key for [#967](https://github.com/WDaan/VueTorrent/issues/967) ([#973](https://github.com/WDaan/VueTorrent/issues/973)) ([6b2a444](https://github.com/WDaan/VueTorrent/commit/6b2a44495c26600e016732a71e8bc634d8e6414d))
+* logout behaviour ([8533344](https://github.com/WDaan/VueTorrent/commit/8533344d888bb02e8e5ecaf2182b18351ea9ae70))
+* Remove savePath rule when creating category ([#970](https://github.com/WDaan/VueTorrent/issues/970)) ([9f59632](https://github.com/WDaan/VueTorrent/commit/9f59632d912acc58f022f9aacfd288d0cd66effc))
+
+
+### Improvements
+
+* Fixed intervals ([#1002](https://github.com/WDaan/VueTorrent/issues/1002)) ([898040d](https://github.com/WDaan/VueTorrent/commit/898040d5c926a49d6e168465347cd4c78c9c62c9))
+* **overview:** Add quick actions buttons ([#967](https://github.com/WDaan/VueTorrent/issues/967)) ([10ada6e](https://github.com/WDaan/VueTorrent/commit/10ada6ed23800f535e99f4e515a265dda4b71501))
+* **RssArticles:** Add clearable property to filter ([#992](https://github.com/WDaan/VueTorrent/issues/992)) ([5b24a02](https://github.com/WDaan/VueTorrent/commit/5b24a0235b2607d1f92e88e7561200d2ce32e832))
+* **search:** autofocus and / shortcut to open search ([#949](https://github.com/WDaan/VueTorrent/issues/949)) ([b2edc32](https://github.com/WDaan/VueTorrent/commit/b2edc3274d00c8d0fbf8b2718087c94da3e7247d))
+* **search:** Rework search data to save in store ([#991](https://github.com/WDaan/VueTorrent/issues/991)) ([470ae36](https://github.com/WDaan/VueTorrent/commit/470ae36cb57cbd501312f993f690e14c94bc7ccc))
+* **Torrent Card:** Highlight torrent card when TRC menu is showed ([#966](https://github.com/WDaan/VueTorrent/issues/966)) ([1ba0881](https://github.com/WDaan/VueTorrent/commit/1ba088163cc88ebd9917086995c911605c57b57a))
+* **Torrent Detail:** Add escape exception if modals ([#974](https://github.com/WDaan/VueTorrent/issues/974)) ([28aeb3e](https://github.com/WDaan/VueTorrent/commit/28aeb3e8f36b2ccfc1eb09bdbd6b06834a147954))
+* **torrentDetail:** top actions fire on current torrent ([#994](https://github.com/WDaan/VueTorrent/issues/994)) ([b547d9d](https://github.com/WDaan/VueTorrent/commit/b547d9d2174922002cf7086e269a6dfd55a1d44d))
+* **TRC:** display "set priority" visibility when queuing is enabled only ([#976](https://github.com/WDaan/VueTorrent/issues/976)) ([f2cd9e1](https://github.com/WDaan/VueTorrent/commit/f2cd9e19a118a2492170a4e99445cff5a956209a))
+
 ## [1.6.1](https://github.com/WDaan/VueTorrent/compare/v1.6.0...v1.6.1) (2023-07-13)
 
 ### Bug Fixes
