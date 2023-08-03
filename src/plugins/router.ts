@@ -1,29 +1,22 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
+import {routes} from '@/pages'
 
-import {RouteRecordRaw} from 'vue-router'
+import {useAuthStore} from '@/stores'
 
-const routes: RouteRecordRaw[] = [
-  {
-    name: 'dashboard',
-    path: '/',
-    component: () => import('@/pages/Dashboard.vue'),
-  },
-  {
-    name: 'settings',
-    path: '/settings',
-    component: () => import('@/pages/Settings.vue'),
-  },
-  {
-    name: 'login',
-    path: '/login',
-    component: () => import('@/pages/Login.vue'),
-    meta: {
-      public: true // Allow access even if not logged in
-    },
-  },
-]
-
-export default createRouter({
+const router = createRouter({
   history: createWebHashHistory(),
   routes,
 })
+
+router.beforeResolve((to, _, next) => {
+  const {isAuthenticated} = useAuthStore()
+  const isPublic = to.matched.some(record => record.meta.public)
+
+  if (!isPublic && !isAuthenticated) {
+    return next({name: 'login', query: {redirect: to.fullPath}})
+  }
+
+  return next()
+})
+
+export default router

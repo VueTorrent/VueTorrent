@@ -4,7 +4,7 @@ import {useRoute, useRouter} from 'vue-router'
 
 import { useAuthStore, useModalStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
-import Navbar from '@/components/Navbar.vue'
+import Navbar from '@/components/Navbar/Navbar.vue'
 
 
 const router = useRouter()
@@ -62,7 +62,7 @@ watch(
   async (isAuthenticated) => {
     if (isAuthenticated) {
       // TODO: init intervals
-      preferencesStore.fetchPreferences()
+      await preferencesStore.fetchPreferences()
     }
     else {
       //TODO: clear intervals
@@ -75,7 +75,7 @@ watch(
   <v-layout>
     <component v-for="modal in modalStore.modals" :key="modal.guid" :is="modal.component" v-bind="{ guid: modal.guid, ...modal.props }" />
     <Navbar v-if="authStore.isAuthenticated" />
-    <v-main class="background">
+    <v-main>
       <router-view />
     </v-main>
   </v-layout>
