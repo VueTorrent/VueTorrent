@@ -4,8 +4,8 @@ import type {
   ApplicationVersion,
   AppPreferences,
   Category,
-  Feed, FeedRule,
-  FeedRule as QbitFeedRule,
+  Feed,
+  FeedRule,
   Log,
   NetworkInterface,
   SearchJob,
@@ -133,7 +133,9 @@ export class QBitApi {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.axios.get('/torrents/tags').then(res => res.data.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
+    return this.axios.get('/torrents/tags')
+        .then(res => res.data)
+        .then(tags => tags.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
@@ -161,11 +163,26 @@ export class QBitApi {
   }
 
   async getFeeds(withData: boolean = false): Promise<Record<string, Feed>> {
-    return this.axios.get('/rss/items', { params: { withData } }).then(res => res.data)
+    return this.axios.get('/rss/items', { params: { withData } })
+        .then(res => res.data)
+        .then(payload => {
+          const feeds = []
+          for (const key in payload) {
+            feeds.push({name: key, ...payload[key]})
+          }
+        })
   }
 
-  async getRules(): Promise<Record<string, QbitFeedRule>> {
-    return this.axios.get('/rss/rules').then(res => res.data)
+  async getRules(): Promise<Record<string, FeedRule>> {
+    return this.axios.get('/rss/rules')
+        .then(res => res.data)
+        .then(payload => {
+          const rules: FeedRule[] = []
+          for (const key in payload) {
+            rules.push({name: key, ...payload[key]})
+          }
+          return rules
+        })
   }
 
   async editFeed(itemPath: string, destPath: string): Promise<void> {

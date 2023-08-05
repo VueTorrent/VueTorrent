@@ -107,6 +107,10 @@ export const useVueTorrentStore = defineStore('vuetorrent', () => {
     theme.global.name.value = getCurrentThemeName.value
   }
 
+  function toggleTheme() {
+    darkMode.value = !darkMode.value
+  }
+
   return {
     canvasPieceCountThreshold,
     darkMode,
@@ -137,5 +141,6 @@ export const useVueTorrentStore = defineStore('vuetorrent', () => {
     getCurrentThemeName,
     setLanguage,
     updateTheme,
+    toggleTheme
   }
 })

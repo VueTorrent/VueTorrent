@@ -10,6 +10,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const filteredTorrentsCount = computed(() => 0)
   const isSelectionMultiple = ref(false)
   const selectedTorrents = ref<string[]>([])
+  const latestSelectedTorrent = ref<number>(-1)
   const sortOptions = reactive({
     isCustomSortEnabled: false,
     sortBy: 'default',
@@ -23,7 +24,6 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const mainDataStore = useMaindataStore()
   const { i18n } = useI18n()
 
-  const isTorrentInSelection = computed((hash: string) => selectedTorrents.value.includes(hash))
   const getTorrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
       const selectedSize = selectedTorrents.value
@@ -42,5 +42,45 @@ export const useDashboardStore = defineStore('dashboard', () => {
     }
   })
 
-  return {currentPage, searchFilter, filteredTorrentsCount, isSelectionMultiple, selectedTorrents, sortOptions, isTorrentInSelection, getTorrentCountString}
+  function isTorrentInSelection(hash: string) {
+    return selectedTorrents.value.includes(hash)
+  }
+
+  function selectTorrent(hash: string) {
+    selectedTorrents.value.push(hash)
+    latestSelectedTorrent.value = mainDataStore.getTorrentIndexByHash(hash)
+  }
+
+  function selectTorrents(...hashes: string[]) {
+    hashes.forEach(selectTorrent)
+  }
+
+  function unselectTorrent(hash: string) {
+    const index = selectedTorrents.value.indexOf(hash)
+    if (index >= 0) {
+      selectedTorrents.value.splice(index, 1)
+    }
+  }
+
+  function unselectTorrents(...hashes: string[]) {
+    hashes.forEach(unselectTorrent)
+  }
+
+  function spanTorrentSelection(index: number) {
+    if (latestSelectedTorrent.value < 0) return
+    const start = Math.min(index, latestSelectedTorrent.value)
+    const end = Math.max(index, latestSelectedTorrent.value)
+    const hashes = mainDataStore.torrents.slice(start, end + 1).map(t => t.hash)
+    hashes.forEach(hash => (isTorrentInSelection(hash) ? unselectTorrent : selectTorrent)(hash))
+  }
+
+  function selectAllTorrents() {
+    selectTorrents(...mainDataStore.torrents.map(t => t.hash))
+  }
+
+  function unselectAllTorrents() {
+    unselectTorrents(...mainDataStore.torrents.map(t => t.hash))
+  }
+
+  return {currentPage, searchFilter, filteredTorrentsCount, isSelectionMultiple, selectedTorrents, latestSelectedTorrent, sortOptions, getTorrentCountString, isTorrentInSelection, selectTorrent, selectTorrents, unselectTorrent, unselectTorrents, spanTorrentSelection, selectAllTorrents, unselectAllTorrents}
 })

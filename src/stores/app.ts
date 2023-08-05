@@ -15,9 +15,9 @@ export const useAppStore = defineStore('app', () => {
     intervals.value = []
   }
 
-  async function fetchQbitVersion() {
+  async function updateQbitVersion() {
     version.value = await qbit.getAppVersion()
   }
 
-  return { intervals, version, fetchQbitVersion, pushInterval, clearIntervals }
+  return { intervals, version, updateQbitVersion, pushInterval, clearIntervals }
 })
