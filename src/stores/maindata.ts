@@ -1,6 +1,6 @@
 import { qbit } from '@/services'
 import { Category, ServerState, Torrent, Tracker } from '@/types/qbit/models'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 
@@ -14,6 +14,10 @@ export const useMaindataStore = defineStore('maindata', () => {
   const torrents = ref<Torrent[]>([])
   const trackers = ref<Tracker[]>([])
 
+  const getTorrentByHash = computed(() => {
+    return (hash: string) => torrents.value.find(t => t.hash === hash)
+  })
+
   async function fetchCategories() {
     categories.value = await qbit.getCategories()
   }
@@ -22,5 +26,5 @@ export const useMaindataStore = defineStore('maindata', () => {
     tags.value = await qbit.getAvailableTags()
   }
 
-  return { categories, isUpdatingMainData, latestSelectedTorrent, rid, serverState, tags, torrents, trackers, fetchCategories, fetchTags }
+  return { categories, isUpdatingMainData, latestSelectedTorrent, rid, serverState, tags, torrents, trackers, getTorrentByHash, fetchCategories, fetchTags }
 })

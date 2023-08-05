@@ -1,7 +1,7 @@
 import { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
 import { Theme } from '@/plugins/vuetify.ts'
 import { defineStore } from 'pinia'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
 
@@ -91,6 +91,8 @@ export const useVueTorrentStore = defineStore('vuetorrent', () => {
   const busyMobileCardProperties = ref({ ...mobilePropertiesTemplate })
   const doneMobileCardProperties = ref({ ...mobilePropertiesTemplate })
 
+  const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
+
   const i18n = useI18n()
   const theme = useTheme()
 
@@ -102,7 +104,7 @@ export const useVueTorrentStore = defineStore('vuetorrent', () => {
   }
 
   function updateTheme() {
-    theme.global.name.value = darkMode.value ? Theme.DARK : Theme.LIGHT
+    theme.global.name.value = getCurrentThemeName.value
   }
 
   return {
@@ -132,6 +134,7 @@ export const useVueTorrentStore = defineStore('vuetorrent', () => {
     doneDesktopTorrentProperties,
     busyMobileCardProperties,
     doneMobileCardProperties,
+    getCurrentThemeName,
     setLanguage,
     updateTheme,
   }

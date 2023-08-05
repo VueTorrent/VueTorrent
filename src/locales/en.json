@@ -1,7 +1,9 @@
 {
   "dashboard": {
     "title": "Dashboard",
-    "goToSettings": "Go to settings"
+    "goToSettings": "Go to settings",
+    "torrentsCount": "No torrent | {total} torrent | {total} torrents",
+    "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
   },
   "settings": {
     "title": "Settings",
