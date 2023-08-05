@@ -4,7 +4,7 @@ import AppPreferences from '@/types/qbit/models/AppPreferences.ts'
 import { qbit } from '@/services'
 
 export const usePreferenceStore = defineStore('preferences', () => {
-  const preferences = ref<AppPreferences | null>(null)
+  const preferences = ref<AppPreferences>()
 
   async function fetchPreferences() {
     preferences.value = await qbit.getAppPreferences()

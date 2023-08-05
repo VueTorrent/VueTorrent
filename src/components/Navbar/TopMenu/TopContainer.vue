@@ -6,7 +6,7 @@ const modalStore = useModalStore()
 const router = useRouter()
 
 const openAddModal = () => {
-  modalStore.openAddModal()
+  modalStore.createModal('AddTorrentModal')
 }
 const resumeTorrents = () => {
   // TODO
