@@ -3,8 +3,10 @@ import {ref} from 'vue'
 import TopContainer from '@/components/Navbar/TopMenu/TopContainer.vue'
 import CurrentSpeed from '@/components/Navbar/CurrentSpeed.vue'
 import TransferStats from '@/components/Navbar/TransferStats.vue'
+import {useVueTorrentStore} from '@/stores'
 
 const isDrawerOpen = ref(true)
+const vueTorrentStore = useVueTorrentStore()
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -28,6 +30,9 @@ const toggleDrawer = () => {
       </v-list-item>
       <v-list-item>
         <TransferStats />
+      </v-list-item>
+      <v-list-item>
+        <v-btn :icon="vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'" @click="vueTorrentStore.toggleTheme()" />
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
