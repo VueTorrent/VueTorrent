@@ -162,7 +162,7 @@ export class QBitApi {
     })
   }
 
-  async getFeeds(withData: boolean = false): Promise<Record<string, Feed>> {
+  async getFeeds(withData: boolean = false): Promise<Feed[]> {
     return this.axios.get('/rss/items', { params: { withData } })
         .then(res => res.data)
         .then(payload => {
@@ -170,10 +170,11 @@ export class QBitApi {
           for (const key in payload) {
             feeds.push({name: key, ...payload[key]})
           }
+          return feeds
         })
   }
 
-  async getRules(): Promise<Record<string, FeedRule>> {
+  async getRules(): Promise<FeedRule[]> {
     return this.axios.get('/rss/rules')
         .then(res => res.data)
         .then(payload => {

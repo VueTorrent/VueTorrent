@@ -33,5 +33,5 @@ export const useMaindataStore = defineStore('maindata', () => {
     //TODO
   }
 
-  return { categories, isUpdatingMainData, rid, serverState, tags, torrents, trackers, getTorrentByHash, getTorrentIndexByHash, fetchCategories, fetchTags }
+  return { categories, isUpdatingMainData, rid, serverState, tags, torrents, trackers, getTorrentByHash, getTorrentIndexByHash, fetchCategories, fetchTags, updateMainData }
 })

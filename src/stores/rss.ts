@@ -16,5 +16,5 @@ export const useRssStore = defineStore('rss', () => {
     rules.value = await qbit.getRules()
   }
 
-  return { feeds, rules }
+  return { feeds, rules, fetchFeeds, fetchRules }
 })
