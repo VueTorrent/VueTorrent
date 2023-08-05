@@ -32,7 +32,7 @@ const toggleDrawer = () => {
         <TransferStats />
       </v-list-item>
       <v-list-item>
-        <v-btn :icon="vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'" @click="vueTorrentStore.toggleTheme()" />
+        <v-btn elevation="0" :icon="vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'" @click="vueTorrentStore.toggleTheme()" />
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
