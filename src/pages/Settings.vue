@@ -51,7 +51,7 @@ const goBack = () => {
     </v-row>
 
     <v-row class="ma-0 pa-0">
-      <v-tabs v-model="tab" bg-color="primary" :grow="true">
+      <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
         <v-tab value="vuetorrent">{{ t('settings.tabs.vuetorrent') }}</v-tab>
         <v-tab value="downloads">{{ t('settings.tabs.downloads') }}</v-tab>
         <v-tab value="connection">{{ t('settings.tabs.connection') }}</v-tab>
@@ -66,7 +66,7 @@ const goBack = () => {
 
     <v-window v-model="tab">
       <v-window-item value="vuetorrent">
-        <v-tabs v-model="innerTabV" :grow="true" color="accent" bg-color="transparent">
+        <v-tabs v-model="innerTabV" grow color="accent" bg-color="transparent" show-arrows>
           <v-tab value="general">
             {{ t('settings.tabs.vuetorrentGeneral') }}
           </v-tab>
@@ -107,7 +107,7 @@ const goBack = () => {
       </v-window-item>
 
       <v-window-item value="rss">
-        <v-tabs v-model="innerTabR" :grow="true" color="accent" bg-color="transparent">
+        <v-tabs v-model="innerTabR" grow color="accent" bg-color="transparent">
           <v-tab value="general">
             {{ t('settings.tabs.rssGeneral') }}
           </v-tab>
