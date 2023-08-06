@@ -25,6 +25,7 @@
       "@/*": ["./src/*"]
     },
     "types": [
+      "node",
       "vue3-toastify/global",
       "pinia-plugin-persist"
     ]

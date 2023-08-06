@@ -29,6 +29,46 @@
       "tagsAndCategories": "Tags & Categories",
       "advanced": "Advanced"
     },
+    "vuetorrent": {
+      "general": {
+        "tip": "These settings are for the custom WebUI itself",
+        "showCurrentSpeed": "Show Current Speed",
+        "showSpeedGraph": "Show Speed Graph",
+        "showAlltimeStat": "Show All-Time Stats",
+        "showSessionStat": "Show Session Stats",
+        "showFreeSpace": "Show Free Space",
+        "showTrackerFilter": "Show Tracker Filter",
+        "isDrawerRight": "Right Drawer",
+        "isPaginationOnTop": "Top Pagination",
+        "language": "Language",
+        "paginationSize": "Pagination size",
+        "vueTorrentTitle": "VueTorrent title",
+        "dateFormat": "Date Format",
+        "openSideBarOnStart": "Open Side Bar on launch",
+        "isShutdownButtonVisible": "Show shutdown button",
+        "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
+        "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
+        "refreshInterval": "qBittorrent API refresh interval",
+        "refreshIntervalHint": "In milliseconds",
+        "fileContentInterval": "Torrent file content refresh interval",
+        "fileContentIntervalHint": "In milliseconds",
+        "canvasPieceCountThreshold": "Canvas piece count to disable rendering",
+        "currentVersion": "Current Version",
+        "qbittorrentVersion": "QBittorrent Version",
+        "registerMagnet": "Register magnet links",
+        "importSettings": "Import Settings",
+        "exportSettings": "Export Settings",
+        "resetSettings": "Reset Settings"
+      },
+      "desktopCard": {
+        "busyTorrentTip": "Properties to display for busy torrents on desktop",
+        "completedTorrentTip": "Properties to display for completed torrents on desktop"
+      },
+      "mobileCard": {
+        "busyTorrentTip": "Properties to display for busy torrents on mobile",
+        "completedTorrentTip": "Properties to display for completed torrents on mobile"
+      }
+    },
     "downloads": {
       "whenAddTorrent": {
         "subheader": "When adding a torrent",
