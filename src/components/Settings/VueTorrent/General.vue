@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TitleOptions } from '@/constants/vuetorrent'
+import { titleOptionsList } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales/locales'
 import { useAppStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
@@ -7,7 +7,6 @@ import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 const paginationSizes = ref([5, 15, 30, 50])
-const titleOptions = ref([TitleOptions.DEFAULT, TitleOptions.GLOBAL_SPEED, TitleOptions.FIRST_TORRENT_STATUS])
 const settingsField = ref('')
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
@@ -64,78 +63,88 @@ onBeforeMount(() => {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showCurrentSpeed"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showCurrentSpeed')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showSpeedGraph"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showSpeedGraph')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showAlltimeStat"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showAlltimeStat')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showSessionStat"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showSessionStat')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showFreeSpace"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showFreeSpace')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showTrackerFilter"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.showTrackerFilter')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isDrawerRight"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.isDrawerRight')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isPaginationOnTop"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.isPaginationOnTop')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.openSideBarOnStart"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBinarySize"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.useBinarySize')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed"
                       hide-details
+                      density="compact"
                       :label="t('settings.vuetorrent.general.useBitSpeed')" />
         </v-col>
       </v-row>
     </v-list-item>
 
-    <v-divider />
-
     <v-list-item>
       <v-row>
-        <v-col cols="12" sm="6" md="4" class="mb-n4">
+        <v-col cols="12" sm="6" md="4">
           <v-text-field
             v-model="vueTorrentStore.refreshInterval"
             type="number"
             :hint="t('settings.vuetorrent.general.refreshIntervalHint')"
             :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
-        <v-col cols="12" sm="6" md="4" class="mb-n4">
+        <v-col cols="12" sm="6" md="4">
           <v-text-field
             v-model="vueTorrentStore.fileContentInterval"
             type="number"
@@ -151,8 +160,6 @@ onBeforeMount(() => {
         </v-col>
       </v-row>
     </v-list-item>
-
-    <v-divider />
 
     <v-list-item>
       <v-row>
@@ -174,12 +181,11 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.title"
                     flat
                     hide-details
-                    :items="titleOptions"
+                    :items="titleOptionsList"
                     :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-text-field v-model="vueTorrentStore.dateFormat"
-                        hide-details
                         placeholder="DD/MM/YYYY, HH:mm:ss"
                         hint="using Dayjs"
                         :label="t('settings.vuetorrent.general.dateFormat')" />

@@ -1,7 +1,8 @@
 import { DashboardProperty } from './DashboardProperty'
-import { TitleOptions } from './TitleOptions'
+import { TitleOptions, titleOptionsList } from './TitleOptions'
 
 export {
   DashboardProperty,
-  TitleOptions
+  TitleOptions,
+  titleOptionsList
 }
