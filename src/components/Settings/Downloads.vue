@@ -399,10 +399,10 @@ const closeDeleteDialog = async () => {
                         :label="t('settings.downloads.runExternalProgram.onFinishedLabel')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-card>
+          <v-card elevation="2" variant="outlined">
             <v-card-title>{{ t('settings.downloads.runExternalProgram.supportParamTitle') }}</v-card-title>
             <v-card-text>
-              <ul>
+              <ul class="no-bullet">
                 <li>{{ t('settings.downloads.runExternalProgram.supportParamN') }}</li>
                 <li>{{ t('settings.downloads.runExternalProgram.supportParamL') }}</li>
                 <li>{{ t('settings.downloads.runExternalProgram.supportParamG') }}</li>
