@@ -12,6 +12,8 @@
     "@mdi/js": "^7.2.96",
     "axios": "^1.4.0",
     "pinia": "^2.1.6",
+    "typeface-roboto": "^1.1.13",
+    "typeface-roboto-mono": "^1.1.13",
     "uuid": "^9.0.0",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
