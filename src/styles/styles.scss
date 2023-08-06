@@ -190,3 +190,13 @@ body {
 .v-data-table {
   width: 100% !important;
 }
+
+.v-tabs--align-with-title.theme--light>.v-slide-group--is-overflowing>.v-slide-group__prev>.v-icon,
+.v-tabs--align-with-title.theme--light>.v-slide-group--is-overflowing>.v-slide-group__next>.v-icon {
+    color: white;
+}
+
+.v-tabs--align-with-title.theme--light>.v-slide-group--is-overflowing>.v-slide-group__prev--disabled>.v-icon,
+.v-tabs--align-with-title.theme--light>.v-slide-group--is-overflowing>.v-slide-group__next--disabled>.v-icon {
+    color: #ffffffB0 !important;
+}
