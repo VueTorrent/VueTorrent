@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { AppPreferences } from '@/enums/qbit'
-import { ScanDirs, ScanDirsEnum } from '@/enums/qbit/AppPreferences.ts'
+import { AppPreferences } from '@/constants/qbit'
+import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences.ts'
 import { usePreferenceStore } from '@/stores'
 import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -12,15 +12,15 @@ const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
 
 const contentLayoutOptions = [
-  { title: t('enums.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
-  { title: t('enums.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-  { title: t('enums.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER },
+  { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
+  { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
+  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER },
 ]
 
 const stopConditionOptions = [
-  { title: t('enums.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
-  { title: t('enums.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-  { title: t('enums.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
+  { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
+  { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
+  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
 ]
 
 const defaultTMMOptions = [
@@ -57,9 +57,9 @@ const monitoredFoldersHeaders = ref([
 ])
 const monitoredFoldersData = ref<MonitoredFolder[]>([])
 const monitoredFoldersMonitorTypeOptions = ref([
-  { title: t('enums.monitoredFolderSaveLocation.monitoredFolder'), value: ScanDirsEnum.MONITORED_FOLDER },
-  { title: t('enums.monitoredFolderSaveLocation.defaultSavePath'), value: ScanDirsEnum.DEFAULT_SAVE_PATH },
-  { title: t('enums.monitoredFolderSaveLocation.other'), value: -1 },
+  { title: t('constants.monitoredFolderSaveLocation.monitoredFolder'), value: ScanDirsEnum.MONITORED_FOLDER },
+  { title: t('constants.monitoredFolderSaveLocation.defaultSavePath'), value: ScanDirsEnum.DEFAULT_SAVE_PATH },
+  { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 },
 ])
 
 onBeforeMount(async () => {
@@ -151,7 +151,7 @@ const closeDeleteDialog = async () => {
       <v-select v-model="preferenceStore.preferences!.torrent_content_layout"
                 hide-details
                 :items="contentLayoutOptions"
-                :label="t('enums.contentLayout.title')"/>
+                :label="t('constants.contentLayout.title')"/>
 
       <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled"
                   hide-details
@@ -160,7 +160,7 @@ const closeDeleteDialog = async () => {
       <v-select v-model="preferenceStore.preferences!.torrent_stop_condition"
                 hide-details
                 :items="stopConditionOptions"
-                :label="t('enums.stopCondition.title')"/>
+                :label="t('constants.stopCondition.title')"/>
 
       <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode"
                   hide-details

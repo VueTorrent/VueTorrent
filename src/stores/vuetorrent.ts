@@ -1,4 +1,4 @@
-import { DashboardProperty, TitleOptions } from '@/enums/vuetorrent'
+import { DashboardProperty, TitleOptions } from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify.ts'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'

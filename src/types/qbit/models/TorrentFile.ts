@@ -1,4 +1,4 @@
-import type { Priority } from '@/enums/qbit'
+import type { Priority } from '@/constants/qbit'
 
 export default interface TorrentFile {
   /** Percentage of file pieces currently available (percentage/100) */

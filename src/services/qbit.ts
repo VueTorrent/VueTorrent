@@ -24,8 +24,8 @@ import type {
   GetTorrentPayload,
   LoginPayload,
 } from '@/types/qbit/payloads'
-import type { Priority } from '@/enums/qbit'
-import { LogType } from '@/enums/qbit'
+import type { Priority } from '@/constants/qbit'
+import { LogType } from '@/constants/qbit'
 
 type Parameters = Record<string, any>
 

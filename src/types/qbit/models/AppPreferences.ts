@@ -13,7 +13,7 @@ import type {
   UtpTcpMixedMode,
   DiskIOMode,
   DiskIOType
-} from '@/enums/qbit/AppPreferences'
+} from '@/constants/qbit/AppPreferences'
 
 export interface NetworkInterface {
   name: string

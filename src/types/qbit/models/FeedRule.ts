@@ -1,4 +1,4 @@
-import { AppPreferences } from '@/enums/qbit'
+import { AppPreferences } from '@/constants/qbit'
 
 export default interface FeedRule {
   /** Add matched torrent in paused mode */

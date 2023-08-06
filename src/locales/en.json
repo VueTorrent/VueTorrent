@@ -116,7 +116,7 @@
     "success": "Login successful!",
     "error": "Login failed!"
   },
-  "enums": {
+  "constants": {
     "contentLayout": {
       "title": "Torrent content layout",
       "original": "Original",

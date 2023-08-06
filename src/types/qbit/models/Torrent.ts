@@ -1,5 +1,5 @@
-import type { TorrentState } from '@/enums/qbit'
-import { Priority } from '@/enums/qbit'
+import type { TorrentState } from '@/constants/qbit'
+import { Priority } from '@/constants/qbit'
 
 export default interface Torrent {
   /** Time (Unix Epoch) when the torrent was added to the client */

@@ -1,4 +1,4 @@
-import type { TrackerStatus } from '@/enums/qbit'
+import type { TrackerStatus } from '@/constants/qbit'
 
 export default interface Tracker {
   /** Tracker message (there is no way of knowing what this message is - it's up to tracker admins) */
