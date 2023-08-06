@@ -18,12 +18,12 @@ import Vue3Toastify from 'vue3-toastify'
 import options from '@/plugins/toastify'
 
 // Pinia
-import { createPinia } from 'pinia'
+import pinia from '@/plugins/pinia'
 
 createApp(App)
   .use(router)
   .use(vuetify)
   .use(i18n)
   .use(Vue3Toastify, options)
-  .use(createPinia())
+  .use(pinia)
   .mount('#app')

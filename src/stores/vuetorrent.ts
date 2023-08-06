@@ -62,85 +62,98 @@ const mobilePropertiesTemplate = {
 }
 
 
-export const useVueTorrentStore = defineStore('vuetorrent', () => {
-  const language = ref('en')
-  const darkMode = ref(false)
-  const showFreeSpace = ref(true)
-  const showSpeedGraph = ref(true)
-  const showSessionStat = ref(true)
-  const showAlltimeStat = ref(true)
-  const showCurrentSpeed = ref(true)
-  const showTrackerFilter = ref(false)
-  const showSpeedInTitle = ref(false)
-  const deleteWithFiles = ref(false)
-  const title = ref<TitleOptions>(TitleOptions.DEFAULT)
-  const isDrawerRight = ref(false)
-  const isPaginationOnTop = ref(false)
-  const paginationSize = ref(15)
-  const dateFormat = ref('DD/MM/YYYY, HH:mm:ss')
-  const openSideBarOnStart = ref(true)
-  const isShutdownButtonVisible = ref(true)
-  const useBitSpeed = ref(false)
-  const useBinarySize = ref(false)
-  const refreshInterval = ref(2000)
-  const fileContentInterval = ref(5000)
-  const canvasPieceCountThreshold = ref(5000)
+export const useVueTorrentStore = defineStore('vuetorrent',
+  () => {
+    const language = ref('en')
+    const darkMode = ref(false)
+    const showFreeSpace = ref(true)
+    const showSpeedGraph = ref(true)
+    const showSessionStat = ref(true)
+    const showAlltimeStat = ref(true)
+    const showCurrentSpeed = ref(true)
+    const showTrackerFilter = ref(false)
+    const showSpeedInTitle = ref(false)
+    const deleteWithFiles = ref(false)
+    const title = ref<TitleOptions>(TitleOptions.DEFAULT)
+    const isDrawerRight = ref(false)
+    const isPaginationOnTop = ref(false)
+    const paginationSize = ref(15)
+    const dateFormat = ref('DD/MM/YYYY, HH:mm:ss')
+    const openSideBarOnStart = ref(true)
+    const isShutdownButtonVisible = ref(true)
+    const useBitSpeed = ref(false)
+    const useBinarySize = ref(false)
+    const refreshInterval = ref(2000)
+    const fileContentInterval = ref(5000)
+    const canvasPieceCountThreshold = ref(5000)
 
-  const busyDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
-  const doneDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
-  const busyMobileCardProperties = ref({ ...mobilePropertiesTemplate })
-  const doneMobileCardProperties = ref({ ...mobilePropertiesTemplate })
+    const busyDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
+    const doneDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
+    const busyMobileCardProperties = ref({ ...mobilePropertiesTemplate })
+    const doneMobileCardProperties = ref({ ...mobilePropertiesTemplate })
 
-  const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
+    const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
 
-  const i18n = useI18n()
-  const theme = useTheme()
+    const i18n = useI18n()
+    const theme = useTheme()
 
-  watch(language, setLanguage)
-  watch(darkMode, updateTheme)
+    watch(language, setLanguage)
+    watch(darkMode, updateTheme)
 
-  function setLanguage(newLang: string) {
-    i18n.locale.value = newLang
+    function setLanguage(newLang: string) {
+      i18n.locale.value = newLang
+    }
+
+    function updateTheme() {
+      theme.global.name.value = getCurrentThemeName.value
+    }
+
+    function toggleTheme() {
+      darkMode.value = !darkMode.value
+    }
+
+    return {
+      canvasPieceCountThreshold,
+      darkMode,
+      dateFormat,
+      deleteWithFiles,
+      fileContentInterval,
+      isDrawerRight,
+      isPaginationOnTop,
+      isShutdownButtonVisible,
+      language,
+      openSideBarOnStart,
+      paginationSize,
+      refreshInterval,
+      showAlltimeStat,
+      showCurrentSpeed,
+      showFreeSpace,
+      showSessionStat,
+      showSpeedGraph,
+      showSpeedInTitle,
+      showTrackerFilter,
+      title,
+      useBinarySize,
+      useBitSpeed,
+      busyDesktopTorrentProperties,
+      doneDesktopTorrentProperties,
+      busyMobileCardProperties,
+      doneMobileCardProperties,
+      getCurrentThemeName,
+      setLanguage,
+      updateTheme,
+      toggleTheme
+    }
+  },
+  {
+    persist: {
+      enabled: true,
+      strategies: [
+        {
+          storage: localStorage,
+          key: 'vuetorrent_webuiSettings'
+        }
+      ]
+    }
   }
-
-  function updateTheme() {
-    theme.global.name.value = getCurrentThemeName.value
-  }
-
-  function toggleTheme() {
-    darkMode.value = !darkMode.value
-  }
-
-  return {
-    canvasPieceCountThreshold,
-    darkMode,
-    dateFormat,
-    deleteWithFiles,
-    fileContentInterval,
-    isDrawerRight,
-    isPaginationOnTop,
-    isShutdownButtonVisible,
-    language,
-    openSideBarOnStart,
-    paginationSize,
-    refreshInterval,
-    showAlltimeStat,
-    showCurrentSpeed,
-    showFreeSpace,
-    showSessionStat,
-    showSpeedGraph,
-    showSpeedInTitle,
-    showTrackerFilter,
-    title,
-    useBinarySize,
-    useBitSpeed,
-    busyDesktopTorrentProperties,
-    doneDesktopTorrentProperties,
-    busyMobileCardProperties,
-    doneMobileCardProperties,
-    getCurrentThemeName,
-    setLanguage,
-    updateTheme,
-    toggleTheme
-  }
-})
+)
