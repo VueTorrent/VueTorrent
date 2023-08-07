@@ -144,6 +144,92 @@
         "supportParamK": "%K: Torrent ID",
         "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
       }
+    },
+    "advanced": {
+      "openDoc": "Open documentation",
+      "qbittorrent": {
+        "subheader": "qBittorrent Section",
+        "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
+        "allocatedRamHint": "in MiB",
+        "networking": {
+          "title": "Networking",
+          "networkInterfaces": {
+            "label": "Network interface",
+            "any": "Any interface"
+          },
+          "ipAddress": {
+            "label": "Optional IP address to bind to",
+            "all": "All addresses",
+            "allIPv4": "All IPv4 addresses",
+            "allIPv6": "All IPv6 addresses"
+          }
+        },
+        "saveInterval": "Save resume data interval",
+        "saveIntervalHint": "In minutes",
+        "recheckOnCompletion": "Recheck torrents on completion",
+        "refreshInterval": "GUI Refresh interval",
+        "refreshIntervalHint": "In milliseconds",
+        "resolveCountries": "Resolve peer countries",
+        "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
+        "embeddedTracker": {
+          "title": "Embedded Tracker",
+          "enable": "Enable embedded tracker",
+          "port": "Embedded tracker port",
+          "portForward": "Enable port forwarding for embedded tracker"
+        }
+      },
+      "libtorrent": {
+        "subheader": "libtorrent Section",
+        "asyncIoThreads": "Asynchronous I/O threads",
+        "hashingThreads": "Hashing threads (libtorrent >= 2.0)",
+        "filePoolSize": "File pool size",
+        "outstandingMemory": "Outstanding memory when checking torrents",
+        "outstandingMemoryHint": "In MiB",
+        "diskCache": "Disk cache (libtorrent < 2.0)",
+        "diskCacheHint": "In MiB",
+        "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
+        "diskCacheExpiryHint": "In seconds",
+        "diskQueueSize": "Disk queue size",
+        "diskQueueSizeHint": "In KiB",
+        "diskIoType": "Disk IO Type (libtorrent >= 2.0; requires restart)",
+        "diskIoReadMode": "Disk IO read mode",
+        "diskIoWriteMode": "Disk IO write mode",
+        "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)",
+        "pieceExtentAffinity": "Use piece extent affinity",
+        "sendUploadPieceSuggestions": "Send upload piece suggestions",
+        "sendBufferWatermark": "Send buffer watermark",
+        "sendBufferWatermarkHint": "In KiB",
+        "sendBufferLowWatermark": "Send buffer low watermark",
+        "sendBufferLowWatermarkHint": "In KiB",
+        "sendBufferWatermarkFactor": "Send buffer watermark factor",
+        "sendBufferWatermarkFactorHint": "In %",
+        "outgoingConnectionsPerSecond": "Outgoing connections per second",
+        "socketBacklogSize": "Socket backlog size",
+        "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]",
+        "outgoingPortsMax": "Outgoing ports (Max) [0: Disabled]",
+        "upnpLeaseDuration": "UPnP lease duration [0: Permanent lease]",
+        "peerTos": "DSCP value for connections to peers",
+        "utpTcpMixedModeAlgorithm": "μTP-TCP mixed mode algorithm",
+        "idnSupport": "Enable Internationalized Domain Name (IDN) support",
+        "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+        "validateHTTPSTrackerCertificate": "Validate HTTPS tracker certificate",
+        "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
+        "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
+        "uploadSlotsBehavior": "Upload slots behavior",
+        "uploadChokingAlgorithm": "Upload choking algorithm",
+        "announceAllTrackers": "Always announce to all trackers in a tier",
+        "announceAllTiers": "Always announce to all tiers",
+        "announceIP": "IP address reported to trackers (requires restart)",
+        "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
+        "stopTrackerTimeout": "Stop tracker timeout",
+        "peerTurnover": "Peer turnover disconnect percentage",
+        "peerTurnoverHint": "In %",
+        "peerTurnoverCutoff": "Peer turnover threshold percentage",
+        "peerTurnoverCutoffHint": "In %",
+        "peerTurnoverInterval": "Peer turnover disconnect interval",
+        "peerTurnoverIntervalHint": "In seconds",
+        "requestQueueSize": "Maximum outstanding requests to a single peer"
+      }
     }
   },
   "saveSuccess": "Settings saved successfully!",
