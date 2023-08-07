@@ -62,7 +62,7 @@ export default defineConfig(({ mode }) => {
         useCredentials: true,
         workbox: {
           skipWaiting: true,
-          globPatterns: ['**/*.{js,css,html,ico,png,svg}']
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']
         }
       })
     ],
