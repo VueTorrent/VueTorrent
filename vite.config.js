@@ -61,6 +61,7 @@ export default defineConfig(({ mode }) => {
         base: './',
         useCredentials: true,
         workbox: {
+          maximumFileSizeToCacheInBytes: 10000000,
           skipWaiting: true,
           globPatterns: ['**/*.{js,css,html,ico,png,svg}']
         }
