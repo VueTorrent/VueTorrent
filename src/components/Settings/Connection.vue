@@ -12,12 +12,12 @@ const proxyTypes = ref([
   { title: '(None)', value: 'none' },
   { title: 'SOCKS4', value: 'socks4' },
   { title: 'SOCKS5', value: 'socks5' },
-  { title: 'HTTP', value: 'http' }
+  { title: 'HTTP', value: 'http' },
 ])
 const bittorrent_protocol = ref([
   { title: t('constants.bittorrentProtocols.tcp_utp'), value: BitTorrentProtocol.TCP_uTP },
   { title: t('constants.bittorrentProtocols.tcp'), value: BitTorrentProtocol.TCP },
-  { title: t('constants.bittorrentProtocols.utp'), value: BitTorrentProtocol.uTP }
+  { title: t('constants.bittorrentProtocols.utp'), value: BitTorrentProtocol.uTP },
 ])
 const max_conn_enabled = ref(false)
 const max_conn_per_torrent_enabled = ref(false)
@@ -82,237 +82,239 @@ onBeforeMount(async () => {
 })
 
 watch(() => max_conn_enabled.value,
-  (newValue) => {
-    preferenceStore.preferences!.max_connec = newValue ? preferenceStore.preferences!.max_connec : -1
-  })
+    (newValue) => {
+      preferenceStore.preferences!.max_connec = newValue ? preferenceStore.preferences!.max_connec : -1
+    })
 watch(() => max_conn_per_torrent_enabled.value,
-  (newValue) => {
-    preferenceStore.preferences!.max_connec_per_torrent = newValue ? preferenceStore.preferences!.max_connec_per_torrent : -1
-  })
+    (newValue) => {
+      preferenceStore.preferences!.max_connec_per_torrent = newValue ? preferenceStore.preferences!.max_connec_per_torrent : -1
+    })
 watch(() => max_uploads_enabled.value,
-  (newValue) => {
-    preferenceStore.preferences!.max_uploads = newValue ? preferenceStore.preferences!.max_uploads : -1
-  })
+    (newValue) => {
+      preferenceStore.preferences!.max_uploads = newValue ? preferenceStore.preferences!.max_uploads : -1
+    })
 watch(() => max_uploads_per_torrent_enabled.value,
-  (newValue) => {
-    preferenceStore.preferences!.max_uploads_per_torrent = newValue ? preferenceStore.preferences!.max_uploads_per_torrent : -1
-  })
+    (newValue) => {
+      preferenceStore.preferences!.max_uploads_per_torrent = newValue ? preferenceStore.preferences!.max_uploads_per_torrent : -1
+    })
 watch(() => proxyType.value,
-  () => {
-    updateProxyType()
-  })
+    () => {
+      updateProxyType()
+    })
 watch(() => proxyAuth.value,
-  () => {
-    updateProxyType()
-  })
+    () => {
+      updateProxyType()
+    })
 </script>
 
 <template>
-  <v-list-item>
-    <v-select
-      v-model="preferenceStore.preferences!.bittorrent_protocol"
-      hide-details
-      :items="bittorrent_protocol"
-      :label="t('settings.connection.protocol')" />
-  </v-list-item>
-
-  <v-divider />
-  <v-list-subheader>{{ t('settings.connection.listeningPort.subheader') }}</v-list-subheader>
-
-  <v-list-item>
-    <v-row>
-      <v-col cols="auto">
-        <v-text-field
-          v-model="preferenceStore.preferences!.listen_port"
-          type="number"
+  <v-list>
+    <v-list-item>
+      <v-select
+          v-model="preferenceStore.preferences!.bittorrent_protocol"
           hide-details
-          :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
-      </v-col>
-      <v-col cols="auto">
-        <v-btn @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }}</v-btn>
-      </v-col>
-    </v-row>
-  </v-list-item>
+          :items="bittorrent_protocol"
+          :label="t('settings.connection.protocol')" />
+    </v-list-item>
 
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.upnp"
-                hide-details
-                :label="t('settings.connection.listeningPort.useUPnP')" />
-  </v-list-item>
+    <v-divider />
+    <v-list-subheader>{{ t('settings.connection.listeningPort.subheader') }}</v-list-subheader>
 
-  <v-divider />
-  <v-list-subheader>{{ t('settings.connection.connectionLimits.subheader') }}</v-list-subheader>
+    <v-list-item>
+      <v-row>
+        <v-col cols="auto">
+          <v-text-field
+              v-model="preferenceStore.preferences!.listen_port"
+              type="number"
+              hide-details
+              :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
+        </v-col>
+        <v-col cols="auto">
+          <v-btn @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }}</v-btn>
+        </v-col>
+      </v-row>
+    </v-list-item>
 
-  <v-list-item>
-    <v-row>
-      <v-col cols="8">
-        <v-checkbox v-model="max_conn_enabled"
-                    hide-details
-                    :label="t('settings.connection.connectionLimits.globalMaxConnection')" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="preferenceStore.preferences!.max_connec"
-                      :disabled="!max_conn_enabled"
-                      type="number"
-                      hide-details />
-      </v-col>
-    </v-row>
-  </v-list-item>
-
-  <v-list-item>
-    <v-row>
-      <v-col cols="8">
-        <v-checkbox v-model="max_conn_per_torrent_enabled"
-                    hide-details
-                    :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="preferenceStore.preferences!.max_connec_per_torrent"
-                      :disabled="!max_conn_per_torrent_enabled"
-                      type="number"
-                      hide-details />
-      </v-col>
-    </v-row>
-  </v-list-item>
-
-  <v-list-item>
-    <v-row>
-      <v-col cols="8">
-        <v-checkbox v-model="max_uploads_enabled"
-                    hide-details
-                    :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="preferenceStore.preferences!.max_uploads"
-                      :disabled="!max_uploads_enabled"
-                      type="number"
-                      hide-details />
-      </v-col>
-    </v-row>
-  </v-list-item>
-
-  <v-list-item>
-    <v-row>
-      <v-col cols="8">
-        <v-checkbox
-          v-model="max_uploads_per_torrent_enabled"
-          hide-details
-          :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="preferenceStore.preferences!.max_uploads_per_torrent"
-                      :disabled="!max_uploads_per_torrent_enabled"
-                      type="number"
-                      hide-details />
-      </v-col>
-    </v-row>
-  </v-list-item>
-
-  <v-divider />
-  <v-list-subheader>{{ t('settings.connection.proxy.subheader') }}</v-list-subheader>
-
-  <v-list-item>
-    <v-row>
-      <v-col cols="5">
-        <v-select v-model="proxyType"
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.upnp"
                   hide-details
-                  :items="proxyTypes" />
-      </v-col>
-      <v-col cols="4">
-        <v-text-field v-model="preferenceStore.preferences!.proxy_ip"
-                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
-                      hide-details
-                      :label="t('settings.connection.proxy.host')" />
-      </v-col>
-      <v-col cols="3">
-        <v-text-field v-model="preferenceStore.preferences!.proxy_port"
-                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
-                      type="number"
-                      hide-details
-                      :label="t('settings.connection.proxy.port')" />
-      </v-col>
-    </v-row>
-  </v-list-item>
+                  :label="t('settings.connection.listeningPort.useUPnP')" />
+    </v-list-item>
 
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.proxy_peer_connections"
-                :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
-                hide-details
-                :label="t('settings.connection.proxy.peerConnections')" />
-  </v-list-item>
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.proxy_torrents_only"
-                :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
-                hide-details
-                :label="t('settings.connection.proxy.torrentOnly')" />
-  </v-list-item>
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.proxy_hostname_lookup"
-                :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
-                hide-details
-                :label="t('settings.connection.proxy.hostNameLookup')" />
-  </v-list-item>
+    <v-divider />
+    <v-list-subheader>{{ t('settings.connection.connectionLimits.subheader') }}</v-list-subheader>
 
-  <v-list-item>
-    <v-checkbox v-model="proxyAuth"
-                :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
-                hide-details
-                :label="t('settings.connection.proxy.auth.subtitle')" />
-    <v-row>
-      <v-col>
-        <v-text-field v-model="preferenceStore.preferences!.proxy_username"
-                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled"
-                      dense
+    <v-list-item>
+      <v-row>
+        <v-col cols="8">
+          <v-checkbox v-model="max_conn_enabled"
                       hide-details
-                      :label="t('settings.connection.proxy.auth.username')" />
-        <v-text-field v-model="preferenceStore.preferences!.proxy_password"
-                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled"
+                      :label="t('settings.connection.connectionLimits.globalMaxConnection')" />
+        </v-col>
+        <v-col cols="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_connec"
+                        :disabled="!max_conn_enabled"
+                        type="number"
+                        hide-details />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="8">
+          <v-checkbox v-model="max_conn_per_torrent_enabled"
                       hide-details
-                      :label="t('settings.connection.proxy.auth.password')"
-                      :type="showPassword ? 'text' : 'password'"
-                      :append-icon="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled
+                      :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')" />
+        </v-col>
+        <v-col cols="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_connec_per_torrent"
+                        :disabled="!max_conn_per_torrent_enabled"
+                        type="number"
+                        hide-details />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="8">
+          <v-checkbox v-model="max_uploads_enabled"
+                      hide-details
+                      :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')" />
+        </v-col>
+        <v-col cols="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_uploads"
+                        :disabled="!max_uploads_enabled"
+                        type="number"
+                        hide-details />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="8">
+          <v-checkbox
+              v-model="max_uploads_per_torrent_enabled"
+              hide-details
+              :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
+        </v-col>
+        <v-col cols="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_uploads_per_torrent"
+                        :disabled="!max_uploads_per_torrent_enabled"
+                        type="number"
+                        hide-details />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-divider />
+    <v-list-subheader>{{ t('settings.connection.proxy.subheader') }}</v-list-subheader>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="5">
+          <v-select v-model="proxyType"
+                    hide-details
+                    :items="proxyTypes" />
+        </v-col>
+        <v-col cols="4">
+          <v-text-field v-model="preferenceStore.preferences!.proxy_ip"
+                        :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
+                        hide-details
+                        :label="t('settings.connection.proxy.host')" />
+        </v-col>
+        <v-col cols="3">
+          <v-text-field v-model="preferenceStore.preferences!.proxy_port"
+                        :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
+                        type="number"
+                        hide-details
+                        :label="t('settings.connection.proxy.port')" />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.proxy_peer_connections"
+                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
+                  hide-details
+                  :label="t('settings.connection.proxy.peerConnections')" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.proxy_torrents_only"
+                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+                  hide-details
+                  :label="t('settings.connection.proxy.torrentOnly')" />
+    </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.proxy_hostname_lookup"
+                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+                  hide-details
+                  :label="t('settings.connection.proxy.hostNameLookup')" />
+    </v-list-item>
+
+    <v-list-item>
+      <v-checkbox v-model="proxyAuth"
+                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+                  hide-details
+                  :label="t('settings.connection.proxy.auth.subtitle')" />
+      <v-row>
+        <v-col>
+          <v-text-field v-model="preferenceStore.preferences!.proxy_username"
+                        :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled"
+                        dense
+                        hide-details
+                        :label="t('settings.connection.proxy.auth.username')" />
+          <v-text-field v-model="preferenceStore.preferences!.proxy_password"
+                        :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled"
+                        hide-details
+                        :label="t('settings.connection.proxy.auth.password')"
+                        :type="showPassword ? 'text' : 'password'"
+                        :append-icon="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 || !preferenceStore.preferences!.proxy_auth_enabled
                       ? ''
                       : showPassword
                         ? 'mdi-eye'
                         : 'mdi-eye-off'"
-                      @click:append="showPassword = !showPassword" />
-      </v-col>
-    </v-row>
-  </v-list-item>
+                        @click:append="showPassword = !showPassword" />
+        </v-col>
+      </v-row>
+    </v-list-item>
 
-  <v-list-item>
-    <span class="text-h5">{{ t('settings.connection.proxy.auth.tip') }}</span>
-  </v-list-item>
+    <v-list-item>
+      <span class="text-h5">{{ t('settings.connection.proxy.auth.tip') }}</span>
+    </v-list-item>
 
-  <v-divider />
-  <v-list-subheader>{{ t('settings.connection.ipFiltering.subheader') }}</v-list-subheader>
+    <v-divider />
+    <v-list-subheader>{{ t('settings.connection.ipFiltering.subheader') }}</v-list-subheader>
 
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.ip_filter_enabled"
-                hide-details
-                :label="t('settings.connection.ipFiltering.filterPath')" />
-    <v-text-field v-model="preferenceStore.preferences!.ip_filter_path"
-                  :disabled="!preferenceStore.preferences!.ip_filter_enabled"
-                  hide-details />
-  </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_enabled"
+                  hide-details
+                  :label="t('settings.connection.ipFiltering.filterPath')" />
+      <v-text-field v-model="preferenceStore.preferences!.ip_filter_path"
+                    :disabled="!preferenceStore.preferences!.ip_filter_enabled"
+                    hide-details />
+    </v-list-item>
 
-  <v-list-item>
-    <v-checkbox v-model="preferenceStore.preferences!.ip_filter_trackers"
-                hide-details
-                :label="t('settings.connection.ipFiltering.applyToTrackers')" />
-  </v-list-item>
+    <v-list-item>
+      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_trackers"
+                  hide-details
+                  :label="t('settings.connection.ipFiltering.applyToTrackers')" />
+    </v-list-item>
 
-  <v-list-item>
-    <v-list-subheader>{{ t('settings.connection.ipFiltering.bannedIps') }}</v-list-subheader>
-  </v-list-item>
+    <v-list-item>
+      <v-list-subheader>{{ t('settings.connection.ipFiltering.bannedIps') }}</v-list-subheader>
+    </v-list-item>
 
-  <v-list-item>
-    <v-textarea v-model="preferenceStore.preferences!.banned_IPs"
-                auto-grow
-                clearable
-                persistent-hint
-                :hint="t('settings.connection.ipFiltering.bannedIpsHint')" />
-  </v-list-item>
+    <v-list-item>
+      <v-textarea v-model="preferenceStore.preferences!.banned_IPs"
+                  auto-grow
+                  clearable
+                  persistent-hint
+                  :hint="t('settings.connection.ipFiltering.bannedIpsHint')" />
+    </v-list-item>
+  </v-list>
 </template>
 
 <style scoped lang="scss">
