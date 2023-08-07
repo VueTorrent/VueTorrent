@@ -145,6 +145,189 @@
         "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
       }
     },
+    "connection": {
+      "protocol": "Peer connection protocol",
+      "listeningPort": {
+        "subheader": "Listening Port",
+        "incomingConnectionPort": "Port used for incoming connections",
+        "randomPort": "Random Port",
+        "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router"
+      },
+      "connectionLimits": {
+        "subheader": "Connection Limits",
+        "globalMaxConnection": "Global maximum number of connections",
+        "perTorrentMaxConnection": "Maximum number of connections per torrent",
+        "globalMaxUploadSlots": "Global maximum number of upload slots",
+        "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent"
+      },
+      "proxy": {
+        "subheader": "Proxy Server",
+        "host": "Host",
+        "port": "Port",
+        "peerConnections": "Use proxy for peer connections",
+        "torrentOnly": "Use proxy only for torrents",
+        "hostNameLookup": "Use proxy for hostname lookup",
+        "auth": {
+          "subtitle": "Authentication",
+          "username": "Username",
+          "password": "Password",
+          "tip": "Info: The password is saved unencrypted"
+        }
+      },
+      "ipFiltering": {
+        "subheader": "IP Filtering",
+        "filterPath": "Filter path (.dat, .p2p, .p2b)",
+        "applyToTrackers": "Apply to trackers",
+        "bannedIps": "Manually banned IP addresses",
+        "bannedIpsHint": "One on each line"
+      }
+    },
+    "speed": {
+      "subheader": {
+        "global": "Global Rate Limits",
+        "alternative": "Alternative Rate Limits",
+        "settings": "Rate Limits Settings"
+      },
+      "upload": "Upload (in B/s)",
+      "download": "Download (in B/s)",
+      "tip": "0 means unlimited",
+      "scheduler": {
+        "subheader": "Schedule the use of alternative rate limits",
+        "from": "From",
+        "to": "To",
+        "selectButtonLabel": "Select time",
+        "when": "When"
+      },
+      "settings": {
+        "applyToUtp": "Apply rate limit to µTP protocol",
+        "applyToTransportOverhead": "Apply rate limit to transport overhead",
+        "applyToPeersOnLan": "Apply rate limit to peers on LAN"
+      }
+    },
+    "bittorrent": {
+      "privacy": {
+        "subheader": "Privacy",
+        "enableDHT": "Enable DHT (decentralized network) to find more peers",
+        "enablePeX": "Enable Peer Exchange (PeX) to find more peers",
+        "enableLPD": "Enable Local Peer Discovery to find more peers",
+        "encryptionMode": "Encryption Mode",
+        "enableAnonymous": "Enable anonymous mode",
+        "moreInfo": "More Information"
+      },
+      "maxActiveCheckingTorrents": "Max active checking torrents",
+      "torrentQueueing": {
+        "subheader": "Torrent Queueing",
+        "maxActiveDownload": "Maximum active downloads",
+        "maxActiveUpload": "Maximum active uploads",
+        "maxActiveTorrent": "Maximum active torrents",
+        "excludeSlowTorrent": "Do not count slow torrents in these limits",
+        "downloadRateLimit": "Download rate threshold (in KiB/s)",
+        "uploadRateLimit": "Upload rate threshold (in KiB/s)",
+        "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
+      },
+      "seedLimits": {
+        "subheader": "Seed Limits",
+        "whenRatioReaches": "When ratio reaches",
+        "whenSeedingTimeReaches": "When seeding time reaches",
+        "whenSeedingTimeReachesHint": "In minutes",
+        "then": "Then"
+      },
+      "autoAddTrackers": "Automatically add these trackers to new downloads",
+      "autoAddTrackersHint": "One tracker per line"
+    },
+    "rss": {
+      "tabName": {
+        "general": "General",
+        "feeds": "Feeds",
+        "rules": "Rules"
+      },
+      "general": {
+        "reader": {
+          "subheader": "RSS Reader",
+          "enableProcessing": "Enable fetching RSS feeds",
+          "feedsRefreshInterval": "Feeds refresh interval",
+          "feedsRefreshIntervalHint": "In minutes",
+          "maximumArticlesPerFeed": "Maximum number of articles per feed"
+        },
+        "autoDownloader": {
+          "subheader": "RSS Torrent Auto Downloader",
+          "enable": "Enable auto downloading of RSS torrents"
+        },
+        "smartEpisodeFilter": {
+          "subheader": "RSS Smart Episode Filter",
+          "downloadEpisodes": "Download REPACK/PROPER episodes",
+          "filters": "Filters",
+          "filtersHint": "One per line"
+        }
+      },
+      "feeds": {
+        "btnCreateNew": "Add feed",
+        "refreshAll": "Refresh All"
+      },
+      "rules": {
+        "btnCreateNew": "Create Rule"
+      }
+    },
+    "webUI": {
+      "interface": {
+        "subheader": "Web User Interface (Remote Control)",
+        "ipAddress": "IP Address",
+        "port": "Port",
+        "useAlternativeWebUI": "Use Alternative WebUI",
+        "filesLocation": "Files location"
+      },
+      "authentication": {
+        "subheader": "Authentication",
+        "username": "Username",
+        "password": "Password",
+        "passwordPlaceholder": "(unchanged)",
+        "bypassLocalhost": "Bypass authentication for clients on localhost",
+        "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
+        "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
+        "maxAttempts": "Max attempts",
+        "banDuration": "Ban Duration",
+        "banDurationHint": "In seconds",
+        "sessionTimeout": "Session timeout",
+        "sessionTimeoutHint": "In seconds"
+      },
+      "https": {
+        "subheader": "Use HTTPS",
+        "certificate": "Certificate",
+        "key": "Key",
+        "tip": "Information about certificates"
+      },
+      "security": {
+        "subheader": "Security",
+        "clickjacking": "Enable clickjacking protection",
+        "csrf": "Enable Cross-Site Request Forgery (CSRF) protection",
+        "secureCookie": "Enable cookie secure flag (requires HTTPS)",
+        "hostHeaderValidation": "Enable Host header validation",
+        "hostHeaderValidationHint": "Seperated with semi-colon ( ; )",
+        "serverDomains": "Server Domains"
+      },
+      "customHeaders": "Add custom HTTP headers",
+      "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
+      "customHeadersHint": "One per line",
+      "reverseProxySupport": "Enable reverse proxy support",
+      "proxiesList": "Trusted proxies list",
+      "proxiesListHint": "Seperate IPs with semicolon ( ; )",
+      "dynDns": {
+        "subheader": "Update my dynamic domain name",
+        "providers": {
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
+        },
+        "registerBtn": "Register",
+        "domainName": "Domain name",
+        "username": "Username",
+        "password": "Password"
+      }
+    },
+    "tagsAndCategories": {
+      "btnCreateNew": "Create new",
+      "subHeaderTags": "Available Tags:",
+      "subHeaderCategories": "Available Categories:"
+    },
     "advanced": {
       "openDoc": "Open documentation",
       "qbittorrent": {
