@@ -182,7 +182,9 @@ export default defineComponent({
   async mounted() {
     await this.getTorrentProperties()
     await this.updateSelectedFiles()
-    await this.renderTorrentPieceStates()
+    if (!this.shouldRenderPieceStates) {
+      await this.renderTorrentPieceStates()
+    }
   },
   computed: {
     ...mapState(['webuiSettings']),
