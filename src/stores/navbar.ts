@@ -16,4 +16,14 @@ export const useNavbarStore = defineStore('navbar', () => {
   }
 
   return {downloadData, uploadData, pushDownloadData, pushUploadData}
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: sessionStorage,
+        key: 'vuetorrent_navbar'
+      }
+    ]
+  }
 })

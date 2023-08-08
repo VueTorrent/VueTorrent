@@ -17,4 +17,14 @@ export const useRssStore = defineStore('rss', () => {
   }
 
   return { feeds, rules, fetchFeeds, fetchRules }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: sessionStorage,
+        key: 'vuetorrent_rss'
+      }
+    ]
+  }
 })

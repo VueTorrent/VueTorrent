@@ -22,4 +22,14 @@ export const useModalStore = defineStore('modals', () => {
   }
 
   return { modals, createModal, deleteModal }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: sessionStorage,
+        key: 'vuetorrent_modals'
+      }
+    ]
+  }
 })

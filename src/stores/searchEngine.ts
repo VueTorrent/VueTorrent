@@ -13,4 +13,14 @@ export const useSearchEngineStore = defineStore('searchEngine', () => {
   }
 
   return { searchData, searchPlugins, fetchSearchPlugins }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: sessionStorage,
+        key: 'vuetorrent_searchEngine'
+      }
+    ]
+  }
 })

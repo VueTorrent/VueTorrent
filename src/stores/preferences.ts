@@ -15,4 +15,14 @@ export const usePreferenceStore = defineStore('preferences', () => {
   }
 
   return { preferences, fetchPreferences, setPreferences }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: sessionStorage,
+        key: 'vuetorrent_preferences'
+      }
+    ]
+  }
 })
