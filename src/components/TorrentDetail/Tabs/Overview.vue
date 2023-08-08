@@ -182,7 +182,7 @@ export default defineComponent({
   async mounted() {
     await this.getTorrentProperties()
     await this.updateSelectedFiles()
-    if (!this.shouldRenderPieceStates) {
+    if (this.shouldRenderPieceStates) {
       await this.renderTorrentPieceStates()
     }
   },
