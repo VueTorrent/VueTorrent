@@ -31,7 +31,7 @@
                     {{ $t('modals.detail.pageOverview.waitingForMetadata') }}
                   </span>
                 </div>
-                <div v-else-if="!shouldRenderPieceStates">
+                <div v-else-if="shouldRenderPieceStates">
                   <canvas id="pieceStates" width="0" height="1" />
                 </div>
                 <div v-if="!isFetchingMetadata && !shouldRenderPieceStates">
