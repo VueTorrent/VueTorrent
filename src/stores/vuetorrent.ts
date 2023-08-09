@@ -3,6 +3,7 @@ import { Theme } from '@/plugins/vuetify.ts'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 
 
@@ -95,6 +96,7 @@ export const useVueTorrentStore = defineStore('vuetorrent',
     const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
 
     const i18n = useI18n()
+    const router = useRouter()
     const theme = useTheme()
 
     watch(language, setLanguage)
@@ -110,6 +112,10 @@ export const useVueTorrentStore = defineStore('vuetorrent',
 
     function toggleTheme() {
       darkMode.value = !darkMode.value
+    }
+
+    async function redirectToLogin() {
+      await router.push({ name: 'login', query: { redirect: router.currentRoute.value.fullPath } })
     }
 
     return {
@@ -142,7 +148,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       getCurrentThemeName,
       setLanguage,
       updateTheme,
-      toggleTheme
+      toggleTheme,
+      redirectToLogin
     }
   },
   {

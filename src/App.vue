@@ -25,7 +25,7 @@ const checkAuthentication = async () => {
     redirectOnSuccess()
   }
   else if (!onLoginPage.value) {
-    await router.push({name: 'login', query: {redirect: router.currentRoute.value.fullPath}})
+    await vuetorrentStore.redirectToLogin()
   }
 }
 

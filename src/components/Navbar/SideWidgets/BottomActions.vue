@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { ConnectionStatus } from '@/constants/qbit'
-import { qbit } from '@/services'
-import { useAuthStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useAuthStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
-const router = useRouter()
 const {t} = useI18n()
 const authStore = useAuthStore()
+const appStore = useAppStore()
 const maindataStore = useMaindataStore()
 const vueTorrentStore = useVueTorrentStore()
 
@@ -29,12 +27,17 @@ const connectionStatusIcon = computed(() => {
 
 const shutdownDialog = ref(false)
 
-const logout = () => {}
-const toggleAltSpeed = () => {}
+const logout = async () => {
+  await authStore.logout()
+  await vueTorrentStore.redirectToLogin()
+}
+const toggleAltSpeed = () => {
+  appStore.toggleAlternativeMode()
+}
 const shutdown = async () => {
-  if (await qbit.shutdownApp()) {
+  if (await appStore.shutdownQbit()) {
     authStore.setAuthStatus(false)
-    await router.push({ name: 'login' })
+    await vueTorrentStore.redirectToLogin()
     toast.success(t('dialogs.shutdown.success'))
   } else {
     toast.error(t('dialogs.shutdown.error'))
