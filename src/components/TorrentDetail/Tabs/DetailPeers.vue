@@ -23,12 +23,12 @@
                 {{ item.flags }}
               </td>
               <td>{{ item.client }}</td>
-              <td>{{ item.progress | progress }}</td>
+              <td>{{ (item.progress * 100) | progress }}</td>
               <td>{{ item.dl_speed | formatSpeed(shouldUseBitSpeed()) }}</td>
               <td>{{ item.downloaded | formatData(shouldUseBinaryData()) }}</td>
               <td>{{ item.up_speed | formatSpeed(shouldUseBitSpeed()) }}</td>
               <td>{{ item.uploaded | formatData(shouldUseBinaryData()) }}</td>
-              <td>{{ item.relevance | progress }}</td>
+              <td>{{ (item.relevance * 100) | progress }}</td>
               <td>{{ item.files }}</td>
             </tr>
           </tbody>
