@@ -2,7 +2,7 @@
 import {computed, onBeforeMount, watch} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 
-import { useAppStore, useAuthStore, useMaindataStore, useModalStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useAuthStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 import Navbar from '@/components/Navbar/Navbar.vue'
 
@@ -13,7 +13,6 @@ const route = useRoute()
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const maindataStore = useMaindataStore()
-const modalStore = useModalStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -75,7 +74,6 @@ watch(
 
 <template>
   <v-layout>
-    <component v-for="modal in modalStore.modals" :key="modal.guid" :is="modal.component" v-bind="{ guid: modal.guid, ...modal.props }" />
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />

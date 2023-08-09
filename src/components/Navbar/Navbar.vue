@@ -1,12 +1,29 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
+import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
+import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
+import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
+import { ref } from 'vue'
 import TopContainer from '@/components/Navbar/TopMenu/TopContainer.vue'
-import CurrentSpeed from '@/components/Navbar/CurrentSpeed.vue'
-import TransferStats from '@/components/Navbar/TransferStats.vue'
-import {useVueTorrentStore} from '@/stores'
+import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
+import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
+import { useDashboardStore, useVueTorrentStore } from '@/stores'
+
+const vueTorrentStore = useVueTorrentStore()
+const dashboardStore = useDashboardStore()
+
+// const filterCount = computed(() => {
+//   const checks = [
+//     dashboardStore.searchFilter.length > 0,
+//     !!dashboardStore.sortOptions.titleFilter,
+//     !!dashboardStore.sortOptions.categoryFilter,
+//     !!dashboardStore.sortOptions.tagFilter,
+//     !!dashboardStore.sortOptions.trackerFilter,
+//   ]
+//   return checks.filter(Boolean).length
+// })
 
 const isDrawerOpen = ref(true)
-const vueTorrentStore = useVueTorrentStore()
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -19,22 +36,51 @@ const toggleDrawer = () => {
     <v-app-bar-title>
       <span class="text-accent">Vue</span>Torrent
     </v-app-bar-title>
+
+    <v-slide-x-transition>
+<!--      <v-speed-dial></v-speed-dial>-->
+    </v-slide-x-transition>
+
     <v-spacer />
+
     <TopContainer />
   </v-app-bar>
 
   <v-navigation-drawer v-model="isDrawerOpen">
     <v-list>
-      <v-list-item>
+      <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
         <CurrentSpeed />
       </v-list-item>
-      <v-list-item>
-        <TransferStats />
+
+      <v-list-item v-if="vueTorrentStore.showSpeedGraph">
+        <SpeedGraph />
       </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showAlltimeStat">
+        <TransferStats :session="false" />
+      </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showSessionStat">
+        <TransferStats :session="true" />
+      </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showFreeSpace">
+        <FreeSpace />
+      </v-list-item>
+
       <v-list-item>
-        <v-btn elevation="0" :icon="vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'" @click="vueTorrentStore.toggleTheme()" />
+        <FilterSelect />
+      </v-list-item>
+
+      <v-list-item>
+        <div class="d-flex justify-center">
+          {{ dashboardStore.torrentCountString }}
+        </div>
       </v-list-item>
     </v-list>
+    <template v-slot:append>
+      <BottomActions />
+    </template>
   </v-navigation-drawer>
 </template>
 

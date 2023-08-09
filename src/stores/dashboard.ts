@@ -15,16 +15,16 @@ export const useDashboardStore = defineStore('dashboard', () => {
     isCustomSortEnabled: false,
     sortBy: 'default',
     reverseOrder: false,
-    titleFilter: undefined,
-    categoryFilter: undefined,
-    tagFilter: undefined,
-    trackerFilter: undefined
+    titleFilter: undefined as string | undefined,
+    categoryFilter: undefined as string | undefined,
+    tagFilter: undefined as string | undefined,
+    trackerFilter: undefined as string | undefined
   })
 
   const mainDataStore = useMaindataStore()
-  const { i18n } = useI18n()
+  const { t } = useI18n()
 
-  const getTorrentCountString = computed(() => {
+  const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
       const selectedSize = selectedTorrents.value
           .map(hash => mainDataStore.getTorrentByHash(hash))
@@ -32,13 +32,13 @@ export const useDashboardStore = defineStore('dashboard', () => {
           .map(torrent => torrent!.size)
           .reduce((partial, size) => partial + size, 0)
 
-      return i18n.tc('dashboard.selectedTorrentsCount', selectedTorrents.value.length, {
+      return t('dashboard.selectedTorrentsCount', selectedTorrents.value.length, {
         count: selectedTorrents.value.length,
         total: mainDataStore.torrents.length,
         size: selectedSize
       })
     } else {
-      return i18n.tc('dashboard.torrentsCount', filteredTorrentsCount.value)
+      return t('dashboard.torrentsCount', filteredTorrentsCount.value)
     }
   })
 
@@ -82,5 +82,5 @@ export const useDashboardStore = defineStore('dashboard', () => {
     unselectTorrents(...mainDataStore.torrents.map(t => t.hash))
   }
 
-  return {currentPage, searchFilter, filteredTorrentsCount, isSelectionMultiple, selectedTorrents, latestSelectedTorrent, sortOptions, getTorrentCountString, isTorrentInSelection, selectTorrent, selectTorrents, unselectTorrent, unselectTorrents, spanTorrentSelection, selectAllTorrents, unselectAllTorrents}
+  return {currentPage, searchFilter, filteredTorrentsCount, isSelectionMultiple, selectedTorrents, latestSelectedTorrent, sortOptions, torrentCountString, isTorrentInSelection, selectTorrent, selectTorrents, unselectTorrent, unselectTorrents, spanTorrentSelection, selectAllTorrents, unselectAllTorrents}
 })

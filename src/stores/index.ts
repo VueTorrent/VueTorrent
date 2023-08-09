@@ -2,7 +2,6 @@ import { useAppStore } from './app'
 import { useAuthStore } from './auth'
 import {useDashboardStore} from './dashboard'
 import { useMaindataStore } from './maindata'
-import { useModalStore } from './modals'
 import {useNavbarStore} from './navbar'
 import { usePreferenceStore } from './preferences'
 import { useRssStore } from './rss'
@@ -14,7 +13,6 @@ export {
   useAuthStore,
   useDashboardStore,
   useMaindataStore,
-  useModalStore,
   useNavbarStore,
   usePreferenceStore,
   useRssStore,

@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import {useRouter} from 'vue-router'
-import {useModalStore} from '@/stores'
 
-const modalStore = useModalStore()
 const router = useRouter()
 
-const openAddModal = () => {
-  modalStore.createModal('AddTorrentModal')
-}
 const resumeTorrents = () => {
   // TODO
 }
@@ -35,7 +30,7 @@ const openSettings = () => {
   <div>
     <v-tooltip text="Add Torrent" location="bottom">
       <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-plus" v-bind="props" @click="openAddModal" />
+        <v-btn icon="mdi-plus" v-bind="props" />
       </template>
     </v-tooltip>
 

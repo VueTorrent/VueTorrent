@@ -3,7 +3,7 @@
 </script>
 
 <template>
-
+  FreeSpace
 </template>
 
 <style scoped>
