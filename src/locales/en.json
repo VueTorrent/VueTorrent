@@ -253,9 +253,9 @@
         "maxActiveUpload": "Maximum active uploads",
         "maxActiveTorrent": "Maximum active torrents",
         "excludeSlowTorrent": "Do not count slow torrents in these limits",
-        "downloadRateLimit": "Download rate threshold (in KiB/s)",
-        "uploadRateLimit": "Upload rate threshold (in KiB/s)",
-        "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
+        "downloadRateLimit": "Download rate threshold",
+        "uploadRateLimit": "Upload rate threshold",
+        "torrentInactivityTimer": "Torrent inactivity timer"
       },
       "seedLimits": {
         "subheader": "Seed Limits",
@@ -364,7 +364,6 @@
       "qbittorrent": {
         "subheader": "qBittorrent Section",
         "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
-        "allocatedRamHint": "in MiB",
         "networking": {
           "title": "Networking",
           "networkInterfaces": {
@@ -379,7 +378,6 @@
           }
         },
         "saveInterval": "Save resume data interval",
-        "saveIntervalHint": "In minutes",
         "recheckOnCompletion": "Recheck torrents on completion",
         "refreshInterval": "GUI Refresh interval",
         "resolveCountries": "Resolve peer countries",
@@ -397,13 +395,9 @@
         "hashingThreads": "Hashing threads (libtorrent >= 2.0)",
         "filePoolSize": "File pool size",
         "outstandingMemory": "Outstanding memory when checking torrents",
-        "outstandingMemoryHint": "In MiB",
         "diskCache": "Disk cache (libtorrent < 2.0)",
-        "diskCacheHint": "In MiB",
         "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
-        "diskCacheExpiryHint": "In seconds",
         "diskQueueSize": "Disk queue size",
-        "diskQueueSizeHint": "In KiB",
         "diskIoType": "Disk IO Type (libtorrent >= 2.0; requires restart)",
         "diskIoReadMode": "Disk IO read mode",
         "diskIoWriteMode": "Disk IO write mode",
@@ -411,11 +405,8 @@
         "pieceExtentAffinity": "Use piece extent affinity",
         "sendUploadPieceSuggestions": "Send upload piece suggestions",
         "sendBufferWatermark": "Send buffer watermark",
-        "sendBufferWatermarkHint": "In KiB",
         "sendBufferLowWatermark": "Send buffer low watermark",
-        "sendBufferLowWatermarkHint": "In KiB",
         "sendBufferWatermarkFactor": "Send buffer watermark factor",
-        "sendBufferWatermarkFactorHint": "In %",
         "outgoingConnectionsPerSecond": "Outgoing connections per second",
         "socketBacklogSize": "Socket backlog size",
         "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]",
@@ -436,11 +427,8 @@
         "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
         "stopTrackerTimeout": "Stop tracker timeout",
         "peerTurnover": "Peer turnover disconnect percentage",
-        "peerTurnoverHint": "In %",
         "peerTurnoverCutoff": "Peer turnover threshold percentage",
-        "peerTurnoverCutoffHint": "In %",
         "peerTurnoverInterval": "Peer turnover disconnect interval",
-        "peerTurnoverIntervalHint": "In seconds",
         "requestQueueSize": "Maximum outstanding requests to a single peer"
       }
     }
@@ -525,6 +513,7 @@
     }
   },
   "units": {
-    "minutes": "minutes"
+    "minutes": "minutes",
+    "seconds": "seconds"
   }
 }

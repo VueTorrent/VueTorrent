@@ -11,13 +11,13 @@ const preferenceStore = usePreferenceStore()
 const encyptionModeOptions = ref([
   { title: t('constants.encryption.preferEncryption'), value: Encryption.PREFER_ENCRYPTION },
   { title: t('constants.encryption.forceOn'), value: Encryption.FORCE_ON },
-  { title: t('constants.encryption.forceOff'), value: Encryption.FORCE_OFF },
+  { title: t('constants.encryption.forceOff'), value: Encryption.FORCE_OFF }
 ])
 const thenTypes = ref([
   { title: t('constants.maxRatioAction.pauseTorrent'), value: MaxRatioAction.PAUSE_TORRENT },
   { title: t('constants.maxRatioAction.removeTorrent'), value: MaxRatioAction.REMOVE_TORRENT },
   { title: t('constants.maxRatioAction.removeTorrentAndFiles'), value: MaxRatioAction.REMOVE_TORRENT_AND_FILES },
-  { title: t('constants.maxRatioAction.torrentSuperseeding'), value: MaxRatioAction.ENABLE_SUPERSEEDING },
+  { title: t('constants.maxRatioAction.torrentSuperseeding'), value: MaxRatioAction.ENABLE_SUPERSEEDING }
 ])
 </script>
 
@@ -45,10 +45,10 @@ const thenTypes = ref([
 
     <v-list-item>
       <v-select
-          v-model="preferenceStore.preferences!.encryption"
-          hide-details
-          :items="encyptionModeOptions"
-          :label="t('settings.bittorrent.privacy.encryptionMode')" />
+        v-model="preferenceStore.preferences!.encryption"
+        hide-details
+        :items="encyptionModeOptions"
+        :label="t('settings.bittorrent.privacy.encryptionMode')" />
     </v-list-item>
 
     <v-list-item>
@@ -106,25 +106,33 @@ const thenTypes = ref([
                   :label="t('settings.bittorrent.torrentQueueing.excludeSlowTorrent')" />
     </v-list-item>
     <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.downloadRateLimit')" />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.uploadRateLimit')" />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.slow_torrent_inactive_timer"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.torrentInactivityTimer')" />
+      <v-row class="mb-2">
+        <v-col>
+          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.downloadRateLimit')"
+                        suffix="kiB/s" />
+        </v-col>
+        <v-col>
+          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.uploadRateLimit')"
+                        suffix="kiB/s" />
+        </v-col>
+        <v-col>
+          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_inactive_timer"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.torrentInactivityTimer')"
+                        :suffix="t('units.seconds')" />
+        </v-col>
+      </v-row>
+
     </v-list-item>
 
     <v-divider />
@@ -157,7 +165,7 @@ const thenTypes = ref([
                         :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
                         persistent-hint
                         type="number"
-                        :hint="t('settings.bittorrent.seedLimits.whenSeedingTimeReachesHint')" />
+                        :suffix="t('units.minutes')" />
         </v-col>
       </v-row>
     </v-list-item>

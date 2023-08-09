@@ -141,14 +141,14 @@ onBeforeMount(() => {
           <v-text-field
             v-model="vueTorrentStore.refreshInterval"
             type="number"
-            :hint="t('settings.vuetorrent.general.refreshIntervalHint')"
+            suffix="ms"
             :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
         <v-col cols="12" sm="6" md="4">
           <v-text-field
             v-model="vueTorrentStore.fileContentInterval"
             type="number"
-            :hint="t('settings.vuetorrent.general.fileContentIntervalHint')"
+            suffix="ms"
             :label="t('settings.vuetorrent.general.fileContentInterval')" />
         </v-col>
         <v-col cols="12" sm="6" md="4">

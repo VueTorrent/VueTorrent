@@ -77,7 +77,7 @@ onBeforeMount(async () => {
         v-model="preferenceStore.preferences!.memory_working_set_limit"
         type="number"
         hide-details
-        :hint="t('settings.advanced.qbittorrent.allocatedRamHint')"
+        suffix="MiB"
         :label="t('settings.advanced.qbittorrent.allocatedRam')" />
     </v-list-item>
 
@@ -85,7 +85,8 @@ onBeforeMount(async () => {
       <v-text-field
         v-model="preferenceStore.preferences!.save_resume_data_interval"
         type="number"
-        :hint="t('settings.advanced.qbittorrent.saveIntervalHint')"
+        hide-details
+        :suffix="t('units.minutes')"
         :label="t('settings.advanced.qbittorrent.saveInterval')" />
     </v-list-item>
 
@@ -99,7 +100,8 @@ onBeforeMount(async () => {
       <v-text-field
         v-model="preferenceStore.preferences!.refresh_interval"
         type="number"
-        :hint="t('settings.advanced.qbittorrent.refreshIntervalHint')"
+        hide-details
+        suffix="ms"
         :label="t('settings.advanced.qbittorrent.refreshInterval')" />
     </v-list-item>
 
@@ -142,18 +144,17 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.embedded_tracker_port"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.qbittorrent.embeddedTracker.port')" />
+      <v-text-field v-model="preferenceStore.preferences!.embedded_tracker_port"
+                    :disabled="!preferenceStore.preferences!.enable_embedded_tracker"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.qbittorrent.embeddedTracker.port')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="preferenceStore.preferences!.embedded_tracker_port_forwarding"
-        hide-details
-        :label="t('settings.advanced.qbittorrent.embeddedTracker.portForward')" />
+      <v-checkbox v-model="preferenceStore.preferences!.embedded_tracker_port_forwarding"
+                  hide-details
+                  :label="t('settings.advanced.qbittorrent.embeddedTracker.portForward')" />
     </v-list-item>
 
     <v-divider />
@@ -186,59 +187,56 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.checking_memory_use"
-        type="number"
-        :hint="t('settings.advanced.libtorrent.outstandingMemoryHint')"
-        :label="t('settings.advanced.libtorrent.outstandingMemory')" />
+      <v-text-field v-model="preferenceStore.preferences!.checking_memory_use"
+                    type="number"
+                    hide-details
+                    suffix="MiB"
+                    :label="t('settings.advanced.libtorrent.outstandingMemory')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.disk_cache"
-        type="number"
-        :hint="t('settings.advanced.libtorrent.diskCacheHint')"
-        :label="t('settings.advanced.libtorrent.diskCache')" />
+      <v-text-field v-model="preferenceStore.preferences!.disk_cache"
+                    type="number"
+                    hide-details
+                    suffix="MiB"
+                    :label="t('settings.advanced.libtorrent.diskCache')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.disk_cache_ttl"
-        type="number"
-        :hint="t('settings.advanced.libtorrent.diskCacheExpiryHint')"
-        :label="t('settings.advanced.libtorrent.diskCacheExpiry')" />
+      <v-text-field v-model="preferenceStore.preferences!.disk_cache_ttl"
+                    type="number"
+                    hide-details
+                    :suffix="t('units.seconds')"
+                    :label="t('settings.advanced.libtorrent.diskCacheExpiry')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.disk_queue_size"
-        type="number"
-        :hint="t('settings.advanced.libtorrent.diskQueueSizeHint')"
-        :label="t('settings.advanced.libtorrent.diskQueueSize')" />
+      <v-text-field v-model="preferenceStore.preferences!.disk_queue_size"
+                    type="number"
+                    hide-details
+                    suffix="kiB"
+                    :label="t('settings.advanced.libtorrent.diskQueueSize')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.disk_io_type"
-        hide-details
-        :items="diskIoTypeOptions"
-        :label="t('settings.advanced.libtorrent.diskIoType')" />
+      <v-select v-model="preferenceStore.preferences!.disk_io_type"
+                hide-details
+                :items="diskIoTypeOptions"
+                :label="t('settings.advanced.libtorrent.diskIoType')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.disk_io_read_mode"
-        hide-details
-        :items="diskIoModeReadOptions"
-        :label="t('settings.advanced.libtorrent.diskIoReadMode')" />
+      <v-select v-model="preferenceStore.preferences!.disk_io_read_mode"
+                hide-details
+                :items="diskIoModeReadOptions"
+                :label="t('settings.advanced.libtorrent.diskIoReadMode')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.disk_io_write_mode"
-        hide-details
-        :items="diskIoModeWriteOptions"
-        :label="t('settings.advanced.libtorrent.diskIoWriteMode')" />
+      <v-select v-model="preferenceStore.preferences!.disk_io_write_mode"
+                hide-details
+                :items="diskIoModeWriteOptions"
+                :label="t('settings.advanced.libtorrent.diskIoWriteMode')" />
     </v-list-item>
 
     <v-list-item>
@@ -260,70 +258,62 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.send_buffer_watermark"
-        type="number"
-        hide-details
-        :hint="t('settings.advanced.libtorrent.sendBufferWatermarkHint')"
-        :label="t('settings.advanced.libtorrent.sendBufferWatermark')" />
+      <v-text-field v-model="preferenceStore.preferences!.send_buffer_watermark"
+                    type="number"
+                    hide-details
+                    suffix="kiB"
+                    :label="t('settings.advanced.libtorrent.sendBufferWatermark')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.send_buffer_low_watermark"
-        type="number"
-        hide-details
-        :hint="t('settings.advanced.libtorrent.sendBufferLowWatermarkHint')"
-        :label="t('settings.advanced.libtorrent.sendBufferLowWatermark')" />
+      <v-text-field v-model="preferenceStore.preferences!.send_buffer_low_watermark"
+                    type="number"
+                    hide-details
+                    suffix="kiB"
+                    :label="t('settings.advanced.libtorrent.sendBufferLowWatermark')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.send_buffer_watermark_factor"
-        type="number"
-        hide-details
-        :hint="t('settings.advanced.libtorrent.sendBufferWatermarkFactorHint')"
-        :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')" />
+      <v-text-field v-model="preferenceStore.preferences!.send_buffer_watermark_factor"
+                    type="number"
+                    hide-details
+                    suffix="%"
+                    :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.connection_speed"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')" />
+      <v-text-field v-model="preferenceStore.preferences!.connection_speed"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.socket_backlog_size"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.socketBacklogSize')" />
+      <v-text-field v-model="preferenceStore.preferences!.socket_backlog_size"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.socketBacklogSize')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.outgoing_ports_min"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.outgoingPortsMin')" />
+      <v-text-field v-model="preferenceStore.preferences!.outgoing_ports_min"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.outgoingPortsMin')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.outgoing_ports_max"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.outgoingPortsMax')" />
+      <v-text-field v-model="preferenceStore.preferences!.outgoing_ports_max"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.outgoingPortsMax')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.upnp_lease_duration"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.upnpLeaseDuration')" />
+      <v-text-field v-model="preferenceStore.preferences!.upnp_lease_duration"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.upnpLeaseDuration')" />
     </v-list-item>
 
     <v-list-item>
@@ -334,11 +324,10 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.utp_tcp_mixed_mode"
-        hide-details
-        :items="utpTcpMixedModeOptions"
-        :label="t('settings.advanced.libtorrent.utpTcpMixedModeAlgorithm')" />
+      <v-select v-model="preferenceStore.preferences!.utp_tcp_mixed_mode"
+                hide-details
+                :items="utpTcpMixedModeOptions"
+                :label="t('settings.advanced.libtorrent.utpTcpMixedModeAlgorithm')" />
     </v-list-item>
 
     <v-list-item>
@@ -348,17 +337,15 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="preferenceStore.preferences!.enable_multi_connections_from_same_ip"
-        hide-details
-        :label="t('settings.advanced.libtorrent.allowMultipleConnectionsFromTheSameIPAddress')" />
+      <v-checkbox v-model="preferenceStore.preferences!.enable_multi_connections_from_same_ip"
+                  hide-details
+                  :label="t('settings.advanced.libtorrent.allowMultipleConnectionsFromTheSameIPAddress')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="preferenceStore.preferences!.validate_https_tracker_certificate"
-        hide-details
-        :label="t('settings.advanced.libtorrent.validateHTTPSTrackerCertificate')" />
+      <v-checkbox v-model="preferenceStore.preferences!.validate_https_tracker_certificate"
+                  hide-details
+                  :label="t('settings.advanced.libtorrent.validateHTTPSTrackerCertificate')" />
     </v-list-item>
 
     <v-list-item>
@@ -368,26 +355,23 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox
-        v-model="preferenceStore.preferences!.block_peers_on_privileged_ports"
-        hide-details
-        :label="t('settings.advanced.libtorrent.blockPeersOnPrivilegedPorts')" />
+      <v-checkbox v-model="preferenceStore.preferences!.block_peers_on_privileged_ports"
+                  hide-details
+                  :label="t('settings.advanced.libtorrent.blockPeersOnPrivilegedPorts')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.upload_slots_behavior"
-        hide-details
-        :items="uploadSlotsBehaviorOptions"
-        :label="t('settings.advanced.libtorrent.uploadSlotsBehavior')" />
+      <v-select v-model="preferenceStore.preferences!.upload_slots_behavior"
+                hide-details
+                :items="uploadSlotsBehaviorOptions"
+                :label="t('settings.advanced.libtorrent.uploadSlotsBehavior')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.upload_choking_algorithm"
-        hide-details
-        :items="uploadChokingAlgorithmOptions"
-        :label="t('settings.advanced.libtorrent.uploadChokingAlgorithm')" />
+      <v-select v-model="preferenceStore.preferences!.upload_choking_algorithm"
+                hide-details
+                :items="uploadChokingAlgorithmOptions"
+                :label="t('settings.advanced.libtorrent.uploadChokingAlgorithm')" />
     </v-list-item>
 
     <v-list-item>
@@ -409,53 +393,47 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.max_concurrent_http_announces"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.maxConcurrentHTTPAnnounces')" />
+      <v-text-field v-model="preferenceStore.preferences!.max_concurrent_http_announces"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.maxConcurrentHTTPAnnounces')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.stop_tracker_timeout"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.stopTrackerTimeout')" />
+      <v-text-field v-model="preferenceStore.preferences!.stop_tracker_timeout"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.stopTrackerTimeout')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.peer_turnover"
-        type="number"
-        hide-details
-        :hint="t('settings.advanced.libtorrent.peerTurnoverHint')"
-        :label="t('settings.advanced.libtorrent.peerTurnover')" />
+      <v-text-field v-model="preferenceStore.preferences!.peer_turnover"
+                    type="number"
+                    hide-details
+                    suffix="%"
+                    :label="t('settings.advanced.libtorrent.peerTurnover')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.peer_turnover_cutoff"
-        type="number"
-        hide-details
-        :hint="t('settings.advanced.libtorrent.peerTurnoverCutoffHint')"
-        :label="t('settings.advanced.libtorrent.peerTurnoverCutoff')" />
+      <v-text-field v-model="preferenceStore.preferences!.peer_turnover_cutoff"
+                    type="number"
+                    hide-details
+                    suffix="%"
+                    :label="t('settings.advanced.libtorrent.peerTurnoverCutoff')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.peer_turnover_interval"
-        type="number"
-        :hint="t('settings.advanced.libtorrent.peerTurnoverIntervalHint')"
-        :label="t('settings.advanced.libtorrent.peerTurnoverInterval')" />
+      <v-text-field v-model="preferenceStore.preferences!.peer_turnover_interval"
+                    type="number"
+                    :suffix="t('units.seconds')"
+                    :label="t('settings.advanced.libtorrent.peerTurnoverInterval')" />
     </v-list-item>
 
     <v-list-item>
-      <v-text-field
-        v-model="preferenceStore.preferences!.request_queue_size"
-        type="number"
-        hide-details
-        :label="t('settings.advanced.libtorrent.requestQueueSize')" />
+      <v-text-field v-model="preferenceStore.preferences!.request_queue_size"
+                    type="number"
+                    hide-details
+                    :label="t('settings.advanced.libtorrent.requestQueueSize')" />
     </v-list-item>
   </v-list>
 </template>
