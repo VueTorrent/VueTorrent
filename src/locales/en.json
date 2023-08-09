@@ -8,9 +8,20 @@
   },
   "dashboard": {
     "title": "Dashboard",
-    "goToSettings": "Go to settings",
     "torrentsCount": "No torrent | {total} torrent | {total} torrents",
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
+  },
+  "logs": {
+    "title": "qBittorrent Logs"
+  },
+  "rssArticles": {
+    "title": "RSS Articles"
+  },
+  "searchEngine": {
+    "title": "Search torrents"
+  },
+  "torrentDetail": {
+    "title": "Torrent Detail"
   },
   "navbar": {
     "current_speed": {
@@ -72,9 +83,7 @@
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "refreshInterval": "qBittorrent API refresh interval",
-        "refreshIntervalHint": "In milliseconds",
         "fileContentInterval": "Torrent file content refresh interval",
-        "fileContentIntervalHint": "In milliseconds",
         "canvasPieceCountThreshold": "Canvas piece count to disable rendering",
         "currentVersion": "Current Version",
         "qbittorrentVersion": "QBittorrent Version",
@@ -211,8 +220,8 @@
         "alternative": "Alternative Rate Limits",
         "settings": "Rate Limits Settings"
       },
-      "upload": "Upload (in B/s)",
-      "download": "Download (in B/s)",
+      "upload": "Upload",
+      "download": "Download",
       "tip": "0 means unlimited",
       "scheduler": {
         "subheader": "Schedule the use of alternative rate limits",
@@ -252,7 +261,6 @@
         "subheader": "Seed Limits",
         "whenRatioReaches": "When ratio reaches",
         "whenSeedingTimeReaches": "When seeding time reaches",
-        "whenSeedingTimeReachesHint": "In minutes",
         "then": "Then"
       },
       "autoAddTrackers": "Automatically add these trackers to new downloads",
@@ -374,7 +382,6 @@
         "saveIntervalHint": "In minutes",
         "recheckOnCompletion": "Recheck torrents on completion",
         "refreshInterval": "GUI Refresh interval",
-        "refreshIntervalHint": "In milliseconds",
         "resolveCountries": "Resolve peer countries",
         "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
         "embeddedTracker": {
@@ -516,5 +523,8 @@
       "defaultSavePath": "Default Save Path",
       "other": "Other"
     }
+  },
+  "units": {
+    "minutes": "minutes"
   }
 }

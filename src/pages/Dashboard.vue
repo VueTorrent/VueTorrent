@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
-const router = useRouter()
 const { t } = useI18n()
-
-const goToSettings = () => {
-  router.push({ name: 'settings' })
-}
 </script>
 
 <template>
-  <div>
-    <h1>{{ t('dashboard.title') }}</h1>
-    <v-btn color="primary" @click="goToSettings">{{ t('dashboard.goToSettings') }}</v-btn>
+  <div class="pa-3">
+    <v-row no-gutters class="grey--text" align="center" justify="center">
+      <v-col>
+        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
+          {{ t('dashboard.title') }}
+        </h1>
+      </v-col>
+      <v-col>
+        <div class="d-flex justify-end">
+        </div>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
