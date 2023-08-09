@@ -21,6 +21,9 @@ $sideborder-margin: 6px;
 .sideborder.seeding {
   border-left: #{$sideborder-margin} solid #{$torrent-seeding};
 }
+.sideborder.uploading {
+  border-left: #{$sideborder-margin} solid #{$torrent-uploading};
+}
 .sideborder.checking {
   border-left: #{$sideborder-margin} solid #{$torrent-checking};
 }
@@ -53,6 +56,9 @@ $sideborder-margin: 6px;
 }
 .v-chip.seeding {
   background: #{$torrent-seeding} !important;
+}
+.v-chip.uploading {
+  background: #{$torrent-uploading} !important;
 }
 .v-chip.checking {
   background: #{$torrent-checking} !important;
