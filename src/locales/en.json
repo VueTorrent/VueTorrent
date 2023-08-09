@@ -34,6 +34,7 @@
   },
   "settings": {
     "title": "Settings",
+    "saveSuccess": "Settings saved successfully!",
     "tabs": {
       "vuetorrent": "VueTorrent",
       "vuetorrentGeneral": "General",
@@ -437,7 +438,6 @@
       }
     }
   },
-  "saveSuccess": "Settings saved successfully!",
   "login": {
     "title": "Login",
     "subtitle": "Enter your credentials",

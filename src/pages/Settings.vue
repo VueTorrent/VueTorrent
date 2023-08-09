@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import {useI18n} from 'vue-i18n'
@@ -20,17 +21,30 @@ import VMobileCard from '@/components/Settings/VueTorrent/MobileCard.vue'
 
 const router = useRouter()
 const { t } = useI18n()
+const preferenceStore = usePreferenceStore()
 
 const tab = ref('vuetorrent')
 const innerTabV = ref('general')
 const innerTabR = ref('general')
 
-const saveSettings = () => {
+const saveSettings = async () => {
+  await preferenceStore.setPreferences()
   toast.success(t('settings.saveSuccess'))
+  await preferenceStore.fetchPreferences()
+
+  if (!preferenceStore.preferences!.alternative_webui_enabled) {
+    const registrations = await navigator.serviceWorker.getRegistrations()
+    for (const registration of registrations) {
+      await registration.unregister()
+    }
+    window.location.hash = ''
+  } else {
+    goHome()
+  }
 }
 
-const goBack = () => {
-  router.go(-1)
+const goHome = () => {
+  router.push({name: 'dashboard'})
 }
 </script>
 
@@ -45,7 +59,7 @@ const goBack = () => {
       <v-col>
         <div class="d-flex justify-end">
           <v-btn color="accent" icon="mdi-content-save" variant="plain" @click="saveSettings" />
-          <v-btn icon="mdi-close" variant="plain" @click="goBack" />
+          <v-btn icon="mdi-home" variant="plain" @click="goHome" />
         </div>
       </v-col>
     </v-row>
