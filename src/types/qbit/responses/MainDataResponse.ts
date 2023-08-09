@@ -13,5 +13,5 @@ export default interface MainDataResponse {
   tags: Optional<string[]>
   tags_removed: Optional<string[]>
   trackers: Optional<Record<string, string[]>>
-  server_state?: Optional<ServerState>
+  server_state: Optional<ServerState>
 }

@@ -8,6 +8,7 @@
   },
   "dashboard": {
     "title": "Dashboard",
+    "not_complete": "Not Yet Completed",
     "torrentsCount": "No torrent | {total} torrent | {total} torrents",
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
   },

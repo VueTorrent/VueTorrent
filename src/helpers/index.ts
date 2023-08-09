@@ -1,7 +1,7 @@
 import { formatDataValue, formatDataUnit, formatData } from './data'
 import { toPrecision, formatProgress } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
-import { titleCase, capitalize } from './text'
+import { titleCase, capitalize, extractHostname } from './text'
 
 export {
   formatDataValue,
@@ -13,5 +13,6 @@ export {
   formatSpeedUnit,
   formatSpeed,
   titleCase,
-  capitalize
+  capitalize,
+  extractHostname
 }

@@ -1,8 +1,9 @@
-import * as AppPreferences from './AppPreferences.ts'
-import { ConnectionStatus } from './ConnectionStatus.ts'
-import { LogType } from './LogType.ts'
-import { Priority } from './Priority.ts'
-import { TorrentState } from './TorrentState.ts'
-import { TrackerStatus } from './TrackerStatus.ts'
+import * as AppPreferences from './AppPreferences'
+import { ConnectionStatus } from './ConnectionStatus'
+import { FilterState } from './FilterState'
+import { LogType } from './LogType'
+import { Priority } from './Priority'
+import { TorrentState } from './TorrentState'
+import { TrackerStatus } from './TrackerStatus'
 
-export { AppPreferences, ConnectionStatus, LogType, Priority, TrackerStatus, TorrentState }
+export { AppPreferences, ConnectionStatus, LogType, Priority, TrackerStatus, TorrentState, FilterState }

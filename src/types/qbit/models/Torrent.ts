@@ -90,6 +90,8 @@ export default interface Torrent {
   total_size: number
   /** The first tracker with working status. Returns empty string if no tracker is working. */
   tracker: string
+  /** The number of trackers registered for that torrent */
+  trackers_count: number
   /** Torrent upload speed limit (bytes/s). -1 if unlimited. */
   up_limit: number
   /** Amount of data uploaded */

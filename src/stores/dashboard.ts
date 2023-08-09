@@ -1,6 +1,8 @@
-import { computed, reactive, ref } from 'vue'
-import {defineStore} from 'pinia'
+import { FilterState } from '@/constants/qbit'
 import { useMaindataStore } from '@/stores'
+import { GetTorrentPayload } from '@/types/qbit/payloads'
+import { defineStore } from 'pinia'
+import { computed, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 
@@ -15,7 +17,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     isCustomSortEnabled: false,
     sortBy: 'default',
     reverseOrder: false,
-    titleFilter: undefined as string | undefined,
+    statusFilter: undefined as FilterState | undefined,
     categoryFilter: undefined as string | undefined,
     tagFilter: undefined as string | undefined,
     trackerFilter: undefined as string | undefined
@@ -27,10 +29,10 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
       const selectedSize = selectedTorrents.value
-          .map(hash => mainDataStore.getTorrentByHash(hash))
-          .filter(torrent => torrent !== undefined)
-          .map(torrent => torrent!.size)
-          .reduce((partial, size) => partial + size, 0)
+      .map(hash => mainDataStore.getTorrentByHash(hash))
+      .filter(torrent => torrent !== undefined)
+      .map(torrent => torrent!.size)
+      .reduce((partial, size) => partial + size, 0)
 
       return t('dashboard.selectedTorrentsCount', selectedTorrents.value.length, {
         count: selectedTorrents.value.length,
@@ -39,6 +41,16 @@ export const useDashboardStore = defineStore('dashboard', () => {
       })
     } else {
       return t('dashboard.torrentsCount', filteredTorrentsCount.value)
+    }
+  })
+
+  const getTorrentsPayload = computed<GetTorrentPayload>(() => {
+    return {
+      filter: sortOptions.statusFilter ?? FilterState.ALL,
+      category: sortOptions.categoryFilter,
+      tag: sortOptions.tagFilter,
+      sort: sortOptions.sortBy,
+      reverse: sortOptions.reverseOrder
     }
   })
 
@@ -82,5 +94,23 @@ export const useDashboardStore = defineStore('dashboard', () => {
     unselectTorrents(...mainDataStore.torrents.map(t => t.hash))
   }
 
-  return {currentPage, searchFilter, filteredTorrentsCount, isSelectionMultiple, selectedTorrents, latestSelectedTorrent, sortOptions, torrentCountString, isTorrentInSelection, selectTorrent, selectTorrents, unselectTorrent, unselectTorrents, spanTorrentSelection, selectAllTorrents, unselectAllTorrents}
+  return {
+    currentPage,
+    searchFilter,
+    filteredTorrentsCount,
+    isSelectionMultiple,
+    selectedTorrents,
+    latestSelectedTorrent,
+    sortOptions,
+    torrentCountString,
+    isTorrentInSelection,
+    selectTorrent,
+    selectTorrents,
+    unselectTorrent,
+    unselectTorrents,
+    spanTorrentSelection,
+    selectAllTorrents,
+    unselectAllTorrents,
+    getTorrentsPayload
+  }
 })

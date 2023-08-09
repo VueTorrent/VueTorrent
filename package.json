@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/js": "^7.2.96",
     "axios": "^1.4.0",
+    "dayjs": "^1.11.9",
     "pinia": "^2.1.6",
     "pinia-plugin-persist": "^1.0.0",
     "typeface-roboto": "^1.1.13",

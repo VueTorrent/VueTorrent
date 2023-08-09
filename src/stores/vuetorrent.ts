@@ -1,5 +1,7 @@
 import { DashboardProperty, TitleOptions } from '@/constants/vuetorrent'
+import { formatProgress, formatSpeed } from '@/helpers'
 import { Theme } from '@/plugins/vuetify.ts'
+import { useMaindataStore } from '@/stores/maindata.ts'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -98,6 +100,7 @@ export const useVueTorrentStore = defineStore('vuetorrent',
     const i18n = useI18n()
     const router = useRouter()
     const theme = useTheme()
+    const maindataStore = useMaindataStore()
 
     watch(language, setLanguage)
     watch(darkMode, updateTheme)
@@ -116,6 +119,34 @@ export const useVueTorrentStore = defineStore('vuetorrent',
 
     async function redirectToLogin() {
       await router.push({ name: 'login', query: { redirect: router.currentRoute.value.fullPath } })
+    }
+
+    function updateTitle() {
+      const mode = title.value
+      switch (mode) {
+        case TitleOptions.GLOBAL_SPEED:
+          document.title = '[' +
+            `D: ${formatSpeed(maindataStore.serverState?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
+            `U: ${formatSpeed(maindataStore.serverState?.up_info_speed ?? 0, useBitSpeed.value)}` +
+            '] VueTorrent'
+          break
+        case TitleOptions.FIRST_TORRENT_STATUS:
+          const torrent = maindataStore.torrents.at(0)
+          if (torrent) {
+            document.title = '[' +
+              `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
+              `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
+              `${formatProgress(torrent.progress)}` +
+              '] VueTorrent'
+          } else {
+            document.title = '[N/A] VueTorrent'
+          }
+          break
+        case TitleOptions.DEFAULT:
+        default:
+          document.title = 'VueTorrent'
+          break
+      }
     }
 
     return {
@@ -149,7 +180,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       setLanguage,
       updateTheme,
       toggleTheme,
-      redirectToLogin
+      redirectToLogin,
+      updateTitle
     }
   },
   {
