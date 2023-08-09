@@ -13,6 +13,9 @@
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
   },
   "navbar": {
+    "current_speed": {
+      "title": "Current Speed"
+    },
     "bottom_actions": {
       "logout": "Logout",
       "alt_speed": "Toggle alternative speed",

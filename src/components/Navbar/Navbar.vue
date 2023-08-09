@@ -12,17 +12,6 @@ import { useDashboardStore, useVueTorrentStore } from '@/stores'
 const vueTorrentStore = useVueTorrentStore()
 const dashboardStore = useDashboardStore()
 
-// const filterCount = computed(() => {
-//   const checks = [
-//     dashboardStore.searchFilter.length > 0,
-//     !!dashboardStore.sortOptions.titleFilter,
-//     !!dashboardStore.sortOptions.categoryFilter,
-//     !!dashboardStore.sortOptions.tagFilter,
-//     !!dashboardStore.sortOptions.trackerFilter,
-//   ]
-//   return checks.filter(Boolean).length
-// })
-
 const isDrawerOpen = ref(true)
 
 const toggleDrawer = () => {
@@ -37,9 +26,7 @@ const toggleDrawer = () => {
       <span class="text-accent">Vue</span>Torrent
     </v-app-bar-title>
 
-    <v-slide-x-transition>
-<!--      <v-speed-dial></v-speed-dial>-->
-    </v-slide-x-transition>
+    <!-- TODO: add filter chip when v-speed-dial releases -->
 
     <v-spacer />
 
