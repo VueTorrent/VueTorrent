@@ -2,13 +2,32 @@
   "common": {
     "cancel": "Cancel",
     "save": "Save",
-    "ok": "OK"
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No"
   },
   "dashboard": {
     "title": "Dashboard",
     "goToSettings": "Go to settings",
     "torrentsCount": "No torrent | {total} torrent | {total} torrents",
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
+  },
+  "navbar": {
+    "bottom_actions": {
+      "logout": "Logout",
+      "alt_speed": "Toggle alternative speed",
+      "conn_status": "Connection status",
+      "dark_mode": "Switch to light mode | Switch to dark mode",
+      "shutdown": "Shutdown qBittorrent"
+    }
+  },
+  "dialogs": {
+    "shutdown": {
+      "title": "Shutdown qBittorrent",
+      "content": "Do you really want to shutdown qBittorrent?",
+      "success": "qBittorrent was shutdown successfully!",
+      "error": "Unable to shutdown app. Make sure qBittorrent is running!"
+    }
   },
   "settings": {
     "title": "Settings",

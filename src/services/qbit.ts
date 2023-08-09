@@ -558,9 +558,10 @@ export class QBitApi {
 
   async shutdownApp(): Promise<boolean> {
     return this.axios
-    .post('/app/shutdown')
-    .then(() => true)
-    .catch(() => false)
+    .post('/app/shutdown').then(
+      () => true,
+      () => false
+    )
   }
 
   async getNetworkInterfaces(): Promise<NetworkInterface[]> {

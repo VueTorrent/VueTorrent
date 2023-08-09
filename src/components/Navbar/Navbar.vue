@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
 import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
 import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
 import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
-import { ref } from 'vue'
 import TopContainer from '@/components/Navbar/TopMenu/TopContainer.vue'
 import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
 import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'

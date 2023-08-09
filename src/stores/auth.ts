@@ -7,12 +7,12 @@ export const useAuthStore = defineStore('auth', () => {
 
   async function login(username: string, password: string) {
     const response = await qbit.login({username, password})
-    isAuthenticated.value = response === 'Ok.'
+    setAuthStatus(response === 'Ok.')
   }
 
   async function logout() {
     await qbit.logout()
-    isAuthenticated.value = false
+    setAuthStatus(false)
   }
 
   function setAuthStatus(status: boolean) {
@@ -20,7 +20,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function updateAuthStatus() {
-    isAuthenticated.value = await qbit.getAuthenticationStatus()
+    setAuthStatus(await qbit.getAuthenticationStatus())
   }
 
   return { isAuthenticated, login, logout, setAuthStatus, updateAuthStatus }
