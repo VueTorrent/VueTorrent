@@ -14,23 +14,23 @@ const preferenceStore = usePreferenceStore()
 const contentLayoutOptions = [
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
   { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
-  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER },
+  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
 ]
 
 const stopConditionOptions = [
   { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
   { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
-  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED },
+  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
 ]
 
 const defaultTMMOptions = [
   { title: t('settings.downloads.saveManagement.defaultTMMOptions.manual'), value: false },
-  { title: t('settings.downloads.saveManagement.defaultTMMOptions.automatic'), value: true },
+  { title: t('settings.downloads.saveManagement.defaultTMMOptions.automatic'), value: true }
 ]
 
 const paramChangedTMMOptions = [
   { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.relocateTorrent'), value: true },
-  { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false },
+  { title: t('settings.downloads.saveManagement.paramChangedTMMOptions.switchToManual'), value: false }
 ]
 
 const isExportDirEnabled = ref(false)
@@ -42,24 +42,24 @@ const monitoredFoldersEditedIndex = ref(-1)
 const monitoredFoldersEditedItem = ref({
   monitoredFolderPath: '',
   saveType: ScanDirsEnum.MONITORED_FOLDER,
-  otherPath: '',
+  otherPath: ''
 } as MonitoredFolder)
 const monitoredFoldersDefaultItem = ref({
   monitoredFolderPath: '',
   saveType: ScanDirsEnum.MONITORED_FOLDER,
-  otherPath: '',
+  otherPath: ''
 } as MonitoredFolder)
 const monitoredFoldersHeaders = ref([
   { title: t('settings.downloads.monitoredFolders.monitoredFolderPath'), key: 'monitoredFolderPath', sortable: false },
   { title: t('settings.downloads.monitoredFolders.saveType'), key: 'saveType', sortable: false },
   { title: t('settings.downloads.monitoredFolders.otherPath'), key: 'otherPath', sortable: false },
-  { title: t('settings.downloads.monitoredFolders.actions'), key: 'actions', sortable: false },
+  { title: t('settings.downloads.monitoredFolders.actions'), key: 'actions', sortable: false }
 ])
 const monitoredFoldersData = ref<MonitoredFolder[]>([])
 const monitoredFoldersMonitorTypeOptions = ref([
   { title: t('constants.monitoredFolderSaveLocation.monitoredFolder'), value: ScanDirsEnum.MONITORED_FOLDER },
   { title: t('constants.monitoredFolderSaveLocation.defaultSavePath'), value: ScanDirsEnum.DEFAULT_SAVE_PATH },
-  { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 },
+  { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 }
 ])
 
 onBeforeMount(async () => {
@@ -82,20 +82,20 @@ onBeforeMount(async () => {
 })
 
 watch(
-    () => isExportDirEnabled,
-    (newValue) => {
-      if (!newValue) {
-        preferenceStore.preferences!.export_dir = ''
-      }
+  () => isExportDirEnabled,
+  (newValue) => {
+    if (!newValue) {
+      preferenceStore.preferences!.export_dir = ''
     }
+  }
 )
 watch(
-    () => isExportDirFinEnabled,
-    (newValue) => {
-      if (!newValue) {
-        preferenceStore.preferences!.export_dir_fin = ''
-      }
+  () => isExportDirFinEnabled,
+  (newValue) => {
+    if (!newValue) {
+      preferenceStore.preferences!.export_dir_fin = ''
     }
+  }
 )
 
 const editItem = (item: MonitoredFolder) => {
@@ -151,83 +151,83 @@ const closeDeleteDialog = async () => {
       <v-select v-model="preferenceStore.preferences!.torrent_content_layout"
                 hide-details
                 :items="contentLayoutOptions"
-                :label="t('constants.contentLayout.title')"/>
+                :label="t('constants.contentLayout.title')" />
 
       <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled"
                   hide-details
-                  :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')"/>
+                  :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
       <v-select v-model="preferenceStore.preferences!.torrent_stop_condition"
                 hide-details
                 :items="stopConditionOptions"
-                :label="t('constants.stopCondition.title')"/>
+                :label="t('constants.stopCondition.title')" />
 
       <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode"
                   hide-details
-                  :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')"/>
+                  :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
     </v-list-item>
 
-    <v-divider/>
+    <v-divider />
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.preallocate_all"
                   hide-details
-                  :label="t('settings.downloads.publicSettings.preAllocateDisk')"/>
+                  :label="t('settings.downloads.publicSettings.preAllocateDisk')" />
 
       <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext"
                   hide-details
-                  :label="t('settings.downloads.publicSettings.appendQBExtension')"/>
+                  :label="t('settings.downloads.publicSettings.appendQBExtension')" />
     </v-list-item>
 
-    <v-divider/>
+    <v-divider />
 
     <v-list-subheader>{{ t('settings.downloads.saveManagement.subheader') }}</v-list-subheader>
     <v-list-item>
       <v-select v-model="preferenceStore.preferences!.auto_tmm_enabled"
                 :items="defaultTMMOptions"
-                :label="t('settings.downloads.saveManagement.autoTMMEnabled')"/>
+                :label="t('settings.downloads.saveManagement.autoTMMEnabled')" />
 
       <v-select v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
                 :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.torrentChangedTMM')"/>
+                :label="t('settings.downloads.saveManagement.torrentChangedTMM')" />
 
       <v-select v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
                 :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.savePathChangedTMM')"/>
+                :label="t('settings.downloads.saveManagement.savePathChangedTMM')" />
 
       <v-select v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
                 :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.categoryChangedTMM')"/>
+                :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
 
       <v-text-field v-model="preferenceStore.preferences!.save_path"
                     hide-details
-                    :label="t('settings.downloads.saveManagement.defaultSavePath')"/>
+                    :label="t('settings.downloads.saveManagement.defaultSavePath')" />
     </v-list-item>
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.temp_path_enabled"
                   hide-details
-                  :label="t('settings.downloads.saveManagement.keepIncomplete')"/>
+                  :label="t('settings.downloads.saveManagement.keepIncomplete')" />
       <v-text-field v-model="preferenceStore.preferences!.temp_path"
                     hide-details
-                    :disabled="!preferenceStore.preferences!.temp_path_enabled"/>
+                    :disabled="!preferenceStore.preferences!.temp_path_enabled" />
     </v-list-item>
 
     <v-list-item>
       <v-checkbox v-model="isExportDirEnabled"
                   hide-details
-                  :label="t('settings.downloads.saveManagement.exportDir')"/>
+                  :label="t('settings.downloads.saveManagement.exportDir')" />
       <v-text-field v-model="preferenceStore.preferences!.export_dir"
                     hide-details
-                    :disabled="!isExportDirEnabled"/>
+                    :disabled="!isExportDirEnabled" />
     </v-list-item>
 
     <v-list-item>
       <v-checkbox v-model="isExportDirFinEnabled"
                   hide-details
-                  :label="t('settings.downloads.saveManagement.exportDirFinished')"/>
+                  :label="t('settings.downloads.saveManagement.exportDirFinished')" />
       <v-text-field v-model="preferenceStore.preferences!.export_dir_fin"
-                    :disabled="!isExportDirFinEnabled"/>
+                    :disabled="!isExportDirFinEnabled" />
     </v-list-item>
 
     <v-divider />
@@ -236,8 +236,8 @@ const closeDeleteDialog = async () => {
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>{{ t('settings.downloads.monitoredFolders.subheader') }}</v-toolbar-title>
-          <v-divider inset vertical/>
-          <v-spacer/>
+          <v-divider inset vertical />
+          <v-spacer />
           <v-dialog v-model="monitoredFoldersDialog" max-width="500px">
             <template v-slot:activator="{ props }">
               <v-btn color="primary" variant="flat" dark class="mb-2" v-bind="props">
@@ -254,20 +254,20 @@ const closeDeleteDialog = async () => {
                   <v-row>
                     <v-col cols="12">
                       <v-text-field v-model="monitoredFoldersEditedItem.monitoredFolderPath"
-                                    :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')"/>
+                                    :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')" />
                     </v-col>
                     <v-col cols="12">
                       <v-select
-                          v-model="monitoredFoldersEditedItem.saveType"
-                          hide-details
-                          :items="monitoredFoldersMonitorTypeOptions"
-                          :label="t('settings.downloads.monitoredFolders.saveType')"/>
+                        v-model="monitoredFoldersEditedItem.saveType"
+                        hide-details
+                        :items="monitoredFoldersMonitorTypeOptions"
+                        :label="t('settings.downloads.monitoredFolders.saveType')" />
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
-                          :disabled="monitoredFoldersEditedItem.saveType !== -1"
-                          v-model="monitoredFoldersEditedItem.otherPath"
-                          :label="t('settings.downloads.monitoredFolders.otherPath')"
+                        :disabled="monitoredFoldersEditedItem.saveType !== -1"
+                        v-model="monitoredFoldersEditedItem.otherPath"
+                        :label="t('settings.downloads.monitoredFolders.otherPath')"
                       />
                     </v-col>
                   </v-row>
@@ -275,7 +275,7 @@ const closeDeleteDialog = async () => {
               </v-card-text>
 
               <v-card-actions>
-                <v-spacer/>
+                <v-spacer />
                 <v-btn color="accent darken-1" @click="closeDialog">{{ t('common.cancel') }}</v-btn>
                 <v-btn color="accent darken-1" @click="save">{{ t('common.save') }}</v-btn>
               </v-card-actions>
@@ -294,13 +294,13 @@ const closeDeleteDialog = async () => {
           </v-dialog>
         </v-toolbar>
       </template>
-            <template v-slot:[`item.saveType`]="{ item }">
-              {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.raw.saveType)?.title }}
-            </template>
-            <template v-slot:[`item.actions`]="{ item }">
-              <v-icon size="small" @click="editItem(item.raw)">mdi-pencil</v-icon>
-              <v-icon size="small" @click="deleteItem(item.raw)">mdi-delete</v-icon>
-            </template>
+      <template v-slot:[`item.saveType`]="{ item }">
+        {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.raw.saveType)?.title }}
+      </template>
+      <template v-slot:[`item.actions`]="{ item }">
+        <v-icon size="small" @click="editItem(item.raw)">mdi-pencil</v-icon>
+        <v-icon size="small" @click="deleteItem(item.raw)">mdi-delete</v-icon>
+      </template>
       <template v-slot:no-data>
         {{ t('settings.downloads.monitoredFolders.noData') }}
       </template>

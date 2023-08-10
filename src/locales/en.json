@@ -4,7 +4,8 @@
     "save": "Save",
     "ok": "OK",
     "yes": "Yes",
-    "no": "No"
+    "no": "No",
+    "selectAll": "Select All"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -13,7 +14,16 @@
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})"
   },
   "logs": {
-    "title": "qBittorrent Logs"
+    "title": "qBittorrent Logs",
+    "table": {
+      "id": "Log ID",
+      "type": "Log Level",
+      "message": "Message",
+      "timestamp": "Log Date"
+    },
+    "filters": {
+      "type": "Log Level"
+    }
   },
   "rssArticles": {
     "title": "RSS Articles"
