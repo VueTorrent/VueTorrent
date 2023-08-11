@@ -126,6 +126,7 @@ export default class Torrent {
         return VtTorrentState.METADATA
       case QbitTorrentState.FORCED_UP:
       case QbitTorrentState.UPLOADING:
+        return VtTorrentState.UPLOADING
       case QbitTorrentState.STALLED_UP:
         return VtTorrentState.SEEDING
       case QbitTorrentState.PAUSED_DL:

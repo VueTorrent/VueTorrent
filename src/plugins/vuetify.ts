@@ -31,6 +31,7 @@ const variables = {
   'torrent-errored': '#f83e70',
   'torrent-paused': '#9CA3AF',
   'torrent-queued': '#2e5eaa',
+  'torrent-uploading': '#4e79e6',
   'torrent-seeding': '#4ecde6',
   'torrent-checking': '#ff7043',
   'torrent-stalled': '#4ADE80',
