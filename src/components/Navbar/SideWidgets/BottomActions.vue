@@ -1,9 +1,9 @@
 <script setup lang="ts">
+import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useAppStore, useAuthStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { toast } from 'vue3-toastify'
 
 const {t} = useI18n()
 const authStore = useAuthStore()
@@ -33,17 +33,6 @@ const logout = async () => {
 }
 const toggleAltSpeed = () => {
   appStore.toggleAlternativeMode()
-}
-const shutdown = async () => {
-  if (await appStore.shutdownQbit()) {
-    authStore.setAuthStatus(false)
-    await vueTorrentStore.redirectToLogin()
-    toast.success(t('dialogs.shutdown.success'))
-  } else {
-    toast.error(t('dialogs.shutdown.error'))
-  }
-
-  shutdownDialog.value = false
 }
 </script>
 
@@ -83,26 +72,14 @@ const shutdown = async () => {
   </v-row>
   <v-row no-gutters v-if="vueTorrentStore.isShutdownButtonVisible">
     <v-col class="d-flex justify-center">
-      <v-dialog v-model="shutdownDialog" max-width="500px">
-        <template v-slot:activator="{props: propsDialog}">
-          <v-tooltip :text="t('navbar.bottom_actions.shutdown')" location="top">
-            <template v-slot:activator="{ props: propsTooltip }">
-              <v-btn block color="error" rounded="0" icon="mdi-power" v-bind="{...propsDialog, ...propsTooltip}" />
-            </template>
-          </v-tooltip>
+      <v-tooltip :text="t('navbar.bottom_actions.shutdown')" location="top">
+        <template v-slot:activator="{ props }">
+          <v-btn block color="error" rounded="0" v-bind="props">
+            <v-icon size="x-large">mdi-power</v-icon>
+            <ConfirmShutdownDialog v-model="shutdownDialog" />
+          </v-btn>
         </template>
-        <v-card :title="t('dialogs.shutdown.title')" :text="t('dialogs.shutdown.content')">
-          <v-card-actions class="justify-end">
-            <v-spacer />
-            <v-btn class="accent white--text elevation-0 px-4" @click="shutdown">
-              {{ t('common.yes') }}
-            </v-btn>
-            <v-btn class="error white--text elevation-0 px-4" @click="shutdownDialog = false">
-              {{ t('common.no') }}
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+      </v-tooltip>
     </v-col>
   </v-row>
 </template>
