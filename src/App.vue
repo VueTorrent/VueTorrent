@@ -62,12 +62,14 @@ watch(
   () => authStore.isAuthenticated,
   async (isAuthenticated) => {
     if (isAuthenticated) {
-      appStore.pushInterval(() => maindataStore.updateMainData(), vuetorrentStore.refreshInterval)
+      // TODO: remove this
+      // appStore.pushInterval(() => maindataStore.updateMainData(), vuetorrentStore.refreshInterval)
       await maindataStore.updateMainData()
       await preferencesStore.fetchPreferences()
     }
     else {
-      appStore.clearIntervals()
+      // TODO: remove this
+      // appStore.clearIntervals()
     }
   }
 )
