@@ -9,8 +9,8 @@ import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
 import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
 import { useDashboardStore, useVueTorrentStore } from '@/stores'
 
-const vueTorrentStore = useVueTorrentStore()
 const dashboardStore = useDashboardStore()
+const vueTorrentStore = useVueTorrentStore()
 
 const isDrawerOpen = ref(true)
 

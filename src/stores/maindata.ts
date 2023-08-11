@@ -16,6 +16,11 @@ export const useMaindataStore = defineStore('maindata', () => {
   const torrents = ref<Torrent[]>([])
   const trackers = ref<string[]>([])
 
+  const authStore = useAuthStore()
+  const dashboardStore = useDashboardStore()
+  const navbarStore = useNavbarStore()
+  const vueTorrentStore = useVueTorrentStore()
+
   async function fetchCategories() {
     categories.value = await qbit.getCategories()
   }
@@ -35,11 +40,6 @@ export const useMaindataStore = defineStore('maindata', () => {
   async function updateMainData() {
     if (isUpdatingMainData.value) return
     isUpdatingMainData.value = true
-
-    const authStore = useAuthStore()
-    const navbarStore = useNavbarStore()
-    const dashboardStore = useDashboardStore()
-    const vueTorrentStore = useVueTorrentStore()
 
     try {
       const response = await qbit.getMainData(rid.value || undefined)
