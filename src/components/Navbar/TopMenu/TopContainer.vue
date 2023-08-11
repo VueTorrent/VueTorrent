@@ -1,81 +1,65 @@
 <script setup lang="ts">
-import {useRouter} from 'vue-router'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import TopActions from './TopActions.vue'
+import TopOverflowMenu from './TopOverflowMenu.vue'
 
 const router = useRouter()
+const addTorrentDialogVisible = ref(false)
 
 const resumeTorrents = () => {
   // TODO
+  console.log('resumeTorrents')
 }
 const pauseTorrents = () => {
   // TODO
+  console.log('pauseTorrents')
 }
 const deleteTorrents = () => {
   // TODO
+  console.log('deleteTorrents')
 }
 const openSearchEngine = () => {
-  router.push({name: 'searchEngine'})
+  router.push({ name: 'searchEngine' })
 }
 const openRssFeeds = () => {
-  router.push({name: 'rssArticles'})
+  router.push({ name: 'rssArticles' })
 }
 const openLogs = () => {
-  router.push({name: 'logs'})
+  router.push({ name: 'logs' })
 }
 const openSettings = () => {
-  router.push({name: 'settings'})
+  router.push({ name: 'settings' })
 }
 </script>
 
 <template>
-  <div>
-    <v-tooltip text="Add Torrent" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-plus" v-bind="props" />
-      </template>
-    </v-tooltip>
+  <v-tooltip :text="$t('topbar.addTorrents')" location="bottom">
+    <template v-slot:activator="{ props }">
+      <v-btn icon v-bind="props">
+        <v-icon>mdi-plus</v-icon>
+        <AddTorrentDialog v-model="addTorrentDialogVisible" />
+      </v-btn>
+    </template>
+  </v-tooltip>
 
-    <v-tooltip text="Resume torrents" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-play" v-bind="props" @click="resumeTorrents" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Pause torrents" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-pause" v-bind="props" @click="pauseTorrents" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Delete torrents" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-delete" v-bind="props" @click="deleteTorrents" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Open Search Engine" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-search-web" v-bind="props" @click="openSearchEngine" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Open RSS Feeds" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-rss" v-bind="props" @click="openRssFeeds" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Open Logs" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-file-document-multiple" v-bind="props" @click="openLogs" />
-      </template>
-    </v-tooltip>
-
-    <v-tooltip text="Open Settings" location="bottom">
-      <template v-slot:activator="{ props }">
-        <v-btn icon="mdi-cog" v-bind="props" @click="openSettings" />
-      </template>
-    </v-tooltip>
-  </div>
+  <TopActions v-if="$vuetify.display.smAndUp"
+              @resumeTorrents="resumeTorrents"
+              @pauseTorrents="pauseTorrents"
+              @deleteTorrents="deleteTorrents"
+              @openSearchEngine="openSearchEngine"
+              @openRssFeeds="openRssFeeds"
+              @openLogs="openLogs"
+              @openSettings="openSettings"/>
+  <TopOverflowMenu v-else
+                   @resumeTorrents="resumeTorrents"
+                   @pauseTorrents="pauseTorrents"
+                   @deleteTorrents="deleteTorrents"
+                   @openSearchEngine="openSearchEngine"
+                   @openRssFeeds="openRssFeeds"
+                   @openLogs="openLogs"
+                   @openSettings="openSettings" />
 </template>
 
 <style scoped>

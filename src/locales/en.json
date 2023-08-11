@@ -34,6 +34,27 @@
   "torrentDetail": {
     "title": "Torrent Detail"
   },
+  "topbar": {
+    "addTorrents": "Add Torrents",
+    "actions": {
+      "resume": "Resume Torrents",
+      "pause": "Pause Torrents",
+      "delete": "Delete Torrents",
+      "searchEngine": "Open Search Engine",
+      "rssFeeds": "Open RSS Feeds",
+      "logs": "Open Logs",
+      "settings": "Open Settings"
+    },
+    "overflow": {
+      "resume": "Resume",
+      "pause": "Pause",
+      "delete": "Delete",
+      "searchEngine": "Search Engine",
+      "rssFeeds": "RSS Feeds",
+      "logs": "qBit Logs",
+      "settings": "Settings"
+    }
+  },
   "navbar": {
     "current_speed": {
       "title": "Current Speed"
