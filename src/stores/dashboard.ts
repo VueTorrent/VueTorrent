@@ -1,4 +1,5 @@
 import { FilterState } from '@/constants/qbit'
+import { SortOptions } from '@/constants/qbit/SortOptions.ts'
 import { useMaindataStore } from '@/stores'
 import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
@@ -15,7 +16,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const latestSelectedTorrent = ref<number>(-1)
   const sortOptions = reactive({
     isCustomSortEnabled: false,
-    sortBy: 'default',
+    sortBy: SortOptions.DEFAULT,
     reverseOrder: false,
     statusFilter: undefined as FilterState | undefined,
     categoryFilter: undefined as string | undefined,
