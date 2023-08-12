@@ -19,6 +19,8 @@ export default interface FeedRule {
   mustContain: string
   /** The substring that the torrent name must not contain */
   mustNotContain: string
+  /** The rule name, !! injected by VueTorrent !! */
+  name?: string
   /** The list of episode IDs already matched by smart filter */
   previouslyMatchedEpisodes?: unknown[]
   /** Save torrent to the given directory */

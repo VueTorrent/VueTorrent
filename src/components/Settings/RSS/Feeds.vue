@@ -69,6 +69,11 @@ watch(dialog, (value) => {
         </div>
       </v-sheet>
     </v-col>
+    <v-col v-if="rssStore.feeds.length === 0" cols="12">
+      <v-card>
+        <v-card-text>{{ $t('settings.rss.feeds.noFeeds') }}</v-card-text>
+      </v-card>
+    </v-col>
   </v-row>
   <v-row>
     <v-col cols="6" class="d-flex align-center justify-center">

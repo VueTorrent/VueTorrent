@@ -16,12 +16,24 @@ export const useRssStore = defineStore('rss', () => {
     await qbit.createFeed({ name: feedName, url: feedUrl })
   }
 
+  async function setRule(ruleName: string, ruleDef: FeedRule) {
+    await qbit.setRule(ruleName, ruleDef)
+  }
+
   async function editFeed(oldName: string, newName: string) {
     await qbit.editFeed(oldName, newName)
   }
 
+  async function renameRule(oldName: string, newName: string) {
+    await qbit.renameRule(oldName, newName)
+  }
+
   async function deleteFeed(feedName: string) {
     await qbit.deleteFeed(feedName)
+  }
+
+  async function deleteRule(ruleName: string) {
+    await qbit.deleteRule(ruleName)
   }
 
   async function fetchFeeds() {
@@ -32,7 +44,11 @@ export const useRssStore = defineStore('rss', () => {
     rules.value = await qbit.getRules()
   }
 
-  return { feeds, rules, fetchFeeds, refreshFeed, createFeed, editFeed, deleteFeed, fetchRules }
+  async function fetchMatchingArticles(ruleName: string) {
+    return await qbit.getMatchingArticles(ruleName)
+  }
+
+  return { feeds, rules, refreshFeed, createFeed, setRule, editFeed, renameRule, deleteFeed, deleteRule, fetchFeeds, fetchRules, fetchMatchingArticles }
 }, {
   persist: {
     enabled: true,

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
-import { onBeforeMount, ref, watch } from 'vue'
+import { onBeforeMount, reactive, ref, watch } from 'vue'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps({
@@ -25,14 +25,16 @@ const dialogVisible = ref(false)
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
-const name = ref('')
-const url = ref('')
+const formData = reactive({
+  name: '',
+  url: ''
+})
 
 async function save() {
   if (props.initialFeed) {
-    await rssStore.editFeed(props.initialFeed.name, name.value)
+    await rssStore.editFeed(props.initialFeed.name, formData.name)
   } else {
-    await rssStore.createFeed(name.value, url.value)
+    await rssStore.createFeed(formData.name, formData.url)
   }
   await rssStore.fetchFeeds()
   form.value?.reset()
@@ -44,8 +46,8 @@ const close = () => {
 
 onBeforeMount(() => {
   if (props.initialFeed) {
-    name.value = props.initialFeed.name
-    url.value = props.initialFeed.url
+    formData.name = props.initialFeed.name
+    formData.url = props.initialFeed.url
   }
 })
 
@@ -58,9 +60,9 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
       <v-card-title>{{ $t(`dialogs.rss.feed.title.${initialFeed ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
-          <v-text-field v-model="name"
+          <v-text-field v-model="formData.name"
                         :label="$t('dialogs.rss.feed.name')" />
-          <v-text-field v-model="url"
+          <v-text-field v-model="formData.url"
                         :disabled="!!initialFeed"
                         :label="$t('dialogs.rss.feed.url')" />
         </v-form>

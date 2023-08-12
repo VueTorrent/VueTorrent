@@ -5,7 +5,10 @@
     "ok": "OK",
     "yes": "Yes",
     "no": "No",
-    "selectAll": "Select All"
+    "selectNone": "Select None",
+    "selectAll": "Select All",
+    "useGlobalSettings": "Use Global Settings",
+    "none": "(None)"
   },
   "dashboard": {
     "title": "Dashboard",
@@ -82,6 +85,30 @@
         },
         "name": "Name",
         "url": "URL"
+      },
+      "rule": {
+        "title": {
+          "create": "Create RSS Rule",
+            "edit": "Edit RSS Rule"
+        },
+        "name": "Name",
+        "useRegex": "Use Regular Expression",
+        "mustContain": "Must Contain",
+        "mustNotContain": "Must Not Contain",
+        "smartFilter": "Use Smart Episode filter",
+        "episodeFilter": "Episode Filter",
+        "episodeFilterPlaceholder": "e.g. S01E02-S01E05",
+        "assignedCategory": "Assigned Category",
+        "savePath": "Save Path",
+        "savePathPlaceholder": "Leave blank to use default save path",
+        "ignoreDays": "Ignore items published in the last {days} days",
+        "ignoreDaysHint": "0 to disable",
+        "lastMatch": {
+          "label": "Last match",
+          "knownValue": "today | {n} day ago | {n} days ago",
+          "unknownValue": "Unknown"
+        },
+        "addPaused": "Add paused"
       }
     }
   },
@@ -329,10 +356,12 @@
       },
       "feeds": {
         "createNew": "Add feed",
-        "refreshAll": "Refresh All"
+        "refreshAll": "Refresh All",
+        "noFeeds": "No feeds yet"
       },
       "rules": {
-        "createNew": "Create Rule"
+        "createNew": "Create Rule",
+        "noRules": "No rules yet"
       }
     },
     "webUI": {
@@ -546,6 +575,11 @@
       "monitoredFolder": "Monitored Folder Location",
       "defaultSavePath": "Default Save Path",
       "other": "Other"
+    },
+    "addPaused": {
+      "title": "Add paused",
+      "always": "Always",
+      "never": "Never"
     }
   },
   "units": {
