@@ -89,7 +89,7 @@
       "rule": {
         "title": {
           "create": "Create RSS Rule",
-            "edit": "Edit RSS Rule"
+          "edit": "Edit RSS Rule"
         },
         "name": "Name",
         "useRegex": "Use Regular Expression",
@@ -110,6 +110,28 @@
         },
         "addPaused": "Add paused"
       }
+    },
+    "tag": {
+      "title": {
+        "create": "Create Tag",
+        "rename": "Rename Tag"
+      },
+      "oldName": "Old tag name",
+      "name": "Tag name",
+      "required": "Tag name is required",
+      "comma": "Name cannot contain comma when renaming a tag",
+      "warnEdit": "Editing the tag name will migrate torrents to the new tag.\nErrors may happen, use with caution."
+    },
+    "category": {
+      "title": {
+        "create": "Create Category",
+        "edit": "Edit Category"
+      },
+      "oldName": "Old category name",
+      "name": "Category Name",
+      "savePath": "Save Path",
+      "nameRequired": "Category name is required",
+      "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
     }
   },
   "settings": {
@@ -420,9 +442,12 @@
       }
     },
     "tagsAndCategories": {
-      "btnCreateNew": "Create new",
-      "subHeaderTags": "Available Tags:",
-      "subHeaderCategories": "Available Categories:"
+      "createNewTag": "Create new tag",
+      "createNewCategory": "Create new category",
+      "tagsSubheader": "Available Tags:",
+      "categoriesSubheader": "Available Categories:",
+      "noTags": "No tags yet",
+      "noCategories": "No categories yet"
     },
     "advanced": {
       "openDoc": "Open documentation",

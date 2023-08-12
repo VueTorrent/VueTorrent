@@ -437,7 +437,7 @@ export class QBitApi {
     })
   }
 
-  async deleteTag(tags: string[]): Promise<void> {
+  async deleteTags(tags: string[]): Promise<void> {
     return this.execute('/torrents/deleteTags', {
       tags: tags.join(',')
     })

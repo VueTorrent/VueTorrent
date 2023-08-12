@@ -1,10 +1,11 @@
+import { SortOptions } from '@/constants/qbit/SortOptions.ts'
 import { extractHostname } from '@/helpers'
 import { Torrent } from '@/models'
 import { qbit } from '@/services'
 import { useAuthStore, useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { Category, ServerState } from '@/types/qbit/models'
-import { ref } from 'vue'
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 
 export const useMaindataStore = defineStore('maindata', () => {
@@ -25,8 +26,62 @@ export const useMaindataStore = defineStore('maindata', () => {
     categories.value = await qbit.getCategories()
   }
 
+  async function createCategory(category: Category) {
+    await qbit.createCategory(category)
+  }
+
+  async function editCategory(category: Category, oldCategory?: string) {
+    if (oldCategory) {
+      // Create new category
+      await qbit.createCategory(category)
+
+      // Move old category torrent to new location
+      await qbit.editCategory({name: oldCategory, savePath: category.savePath})
+
+      // Get list of torrents in old category and move them to new category
+      const torrents = await qbit.getTorrents({sort: SortOptions.DEFAULT, category: oldCategory})
+      if (torrents.length > 0) {
+        await qbit.setCategory(torrents.map(torrent => torrent.hash), category.name)
+      }
+
+      // Delete old category
+      await qbit.deleteCategory([oldCategory])
+      return torrents.length
+    } else {
+      await qbit.editCategory(category)
+    }
+  }
+
+  async function deleteCategories(categoryNames: string[]) {
+    await qbit.deleteCategory(categoryNames)
+  }
+
   async function fetchTags() {
     tags.value = await qbit.getAvailableTags()
+  }
+
+  async function createTags(tags: string[]) {
+    await qbit.createTag(tags)
+  }
+
+  async function editTag(oldTag: string, newTag: string) {
+    if (oldTag === newTag) return
+
+    // Create new tag
+    await qbit.createTag([newTag])
+
+    // Get list of torrents in old tag and move them to new tag
+    const torrents = await qbit.getTorrents({sort: SortOptions.DEFAULT, tag: oldTag})
+    if (torrents.length > 0) {
+      await qbit.addTorrentTag(torrents.map(torrent => torrent.hash), [newTag])
+    }
+
+    // Delete old tag
+    await qbit.deleteTags([oldTag])
+  }
+
+  async function deleteTags(tags: string[]) {
+    await qbit.deleteTags(tags)
   }
 
   function getTorrentByHash(hash: string) {
@@ -94,5 +149,5 @@ export const useMaindataStore = defineStore('maindata', () => {
     }
   }
 
-  return { categories, isUpdatingMainData, rid, serverState, tags, torrents, trackers, getTorrentByHash, getTorrentIndexByHash, fetchCategories, fetchTags, updateMainData }
+  return { categories, isUpdatingMainData, rid, serverState, tags, torrents, trackers, getTorrentByHash, getTorrentIndexByHash, fetchCategories, createCategory, editCategory, deleteCategories, fetchTags, createTags, editTag, deleteTags, updateMainData }
 })
