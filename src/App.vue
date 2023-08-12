@@ -71,6 +71,9 @@ watch(
       // TODO: remove this
       // appStore.clearIntervals()
     }
+  },
+  {
+    immediate: true,
   }
 )
 </script>

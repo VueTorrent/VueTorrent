@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
 import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref, watch } from 'vue'
@@ -35,15 +36,15 @@ const vueTorrentStore = useVueTorrentStore()
 const dialogVisible = ref(false)
 const isFormValid = ref(true)
 const formData = reactive({
-  autoTMM: preferenceStore.preferences!.auto_tmm_enabled,
+  autoTMM: false,
   skipChecking: false,
   sequentialDownload: false,
   firstLastPiecePrio: false,
-  startNow: !preferenceStore.preferences!.start_paused_enabled,
-  contentLayout: preferenceStore.preferences!.torrent_content_layout,
-  stopCondition: preferenceStore.preferences!.torrent_stop_condition,
-  savepath: preferenceStore.preferences!.save_path,
-  category: undefined as Category | undefined,
+  startNow: true,
+  contentLayout: ContentLayout.ORIGINAL,
+  stopCondition: StopCondition.NONE,
+  savepath: '',
+  category: null as Category | null,
   tags: [] as string[],
   files: [] as File[],
   urls: '' as string
@@ -78,6 +79,11 @@ const onCategoryChanged = () => {
 onBeforeMount(async () => {
   if (!preferenceStore.preferences) {
     await preferenceStore.fetchPreferences()
+    formData.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
+    formData.startNow = !preferenceStore.preferences!.start_paused_enabled
+    formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
+    formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
+    formData.savepath = preferenceStore.preferences!.save_path
   }
   if (!maindataStore.categories) {
     await maindataStore.fetchCategories()
