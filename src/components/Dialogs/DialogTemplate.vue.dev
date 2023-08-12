@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { useRssStore } from '@/stores'
-import { Feed } from '@/types/qbit/models'
-import { onBeforeMount, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps({
@@ -43,7 +41,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
       <v-card-actions>
         <v-spacer />
         <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
-        <v-btn color="accent" @click="save">{{ $t('common.save') }}</v-btn>
+        <v-btn color="accent" @click="submit">{{ $t('common.save') }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
