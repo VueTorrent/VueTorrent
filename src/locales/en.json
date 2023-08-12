@@ -73,6 +73,16 @@
       "content": "Do you really want to shutdown qBittorrent?",
       "success": "qBittorrent was shutdown successfully!",
       "error": "Unable to shutdown app. Make sure qBittorrent is running!"
+    },
+    "rss": {
+      "feed": {
+        "title": {
+          "create": "Create RSS Feed",
+          "edit": "Edit RSS Feed"
+        },
+        "name": "Name",
+        "url": "URL"
+      }
     }
   },
   "settings": {
@@ -299,22 +309,16 @@
       "autoAddTrackersHint": "One tracker per line"
     },
     "rss": {
-      "tabName": {
-        "general": "General",
-        "feeds": "Feeds",
-        "rules": "Rules"
-      },
       "general": {
         "reader": {
           "subheader": "RSS Reader",
           "enableProcessing": "Enable fetching RSS feeds",
           "feedsRefreshInterval": "Feeds refresh interval",
-          "feedsRefreshIntervalHint": "In minutes",
           "maximumArticlesPerFeed": "Maximum number of articles per feed"
         },
         "autoDownloader": {
           "subheader": "RSS Torrent Auto Downloader",
-          "enable": "Enable auto downloading of RSS torrents"
+          "enable": "Enable RSS rules processing"
         },
         "smartEpisodeFilter": {
           "subheader": "RSS Smart Episode Filter",
@@ -324,11 +328,11 @@
         }
       },
       "feeds": {
-        "btnCreateNew": "Add feed",
+        "createNew": "Add feed",
         "refreshAll": "Refresh All"
       },
       "rules": {
-        "btnCreateNew": "Create Rule"
+        "createNew": "Create Rule"
       }
     },
     "webUI": {

@@ -186,10 +186,10 @@ export class QBitApi {
         })
   }
 
-  async editFeed(itemPath: string, destPath: string): Promise<void> {
+  async editFeed(oldName: string, newName: string): Promise<void> {
     return this.execute('/rss/moveItem', {
-      itemPath,
-      destPath
+      itemPath: oldName,
+      destPath: newName
     })
   }
 
