@@ -27,59 +27,59 @@ const schedulerOptions = ref([
 
 <template>
   <v-list>
-    <v-row class="mb-0" :class="display.xs ? 'flex-column' : 'flex-row'">
-      <v-col cols="12" sm="6">
-        <v-list-subheader>{{ t('settings.speed.subheader.global') }}</v-list-subheader>
+    <v-list-item>
+      <v-row :class="display.xs ? 'flex-column' : 'flex-row'">
+        <v-col cols="12" sm="6" class="pa-0">
+          <v-list-subheader>{{ t('settings.speed.subheader.global') }}</v-list-subheader>
 
-        <v-row class="mx-1">
-          <v-col cols="12" md="6">
-            <v-text-field v-model="preferenceStore.preferences!.up_limit"
-                          hide-details
-                          suffix="kiB/s"
-                          :label="t('settings.speed.upload')" />
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-text-field v-model="preferenceStore.preferences!.dl_limit"
-                          hide-details
-                          suffix="kiB/s"
-                          :label="t('settings.speed.download')" />
-          </v-col>
-        </v-row>
+          <v-row class="mx-1">
+            <v-col cols="12" md="6">
+              <v-text-field v-model="preferenceStore.preferences!.up_limit"
+                            hide-details
+                            suffix="kiB/s"
+                            :label="t('settings.speed.upload')" />
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="preferenceStore.preferences!.dl_limit"
+                            hide-details
+                            suffix="kiB/s"
+                            :label="t('settings.speed.download')" />
+            </v-col>
+          </v-row>
 
-        <v-list-item>
-          <h5>
-            <i>{{ t('settings.speed.tip') }}</i>
-          </h5>
-        </v-list-item>
-      </v-col>
+          <v-list-item>
+            <h5 class="font-italic">{{ t('settings.speed.tip') }}</h5>
+          </v-list-item>
+        </v-col>
 
-      <v-divider :vertical="!display.xs" />
+        <v-divider :vertical="!display.xs" />
 
-      <v-col cols="12" sm="6">
-        <v-list-subheader>{{ t('settings.speed.subheader.alternative') }}</v-list-subheader>
+        <v-col cols="12" sm="6" class="pa-0">
+          <v-list-subheader>{{ t('settings.speed.subheader.alternative') }}</v-list-subheader>
 
-        <v-row class="mx-1">
-          <v-col cols="12" md="6">
-            <v-text-field v-model="preferenceStore.preferences!.alt_up_limit"
-                          hide-details
-                          suffix="kiB/s"
-                          :label="t('settings.speed.upload')" />
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-text-field v-model="preferenceStore.preferences!.alt_dl_limit"
-                          hide-details
-                          suffix="kiB/s"
-                          :label="t('settings.speed.download')" />
-          </v-col>
-        </v-row>
+          <v-row class="mx-1">
+            <v-col cols="12" md="6">
+              <v-text-field v-model="preferenceStore.preferences!.alt_up_limit"
+                            hide-details
+                            suffix="kiB/s"
+                            :label="t('settings.speed.upload')" />
+            </v-col>
+            <v-col cols="12" md="6">
+              <v-text-field v-model="preferenceStore.preferences!.alt_dl_limit"
+                            hide-details
+                            suffix="kiB/s"
+                            :label="t('settings.speed.download')" />
+            </v-col>
+          </v-row>
 
-        <v-list-item>
-          <h5><i>{{ t('settings.speed.tip') }}</i></h5>
-        </v-list-item>
-      </v-col>
-    </v-row>
+          <v-list-item>
+            <h5 class="font-italic">{{ t('settings.speed.tip') }}</h5>
+          </v-list-item>
+        </v-col>
+      </v-row>
+    </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-2" />
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.scheduler_enabled"
@@ -87,33 +87,35 @@ const schedulerOptions = ref([
                   :label="t('settings.speed.scheduler.subheader')" />
     </v-list-item>
 
-    <v-row class="align-center">
-      <v-col>
-        <v-list-subheader>{{ t('settings.speed.scheduler.from') }}</v-list-subheader>
-      </v-col>
-      <v-col>
-        <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour"
-                      type="number" />
-      </v-col>
-      <v-col>
-        <v-text-field v-model="preferenceStore.preferences!.schedule_from_min"
-                      type="number" />
-      </v-col>
+    <v-list-item>
+      <v-row class="align-center">
+        <v-col cols="4" md="2">
+          <v-list-subheader>{{ t('settings.speed.scheduler.from') }}</v-list-subheader>
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour"
+                        type="number" />
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min"
+                        type="number" />
+        </v-col>
 
-      <v-spacer />
+        <v-spacer />
 
-      <v-col>
-        <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
-      </v-col>
-      <v-col>
-        <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour"
-                      type="number" />
-      </v-col>
-      <v-col>
-        <v-text-field v-model="preferenceStore.preferences!.schedule_to_min"
-                      type="number" />
-      </v-col>
-    </v-row>
+        <v-col cols="4" md="2">
+          <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour"
+                        type="number" />
+        </v-col>
+        <v-col cols="4" md="2">
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min"
+                        type="number" />
+        </v-col>
+      </v-row>
+    </v-list-item>
 
     <v-list-item>
       <v-select v-model="preferenceStore.preferences!.scheduler_days"

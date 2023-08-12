@@ -122,15 +122,15 @@ watch(() => proxyAuth.value,
 
     <v-list-item>
       <v-row>
-        <v-col cols="auto">
+        <v-col cols="12" sm="6">
           <v-text-field
               v-model="preferenceStore.preferences!.listen_port"
               type="number"
               hide-details
               :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
         </v-col>
-        <v-col cols="auto">
-          <v-btn @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }}</v-btn>
+        <v-col cols="12" sm="6" class="d-flex align-center justify-center">
+          <v-btn color="primary" @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }}</v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -214,18 +214,18 @@ watch(() => proxyAuth.value,
 
     <v-list-item>
       <v-row>
-        <v-col cols="5">
+        <v-col cols="12" md="4">
           <v-select v-model="proxyType"
                     hide-details
                     :items="proxyTypes" />
         </v-col>
-        <v-col cols="4">
+        <v-col cols="6" md="4">
           <v-text-field v-model="preferenceStore.preferences!.proxy_ip"
                         :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
                         hide-details
                         :label="t('settings.connection.proxy.host')" />
         </v-col>
-        <v-col cols="3">
+        <v-col cols="6" md="4">
           <v-text-field v-model="preferenceStore.preferences!.proxy_port"
                         :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
                         type="number"
@@ -236,22 +236,26 @@ watch(() => proxyAuth.value,
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.proxy_peer_connections"
-                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
-                  hide-details
-                  :label="t('settings.connection.proxy.peerConnections')" />
-    </v-list-item>
-    <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.proxy_torrents_only"
-                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
-                  hide-details
-                  :label="t('settings.connection.proxy.torrentOnly')" />
-    </v-list-item>
-    <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.proxy_hostname_lookup"
-                  :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
-                  hide-details
-                  :label="t('settings.connection.proxy.hostNameLookup')" />
+      <v-row no-gutters>
+        <v-col cols="12" md="4">
+          <v-checkbox v-model="preferenceStore.preferences!.proxy_peer_connections"
+                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
+                      hide-details
+                      :label="t('settings.connection.proxy.peerConnections')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-checkbox v-model="preferenceStore.preferences!.proxy_torrents_only"
+                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+                      hide-details
+                      :label="t('settings.connection.proxy.torrentOnly')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-checkbox v-model="preferenceStore.preferences!.proxy_hostname_lookup"
+                      :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+                      hide-details
+                      :label="t('settings.connection.proxy.hostNameLookup')" />
+        </v-col>
+      </v-row>
     </v-list-item>
 
     <v-list-item>
