@@ -5,7 +5,7 @@ import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stor
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref, watch } from 'vue'
 
-const props = defineProps({
+defineProps({
   modelValue: {
     type: Boolean,
     required: true,

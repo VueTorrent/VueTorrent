@@ -2,7 +2,7 @@
 import {computed, onBeforeMount, watch} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 
-import { useAppStore, useAuthStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useAuthStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 import Navbar from '@/components/Navbar/Navbar.vue'
 
@@ -10,7 +10,6 @@ import Navbar from '@/components/Navbar/Navbar.vue'
 const router = useRouter()
 const route = useRoute()
 
-const appStore = useAppStore()
 const authStore = useAuthStore()
 const maindataStore = useMaindataStore()
 const preferencesStore = usePreferenceStore()

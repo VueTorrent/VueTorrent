@@ -40,14 +40,14 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 
 <template>
   <v-dialog v-model="dialogVisible" width="auto" activator="parent">
-    <v-card :title="t('dialogs.shutdown.title')" :text="t('dialogs.shutdown.content')">
+    <v-card :title="$t('dialogs.shutdown.title')" :text="$t('dialogs.shutdown.content')">
       <v-card-actions class="justify-end">
         <v-spacer />
         <v-btn class="accent white--text elevation-0 px-4" variant="elevated" color="error" @click="shutdown">
-          {{ t('common.yes') }}
+          {{ $t('common.yes') }}
         </v-btn>
         <v-btn class="error white--text elevation-0 px-4" @click="close">
-          {{ t('common.no') }}
+          {{ $t('common.no') }}
         </v-btn>
       </v-card-actions>
     </v-card>
