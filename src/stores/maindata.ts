@@ -1,9 +1,10 @@
+import { useTorrentBuilder } from '@/composables'
 import { SortOptions } from '@/constants/qbit/SortOptions.ts'
 import { extractHostname } from '@/helpers'
-import { Torrent } from '@/models'
 import { qbit } from '@/services'
 import { useAuthStore, useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { Category, ServerState } from '@/types/qbit/models'
+import { Torrent } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
@@ -21,6 +22,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const vueTorrentStore = useVueTorrentStore()
+  const torrentBuilder = useTorrentBuilder()
 
   async function fetchCategories() {
     categories.value = await qbit.getCategories()
@@ -36,10 +38,10 @@ export const useMaindataStore = defineStore('maindata', () => {
       await qbit.createCategory(category)
 
       // Move old category torrent to new location
-      await qbit.editCategory({name: oldCategory, savePath: category.savePath})
+      await qbit.editCategory({ name: oldCategory, savePath: category.savePath })
 
       // Get list of torrents in old category and move them to new category
-      const torrents = await qbit.getTorrents({sort: SortOptions.DEFAULT, category: oldCategory})
+      const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, category: oldCategory })
       if (torrents.length > 0) {
         await qbit.setCategory(torrents.map(torrent => torrent.hash), category.name)
       }
@@ -71,7 +73,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.createTag([newTag])
 
     // Get list of torrents in old tag and move them to new tag
-    const torrents = await qbit.getTorrents({sort: SortOptions.DEFAULT, tag: oldTag})
+    const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, tag: oldTag })
     if (torrents.length > 0) {
       await qbit.addTorrentTag(torrents.map(torrent => torrent.hash), [newTag])
     }
@@ -107,7 +109,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // fetch torrent data
-      dashboardStore.sortOptions.isCustomSortEnabled = Torrent.computedValues.indexOf(dashboardStore.sortOptions.sortBy) !== -1
+      dashboardStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(dashboardStore.sortOptions.sortBy) !== -1
       let data = await qbit.getTorrents(dashboardStore.getTorrentsPayload)
 
       if (vueTorrentStore.showTrackerFilter) {
@@ -124,7 +126,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // update torrents
-      torrents.value = data.map(t => new Torrent(t, vueTorrentStore.dateFormat))
+      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t, vueTorrentStore.dateFormat))
 
       // TODO: load fake torrents if enabled
       // if (!isProduction()) {
@@ -143,6 +145,8 @@ export const useMaindataStore = defineStore('maindata', () => {
         console.error('No longer authenticated, logging out...')
         authStore.setAuthStatus(false)
         await vueTorrentStore.redirectToLogin()
+      } else {
+        console.error(error)
       }
     } finally {
       isUpdatingMainData.value = false
