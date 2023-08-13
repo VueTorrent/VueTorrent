@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import { useDashboardStore, useMaindataStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const dashboardStore = useDashboardStore()
+const maindataStore = useMaindataStore()
 </script>
 
 <template>
@@ -17,6 +20,14 @@ const { t } = useI18n()
         </div>
       </v-col>
     </v-row>
+
+    <v-list>
+      <v-list-item v-for="torrent in maindataStore.torrents">
+        <v-list-item-title>{{ torrent.name }}</v-list-item-title>
+      </v-list-item>
+    </v-list>
+
+    <v-pagination v-model="dashboardStore.currentPage" />
   </div>
 </template>
 
