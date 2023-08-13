@@ -118,6 +118,7 @@
       },
       "oldName": "Old tag name",
       "name": "Tag name",
+      "hint": "Pro tip: multiple tags can be created by separating them with a comma",
       "required": "Tag name is required",
       "comma": "Name cannot contain comma when renaming a tag",
       "warnEdit": "Editing the tag name will migrate torrents to the new tag.\nErrors may happen, use with caution."

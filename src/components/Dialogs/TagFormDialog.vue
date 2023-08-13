@@ -73,6 +73,7 @@ watch(() => dialogVisible.value, (value) => {
                 v-model="tagName"
                 :rules="rules"
                 autofocus
+                :hint="$t('dialogs.tag.hint')"
                 :label="$t('dialogs.tag.name')" />
           <v-scroll-x-transition>
             <div class="text-warning" v-if="!!initialTag && initialTag !== tagName">
