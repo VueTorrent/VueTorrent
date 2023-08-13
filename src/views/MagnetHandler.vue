@@ -7,9 +7,9 @@ import { General } from '@/mixins'
 export default {
   name: 'MagnetHandler',
   mixins: [General],
-  props: ['magnet'],
   created() {
-    this.createModal('AddModal', { initialMagnet: this.magnet })
+    const regex = new RegExp('^\/download\=(.+?)(?:\/(?=$))?$', 'is')
+    this.createModal('AddModal', { initialMagnet: regex.exec(this.$route.fullPath)[1] })
     this.$router.push({ name: 'dashboard' })
   }
 }

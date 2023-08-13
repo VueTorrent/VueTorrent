@@ -41,8 +41,7 @@ const router = new Router({
     {
       path: '/download=:magnet',
       name: 'MagnetHandler',
-      component: () => import('./views/MagnetHandler.vue'),
-      props: true
+      component: () => import('./views/MagnetHandler.vue')
     },
     {
       path: '/login',
