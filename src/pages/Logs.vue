@@ -109,11 +109,17 @@ onUnmounted(() => {
           </div>
           <v-divider />
         </template>
+        <template v-slot:[`item.id`]="{ item }">
+          <span :class="getLogTypeClassName(item.raw)">{{ item.raw.id }}</span>
+        </template>
         <template v-slot:[`item.type`]="{ item }">
-          {{ getLogTypeName(item.raw) }}
+          <span :class="getLogTypeClassName(item.raw)">{{ getLogTypeName(item.raw) }}</span>
+        </template>
+        <template v-slot:[`item.message`]="{ item }">
+          <span :class="getLogTypeClassName(item.raw)">{{ item.raw.message }}</span>
         </template>
         <template v-slot:[`item.timestamp`]="{ item }">
-          {{ formatLogTimestamp(item.raw) }}
+          <span :class="getLogTypeClassName(item.raw)">{{ formatLogTimestamp(item.raw) }}</span>
         </template>
       </v-data-table>
     </v-list>
@@ -121,7 +127,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.theme--dark {
+.v-theme--darkTheme {
   .logtype-normal {
     color: white !important;
   }
@@ -135,11 +141,11 @@ onUnmounted(() => {
   }
 
   .logtype-critical {
-    color: darkred !important;
+    color: lighten(darkred, 12) !important;
   }
 }
 
-.theme--light {
+.v-theme--lightTheme {
   .logtype-normal {
     color: black !important;
   }
