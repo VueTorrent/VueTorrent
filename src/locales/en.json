@@ -2,6 +2,7 @@
   "common": {
     "cancel": "Cancel",
     "save": "Save",
+    "delete": "Delete",
     "ok": "OK",
     "yes": "Yes",
     "no": "No",
@@ -133,6 +134,11 @@
       "savePath": "Save Path",
       "nameRequired": "Category name is required",
       "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
+    },
+    "delete": {
+      "title": "Delete {n} torrent | Delete {n} torrents",
+      "deleteWithFiles": "Delete files with torrent",
+      "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
     }
   },
   "settings": {

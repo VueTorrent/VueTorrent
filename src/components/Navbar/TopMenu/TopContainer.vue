@@ -16,10 +16,6 @@ const pauseTorrents = () => {
   // TODO
   console.log('pauseTorrents')
 }
-const deleteTorrents = () => {
-  // TODO
-  console.log('deleteTorrents')
-}
 const openSearchEngine = () => {
   router.push({ name: 'searchEngine' })
 }
@@ -47,7 +43,6 @@ const openSettings = () => {
   <TopActions v-if="$vuetify.display.smAndUp"
               @resumeTorrents="resumeTorrents"
               @pauseTorrents="pauseTorrents"
-              @deleteTorrents="deleteTorrents"
               @openSearchEngine="openSearchEngine"
               @openRssFeeds="openRssFeeds"
               @openLogs="openLogs"
@@ -55,7 +50,6 @@ const openSettings = () => {
   <TopOverflowMenu v-else
                    @resumeTorrents="resumeTorrents"
                    @pauseTorrents="pauseTorrents"
-                   @deleteTorrents="deleteTorrents"
                    @openSearchEngine="openSearchEngine"
                    @openRssFeeds="openRssFeeds"
                    @openLogs="openLogs"

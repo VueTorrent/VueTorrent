@@ -94,6 +94,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     return torrents.value.findIndex(t => t.hash === hash)
   }
 
+  async function deleteTorrents(hashes: string[], deleteWithFiles: boolean) {
+    await qbit.deleteTorrents(hashes, deleteWithFiles)
+  }
+
   async function updateMaindata() {
     if (isUpdatingMainData.value) return
     isUpdatingMainData.value = true
@@ -153,5 +157,25 @@ export const useMaindataStore = defineStore('maindata', () => {
     }
   }
 
-  return { categories, isUpdatingMainData, rid, serverState, tags, torrents, trackers, getTorrentByHash, getTorrentIndexByHash, fetchCategories, createCategory, editCategory, deleteCategories, fetchTags, createTags, editTag, deleteTags, updateMaindata }
+  return {
+    categories,
+    isUpdatingMainData,
+    rid,
+    serverState,
+    tags,
+    torrents,
+    trackers,
+    getTorrentByHash,
+    getTorrentIndexByHash,
+    deleteTorrents,
+    fetchCategories,
+    createCategory,
+    editCategory,
+    deleteCategories,
+    fetchTags,
+    createTags,
+    editTag,
+    deleteTags,
+    updateMaindata
+  }
 })

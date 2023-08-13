@@ -1,5 +1,10 @@
 <script setup lang="ts">
-defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openRssFeeds', 'openLogs', 'openSettings'])
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import { ref } from 'vue'
+
+defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openRssFeeds', 'openLogs', 'openSettings'])
+
+const deleteTorrentDialogVisible = ref(false)
 </script>
 
 <template>
@@ -22,10 +27,11 @@ defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEng
         </template>
       </v-list-item>
 
-      <v-list-item :title="$t('topbar.overflow.delete')" @click="$emit('deleteTorrents')">
+      <v-list-item :title="$t('topbar.overflow.delete')">
         <template v-slot:prepend>
           <v-icon>mdi-delete</v-icon>
         </template>
+        <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" />
       </v-list-item>
 
       <v-divider />
