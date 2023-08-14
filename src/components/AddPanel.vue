@@ -5,10 +5,12 @@ const navbarStore = useNavbarStore()
 </script>
 
 <template>
-  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0" >
+  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0" class="pointer" @click="navbarStore.showAddTorrentDialog" >
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', navbarStore.pendingTorrentsCount)" />
     <v-spacer />
-    <v-btn icon="mdi-chevron-up" @click="navbarStore.showAddTorrentDialog" />
+    <v-list-item>
+      <v-icon icon="mdi-chevron-up" />
+    </v-list-item>
   </v-bottom-navigation>
 </template>
 
