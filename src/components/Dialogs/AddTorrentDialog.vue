@@ -1,39 +1,15 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
 import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
-import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { onBeforeMount, reactive, ref, watch } from 'vue'
-
-defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-
-  initialMagnet: {
-    type: String,
-    required: false
-  },
-  initialFiles: {
-    type: File,
-    required: false
-  },
-  openSuddenly: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
-})
-
-const emit = defineEmits(['update:modelValue'])
+import { onBeforeMount, reactive, ref } from 'vue'
 
 const maindataStore = useMaindataStore()
+const navbarStore = useNavbarStore()
 const preferenceStore = usePreferenceStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const dialogVisible = ref(false)
 const isFormValid = ref(true)
 const formData = reactive({
   autoTMM: false,
@@ -45,9 +21,7 @@ const formData = reactive({
   stopCondition: StopCondition.NONE,
   savepath: '',
   category: null as Category | null,
-  tags: [] as string[],
-  files: [] as File[],
-  urls: '' as string
+  tags: [] as string[]
 })
 const tagSearch = ref('')
 const categorySearch = ref('')
@@ -67,7 +41,7 @@ const submit = () => {
   if (!isFormValid.value) return
 }
 const close = () => {
-  dialogVisible.value = false
+  navbarStore.addTorrentDialogVisible = false
 }
 
 const onCategoryChanged = () => {
@@ -92,15 +66,12 @@ onBeforeMount(async () => {
     await maindataStore.fetchTags()
   }
 })
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible"
-            activator="parent"
-            max-width="800"
-            persistent>
+  <v-dialog v-model="navbarStore.addTorrentDialogVisible"
+            fullscreen
+            transition="dialog-bottom-transition">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent">
@@ -113,8 +84,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
         <v-form v-model="isFormValid" @submit.prevent="submit">
           <v-row>
             <v-col>
-              <v-file-input v-show="formData.urls.length === 0"
-                            v-model="formData.files"
+              <v-file-input v-model="navbarStore.addTorrentDialogFiles"
                             accept=".torrent"
                             counter
                             :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
@@ -133,8 +103,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
                   </span>
                 </template>
               </v-file-input>
-              <v-textarea v-show="formData.files.length === 0"
-                          v-model="formData.urls"
+              <v-textarea v-model="navbarStore.addTorrentDialogUrls"
                           prepend-icon="mdi-link"
                           label="Links (magnet, http, file, ...)" />
             </v-col>
@@ -262,12 +231,12 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
       <v-card-actions>
         <v-btn :disabled="!isFormValid"
                color="accent"
-               variant="flat"
-               text="Submit"
+               variant="elevated"
+               :text="$t('dialogs.add.submit')"
                @click="submit" />
         <v-btn color="error"
                variant="flat"
-               text="Cancel"
+               :text="$t('common.close')"
                @click="close" />
       </v-card-actions>
     </v-card>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import AddPanel from '@/components/AddPanel.vue'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import {computed, onBeforeMount, watch} from 'vue'
 import {useRoute, useRouter} from 'vue-router'
 
@@ -78,12 +80,14 @@ watch(
 </script>
 
 <template>
-  <v-layout>
+  <v-app>
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />
     </v-main>
-  </v-layout>
+    <AddPanel />
+    <AddTorrentDialog />
+  </v-app>
 </template>
 
 <style scoped>

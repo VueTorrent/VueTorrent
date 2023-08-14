@@ -1,6 +1,7 @@
 {
   "common": {
     "cancel": "Cancel",
+    "close": "Close",
     "save": "Save",
     "delete": "Delete",
     "ok": "OK",
@@ -69,6 +70,9 @@
       "conn_status": "Connection status",
       "dark_mode": "Switch to light mode | Switch to dark mode",
       "shutdown": "Shutdown qBittorrent"
+    },
+    "addPanel": {
+      "torrentsPendingCount": "{n} torrent in queue | {n} torrents in queue"
     }
   },
   "dialogs": {
@@ -134,6 +138,9 @@
       "savePath": "Save Path",
       "nameRequired": "Category name is required",
       "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
+    },
+    "add": {
+      "submit": "Add torrents"
     },
     "delete": {
       "title": "Delete {n} torrent | Delete {n} torrents",
