@@ -4,7 +4,9 @@ import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const navbarStore = useNavbarStore()
 const preferenceStore = usePreferenceStore()
@@ -27,14 +29,14 @@ const tagSearch = ref('')
 const categorySearch = ref('')
 
 const contentLayoutOptions = ref([
-  { title: 'Original', value: AppPreferences.ContentLayout.ORIGINAL },
-  { title: 'Create subfolder', value: AppPreferences.ContentLayout.SUBFOLDER },
-  { title: 'Remove subfolder', value: AppPreferences.ContentLayout.NO_SUBFOLDER }
+  { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
+  { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
+  { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
 ])
 const stopConditionOptions = ref([
-  { title: 'None', value: AppPreferences.StopCondition.NONE },
-  { title: 'Metadata received', value: AppPreferences.StopCondition.METADATA_RECEIVED },
-  { title: 'Files checked', value: AppPreferences.StopCondition.FILES_CHECKED }
+  { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
+  { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
+  { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
 ])
 
 const submit = () => {
@@ -75,7 +77,7 @@ onBeforeMount(async () => {
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent">
-          <v-toolbar-title>Add Torrents</v-toolbar-title>
+          <v-toolbar-title>{{ t('dialogs.add.title') }}</v-toolbar-title>
           <v-btn icon="mdi-close" @click="close" />
         </v-toolbar>
       </v-card-title>
@@ -91,21 +93,28 @@ onBeforeMount(async () => {
                             multiple
                             persistent-clear
                             persistent-hint
+                            prepend-icon=""
                             variant="outlined"
-                            label="Select files">
+                            :label="t('dialogs.add.files')">
+                <template v-slot:prepend>
+                  <v-icon color="accent">mdi-paperclip</v-icon>
+                </template>
                 <template v-slot:selection="{ fileNames }">
                   <span v-for="(fileName, index) in fileNames"
                         :key="fileName">
                     <v-chip v-if="index < 2" color="accent">{{ fileName }}</v-chip>
                     <span v-else-if="index >= 2" class="text-overline text-grey-darken-2 ml-2">
-                      +{{ fileNames.length - 2 }} more
+                      {{ t('dialogs.add.fileOverflow', fileNames.length - 2) }}
                     </span>
                   </span>
                 </template>
               </v-file-input>
               <v-textarea v-model="navbarStore.addTorrentDialogUrls"
-                          prepend-icon="mdi-link"
-                          label="Links (magnet, http, file, ...)" />
+                          :label="t('dialogs.add.links')">
+                <template v-slot:prepend>
+                  <v-icon color="accent">mdi-link</v-icon>
+                </template>
+              </v-textarea>
             </v-col>
           </v-row>
 
@@ -118,15 +127,17 @@ onBeforeMount(async () => {
                           clearable
                           chips
                           multiple
-                          prepend-icon="mdi-tag"
-                          label="Tags">
+                          :label="t('dialogs.add.tags')">
+                <template v-slot:prepend>
+                  <v-icon color="accent">mdi-tag</v-icon>
+                </template>
                 <template v-slot:no-data>
                   <v-list-item>
                     <v-list-item-title v-if="tagSearch?.length > 0">
-                      No tags matching '{{ tagSearch }}'. Press Enter to create it.
+                      {{ t('dialogs.add.noTagMatch', {query: tagSearch}) }}
                     </v-list-item-title>
                     <v-list-item-title v-else>
-                      No tags yet. Type a name to create one.
+                      {{ t('dialogs.add.noTags') }}
                     </v-list-item-title>
                   </v-list-item>
                 </template>
@@ -139,16 +150,18 @@ onBeforeMount(async () => {
                           :hide-no-data="false"
                           clearable
                           chips
-                          prepend-icon="mdi-label"
                           label="Category"
                           @input="onCategoryChanged">
+                <template v-slot:prepend>
+                  <v-icon color="accent">mdi-label</v-icon>
+                </template>
                 <template v-slot:no-data>
                   <v-list-item>
                     <v-list-item-title v-if="categorySearch?.length > 0">
-                      No categories matching '{{ categorySearch }}'. It will be created automatically.
+                      {{ t('dialogs.add.noCategoryMatch', {query: categorySearch}) }}
                     </v-list-item-title>
                     <v-list-item-title v-else>
-                      No categories yet. Type a name to create one.
+                      {{ t('dialogs.add.noCategories') }}
                     </v-list-item-title>
                   </v-list-item>
                 </template>
@@ -160,8 +173,11 @@ onBeforeMount(async () => {
             <v-col>
               <v-text-field v-model="formData.savepath"
                             :disabled="formData.autoTMM"
-                            prepend-icon="mdi-folder"
-                            label="Save Path" />
+                            :label="t('dialogs.add.savePath')">
+                <template v-slot:prepend>
+                  <v-icon color="accent">mdi-folder</v-icon>
+                </template>
+              </v-text-field>
             </v-col>
           </v-row>
 
@@ -173,7 +189,7 @@ onBeforeMount(async () => {
                         color="accent"
                         variant="solo-filled"
                         rounded="xl"
-                        label="Torrent Content Layout" />
+                        :label="t('constants.contentLayout.title')" />
             </v-col>
           </v-row>
 
@@ -185,7 +201,7 @@ onBeforeMount(async () => {
                         color="accent"
                         variant="solo-filled"
                         rounded="xl"
-                        label="Torrent Stop Condition" />
+                        :label="t('constants.stopCondition.title')" />
             </v-col>
           </v-row>
 
@@ -196,31 +212,31 @@ onBeforeMount(async () => {
                   <v-checkbox v-model="formData.startNow"
                               density="compact"
                               hide-details
-                              label="Start torrent immediately" />
+                              :label="t('dialogs.add.startNow')" />
                 </v-list-item>
                 <v-list-item>
                   <v-checkbox v-model="formData.skipChecking"
                               density="compact"
                               hide-details
-                              label="Skip hash checking" />
+                              :label="t('dialogs.add.skipChecking')" />
                 </v-list-item>
                 <v-list-item>
                   <v-checkbox v-model="formData.autoTMM"
                               density="compact"
                               hide-details
-                              label="Automatic Torrent Management" />
+                              :label="t('dialogs.add.autoTMM')" />
                 </v-list-item>
                 <v-list-item>
                   <v-checkbox v-model="formData.sequentialDownload"
                               density="compact"
                               hide-details
-                              label="Sequential download" />
+                              :label="t('dialogs.add.sequentialDownload')" />
                 </v-list-item>
                 <v-list-item>
                   <v-checkbox v-model="formData.firstLastPiecePrio"
                               density="compact"
                               hide-details
-                              label="Prioritize first and last pieces" />
+                              :label="t('dialogs.add.firstLastPiecePrio')" />
                 </v-list-item>
               </v-list>
             </v-col>

@@ -145,6 +145,21 @@
       "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
     },
     "add": {
+      "title": "Add Torrents",
+      "files": "Select files",
+      "fileOverflow": "+{n} more",
+      "links": "Links (magnet, http, file, ...)",
+      "tags": "Tags",
+      "noTagMatch": "No tags matching \"{query}\". Press Enter to create it.",
+      "noTags": "No tags yet. Type a name to create one.",
+      "noCategoryMatch": "No categories matching \"{query}\". It will be created automatically.",
+      "noCategories": "No categories yet. Type a name to create one.",
+      "savePath": "Save path",
+      "startNow": "Start torrent immediately",
+      "skipChecking": "Skip hash checking",
+      "autoTMM": "Automatic Torrent Management",
+      "sequentialDownload": "Sequential download",
+      "firstLastPiecePrio": "Prioritize first and last pieces",
       "submit": "Add torrents"
     },
     "delete": {
