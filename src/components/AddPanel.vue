@@ -5,7 +5,10 @@ const navbarStore = useNavbarStore()
 </script>
 
 <template>
-  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0" class="pointer" @click="navbarStore.showAddTorrentDialog" >
+  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0"
+                       class="pointer"
+                       v-touch="{ up: navbarStore.showAddTorrentDialog }"
+                       @click="navbarStore.showAddTorrentDialog" >
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', navbarStore.pendingTorrentsCount)" />
     <v-spacer />
     <v-list-item>
