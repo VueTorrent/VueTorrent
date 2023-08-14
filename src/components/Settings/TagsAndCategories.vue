@@ -39,53 +39,64 @@ watch(categoryDialog, (value) => {
 
 <template>
   <v-row>
+    <!-- Tags -->
     <v-col cols="12" sm="6">
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.tagsSubheader') }}</v-list-subheader>
-      <v-sheet rounded="xl" class="d-flex align-center" v-for="tag in maindataStore.tags">
-        <div class="pl-4">{{ tag }}</div>
+
+      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in maindataStore.tags">
+        <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
         <v-spacer />
-        <div>
-          <v-btn icon variant="plain" density="compact">
+        <div class="d-flex">
+          <v-btn icon
+                 variant="plain">
             <v-icon>mdi-pencil</v-icon>
             <TagFormDialog v-model="tagDialog" :initial-tag="tag" />
           </v-btn>
-          <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteTag(tag)" />
+          <v-btn icon="mdi-delete"
+                 color="red"
+                 variant="plain"
+                 @click="deleteTag(tag)" />
         </div>
       </v-sheet>
+
       <v-card v-if="maindataStore.tags.length === 0">
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
-    </v-col>
 
-    <v-col cols="12" sm="6">
-      <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
-      <v-sheet rounded="xl" class="d-flex align-center" v-for="category in maindataStore.categories">
-        <div class="pl-4">{{ category.name }}</div>
-        <v-spacer />
-        <div>
-          <v-btn icon variant="plain" density="compact">
-            <v-icon>mdi-pencil</v-icon>
-            <CategoryFormDialog v-model="categoryDialog" :initial-category="category" />
-          </v-btn>
-          <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteCategory(category)" />
-        </div>
-      </v-sheet>
-      <v-card v-if="maindataStore.categories.length === 0">
-        <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
-      </v-card>
-    </v-col>
-  </v-row>
-
-  <v-row>
-    <v-col cols="6" class="d-flex align-center justify-center">
       <v-btn color="accent"
+             block
              @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewTag') }}
         <TagFormDialog v-model="tagDialog" />
       </v-btn>
     </v-col>
-    <v-col cols="6" class="d-flex align-center justify-center">
+
+    <!-- Categories -->
+    <v-col cols="12" sm="6">
+      <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
+
+      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in maindataStore.categories">
+        <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
+        <v-spacer />
+        <div class="d-flex">
+          <v-btn icon
+                 variant="plain">
+            <v-icon>mdi-pencil</v-icon>
+            <CategoryFormDialog v-model="categoryDialog" :initial-category="category" />
+          </v-btn>
+          <v-btn icon="mdi-delete"
+                 color="red"
+                 variant="plain"
+                 @click="deleteCategory(category)" />
+        </div>
+      </v-sheet>
+
+      <v-card v-if="maindataStore.categories.length === 0">
+        <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
+      </v-card>
+
       <v-btn color="accent"
+             block
              @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewCategory') }}
         <CategoryFormDialog v-model="categoryDialog" />
@@ -95,5 +106,11 @@ watch(categoryDialog, (value) => {
 </template>
 
 <style scoped lang="scss">
+.gap {
+  margin-bottom: 8px;
 
+  &:last-child {
+    margin-bottom: unset;
+  }
+}
 </style>
