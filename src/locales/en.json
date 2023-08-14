@@ -113,7 +113,12 @@
           "knownValue": "today | {n} day ago | {n} days ago",
           "unknownValue": "Unknown"
         },
-        "addPaused": "Add paused"
+        "addPaused": "Add paused",
+        "affectedFeedsSubheader": "Affected Feeds",
+        "matchingArticles": {
+          "title": "Matching Articles",
+          "noMatch": "No matching articles"
+        }
       }
     },
     "tag": {
