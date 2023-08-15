@@ -9,7 +9,7 @@ export function toPrecision(value: number, precision: number): string {
   return value.toFixed(precision - 1)
 }
 
-export function formatProgress(progress: number): string {
-  return `${toPrecision(progress, 3)} %`
+export function formatPercent(progress: number): string {
+  return `${toPrecision(progress * 100, 3)} %`
 }
 

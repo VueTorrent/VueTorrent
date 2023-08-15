@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Torrent from '@/components/Dashboard/Torrent.vue'
 import { useDashboardStore, useMaindataStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 
@@ -9,7 +10,7 @@ const maindataStore = useMaindataStore()
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters class="grey--text" align="center" justify="center">
+    <v-row no-gutters align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           {{ t('dashboard.title') }}
@@ -22,9 +23,7 @@ const maindataStore = useMaindataStore()
     </v-row>
 
     <v-list>
-      <v-list-item v-for="torrent in maindataStore.torrents">
-        <v-list-item-title>{{ torrent.name }}</v-list-item-title>
-      </v-list-item>
+      <Torrent :torrent="torrent" v-for="torrent in maindataStore.torrents" />
     </v-list>
 
     <v-pagination v-model="dashboardStore.currentPage" />

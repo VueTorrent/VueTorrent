@@ -1,5 +1,5 @@
 import { formatDataValue, formatDataUnit, formatData } from './data'
-import { toPrecision, formatProgress } from './number'
+import { toPrecision, formatPercent } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { titleCase, capitalize, extractHostname } from './text'
 
@@ -8,7 +8,7 @@ export {
   formatDataUnit,
   formatData,
   toPrecision,
-  formatProgress,
+  formatPercent,
   formatSpeedValue,
   formatSpeedUnit,
   formatSpeed,

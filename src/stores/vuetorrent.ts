@@ -1,7 +1,8 @@
-import { DashboardProperty, TitleOptions } from '@/constants/vuetorrent'
-import { formatProgress, formatSpeed } from '@/helpers'
+import { DashboardProperty, DashboardPropertyType, TitleOptions } from '@/constants/vuetorrent'
+import { formatPercent, formatSpeed } from '@/helpers'
 import { Theme } from '@/plugins/vuetify.ts'
 import { useMaindataStore } from '@/stores/maindata.ts'
+import { TorrentProperty } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -9,61 +10,253 @@ import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 
 
-const desktopPropertiesTemplate = {
-  [DashboardProperty.SIZE]: { name: DashboardProperty.SIZE, order: 1, active: true },
-  [DashboardProperty.PROGRESS]: { name: DashboardProperty.PROGRESS, order: 2, active: true },
-  [DashboardProperty.DOWNLOAD_SPEED]: { name: DashboardProperty.DOWNLOAD_SPEED, order: 3, active: true },
-  [DashboardProperty.UPLOAD_SPEED]: { name: DashboardProperty.UPLOAD_SPEED, order: 4, active: true },
-  [DashboardProperty.DOWNLOADED]: { name: DashboardProperty.DOWNLOADED, order: 5, active: true },
-  [DashboardProperty.SAVE_PATH]: { name: DashboardProperty.SAVE_PATH, order: 6, active: false },
-  [DashboardProperty.UPLOADED]: { name: DashboardProperty.UPLOADED, order: 7, active: true },
-  [DashboardProperty.ETA]: { name: DashboardProperty.ETA, order: 8, active: true },
-  [DashboardProperty.PEERS]: { name: DashboardProperty.PEERS, order: 9, active: true },
-  [DashboardProperty.SEEDS]: { name: DashboardProperty.SEEDS, order: 10, active: true },
-  [DashboardProperty.STATUS]: { name: DashboardProperty.STATUS, order: 11, active: true },
-  [DashboardProperty.RATIO]: { name: DashboardProperty.RATIO, order: 12, active: true },
-  [DashboardProperty.TRACKER]: { name: DashboardProperty.TRACKER, order: 13, active: false },
-  [DashboardProperty.CATEGORY]: { name: DashboardProperty.CATEGORY, order: 14, active: true },
-  [DashboardProperty.TAGS]: { name: DashboardProperty.TAGS, order: 15, active: true },
-  [DashboardProperty.ADDED_ON]: { name: DashboardProperty.ADDED_ON, order: 16, active: true },
-  [DashboardProperty.AVAILABILITY]: { name: DashboardProperty.AVAILABILITY, order: 17, active: true },
-  [DashboardProperty.LAST_ACTIVITY]: { name: DashboardProperty.LAST_ACTIVITY, order: 18, active: false },
-  [DashboardProperty.COMPLETED_ON]: { name: DashboardProperty.COMPLETED_ON, order: 19, active: false },
-  [DashboardProperty.AMOUNT_LEFT]: { name: DashboardProperty.AMOUNT_LEFT, order: 20, active: false },
-  [DashboardProperty.CONTENT_PATH]: { name: DashboardProperty.CONTENT_PATH, order: 21, active: false },
-  [DashboardProperty.DOWNLOADED_SESSION]: { name: DashboardProperty.DOWNLOADED_SESSION, order: 22, active: false },
-  [DashboardProperty.DOWNLOAD_LIMIT]: { name: DashboardProperty.DOWNLOAD_LIMIT, order: 23, active: false },
-  [DashboardProperty.DOWNLOAD_PATH]: { name: DashboardProperty.DOWNLOAD_PATH, order: 24, active: false },
-  [DashboardProperty.HASH]: { name: DashboardProperty.HASH, order: 25, active: false },
-  [DashboardProperty.INFOHASH_V1]: { name: DashboardProperty.INFOHASH_V1, order: 26, active: false },
-  [DashboardProperty.INFOHASH_V2]: { name: DashboardProperty.INFOHASH_V2, order: 27, active: false },
-  [DashboardProperty.SEEN_COMPLETE]: { name: DashboardProperty.SEEN_COMPLETE, order: 28, active: false },
-  [DashboardProperty.TIME_ACTIVE]: { name: DashboardProperty.TIME_ACTIVE, order: 29, active: false },
-  [DashboardProperty.TOTAL_SIZE]: { name: DashboardProperty.TOTAL_SIZE, order: 30, active: false },
-  [DashboardProperty.TRACKERS_COUND]: { name: DashboardProperty.TRACKERS_COUND, order: 31, active: false },
-  [DashboardProperty.UPLOADED_SESSION]: { name: DashboardProperty.UPLOADED_SESSION, order: 32, active: false },
-  [DashboardProperty.UPLOAD_LIMIT]: { name: DashboardProperty.UPLOAD_LIMIT, order: 33, active: false },
-  [DashboardProperty.GLOBAL_SPEED]: { name: DashboardProperty.GLOBAL_SPEED, order: 34, active: false },
-  [DashboardProperty.GLOBAL_VOLUME]: { name: DashboardProperty.GLOBAL_VOLUME, order: 35, active: false }
-}
-
-const mobilePropertiesTemplate = {
-  [DashboardProperty.STATUS]: { name: DashboardProperty.STATUS, order: 1, active: true },
-  [DashboardProperty.TRACKER]: { name: DashboardProperty.TRACKER, order: 2, active: true },
-  [DashboardProperty.CATEGORY]: { name: DashboardProperty.CATEGORY, order: 3, active: true },
-  [DashboardProperty.TAGS]: { name: DashboardProperty.TAGS, order: 4, active: true },
-  [DashboardProperty.SIZE]: { name: DashboardProperty.SIZE, order: 5, active: true },
-  [DashboardProperty.PROGRESS]: { name: DashboardProperty.PROGRESS, order: 6, active: true },
-  [DashboardProperty.PROGRESS_BAR]: { name: DashboardProperty.PROGRESS_BAR, order: 7, active: true },
-  [DashboardProperty.RATIO]: { name: DashboardProperty.RATIO, order: 8, active: true },
-  [DashboardProperty.UPLOADED]: { name: DashboardProperty.UPLOADED, order: 9, active: true },
-  [DashboardProperty.ETA]: { name: DashboardProperty.ETA, order: 10, active: true },
-  [DashboardProperty.SEEDS]: { name: DashboardProperty.SEEDS, order: 11, active: true },
-  [DashboardProperty.PEERS]: { name: DashboardProperty.PEERS, order: 12, active: true },
-  [DashboardProperty.DOWNLOAD_SPEED]: { name: DashboardProperty.DOWNLOAD_SPEED, order: 13, active: true },
-  [DashboardProperty.UPLOAD_SPEED]: { name: DashboardProperty.UPLOAD_SPEED, order: 14, active: true }
-}
-
+const propertiesTemplate: TorrentProperty[] = [
+  {
+    active: true,
+    name: DashboardProperty.SIZE,
+    order: 1,
+    props: { title: 'size', value: 'size' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: true,
+    name: DashboardProperty.PROGRESS,
+    order: 2,
+    props: { title: 'progress', value: 'progress' },
+    type: DashboardPropertyType.PERCENT
+  },
+  {
+    active: true,
+    name: DashboardProperty.DOWNLOAD_SPEED,
+    order: 3,
+    props: { title: 'download_speed', value: 'dlspeed' },
+    type: DashboardPropertyType.SPEED
+  },
+  {
+    active: true,
+    name: DashboardProperty.UPLOAD_SPEED,
+    order: 4,
+    props: { title: 'upload_speed', value: 'upspeed' },
+    type: DashboardPropertyType.SPEED
+  },
+  {
+    active: true,
+    name: DashboardProperty.DOWNLOADED,
+    order: 5,
+    props: { title: 'downloaded', value: 'downloaded' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: false,
+    name: DashboardProperty.SAVE_PATH,
+    order: 6,
+    props: { title: 'save_path', value: 'savePath' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: true,
+    name: DashboardProperty.UPLOADED,
+    order: 7,
+    props: { title: 'uploaded', value: 'uploaded' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: true,
+    name: DashboardProperty.ETA,
+    order: 8,
+    props: { title: 'eta', value: 'eta' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: true,
+    name: DashboardProperty.PEERS,
+    order: 9,
+    props: { title: 'peers', value: 'num_leechs', total: 'available_peers' },
+    type: DashboardPropertyType.AMOUNT
+  },
+  {
+    active: true,
+    name: DashboardProperty.SEEDS,
+    order: 10,
+    props: { title: 'seeds', value: 'num_seeds', total: 'available_seeds' },
+    type: DashboardPropertyType.AMOUNT
+  },
+  {
+    active: true,
+    name: DashboardProperty.STATUS,
+    order: 11,
+    props: { title: 'status', value: 'statusString' },
+    type: DashboardPropertyType.CHIP
+  },
+  {
+    active: true,
+    name: DashboardProperty.RATIO,
+    order: 12,
+    props: { title: 'ratio', value: 'ratio' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.TRACKER,
+    order: 13,
+    props: { title: 'tracker', value: 'trackerString' },
+    type: DashboardPropertyType.CHIP
+  },
+  {
+    active: true,
+    name: DashboardProperty.CATEGORY,
+    order: 14,
+    props: { title: 'category', value: 'category' },
+    type: DashboardPropertyType.CHIP
+  },
+  {
+    active: true,
+    name: DashboardProperty.TAGS,
+    order: 15,
+    props: { title: 'tags', value: 'tags' },
+    type: DashboardPropertyType.CHIP
+  },
+  {
+    active: true,
+    name: DashboardProperty.ADDED_ON,
+    order: 16,
+    props: { title: 'added_on', value: 'added_on' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: true,
+    name: DashboardProperty.AVAILABILITY,
+    order: 17,
+    props: { title: 'availability', value: 'availability' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.LAST_ACTIVITY,
+    order: 18,
+    props: { title: 'last_activity', value: 'last_activity' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.COMPLETED_ON,
+    order: 19,
+    props: { title: 'completed_on', value: 'completed_on' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.AMOUNT_LEFT,
+    order: 20,
+    props: { title: 'amount_left', value: 'amount_left' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: false,
+    name: DashboardProperty.CONTENT_PATH,
+    order: 21,
+    props: { title: 'content_path', value: 'content_path' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.DOWNLOADED_SESSION,
+    order: 22,
+    props: { title: 'downloaded_session', value: 'downloaded_session' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: false,
+    name: DashboardProperty.DOWNLOAD_LIMIT,
+    order: 23,
+    props: { title: 'download_limit', value: 'dl_limit' },
+    type: DashboardPropertyType.SPEED
+  },
+  {
+    active: false,
+    name: DashboardProperty.DOWNLOAD_PATH,
+    order: 24,
+    props: { title: 'download_path', value: 'download_path' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.HASH,
+    order: 25,
+    props: { title: 'hash', value: 'hash' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.INFOHASH_V1,
+    order: 26,
+    props: { title: 'infohash_v1', value: 'infohash_v1' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.INFOHASH_V2,
+    order: 27,
+    props: { title: 'infohash_v2', value: 'infohash_v2' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.SEEN_COMPLETE,
+    order: 28,
+    props: { title: 'seen_complete', value: 'seen_complete' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.TIME_ACTIVE,
+    order: 29,
+    props: { title: 'time_active', value: 'time_active' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.TOTAL_SIZE,
+    order: 30,
+    props: { title: 'total_size', value: 'total_size' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: false,
+    name: DashboardProperty.TRACKERS_COUNT,
+    order: 31,
+    props: { title: 'trackers_count', value: 'trackers_count' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.UPLOADED_SESSION,
+    order: 32,
+    props: { title: 'uploaded_session', value: 'uploaded_session' },
+    type: DashboardPropertyType.DATA
+  },
+  {
+    active: false,
+    name: DashboardProperty.UPLOAD_LIMIT,
+    order: 33,
+    props: { title: 'upload_limit', value: 'up_limit' },
+    type: DashboardPropertyType.SPEED
+  },
+  {
+    active: false,
+    name: DashboardProperty.GLOBAL_SPEED,
+    order: 34,
+    props: { title: 'global_speed', value: 'globalSpeed' },
+    type: DashboardPropertyType.SPEED
+  },
+  {
+    active: false,
+    name: DashboardProperty.GLOBAL_VOLUME,
+    order: 35,
+    props: { title: 'global_volume', value: 'globalVolume' },
+    type: DashboardPropertyType.DATA
+  }
+]
 
 export const useVueTorrentStore = defineStore('vuetorrent',
   () => {
@@ -90,10 +283,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
     const fileContentInterval = ref(5000)
     const canvasPieceCountThreshold = ref(5000)
 
-    const busyDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
-    const doneDesktopTorrentProperties = ref({ ...desktopPropertiesTemplate })
-    const busyMobileCardProperties = ref({ ...mobilePropertiesTemplate })
-    const doneMobileCardProperties = ref({ ...mobilePropertiesTemplate })
+    const busyTorrentProperties = ref([...propertiesTemplate])
+    const doneTorrentProperties = ref([...propertiesTemplate])
 
     const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
 
@@ -136,7 +327,7 @@ export const useVueTorrentStore = defineStore('vuetorrent',
             document.title = '[' +
               `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
               `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
-              `${formatProgress(torrent.progress)}` +
+              `${formatPercent(torrent.progress)}` +
               '] VueTorrent'
           } else {
             document.title = '[N/A] VueTorrent'
@@ -172,10 +363,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       title,
       useBinarySize,
       useBitSpeed,
-      busyDesktopTorrentProperties,
-      doneDesktopTorrentProperties,
-      busyMobileCardProperties,
-      doneMobileCardProperties,
+      busyTorrentProperties,
+      doneTorrentProperties,
       getCurrentThemeName,
       setLanguage,
       updateTheme,

@@ -12,7 +12,7 @@ const goHome = () => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters class="grey--text" align="center" justify="center">
+    <v-row no-gutters align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
           {{ t('searchEngine.title') }}
