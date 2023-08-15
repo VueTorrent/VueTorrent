@@ -1,6 +1,7 @@
 import { Priority, TorrentState } from '@/constants/qbit'
 
-export default interface Torrent extends Object {
+export default interface Torrent {
+  raw_added_on: number
   added_on: string
   amount_left: number
   auto_tmm: boolean

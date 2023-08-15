@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import 'typeface-roboto'
 import 'typeface-roboto-mono'
-import './styles.scss'
+import '@/styles/styles.scss'
 import App from './App.vue'
 
 // Vue-Router

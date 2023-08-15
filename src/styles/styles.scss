@@ -1,3 +1,5 @@
+@import "colors";
+
 ul.no-bullet {
   list-style-type: none;
 }
@@ -8,4 +10,10 @@ ul.no-bullet {
 
 .wrap-anywhere {
   overflow-wrap: anywhere !important;
+}
+
+$sideborder-margin: 6px;
+
+.sideborder {
+  border-left: #{$sideborder-margin} solid #{$torrent-done};
 }

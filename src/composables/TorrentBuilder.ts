@@ -16,6 +16,7 @@ export function useTorrentBuilder() {
 
   function buildFromQbit(data: QbitTorrent, format = 'DD/MM/YYYY, HH:mm:ss'): Torrent {
     const torrent = {
+      raw_added_on: data.added_on,
       added_on: dayjs(data.added_on * 1000).format(format),
       amount_left: data.amount_left,
       auto_tmm: data.auto_tmm,

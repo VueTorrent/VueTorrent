@@ -43,7 +43,7 @@ const vuetorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <v-list-item>
+  <v-list-item class="sideborder">
     <v-list-item-title class="font-weight-bold">{{ torrent.name }}</v-list-item-title>
     <div class="d-flex gap flex-wrap">
       <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />

@@ -1,6 +1,7 @@
 import { FilterState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions.ts'
-import { useMaindataStore } from '@/stores'
+import { formatData } from '@/helpers'
+import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
@@ -24,8 +25,9 @@ export const useDashboardStore = defineStore('dashboard', () => {
     trackerFilter: undefined as string | undefined
   })
 
-  const mainDataStore = useMaindataStore()
   const { t } = useI18n()
+  const mainDataStore = useMaindataStore()
+  const vuetorrentStore = useVueTorrentStore()
 
   const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
@@ -38,7 +40,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
       return t('dashboard.selectedTorrentsCount', selectedTorrents.value.length, {
         count: selectedTorrents.value.length,
         total: mainDataStore.torrents.length,
-        size: selectedSize
+        size: formatData(selectedSize, vuetorrentStore.useBinarySize)
       })
     } else {
       return t('dashboard.torrentsCount', filteredTorrentsCount.value)
@@ -88,11 +90,12 @@ export const useDashboardStore = defineStore('dashboard', () => {
   }
 
   function selectAllTorrents() {
+    isSelectionMultiple.value = true
     selectTorrents(...mainDataStore.torrents.map(t => t.hash))
   }
 
   function unselectAllTorrents() {
-    unselectTorrents(...mainDataStore.torrents.map(t => t.hash))
+    selectedTorrents.value.splice(0, selectedTorrents.value.length)
   }
 
   return {

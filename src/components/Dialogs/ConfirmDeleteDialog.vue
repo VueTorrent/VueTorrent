@@ -15,6 +15,11 @@ const props = defineProps({
     type: Array<string>,
     required: false,
     default: []
+  },
+  disableActivator: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 const emit = defineEmits(['update:modelValue'])
@@ -28,8 +33,7 @@ const dialogVisible = ref(false)
 const form = ref<VForm>()
 const isFormValid = ref(false)
 
-// const selection = computed(() => maindataStore.torrents.filter(t => props.hashes?.includes(t.hash)))
-const selection = computed(() => maindataStore.torrents)
+const selection = computed(() => maindataStore.torrents.filter(t => props.hashes?.includes(t.hash)))
 
 async function submit() {
   if (!isFormValid.value) return
@@ -48,7 +52,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title>{{ t('dialogs.delete.title', selection.length, { n: selection.length }) }}</v-card-title>
       <v-card-text>
