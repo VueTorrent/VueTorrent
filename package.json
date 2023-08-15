@@ -43,7 +43,7 @@
     "@vue/eslint-config-typescript": "^11",
     "@vue/test-utils": "^1",
     "eslint": "^8",
-    "eslint-config-prettier": "^8",
+    "eslint-config-prettier": "^9",
     "eslint-plugin-prettier": "^5",
     "eslint-plugin-vue": "^9",
     "jsdom": "^22.1.0",
