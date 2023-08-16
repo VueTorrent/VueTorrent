@@ -110,6 +110,7 @@ onBeforeMount(async () => {
                 </template>
               </v-file-input>
               <v-textarea v-model="navbarStore.addTorrentDialogUrls"
+                          clearable
                           :label="t('dialogs.add.links')">
                 <template v-slot:prepend>
                   <v-icon color="accent">mdi-link</v-icon>
