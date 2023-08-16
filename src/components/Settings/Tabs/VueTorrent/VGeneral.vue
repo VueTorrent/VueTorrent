@@ -186,7 +186,7 @@ export default defineComponent({
   data() {
     return {
       languages: LOCALES,
-      paginationSizes: [5, 15, 30, 50],
+      paginationSizes: [0, 5, 15, 30, 50],
       titleOptions: [TitleOptions.DEFAULT, TitleOptions.GLOBAL_SPEED, TitleOptions.FIRST_TORRENT_STATUS],
       Qbitversion: '',
       settingsField: ''

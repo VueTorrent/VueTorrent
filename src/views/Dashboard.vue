@@ -292,10 +292,12 @@ export default {
     pageCount() {
       const l = this.torrents.length
       const s = this.paginationSize
+      if (s == 0) return 1
 
       return Math.ceil(l / s)
     },
     paginatedData() {
+      if (this.paginationSize == 0) return this.torrents
       const start = (this.pageNumber - 1) * this.paginationSize
       const end = start + this.paginationSize
       if (this.hasSearchFilter) {
@@ -323,8 +325,10 @@ export default {
   watch: {
     torrents: function (torrents) {
       this.$store.commit('SET_CURRENT_ITEM_COUNT', torrents.length)
-
-      const pageCount = Math.ceil(torrents.length / this.paginationSize)
+      let pageCount = 1
+      if (this.paginationSize > 0) {
+        pageCount = Math.ceil(torrents.length / this.paginationSize)
+      }
       if (pageCount < this.pageNumber) {
         this.pageNumber = Math.max(1, pageCount)
       }
