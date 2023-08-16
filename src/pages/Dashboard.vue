@@ -212,6 +212,7 @@ function strTouchStart(e: TouchEvent, torrent: TorrentType) {
   }
   tmCalc.lastHash = torrent.hash
 }
+
 function strTouchMove(e: TouchEvent) {
   trcMoveTick.value++
   if (trcMenu.isShown && e.touches.length > 1) e.preventDefault()
@@ -220,6 +221,7 @@ function strTouchMove(e: TouchEvent) {
     clearTimeout(tmCalc.touchTimer)
   }
 }
+
 function strTouchEnd(e: TouchEvent) {
   clearTimeout(tmCalc.touchTimer)
   if (trcMenu.isShown) e.preventDefault()
@@ -310,95 +312,71 @@ watch(torrents, (newValue) => {
 </script>
 
 <template>
-  <div class="px-1 px-sm-5 pt-4 background noselect" @click.self="dashboardStore.unselectAllTorrents()">
-    <v-row class="ma-0 pa-0 mb-2" @click.self="dashboardStore.unselectAllTorrents()">
-      <v-col v-if="vuetorrentStore.isPaginationOnTop && display.mobile" cols="12"
-             class="align-center justify-center pa-0">
-        <div class="text-center">
-          <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="dashboardStore.currentPage"
-                        :length="pageCount" :total-visible="7" @input="scrollToTop" />
-        </div>
-      </v-col>
-      <v-card v-show="isSearchFilterVisible" color="transparent" id="searchFilter" class="ma-0 pa-0 transparent v-col-7 v-col-md-3">
-        <v-text-field
-          id="searchInput"
-          v-model="dashboardStore.searchFilter"
-          clearable
-          density="compact"
-          variant="solo"
-          hide-details
-          :label="t('dashboard.searchInputLabel')"
-          prepend-inner-icon="mdi-magnify"
-          single-line
-          rounded="pill"
-          @click:clear="resetInput()"
-        />
-      </v-card>
-      <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="bottom">
+  <div class="pt-4 px-1 px-sm-5">
+    <v-row class="ma-0 pa-0 mb-2">
+      <v-expand-x-transition>
+        <v-card v-show="isSearchFilterVisible"
+                color="transparent">
+          <v-text-field id="searchInput"
+                        v-model="dashboardStore.searchFilter"
+                        clearable
+                        density="compact"
+                        variant="solo"
+                        hide-details
+                        :label="t('dashboard.searchInputLabel')"
+                        prepend-inner-icon="mdi-magnify"
+                        single-line
+                        rounded="pill"
+                        style="width: 200px;"
+                        @click:clear="resetInput()"
+          />
+        </v-card>
+      </v-expand-x-transition>
+      <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'"
                  v-bind="props"
-                 color="grey"
                  variant="plain"
-                 small
-                 fab
-                 class="mr-0 ml-0"
                  @click="isSearchFilterVisible = !isSearchFilterVisible" />
         </template>
       </v-tooltip>
-      <v-tooltip :text="t('dashboard.toggleSelectMode')" location="bottom">
+      <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn :icon="dashboardStore.isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                  v-bind="props"
-                 color="grey"
                  variant="plain"
-                 small
-                 fab
-                 class="mr-0 ml-0"
                  @click="toggleSelectMode" />
         </template>
       </v-tooltip>
-      <v-expand-x-transition>
-        <v-card v-show="isSortVisible" flat class="ma-0 pa-0 mt-1 transparent">
-          <v-select
-            v-model="dashboardStore.sortOptions.sortBy"
-            flat
-            solo
-            dense
-            height="30"
-            class="ml-2 mr-2"
-            :items="sortOptions"
-            style="max-width: 10em"
-            :prepend-icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
-            @click:prepend="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
-        </v-card>
-      </v-expand-x-transition>
-      <v-tooltip :text="t('dashboard.toggleSortOrder')" location="bottom">
-        <template v-slot:activator="{ props }">
-          <v-btn :icon="isSortVisible ? 'mdi-chevron-left-circle' : 'mdi-sort'"
+      <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
+        <template v-slot:activator="{props}">
+          <v-btn :icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
                  v-bind="props"
-                 color="grey"
                  variant="plain"
-                 small
-                 fab
-                 class="mr-0 ml-0"
-                 @click="isSortVisible = !isSortVisible" />
+                  @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
-      <v-col v-if="vuetorrentStore.isPaginationOnTop && !display.mobile" cols="12"
-             class="align-center justify-center pa-0">
-        <div class="text-center">
-          <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="dashboardStore.currentPage"
-                        :length="pageCount" :total-visible="7" @input="scrollToTop" />
-        </div>
-      </v-col>
-      <v-col class="align-center justify-center">
-        <span style="float: right; font-size: 0.8em" class="mr-2 text-uppercase">
-          {{ dashboardStore.torrentCountString }}
-        </span>
-      </v-col>
+      <div class=" pa-0">
+        <v-select v-model="dashboardStore.sortOptions.sortBy"
+                  :items="sortOptions"
+                  density="compact"
+                  variant="solo"
+                  hide-details
+                  :label="t('dashboard.sortLabel')"
+                  rounded="pill" />
+      </div>
+      <div v-if="vuetorrentStore.isPaginationOnTop" class="pa-0 v-col-12">
+        <v-pagination v-model="dashboardStore.currentPage"
+                      :length="pageCount"
+                      total-visible="7"
+                      @input="scrollToTop" />
+      </div>
+<!--      TODO-->
+<!--      <div class="d-flex align-center text-uppercase">-->
+<!--        {{ dashboardStore.torrentCountString }}-->
+<!--      </div>-->
     </v-row>
-    <v-row id="selectAllTorrents" class="ma-0 pa-0">
+    <v-row class="ma-0 pa-0">
       <v-expand-transition>
         <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" height="40">
           <v-tooltip :text="t('common.selectAll')" location="bottom">
@@ -445,13 +423,6 @@ watch(torrents, (newValue) => {
           </div>
         </v-list-item>
       </v-list>
-      <div v-if="!vuetorrentStore.isPaginationOnTop" class="text-center mb-5">
-        <v-pagination v-if="pageCount > 1 && !hasSearchFilter"
-                      v-model="dashboardStore.currentPage"
-                      :length="pageCount"
-                      :total-visible="7"
-                      @input="scrollToTop" />
-      </div>
     </div>
     <v-menu v-model="trcMenu.isShown"
             transition="slide-y-transition"

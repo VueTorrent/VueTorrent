@@ -135,7 +135,7 @@ onBeforeMount(async () => {
                 <template v-slot:no-data>
                   <v-list-item>
                     <v-list-item-title v-if="tagSearch?.length > 0">
-                      {{ t('dialogs.add.noTagMatch', {query: tagSearch}) }}
+                      {{ t('dialogs.add.noTagMatch', { query: tagSearch }) }}
                     </v-list-item-title>
                     <v-list-item-title v-else>
                       {{ t('dialogs.add.noTags') }}
@@ -159,7 +159,7 @@ onBeforeMount(async () => {
                 <template v-slot:no-data>
                   <v-list-item>
                     <v-list-item-title v-if="categorySearch?.length > 0">
-                      {{ t('dialogs.add.noCategoryMatch', {query: categorySearch}) }}
+                      {{ t('dialogs.add.noCategoryMatch', { query: categorySearch }) }}
                     </v-list-item-title>
                     <v-list-item-title v-else>
                       {{ t('dialogs.add.noCategories') }}

@@ -19,7 +19,8 @@
     "searchInputLabel": "Search",
     "toggleSearchFilter": "Toggle Search Filter",
     "toggleSelectMode": "Toggle select mode",
-    "toggleSortOrder": "Sort Torrents",
+    "toggleSortOrder": "Reverse sort order",
+    "sortLabel": "Sort by",
     "sortBy": {
       "default": "Default",
       "added_on": "Added On",
