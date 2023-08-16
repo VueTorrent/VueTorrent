@@ -80,7 +80,7 @@ watch(
 </script>
 
 <template>
-  <v-app>
+  <v-app class="noselect">
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />
