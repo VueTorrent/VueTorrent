@@ -9,9 +9,11 @@ import { useI18n } from 'vue-i18n'
 
 
 export const useDashboardStore = defineStore('dashboard', () => {
+  const maindataStore = useMaindataStore()
+
   const currentPage = ref(1)
   const searchFilter = ref('')
-  const filteredTorrentsCount = computed(() => 0)
+  const filteredTorrentsCount = computed(() => maindataStore.torrents.length)
   const isSelectionMultiple = ref(false)
   const selectedTorrents = ref<string[]>([])
   const latestSelectedTorrent = ref<number>(-1)
@@ -32,18 +34,18 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
       const selectedSize = selectedTorrents.value
-      .map(hash => mainDataStore.getTorrentByHash(hash))
-      .filter(torrent => torrent !== undefined)
-      .map(torrent => torrent!.size)
-      .reduce((partial, size) => partial + size, 0)
+          .map(hash => mainDataStore.getTorrentByHash(hash))
+          .filter(torrent => torrent !== undefined)
+          .map(torrent => torrent!.size)
+          .reduce((partial, size) => partial + size, 0)
 
-      return t('dashboard.selectedTorrentsCount', selectedTorrents.value.length, {
+      return t('dashboard.selectedTorrentsCount', {
         count: selectedTorrents.value.length,
         total: mainDataStore.torrents.length,
-        size: formatData(selectedSize, vuetorrentStore.useBinarySize)
+        size: formatData(selectedSize, vuetorrentStore.useBinarySize),
       })
     } else {
-      return t('dashboard.torrentsCount', filteredTorrentsCount.value)
+      return t('dashboard.torrentsCount', { total: filteredTorrentsCount.value })
     }
   })
 
