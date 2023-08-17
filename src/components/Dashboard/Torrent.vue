@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { DashboardPropertyType } from '@/constants/vuetorrent'
-import { useVueTorrentStore } from '@/stores'
+import { doesCommand } from '@/helpers'
+import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/VueTorrent'
 import { computed } from 'vue'
 import ItemAmount from './DashboardItems/ItemAmount.vue'
@@ -11,6 +12,27 @@ import ItemSpeed from './DashboardItems/ItemSpeed.vue'
 import ItemText from './DashboardItems/ItemText.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
+
+const dashboardStore = useDashboardStore()
+const maindataStore = useMaindataStore()
+const vuetorrentStore = useVueTorrentStore()
+
+const torrentProperties = computed(() => {
+  let ppts = props.torrent.progress === 100
+      ? vuetorrentStore.doneTorrentProperties
+      : vuetorrentStore.busyTorrentProperties
+
+  return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
+})
+
+function onClick(e: MouseEvent) {
+  if (e.shiftKey) {
+    dashboardStore.spanTorrentSelection(maindataStore.getTorrentIndexByHash(props.torrent.hash))
+  } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
+    dashboardStore.isSelectionMultiple = true
+    dashboardStore.toggleSelect(props.torrent.hash)
+  }
+}
 
 const getComponent = (type: DashboardPropertyType) => {
   switch (type) {
@@ -30,25 +52,17 @@ const getComponent = (type: DashboardPropertyType) => {
 
   }
 }
-
-const torrentProperties = computed(() => {
-  let ppts = props.torrent.progress === 100
-    ? vuetorrentStore.doneTorrentProperties
-    : vuetorrentStore.busyTorrentProperties
-
-  return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
-})
-
-const vuetorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <v-list-item class="sideborder">
-    <v-list-item-title class="font-weight-bold">{{ torrent.name }}</v-list-item-title>
-    <div class="d-flex gap flex-wrap">
-      <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
-    </div>
-  </v-list-item>
+  <v-card class="sideborder done pointer" width="100%" @click="onClick">
+    <v-card-title class="font-weight-bold">{{ torrent.name }}</v-card-title>
+    <v-card-text>
+      <div class="d-flex gap flex-wrap">
+        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
+      </div>
+    </v-card-text>
+  </v-card>
 </template>
 
 <style scoped>

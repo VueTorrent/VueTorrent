@@ -4,7 +4,7 @@ import { formatData } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 
@@ -83,12 +83,20 @@ export const useDashboardStore = defineStore('dashboard', () => {
     hashes.forEach(unselectTorrent)
   }
 
+  function toggleSelect(hash: string) {
+    if (isTorrentInSelection(hash)) {
+      unselectTorrent(hash)
+    } else {
+      selectTorrent(hash)
+    }
+  }
+
   function spanTorrentSelection(index: number) {
     if (latestSelectedTorrent.value < 0) return
     const start = Math.min(index, latestSelectedTorrent.value)
     const end = Math.max(index, latestSelectedTorrent.value)
     const hashes = mainDataStore.torrents.slice(start, end + 1).map(t => t.hash)
-    hashes.forEach(hash => (isTorrentInSelection(hash) ? unselectTorrent : selectTorrent)(hash))
+    selectTorrents(...hashes)
   }
 
   function selectAllTorrents() {
@@ -99,6 +107,12 @@ export const useDashboardStore = defineStore('dashboard', () => {
   function unselectAllTorrents() {
     selectedTorrents.value.splice(0, selectedTorrents.value.length)
   }
+
+  watch(selectedTorrents, (newValue) => {
+    if (newValue.length === 0) {
+      latestSelectedTorrent.value = -1
+    }
+  })
 
   return {
     currentPage,
@@ -117,6 +131,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     spanTorrentSelection,
     selectAllTorrents,
     unselectAllTorrents,
-    getTorrentsPayload
+    toggleSelect,
+    getTorrentsPayload,
   }
 })

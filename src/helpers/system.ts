@@ -8,6 +8,6 @@ export function isMac(): boolean {
 /**
  * Check Ctrl/Cmd key
  */
-export function doesCommand(e: KeyboardEvent): boolean {
+export function doesCommand(e: KeyboardEvent | MouseEvent| TouchEvent): boolean {
   return isMac() ? e.metaKey : e.ctrlKey
 }

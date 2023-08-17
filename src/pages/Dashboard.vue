@@ -10,6 +10,7 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 
+
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
@@ -88,7 +89,6 @@ const tmCalc = reactive({
 })
 const trcMoveTick = ref(0)
 const isSearchFilterVisible = ref(false)
-const isSortVisible = ref(false)
 const isDeleteDialogVisible = ref(false)
 
 const searchFilter = computed({
@@ -125,8 +125,8 @@ const torrents = computed<TorrentType[]>(() => {
       })
     } else {
       results.sort((a, b) =>
-        a[dashboardStore.sortOptions.sortBy] - b[dashboardStore.sortOptions.sortBy]
-        || a.raw_added_on - b.raw_added_on)
+          a[dashboardStore.sortOptions.sortBy] - b[dashboardStore.sortOptions.sortBy]
+          || a.raw_added_on - b.raw_added_on)
     }
     if (dashboardStore.sortOptions.reverseOrder) results.reverse()
   }
@@ -274,18 +274,11 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
   // 'Search' => Search view
   if (e.key === '/'
-    && route.name !== 'searchEngine'
-    && document.activeElement !== document.getElementById('searchInput')) {
+      && route.name !== 'searchEngine'
+      && document.activeElement !== document.getElementById('searchInput')) {
     router.push({ name: 'searchEngine' })
   }
 }
-
-/*
-  beforeDestroy() {
-    document.removeEventListener('keydown', this.handleKeyboardShortcut)
-    document.removeEventListener('dragenter', this.detectDragEnter)
-  },
- */
 
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
@@ -353,7 +346,7 @@ watch(torrents, (newValue) => {
           <v-btn :icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
                  v-bind="props"
                  variant="plain"
-                  @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
+                 @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
       <div class=" pa-0">
@@ -365,20 +358,21 @@ watch(torrents, (newValue) => {
                   :label="t('dashboard.sortLabel')"
                   rounded="pill" />
       </div>
-      <div v-if="vuetorrentStore.isPaginationOnTop" class="pa-0 v-col-12">
+      <v-col cols="12" v-if="vuetorrentStore.isPaginationOnTop" class="pa-0">
         <v-pagination v-model="dashboardStore.currentPage"
                       :length="pageCount"
                       total-visible="7"
                       @input="scrollToTop" />
-      </div>
-<!--      TODO-->
-<!--      <div class="d-flex align-center text-uppercase">-->
-<!--        {{ dashboardStore.torrentCountString }}-->
-<!--      </div>-->
+      </v-col>
+      <v-col class="align-center justify-center">
+        <span style="float: right; font-size: 0.8em" class="text-uppercase">
+          {{ dashboardStore.torrentCountString }}
+        </span>
+      </v-col>
     </v-row>
     <v-row class="ma-0 pa-0">
       <v-expand-transition>
-        <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" height="40">
+        <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent">
           <v-tooltip :text="t('common.selectAll')" location="bottom">
             <template v-slot:activator="{props}">
               <v-btn :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
@@ -397,28 +391,26 @@ watch(torrents, (newValue) => {
       <p class="text-grey">{{ t('dashboard.emptyTorrentList') }}</p>
     </div>
     <div v-else>
-      <v-list class="pa-0 transparent">
-        <v-list-item
-          v-for="torrent in paginatedData"
-          class="pa-0"
-          :class="display.mobile ? 'mb-1' : 'mb-2'"
-          @mousedown="hideTorrentRightClickMenu"
-          @touchstart="strTouchStart($event, torrent)"
-          @touchmove="strTouchMove($event)"
-          @touchend="strTouchEnd($event)"
-          @contextmenu="showTorrentRightClickMenu($event, torrent)"
-          @dblclick.prevent="goToInfo(torrent.hash)"
-        >
-          <v-expand-x-transition>
-            <v-card v-show="dashboardStore.isSelectionMultiple" flat class="transparent">
-              <v-list-item-action>
-                <v-checkbox :value="dashboardStore.isTorrentInSelection(torrent.hash)"
-                            color="grey"
-                            @click.prevent="selectTorrent(torrent.hash)" />
-              </v-list-item-action>
-            </v-card>
-          </v-expand-x-transition>
-          <div class="pa-0 rounded">
+      <v-list class="pa-0" color="transparent" id="torrentList">
+        <v-list-item v-for="torrent in paginatedData"
+                     class="pa-0"
+                     :class="display.xs ? 'mb-2' : 'mb-4'"
+                     @mousedown="hideTorrentRightClickMenu"
+                     @touchstart="strTouchStart($event, torrent)"
+                     @touchmove="strTouchMove($event)"
+                     @touchend="strTouchEnd($event)"
+                     @contextmenu="showTorrentRightClickMenu($event, torrent)"
+                     @dblclick.prevent="goToInfo(torrent.hash)">
+          <div class="d-flex align-center">
+            <v-expand-x-transition>
+              <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
+                <v-btn
+                    :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                    color="transparent"
+                    variant="flat"
+                    @click="selectTorrent(torrent.hash)" />
+              </v-card>
+            </v-expand-x-transition>
             <Torrent :torrent="torrent" />
           </div>
         </v-list-item>
@@ -436,6 +428,8 @@ watch(torrents, (newValue) => {
   <ConfirmDeleteDialog v-model="isDeleteDialogVisible" disable-activator :hashes="dashboardStore.selectedTorrents" />
 </template>
 
-<style scoped>
-
+<style>
+#torrentList {
+    background-color: unset;
+}
 </style>

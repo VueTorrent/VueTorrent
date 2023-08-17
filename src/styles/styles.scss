@@ -18,12 +18,55 @@ ul.no-bullet {
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         supported by Chrome and Opera */
 }
 
 $sideborder-margin: 6px;
 
 .sideborder {
-  border-left: #{$sideborder-margin} solid #{$torrent-done};
+  &.done {
+    border-left: #{$sideborder-margin} solid #{$torrent-done};
+  }
+
+  &.downloading {
+    border-left: #{$sideborder-margin} solid #{$torrent-downloading};
+  }
+
+  &.fail {
+    border-left: #{$sideborder-margin} solid #{$torrent-fail};
+  }
+
+  &.paused {
+    border-left: #{$sideborder-margin} solid #{$torrent-paused};
+  }
+
+  &.queued {
+    border-left: #{$sideborder-margin} solid #{$torrent-queued};
+  }
+
+  &.seeding {
+    border-left: #{$sideborder-margin} solid #{$torrent-seeding};
+  }
+
+  &.checking {
+    border-left: #{$sideborder-margin} solid #{$torrent-checking};
+  }
+
+  &.stalled {
+    border-left: #{$sideborder-margin} solid #{$torrent-stalled};
+  }
+
+  &.metadata {
+    border-left: #{$sideborder-margin} solid #{$torrent-metadata};
+  }
+
+  &.moving {
+    border-left: #{$sideborder-margin} solid #{$torrent-moving};
+  }
+
+  &.unknown {
+    border-left: #{$sideborder-margin} solid #{$torrent-unknown};
+  }
 }
