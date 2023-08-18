@@ -26,7 +26,7 @@ const logTypeOptions = ref([
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
 const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
-const timer = ref<NodeJS.Timer>()
+const timer = ref<NodeJS.Timeout>()
 
 const logs = computed(() => logStore.logs)
 const filteredLogs = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))

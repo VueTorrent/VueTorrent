@@ -353,7 +353,7 @@ onBeforeUnmount(() => {
         </v-card>
       </v-expand-transition>
     </v-row>
-    <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
+    <div v-if="dashboardStore.filteredTorrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('dashboard.emptyTorrentList') }}</p>
     </div>
     <div v-else>

@@ -2,7 +2,7 @@
 import { ContentLayout } from '@/constants/qbit/AppPreferences.ts'
 import { useMaindataStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
-import { computed, onBeforeMount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -196,6 +196,15 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
                         :label="$t('constants.contentLayout.title')" />
 
               <v-list-subheader>{{ $t('dialogs.rss.rule.affectedFeedsSubheader') }}</v-list-subheader>
+
+              <v-row>
+                <v-col cols="6" class="d-flex align-center justify-center">
+                  <v-btn color="accent" @click="selectAll">{{ $t('common.selectAll') }}</v-btn>
+                </v-col>
+                <v-col cols="6" class="d-flex align-center justify-center">
+                  <v-btn color="primary" @click="selectNone">{{ $t('common.selectNone') }}</v-btn>
+                </v-col>
+              </v-row>
 
               <v-checkbox v-for="item in rssStore.feeds"
                           v-model="formData.affectedFeeds"

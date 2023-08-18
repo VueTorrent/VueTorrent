@@ -7,7 +7,7 @@ import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
 const rssStore = useRssStore()
 
 const dialog = ref(false)
-const timer = ref<NodeJS.Timer>()
+const timer = ref<NodeJS.Timeout>()
 const loading = ref(false)
 
 async function refreshFeed(item: Feed, updateList = true) {
