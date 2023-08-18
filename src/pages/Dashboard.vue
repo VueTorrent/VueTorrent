@@ -5,7 +5,7 @@ import { doesCommand } from '@/helpers'
 import Torrent from '@/components/Dashboard/Torrent.vue'
 import { Torrent as TorrentType } from '@/types/VueTorrent'
 import { useDashboardStore, useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
@@ -98,42 +98,15 @@ const searchFilter = computed({
     dashboardStore.searchFilter = newValue
   }
 })
-const pageCount = computed(() => Math.ceil(torrents.value.length / vuetorrentStore.paginationSize))
+const pageCount = computed(() => Math.ceil(dashboardStore.filteredTorrents.length / vuetorrentStore.paginationSize))
 const paginatedData = computed(() => {
   const start = (dashboardStore.currentPage - 1) * vuetorrentStore.paginationSize
   const end = start + vuetorrentStore.paginationSize
-  return torrents.value.slice(start, end)
+  return dashboardStore.filteredTorrents.slice(start, end)
 })
 const hasSearchFilter = computed(() => searchFilter && searchFilter.value.length > 0)
-const torrents = computed<TorrentType[]>(() => {
-  const results = []
-  const query = searchFilter.value.split(/[ ,-]/i)
 
-  for (const torrent of maindataStore.torrents) {
-    if (query.some(value => torrent.name.includes(value))) {
-      results.push(torrent)
-    }
-  }
-
-  if (dashboardStore.sortOptions.isCustomSortEnabled) {
-    if (dashboardStore.sortOptions.sortBy === 'priority') {
-      results.sort((a, b) => {
-        if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
-        else if (a.priority <= 0 && b.priority <= 0) return a.raw_added_on - b.raw_added_on
-        else if (a.priority <= 0) return 1
-        else return -1
-      })
-    } else {
-      results.sort((a, b) =>
-          a[dashboardStore.sortOptions.sortBy] - b[dashboardStore.sortOptions.sortBy]
-          || a.raw_added_on - b.raw_added_on)
-    }
-    if (dashboardStore.sortOptions.reverseOrder) results.reverse()
-  }
-
-  return results
-})
-const isAllTorrentsSelected = computed(() => torrents.value.length <= dashboardStore.selectedTorrents.length)
+const isAllTorrentsSelected = computed(() => dashboardStore.filteredTorrents.length <= dashboardStore.selectedTorrents.length)
 
 const isDialogVisible = computed(() => isDeleteDialogVisible.value || navbarStore.addTorrentDialogVisible)
 
@@ -294,13 +267,6 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
-})
-
-watch(torrents, (newValue) => {
-  const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
-  if (pageCount < dashboardStore.currentPage) {
-    dashboardStore.currentPage = Math.max(1, pageCount)
-  }
 })
 </script>
 

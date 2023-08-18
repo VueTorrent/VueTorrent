@@ -1,8 +1,10 @@
+import { useSearchQuery } from '@/composables'
 import { FilterState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions.ts'
 import { formatData } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { GetTorrentPayload } from '@/types/qbit/payloads'
+import { Torrent } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -13,7 +15,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
 
   const currentPage = ref(1)
   const searchFilter = ref('')
-  const filteredTorrentsCount = computed(() => maindataStore.torrents.length)
+  const filteredTorrents = computed(() => searchQuery.results.value)
   const isSelectionMultiple = ref(false)
   const selectedTorrents = ref<string[]>([])
   const latestSelectedTorrent = ref<number>(-1)
@@ -41,11 +43,11 @@ export const useDashboardStore = defineStore('dashboard', () => {
 
       return t('dashboard.selectedTorrentsCount', {
         count: selectedTorrents.value.length,
-        total: mainDataStore.torrents.length,
+        total: filteredTorrents.value.length,
         size: formatData(selectedSize, vuetorrentStore.useBinarySize),
       })
     } else {
-      return t('dashboard.torrentsCount', { total: filteredTorrentsCount.value })
+      return t('dashboard.torrentsCount', { total: filteredTorrents.value.length })
     }
   })
 
@@ -57,6 +59,29 @@ export const useDashboardStore = defineStore('dashboard', () => {
       sort: sortOptions.sortBy,
       reverse: sortOptions.reverseOrder
     }
+  })
+
+  const searchQuery = useSearchQuery<Torrent>(
+    maindataStore.torrents,
+    searchFilter,
+    (torrent) => torrent.name,
+    (results) => {
+    if (sortOptions.isCustomSortEnabled) {
+      if (sortOptions.sortBy === 'priority') {
+        results.sort((a, b) => {
+          if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
+          else if (a.priority <= 0 && b.priority <= 0) return a.raw_added_on - b.raw_added_on
+          else if (a.priority <= 0) return 1
+          else return -1
+        })
+      } else {
+        results.sort((a, b) =>
+          a[sortOptions.sortBy] - b[sortOptions.sortBy]
+          || a.raw_added_on - b.raw_added_on)
+      }
+      if (sortOptions.reverseOrder) results.reverse()
+    }
+    return results
   })
 
   function isTorrentInSelection(hash: string) {
@@ -114,10 +139,17 @@ export const useDashboardStore = defineStore('dashboard', () => {
     }
   })
 
+  watch(filteredTorrents, (newValue) => {
+    const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
+    if (pageCount < currentPage.value) {
+      currentPage.value = Math.max(1, pageCount)
+    }
+  })
+
   return {
     currentPage,
     searchFilter,
-    filteredTorrentsCount,
+    filteredTorrents,
     isSelectionMultiple,
     selectedTorrents,
     latestSelectedTorrent,
