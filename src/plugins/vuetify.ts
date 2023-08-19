@@ -66,6 +66,9 @@ export default createVuetify({
     VDataTable,
   },
   directives,
+  display: {
+    mobileBreakpoint: 'sm'
+  },
   icons: {
     defaultSet: 'mdi'
   },

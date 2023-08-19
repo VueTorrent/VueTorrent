@@ -4,10 +4,8 @@ import { SchedulerDays } from '@/constants/qbit/AppPreferences.ts'
 import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useDisplay } from 'vuetify'
 
 
-const display = useDisplay()
 const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
 
@@ -28,7 +26,7 @@ const schedulerOptions = ref([
 <template>
   <v-list>
     <v-list-item>
-      <v-row :class="display.smAndUp ? 'flex-row' : 'flex-column'">
+      <v-row :class="$vuetify.display.mobile ? 'flex-column' : 'flex-row'">
         <v-col cols="12" sm="6" class="pa-0">
           <v-list-subheader>{{ t('settings.speed.subheader.global') }}</v-list-subheader>
 
@@ -52,7 +50,7 @@ const schedulerOptions = ref([
           </v-list-item>
         </v-col>
 
-        <v-divider :vertical="display.smAndUp.value" />
+        <v-divider :vertical="!$vuetify.display.mobile" />
 
         <v-col cols="12" sm="6" class="pa-0">
           <v-list-subheader>{{ t('settings.speed.subheader.alternative') }}</v-list-subheader>

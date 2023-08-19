@@ -36,7 +36,7 @@ const openSettings = () => {
     </template>
   </v-tooltip>
 
-  <TopActions v-if="$vuetify.display.smAndUp"
+  <TopActions v-if="!$vuetify.display.mobile"
               @resumeTorrents="resumeTorrents"
               @pauseTorrents="pauseTorrents"
               @openSearchEngine="openSearchEngine"

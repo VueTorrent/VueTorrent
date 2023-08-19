@@ -213,7 +213,9 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
                           :label="item.name"
                           :value="item.url" />
             </v-col>
-            <v-divider :vertical="$vuetify.display.smAndUp" />
+
+            <v-divider :vertical="!$vuetify.display.mobile" />
+
             <v-col cols="12" sm="6" class="scrollable-col">
               <div class="v-card-title pa-0">{{ $t('dialogs.rss.rule.matchingArticles.title') }}</div>
               <v-list>
@@ -240,7 +242,14 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 
 <style scoped>
 .scrollable-col {
-  max-height: calc(100vh - 200px);
+  @media (min-width: 600px) {
+    max-height: calc(100vh - 200px);
+  }
+
+  @media(max-width: 599px) {
+    max-height: calc(60vh - 200px);
+  }
+
   overflow-y: auto;
 }
 </style>

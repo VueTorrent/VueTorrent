@@ -360,7 +360,7 @@ onBeforeUnmount(() => {
       <v-list class="pa-0" color="transparent" id="torrentList">
         <v-list-item v-for="torrent in paginatedData"
                      class="pa-0"
-                     :class="display.xs ? 'mb-2' : 'mb-4'"
+                     :class="display.mobile ? 'mb-2' : 'mb-4'"
                      @mousedown="hideTorrentRightClickMenu"
                      @touchstart="strTouchStart($event, torrent)"
                      @touchmove="strTouchMove($event)"
