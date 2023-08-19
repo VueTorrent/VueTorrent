@@ -135,7 +135,15 @@
     "uploaded_session": "Uploaded (session)"
   },
   "torrentDetail": {
-    "title": "Torrent Detail"
+    "title": "Torrent Detail",
+    "tabs": {
+      "overview": "Overview",
+      "info": "Info",
+      "trackers": "Trackers",
+      "peers": "Peers",
+      "content": "Content",
+      "tagsAndCategories": "Tags & Categories"
+    }
   },
   "topbar": {
     "searchTorrents": "Search torrents",
