@@ -28,7 +28,7 @@ const schedulerOptions = ref([
 <template>
   <v-list>
     <v-list-item>
-      <v-row :class="display.xs ? 'flex-column' : 'flex-row'">
+      <v-row :class="display.smAndUp ? 'flex-row' : 'flex-column'">
         <v-col cols="12" sm="6" class="pa-0">
           <v-list-subheader>{{ t('settings.speed.subheader.global') }}</v-list-subheader>
 
@@ -52,7 +52,7 @@ const schedulerOptions = ref([
           </v-list-item>
         </v-col>
 
-        <v-divider :vertical="!display.xs" />
+        <v-divider :vertical="display.smAndUp.value" />
 
         <v-col cols="12" sm="6" class="pa-0">
           <v-list-subheader>{{ t('settings.speed.subheader.alternative') }}</v-list-subheader>
@@ -94,10 +94,12 @@ const schedulerOptions = ref([
         </v-col>
         <v-col cols="4" md="2">
           <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour"
+                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
                         type="number" />
         </v-col>
         <v-col cols="4" md="2">
           <v-text-field v-model="preferenceStore.preferences!.schedule_from_min"
+                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
                         type="number" />
         </v-col>
 
@@ -108,10 +110,12 @@ const schedulerOptions = ref([
         </v-col>
         <v-col cols="4" md="2">
           <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour"
+                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
                         type="number" />
         </v-col>
         <v-col cols="4" md="2">
           <v-text-field v-model="preferenceStore.preferences!.schedule_to_min"
+                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
                         type="number" />
         </v-col>
       </v-row>
@@ -125,7 +129,7 @@ const schedulerOptions = ref([
                 :label="t('settings.speed.scheduler.when')" />
     </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-3" />
 
     <v-list-subheader>{{ t('settings.speed.subheader.settings') }}</v-list-subheader>
 

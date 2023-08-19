@@ -72,31 +72,35 @@ const thenTypes = ref([
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.queueing_enabled"
-                  hide-details
-                  :label="t('settings.bittorrent.torrentQueueing.subheader')" />
-    </v-list-item>
+      <v-row>
+        <v-col cols="12" class="pb-0">
+          <v-checkbox v-model="preferenceStore.preferences!.queueing_enabled"
+                      hide-details
+                      :label="t('settings.bittorrent.torrentQueueing.subheader')" />
+        </v-col>
 
-    <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.max_active_downloads"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.maxActiveDownload')" />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.max_active_uploads"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.maxActiveUpload')" />
-    </v-list-item>
-    <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.max_active_torrents"
-                    :disabled="!preferenceStore.preferences!.queueing_enabled"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.torrentQueueing.maxActiveTorrent')" />
+        <v-col cols="12" sm="6" md="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_active_downloads"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.maxActiveDownload')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_active_uploads"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.maxActiveUpload')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field v-model="preferenceStore.preferences!.max_active_torrents"
+                        :disabled="!preferenceStore.preferences!.queueing_enabled"
+                        type="number"
+                        hide-details
+                        :label="t('settings.bittorrent.torrentQueueing.maxActiveTorrent')" />
+        </v-col>
+      </v-row>
     </v-list-item>
 
     <v-list-item>
@@ -105,9 +109,10 @@ const thenTypes = ref([
                   hide-details
                   :label="t('settings.bittorrent.torrentQueueing.excludeSlowTorrent')" />
     </v-list-item>
+
     <v-list-item>
       <v-row class="mb-2">
-        <v-col cols="12" md="4">
+        <v-col cols="12" sm="6" md="4">
           <v-text-field v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
                         :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
                         type="number"
@@ -115,7 +120,7 @@ const thenTypes = ref([
                         :label="t('settings.bittorrent.torrentQueueing.downloadRateLimit')"
                         suffix="kiB/s" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" sm="6" md="4">
           <v-text-field v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
                         :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
                         type="number"

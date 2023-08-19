@@ -183,51 +183,69 @@ const closeDeleteDialog = async () => {
 
     <v-list-subheader>{{ t('settings.downloads.saveManagement.subheader') }}</v-list-subheader>
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.auto_tmm_enabled"
-                :items="defaultTMMOptions"
-                :label="t('settings.downloads.saveManagement.autoTMMEnabled')" />
-
-      <v-select v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
-                :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.torrentChangedTMM')" />
-
-      <v-select v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
-                :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.savePathChangedTMM')" />
-
-      <v-select v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
-                :items="paramChangedTMMOptions"
-                :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
-
-      <v-text-field v-model="preferenceStore.preferences!.save_path"
+      <v-row>
+        <v-col cols="12">
+          <v-select v-model="preferenceStore.preferences!.auto_tmm_enabled"
+                    :items="defaultTMMOptions"
                     hide-details
-                    :label="t('settings.downloads.saveManagement.defaultSavePath')" />
-    </v-list-item>
+                    :label="t('settings.downloads.saveManagement.autoTMMEnabled')" />
+        </v-col>
 
-    <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.temp_path_enabled"
-                  hide-details
-                  :label="t('settings.downloads.saveManagement.keepIncomplete')" />
-      <v-text-field v-model="preferenceStore.preferences!.temp_path"
+        <v-col cols="12" md="4">
+          <v-select v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
+                    :items="paramChangedTMMOptions"
                     hide-details
-                    :disabled="!preferenceStore.preferences!.temp_path_enabled" />
-    </v-list-item>
-
-    <v-list-item>
-      <v-checkbox v-model="isExportDirEnabled"
-                  hide-details
-                  :label="t('settings.downloads.saveManagement.exportDir')" />
-      <v-text-field v-model="preferenceStore.preferences!.export_dir"
+                    :label="t('settings.downloads.saveManagement.torrentChangedTMM')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-select v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
+                    :items="paramChangedTMMOptions"
                     hide-details
-                    :disabled="!isExportDirEnabled" />
-    </v-list-item>
+                    :label="t('settings.downloads.saveManagement.savePathChangedTMM')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-select v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
+                    :items="paramChangedTMMOptions"
+                    hide-details
+                    :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
+        </v-col>
 
-    <v-list-item>
-      <v-checkbox v-model="isExportDirFinEnabled"
-                  hide-details
-                  :label="t('settings.downloads.saveManagement.exportDirFinished')" />
-      <v-text-field v-model="preferenceStore.preferences!.export_dir_fin"
-                    :disabled="!isExportDirFinEnabled" />
+        <v-col cols="12">
+          <v-text-field v-model="preferenceStore.preferences!.save_path"
+                        hide-details
+                        :label="t('settings.downloads.saveManagement.defaultSavePath')" />
+        </v-col>
+
+        <v-col cols="12">
+          <div class="d-flex align-center">
+            <span><v-checkbox-btn v-model="preferenceStore.preferences!.temp_path_enabled" /></span>
+            <v-text-field v-model="preferenceStore.preferences!.temp_path"
+                          :disabled="!preferenceStore.preferences!.temp_path_enabled"
+                          hide-details
+                          :label="t('settings.downloads.saveManagement.keepIncomplete')" />
+          </div>
+        </v-col>
+
+        <v-col cols="12">
+          <div class="d-flex align-center">
+            <span><v-checkbox-btn v-model="isExportDirEnabled" /></span>
+            <v-text-field v-model="preferenceStore.preferences!.export_dir"
+                          :disabled="!isExportDirEnabled"
+                          hide-details
+                          :label="t('settings.downloads.saveManagement.exportDir')" />
+          </div>
+        </v-col>
+
+        <v-col cols="12">
+          <div class="d-flex align-center">
+            <span><v-checkbox-btn v-model="isExportDirFinEnabled" /></span>
+            <v-text-field v-model="preferenceStore.preferences!.export_dir_fin"
+                          :disabled="!isExportDirFinEnabled"
+                          hide-details
+                          :label="t('settings.downloads.saveManagement.exportDirFinished')" />
+          </div>
+        </v-col>
+      </v-row>
     </v-list-item>
 
     <v-divider />

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import {onMounted, reactive, ref} from 'vue'
-import {useRouter, useRoute} from 'vue-router'
+import PasswordField from '@/components/Core/PasswordField.vue'
+import { onMounted, reactive, ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
-import {useI18n} from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 
-import {useAuthStore} from '@/stores'
-import {LoginPayload} from '@/types/qbit/payloads'
+import { useAuthStore } from '@/stores'
+import { LoginPayload } from '@/types/qbit/payloads'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -15,17 +16,17 @@ const authStore = useAuthStore()
 
 const loginForm = reactive<LoginPayload>({
   username: '',
-  password: '',
+  password: ''
 })
 const rulesOk = ref(false)
 
 const rules = {
   username: [
-    (v: string) => !!v || 'Username is required',
+    (v: string) => !!v || t('login.rules.username_required')
   ],
   password: [
-    (v: string) => !!v || 'Password is required',
-  ],
+    (v: string) => !!v || t('login.rules.password_required')
+  ]
 }
 
 const login = async () => {
@@ -64,54 +65,29 @@ onMounted(() => {
         <v-form v-model="rulesOk" @submit.prevent="login">
           <v-row>
             <v-col>
-              <v-text-field
-                  v-model="loginForm.username"
-                  :label="t('login.username')"
-                  type="text"
-                  outlined
-                  dense
-                  required
-                  persistent-placeholder
-                  :rules="rules.username"
-                  @keydown.enter.prevent="login"
-              >
+              <v-text-field v-model="loginForm.username"
+                            :label="t('login.username')"
+                            type="text"
+                            :rules="rules.username"
+                            @keydown.enter.prevent="login">
                 <template v-slot:prepend>
-                  <v-icon
-                      color="accent"
-                      icon="mdi-account"
-                  />
+                  <v-icon color="accent" icon="mdi-account" />
                 </template>
               </v-text-field>
             </v-col>
           </v-row>
           <v-row>
             <v-col>
-              <v-text-field
-                  v-model="loginForm.password"
-                  :label="t('login.password')"
-                  type="password"
-                  outlined
-                  dense
-                  required
-                  persistent-placeholder
-                  :rules="rules.password"
-                  @keydown.enter.prevent="login"
-              >
-                <template v-slot:prepend>
-                  <v-icon
-                      color="accent"
-                      icon="mdi-lock"
-                  />
-                </template>
-              </v-text-field>
+              <PasswordField v-model="loginForm.password"
+                             :label="t('login.password')"
+                             :rules="rules.password"
+                             prepend-icon="mdi-lock"
+                             @keydown.enter.prevent="login" />
             </v-col>
           </v-row>
           <v-row>
             <v-col>
-              <v-btn
-                  color="accent"
-                  type="submit"
-              >
+              <v-btn color="accent" type="submit">
                 {{ t('login.submit') }}
               </v-btn>
             </v-col>
