@@ -524,8 +524,8 @@
         "subheader": "Web User Interface (Remote Control)",
         "ipAddress": "IP Address",
         "port": "Port",
-        "useAlternativeWebUI": "Use Alternative WebUI",
-        "filesLocation": "Files location"
+        "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router",
+        "useAlternativeWebUI": "Use Alternative WebUI"
       },
       "authentication": {
         "subheader": "Authentication",
@@ -534,7 +534,7 @@
         "passwordPlaceholder": "(unchanged)",
         "bypassLocalhost": "Bypass authentication for clients on localhost",
         "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
-        "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
+        "whitelistExamples": "Example: 192.168.1.0/24, fdff:ffff:c8::/40",
         "maxAttempts": "Max attempts",
         "banDuration": "Ban Duration",
         "banDurationHint": "In seconds",
