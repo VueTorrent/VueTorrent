@@ -138,7 +138,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" scrollable activator="parent">
+  <v-dialog v-model="dialogVisible" activator="parent">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent" :title="$t(`dialogs.rss.rule.title.${initialRule ? 'edit' : 'create'}`)">
@@ -148,7 +148,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-row>
-            <v-col cols="12" sm="6" class="overflow-y-auto">
+            <v-col cols="12" sm="6" class="scrollable-col">
               <v-text-field v-model="formData.name"
                             autofocus
                             required
@@ -214,7 +214,7 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
                           :value="item.url" />
             </v-col>
             <v-divider :vertical="$vuetify.display.smAndUp" />
-            <v-col cols="12" sm="6" class="overflow-y-auto">
+            <v-col cols="12" sm="6" class="scrollable-col">
               <div class="v-card-title pa-0">{{ $t('dialogs.rss.rule.matchingArticles.title') }}</div>
               <v-list>
                 <template v-for="item in matchingArticles">
@@ -239,5 +239,8 @@ watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </template>
 
 <style scoped>
-
+.scrollable-col {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
 </style>
