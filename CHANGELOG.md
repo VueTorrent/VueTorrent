@@ -1,5 +1,26 @@
 # Changelog
 
+## [1.7.1](https://github.com/WDaan/VueTorrent/compare/v1.7.0...v1.7.1) (2023-08-16)
+
+
+### Bug Fixes
+
+* cache app.js in PWA mode ([#1038](https://github.com/WDaan/VueTorrent/issues/1038)) ([9ea02fb](https://github.com/WDaan/VueTorrent/commit/9ea02fbf8c786363eb273d40d333eb50f34ce6e3))
+* delayed torrent display on page opening ([#1022](https://github.com/WDaan/VueTorrent/issues/1022)) ([ee6a73e](https://github.com/WDaan/VueTorrent/commit/ee6a73eacc1b7c922917a21bae6f966fa4b74c25))
+* magnet handling ([#1041](https://github.com/WDaan/VueTorrent/issues/1041)) ([c57da2d](https://github.com/WDaan/VueTorrent/commit/c57da2d95a1100e43bdeb0d7f62512b88d27af10))
+* **overview:** Canvas not displaying correctly ([#1032](https://github.com/WDaan/VueTorrent/issues/1032)) ([b68c487](https://github.com/WDaan/VueTorrent/commit/b68c4870ef47001989735166440bfc2b3eca103a))
+* progress and relavance numbers in DetailedPeers screen ([#1034](https://github.com/WDaan/VueTorrent/issues/1034)) ([4cd7772](https://github.com/WDaan/VueTorrent/commit/4cd7772502f0dacf595aeb6d70e52bb458156330))
+* **styles:** overflowing tab arrows with light theme [#1040](https://github.com/WDaan/VueTorrent/issues/1040) ([a91712a](https://github.com/WDaan/VueTorrent/commit/a91712a5da7db9951bd93e19ff0459c5e1c78934))
+* **torrent:** Wrong date format on longer duration than month ([091244b](https://github.com/WDaan/VueTorrent/commit/091244b718081138beb6e71d27d10fe45ceadc27))
+
+
+### Improvements
+
+* adding darker color to files actively or force uploading ([#1035](https://github.com/WDaan/VueTorrent/issues/1035)) ([e2078e4](https://github.com/WDaan/VueTorrent/commit/e2078e4444197e723aad6e052ca8a9e69266768b))
+* cache fonts on PWA ([#1039](https://github.com/WDaan/VueTorrent/issues/1039)) ([a16fb34](https://github.com/WDaan/VueTorrent/commit/a16fb342b814a8b5e58d9b9316138b8bb0bab3c4))
+* Inifite scroll view ([#1049](https://github.com/WDaan/VueTorrent/issues/1049)) ([c17f1b6](https://github.com/WDaan/VueTorrent/commit/c17f1b6e8ab5d94a03bc6c43fd2a8bf1526b45fa))
+* **overview:** Disable canvas first-time render ([#1029](https://github.com/WDaan/VueTorrent/issues/1029)) ([d679ad4](https://github.com/WDaan/VueTorrent/commit/d679ad4c3e3515af00429c2eeb0a7796f0cf35c3))
+
 ## [1.7.0](https://github.com/WDaan/VueTorrent/compare/v1.6.1...v1.7.0) (2023-08-01)
 
 
