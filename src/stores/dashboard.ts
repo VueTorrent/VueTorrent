@@ -29,6 +29,28 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const { t } = useI18n()
   const maindataStore = useMaindataStore()
   const vuetorrentStore = useVueTorrentStore()
+  const searchQuery = useSearchQuery(
+    () => maindataStore.torrents,
+    searchFilter,
+    (torrent) => torrent.name,
+    (results) => {
+      if (sortOptions.isCustomSortEnabled) {
+        if (sortOptions.sortBy === 'priority') {
+          results.sort((a, b) => {
+            if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
+            else if (a.priority <= 0 && b.priority <= 0) return a.raw_added_on - b.raw_added_on
+            else if (a.priority <= 0) return 1
+            else return -1
+          })
+        } else {
+          results.sort((a, b) =>
+            a[sortOptions.sortBy] - b[sortOptions.sortBy]
+            || a.raw_added_on - b.raw_added_on)
+        }
+        if (sortOptions.reverseOrder) results.reverse()
+      }
+      return results
+    })
 
   const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
@@ -58,29 +80,6 @@ export const useDashboardStore = defineStore('dashboard', () => {
     }
   })
 
-  const searchQuery = useSearchQuery(
-    maindataStore.torrents,
-    searchFilter,
-    (torrent) => torrent.name,
-    (results) => {
-    if (sortOptions.isCustomSortEnabled) {
-      if (sortOptions.sortBy === 'priority') {
-        results.sort((a, b) => {
-          if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
-          else if (a.priority <= 0 && b.priority <= 0) return a.raw_added_on - b.raw_added_on
-          else if (a.priority <= 0) return 1
-          else return -1
-        })
-      } else {
-        results.sort((a, b) =>
-          a[sortOptions.sortBy] - b[sortOptions.sortBy]
-          || a.raw_added_on - b.raw_added_on)
-      }
-      if (sortOptions.reverseOrder) results.reverse()
-    }
-    return results
-  })
-
   function isTorrentInSelection(hash: string) {
     return selectedTorrents.value.includes(hash)
   }
@@ -99,10 +98,6 @@ export const useDashboardStore = defineStore('dashboard', () => {
     if (index >= 0) {
       selectedTorrents.value.splice(index, 1)
     }
-  }
-
-  function unselectTorrents(...hashes: string[]) {
-    hashes.forEach(unselectTorrent)
   }
 
   function toggleSelect(hash: string) {
@@ -154,9 +149,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     torrentCountString,
     isTorrentInSelection,
     selectTorrent,
-    selectTorrents,
     unselectTorrent,
-    unselectTorrents,
     spanTorrentSelection,
     selectAllTorrents,
     unselectAllTorrents,
