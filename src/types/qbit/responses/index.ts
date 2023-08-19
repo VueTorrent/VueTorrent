@@ -1,6 +1,6 @@
-import type MainDataResponse from './MainDataResponse.ts'
-import type { PeerLogResponse } from './PeerLogResponse.ts'
-import type TorrentPeersResponse from './TorrentPeersResponse.ts'
-import type SearchResultsResponse from './SearchResultsResponse.ts'
+import type MaindataResponse from './MaindataResponse'
+import type { PeerLogResponse } from './PeerLogResponse'
+import type TorrentPeersResponse from './TorrentPeersResponse'
+import type SearchResultsResponse from './SearchResultsResponse'
 
-export { MainDataResponse, PeerLogResponse, TorrentPeersResponse, SearchResultsResponse }
+export { MaindataResponse, PeerLogResponse, TorrentPeersResponse, SearchResultsResponse }

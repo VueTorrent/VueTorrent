@@ -1,5 +1,5 @@
 import { FilterState } from '@/constants/qbit'
-import { SortOptions } from '@/constants/qbit/SortOptions.ts'
+import { SortOptions } from '@/constants/qbit/SortOptions'
 
 export default interface GetTorrentPayload {
   filter?: FilterState

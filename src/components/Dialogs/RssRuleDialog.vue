@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ContentLayout } from '@/constants/qbit/AppPreferences.ts'
+import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref, watch } from 'vue'

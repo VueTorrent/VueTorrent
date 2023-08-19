@@ -5,7 +5,7 @@ import {
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
   UtpTcpMixedMode
-} from '@/constants/qbit/AppPreferences.ts'
+} from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
 import { usePreferenceStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'

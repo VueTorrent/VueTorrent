@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
-import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences.ts'
+import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
 import { onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'

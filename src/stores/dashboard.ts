@@ -1,18 +1,15 @@
 import { useSearchQuery } from '@/composables'
 import { FilterState } from '@/constants/qbit'
-import { SortOptions } from '@/constants/qbit/SortOptions.ts'
+import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { GetTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 
 export const useDashboardStore = defineStore('dashboard', () => {
-  const maindataStore = useMaindataStore()
-
   const currentPage = ref(1)
   const searchFilter = ref('')
   const filteredTorrents = computed(() => searchQuery.results.value)
@@ -30,13 +27,13 @@ export const useDashboardStore = defineStore('dashboard', () => {
   })
 
   const { t } = useI18n()
-  const mainDataStore = useMaindataStore()
+  const maindataStore = useMaindataStore()
   const vuetorrentStore = useVueTorrentStore()
 
   const torrentCountString = computed(() => {
     if (selectedTorrents.value.length) {
       const selectedSize = selectedTorrents.value
-          .map(hash => mainDataStore.getTorrentByHash(hash))
+          .map(hash => maindataStore.getTorrentByHash(hash))
           .filter(torrent => torrent !== undefined)
           .map(torrent => torrent!.size)
           .reduce((partial, size) => partial + size, 0)
@@ -61,7 +58,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     }
   })
 
-  const searchQuery = useSearchQuery<Torrent>(
+  const searchQuery = useSearchQuery(
     maindataStore.torrents,
     searchFilter,
     (torrent) => torrent.name,
@@ -90,7 +87,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
 
   function selectTorrent(hash: string) {
     selectedTorrents.value.push(hash)
-    latestSelectedTorrent.value = mainDataStore.getTorrentIndexByHash(hash)
+    latestSelectedTorrent.value = maindataStore.getTorrentIndexByHash(hash)
   }
 
   function selectTorrents(...hashes: string[]) {
@@ -120,13 +117,13 @@ export const useDashboardStore = defineStore('dashboard', () => {
     if (latestSelectedTorrent.value < 0) return
     const start = Math.min(index, latestSelectedTorrent.value)
     const end = Math.max(index, latestSelectedTorrent.value)
-    const hashes = mainDataStore.torrents.slice(start, end + 1).map(t => t.hash)
+    const hashes = maindataStore.torrents.slice(start, end + 1).map(t => t.hash)
     selectTorrents(...hashes)
   }
 
   function selectAllTorrents() {
     isSelectionMultiple.value = true
-    selectTorrents(...mainDataStore.torrents.map(t => t.hash))
+    selectTorrents(...maindataStore.torrents.map(t => t.hash))
   }
 
   function unselectAllTorrents() {

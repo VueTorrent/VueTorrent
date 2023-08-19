@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Encryption, MaxRatioAction } from '@/constants/qbit/AppPreferences.ts'
+import { Encryption, MaxRatioAction } from '@/constants/qbit/AppPreferences'
 import { ref } from 'vue'
 import { usePreferenceStore } from '@/stores'
 import { useI18n } from 'vue-i18n'

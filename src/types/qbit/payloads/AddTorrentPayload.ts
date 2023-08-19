@@ -1,4 +1,4 @@
-import type { BasePayload } from './index.ts'
+import type { BasePayload } from './index'
 
 export default interface AddTorrentPayload extends BasePayload {
   /** Whether Automatic Torrent Management should be used */

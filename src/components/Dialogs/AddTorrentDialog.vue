@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'

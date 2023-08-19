@@ -1,5 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { SortOptions } from '@/constants/qbit/SortOptions.ts'
+import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
 import { useAuthStore, useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
@@ -11,7 +11,7 @@ import { ref } from 'vue'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
-  const isUpdatingMainData = ref(false)
+  const isUpdatingMaindata = ref(false)
   const rid = ref<number>()
   const serverState = ref<ServerState>()
   const tags = ref<string[]>([])
@@ -99,11 +99,11 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   async function updateMaindata() {
-    if (isUpdatingMainData.value) return
-    isUpdatingMainData.value = true
+    if (isUpdatingMaindata.value) return
+    isUpdatingMaindata.value = true
 
     try {
-      const response = await qbit.getMainData(rid.value || undefined)
+      const response = await qbit.getMaindata(rid.value || undefined)
       rid.value = response.rid || undefined
 
       if (response.server_state) {
@@ -153,13 +153,13 @@ export const useMaindataStore = defineStore('maindata', () => {
         console.error(error)
       }
     } finally {
-      isUpdatingMainData.value = false
+      isUpdatingMaindata.value = false
     }
   }
 
   return {
     categories,
-    isUpdatingMainData,
+    isUpdatingMaindata,
     rid,
     serverState,
     tags,

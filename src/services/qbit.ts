@@ -16,7 +16,7 @@ import type {
   TorrentProperties,
   Tracker,
 } from '@/types/qbit/models'
-import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type {
   AddTorrentPayload,
   AppPreferencesPayload,
@@ -84,7 +84,7 @@ export class QBitApi {
     return this.execute('/app/setPreferences', data)
   }
 
-  async getMainData(rid?: number): Promise<MainDataResponse> {
+  async getMaindata(rid?: number): Promise<MaindataResponse> {
     return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
