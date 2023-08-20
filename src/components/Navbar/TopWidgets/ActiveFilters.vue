@@ -41,7 +41,7 @@ const filterCount = computed(() => (
       <v-chip v-if="isTextFilterActive" variant="elevated" color="grey">
         {{ t('navbar.top.active_filters.text', { value: dashboardStore.searchFilter }) }}
       </v-chip>
-      <v-chip v-if="isStatusFilterActive" variant="elevated" :color="'status-' + dashboardStore.sortOptions.statusFilter">
+      <v-chip v-if="isStatusFilterActive" variant="elevated" :color="'state-' + dashboardStore.sortOptions.statusFilter">
         {{ t('navbar.top.active_filters.text', { value: dashboardStore.sortOptions.statusFilter }) }}
       </v-chip>
       <v-chip v-if="isCategoryFilterActive" variant="elevated" color="category">

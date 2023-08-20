@@ -7,7 +7,10 @@ import { computed } from 'vue'
 import ItemAmount from './DashboardItems/ItemAmount.vue'
 import ItemChip from './DashboardItems/ItemChip.vue'
 import ItemData from './DashboardItems/ItemData.vue'
+import ItemDateTime from './DashboardItems/ItemDateTime.vue'
+import ItemDuration from './DashboardItems/ItemDuration.vue'
 import ItemPercent from './DashboardItems/ItemPercent.vue'
+import ItemRelativeTime from './DashboardItems/ItemRelativeTime.vue'
 import ItemSpeed from './DashboardItems/ItemSpeed.vue'
 import ItemText from './DashboardItems/ItemText.vue'
 
@@ -42,8 +45,14 @@ const getComponent = (type: DashboardPropertyType) => {
       return ItemChip
     case DashboardPropertyType.DATA:
       return ItemData
+    case DashboardPropertyType.DATETIME:
+      return ItemDateTime
+    case DashboardPropertyType.DURATION:
+      return ItemDuration
     case DashboardPropertyType.PERCENT:
       return ItemPercent
+    case DashboardPropertyType.RELATIVE:
+      return ItemRelativeTime
     case DashboardPropertyType.SPEED:
       return ItemSpeed
     case DashboardPropertyType.TEXT:

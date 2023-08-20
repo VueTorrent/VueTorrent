@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/VueTorrent'
+import dayjs from '@/plugins/dayjs'
 
-defineProps<{ torrent: Torrent, title: string, value: string, total: string }>()
+defineProps<{ torrent: Torrent, title: string, value: string }>()
 </script>
 
 <template>
@@ -10,10 +11,7 @@ defineProps<{ torrent: Torrent, title: string, value: string, total: string }>()
       {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
-      {{ torrent[value] }}
-      <span class="text-caption text-grey">
-        / {{ torrent[total] }}
-      </span>
+      <span>{{ dayjs(torrent[value] * 1000).fromNow() }}</span>
     </div>
   </div>
 </template>

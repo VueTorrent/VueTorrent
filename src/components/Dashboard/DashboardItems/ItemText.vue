@@ -7,7 +7,7 @@ defineProps<{ torrent: Torrent, title: string, value: string }>()
 <template>
   <div class="d-flex flex-column">
     <div class="text-caption text-grey">
-      {{ $t(`torrent.${title}`) }}
+      {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>{{ torrent[value] }}</div>
   </div>

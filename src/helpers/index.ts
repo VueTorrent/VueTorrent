@@ -1,4 +1,5 @@
 import { formatDataValue, formatDataUnit, formatData } from './data'
+import { formatEta } from './datetime'
 import { toPrecision, formatPercent } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { isMac, doesCommand } from './system'
@@ -8,6 +9,7 @@ export {
   formatDataValue,
   formatDataUnit,
   formatData,
+  formatEta,
   toPrecision,
   formatPercent,
   formatSpeedValue,

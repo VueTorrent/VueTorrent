@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatData } from '@/helpers'
+import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/VueTorrent'
 
@@ -11,10 +11,13 @@ const vuetorrentStore = useVueTorrentStore()
 <template>
   <div class="d-flex flex-column">
     <div class="text-caption text-grey">
-      {{ $t(`torrent.${title}`) }}
+      {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
-      {{ formatData(torrent[value], vuetorrentStore.useBinarySize) }}
+      {{ formatDataValue(torrent[value], vuetorrentStore.useBinarySize) }}
+      <span class="text-caption text-grey">
+        {{ formatDataUnit(torrent[value], vuetorrentStore.useBinarySize) }}
+      </span>
     </div>
   </div>
 </template>

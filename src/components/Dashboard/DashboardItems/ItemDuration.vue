@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/VueTorrent'
+import dayjs from '@/plugins/dayjs'
 
 defineProps<{ torrent: Torrent, title: string, value: string }>()
+
+const durationFormat = 'D[d] H[h] m[m] s[s]'
 </script>
 
 <template>
@@ -11,7 +13,10 @@ defineProps<{ torrent: Torrent, title: string, value: string }>()
       {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
-      {{ formatPercent(torrent[value]) }}
+      <span v-if="torrent[value] > 0">
+        {{ dayjs.duration(torrent[value], 'seconds').format(durationFormat) }}
+      </span>
+      <span v-else>{{ $t('dashboard.not_complete') }}</span>
     </div>
   </div>
 </template>

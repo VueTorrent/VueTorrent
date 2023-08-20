@@ -1,8 +1,11 @@
 <script setup lang="ts">
-import { formatPercent } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/VueTorrent'
+import dayjs from '@/plugins/dayjs'
 
 defineProps<{ torrent: Torrent, title: string, value: string }>()
+
+const vueTorrentStore = useVueTorrentStore()
 </script>
 
 <template>
@@ -11,7 +14,10 @@ defineProps<{ torrent: Torrent, title: string, value: string }>()
       {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
-      {{ formatPercent(torrent[value]) }}
+      <span v-if="torrent[value] > 0">
+        {{ dayjs(torrent[value] * 1000).format(vueTorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }}
+      </span>
+      <span v-else>{{ $t('dashboard.not_complete') }}</span>
     </div>
   </div>
 </template>

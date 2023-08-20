@@ -83,9 +83,9 @@ const propertiesTemplate: TorrentProperty[] = [
   },
   {
     active: true,
-    name: DashboardProperty.STATUS,
+    name: DashboardProperty.STATE,
     order: 11,
-    props: { title: 'status', value: 'statusString' },
+    props: { title: 'state', value: 'stateString', color: 'torrent-$1' },
     type: DashboardPropertyType.CHIP
   },
   {
@@ -99,21 +99,21 @@ const propertiesTemplate: TorrentProperty[] = [
     active: false,
     name: DashboardProperty.TRACKER,
     order: 13,
-    props: { title: 'tracker', value: 'trackerString' },
+    props: { title: 'tracker', value: 'tracker', color: 'tracker' },
     type: DashboardPropertyType.CHIP
   },
   {
     active: true,
     name: DashboardProperty.CATEGORY,
     order: 14,
-    props: { title: 'category', value: 'category' },
+    props: { title: 'category', value: 'category', color: 'category' },
     type: DashboardPropertyType.CHIP
   },
   {
     active: true,
     name: DashboardProperty.TAGS,
     order: 15,
-    props: { title: 'tags', value: 'tags' },
+    props: { title: 'tags', value: 'tags', color: 'tag' },
     type: DashboardPropertyType.CHIP
   },
   {
@@ -121,7 +121,7 @@ const propertiesTemplate: TorrentProperty[] = [
     name: DashboardProperty.ADDED_ON,
     order: 16,
     props: { title: 'added_on', value: 'added_on' },
-    type: DashboardPropertyType.TEXT
+    type: DashboardPropertyType.DATETIME
   },
   {
     active: true,
@@ -135,14 +135,14 @@ const propertiesTemplate: TorrentProperty[] = [
     name: DashboardProperty.LAST_ACTIVITY,
     order: 18,
     props: { title: 'last_activity', value: 'last_activity' },
-    type: DashboardPropertyType.TEXT
+    type: DashboardPropertyType.RELATIVE
   },
   {
     active: false,
     name: DashboardProperty.COMPLETED_ON,
     order: 19,
     props: { title: 'completed_on', value: 'completed_on' },
-    type: DashboardPropertyType.TEXT
+    type: DashboardPropertyType.DATETIME
   },
   {
     active: false,
@@ -205,14 +205,14 @@ const propertiesTemplate: TorrentProperty[] = [
     name: DashboardProperty.SEEN_COMPLETE,
     order: 28,
     props: { title: 'seen_complete', value: 'seen_complete' },
-    type: DashboardPropertyType.TEXT
+    type: DashboardPropertyType.DATETIME
   },
   {
     active: false,
     name: DashboardProperty.TIME_ACTIVE,
     order: 29,
     props: { title: 'time_active', value: 'time_active' },
-    type: DashboardPropertyType.TEXT
+    type: DashboardPropertyType.DURATION
   },
   {
     active: false,
@@ -255,7 +255,35 @@ const propertiesTemplate: TorrentProperty[] = [
     order: 35,
     props: { title: 'global_volume', value: 'globalVolume' },
     type: DashboardPropertyType.DATA
-  }
+  },
+  {
+    active: false,
+    name: DashboardProperty.PRIORITY,
+    order: 36,
+    props: { title: 'priority', value: 'priority' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.RATIO_LIMIT,
+    order: 37,
+    props: { title: 'ratio_limit', value: 'ratio_limit' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.RATIO_TIME_LIMIT,
+    order: 38,
+    props: { title: 'ratio_time_limit', value: 'ratio_time_limit' },
+    type: DashboardPropertyType.TEXT
+  },
+  {
+    active: false,
+    name: DashboardProperty.SEEDING_TIME,
+    order: 38,
+    props: { title: 'seeding_time', value: 'seeding_time' },
+    type: DashboardPropertyType.DURATION
+  },
 ]
 
 export const useVueTorrentStore = defineStore('vuetorrent',

@@ -1,15 +1,14 @@
 import { Priority, TorrentState } from '@/constants/qbit'
 
 export default interface Torrent {
-  raw_added_on: number
-  added_on: string
+  added_on: number
   amount_left: number
   auto_tmm: boolean
   availability: number
   available_peers: number
   available_seeds: number
   category: string
-  completed_on: string
+  completed_on: number
   content_path: string
   dl_limit: number
   dlspeed: number
@@ -22,7 +21,7 @@ export default interface Torrent {
   hash: string
   infohash_v1: string
   infohash_v2: string
-  last_activity: string
+  last_activity: number
   magnet: string
   name: string
   num_leechs: number
@@ -33,14 +32,14 @@ export default interface Torrent {
   ratio_limit: number
   ratio_time_limit: number
   savePath: string
-  seeding_time: string | null
-  seen_complete: string
+  seeding_time: number
+  seen_complete: number
   seq_dl: boolean
   size: number
   state: TorrentState
   super_seeding: boolean
   tags: string[] | null
-  time_active: string
+  time_active: number
   total_size: number
   tracker: string
   trackers_count: number

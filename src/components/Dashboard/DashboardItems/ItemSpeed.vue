@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { formatSpeed } from '@/helpers'
+import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/VueTorrent'
 
@@ -11,10 +11,13 @@ const vuetorrentStore = useVueTorrentStore()
 <template>
   <div class="d-flex flex-column">
     <div class="text-caption text-grey">
-      {{ $t(`torrent.${title}`) }}
+      {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
-      {{ formatSpeed(torrent[value], vuetorrentStore.useBitSpeed) }}
+      {{ formatSpeedValue(torrent[value], vuetorrentStore.useBitSpeed) }}
+      <span class="text-caption text-grey">
+        {{ formatSpeedUnit(torrent[value], vuetorrentStore.useBitSpeed) }}
+      </span>
     </div>
   </div>
 </template>
