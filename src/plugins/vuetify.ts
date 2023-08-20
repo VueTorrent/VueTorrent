@@ -1,5 +1,5 @@
 import 'vuetify/styles'
-import {createVuetify, ThemeDefinition} from 'vuetify'
+import { createVuetify, ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
@@ -10,27 +10,51 @@ import { VDataTable } from 'vuetify/labs/VDataTable'
 
 const variables = {
   // Main colors
-  primary: '#35495e',
-  secondary: '#3e556d',
-  download: '#64CEAA',
-  upload: '#00b3fa',
-  ratio: '#00b2f8',
-  state: '#1e9367',
-  category: '#04669a',
-  tags: '#048b9a',
-  tracker: '#1eb9ac',
+  primary: '#35495E',
+  secondary: '#3E556D',
+  download: '#5BB974',
+  upload: '#00B3FA',
+  ratio: '#00B2F8',
+  state: '#1E9367',
+  category: '#04669A',
+  tag: '#048B9A',
+  tracker: '#C97D09',
+
+  // Status filter colors
+  'status-downloading': '#5BB974',
+  'status-stalled_downloading': '#5BB974',
+  'status-seeding': '#4ECDE6',
+  'status-stalled_uploading': '#4ECDE6',
+  'status-completed': '#16573E',
+  'status-resumed': '#BDBDBD',
+  'status-active': '#BDBDBD',
+  'status-stalled': '#696969',
+  'status-paused': '#696969',
+  'status-inactive': '#696969',
+  'status-checking': '#FF7043',
+  'status-moving': '#FFAA2C',
+  'status-errored': '#F83E70',
+
   // Torrent status colors
-  'torrent-done': '#16573e',
-  'torrent-downloading': '#5bb974',
-  'torrent-fail': '#f83e70',
-  'torrent-errored': '#f83e70',
-  'torrent-paused': '#9CA3AF',
-  'torrent-queued': '#2e5eaa',
-  'torrent-seeding': '#4ecde6',
-  'torrent-checking': '#ff7043',
-  'torrent-stalled': '#4ADE80',
-  'torrent-metadata': '#7e57c2',
-  'torrent-moving': '#ffaa2c'
+  'torrent-error': '#F83E70',
+  'torrent-missingFiles': '#F83E70',
+  'torrent-uploading': '#4E79E6',
+  'torrent-forcedUP': '#4E79E6',
+  'torrent-pausedUP': '#16573E',
+  'torrent-queuedUP': '#2E5EAA',
+  'torrent-stalledUP': '#4ECDE6',
+  'torrent-checkingUP': '#FF7043',
+  'torrent-allocating': '#E5A241',
+  'torrent-downloading': '#5BB974',
+  'torrent-forcedDL': '#5BB974',
+  'torrent-metaDL': '#7E57C2',
+  'torrent-pausedDL': '#9CA3AF',
+  'torrent-queuedDL': '#2E5EAA',
+  'torrent-stalledDL': '#4ADE80',
+  'torrent-checkingDL': '#FF7043',
+  'torrent-checkingResumeData': '#FF7043',
+  'torrent-moving': '#FFAA2C',
+  'torrent-unknown': '#000000'
 }
 
 const lightTheme: ThemeDefinition = {
@@ -63,7 +87,7 @@ export enum Theme {
 export default createVuetify({
   components: {
     ...components,
-    VDataTable,
+    VDataTable
   },
   directives,
   display: {

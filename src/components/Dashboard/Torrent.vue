@@ -55,7 +55,7 @@ const getComponent = (type: DashboardPropertyType) => {
 </script>
 
 <template>
-  <v-card class="sideborder done pointer" width="100%" @click="onClick">
+  <v-card :class="`sideborder ${torrent.state} pointer`" width="100%" @click="onClick">
     <v-card-title class="font-weight-bold">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">

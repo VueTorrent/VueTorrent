@@ -26,47 +26,68 @@ ul.no-bullet {
 $sideborder-margin: 6px;
 
 .sideborder {
-  &.done {
-    border-left: #{$sideborder-margin} solid #{$torrent-done};
-  }
+  border-left: #{$sideborder-margin} solid grey !important;
 
+  &.error {
+    border-left-color: #{$torrent-error} !important;
+  }
+  &.missingFiles {
+    border-left-color: #{$torrent-missingFiles} !important;
+  }
+  &.uploading {
+    border-left-color: #{$torrent-uploading} !important;
+  }
+  &.forcedUP {
+    border-left-color: #{$torrent-forcedUP} !important;
+  }
+  &.pausedUP {
+    border-left-color: #{$torrent-pausedUP} !important;
+  }
+  &.queuedUP {
+    border-left-color: #{$torrent-queuedUP} !important;
+  }
+  &.stalledUP {
+    border-left-color: #{$torrent-stalledUP} !important;
+  }
+  &.checkingUP {
+    border-left-color: #{$torrent-checkingUP} !important;
+  }
+  &.allocating {
+    border-left-color: #{$torrent-allocating} !important;
+  }
   &.downloading {
-    border-left: #{$sideborder-margin} solid #{$torrent-downloading};
+    border-left-color: #{$torrent-downloading} !important;
   }
-
-  &.fail {
-    border-left: #{$sideborder-margin} solid #{$torrent-fail};
+  &.forcedDL {
+    border-left-color: #{$torrent-forcedDL} !important;
   }
-
-  &.paused {
-    border-left: #{$sideborder-margin} solid #{$torrent-paused};
+  &.metaDL {
+    border-left-color: #{$torrent-metaDL} !important;
   }
-
-  &.queued {
-    border-left: #{$sideborder-margin} solid #{$torrent-queued};
+  &.pausedDL {
+    border-left-color: #{$torrent-pausedDL} !important;
   }
-
-  &.seeding {
-    border-left: #{$sideborder-margin} solid #{$torrent-seeding};
+  &.queuedDL {
+    border-left-color: #{$torrent-queuedDL} !important;
   }
-
-  &.checking {
-    border-left: #{$sideborder-margin} solid #{$torrent-checking};
+  &.stalledDL {
+    border-left-color: #{$torrent-stalledDL} !important;
   }
-
-  &.stalled {
-    border-left: #{$sideborder-margin} solid #{$torrent-stalled};
+  &.checkingDL {
+    border-left-color: #{$torrent-checkingDL} !important;
   }
-
-  &.metadata {
-    border-left: #{$sideborder-margin} solid #{$torrent-metadata};
+  &.checkingResumeData {
+    border-left-color: #{$torrent-checkingResumeData} !important;
   }
-
   &.moving {
-    border-left: #{$sideborder-margin} solid #{$torrent-moving};
+    border-left-color: #{$torrent-moving} !important;
   }
-
   &.unknown {
-    border-left: #{$sideborder-margin} solid #{$torrent-unknown};
+    &.v-theme--darkTheme {
+      border-left-color: #{$torrent-unknown-dark} !important;
+    }
+    &.v-theme-lightTheme {
+      border-left-color: #{$torrent-unknown-light} !important;
+    }
   }
 }
