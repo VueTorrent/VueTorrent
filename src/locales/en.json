@@ -168,15 +168,27 @@
     }
   },
   "navbar": {
-    "current_speed": {
-      "title": "Current Speed"
+    "top": {
+      "active_filters": {
+        "menu_label": "Active filter: {n} | Active filters: {n}",
+        "text": "Text filter: {value}",
+        "status": "Status filter: {value}",
+        "category": "Category filter: {value}",
+        "tag": "Tag filter: {value}",
+        "tracker": "Tracker filter: {value}"
+      }
     },
-    "bottom_actions": {
-      "logout": "Logout",
-      "alt_speed": "Toggle alternative speed",
-      "conn_status": "Connection status",
-      "dark_mode": "Switch to light mode | Switch to dark mode",
-      "shutdown": "Shutdown qBittorrent"
+    "side": {
+      "current_speed": {
+        "title": "Current Speed"
+      },
+      "bottom_actions": {
+        "logout": "Logout",
+        "alt_speed": "Toggle alternative speed",
+        "conn_status": "Connection status",
+        "dark_mode": "Switch to light mode | Switch to dark mode",
+        "shutdown": "Shutdown qBittorrent"
+      }
     },
     "addPanel": {
       "torrentsPendingCount": "{n} torrent in queue | {n} torrents in queue"

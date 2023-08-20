@@ -12,7 +12,7 @@ const uploadSpeed = ref(0)
 <template>
   <v-card flat>
     <v-card-title>
-      {{ t('navbar.current_speed.title') }}
+      {{ t('navbar.side.current_speed.title') }}
     </v-card-title>
     <v-card-text class="px-0">
       <v-sheet>

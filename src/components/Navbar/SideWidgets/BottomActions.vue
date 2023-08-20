@@ -39,7 +39,7 @@ const toggleAltSpeed = () => {
 <template>
   <v-row no-gutters>
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.bottom_actions.logout')" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.logout')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" icon="mdi-exit-to-app" v-bind="props" @click="logout" />
         </template>
@@ -47,7 +47,7 @@ const toggleAltSpeed = () => {
     </v-col>
 
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.bottom_actions.alt_speed')" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.alt_speed')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" :color="isAltSpeedEnabled ? 'accent' : undefined" :icon="isAltSpeedEnabled ? 'mdi-speedometer-slow' : 'mdi-speedometer'" v-bind="props" @click="toggleAltSpeed" />
         </template>
@@ -55,7 +55,7 @@ const toggleAltSpeed = () => {
     </v-col>
 
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.bottom_actions.conn_status')" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.conn_status')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" :icon="connectionStatusIcon" v-bind="props" />
         </template>
@@ -63,7 +63,7 @@ const toggleAltSpeed = () => {
     </v-col>
 
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.bottom_actions.dark_mode', Number(vueTorrentStore.darkMode))" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.dark_mode', Number(vueTorrentStore.darkMode))" location="top">
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" :icon="vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'" v-bind="props" @click="vueTorrentStore.toggleTheme()" />
         </template>
@@ -72,7 +72,7 @@ const toggleAltSpeed = () => {
   </v-row>
   <v-row no-gutters v-if="vueTorrentStore.isShutdownButtonVisible">
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.bottom_actions.shutdown')" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.shutdown')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn block color="error" rounded="0" v-bind="props">
             <v-icon size="x-large">mdi-power</v-icon>
