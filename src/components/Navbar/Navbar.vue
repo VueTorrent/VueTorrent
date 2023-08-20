@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
 import { ref } from 'vue'
 import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
 import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
 import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
 import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
-import TopContainer from '@/components/Navbar/TopMenu/TopContainer.vue'
+import TopContainer from '@/components/Navbar/TopWidgets/TopContainer.vue'
 import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
 import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
 import { useDashboardStore, useVueTorrentStore } from '@/stores'
@@ -23,12 +24,11 @@ const toggleDrawer = () => {
   <v-app-bar>
     <v-app-bar-nav-icon @click="toggleDrawer" />
     <v-app-bar-title>
-      <span class="text-accent">Vue</span>Torrent
+      <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
+      <span v-if="$vuetify.display.smAndUp">Torrent</span>
+
+      <ActiveFilters />
     </v-app-bar-title>
-
-    <!-- TODO: add filter chip when v-speed-dial releases -->
-
-    <v-spacer />
 
     <TopContainer />
   </v-app-bar>

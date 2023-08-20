@@ -150,7 +150,6 @@ function toggleSelectMode() {
 }
 
 function selectTorrent(hash: string) {
-  if (!dashboardStore.isSelectionMultiple) dashboardStore.isSelectionMultiple = true
   if (dashboardStore.isTorrentInSelection(hash)) {
     dashboardStore.unselectTorrent(hash)
   } else {

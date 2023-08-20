@@ -20,7 +20,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
     isCustomSortEnabled: false,
     sortBy: SortOptions.DEFAULT,
     reverseOrder: false,
-    statusFilter: undefined as FilterState | undefined,
+    statusFilter: FilterState.ALL as FilterState,
     categoryFilter: undefined as string | undefined,
     tagFilter: undefined as string | undefined,
     trackerFilter: undefined as string | undefined
