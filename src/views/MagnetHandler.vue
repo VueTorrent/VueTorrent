@@ -7,9 +7,19 @@ import { General } from '@/mixins'
 export default {
   name: 'MagnetHandler',
   mixins: [General],
+  methods: {
+    decodeMagnet(url) {
+      if (url.startsWith('magnet:?')) {
+        return url
+      } else {
+        return this.decodeMagnet(decodeURIComponent(url))
+      }
+    }
+  },
   created() {
     const regex = new RegExp('^\/download\=(.+?)(?:\/(?=$))?$', 'is')
-    this.createModal('AddModal', { initialMagnet: regex.exec(this.$route.fullPath)[1] })
+    let magnetLink = this.decodeMagnet(regex.exec(this.$route.fullPath)[1])
+    this.createModal('AddModal', { initialMagnet: magnetLink })
     this.$router.push({ name: 'dashboard' })
   }
 }
