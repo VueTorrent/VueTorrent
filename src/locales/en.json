@@ -91,7 +91,21 @@
     }
   },
   "rssArticles": {
-    "title": "RSS Articles"
+    "title": "RSS Articles",
+    "table": {
+      "id": "ID",
+      "title": "Title",
+      "category": "Category",
+      "author": "Author",
+      "date": "Date",
+      "feedName": "Feed Name",
+      "actions": ""
+    },
+    "filters": {
+      "title": "Title filter",
+      "unread": "Show unread articles only"
+    },
+    "markAllAsRead": "Mark all as read"
   },
   "searchEngine": {
     "title": "Search torrents"
@@ -140,23 +154,23 @@
     "state": {
       "error": "Error",
       "missingFiles": "Missing Files",
-      "uploading":  "Uploading",
+      "uploading": "Uploading",
       "forcedUP": "[F] Uploading",
-      "pausedUP":  "Done",
+      "pausedUP": "Done",
       "queuedUP": "Queued (UP)",
-      "stalledUP":  "Seeding",
+      "stalledUP": "Seeding",
       "checkingUP": "Checking",
-      "allocating":  "Allocating",
+      "allocating": "Allocating",
       "downloading": "Downloading",
-      "forcedDL":  "[F] Downloading",
+      "forcedDL": "[F] Downloading",
       "metaDL": "Metadata",
-      "pausedDL":  "Paused",
+      "pausedDL": "Paused",
       "queuedDL": "Queued (DL)",
-      "stalledDL":  "Stalled",
+      "stalledDL": "Stalled",
       "checkingDL": "Checking",
-      "checkingResumeData":  "Checking resumse data",
+      "checkingResumeData": "Checking resumse data",
       "moving": "Moving",
-      "unknown":  "Unknown"
+      "unknown": "Unknown"
     }
   },
   "torrentDetail": {
@@ -178,7 +192,7 @@
       "pause": "Pause Torrents",
       "delete": "Delete Torrents",
       "searchEngine": "Open Search Engine",
-      "rssFeeds": "Open RSS Feeds",
+      "rssArticles": "Open RSS Articles",
       "logs": "Open Logs",
       "settings": "Open Settings"
     },
@@ -187,7 +201,7 @@
       "pause": "Pause",
       "delete": "Delete",
       "searchEngine": "Search Engine",
-      "rssFeeds": "RSS Feeds",
+      "rssArticles": "RSS Articles",
       "logs": "qBit Logs",
       "settings": "Settings"
     }

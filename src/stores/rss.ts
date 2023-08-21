@@ -1,12 +1,18 @@
 import { qbit } from '@/services'
 import { Feed, FeedRule } from '@/types/qbit/models'
+import { RssArticle } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 
 export const useRssStore = defineStore('rss', () => {
   const feeds = ref<Feed[]>([])
   const rules = ref<FeedRule[]>([])
+
+  const filters = reactive({
+    title: '',
+    unread: false,
+  })
 
   async function refreshFeed(feedName: string) {
     await qbit.refreshFeed(feedName)
@@ -40,6 +46,10 @@ export const useRssStore = defineStore('rss', () => {
     feeds.value = await qbit.getFeeds(true)
   }
 
+  async function markArticleAsRead(article: RssArticle) {
+    await qbit.markAsRead(article.feedName, article.id)
+  }
+
   async function fetchRules() {
     rules.value = await qbit.getRules()
   }
@@ -48,7 +58,7 @@ export const useRssStore = defineStore('rss', () => {
     return await qbit.getMatchingArticles(ruleName)
   }
 
-  return { feeds, rules, refreshFeed, createFeed, setRule, editFeed, renameRule, deleteFeed, deleteRule, fetchFeeds, fetchRules, fetchMatchingArticles }
+  return { feeds, rules, filters, refreshFeed, createFeed, setRule, editFeed, renameRule, deleteFeed, deleteRule, fetchFeeds, markArticleAsRead, fetchRules, fetchMatchingArticles }
 }, {
   persist: {
     enabled: true,

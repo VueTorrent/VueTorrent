@@ -2,7 +2,7 @@
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { ref } from 'vue'
 
-defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openRssFeeds', 'openLogs', 'openSettings'])
+defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openrssArticles', 'openLogs', 'openSettings'])
 
 const deleteTorrentDialogVisible = ref(false)
 </script>
@@ -35,9 +35,9 @@ const deleteTorrentDialogVisible = ref(false)
     </template>
   </v-tooltip>
 
-  <v-tooltip :text="$t('topbar.actions.rssFeeds')" location="bottom">
+  <v-tooltip :text="$t('topbar.actions.rssArticles')" location="bottom">
     <template v-slot:activator="{ props }">
-      <v-btn icon="mdi-rss" v-bind="props" @click="$emit('openRssFeeds')" />
+      <v-btn icon="mdi-rss" v-bind="props" @click="$emit('openrssArticles')" />
     </template>
   </v-tooltip>
 

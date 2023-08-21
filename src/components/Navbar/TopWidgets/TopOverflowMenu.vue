@@ -2,7 +2,7 @@
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { ref } from 'vue'
 
-defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openRssFeeds', 'openLogs', 'openSettings'])
+defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openrssArticles', 'openLogs', 'openSettings'])
 
 const deleteTorrentDialogVisible = ref(false)
 </script>
@@ -42,7 +42,7 @@ const deleteTorrentDialogVisible = ref(false)
         </template>
       </v-list-item>
 
-      <v-list-item :title="$t('topbar.overflow.rssFeeds')" @click="$emit('openRssFeeds')">
+      <v-list-item :title="$t('topbar.overflow.rssArticles')" @click="$emit('openrssArticles')">
         <template v-slot:prepend>
           <v-icon>mdi-rss</v-icon>
         </template>

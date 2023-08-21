@@ -18,7 +18,7 @@ const pauseTorrents = () => {
 const openSearchEngine = () => {
   router.push({ name: 'searchEngine' })
 }
-const openRssFeeds = () => {
+const openrssArticles = () => {
   router.push({ name: 'rssArticles' })
 }
 const openLogs = () => {
@@ -40,14 +40,14 @@ const openSettings = () => {
               @resumeTorrents="resumeTorrents"
               @pauseTorrents="pauseTorrents"
               @openSearchEngine="openSearchEngine"
-              @openRssFeeds="openRssFeeds"
+              @openrssArticles="openrssArticles"
               @openLogs="openLogs"
               @openSettings="openSettings"/>
   <TopOverflowMenu v-else
                    @resumeTorrents="resumeTorrents"
                    @pauseTorrents="pauseTorrents"
                    @openSearchEngine="openSearchEngine"
-                   @openRssFeeds="openRssFeeds"
+                   @openrssArticles="openrssArticles"
                    @openLogs="openLogs"
                    @openSettings="openSettings" />
 </template>

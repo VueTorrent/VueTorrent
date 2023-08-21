@@ -162,7 +162,7 @@ export class QBitApi {
     })
   }
 
-  async getFeeds(withData: boolean = false): Promise<Feed[]> {
+  async getFeeds(withData: boolean): Promise<Feed[]> {
     return this.axios.get('/rss/items', { params: { withData } })
         .then(res => res.data)
         .then(payload => {
