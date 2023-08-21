@@ -29,7 +29,7 @@ export const useNavbarStore = defineStore('navbar', () => {
     if (torrentDescriptor instanceof File) {
       addTorrentDialogFiles.value.push(torrentDescriptor)
     } else {
-      addTorrentDialogUrls.value += `${torrentDescriptor}\n`
+      addTorrentDialogUrls.value += `\n${torrentDescriptor}`
     }
   }
 

@@ -216,7 +216,7 @@
       }
     },
     "addPanel": {
-      "torrentsPendingCount": "{n} torrent in queue | {n} torrents in queue"
+      "torrentsPendingCount": "{n} torrent awaiting upload | {n} torrents awaiting upload"
     }
   },
   "dialogs": {

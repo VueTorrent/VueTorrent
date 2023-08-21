@@ -3,7 +3,7 @@ import { AppPreferences } from '@/constants/qbit'
 import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { onBeforeMount, reactive, ref } from 'vue'
+import { onBeforeMount, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -61,13 +61,18 @@ onBeforeMount(async () => {
     formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
     formData.savepath = preferenceStore.preferences!.save_path
   }
-  if (!maindataStore.categories) {
+})
+
+watch(() => navbarStore.addTorrentDialogVisible, async (isVisible) => {
+  if (!isVisible) return
+
+  if (maindataStore.categories.length < 1) {
     await maindataStore.fetchCategories()
   }
-  if (!maindataStore.tags) {
+  if (maindataStore.tags.length < 1) {
     await maindataStore.fetchTags()
   }
-})
+}, { immediate: true })
 </script>
 
 <template>
