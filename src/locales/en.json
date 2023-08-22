@@ -221,6 +221,12 @@
       "current_speed": {
         "title": "Current Speed"
       },
+      "filters": {
+        "disabled": "(Disabled)",
+        "uncategorized": "(Uncategorized)",
+        "untagged": "(Untagged)",
+        "untracked": "(Untracked)"
+      },
       "bottom_actions": {
         "logout": "Logout",
         "alt_speed": "Toggle alternative speed",
@@ -813,6 +819,22 @@
       "title": "Add paused",
       "always": "Always",
       "never": "Never"
+    },
+    "filterStatus": {
+      "all": "All",
+      "downloading": "Downloading",
+      "seeding": "Seeding",
+      "completed": "Completed",
+      "resumed": "Resumed",
+      "paused": "Paused",
+      "active": "Active",
+      "inactive": "Inactive",
+      "stalled": "Stalled",
+      "stalled_uploading": "Stalled Uploading",
+      "stalled_downloading": "Stalled Downloading",
+      "checking": "Checking",
+      "moving": "Moving",
+      "errored": "Errored"
     }
   },
   "units": {

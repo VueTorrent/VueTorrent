@@ -103,13 +103,13 @@ export const useMaindataStore = defineStore('maindata', () => {
     isUpdatingMaindata.value = true
 
     try {
-      const response = await qbit.getMaindata(rid.value || undefined)
+      const response = await qbit.getMaindata(rid.value)
       rid.value = response.rid || undefined
 
       if (response.server_state) {
-        serverState.value = response.server_state
-        navbarStore.pushDownloadData(response.server_state.dl_info_data)
-        navbarStore.pushUploadData(response.server_state.up_info_data)
+        serverState.value = { ...serverState.value, ...response.server_state }
+        navbarStore.pushDownloadData(serverState.value.dl_info_data)
+        navbarStore.pushUploadData(serverState.value.up_info_data)
       }
 
       // fetch torrent data
@@ -130,7 +130,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // update torrents
-      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t, vueTorrentStore.dateFormat))
+      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
 
       // TODO: load fake torrents if enabled
       // if (!isProduction()) {

@@ -1,3 +1,4 @@
+
 <script setup lang="ts">
 import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
 import { ref } from 'vue'
@@ -21,20 +22,8 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-app-bar>
-    <v-app-bar-nav-icon @click="toggleDrawer" />
-    <v-app-bar-title>
-      <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
-      <span v-if="$vuetify.display.smAndUp">Torrent</span>
-
-      <ActiveFilters />
-    </v-app-bar-title>
-
-    <TopContainer />
-  </v-app-bar>
-
-  <v-navigation-drawer v-model="isDrawerOpen">
-    <v-list>
+  <v-navigation-drawer v-model="isDrawerOpen" color="primary" disable-route-watcher>
+    <v-list class="clean-px px-2">
       <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
         <CurrentSpeed />
       </v-list-item>
@@ -59,8 +48,8 @@ const toggleDrawer = () => {
         <FilterSelect />
       </v-list-item>
 
-      <v-list-item>
-        <div class="d-flex justify-center">
+      <v-list-item density="compact">
+        <div class="d-flex justify-center text-accent">
           {{ dashboardStore.torrentCountString }}
         </div>
       </v-list-item>
@@ -69,8 +58,23 @@ const toggleDrawer = () => {
       <BottomActions />
     </template>
   </v-navigation-drawer>
+
+  <v-app-bar>
+    <v-app-bar-nav-icon @click="toggleDrawer" />
+    <v-app-bar-title>
+      <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
+      <span v-if="$vuetify.display.smAndUp">Torrent</span>
+
+      <ActiveFilters />
+    </v-app-bar-title>
+
+    <TopContainer />
+  </v-app-bar>
 </template>
 
-<style scoped>
-
+<style scoped lang="scss">
+.clean-px > * {
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
+}
 </style>

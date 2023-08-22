@@ -22,9 +22,9 @@ export const useDashboardStore = defineStore('dashboard',
       sortBy: SortOptions.DEFAULT,
       reverseOrder: false,
       statusFilter: FilterState.ALL as FilterState,
-      categoryFilter: undefined as string | undefined,
-      tagFilter: undefined as string | undefined,
-      trackerFilter: undefined as string | undefined
+      categoryFilter: null as string | null,
+      tagFilter: null as string | null,
+      trackerFilter: null as string | null
     })
 
     const { t } = useI18n()
@@ -74,8 +74,8 @@ export const useDashboardStore = defineStore('dashboard',
     const getTorrentsPayload = computed<GetTorrentPayload>(() => {
       return {
         filter: sortOptions.statusFilter ?? FilterState.ALL,
-        category: sortOptions.categoryFilter,
-        tag: sortOptions.tagFilter,
+        category: sortOptions.categoryFilter ?? undefined,
+        tag: sortOptions.tagFilter ?? undefined,
         sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
         reverse: sortOptions.reverseOrder
       }
