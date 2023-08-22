@@ -47,7 +47,7 @@ export function genFileTree(files) {
       .reduce((parentPath, nodeName) => {
         const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
 
-        if (file.name.endsWith(nodeName)) {
+        if (file.name.replace('\\', '/').split('/').pop() === nodeName) {
           /** @type {TreeFile} */
           const newFile = {
             type: 'file',
