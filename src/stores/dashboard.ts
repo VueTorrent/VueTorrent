@@ -67,7 +67,7 @@ export const useDashboardStore = defineStore('dashboard',
           size: formatData(selectedSize, vuetorrentStore.useBinarySize)
         })
       } else {
-        return t('dashboard.torrentsCount', { total: filteredTorrents.value.length })
+        return t('dashboard.torrentsCount', filteredTorrents.value.length)
       }
     })
 
