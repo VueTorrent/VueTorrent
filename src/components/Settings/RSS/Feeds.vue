@@ -50,7 +50,7 @@ watch(dialog, (value) => {
 </script>
 
 <template>
-  <v-row>
+  <v-row class="mt-2">
     <v-col cols="12" sm="6" lg="3" v-for="feed in rssStore.feeds">
       <v-sheet rounded="xl" class="d-flex align-center">
         <div class="pl-4">{{ feed.name }}</div>

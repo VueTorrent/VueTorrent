@@ -15,7 +15,7 @@ async function deleteRule(rule: FeedRule) {
 </script>
 
 <template>
-  <v-row>
+  <v-row class="mt-2">
     <v-col cols="12" sm="6" lg="3" v-for="rule in rssStore.rules">
       <v-sheet rounded="xl" class="d-flex align-center">
         <div class="pl-4">{{ rule.name }}</div>
