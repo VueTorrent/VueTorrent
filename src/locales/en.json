@@ -14,7 +14,7 @@
   },
   "dashboard": {
     "not_complete": "Not Yet Completed",
-    "torrentsCount": "No torrent | {total} torrent | {total} torrents",
+    "torrentsCount": "No torrent | {n} torrent | {n} torrents",
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})",
     "searchInputLabel": "Search",
     "toggleSearchFilter": "Toggle Search Filter",
@@ -220,6 +220,9 @@
     "side": {
       "current_speed": {
         "title": "Current Speed"
+      },
+      "speed_graph": {
+        "relative_time": "Now | {n} second ago | {n} seconds ago"
       },
       "filters": {
         "disabled": "(Disabled)",
