@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { onBeforeMount, reactive, ref, watch } from 'vue'
+import { AddTorrentPayload } from '@/types/qbit/payloads'
+import { computed, onBeforeMount, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -12,16 +12,16 @@ const navbarStore = useNavbarStore()
 const preferenceStore = usePreferenceStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const isFormValid = ref(true)
+const isFormValid = computed(() => navbarStore.addTorrentDialogUrls.length > 0 || navbarStore.addTorrentDialogFiles.length > 0)
 const formData = reactive({
   autoTMM: false,
   skipChecking: false,
   sequentialDownload: false,
   firstLastPiecePrio: false,
   startNow: true,
-  contentLayout: ContentLayout.ORIGINAL,
-  stopCondition: StopCondition.NONE,
-  savepath: '',
+  contentLayout: preferenceStore.preferences!.torrent_content_layout,
+  stopCondition: preferenceStore.preferences!.torrent_stop_condition,
+  savepath: preferenceStore.preferences!.save_path,
   category: null as Category | null,
   tags: [] as string[]
 })
@@ -39,8 +39,44 @@ const stopConditionOptions = ref([
   { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
 ])
 
-const submit = () => {
+const resetForm = () => {
+  navbarStore.addTorrentDialogUrls = ''
+  navbarStore.addTorrentDialogFiles = []
+
+  formData.autoTMM = false
+  formData.skipChecking = false
+  formData.sequentialDownload = false
+  formData.firstLastPiecePrio = false
+  formData.startNow = true
+  formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
+  formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
+  formData.savepath = preferenceStore.preferences!.save_path
+  formData.category = null
+  formData.tags = []
+}
+
+const submit = async () => {
   if (!isFormValid.value) return
+
+  const params: AddTorrentPayload = {
+    savepath: formData.savepath,
+    paused: !formData.startNow,
+    skip_checking: formData.skipChecking,
+    autoTMM: formData.autoTMM,
+    sequentialDownload: formData.sequentialDownload,
+    firstLastPiecePrio: formData.firstLastPiecePrio,
+    contentLayout: formData.contentLayout,
+    stopCondition: formData.stopCondition
+  }
+
+  if (navbarStore.addTorrentDialogUrls.length > 0) params.urls = navbarStore.addTorrentDialogUrls
+  if (formData.category && formData.category.name) params.category = formData.category.name
+  if (formData.tags.length > 0) params.tags = formData.tags.join(',')
+
+  await maindataStore.addTorrents(params, navbarStore.addTorrentDialogFiles)
+
+  resetForm()
+  close()
 }
 const close = () => {
   navbarStore.addTorrentDialogVisible = false
@@ -157,7 +193,7 @@ watch(() => navbarStore.addTorrentDialogVisible, async (isVisible) => {
                           clearable
                           chips
                           label="Category"
-                          @input="onCategoryChanged">
+                          @update:modelValue="onCategoryChanged">
                 <template v-slot:prepend>
                   <v-icon color="accent">mdi-label</v-icon>
                 </template>

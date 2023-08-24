@@ -157,6 +157,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     }
   }
 
+  async function addTorrents(payload: AddTorrentPayload, torrents: File[]) {
+    return await qbit.addTorrents(payload, torrents)
+  }
+
   return {
     categories,
     isUpdatingMaindata,
@@ -176,6 +180,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     createTags,
     editTag,
     deleteTags,
-    updateMaindata
+    updateMaindata,
+    addTorrents
   }
 })
