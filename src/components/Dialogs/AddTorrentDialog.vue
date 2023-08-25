@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -19,9 +20,9 @@ const formData = reactive({
   sequentialDownload: false,
   firstLastPiecePrio: false,
   startNow: true,
-  contentLayout: preferenceStore.preferences!.torrent_content_layout,
-  stopCondition: preferenceStore.preferences!.torrent_stop_condition,
-  savepath: preferenceStore.preferences!.save_path,
+  contentLayout: ContentLayout.ORIGINAL,
+  stopCondition: StopCondition.NONE,
+  savepath: '',
   category: null as Category | null,
   tags: [] as string[]
 })
@@ -91,12 +92,12 @@ const onCategoryChanged = () => {
 onBeforeMount(async () => {
   if (!preferenceStore.preferences) {
     await preferenceStore.fetchPreferences()
-    formData.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
-    formData.startNow = !preferenceStore.preferences!.start_paused_enabled
-    formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
-    formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-    formData.savepath = preferenceStore.preferences!.save_path
   }
+  formData.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
+  formData.startNow = !preferenceStore.preferences!.start_paused_enabled
+  formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
+  formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
+  formData.savepath = preferenceStore.preferences!.save_path
 })
 
 watch(() => navbarStore.addTorrentDialogVisible, async (isVisible) => {
