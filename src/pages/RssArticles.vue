@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import debounce from 'lodash.debounce'
 import { useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
@@ -39,10 +40,9 @@ const unreadArticles = computed(() => {
 
 const titleFilter = computed({
   get: () => rssStore.filters.title,
-  set: (value: string) => {
-    // TODO: Debounce
-    return rssStore.filters.title = value ?? ''
-  }
+  set: debounce((value: string) => {
+    rssStore.filters.title = value ?? ''
+  }, 300)
 })
 
 const searchQuery = useSearchQuery(

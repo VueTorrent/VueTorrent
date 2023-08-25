@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import debounce from 'lodash.debounce'
 import RightClickMenu from '@/components/Dashboard/RightClickMenu.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { doesCommand } from '@/helpers'
@@ -93,10 +94,9 @@ const isDeleteDialogVisible = ref(false)
 
 const searchFilter = computed({
   get: () => dashboardStore.searchFilter,
-  set: (newValue) => {
-    //TODO: debounce
+  set: debounce((newValue: string) => {
     dashboardStore.searchFilter = newValue
-  }
+  }, 300)
 })
 const pageCount = computed(() => Math.ceil(dashboardStore.filteredTorrents.length / vuetorrentStore.paginationSize))
 const paginatedData = computed(() => {
@@ -104,7 +104,7 @@ const paginatedData = computed(() => {
   const end = start + vuetorrentStore.paginationSize
   return dashboardStore.filteredTorrents.slice(start, end)
 })
-const hasSearchFilter = computed(() => searchFilter && searchFilter.value.length > 0)
+const hasSearchFilter = computed(() => searchFilter.value && searchFilter.value.length > 0)
 
 const isAllTorrentsSelected = computed(() => dashboardStore.filteredTorrents.length <= dashboardStore.selectedTorrents.length)
 
@@ -135,7 +135,7 @@ function goToInfo(hash: string) {
 }
 
 function resetInput() {
-  dashboardStore.searchFilter = ''
+  searchFilter.value = ''
 }
 
 function scrollToTop() {
@@ -276,7 +276,7 @@ onBeforeUnmount(() => {
         <v-card v-show="isSearchFilterVisible"
                 color="transparent">
           <v-text-field id="searchInput"
-                        v-model="dashboardStore.searchFilter"
+                        v-model="searchFilter"
                         clearable
                         density="compact"
                         variant="solo"

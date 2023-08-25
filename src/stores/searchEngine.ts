@@ -5,7 +5,7 @@ import { ref } from 'vue'
 
 
 export const useSearchEngineStore = defineStore('searchEngine', () => {
-  const searchData = ref<any[] /*TODO*/>([])
+  const searchData = ref<any[] /* TODO */>([])
   const searchPlugins = ref<SearchPlugin[]>([])
 
   async function fetchSearchPlugins() {
