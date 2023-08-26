@@ -246,8 +246,8 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
   // 'Search' => Search view
   if (e.key === '/'
-      && route.name !== 'searchEngine'
-      && document.activeElement !== document.getElementById('searchInput')) {
+    && route.name !== 'searchEngine'
+    && document.activeElement !== document.getElementById('searchInput')) {
     router.push({ name: 'searchEngine' })
   }
 }
@@ -314,14 +314,15 @@ onBeforeUnmount(() => {
                  @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
-      <div class=" pa-0">
-        <v-select v-model="dashboardStore.sortOptions.sortBy"
-                  :items="sortOptions"
-                  density="compact"
-                  variant="solo"
-                  hide-details
-                  :label="t('dashboard.sortLabel')"
-                  rounded="pill" />
+      <div class="pa-0">
+        <v-autocomplete v-model="dashboardStore.sortOptions.sortBy"
+                        auto-select-first
+                        :items="sortOptions"
+                        density="compact"
+                        variant="solo"
+                        hide-details
+                        :label="t('dashboard.sortLabel')"
+                        rounded="pill" />
       </div>
       <v-col cols="12" v-if="vuetorrentStore.isPaginationOnTop" class="pa-0">
         <v-pagination v-model="dashboardStore.currentPage"
@@ -370,10 +371,10 @@ onBeforeUnmount(() => {
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
                 <v-btn
-                    :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                    color="transparent"
-                    variant="flat"
-                    @click="selectTorrent(torrent.hash)" />
+                  :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                  color="transparent"
+                  variant="flat"
+                  @click="selectTorrent(torrent.hash)" />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
@@ -395,6 +396,6 @@ onBeforeUnmount(() => {
 
 <style>
 #torrentList {
-    background-color: unset;
+  background-color: unset;
 }
 </style>
