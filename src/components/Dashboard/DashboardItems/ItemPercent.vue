@@ -1,8 +1,25 @@
 <script setup lang="ts">
+import { TorrentState } from '@/constants/qbit'
 import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/VueTorrent'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent, title: string, value: string }>()
+const props = defineProps<{ torrent: Torrent, title: string, value: string }>()
+
+const isTorrentActive = computed(() => {
+  return [
+    TorrentState.UPLOADING,
+    TorrentState.CHECKING_UP,
+    TorrentState.FORCED_UP,
+    TorrentState.ALLOCATING,
+    TorrentState.DOWNLOADING,
+    TorrentState.META_DL,
+    TorrentState.CHECKING_DL,
+    TorrentState.FORCED_DL,
+    TorrentState.CHECKING_RESUME_DATA,
+    TorrentState.MOVING,
+  ].includes(props.torrent.state)
+})
 </script>
 
 <template>
@@ -10,9 +27,14 @@ defineProps<{ torrent: Torrent, title: string, value: string }>()
     <div class="text-caption text-grey">
       {{ $t(`torrent.properties.${title}`) }}
     </div>
-    <div>
+    <v-progress-linear :model-value="torrent[value]"
+                       :max="1"
+                       :striped="isTorrentActive"
+                       :height="20"
+                       :color="`torrent-${torrent.state}`"
+                       style="width: 10em">
       {{ formatPercent(torrent[value]) }}
-    </div>
+    </v-progress-linear>
   </div>
 </template>
 
