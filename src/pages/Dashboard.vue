@@ -104,7 +104,7 @@ const paginatedData = computed(() => {
   const end = start + vuetorrentStore.paginationSize
   return dashboardStore.filteredTorrents.slice(start, end)
 })
-const hasSearchFilter = computed(() => searchFilter.value && searchFilter.value.length > 0)
+const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
 
 const isAllTorrentsSelected = computed(() => dashboardStore.filteredTorrents.length <= dashboardStore.selectedTorrents.length)
 
