@@ -29,6 +29,8 @@ const deleteTorrentDialogVisible = ref(false)
     </template>
   </v-tooltip>
 
+  <v-divider vertical inset />
+
   <v-tooltip :text="$t('topbar.actions.searchEngine')" location="bottom">
     <template v-slot:activator="{ props }">
       <v-btn icon="mdi-search-web" v-bind="props" @click="$emit('openSearchEngine')" />

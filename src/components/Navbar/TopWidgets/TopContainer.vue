@@ -36,14 +36,16 @@ const openSettings = () => {
     </template>
   </v-tooltip>
 
-  <TopActions v-if="!$vuetify.display.mobile"
+  <v-divider vertical inset />
+
+  <TopOverflowMenu v-if="$vuetify.display.mobile"
               @resumeTorrents="resumeTorrents"
               @pauseTorrents="pauseTorrents"
               @openSearchEngine="openSearchEngine"
               @openrssArticles="openrssArticles"
               @openLogs="openLogs"
               @openSettings="openSettings"/>
-  <TopOverflowMenu v-else
+  <TopActions v-else
                    @resumeTorrents="resumeTorrents"
                    @pauseTorrents="pauseTorrents"
                    @openSearchEngine="openSearchEngine"
