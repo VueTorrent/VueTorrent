@@ -5,6 +5,7 @@ import { ref } from 'vue'
 
 export const useLogStore = defineStore('logs', () => {
   const logs = ref<Log[]>([])
+  const externalIp = ref<string>()
 
   async function fetchLogs(lastId?: number) {
     let afterId
@@ -14,10 +15,20 @@ export const useLogStore = defineStore('logs', () => {
       afterId = logs.value.length > 0 ? logs.value.at(-1)!.id : -1
     }
 
-    logs.value.push(...(await qbit.getLogs(afterId)))
+    const newLogs = await qbit.getLogs(afterId)
+    logs.value.push(...newLogs)
+    await extractExternalIpFromLogs(newLogs)
   }
 
-  return {logs, fetchLogs}
+  async function extractExternalIpFromLogs(logsToParse: Log[]) {
+    const log = logsToParse.find(log => log.message.includes('Detected external IP. IP: '))
+    if (!log) return
+
+    const match = log?.message.match(/Detected external IP\. IP: "(.*)"/)!
+    externalIp.value = match[1]
+  }
+
+  return { logs, externalIp, fetchLogs }
 }, {
   persist: {
     enabled: true,
