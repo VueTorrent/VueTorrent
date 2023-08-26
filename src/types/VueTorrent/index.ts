@@ -1,5 +1,5 @@
 import type { RssArticle } from './RssArticle'
 import type Torrent from './Torrent'
-import type { TorrentProperty } from './TorrentProperty'
+import type { PropertyData, PropertyMetadata, TorrentProperty } from './TorrentProperty'
 
-export { RssArticle, Torrent, TorrentProperty }
+export { RssArticle, Torrent, PropertyData, PropertyMetadata, TorrentProperty }
