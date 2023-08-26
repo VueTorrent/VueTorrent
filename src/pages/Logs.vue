@@ -26,6 +26,7 @@ const logTypeOptions = ref([
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
 const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
+const sortBy = ref<{key: string, order?: 'asc' | 'desc'}[]>([{key: 'id', order: 'desc'}])
 const timer = ref<NodeJS.Timeout>()
 
 const logs = computed(() => logStore.logs)
@@ -91,7 +92,7 @@ onUnmounted(() => {
                     :items-per-page="50"
                     item-value="id"
                     multi-sort
-                    :sort-by="[{key: 'id', order: 'desc'}]">
+                    :sort-by="sortBy">
         <template v-slot:top>
           <div class="mx-4 mb-5">
             <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" multiple chips>
