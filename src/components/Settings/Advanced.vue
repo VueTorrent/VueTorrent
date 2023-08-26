@@ -294,13 +294,13 @@ onBeforeMount(async () => {
                         :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')" />
         </v-col>
 
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.connection_speed"
                         type="number"
                         hide-details
                         :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')" />
         </v-col>
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.socket_backlog_size"
                         type="number"
                         hide-details
@@ -314,13 +314,13 @@ onBeforeMount(async () => {
 
     <v-list-item>
       <v-row>
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.outgoing_ports_min"
                         type="number"
                         hide-details
                         :label="t('settings.advanced.libtorrent.networking.outgoingPortsMin')" />
         </v-col>
-        <v-col cols="12" sm="6" md="3">
+        <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.outgoing_ports_max"
                         type="number"
                         hide-details
