@@ -17,7 +17,7 @@ const isTorrentActive = computed(() => {
     TorrentState.CHECKING_DL,
     TorrentState.FORCED_DL,
     TorrentState.CHECKING_RESUME_DATA,
-    TorrentState.MOVING,
+    TorrentState.MOVING
   ].includes(props.torrent.state)
 })
 </script>
@@ -32,6 +32,7 @@ const isTorrentActive = computed(() => {
                        :striped="isTorrentActive"
                        :height="20"
                        :color="`torrent-${torrent.state}`"
+                       rounded="sm"
                        style="width: 10em">
       {{ formatPercent(torrent[value]) }}
     </v-progress-linear>

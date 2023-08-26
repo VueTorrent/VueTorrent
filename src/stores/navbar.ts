@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
+
 export const useNavbarStore = defineStore('navbar', () => {
   const downloadData = ref<number[]>(new Array(15).fill(0))
   const uploadData = ref<number[]>(new Array(15).fill(0))

@@ -1,18 +1,5 @@
 <script setup lang="ts">
-defineProps({
-  color: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    default: ''
-  },
-  value: {
-    type: Number,
-    required: true
-  }
-})
+defineProps<{ title: string, value: any, color: string }>()
 </script>
 
 <template>
