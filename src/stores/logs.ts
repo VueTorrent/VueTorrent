@@ -29,14 +29,4 @@ export const useLogStore = defineStore('logs', () => {
   }
 
   return { logs, externalIp, fetchLogs }
-}, {
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: sessionStorage,
-        key: 'vuetorrent_logs'
-      }
-    ]
-  }
 })

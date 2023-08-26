@@ -333,6 +333,9 @@
       "title": "Delete {n} torrent | Delete {n} torrents",
       "deleteWithFiles": "Delete files with torrent",
       "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
+    },
+    "connectionStatus": {
+      "title": "Connection Status"
     }
   },
   "settings": {

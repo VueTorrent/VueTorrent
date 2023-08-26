@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
+import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useAppStore, useAuthStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
@@ -41,6 +42,7 @@ const connectionStatusText = computed(() => {
   return t('navbar.side.bottom_actions.conn_status', {status: t(`constants.connectionStatus.${key}`)})
 })
 
+const connStatusDialog = ref(false)
 const shutdownDialog = ref(false)
 
 const logout = async () => {
@@ -73,7 +75,10 @@ const toggleAltSpeed = () => {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="connectionStatusText" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn variant="plain" :icon="connectionStatusIcon" v-bind="props" />
+          <v-btn variant="plain" icon v-bind="props">
+            <v-icon :icon="connectionStatusIcon" />
+            <ConnectionStatusDialog v-model="connStatusDialog" />
+          </v-btn>
         </template>
       </v-tooltip>
     </v-col>
