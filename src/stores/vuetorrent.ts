@@ -357,45 +357,29 @@ export const useVueTorrentStore = defineStore('vuetorrent',
 
     const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
 
-    const busyTorrentProperties = computed<TorrentProperty[]>({
-      get() {
-        const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
+    const busyTorrentProperties = computed<TorrentProperty[]>(() => {
+      const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
 
-        for (const [k, v] of Object.entries(busyProperties.value)) {
-          formattedPpt[v.order - 1] = {
-            name: k as DashboardProperty,
-            ...v,
-            ...propsMetadata[k]
-          }
+      for (const [k, v] of Object.entries(busyProperties.value)) {
+        formattedPpt[v.order - 1] = {
+          name: k as DashboardProperty,
+          ...v,
+          ...propsMetadata[k]
         }
-        return formattedPpt
-      },
-      set(value) {
-        value.forEach((ppt, index) => {
-          busyProperties.value[ppt.name].active = ppt.active
-          busyProperties.value[ppt.name].order = index + 1
-        })
       }
+      return formattedPpt
     })
-    const doneTorrentProperties = computed<TorrentProperty[]>({
-      get() {
-        const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
+    const doneTorrentProperties = computed<TorrentProperty[]>(() => {
+      const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
 
-        for (const [k, v] of Object.entries(doneProperties.value)) {
-          formattedPpt[v.order - 1] = {
-            name: k as DashboardProperty,
-            ...v,
-            ...propsMetadata[k]
-          }
+      for (const [k, v] of Object.entries(doneProperties.value)) {
+        formattedPpt[v.order - 1] = {
+          name: k as DashboardProperty,
+          ...v,
+          ...propsMetadata[k]
         }
-        return formattedPpt
-      },
-      set(value) {
-        value.forEach((ppt, index) => {
-          doneProperties.value[ppt.name].active = ppt.active
-          doneProperties.value[ppt.name].order = index + 1
-        })
       }
+      return formattedPpt
     })
 
 
@@ -451,6 +435,20 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       }
     }
 
+    function updateBusyProperties(values: TorrentProperty[]) {
+      values.forEach((ppt, index) => {
+        busyProperties.value[ppt.name].active = ppt.active
+        busyProperties.value[ppt.name].order = index + 1
+      })
+    }
+
+    function updateDoneProperties(values: TorrentProperty[]) {
+      values.forEach((ppt, index) => {
+        doneProperties.value[ppt.name].active = ppt.active
+        doneProperties.value[ppt.name].order = index + 1
+      })
+    }
+
     return {
       canvasPieceCountThreshold,
       darkMode,
@@ -481,7 +479,9 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       updateTheme,
       toggleTheme,
       redirectToLogin,
-      updateTitle
+      updateTitle,
+      updateBusyProperties,
+      updateDoneProperties
     }
   },
   {
