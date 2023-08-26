@@ -16,8 +16,7 @@ import RGeneral from '@/components/Settings/RSS/General.vue'
 import RFeeds from '@/components/Settings/RSS/Feeds.vue'
 import RRules from '@/components/Settings/RSS/Rules.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
-import VDesktopCard from '@/components/Settings/VueTorrent/DesktopCard.vue'
-import VMobileCard from '@/components/Settings/VueTorrent/MobileCard.vue'
+import VTorrentCard from '@/components/Settings/VueTorrent/TorrentCard.vue'
 
 const router = useRouter()
 const { t } = useI18n()
@@ -84,22 +83,16 @@ const goHome = () => {
           <v-tab value="general">
             {{ t('settings.tabs.vuetorrentGeneral') }}
           </v-tab>
-          <v-tab value="desktopCard">
-            {{ t('settings.tabs.vuetorrentDesktopCard') }}
-          </v-tab>
-          <v-tab value="mobileCard">
-            {{ t('settings.tabs.vuetorrentMobileCard') }}
+          <v-tab value="torrentCard">
+            {{ t('settings.tabs.vuetorrentTorrentCard') }}
           </v-tab>
         </v-tabs>
         <v-window v-model="innerTabV">
           <v-window-item value="general">
             <VGeneral />
           </v-window-item>
-          <v-window-item value="desktopCard">
-            <VDesktopCard />
-          </v-window-item>
-          <v-window-item value="mobileCard">
-            <VMobileCard />
+          <v-window-item value="torrentCard">
+            <VTorrentCard />
           </v-window-item>
         </v-window>
       </v-window-item>

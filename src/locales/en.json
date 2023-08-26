@@ -341,8 +341,7 @@
     "tabs": {
       "vuetorrent": "VueTorrent",
       "vuetorrentGeneral": "General",
-      "vuetorrentDesktopCard": "Desktop Card",
-      "vuetorrentMobileCard": "Mobile Card",
+      "vuetorrentTorrentCard": "Torrent Card",
       "downloads": "Downloads",
       "connection": "Connection",
       "speed": "Speed",
@@ -384,13 +383,9 @@
         "exportSettings": "Export Settings",
         "resetSettings": "Reset Settings"
       },
-      "desktopCard": {
+      "torrentCard": {
         "busyTorrentTip": "Properties to display for busy torrents on desktop",
         "completedTorrentTip": "Properties to display for completed torrents on desktop"
-      },
-      "mobileCard": {
-        "busyTorrentTip": "Properties to display for busy torrents on mobile",
-        "completedTorrentTip": "Properties to display for completed torrents on mobile"
       }
     },
     "downloads": {
