@@ -233,7 +233,7 @@
       "bottom_actions": {
         "logout": "Logout",
         "alt_speed": "Toggle alternative speed",
-        "conn_status": "Connection status",
+        "conn_status": "Connection status: {status}",
         "dark_mode": "Switch to light mode | Switch to dark mode",
         "shutdown": "Shutdown qBittorrent"
       }
@@ -833,6 +833,12 @@
       "checking": "Checking",
       "moving": "Moving",
       "errored": "Errored"
+    },
+    "connectionStatus": {
+      "connected": "Connected",
+      "firewalled": "Firewalled",
+      "disconnected": "Disconnected",
+      "unknown": "Unknown"
     }
   },
   "units": {

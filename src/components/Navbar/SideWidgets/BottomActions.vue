@@ -20,9 +20,25 @@ const connectionStatusIcon = computed(() => {
       return 'mdi-close-network'
     case ConnectionStatus.DISCONNECTED:
       return 'mdi-network-off'
+    case ConnectionStatus.UNKNOWN:
     default:
       return 'mdi-help-network'
   }
+})
+const connectionStatusText = computed(() => {
+  let key
+  switch (maindataStore.serverState?.connection_status) {
+    case ConnectionStatus.CONNECTED:
+    case ConnectionStatus.FIREWALLED:
+    case ConnectionStatus.DISCONNECTED:
+      key = maindataStore.serverState.connection_status
+      break
+    case ConnectionStatus.UNKNOWN:
+    default:
+      key = 'unknown'
+  }
+
+  return t('navbar.side.bottom_actions.conn_status', {status: t(`constants.connectionStatus.${key}`)})
 })
 
 const shutdownDialog = ref(false)
@@ -55,7 +71,7 @@ const toggleAltSpeed = () => {
     </v-col>
 
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.side.bottom_actions.conn_status')" location="top">
+      <v-tooltip :text="connectionStatusText" location="top">
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" :icon="connectionStatusIcon" v-bind="props" />
         </template>
