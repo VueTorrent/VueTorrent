@@ -6,7 +6,7 @@ import { doesCommand } from '@/helpers'
 import Torrent from '@/components/Dashboard/Torrent.vue'
 import { Torrent as TorrentType } from '@/types/VueTorrent'
 import { useDashboardStore, useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
@@ -76,21 +76,13 @@ const sortOptions = [
 ].sort((a, b) => a.title.localeCompare(b.title))
 sortOptions.splice(0, 0, { value: '', title: t('dashboard.sortBy.default') })
 
-const trcTorrent = ref<TorrentType>()
-const trcMenu = reactive({
-  isShown: false,
-  x: 0,
-  y: 0
-})
-const tmCalc = reactive({
-  isTouchModeEnabled: false,
-  touchTimer: undefined as NodeJS.Timeout | undefined,
-  lastFinger: 0,
-  lastHash: ''
-})
-const trcMoveTick = ref(0)
 const isSearchFilterVisible = ref(false)
 const isDeleteDialogVisible = ref(false)
+const trcProperties = reactive({
+  isVisible: false,
+  anchor: '',
+  offset: [0, 0]
+})
 
 const searchFilter = computed({
   get: () => dashboardStore.searchFilter,
@@ -110,22 +102,8 @@ const isAllTorrentsSelected = computed(() => dashboardStore.filteredTorrents.len
 
 const isDialogVisible = computed(() => isDeleteDialogVisible.value || navbarStore.addTorrentDialogVisible)
 
-function showTorrentRightClickMenu(e: MouseEvent | Touch, torrent: TorrentType, isTouchModeEnabled = false) {
-  if (trcMenu.isShown) return false
-
-  trcTorrent.value = torrent
-  if ('preventDefault' in e) e.preventDefault()
-
-  if (!dashboardStore.isSelectionMultiple) selectTorrent(torrent.hash)
-  tmCalc.isTouchModeEnabled = isTouchModeEnabled
-  trcMenu.x = e.clientX + (isTouchModeEnabled ? 12 : 6)
-  trcMenu.y = e.clientY + (isTouchModeEnabled ? 12 : 6)
-  trcMenu.isShown = true
-}
-
-function hideTorrentRightClickMenu() {
-  if (!dashboardStore.isSelectionMultiple && !isDialogVisible.value) dashboardStore.unselectAllTorrents()
-  trcMenu.isShown = false
+function toggleSelectTorrent(hash: string) {
+  dashboardStore.toggleSelect(hash)
 }
 
 function goToInfo(hash: string) {
@@ -149,14 +127,6 @@ function toggleSelectMode() {
   dashboardStore.isSelectionMultiple = !dashboardStore.isSelectionMultiple
 }
 
-function selectTorrent(hash: string) {
-  if (dashboardStore.isTorrentInSelection(hash)) {
-    dashboardStore.unselectTorrent(hash)
-  } else {
-    dashboardStore.selectTorrent(hash)
-  }
-}
-
 function toggleSelectAll() {
   if (isAllTorrentsSelected.value) {
     dashboardStore.unselectAllTorrents()
@@ -165,39 +135,23 @@ function toggleSelectAll() {
   }
 }
 
-function strTouchStart(e: TouchEvent, torrent: TorrentType) {
-  trcMoveTick.value = 0
-  hideTorrentRightClickMenu()
-  clearTimeout(tmCalc.touchTimer)
-  if (e.touches.length === 1) {
-    // one finger only
-    tmCalc.lastFinger = 1
-    tmCalc.touchTimer = setTimeout(() => showTorrentRightClickMenu(e.touches[0], torrent, true), 400)
-  }
-  if (e.touches.length === 2) {
-    // two finger
-    tmCalc.lastFinger = 2
-    if (tmCalc.lastHash === torrent.hash) {
-      e.preventDefault()
-      showTorrentRightClickMenu(e.touches[0], torrent, true)
-    }
-  }
-  tmCalc.lastHash = torrent.hash
-}
+function onRightClick(e: PointerEvent, torrent: TorrentType) {
+  e.preventDefault()
+  trcProperties.isVisible = true
+  trcProperties.anchor = `#torrent-${torrent.hash}`
+  trcProperties.offset = [e.offsetX, e.offsetY]
 
-function strTouchMove(e: TouchEvent) {
-  trcMoveTick.value++
-  if (trcMenu.isShown && e.touches.length > 1) e.preventDefault()
-  else if (trcMoveTick.value > 1 && e.touches.length === 1) {
-    if (tmCalc.lastFinger === 1) hideTorrentRightClickMenu()
-    clearTimeout(tmCalc.touchTimer)
+  if (!dashboardStore.isSelectionMultiple) {
+    dashboardStore.unselectAllTorrents()
+    dashboardStore.selectTorrent(torrent.hash)
   }
 }
 
-function strTouchEnd(e: TouchEvent) {
-  clearTimeout(tmCalc.touchTimer)
-  if (trcMenu.isShown) e.preventDefault()
-}
+watch(() => trcProperties.isVisible, (newValue) => {
+  if (!newValue && !dashboardStore.isSelectionMultiple) {
+    dashboardStore.unselectAllTorrents()
+  }
+})
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (isDialogVisible.value) {
@@ -359,14 +313,11 @@ onBeforeUnmount(() => {
     <div v-else>
       <v-list class="pa-0" color="transparent" id="torrentList">
         <v-list-item v-for="torrent in paginatedData"
+                     :id="`torrent-${torrent.hash}`"
                      class="pa-0"
                      :class="display.mobile ? 'mb-2' : 'mb-4'"
-                     @mousedown="hideTorrentRightClickMenu"
-                     @touchstart="strTouchStart($event, torrent)"
-                     @touchmove="strTouchMove($event)"
-                     @touchend="strTouchEnd($event)"
-                     @contextmenu="showTorrentRightClickMenu($event, torrent)"
-                     @dblclick.prevent="goToInfo(torrent.hash)">
+                     @dblclick.prevent="goToInfo(torrent.hash)"
+                     @contextmenu="onRightClick($event, torrent)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
@@ -374,7 +325,7 @@ onBeforeUnmount(() => {
                   :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                   color="transparent"
                   variant="flat"
-                  @click="selectTorrent(torrent.hash)" />
+                  @click="toggleSelectTorrent(torrent.hash)" />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
@@ -382,15 +333,8 @@ onBeforeUnmount(() => {
         </v-list-item>
       </v-list>
     </div>
-    <v-menu v-model="trcMenu.isShown"
-            transition="slide-y-transition"
-            :position-x="trcMenu.x"
-            :position-y="trcMenu.y"
-            absolute
-            @input="hideTorrentRightClickMenu">
-      <RightClickMenu v-if="trcTorrent" :hash="trcTorrent.hash" :touchmode="tmCalc.isTouchModeEnabled" :x="trcMenu.x" />
-    </v-menu>
   </div>
+  <RightClickMenu v-model="trcProperties.isVisible" :attach="trcProperties.anchor" />
   <ConfirmDeleteDialog v-model="isDeleteDialogVisible" disable-activator :hashes="dashboardStore.selectedTorrents" />
 </template>
 

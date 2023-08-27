@@ -61,10 +61,11 @@ const getComponent = (type: DashboardPropertyType) => {
 
   }
 }
+const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" width="100%" @click="onClick">
+  <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}` : undefined" width="100%" @click="onClick">
     <v-card-title class="font-weight-bold">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">
