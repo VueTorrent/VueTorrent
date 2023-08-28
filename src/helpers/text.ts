@@ -23,3 +23,39 @@ export function extractHostname(url: string): string {
     return ''
   }
 }
+
+const urlRegExp = new RegExp(
+  /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.\S{2,}|www\.[a-zA-Z0-9]+\.\S{2,})/gi
+)
+
+export function splitByUrl(data: string) {
+  const urls = data.match(urlRegExp)
+  let resultArray: string[] = []
+
+  if (urls) {
+    urls.forEach(function (url) {
+      let tmpResult
+      if (resultArray.length === 0) {
+        tmpResult = data.toString().split(url)
+      } else {
+        tmpResult = resultArray[resultArray.length - 1].toString().split(url)
+        resultArray.pop()
+      }
+
+      tmpResult.splice(1, 0, url)
+      resultArray = [...resultArray, ...tmpResult]
+    })
+  } else {
+    resultArray[0] = data
+  }
+
+  resultArray = resultArray.filter(element => {
+    return element !== ''
+  })
+
+  return resultArray
+}
+
+export function stringContainsUrl(data: string) {
+  return urlRegExp.test(data)
+}

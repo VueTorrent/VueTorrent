@@ -2,8 +2,9 @@ import * as AppPreferences from './AppPreferences'
 import { ConnectionStatus } from './ConnectionStatus'
 import { FilterState } from './FilterState'
 import { LogType } from './LogType'
+import { PieceState } from './PieceState'
 import { Priority } from './Priority'
 import { TorrentState } from './TorrentState'
 import { TrackerStatus } from './TrackerStatus'
 
-export { AppPreferences, ConnectionStatus, LogType, Priority, TrackerStatus, TorrentState, FilterState }
+export { AppPreferences, ConnectionStatus, LogType, PieceState, Priority, TrackerStatus, TorrentState, FilterState }

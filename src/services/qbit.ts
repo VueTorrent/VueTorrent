@@ -25,7 +25,7 @@ import type {
   LoginPayload,
 } from '@/types/qbit/payloads'
 import type { Priority } from '@/constants/qbit'
-import { LogType } from '@/constants/qbit'
+import { LogType, PieceState } from '@/constants/qbit'
 
 type Parameters = Record<string, any>
 
@@ -116,7 +116,7 @@ export class QBitApi {
     return this.execute('/torrents/rename', { hash, name })
   }
 
-  async getTorrentPieceStates(hash: string): Promise<number[]> {
+  async getTorrentPieceStates(hash: string): Promise<PieceState[]> {
     return this.axios
     .get('/torrents/pieceStates', {
       params: { hash }

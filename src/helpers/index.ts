@@ -3,7 +3,7 @@ import { formatEta } from './datetime'
 import { toPrecision, formatPercent } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { isMac, doesCommand } from './system'
-import { titleCase, capitalize, extractHostname } from './text'
+import { titleCase, capitalize, extractHostname, splitByUrl, stringContainsUrl } from './text'
 
 export {
   formatDataValue,
@@ -19,5 +19,7 @@ export {
   doesCommand,
   titleCase,
   capitalize,
-  extractHostname
+  extractHostname,
+  splitByUrl,
+  stringContainsUrl
 }

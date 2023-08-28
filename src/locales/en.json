@@ -182,6 +182,21 @@
       "peers": "Peers",
       "content": "Content",
       "tagsAndCategories": "Tags & Categories"
+    },
+    "overview": {
+      "copy_hash": "Copy Hash",
+      "fetchingMetadata": "Fetching...",
+      "waitingForMetadata": "Waiting for metadata...",
+      "canvasRenderDisabled": "Canvas rendering is disabled",
+      "canvasRefreshDisabled": "Canvas auto-refresh is disabled",
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "fileCount": "Selected Files",
+      "selectedFileSize": "Selected Files' Size",
+      "ratio": "Ratio",
+      "downloaded": "Downloaded",
+      "uploaded": "Uploaded",
+      "dlSpeedAverage": "Download Speed Average",
+      "upSpeedAverage": "Upload Speed Average"
     }
   },
   "topbar": {
@@ -336,6 +351,17 @@
     },
     "connectionStatus": {
       "title": "Connection Status"
+    },
+    "moveTorrent": {
+      "title": "Move Torrent",
+      "oldPath": "Old path",
+      "newPath": "New path",
+      "required": "New path is required",
+      "samePath": "New path must be different from old path"
+    },
+    "moveTorrentFile": {
+      "title": "Move Torrent File | Move Torrent Folder",
+      "oldName": "Old name"
     }
   },
   "settings": {
@@ -378,7 +404,8 @@
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
         "refreshInterval": "qBittorrent API refresh interval",
         "fileContentInterval": "Torrent file content refresh interval",
-        "canvasPieceCountThreshold": "Canvas piece count to disable rendering",
+        "canvasRenderThreshold": "Piece count to disable canvas rendering",
+        "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
         "currentVersion": "Current Version",
         "qbittorrentVersion": "QBittorrent Version",
         "registerMagnet": "Register magnet links",

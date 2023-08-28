@@ -5,14 +5,19 @@ import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { ref } from 'vue'
+import { useMaindataStore } from '@/stores'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
+const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const maindataStore = useMaindataStore()
 
 const tab = ref('overview')
+
+const torrent = computed(() => maindataStore.getTorrentByHash(route.params.hash as string))
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
@@ -45,9 +50,9 @@ const goHome = () => {
       </v-tabs>
     </v-row>
 
-    <v-window v-model="tab">
+    <v-window v-model="tab" v-if="torrent">
       <v-window-item value="overview">
-        <Overview />
+        <Overview :torrent="torrent" />
       </v-window-item>
       <v-window-item value="info">
         <Info />

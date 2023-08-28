@@ -137,7 +137,7 @@ onBeforeMount(() => {
 
     <v-list-item>
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field
             v-model="vueTorrentStore.refreshInterval"
             type="number"
@@ -145,7 +145,7 @@ onBeforeMount(() => {
             suffix="ms"
             :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-text-field
             v-model="vueTorrentStore.fileContentInterval"
             type="number"
@@ -153,11 +153,19 @@ onBeforeMount(() => {
             suffix="ms"
             :label="t('settings.vuetorrent.general.fileContentInterval')" />
         </v-col>
-        <v-col cols="12" md="4">
+      </v-row>
+      <v-row>
+        <v-col cols="12" md="6">
           <v-text-field
-            v-model="vueTorrentStore.canvasPieceCountThreshold"
+            v-model="vueTorrentStore.canvasRenderThreshold"
             type="number"
-            :label="t('settings.vuetorrent.general.canvasPieceCountThreshold')" />
+            :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field
+            v-model="vueTorrentStore.canvasRefreshThreshold"
+            type="number"
+            :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
         </v-col>
       </v-row>
     </v-list-item>
