@@ -21,13 +21,13 @@ const values = computed(() => {
     <div class="d-flex flex-row gap">
       <v-chip v-if="!values || values.length < 1"
               :color="color.replace('$1', torrent[value])"
-              variant="elevated">
+              variant="flat">
         {{ $t(`torrent.properties.empty_${value}`) }}
       </v-chip>
       <v-chip v-else
               v-for="val in values"
               :color="color.replace('$1', torrent.state)"
-              variant="elevated">
+              variant="flat">
         {{ val }}
       </v-chip>
     </div>
