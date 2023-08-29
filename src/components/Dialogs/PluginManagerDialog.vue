@@ -1,0 +1,52 @@
+<script setup lang="ts">
+import { ref, watch } from 'vue'
+import { VForm } from 'vuetify/components'
+
+const props = defineProps({
+  modelValue: {
+    type: Boolean,
+    required: true,
+    default: false
+  }
+})
+const emit = defineEmits(['update:modelValue'])
+
+const dialogVisible = ref(false)
+
+const form = ref<VForm>()
+const isFormValid = ref(false)
+
+async function submit() {
+  if (!isFormValid.value) return
+
+  form.value?.reset()
+  close()
+}
+const close = () => {
+  dialogVisible.value = false
+}
+
+watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
+</script>
+
+<template>
+  <v-dialog v-model="dialogVisible" activator="parent">
+    <v-card>
+      <v-card-title>{{ $t(``) }}</v-card-title>
+      <v-card-text>
+        <v-form v-model="isFormValid" ref="form" @submit.prevent>
+          <!-- TODO -->
+        </v-form>
+      </v-card-text>
+      <v-card-actions>
+        <v-spacer />
+        <v-btn color="error" @click="close">{{ $t('common.cancel') }}</v-btn>
+        <v-btn color="accent" :disabled="!isFormValid" @click="submit">{{ $t('common.save') }}</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>
+
+<style scoped>
+
+</style>

@@ -108,7 +108,40 @@
     "markAllAsRead": "Mark all as read"
   },
   "searchEngine": {
-    "title": "Search torrents"
+    "title": "Search torrents",
+    "tabHeaderEmpty": "(Empty query)",
+    "query": "Search query",
+    "filters": {
+      "category": {
+        "label": "Search category",
+        "all": "All",
+        "movies":  "Movies",
+        "tv": "TV",
+        "music":  "Music",
+        "games": "Games",
+        "anime":  "Anime",
+        "software": "Software",
+        "pictures":  "Pictures",
+        "books": "Books"
+      },
+      "plugins": {
+        "label": "Search plugin",
+        "all": "All",
+        "enabled": "Enabled"
+      },
+      "title": {
+        "label": "Filter by title"
+      }
+    },
+    "runSearch": "Search",
+    "stopSearch": "Stop",
+    "headers": {
+      "fileName": "Filename",
+      "fileSize": "File Size",
+      "nbSeeders":  "Seeders",
+      "nbLeechers": "Leechers",
+      "siteUrl":  "Site URL"
+    }
   },
   "torrent": {
     "properties": {
