@@ -21,7 +21,7 @@ const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
-  let ppts = props.torrent.progress === 100
+  let ppts = props.torrent.progress === 1
       ? vuetorrentStore.doneTorrentProperties
       : vuetorrentStore.busyTorrentProperties
 

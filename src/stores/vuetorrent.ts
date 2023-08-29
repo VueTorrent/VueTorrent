@@ -113,7 +113,7 @@ const propsData: PropertyData = {
   },
   [DashboardProperty.SEEDING_TIME]: {
     active: false,
-    order: 38
+    order: 39
   },
   [DashboardProperty.SEEDS]: {
     active: true,
@@ -442,12 +442,18 @@ export const useVueTorrentStore = defineStore('vuetorrent',
         busyProperties.value[ppt.name].order = index + 1
       })
     }
-
     function updateDoneProperties(values: TorrentProperty[]) {
       values.forEach((ppt, index) => {
         doneProperties.value[ppt.name].active = ppt.active
         doneProperties.value[ppt.name].order = index + 1
       })
+    }
+
+    function toggleBusyProperty(name: DashboardProperty) {
+      busyProperties.value[name].active = !busyProperties.value[name].active
+    }
+    function toggleDoneProperty(name: DashboardProperty) {
+      doneProperties.value[name].active = !doneProperties.value[name].active
     }
 
     return {
@@ -483,7 +489,9 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       redirectToLogin,
       updateTitle,
       updateBusyProperties,
-      updateDoneProperties
+      updateDoneProperties,
+      toggleBusyProperty,
+      toggleDoneProperty
     }
   },
   {

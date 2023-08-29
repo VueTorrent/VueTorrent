@@ -132,10 +132,14 @@
       "info_hash_v2": "Infohash v2",
       "last_activity": "Last Activity",
       "peers": "Peers",
+      "priority": "Priority",
       "progress": "Progress",
       "progress_bar": "Progress Bar",
       "ratio": "Ratio",
+      "ratio_limit": "Ratio limit",
+      "ratio_time_limit": "Ratio time limit",
       "save_path": "Save Path",
+      "seeding_time": "Seeding time",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete",
       "size": "Size",
@@ -415,7 +419,7 @@
       },
       "torrentCard": {
         "busyTorrentTip": "Properties to display for busy torrents on desktop",
-        "completedTorrentTip": "Properties to display for completed torrents on desktop"
+        "doneTorrentTip": "Properties to display for completed torrents on desktop"
       }
     },
     "downloads": {
