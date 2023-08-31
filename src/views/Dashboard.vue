@@ -356,7 +356,6 @@ export default {
   },
   methods: {
     strTouchStart(e, data) {
-      this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
       this.tmCalc.TouchTimer = setTimeout(() => {
         e.preventDefault()
