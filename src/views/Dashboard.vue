@@ -135,7 +135,7 @@
         <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
       </div>
     </div>
-    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute @input="hideTorrentRightClickMenu">
+    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute>
       <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
     </v-menu>
   </div>
