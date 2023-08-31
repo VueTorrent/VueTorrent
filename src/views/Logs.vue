@@ -129,7 +129,7 @@ export default defineComponent({
       return LogType[log.type]
     },
     formatLogTimestamp(log: Log) {
-      return dayjs(log.timestamp * 1000).format(this.webuiSettings.dateFormat)
+      return dayjs(log.timestamp).format(this.webuiSettings.dateFormat)
     },
     async toggleSelectAll() {
       if (this.logTypeFilter.length === this.logTypeOptions.length) {
