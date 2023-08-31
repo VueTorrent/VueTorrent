@@ -135,7 +135,7 @@
         <v-pagination v-if="pageCount > 1 && !hasSearchFilter" v-model="pageNumber" :length="pageCount" :total-visible="7" @input="toTop" />
       </div>
     </div>
-    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute>
+    <v-menu v-model="trcMenu.show" transition="slide-y-transition" :position-x="trcMenu.X" :position-y="trcMenu.Y" absolute @input="hideTorrentRightClickMenu">
       <TorrentRightClickMenu v-if="data" :hash="data.torrent.hash" :touchmode="tmCalc.TouchMode" :x="trcMenu.X" />
     </v-menu>
   </div>
@@ -356,6 +356,7 @@ export default {
   },
   methods: {
     strTouchStart(e, data) {
+      this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
       this.tmCalc.TouchTimer = setTimeout(() => {
         e.preventDefault()
@@ -363,6 +364,8 @@ export default {
       }, 300)
     },
     strTouchMove(e) {
+      e.preventDefault()
+      this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
     },
     strTouchEnd(e) {
@@ -379,8 +382,8 @@ export default {
       }
 
       this.tmCalc.TouchMode = touchmode
-      this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
-      this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
+      this.trcMenu.X = e.clientX + (touchmode ? 24 : 6)
+      this.trcMenu.Y = e.clientY + (touchmode ? 24 : 6)
       this.trcMenu.show = true
     },
     hideTorrentRightClickMenu() {

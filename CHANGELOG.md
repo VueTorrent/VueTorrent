@@ -2,12 +2,13 @@
 
 ## [1.7.2](https://github.com/WDaan/VueTorrent/compare/v1.7.1...v1.7.2) (2023-08-31)
 
-
 ### Bug Fixes
 
-* explicitly match the file ([#1065](https://github.com/WDaan/VueTorrent/issues/1065)) ([7ea8ac3](https://github.com/WDaan/VueTorrent/commit/7ea8ac3ded7e523239c5c230f8a36b93095cc7f7))
-* magnet handling issue caused by [#1041](https://github.com/WDaan/VueTorrent/issues/1041) ([#1056](https://github.com/WDaan/VueTorrent/issues/1056)) ([6432dd9](https://github.com/WDaan/VueTorrent/commit/6432dd94168e37b8af2cd66241234cdec8c7738d))
-* mobile long press [#911](https://github.com/WDaan/VueTorrent/issues/911) ([d394ab8](https://github.com/WDaan/VueTorrent/commit/d394ab885b6fec200f5878993c6918c906cc6f2f))
+- explicitly match the file ([#1065](https://github.com/WDaan/VueTorrent/issues/1065))
+  ([7ea8ac3](https://github.com/WDaan/VueTorrent/commit/7ea8ac3ded7e523239c5c230f8a36b93095cc7f7))
+- magnet handling issue caused by [#1041](https://github.com/WDaan/VueTorrent/issues/1041) ([#1056](https://github.com/WDaan/VueTorrent/issues/1056))
+  ([6432dd9](https://github.com/WDaan/VueTorrent/commit/6432dd94168e37b8af2cd66241234cdec8c7738d))
+- mobile long press [#911](https://github.com/WDaan/VueTorrent/issues/911) ([d394ab8](https://github.com/WDaan/VueTorrent/commit/d394ab885b6fec200f5878993c6918c906cc6f2f))
 
 ## [1.7.1](https://github.com/WDaan/VueTorrent/compare/v1.7.0...v1.7.1) (2023-08-16)
 
