@@ -63,10 +63,9 @@ export default class Torrent {
   globalSpeed: number
   globalVolume: number
   constructor(data: QbitTorrent, format = 'DD/MM/YYYY, HH:mm:ss') {
-    
     const seeding_time_duration = data.seeding_time > 0 ? dayjs.duration(data.seeding_time, 'seconds') : null
     const time_active_duration = dayjs.duration(data.time_active, 'seconds')
-    
+
     this.added_on = dayjs(data.added_on * 1000).format(format)
     this.amount_left = data.amount_left
     this.auto_tmm = data.auto_tmm
@@ -98,7 +97,7 @@ export default class Torrent {
     this.ratio_limit = data.max_ratio
     this.ratio_time_limit = data.max_seeding_time
     this.savePath = data.save_path
-    this.seeding_time = data.seeding_time > 0 ? (Math.floor(seeding_time_duration.asDays()) + 'd ' + seeding_time_duration.format(durationFormat)) : null
+    this.seeding_time = data.seeding_time > 0 ? Math.floor(seeding_time_duration.asDays()) + 'd ' + seeding_time_duration.format(durationFormat) : null
     this.seen_complete = data.seen_complete > 0 ? dayjs(data.seen_complete * 1000).format(format) : i18n.t('dashboard.not_complete').toString()
     this.seq_dl = data.seq_dl
     this.size = data.size
