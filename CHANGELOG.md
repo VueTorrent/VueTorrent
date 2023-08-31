@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.7.3](https://github.com/WDaan/VueTorrent/compare/v1.7.2...v1.7.3) (2023-08-31)
+
+
+### Bug Fixes
+
+* mobile long press [#911](https://github.com/WDaan/VueTorrent/issues/911) ([6871e54](https://github.com/WDaan/VueTorrent/commit/6871e54f94c19f4c5d54f6d5056a4f1b302a956a))
+* revert longpress fix, unreliable on pwa [#911](https://github.com/WDaan/VueTorrent/issues/911) ([3214997](https://github.com/WDaan/VueTorrent/commit/3214997194f76d01b3ead9439589c3103eb2728c))
+
 ## [1.7.2](https://github.com/WDaan/VueTorrent/compare/v1.7.1...v1.7.2) (2023-08-31)
 
 ### Bug Fixes
