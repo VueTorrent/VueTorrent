@@ -359,12 +359,12 @@ export default {
       this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
       this.tmCalc.TouchTimer = setTimeout(() => {
-        e.preventDefault()
+        if (e.preventDefault) e.preventDefault()
         this.showTorrentRightClickMenu(e.touches[0], data, true)
       }, 300)
     },
     strTouchMove(e) {
-      if (this.trcMenu.show === true) {
+      if (this.trcMenu.show === true && e.preventDefault) {
         e.preventDefault()
         return
       }
@@ -372,7 +372,10 @@ export default {
       clearTimeout(this.tmCalc.TouchTimer)
     },
     strTouchEnd(e) {
-      e.preventDefault()
+      if (this.trcMenu.show === true && e.preventDefault) {
+        e.preventDefault()
+        return
+      }
       clearTimeout(this.tmCalc.TouchTimer)
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
