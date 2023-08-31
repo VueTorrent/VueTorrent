@@ -356,30 +356,39 @@ export default {
   },
   methods: {
     strTouchStart(e, data) {
+      this.trcMoveTick = 0
       this.hideTorrentRightClickMenu(e)
       clearTimeout(this.tmCalc.TouchTimer)
-      this.tmCalc.TouchTimer = setTimeout(() => {
-        if (e.preventDefault) e.preventDefault()
-        this.showTorrentRightClickMenu(e.touches[0], data, true)
-      }, 300)
+      if (e.touches.length === 1) {
+        // one finger only
+        this.tmCalc.LastFinger = 1
+        this.tmCalc.TouchTimer = setTimeout(() => this.showTorrentRightClickMenu(e.touches[0], data, true), 400)
+      }
+      if (e.touches.length === 2) {
+        // two finger
+        this.tmCalc.LastFinger = 2
+        if (this.tmCalc.LastHash === data.torrent.hash) {
+          e.preventDefault()
+          this.showTorrentRightClickMenu(e.touches[0], data, true)
+        }
+      }
+      this.tmCalc.LastHash = data.torrent.hash
     },
     strTouchMove(e) {
-      if (this.trcMenu.show === true) {
-        if(e.preventDefault) e.preventDefault()
-        return
+      this.trcMoveTick++
+      if (this.trcMenu.show === true && e.touches.length > 1) {
+        e.preventDefault()
+      } else if (this.trcMoveTick > 1 && e.touches.length === 1) {
+        if (this.tmCalc.LastFinger === 1) this.hideTorrentRightClickMenu(e)
+        clearTimeout(this.tmCalc.TouchTimer)
       }
-      this.hideTorrentRightClickMenu(e)
-      clearTimeout(this.tmCalc.TouchTimer)
     },
     strTouchEnd(e) {
-      if (this.trcMenu.show === true) {
-        if(e.preventDefault) e.preventDefault()
-        return
-      }
       clearTimeout(this.tmCalc.TouchTimer)
+      if (this.trcMenu.show) e.preventDefault()
     },
     showTorrentRightClickMenu(e, data, touchmode = false) {
-      if (this.trcMenu.show === true) return false
+      if (this.trcMenu.show) return false
       this.data = data
       if (e.preventDefault) e.preventDefault()
 
@@ -388,9 +397,11 @@ export default {
       }
 
       this.tmCalc.TouchMode = touchmode
-      this.trcMenu.X = e.clientX + (touchmode ? 24 : 6)
-      this.trcMenu.Y = e.clientY + (touchmode ? 24 : 6)
-      this.trcMenu.show = true
+      this.trcMenu.X = e.clientX + (touchmode ? 12 : 6)
+      this.trcMenu.Y = e.clientY + (touchmode ? 12 : 6)
+      this.$nextTick(() => {
+        this.trcMenu.show = true
+      })
     },
     hideTorrentRightClickMenu() {
       if (!this.selectMode && this.getModals().length === 0) {
