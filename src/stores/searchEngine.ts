@@ -55,7 +55,19 @@ export const useSearchEngineStore = defineStore('searchEngine', () => {
     searchPlugins.value = await qbit.getSearchPlugins()
   }
 
-  return { searchData, searchPlugins, createNewTab, deleteTab, runNewSearch, refreshResults, stopSearch, fetchSearchPlugins }
+  async function installSearchPlugin(url: string) {
+    await qbit.installSearchPlugin([url])
+  }
+
+  async function uninstallSearchPlugin(name: string) {
+    await qbit.uninstallSearchPlugin([name])
+  }
+
+  async function toggleSearchPlugin(plugin: SearchPlugin) {
+    await qbit.enableSearchPlugin([plugin.name], !plugin.enabled)
+  }
+
+  return { searchData, searchPlugins, createNewTab, deleteTab, runNewSearch, refreshResults, stopSearch, fetchSearchPlugins, installSearchPlugin, uninstallSearchPlugin, toggleSearchPlugin }
 }, {
   persist: {
     enabled: true,

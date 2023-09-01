@@ -399,6 +399,21 @@
     "moveTorrentFile": {
       "title": "Move Torrent File | Move Torrent Folder",
       "oldName": "Old name"
+    },
+    "pluginManager": {
+      "title": "Plugin Manager",
+      "install": {
+        "activator": "Install new plugin",
+        "title": "Install Plugin",
+        "label": "Plugin URL"
+      },
+      "headers": {
+        "enabled": "Enabled",
+        "name": "Name",
+        "version": "Version",
+        "url": "Engine URL",
+        "actions": "Actions"
+      }
     }
   },
   "settings": {
