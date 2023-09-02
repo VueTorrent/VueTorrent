@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -25,6 +25,7 @@ const props = defineProps({
 const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
+const dashboardStore = useDashboardStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -42,6 +43,7 @@ async function submit() {
   if (!isFormValid.value) return
 
   await maindataStore.deleteTorrents(selection.value.map(t => t.hash), vuetorrentStore.deleteWithFiles)
+  dashboardStore.unselectAllTorrents()
 
   close()
 }

@@ -1,10 +1,18 @@
 <script setup lang="ts">
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import { useDashboardStore } from '@/stores'
 import { ref } from 'vue'
 
 defineEmits(['resumeTorrents', 'pauseTorrents', 'openSearchEngine', 'openrssArticles', 'openLogs', 'openSettings'])
 
+const dashboardStore = useDashboardStore()
+
 const deleteTorrentDialogVisible = ref(false)
+const deleteHashes = ref<string[]>()
+function onDelete() {
+  deleteTorrentDialogVisible.value = true
+  deleteHashes.value = [...dashboardStore.selectedTorrents]
+}
 </script>
 
 <template>
@@ -22,10 +30,12 @@ const deleteTorrentDialogVisible = ref(false)
 
   <v-tooltip :text="$t('topbar.actions.delete')" location="bottom">
     <template v-slot:activator="{ props }">
-      <v-btn icon v-bind="props">
+      <v-btn icon v-bind="props" @click="onDelete">
         <v-icon>mdi-delete</v-icon>
         <ConfirmDeleteDialog v-if="deleteTorrentDialogVisible"
-                             v-model="deleteTorrentDialogVisible" />
+                             v-model="deleteTorrentDialogVisible"
+                             :hashes="deleteHashes"
+                             disable-activator />
       </v-btn>
     </template>
   </v-tooltip>

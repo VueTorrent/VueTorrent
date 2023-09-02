@@ -111,6 +111,7 @@ onBeforeMount(async () => {
       <v-card-text>
         <v-data-table
           :headers="headers"
+          items-per-page="-1"
           :items="searchEngineStore.searchPlugins"
           :sort-by="[{key: 'fullName', order: 'asc'}]"
           :loading="loading">

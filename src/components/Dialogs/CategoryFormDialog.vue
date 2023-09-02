@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useMaindataStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { computed, onBeforeMount, PropType, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, PropType, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
