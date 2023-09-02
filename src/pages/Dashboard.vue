@@ -341,7 +341,7 @@ onBeforeUnmount(() => {
     </div>
   </div>
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
-    <RightClickMenu v-if="trcProperties.isVisible" v-model="trcProperties.isVisible" />
+    <RightClickMenu v-model="trcProperties.isVisible" />
   </div>
   <ConfirmDeleteDialog v-if="isDeleteDialogVisible"
                        v-model="isDeleteDialogVisible"

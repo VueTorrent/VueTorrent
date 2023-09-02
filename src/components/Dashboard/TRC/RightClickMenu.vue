@@ -179,7 +179,8 @@ function onDelete() {
 </script>
 
 <template>
-  <v-menu v-model="trcVisible"
+  <v-menu v-if="trcVisible"
+          v-model="trcVisible"
           activator="parent"
           :close-on-content-click="true"
           transition="slide-y-transition"
