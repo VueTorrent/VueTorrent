@@ -2,7 +2,7 @@
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
-import { computed, onBeforeMount, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -25,7 +25,10 @@ const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const rssStore = useRssStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -133,8 +136,6 @@ onBeforeMount(async () => {
 
   await updateArticles()
 })
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

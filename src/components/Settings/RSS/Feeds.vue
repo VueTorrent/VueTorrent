@@ -63,7 +63,9 @@ watch(dialog, (value) => {
           </v-btn>
           <v-btn icon variant="plain" density="compact">
             <v-icon>mdi-pencil</v-icon>
-            <RssFeedDialog v-model="dialog" :initial-feed="feed" />
+            <RssFeedDialog v-if="dialog"
+                           v-model="dialog"
+                           :initial-feed="feed" />
           </v-btn>
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteFeed(feed)" />
         </div>
@@ -80,7 +82,8 @@ watch(dialog, (value) => {
       <v-btn color="accent"
              @click.prevent>
         {{ $t('settings.rss.feeds.createNew')}}
-        <RssFeedDialog v-model="dialog" />
+        <RssFeedDialog v-if="dialog"
+                       v-model="dialog" />
       </v-btn>
     </v-col>
     <v-col cols="6" class="d-flex align-center justify-center">

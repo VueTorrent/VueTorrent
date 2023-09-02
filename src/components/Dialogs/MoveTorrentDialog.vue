@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMaindataStore } from '@/stores'
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -13,7 +13,10 @@ const emit = defineEmits(['update:modelValue'])
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -42,14 +45,8 @@ const close = () => {
   dialogVisible.value = false
 }
 
-watch(dialogVisible, (value) => {
-  emit('update:modelValue', value)
-
-  if (value) {
-    formData.newPath = torrents.value[0]?.savePath || ''
-  } else {
-    form.value?.reset()
-  }
+onBeforeMount(() => {
+  formData.newPath = torrents.value[0]?.savePath || ''
 })
 </script>
 

@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import { useMaindataStore } from '@/stores'
-import { nextTick, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps<{ modelValue: boolean, hash: string, isFolder: boolean, oldName: string }>()
+const props = defineProps<{
+  modelValue: boolean,
+  hash: string,
+  isFolder: boolean,
+  oldName: string
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const input = ref<HTMLInputElement>()
@@ -20,7 +28,7 @@ const formData = reactive({
 })
 
 const rules = [
-  (v: string) => !!v || t('dialogs.moveTorrent.required'),
+  (v: string) => !!v || t('dialogs.moveTorrent.required')
 ]
 
 async function submit() {
@@ -40,24 +48,18 @@ const close = () => {
   dialogVisible.value = false
 }
 
-watch(dialogVisible, (value) => {
-  emit('update:modelValue', value)
+onBeforeMount(() => {
+  formData.newName = props.oldName
 
-  if (value) {
-    formData.newName = props.oldName
+  const startIndex = formData.newName.lastIndexOf('/')
+  const endIndex = formData.newName.lastIndexOf('.')
 
-    const startIndex = formData.newName.lastIndexOf('/')
-    const endIndex = formData.newName.lastIndexOf('.')
-
-    nextTick(() => {
-      input.value?.setSelectionRange(
-        startIndex + 1,
-        endIndex == -1 ? formData.newName.length : endIndex
-      )
-    })
-  } else {
-    form.value?.reset()
-  }
+  nextTick(() => {
+    input.value?.setSelectionRange(
+      startIndex + 1,
+      endIndex == -1 ? formData.newName.length : endIndex
+    )
+  })
 })
 </script>
 

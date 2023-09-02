@@ -24,7 +24,8 @@ const deleteTorrentDialogVisible = ref(false)
     <template v-slot:activator="{ props }">
       <v-btn icon v-bind="props">
         <v-icon>mdi-delete</v-icon>
-        <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" />
+        <ConfirmDeleteDialog v-if="deleteTorrentDialogVisible"
+                             v-model="deleteTorrentDialogVisible" />
       </v-btn>
     </template>
   </v-tooltip>

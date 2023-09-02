@@ -77,7 +77,7 @@ const toggleAltSpeed = () => {
         <template v-slot:activator="{ props }">
           <v-btn variant="plain" icon v-bind="props">
             <v-icon :icon="connectionStatusIcon" />
-            <ConnectionStatusDialog v-model="connStatusDialog" />
+            <ConnectionStatusDialog v-if="connStatusDialog" v-model="connStatusDialog" />
           </v-btn>
         </template>
       </v-tooltip>
@@ -97,7 +97,7 @@ const toggleAltSpeed = () => {
         <template v-slot:activator="{ props }">
           <v-btn block color="error" rounded="0" v-bind="props">
             <v-icon size="x-large">mdi-power</v-icon>
-            <ConfirmShutdownDialog v-model="shutdownDialog" />
+            <ConfirmShutdownDialog v-if="shutdownDialog" v-model="shutdownDialog" />
           </v-btn>
         </template>
       </v-tooltip>

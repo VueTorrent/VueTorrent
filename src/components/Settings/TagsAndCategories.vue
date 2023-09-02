@@ -50,7 +50,8 @@ watch(categoryDialog, (value) => {
           <v-btn icon
                  variant="plain">
             <v-icon>mdi-pencil</v-icon>
-            <TagFormDialog v-model="tagDialog" :initial-tag="tag" />
+            <TagFormDialog v-if="tagDialog"
+                           v-model="tagDialog" :initial-tag="tag" />
           </v-btn>
           <v-btn icon="mdi-delete"
                  color="red"
@@ -67,7 +68,8 @@ watch(categoryDialog, (value) => {
              block
              @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewTag') }}
-        <TagFormDialog v-model="tagDialog" />
+        <TagFormDialog v-if="tagDialog"
+                       v-model="tagDialog" />
       </v-btn>
     </v-col>
 
@@ -82,7 +84,9 @@ watch(categoryDialog, (value) => {
           <v-btn icon
                  variant="plain">
             <v-icon>mdi-pencil</v-icon>
-            <CategoryFormDialog v-model="categoryDialog" :initial-category="category" />
+            <CategoryFormDialog v-if="categoryDialog"
+                                v-model="categoryDialog"
+                                :initial-category="category" />
           </v-btn>
           <v-btn icon="mdi-delete"
                  color="red"
@@ -99,7 +103,8 @@ watch(categoryDialog, (value) => {
              block
              @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewCategory') }}
-        <CategoryFormDialog v-model="categoryDialog" />
+        <CategoryFormDialog v-if="categoryDialog"
+                            v-model="categoryDialog" />
       </v-btn>
     </v-col>
   </v-row>

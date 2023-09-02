@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
-import { computed, ref, watch } from 'vue'
+import { computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true,
@@ -15,7 +15,10 @@ const emit = defineEmits(['update:modelValue'])
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const connectionStatusColor = computed(() => {
   switch (maindataStore.serverState?.connection_status) {
@@ -33,8 +36,6 @@ const connectionStatusColor = computed(() => {
 const close = () => {
   dialogVisible.value = false
 }
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

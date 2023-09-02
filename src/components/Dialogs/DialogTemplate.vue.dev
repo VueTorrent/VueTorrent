@@ -11,7 +11,10 @@ const props = defineProps({
 })
 const emit = defineEmits(['update:modelValue'])
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -25,8 +28,6 @@ async function submit() {
 const close = () => {
   dialogVisible.value = false
 }
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

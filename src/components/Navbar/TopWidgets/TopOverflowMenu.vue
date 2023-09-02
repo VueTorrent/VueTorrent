@@ -31,7 +31,8 @@ const deleteTorrentDialogVisible = ref(false)
         <template v-slot:prepend>
           <v-icon>mdi-delete</v-icon>
         </template>
-        <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" />
+        <ConfirmDeleteDialog v-if="deleteTorrentDialogVisible"
+                             v-model="deleteTorrentDialogVisible" />
       </v-list-item>
 
       <v-divider />

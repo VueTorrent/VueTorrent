@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
-import { onBeforeMount, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps({
@@ -21,7 +21,10 @@ const emit = defineEmits(['update:modelValue'])
 
 const rssStore = useRssStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -37,7 +40,6 @@ async function save() {
     await rssStore.createFeed(formData.name, formData.url)
   }
   await rssStore.fetchFeeds()
-  form.value?.reset()
   close()
 }
 const close = () => {
@@ -50,8 +52,6 @@ onBeforeMount(() => {
     formData.url = props.initialFeed.url
   }
 })
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

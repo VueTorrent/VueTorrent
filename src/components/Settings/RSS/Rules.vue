@@ -23,7 +23,9 @@ async function deleteRule(rule: FeedRule) {
         <div>
           <v-btn icon variant="plain" density="compact">
             <v-icon>mdi-pencil</v-icon>
-            <RssRuleDialog v-model="dialog" :initial-rule="rule" />
+            <RssRuleDialog v-if="dialog"
+                           v-model="dialog"
+                           :initial-rule="rule" />
           </v-btn>
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteRule(rule)" />
         </div>
@@ -40,7 +42,8 @@ async function deleteRule(rule: FeedRule) {
       <v-btn color="accent"
              @click.prevent>
         {{ $t('settings.rss.rules.createNew')}}
-        <RssRuleDialog v-model="dialog" />
+        <RssRuleDialog v-if="dialog"
+                       v-model="dialog" />
       </v-btn>
     </v-col>
   </v-row>

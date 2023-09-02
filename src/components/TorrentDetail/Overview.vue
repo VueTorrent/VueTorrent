@@ -208,7 +208,9 @@ watch(() => props.torrent, async () => {
                      color="accent"
                      size="x-small">
                 <v-icon icon="mdi-pencil" color="black" />
-                <MoveTorrentDialog v-model="moveTorrentDialogVisible" :hashes="[torrent.hash]" />
+                <MoveTorrentDialog v-if="moveTorrentDialogVisible"
+                                   v-model="moveTorrentDialogVisible"
+                                   :hashes="[torrent.hash]" />
               </v-btn>
             </v-col>
             <v-col cols="6">
@@ -220,7 +222,8 @@ watch(() => props.torrent, async () => {
                      color="accent"
                      size="x-small">
                 <v-icon icon="mdi-pencil" />
-                <MoveTorrentFileDialog v-model="moveTorrentFileDialogVisible"
+                <MoveTorrentFileDialog v-if="moveTorrentFileDialogVisible"
+                                       v-model="moveTorrentFileDialogVisible"
                                        :hash="torrent.hash"
                                        :is-folder="false"
                                        :old-name="torrentFileName" />

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useAppStore, useAuthStore, useVueTorrentStore } from '@/stores'
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true,
@@ -18,7 +18,10 @@ const appStore = useAppStore()
 const authStore = useAuthStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const close = () => {
   dialogVisible.value = false
@@ -34,8 +37,6 @@ const shutdown = async () => {
 
   close()
 }
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

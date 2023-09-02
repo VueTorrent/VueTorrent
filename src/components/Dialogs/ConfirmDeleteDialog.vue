@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
-import { computed, ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -28,7 +28,10 @@ const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -40,15 +43,12 @@ async function submit() {
 
   await maindataStore.deleteTorrents(selection.value.map(t => t.hash), vuetorrentStore.deleteWithFiles)
 
-  form.value?.reset()
   close()
 }
 
 const close = () => {
   dialogVisible.value = false
 }
-
-watch(() => dialogVisible.value, (value) => emit('update:modelValue', value))
 </script>
 
 <template>

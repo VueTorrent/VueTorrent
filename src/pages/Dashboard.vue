@@ -335,7 +335,10 @@ onBeforeUnmount(() => {
     </div>
   </div>
   <RightClickMenu v-model="trcProperties.isVisible" :attach="trcProperties.anchor" />
-  <ConfirmDeleteDialog v-model="isDeleteDialogVisible" disable-activator :hashes="dashboardStore.selectedTorrents" />
+  <ConfirmDeleteDialog v-if="isDeleteDialogVisible"
+                       v-model="isDeleteDialogVisible"
+                       disable-activator
+                       :hashes="dashboardStore.selectedTorrents" />
 </template>
 
 <style>

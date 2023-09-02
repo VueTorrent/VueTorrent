@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
-import { ref, watch } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: Boolean,
     required: true,
@@ -25,7 +25,10 @@ const headers = [
   { title: t('dialogs.pluginManager.headers.actions'), key: 'actions' }
 ]
 
-const dialogVisible = ref(false)
+const dialogVisible = computed({
+  get: () => props.modelValue,
+  set: (value) => emit('update:modelValue', value)
+})
 const loading = ref(false)
 
 const installDialogVisible = ref(false)
@@ -66,12 +69,8 @@ function closeInstallDialog() {
   installDialogVisible.value = false
 }
 
-watch(() => dialogVisible.value, (value) => {
-  if (value) {
-    searchEngineStore.fetchSearchPlugins()
-  }
-
-  emit('update:modelValue', value)
+onBeforeMount(async () => {
+  await searchEngineStore.fetchSearchPlugins()
 })
 </script>
 
