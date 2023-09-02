@@ -4,6 +4,7 @@
 
 <template>
   TorrentDetail > Tags & Categories
+  <!-- TODO -->
 </template>
 
 <style scoped>

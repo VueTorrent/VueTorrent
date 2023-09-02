@@ -4,6 +4,7 @@
 
 <template>
   TorrentDetail > Info
+  <!-- TODO -->
 </template>
 
 <style scoped>

@@ -4,6 +4,7 @@
 
 <template>
   TorrentDetail > Trackers
+  <!-- TODO -->
 </template>
 
 <style scoped>

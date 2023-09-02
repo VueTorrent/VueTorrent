@@ -4,6 +4,7 @@
 
 <template>
   TorrentDetail > Peers
+  <!-- TODO -->
 </template>
 
 <style scoped>
