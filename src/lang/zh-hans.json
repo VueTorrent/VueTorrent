@@ -101,6 +101,7 @@
   },
   "search": {
     "title": "查找种子",
+    "tabHeaderEmpty": "(空查询)",
     "runNewSearch": "查找",
     "stopSearch": "停止"
   },
@@ -269,6 +270,13 @@
           "dateFormat": "日期格式",
           "openSideBarOnStart": "启动时打开侧边栏",
           "showShutdownButton": "显示关闭qBittorrent按钮",
+          "useBinaryUnits": "使用二进制标准表示数据量 (kB -> KiB)",
+          "useBitSpeed": "使用比特单位表示传输速度 (kB/s -> kbps)",
+          "refreshInterval": "qBittorrent API 刷新间隔",
+          "refreshIntervalHint": "以毫秒为单位",
+          "contentInterval": "种子文件内容 刷新间隔",
+          "contentIntervalHint": "以毫秒为单位",
+          "torrentPieceCountRenderThreshold": "Torrent 片段计数以禁用渲染",
           "currentVersion": "Vuetorrent版本",
           "qbittorrentVersion": "qBittorrent版本",
           "registerMagnet": "注册为磁力链程序",
@@ -653,9 +661,12 @@
       "tabTitleTagsCategories": "标签&分类",
       "pageOverview": {
         "fetchingMetadata": "正在获取...",
+        "waitingForMetadata": "等待元数据...",
+        "canvasRefreshDisabled": "禁用图形刷新以节省性能",
         "selectedFileSize": "所选文件大小",
         "dlSpeedAverage": "平均下载速度",
-        "upSpeedAverage": "平均上传速度"
+        "upSpeedAverage": "平均上传速度",
+        "fileCount": "所选文件数量"
       },
       "pageInfo": {
         "eta": "剩余时间",
@@ -676,6 +687,15 @@
         "is_private": "种子私有性",
         "wasted_size": "已丢弃"
       },
+      "pageTrackers": {
+        "url": "连接地址",
+        "status": "状态",
+        "peers": "用户",
+        "seeds": "做种数",
+        "leeches": "下载数",
+        "downloaded": "下载完成",
+        "message": "消息"
+      },
       "pagePeers": {
         "ip": "IP",
         "connection": "连接",
@@ -689,18 +709,14 @@
         "relevance": "关联",
         "files": "文件"
       },
+      "pageContent": {
+        "rootNode": "(根节点)",
+        "fileInfo": "无文件 | {n} 个文件 | {n} 个文件",
+        "folderInfo": "无文件夹 | {n} 个文件夹 | {n} 个文件夹"
+      },
       "tagsAndCategories": {
         "subHeaderTag": "可用标签：",
         "subHeaderCategories": "可用分类："
-      },
-      "pageTrackers": {
-        "url": "连接地址",
-        "status": "状态",
-        "peers": "用户",
-        "seeds": "做种",
-        "leeches": "下载",
-        "downloaded": "下载次数",
-        "message": "报错消息"
       }
     },
     "add": {
@@ -719,7 +735,10 @@
     },
     "rename": {
       "title": "重命名",
-      "torrentName": "种子名称"
+      "torrentName": "种子名称",
+      "oldPath": "旧路径",
+      "newPath": "新路径",
+      "errorConflict": "已存在同名文件或文件夹"
     },
     "sort": {
       "title": "排序",
