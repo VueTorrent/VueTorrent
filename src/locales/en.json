@@ -387,7 +387,8 @@
       "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
     },
     "connectionStatus": {
-      "title": "Connection Status"
+      "status": "Connection Status",
+      "externalIp": "External IP Address"
     },
     "moveTorrent": {
       "title": "Move Torrent",
