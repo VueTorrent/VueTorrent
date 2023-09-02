@@ -1,6 +1,11 @@
 export type TRCMenuEntry = {
-  icon?: string
   text: string
+  icon?: string
+  action?: () => void
+  hidden?: boolean
   disabled?: boolean
+  disabledText?: string
+  disabledIcon?: string
   divider?: boolean
-} & ({ action: () => void } | { children: TRCMenuEntry[] })
+  children?: TRCMenuEntry[]
+}

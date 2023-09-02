@@ -5,6 +5,7 @@ defineProps<{
   text: string
   icon?: string
   action?: () => void
+  hidden?: boolean
   disabled?: boolean
   disabledText?: string
   disabledIcon?: string
@@ -14,7 +15,7 @@ defineProps<{
 </script>
 
 <template>
-  <v-list-item class="px-3" v-if="!disabled">
+  <v-list-item class="px-3" :disabled="disabled" v-if="!hidden">
     <div class="d-flex">
       <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
       <v-icon class="mr-2" v-else>{{ icon }}</v-icon>

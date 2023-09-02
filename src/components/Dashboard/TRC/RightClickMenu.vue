@@ -77,27 +77,27 @@ const menuData = computed<TRCMenuEntry[]>(() => [
   {
     text: 'Set Priority',
     icon: 'mdi-priority-high',
-    disabled: !preferenceStore.preferences!.queueing_enabled,
+    hidden: !preferenceStore.preferences!.queueing_enabled,
     children: [
       {
         text: 'Top Prio',
-        action: () => {
-        }
+        icon: 'mdi-priority-high',
+        action: () => {}
       },
       {
         text: 'Increase Prio',
-        action: () => {
-        }
+        icon: 'mdi-arrow-up',
+        action: () => {}
       },
       {
         text: 'Decrease Prio',
-        action: () => {
-        }
+        icon: 'mdi-arrow-down',
+        action: () => {}
       },
       {
         text: 'Bottom Prio',
-        action: () => {
-        }
+        icon: 'mdi-priority-low',
+        action: () => {}
       }
     ]
   },
@@ -189,8 +189,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 ])
 
 function onDelete() {
-  deleteDialogVisible.value = true
   deleteHashes.value = [...dashboardStore.selectedTorrents]
+  deleteDialogVisible.value = true
 }
 </script>
 
