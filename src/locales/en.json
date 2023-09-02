@@ -205,7 +205,7 @@
       "queuedDL": "Queued (DL)",
       "stalledDL": "Stalled",
       "checkingDL": "Checking",
-      "checkingResumeData": "Checking resumse data",
+      "checkingResumeData": "Checking resume data",
       "moving": "Moving",
       "unknown": "Unknown"
     }
