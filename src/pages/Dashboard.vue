@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import debounce from 'lodash.debounce'
-import RightClickMenu from '@/components/Dashboard/RightClickMenu.vue'
+import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { doesCommand } from '@/helpers'
 import Torrent from '@/components/Dashboard/Torrent.vue'
@@ -334,7 +334,7 @@ onBeforeUnmount(() => {
       </v-list>
     </div>
   </div>
-  <RightClickMenu v-model="trcProperties.isVisible" :attach="trcProperties.anchor" />
+  <RightClickMenu v-model="trcProperties.isVisible" :anchor="trcProperties.anchor" />
   <ConfirmDeleteDialog v-if="isDeleteDialogVisible"
                        v-model="isDeleteDialogVisible"
                        disable-activator
