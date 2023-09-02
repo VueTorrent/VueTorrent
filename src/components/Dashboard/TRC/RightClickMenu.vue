@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
+import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import { useDashboardStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/VueTorrent'
 import { computed, ref } from 'vue'
@@ -18,11 +20,67 @@ const trcVisible = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value)
 })
-const deleteDialogVisible = ref(false)
-const deleteHashes = ref<string[]>()
 
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
-const torrent = computed(() => maindataStore.getTorrentByHash(dashboardStore.selectedTorrents[0]))
+const hashes = computed(() => dashboardStore.selectedTorrents)
+const hash = computed(() => hashes.value[0])
+const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
+
+async function resumeTorrents() {
+  await maindataStore.resumeTorrents(hashes)
+}
+
+async function forceResumeTorrents() {
+  await maindataStore.forceResumeTorrents(hashes)
+}
+
+async function pauseTorrents() {
+  await maindataStore.pauseTorrents(hashes)
+}
+
+const deleteDialogVisible = ref(false)
+const deleteHashes = ref<string[]>([])
+
+function deleteTorrents() {
+  deleteHashes.value = [...dashboardStore.selectedTorrents]
+  deleteDialogVisible.value = true
+}
+
+const moveDialogVisible = ref(false)
+const moveHashes = ref<string[]>([])
+
+function moveTorrents() {
+  moveHashes.value = [...dashboardStore.selectedTorrents]
+  moveDialogVisible.value = true
+}
+
+const renameDialogVisible = ref(false)
+const renameHash = ref<string>('')
+
+function renameTorrents() {
+  renameHash.value = dashboardStore.selectedTorrents[0]
+  renameDialogVisible.value = true
+}
+
+async function forceRecheck() {
+  await maindataStore.recheckTorrents(hashes)
+}
+
+async function forceReannounce() {
+  await maindataStore.reannounceTorrents(hashes)
+}
+
+async function toggleSeqDl() {
+  await maindataStore.toggleSeqDl(hashes)
+}
+
+async function toggleFLPiecePrio() {
+  await maindataStore.toggleFLPiecePrio(hashes)
+}
+
+async function toggleAutoTMM() {
+  await maindataStore.toggleAutoTmm(hashes, !torrent.value?.auto_tmm)
+}
 
 const menuData = computed<TRCMenuEntry[]>(() => [
   {
@@ -32,37 +90,38 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Change Location',
         icon: 'mdi-folder',
-        action: () => {}
+        action: moveTorrents
       },
       {
         text: 'Rename Torrent',
         icon: 'mdi-rename-box',
-        action: () => {}
+        hidden: isMultiple.value,
+        action: renameTorrents
       },
       {
         text: 'Force Recheck',
         icon: 'mdi-playlist-check',
-        action: () => {}
+        action: forceRecheck
       },
       {
         text: 'Force Reannounce',
         icon: 'mdi-bullhorn',
-        action: () => {}
+        action: forceReannounce
       },
       {
         text: 'Sequential Download',
         icon: torrent.value?.seq_dl ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {}
+        action: toggleSeqDl
       },
       {
         text: 'First / Last Priority',
         icon: torrent.value?.f_l_piece_prio ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {}
+        action: toggleFLPiecePrio
       },
       {
         text: 'Auto TMM',
         icon: torrent.value?.auto_tmm ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {}
+        action: toggleAutoTMM
       }
     ]
   },
@@ -74,22 +133,26 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Top Prio',
         icon: 'mdi-priority-high',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Increase Prio',
         icon: 'mdi-arrow-up',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Decrease Prio',
         icon: 'mdi-arrow-down',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Bottom Prio',
         icon: 'mdi-priority-low',
-        action: () => {}
+        action: () => {
+        }
       }
     ]
   },
@@ -101,8 +164,9 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     disabledIcon: 'mdi-tag-off',
     children: maindataStore.tags.map(tag => ({
       text: tag,
-      icon: false,
-      action: () => {}
+      icon: 'mdi-tag',
+      action: () => {
+      }
     }))
   },
   {
@@ -113,8 +177,9 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     disabledIcon: 'mdi-label-off',
     children: maindataStore.categories.map(category => ({
       text: category.name,
-      icon: false,
-      action: () => {}
+      icon: 'mdi-label',
+      action: () => {
+      }
     }))
   },
   {
@@ -124,17 +189,20 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Set download limit',
         icon: 'mdi-download',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Set upload limit',
         icon: 'mdi-upload',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Set share limit',
         icon: 'mdi-account-group',
-        action: () => {}
+        action: () => {
+        }
       }
     ]
   },
@@ -145,37 +213,37 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Name',
         icon: 'mdi-alphabetical-variant',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Hash',
         icon: 'mdi-pound',
-        action: () => {}
+        action: () => {
+        }
       },
       {
         text: 'Magnet',
         icon: 'mdi-magnet',
-        action: () => {}
+        action: () => {
+        }
       }
     ]
   },
   {
     text: isMultiple.value ? 'Export torrents' : 'Export torrent',
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
-    action: () => {}
+    action: () => {
+    }
   },
   {
     text: 'Show Info',
     icon: 'mdi-information',
     disabled: isMultiple.value,
-    action: () => {}
+    action: () => {
+    }
   }
 ])
-
-function onDelete() {
-  deleteHashes.value = [...dashboardStore.selectedTorrents]
-  deleteDialogVisible.value = true
-}
 </script>
 
 <template>
@@ -190,21 +258,22 @@ function onDelete() {
         <div class="d-flex justify-space-around">
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-play" v-bind="props" />
+              <v-btn density="compact" variant="plain" icon="mdi-play" v-bind="props" @click="resumeTorrents" />
             </template>
             <span>Resume</span>
           </v-tooltip>
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" />
+              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
+                     @click="forceResumeTorrents" />
             </template>
             <span>Force Resume</span>
           </v-tooltip>
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-pause" v-bind="props" />
+              <v-btn density="compact" variant="plain" icon="mdi-pause" v-bind="props" @click="pauseTorrents" />
             </template>
             <span>Pause</span>
           </v-tooltip>
@@ -216,7 +285,7 @@ function onDelete() {
                      variant="plain"
                      icon="mdi-delete-forever"
                      v-bind="props"
-                     @click="onDelete" />
+                     @click="deleteTorrents" />
             </template>
             <span>Delete</span>
           </v-tooltip>
@@ -226,8 +295,18 @@ function onDelete() {
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-if="deleteDialogVisible" v-model="deleteDialogVisible" disable-activator
+  <ConfirmDeleteDialog v-if="deleteDialogVisible"
+                       v-model="deleteDialogVisible"
+                       disable-activator
                        :hashes="deleteHashes" />
+  <MoveTorrentDialog v-if="moveDialogVisible"
+                     v-model="moveDialogVisible"
+                     disable-activator
+                     :hashes="moveHashes" />
+  <RenameTorrentDialog v-if="renameDialogVisible"
+                       v-model="renameDialogVisible"
+                       disable-activator
+                       :hash="renameHash" />
 </template>
 
 <style scoped lang="scss">

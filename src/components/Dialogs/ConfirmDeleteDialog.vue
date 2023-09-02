@@ -4,13 +4,11 @@ import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = withDefaults(defineProps<{
+const props = defineProps<{
   modelValue: boolean,
   disableActivator?: boolean,
-  hashes?: string[]
-}>(), {
-  hashes: () => [] as string[]
-})
+  hashes: string[]
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()

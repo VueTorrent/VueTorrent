@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useMaindataStore } from '@/stores'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { computed, onBeforeMount, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   modelValue: boolean,
   disableActivator?: boolean,
-  hashes: string[]
+  hash: string
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -19,25 +19,26 @@ const dialogVisible = computed({
   set: (value) => emit('update:modelValue', value)
 })
 
+const field = ref<HTMLInputElement>()
 const form = ref<VForm>()
 const isFormValid = ref(false)
 const formData = reactive({
-  newPath: ''
+  newName: ''
 })
 
 const rules = [
-  (v: string) => !!v || t('dialogs.moveTorrent.required'),
-  (v: string) => v !== oldPath.value || t('dialogs.moveTorrent.samePath')
+  (v: string) => !!v || t('dialogs.renameTorrent.required'),
+  (v: string) => v !== oldName.value || t('dialogs.renameTorrent.sameName')
 ]
 
-const torrents = computed(() => props.hashes.map(maindataStore.getTorrentByHash))
-const oldPath = computed(() => torrents.value[0]?.savePath)
+const torrent = computed(() => maindataStore.getTorrentByHash(props.hash))
+const oldName = computed(() => torrent.value?.name)
 
 async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await maindataStore.moveTorrents(props.hashes, formData.newPath)
+  await maindataStore.renameTorrent(props.hash, formData.newName)
 
   close()
 }
@@ -47,25 +48,29 @@ const close = () => {
 }
 
 onBeforeMount(() => {
-  formData.newPath = torrents.value[0]?.savePath || ''
+  formData.newName = torrent.value?.name || ''
+})
+onMounted(() => {
+  field.value?.select()
 })
 </script>
 
 <template>
   <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
-      <v-card-title>{{ $t('dialogs.moveTorrent.title') }}</v-card-title>
+      <v-card-title>{{ $t('dialogs.renameTorrent.title') }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
-          <v-text-field v-if="oldPath"
-                        :model-value="oldPath"
+          <v-text-field v-if="oldName"
+                        :model-value="oldName"
                         disabled
-                        :label="$t('dialogs.moveTorrent.oldPath')" />
+                        :label="$t('dialogs.renameTorrent.oldName')" />
           <v-text-field
-            v-model="formData.newPath"
+            v-model="formData.newName"
+            ref="field"
             :rules="rules"
             autofocus
-            :label="$t('dialogs.moveTorrent.newPath')"
+            :label="$t('dialogs.renameTorrent.newName')"
             @keydown.enter="submit" />
         </v-form>
       </v-card-text>

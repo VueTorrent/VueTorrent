@@ -397,6 +397,13 @@
       "required": "New path is required",
       "samePath": "New path must be different from old path"
     },
+    "renameTorrent": {
+      "title": "Rename Torrent",
+      "oldName": "Old name",
+      "newName": "New name",
+      "required": "New name is required",
+      "sameName": "New name must be different from old name"
+    },
     "moveTorrentFile": {
       "title": "Move Torrent File | Move Torrent Folder",
       "oldName": "Old name"

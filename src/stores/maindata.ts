@@ -7,7 +7,7 @@ import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/VueTorrent'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { MaybeRefOrGetter, ref, toValue } from 'vue'
 
 
 export const useMaindataStore = defineStore('maindata', () => {
@@ -174,6 +174,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     return await qbit.getTorrentFiles(hash, indexes)
   }
 
+  async function renameTorrent(hash: string, newName: string) {
+    await qbit.setTorrentName(hash, newName)
+  }
+
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
     await qbit.renameFile(hash, oldPath, newPath)
   }
@@ -184,6 +188,38 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function fetchPieceState(hash: string) {
     return await qbit.getTorrentPieceStates(hash)
+  }
+
+  async function resumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.resumeTorrents(toValue(hashes))
+  }
+
+  async function forceResumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.forceStartTorrents(toValue(hashes))
+  }
+
+  async function pauseTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.pauseTorrents(toValue(hashes))
+  }
+
+  async function recheckTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.recheckTorrents(toValue(hashes))
+  }
+
+  async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.reannounceTorrents(toValue(hashes))
+  }
+
+  async function toggleSeqDl(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.toggleSequentialDownload(toValue(hashes))
+  }
+
+  async function toggleFLPiecePrio(hashes: MaybeRefOrGetter<string[]>) {
+    await qbit.toggleFirstLastPiecePriority(toValue(hashes))
+  }
+
+  async function toggleAutoTmm(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+    await qbit.setAutoTMM(toValue(hashes), toValue(enable))
   }
 
   return {
@@ -210,8 +246,17 @@ export const useMaindataStore = defineStore('maindata', () => {
     addTorrents,
     getTorrentProperties,
     fetchFiles,
+    renameTorrent,
     renameTorrentFile,
     renameTorrentFolder,
-    fetchPieceState
+    fetchPieceState,
+    resumeTorrents,
+    forceResumeTorrents,
+    pauseTorrents,
+    recheckTorrents,
+    reannounceTorrents,
+    toggleSeqDl,
+    toggleFLPiecePrio,
+    toggleAutoTmm
   }
 })
