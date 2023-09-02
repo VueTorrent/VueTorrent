@@ -4,19 +4,11 @@ import { Feed } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-
-  initialFeed: {
-    type: Object as () => Feed | null,
-    required: false,
-    default: null
-  }
-})
+const props = defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+  initialFeed?: Feed
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const rssStore = useRssStore()
@@ -42,6 +34,7 @@ async function save() {
   await rssStore.fetchFeeds()
   close()
 }
+
 const close = () => {
   dialogVisible.value = false
 }
@@ -55,7 +48,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title>{{ $t(`dialogs.rss.feed.title.${initialFeed ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>

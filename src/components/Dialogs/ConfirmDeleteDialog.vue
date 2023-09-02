@@ -4,23 +4,12 @@ import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-
-  hashes: {
-    type: Array<string>,
-    required: false,
-    default: []
-  },
-  disableActivator: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
+const props = withDefaults(defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+  hashes?: string[]
+}>(), {
+  hashes: () => [] as string[]
 })
 const emit = defineEmits(['update:modelValue'])
 

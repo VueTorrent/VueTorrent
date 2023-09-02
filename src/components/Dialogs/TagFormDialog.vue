@@ -4,19 +4,11 @@ import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-
-  initialTag: {
-    type: String,
-    required: false,
-    default: null
-  }
-})
+const props = defineProps<{
+  modelValue: boolean
+  disableActivator?: boolean
+  initialTag?: string
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const {t} = useI18n()
@@ -57,7 +49,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title>{{ $t(`dialogs.tag.title.${initialTag ? 'rename' : 'create'}`) }}</v-card-title>
       <v-card-text>

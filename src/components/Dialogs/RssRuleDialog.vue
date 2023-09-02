@@ -6,19 +6,11 @@ import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  },
-
-  initialRule: {
-    type: Object as () => FeedRule | null,
-    required: false,
-    default: null
-  }
-})
+const props = defineProps<{
+  modelValue: boolean
+  disableActivator?: boolean
+  initialRule?: FeedRule
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
@@ -139,7 +131,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent" :title="$t(`dialogs.rss.rule.title.${initialRule ? 'edit' : 'create'}`)">

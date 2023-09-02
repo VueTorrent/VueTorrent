@@ -4,8 +4,11 @@ import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = withDefaults(defineProps<{ modelValue: boolean, hashes?: string[] }>(), {
-  modelValue: false,
+const props = withDefaults(defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+  hashes?: string[]
+}>(), {
   hashes: () => [] as string[]
 })
 const emit = defineEmits(['update:modelValue'])
@@ -51,7 +54,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title>{{ $t('dialogs.moveTorrent.title') }}</v-card-title>
       <v-card-text>

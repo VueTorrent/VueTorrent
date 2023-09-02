@@ -3,13 +3,10 @@ import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  }
-})
+const props = defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const logStore = useLogStore()
@@ -39,7 +36,7 @@ const close = () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-text>
         <v-list>
@@ -49,8 +46,8 @@ const close = () => {
             </span>
           </v-list-item>
           <v-list-item :title="$t('dialogs.connectionStatus.externalIp')">
-              <span class="ml-2" v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
-              <span class="ml-2 text-error" v-else>No IP detected</span>
+            <span class="ml-2" v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
+            <span class="ml-2 text-error" v-else>No IP detected</span>
           </v-list-item>
         </v-list>
       </v-card-text>

@@ -4,16 +4,13 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  }
-})
+const props = defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+}>()
 const emit = defineEmits(['update:modelValue'])
 
-const {t} = useI18n()
+const { t } = useI18n()
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const vueTorrentStore = useVueTorrentStore()
@@ -40,7 +37,7 @@ const shutdown = async () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" width="auto" activator="parent">
+  <v-dialog v-model="dialogVisible" width="auto" :activator="disableActivator ? undefined : 'parent'">
     <v-card :title="$t('dialogs.shutdown.title')" :text="$t('dialogs.shutdown.content')">
       <v-card-actions class="justify-end">
         <v-spacer />

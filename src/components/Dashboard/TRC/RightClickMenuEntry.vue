@@ -3,7 +3,7 @@ import { TRCMenuEntry } from '@/types/VueTorrent'
 
 defineProps<{
   text: string
-  icon?: string | boolean
+  icon?: string
   action?: () => void
   hidden?: boolean
   disabled?: boolean
@@ -17,10 +17,8 @@ defineProps<{
 <template>
   <v-list-item class="px-3 pointer" :disabled="disabled" v-if="!hidden" @click="action">
     <div class="d-flex">
-      <span v-if="icon !== false">
-        <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
-        <v-icon class="mr-2" v-else>{{ icon }}</v-icon>
-      </span>
+      <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
+      <v-icon class="mr-2" v-else>{{ icon }}</v-icon>
       <span v-if="disabled && disabledText">{{ disabledText }}</span>
       <span v-else>{{ text }}</span>
       <v-spacer />

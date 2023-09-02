@@ -6,6 +6,7 @@ import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   modelValue: boolean,
+  disableActivator?: boolean,
   hash: string,
   isFolder: boolean,
   oldName: string
@@ -64,9 +65,9 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
-      <v-card-title>{{ t('dialogs.moveTorrentFile.title', 1 + isFolder) }}</v-card-title>
+      <v-card-title>{{ t('dialogs.moveTorrentFile.title', 1 + Number(isFolder)) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldName"

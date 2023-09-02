@@ -5,13 +5,10 @@ import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-    default: false
-  }
-})
+const props = defineProps<{
+  modelValue: boolean,
+  disableActivator?: boolean,
+}>()
 const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
@@ -48,7 +45,9 @@ async function installNewPlugin() {
   installInput.value = ''
 
   setTimeout(() => {
-    searchEngineStore.fetchSearchPlugins().then(() => { loading.value = false })
+    searchEngineStore.fetchSearchPlugins().then(() => {
+      loading.value = false
+    })
   }, 1000)
 }
 
@@ -75,7 +74,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" activator="parent">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
       <v-card-title class="d-flex">
         <div>
