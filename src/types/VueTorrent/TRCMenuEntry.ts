@@ -1,6 +1,6 @@
 export type TRCMenuEntry = {
   text: string
-  icon?: string
+  icon?: string | boolean
   action?: () => void
   hidden?: boolean
   disabled?: boolean

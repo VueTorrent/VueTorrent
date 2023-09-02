@@ -7,7 +7,6 @@ import { computed, ref } from 'vue'
 
 const props = defineProps<{
   modelValue: boolean
-  anchor?: string
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -33,44 +32,37 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Change Location',
         icon: 'mdi-folder',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Rename Torrent',
         icon: 'mdi-rename-box',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Force Recheck',
         icon: 'mdi-playlist-check',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Force Reannounce',
         icon: 'mdi-bullhorn',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Sequential Download',
         icon: torrent.value?.seq_dl ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'First / Last Priority',
         icon: torrent.value?.f_l_piece_prio ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Auto TMM',
         icon: torrent.value?.auto_tmm ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
@@ -109,8 +101,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     disabledIcon: 'mdi-tag-off',
     children: maindataStore.tags.map(tag => ({
       text: tag,
-      action: () => {
-      }
+      icon: false,
+      action: () => {}
     }))
   },
   {
@@ -121,8 +113,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     disabledIcon: 'mdi-label-off',
     children: maindataStore.categories.map(category => ({
       text: category.name,
-      action: () => {
-      }
+      icon: false,
+      action: () => {}
     }))
   },
   {
@@ -132,20 +124,17 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Set download limit',
         icon: 'mdi-download',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Set upload limit',
         icon: 'mdi-upload',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Set share limit',
         icon: 'mdi-account-group',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
@@ -156,35 +145,30 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Name',
         icon: 'mdi-alphabetical-variant',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Hash',
         icon: 'mdi-pound',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Magnet',
         icon: 'mdi-magnet',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
   {
     text: isMultiple.value ? 'Export torrents' : 'Export torrent',
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
-    action: () => {
-    }
+    action: () => {}
   },
   {
     text: 'Show Info',
     icon: 'mdi-information',
     disabled: isMultiple.value,
-    action: () => {
-    }
+    action: () => {}
   }
 ])
 
@@ -196,11 +180,10 @@ function onDelete() {
 
 <template>
   <v-menu v-model="trcVisible"
-          :attach="anchor"
+          activator="parent"
           :close-on-content-click="true"
-          max-height="500"
           transition="slide-y-transition"
-          z-index="999">
+          scroll-strategy="none">
     <v-list>
       <v-list-item>
         <div class="d-flex justify-space-around">
@@ -242,7 +225,8 @@ function onDelete() {
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-if="deleteDialogVisible" v-model="deleteDialogVisible" disable-activator :hashes="deleteHashes" />
+  <ConfirmDeleteDialog v-if="deleteDialogVisible" v-model="deleteDialogVisible" disable-activator
+                       :hashes="deleteHashes" />
 </template>
 
 <style scoped lang="scss">

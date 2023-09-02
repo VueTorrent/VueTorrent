@@ -6,7 +6,7 @@ import { doesCommand } from '@/helpers'
 import Torrent from '@/components/Dashboard/Torrent.vue'
 import { Torrent as TorrentType } from '@/types/VueTorrent'
 import { useDashboardStore, useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
@@ -80,7 +80,6 @@ const isSearchFilterVisible = ref(false)
 const isDeleteDialogVisible = ref(false)
 const trcProperties = reactive({
   isVisible: false,
-  anchor: '',
   offset: [0, 0]
 })
 
@@ -135,14 +134,21 @@ function toggleSelectAll() {
   }
 }
 
-function onRightClick(e: PointerEvent, torrent: TorrentType) {
+async function onRightClick(e: PointerEvent, torrent: TorrentType) {
   e.preventDefault()
+
+  if (trcProperties.isVisible) {
+    trcProperties.isVisible = false
+    await nextTick()
+  }
+
   trcProperties.isVisible = true
-  trcProperties.anchor = `#torrent-${torrent.hash}`
-  trcProperties.offset = [e.offsetX, e.offsetY]
+  trcProperties.offset = [e.pageX, e.pageY]
 
   if (!dashboardStore.isSelectionMultiple) {
     dashboardStore.unselectAllTorrents()
+    dashboardStore.selectTorrent(torrent.hash)
+  } else if (dashboardStore.selectedTorrents.length === 0) {
     dashboardStore.selectTorrent(torrent.hash)
   }
 }
@@ -334,7 +340,9 @@ onBeforeUnmount(() => {
       </v-list>
     </div>
   </div>
-  <RightClickMenu v-model="trcProperties.isVisible" :anchor="trcProperties.anchor" />
+  <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
+    <RightClickMenu v-if="trcProperties.isVisible" v-model="trcProperties.isVisible" />
+  </div>
   <ConfirmDeleteDialog v-if="isDeleteDialogVisible"
                        v-model="isDeleteDialogVisible"
                        disable-activator
