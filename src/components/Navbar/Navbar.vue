@@ -14,7 +14,7 @@ import { useDashboardStore, useVueTorrentStore } from '@/stores'
 const dashboardStore = useDashboardStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const isDrawerOpen = ref(true)
+const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value

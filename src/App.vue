@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import AddPanel from '@/components/AddPanel.vue'
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import {computed, onBeforeMount, watch} from 'vue'
-import {useRoute, useRouter} from 'vue-router'
+import { computed, onBeforeMount, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 import { useAppStore, useAuthStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
@@ -25,8 +25,7 @@ const checkAuthentication = async () => {
 
   if (authStore.isAuthenticated && onLoginPage.value) {
     redirectOnSuccess()
-  }
-  else if (!onLoginPage.value) {
+  } else if (!onLoginPage.value) {
     await vuetorrentStore.redirectToLogin()
   }
 }
@@ -67,13 +66,12 @@ watch(
       appStore.pushInterval(() => maindataStore.updateMaindata(), vuetorrentStore.refreshInterval)
       await maindataStore.updateMaindata()
       await preferencesStore.fetchPreferences()
-    }
-    else {
+    } else {
       appStore.clearIntervals()
     }
   },
   {
-    immediate: true,
+    immediate: true
   }
 )
 </script>
