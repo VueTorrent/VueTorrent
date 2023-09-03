@@ -160,7 +160,7 @@ watch(() => props.torrent, async () => {
                                    :width="15">
                 <template v-slot>
                   <span v-if="isFetchingMetadata">{{ $t('torrentDetail.overview.fetchingMetadata') }}</span>
-                  <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" />
+                  <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" size="x-large" />
                   <span v-else>{{ formatPercent(torrent.progress) }}</span>
                 </template>
               </v-progress-circular>
