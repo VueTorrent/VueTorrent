@@ -412,8 +412,8 @@
           "alternative": "备用速率限制",
           "settings": "速率限制设置"
         },
-        "upload": "上传 (B/s)",
-        "download": "下载 (B/s)",
+        "upload": "上传 (KiB/s)",
+        "download": "下载 (KiB/s)",
         "tip": "设置为0为无限",
         "scheduler": {
           "subheader": "定时使用备用速率限制",
