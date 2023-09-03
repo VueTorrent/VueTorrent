@@ -55,19 +55,19 @@ const goHome = () => {
         <Overview :torrent="torrent" />
       </v-window-item>
       <v-window-item value="info">
-        <Info />
+        <Info :torrent="torrent" />
       </v-window-item>
       <v-window-item value="trackers">
-        <Trackers />
+        <Trackers :torrent="torrent" />
       </v-window-item>
       <v-window-item value="peers">
-        <Peers />
+        <Peers :torrent="torrent" />
       </v-window-item>
       <v-window-item value="content">
-        <Content />
+        <Content :torrent="torrent" />
       </v-window-item>
       <v-window-item value="tagsAndCategories">
-        <TagsAndCategories />
+        <TagsAndCategories :torrent="torrent" />
       </v-window-item>
     </v-window>
   </div>

@@ -115,13 +115,13 @@
       "category": {
         "label": "Search category",
         "all": "All",
-        "movies":  "Movies",
+        "movies": "Movies",
         "tv": "TV",
-        "music":  "Music",
+        "music": "Music",
         "games": "Games",
-        "anime":  "Anime",
+        "anime": "Anime",
         "software": "Software",
-        "pictures":  "Pictures",
+        "pictures": "Pictures",
         "books": "Books"
       },
       "plugins": {
@@ -138,9 +138,9 @@
     "headers": {
       "fileName": "Filename",
       "fileSize": "File Size",
-      "nbSeeders":  "Seeders",
+      "nbSeeders": "Seeders",
       "nbLeechers": "Leechers",
-      "siteUrl":  "Site URL"
+      "siteUrl": "Site URL"
     }
   },
   "torrent": {
@@ -234,6 +234,10 @@
       "uploaded": "Uploaded",
       "dlSpeedAverage": "Download Speed Average",
       "upSpeedAverage": "Upload Speed Average"
+    },
+    "tagsAndCategories": {
+      "tags": "Tags",
+      "categories": "Categories"
     }
   },
   "topbar": {

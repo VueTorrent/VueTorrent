@@ -33,6 +33,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.createCategory(category)
   }
 
+  async function setTorrentCategory(hashes: string[], category: string) {
+    await qbit.setCategory(hashes, category)
+  }
+
   async function editCategory(category: Category, oldCategory?: string) {
     if (oldCategory) {
       // Create new category
@@ -65,6 +69,14 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function createTags(tags: string[]) {
     await qbit.createTag(tags)
+  }
+
+  async function addTorrentTags(hashes: string[], tags: string[]) {
+    await qbit.addTorrentTag(hashes, tags)
+  }
+
+  async function removeTorrentTags(hashes: string[], tags: string[]) {
+    await qbit.removeTorrentTag(hashes, tags)
   }
 
   async function editTag(oldTag: string, newTag: string) {
@@ -235,10 +247,13 @@ export const useMaindataStore = defineStore('maindata', () => {
     deleteTorrents,
     fetchCategories,
     createCategory,
+    setTorrentCategory,
     editCategory,
     deleteCategories,
     fetchTags,
     createTags,
+    addTorrentTags,
+    removeTorrentTags,
     editTag,
     deleteTags,
     moveTorrents,
