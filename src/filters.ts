@@ -24,7 +24,9 @@ export function formatDataValue(data: number, isBinary: boolean) {
   while (data >= base ** i) {
     i++
   }
-  return toPrecision(data / base ** (i - 1), i > 1 ? 3 : 1)
+  let value = data / base ** (i - 1)
+  if (value > 999) return toPrecision(value,4)
+  return toPrecision(value, i > 1 ? 3 : 1)
 }
 Vue.filter('formatDataValue', formatDataValue)
 
