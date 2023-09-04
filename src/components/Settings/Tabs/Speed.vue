@@ -6,10 +6,10 @@
 
         <v-row class="mx-1">
           <v-col cols="12" md="6">
-            <v-text-field v-model="settings.up_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.upload')" />
+            <v-text-field v-model="upLimitInKB" @change="saveSettings" dense hide-details class="mb-5" :label="$t('modals.settings.speed.upload')" />
           </v-col>
           <v-col cols="12" md="6">
-            <v-text-field v-model="settings.dl_limit" dense hide-details class="mb-5" :label="$t('modals.settings.speed.download')" />
+            <v-text-field v-model="dlLimitInKB" @change="saveSettings" dense hide-details class="mb-5" :label="$t('modals.settings.speed.download')" />
           </v-col>
         </v-row>
 
@@ -166,6 +166,22 @@ export default defineComponent({
     }
   },
   computed: {
+    upLimitInKB: {
+      get() {
+        return this.settings.up_limit / 1024;
+      },
+      set(value) {
+        this.settings.up_limit = value * 1024;
+      },
+    },
+    dlLimitInKB: {
+      get() {
+        return this.settings.dl_limit / 1024;
+      },
+      set(value) {
+        this.settings.dl_limit = value * 1024;
+      },
+    },
     fromTime: {
       get: function () {
         return `${this.scheduler.from.hours}:${this.scheduler.from.minutes}`
@@ -187,6 +203,9 @@ export default defineComponent({
       }
     }
   },
+  props: {
+    settings: Object,
+  },
   mounted() {
     this.scheduler.from.hours = this.settings.schedule_from_hour
     this.scheduler.from.minutes = this.settings.schedule_from_min
@@ -195,6 +214,9 @@ export default defineComponent({
     this.scheduler.to.minutes = this.settings.schedule_to_min
   },
   methods: {
+    saveSettings() {
+      this.$emit('save-settings', this.settings);
+    },
     onDialogCloseFrom() {
       this.scheduler.from.modal = false
       this.settings.schedule_from_hour = this.scheduler.from.hours

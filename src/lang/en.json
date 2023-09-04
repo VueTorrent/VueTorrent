@@ -412,8 +412,8 @@
           "alternative": "Alternative Rate Limits",
           "settings": "Rate Limits Settings"
         },
-        "upload": "Upload (in B/s)",
-        "download": "Download (in B/s)",
+        "upload": "Upload (in KiB/s)",
+        "download": "Download (in KiB/s)",
         "tip": "0 means unlimited",
         "scheduler": {
           "subheader": "Schedule the use of alternative rate limits",

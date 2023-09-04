@@ -412,8 +412,8 @@
           "alternative": "替補速率限制",
           "settings": "速率限制設定"
         },
-        "upload": "上傳 (B/s)",
-        "download": "下載 (B/s)",
+        "upload": "上傳 (KiB/s)",
+        "download": "下載 (KiB/s)",
         "tip": "0 代表無限制",
         "scheduler": {
           "subheader": "預約使用替補速率限制",
