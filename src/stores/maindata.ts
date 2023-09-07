@@ -234,6 +234,18 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.setAutoTMM(toValue(hashes), toValue(enable))
   }
 
+  async function getTorrentTrackers(hash: string) {
+    return await qbit.getTorrentTrackers(hash)
+  }
+
+  async function addTorrentTrackers(hash: string, trackers: string) {
+    await qbit.addTorrentTrackers(hash, trackers)
+  }
+
+  async function removeTorrentTrackers(hash: string, urls: string[]) {
+    await qbit.removeTorrentTrackers(hash, urls)
+  }
+
   return {
     categories,
     isUpdatingMaindata,
@@ -272,6 +284,9 @@ export const useMaindataStore = defineStore('maindata', () => {
     reannounceTorrents,
     toggleSeqDl,
     toggleFLPiecePrio,
-    toggleAutoTmm
+    toggleAutoTmm,
+    getTorrentTrackers,
+    addTorrentTrackers,
+    removeTorrentTrackers
   }
 })

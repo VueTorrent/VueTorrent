@@ -235,6 +235,27 @@
       "dlSpeedAverage": "Download Speed Average",
       "upSpeedAverage": "Upload Speed Average"
     },
+    "trackers": {
+      "table": {
+        "tier": "#",
+        "url": "URL",
+        "status": "Status",
+        "peers": "Peers (S/L)",
+        "peersValue": "{peers} ({seeds}/{leeches})",
+        "downloaded": "Downloaded",
+        "message": "Message"
+      },
+      "addTrackers": {
+        "title": "Add Trackers",
+        "newTrackers": "Tracker URLs to add",
+        "newTrackersHint": "One per line, separate tiers with an empty line"
+      },
+      "removeTrackers": {
+        "title": "Remove Trackers",
+        "remove": "Remove"
+      },
+      "reannounce": "Reannounce all"
+    },
     "tagsAndCategories": {
       "tags": "Tags",
       "categories": "Categories"
@@ -933,6 +954,13 @@
       "firewalled": "Firewalled",
       "disconnected": "Disconnected",
       "unknown": "Unknown"
+    },
+    "trackerStatus": {
+      "disabled": "Disabled",
+      "not_yet_contacted": "Not contacted yet",
+      "working": "Working",
+      "updating": "Updating",
+      "not_working": "Not working"
     }
   },
   "units": {

@@ -9,7 +9,7 @@ export default interface Tracker {
   num_leeches: number
   /** Number of peers for current torrent, as reported by the tracker */
   num_peers: number
-  /** Number of seeds for current torrent, asreported by the tracker */
+  /** Number of seeds for current torrent, as reported by the tracker */
   num_seeds: number
   /** Tracker status. See the table below for possible values */
   status: TrackerStatus
