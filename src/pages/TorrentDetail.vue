@@ -52,22 +52,22 @@ const goHome = () => {
 
     <v-window v-model="tab" v-if="torrent">
       <v-window-item value="overview">
-        <Overview :torrent="torrent" />
+        <Overview :torrent="torrent" :is-active="tab === 'overview'" />
       </v-window-item>
       <v-window-item value="info">
-        <Info :torrent="torrent" />
+        <Info :torrent="torrent" :is-active="tab === 'info'" />
       </v-window-item>
       <v-window-item value="trackers">
-        <Trackers :torrent="torrent" />
+        <Trackers :torrent="torrent" :is-active="tab === 'trackers'" />
       </v-window-item>
       <v-window-item value="peers">
-        <Peers :torrent="torrent" />
+        <Peers :torrent="torrent" :is-active="tab === 'peers'" />
       </v-window-item>
       <v-window-item value="content">
-        <Content :torrent="torrent" />
+        <Content :torrent="torrent" :is-active="tab === 'content'" />
       </v-window-item>
       <v-window-item value="tagsAndCategories">
-        <TagsAndCategories :torrent="torrent" />
+        <TagsAndCategories :torrent="torrent" :is-active="tab === 'tagsAndCategories'" />
       </v-window-item>
     </v-window>
   </div>

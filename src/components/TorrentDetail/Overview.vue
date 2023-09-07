@@ -17,7 +17,7 @@ import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
 
-const props = defineProps<{ torrent: Torrent }>()
+const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
 
 const { t } = useI18n()
 const theme = useTheme()

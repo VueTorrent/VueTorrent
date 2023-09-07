@@ -3,9 +3,7 @@ import { useMaindataStore } from '@/stores'
 import { Torrent } from '@/types/VueTorrent'
 import { computed, onBeforeMount } from 'vue'
 
-const props = defineProps<{
-  torrent: Torrent
-}>()
+const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
 
