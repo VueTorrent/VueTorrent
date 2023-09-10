@@ -1,13 +1,16 @@
 /**
+ * Check if user is on Windows
+ */
+export const isWindows = window.navigator.userAgent.toLowerCase().includes('windows')
+
+/**
  * Check if user is on MAC
  */
-export function isMac(): boolean {
-  return window.navigator.userAgent.toUpperCase().indexOf('MAC') >= 0
-}
+export const isMac = window.navigator.userAgent.toLowerCase().includes('MAC')
 
 /**
  * Check Ctrl/Cmd key
  */
 export function doesCommand(e: KeyboardEvent | MouseEvent| TouchEvent): boolean {
-  return isMac() ? e.metaKey : e.ctrlKey
+  return isMac ? e.metaKey : e.ctrlKey
 }

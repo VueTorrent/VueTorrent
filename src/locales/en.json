@@ -256,6 +256,30 @@
       },
       "reannounce": "Reannounce all"
     },
+    "peers": {
+      "table": {
+        "host": "Host",
+        "connection": "Connection",
+        "flags": "Flags",
+        "client": "Client",
+        "progress": "Progress",
+        "downloadSpeed": "DL",
+        "downloaded": "Downloaded",
+        "upSpeed": "UL",
+        "uploaded": "Uploaded",
+        "relevance": "Relevance",
+        "files": "Files"
+      },
+      "addPeers": {
+        "title": "Add Peers",
+        "newPeers": "Peer hosts to add",
+        "newPeersPlaceholder": "host:port",
+        "newPeersHint": "One per line"
+      },
+      "banPeers": {
+        "title": "Ban Peers"
+      }
+    },
     "tagsAndCategories": {
       "tags": "Tags",
       "categories": "Categories"

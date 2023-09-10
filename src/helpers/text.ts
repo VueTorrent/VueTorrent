@@ -59,3 +59,18 @@ export function splitByUrl(data: string) {
 export function stringContainsUrl(data: string) {
   return urlRegExp.test(data)
 }
+
+export function codeToFlag(code: string) {
+  const magicNumber = 0x1f1a5
+
+  code = code.toUpperCase()
+  /** @type {number[]} */
+  const codePoints = [...code].map(c => magicNumber + c.charCodeAt(0))
+  const char = String.fromCodePoint(...codePoints)
+  const url = 'https://cdn.jsdelivr.net/npm/twemoji/2/svg/' + `${codePoints[0].toString(16)}-${codePoints[1].toString(16)}.svg`
+
+  return {
+    char,
+    url
+  }
+}

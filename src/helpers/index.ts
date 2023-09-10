@@ -2,8 +2,8 @@ import { formatDataValue, formatDataUnit, formatData } from './data'
 import { formatEta } from './datetime'
 import { toPrecision, formatPercent } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
-import { isMac, doesCommand } from './system'
-import { titleCase, capitalize, extractHostname, splitByUrl, stringContainsUrl } from './text'
+import { isWindows, isMac, doesCommand } from './system'
+import { titleCase, capitalize, extractHostname, splitByUrl, stringContainsUrl, codeToFlag } from './text'
 
 export {
   formatDataValue,
@@ -15,11 +15,13 @@ export {
   formatSpeedValue,
   formatSpeedUnit,
   formatSpeed,
+  isWindows,
   isMac,
   doesCommand,
   titleCase,
   capitalize,
   extractHostname,
   splitByUrl,
-  stringContainsUrl
+  stringContainsUrl,
+  codeToFlag
 }
