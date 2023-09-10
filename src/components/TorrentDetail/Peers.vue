@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
-import { Peer, Tracker } from '@/types/qbit/models'
+import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/VueTorrent'
 import debounce from 'lodash.debounce'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
