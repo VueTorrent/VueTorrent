@@ -1,10 +1,10 @@
-import {defineConfig, loadEnv} from 'vite'
 import vue from '@vitejs/plugin-vue'
-import {fileURLToPath, URL} from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
+import { defineConfig, loadEnv } from 'vite'
 import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
-export default defineConfig(({mode}) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
   const qBittorrentPort = env.VITE_QBITTORRENT_PORT ?? '8080'
   const proxyTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
@@ -12,10 +12,10 @@ export default defineConfig(({mode}) => {
   return {
     build: {
       target: 'esnext',
-      outDir: './vuetorrent/public',
+      outDir: './vuetorrent/public'
     },
     define: {
-      'process.env': {},
+      'process.env': {}
     },
     plugins: [
       vue(),
@@ -24,8 +24,8 @@ export default defineConfig(({mode}) => {
     publicDir: './public',
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-      },
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
     },
     server: {
       host: '0.0.0.0',
