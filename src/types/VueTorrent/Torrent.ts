@@ -1,4 +1,4 @@
-import { Priority, TorrentState } from '@/constants/qbit'
+import { TorrentState } from '@/constants/qbit'
 
 export default interface Torrent {
   added_on: number
@@ -26,7 +26,7 @@ export default interface Torrent {
   name: string
   num_leechs: number
   num_seeds: number
-  priority: Priority
+  priority: number
   progress: number
   ratio: number
   ratio_limit: number

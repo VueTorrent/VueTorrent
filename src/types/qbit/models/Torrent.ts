@@ -1,5 +1,4 @@
 import type { TorrentState } from '@/constants/qbit'
-import { Priority } from '@/constants/qbit'
 
 export default interface Torrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
@@ -59,7 +58,7 @@ export default interface Torrent {
   /** Number of seeds connected to */
   num_seeds: number
   /** Torrent priority. Returns -1 if queuing is disabled or torrent is in seed mode */
-  priority: Priority
+  priority: number
   /** Torrent progress (percentage/100) */
   progress: number
   /** Torrent share ratio. Max ratio value: 9999. */

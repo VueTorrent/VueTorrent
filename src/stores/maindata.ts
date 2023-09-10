@@ -234,6 +234,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.setAutoTMM(toValue(hashes), toValue(enable))
   }
 
+  async function setSuperSeeding(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+    await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
+  }
+
   async function getTorrentTrackers(hash: string) {
     return await qbit.getTorrentTrackers(hash)
   }
@@ -297,6 +301,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     toggleSeqDl,
     toggleFLPiecePrio,
     toggleAutoTmm,
+    setSuperSeeding,
     getTorrentTrackers,
     addTorrentTrackers,
     removeTorrentTrackers,

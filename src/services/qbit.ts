@@ -289,6 +289,10 @@ export class QBitApi {
     return this.torrentAction('toggleFirstLastPiecePrio', hashes)
   }
 
+  async setSuperSeeding(hashes: string[], value: boolean): Promise<void> {
+    return this.torrentAction('setSuperSeeding', hashes, { value })
+  }
+
   async setAutoTMM(hashes: string[], enable: boolean): Promise<void> {
     return this.torrentAction('setAutoManagement', hashes, { enable })
   }
