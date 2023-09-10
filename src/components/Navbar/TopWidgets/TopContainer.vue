@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { useNavbarStore } from '@/stores'
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import { useDashboardStore, useNavbarStore } from '@/stores'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflowMenu from './TopOverflowMenu.vue'
 
 const router = useRouter()
+const dashboardStore = useDashboardStore()
 const navbarStore = useNavbarStore()
+
+const deleteTorrentDialogVisible = ref(false)
+const deleteHashes = ref<string[]>([])
 
 const resumeTorrents = () => {
   // TODO
@@ -14,6 +20,10 @@ const resumeTorrents = () => {
 const pauseTorrents = () => {
   // TODO
   console.log('pauseTorrents')
+}
+const deleteTorrents = () => {
+  deleteTorrentDialogVisible.value = true
+  deleteHashes.value = [...dashboardStore.selectedTorrents]
 }
 const openSearchEngine = () => {
   router.push({ name: 'searchEngine' })
@@ -39,19 +49,26 @@ const openSettings = () => {
   <v-divider vertical inset />
 
   <TopOverflowMenu v-if="$vuetify.display.mobile"
-              @resumeTorrents="resumeTorrents"
-              @pauseTorrents="pauseTorrents"
-              @openSearchEngine="openSearchEngine"
-              @openrssArticles="openrssArticles"
-              @openLogs="openLogs"
-              @openSettings="openSettings"/>
-  <TopActions v-else
                    @resumeTorrents="resumeTorrents"
                    @pauseTorrents="pauseTorrents"
+                   @deleteTorrents="deleteTorrents"
                    @openSearchEngine="openSearchEngine"
                    @openrssArticles="openrssArticles"
                    @openLogs="openLogs"
                    @openSettings="openSettings" />
+  <TopActions v-else
+              @resumeTorrents="resumeTorrents"
+              @pauseTorrents="pauseTorrents"
+              @deleteTorrents="deleteTorrents"
+              @openSearchEngine="openSearchEngine"
+              @openrssArticles="openrssArticles"
+              @openLogs="openLogs"
+              @openSettings="openSettings" />
+
+  <ConfirmDeleteDialog v-if="deleteTorrentDialogVisible"
+                       v-model="deleteTorrentDialogVisible"
+                       :hashes="deleteHashes"
+                       disable-activator/>
 </template>
 
 <style scoped>
