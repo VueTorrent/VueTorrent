@@ -65,8 +65,7 @@ const openSettings = () => {
               @openLogs="openLogs"
               @openSettings="openSettings" />
 
-  <ConfirmDeleteDialog v-if="deleteTorrentDialogVisible"
-                       v-model="deleteTorrentDialogVisible"
+  <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible"
                        :hashes="deleteHashes"
                        disable-activator/>
 </template>

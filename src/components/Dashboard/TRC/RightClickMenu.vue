@@ -295,16 +295,13 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-if="deleteDialogVisible"
-                       v-model="deleteDialogVisible"
+  <ConfirmDeleteDialog v-model="deleteDialogVisible"
                        disable-activator
                        :hashes="deleteHashes" />
-  <MoveTorrentDialog v-if="moveDialogVisible"
-                     v-model="moveDialogVisible"
+  <MoveTorrentDialog v-model="moveDialogVisible"
                      disable-activator
                      :hashes="moveHashes" />
-  <RenameTorrentDialog v-if="renameDialogVisible"
-                       v-model="renameDialogVisible"
+  <RenameTorrentDialog v-model="renameDialogVisible"
                        disable-activator
                        :hash="renameHash" />
 </template>
