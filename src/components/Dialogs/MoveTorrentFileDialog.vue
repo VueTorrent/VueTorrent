@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useMaindataStore } from '@/stores'
-import { computed, nextTick, onBeforeMount, reactive, ref } from 'vue'
+import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -49,7 +49,8 @@ const close = () => {
   dialogVisible.value = false
 }
 
-onBeforeMount(() => {
+watch(dialogVisible, (value) => {
+  if (!value) return
   formData.newName = props.oldName
 
   const startIndex = formData.newName.lastIndexOf('/')
