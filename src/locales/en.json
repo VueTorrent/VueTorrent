@@ -149,6 +149,8 @@
       "amount_left": "Amount Left",
       "auto_tmm": "Automatic Torrent Management",
       "availability": "Availability",
+      "available_peers": "Peers (swarm)",
+      "available_seeds": "Seeds (swarm)",
       "category": "Category",
       "empty_category": "(no category)",
       "completed_on": "Completed On",
@@ -168,6 +170,9 @@
       "infohash_v2": "Infohash v2",
       "last_activity": "Last Activity",
       "magnet": "Magnet Link",
+      "name": "Torrent Title",
+      "num_leechs": "Peers (connected)",
+      "num_seeds": "Seeds (connected)",
       "peers": "Peers",
       "priority": "Priority",
       "progress": "Progress",
@@ -240,6 +245,16 @@
       "uploaded": "Uploaded",
       "dlSpeedAverage": "Download Speed Average",
       "upSpeedAverage": "Upload Speed Average"
+    },
+    "info": {
+      "datetime_values": "Datetime Values",
+      "duration_values": "Duration Values",
+      "boolean_values": "Boolean values",
+      "data_values": "Data values",
+      "speed_values": "Speed values",
+      "text_values": "Text values",
+      "long_text_values": "Long text values",
+      "tags": ""
     },
     "trackers": {
       "table": {

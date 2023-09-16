@@ -1,4 +1,5 @@
-import { DashboardProperty, DashboardPropertyType } from '.'
+import { DashboardProperty } from './DashboardProperty'
+import { DashboardPropertyType } from './DashboardPropertyType'
 import { PropertyData, PropertyMetadata } from '@/types/vuetorrent'
 
 export const propsData: PropertyData = {

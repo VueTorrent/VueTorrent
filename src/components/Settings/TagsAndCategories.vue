@@ -8,7 +8,9 @@ import { onBeforeMount, ref, watch } from 'vue'
 const maindataStore = useMaindataStore()
 
 const tagDialog = ref(false)
+const tagEditDialog = ref(false)
 const categoryDialog = ref(false)
+const categoryEditDialog = ref(false)
 
 async function deleteTag(tagName: string) {
   await maindataStore.deleteTags([tagName])
@@ -47,10 +49,9 @@ watch(categoryDialog, (value) => {
         <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
         <v-spacer />
         <div class="d-flex">
-          <v-btn icon
-                 variant="plain">
+          <v-btn icon variant="plain">
             <v-icon>mdi-pencil</v-icon>
-            <TagFormDialog v-model="tagDialog" :initial-tag="tag" />
+            <TagFormDialog v-model="tagEditDialog" :initial-tag="tag" />
           </v-btn>
           <v-btn icon="mdi-delete"
                  color="red"
@@ -82,7 +83,7 @@ watch(categoryDialog, (value) => {
           <v-btn icon
                  variant="plain">
             <v-icon>mdi-pencil</v-icon>
-            <CategoryFormDialog v-model="categoryDialog"
+            <CategoryFormDialog v-model="categoryEditDialog"
                                 :initial-category="category" />
           </v-btn>
           <v-btn icon="mdi-delete"
