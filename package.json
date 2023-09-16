@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "check-build": "vue-tsc",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u --ignore-path .gitignore"
   },
   "dependencies": {
     "@mdi/js": "^7.2.96",
@@ -33,7 +34,12 @@
     "@types/lodash.debounce": "^4.0.7",
     "@types/node": "^20.6.0",
     "@types/uuid": "^9.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
     "@vitejs/plugin-vue": "^4.3.4",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "prettier": "^3.0.3",
     "sass": "^1.66.1",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
