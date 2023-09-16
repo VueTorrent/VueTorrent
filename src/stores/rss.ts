@@ -1,6 +1,6 @@
 import { qbit } from '@/services'
 import { Feed, FeedRule } from '@/types/qbit/models'
-import { RssArticle } from '@/types/VueTorrent'
+import { RssArticle } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 

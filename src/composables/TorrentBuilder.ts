@@ -1,5 +1,5 @@
 import { formatEta } from '@/helpers'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { useI18n } from 'vue-i18n'
 

@@ -2,7 +2,7 @@
 import InfoBase from '@/components/TorrentDetail/InfoBase.vue'
 import dayjs from '@/plugins/dayjs'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { formatData, formatSpeed } from '@/helpers'
@@ -165,6 +165,7 @@ const ppts = [
                 <template v-slot:title>
                   <v-checkbox v-model="auto_tmm"
                               hide-details
+                              density="compact"
                               :label="$t('torrent.properties.auto_tmm')" />
                 </template>
               </InfoBase>

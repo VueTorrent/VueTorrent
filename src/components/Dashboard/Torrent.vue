@@ -2,7 +2,7 @@
 import { DashboardPropertyType } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import ItemAmount from './DashboardItems/ItemAmount.vue'
 import ItemChip from './DashboardItems/ItemChip.vue'

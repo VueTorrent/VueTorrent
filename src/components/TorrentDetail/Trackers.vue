@@ -2,7 +2,7 @@
 import { TrackerStatus } from '@/constants/qbit'
 import { useMaindataStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 

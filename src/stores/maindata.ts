@@ -5,7 +5,7 @@ import { qbit } from '@/services'
 import { useAuthStore, useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
 

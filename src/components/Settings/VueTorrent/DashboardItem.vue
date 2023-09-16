@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TorrentProperty } from '@/types/VueTorrent'
+import { TorrentProperty } from '@/types/vuetorrent'
 defineProps<{ property: TorrentProperty }>()
 defineEmits<{ update: [value: void] }>()
 </script>

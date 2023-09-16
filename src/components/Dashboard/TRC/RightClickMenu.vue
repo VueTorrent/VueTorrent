@@ -4,7 +4,7 @@ import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import { useDashboardStore, useMaindataStore, usePreferenceStore } from '@/stores'
-import { TRCMenuEntry } from '@/types/VueTorrent'
+import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed, ref } from 'vue'
 
 const props = defineProps<{

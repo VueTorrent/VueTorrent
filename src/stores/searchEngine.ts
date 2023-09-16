@@ -1,6 +1,6 @@
 import { qbit } from '@/services'
 import { SearchPlugin } from '@/types/qbit/models'
-import { SearchData } from '@/types/VueTorrent'
+import { SearchData } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { v1 as genUuid } from 'uuid'
 import { ref } from 'vue'

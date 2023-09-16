@@ -12,7 +12,7 @@ import {
 } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'

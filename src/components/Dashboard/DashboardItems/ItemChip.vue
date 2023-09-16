@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
 const props = defineProps<{ torrent: Torrent, title: string, value: string, color: string }>()

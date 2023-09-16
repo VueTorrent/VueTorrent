@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
-import { Torrent } from '@/types/VueTorrent'
+import { Torrent } from '@/types/vuetorrent'
 
 defineProps<{ torrent: Torrent, title: string, value: string }>()
 

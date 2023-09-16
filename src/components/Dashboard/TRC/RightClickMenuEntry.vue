@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TRCMenuEntry } from '@/types/VueTorrent'
+import { TRCMenuEntry } from '@/types/vuetorrent'
 
 defineProps<{
   text: string
