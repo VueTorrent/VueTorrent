@@ -9,11 +9,11 @@ const vueTorrentStore = useVueTorrentStore()
 
 const busyTorrentProperties = computed({
   get: () => vueTorrentStore.busyTorrentProperties,
-  set: (newValue) => vueTorrentStore.updateBusyProperties(newValue)
+  set: newValue => vueTorrentStore.updateBusyProperties(newValue)
 })
 const doneTorrentProperties = computed({
   get: () => vueTorrentStore.doneTorrentProperties,
-  set: (newValue) => vueTorrentStore.updateDoneProperties(newValue)
+  set: newValue => vueTorrentStore.updateDoneProperties(newValue)
 })
 
 function toggleActive(isBusy: boolean, property: TorrentProperty) {
@@ -57,6 +57,4 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
   </v-row>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

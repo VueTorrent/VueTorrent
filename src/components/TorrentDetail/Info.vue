@@ -6,15 +6,14 @@ import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { formatData, formatSpeed } from '@/helpers'
 
-
-const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
+const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const auto_tmm = computed({
   get: () => props.torrent.auto_tmm,
-  set: (value) => maindataStore.toggleAutoTmm([props.torrent.hash], value)
+  set: value => maindataStore.toggleAutoTmm([props.torrent.hash], value)
 })
 
 const f_l_piece_prio = computed({
@@ -24,7 +23,7 @@ const f_l_piece_prio = computed({
 
 const forced = computed({
   get: () => props.torrent.forced,
-  set: (value) => {
+  set: value => {
     if (value) {
       maindataStore.forceResumeTorrents([props.torrent.hash])
     } else {
@@ -40,7 +39,7 @@ const seq_dl = computed({
 
 const super_seeding = computed({
   get: () => props.torrent.super_seeding,
-  set: (value) => maindataStore.setSuperSeeding([props.torrent.hash], value)
+  set: value => maindataStore.setSuperSeeding([props.torrent.hash], value)
 })
 
 const datetimePpts = [
@@ -112,9 +111,7 @@ const longTextPpts = [
             <v-row>
               <InfoBase v-for="ppt in datetimePpts">
                 <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-                <template v-slot:text>{{
-                    dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }}
-                </template>
+                <template v-slot:text>{{ dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }} </template>
               </InfoBase>
             </v-row>
           </v-expansion-panel-text>
@@ -136,46 +133,31 @@ const longTextPpts = [
             <v-row>
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="auto_tmm"
-                              hide-details
-                              density="compact"
-                              :label="$t('torrent.properties.auto_tmm')" />
+                  <v-checkbox v-model="auto_tmm" hide-details density="compact" :label="$t('torrent.properties.auto_tmm')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="f_l_piece_prio"
-                              hide-details
-                              density="compact"
-                              :label="$t('torrent.properties.f_l_piece_prio')" />
+                  <v-checkbox v-model="f_l_piece_prio" hide-details density="compact" :label="$t('torrent.properties.f_l_piece_prio')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="forced"
-                              hide-details
-                              density="compact"
-                              :label="$t('torrent.properties.forced')" />
+                  <v-checkbox v-model="forced" hide-details density="compact" :label="$t('torrent.properties.forced')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="seq_dl"
-                              hide-details
-                              density="compact"
-                              :label="$t('torrent.properties.seq_dl')" />
+                  <v-checkbox v-model="seq_dl" hide-details density="compact" :label="$t('torrent.properties.seq_dl')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="super_seeding"
-                              hide-details
-                              density="compact"
-                              :label="$t('torrent.properties.super_seeding')" />
+                  <v-checkbox v-model="super_seeding" hide-details density="compact" :label="$t('torrent.properties.super_seeding')" />
                 </template>
               </InfoBase>
             </v-row>
@@ -218,16 +200,13 @@ const longTextPpts = [
         <v-expansion-panel :title="$t('torrentDetail.info.long_text_values')">
           <v-expansion-panel-text>
             <v-list>
-              <v-list-item v-for="ppt in longTextPpts"
-                           :title="$t(`torrent.properties.${ppt.title}`)">
+              <v-list-item v-for="ppt in longTextPpts" :title="$t(`torrent.properties.${ppt.title}`)">
                 <v-list-item-subtitle>{{ torrent[ppt.text] }}</v-list-item-subtitle>
               </v-list-item>
 
               <v-list-item :title="$t('torrent.properties.tags')">
-                <div v-if="torrent.tags.length > 0" class="d-flex gap">
-                  <v-chip v-for="tag in torrent.tags"
-                          variant="flat"
-                          color="tag">
+                <div v-if="torrent.tags?.length" class="d-flex gap">
+                  <v-chip v-for="tag in torrent.tags" variant="flat" color="tag">
                     {{ tag }}
                   </v-chip>
                 </div>

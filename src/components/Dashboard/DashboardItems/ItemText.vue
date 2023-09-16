@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent, title: string, value: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string }>()
 </script>
 
 <template>
@@ -13,6 +13,4 @@ defineProps<{ torrent: Torrent, title: string, value: string }>()
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

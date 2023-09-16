@@ -11,27 +11,27 @@ export const routes: RouteRecordRaw[] = [
   {
     name: 'dashboard',
     path: '/',
-    component: Dashboard,
+    component: Dashboard
   },
   {
     name: 'settings',
     path: '/settings',
-    component: Settings,
+    component: Settings
   },
   {
     name: 'rssArticles',
     path: '/rss',
-    component: RssArticles,
+    component: RssArticles
   },
   {
     name: 'logs',
     path: '/logs',
-    component: Logs,
+    component: Logs
   },
   {
     name: 'searchEngine',
     path: '/search',
-    component: SearchEngine,
+    component: SearchEngine
   },
   {
     name: 'torrentDetail',
@@ -44,6 +44,6 @@ export const routes: RouteRecordRaw[] = [
     component: Login,
     meta: {
       public: true // Allow access even if not logged in
-    },
-  },
+    }
+  }
 ]

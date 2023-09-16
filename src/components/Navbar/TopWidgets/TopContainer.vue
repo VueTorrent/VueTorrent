@@ -48,28 +48,28 @@ const openSettings = () => {
 
   <v-divider vertical inset />
 
-  <TopOverflowMenu v-if="$vuetify.display.mobile"
-                   @resumeTorrents="resumeTorrents"
-                   @pauseTorrents="pauseTorrents"
-                   @deleteTorrents="deleteTorrents"
-                   @openSearchEngine="openSearchEngine"
-                   @openrssArticles="openrssArticles"
-                   @openLogs="openLogs"
-                   @openSettings="openSettings" />
-  <TopActions v-else
-              @resumeTorrents="resumeTorrents"
-              @pauseTorrents="pauseTorrents"
-              @deleteTorrents="deleteTorrents"
-              @openSearchEngine="openSearchEngine"
-              @openrssArticles="openrssArticles"
-              @openLogs="openLogs"
-              @openSettings="openSettings" />
+  <TopOverflowMenu
+    v-if="$vuetify.display.mobile"
+    @resumeTorrents="resumeTorrents"
+    @pauseTorrents="pauseTorrents"
+    @deleteTorrents="deleteTorrents"
+    @openSearchEngine="openSearchEngine"
+    @openrssArticles="openrssArticles"
+    @openLogs="openLogs"
+    @openSettings="openSettings"
+  />
+  <TopActions
+    v-else
+    @resumeTorrents="resumeTorrents"
+    @pauseTorrents="pauseTorrents"
+    @deleteTorrents="deleteTorrents"
+    @openSearchEngine="openSearchEngine"
+    @openrssArticles="openrssArticles"
+    @openLogs="openLogs"
+    @openSettings="openSettings"
+  />
 
-  <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible"
-                       :hashes="deleteHashes"
-                       disable-activator/>
+  <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" :hashes="deleteHashes" disable-activator />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -11,7 +11,6 @@ import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 
-
 const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
@@ -153,11 +152,14 @@ async function onRightClick(e: PointerEvent, torrent: TorrentType) {
   }
 }
 
-watch(() => trcProperties.isVisible, (newValue) => {
-  if (!newValue && !dashboardStore.isSelectionMultiple) {
-    dashboardStore.unselectAllTorrents()
+watch(
+  () => trcProperties.isVisible,
+  newValue => {
+    if (!newValue && !dashboardStore.isSelectionMultiple) {
+      dashboardStore.unselectAllTorrents()
+    }
   }
-})
+)
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (isDialogVisible.value) {
@@ -205,9 +207,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 
   // 'Search' => Search view
-  if (e.key === '/'
-    && route.name !== 'searchEngine'
-    && document.activeElement !== document.getElementById('searchInput')) {
+  if (e.key === '/' && route.name !== 'searchEngine' && document.activeElement !== document.getElementById('searchInput')) {
     router.push({ name: 'searchEngine' })
   }
 }
@@ -233,62 +233,62 @@ onBeforeUnmount(() => {
   <div class="pt-4 px-1 px-sm-5">
     <v-row class="ma-0 pa-0 mb-2">
       <v-expand-x-transition>
-        <v-card v-show="isSearchFilterVisible"
-                color="transparent">
-          <v-text-field id="searchInput"
-                        v-model="searchFilter"
-                        clearable
-                        density="compact"
-                        variant="solo"
-                        hide-details
-                        :label="t('dashboard.searchInputLabel')"
-                        prepend-inner-icon="mdi-magnify"
-                        single-line
-                        rounded="pill"
-                        style="width: 200px;"
-                        @click:clear="resetInput()"
+        <v-card v-show="isSearchFilterVisible" color="transparent">
+          <v-text-field
+            id="searchInput"
+            v-model="searchFilter"
+            clearable
+            density="compact"
+            variant="solo"
+            hide-details
+            :label="t('dashboard.searchInputLabel')"
+            prepend-inner-icon="mdi-magnify"
+            single-line
+            rounded="pill"
+            style="width: 200px"
+            @click:clear="resetInput()"
           />
         </v-card>
       </v-expand-x-transition>
       <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'"
-                 v-bind="props"
-                 variant="plain"
-                 @click="isSearchFilterVisible = !isSearchFilterVisible" />
+          <v-btn
+            :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'"
+            v-bind="props"
+            variant="plain"
+            @click="isSearchFilterVisible = !isSearchFilterVisible"
+          />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="dashboardStore.isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                 v-bind="props"
-                 variant="plain"
-                 @click="toggleSelectMode" />
+          <v-btn :icon="dashboardStore.isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
-        <template v-slot:activator="{props}">
-          <v-btn :icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
-                 v-bind="props"
-                 variant="plain"
-                 @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
+        <template v-slot:activator="{ props }">
+          <v-btn
+            :icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
+            v-bind="props"
+            variant="plain"
+            @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder"
+          />
         </template>
       </v-tooltip>
       <div class="pa-0">
-        <v-autocomplete v-model="dashboardStore.sortOptions.sortBy"
-                        auto-select-first
-                        :items="sortOptions"
-                        density="compact"
-                        variant="solo"
-                        hide-details
-                        :label="t('dashboard.sortLabel')"
-                        rounded="pill" />
+        <v-autocomplete
+          v-model="dashboardStore.sortOptions.sortBy"
+          auto-select-first
+          :items="sortOptions"
+          density="compact"
+          variant="solo"
+          hide-details
+          :label="t('dashboard.sortLabel')"
+          rounded="pill"
+        />
       </div>
       <v-col cols="12" v-if="vuetorrentStore.isPaginationOnTop" class="pa-0">
-        <v-pagination v-model="dashboardStore.currentPage"
-                      :length="pageCount"
-                      total-visible="7"
-                      @input="scrollToTop" />
+        <v-pagination v-model="dashboardStore.currentPage" :length="pageCount" total-visible="7" @input="scrollToTop" />
       </v-col>
       <v-col class="align-center justify-center">
         <span style="float: right; font-size: 0.8em" class="text-uppercase">
@@ -300,13 +300,15 @@ onBeforeUnmount(() => {
       <v-expand-transition>
         <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent">
           <v-tooltip :text="t('common.selectAll')" location="bottom">
-            <template v-slot:activator="{props}">
-              <v-btn :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                     v-bind="props"
-                     color="transparent"
-                     style="left: -8px"
-                     class="text-grey"
-                     @click="toggleSelectAll" />
+            <template v-slot:activator="{ props }">
+              <v-btn
+                :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                v-bind="props"
+                color="transparent"
+                style="left: -8px"
+                class="text-grey"
+                @click="toggleSelectAll"
+              />
             </template>
           </v-tooltip>
           <span class="text-grey">{{ t('dashboard.selectAll') }}</span>
@@ -318,12 +320,14 @@ onBeforeUnmount(() => {
     </div>
     <div v-else>
       <v-list class="pa-0" color="transparent" id="torrentList">
-        <v-list-item v-for="torrent in paginatedData"
-                     :id="`torrent-${torrent.hash}`"
-                     class="pa-0"
-                     :class="display.mobile ? 'mb-2' : 'mb-4'"
-                     @dblclick.prevent="goToInfo(torrent.hash)"
-                     @contextmenu="onRightClick($event, torrent)">
+        <v-list-item
+          v-for="torrent in paginatedData"
+          :id="`torrent-${torrent.hash}`"
+          class="pa-0"
+          :class="display.mobile ? 'mb-2' : 'mb-4'"
+          @dblclick.prevent="goToInfo(torrent.hash)"
+          @contextmenu="onRightClick($event, torrent)"
+        >
           <div class="d-flex align-center">
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
@@ -331,7 +335,8 @@ onBeforeUnmount(() => {
                   :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                   color="transparent"
                   variant="flat"
-                  @click="toggleSelectTorrent(torrent.hash)" />
+                  @click="toggleSelectTorrent(torrent.hash)"
+                />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
@@ -343,9 +348,7 @@ onBeforeUnmount(() => {
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
     <RightClickMenu v-model="trcProperties.isVisible" />
   </div>
-  <ConfirmDeleteDialog v-model="isDeleteDialogVisible"
-                       disable-activator
-                       :hashes="dashboardStore.selectedTorrents" />
+  <ConfirmDeleteDialog v-model="isDeleteDialogVisible" disable-activator :hashes="dashboardStore.selectedTorrents" />
 </template>
 
 <style>

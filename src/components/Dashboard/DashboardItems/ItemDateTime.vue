@@ -3,7 +3,7 @@ import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import dayjs from '@/plugins/dayjs'
 
-defineProps<{ torrent: Torrent, title: string, value: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string }>()
 
 const vueTorrentStore = useVueTorrentStore()
 </script>
@@ -22,6 +22,4 @@ const vueTorrentStore = useVueTorrentStore()
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

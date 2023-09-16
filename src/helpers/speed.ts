@@ -1,4 +1,4 @@
-import {formatDataUnit, formatDataValue} from './data'
+import { formatDataUnit, formatDataValue } from './data'
 
 export function formatSpeedValue(speed: number, isBits: boolean) {
   if (isBits) speed *= 8

@@ -8,8 +8,8 @@ import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-
-export const useDashboardStore = defineStore('dashboard',
+export const useDashboardStore = defineStore(
+  'dashboard',
   () => {
     const currentPage = ref(1)
     const searchFilter = ref('')
@@ -33,8 +33,8 @@ export const useDashboardStore = defineStore('dashboard',
     const searchQuery = useSearchQuery(
       () => maindataStore.torrents,
       searchFilter,
-      (torrent) => torrent.name,
-      (results) => {
+      torrent => torrent.name,
+      results => {
         if (sortOptions.isCustomSortEnabled) {
           if (sortOptions.sortBy === 'priority') {
             results.sort((a, b) => {
@@ -44,22 +44,21 @@ export const useDashboardStore = defineStore('dashboard',
               else return -1
             })
           } else {
-            results.sort((a, b) =>
-              a[sortOptions.sortBy] - b[sortOptions.sortBy]
-              || a.added_on - b.added_on)
+            results.sort((a, b) => a[sortOptions.sortBy] - b[sortOptions.sortBy] || a.added_on - b.added_on)
           }
           if (sortOptions.reverseOrder) results.reverse()
         }
         return results
-      })
+      }
+    )
 
     const torrentCountString = computed(() => {
       if (selectedTorrents.value.length) {
         const selectedSize = selectedTorrents.value
-        .map(hash => maindataStore.getTorrentByHash(hash))
-        .filter(torrent => torrent !== undefined)
-        .map(torrent => torrent!.size)
-        .reduce((partial, size) => partial + size, 0)
+          .map(hash => maindataStore.getTorrentByHash(hash))
+          .filter(torrent => torrent !== undefined)
+          .map(torrent => torrent!.size)
+          .reduce((partial, size) => partial + size, 0)
 
         return t('dashboard.selectedTorrentsCount', {
           count: selectedTorrents.value.length,
@@ -126,13 +125,13 @@ export const useDashboardStore = defineStore('dashboard',
       selectedTorrents.value.splice(0, selectedTorrents.value.length)
     }
 
-    watch(selectedTorrents, (newValue) => {
+    watch(selectedTorrents, newValue => {
       if (newValue.length === 0) {
         latestSelectedTorrent.value = -1
       }
     })
 
-    watch(filteredTorrents, (newValue) => {
+    watch(filteredTorrents, newValue => {
       const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
       if (pageCount < currentPage.value) {
         currentPage.value = Math.max(1, pageCount)
@@ -157,7 +156,8 @@ export const useDashboardStore = defineStore('dashboard',
       toggleSelect,
       getTorrentsPayload
     }
-  }, {
+  },
+  {
     persist: {
       enabled: true,
       strategies: [
@@ -168,4 +168,5 @@ export const useDashboardStore = defineStore('dashboard',
         }
       ]
     }
-  })
+  }
+)

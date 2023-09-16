@@ -11,20 +11,17 @@ const props = defineProps<{
 }>()
 const emit = defineEmits(['update:modelValue'])
 
-const {t} = useI18n()
+const { t } = useI18n()
 const maindataStore = useMaindataStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
-const rules = ref([
-  (v: string) => !!v || t('dialogs.tag.required'),
-  (v: string) => !props.initialTag || !!props.initialTag && !v.includes(',') || t('dialogs.tag.comma')
-])
+const rules = ref([(v: string) => !!v || t('dialogs.tag.required'), (v: string) => !props.initialTag || (!!props.initialTag && !v.includes(',')) || t('dialogs.tag.comma')])
 
 const tagName = ref('')
 
@@ -54,16 +51,8 @@ onBeforeMount(() => {
       <v-card-title>{{ $t(`dialogs.tag.title.${initialTag ? 'rename' : 'create'}`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
-          <v-text-field v-if="initialTag"
-            :model-value="initialTag"
-            disabled
-            :label="$t('dialogs.tag.oldName')" />
-          <v-text-field
-                v-model="tagName"
-                :rules="rules"
-                autofocus
-                :hint="$t('dialogs.tag.hint')"
-                :label="$t('dialogs.tag.name')" />
+          <v-text-field v-if="initialTag" :model-value="initialTag" disabled :label="$t('dialogs.tag.oldName')" />
+          <v-text-field v-model="tagName" :rules="rules" autofocus :hint="$t('dialogs.tag.hint')" :label="$t('dialogs.tag.name')" />
           <v-scroll-x-transition>
             <div class="text-warning" v-if="!!initialTag && initialTag !== tagName">
               <v-icon>mdi-alert</v-icon>
@@ -81,6 +70,4 @@ onBeforeMount(() => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

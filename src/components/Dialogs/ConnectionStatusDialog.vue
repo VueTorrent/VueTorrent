@@ -4,8 +4,8 @@ import { useLogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -14,7 +14,7 @@ const maindataStore = useMaindataStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const connectionStatusColor = computed(() => {
@@ -59,6 +59,4 @@ const close = () => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

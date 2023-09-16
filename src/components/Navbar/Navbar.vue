@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
 import { ref } from 'vue'

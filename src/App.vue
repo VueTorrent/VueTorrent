@@ -8,7 +8,6 @@ import { useAppStore, useAuthStore, useMaindataStore, usePreferenceStore, useVue
 
 import Navbar from '@/components/Navbar/Navbar.vue'
 
-
 const router = useRouter()
 const route = useRoute()
 
@@ -31,7 +30,7 @@ const checkAuthentication = async () => {
 }
 
 const blockContextMenu = () => {
-  document.addEventListener('contextmenu', (event) => {
+  document.addEventListener('contextmenu', event => {
     if (!event.target) return
 
     const targetNode = event.target as Element
@@ -61,7 +60,7 @@ onBeforeMount(() => {
 
 watch(
   () => authStore.isAuthenticated,
-  async (isAuthenticated) => {
+  async isAuthenticated => {
     if (isAuthenticated) {
       appStore.pushInterval(() => maindataStore.updateMaindata(), vuetorrentStore.refreshInterval)
       await maindataStore.updateMaindata()
@@ -87,5 +86,4 @@ watch(
   </v-app>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

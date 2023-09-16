@@ -26,7 +26,7 @@ const logTypeOptions = ref([
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
 const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
-const sortBy = ref<{key: string, order?: 'asc' | 'desc'}[]>([{key: 'id', order: 'desc'}])
+const sortBy = ref<{ key: string; order?: 'asc' | 'desc' }[]>([{ key: 'id', order: 'desc' }])
 const timer = ref<NodeJS.Timeout>()
 
 const logs = computed(() => logStore.logs)
@@ -86,21 +86,22 @@ onUnmounted(() => {
     </v-row>
 
     <v-list>
-      <v-data-table :headers="headers"
-                    :items="filteredLogs"
-                    :footer-props="{ itemsPerPageOptions: [50, 100, 250, 500, 1000, -1] }"
-                    :items-per-page="50"
-                    item-value="id"
-                    multi-sort
-                    :sort-by="sortBy">
+      <v-data-table
+        :headers="headers"
+        :items="filteredLogs"
+        :footer-props="{ itemsPerPageOptions: [50, 100, 250, 500, 1000, -1] }"
+        :items-per-page="50"
+        item-value="id"
+        multi-sort
+        :sort-by="sortBy"
+      >
         <template v-slot:top>
           <div class="mx-4 mb-5">
             <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" multiple chips>
               <template v-slot:prepend-item>
                 <v-list-item :title="$t('common.selectAll')" @click="toggleSelectAll">
                   <template v-slot:prepend>
-                    <v-checkbox-btn :indeterminate="someTypesSelected && !allTypesSelected"
-                                    :model-value="someTypesSelected" />
+                    <v-checkbox-btn :indeterminate="someTypesSelected && !allTypesSelected" :model-value="someTypesSelected" />
                   </template>
                 </v-list-item>
                 <v-divider />

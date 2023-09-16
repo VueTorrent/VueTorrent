@@ -13,25 +13,21 @@ const isCategoryFilterActive = computed(() => dashboardStore.sortOptions.categor
 const isTagFilterActive = computed(() => dashboardStore.sortOptions.tagFilter !== null)
 const isTrackerFilterActive = computed(() => dashboardStore.sortOptions.trackerFilter !== null)
 
-const filterCount = computed(() => (
-  Number(isTextFilterActive.value) +
-  Number(isStatusFilterActive.value) +
-  Number(isCategoryFilterActive.value) +
-  Number(isTagFilterActive.value) +
-  Number(isTrackerFilterActive.value)
-))
+const filterCount = computed(
+  () =>
+    Number(isTextFilterActive.value) +
+    Number(isStatusFilterActive.value) +
+    Number(isCategoryFilterActive.value) +
+    Number(isTagFilterActive.value) +
+    Number(isTrackerFilterActive.value)
+)
 </script>
 
 <template>
-  <v-menu open-on-click
-          open-on-hover open-delay="0" close-delay="0">
-    <template v-slot:activator="{props}">
+  <v-menu open-on-click open-on-hover open-delay="0" close-delay="0">
+    <template v-slot:activator="{ props }">
       <v-slide-x-transition>
-        <v-chip v-if="filterCount > 0"
-                v-bind="props"
-                class="ml-6"
-                color="primary"
-                variant="elevated">
+        <v-chip v-if="filterCount > 0" v-bind="props" class="ml-6" color="primary" variant="elevated">
           {{ t('navbar.top.active_filters.menu_label', filterCount) }}
         </v-chip>
       </v-slide-x-transition>
@@ -46,19 +42,13 @@ const filterCount = computed(() => (
       </v-chip>
       <v-chip v-if="isCategoryFilterActive" variant="elevated" color="category">
         {{
-          t('navbar.top.active_filters.category',
-            { value: dashboardStore.sortOptions.categoryFilter === ''
-                ? t('navbar.side.filters.uncategorized')
-                : dashboardStore.sortOptions.categoryFilter })
+          t('navbar.top.active_filters.category', {
+            value: dashboardStore.sortOptions.categoryFilter === '' ? t('navbar.side.filters.uncategorized') : dashboardStore.sortOptions.categoryFilter
+          })
         }}
       </v-chip>
       <v-chip v-if="isTagFilterActive" variant="elevated" color="tag">
-        {{
-          t('navbar.top.active_filters.tag',
-            { value: dashboardStore.sortOptions.tagFilter === ''
-                ? t('navbar.side.filters.untagged')
-                : dashboardStore.sortOptions.tagFilter })
-        }}
+        {{ t('navbar.top.active_filters.tag', { value: dashboardStore.sortOptions.tagFilter === '' ? t('navbar.side.filters.untagged') : dashboardStore.sortOptions.tagFilter }) }}
       </v-chip>
       <v-chip v-if="isTrackerFilterActive" variant="elevated" color="tracker">
         {{ t('navbar.top.active_filters.tracker', { value: dashboardStore.sortOptions.trackerFilter }) }}
@@ -69,6 +59,6 @@ const filterCount = computed(() => (
 
 <style scoped>
 .gap {
-  gap: 8px
+  gap: 8px;
 }
 </style>

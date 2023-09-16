@@ -6,8 +6,8 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
   initialCategory?: Category
 }>()
 const emit = defineEmits(['update:modelValue'])
@@ -17,14 +17,12 @@ const maindataStore = useMaindataStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
-const nameRules = [
-  (v: string) => !!v || t('dialogs.category.nameRequired')
-]
+const nameRules = [(v: string) => !!v || t('dialogs.category.nameRequired')]
 
 const formData = reactive<Category>({
   name: '',
@@ -59,19 +57,9 @@ onBeforeMount(() => {
       <v-card-title>{{ $t(`dialogs.category.title.${initialCategory ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
-          <v-text-field v-if="!!initialCategory"
-                        :model-value="initialCategory.name"
-                        disabled
-                        :label="$t('dialogs.category.oldName')" />
-          <v-text-field
-            v-model="formData.name"
-            :rules="nameRules"
-            :autofocus="!initialCategory"
-            :label="$t('dialogs.category.name')" />
-          <v-text-field
-            v-model="formData.savePath"
-            :autofocus="!!initialCategory"
-            :label="$t('dialogs.category.savePath')" />
+          <v-text-field v-if="!!initialCategory" :model-value="initialCategory.name" disabled :label="$t('dialogs.category.oldName')" />
+          <v-text-field v-model="formData.name" :rules="nameRules" :autofocus="!initialCategory" :label="$t('dialogs.category.name')" />
+          <v-text-field v-model="formData.savePath" :autofocus="!!initialCategory" :label="$t('dialogs.category.savePath')" />
           <v-scroll-x-transition>
             <div class="text-warning" v-if="!!initialCategory && initialCategory.name !== formData.name">
               <v-icon>mdi-alert</v-icon>
@@ -89,6 +77,4 @@ onBeforeMount(() => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

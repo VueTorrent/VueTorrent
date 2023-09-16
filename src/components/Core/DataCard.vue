@@ -2,7 +2,7 @@
 import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 
-defineProps<{title: string, color: string, value: number}>()
+defineProps<{ title: string; color: string; value: number }>()
 
 const vueTorrentStore = useVueTorrentStore()
 </script>
@@ -20,6 +20,4 @@ const vueTorrentStore = useVueTorrentStore()
   </v-sheet>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

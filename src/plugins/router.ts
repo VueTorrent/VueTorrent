@@ -3,10 +3,9 @@ import { routes } from '@/pages'
 
 import { useAuthStore } from '@/stores'
 
-
 const router = createRouter({
   history: createWebHashHistory(),
-  routes,
+  routes
 })
 
 router.beforeResolve((to, _, next) => {

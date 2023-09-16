@@ -5,7 +5,6 @@ import { usePreferenceStore } from '@/stores'
 import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
 const { t } = useI18n()
@@ -83,7 +82,7 @@ onBeforeMount(async () => {
 
 watch(
   () => isExportDirEnabled,
-  (newValue) => {
+  newValue => {
     if (!newValue) {
       preferenceStore.preferences!.export_dir = ''
     }
@@ -91,7 +90,7 @@ watch(
 )
 watch(
   () => isExportDirFinEnabled,
-  (newValue) => {
+  newValue => {
     if (!newValue) {
       preferenceStore.preferences!.export_dir_fin = ''
     }
@@ -148,35 +147,21 @@ const closeDeleteDialog = async () => {
     <v-list-subheader>{{ t('settings.downloads.whenAddTorrent.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.torrent_content_layout"
-                hide-details
-                :items="contentLayoutOptions"
-                :label="t('constants.contentLayout.title')" />
+      <v-select v-model="preferenceStore.preferences!.torrent_content_layout" hide-details :items="contentLayoutOptions" :label="t('constants.contentLayout.title')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled"
-                  hide-details
-                  :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
+      <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
-      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition"
-                hide-details
-                :items="stopConditionOptions"
-                :label="t('constants.stopCondition.title')" />
+      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode"
-                  hide-details
-                  :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
+      <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode" hide-details :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
     </v-list-item>
 
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.preallocate_all"
-                  hide-details
-                  :label="t('settings.downloads.publicSettings.preAllocateDisk')" />
+      <v-checkbox v-model="preferenceStore.preferences!.preallocate_all" hide-details :label="t('settings.downloads.publicSettings.preAllocateDisk')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext"
-                  hide-details
-                  :label="t('settings.downloads.publicSettings.appendQBExtension')" />
+      <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext" hide-details :label="t('settings.downloads.publicSettings.appendQBExtension')" />
     </v-list-item>
 
     <v-divider />
@@ -185,64 +170,76 @@ const closeDeleteDialog = async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12">
-          <v-select v-model="preferenceStore.preferences!.auto_tmm_enabled"
-                    :items="defaultTMMOptions"
-                    hide-details
-                    :label="t('settings.downloads.saveManagement.autoTMMEnabled')" />
+          <v-select
+            v-model="preferenceStore.preferences!.auto_tmm_enabled"
+            :items="defaultTMMOptions"
+            hide-details
+            :label="t('settings.downloads.saveManagement.autoTMMEnabled')"
+          />
         </v-col>
 
         <v-col cols="12" md="4">
-          <v-select v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
-                    :items="paramChangedTMMOptions"
-                    hide-details
-                    :label="t('settings.downloads.saveManagement.torrentChangedTMM')" />
+          <v-select
+            v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
+            :items="paramChangedTMMOptions"
+            hide-details
+            :label="t('settings.downloads.saveManagement.torrentChangedTMM')"
+          />
         </v-col>
         <v-col cols="12" md="4">
-          <v-select v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
-                    :items="paramChangedTMMOptions"
-                    hide-details
-                    :label="t('settings.downloads.saveManagement.savePathChangedTMM')" />
+          <v-select
+            v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
+            :items="paramChangedTMMOptions"
+            hide-details
+            :label="t('settings.downloads.saveManagement.savePathChangedTMM')"
+          />
         </v-col>
         <v-col cols="12" md="4">
-          <v-select v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
-                    :items="paramChangedTMMOptions"
-                    hide-details
-                    :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
+          <v-select
+            v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
+            :items="paramChangedTMMOptions"
+            hide-details
+            :label="t('settings.downloads.saveManagement.categoryChangedTMM')"
+          />
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="preferenceStore.preferences!.save_path"
-                        hide-details
-                        :label="t('settings.downloads.saveManagement.defaultSavePath')" />
+          <v-text-field v-model="preferenceStore.preferences!.save_path" hide-details :label="t('settings.downloads.saveManagement.defaultSavePath')" />
         </v-col>
 
         <v-col cols="12">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="preferenceStore.preferences!.temp_path_enabled" /></span>
-            <v-text-field v-model="preferenceStore.preferences!.temp_path"
-                          :disabled="!preferenceStore.preferences!.temp_path_enabled"
-                          hide-details
-                          :label="t('settings.downloads.saveManagement.keepIncomplete')" />
+            <v-text-field
+              v-model="preferenceStore.preferences!.temp_path"
+              :disabled="!preferenceStore.preferences!.temp_path_enabled"
+              hide-details
+              :label="t('settings.downloads.saveManagement.keepIncomplete')"
+            />
           </div>
         </v-col>
 
         <v-col cols="12">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="isExportDirEnabled" /></span>
-            <v-text-field v-model="preferenceStore.preferences!.export_dir"
-                          :disabled="!isExportDirEnabled"
-                          hide-details
-                          :label="t('settings.downloads.saveManagement.exportDir')" />
+            <v-text-field
+              v-model="preferenceStore.preferences!.export_dir"
+              :disabled="!isExportDirEnabled"
+              hide-details
+              :label="t('settings.downloads.saveManagement.exportDir')"
+            />
           </div>
         </v-col>
 
         <v-col cols="12">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="isExportDirFinEnabled" /></span>
-            <v-text-field v-model="preferenceStore.preferences!.export_dir_fin"
-                          :disabled="!isExportDirFinEnabled"
-                          hide-details
-                          :label="t('settings.downloads.saveManagement.exportDirFinished')" />
+            <v-text-field
+              v-model="preferenceStore.preferences!.export_dir_fin"
+              :disabled="!isExportDirFinEnabled"
+              hide-details
+              :label="t('settings.downloads.saveManagement.exportDirFinished')"
+            />
           </div>
         </v-col>
       </v-row>
@@ -271,15 +268,15 @@ const closeDeleteDialog = async () => {
                 <v-container>
                   <v-row>
                     <v-col cols="12">
-                      <v-text-field v-model="monitoredFoldersEditedItem.monitoredFolderPath"
-                                    :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')" />
+                      <v-text-field v-model="monitoredFoldersEditedItem.monitoredFolderPath" :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')" />
                     </v-col>
                     <v-col cols="12">
                       <v-select
                         v-model="monitoredFoldersEditedItem.saveType"
                         hide-details
                         :items="monitoredFoldersMonitorTypeOptions"
-                        :label="t('settings.downloads.monitoredFolders.saveType')" />
+                        :label="t('settings.downloads.monitoredFolders.saveType')"
+                      />
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
@@ -327,70 +324,88 @@ const closeDeleteDialog = async () => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.excluded_file_names_enabled"
-                  hide-details
-                  :label="t('settings.downloads.excludedFileNames.label')" />
+      <v-checkbox v-model="preferenceStore.preferences!.excluded_file_names_enabled" hide-details :label="t('settings.downloads.excludedFileNames.label')" />
     </v-list-item>
     <v-list-item>
-      <v-textarea v-model="preferenceStore.preferences!.excluded_file_names"
-                  :disabled="!preferenceStore.preferences!.excluded_file_names_enabled"
-                  clearable
-                  auto-grow
-                  persistent-hint
-                  :hint="t('settings.downloads.excludedFileNames.hint')" />
+      <v-textarea
+        v-model="preferenceStore.preferences!.excluded_file_names"
+        :disabled="!preferenceStore.preferences!.excluded_file_names_enabled"
+        clearable
+        auto-grow
+        persistent-hint
+        :hint="t('settings.downloads.excludedFileNames.hint')"
+      />
     </v-list-item>
 
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_enabled"
-                  hide-details
-                  :label="t('settings.downloads.mailNotification.enabled')" />
+      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_enabled" hide-details :label="t('settings.downloads.mailNotification.enabled')" />
     </v-list-item>
     <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.mail_notification_sender"
-                    :disabled="!preferenceStore.preferences!.mail_notification_enabled"
-                    hide-details
-                    :label="t('settings.downloads.mailNotification.from')" />
+      <v-text-field
+        v-model="preferenceStore.preferences!.mail_notification_sender"
+        :disabled="!preferenceStore.preferences!.mail_notification_enabled"
+        hide-details
+        :label="t('settings.downloads.mailNotification.from')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.mail_notification_email"
-                    :disabled="!preferenceStore.preferences!.mail_notification_enabled"
-                    hide-details
-                    :label="t('settings.downloads.mailNotification.to')" />
+      <v-text-field
+        v-model="preferenceStore.preferences!.mail_notification_email"
+        :disabled="!preferenceStore.preferences!.mail_notification_enabled"
+        hide-details
+        :label="t('settings.downloads.mailNotification.to')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-text-field v-model="preferenceStore.preferences!.mail_notification_smtp"
-                    :disabled="!preferenceStore.preferences!.mail_notification_enabled"
-                    hide-details
-                    :label="t('settings.downloads.mailNotification.smtpServer')" />
+      <v-text-field
+        v-model="preferenceStore.preferences!.mail_notification_smtp"
+        :disabled="!preferenceStore.preferences!.mail_notification_enabled"
+        hide-details
+        :label="t('settings.downloads.mailNotification.smtpServer')"
+      />
     </v-list-item>
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_ssl_enabled"
-                  :disabled="!preferenceStore.preferences!.mail_notification_enabled"
-                  hide-details
-                  :label="t('settings.downloads.mailNotification.sslEnabled')" />
+      <v-checkbox
+        v-model="preferenceStore.preferences!.mail_notification_ssl_enabled"
+        :disabled="!preferenceStore.preferences!.mail_notification_enabled"
+        hide-details
+        :label="t('settings.downloads.mailNotification.sslEnabled')"
+      />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_auth_enabled"
-                  :disabled="!preferenceStore.preferences!.mail_notification_enabled"
-                  hide-details
-                  :label="t('settings.downloads.mailNotification.authEnabled')" />
+      <v-checkbox
+        v-model="preferenceStore.preferences!.mail_notification_auth_enabled"
+        :disabled="!preferenceStore.preferences!.mail_notification_enabled"
+        hide-details
+        :label="t('settings.downloads.mailNotification.authEnabled')"
+      />
 
       <v-row>
         <v-col>
-          <v-text-field v-model="preferenceStore.preferences!.mail_notification_username"
-                        :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
-                        hide-details
-                        :label="t('settings.downloads.mailNotification.username')" />
-          <v-text-field v-model="preferenceStore.preferences!.mail_notification_password"
-                        :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
-                        hide-details
-                        :label="t('settings.downloads.mailNotification.password')"
-                        :type="showPassword ? 'text' : 'password'"
-                        :append-icon="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled ? '' : showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                        @click:append="showPassword = !showPassword" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.mail_notification_username"
+            :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
+            hide-details
+            :label="t('settings.downloads.mailNotification.username')"
+          />
+          <v-text-field
+            v-model="preferenceStore.preferences!.mail_notification_password"
+            :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
+            hide-details
+            :label="t('settings.downloads.mailNotification.password')"
+            :type="showPassword ? 'text' : 'password'"
+            :append-icon="
+              !preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled
+                ? ''
+                : showPassword
+                ? 'mdi-eye'
+                : 'mdi-eye-off'
+            "
+            @click:append="showPassword = !showPassword"
+          />
         </v-col>
       </v-row>
     </v-list-item>
@@ -401,20 +416,20 @@ const closeDeleteDialog = async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12" md="6">
-          <v-checkbox v-model="preferenceStore.preferences!.autorun_on_torrent_added_enabled"
-                      hide-details
-                      :label="t('settings.downloads.runExternalProgram.onAddedEnabled')" />
-          <v-text-field v-model="preferenceStore.preferences!.autorun_on_torrent_added_program"
-                        :disabled="!preferenceStore.preferences!.autorun_on_torrent_added_enabled"
-                        hide-details
-                        :label="t('settings.downloads.runExternalProgram.onAddedLabel')" />
-          <v-checkbox v-model="preferenceStore.preferences!.autorun_enabled"
-                      hide-details
-                      :label="t('settings.downloads.runExternalProgram.onFinishedEnabled')" />
-          <v-text-field v-model="preferenceStore.preferences!.autorun_program"
-                        :disabled="!preferenceStore.preferences!.autorun_enabled"
-                        hide-details
-                        :label="t('settings.downloads.runExternalProgram.onFinishedLabel')" />
+          <v-checkbox v-model="preferenceStore.preferences!.autorun_on_torrent_added_enabled" hide-details :label="t('settings.downloads.runExternalProgram.onAddedEnabled')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.autorun_on_torrent_added_program"
+            :disabled="!preferenceStore.preferences!.autorun_on_torrent_added_enabled"
+            hide-details
+            :label="t('settings.downloads.runExternalProgram.onAddedLabel')"
+          />
+          <v-checkbox v-model="preferenceStore.preferences!.autorun_enabled" hide-details :label="t('settings.downloads.runExternalProgram.onFinishedEnabled')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.autorun_program"
+            :disabled="!preferenceStore.preferences!.autorun_enabled"
+            hide-details
+            :label="t('settings.downloads.runExternalProgram.onFinishedLabel')"
+          />
         </v-col>
         <v-col cols="12" md="6">
           <v-card elevation="2" variant="outlined">
@@ -443,6 +458,4 @@ const closeDeleteDialog = async () => {
   </v-list>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

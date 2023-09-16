@@ -21,12 +21,8 @@ const loginForm = reactive<LoginPayload>({
 const rulesOk = ref(false)
 
 const rules = {
-  username: [
-    (v: string) => !!v || t('login.rules.username_required')
-  ],
-  password: [
-    (v: string) => !!v || t('login.rules.password_required')
-  ]
+  username: [(v: string) => !!v || t('login.rules.username_required')],
+  password: [(v: string) => !!v || t('login.rules.password_required')]
 }
 
 const login = async () => {
@@ -63,21 +59,13 @@ onMounted(() => {
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field v-model="loginForm.username"
-                        :label="t('login.username')"
-                        type="text"
-                        :rules="rules.username"
-                        @keydown.enter.prevent="login">
+          <v-text-field v-model="loginForm.username" :label="t('login.username')" type="text" :rules="rules.username" @keydown.enter.prevent="login">
             <template v-slot:prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>
           </v-text-field>
 
-          <PasswordField v-model="loginForm.password"
-                         :label="t('login.password')"
-                         :rules="rules.password"
-                         prepend-icon="mdi-lock"
-                         @keydown.enter.prevent="login" />
+          <PasswordField v-model="loginForm.password" :label="t('login.password')" :rules="rules.password" prepend-icon="mdi-lock" @keydown.enter.prevent="login" />
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -89,6 +77,4 @@ onMounted(() => {
   </v-layout>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

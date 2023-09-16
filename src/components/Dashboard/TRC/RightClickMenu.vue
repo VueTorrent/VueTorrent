@@ -18,7 +18,7 @@ const preferenceStore = usePreferenceStore()
 
 const trcVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
@@ -133,26 +133,22 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Top Prio',
         icon: 'mdi-priority-high',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Increase Prio',
         icon: 'mdi-arrow-up',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Decrease Prio',
         icon: 'mdi-arrow-down',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Bottom Prio',
         icon: 'mdi-priority-low',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
@@ -165,8 +161,7 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     children: maindataStore.tags.map(tag => ({
       text: tag,
       icon: 'mdi-tag',
-      action: () => {
-      }
+      action: () => {}
     }))
   },
   {
@@ -178,8 +173,7 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     children: maindataStore.categories.map(category => ({
       text: category.name,
       icon: 'mdi-label',
-      action: () => {
-      }
+      action: () => {}
     }))
   },
   {
@@ -189,20 +183,17 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Set download limit',
         icon: 'mdi-download',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Set upload limit',
         icon: 'mdi-upload',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Set share limit',
         icon: 'mdi-account-group',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
@@ -213,46 +204,36 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: 'Name',
         icon: 'mdi-alphabetical-variant',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Hash',
         icon: 'mdi-pound',
-        action: () => {
-        }
+        action: () => {}
       },
       {
         text: 'Magnet',
         icon: 'mdi-magnet',
-        action: () => {
-        }
+        action: () => {}
       }
     ]
   },
   {
     text: isMultiple.value ? 'Export torrents' : 'Export torrent',
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
-    action: () => {
-    }
+    action: () => {}
   },
   {
     text: 'Show Info',
     icon: 'mdi-information',
     disabled: isMultiple.value,
-    action: () => {
-    }
+    action: () => {}
   }
 ])
 </script>
 
 <template>
-  <v-menu v-if="trcVisible"
-          v-model="trcVisible"
-          activator="parent"
-          :close-on-content-click="true"
-          transition="slide-y-transition"
-          scroll-strategy="none">
+  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true" transition="slide-y-transition" scroll-strategy="none">
     <v-list>
       <v-list-item>
         <div class="d-flex justify-space-around">
@@ -265,8 +246,7 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
-                     @click="forceResumeTorrents" />
+              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
             </template>
             <span>Force Resume</span>
           </v-tooltip>
@@ -280,12 +260,7 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn color="red"
-                     density="compact"
-                     variant="plain"
-                     icon="mdi-delete-forever"
-                     v-bind="props"
-                     @click="deleteTorrents" />
+              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
             </template>
             <span>Delete</span>
           </v-tooltip>
@@ -295,15 +270,9 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-model="deleteDialogVisible"
-                       disable-activator
-                       :hashes="deleteHashes" />
-  <MoveTorrentDialog v-model="moveDialogVisible"
-                     disable-activator
-                     :hashes="moveHashes" />
-  <RenameTorrentDialog v-model="renameDialogVisible"
-                       disable-activator
-                       :hash="renameHash" />
+  <ConfirmDeleteDialog v-model="deleteDialogVisible" disable-activator :hashes="deleteHashes" />
+  <MoveTorrentDialog v-model="moveDialogVisible" disable-activator :hashes="moveHashes" />
+  <RenameTorrentDialog v-model="renameDialogVisible" disable-activator :hash="renameHash" />
 </template>
 
 <style scoped lang="scss">

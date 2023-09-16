@@ -9,6 +9,4 @@ const maindataStore = useMaindataStore()
   <DataCard title="Free Space" :value="maindataStore.serverState?.free_space_on_disk ?? 0" color="upload" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

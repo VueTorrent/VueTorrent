@@ -7,7 +7,7 @@ import StringCard from '@/components/Core/StringCard.vue'
 const props = defineProps<{ session: boolean }>()
 const maindataStore = useMaindataStore()
 
-const title = computed(() => props.session ? 'Session Stats' : 'Alltime Stats')
+const title = computed(() => (props.session ? 'Session Stats' : 'Alltime Stats'))
 const download = computed(() => (props.session ? maindataStore.serverState?.dl_info_data : maindataStore.serverState?.alltime_dl) ?? 0)
 const upload = computed(() => (props.session ? maindataStore.serverState?.up_info_data : maindataStore.serverState?.alltime_ul) ?? 0)
 const ratio = computed(() => (props.session ? undefined : maindataStore.serverState?.global_ratio) ?? 0)

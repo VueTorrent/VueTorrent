@@ -6,7 +6,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
+const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
@@ -39,12 +39,9 @@ function translateTrackerStatus(status: TrackerStatus): string {
 
 function formatTrackerValue(tracker: Tracker | number) {
   if (typeof tracker === 'number') return tracker === -1 ? 'N/A' : tracker.valueOf()
-  else if (
-    tracker.num_peers === -1 ||
-    tracker.num_seeds === -1 ||
-    tracker.num_leeches === -1
-  ) return 'N/A'
-  else return t('torrentDetail.trackers.table.peersValue', {
+  else if (tracker.num_peers === -1 || tracker.num_seeds === -1 || tracker.num_leeches === -1) return 'N/A'
+  else
+    return t('torrentDetail.trackers.table.peersValue', {
       peers: tracker.num_peers,
       seeds: tracker.num_seeds,
       leeches: tracker.num_leeches
@@ -61,8 +58,7 @@ const removeTrackersDialog = ref(false)
 
 async function updateTrackers() {
   loading.value = true
-  torrentTrackers.value = (await maindataStore.getTorrentTrackers(props.torrent.hash))
-  .map(tracker => ({ ...tracker, isSelectable: tracker.tier !== -1 }))
+  torrentTrackers.value = (await maindataStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({ ...tracker, isSelectable: tracker.tier !== -1 }))
   loading.value = false
 }
 
@@ -112,16 +108,18 @@ watch(() => props.isActive, setupTimer)
 </script>
 
 <template>
-  <v-data-table v-model="selectedTrackers"
-                :headers="headers"
-                :items-per-page="-1"
-                item-value="url"
-                item-selectable="isSelectable"
-                select-strategy="all"
-                show-select
-                :loading="loading"
-                :items="torrentTrackers"
-                :sort-by="[{key: 'tier', order: 'asc'}]">
+  <v-data-table
+    v-model="selectedTrackers"
+    :headers="headers"
+    :items-per-page="-1"
+    item-value="url"
+    item-selectable="isSelectable"
+    select-strategy="all"
+    show-select
+    :loading="loading"
+    :items="torrentTrackers"
+    :sort-by="[{ key: 'tier', order: 'asc' }]"
+  >
     <template v-slot:[`item.tier`]="{ item }">
       <span v-if="item.raw.tier === -1">-</span>
       <span v-else>{{ item.raw.tier }}</span>
@@ -138,10 +136,7 @@ watch(() => props.isActive, setupTimer)
       <div :class="['d-flex gap py-5', $vuetify.display.mobile ? 'flex-column' : 'justify-space-evenly']">
         <v-dialog v-model="addTrackersDialog" max-width="750px">
           <template v-slot:activator="{ props }">
-            <v-btn v-bind="props"
-                   variant="flat"
-                   :text="t('torrentDetail.trackers.addTrackers.title')"
-                   color="accent" />
+            <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
           </template>
           <v-card>
             <v-card-title>
@@ -152,9 +147,11 @@ watch(() => props.isActive, setupTimer)
               <v-container>
                 <v-row>
                   <v-col cols="12">
-                    <v-textarea v-model="newTrackers"
-                                :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
-                                :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
+                    <v-textarea
+                      v-model="newTrackers"
+                      :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
+                      :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')"
+                    />
                   </v-col>
                 </v-row>
               </v-container>
@@ -170,11 +167,7 @@ watch(() => props.isActive, setupTimer)
 
         <v-dialog v-model="removeTrackersDialog" max-width="750px">
           <template v-slot:activator="{ props }">
-            <v-btn v-bind="props"
-                   variant="flat"
-                   :disabled="!selectedTrackers.length"
-                   :text="t('torrentDetail.trackers.removeTrackers.title')"
-                   color="error" />
+            <v-btn v-bind="props" variant="flat" :disabled="!selectedTrackers.length" :text="t('torrentDetail.trackers.removeTrackers.title')" color="error" />
           </template>
           <v-card>
             <v-card-title>
@@ -197,11 +190,7 @@ watch(() => props.isActive, setupTimer)
           </v-card>
         </v-dialog>
 
-        <v-btn variant="flat"
-               :disabled="torrentTrackers.length === 3"
-               :text="t('torrentDetail.trackers.reannounce')"
-               color="primary"
-               @click="reannounceTrackers" />
+        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
       </div>
     </template>
   </v-data-table>

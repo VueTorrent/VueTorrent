@@ -2,7 +2,7 @@
 import { Torrent } from '@/types/vuetorrent'
 import dayjs from '@/plugins/dayjs'
 
-defineProps<{ torrent: Torrent, title: string, value: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string }>()
 
 const durationFormat = 'D[d] H[h] m[m] s[s]'
 </script>
@@ -21,6 +21,4 @@ const durationFormat = 'D[d] H[h] m[m] s[s]'
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

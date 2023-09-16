@@ -46,7 +46,7 @@ const titleFilter = computed({
 })
 
 const searchQuery = useSearchQuery(
-  () => rssStore.filters.unread ? unreadArticles.value : articles.value,
+  () => (rssStore.filters.unread ? unreadArticles.value : articles.value),
   () => titleFilter.value,
   (item: RssArticle) => item.title
 )
@@ -107,53 +107,46 @@ onUnmounted(() => {
     </v-row>
 
     <v-list>
-      <v-data-table :headers="headers"
-                    :items="searchQuery.results.value"
-                    :footer-props="{ itemsPerPageOptions: [5, 15, 30, 50, -1] }"
-                    :items-per-page="15"
-                    item-value="id"
-                    multi-sort
-                    :sort-by="[{key: 'parsedDate', order: 'desc'}]">
+      <v-data-table
+        :headers="headers"
+        :items="searchQuery.results.value"
+        :footer-props="{ itemsPerPageOptions: [5, 15, 30, 50, -1] }"
+        :items-per-page="15"
+        item-value="id"
+        multi-sort
+        :sort-by="[{ key: 'parsedDate', order: 'desc' }]"
+      >
         <template v-slot:top>
           <div class="mx-4 mb-5">
-            <v-text-field v-model="titleFilter"
-                          clearable
-                          hide-details
-                          :label="$t('rssArticles.filters.title')" />
+            <v-text-field v-model="titleFilter" clearable hide-details :label="$t('rssArticles.filters.title')" />
             <v-row>
               <v-col>
-                <v-checkbox v-model="rssStore.filters.unread"
-                            hide-details
-                            :label="$t('rssArticles.filters.unread')" />
+                <v-checkbox v-model="rssStore.filters.unread" hide-details :label="$t('rssArticles.filters.unread')" />
               </v-col>
               <v-spacer />
               <v-col class="d-flex align-center justify-end">
-                <v-btn :text="$t('rssArticles.markAllAsRead')"
-                       color="primary"
-                       @click="markAllAsRead" />
+                <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
               </v-col>
             </v-row>
           </div>
         </template>
         <template v-slot:[`item.id`]="{ item }">
-          <span :class="{'rss-read': item.raw.isRead}">{{ item.raw.id }}</span>
+          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.id }}</span>
         </template>
         <template v-slot:[`item.title`]="{ item }">
-          <a :class="{'rss-read': item.raw.isRead}"
-             :href="item.raw.link"
-             target="_blank">{{ item.raw.title }}</a>
+          <a :class="{ 'rss-read': item.raw.isRead }" :href="item.raw.link" target="_blank">{{ item.raw.title }}</a>
         </template>
         <template v-slot:[`item.category`]="{ item }">
-          <span :class="{'rss-read': item.raw.isRead}">{{ item.raw.category }}</span>
+          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.category }}</span>
         </template>
         <template v-slot:[`item.author`]="{ item }">
-          <span :class="{'rss-read': item.raw.isRead}">{{ item.raw.author }}</span>
+          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.author }}</span>
         </template>
         <template #[`item.parsedDate`]="{ item }">
-          <span :class="{'rss-read': item.raw.isRead}">{{ item.raw.parsedDate.toLocaleString() }}</span>
+          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.parsedDate.toLocaleString() }}</span>
         </template>
         <template v-slot:[`item.feedName`]="{ item }">
-          <span :class="{'rss-read': item.raw.isRead}">{{ item.raw.feedName }}</span>
+          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.feedName }}</span>
         </template>
         <template #[`item.actions`]="{ item }">
           <span class="rss-actions">

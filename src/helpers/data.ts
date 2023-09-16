@@ -1,4 +1,4 @@
-import {toPrecision} from './number'
+import { toPrecision } from './number'
 
 export function formatDataValue(data: number, isBinary: boolean) {
   const base = isBinary ? 1024 : 1000

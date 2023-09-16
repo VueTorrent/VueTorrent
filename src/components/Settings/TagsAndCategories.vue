@@ -27,12 +27,12 @@ onBeforeMount(async () => {
   await maindataStore.fetchTags()
 })
 
-watch(tagDialog, (value) => {
+watch(tagDialog, value => {
   if (!value) {
     maindataStore.fetchTags()
   }
 })
-watch(categoryDialog, (value) => {
+watch(categoryDialog, value => {
   if (!value) {
     maindataStore.fetchCategories()
   }
@@ -53,10 +53,7 @@ watch(categoryDialog, (value) => {
             <v-icon>mdi-pencil</v-icon>
             <TagFormDialog v-model="tagEditDialog" :initial-tag="tag" />
           </v-btn>
-          <v-btn icon="mdi-delete"
-                 color="red"
-                 variant="plain"
-                 @click="deleteTag(tag)" />
+          <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteTag(tag)" />
         </div>
       </v-sheet>
 
@@ -64,9 +61,7 @@ watch(categoryDialog, (value) => {
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent"
-             block
-             @click.prevent>
+      <v-btn color="accent" block @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewTag') }}
         <TagFormDialog v-model="tagDialog" />
       </v-btn>
@@ -80,16 +75,11 @@ watch(categoryDialog, (value) => {
         <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
         <v-spacer />
         <div class="d-flex">
-          <v-btn icon
-                 variant="plain">
+          <v-btn icon variant="plain">
             <v-icon>mdi-pencil</v-icon>
-            <CategoryFormDialog v-model="categoryEditDialog"
-                                :initial-category="category" />
+            <CategoryFormDialog v-model="categoryEditDialog" :initial-category="category" />
           </v-btn>
-          <v-btn icon="mdi-delete"
-                 color="red"
-                 variant="plain"
-                 @click="deleteCategory(category)" />
+          <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteCategory(category)" />
         </div>
       </v-sheet>
 
@@ -97,9 +87,7 @@ watch(categoryDialog, (value) => {
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent"
-             block
-             @click.prevent>
+      <v-btn color="accent" block @click.prevent>
         {{ $t('settings.tagsAndCategories.createNewCategory') }}
         <CategoryFormDialog v-model="categoryDialog" />
       </v-btn>

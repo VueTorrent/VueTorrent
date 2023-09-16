@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 
 defineProps<{
-  hideIcon?: boolean,
+  hideIcon?: boolean
   prependIcon?: string
 }>()
 
@@ -12,20 +12,16 @@ function toggleShow() {
   showPassword.value = !showPassword.value
 }
 
-const type = computed(() => showPassword.value ? 'text' : 'password')
-const icon = computed(() => showPassword.value ? 'mdi-eye' : 'mdi-eye-off')
+const type = computed(() => (showPassword.value ? 'text' : 'password'))
+const icon = computed(() => (showPassword.value ? 'mdi-eye' : 'mdi-eye-off'))
 </script>
 
 <template>
-  <v-text-field :type="type"
-                :append-inner-icon="hideIcon ? '' : icon"
-                @click:append-inner="toggleShow">
+  <v-text-field :type="type" :append-inner-icon="hideIcon ? '' : icon" @click:append-inner="toggleShow">
     <template v-slot:prepend v-if="prependIcon">
       <v-icon color="accent" :icon="prependIcon" />
     </template>
   </v-text-field>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,12 +1,12 @@
-import {ref} from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import {qbit} from '@/services'
+import { qbit } from '@/services'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)
 
   async function login(username: string, password: string) {
-    const response = await qbit.login({username, password})
+    const response = await qbit.login({ username, password })
     setAuthStatus(response === 'Ok.')
   }
 

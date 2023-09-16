@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent, title: string, value: string, total: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string; total: string }>()
 </script>
 
 <template>
@@ -11,13 +11,9 @@ defineProps<{ torrent: Torrent, title: string, value: string, total: string }>()
     </div>
     <div>
       {{ torrent[value] }}
-      <span class="text-caption text-grey">
-        / {{ torrent[total] }}
-      </span>
+      <span class="text-caption text-grey"> / {{ torrent[total] }} </span>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

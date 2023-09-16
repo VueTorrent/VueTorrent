@@ -6,8 +6,8 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -24,7 +24,7 @@ const headers = [
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 const loading = ref(false)
 
@@ -85,8 +85,7 @@ onBeforeMount(async () => {
 
         <v-dialog v-model="installDialogVisible">
           <template v-slot:activator="{ props }">
-            <v-btn v-bind="props"
-                   color="primary">
+            <v-btn v-bind="props" color="primary">
               {{ $t('dialogs.pluginManager.install.activator') }}
             </v-btn>
           </template>
@@ -94,9 +93,7 @@ onBeforeMount(async () => {
           <v-card :title="$t('dialogs.pluginManager.install.title')">
             <v-card-text>
               <v-form v-model="isInstallFormValid" @submit.prevent>
-                <v-text-field v-model="installInput"
-                              autofocus
-                              :label="$t('dialogs.pluginManager.install.label')" />
+                <v-text-field v-model="installInput" autofocus :label="$t('dialogs.pluginManager.install.label')" />
               </v-form>
             </v-card-text>
             <v-card-actions>
@@ -108,12 +105,7 @@ onBeforeMount(async () => {
         </v-dialog>
       </v-card-title>
       <v-card-text>
-        <v-data-table
-          :headers="headers"
-          items-per-page="-1"
-          :items="searchEngineStore.searchPlugins"
-          :sort-by="[{key: 'fullName', order: 'asc'}]"
-          :loading="loading">
+        <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
           <template v-slot:item.enabled="{ item }">
             <v-checkbox-btn :model-value="item.raw.enabled" @click="onTogglePlugin(item.raw)" />
           </template>
@@ -131,6 +123,4 @@ onBeforeMount(async () => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

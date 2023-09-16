@@ -2,14 +2,7 @@
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { PieceState, Priority, TorrentState } from '@/constants/qbit'
-import {
-  extractHostname, formatData,
-  formatDataUnit,
-  formatDataValue,
-  formatPercent, formatSpeed,
-  splitByUrl,
-  stringContainsUrl
-} from '@/helpers'
+import { extractHostname, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, splitByUrl, stringContainsUrl } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
@@ -17,7 +10,7 @@ import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
 
-const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
+const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const theme = useTheme()
@@ -85,10 +78,8 @@ async function renderTorrentPieceStates() {
     const status = pieces[i]
     let newColor = ''
 
-    if (status === PieceState.DOWNLOADING)
-      newColor = theme.current.value.colors['torrent-downloading']
-    else if (status === PieceState.DOWNLOADED)
-      newColor = theme.current.value.colors['torrent-pausedUP']
+    if (status === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
+    else if (status === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
     else if (status === PieceState.MISSING) {
       const selected_piece_ranges = files.value.filter(file => file.priority !== Priority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
       for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
@@ -124,13 +115,16 @@ async function copyHash() {
   await navigator.clipboard.writeText(props.torrent.hash)
 }
 
-watch(() => props.torrent, async () => {
-  await getTorrentProperties()
-  await updateTorrentFiles()
-  if (shouldRefreshPieceState.value) {
-    await renderTorrentPieceStates()
+watch(
+  () => props.torrent,
+  async () => {
+    await getTorrentProperties()
+    await updateTorrentFiles()
+    if (shouldRefreshPieceState.value) {
+      await renderTorrentPieceStates()
+    }
   }
-})
+)
 </script>
 
 <template>
@@ -153,11 +147,7 @@ watch(() => props.torrent, async () => {
         <v-col cols="12" md="6">
           <v-row>
             <v-col cols="4" md="4">
-              <v-progress-circular :color="torrentStateColor"
-                                   :indeterminate="isFetchingMetadata"
-                                   :size="100"
-                                   :model-value="torrent?.progress * 100 ?? 0"
-                                   :width="15">
+              <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100" :model-value="torrent?.progress * 100 ?? 0" :width="15">
                 <template v-slot>
                   <span v-if="isFetchingMetadata">{{ $t('torrentDetail.overview.fetchingMetadata') }}</span>
                   <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" size="x-large" />
@@ -182,11 +172,13 @@ watch(() => props.torrent, async () => {
 
               <div v-if="torrentPieceCount > 0">
                 <span>
-                  {{ t('torrentDetail.overview.pieceCount', {
-                  owned: torrentPieceOwned,
-                  total: torrentPieceCount,
-                  pieceSize
-                }) }}
+                  {{
+                    t('torrentDetail.overview.pieceCount', {
+                      owned: torrentPieceOwned,
+                      total: torrentPieceCount,
+                      pieceSize
+                    })
+                  }}
                 </span>
               </div>
 
@@ -204,27 +196,18 @@ watch(() => props.torrent, async () => {
             <v-col cols="6">
               <div>{{ $t('torrent.properties.save_path') }}:</div>
               <div>{{ torrent.savePath }}</div>
-              <v-btn icon
-                     color="accent"
-                     size="x-small">
+              <v-btn icon color="accent" size="x-small">
                 <v-icon icon="mdi-pencil" color="black" />
-                <MoveTorrentDialog v-model="moveTorrentDialogVisible"
-                                   :hashes="[torrent.hash]" />
+                <MoveTorrentDialog v-model="moveTorrentDialogVisible" :hashes="[torrent.hash]" />
               </v-btn>
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
               <div>{{ selectedFileCount }} / {{ torrentFileCount }}</div>
               <div v-if="selectedFileCount === 1">{{ torrentFileName }}</div>
-              <v-btn v-if="selectedFileCount === 1"
-                     icon
-                     color="accent"
-                     size="x-small">
+              <v-btn v-if="selectedFileCount === 1" icon color="accent" size="x-small">
                 <v-icon icon="mdi-pencil" />
-                <MoveTorrentFileDialog v-model="moveTorrentFileDialogVisible"
-                                       :hash="torrent.hash"
-                                       :is-folder="false"
-                                       :old-name="torrentFileName" />
+                <MoveTorrentFileDialog v-model="moveTorrentFileDialogVisible" :hash="torrent.hash" :is-folder="false" :old-name="torrentFileName" />
               </v-btn>
             </v-col>
           </v-row>
@@ -264,7 +247,8 @@ watch(() => props.torrent, async () => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.selectedFileSize') }}:</div>
-              <div>{{ formatData(torrent.size, vuetorrentStore.useBinarySize) }} /
+              <div>
+                {{ formatData(torrent.size, vuetorrentStore.useBinarySize) }} /
                 {{ formatData(torrent.total_size, vuetorrentStore.useBinarySize) }}
               </div>
             </v-col>

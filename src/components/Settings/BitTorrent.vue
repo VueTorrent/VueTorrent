@@ -4,7 +4,6 @@ import { ref } from 'vue'
 import { usePreferenceStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 
-
 const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
 
@@ -26,35 +25,23 @@ const thenTypes = ref([
     <v-list-subheader>{{ t('settings.bittorrent.privacy.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.dht"
-                  hide-details
-                  :label="t('settings.bittorrent.privacy.enableDHT')" />
+      <v-checkbox v-model="preferenceStore.preferences!.dht" hide-details :label="t('settings.bittorrent.privacy.enableDHT')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.pex"
-                  hide-details
-                  :label="t('settings.bittorrent.privacy.enablePeX')" />
+      <v-checkbox v-model="preferenceStore.preferences!.pex" hide-details :label="t('settings.bittorrent.privacy.enablePeX')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.lsd"
-                  hide-details
-                  :label="t('settings.bittorrent.privacy.enableLPD')" />
+      <v-checkbox v-model="preferenceStore.preferences!.lsd" hide-details :label="t('settings.bittorrent.privacy.enableLPD')" />
     </v-list-item>
 
     <v-list-item>
-      <v-select
-        v-model="preferenceStore.preferences!.encryption"
-        hide-details
-        :items="encyptionModeOptions"
-        :label="t('settings.bittorrent.privacy.encryptionMode')" />
+      <v-select v-model="preferenceStore.preferences!.encryption" hide-details :items="encyptionModeOptions" :label="t('settings.bittorrent.privacy.encryptionMode')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.anonymous_mode"
-                  hide-details
-                  :label="t('settings.bittorrent.privacy.enableAnonymous')" />
+      <v-checkbox v-model="preferenceStore.preferences!.anonymous_mode" hide-details :label="t('settings.bittorrent.privacy.enableAnonymous')" />
       <a href="https://github.com/qbittorrent/qBittorrent/wiki/Anonymous-Mode" target="_blank">
         {{ t('settings.bittorrent.privacy.moreInfo') }}
       </a>
@@ -63,10 +50,7 @@ const thenTypes = ref([
     <v-divider />
 
     <v-list-item class="my-3">
-      <v-text-field v-model="preferenceStore.preferences!.max_active_checking_torrents"
-                    type="number"
-                    hide-details
-                    :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
+      <v-text-field v-model="preferenceStore.preferences!.max_active_checking_torrents" type="number" hide-details :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
     </v-list-item>
 
     <v-divider />
@@ -74,70 +58,81 @@ const thenTypes = ref([
     <v-list-item>
       <v-row>
         <v-col cols="12" class="pb-0">
-          <v-checkbox v-model="preferenceStore.preferences!.queueing_enabled"
-                      hide-details
-                      :label="t('settings.bittorrent.torrentQueueing.subheader')" />
+          <v-checkbox v-model="preferenceStore.preferences!.queueing_enabled" hide-details :label="t('settings.bittorrent.torrentQueueing.subheader')" />
         </v-col>
 
         <v-col cols="12" sm="6" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.max_active_downloads"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.maxActiveDownload')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.max_active_downloads"
+            :disabled="!preferenceStore.preferences!.queueing_enabled"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.maxActiveDownload')"
+          />
         </v-col>
         <v-col cols="12" sm="6" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.max_active_uploads"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.maxActiveUpload')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.max_active_uploads"
+            :disabled="!preferenceStore.preferences!.queueing_enabled"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.maxActiveUpload')"
+          />
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.max_active_torrents"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.maxActiveTorrent')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.max_active_torrents"
+            :disabled="!preferenceStore.preferences!.queueing_enabled"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.maxActiveTorrent')"
+          />
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.dont_count_slow_torrents"
-                  :disabled="!preferenceStore.preferences!.queueing_enabled"
-                  hide-details
-                  :label="t('settings.bittorrent.torrentQueueing.excludeSlowTorrent')" />
+      <v-checkbox
+        v-model="preferenceStore.preferences!.dont_count_slow_torrents"
+        :disabled="!preferenceStore.preferences!.queueing_enabled"
+        hide-details
+        :label="t('settings.bittorrent.torrentQueueing.excludeSlowTorrent')"
+      />
     </v-list-item>
 
     <v-list-item>
       <v-row class="mb-2">
         <v-col cols="12" sm="6" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.downloadRateLimit')"
-                        suffix="kiB/s" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
+            :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.downloadRateLimit')"
+            suffix="kiB/s"
+          />
         </v-col>
         <v-col cols="12" sm="6" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.uploadRateLimit')"
-                        suffix="kiB/s" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
+            :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.uploadRateLimit')"
+            suffix="kiB/s"
+          />
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.slow_torrent_inactive_timer"
-                        :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
-                        type="number"
-                        hide-details
-                        :label="t('settings.bittorrent.torrentQueueing.torrentInactivityTimer')"
-                        :suffix="t('units.seconds')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.slow_torrent_inactive_timer"
+            :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
+            type="number"
+            hide-details
+            :label="t('settings.bittorrent.torrentQueueing.torrentInactivityTimer')"
+            :suffix="t('units.seconds')"
+          />
         </v-col>
       </v-row>
-
     </v-list-item>
 
     <v-divider />
@@ -146,30 +141,25 @@ const thenTypes = ref([
     <v-list-item>
       <v-row>
         <v-col cols="6">
-          <v-checkbox v-model="preferenceStore.preferences!.max_ratio_enabled"
-                      hide-details
-                      :label="t('settings.bittorrent.seedLimits.whenRatioReaches')" />
+          <v-checkbox v-model="preferenceStore.preferences!.max_ratio_enabled" hide-details :label="t('settings.bittorrent.seedLimits.whenRatioReaches')" />
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="preferenceStore.preferences!.max_ratio"
-                        :disabled="!preferenceStore.preferences!.max_ratio_enabled"
-                        type="number"
-                        hide-details />
+          <v-text-field v-model="preferenceStore.preferences!.max_ratio" :disabled="!preferenceStore.preferences!.max_ratio_enabled" type="number" hide-details />
         </v-col>
       </v-row>
     </v-list-item>
     <v-list-item>
       <v-row>
         <v-col cols="6">
-          <v-checkbox v-model="preferenceStore.preferences!.max_seeding_time_enabled"
-                      hide-details
-                      :label="t('settings.bittorrent.seedLimits.whenSeedingTimeReaches')" />
+          <v-checkbox v-model="preferenceStore.preferences!.max_seeding_time_enabled" hide-details :label="t('settings.bittorrent.seedLimits.whenSeedingTimeReaches')" />
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="preferenceStore.preferences!.max_seeding_time"
-                        :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
-                        type="number"
-                        :suffix="t('units.minutes')" />
+          <v-text-field
+            v-model="preferenceStore.preferences!.max_seeding_time"
+            :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
+            type="number"
+            :suffix="t('units.minutes')"
+          />
         </v-col>
       </v-row>
     </v-list-item>
@@ -179,10 +169,12 @@ const thenTypes = ref([
           <v-list-subheader>{{ t('settings.bittorrent.seedLimits.then') }}</v-list-subheader>
         </v-col>
         <v-col>
-          <v-select v-model="preferenceStore.preferences!.max_ratio_act"
-                    :disabled="!preferenceStore.preferences!.max_ratio_enabled && !preferenceStore.preferences!.max_seeding_time_enabled"
-                    hide-details
-                    :items="thenTypes" />
+          <v-select
+            v-model="preferenceStore.preferences!.max_ratio_act"
+            :disabled="!preferenceStore.preferences!.max_ratio_enabled && !preferenceStore.preferences!.max_seeding_time_enabled"
+            hide-details
+            :items="thenTypes"
+          />
         </v-col>
       </v-row>
     </v-list-item>
@@ -190,21 +182,19 @@ const thenTypes = ref([
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.add_trackers_enabled"
-                  hide-details
-                  :label="t('settings.bittorrent.autoAddTrackers')" />
+      <v-checkbox v-model="preferenceStore.preferences!.add_trackers_enabled" hide-details :label="t('settings.bittorrent.autoAddTrackers')" />
     </v-list-item>
     <v-list-item>
-      <v-textarea v-model="preferenceStore.preferences!.add_trackers"
-                  :disabled="!preferenceStore.preferences!.add_trackers_enabled"
-                  auto-grow
-                  clearable
-                  persistent-hint
-                  :hint="t('settings.bittorrent.autoAddTrackersHint')" />
+      <v-textarea
+        v-model="preferenceStore.preferences!.add_trackers"
+        :disabled="!preferenceStore.preferences!.add_trackers_enabled"
+        auto-grow
+        clearable
+        persistent-hint
+        :hint="t('settings.bittorrent.autoAddTrackersHint')"
+      />
     </v-list-item>
   </v-list>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

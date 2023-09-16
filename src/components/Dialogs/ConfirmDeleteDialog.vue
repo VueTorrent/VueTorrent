@@ -5,8 +5,8 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
   hashes: string[]
 }>()
 const emit = defineEmits(['update:modelValue'])
@@ -18,7 +18,7 @@ const vuetorrentStore = useVueTorrentStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const form = ref<VForm>()
@@ -29,7 +29,10 @@ const selection = computed(() => maindataStore.torrents.filter(t => props.hashes
 async function submit() {
   if (!isFormValid.value) return
 
-  await maindataStore.deleteTorrents(selection.value.map(t => t.hash), vuetorrentStore.deleteWithFiles)
+  await maindataStore.deleteTorrents(
+    selection.value.map(t => t.hash),
+    vuetorrentStore.deleteWithFiles
+  )
   dashboardStore.unselectAllTorrents()
 
   close()
@@ -49,9 +52,7 @@ const close = () => {
           <div class="d-flex flex-wrap gap">
             <span class="pa-1 border" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
-          <v-checkbox v-model="vuetorrentStore.deleteWithFiles"
-                      hide-details
-                      :label="$t('dialogs.delete.deleteWithFiles')" />
+          <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
           <v-scroll-x-transition>
             <div class="text-red" v-show="vuetorrentStore.deleteWithFiles">
               <v-icon>mdi-alert</v-icon>

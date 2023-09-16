@@ -3,7 +3,7 @@ import { formatDataUnit, formatDataValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent, title: string, value: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string }>()
 
 const vuetorrentStore = useVueTorrentStore()
 </script>
@@ -22,6 +22,4 @@ const vuetorrentStore = useVueTorrentStore()
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

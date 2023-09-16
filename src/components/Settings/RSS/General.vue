@@ -9,9 +9,7 @@ const preferenceStore = usePreferenceStore()
     <v-list-subheader>{{ $t('settings.rss.general.reader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled"
-                  hide-details
-                  :label="$t('settings.rss.general.reader.enableProcessing')" />
+      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details :label="$t('settings.rss.general.reader.enableProcessing')" />
 
       <v-row>
         <v-col cols="12" sm="6">
@@ -20,13 +18,11 @@ const preferenceStore = usePreferenceStore()
             type="number"
             hide-details
             :suffix="$t('units.minutes')"
-            :label="$t('settings.rss.general.reader.feedsRefreshInterval')" />
+            :label="$t('settings.rss.general.reader.feedsRefreshInterval')"
+          />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field
-            v-model="preferenceStore.preferences!.rss_max_articles_per_feed"
-            type="number"
-            :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
+          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -61,6 +57,4 @@ const preferenceStore = usePreferenceStore()
   </v-list>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

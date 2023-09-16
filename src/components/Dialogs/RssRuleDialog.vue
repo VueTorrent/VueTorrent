@@ -19,7 +19,7 @@ const rssStore = useRssStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const form = ref<VForm>()
@@ -55,10 +55,7 @@ const contentLayoutOptions = [
   { title: t('constants.contentLayout.nosubfolder'), value: ContentLayout.NO_SUBFOLDER }
 ]
 const categories = computed(() => {
-  return [
-    { title: t('common.none'), value: '' },
-    ...maindataStore.categories.map((category) => ({ title: category.name, value: category.name }))
-  ]
+  return [{ title: t('common.none'), value: '' }, ...maindataStore.categories.map(category => ({ title: category.name, value: category.name }))]
 })
 
 const lastMatch = computed(() => {
@@ -109,7 +106,7 @@ async function selectNone() {
 }
 
 async function selectAll() {
-  formData.affectedFeeds = rssStore.feeds.map((feed) => feed.url)
+  formData.affectedFeeds = rssStore.feeds.map(feed => feed.url)
 }
 
 const close = () => {
@@ -142,51 +139,27 @@ onBeforeMount(async () => {
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-row>
             <v-col cols="12" sm="6" class="scrollable-col">
-              <v-text-field v-model="formData.name"
-                            autofocus
-                            required
-                            :label="$t('dialogs.rss.rule.name')" />
+              <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
 
               <v-divider />
 
-              <v-checkbox v-model="formData.useRegex"
-                          hide-details
-                          :label="$t('dialogs.rss.rule.useRegex')" />
-              <v-text-field v-model="formData.mustContain"
-                            :label="$t('dialogs.rss.rule.mustContain')" />
-              <v-text-field v-model="formData.mustNotContain"
-                            :label="$t('dialogs.rss.rule.mustNotContain')" />
-              <v-checkbox v-model="formData.smartFilter"
-                          hide-details
-                          :label="$t('dialogs.rss.rule.smartFilter')" />
-              <v-text-field v-model="formData.episodeFilter"
-                            :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')"
-                            :label="$t('dialogs.rss.rule.episodeFilter')" />
+              <v-checkbox v-model="formData.useRegex" hide-details :label="$t('dialogs.rss.rule.useRegex')" />
+              <v-text-field v-model="formData.mustContain" :label="$t('dialogs.rss.rule.mustContain')" />
+              <v-text-field v-model="formData.mustNotContain" :label="$t('dialogs.rss.rule.mustNotContain')" />
+              <v-checkbox v-model="formData.smartFilter" hide-details :label="$t('dialogs.rss.rule.smartFilter')" />
+              <v-text-field v-model="formData.episodeFilter" :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')" :label="$t('dialogs.rss.rule.episodeFilter')" />
 
               <v-divider class="mb-4" />
 
-              <v-select v-model="formData.assignedCategory"
-                        :items="categories"
-                        :label="$t('dialogs.rss.rule.assignedCategory')" />
-              <v-text-field v-model="formData.savePath"
-                            :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')"
-                            :label="$t('dialogs.rss.rule.savePath')" />
-              <v-text-field v-model="formData.ignoreDays"
-                            type="number"
-                            :hint="$t('dialogs.rss.rule.ignoreDaysHint')"
-                            :label="$t('dialogs.rss.rule.ignoreDays')" />
-              <v-text-field v-model="lastMatch"
-                            disabled
-                            :label="$t('dialogs.rss.rule.lastMatch.label')" />
+              <v-select v-model="formData.assignedCategory" :items="categories" :label="$t('dialogs.rss.rule.assignedCategory')" />
+              <v-text-field v-model="formData.savePath" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')" :label="$t('dialogs.rss.rule.savePath')" />
+              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
+              <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />
 
-              <v-select v-model="formData.addPaused"
-                        :items="addPausedOptions"
-                        :label="$t('constants.addPaused.title')" />
-              <v-select v-model="formData.torrentContentLayout"
-                        :items="contentLayoutOptions"
-                        :label="$t('constants.contentLayout.title')" />
+              <v-select v-model="formData.addPaused" :items="addPausedOptions" :label="$t('constants.addPaused.title')" />
+              <v-select v-model="formData.torrentContentLayout" :items="contentLayoutOptions" :label="$t('constants.contentLayout.title')" />
 
               <v-list-subheader>{{ $t('dialogs.rss.rule.affectedFeedsSubheader') }}</v-list-subheader>
 
@@ -199,12 +172,7 @@ onBeforeMount(async () => {
                 </v-col>
               </v-row>
 
-              <v-checkbox v-for="item in rssStore.feeds"
-                          v-model="formData.affectedFeeds"
-                          multiple
-                          hide-details
-                          :label="item.name"
-                          :value="item.url" />
+              <v-checkbox v-for="item in rssStore.feeds" v-model="formData.affectedFeeds" multiple hide-details :label="item.name" :value="item.url" />
             </v-col>
 
             <v-divider :vertical="!$vuetify.display.mobile" />
@@ -217,8 +185,7 @@ onBeforeMount(async () => {
                   <v-list-subheader inset v-else-if="item.type === 'subheader'">{{ item.value }}</v-list-subheader>
                   <v-list-item v-else class="mb-3">{{ item.value }}</v-list-item>
                 </template>
-                <v-list-item v-if="matchingArticles.length === 0"
-                             :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
+                <v-list-item v-if="matchingArticles.length === 0" :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
               </v-list>
             </v-col>
           </v-row>
@@ -239,7 +206,7 @@ onBeforeMount(async () => {
     max-height: calc(100vh - 200px);
   }
 
-  @media(max-width: 599px) {
+  @media (max-width: 599px) {
     max-height: calc(60vh - 200px);
   }
 

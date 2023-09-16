@@ -16,6 +16,4 @@ defineProps<{ compact?: boolean }>()
   </v-col>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

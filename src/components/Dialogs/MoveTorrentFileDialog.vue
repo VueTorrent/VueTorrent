@@ -5,10 +5,10 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
-  hash: string,
-  isFolder: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
+  hash: string
+  isFolder: boolean
   oldName: string
 }>()
 const emit = defineEmits(['update:modelValue'])
@@ -18,7 +18,7 @@ const maindataStore = useMaindataStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const form = ref<VForm>()
@@ -28,9 +28,7 @@ const formData = reactive({
   newName: ''
 })
 
-const rules = [
-  (v: string) => !!v || t('dialogs.moveTorrent.required')
-]
+const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required')]
 
 async function submit() {
   await form.value?.validate()
@@ -49,7 +47,7 @@ const close = () => {
   dialogVisible.value = false
 }
 
-watch(dialogVisible, (value) => {
+watch(dialogVisible, value => {
   if (!value) return
   formData.newName = props.oldName
 
@@ -57,10 +55,7 @@ watch(dialogVisible, (value) => {
   const endIndex = formData.newName.lastIndexOf('.')
 
   nextTick(() => {
-    input.value?.setSelectionRange(
-      startIndex + 1,
-      endIndex == -1 ? formData.newName.length : endIndex
-    )
+    input.value?.setSelectionRange(startIndex + 1, endIndex == -1 ? formData.newName.length : endIndex)
   })
 })
 </script>
@@ -71,17 +66,8 @@ watch(dialogVisible, (value) => {
       <v-card-title>{{ t('dialogs.moveTorrentFile.title', 1 + Number(isFolder)) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
-          <v-text-field v-if="oldName"
-                        :model-value="oldName"
-                        disabled
-                        :label="$t('dialogs.moveTorrentFile.oldName')" />
-          <v-text-field
-            v-model="formData.newName"
-            ref="input"
-            :rules="rules"
-            autofocus
-            :label="$t('dialogs.moveTorrent.newPath')"
-            @keydown.enter="submit" />
+          <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.moveTorrentFile.oldName')" />
+          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -93,6 +79,4 @@ watch(dialogVisible, (value) => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

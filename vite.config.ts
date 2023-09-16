@@ -17,10 +17,7 @@ export default defineConfig(({ mode }) => {
     define: {
       'process.env': {}
     },
-    plugins: [
-      vue(),
-      vuetify()
-    ],
+    plugins: [vue(), vuetify()],
     publicDir: './public',
     resolve: {
       alias: {

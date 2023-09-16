@@ -14,16 +14,10 @@ import type {
   Torrent,
   TorrentFile,
   TorrentProperties,
-  Tracker,
+  Tracker
 } from '@/types/qbit/models'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import type {
-  AddTorrentPayload,
-  AppPreferencesPayload,
-  CreateFeedPayload,
-  GetTorrentPayload,
-  LoginPayload,
-} from '@/types/qbit/payloads'
+import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { Priority } from '@/constants/qbit'
 import { LogType, PieceState } from '@/constants/qbit'
 
@@ -48,9 +42,9 @@ export class QBitApi {
   /** Begin General functions * */
   async getAppVersion(): Promise<ApplicationVersion> {
     return this.axios
-    .get('/app/version')
-    .then(res => res.data)
-    .then(version => (version.includes('v') ? version.substring(1) : version))
+      .get('/app/version')
+      .then(res => res.data)
+      .then(version => (version.includes('v') ? version.substring(1) : version))
   }
 
   async login(params: LoginPayload): Promise<string> {
@@ -63,9 +57,9 @@ export class QBitApi {
 
   async getAuthenticationStatus(): Promise<boolean> {
     return this.axios
-    .get('/app/version')
-    .then(() => true)
-    .catch(() => false)
+      .get('/app/version')
+      .then(() => true)
+      .catch(() => false)
   }
 
   async logout(): Promise<void> {
@@ -98,18 +92,18 @@ export class QBitApi {
 
   async getTorrentTrackers(hash: string): Promise<Tracker[]> {
     return this.axios
-    .get('/torrents/trackers', {
-      params: { hash }
-    })
-    .then(r => r.data)
+      .get('/torrents/trackers', {
+        params: { hash }
+      })
+      .then(r => r.data)
   }
 
   async getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
     return this.axios
-    .get('/sync/torrentPeers', {
-      params: { hash, rid }
-    })
-    .then(r => r.data)
+      .get('/sync/torrentPeers', {
+        params: { hash, rid }
+      })
+      .then(r => r.data)
   }
 
   async setTorrentName(hash: string, name: string): Promise<void> {
@@ -118,32 +112,33 @@ export class QBitApi {
 
   async getTorrentPieceStates(hash: string): Promise<PieceState[]> {
     return this.axios
-    .get('/torrents/pieceStates', {
-      params: { hash }
-    })
-    .then(res => res.data)
+      .get('/torrents/pieceStates', {
+        params: { hash }
+      })
+      .then(res => res.data)
   }
 
   async getTorrentFiles(hash: string, indexes?: number[]): Promise<TorrentFile[]> {
     return this.axios
-    .get('/torrents/files', {
-      params: { hash, indexes: indexes?.join('|') }
-    })
-    .then(res => res.data)
+      .get('/torrents/files', {
+        params: { hash, indexes: indexes?.join('|') }
+      })
+      .then(res => res.data)
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.axios.get('/torrents/tags')
-        .then(res => res.data)
-        .then(tags => tags.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
+    return this.axios
+      .get('/torrents/tags')
+      .then(res => res.data)
+      .then(tags => tags.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
     return this.axios
-    .get('/torrents/properties', {
-      params: { hash }
-    })
-    .then(res => res.data)
+      .get('/torrents/properties', {
+        params: { hash }
+      })
+      .then(res => res.data)
   }
 
   // RSS
@@ -163,27 +158,29 @@ export class QBitApi {
   }
 
   async getFeeds(withData: boolean): Promise<Feed[]> {
-    return this.axios.get('/rss/items', { params: { withData } })
-        .then(res => res.data)
-        .then(payload => {
-          const feeds = []
-          for (const key in payload) {
-            feeds.push({name: key, ...payload[key]})
-          }
-          return feeds
-        })
+    return this.axios
+      .get('/rss/items', { params: { withData } })
+      .then(res => res.data)
+      .then(payload => {
+        const feeds = []
+        for (const key in payload) {
+          feeds.push({ name: key, ...payload[key] })
+        }
+        return feeds
+      })
   }
 
   async getRules(): Promise<FeedRule[]> {
-    return this.axios.get('/rss/rules')
-        .then(res => res.data)
-        .then(payload => {
-          const rules: FeedRule[] = []
-          for (const key in payload) {
-            rules.push({name: key, ...payload[key]})
-          }
-          return rules
-        })
+    return this.axios
+      .get('/rss/rules')
+      .then(res => res.data)
+      .then(payload => {
+        const rules: FeedRule[] = []
+        for (const key in payload) {
+          rules.push({ name: key, ...payload[key] })
+        }
+        return rules
+      })
   }
 
   async editFeed(oldName: string, newName: string): Promise<void> {
@@ -450,9 +447,9 @@ export class QBitApi {
   /** Begin Categories **/
   async getCategories(): Promise<Category[]> {
     return this.axios
-    .get('/torrents/categories')
-    .then(res => res.data)
-    .then(data => Object.values(data))
+      .get('/torrents/categories')
+      .then(res => res.data)
+      .then(data => Object.values(data))
   }
 
   async deleteCategory(categories: string[]): Promise<void> {
@@ -483,14 +480,14 @@ export class QBitApi {
 
   async exportTorrent(hash: string): Promise<Blob> {
     return this.axios
-    .get('/torrents/export', {
-      params: { hash },
-      responseType: 'arraybuffer',
-      headers: {
-        Accept: 'application/x-bittorrent'
-      }
-    })
-    .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
+      .get('/torrents/export', {
+        params: { hash },
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/x-bittorrent'
+        }
+      })
+      .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
   }
 
   /** Search **/
@@ -561,8 +558,7 @@ export class QBitApi {
   }
 
   async shutdownApp(): Promise<boolean> {
-    return this.axios
-    .post('/app/shutdown').then(
+    return this.axios.post('/app/shutdown').then(
       () => true,
       () => false
     )

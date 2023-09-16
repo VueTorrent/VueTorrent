@@ -9,8 +9,8 @@ import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 
-
-export const useVueTorrentStore = defineStore('vuetorrent',
+export const useVueTorrentStore = defineStore(
+  'vuetorrent',
   () => {
     const language = ref('en')
     const darkMode = ref(false)
@@ -39,7 +39,7 @@ export const useVueTorrentStore = defineStore('vuetorrent',
     const busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
-    const getCurrentThemeName = computed(() => darkMode.value ? Theme.DARK : Theme.LIGHT)
+    const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
@@ -65,7 +65,6 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       }
       return formattedPpt
     })
-
 
     const i18n = useI18n()
     const router = useRouter()
@@ -95,7 +94,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
       const mode = title.value
       switch (mode) {
         case TitleOptions.GLOBAL_SPEED:
-          document.title = '[' +
+          document.title =
+            '[' +
             `D: ${formatSpeed(maindataStore.serverState?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
             `U: ${formatSpeed(maindataStore.serverState?.up_info_speed ?? 0, useBitSpeed.value)}` +
             '] VueTorrent'
@@ -103,7 +103,8 @@ export const useVueTorrentStore = defineStore('vuetorrent',
         case TitleOptions.FIRST_TORRENT_STATUS:
           const torrent = maindataStore.torrents.at(0)
           if (torrent) {
-            document.title = '[' +
+            document.title =
+              '[' +
               `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
               `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
               `${formatPercent(torrent.progress)}` +

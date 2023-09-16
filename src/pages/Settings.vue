@@ -2,7 +2,7 @@
 import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import {useI18n} from 'vue-i18n'
+import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 import Advanced from '@/components/Settings/Advanced.vue'
@@ -43,7 +43,7 @@ const saveSettings = async () => {
 }
 
 const goHome = () => {
-  router.push({name: 'dashboard'})
+  router.push({ name: 'dashboard' })
 }
 </script>
 
@@ -153,6 +153,4 @@ const goHome = () => {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

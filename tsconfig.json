@@ -24,11 +24,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": [
-      "node",
-      "vue3-toastify/global",
-      "pinia-plugin-persist"
-    ]
+    "types": ["node", "vue3-toastify/global", "pinia-plugin-persist"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

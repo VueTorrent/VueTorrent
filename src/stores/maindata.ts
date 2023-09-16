@@ -9,7 +9,6 @@ import { Torrent } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
 
-
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
   const isUpdatingMaindata = ref(false)
@@ -48,7 +47,10 @@ export const useMaindataStore = defineStore('maindata', () => {
       // Get list of torrents in old category and move them to new category
       const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, category: oldCategory })
       if (torrents.length > 0) {
-        await qbit.setCategory(torrents.map(torrent => torrent.hash), category.name)
+        await qbit.setCategory(
+          torrents.map(torrent => torrent.hash),
+          category.name
+        )
       }
 
       // Delete old category
@@ -88,7 +90,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     // Get list of torrents in old tag and move them to new tag
     const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, tag: oldTag })
     if (torrents.length > 0) {
-      await qbit.addTorrentTag(torrents.map(torrent => torrent.hash), [newTag])
+      await qbit.addTorrentTag(
+        torrents.map(torrent => torrent.hash),
+        [newTag]
+      )
     }
 
     // Delete old tag
@@ -135,10 +140,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
-        .map(t => t.tracker)
-        .map(url => extractHostname(url))
-        .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-        .sort()
+          .map(t => t.tracker)
+          .map(url => extractHostname(url))
+          .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+          .sort()
       }
 
       if (vueTorrentStore.showTrackerFilter && dashboardStore.sortOptions.trackerFilter !== null) {

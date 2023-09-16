@@ -6,7 +6,7 @@ import { useAppStore, useAuthStore, useMaindataStore, useVueTorrentStore } from 
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const {t} = useI18n()
+const { t } = useI18n()
 const authStore = useAuthStore()
 const appStore = useAppStore()
 const maindataStore = useMaindataStore()
@@ -39,7 +39,7 @@ const connectionStatusText = computed(() => {
       key = 'unknown'
   }
 
-  return t('navbar.side.bottom_actions.conn_status', {status: t(`constants.connectionStatus.${key}`)})
+  return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${key}`) })
 })
 
 const connStatusDialog = ref(false)
@@ -67,7 +67,13 @@ const toggleAltSpeed = () => {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="t('navbar.side.bottom_actions.alt_speed')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn variant="plain" :color="isAltSpeedEnabled ? 'accent' : undefined" :icon="isAltSpeedEnabled ? 'mdi-speedometer-slow' : 'mdi-speedometer'" v-bind="props" @click="toggleAltSpeed" />
+          <v-btn
+            variant="plain"
+            :color="isAltSpeedEnabled ? 'accent' : undefined"
+            :icon="isAltSpeedEnabled ? 'mdi-speedometer-slow' : 'mdi-speedometer'"
+            v-bind="props"
+            @click="toggleAltSpeed"
+          />
         </template>
       </v-tooltip>
     </v-col>
@@ -105,6 +111,4 @@ const toggleAltSpeed = () => {
   </v-row>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

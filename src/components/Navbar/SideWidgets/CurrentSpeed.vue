@@ -3,7 +3,7 @@ import { useMaindataStore } from '@/stores'
 import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { useI18n } from 'vue-i18n'
 
-const {t} = useI18n()
+const { t } = useI18n()
 const maindataStore = useMaindataStore()
 </script>
 
@@ -23,6 +23,4 @@ const maindataStore = useMaindataStore()
   </v-card>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

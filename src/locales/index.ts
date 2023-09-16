@@ -17,7 +17,7 @@ import fr from './fr.json'
 export const messages: Record<Locales, any> = {
   [Locales.EN]: en,
   // [Locales.ES]: es,
-  [Locales.FR]: fr,
+  [Locales.FR]: fr
   // [Locales.ID]: id,
   // [Locales.IT]: it,
   // [Locales.JA]: ja,

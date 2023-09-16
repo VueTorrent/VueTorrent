@@ -31,11 +31,7 @@ const categories = computed(() => {
     { title: t('navbar.side.filters.disabled'), value: null },
     { title: t('navbar.side.filters.uncategorized'), value: '' }
   ]
-  categories.push(
-    ...maindataStore.categories.map(c => (
-      { title: c.name, value: c.name }
-    ))
-  )
+  categories.push(...maindataStore.categories.map(c => ({ title: c.name, value: c.name })))
   return categories
 })
 const tags = computed(() => {
@@ -43,22 +39,12 @@ const tags = computed(() => {
     { title: t('navbar.side.filters.disabled'), value: null },
     { title: t('navbar.side.filters.untagged'), value: '' }
   ]
-  tags.push(
-    ...maindataStore.tags.map(tag => (
-      { title: tag, value: tag }
-    ))
-  )
+  tags.push(...maindataStore.tags.map(tag => ({ title: tag, value: tag })))
   return tags
 })
 const trackers = computed(() => {
-  const trackers = [
-    { title: t('navbar.side.filters.disabled'), value: null as string | null }
-  ]
-  trackers.push(
-    ...maindataStore.trackers.map(tag => (
-      { title: tag, value: tag }
-    ))
-  )
+  const trackers = [{ title: t('navbar.side.filters.disabled'), value: null as string | null }]
+  trackers.push(...maindataStore.trackers.map(tag => ({ title: tag, value: tag })))
   return trackers
 })
 </script>
@@ -67,43 +53,24 @@ const trackers = computed(() => {
   <v-list class="pb-0">
     <v-list-item class="px-0 pb-3">
       <v-list-item-title>Status</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.statusFilter"
-                :items="statusOptions"
-                class="text-accent"
-                hide-details
-                variant="outlined" />
+      <v-select v-model="dashboardStore.sortOptions.statusFilter" :items="statusOptions" class="text-accent" hide-details variant="outlined" />
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
       <v-list-item-title>Category</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.categoryFilter"
-                :items="categories"
-                class="text-accent"
-                hide-details
-                variant="outlined" />
+      <v-select v-model="dashboardStore.sortOptions.categoryFilter" :items="categories" class="text-accent" hide-details variant="outlined" />
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
       <v-list-item-title>Tags</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.tagFilter"
-                :items="tags"
-                class="text-accent"
-                hide-details
-                variant="outlined" />
+      <v-select v-model="dashboardStore.sortOptions.tagFilter" :items="tags" class="text-accent" hide-details variant="outlined" />
     </v-list-item>
 
-    <v-list-item :class="{'px-0': true, 'pb-3': vueTorrentStore.showTrackerFilter}"
-                 v-if="vueTorrentStore.showTrackerFilter">
+    <v-list-item :class="{ 'px-0': true, 'pb-3': vueTorrentStore.showTrackerFilter }" v-if="vueTorrentStore.showTrackerFilter">
       <v-list-item-title>Tracker</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.trackerFilter"
-                :items="trackers"
-                class="text-accent"
-                hide-details
-                variant="outlined" />
+      <v-select v-model="dashboardStore.sortOptions.trackerFilter" :items="trackers" class="text-accent" hide-details variant="outlined" />
     </v-list-item>
   </v-list>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

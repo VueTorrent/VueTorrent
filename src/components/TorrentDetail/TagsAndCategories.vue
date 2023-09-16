@@ -3,7 +3,7 @@ import { useMaindataStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, onBeforeMount } from 'vue'
 
-const props = defineProps<{ torrent: Torrent, isActive: boolean }>()
+const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
 
@@ -37,16 +37,17 @@ onBeforeMount(async () => {
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
-          <v-item-group :model-value="activeTags"
-                        multiple>
+          <v-item-group :model-value="activeTags" multiple>
             <v-list>
               <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.tags') }}</v-list-subheader>
 
-              <v-list-item v-for="tag in maindataStore.tags"
-                           :title="tag"
-                           :variant="torrent.tags?.includes(tag) ? 'tonal' : undefined"
-                           :base-color="torrent.tags?.includes(tag) ? 'accent' : undefined"
-                           @click="toggleTag(tag)" />
+              <v-list-item
+                v-for="tag in maindataStore.tags"
+                :title="tag"
+                :variant="torrent.tags?.includes(tag) ? 'tonal' : undefined"
+                :base-color="torrent.tags?.includes(tag) ? 'accent' : undefined"
+                @click="toggleTag(tag)"
+              />
             </v-list>
           </v-item-group>
         </v-col>
@@ -56,11 +57,13 @@ onBeforeMount(async () => {
             <v-list>
               <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.categories') }}</v-list-subheader>
 
-              <v-list-item v-for="category in maindataStore.categories"
-                           :title="category.name"
-                           :variant="category.name === props.torrent.category ? 'tonal' : undefined"
-                           :base-color="category.name === props.torrent.category ? 'accent' : undefined"
-                           @click="setCategory(category.name)" />
+              <v-list-item
+                v-for="category in maindataStore.categories"
+                :title="category.name"
+                :variant="category.name === props.torrent.category ? 'tonal' : undefined"
+                :base-color="category.name === props.torrent.category ? 'accent' : undefined"
+                @click="setCategory(category.name)"
+              />
             </v-list>
           </v-item-group>
         </v-col>
@@ -69,6 +72,4 @@ onBeforeMount(async () => {
   </v-card>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

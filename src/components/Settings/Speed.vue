@@ -1,10 +1,8 @@
 <script setup lang="ts">
-
 import { SchedulerDays } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-
 
 const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
@@ -19,7 +17,7 @@ const schedulerOptions = ref([
   { title: t('constants.scheduler.everyThursday'), value: SchedulerDays.EVERY_THURSDAY },
   { title: t('constants.scheduler.everyFriday'), value: SchedulerDays.EVERY_FRIDAY },
   { title: t('constants.scheduler.everySaturday'), value: SchedulerDays.EVERY_SATURDAY },
-  { title: t('constants.scheduler.everySunday'), value: SchedulerDays.EVERY_SUNDAY },
+  { title: t('constants.scheduler.everySunday'), value: SchedulerDays.EVERY_SUNDAY }
 ])
 </script>
 
@@ -32,16 +30,10 @@ const schedulerOptions = ref([
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.up_limit"
-                            hide-details
-                            suffix="kiB/s"
-                            :label="t('settings.speed.upload')" />
+              <v-text-field v-model="preferenceStore.preferences!.up_limit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.dl_limit"
-                            hide-details
-                            suffix="kiB/s"
-                            :label="t('settings.speed.download')" />
+              <v-text-field v-model="preferenceStore.preferences!.dl_limit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
@@ -57,16 +49,10 @@ const schedulerOptions = ref([
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.alt_up_limit"
-                            hide-details
-                            suffix="kiB/s"
-                            :label="t('settings.speed.upload')" />
+              <v-text-field v-model="preferenceStore.preferences!.alt_up_limit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.alt_dl_limit"
-                            hide-details
-                            suffix="kiB/s"
-                            :label="t('settings.speed.download')" />
+              <v-text-field v-model="preferenceStore.preferences!.alt_dl_limit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
@@ -80,9 +66,7 @@ const schedulerOptions = ref([
     <v-divider class="mt-2" />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.scheduler_enabled"
-                  hide-details
-                  :label="t('settings.speed.scheduler.subheader')" />
+      <v-checkbox v-model="preferenceStore.preferences!.scheduler_enabled" hide-details :label="t('settings.speed.scheduler.subheader')" />
     </v-list-item>
 
     <v-list-item>
@@ -91,14 +75,10 @@ const schedulerOptions = ref([
           <v-list-subheader>{{ t('settings.speed.scheduler.from') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
-                        type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
-                        type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
 
         <v-spacer />
@@ -107,24 +87,22 @@ const schedulerOptions = ref([
           <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
-                        type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled"
-                        type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.scheduler_days"
-                :disabled="!preferenceStore.preferences!.scheduler_enabled"
-                hide-details
-                :items="schedulerOptions"
-                :label="t('settings.speed.scheduler.when')" />
+      <v-select
+        v-model="preferenceStore.preferences!.scheduler_days"
+        :disabled="!preferenceStore.preferences!.scheduler_enabled"
+        hide-details
+        :items="schedulerOptions"
+        :label="t('settings.speed.scheduler.when')"
+      />
     </v-list-item>
 
     <v-divider class="mt-3" />
@@ -132,25 +110,17 @@ const schedulerOptions = ref([
     <v-list-subheader>{{ t('settings.speed.subheader.settings') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_utp_rate"
-                  hide-details
-                  :label="t('settings.speed.settings.applyToUtp')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_utp_rate" hide-details :label="t('settings.speed.settings.applyToUtp')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_tcp_overhead"
-                  hide-details
-                  :label="t('settings.speed.settings.applyToTransportOverhead')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_tcp_overhead" hide-details :label="t('settings.speed.settings.applyToTransportOverhead')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_lan_peers"
-                  hide-details
-                  :label="t('settings.speed.settings.applyToPeersOnLan')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_lan_peers" hide-details :label="t('settings.speed.settings.applyToPeersOnLan')" />
     </v-list-item>
   </v-list>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

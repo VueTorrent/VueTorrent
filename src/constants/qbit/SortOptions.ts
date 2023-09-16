@@ -50,5 +50,5 @@ export enum SortOptions {
   UP_LIMIT = 'up_limit',
   UPLOADED = 'uploaded',
   UPLOADED_SESSION = 'uploaded_session',
-  UPSPEED = 'upspeed',
+  UPSPEED = 'upspeed'
 }

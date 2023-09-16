@@ -48,6 +48,4 @@ defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEng
   </v-tooltip>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

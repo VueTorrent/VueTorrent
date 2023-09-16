@@ -21,7 +21,7 @@ async function deleteFeed(item: Feed) {
 }
 
 async function refreshAllFeeds() {
-  rssStore.feeds.forEach((feed) => refreshFeed(feed, false))
+  rssStore.feeds.forEach(feed => refreshFeed(feed, false))
   await updateFeedList()
 }
 
@@ -42,7 +42,7 @@ onUnmounted(() => {
   clearInterval(timer.value)
 })
 
-watch(dialog, (value) => {
+watch(dialog, value => {
   if (!value) {
     updateFeedList()
   }
@@ -63,8 +63,7 @@ watch(dialog, (value) => {
           </v-btn>
           <v-btn icon variant="plain" density="compact">
             <v-icon>mdi-pencil</v-icon>
-            <RssFeedDialog v-model="dialog"
-                           :initial-feed="feed" />
+            <RssFeedDialog v-model="dialog" :initial-feed="feed" />
           </v-btn>
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteFeed(feed)" />
         </div>
@@ -78,21 +77,15 @@ watch(dialog, (value) => {
   </v-row>
   <v-row>
     <v-col cols="6" class="d-flex align-center justify-center">
-      <v-btn color="accent"
-             @click.prevent>
-        {{ $t('settings.rss.feeds.createNew')}}
+      <v-btn color="accent" @click.prevent>
+        {{ $t('settings.rss.feeds.createNew') }}
         <RssFeedDialog v-model="dialog" />
       </v-btn>
     </v-col>
     <v-col cols="6" class="d-flex align-center justify-center">
-      <v-btn color="accent"
-             :loading="loading"
-             :disabled="rssStore.feeds.length === 0"
-             :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
+      <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0" :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
     </v-col>
   </v-row>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

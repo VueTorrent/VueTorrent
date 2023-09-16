@@ -1,5 +1,5 @@
 <script setup lang="ts">
-defineProps<{ title: string, value: any, color: string }>()
+defineProps<{ title: string; value: any; color: string }>()
 </script>
 
 <template>
@@ -14,6 +14,4 @@ defineProps<{ title: string, value: any, color: string }>()
   </v-sheet>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -5,8 +5,8 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
   hash: string
 }>()
 const emit = defineEmits(['update:modelValue'])
@@ -16,7 +16,7 @@ const maindataStore = useMaindataStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const field = ref<HTMLInputElement>()
@@ -26,10 +26,7 @@ const formData = reactive({
   newName: ''
 })
 
-const rules = [
-  (v: string) => !!v || t('dialogs.renameTorrent.required'),
-  (v: string) => v !== oldName.value || t('dialogs.renameTorrent.sameName')
-]
+const rules = [(v: string) => !!v || t('dialogs.renameTorrent.required'), (v: string) => v !== oldName.value || t('dialogs.renameTorrent.sameName')]
 
 const torrent = computed(() => maindataStore.getTorrentByHash(props.hash))
 const oldName = computed(() => torrent.value?.name)
@@ -61,17 +58,8 @@ onMounted(() => {
       <v-card-title>{{ $t('dialogs.renameTorrent.title') }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
-          <v-text-field v-if="oldName"
-                        :model-value="oldName"
-                        disabled
-                        :label="$t('dialogs.renameTorrent.oldName')" />
-          <v-text-field
-            v-model="formData.newName"
-            ref="field"
-            :rules="rules"
-            autofocus
-            :label="$t('dialogs.renameTorrent.newName')"
-            @keydown.enter="submit" />
+          <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.renameTorrent.oldName')" />
+          <v-text-field v-model="formData.newName" ref="field" :rules="rules" autofocus :label="$t('dialogs.renameTorrent.newName')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -83,6 +71,4 @@ onMounted(() => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

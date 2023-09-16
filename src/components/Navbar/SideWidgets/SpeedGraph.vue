@@ -73,6 +73,4 @@ const series = computed(() => [
   <VueApexCharts ref="chart" type="area" :options="chartOptions" :series="series" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

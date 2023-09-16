@@ -5,8 +5,8 @@ import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 const props = defineProps<{
-  modelValue: boolean,
-  disableActivator?: boolean,
+  modelValue: boolean
+  disableActivator?: boolean
 }>()
 const emit = defineEmits(['update:modelValue'])
 
@@ -17,7 +17,7 @@ const vueTorrentStore = useVueTorrentStore()
 
 const dialogVisible = computed({
   get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
+  set: value => emit('update:modelValue', value)
 })
 
 const close = () => {
@@ -52,6 +52,4 @@ const shutdown = async () => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

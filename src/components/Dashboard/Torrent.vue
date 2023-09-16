@@ -21,9 +21,7 @@ const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
-  let ppts = props.torrent.progress === 1
-      ? vuetorrentStore.doneTorrentProperties
-      : vuetorrentStore.busyTorrentProperties
+  let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneTorrentProperties : vuetorrentStore.busyTorrentProperties
 
   return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
 })
@@ -58,7 +56,6 @@ const getComponent = (type: DashboardPropertyType) => {
     case DashboardPropertyType.TEXT:
     default:
       return ItemText
-
   }
 }
 const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
