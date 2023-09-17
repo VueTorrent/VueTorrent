@@ -1,5 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { FilePriority } from "@/constants/qbit";
+import { FilePriority } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'

@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { FilePriority } from "@/constants/qbit";
-import { typesMap } from "@/constants/vuetorrent";
-import { useMaindataStore, useVueTorrentStore } from "@/stores";
-import { TorrentFile } from "@/types/qbit/models";
-import { Torrent, TreeFile, TreeFolder, TreeNode, TreeRoot } from "@/types/vuetorrent";
-import { nextTick, onBeforeUnmount, reactive, ref, watch } from "vue";
-import { useI18n } from "vue-i18n";
+import { FilePriority } from '@/constants/qbit'
+import { typesMap } from '@/constants/vuetorrent'
+import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { TorrentFile } from '@/types/qbit/models'
+import { Torrent, TreeFile, TreeFolder, TreeNode, TreeRoot } from '@/types/vuetorrent'
+import { nextTick, onBeforeUnmount, reactive, ref, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -66,11 +66,7 @@ function getNodePriority(node: TreeFile) {
 }
 
 async function toggleFileSelect(file: TreeFile) {
-  await setFilePrio(
-    file,
-    file.priority === FilePriority.DO_NOT_DOWNLOAD
-      ? FilePriority.NORMAL
-      : FilePriority.DO_NOT_DOWNLOAD)
+  await setFilePrio(file, file.priority === FilePriority.DO_NOT_DOWNLOAD ? FilePriority.NORMAL : FilePriority.DO_NOT_DOWNLOAD)
 }
 
 async function setFilePrio(file: TreeFile, prio: FilePriority) {
@@ -114,60 +110,63 @@ function genFileTree(files: TorrentFile[]) {
   for (const file of files) {
     let cursor: TreeRoot | TreeFolder = rootNode
     file.name
-    .replace('\\', '/')
-    .split('/')
-    .reduce((parentPath, nodeName) => {
-      const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
+      .replace('\\', '/')
+      .split('/')
+      .reduce((parentPath, nodeName) => {
+        const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
 
-      if (file.name.replace('\\', '/').split('/').pop() === nodeName) {
-        const newFile: TreeFile = {
-          type: 'file',
-          name: nodeName,
-          fullName: nextPath,
-          id: file.index,
-          availability: file.availability,
-          index: file.index,
-          is_seed: file.is_seed,
-          priority: file.priority,
-          progress: file.progress,
-          size: file.size
-        }
-        cursor.children.push(newFile)
-      } else {
-        const folder = cursor.children.find(el => el.name === nodeName) as TreeFolder | undefined
-        if (folder) {
-          cursor = folder
-        } else {
-          // if not found, create folder and set cursor to folder
-          const newFolder: TreeFolder = {
-            type: 'folder',
+        if (file.name.replace('\\', '/').split('/').pop() === nodeName) {
+          const newFile: TreeFile = {
+            type: 'file',
             name: nodeName,
             fullName: nextPath,
-            id: nextPath,
-            children: []
+            id: file.index,
+            availability: file.availability,
+            index: file.index,
+            is_seed: file.is_seed,
+            priority: file.priority,
+            progress: file.progress,
+            size: file.size
           }
-          cursor.children.push(newFolder)
-          cursor = newFolder
+          cursor.children.push(newFile)
+        } else {
+          const folder = cursor.children.find(el => el.name === nodeName) as TreeFolder | undefined
+          if (folder) {
+            cursor = folder
+          } else {
+            // if not found, create folder and set cursor to folder
+            const newFolder: TreeFolder = {
+              type: 'folder',
+              name: nodeName,
+              fullName: nextPath,
+              id: nextPath,
+              children: []
+            }
+            cursor.children.push(newFolder)
+            cursor = newFolder
+          }
         }
-      }
 
-      return nextPath
-    }, '')
+        return nextPath
+      }, '')
   }
 
   return rootNode
 }
 
-watch(() => props.isActive, newValue => {
-  if (newValue) {
-    updateFileTree().then(() => openedItems.value.push(''))
-    timer.value = setInterval(() => {
-      updateFileTree()
-    }, vuetorrentStore.fileContentInterval)
-  } else {
-    clearInterval(timer.value as NodeJS.Timeout)
+watch(
+  () => props.isActive,
+  newValue => {
+    if (newValue) {
+      updateFileTree().then(() => openedItems.value.push(''))
+      timer.value = setInterval(() => {
+        updateFileTree()
+      }, vuetorrentStore.fileContentInterval)
+    } else {
+      clearInterval(timer.value as NodeJS.Timeout)
+    }
   }
-})
+)
 onBeforeUnmount(() => clearInterval(timer.value as NodeJS.Timeout))
 </script>
 
