@@ -25,11 +25,24 @@ const headers = [
 
 const articles = computed(() => {
   const articles: RssArticle[] = []
-  rssStore.feeds.forEach((feed: Feed) => {
-    feed.articles && articles.push(...feed.articles.map(article => ({ key: `${feed.uid}|${article.id}`, feedName: feed.name, parsedDate: new Date(article.date), ...article })))
-  })
+  const keySet = new Set<string>()
 
-  // TODO: Remove duplicate keys
+  rssStore.feeds.forEach((feed: Feed) => {
+    if (!feed.articles) return
+
+    feed.articles.forEach(article => {
+      const key = `${feed.uid}|${article.id}`
+      if (keySet.has(key)) return
+
+      keySet.add(key)
+      articles.push({
+        key,
+        feedName: feed.name,
+        parsedDate: new Date(article.date),
+        ...article
+      })
+    })
+  })
 
   return articles
 })
