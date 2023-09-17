@@ -1,4 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
+import { FilePriority } from "@/constants/qbit";
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
@@ -267,6 +268,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.banPeers(peers)
   }
 
+  async function setTorrentFilePriority(hash: string, ids: number[], priority: FilePriority) {
+    await qbit.setTorrentFilePriority(hash, ids, priority)
+  }
+
   return {
     categories,
     isUpdatingMaindata,
@@ -312,6 +317,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     removeTorrentTrackers,
     getTorrentPeers,
     addTorrentPeers,
-    banPeers
+    banPeers,
+    setTorrentFilePriority
   }
 })

@@ -253,8 +253,7 @@
       "data_values": "Data values",
       "speed_values": "Speed values",
       "text_values": "Text values",
-      "long_text_values": "Long text values",
-      "tags": ""
+      "long_text_values": "Long text values"
     },
     "trackers": {
       "table": {
@@ -300,6 +299,11 @@
       "banPeers": {
         "title": "Ban Peers"
       }
+    },
+    "content": {
+      "rootNode": "(Root Node)",
+      "fileInfo": "{n} file | {n} files",
+      "folderInfo": "{n} folder | {n} folders"
     },
     "tagsAndCategories": {
       "tags": "Tags",
@@ -1006,6 +1010,12 @@
       "working": "Working",
       "updating": "Updating",
       "not_working": "Not working"
+    },
+    "file_priority": {
+      "max": "Max",
+      "high": "High",
+      "normal": "Normal",
+      "unwanted": "Unwanted"
     }
   },
   "units": {
