@@ -1,4 +1,4 @@
-import type { Priority } from '@/constants/qbit'
+import type { FilePriority } from '@/constants/qbit'
 
 export default interface TorrentFile {
   /** Percentage of file pieces currently available (percentage/100) */
@@ -12,7 +12,7 @@ export default interface TorrentFile {
   /** The first number is the starting piece index and the second number is the ending piece index (inclusive) */
   piece_range: [number, number]
   /** File priority. See possible values here below */
-  priority: Priority
+  priority: FilePriority
   /** File progress (percentage/100) */
   progress: number
   /** File size in bytes */

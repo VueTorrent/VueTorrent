@@ -18,7 +18,7 @@ import type {
 } from '@/types/qbit/models'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
-import type { Priority } from '@/constants/qbit'
+import type { FilePriority } from '@/constants/qbit'
 import { LogType, PieceState } from '@/constants/qbit'
 
 type Parameters = Record<string, any>
@@ -250,7 +250,7 @@ export class QBitApi {
     return this.axios.post('/torrents/add', data)
   }
 
-  async setTorrentFilePriority(hash: string, idList: number[], priority: Priority): Promise<void> {
+  async setTorrentFilePriority(hash: string, idList: number[], priority: FilePriority): Promise<void> {
     const params = {
       hash,
       id: idList.join('|'),

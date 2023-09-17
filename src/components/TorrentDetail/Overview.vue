@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
-import { PieceState, Priority, TorrentState } from '@/constants/qbit'
+import { PieceState, FilePriority, TorrentState } from '@/constants/qbit'
 import { extractHostname, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, splitByUrl, stringContainsUrl } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
@@ -51,7 +51,7 @@ async function getTorrentProperties() {
 async function updateTorrentFiles() {
   files.value = await maindataStore.fetchFiles(props.torrent.hash)
   torrentFileCount.value = files.value.length
-  selectedFileCount.value = files.value.filter(f => f.priority !== Priority.DO_NOT_DOWNLOAD).length
+  selectedFileCount.value = files.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD).length
   if (selectedFileCount.value === 1) {
     torrentFileName.value = files.value[0].name
   }
@@ -81,7 +81,7 @@ async function renderTorrentPieceStates() {
     if (status === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
     else if (status === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
     else if (status === PieceState.MISSING) {
-      const selected_piece_ranges = files.value.filter(file => file.priority !== Priority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
+      const selected_piece_ranges = files.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
       for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
         if (i > min_piece_range && i < max_piece_range) {
           newColor = theme.current.value.colors['torrent-pausedDL']
