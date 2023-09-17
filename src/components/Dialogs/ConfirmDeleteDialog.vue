@@ -46,7 +46,7 @@ const close = () => {
 <template>
   <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
     <v-card>
-      <v-card-title>{{ t('dialogs.delete.title', selection.length, { n: selection.length }) }}</v-card-title>
+      <v-card-title>{{ t('dialogs.delete.title', selection.length) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <div class="d-flex flex-wrap gap">
