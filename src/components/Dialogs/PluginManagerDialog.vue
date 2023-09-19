@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -27,6 +27,7 @@ const dialogVisible = computed({
   set: value => emit('update:modelValue', value)
 })
 const loading = ref(false)
+const updateLoading = ref(false)
 
 const installDialogVisible = ref(false)
 const isInstallFormValid = ref(false)
@@ -35,6 +36,14 @@ const installInput = ref('')
 async function onTogglePlugin(plugin: SearchPlugin) {
   await searchEngineStore.toggleSearchPlugin(plugin)
   await searchEngineStore.fetchSearchPlugins()
+}
+
+async function updatePlugins() {
+  updateLoading.value = true
+  await searchEngineStore.updatePlugins()
+      .then(() => new Promise(resolve => setTimeout(resolve, 2000)))
+  await searchEngineStore.fetchSearchPlugins()
+  updateLoading.value = false
 }
 
 async function installNewPlugin() {
@@ -67,10 +76,6 @@ const close = () => {
 function closeInstallDialog() {
   installDialogVisible.value = false
 }
-
-onBeforeMount(async () => {
-  await searchEngineStore.fetchSearchPlugins()
-})
 </script>
 
 <template>
@@ -83,6 +88,11 @@ onBeforeMount(async () => {
 
         <v-spacer />
 
+        <v-btn :text="$t('dialogs.pluginManager.update')"
+               color="accent"
+               class="mr-2"
+               :loading="updateLoading"
+               @click="updatePlugins" />
         <v-dialog v-model="installDialogVisible">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" color="primary">
@@ -108,6 +118,9 @@ onBeforeMount(async () => {
         <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
           <template v-slot:item.enabled="{ item }">
             <v-checkbox-btn :model-value="item.raw.enabled" @click="onTogglePlugin(item.raw)" />
+          </template>
+          <template v-slot:item.url="{ item }">
+            <a :href="item.raw.url" :title="item.raw.name">{{ item.raw.url }}</a>
           </template>
           <template v-slot:item.actions="{ item }">
             <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item.raw)" />

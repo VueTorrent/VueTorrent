@@ -484,6 +484,7 @@
     },
     "pluginManager": {
       "title": "Plugin Manager",
+      "update": "Update plugins",
       "install": {
         "activator": "Install new plugin",
         "title": "Install Plugin",

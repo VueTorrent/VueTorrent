@@ -65,6 +65,10 @@ export const useSearchEngineStore = defineStore(
       await qbit.enableSearchPlugin([plugin.name], !plugin.enabled)
     }
 
+    async function updatePlugins() {
+      await qbit.updateSearchPlugins()
+    }
+
     return {
       searchData,
       searchPlugins,
@@ -76,7 +80,8 @@ export const useSearchEngineStore = defineStore(
       fetchSearchPlugins,
       installSearchPlugin,
       uninstallSearchPlugin,
-      toggleSearchPlugin
+      toggleSearchPlugin,
+      updatePlugins
     }
   },
   {
