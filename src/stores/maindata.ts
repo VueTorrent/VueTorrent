@@ -244,6 +244,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
   }
 
+  async function setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio') {
+    await qbit.setTorrentPriority(hashes, priority)
+  }
+
   async function getTorrentTrackers(hash: string) {
     return await qbit.getTorrentTrackers(hash)
   }
@@ -270,6 +274,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function setTorrentFilePriority(hash: string, ids: number[], priority: FilePriority) {
     await qbit.setTorrentFilePriority(hash, ids, priority)
+  }
+
+  async function exportTorrent(hash: string) {
+    return await qbit.exportTorrent(hash)
   }
 
   return {
@@ -312,12 +320,14 @@ export const useMaindataStore = defineStore('maindata', () => {
     toggleFLPiecePrio,
     toggleAutoTmm,
     setSuperSeeding,
+    setTorrentPriority,
     getTorrentTrackers,
     addTorrentTrackers,
     removeTorrentTrackers,
     getTorrentPeers,
     addTorrentPeers,
     banPeers,
-    setTorrentFilePriority
+    setTorrentFilePriority,
+    exportTorrent
   }
 })

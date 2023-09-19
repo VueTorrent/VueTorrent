@@ -76,7 +76,49 @@
       "upspeed": "Upload Speed"
     },
     "selectAll": "(Un)select All (Ctrl + A)",
-    "emptyTorrentList": "Nothing to see here!"
+    "emptyTorrentList": "Nothing to see here!",
+    "right_click": {
+      "advanced": {
+        "title": "Advanced",
+        "change_location": "Change Location",
+        "rename": "Rename Torrent",
+        "recheck": "Force Recheck",
+        "reannounce": "Force Reannounce",
+        "seq_dl": "Sequential Download",
+        "f_l_prio": "First / Last Priority",
+        "auto_tmm": "Automatic Torrent Management"
+      },
+      "priority": {
+        "title": "Set Priority",
+        "top": "Top Prio",
+        "increase": "Increase Priority",
+        "decrease": "Decrease Priority",
+        "bottom": "Bottom Priority"
+      },
+      "tags": {
+        "title": "Set tags",
+        "disabled_title": "No tags"
+      },
+      "category": {
+        "title": "Set category",
+        "disabled_title": "No categories",
+        "clear": "(Clear category)"
+      },
+      "speed_limit": {
+        "title": "Set speed limit",
+        "download": "Set download limit",
+        "upload": "Set upload limit",
+        "share": "Set share limit"
+      },
+      "copy": {
+        "title": "Copy",
+        "name": "Name",
+        "hash": "Hash",
+        "magnet": "Magnet"
+      },
+      "export": "Export torrent | Export torrents",
+      "info": "Show Info"
+    }
   },
   "logs": {
     "title": "qBittorrent Logs",

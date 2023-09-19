@@ -6,12 +6,16 @@ import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import { useDashboardStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
 const props = defineProps<{
   modelValue: boolean
 }>()
 const emit = defineEmits(['update:modelValue'])
 
+const { t } = useI18n()
+const router = useRouter()
 const dashboardStore = useDashboardStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
@@ -25,6 +29,8 @@ const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
 const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
+const torrents = computed(() => dashboardStore.selectedTorrents.map(maindataStore.getTorrentByHash).filter(torrent => !!torrent))
+const availableCategories = computed(() => ([{ name: '' }, ...maindataStore.categories]))
 
 async function resumeTorrents() {
   await maindataStore.resumeTorrents(hashes)
@@ -82,152 +88,182 @@ async function toggleAutoTMM() {
   await maindataStore.toggleAutoTmm(hashes, !torrent.value?.auto_tmm)
 }
 
+function hasTag(tag: string) {
+  return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
+}
+
+async function toggleTag(tag: string) {
+  if (hasTag(tag))
+    await maindataStore.removeTorrentTags(hashes.value, [tag])
+  else
+    await maindataStore.addTorrentTags(hashes.value, [tag])
+}
+
+async function copyValue(valueToCopy: string) {
+  await navigator.clipboard.writeText(valueToCopy)
+}
+
+async function exportTorrents() {
+  hashes.value.forEach(hash => {
+    maindataStore.exportTorrent(hash).then(blob => {
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.style.opacity = '0'
+      link.setAttribute('download', `${hash}.torrent`)
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+  })
+}
+
 const menuData = computed<TRCMenuEntry[]>(() => [
   {
-    text: 'Advanced',
+    text: t('dashboard.right_click.advanced.title'),
     icon: 'mdi-head-cog',
     children: [
       {
-        text: 'Change Location',
+        text: t('dashboard.right_click.advanced.change_location'),
         icon: 'mdi-folder',
         action: moveTorrents
       },
       {
-        text: 'Rename Torrent',
+        text: t('dashboard.right_click.advanced.rename'),
         icon: 'mdi-rename-box',
         hidden: isMultiple.value,
         action: renameTorrents
       },
       {
-        text: 'Force Recheck',
+        text: t('dashboard.right_click.advanced.recheck'),
         icon: 'mdi-playlist-check',
         action: forceRecheck
       },
       {
-        text: 'Force Reannounce',
+        text: t('dashboard.right_click.advanced.reannounce'),
         icon: 'mdi-bullhorn',
         action: forceReannounce
       },
       {
-        text: 'Sequential Download',
+        text: t('dashboard.right_click.advanced.seq_dl'),
         icon: torrent.value?.seq_dl ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: toggleSeqDl
       },
       {
-        text: 'First / Last Priority',
+        text: t('dashboard.right_click.advanced.f_l_prio'),
         icon: torrent.value?.f_l_piece_prio ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: toggleFLPiecePrio
       },
       {
-        text: 'Auto TMM',
+        text: t('dashboard.right_click.advanced.auto_tmm'),
         icon: torrent.value?.auto_tmm ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: toggleAutoTMM
       }
     ]
   },
   {
-    text: 'Set Priority',
+    text: t('dashboard.right_click.priority.title'),
     icon: 'mdi-priority-high',
     hidden: !preferenceStore.preferences!.queueing_enabled,
     children: [
       {
-        text: 'Top Prio',
+        text: t('dashboard.right_click.priority.top'),
         icon: 'mdi-priority-high',
-        action: () => {}
+        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'topPrio')
       },
       {
-        text: 'Increase Prio',
+        text: t('dashboard.right_click.priority.increase'),
         icon: 'mdi-arrow-up',
-        action: () => {}
+        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'increasePrio')
       },
       {
-        text: 'Decrease Prio',
+        text: t('dashboard.right_click.priority.decrease'),
         icon: 'mdi-arrow-down',
-        action: () => {}
+        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'decreasePrio')
       },
       {
-        text: 'Bottom Prio',
+        text: t('dashboard.right_click.priority.bottom'),
         icon: 'mdi-priority-low',
-        action: () => {}
+        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'bottomPrio')
       }
     ]
   },
   {
-    text: 'Set tags',
+    text: t('dashboard.right_click.tags.title'),
     icon: 'mdi-tag',
     disabled: maindataStore.tags.length === 0,
-    disabledText: 'No tags',
+    disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
     children: maindataStore.tags.map(tag => ({
       text: tag,
-      icon: 'mdi-tag',
-      action: () => {}
+      icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
+      action: async () => await toggleTag(tag)
     }))
   },
   {
-    text: 'Set category',
+    text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',
     disabled: maindataStore.categories.length === 0,
-    disabledText: 'No categories',
+    disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
-    children: maindataStore.categories.map(category => ({
-      text: category.name,
-      icon: 'mdi-label',
-      action: () => {}
+    children: availableCategories.value.map(category => ({
+      text: category.name === '' ? t('dashboard.right_click.category.clear') : category.name,
+      action: async () => await maindataStore.setTorrentCategory(hashes.value, category.name)
     }))
   },
   {
-    text: 'Set speed limit',
+    text: t('dashboard.right_click.speed_limit.title'),
     icon: 'mdi-speedometer-slow',
     children: [
       {
-        text: 'Set download limit',
+        text: t('dashboard.right_click.speed_limit.download'),
         icon: 'mdi-download',
-        action: () => {}
+        action: () => {/* TODO */}
       },
       {
-        text: 'Set upload limit',
+        text: t('dashboard.right_click.speed_limit.upload'),
         icon: 'mdi-upload',
-        action: () => {}
+        action: () => {/* TODO */}
       },
       {
-        text: 'Set share limit',
+        text: t('dashboard.right_click.speed_limit.share'),
         icon: 'mdi-account-group',
-        action: () => {}
+        action: () => {/* TODO */}
       }
     ]
   },
   {
-    text: 'Copy',
+    text: t('dashboard.right_click.copy.title'),
     icon: 'mdi-content-copy',
+    hidden: isMultiple.value,
     children: [
       {
-        text: 'Name',
+        text: t('dashboard.right_click.copy.name'),
         icon: 'mdi-alphabetical-variant',
-        action: () => {}
+        action: () => copyValue(torrent.value.name)
       },
       {
-        text: 'Hash',
+        text: t('dashboard.right_click.copy.hash'),
         icon: 'mdi-pound',
-        action: () => {}
+        action: () => copyValue(hash.value)
       },
       {
-        text: 'Magnet',
+        text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
-        action: () => {}
+        action: () => copyValue(torrent.value.magnet)
       }
     ]
   },
   {
-    text: isMultiple.value ? 'Export torrents' : 'Export torrent',
+    text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
-    action: () => {}
+    action: exportTorrents
   },
   {
-    text: 'Show Info',
+    text: t('dashboard.right_click.info'),
     icon: 'mdi-information',
-    disabled: isMultiple.value,
-    action: () => {}
+    hidden: isMultiple.value,
+    action: () => router.push({ name: 'torrentDetail', params: { hash: hash.value } })
   }
 ])
 </script>
