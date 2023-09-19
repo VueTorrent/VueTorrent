@@ -42,6 +42,7 @@ export default interface Torrent {
   time_active: number
   total_size: number
   tracker: string
+  tracker_domain: string
   trackers_count: number
   up_limit: number
   uploaded: number

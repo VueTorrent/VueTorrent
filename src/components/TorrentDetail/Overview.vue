@@ -2,7 +2,16 @@
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { PieceState, FilePriority, TorrentState } from '@/constants/qbit'
-import { extractHostname, formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, splitByUrl, stringContainsUrl } from '@/helpers'
+import {
+  formatData,
+  formatDataUnit,
+  formatDataValue,
+  formatPercent,
+  formatSpeed,
+  getDomainBody,
+  splitByUrl,
+  stringContainsUrl
+} from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
@@ -230,7 +239,7 @@ watch(
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tracker') }}:</div>
               <v-chip variant="flat" color="tracker">
-                {{ torrent.tracker ? extractHostname(torrent.tracker) : $t('navbar.side.filters.untracked') }}
+                {{ torrent.tracker ? getDomainBody(torrent.tracker) : $t('navbar.side.filters.untracked') }}
               </v-chip>
             </v-col>
             <v-col cols="6" class="d-flex flex-wrap chipgap">

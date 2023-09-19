@@ -1,4 +1,4 @@
-import { formatEta } from '@/helpers'
+import { formatEta, getDomainBody } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { useI18n } from 'vue-i18n'
@@ -52,6 +52,7 @@ export function useTorrentBuilder() {
       time_active: data.time_active,
       total_size: data.total_size,
       tracker: data.tracker,
+      tracker_domain: getDomainBody(data.tracker),
       trackers_count: data.trackers_count,
       up_limit: data.up_limit,
       uploaded: data.uploaded,

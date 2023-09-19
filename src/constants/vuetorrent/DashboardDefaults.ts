@@ -294,7 +294,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.TRACKER]: {
-    props: { title: 'tracker', value: 'tracker', color: 'tracker' },
+    props: { title: 'tracker', value: 'tracker_domain', color: 'tracker' },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TRACKERS_COUNT]: {
