@@ -40,7 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6",
     "@typescript-eslint/parser": "^6",
     "@vitejs/plugin-vue2": "^2",
-    "@vue/eslint-config-typescript": "^11",
+    "@vue/eslint-config-typescript": "^12",
     "@vue/test-utils": "^1",
     "eslint": "^8",
     "eslint-config-prettier": "^9",
