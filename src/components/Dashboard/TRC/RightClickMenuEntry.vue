@@ -24,7 +24,7 @@ defineProps<{
       <v-spacer />
       <v-icon v-if="children">mdi-chevron-right</v-icon>
     </div>
-    <v-menu v-if="children" activator="parent" :open-on-hover="true" close-delay="0" open-delay="0" location="right">
+    <v-menu v-if="children" activator="parent" :open-on-hover="true" :open-on-click="true" close-delay="0" open-delay="0" location="right">
       <v-list>
         <RightClickMenuEntry v-for="child in children" v-bind="child" />
       </v-list>
