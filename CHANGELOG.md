@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.7.4](https://github.com/WDaan/VueTorrent/compare/v1.7.3...v1.7.4) (2023-09-19)
+
+
+### Bug Fixes
+
+* change settings speed tab speed unit to KiBps ([#1082](https://github.com/WDaan/VueTorrent/issues/1082)) ([587038a](https://github.com/WDaan/VueTorrent/commit/587038a7ae25fcedcb29b358a12e5f3a3b38ce64))
+* formatDataValues for values with 4 digits or more ([#1083](https://github.com/WDaan/VueTorrent/issues/1083)) ([ad562f0](https://github.com/WDaan/VueTorrent/commit/ad562f056a4976b484ae7f98da2eef8153f9b0c4))
+* **logs:** wrong date parsing ([#1076](https://github.com/WDaan/VueTorrent/issues/1076)) ([14a6b90](https://github.com/WDaan/VueTorrent/commit/14a6b90547dda3284254608f6cd203bc84634768))
+* Revert "fix(logs): Wrong date parsing" ([#1099](https://github.com/WDaan/VueTorrent/issues/1099)) ([1110bdb](https://github.com/WDaan/VueTorrent/commit/1110bdb8b780d9512366d1e46ed8aecadb2efa4d))
+
 ## [1.7.3](https://github.com/WDaan/VueTorrent/compare/v1.7.2...v1.7.3) (2023-08-31)
 
 
