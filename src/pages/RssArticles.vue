@@ -31,12 +31,10 @@ const articles = computed(() => {
     if (!feed.articles) return
 
     feed.articles.forEach(article => {
-      const key = `${feed.uid}|${article.id}`
-      if (keySet.has(key)) return
+      if (keySet.has(article.id)) return
 
-      keySet.add(key)
+      keySet.add(article.id)
       articles.push({
-        key,
         feedName: feed.name,
         parsedDate: new Date(article.date),
         ...article
