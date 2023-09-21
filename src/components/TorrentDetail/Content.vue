@@ -19,6 +19,7 @@ const loading = ref(false)
 const cachedFiles = ref<TorrentFile[]>([])
 const fileTree = ref<TreeRoot>(getEmptyRoot())
 const openedItems = ref<string[]>([])
+//@ts-expect-error
 const fileSelection = ref<number[]>([])
 const renameDialog = ref(false)
 const renamePayload = reactive({
@@ -34,11 +35,13 @@ const filePriorityOptions = [
   { name: t('constants.file_priority.unwanted'), icon: 'mdi-priority-low', value: FilePriority.DO_NOT_DOWNLOAD }
 ]
 
+//@ts-expect-error
 function getFileIcon(file: TreeFile) {
   const type = file.name.split('.').pop()?.toLowerCase() || ''
   return typesMap[type] || 'mdi-file'
 }
 
+//@ts-expect-error
 function getNodeDescription(node: TreeRoot | TreeFolder) {
   let fileCount = 0
   let folderCount = 0
@@ -61,10 +64,12 @@ function getNodeDescription(node: TreeRoot | TreeFolder) {
   return res.join(', ')
 }
 
+//@ts-expect-error
 function getNodePriority(node: TreeFile) {
   return filePriorityOptions.find(el => el.value === node.priority)?.name || ''
 }
 
+//@ts-expect-error
 async function toggleFileSelect(file: TreeFile) {
   await setFilePrio(file, file.priority === FilePriority.DO_NOT_DOWNLOAD ? FilePriority.NORMAL : FilePriority.DO_NOT_DOWNLOAD)
 }
@@ -73,6 +78,7 @@ async function setFilePrio(file: TreeFile, prio: FilePriority) {
   await maindataStore.setTorrentFilePriority(props.torrent.hash, [file.index], prio)
 }
 
+//@ts-expect-error
 async function renameNode(node: TreeNode) {
   renamePayload.hash = props.torrent.hash
   renamePayload.isFolder = node.type === 'folder'
@@ -172,7 +178,10 @@ onBeforeUnmount(() => clearInterval(timer.value as NodeJS.Timeout))
 
 <template>
   <v-card :loading="loading" flat>
-    <!-- TODO: add treeview after merge -->
+    <!--
+    TODO: add treeview after merge
+    https://github.com/vuetifyjs/vuetify/issues/13518
+    -->
   </v-card>
 </template>
 
