@@ -13,6 +13,8 @@ const navbarStore = useNavbarStore()
 const preferenceStore = usePreferenceStore()
 const vueTorrentStore = useVueTorrentStore()
 
+const fileOverflowDisplayLimit = 2
+
 const isFormValid = computed(() => navbarStore.addTorrentDialogUrls.length > 0 || navbarStore.addTorrentDialogFiles.length > 0)
 const formData = reactive({
   autoTMM: false,
@@ -144,9 +146,9 @@ watch(
               </template>
               <template v-slot:selection="{ fileNames }">
                 <span v-for="(fileName, index) in fileNames" :key="fileName">
-                  <v-chip v-if="index < 2" color="accent">{{ fileName }}</v-chip>
-                  <span v-else-if="index >= 2" class="text-overline text-grey-darken-2 ml-2">
-                    {{ t('dialogs.add.fileOverflow', fileNames.length - 2) }}
+                  <v-chip v-if="index < fileOverflowDisplayLimit" color="accent">{{ fileName }}</v-chip>
+                  <span v-else-if="index == fileOverflowDisplayLimit" class="text-overline text-grey-darken-2 ml-2">
+                    {{ t('dialogs.add.fileOverflow', fileNames.length - fileOverflowDisplayLimit) }}
                   </span>
                 </span>
               </template>
