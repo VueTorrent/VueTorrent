@@ -92,20 +92,12 @@
   },
   "rssArticles": {
     "title": "RSS Articles",
-    "table": {
-      "id": "ID",
-      "title": "Title",
-      "category": "Category",
-      "author": "Author",
-      "date": "Date",
-      "feedName": "Feed Name",
-      "actions": ""
-    },
     "filters": {
       "title": "Title filter",
       "unread": "Show unread articles only"
     },
-    "markAllAsRead": "Mark all as read"
+    "markAllAsRead": "Mark all as read",
+    "emptyRssList": "Nothing to see here!"
   },
   "searchEngine": {
     "title": "Search torrents",

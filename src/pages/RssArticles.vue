@@ -4,7 +4,7 @@ import { useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
-import { computed, onBeforeMount, onMounted, onUnmounted } from 'vue'
+import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -13,15 +13,8 @@ const { t } = useI18n()
 const navbarStore = useNavbarStore()
 const rssStore = useRssStore()
 
-const headers = [
-  { title: t('rssArticles.table.id'), key: 'id' },
-  { title: t('rssArticles.table.title'), key: 'title' },
-  { title: t('rssArticles.table.category'), key: 'category' },
-  { title: t('rssArticles.table.author'), key: 'author' },
-  { title: t('rssArticles.table.date'), key: 'parsedDate' },
-  { title: t('rssArticles.table.feedName'), key: 'feedName' },
-  { title: t('rssArticles.table.actions'), key: 'actions', sortable: false }
-]
+const descriptionDialogVisible = ref(false)
+const description = ref('')
 
 const articles = computed(() => {
   const articles: RssArticle[] = []
@@ -62,6 +55,16 @@ const searchQuery = useSearchQuery(
   (item: RssArticle) => item.title
 )
 
+function openLink(url: string) {
+  window.open(url, '_blank', 'noreferrer')
+}
+
+function showDescription(feed: RssArticle) {
+  if (!feed.description) return
+  description.value = feed.description
+  descriptionDialogVisible.value = true
+}
+
 function downloadArticle(item: RssArticle) {
   navbarStore.pushTorrentToQueue(item.torrentURL)
 }
@@ -82,7 +85,7 @@ function goHome() {
   router.push({ name: 'dashboard' })
 }
 
-const isDialogVisible = computed(() => navbarStore.addTorrentDialogVisible)
+const isDialogVisible = computed(() => navbarStore.addTorrentDialogVisible || descriptionDialogVisible.value)
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'Escape' && !isDialogVisible.value) {
@@ -118,60 +121,84 @@ onUnmounted(() => {
     </v-row>
 
     <v-list>
-      <v-data-table
-        :headers="headers"
-        :items="searchQuery.results.value"
-        :footer-props="{ itemsPerPageOptions: [5, 15, 30, 50, -1] }"
-        :items-per-page="15"
-        item-value="id"
-        multi-sort
-        :sort-by="[{ key: 'parsedDate', order: 'desc' }]"
-      >
-        <template v-slot:top>
-          <div class="mx-4 mb-5">
+      <v-list-item>
+        <v-row>
+          <v-col cols="12">
             <v-text-field v-model="titleFilter" clearable hide-details :label="$t('rssArticles.filters.title')" />
-            <v-row>
-              <v-col>
-                <v-checkbox v-model="rssStore.filters.unread" hide-details :label="$t('rssArticles.filters.unread')" />
-              </v-col>
+          </v-col>
+          <v-col cols="12">
+            <div class="d-flex flex-row align-center justify-center">
+              <v-checkbox v-model="rssStore.filters.unread"
+                          hide-details
+                          :label="$t('rssArticles.filters.unread')" />
               <v-spacer />
-              <v-col class="d-flex align-center justify-end">
-                <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
-              </v-col>
-            </v-row>
-          </div>
-        </template>
-        <template v-slot:[`item.id`]="{ item }">
-          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.id }}</span>
-        </template>
-        <template v-slot:[`item.title`]="{ item }">
-          <a :class="{ 'rss-read': item.raw.isRead }" :href="item.raw.link" target="_blank">{{ item.raw.title }}</a>
-        </template>
-        <template v-slot:[`item.category`]="{ item }">
-          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.category }}</span>
-        </template>
-        <template v-slot:[`item.author`]="{ item }">
-          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.author }}</span>
-        </template>
-        <template #[`item.parsedDate`]="{ item }">
-          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.parsedDate.toLocaleString() }}</span>
-        </template>
-        <template v-slot:[`item.feedName`]="{ item }">
-          <span :class="{ 'rss-read': item.raw.isRead }">{{ item.raw.feedName }}</span>
-        </template>
-        <template #[`item.actions`]="{ item }">
-          <span class="rss-actions">
-            <v-icon icon="mdi-email-open" @click="markAsRead(item.raw)" />
-            <v-icon icon="mdi-download" @click="downloadArticle(item.raw)" />
-          </span>
-        </template>
-      </v-data-table>
+              <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
+            </div>
+          </v-col>
+        </v-row>
+      </v-list-item>
+
+      <v-list-item>
+        <v-list>
+          <template v-for="(feed, index) in searchQuery.results.value">
+            <v-divider color="white" v-if="index > 0" />
+
+            <v-list-item :class="{ 'rss-read': feed.isRead }" @click="showDescription(feed)">
+              <div class="d-flex">
+                <div>
+                  <v-list-item-title class="text-wrap">{{ feed.title }}</v-list-item-title>
+
+                  <v-list-item-subtitle>
+                    <span>{{ feed.feedName }}</span>
+                    <span v-if="feed.author"> | {{ feed.author }}</span>
+                    <span v-if="feed.category"> | {{ feed.category }}</span>
+                    <span v-if="feed.parsedDate"> | {{ feed.parsedDate.toLocaleString() }}</span>
+                  </v-list-item-subtitle>
+                </div>
+
+                <v-spacer />
+
+                <div class="d-flex flex-column">
+                  <v-btn icon="mdi-open-in-new"
+                         variant="text"
+                         @click="openLink(feed.link)" />
+                  <v-btn color="accent"
+                         icon="mdi-check"
+                         variant="text"
+                         @click="markAsRead(feed)" />
+                  <v-btn icon="mdi-download"
+                         variant="text"
+                         @click="downloadArticle(feed)" />
+                </div>
+              </div>
+
+              <v-dialog v-model="descriptionDialogVisible">
+                <v-card>
+                  <v-card-text>
+                    <div v-html="description" />
+                  </v-card-text>
+                </v-card>
+              </v-dialog>
+            </v-list-item>
+          </template>
+
+          <v-list-item v-if="searchQuery.results.value.length === 0">
+            {{ $t('rssArticles.emptyRssList') }}
+          </v-list-item>
+        </v-list>
+      </v-list-item>
     </v-list>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .rss-read {
-  color: grey;
+  &.v-theme--darkTheme {
+    color: lighten(darkgrey, 5%) !important;
+  }
+
+  &.v-theme--lightTheme {
+    color: grey !important;
+  }
 }
 </style>
