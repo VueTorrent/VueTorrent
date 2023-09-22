@@ -66,30 +66,42 @@ onBeforeMount(() => {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showSpeedGraph" hide-details density="compact" :label="t('settings.vuetorrent.general.showSpeedGraph')" />
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showAlltimeStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showAlltimeStat')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showSessionStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showSessionStat')" />
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showFreeSpace" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.showTrackerFilter" hide-details density="compact" :label="t('settings.vuetorrent.general.showTrackerFilter')" />
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isDrawerRight" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isPaginationOnTop" hide-details density="compact" :label="t('settings.vuetorrent.general.isPaginationOnTop')" />
         </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.matchSystemTheme" hide-details density="compact" :label="t('settings.vuetorrent.general.matchSystemTheme')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          
+        </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
+
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBinarySize" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />
         </v-col>

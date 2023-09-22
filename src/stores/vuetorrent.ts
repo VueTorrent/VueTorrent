@@ -13,6 +13,7 @@ export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
     const language = ref('en')
+    const matchSystemTheme = ref(true)
     const darkMode = ref(false)
     const showFreeSpace = ref(true)
     const showSpeedGraph = ref(true)
@@ -40,6 +41,7 @@ export const useVueTorrentStore = defineStore(
     const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
+    const currentSystemTheme = computed(() => window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT)
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
@@ -73,17 +75,21 @@ export const useVueTorrentStore = defineStore(
 
     watch(language, setLanguage)
     watch(darkMode, updateTheme)
+    watch(matchSystemTheme, updateTheme)
 
     function setLanguage(newLang: string) {
       i18n.locale.value = newLang
     }
 
     function updateTheme() {
-      theme.global.name.value = getCurrentThemeName.value
+      theme.global.name.value = matchSystemTheme.value ? currentSystemTheme.value : getCurrentThemeName.value
     }
 
     function toggleTheme() {
-      darkMode.value = !darkMode.value
+      darkMode.value = !theme.current.value.dark
+      if (matchSystemTheme.value) {
+        matchSystemTheme.value = false
+      }
     }
 
     async function redirectToLogin() {
@@ -151,6 +157,7 @@ export const useVueTorrentStore = defineStore(
       isPaginationOnTop,
       isShutdownButtonVisible,
       language,
+      matchSystemTheme,
       openSideBarOnStart,
       paginationSize,
       refreshInterval,

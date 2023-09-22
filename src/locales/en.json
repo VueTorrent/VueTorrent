@@ -521,6 +521,7 @@
         "showTrackerFilter": "Show Tracker Filter",
         "isDrawerRight": "Right Drawer",
         "isPaginationOnTop": "Top Pagination",
+        "matchSystemTheme": "Use System Theme",
         "language": "Language",
         "paginationSize": "Pagination size",
         "vueTorrentTitle": "VueTorrent title",
