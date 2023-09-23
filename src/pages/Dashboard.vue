@@ -7,6 +7,7 @@ import Torrent from '@/components/Dashboard/Torrent.vue'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { useDashboardStore, useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
@@ -73,7 +74,7 @@ const sortOptions = [
   { value: 'uploaded_session', title: t('dashboard.sortBy.uploaded_session') },
   { value: 'upspeed', title: t('dashboard.sortBy.upspeed') }
 ].sort((a, b) => a.title.localeCompare(b.title))
-sortOptions.splice(0, 0, { value: '', title: t('dashboard.sortBy.default') })
+sortOptions.push({ value: '', title: t('dashboard.sortBy.default') })
 
 const isSearchFilterVisible = ref(false)
 const isDeleteDialogVisible = ref(false)
@@ -88,11 +89,13 @@ const searchFilter = computed({
     dashboardStore.searchFilter = newValue
   }, 300)
 })
-const pageCount = computed(() => Math.ceil(dashboardStore.filteredTorrents.length / vuetorrentStore.paginationSize))
-const paginatedData = computed(() => {
-  const start = (dashboardStore.currentPage - 1) * vuetorrentStore.paginationSize
-  const end = start + vuetorrentStore.paginationSize
-  return dashboardStore.filteredTorrents.slice(start, end)
+const {
+  result: paginatedTorrents,
+  currentPage,
+  lastPage
+} = useArrayPagination(dashboardStore.filteredTorrents, {
+  currentPage: dashboardStore.currentPage,
+  pageSize: vuetorrentStore.paginationSize
 })
 const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
 
@@ -260,7 +263,8 @@ onBeforeUnmount(() => {
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="dashboardStore.isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
+          <v-btn :icon="dashboardStore.isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                 v-bind="props" variant="plain" @click="toggleSelectMode" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
@@ -283,9 +287,6 @@ onBeforeUnmount(() => {
           :label="t('dashboard.sortLabel')"
           rounded="pill" />
       </div>
-      <v-col cols="12" v-if="vuetorrentStore.isPaginationOnTop" class="pa-0">
-        <v-pagination v-model="dashboardStore.currentPage" :length="pageCount" total-visible="7" @input="scrollToTop" />
-      </v-col>
       <v-col class="align-center justify-center">
         <span style="float: right; font-size: 0.8em" class="text-uppercase">
           {{ dashboardStore.torrentCountString }}
@@ -315,13 +316,20 @@ onBeforeUnmount(() => {
     </div>
     <div v-else>
       <v-list class="pa-0" color="transparent" id="torrentList">
-        <v-list-item
-          v-for="torrent in paginatedData"
-          :id="`torrent-${torrent.hash}`"
-          class="pa-0"
-          :class="display.mobile ? 'mb-2' : 'mb-4'"
-          @dblclick.prevent="goToInfo(torrent.hash)"
-          @contextmenu="onRightClick($event, torrent)">
+        <v-list-item v-if="vuetorrentStore.isPaginationOnTop">
+          <v-pagination v-model="currentPage"
+                        :length="lastPage"
+                        next-icon="mdi-menu-right"
+                        prev-icon="mdi-menu-left"
+                        @input="scrollToTop" />
+        </v-list-item>
+
+        <v-list-item v-for="torrent in paginatedTorrents"
+                     :id="`torrent-${torrent.hash}`"
+                     class="pa-0"
+                     :class="display.mobile ? 'mb-2' : 'mb-4'"
+                     @dblclick.prevent="goToInfo(torrent.hash)"
+                     @contextmenu="onRightClick($event, torrent)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
@@ -334,6 +342,14 @@ onBeforeUnmount(() => {
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
           </div>
+        </v-list-item>
+
+        <v-list-item v-if="!vuetorrentStore.isPaginationOnTop">
+          <v-pagination v-model="currentPage"
+                        :length="lastPage"
+                        next-icon="mdi-menu-right"
+                        prev-icon="mdi-menu-left"
+                        @input="scrollToTop" />
         </v-list-item>
       </v-list>
     </div>
