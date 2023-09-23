@@ -69,7 +69,7 @@ onMounted(() => {
         </v-form>
       </v-card-text>
       <v-card-actions>
-        <v-btn variant="elevated" block color="accent" type="submit">
+        <v-btn variant="elevated" block color="accent" @click="login">
           {{ t('login.submit') }}
         </v-btn>
       </v-card-actions>
