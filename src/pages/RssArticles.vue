@@ -59,8 +59,6 @@ const searchQuery = useSearchQuery(
 )
 const {
   result: paginatedResults,
-  prev,
-  next,
   currentPage,
   lastPage
 } = useArrayPagination(searchQuery.results, { pageSize: 15 })
@@ -81,7 +79,7 @@ function downloadArticle(item: RssArticle) {
 
 async function markAsRead(item: RssArticle) {
   await rssStore.markArticleAsRead(item)
-  await rssStore.fetchFeeds()
+  item.isRead = true
 }
 
 async function markAllAsRead() {
@@ -105,6 +103,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
 onBeforeMount(async () => {
   await rssStore.fetchFeeds()
+  currentPage.value = 1
 })
 
 onMounted(() => {
@@ -150,9 +149,7 @@ onUnmounted(() => {
         <v-pagination v-model="currentPage"
                       :length="lastPage"
                       next-icon="mdi-menu-right"
-                      prev-icon="mdi-menu-left"
-                      @next="next"
-                      @prev="prev" />
+                      prev-icon="mdi-menu-left" />
       </v-list-item>
 
       <v-list-item>
