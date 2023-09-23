@@ -244,17 +244,17 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: t('dashboard.right_click.copy.name'),
         icon: 'mdi-alphabetical-variant',
-        action: () => copyValue(torrent.value.name)
+        action: async () => torrent.value && await copyValue(torrent.value.name)
       },
       {
         text: t('dashboard.right_click.copy.hash'),
         icon: 'mdi-pound',
-        action: () => copyValue(hash.value)
+        action: async () => await copyValue(hash.value)
       },
       {
         text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
-        action: () => copyValue(torrent.value.magnet)
+        action: async () => torrent.value && await copyValue(torrent.value.magnet)
       }
     ]
   },
