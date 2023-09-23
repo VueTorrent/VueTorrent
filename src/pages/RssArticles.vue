@@ -1,12 +1,14 @@
-<script setup lang="ts">
-import debounce from 'lodash.debounce'
+<script lang="ts" setup>
 import { useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
+import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue'
+import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+
 
 const router = useRouter()
 const { t } = useI18n()
@@ -50,10 +52,18 @@ const titleFilter = computed({
 })
 
 const searchQuery = useSearchQuery(
-  () => (rssStore.filters.unread ? unreadArticles.value : articles.value),
-  () => titleFilter.value,
-  (item: RssArticle) => item.title
+    () => (rssStore.filters.unread ? unreadArticles.value : articles.value)
+        .sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)),
+    () => titleFilter.value,
+    (item: RssArticle) => item.title
 )
+const {
+  result: paginatedResults,
+  prev,
+  next,
+  currentPage,
+  lastPage
+} = useArrayPagination(searchQuery.results, { pageSize: 15 })
 
 function openLink(url: string) {
   window.open(url, '_blank', 'noreferrer')
@@ -107,9 +117,9 @@ onUnmounted(() => {
 
 <template>
   <div class="pa-3">
-    <v-row no-gutters align="center" justify="center">
+    <v-row align="center" justify="center" no-gutters>
       <v-col>
-        <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">
+        <h1 class="subtitle-1 ml-2" style="font-size: 1.6em !important">
           {{ t('rssArticles.title') }}
         </h1>
       </v-col>
@@ -124,11 +134,11 @@ onUnmounted(() => {
       <v-list-item>
         <v-row>
           <v-col cols="12">
-            <v-text-field v-model="titleFilter" clearable hide-details :label="$t('rssArticles.filters.title')" />
+            <v-text-field v-model="titleFilter" :label="$t('rssArticles.filters.title')" clearable hide-details />
           </v-col>
           <v-col cols="12">
             <div class="d-flex flex-row align-center justify-center">
-              <v-checkbox v-model="rssStore.filters.unread" hide-details :label="$t('rssArticles.filters.unread')" />
+              <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
               <v-spacer />
               <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
             </div>
@@ -136,10 +146,19 @@ onUnmounted(() => {
         </v-row>
       </v-list-item>
 
+      <v-list-item v-if="searchQuery.results.value.length">
+        <v-pagination v-model="currentPage"
+                      :length="lastPage"
+                      next-icon="mdi-menu-right"
+                      prev-icon="mdi-menu-left"
+                      @next="next"
+                      @prev="prev" />
+      </v-list-item>
+
       <v-list-item>
         <v-list>
-          <template v-for="(feed, index) in searchQuery.results.value">
-            <v-divider color="white" v-if="index > 0" />
+          <template v-for="(feed, index) in paginatedResults">
+            <v-divider v-if="index > 0" color="white" />
 
             <v-list-item :class="{ 'rss-read': feed.isRead }" @click="showDescription(feed)">
               <div class="d-flex">
@@ -147,19 +166,25 @@ onUnmounted(() => {
                   <v-list-item-title class="text-wrap">{{ feed.title }}</v-list-item-title>
 
                   <v-list-item-subtitle>
-                    <span>{{ feed.feedName }}</span>
+                    <span>{{ feed.parsedDate.toLocaleString() }} | {{ feed.feedName }}</span>
                     <span v-if="feed.author"> | {{ feed.author }}</span>
                     <span v-if="feed.category"> | {{ feed.category }}</span>
-                    <span v-if="feed.parsedDate"> | {{ feed.parsedDate.toLocaleString() }}</span>
                   </v-list-item-subtitle>
                 </div>
 
                 <v-spacer />
 
                 <div class="d-flex flex-column">
-                  <v-btn icon="mdi-open-in-new" variant="text" @click="openLink(feed.link)" />
-                  <v-btn color="accent" icon="mdi-check" variant="text" @click="markAsRead(feed)" />
-                  <v-btn icon="mdi-download" variant="text" @click="downloadArticle(feed)" />
+                  <v-btn icon="mdi-open-in-new"
+                         variant="text"
+                         @click.stop="openLink(feed.link)" />
+                  <v-btn color="accent"
+                         icon="mdi-check"
+                         variant="text"
+                         @click.stop="markAsRead(feed)" />
+                  <v-btn icon="mdi-download"
+                         variant="text"
+                         @click.stop="downloadArticle(feed)" />
                 </div>
               </div>
 
@@ -178,11 +203,18 @@ onUnmounted(() => {
           </v-list-item>
         </v-list>
       </v-list-item>
+
+      <v-list-item v-if="searchQuery.results.value.length">
+        <v-pagination v-model="currentPage"
+                      :length="lastPage"
+                      next-icon="mdi-menu-right"
+                      prev-icon="mdi-menu-left" />
+      </v-list-item>
     </v-list>
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .rss-read {
   &.v-theme--darkTheme {
     color: lighten(darkgrey, 5%) !important;
