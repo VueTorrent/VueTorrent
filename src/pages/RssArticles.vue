@@ -162,10 +162,11 @@ onUnmounted(() => {
                 <div>
                   <v-list-item-title class="text-wrap">{{ feed.title }}</v-list-item-title>
 
-                  <v-list-item-subtitle>
-                    <span>{{ feed.parsedDate.toLocaleString() }} | {{ feed.feedName }}</span>
-                    <span v-if="feed.author"> | {{ feed.author }}</span>
-                    <span v-if="feed.category"> | {{ feed.category }}</span>
+                  <v-list-item-subtitle class="d-block">
+                    <div>{{ feed.parsedDate.toLocaleString() }}</div>
+                    <div v-if="feed.feedName">{{ t('rssArticles.item.feedName', { name: feed.feedName }) }}</div>
+                    <div v-if="feed.author">{{ t('rssArticles.item.author', { author: feed.author }) }}</div>
+                    <div v-if="feed.category">{{ t('rssArticles.item.category', { category: feed.category }) }}</div>
                   </v-list-item-subtitle>
                 </div>
 

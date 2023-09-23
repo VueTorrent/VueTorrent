@@ -139,7 +139,12 @@
       "unread": "Show unread articles only"
     },
     "markAllAsRead": "Mark all as read",
-    "emptyRssList": "Nothing to see here!"
+    "emptyRssList": "Nothing to see here!",
+    "item": {
+      "feedName": "Feed name: {name}",
+      "author": "Author: {author}",
+      "category": "Category: {category}"
+    }
   },
   "searchEngine": {
     "title": "Search torrents",
