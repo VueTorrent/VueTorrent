@@ -2,6 +2,7 @@
 import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router';
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
@@ -11,6 +12,8 @@ const props = defineProps<{
 }>()
 const emit = defineEmits(['update:modelValue'])
 
+const route = useRoute()
+const router = useRouter()
 const { t } = useI18n()
 const dashboardStore = useDashboardStore()
 const maindataStore = useMaindataStore()
@@ -36,6 +39,10 @@ async function submit() {
   dashboardStore.unselectAllTorrents()
 
   close()
+
+  if (route.name === 'torrentDetail') {
+    router.push({ name: 'dashboard' })
+  }
 }
 
 const close = () => {
