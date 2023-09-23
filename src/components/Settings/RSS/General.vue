@@ -18,8 +18,7 @@ const preferenceStore = usePreferenceStore()
             type="number"
             hide-details
             :suffix="$t('units.minutes')"
-            :label="$t('settings.rss.general.reader.feedsRefreshInterval')"
-          />
+            :label="$t('settings.rss.general.reader.feedsRefreshInterval')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
@@ -42,8 +41,7 @@ const preferenceStore = usePreferenceStore()
         v-model="preferenceStore.preferences!.rss_download_repack_proper_episodes"
         hide-details
         class="ma-0 pa-0"
-        :label="$t('settings.rss.general.smartEpisodeFilter.downloadEpisodes')"
-      />
+        :label="$t('settings.rss.general.smartEpisodeFilter.downloadEpisodes')" />
       <v-textarea
         v-model="preferenceStore.preferences!.rss_smart_episode_filters"
         outlined
@@ -51,8 +49,7 @@ const preferenceStore = usePreferenceStore()
         clearable
         persistent-hint
         :hint="$t('settings.rss.general.smartEpisodeFilter.filtersHint')"
-        :label="$t('settings.rss.general.smartEpisodeFilter.filters')"
-      />
+        :label="$t('settings.rss.general.smartEpisodeFilter.filters')" />
     </v-list-item>
   </v-list>
 </template>

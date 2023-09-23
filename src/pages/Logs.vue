@@ -93,8 +93,7 @@ onUnmounted(() => {
         :items-per-page="50"
         item-value="id"
         multi-sort
-        :sort-by="sortBy"
-      >
+        :sort-by="sortBy">
         <template v-slot:top>
           <div class="mx-4 mb-5">
             <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" multiple chips>

@@ -40,8 +40,7 @@ async function onTogglePlugin(plugin: SearchPlugin) {
 
 async function updatePlugins() {
   updateLoading.value = true
-  await searchEngineStore.updatePlugins()
-      .then(() => new Promise(resolve => setTimeout(resolve, 2000)))
+  await searchEngineStore.updatePlugins().then(() => new Promise(resolve => setTimeout(resolve, 2000)))
   await searchEngineStore.fetchSearchPlugins()
   updateLoading.value = false
 }
@@ -88,11 +87,7 @@ function closeInstallDialog() {
 
         <v-spacer />
 
-        <v-btn :text="$t('dialogs.pluginManager.update')"
-               color="accent"
-               class="mr-2"
-               :loading="updateLoading"
-               @click="updatePlugins" />
+        <v-btn :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
         <v-dialog v-model="installDialogVisible">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" color="primary">

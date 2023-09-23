@@ -2,16 +2,7 @@
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { PieceState, FilePriority, TorrentState } from '@/constants/qbit'
-import {
-  formatData,
-  formatDataUnit,
-  formatDataValue,
-  formatPercent,
-  formatSpeed,
-  getDomainBody,
-  splitByUrl,
-  stringContainsUrl
-} from '@/helpers'
+import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'

@@ -128,9 +128,7 @@ onUnmounted(() => {
           </v-col>
           <v-col cols="12">
             <div class="d-flex flex-row align-center justify-center">
-              <v-checkbox v-model="rssStore.filters.unread"
-                          hide-details
-                          :label="$t('rssArticles.filters.unread')" />
+              <v-checkbox v-model="rssStore.filters.unread" hide-details :label="$t('rssArticles.filters.unread')" />
               <v-spacer />
               <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
             </div>
@@ -159,16 +157,9 @@ onUnmounted(() => {
                 <v-spacer />
 
                 <div class="d-flex flex-column">
-                  <v-btn icon="mdi-open-in-new"
-                         variant="text"
-                         @click="openLink(feed.link)" />
-                  <v-btn color="accent"
-                         icon="mdi-check"
-                         variant="text"
-                         @click="markAsRead(feed)" />
-                  <v-btn icon="mdi-download"
-                         variant="text"
-                         @click="downloadArticle(feed)" />
+                  <v-btn icon="mdi-open-in-new" variant="text" @click="openLink(feed.link)" />
+                  <v-btn color="accent" icon="mdi-check" variant="text" @click="markAsRead(feed)" />
+                  <v-btn icon="mdi-download" variant="text" @click="downloadArticle(feed)" />
                 </div>
               </div>
 

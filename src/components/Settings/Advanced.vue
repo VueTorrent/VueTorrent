@@ -73,8 +73,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="MiB"
-            :label="t('settings.advanced.qbittorrent.allocatedRam')"
-          />
+            :label="t('settings.advanced.qbittorrent.allocatedRam')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
@@ -82,8 +81,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             :suffix="t('units.minutes')"
-            :label="t('settings.advanced.qbittorrent.saveInterval')"
-          />
+            :label="t('settings.advanced.qbittorrent.saveInterval')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -95,8 +93,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="ms"
-            :label="t('settings.advanced.qbittorrent.refreshInterval')"
-          />
+            :label="t('settings.advanced.qbittorrent.refreshInterval')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -118,16 +115,14 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.current_network_interface"
             hide-details
             :items="networkInterfaceOptions"
-            :label="t('settings.advanced.qbittorrent.networking.networkInterfaces.label')"
-          />
+            :label="t('settings.advanced.qbittorrent.networking.networkInterfaces.label')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
             v-model="preferenceStore.preferences!.current_interface_address"
             hide-details
             :items="ipAddressesOptions"
-            :label="t('settings.advanced.qbittorrent.networking.ipAddress.label')"
-          />
+            :label="t('settings.advanced.qbittorrent.networking.ipAddress.label')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -146,15 +141,13 @@ onBeforeMount(async () => {
             :disabled="!preferenceStore.preferences!.enable_embedded_tracker"
             type="number"
             hide-details
-            :label="t('settings.advanced.qbittorrent.embeddedTracker.port')"
-          />
+            :label="t('settings.advanced.qbittorrent.embeddedTracker.port')" />
         </v-col>
         <v-col cols="12" class="pt-0">
           <v-checkbox
             v-model="preferenceStore.preferences!.embedded_tracker_port_forwarding"
             hide-details
-            :label="t('settings.advanced.qbittorrent.embeddedTracker.portForward')"
-          />
+            :label="t('settings.advanced.qbittorrent.embeddedTracker.portForward')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -189,8 +182,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="MiB"
-            :label="t('settings.advanced.libtorrent.threads.outstandingMemory')"
-          />
+            :label="t('settings.advanced.libtorrent.threads.outstandingMemory')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -209,8 +201,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             :suffix="t('units.seconds')"
-            :label="t('settings.advanced.libtorrent.disk.diskCacheExpiry')"
-          />
+            :label="t('settings.advanced.libtorrent.disk.diskCacheExpiry')" />
         </v-col>
 
         <v-col cols="12">
@@ -219,8 +210,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="kiB"
-            :label="t('settings.advanced.libtorrent.disk.diskQueueSize')"
-          />
+            :label="t('settings.advanced.libtorrent.disk.diskQueueSize')" />
         </v-col>
 
         <v-col cols="12" sm="4">
@@ -231,16 +221,14 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.disk_io_read_mode"
             hide-details
             :items="diskIoModeReadOptions"
-            :label="t('settings.advanced.libtorrent.disk.diskIoReadMode')"
-          />
+            :label="t('settings.advanced.libtorrent.disk.diskIoReadMode')" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-select
             v-model="preferenceStore.preferences!.disk_io_write_mode"
             hide-details
             :items="diskIoModeWriteOptions"
-            :label="t('settings.advanced.libtorrent.disk.diskIoWriteMode')"
-          />
+            :label="t('settings.advanced.libtorrent.disk.diskIoWriteMode')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -265,8 +253,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="kiB"
-            :label="t('settings.advanced.libtorrent.sendBufferWatermark')"
-          />
+            :label="t('settings.advanced.libtorrent.sendBufferWatermark')" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-text-field
@@ -274,8 +261,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="kiB"
-            :label="t('settings.advanced.libtorrent.sendBufferLowWatermark')"
-          />
+            :label="t('settings.advanced.libtorrent.sendBufferLowWatermark')" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-text-field
@@ -283,8 +269,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="%"
-            :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')"
-          />
+            :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -292,8 +277,7 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.connection_speed"
             type="number"
             hide-details
-            :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')"
-          />
+            :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.socket_backlog_size" type="number" hide-details :label="t('settings.advanced.libtorrent.socketBacklogSize')" />
@@ -311,16 +295,14 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.outgoing_ports_min"
             type="number"
             hide-details
-            :label="t('settings.advanced.libtorrent.networking.outgoingPortsMin')"
-          />
+            :label="t('settings.advanced.libtorrent.networking.outgoingPortsMin')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
             v-model="preferenceStore.preferences!.outgoing_ports_max"
             type="number"
             hide-details
-            :label="t('settings.advanced.libtorrent.networking.outgoingPortsMax')"
-          />
+            :label="t('settings.advanced.libtorrent.networking.outgoingPortsMax')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -328,8 +310,7 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.upnp_lease_duration"
             type="number"
             hide-details
-            :label="t('settings.advanced.libtorrent.networking.upnpLeaseDuration')"
-          />
+            :label="t('settings.advanced.libtorrent.networking.upnpLeaseDuration')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.peer_tos" type="number" hide-details :label="t('settings.advanced.libtorrent.networking.peerTos')" />
@@ -340,8 +321,7 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.utp_tcp_mixed_mode"
             hide-details
             :items="utpTcpMixedModeOptions"
-            :label="t('settings.advanced.libtorrent.networking.utpTcpMixedModeAlgorithm')"
-          />
+            :label="t('settings.advanced.libtorrent.networking.utpTcpMixedModeAlgorithm')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -358,16 +338,14 @@ onBeforeMount(async () => {
           <v-checkbox
             v-model="preferenceStore.preferences!.enable_multi_connections_from_same_ip"
             hide-details
-            :label="t('settings.advanced.libtorrent.security.allowMultipleConnectionsFromTheSameIPAddress')"
-          />
+            :label="t('settings.advanced.libtorrent.security.allowMultipleConnectionsFromTheSameIPAddress')" />
         </v-col>
 
         <v-col cols="12" sm="4">
           <v-checkbox
             v-model="preferenceStore.preferences!.validate_https_tracker_certificate"
             hide-details
-            :label="t('settings.advanced.libtorrent.security.validateHTTPSTrackerCertificate')"
-          />
+            :label="t('settings.advanced.libtorrent.security.validateHTTPSTrackerCertificate')" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-checkbox v-model="preferenceStore.preferences!.ssrf_mitigation" hide-details :label="t('settings.advanced.libtorrent.security.mitigateSSRF')" />
@@ -376,8 +354,7 @@ onBeforeMount(async () => {
           <v-checkbox
             v-model="preferenceStore.preferences!.block_peers_on_privileged_ports"
             hide-details
-            :label="t('settings.advanced.libtorrent.security.blockPeersOnPrivilegedPorts')"
-          />
+            :label="t('settings.advanced.libtorrent.security.blockPeersOnPrivilegedPorts')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -391,16 +368,14 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.upload_slots_behavior"
             hide-details
             :items="uploadSlotsBehaviorOptions"
-            :label="t('settings.advanced.libtorrent.uploadSlotsBehavior')"
-          />
+            :label="t('settings.advanced.libtorrent.uploadSlotsBehavior')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-select
             v-model="preferenceStore.preferences!.upload_choking_algorithm"
             hide-details
             :items="uploadChokingAlgorithmOptions"
-            :label="t('settings.advanced.libtorrent.uploadChokingAlgorithm')"
-          />
+            :label="t('settings.advanced.libtorrent.uploadChokingAlgorithm')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -419,8 +394,7 @@ onBeforeMount(async () => {
             v-model="preferenceStore.preferences!.max_concurrent_http_announces"
             type="number"
             hide-details
-            :label="t('settings.advanced.libtorrent.maxConcurrentHTTPAnnounces')"
-          />
+            :label="t('settings.advanced.libtorrent.maxConcurrentHTTPAnnounces')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.stop_tracker_timeout" type="number" hide-details :label="t('settings.advanced.libtorrent.stopTrackerTimeout')" />
@@ -435,8 +409,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             suffix="%"
-            :label="t('settings.advanced.libtorrent.peerTurnoverCutoff')"
-          />
+            :label="t('settings.advanced.libtorrent.peerTurnoverCutoff')" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-text-field
@@ -444,8 +417,7 @@ onBeforeMount(async () => {
             type="number"
             hide-details
             :suffix="t('units.seconds')"
-            :label="t('settings.advanced.libtorrent.peerTurnoverInterval')"
-          />
+            :label="t('settings.advanced.libtorrent.peerTurnoverInterval')" />
         </v-col>
 
         <v-col cols="12">

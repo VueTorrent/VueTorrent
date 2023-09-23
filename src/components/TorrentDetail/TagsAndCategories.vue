@@ -46,8 +46,7 @@ onBeforeMount(async () => {
                 :title="tag"
                 :variant="torrent.tags?.includes(tag) ? 'tonal' : undefined"
                 :base-color="torrent.tags?.includes(tag) ? 'accent' : undefined"
-                @click="toggleTag(tag)"
-              />
+                @click="toggleTag(tag)" />
             </v-list>
           </v-item-group>
         </v-col>
@@ -62,8 +61,7 @@ onBeforeMount(async () => {
                 :title="category.name"
                 :variant="category.name === props.torrent.category ? 'tonal' : undefined"
                 :base-color="category.name === props.torrent.category ? 'accent' : undefined"
-                @click="setCategory(category.name)"
-              />
+                @click="setCategory(category.name)" />
             </v-list>
           </v-item-group>
         </v-col>

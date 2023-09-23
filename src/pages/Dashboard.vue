@@ -246,8 +246,7 @@ onBeforeUnmount(() => {
             single-line
             rounded="pill"
             style="width: 200px"
-            @click:clear="resetInput()"
-          />
+            @click:clear="resetInput()" />
         </v-card>
       </v-expand-x-transition>
       <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="top">
@@ -256,8 +255,7 @@ onBeforeUnmount(() => {
             :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'"
             v-bind="props"
             variant="plain"
-            @click="isSearchFilterVisible = !isSearchFilterVisible"
-          />
+            @click="isSearchFilterVisible = !isSearchFilterVisible" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
@@ -271,8 +269,7 @@ onBeforeUnmount(() => {
             :icon="dashboardStore.sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
             v-bind="props"
             variant="plain"
-            @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder"
-          />
+            @click="dashboardStore.sortOptions.reverseOrder = !dashboardStore.sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
       <div class="pa-0">
@@ -284,8 +281,7 @@ onBeforeUnmount(() => {
           variant="solo"
           hide-details
           :label="t('dashboard.sortLabel')"
-          rounded="pill"
-        />
+          rounded="pill" />
       </div>
       <v-col cols="12" v-if="vuetorrentStore.isPaginationOnTop" class="pa-0">
         <v-pagination v-model="dashboardStore.currentPage" :length="pageCount" total-visible="7" @input="scrollToTop" />
@@ -307,8 +303,7 @@ onBeforeUnmount(() => {
                 color="transparent"
                 style="left: -8px"
                 class="text-grey"
-                @click="toggleSelectAll"
-              />
+                @click="toggleSelectAll" />
             </template>
           </v-tooltip>
           <span class="text-grey">{{ t('dashboard.selectAll') }}</span>
@@ -326,8 +321,7 @@ onBeforeUnmount(() => {
           class="pa-0"
           :class="display.mobile ? 'mb-2' : 'mb-4'"
           @dblclick.prevent="goToInfo(torrent.hash)"
-          @contextmenu="onRightClick($event, torrent)"
-        >
+          @contextmenu="onRightClick($event, torrent)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" color="transparent" class="mr-3">
@@ -335,8 +329,7 @@ onBeforeUnmount(() => {
                   :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                   color="transparent"
                   variant="flat"
-                  @click="toggleSelectTorrent(torrent.hash)"
-                />
+                  @click="toggleSelectTorrent(torrent.hash)" />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />

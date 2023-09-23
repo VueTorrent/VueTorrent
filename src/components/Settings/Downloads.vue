@@ -174,8 +174,7 @@ const closeDeleteDialog = async () => {
             v-model="preferenceStore.preferences!.auto_tmm_enabled"
             :items="defaultTMMOptions"
             hide-details
-            :label="t('settings.downloads.saveManagement.autoTMMEnabled')"
-          />
+            :label="t('settings.downloads.saveManagement.autoTMMEnabled')" />
         </v-col>
 
         <v-col cols="12" md="4">
@@ -183,24 +182,21 @@ const closeDeleteDialog = async () => {
             v-model="preferenceStore.preferences!.torrent_changed_tmm_enabled"
             :items="paramChangedTMMOptions"
             hide-details
-            :label="t('settings.downloads.saveManagement.torrentChangedTMM')"
-          />
+            :label="t('settings.downloads.saveManagement.torrentChangedTMM')" />
         </v-col>
         <v-col cols="12" md="4">
           <v-select
             v-model="preferenceStore.preferences!.save_path_changed_tmm_enabled"
             :items="paramChangedTMMOptions"
             hide-details
-            :label="t('settings.downloads.saveManagement.savePathChangedTMM')"
-          />
+            :label="t('settings.downloads.saveManagement.savePathChangedTMM')" />
         </v-col>
         <v-col cols="12" md="4">
           <v-select
             v-model="preferenceStore.preferences!.category_changed_tmm_enabled"
             :items="paramChangedTMMOptions"
             hide-details
-            :label="t('settings.downloads.saveManagement.categoryChangedTMM')"
-          />
+            :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
         </v-col>
 
         <v-col cols="12">
@@ -214,8 +210,7 @@ const closeDeleteDialog = async () => {
               v-model="preferenceStore.preferences!.temp_path"
               :disabled="!preferenceStore.preferences!.temp_path_enabled"
               hide-details
-              :label="t('settings.downloads.saveManagement.keepIncomplete')"
-            />
+              :label="t('settings.downloads.saveManagement.keepIncomplete')" />
           </div>
         </v-col>
 
@@ -226,8 +221,7 @@ const closeDeleteDialog = async () => {
               v-model="preferenceStore.preferences!.export_dir"
               :disabled="!isExportDirEnabled"
               hide-details
-              :label="t('settings.downloads.saveManagement.exportDir')"
-            />
+              :label="t('settings.downloads.saveManagement.exportDir')" />
           </div>
         </v-col>
 
@@ -238,8 +232,7 @@ const closeDeleteDialog = async () => {
               v-model="preferenceStore.preferences!.export_dir_fin"
               :disabled="!isExportDirFinEnabled"
               hide-details
-              :label="t('settings.downloads.saveManagement.exportDirFinished')"
-            />
+              :label="t('settings.downloads.saveManagement.exportDirFinished')" />
           </div>
         </v-col>
       </v-row>
@@ -275,15 +268,13 @@ const closeDeleteDialog = async () => {
                         v-model="monitoredFoldersEditedItem.saveType"
                         hide-details
                         :items="monitoredFoldersMonitorTypeOptions"
-                        :label="t('settings.downloads.monitoredFolders.saveType')"
-                      />
+                        :label="t('settings.downloads.monitoredFolders.saveType')" />
                     </v-col>
                     <v-col cols="12">
                       <v-text-field
                         :disabled="monitoredFoldersEditedItem.saveType !== -1"
                         v-model="monitoredFoldersEditedItem.otherPath"
-                        :label="t('settings.downloads.monitoredFolders.otherPath')"
-                      />
+                        :label="t('settings.downloads.monitoredFolders.otherPath')" />
                     </v-col>
                   </v-row>
                 </v-container>
@@ -333,8 +324,7 @@ const closeDeleteDialog = async () => {
         clearable
         auto-grow
         persistent-hint
-        :hint="t('settings.downloads.excludedFileNames.hint')"
-      />
+        :hint="t('settings.downloads.excludedFileNames.hint')" />
     </v-list-item>
 
     <v-divider />
@@ -347,32 +337,28 @@ const closeDeleteDialog = async () => {
         v-model="preferenceStore.preferences!.mail_notification_sender"
         :disabled="!preferenceStore.preferences!.mail_notification_enabled"
         hide-details
-        :label="t('settings.downloads.mailNotification.from')"
-      />
+        :label="t('settings.downloads.mailNotification.from')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
         v-model="preferenceStore.preferences!.mail_notification_email"
         :disabled="!preferenceStore.preferences!.mail_notification_enabled"
         hide-details
-        :label="t('settings.downloads.mailNotification.to')"
-      />
+        :label="t('settings.downloads.mailNotification.to')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
         v-model="preferenceStore.preferences!.mail_notification_smtp"
         :disabled="!preferenceStore.preferences!.mail_notification_enabled"
         hide-details
-        :label="t('settings.downloads.mailNotification.smtpServer')"
-      />
+        :label="t('settings.downloads.mailNotification.smtpServer')" />
     </v-list-item>
     <v-list-item>
       <v-checkbox
         v-model="preferenceStore.preferences!.mail_notification_ssl_enabled"
         :disabled="!preferenceStore.preferences!.mail_notification_enabled"
         hide-details
-        :label="t('settings.downloads.mailNotification.sslEnabled')"
-      />
+        :label="t('settings.downloads.mailNotification.sslEnabled')" />
     </v-list-item>
 
     <v-list-item>
@@ -380,8 +366,7 @@ const closeDeleteDialog = async () => {
         v-model="preferenceStore.preferences!.mail_notification_auth_enabled"
         :disabled="!preferenceStore.preferences!.mail_notification_enabled"
         hide-details
-        :label="t('settings.downloads.mailNotification.authEnabled')"
-      />
+        :label="t('settings.downloads.mailNotification.authEnabled')" />
 
       <v-row>
         <v-col>
@@ -389,8 +374,7 @@ const closeDeleteDialog = async () => {
             v-model="preferenceStore.preferences!.mail_notification_username"
             :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
             hide-details
-            :label="t('settings.downloads.mailNotification.username')"
-          />
+            :label="t('settings.downloads.mailNotification.username')" />
           <v-text-field
             v-model="preferenceStore.preferences!.mail_notification_password"
             :disabled="!preferenceStore.preferences!.mail_notification_enabled || !preferenceStore.preferences!.mail_notification_auth_enabled"
@@ -404,8 +388,7 @@ const closeDeleteDialog = async () => {
                 ? 'mdi-eye'
                 : 'mdi-eye-off'
             "
-            @click:append="showPassword = !showPassword"
-          />
+            @click:append="showPassword = !showPassword" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -421,15 +404,13 @@ const closeDeleteDialog = async () => {
             v-model="preferenceStore.preferences!.autorun_on_torrent_added_program"
             :disabled="!preferenceStore.preferences!.autorun_on_torrent_added_enabled"
             hide-details
-            :label="t('settings.downloads.runExternalProgram.onAddedLabel')"
-          />
+            :label="t('settings.downloads.runExternalProgram.onAddedLabel')" />
           <v-checkbox v-model="preferenceStore.preferences!.autorun_enabled" hide-details :label="t('settings.downloads.runExternalProgram.onFinishedEnabled')" />
           <v-text-field
             v-model="preferenceStore.preferences!.autorun_program"
             :disabled="!preferenceStore.preferences!.autorun_enabled"
             hide-details
-            :label="t('settings.downloads.runExternalProgram.onFinishedLabel')"
-          />
+            :label="t('settings.downloads.runExternalProgram.onFinishedLabel')" />
         </v-col>
         <v-col cols="12" md="6">
           <v-card elevation="2" variant="outlined">

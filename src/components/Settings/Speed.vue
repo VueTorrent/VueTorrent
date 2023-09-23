@@ -101,8 +101,7 @@ const schedulerOptions = ref([
         :disabled="!preferenceStore.preferences!.scheduler_enabled"
         hide-details
         :items="schedulerOptions"
-        :label="t('settings.speed.scheduler.when')"
-      />
+        :label="t('settings.speed.scheduler.when')" />
     </v-list-item>
 
     <v-divider class="mt-3" />

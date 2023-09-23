@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore, useMaindataStore, useNavbarStore } from "@/stores";
-import { computed, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useDashboardStore, useMaindataStore, useNavbarStore } from '@/stores'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflow from './TopOverflow.vue'
 
@@ -16,7 +16,7 @@ const deleteTorrentDialogVisible = ref(false)
 const deleteHashes = ref<string[]>([])
 
 const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
-const hashes = computed(() => isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents)
+const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
 
 const resumeTorrents = async () => {
   await maindataStore.resumeTorrents(hashes.value)
@@ -61,8 +61,7 @@ const openSettings = () => {
     @openSearchEngine="openSearchEngine"
     @openrssArticles="openrssArticles"
     @openLogs="openLogs"
-    @openSettings="openSettings"
-  />
+    @openSettings="openSettings" />
   <TopActions
     v-else
     @resumeTorrents="resumeTorrents"
@@ -71,8 +70,7 @@ const openSettings = () => {
     @openSearchEngine="openSearchEngine"
     @openrssArticles="openrssArticles"
     @openLogs="openLogs"
-    @openSettings="openSettings"
-  />
+    @openSettings="openSettings" />
 
   <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" :hashes="deleteHashes" disable-activator />
 </template>

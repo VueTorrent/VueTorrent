@@ -30,7 +30,7 @@ const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(maindataStore.getTorrentByHash).filter(torrent => !!torrent))
-const availableCategories = computed(() => ([{ name: '' }, ...maindataStore.categories]))
+const availableCategories = computed(() => [{ name: '' }, ...maindataStore.categories])
 
 async function resumeTorrents() {
   await maindataStore.resumeTorrents(hashes)
@@ -93,10 +93,8 @@ function hasTag(tag: string) {
 }
 
 async function toggleTag(tag: string) {
-  if (hasTag(tag))
-    await maindataStore.removeTorrentTags(hashes.value, [tag])
-  else
-    await maindataStore.addTorrentTags(hashes.value, [tag])
+  if (hasTag(tag)) await maindataStore.removeTorrentTags(hashes.value, [tag])
+  else await maindataStore.addTorrentTags(hashes.value, [tag])
 }
 
 async function copyValue(valueToCopy: string) {
@@ -218,17 +216,23 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: t('dashboard.right_click.speed_limit.download'),
         icon: 'mdi-download',
-        action: () => {/* TODO */}
+        action: () => {
+          /* TODO */
+        }
       },
       {
         text: t('dashboard.right_click.speed_limit.upload'),
         icon: 'mdi-upload',
-        action: () => {/* TODO */}
+        action: () => {
+          /* TODO */
+        }
       },
       {
         text: t('dashboard.right_click.speed_limit.share'),
         icon: 'mdi-account-group',
-        action: () => {/* TODO */}
+        action: () => {
+          /* TODO */
+        }
       }
     ]
   },

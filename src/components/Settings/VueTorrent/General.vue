@@ -91,9 +91,7 @@ onBeforeMount(() => {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.matchSystemTheme" hide-details density="compact" :label="t('settings.vuetorrent.general.matchSystemTheme')" />
         </v-col>
-        <v-col cols="12" sm="6">
-          
-        </v-col>
+        <v-col cols="12" sm="6"> </v-col>
 
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />

@@ -72,8 +72,7 @@ const toggleAltSpeed = () => {
             :color="isAltSpeedEnabled ? 'accent' : undefined"
             :icon="isAltSpeedEnabled ? 'mdi-speedometer-slow' : 'mdi-speedometer'"
             v-bind="props"
-            @click="toggleAltSpeed"
-          />
+            @click="toggleAltSpeed" />
         </template>
       </v-tooltip>
     </v-col>
@@ -92,11 +91,12 @@ const toggleAltSpeed = () => {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="t('navbar.side.bottom_actions.dark_mode', Number(vueTorrentStore.darkMode))" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :disabled="vueTorrentStore.matchSystemTheme"
-                 variant="plain"
-                 :icon="vueTorrentStore.matchSystemTheme ? 'mdi-theme-light-dark' : (vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6')"
-                 v-bind="props"
-                 @click="vueTorrentStore.toggleTheme()" />
+          <v-btn
+            :disabled="vueTorrentStore.matchSystemTheme"
+            variant="plain"
+            :icon="vueTorrentStore.matchSystemTheme ? 'mdi-theme-light-dark' : vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'"
+            v-bind="props"
+            @click="vueTorrentStore.toggleTheme()" />
         </template>
       </v-tooltip>
     </v-col>

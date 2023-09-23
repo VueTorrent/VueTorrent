@@ -57,8 +57,7 @@ watch(webUiPassword, newValue => {
               v-model="preferenceStore.preferences!.alternative_webui_path"
               :disabled="!preferenceStore.preferences!.alternative_webui_enabled"
               hide-details
-              :label="t('settings.webUI.interface.useAlternativeWebUI')"
-            />
+              :label="t('settings.webUI.interface.useAlternativeWebUI')" />
           </div>
         </v-col>
       </v-row>
@@ -79,8 +78,7 @@ watch(webUiPassword, newValue => {
             hide-details
             persistent-placeholder
             :placeholder="t('settings.webUI.authentication.passwordPlaceholder')"
-            :label="t('settings.webUI.authentication.password')"
-          />
+            :label="t('settings.webUI.authentication.password')" />
         </v-col>
 
         <v-col cols="12" class="py-0">
@@ -93,8 +91,7 @@ watch(webUiPassword, newValue => {
             :disabled="!preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled"
             type="number"
             hide-details
-            :placeholder="$t('settings.webUI.authentication.whitelistExamples')"
-          />
+            :placeholder="$t('settings.webUI.authentication.whitelistExamples')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -111,8 +108,7 @@ watch(webUiPassword, newValue => {
             type="number"
             persistent-hint
             :hint="t('settings.webUI.authentication.banDurationHint')"
-            :label="t('settings.webUI.authentication.banDuration')"
-          />
+            :label="t('settings.webUI.authentication.banDuration')" />
         </v-col>
 
         <v-col cols="12" sm="4">
@@ -121,8 +117,7 @@ watch(webUiPassword, newValue => {
             type="number"
             persistent-hint
             :hint="t('settings.webUI.authentication.sessionTimeoutHint')"
-            :label="t('settings.webUI.authentication.sessionTimeout')"
-          />
+            :label="t('settings.webUI.authentication.sessionTimeout')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -139,16 +134,14 @@ watch(webUiPassword, newValue => {
             v-model="preferenceStore.preferences!.web_ui_https_cert_path"
             :disabled="!preferenceStore.preferences!.use_https"
             hide-details
-            :label="t('settings.webUI.https.certificate')"
-          />
+            :label="t('settings.webUI.https.certificate')" />
         </v-col>
         <v-col cols="12">
           <v-text-field
             v-model="preferenceStore.preferences!.web_ui_https_key_path"
             :disabled="!preferenceStore.preferences!.use_https"
             hide-details
-            :label="t('settings.webUI.https.key')"
-          />
+            :label="t('settings.webUI.https.key')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -167,8 +160,7 @@ watch(webUiPassword, newValue => {
             v-model="preferenceStore.preferences!.web_ui_clickjacking_protection_enabled"
             hide-details
             density="compact"
-            :label="t('settings.webUI.security.clickjacking')"
-          />
+            :label="t('settings.webUI.security.clickjacking')" />
         </v-col>
         <v-col cols="12" class="py-0">
           <v-checkbox v-model="preferenceStore.preferences!.web_ui_csrf_protection_enabled" hide-details density="compact" :label="t('settings.webUI.security.csrf')" />
@@ -179,16 +171,14 @@ watch(webUiPassword, newValue => {
             :disabled="!preferenceStore.preferences!.use_https"
             hide-details
             density="compact"
-            :label="t('settings.webUI.security.secureCookie')"
-          />
+            :label="t('settings.webUI.security.secureCookie')" />
         </v-col>
         <v-col cols="12" class="py-0">
           <v-checkbox
             v-model="preferenceStore.preferences!.web_ui_host_header_validation_enabled"
             hide-details
             density="compact"
-            :label="t('settings.webUI.security.hostHeaderValidation')"
-          />
+            :label="t('settings.webUI.security.hostHeaderValidation')" />
         </v-col>
         <v-col cols="12">
           <v-textarea
@@ -197,8 +187,7 @@ watch(webUiPassword, newValue => {
             auto-grow
             clearable
             persistent-hint
-            :hint="t('settings.webUI.security.hostHeaderValidationHint')"
-          />
+            :hint="t('settings.webUI.security.hostHeaderValidationHint')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -216,8 +205,7 @@ watch(webUiPassword, newValue => {
         clearable
         persistent-hint
         :hint="t('settings.webUI.customHeadersHint')"
-        :placeholder="t('settings.webUI.customHeadersPlaceholder')"
-      />
+        :placeholder="t('settings.webUI.customHeadersPlaceholder')" />
     </v-list-item>
 
     <v-divider />
@@ -232,8 +220,7 @@ watch(webUiPassword, newValue => {
         clearable
         persistent-hint
         :hint="t('settings.webUI.proxiesListHint')"
-        :label="t('settings.webUI.proxiesList')"
-      />
+        :label="t('settings.webUI.proxiesList')" />
     </v-list-item>
 
     <v-divider />
@@ -257,8 +244,7 @@ watch(webUiPassword, newValue => {
         v-model="preferenceStore.preferences!.dyndns_domain"
         :disabled="!preferenceStore.preferences!.dyndns_enabled"
         hide-details
-        :label="t('settings.webUI.dynDns.domainName')"
-      />
+        :label="t('settings.webUI.dynDns.domainName')" />
     </v-list-item>
 
     <v-list-item>
@@ -269,8 +255,7 @@ watch(webUiPassword, newValue => {
             :disabled="!preferenceStore.preferences!.dyndns_enabled"
             density="compact"
             hide-details
-            :label="t('settings.webUI.dynDns.username')"
-          />
+            :label="t('settings.webUI.dynDns.username')" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
@@ -279,8 +264,7 @@ watch(webUiPassword, newValue => {
             density="compact"
             hide-details
             :label="t('settings.webUI.dynDns.password')"
-            :hide-icon="!preferenceStore.preferences!.dyndns_enabled"
-          />
+            :hide-icon="!preferenceStore.preferences!.dyndns_enabled" />
         </v-col>
       </v-row>
     </v-list-item>

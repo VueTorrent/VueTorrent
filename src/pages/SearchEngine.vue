@@ -173,8 +173,7 @@ onBeforeUnmount(() => {
               hide-details
               clearable
               :label="$t('searchEngine.query')"
-              @keydown.enter.prevent="runNewSearch"
-            />
+              @keydown.enter.prevent="runNewSearch" />
           </v-col>
 
           <v-col cols="6" sm="5" md="2">
@@ -185,8 +184,7 @@ onBeforeUnmount(() => {
               density="compact"
               hide-details
               :items="categories"
-              :label="$t('searchEngine.filters.category.label')"
-            />
+              :label="$t('searchEngine.filters.category.label')" />
           </v-col>
           <v-col cols="6" sm="5" md="2">
             <v-select
@@ -196,8 +194,7 @@ onBeforeUnmount(() => {
               hide-details
               variant="outlined"
               :items="plugins"
-              :label="$t('searchEngine.filters.plugins.label')"
-            />
+              :label="$t('searchEngine.filters.plugins.label')" />
           </v-col>
 
           <v-col cols="12" sm="2" class="d-flex align-center justify-center">

@@ -153,8 +153,7 @@ watch(
               :disabled="!max_conn_enabled"
               type="number"
               hide-details
-              :label="t('settings.connection.connectionLimits.globalMaxConnection')"
-            />
+              :label="t('settings.connection.connectionLimits.globalMaxConnection')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
@@ -165,8 +164,7 @@ watch(
               :disabled="!max_conn_per_torrent_enabled"
               type="number"
               hide-details
-              :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')"
-            />
+              :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
@@ -177,8 +175,7 @@ watch(
               :disabled="!max_uploads_enabled"
               type="number"
               hide-details
-              :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')"
-            />
+              :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
@@ -189,8 +186,7 @@ watch(
               :disabled="!max_uploads_per_torrent_enabled"
               type="number"
               hide-details
-              :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')"
-            />
+              :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
           </div>
         </v-col>
       </v-row>
@@ -209,8 +205,7 @@ watch(
             v-model="preferenceStore.preferences!.proxy_ip"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             hide-details
-            :label="t('settings.connection.proxy.host')"
-          />
+            :label="t('settings.connection.proxy.host')" />
         </v-col>
         <v-col cols="6" md="4">
           <v-text-field
@@ -218,8 +213,7 @@ watch(
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             type="number"
             hide-details
-            :label="t('settings.connection.proxy.port')"
-          />
+            :label="t('settings.connection.proxy.port')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -231,24 +225,21 @@ watch(
             v-model="preferenceStore.preferences!.proxy_peer_connections"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             hide-details
-            :label="t('settings.connection.proxy.peerConnections')"
-          />
+            :label="t('settings.connection.proxy.peerConnections')" />
         </v-col>
         <v-col cols="12" md="4">
           <v-checkbox
             v-model="preferenceStore.preferences!.proxy_torrents_only"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
             hide-details
-            :label="t('settings.connection.proxy.torrentOnly')"
-          />
+            :label="t('settings.connection.proxy.torrentOnly')" />
         </v-col>
         <v-col cols="12" md="4">
           <v-checkbox
             v-model="preferenceStore.preferences!.proxy_hostname_lookup"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
             hide-details
-            :label="t('settings.connection.proxy.hostNameLookup')"
-          />
+            :label="t('settings.connection.proxy.hostNameLookup')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -260,8 +251,7 @@ watch(
             v-model="proxyAuth"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
             hide-details
-            :label="t('settings.connection.proxy.auth.subtitle')"
-          />
+            :label="t('settings.connection.proxy.auth.subtitle')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
@@ -273,8 +263,7 @@ watch(
             "
             dense
             hide-details
-            :label="t('settings.connection.proxy.auth.username')"
-          />
+            :label="t('settings.connection.proxy.auth.username')" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
@@ -289,8 +278,7 @@ watch(
               preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4 ||
               !preferenceStore.preferences!.proxy_auth_enabled
             "
-            :label="t('settings.connection.proxy.auth.password')"
-          />
+            :label="t('settings.connection.proxy.auth.password')" />
         </v-col>
       </v-row>
     </v-list-item>

@@ -103,8 +103,7 @@ watch(() => props.isActive, setupTimer)
     show-select
     :loading="loading"
     :items="torrentPeers"
-    :sort-by="[{ key: 'tier', order: 'asc' }]"
-  >
+    :sort-by="[{ key: 'tier', order: 'asc' }]">
     <template v-slot:[`item.host`]="{ item }">
       <v-tooltip text="Click to copy host" location="top">
         <template v-slot:activator="{ props }">
@@ -161,8 +160,7 @@ watch(() => props.isActive, setupTimer)
                       v-model="newPeers"
                       :label="t('torrentDetail.peers.addPeers.newPeers')"
                       :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
-                      :hint="t('torrentDetail.peers.addPeers.newPeersHint')"
-                    />
+                      :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
                   </v-col>
                 </v-row>
               </v-container>

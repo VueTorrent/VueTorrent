@@ -118,8 +118,7 @@ watch(() => props.isActive, setupTimer)
     show-select
     :loading="loading"
     :items="torrentTrackers"
-    :sort-by="[{ key: 'tier', order: 'asc' }]"
-  >
+    :sort-by="[{ key: 'tier', order: 'asc' }]">
     <template v-slot:[`item.tier`]="{ item }">
       <span v-if="item.raw.tier === -1">-</span>
       <span v-else>{{ item.raw.tier }}</span>
@@ -150,8 +149,7 @@ watch(() => props.isActive, setupTimer)
                     <v-textarea
                       v-model="newTrackers"
                       :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
-                      :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')"
-                    />
+                      :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
                   </v-col>
                 </v-row>
               </v-container>

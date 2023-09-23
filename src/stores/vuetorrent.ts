@@ -41,7 +41,7 @@ export const useVueTorrentStore = defineStore(
     const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
-    const currentSystemTheme = computed(() => window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT)
+    const currentSystemTheme = computed(() => (window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT))
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
