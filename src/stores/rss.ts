@@ -2,7 +2,7 @@ import { qbit } from '@/services'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 
 export const useRssStore = defineStore(
   'rss',
@@ -13,6 +13,28 @@ export const useRssStore = defineStore(
     const filters = reactive({
       title: '',
       unread: false
+    })
+
+    const articles = computed(() => {
+      const articles: RssArticle[] = []
+      const keySet = new Set<string>()
+
+      feeds.value.forEach((feed: Feed) => {
+        if (!feed.articles) return
+
+        feed.articles.forEach(article => {
+          if (keySet.has(article.id) || filters.unread && article.isRead) return
+
+          keySet.add(article.id)
+          articles.push({
+            feedName: feed.name,
+            parsedDate: new Date(article.date),
+            ...article
+          })
+        })
+      })
+
+      return articles
     })
 
     async function refreshFeed(feedName: string) {
@@ -49,6 +71,22 @@ export const useRssStore = defineStore(
 
     async function markArticleAsRead(article: RssArticle) {
       await qbit.markAsRead(article.feedName, article.id)
+
+      const feed = feeds.value.find(feed => feed.name === article.feedName)
+      if (!feed || !feed.articles) return
+      const art = feed.articles.find(a => a.id === article.id)
+      if (!art) return
+      art.isRead = true
+    }
+
+    async function markAllAsRead() {
+      feeds.value.forEach(feed => {
+        if (!feed.articles) return
+        feed.articles.forEach(async article => {
+          article.isRead || await qbit.markAsRead(feed.name, article.id)
+        })
+      })
+      await fetchFeeds()
     }
 
     async function fetchRules() {
@@ -63,6 +101,7 @@ export const useRssStore = defineStore(
       feeds,
       rules,
       filters,
+      articles,
       refreshFeed,
       createFeed,
       setRule,
@@ -72,6 +111,7 @@ export const useRssStore = defineStore(
       deleteRule,
       fetchFeeds,
       markArticleAsRead,
+      markAllAsRead,
       fetchRules,
       fetchMatchingArticles
     }

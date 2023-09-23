@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
-import { Feed } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue'
@@ -18,32 +17,6 @@ const rssStore = useRssStore()
 const descriptionDialogVisible = ref(false)
 const description = ref('')
 
-const articles = computed(() => {
-  const articles: RssArticle[] = []
-  const keySet = new Set<string>()
-
-  rssStore.feeds.forEach((feed: Feed) => {
-    if (!feed.articles) return
-
-    feed.articles.forEach(article => {
-      if (keySet.has(article.id)) return
-
-      keySet.add(article.id)
-      articles.push({
-        feedName: feed.name,
-        parsedDate: new Date(article.date),
-        ...article
-      })
-    })
-  })
-
-  return articles
-})
-
-const unreadArticles = computed(() => {
-  return articles.value.filter(article => !article.isRead)
-})
-
 const titleFilter = computed({
   get: () => rssStore.filters.title,
   set: debounce((value: string) => {
@@ -52,8 +25,7 @@ const titleFilter = computed({
 })
 
 const searchQuery = useSearchQuery(
-    () => (rssStore.filters.unread ? unreadArticles.value : articles.value)
-        .sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)),
+    () => rssStore.articles.sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)),
     () => titleFilter.value,
     (item: RssArticle) => item.title
 )
@@ -79,14 +51,10 @@ function downloadArticle(item: RssArticle) {
 
 async function markAsRead(item: RssArticle) {
   await rssStore.markArticleAsRead(item)
-  item.isRead = true
 }
 
 async function markAllAsRead() {
-  for (const article of unreadArticles.value) {
-    await rssStore.markArticleAsRead(article)
-  }
-  await rssStore.fetchFeeds()
+  await rssStore.markAllAsRead()
 }
 
 function goHome() {
