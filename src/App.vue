@@ -37,7 +37,7 @@ const blockContextMenu = () => {
     const nodeName = targetNode.nodeName.toLowerCase()
     const nodeType = targetNode.getAttribute('type')?.toLowerCase() ?? ''
 
-    if (['textarea', 'a'].includes(nodeName)) return
+    if (['textarea', 'a', 'img'].includes(nodeName)) return
     if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
 
     event.preventDefault()

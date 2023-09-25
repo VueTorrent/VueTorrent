@@ -3,7 +3,7 @@ import { useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
-import { computed, onBeforeMount, onMounted, onUnmounted, ref } from 'vue'
+import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
 import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -15,7 +15,10 @@ const navbarStore = useNavbarStore()
 const rssStore = useRssStore()
 
 const descriptionDialogVisible = ref(false)
-const description = ref('')
+const rssDescription = reactive({
+  title: '',
+  content: ''
+})
 
 const titleFilter = computed({
   get: () => rssStore.filters.title,
@@ -39,9 +42,10 @@ function openLink(url: string) {
   window.open(url, '_blank', 'noreferrer')
 }
 
-function showDescription(feed: RssArticle) {
-  if (!feed.description) return
-  description.value = feed.description
+function showDescription(article: RssArticle) {
+  if (!article.description) return
+  rssDescription.title = article.title
+  rssDescription.content = article.description
   descriptionDialogVisible.value = true
 }
 
@@ -156,8 +160,15 @@ onUnmounted(() => {
 
               <v-dialog v-model="descriptionDialogVisible">
                 <v-card>
+                  <v-card-title>
+                    <v-toolbar color="transparent">
+                      <v-toolbar-title>{{ rssDescription.title }}</v-toolbar-title>
+                      <v-btn icon="mdi-close" @click="descriptionDialogVisible = false" />
+                    </v-toolbar>
+                  </v-card-title>
+
                   <v-card-text>
-                    <div v-html="description" />
+                    <div class="description-container" v-html="rssDescription.content" />
                   </v-card-text>
                 </v-card>
               </v-dialog>
@@ -189,5 +200,16 @@ onUnmounted(() => {
   &.v-theme--lightTheme {
     color: grey !important;
   }
+}
+
+.description-container {
+  border: solid red 5px;
+}
+</style>
+
+<style lang="scss">
+.description-container img {
+  max-width: 100%; /* Restrict image width to the container width */
+  height: auto; /* Maintain aspect ratio */
 }
 </style>
