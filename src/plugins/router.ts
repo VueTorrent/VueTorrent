@@ -13,7 +13,7 @@ router.beforeResolve((to, _, next) => {
   const isPublic = to.matched.some(record => record.meta.public)
 
   if (!isPublic && !isAuthenticated) {
-    return next({ name: 'login', query: { redirect: to.fullPath } })
+    return next({ name: 'login', query: { redirect: location.hash.slice(1) } })
   }
 
   return next()
