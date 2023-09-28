@@ -94,7 +94,7 @@ const toggleAltSpeed = () => {
           <v-btn
             :disabled="vueTorrentStore.matchSystemTheme"
             variant="plain"
-            :icon="vueTorrentStore.matchSystemTheme ? 'mdi-theme-light-dark' : vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-6'"
+            :icon="vueTorrentStore.matchSystemTheme ? 'mdi-theme-light-dark' : vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-7'"
             v-bind="props"
             @click="vueTorrentStore.toggleTheme()" />
         </template>

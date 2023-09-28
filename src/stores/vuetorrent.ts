@@ -41,7 +41,6 @@ export const useVueTorrentStore = defineStore(
     const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
-    const currentSystemTheme = computed(() => (window.matchMedia('(prefers-color-scheme: dark)').matches ? Theme.DARK : Theme.LIGHT))
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
@@ -75,14 +74,31 @@ export const useVueTorrentStore = defineStore(
 
     watch(language, setLanguage)
     watch(darkMode, updateTheme)
-    watch(matchSystemTheme, updateTheme)
+    watch(matchSystemTheme, updateSystemTheme)
 
     function setLanguage(newLang: string) {
       i18n.locale.value = newLang
     }
 
     function updateTheme() {
-      theme.global.name.value = matchSystemTheme.value ? currentSystemTheme.value : getCurrentThemeName.value
+      theme.global.name.value = getCurrentThemeName.value
+    }
+
+    function handleSystemThemeSwitch(e: { matches: boolean }) {
+      console.log('theme switched')
+      darkMode.value = e.matches
+    }
+
+    function updateSystemTheme() {
+      const mq = window.matchMedia('(prefers-color-scheme: dark)')
+      if (matchSystemTheme.value) {
+        console.log('enabled')
+        mq.addEventListener('change', handleSystemThemeSwitch)
+        handleSystemThemeSwitch(mq)
+      } else {
+        console.log('disabled')
+        mq.removeEventListener('change', handleSystemThemeSwitch)
+      }
     }
 
     function toggleTheme() {
@@ -176,6 +192,7 @@ export const useVueTorrentStore = defineStore(
       getCurrentThemeName,
       setLanguage,
       updateTheme,
+      updateSystemTheme,
       toggleTheme,
       redirectToLogin,
       updateTitle,

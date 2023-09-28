@@ -52,7 +52,11 @@ const redirectOnSuccess = () => {
 }
 
 onBeforeMount(() => {
-  vuetorrentStore.updateTheme()
+  if (vuetorrentStore.matchSystemTheme) {
+    vuetorrentStore.updateSystemTheme()
+  } else {
+    vuetorrentStore.updateTheme()
+  }
   vuetorrentStore.setLanguage(vuetorrentStore.language)
   checkAuthentication()
   blockContextMenu()

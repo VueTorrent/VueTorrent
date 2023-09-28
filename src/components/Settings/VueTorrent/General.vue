@@ -12,9 +12,31 @@ const settingsField = ref('')
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
 const isDevelopment = computed(() => process.env.NODE_ENV === 'development')
 
+const theme = computed({
+  get() {
+    if (vueTorrentStore.matchSystemTheme) return 'auto'
+    else if (vueTorrentStore.darkMode) return 'dark'
+    else return 'light'
+  },
+  set(v: string) {
+    console.log(v)
+    if (v === 'auto') vueTorrentStore.matchSystemTheme = true
+    else {
+      vueTorrentStore.matchSystemTheme = false
+      vueTorrentStore.darkMode = v === 'dark'
+    }
+  }
+})
+
 const { t } = useI18n()
 const appStore = useAppStore()
 const vueTorrentStore = useVueTorrentStore()
+
+const themeOptions = [
+  { title: t('constants.theme.auto'), value: 'auto' },
+  { title: t('constants.theme.light'), value: 'light' },
+  { title: t('constants.theme.dark'), value: 'dark' }
+]
 
 const vueTorrentVersion = computed(() => {
   if (isProduction.value) {
@@ -89,11 +111,6 @@ onBeforeMount(() => {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.matchSystemTheme" hide-details density="compact" :label="t('settings.vuetorrent.general.matchSystemTheme')" />
-        </v-col>
-        <v-col cols="12" sm="6"> </v-col>
-
-        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
         </v-col>
         <v-col cols="12" sm="6">
@@ -147,27 +164,29 @@ onBeforeMount(() => {
 
     <v-list-item>
       <v-row>
-        <v-col cols="6" md="2" class="d-flex align-center justify-end">
-          <h3>{{ t('settings.vuetorrent.general.currentVersion') }}</h3>
-        </v-col>
-        <v-col cols="6" md="2" class="d-flex align-center justify-start">
+        <v-col cols="12" md="3" class="d-flex align-center justify-center">
           <h3>
+            {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
             <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/WDaan/VueTorrent/">{{ vueTorrentVersion }}</a>
             <a v-else target="_blank" :href="`https://github.com/WDaan/VueTorrent/releases/tag/v${vueTorrentVersion}`">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>
 
-        <v-col cols="6" md="2" class="d-flex align-center justify-end">
-          <h3>{{ t('settings.vuetorrent.general.qbittorrentVersion') }}</h3>
-        </v-col>
-        <v-col cols="6" md="2" class="d-flex align-center justify-start">
+        <v-col cols="12" md="3" class="d-flex align-center justify-center">
           <h3>
+            {{ t('settings.vuetorrent.general.qbittorrentVersion') }}
             <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
           </h3>
         </v-col>
 
-        <v-col cols="12" md="4" class="d-flex align-center justify-center">
+        <v-col cols="12" md="3">
+          <v-select v-model="theme"
+                    :items="themeOptions"
+          :label="t('settings.vuetorrent.general.theme')"/>
+        </v-col>
+
+        <v-col cols="12" md="3" class="d-flex align-center justify-center">
           <v-btn @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }}</v-btn>
         </v-col>
       </v-row>
