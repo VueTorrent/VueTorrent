@@ -59,7 +59,11 @@ onMounted(() => {
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field v-model="loginForm.username" :label="t('login.username')" type="text" :rules="rules.username" @keydown.enter.prevent="login">
+          <v-text-field v-model="loginForm.username"
+                        :label="t('login.username')"
+                        autofocus
+                        :rules="rules.username"
+                        @keydown.enter.prevent="login">
             <template v-slot:prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>
