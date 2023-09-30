@@ -2,7 +2,7 @@
 import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
@@ -51,13 +51,13 @@ const close = () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'" max-width="1000">
     <v-card>
       <v-card-title>{{ t('dialogs.delete.title', selection.length) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <div class="d-flex flex-wrap gap">
-            <span class="pa-1 border" v-for="torrent in selection">{{ torrent.name }}</span>
+            <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
           <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
           <v-scroll-x-transition>
@@ -79,6 +79,6 @@ const close = () => {
 
 <style scoped>
 .gap {
-  gap: 8px;
+    gap: 8px;
 }
 </style>
