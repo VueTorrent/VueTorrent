@@ -22,10 +22,10 @@ const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
 
-  if (authStore.isAuthenticated && onLoginPage.value) {
-    redirectOnSuccess()
-  } else if (!onLoginPage.value) {
+  if (!authStore.isAuthenticated && !onLoginPage.value) {
     await vuetorrentStore.redirectToLogin()
+  } else {
+    redirectOnSuccess()
   }
 }
 
@@ -48,7 +48,7 @@ const blockContextMenu = () => {
 const redirectOnSuccess = () => {
   const redirectUrl = route.query.redirect as string | undefined
   if (redirectUrl) router.push(redirectUrl)
-  else router.push({ name: 'dashboard' })
+  else if (onLoginPage.value) router.push({ name: 'dashboard' })
 }
 
 onBeforeMount(() => {

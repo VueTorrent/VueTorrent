@@ -10,7 +10,7 @@ const router = createRouter({
 
 router.beforeResolve((to, _, next) => {
   const { isAuthenticated } = useAuthStore()
-  const isPublic = to.matched.some(record => record.meta.public)
+  const isPublic = to.meta.public === true
 
   if (!isPublic && !isAuthenticated) {
     return next({ name: 'login', query: { redirect: location.hash.slice(1) } })
