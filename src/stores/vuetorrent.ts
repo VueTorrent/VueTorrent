@@ -85,18 +85,15 @@ export const useVueTorrentStore = defineStore(
     }
 
     function handleSystemThemeSwitch(e: { matches: boolean }) {
-      console.log('theme switched')
       darkMode.value = e.matches
     }
 
+    const mq = window.matchMedia('(prefers-color-scheme: dark)')
     function updateSystemTheme() {
-      const mq = window.matchMedia('(prefers-color-scheme: dark)')
       if (matchSystemTheme.value) {
-        console.log('enabled')
         mq.addEventListener('change', handleSystemThemeSwitch)
         handleSystemThemeSwitch(mq)
       } else {
-        console.log('disabled')
         mq.removeEventListener('change', handleSystemThemeSwitch)
       }
     }

@@ -19,7 +19,6 @@ const theme = computed({
     else return 'light'
   },
   set(v: string) {
-    console.log(v)
     if (v === 'auto') vueTorrentStore.matchSystemTheme = true
     else {
       vueTorrentStore.matchSystemTheme = false
