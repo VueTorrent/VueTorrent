@@ -51,12 +51,16 @@ watch(dialogVisible, value => {
   if (!value) return
   formData.newName = props.oldName
 
-  const startIndex = formData.newName.lastIndexOf('/')
-  const endIndex = formData.newName.lastIndexOf('.')
+  if (props.isFolder) {
+    nextTick(() => input.value?.select())
+  } else {
+    const startIndex = formData.newName.lastIndexOf('/')
+    const endIndex = formData.newName.lastIndexOf('.')
 
-  nextTick(() => {
-    input.value?.setSelectionRange(startIndex + 1, endIndex == -1 ? formData.newName.length : endIndex)
-  })
+    nextTick(() => {
+      input.value?.setSelectionRange(startIndex + 1, endIndex == -1 ? formData.newName.length : endIndex)
+    })
+  }
 })
 </script>
 
