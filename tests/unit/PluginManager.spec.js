@@ -1,6 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import PluginManager from '@/components/Modals/SearchModal/PluginManager.vue'
+import PluginManager from '../../src/components/Modals/SearchModal/PluginManager.vue'
 import Vuex from 'vuex'
 
 describe('PluginManager.vue', () => {
