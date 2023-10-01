@@ -51,9 +51,10 @@ async function getTorrentProperties() {
 async function updateTorrentFiles() {
   files.value = await maindataStore.fetchFiles(props.torrent.hash)
   torrentFileCount.value = files.value.length
-  selectedFileCount.value = files.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD).length
+  const selectedFiles = files.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD)
+  selectedFileCount.value = selectedFiles.length
   if (selectedFileCount.value === 1) {
-    torrentFileName.value = files.value[0].name
+    torrentFileName.value = selectedFiles[0].name
   }
 }
 
