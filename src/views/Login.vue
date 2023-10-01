@@ -61,7 +61,13 @@ export default {
       mdiAccount
     }
   },
-  mounted() {
+  async mounted() {
+    if (this.$route.query.username !== undefined && this.$route.query.password !== undefined) {
+      this.authenticated = await this.$store.dispatch('LOGIN',{
+        username: this.$route.query.username,
+        password: this.$route.query.password
+      })
+    }
     if (this.authenticated) {
       this.redirectOnSuccess()
     }
