@@ -18,6 +18,7 @@
               name="username"
               autocapitalize="none"
               persistent-placeholder
+              autofocus
               @keyup.enter.native="login"
             />
             <v-text-field
