@@ -1,16 +1,20 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('ETA') }}
+      {{ $t('torrent.properties.eta') }}
     </div>
     <div>
       {{ torrent.eta }}
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { TorrentDashboardItem } from '@/mixins'
+
+export default defineComponent({
   name: 'ETA',
-  props: ['torrent']
-}
+  mixins: [TorrentDashboardItem]
+})
 </script>

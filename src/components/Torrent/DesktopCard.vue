@@ -1,28 +1,18 @@
 <template>
-  <v-layout
-    row
-    wrap
-    class="ma-0 px-4 py-2 ml-0 "
-  >
+  <v-layout row wrap class="ma-0 px-4 py-2 ml-0 flex-gap">
     <v-flex xs12>
-      <div class="caption grey--text">
-        {{ $t('torrent.torrentTitle') }}
-      </div>
-      <div class="truncate mr-4">
+      <div class="truncate">
         {{ torrent.name }}
       </div>
     </v-flex>
-    <component
-      :is="item.name"
-      v-for="item in properties"
-      :key="item.name"
-      :torrent="torrent"
-    />
+    <component :is="item.name" v-for="item in properties" :key="item.name" :torrent="torrent" />
   </v-layout>
 </template>
+
 <script>
 import * as Fields from './DashboardItems'
-import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
+import { Torrent } from '@/models'
 
 export default {
   name: 'DesktopCard',
@@ -30,17 +20,34 @@ export default {
     ...Fields
   },
   props: {
-    torrent: Object
+    torrent: Torrent
   },
   computed: {
-    ...mapGetters(['getWebuiSettings']),
+    ...mapState(['webuiSettings']),
     properties() {
       if (this.torrent.progress === 100) {
-        return this.getWebuiSettings().doneTorrentProperties.filter(i => i.active)
+        return this.webuiSettings.doneDesktopTorrentProperties.filter(i => i.active)
       }
 
-      return this.getWebuiSettings().busyTorrentProperties.filter(i => i.active)
+      return this.webuiSettings.busyDesktopTorrentProperties.filter(i => i.active)
     }
   }
 }
 </script>
+
+<style scoped lang="scss">
+.flex-gap {
+  /* xs */
+  @media (min-width: 0) {
+    column-gap: 15px;
+  }
+  /* sm */
+  @media (min-width: 600px) {
+    column-gap: 10px;
+  }
+  /* md */
+  @media (min-width: 960px) {
+    column-gap: 5px;
+  }
+}
+</style>

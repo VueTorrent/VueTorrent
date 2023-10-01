@@ -2,13 +2,13 @@
   <v-card flat>
     <v-tabs v-model="tab">
       <v-tab href="#general">
-        {{ $t('modals.settings.pageRss.tabName.general') }}
+        {{ $t('modals.settings.rss.tabName.general') }}
       </v-tab>
       <v-tab href="#feeds">
-        {{ $t('modals.settings.pageRss.tabName.feeds') }}
+        {{ $t('modals.settings.rss.tabName.feeds') }}
       </v-tab>
       <v-tab href="#rules">
-        {{ $t('modals.settings.pageRss.tabName.rules') }}
+        {{ $t('modals.settings.rss.tabName.rules') }}
       </v-tab>
     </v-tabs>
     <v-tabs-items v-model="tab" touchless>
@@ -25,20 +25,23 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import General from './Rss/General.vue'
 import Feeds from './Rss/Feeds.vue'
 import Rules from './Rss/Rules.vue'
 import { FullScreenModal } from '@/mixins'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Rss',
   components: {
-    General, Feeds, Rules
+    General,
+    Feeds,
+    Rules
   },
   mixins: [FullScreenModal],
   data: () => ({
     tab: null
   })
-}
+})
 </script>

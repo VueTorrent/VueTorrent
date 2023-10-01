@@ -1,7 +1,7 @@
-import Content from './Content'
-import Info from './Info'
-import Peers from './Peers'
-import Trackers from './Trackers'
-import TagsAndCategories from './TorrentTagsAndCategories'
+import Content from './Content.vue'
+import Info from './Info.vue'
+import DetailPeers from './DetailPeers.vue'
+import Trackers from './Trackers.vue'
+import TorrentTagsAndCategories from './TorrentTagsAndCategories.vue'
 
-export { Content, Info, Peers, Trackers, TagsAndCategories }
+export { Content, Info, DetailPeers, Trackers, TorrentTagsAndCategories }

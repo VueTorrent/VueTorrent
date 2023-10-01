@@ -3,13 +3,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="logout"
-          >
+          <v-btn text tile block v-on="on" @click="logout">
             <v-icon :class="commonStyle">
               {{ mdiExitToApp }}
             </v-icon>
@@ -21,13 +15,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="toggleSpeed"
-          >
+          <v-btn text tile block v-on="on" @click="toggleSpeed">
             <v-icon :class="altSpeed ? 'accent--text' : commonStyle">
               {{ altSpeed ? mdiSpeedometerSlow : mdiSpeedometer }}
             </v-icon>
@@ -42,13 +30,7 @@
     <v-col>
       <v-tooltip top>
         <template #activator="{ on }">
-          <v-btn
-            text
-            tile
-            block
-            v-on="on"
-            @click="toggleTheme"
-          >
+          <v-btn text tile block v-on="on" @click="toggleTheme">
             <v-icon :class="commonStyle">
               {{ theme === 'Light' ? mdiBrightness7 : mdiBrightness4 }}
             </v-icon>
@@ -57,48 +39,50 @@
         <span>{{ theme }}</span>
       </v-tooltip>
     </v-col>
+    <v-col v-if="webuiSettings.showShutdownButton">
+      <v-tooltip top>
+        <template #activator="{ on }">
+          <v-btn text tile block v-on="on" @click="createModal('ConfirmShutdownModal')">
+            <v-icon :class="commonStyle">
+              {{ mdiPower }}
+            </v-icon>
+          </v-btn>
+        </template>
+        <span>{{ $t('shutdownApp') }}</span>
+      </v-tooltip>
+    </v-col>
   </v-row>
 </template>
 
 <script>
 import qbit from '@/services/qbit'
-import { mapGetters } from 'vuex'
-import {
-  mdiBrightness4,
-  mdiSpeedometerSlow,
-  mdiBrightness7,
-  mdiSpeedometer,
-  mdiExitToApp,
-  mdiBell,
-  mdiBellOff
-} from '@mdi/js'
+import { mapGetters, mapState } from 'vuex'
+import { mdiBrightness4, mdiSpeedometerSlow, mdiBrightness7, mdiSpeedometer, mdiPower, mdiExitToApp, mdiBell, mdiBellOff } from '@mdi/js'
 import ConnectionStatus from './ConnectionStatus.vue'
+import { General } from '@/mixins'
 
 export default {
-  name: 'BottomActions',
+  name: 'NavbarActions',
   components: {
     ConnectionStatus
   },
+  mixins: [General],
   data: () => ({
     commonStyle: 'white--text',
     mdiBrightness4,
     mdiBrightness7,
     mdiSpeedometer,
+    mdiPower,
     mdiExitToApp,
     mdiSpeedometerSlow,
     mdiBell,
     mdiBellOff
   }),
   computed: {
-    ...mapGetters(['getTheme', 'getStatus', 'getAlarm']),
-    webuiSettings() {
-      return this.getWebuiSettings()
-    },
+    ...mapState(['webuiSettings']),
+    ...mapGetters(['isDarkMode', 'getStatus']),
     theme() {
-      return this.getTheme() ? this.$i18n.t('navbar.action.dark') : this.$i18n.t('navbar.action.light')
-    },
-    alarm() {
-      return this.getAlarm()
+      return this.isDarkMode() ? this.$t('navbar.action.dark') : this.$t('navbar.action.light')
     },
     status() {
       return this.getStatus()
@@ -113,16 +97,16 @@ export default {
     }
   },
   methods: {
-    logout() {
-      this.$store.commit('LOGOUT')
+    async logout() {
+      await this.$store.commit('LOGOUT')
       this.$router.push({ name: 'login' })
     },
-    toggleSpeed() {
-      qbit.toggleSpeedLimitsMode()
+    async toggleSpeed() {
+      await qbit.toggleSpeedLimitsMode()
     },
     toggleTheme() {
-      this.$store.commit('TOGGLE_THEME')
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.webuiSettings.darkTheme = !this.webuiSettings.darkTheme
+      this.$vuetify.theme.dark = this.webuiSettings.darkTheme
     }
   }
 }

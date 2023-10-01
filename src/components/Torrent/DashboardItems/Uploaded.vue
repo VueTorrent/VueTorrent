@@ -1,21 +1,23 @@
 <template>
   <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('uploaded') }}
+      {{ $t('torrent.properties.uploaded') }}
     </div>
     <div>
-      {{ torrent.uploaded | getDataValue }}
+      {{ torrent.uploaded | formatDataValue(shouldUseBinaryData()) }}
       <span class="caption grey--text">
-        {{
-          torrent.uploaded | getDataUnit
-        }}
+        {{ torrent.uploaded | formatDataUnit(shouldUseBinaryData()) }}
       </span>
     </div>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { TorrentDashboardItem } from '@/mixins'
+
+export default defineComponent({
   name: 'Uploaded',
-  props: ['torrent']
-}
+  mixins: [TorrentDashboardItem]
+})
 </script>

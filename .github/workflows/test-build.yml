@@ -1,19 +1,19 @@
 name: Test Release Build
 on:
- workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   test-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
       - name: Build Node.js cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -22,4 +22,3 @@ jobs:
         run: npm ci
       - name: Build VueTorrent
         run: npm run build
- 

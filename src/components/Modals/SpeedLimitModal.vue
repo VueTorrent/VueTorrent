@@ -1,11 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    content-class="rounded-form"
-    max-width="500px"
-    :fullscreen="isPhone"
-  >
+  <v-dialog v-model="dialog" scrollable content-class="rounded-form" max-width="500px" :fullscreen="isPhone">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -32,18 +26,8 @@
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          class="accent white--text elevation-0 px-4"
-          @click="setLimit"
-        >
-          Save
-        </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="close"
-        >
-          Cancel
-        </v-btn>
+        <v-btn class="accent white--text elevation-0 px-4" @click="setLimit"> Save </v-btn>
+        <v-btn class="error white--text elevation-0 px-4" @click="close"> Cancel </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -64,7 +48,8 @@ export default {
   data() {
     return {
       limit: '',
-      mdiSpeedometer, mdiClose
+      mdiSpeedometer,
+      mdiClose
     }
   },
   computed: {
@@ -99,20 +84,20 @@ export default {
     }
   },
   methods: {
-    setLimit() {
+    async setLimit() {
       switch (this.mode) {
         case 'download':
           if (this.isGlobal()) {
-            qbit.setGlobalDownloadLimit(this.exportLimit())
+            await qbit.setGlobalDownloadLimit(this.exportLimit())
           } else {
-            qbit.setDownloadLimit([this.hash], this.exportLimit())
+            await qbit.setDownloadLimit([this.hash], this.exportLimit())
           }
           break
         case 'upload':
           if (this.isGlobal()) {
-            qbit.setGlobalUploadLimit(this.exportLimit())
+            await qbit.setGlobalUploadLimit(this.exportLimit())
           } else {
-            qbit.setUploadLimit([this.hash], this.exportLimit())
+            await qbit.setUploadLimit([this.hash], this.exportLimit())
           }
           break
         default:
@@ -122,7 +107,7 @@ export default {
       this.close()
     },
     isGlobal() {
-      return this.torrent ? false : true
+      return !this.torrent
     },
     formatLimit(limit) {
       return limit > 0 ? limit / 1024 : '∞'

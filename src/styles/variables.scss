@@ -13,6 +13,7 @@ $rounded: (
   'xl': $border-radius-root * 6,
   'pill': 9999px,
   'circle': 50%,
-  'form': $border-radius-root, // * 4
-  'formtop': $border-radius-root * 2 // * 5
+  'form': $border-radius-root,
+  // * 4
+  'formtop': $border-radius-root * 2 // * 5,
 );

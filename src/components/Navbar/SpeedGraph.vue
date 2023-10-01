@@ -1,20 +1,16 @@
 <template>
   <div class="mt-4">
-    <apexcharts
-      ref="chart"
-      type="line"
-      :options="chartOptions"
-      :series="series"
-    />
+    <apexcharts ref="chart" type="line" :options="chartOptions" :series="series" />
   </div>
 </template>
 
-<script>
-import VueApexCharts from 'vue-apexcharts'
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
-import { getDataUnit, getDataValue } from '@/filters'
+import VueApexCharts from 'vue-apexcharts'
+import { formatSpeed } from '@/filters'
 
-export default {
+export default defineComponent({
   name: 'SpeedGraph',
   components: {
     apexcharts: VueApexCharts
@@ -33,10 +29,7 @@ export default {
             }
           }
         },
-        colors: [
-          this.$vuetify.theme.currentTheme.upload,
-          this.$vuetify.theme.currentTheme.download
-        ],
+        colors: [this.$vuetify.theme.currentTheme.upload, this.$vuetify.theme.currentTheme.download],
         stroke: {
           show: true,
           curve: 'smooth',
@@ -57,15 +50,15 @@ export default {
         tooltip: {
           theme: 'light',
           x: {
-            formatter: value => {
+            formatter: (value: number) => {
               const val = 32 - value * 2
-              
+
               return val + ' seconds ago'
             }
           },
           y: {
-            formatter: value => {
-              return `${getDataValue(value, 0)} ${getDataUnit(value)}`
+            formatter: (value: number) => {
+              return formatSpeed(value, this.shouldUseBitSpeed())
             }
           }
         }
@@ -73,6 +66,7 @@ export default {
     }
   },
   computed: {
+    ...mapGetters(['getTheme', 'shouldUseBitSpeed']),
     series() {
       return [
         {
@@ -87,9 +81,8 @@ export default {
         }
       ]
     },
-    ...mapGetters(['getTheme']),
     theme() {
-      return this.getTheme() ? 'Dark' : 'Light'
+      return this.getTheme()
     }
   },
   watch: {
@@ -101,10 +94,10 @@ export default {
     this.setChartTooltipTheme(this.theme)
   },
   methods: {
-    setChartTooltipTheme(theme) {
+    setChartTooltipTheme(theme: string) {
       this.chartOptions.tooltip.theme = theme.toLowerCase()
       this.$refs.chart.updateOptions(this.chartOptions)
     }
   }
-}
+})
 </script>

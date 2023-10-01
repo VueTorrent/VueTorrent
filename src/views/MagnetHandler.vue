@@ -1,17 +1,26 @@
 <template>
-  <h1 class="text-center mt-5">
-    MagnetHandler
-  </h1>
+  <h1 class="text-center mt-5">MagnetHandler</h1>
 </template>
+
 <script>
 import { General } from '@/mixins'
 export default {
   name: 'MagnetHandler',
   mixins: [General],
-  props: ['magnet'],
+  methods: {
+    decodeMagnet(url) {
+      if (url.startsWith('magnet:?')) {
+        return url
+      } else {
+        return this.decodeMagnet(decodeURIComponent(url))
+      }
+    }
+  },
   created() {
-    this.createModal('AddModal', { initialMagnet: this.magnet })
-    this.$router.push('/')
+    const regex = new RegExp('^\/download\=(.+?)(?:\/(?=$))?$', 'is')
+    let magnetLink = this.decodeMagnet(regex.exec(this.$route.fullPath)[1])
+    this.createModal('AddModal', { initialMagnet: magnetLink })
+    this.$router.push({ name: 'dashboard' })
   }
 }
 </script>

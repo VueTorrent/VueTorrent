@@ -1,5 +1,5 @@
 <template>
-  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px">
+  <v-dialog v-model="dialog" content-class="rounded-form" max-width="300px" @keydown.enter.prevent="submit">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -8,35 +8,20 @@
       </v-card-title>
       <v-card-text>
         <v-form ref="feedForm" class="px-6 mt-3">
+          <v-container v-if="!hasInitialFeed">
+            <v-text-field v-model="feed.url" :rules="rules" :label="$t('modals.newFeed.url')" autofocus required />
+          </v-container>
           <v-container>
-            <v-text-field
-              v-model="feed.url"
-              :label="$t('modals.newFeed.url')"
-              required
-            />
+            <v-text-field v-model="feed.name" :rules="rules" :label="$t('modals.newFeed.feedName')" autofocus required />
           </v-container>
         </v-form>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          v-if="!hasInitialFeed"
-          class="accent white--text elevation-0 px-4"
-          @click="create"
-        >
-          {{ $t('create') }}
+        <v-btn class="accent white--text elevation-0 px-4" @click="submit">
+          {{ $t(hasInitialFeed ? 'edit' : 'create') }}
         </v-btn>
-        <v-btn
-          v-else
-          class="accent white--text elevation-0 px-4"
-          @click="edit"
-        >
-          {{ $t('edit') }}
-        </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="cancel"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="cancel">
           {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
@@ -44,52 +29,54 @@
   </v-dialog>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
 import qbit from '@/services/qbit'
 import { Modal } from '@/mixins'
-import { mdiCancel, mdiTagPlus, mdiPencil } from '@mdi/js'
-import Vue from 'vue'
+import { mdiCancel, mdiPencil, mdiTagPlus } from '@mdi/js'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'FeedForm',
   mixins: [Modal],
   props: {
     initialFeed: Object
   },
   data: () => ({
-    feed: { url: '' },
-    mdiCancel, mdiTagPlus, mdiPencil
+    feed: { url: '', name: '' },
+    rules: [(v: string) => !!v || 'Required'],
+    mdiCancel,
+    mdiTagPlus,
+    mdiPencil
   }),
   computed: {
-    ...mapGetters(['getSelectedFeed']),
     hasInitialFeed() {
-      return !!(this.initialFeed &&
-          this.initialFeed.name)
+      return !!(this.initialFeed && this.initialFeed.name && this.initialFeed.url)
     }
   },
   created() {
-    this.$store.commit('FETCH_FEEDS')
     if (this.hasInitialFeed) {
-      this.feed = this.initialFeed
+      this.feed = { ...this.initialFeed }
     }
   },
   methods: {
-    create() {
-      qbit.createFeed(this.feed)
-      this.cancel()
-    },
     cancel() {
       this.$store.commit('FETCH_FEEDS')
       this.dialog = false
     },
-    edit() {
-      qbit.editfeed(this.feed)
-      Vue.$toast.success(this.$t('toast.feedSaved'))
+    async create() {
+      await qbit.createFeed(this.feed)
       this.cancel()
+    },
+    async edit() {
+      await qbit.editFeed(this.initialFeed.name, this.feed.name)
+      this.$toast.success(this.$t('toast.feedSaved'))
+      this.cancel()
+    },
+    async submit() {
+      if (this.feed.name === '' || this.feed.url === '') return
+      if (this.hasInitialFeed) await this.edit()
+      else await this.create()
     }
   }
-}
+})
 </script>
-
-<style></style>

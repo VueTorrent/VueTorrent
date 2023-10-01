@@ -1,10 +1,5 @@
 <template>
-  <v-dialog
-    v-model="dialog"
-    scrollable
-    :width="dialogWidth"
-    :fullscreen="isPhone"
-  >
+  <v-dialog v-model="dialog" scrollable :width="dialogWidth" :fullscreen="isPhone" @input="close">
     <v-card>
       <v-card-title class="pa-0">
         <v-toolbar-title class="ma-4 primarytext--text">
@@ -15,34 +10,26 @@
         <v-container>
           <v-row>
             <v-col>
-              <v-text-field
-                v-model="torrent.name"
-                :label="$t('modals.changeLocation.torrentName')"
-                :prepend-icon="mdiFile"
-                readonly
-              />
-              <v-text-field
-                v-model="newPath"
-                :label="$t('directory')"
-                :prepend-icon="mdiFolder"
-                @keydown.enter="setLocation"
-              />
+              <v-list flat class="mb-4">
+                <v-list-item v-for="t in torrents" :key="t.hash" else>
+                  <v-list-item-content>
+                    <v-list-item-title class="text-wrap">
+                      {{ t.name }}
+                    </v-list-item-title>
+                  </v-list-item-content>
+                </v-list-item>
+              </v-list>
+              <v-text-field v-model="newPath" :label="$t('directory')" :prepend-icon="mdiFolder" autofocus @keydown.enter="setLocation" />
             </v-col>
           </v-row>
         </v-container>
       </v-card-text>
       <v-divider />
       <v-card-actions class="justify-end">
-        <v-btn
-          class="accent white--text elevation-0 px-4"
-          @click="setLocation"
-        >
+        <v-btn class="accent white--text elevation-0 px-4" @click="setLocation">
           {{ $t('save') }}
         </v-btn>
-        <v-btn
-          class="error white--text elevation-0 px-4"
-          @click="close"
-        >
+        <v-btn class="error white--text elevation-0 px-4" @click="close">
           {{ $t('cancel') }}
         </v-btn>
       </v-card-actions>
@@ -50,48 +37,54 @@
   </v-dialog>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-import { mdiFile, mdiFolder, mdiClose } from '@mdi/js'
-import { Modal, FullScreenModal } from '@/mixins'
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { mapGetters, mapState } from 'vuex'
+import { mdiClose, mdiFile, mdiFolder } from '@mdi/js'
+import { FullScreenModal, Modal } from '@/mixins'
 import qbit from '@/services/qbit'
 
-export default {
+export default defineComponent({
   name: 'ChangeLocationModal',
   mixins: [Modal, FullScreenModal],
   props: {
-    hash: String
+    hashes: Array<string>
   },
   data() {
     return {
       newPath: '',
-      mdiFile, mdiFolder, mdiClose
+      mdiFile,
+      mdiFolder,
+      mdiClose
     }
   },
   computed: {
-    ...mapGetters(['getTorrent']),
+    ...mapState(['selectMode']),
+    ...mapGetters(['getTorrent', 'getSettings']),
     dialogWidth() {
       return this.phoneLayout ? '100%' : '750px'
     },
-    torrent() {
-      return this.getTorrent(this.hash)
+    torrents() {
+      return [...this.hashes.map(hash => this.getTorrent(hash))]
     },
     isPhone() {
       return this.$vuetify.breakpoint.xsOnly
     }
   },
   created() {
-    this.newPath = this.torrent.savePath
+    this.newPath = this.torrents[0].savePath
   },
   methods: {
-    setLocation() {
-      qbit.setTorrentLocation([this.hash], this.newPath)
+    async setLocation() {
+      await qbit.setTorrentLocation(this.hashes, this.newPath)
       this.close()
     },
     close() {
       this.dialog = false
-      //this.$store.commit('DELETE_MODAL', this.guid)
+      if (!this.selectMode) {
+        this.$store.commit('RESET_SELECTED')
+      }
     }
   }
-}
+})
 </script>

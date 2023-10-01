@@ -1,36 +1,33 @@
 <template>
-  <v-flex
-    xs6
-    sm1
-    md1
-    class="mr-4"
-  >
+  <v-flex xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('status') }}
+      {{ $t('torrent.properties.status') }}
     </div>
-    <v-chip
-      small
-      class="caption white--text px-2"
-      :class="state"
-    >
+    <v-chip style="height: 1.3em" class="caption white--text px-2" :class="torrentStateClass">
       {{ stateString }}
     </v-chip>
   </v-flex>
 </template>
-<script>
+
+<script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
-export default {
+import { defineComponent } from 'vue'
+import { TorrentState } from '@/enums/vuetorrent'
+
+export default defineComponent({
   name: 'Status',
   mixins: [TorrentDashboardItem],
-  props: ['torrent'],
   computed: {
     stateString() {
+      if (!this.torrent) return TorrentState.UNKNOWN
+
+      let finalState = this.torrent.state.toString()
       if (this.torrent.forced) {
-        return `[F] ${this.torrent.state}`
-      }      
-      
-      return this.torrent.state
+        finalState = `[F] ${finalState}`
+      }
+
+      return finalState
     }
   }
-}
+})
 </script>

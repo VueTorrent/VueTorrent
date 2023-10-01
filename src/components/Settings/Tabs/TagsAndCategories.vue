@@ -2,7 +2,7 @@
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderTags') }}</v-subheader>
+        <v-subheader>{{ $t('modals.settings.tagsAndCategories.subHeaderTags') }}</v-subheader>
         <template v-for="(item, index) in availableTags">
           <v-list-item :key="item.title">
             <v-list-item-content>
@@ -14,23 +14,17 @@
               </v-icon>
             </v-list-item-action>
           </v-list-item>
-          <v-divider
-            v-if="index < availableTags.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableTags.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createTag"
-          >
-            {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createTag">
+            {{ $t('modals.settings.tagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
       </v-col>
-      
+
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.settings.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
+        <v-subheader>{{ $t('modals.settings.tagsAndCategories.subHeaderCategories') }}</v-subheader>
         <template v-for="(item, index) in availableCategories">
           <v-list-item :key="item.title">
             <v-list-item-content>
@@ -48,17 +42,11 @@
             </v-list-item-action>
           </v-list-item>
 
-          <v-divider
-            v-if="index < availableCategories.length - 1"
-            :key="index"
-          />
+          <v-divider v-if="index < availableCategories.length - 1" :key="index" />
         </template>
         <v-list-item>
-          <v-btn
-            class="mx-auto accent white--text elevation-0 px-4"
-            @click="createCategory"
-          >
-            {{ $t('modals.settings.pageTagsAndCategories.btnCreateNew') }}
+          <v-btn class="mx-auto accent white--text elevation-0 px-4" @click="createCategory">
+            {{ $t('modals.settings.tagsAndCategories.btnCreateNew') }}
           </v-btn>
         </v-list-item>
       </v-col>
@@ -80,7 +68,6 @@ export default {
     hash: String
   },
   data: () => ({
-    selectedCategory: null,
     mdiDelete,
     mdiPencil
   }),
@@ -95,28 +82,30 @@ export default {
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
   },
   methods: {
     activeMethod() {
       this.$store.commit('FETCH_CATEGORIES')
-    },
-    deleteTag(item) {
-      qbit.deleteTag(item)
+      this.$store.commit('FETCH_TAGS')
     },
     createTag() {
-      this.createModal('CreateTagDialog')
+      this.createModal('CreateNewTagDialog')
     },
     createCategory() {
-      this.createModal('CreateCategoryDialog')
+      this.createModal('CreateNewCategoryDialog')
     },
-    deleteCategory(category) {
-      qbit.deleteCategory(category.name)
+    async deleteCategory(category) {
+      await qbit.deleteCategory([category.name])
       this.$store.commit('FETCH_CATEGORIES')
     },
+    async deleteTag(item) {
+      await qbit.deleteTag([item])
+      this.$store.commit('FETCH_TAGS')
+    },
     editCategory(cat) {
-      this.createModal('CreateCategoryDialog', { initialCategory: cat })
+      this.createModal('CreateNewCategoryDialog', { initialCategory: cat })
     }
   }
 }
 </script>
-

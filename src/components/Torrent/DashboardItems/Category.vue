@@ -1,21 +1,20 @@
 <template>
-  <v-flex
-    v-if="torrent.category"
-    xs6
-    sm1
-    md1
-  >
+  <v-flex v-if="torrent?.category" xs6 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('category') }}
+      {{ $t('torrent.properties.category') }}
     </div>
     <v-chip small class="upload white--text caption">
       {{ torrent.category }}
     </v-chip>
   </v-flex>
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { TorrentDashboardItem } from '@/mixins'
+
+export default defineComponent({
   name: 'Category',
-  props: ['torrent']
-}
+  mixins: [TorrentDashboardItem]
+})
 </script>

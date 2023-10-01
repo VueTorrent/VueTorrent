@@ -2,93 +2,16 @@
   <v-card flat>
     <v-simple-table>
       <tbody>
-        <tr>
+        <tr id="torrentTimeActive">
           <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.torrentTitle') }}
+            {{ $t('torrent.properties.time_active') | titleCase }}
           </td>
           <td>
-            {{ torrent.name }}
+            {{ torrent.time_active }}
+            <span>{{ seedingTime }}</span>
           </td>
         </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.pieceStates') }}
-          </td>
-          <td id="pieceStates" class="d-flex">
-            <span class="mr-2 align-center d-flex"> {{ torrent.progress }}% </span>
-            <canvas width="0" height="1" />
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('torrent.directory') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.savePath }}
-          </td>
-        </tr>
-        <tr style="margin-top: 10px !important">
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.hash') }}
-          </td>
-          <td>
-            {{ torrent.hash }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('torrent.size') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.size | getDataValue }}
-            {{ torrent.size | getDataUnit(1) }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('torrent.downloaded') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.dloaded | getDataValue }}
-            {{ torrent.dloaded | getDataUnit(1) }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('torrent.uploaded') | titleCase }}
-          </td>
-          <td>
-            {{ torrent.uploaded | getDataValue }}
-            {{ torrent.uploaded | getDataUnit(1) }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.ratio') }}
-          </td>
-          <td>
-            {{ torrent.ratio }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.downloadSpeed') }}
-          </td>
-          <td>
-            {{ torrent.dlspeed | getDataValue }}
-            {{ torrent.dlspeed | getDataUnit(1) }}
-          </td>
-        </tr>
-        <tr>
-          <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.uploadSpeed') }}
-          </td>
-          <td>
-            {{ torrent.upspeed | getDataValue }}
-            {{ torrent.upspeed | getDataUnit(1) }}
-          </td>
-        </tr>
-        <tr>
+        <tr id="torrentEta">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.eta') }}
           </td>
@@ -96,71 +19,70 @@
             {{ torrent.eta }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentLastActivity">
+          <td :class="commonStyle">
+            {{ $t('torrent.properties.last_activity') }}
+          </td>
+          <td>
+            {{ torrent.last_activity }}
+          </td>
+        </tr>
+        <tr id="torrentPeers">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.peers') }}
           </td>
           <td>
-            {{ torrent.num_leechs
-            }}<span :class="commonStyle">/{{ torrent.available_peers }}</span>
+            {{ torrent.num_leechs }}<span :class="commonStyle">/{{ torrent.available_peers }}</span>
           </td>
         </tr>
-        <tr>
+        <tr id="torrentSeeds">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.seeds') }}
           </td>
           <td>
-            {{ torrent.num_seeds
-            }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
+            {{ torrent.num_seeds }}<span :class="commonStyle">/{{ torrent.available_seeds }}</span>
           </td>
         </tr>
-        <tr>
+        <tr id="torrentAddedOn">
           <td :class="commonStyle">
-            {{ $t('torrent.added') | titleCase }}
+            {{ $t('torrent.properties.added_on') | titleCase }}
           </td>
           <td>
             {{ torrent.added_on }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentCreationDate">
           <td :class="commonStyle">
-            {{ $t('modals.detail.pageInfo.status') }}
+            {{ $t('modals.detail.pageInfo.creation_date') | titleCase }}
           </td>
           <td>
-            <v-chip
-              small
-              :class="`${torrent.state.toLowerCase()} white--text caption`"
-            >
-              {{ torrent.state }}
-            </v-chip>
+            {{ creationDate }}
           </td>
         </tr>
-        <tr v-if="torrent.tracker">
+        <tr id="torrentTrackers" v-if="torrent?.tracker">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.trackers') }}
           </td>
           <td>
-            {{ torrent.tracker }}
+            <span v-for="trackersPart in splitString(torrent.tracker)" :key="trackersPart">
+              <a v-if="stringContainsUrl(trackersPart)" target="_blank" :href="trackersPart">{{ trackersPart }}</a>
+              <span v-else>{{ trackersPart }}</span>
+            </span>
           </td>
         </tr>
-        <tr v-if="createdBy">
+        <tr id="torrentCreatedBy" v-if="createdBy">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.createdBy') }}
           </td>
           <td>
-            {{ createdBy }}
-          </td>
-        </tr>
-        <tr v-if="comment">
-          <td :class="commonStyle">
-            {{ $t('torrent.comments') | titleCase }}
-          </td>
-          <td>
-            {{ comment }}
+            <span v-for="createdByPart in splitString(createdBy)" :key="createdByPart">
+              <a v-if="stringContainsUrl(createdByPart)" target="_blank" :href="createdByPart">{{ createdByPart }}</a>
+              <span v-else>{{ createdByPart }}</span>
+            </span>
           </td>
         </tr>
 
-        <tr>
+        <tr id="torrentFLPiecePrio">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.firstLastPiecePriority') }}
           </td>
@@ -168,7 +90,7 @@
             {{ torrent.f_l_piece_prio }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentSeqDl">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.sequentialDownload') }}
           </td>
@@ -176,7 +98,7 @@
             {{ torrent.seq_dl }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentAutoTMM">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.autoTMM') }}
           </td>
@@ -184,7 +106,7 @@
             {{ torrent.auto_tmm }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentRatioLimit">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.shareRatioLimit') }}
           </td>
@@ -192,7 +114,7 @@
             {{ torrent.ratio_limit | limitToValue }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentRatioTimeLimit">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.shareTimeLimit') }}
           </td>
@@ -200,34 +122,48 @@
             {{ torrent.ratio_time_limit | limitToValue }}
           </td>
         </tr>
-        <tr>
+        <tr id="torrentDlLimit">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.downloadLimit') }}
           </td>
-          <td v-if="torrent.dl_limit > 0">
-            {{ torrent.dl_limit | getDataValue }} {{ torrent.dl_limit | getDataUnit }}<span>/s </span>
+          <td v-if="torrent?.dl_limit > 0">
+            {{ torrent.dl_limit | formatSpeedValue(shouldUseBitSpeed()) }}
+            <span>{{ torrent.dl_limit | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
           </td>
-          <td v-else>
-            ∞
-          </td>
+          <td v-else>∞</td>
         </tr>
-        <tr>
+        <tr id="torrentUpLimit">
           <td :class="commonStyle">
             {{ $t('modals.detail.pageInfo.uploadLimit') }}
           </td>
-          <td v-if="torrent.up_limit > 0">
-            {{ torrent.up_limit | getDataValue }} {{ torrent.up_limit | getDataUnit }}<span>/s </span>
+          <td v-if="torrent?.up_limit > 0">
+            {{ torrent.up_limit | formatSpeedValue(shouldUseBitSpeed()) }}
+            <span>{{ torrent.up_limit | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
           </td>
-          <td v-else>
-            ∞
-          </td>
+          <td v-else>∞</td>
         </tr>
-        <tr>
+        <tr id="torrentAvailability">
           <td :class="commonStyle">
-            {{ $t('torrent.availability') | titleCase }}
+            {{ $t('torrent.properties.availability') | titleCase }}
           </td>
           <td>
             {{ torrent.availability }}
+          </td>
+        </tr>
+        <tr id="torrentPrivate">
+          <td :class="commonStyle">
+            {{ $t('modals.detail.pageInfo.is_private') | titleCase }}
+          </td>
+          <td>
+            {{ isPrivateTorrent }}
+          </td>
+        </tr>
+        <tr id="torrentWastedSize">
+          <td :class="commonStyle">
+            {{ $t('modals.detail.pageInfo.wasted_size') | titleCase }}
+          </td>
+          <td>
+            {{ wastedSize | formatData(shouldUseBinaryData()) }}
           </td>
         </tr>
       </tbody>
@@ -235,87 +171,60 @@
   </v-card>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
-import { FullScreenModal } from '@/mixins'
+<script lang="ts">
+import dayjs from 'dayjs'
+import { FullScreenModal, TorrentDashboardItem } from '@/mixins'
 import qbit from '@/services/qbit'
+import { splitByUrl, stringContainsUrl } from '@/helpers'
+import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
 
-export default {
+export default defineComponent({
   name: 'Info',
-  mixins: [FullScreenModal],
+  mixins: [FullScreenModal, TorrentDashboardItem],
   props: {
-    hash: String
+    isActive: Boolean
   },
   data() {
     return {
       commonStyle: 'caption',
-      createdBy: null,
-      comment: null
+      comment: '',
+      createdBy: '',
+      creationDate: '',
+      isPrivateTorrent: false,
+      wastedSize: 0
     }
+  },
+  async mounted() {
+    await this.getTorrentProperties()
   },
   computed: {
-    ...mapGetters(['getTorrent']),
-    torrent() {
-      return this.getTorrent(this.hash)
+    ...mapState(['webuiSettings']),
+    seedingTime() {
+      if (!this.torrent?.seeding_time) return ''
+
+      const content = this.$t('modals.detail.pageInfo.seededFor').toString().replace('$0', this.torrent.seeding_time)
+      return `(${content})`
     }
-  },
-  mounted() {
-    this.getTorrentProperties()
-    this.renderTorrentPieceStates()
   },
   methods: {
     async getTorrentProperties() {
-      const props = await qbit.getTorrentProperties(this.hash)
-      this.createdBy = props.created_by || null
-      this.comment = props.comment || null
+      const props = await qbit.getTorrentProperties(this.torrent?.hash as string)
+      this.comment = props.comment
+      this.createdBy = props.created_by
+      // @ts-expect-error: TS2339: Property 'dateFormat' does not exist on type 'never'.
+      this.creationDate = dayjs(props.creation_date * 1000).format(this.webuiSettings.dateFormat)
+      this.isPrivateTorrent = props.is_private
+      this.wastedSize = props.total_wasted
     },
-    async renderTorrentPieceStates() {
-      const canvas = document.querySelector('#pieceStates canvas')
-      const { data } = await qbit.getTorrentPieceStates(this.hash)
-
-      // Source: https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
-      if (data) {
-        canvas.width = data.length
-        const ctx = canvas.getContext('2d')
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-        // Group contiguous colors together and draw as a single rectangle
-        let color = ''
-        let rectWidth = 1
-
-        for (let i = 0; i < data.length; ++i) {
-          const status = data[i]
-          let newColor = ''
-
-          if (status === 1) // requested / downloading
-            newColor = this.$vuetify.theme.currentTheme['torrent-downloading']
-          else if (status === 2) // already downloaded
-            newColor = this.$vuetify.theme.currentTheme['torrent-done']
-
-          if (newColor === color) {
-            ++rectWidth
-            continue
-          }
-
-          if (color !== '') {
-            ctx.fillStyle = color
-            ctx.fillRect((i - rectWidth), 0, rectWidth, canvas.height)
-          }
-
-          rectWidth = 1
-          color = newColor
-        }
-
-        // Fill a rect at the end of the canvas if one is needed
-        if (color !== '') {
-          ctx.fillStyle = color
-          ctx.fillRect((data.length - rectWidth), 0, rectWidth, canvas.height)
-        }
-      }
-
+    stringContainsUrl(string: string) {
+      return stringContainsUrl(string)
+    },
+    splitString(string: string) {
+      return splitByUrl(string)
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -327,9 +236,14 @@ export default {
   &:first-child {
     padding: 0 0 0 8px !important;
   }
+
   &:last-child {
     padding-right: 8px !important;
   }
+}
+
+:deep(.v-data-table tbody td.caption) {
+  width: 20%;
 }
 
 #pieceStates {
@@ -337,7 +251,7 @@ export default {
 
   canvas {
     height: 100%;
-    width: 95%;
+    width: 75%;
     border: 1px dotted;
   }
 }

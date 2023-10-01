@@ -1,33 +1,20 @@
 <template>
-  <v-flex
-    xs12
-    sm1
-    md1
-    class="mr-4"
-  >
+  <v-flex xs12 sm1 md1>
     <div class="caption grey--text">
-      {{ $t('torrent.progress') | titleCase }}
+      {{ $t('torrent.properties.progress') | titleCase }}
     </div>
-    <v-progress-linear
-      :value="torrent.progress"
-      height="20"
-      :style="phoneLayout ? '' : 'width: 80%;'"
-      :color="`torrent-${state}`"
-      rounded
-    >
-      <span
-        class="caption white--text"
-      >
-        {{ torrent.progress }}%
-      </span>
+    <v-progress-linear :value="torrent?.progress ?? 0" height="20" style="width: 90%" :color="`torrent-${torrentStateClass}`" rounded>
+      <span class="caption white--text">{{ torrent.progress | progress }}</span>
     </v-progress-linear>
   </v-flex>
 </template>
-<script>
+
+<script lang="ts">
 import { TorrentDashboardItem } from '@/mixins'
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'Progress',
-  mixins: [TorrentDashboardItem],
-  props: ['torrent']
-}
+  mixins: [TorrentDashboardItem]
+})
 </script>

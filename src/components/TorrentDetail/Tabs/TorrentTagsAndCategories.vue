@@ -2,43 +2,30 @@
   <v-card flat>
     <v-row dense class="ma-0 pa-0">
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderTag') }}</v-subheader>
-        <v-list-item-group
-          :value="activeTags"
-          active-class="accent--text"
-          multiple
-        >
+        <v-subheader>{{ $t('modals.detail.tagsAndCategories.subHeaderTag') }}</v-subheader>
+        <v-list-item-group :value="activeTags" active-class="accent--text" multiple>
           <template v-for="(item, index) in availableTags">
-            <v-list-item :key="item.title" @click="addTag(item)">
+            <v-list-item link @click="addTag(item)" :key="item.title">
               <v-list-item-content>
                 <v-list-item-title v-text="item" />
               </v-list-item-content>
             </v-list-item>
-            <v-divider
-              v-if="index < availableTags.length - 1"
-              :key="index"
-            />
+            <v-divider v-if="index < availableTags.length - 1" :key="index" />
           </template>
         </v-list-item-group>
       </v-col>
 
       <v-col cols="12" md="6">
-        <v-subheader>{{ $t('modals.detail.pageTagsAndCategories.subHeaderCategories') }}</v-subheader>
-        <v-list-item-group
-          :value="activeCategory"
-          active-class="accent--text"
-        >
+        <v-subheader>{{ $t('modals.detail.tagsAndCategories.subHeaderCategories') }}</v-subheader>
+        <v-list-item-group :value="activeCategory" active-class="accent--text">
           <template v-for="(item, index) in availableCategories">
-            <v-list-item :key="item.title" @click="setCategory(item)">
+            <v-list-item link @click="setCategory(item)" :key="item.title">
               <v-list-item-content>
                 <v-list-item-title v-text="item.name" />
               </v-list-item-content>
             </v-list-item>
 
-            <v-divider
-              v-if="index < availableCategories.length - 1"
-              :key="index"
-            />
+            <v-divider v-if="index < availableCategories.length - 1" :key="index" />
           </template>
         </v-list-item-group>
       </v-col>
@@ -55,16 +42,14 @@ export default {
   name: 'TorrentTagsAndCategories',
   mixins: [FullScreenModal],
   props: {
-    hash: String
+    hash: String,
+    torrent: Object
   },
   data: () => ({
     categories: []
   }),
   computed: {
-    ...mapGetters(['getTorrent', 'getAvailableTags', 'getCategories']),
-    torrent() {
-      return this.getTorrent(this.hash)
-    },
+    ...mapGetters(['getAvailableTags', 'getCategories']),
     availableTags() {
       return this.getAvailableTags()
     },
@@ -83,31 +68,36 @@ export default {
           if (index !== -1) active.push(index)
         })
       }
-      
+
       return active
     }
   },
   created() {
     this.$store.commit('FETCH_CATEGORIES')
+    this.$store.commit('FETCH_TAGS')
   },
   methods: {
-    addTag(tag) {
+    async addTag(tag) {
       if (this.activeTags.includes(this.availableTags.indexOf(tag))) {
-        return this.deleteTag(tag)
+        await this.deleteTag(tag)
+        return
       }
-      qbit.addTorrentTag(this.hash, tag)
+
+      await qbit.addTorrentTag([this.hash], [tag])
     },
-    deleteTag(tag) {
-      qbit.removeTorrentTag(this.hash, tag)
+    async deleteTag(tag) {
+      await qbit.removeTorrentTag([this.hash], [tag])
     },
-    setCategory(cat) {
+    async setCategory(cat) {
       if (this.torrent.category === cat.name) {
-        return qbit.setCategory([this.hash], '')
+        await this.deleteCategory()
+        return
       }
-      qbit.setCategory([this.hash], cat.name)
+
+      await qbit.setCategory([this.hash], cat.name)
     },
-    deleteCategory() {
-      qbit.setCategory([this.hash], '')
+    async deleteCategory() {
+      await qbit.setCategory([this.hash], '')
     }
   }
 }

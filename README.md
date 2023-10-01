@@ -1,46 +1,39 @@
-# VueTorrent
+<div>
+  <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
+  <h1>VueTorrent</h1>
+  <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
+</div>
 
+![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen)
 
-<p>
-<img align="right" width="200px" src="https://imgur.com/x6dKNB3.png">   
-
-<p>&nbsp;</p>
-The sleekest looking WebUI for qBittorrent made with Vue.js!  
-
-> Vue, qBittorrent, Vuetify
-</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p align="center">
-      <a href="https://img.shields.io/github/stars/WDaan/VueTorrent" alt="stars">
-        <img src="https://img.shields.io/github/stars/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/forks/WDaan/VueTorrent" alt="Forks">
-        <img src="https://img.shields.io/github/forks/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues/WDaan/VueTorrent" alt="Issues">
-        <img src="https://img.shields.io/github/issues/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues-closed/wdaan/vuetorrent" alt="Issues Closed">
-        <img src="https://img.shields.io/github/issues-closed/WDaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" alt="Closed PR">
-        <img src="https://img.shields.io/github/issues-pr-closed/wdaan/VueTorrent" /></a>
-      <a href="https://img.shields.io/github/v/release/wdaan/vuetorrent" alt="Version">
-        <img src="https://img.shields.io/github/v/release/wdaan/vuetorrent" /></a>
-      <a href="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components">
-        <img src="https://img.shields.io/github/workflow/status/wdaan/vuetorrent/Test%20Core%20Components" alt="Test Status"></a>
-      <a href="https://img.shields.io/github/downloads/wdaan/vuetorrent/total">
-        <img src="https://img.shields.io/github/downloads/wdaan/vuetorrent/total" alt="Downloads"></a>
-</p>
+![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
+![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
+![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent) ![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
+![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
 
 ## Screenshots
 
-![Desktop screenshot](https://imgur.com/IUkaDnI.png)
+- Desktop
+<p align="middle">
+  <img src="readme_assets/screenshot-desktop.png" width="800" />
+</p>
 
-|                                    |                                    |                                    |
-| :--------------------------------: | :--------------------------------: | :--------------------------------: |
-| ![](https://imgur.com/Zcm98H3.png) | ![](https://imgur.com/OujrH0f.png) | ![](https://imgur.com/3FZTXPL.png) |
-| ![](https://imgur.com/QYpNCXs.png) | ![](https://imgur.com/6j5wxhl.png) | ![](https://imgur.com/jnzDKjW.png) |
+- Desktop Dark Mode
+<p align="middle">
+  <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" />
+</p>
 
-<p align="center">
-<img src="https://imgur.com/weOOI7n.png" width="300" alt="Mobile screenshot">
+- Mobile
+<p align="middle">
+  <img src="readme_assets/screenshot-mobile.png" width="400" />
+  <img src="readme_assets/screenshot-mobile-navbar.png" width="400" /> 
+</p>
+
+- Mobile Dark Mode
+<p align="middle">
+  <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" />
+  <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" /> 
 </p>
 
 ## Installation
@@ -54,12 +47,14 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 ### From Source
 
-- Head to the [`latest-release`](https://github.com/WDaan/VueTorrent/tree/latest-release) branch
 - Clone branch using
   - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
 - Pull changes every once in a while, using `git pull`
 
+If you like to always have the latest and greatest, please sync to the `nightly-release`-branch. This can contain breaking changes though.
+
 ### Lazy/Easy
+
 - use [hotio's qbittorrent](https://hotio.dev/containers/qbittorrent/) docker image, that comes pre-packed with VueTorrent.
 
 [Alternative methods - May work for older QBit versions](../../wiki/Alternative_Installation_Methods)
@@ -68,9 +63,12 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 - Clone the repo
 - `npm install`
-- `npm run serve`
+- `npm start`
 - `npm run lint` (to format the code)
-- `docker-compose up -d` (to start qbittorrent docker => optional, you can edit `vue.config.js` as well)
+- `docker-compose up -d` (starts a qbittorrent docker, optional)
+- Open the WebUI on localhost with the default username `admin` and password `adminadmin`.
+- Make sure CSRF protection is disabled on the target server!
+- Edit `env.development` to tweak your dev environment (e.g. fake torrents)
 
 ## Features
 
@@ -83,7 +81,6 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 - Keyboard shortcuts!
   - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
   - delete selected torrents with <kbd>delete</kbd>
-  - select with <kbd>Ctrl</kbd>+click
   - <kbd>Shift</kbd>-click to select from one torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
@@ -105,7 +102,8 @@ I'll gladly accept help/pull requests & advice!
 Open up an issue 😛
 
 but before you do that:
-- confirm you're on the latest version of VueTorrent 
+
+- confirm you're on the latest version of VueTorrent
 - confirm there is no other issue mentioning the same problem
 
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
@@ -113,5 +111,4 @@ but before you do that:
 ## Credits
 
 - [qBittorrent](https://github.com/qbittorrent/qBittorrent)
-- Other alternate WebUI written in Vue [`CzBiX qb-web`](https://github.com/CzBiX/qb-web)
 - Many thanks [@m4ximuel](https://github.com/m4ximuel) for designing the icon & helping out with the project
