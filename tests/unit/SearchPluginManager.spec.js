@@ -1,9 +1,12 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils'
 import Vuetify from 'vuetify'
-import PluginManager from '../../src/components/Modals/SearchModal/PluginManager.vue'
+import SearchPluginManager from '@/components/Modals/SearchPluginManager.vue'
 import Vuex from 'vuex'
+import Vue from 'vue'
 
-describe('PluginManager.vue', () => {
+Vue.use(Vuetify)
+
+describe('SearchPluginManager.vue', () => {
   const localVue = createLocalVue()
   localVue.use(Vuex)
   const vuetify = new Vuetify()
@@ -12,7 +15,8 @@ describe('PluginManager.vue', () => {
   beforeEach(() => {
     store = new Vuex.Store({
       actions: {
-        FETCH_SETTINGS: jest.fn()
+        FETCH_SETTINGS: ()=>{},
+        FETCH_SEARCH_PLUGINS: ()=>{}
       },
       state: {
         searchPlugins: []
@@ -20,8 +24,8 @@ describe('PluginManager.vue', () => {
     })
   })
 
-  it('should render the PluginManager', () => {
-    const wrapper = shallowMount(PluginManager, {
+  it('should render the SearchPluginManager', () => {
+    const wrapper = shallowMount(SearchPluginManager, {
       localVue,
       vuetify,
       store,
