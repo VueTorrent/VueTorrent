@@ -22,6 +22,8 @@ const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
 const { searchData } = storeToRefs(searchEngineStore)
 
+const isDialogVisible = computed(() => navbarStore.addTorrentDialogVisible || pluginManagerDialogVisible.value)
+
 const headers = [
   { title: t('searchEngine.headers.fileName'), key: 'fileName' },
   { title: t('searchEngine.headers.fileSize'), key: 'fileSize' },
@@ -59,12 +61,11 @@ const plugins = computed(() => {
 })
 
 const selectedTab = computed<SearchData>(() => searchData.value[tabIndex.value] ?? {})
-const searchQuery = useSearchQuery(
+const { results: filteredResults } = useSearchQuery(
   () => selectedTab.value.results,
   () => selectedTab.value.filters?.title,
   result => result.fileName
 )
-const filteredResults = computed(() => searchQuery.results.value)
 
 function createNewTab() {
   searchEngineStore.createNewTab()
@@ -106,7 +107,18 @@ const goHome = () => {
   router.push({ name: 'dashboard' })
 }
 
+function handleKeyboardShortcut(e: KeyboardEvent) {
+  if (isDialogVisible.value) {
+    return false
+  }
+
+  if (e.key === 'Escape') {
+    goHome()
+  }
+}
+
 onBeforeMount(async () => {
+  document.addEventListener('keydown', handleKeyboardShortcut)
   if (searchData.value.length === 0) {
     searchEngineStore.createNewTab()
   } else {
@@ -120,6 +132,7 @@ onBeforeMount(async () => {
 })
 
 onBeforeUnmount(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcut)
   searchData.value.forEach((tab: SearchData) => {
     if (tab.timer) clearInterval(tab.timer)
   })

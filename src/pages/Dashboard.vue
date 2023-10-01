@@ -10,12 +10,11 @@ import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 
 
 const { t } = useI18n()
-const route = useRoute()
 const router = useRouter()
 const display = useDisplay()
 const dashboardStore = useDashboardStore()
@@ -200,18 +199,14 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     if (document.activeElement !== searchInput) {
       e.preventDefault()
       isSearchFilterVisible.value = true
-      if (searchInput) searchInput.focus()
-      else console.error('searchInput not accessible')
+      searchInput?.focus()
     }
   }
 
   // 'Escape' => Remove focus from search field
   if (e.key === 'Escape') {
-    const searchInput = document.getElementById('searchInput')
+    document.getElementById('searchInput')?.blur()
     isSearchFilterVisible.value = false
-
-    if (searchInput) searchInput.blur()
-    else console.error('searchInput not accessible')
   }
 
   // 'Delete' => Delete modal
@@ -222,11 +217,6 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     if (selectedTorrents.value.length === 0) return
 
     isDeleteDialogVisible.value = true
-  }
-
-  // 'Search' => Search view
-  if (e.key === '/' && route.name !== 'searchEngine' && document.activeElement !== document.getElementById('searchInput')) {
-    router.push({ name: 'searchEngine' })
   }
 }
 

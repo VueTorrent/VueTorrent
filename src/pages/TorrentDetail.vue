@@ -6,7 +6,7 @@ import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useMaindataStore } from '@/stores'
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -22,6 +22,19 @@ const torrent = computed(() => maindataStore.getTorrentByHash(route.params.hash 
 const goHome = () => {
   router.push({ name: 'dashboard' })
 }
+
+function handleKeyboardShortcut(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    goHome()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyboardShortcut)
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcut)
+})
 </script>
 
 <template>

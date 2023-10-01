@@ -7,7 +7,7 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const dashboardStore = useDashboardStore()
 
-const isTextFilterActive = computed(() => dashboardStore.searchFilter.length > 0)
+const isTextFilterActive = computed(() => dashboardStore.searchFilter?.length > 0)
 const isStatusFilterActive = computed(() => dashboardStore.sortOptions.statusFilter !== FilterState.ALL)
 const isCategoryFilterActive = computed(() => dashboardStore.sortOptions.categoryFilter !== null)
 const isTagFilterActive = computed(() => dashboardStore.sortOptions.tagFilter !== null)

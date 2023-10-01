@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { usePreferenceStore } from '@/stores'
-import { ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -45,6 +45,19 @@ const saveSettings = async () => {
 const goHome = () => {
   router.push({ name: 'dashboard' })
 }
+
+function handleKeyboardShortcut(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    goHome()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyboardShortcut)
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcut)
+})
 </script>
 
 <template>
