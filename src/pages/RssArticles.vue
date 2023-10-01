@@ -32,11 +32,16 @@ const searchQuery = useSearchQuery(
     () => titleFilter.value,
     (item: RssArticle) => item.title
 )
+const page = ref(1)
+const _page = computed({
+  get: () => page.value || 1,
+  set: (v) => page.value = v
+})
 const {
   result: paginatedResults,
   currentPage,
   lastPage
-} = useArrayPagination(searchQuery.results, { pageSize: 15 })
+} = useArrayPagination(searchQuery.results, { currentPage: _page, pageSize: 15 })
 
 function openLink(url: string) {
   window.open(url, '_blank', 'noreferrer')
@@ -75,7 +80,6 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
 onBeforeMount(async () => {
   await rssStore.fetchFeeds()
-  currentPage.value = 1
 })
 
 onMounted(() => {

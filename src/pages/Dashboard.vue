@@ -100,8 +100,8 @@ const torrentTitleFilter = computed({
   }, 300)
 })
 const _page = computed({
-  get: () => dashboardPage.value,
-  set: v => dashboardPage.value = v || 1
+  get: () => dashboardPage.value || 1,
+  set: v => dashboardPage.value = v
 })
 const {
   result: paginatedTorrents,
