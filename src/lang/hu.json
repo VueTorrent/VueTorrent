@@ -295,9 +295,9 @@
       },
       "downloads": {
         "whenAddTorrent": {
-          "subheader": "When adding a torrent",
-          "doNotAutoStart": "Do not start the download automatically",
-          "autoDeleteMode": "Delete .torrent files afterwards"
+          "subheader": "Új torrent hozzáadásakor",
+          "doNotAutoStart": "Ne töltse automatikusan",
+          "autoDeleteMode": "Utána .torrent fájl törlése"
         },
         "publicSettings": {
           "preAllocateDisk": "Pre-allocate disk space for all files",
@@ -341,11 +341,11 @@
           "enabled": "Email notification upon download completion",
           "from": "From",
           "to": "To",
-          "smtpServer": "SMTP server",
+          "smtpServer": "SMTP szerver",
           "sslEnabled": "This server requires a secure connection (SSL)",
           "authEnabled": "Authentication",
-          "username": "Username",
-          "password": "Password"
+          "username": "Felhasználónév",
+          "password": "Jelszó"
         },
         "runExternalProgram": {
           "subheader": "Run external program",
@@ -372,30 +372,30 @@
       "connection": {
         "protocol": "Peer connection protocol",
         "listeningPort": {
-          "subheader": "Listening Port",
+          "subheader": "Bejövő kapcsolat portja",
           "incomingConnectionPort": "Port used for incoming connections",
-          "randomPort": "Random Port",
-          "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router"
+          "randomPort": "Véletlenszerű port",
+          "useUPnP": "UPnP / NAT-PMP használata portok átirányítására"
         },
         "connectionLimits": {
-          "subheader": "Connection Limits",
-          "globalMaxConnection": "Global maximum number of connections",
-          "perTorrentMaxConnection": "Maximum number of connections per torrent",
-          "globalMaxUploadSlots": "Global maximum number of upload slots",
-          "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent"
+          "subheader": "Kapcsolati korlátok",
+          "globalMaxConnection": "Globális szálak maximális száma",
+          "perTorrentMaxConnection": "Torrentenkénti szálak maximális száma",
+          "globalMaxUploadSlots": "Globális feltöltési szálak maximális száma",
+          "perTorrentMaxUploadSlots": "Torrentenkénti feltöltési szálak maximális száma"
         },
         "proxy": {
-          "subheader": "Proxy Server",
-          "host": "Host",
+          "subheader": "Proxy szerver",
+          "host": "Kiszolgáló",
           "port": "Port",
-          "peerConnections": "Use proxy for peer connections",
-          "torrentOnly": "Use proxy only for torrents",
+          "peerConnections": "Proxy használata az ügyfélkapcsolatokhoz",
+          "torrentOnly": "Csak a torrentekhez használjon proxyt",
           "hostNameLookup": "Use proxy for hostname lookup",
           "auth": {
-            "subtitle": "Authentication",
-            "username": "Username",
-            "password": "Password",
-            "tip": "Info: The password is saved unencrypted"
+            "subtitle": "Hitelesítés",
+            "username": "Felhasználónév",
+            "password": "Jelszó",
+            "tip": "Infó: A jelszó titkosítás nélkül kerül mentésre"
           }
         },
         "ipFiltering": {
