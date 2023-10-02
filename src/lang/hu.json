@@ -399,44 +399,44 @@
           }
         },
         "ipFiltering": {
-          "subheader": "IP Filtering",
-          "filterPath": "Filter path (.dat, .p2p, .p2b)",
-          "applyToTrackers": "Apply to trackers",
-          "bannedIps": "Manually banned IP addresses",
-          "bannedIpsHint": "One on each line"
+          "subheader": "IP-szűrés",
+          "filterPath": "Szűrés útvonala (.dat, .p2p, .p2b)",
+          "applyToTrackers": "Alkalmazás a trackerekre",
+          "bannedIps": "Kézzel tiltott IP címek",
+          "bannedIpsHint": "Minden sorba egy"
         }
       },
       "speed": {
         "subheader": {
-          "global": "Global Rate Limits",
-          "alternative": "Alternative Rate Limits",
-          "settings": "Rate Limits Settings"
+          "global": "Globális sebességkorlátok",
+          "alternative": "Alternatív sebességkorlátok",
+          "settings": "Sebességkorlát beállítása"
         },
-        "upload": "Upload (in KiB/s)",
-        "download": "Download (in KiB/s)",
-        "tip": "0 means unlimited",
+        "upload": "Feltöltés (KiB/s)",
+        "download": "Letöltés (KiB/s)",
+        "tip": "Korlátlan: 0",
         "scheduler": {
-          "subheader": "Schedule the use of alternative rate limits",
-          "from": "From",
-          "to": "To",
-          "selectButtonLabel": "Select time",
-          "when": "When"
+          "subheader": "Alternatív sebességkorlát üzemezése",
+          "from": "Ettől",
+          "to": "Eddig",
+          "selectButtonLabel": "Idő kiválasztása",
+          "when": "Ekkor"
         },
         "settings": {
-          "applyToUtp": "Apply rate limit to µTP protocol",
-          "applyToTransportOverhead": "Apply rate limit to transport overhead",
-          "applyToPeersOnLan": "Apply rate limit to peers on LAN"
+          "applyToUtp": "Sebességkorlát alkalmazása µTP protokollra is",
+          "applyToTransportOverhead": "Sebességkorlát alkalmazása a fejléc (overhead) többletre is",
+          "applyToPeersOnLan": "Sebességkorlát alkalmazása a LAN kapcsolatokra is"
         }
       },
       "bittorrent": {
         "privacy": {
-          "subheader": "Privacy",
-          "enableDHT": "Enable DHT (decentralized network) to find more peers",
-          "enablePeX": "Enable Peer Exchange (PeX) to find more peers",
-          "enableLPD": "Enable Local Peer Discovery to find more peers",
-          "encryptionMode": "Encryption Mode",
-          "enableAnonymous": "Enable anonymous mode",
-          "moreInfo": "More Information"
+          "subheader": "Adatvédelem",
+          "enableDHT": "DHT (decentralizált hálózat) engedélyezése, hogy több ügyfelet találjon",
+          "enablePeX": "Ügyfélcsere (PeX) engedélyezése, hogy több ügyfelet találjon",
+          "enableLPD": "Helyi ügyfelek felkutatásának (LPD) engedélyezése, hogy több ügyfelet találjon",
+          "encryptionMode": "Titkosítás módja",
+          "enableAnonymous": "Névtelen mód engedélyezése",
+          "moreInfo": "További információ"
         },
         "maxActiveCheckingTorrents": "Max active checking torrents",
         "torrentQueueing": {
@@ -450,14 +450,14 @@
           "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
         },
         "seedLimits": {
-          "subheader": "Seed Limits",
-          "whenRatioReaches": "When ratio reaches",
-          "whenSeedingTimeReaches": "When seeding time reaches",
-          "whenSeedingTimeReachesHint": "In minutes",
-          "then": "Then"
+          "subheader": "Feltöltési korlátok",
+          "whenRatioReaches": "Amikor az arányt eléri",
+          "whenSeedingTimeReaches": "Amikor a megosztott idő eléri",
+          "whenSeedingTimeReachesHint": "perc",
+          "then": "azután"
         },
-        "autoAddTrackers": "Automatically add these trackers to new downloads",
-        "autoAddTrackersHint": "One tracker per line"
+        "autoAddTrackers": "Ezen trackerek automatikus hozzáadása az új letöltésekhez:",
+        "autoAddTrackersHint": "Soronként egy tracker"
       },
       "rss": {
         "tabName": {
@@ -494,31 +494,31 @@
       },
       "webUI": {
         "interface": {
-          "subheader": "Web User Interface (Remote Control)",
-          "ipAddress": "IP Address",
+          "subheader": "Webes felület",
+          "ipAddress": "IP cím",
           "port": "Port",
-          "useAlternativeWebUI": "Use Alternative WebUI",
-          "filesLocation": "Files location"
+          "useAlternativeWebUI": "Alternatív webes UI használata",
+          "filesLocation": "Fájlok helye"
         },
         "authentication": {
-          "subheader": "Authentication",
-          "username": "Username",
-          "password": "Password",
-          "passwordPlaceholder": "(unchanged)",
-          "bypassLocalhost": "Bypass authentication for clients on localhost",
-          "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
-          "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
-          "maxAttempts": "Max attempts",
-          "banDuration": "Ban Duration",
-          "banDurationHint": "In seconds",
-          "sessionTimeout": "Session timeout",
-          "sessionTimeoutHint": "In seconds"
+          "subheader": "Hitelesítés",
+          "username": "Felhasználónév",
+          "password": "Jelszó",
+          "passwordPlaceholder": "(változatlan)",
+          "bypassLocalhost": "Hitelesítés mellőzése a helyi gépen lévő klienseknél",
+          "bypassWhitelist": "Hitelesítés mellőzése a fehérlistára tett IP alhálózatokban lévő klienseknél",
+          "whitelistExamples": "Példa: 172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "Ügyfél tiltása egymást követő hibák után",
+          "banDuration": "Tiltás hossza",
+          "banDurationHint": "másodperc",
+          "sessionTimeout": "Munkamenet időtúllépés",
+          "sessionTimeoutHint": "másodperc"
         },
         "https": {
-          "subheader": "Use HTTPS",
-          "certificate": "Certificate",
-          "key": "Key",
-          "tip": "Information about certificates"
+          "subheader": "HTTPS használata",
+          "certificate": "Tanusítvány",
+          "key": "Kulcs",
+          "tip": "Információk a tanusítványokról"
         },
         "security": {
           "subheader": "Security",
