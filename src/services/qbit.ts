@@ -366,6 +366,16 @@ export class QBitApi {
     return this.execute(`/torrents/addTrackers`, params)
   }
 
+  async editTorrentTracker(hash: string, origUrl: string, newUrl: string): Promise<void> {
+    const params = {
+      hash,
+      origUrl,
+      newUrl
+    }
+
+    return this.execute(`/torrents/editTracker`, params)
+  }
+
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
     const params = {
       hash,

@@ -295,23 +295,18 @@
       "long_text_values": "Long text values"
     },
     "trackers": {
-      "table": {
-        "tier": "#",
-        "url": "URL",
-        "status": "Status",
-        "peers": "Peers (S/L)",
-        "peersValue": "{peers} ({seeds}/{leeches})",
-        "downloaded": "Downloaded",
-        "message": "Message"
-      },
+      "tier": "Tier: {n}",
+      "peersValue": "{peers} peers ({seeds} S /{leeches} L)",
       "addTrackers": {
         "title": "Add Trackers",
         "newTrackers": "Tracker URLs to add",
         "newTrackersHint": "One per line, separate tiers with an empty line"
       },
-      "removeTrackers": {
-        "title": "Remove Trackers",
-        "remove": "Remove"
+      "editTracker": {
+        "title": "Edit Tracker",
+        "oldUrl": "Old URL",
+        "newUrl": "New URL",
+        "newUrlRequired": "New URL is required"
       },
       "reannounce": "Reannounce all"
     },

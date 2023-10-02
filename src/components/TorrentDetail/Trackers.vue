@@ -3,22 +3,14 @@ import { TrackerStatus } from '@/constants/qbit'
 import { useMaindataStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onBeforeMount, onUnmounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { VForm, VTextField } from 'vuetify/components'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
-
-const headers = [
-  { title: t('torrentDetail.trackers.table.tier'), key: 'tier' },
-  { title: t('torrentDetail.trackers.table.url'), key: 'url' },
-  { title: t('torrentDetail.trackers.table.status'), key: 'status' },
-  { title: t('torrentDetail.trackers.table.peers'), key: 'peers' },
-  { title: t('torrentDetail.trackers.table.downloaded'), key: 'num_downloaded' },
-  { title: t('torrentDetail.trackers.table.message'), key: 'msg' }
-]
 
 function translateTrackerStatus(status: TrackerStatus): string {
   switch (status) {
@@ -39,26 +31,49 @@ function translateTrackerStatus(status: TrackerStatus): string {
 
 function formatTrackerValue(tracker: Tracker | number) {
   if (typeof tracker === 'number') return tracker === -1 ? 'N/A' : tracker.valueOf()
-  else if (tracker.num_peers === -1 || tracker.num_seeds === -1 || tracker.num_leeches === -1) return 'N/A'
-  else
-    return t('torrentDetail.trackers.table.peersValue', {
+  else if (!tracker || tracker.num_peers === -1 || tracker?.num_seeds === -1 || tracker?.num_leeches === -1) return 'N/A'
+  else {
+    return t('torrentDetail.trackers.peersValue', {
       peers: tracker.num_peers,
       seeds: tracker.num_seeds,
       leeches: tracker.num_leeches
     })
+  }
 }
 
 const loading = ref(false)
 const torrentTrackers = ref<(Tracker & { isSelectable: boolean })[]>([])
 const newTrackers = ref('')
-const selectedTrackers = ref<string[]>([])
 const timer = ref<NodeJS.Timeout | null>(null)
 const addTrackersDialog = ref(false)
-const removeTrackersDialog = ref(false)
+
+const editTrackerRules = [
+  (v: string) => !!v || t('torrentDetail.trackers.editTracker.newUrlRequired')
+]
+const editTrackerDialog = reactive({
+  isVisible: false,
+  isFormValid: false,
+  oldUrl: '',
+  newUrl: ''
+})
+
+function openEditTrackerDialog(tracker: Tracker) {
+  editTrackerDialog.isVisible = true
+  editTrackerDialog.oldUrl = tracker.url
+  editTrackerDialog.newUrl = tracker.url
+
+  nextTick(() => {
+    const input = document.getElementById('input') as HTMLInputElement
+    input?.select()
+  })
+}
 
 async function updateTrackers() {
   loading.value = true
-  torrentTrackers.value = (await maindataStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({ ...tracker, isSelectable: tracker.tier !== -1 }))
+  torrentTrackers.value = (await maindataStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({
+    ...tracker,
+    isSelectable: tracker.tier !== -1
+  }))
   loading.value = false
 }
 
@@ -75,17 +90,17 @@ function closeAddDialog() {
   newTrackers.value = ''
 }
 
-async function removeTrackers() {
-  if (!selectedTrackers.value.length) return
+async function editTracker() {
+  if (!editTrackerDialog.isFormValid) return
 
-  await maindataStore.removeTorrentTrackers(props.torrent.hash, selectedTrackers.value)
+  await maindataStore.editTorrentTracker(props.torrent.hash, editTrackerDialog.oldUrl, editTrackerDialog.newUrl)
+  editTrackerDialog.isVisible = false
   await updateTrackers()
-  closeRemoveDialog()
 }
 
-function closeRemoveDialog() {
-  removeTrackersDialog.value = false
-  selectedTrackers.value = []
+async function removeTracker(tracker: Tracker) {
+  await maindataStore.removeTorrentTrackers(props.torrent.hash, [tracker.url])
+  await updateTrackers()
 }
 
 async function reannounceTrackers() {
@@ -108,30 +123,76 @@ watch(() => props.isActive, setupTimer)
 </script>
 
 <template>
-  <v-data-table
-    v-model="selectedTrackers"
-    :headers="headers"
-    :items-per-page="-1"
-    item-value="url"
-    item-selectable="isSelectable"
-    select-strategy="all"
-    show-select
-    :loading="loading"
-    :items="torrentTrackers"
-    :sort-by="[{ key: 'tier', order: 'asc' }]">
-    <template v-slot:[`item.tier`]="{ item }">
-      <span v-if="item.raw.tier === -1">-</span>
-      <span v-else>{{ item.raw.tier }}</span>
+  <v-list>
+    <template v-for="(tracker, index) in torrentTrackers">
+      <v-divider v-if="index === 3" color="white" thickness="5" />
+      <v-divider v-else-if="index > 0" class="mx-5" color="white" />
+
+      <v-list-item>
+        <div class="d-flex">
+          <div :class="`tracker-${TrackerStatus[tracker.status].toLowerCase()}`">
+            <v-list-item-title class="text-break text-wrap">
+              {{ tracker.url }}
+            </v-list-item-title>
+            <v-list-item-subtitle class="d-block">
+              <div v-if="tracker.msg">{{ tracker.msg }}</div>
+              <div v-else>{{ translateTrackerStatus(tracker.status) }}</div>
+
+              <div v-if="tracker.tier >= 0">
+                {{ t('torrentDetail.trackers.tier', tracker.tier) }}
+              </div>
+
+              <div v-if="tracker.status !== TrackerStatus.NOT_WORKING">
+                <div>{{ formatTrackerValue(tracker) }}</div>
+                <div>
+                  Downloads: {{ formatTrackerValue(tracker.num_downloaded) }}
+                </div>
+              </div>
+            </v-list-item-subtitle>
+          </div>
+
+          <v-spacer />
+
+          <div class="d-flex flex-column" v-if="tracker.tier >= 0">
+            <v-dialog v-model="editTrackerDialog.isVisible" max-width="750px">
+              <template v-slot:activator="{ props }">
+                <v-btn v-bind="props" icon="mdi-pencil" variant="text" @click="openEditTrackerDialog(tracker)" />
+              </template>
+
+              <v-card>
+                <v-card-title>
+                  <span class="text-h5">{{ t('torrentDetail.trackers.editTracker.title') }}</span>
+                </v-card-title>
+
+                <v-card-text>
+                  <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
+                    <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
+                    <v-text-field v-model="editTrackerDialog.newUrl"
+                                  id="input"
+                                  :rules="editTrackerRules"
+                                  :label="$t('torrentDetail.trackers.editTracker.newUrl')"
+                                  autofocus
+                                  @keydown.enter="editTracker" />
+                  </v-form>
+                </v-card-text>
+
+                <v-card-actions>
+                  <v-spacer />
+                  <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }}</v-btn>
+                  <v-btn color="accent" @click="editTracker">{{ t('common.ok') }}</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+            <v-btn color="red"
+                   icon="mdi-delete"
+                   variant="text"
+                   @click="removeTracker(tracker)" />
+          </div>
+        </div>
+      </v-list-item>
     </template>
-    <template v-slot:[`item.status`]="{ item }">{{ translateTrackerStatus(item.raw.status) }}</template>
-    <template v-slot:[`item.peers`]="{ item }">
-      <span v-if="item.raw.num_peers && item.raw.num_seeds && item.raw.num_leeches">
-        {{ formatTrackerValue(item.raw) }}
-      </span>
-      <span v-else>N/A</span>
-    </template>
-    <template v-slot:[`item.num_downloaded`]="{ item }">{{ formatTrackerValue(item.raw.num_downloaded) }}</template>
-    <template v-slot:bottom>
+
+    <v-list-item>
       <div :class="['d-flex gap py-5', $vuetify.display.mobile ? 'flex-column' : 'justify-space-evenly']">
         <v-dialog v-model="addTrackersDialog" max-width="750px">
           <template v-slot:activator="{ props }">
@@ -163,39 +224,51 @@ watch(() => props.isActive, setupTimer)
           </v-card>
         </v-dialog>
 
-        <v-dialog v-model="removeTrackersDialog" max-width="750px">
-          <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" variant="flat" :disabled="!selectedTrackers.length" :text="t('torrentDetail.trackers.removeTrackers.title')" color="error" />
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ t('torrentDetail.trackers.removeTrackers.title') }}</span>
-            </v-card-title>
-
-            <v-card-text>
-              <v-container>
-                <div class="d-flex flex-wrap gap">
-                  <span class="pa-1 border" v-for="tracker in selectedTrackers">{{ tracker }}</span>
-                </div>
-              </v-container>
-            </v-card-text>
-
-            <v-card-actions>
-              <v-spacer />
-              <v-btn color="accent" @click="closeRemoveDialog">{{ t('common.cancel') }}</v-btn>
-              <v-btn color="error" @click="removeTrackers">{{ t('common.ok') }}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-
-        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
+        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')"
+               color="primary" @click="reannounceTrackers" />
       </div>
-    </template>
-  </v-data-table>
+    </v-list-item>
+  </v-list>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .gap {
   gap: 8px;
+}
+
+.v-theme--darkTheme {
+  .tracker-disabled {
+    color: darken(lightgrey, 5%);
+  }
+  .tracker-not_yet_contacted {
+    color: orange;
+  }
+  .tracker-working {
+    color: lightgreen;
+  }
+  .tracker-not_working {
+    color: lightcoral;
+  }
+  .tracker-updating {
+    color: lightblue;
+  }
+}
+
+.v-theme--lightTheme {
+  .tracker-disabled {
+    color: grey;
+  }
+  .tracker-not_yet_contacted {
+    color: orange;
+  }
+  .tracker-working {
+    color: green;
+  }
+  .tracker-not_working {
+    color: red;
+  }
+  .tracker-updating {
+    color: dodgerblue;
+  }
 }
 </style>

@@ -256,6 +256,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.addTorrentTrackers(hash, trackers)
   }
 
+  async function editTorrentTracker(hash: string, oldUrl: string, newUrl: string) {
+    await qbit.editTorrentTracker(hash, oldUrl, newUrl)
+  }
+
   async function removeTorrentTrackers(hash: string, urls: string[]) {
     await qbit.removeTorrentTrackers(hash, urls)
   }
@@ -323,6 +327,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     setTorrentPriority,
     getTorrentTrackers,
     addTorrentTrackers,
+    editTorrentTracker,
     removeTorrentTrackers,
     getTorrentPeers,
     addTorrentPeers,
