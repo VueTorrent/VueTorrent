@@ -3,6 +3,7 @@ import { Locales } from './locales'
 import en from './en.json'
 import es from './es.json'
 import fr from './fr.json'
+import hu from './hu.json'
 import id from './id.json'
 import it from './it.json'
 import ja from './ja.json'
@@ -18,6 +19,7 @@ export const messages: Record<Locales, any> = {
   [Locales.EN]: en,
   [Locales.ES]: es,
   [Locales.FR]: fr,
+  [Locales.HU]: hu,
   [Locales.ID]: id,
   [Locales.IT]: it,
   [Locales.JA]: ja,
