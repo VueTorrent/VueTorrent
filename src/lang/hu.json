@@ -1,0 +1,929 @@
+{
+  "category": "Kategória",
+  "settings": "Beállítások",
+  "pause": "Szünet",
+  "delete": "Törlés",
+  "ok": "OK",
+  "save": "Mentés",
+  "cancel": "Mégsem",
+  "confirm": "Megerősít",
+  "edit": "Szerkesztés",
+  "createNew": "Új létrehozása",
+  "path": "Útvonal",
+  "create": "Létrehozás",
+  "url": "URL",
+  "directory": "Könyvtár",
+  "unknown": "Ismeretlen",
+  "status": "Státusz",
+  "all": "Összes",
+  "login": "Bejelentkezés",
+  "logout": "Kijelentkezés",
+  "shutdownApp": "Alkalmazás leállítása",
+  "download": "Letöltés",
+  "downloaded": "Letöltött",
+  "upload": "Feltöltés",
+  "uploaded": "Feltöltött",
+  "globalSpeed": "Global Speed",
+  "globalVolume": "Global Volume",
+  "ETA": "Várható befejezési idő",
+  "peers": "Letöltők",
+  "ratio": "Arány",
+  "seeds": "Feltöltők",
+  "tags": "Címkék",
+  "tracker": "Tracker",
+  "share": "Megosztás",
+  "name": "Név",
+  "hash": "Hash",
+  "magnet": "Magnet",
+  "feed": "Feed",
+  "rule": "Szabály",
+  "then": "Után",
+  "yes": "igen",
+  "no": "nem",
+  "filter": "Szűrő",
+  "close": "Bezárás",
+  "useGlobalSettings": "Use Global Settings",
+  "selectAll": "Select All",
+  "selectNone": "Select None",
+  "dashboard": {
+    "tooltips": {
+      "toggleSearch": "Toggle Search Filter",
+      "toggleSelect": "Toggle Select Mode",
+      "toggleSort": "Sort Torrents",
+      "selectAllCaption": "Select / Release All (Ctrl + A)"
+    },
+    "emptyTorrentList": "Nincs itt semmi látnivaló!",
+    "not_complete": "Not Yet Completed",
+    "torrentsCount": "Nincs torrent | {n} torrent | {n} torrent",
+    "selectedTorrentsCount": "Nincs torrent | $0 a {n} torrentból ($1) | $0 a {n} torrentból ($1)"
+  },
+  "torrent": {
+    "properties": {
+      "added_on": "Hozzáadva",
+      "amount_left": "Hátra van",
+      "availability": "Elérhetőség",
+      "category": "Kategória",
+      "completed_on": "Befejezve",
+      "content_path": "Elérési út",
+      "download_limit": "Letöltési limit",
+      "download_speed": "Letöltési sebesség",
+      "downloaded": "Letöltött (összes)",
+      "downloaded_session": "Letöltött (munkamenet)",
+      "download_path": "Letöltési út",
+      "eta": "Várható befejezési idő",
+      "global_speed": "Globális sebesség",
+      "global_volume": "Global Volume",
+      "hash": "Hash",
+      "info_hash_v1": "Infohash v1",
+      "info_hash_v2": "Infohash v2",
+      "last_activity": "Utolsó aktivitás",
+      "peers": "Letöltők",
+      "progress": "Progress",
+      "progress_bar": "Progress Bar",
+      "ratio": "Arány",
+      "save_path": "Mentés útvonala",
+      "seeds": "Fetöltők",
+      "seen_complete": "Seen Complete",
+      "size": "Méret",
+      "status": "Státusz",
+      "tags": "Címkék",
+      "time_active": "Time Active",
+      "total_size": "Teljes méret",
+      "tracker": "Tracker",
+      "trackers_count": "Trackerek száma",
+      "upload_limit": "Feltölti sebesség limit",
+      "upload_speed": "Feltöltési sebesség",
+      "uploaded": "Feltöltve (globális)",
+      "uploaded_session": "Feltöltve (munkamenet)"
+    },
+    "downloaded": "Letöltött",
+    "uploaded": "Feltöltött"
+  },
+  "search": {
+    "title": "Torrentek keresése",
+    "tabHeaderEmpty": "(Empty Query)",
+    "runNewSearch": "Keresés",
+    "stopSearch": "Stop"
+  },
+  "navbar": {
+    "currentSpeed": "Jelenlegi sebessék",
+    "alltimeTitle": "All-Time Stats",
+    "sessionTitle": "Munkamenet statisztikái",
+    "freeSpace": "Szabad lemezterület",
+    "topActions": {
+      "addTorrent": "Torrent hozzáadása",
+      "resumeSelected": "Kiválasztott torrentek folytatása",
+      "pauseSelected": "Kiválasztott torrentek szüneteltetése",
+      "removeSelected": "Kiválasztott torrentek törlése",
+      "openSettings": "Beállítások megnyitása",
+      "searchNew": "Új torrent keresése",
+      "rssArticles": "RSS megtekintése",
+      "logs": "qBittorrent naplók megtekintése"
+    },
+    "sessionStats": {
+      "tooltip": "qBittorrent újraindítása óta eltelt idő"
+    },
+    "filters": {
+      "downloading": "Letöltés",
+      "seeding": "Feltöltés",
+      "completed": "Befejezve",
+      "resumed": "Folytaott",
+      "paused": "Szüneteltetve",
+      "active": "Aktív",
+      "inactive": "Inaktív",
+      "stalled": "Elakadt",
+      "errored": "Hibás",
+      "stalled_uploading": "Elakadt feltöltés",
+      "stalled_downloading": "Elakadt letöltés",
+      "checking": "Ellenőrzés",
+      "moving": "Mozgatás",
+      "uncategorized": "(Kategórizálatlan)",
+      "untagged": "(Címkézetlen)",
+      "untracked": "(Untracked)",
+      "not_working": "(Nem működő)"
+    },
+    "active_filter": {
+      "btn_label": "Aktív szűrők: $0",
+      "search_filter": "Text filter: $0"
+    },
+    "action": {
+      "altSpeed": "Alternatív sebességkorlátok",
+      "dark": "Sötét",
+      "light": "Világos"
+    }
+  },
+  "modals": {
+    "newFeed": {
+      "feedName": "Név",
+      "url": "URL"
+    },
+    "newRule": {
+      "titleCreate": "Új szabály",
+      "titleEdit": "Szabály szerkesztése",
+      "name": "Név",
+      "def": {
+        "mustContain": "Tartalmaznia kell",
+        "useRegex": "Use Regular Expressions",
+        "mustNotContain": "Nem tartalmazhatja",
+        "smartFilter": "Use Smart Episode Filter",
+        "episodeFilter": "Epizód szűrő",
+        "assignedCategory": "Assign Category",
+        "savePath": "Save to",
+        "ignoreDays": "Ignore Subsequent Matches for (0 to Disable)",
+        "lastMatch": {
+          "title": "Last Match",
+          "knownValue": "%1 days ago",
+          "unknownValue": "Unknown"
+        },
+        "addPaused": {
+          "title": "Add Paused",
+          "always": "Always",
+          "never": "Never"
+        },
+        "affectedFeeds": "Apply Rule to Feeds"
+      }
+    },
+    "matchingArticles": {
+      "title": "Matching RSS Articles"
+    },
+    "searchPluginManager": {
+      "title": "Plugin manager",
+      "checkForUpdates": "Check for Updates",
+      "install": {
+        "title": "Install new plugin",
+        "label": "URL or file path"
+      }
+    },
+    "search": {
+      "title": "Keresés",
+      "btnStartSearch": "Keresés",
+      "btnStopSearch": "Stop",
+      "columnTitle": {
+        "name": "Név",
+        "size": "Méret",
+        "seeds": "Feltöltők",
+        "peers": "Letöltők",
+        "search_engine": "Site",
+        "action": ""
+      }
+    },
+    "rss": {
+      "title": "RSS cikkek",
+      "filterRead": "Csak olvasatlan RSS cikkek",
+      "markAllAsRead": "Minden megjelölése olvasottként",
+      "columnTitle": {
+        "feedName": "Feed Name",
+        "author": "Szerző",
+        "category": "Kategória",
+        "date": "Dátum",
+        "description": "Leírás",
+        "id": "ID",
+        "link": "Link",
+        "title": "Cím",
+        "torrentURL": "Torrent letöltési URL",
+        "actions": ""
+      }
+    },
+    "logs": {
+      "title": "qBittorrent naplók",
+      "table": {
+        "id": "Napló ID",
+        "type": "Naplózási szint",
+        "message": "Üzenet",
+        "timestamp": "Naplózás dátuma"
+      },
+      "filters": {
+        "type": "Naplózási szint"
+      }
+    },
+    "settings": {
+      "tabName": {
+        "vueTorrent": "VueTorrent",
+        "downloads": "Letöltések",
+        "connection": "Connection",
+        "speed": "Sebesség",
+        "bittorrent": "BitTorrent",
+        "rss": "RSS",
+        "webUI": "WebUI",
+        "tagsAndCategories": "Címkék & kategóriák",
+        "advanced": "Advanced"
+      },
+      "vueTorrent": {
+        "tabName": {
+          "general": "Általános",
+          "desktopCard": "Desktop Card",
+          "mobileCard": "Mobile Card"
+        },
+        "general": {
+          "tip": "These settings are for the custom WebUI itself",
+          "currentSpeed": "Show Current Speed",
+          "speedGraph": "Show Speed Graph",
+          "sessionStats": "Show Session Stats",
+          "allTimeStats": "Show All-Time Stats",
+          "freeSpace": "Show Free Space",
+          "trackerFilter": "Show Tracker Filter",
+          "rightDrawer": "Right Drawer",
+          "topPagination": "Top Pagination",
+          "language": "Language",
+          "paginationSize": "Pagination size",
+          "vueTorrentTitle": "VueTorrent title",
+          "dateFormat": "Date Format",
+          "openSideBarOnStart": "Open Side Bar on launch",
+          "showShutdownButton": "Show shutdown button",
+          "useBinaryUnits": "Replace data values by binary units (kB -> KiB)",
+          "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
+          "refreshInterval": "qBittorrent API refresh interval",
+          "refreshIntervalHint": "In milliseconds",
+          "contentInterval": "Torrent file content refresh interval",
+          "contentIntervalHint": "In milliseconds",
+          "torrentPieceCountRenderThreshold": "Torrent piece count to disable rendering",
+          "currentVersion": "Current Version",
+          "qbittorrentVersion": "QBittorrent Version",
+          "registerMagnet": "Register magnet links",
+          "importSettings": "Import Settings",
+          "exportSettings": "Export Settings",
+          "resetSettings": "Reset Settings"
+        },
+        "desktopCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on desktop",
+          "completedTorrentTip": "Properties to display for completed torrents on desktop"
+        },
+        "mobileCard": {
+          "busyTorrentTip": "Properties to display for busy torrents on mobile",
+          "completedTorrentTip": "Properties to display for completed torrents on mobile"
+        }
+      },
+      "downloads": {
+        "whenAddTorrent": {
+          "subheader": "When adding a torrent",
+          "doNotAutoStart": "Do not start the download automatically",
+          "autoDeleteMode": "Delete .torrent files afterwards"
+        },
+        "publicSettings": {
+          "preAllocateDisk": "Pre-allocate disk space for all files",
+          "appendQBExtension": "Append .!qB extension to incomplete files"
+        },
+        "saveManagement": {
+          "subheader": "Saving Management",
+          "autoTMMEnabled": "Default Torrent Management Mode",
+          "defaultTMMOptions": {
+            "manual": "Manual",
+            "automatic": "Automatic"
+          },
+          "torrentChangedTMM": "When Torrent Category changed",
+          "savePathChangedTMM": "When Default Save Path changed",
+          "categoryChangedTMM": "When Category Save Path changed",
+          "paramChangedTMMOptions": {
+            "relocateTorrent": "Relocate torrent",
+            "switchToManual": "Switch torrent to Manual Mode"
+          },
+          "defaultSavePath": "Default Save Path",
+          "keepIncompleteIn": "Keep incomplete torrents in",
+          "exportDir": "Copy .torrent files to",
+          "exportDirFinished": "Copy .torrent files for finished downloads to"
+        },
+        "monitoredFolders": {
+          "subheader": "Monitored Folders",
+          "newItem": "New Item",
+          "editItem": "Edit Item",
+          "monitoredFolderPath": "Monitored Folder",
+          "saveType": "Override Save Location",
+          "otherPath": "Other Path",
+          "actions": "Actions",
+          "confirmDelete": "Are you sure you want to delete this item?",
+          "noData": "No monitored folder yet"
+        },
+        "excludedFileNames": {
+          "label": "Excluded file names",
+          "hint": "One file name per line"
+        },
+        "mailNotification": {
+          "enabled": "Email notification upon download completion",
+          "from": "From",
+          "to": "To",
+          "smtpServer": "SMTP server",
+          "sslEnabled": "This server requires a secure connection (SSL)",
+          "authEnabled": "Authentication",
+          "username": "Username",
+          "password": "Password"
+        },
+        "runExternalProgram": {
+          "subheader": "Run external program",
+          "onAddedEnabled": "Run external program on torrent added:",
+          "onAddedLabel": "Command",
+          "onFinishedEnabled": "Run external program on torrent finished:",
+          "onFinishedLabel": "Command",
+          "supportParamTitle": "Supported parameters (case sensitive):",
+          "supportParamN": "%N: Torrent name",
+          "supportParamL": "%L: Category",
+          "supportParamG": "%G: Tags (separated by comma)",
+          "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
+          "supportParamR": "%R: Root path (first torrent subdirectory path)",
+          "supportParamD": "%D: Save path",
+          "supportParamC": "%C: Number of files",
+          "supportParamZ": "%Z: Torrent size (bytes)",
+          "supportParamT": "%T: Current tracker",
+          "supportParamI": "%I: Info hash v1",
+          "supportParamJ": "%J: Info hash v2",
+          "supportParamK": "%K: Torrent ID",
+          "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
+        }
+      },
+      "connection": {
+        "protocol": "Peer connection protocol",
+        "listeningPort": {
+          "subheader": "Listening Port",
+          "incomingConnectionPort": "Port used for incoming connections",
+          "randomPort": "Random Port",
+          "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router"
+        },
+        "connectionLimits": {
+          "subheader": "Connection Limits",
+          "globalMaxConnection": "Global maximum number of connections",
+          "perTorrentMaxConnection": "Maximum number of connections per torrent",
+          "globalMaxUploadSlots": "Global maximum number of upload slots",
+          "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent"
+        },
+        "proxy": {
+          "subheader": "Proxy Server",
+          "host": "Host",
+          "port": "Port",
+          "peerConnections": "Use proxy for peer connections",
+          "torrentOnly": "Use proxy only for torrents",
+          "hostNameLookup": "Use proxy for hostname lookup",
+          "auth": {
+            "subtitle": "Authentication",
+            "username": "Username",
+            "password": "Password",
+            "tip": "Info: The password is saved unencrypted"
+          }
+        },
+        "ipFiltering": {
+          "subheader": "IP Filtering",
+          "filterPath": "Filter path (.dat, .p2p, .p2b)",
+          "applyToTrackers": "Apply to trackers",
+          "bannedIps": "Manually banned IP addresses",
+          "bannedIpsHint": "One on each line"
+        }
+      },
+      "speed": {
+        "subheader": {
+          "global": "Global Rate Limits",
+          "alternative": "Alternative Rate Limits",
+          "settings": "Rate Limits Settings"
+        },
+        "upload": "Upload (in KiB/s)",
+        "download": "Download (in KiB/s)",
+        "tip": "0 means unlimited",
+        "scheduler": {
+          "subheader": "Schedule the use of alternative rate limits",
+          "from": "From",
+          "to": "To",
+          "selectButtonLabel": "Select time",
+          "when": "When"
+        },
+        "settings": {
+          "applyToUtp": "Apply rate limit to µTP protocol",
+          "applyToTransportOverhead": "Apply rate limit to transport overhead",
+          "applyToPeersOnLan": "Apply rate limit to peers on LAN"
+        }
+      },
+      "bittorrent": {
+        "privacy": {
+          "subheader": "Privacy",
+          "enableDHT": "Enable DHT (decentralized network) to find more peers",
+          "enablePeX": "Enable Peer Exchange (PeX) to find more peers",
+          "enableLPD": "Enable Local Peer Discovery to find more peers",
+          "encryptionMode": "Encryption Mode",
+          "enableAnonymous": "Enable anonymous mode",
+          "moreInfo": "More Information"
+        },
+        "maxActiveCheckingTorrents": "Max active checking torrents",
+        "torrentQueueing": {
+          "subheader": "Torrent Queueing",
+          "maxActiveDownload": "Maximum active downloads",
+          "maxActiveUpload": "Maximum active uploads",
+          "maxActiveTorrent": "Maximum active torrents",
+          "excludeSlowTorrent": "Do not count slow torrents in these limits",
+          "downloadRateLimit": "Download rate threshold (in KiB/s)",
+          "uploadRateLimit": "Upload rate threshold (in KiB/s)",
+          "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
+        },
+        "seedLimits": {
+          "subheader": "Seed Limits",
+          "whenRatioReaches": "When ratio reaches",
+          "whenSeedingTimeReaches": "When seeding time reaches",
+          "whenSeedingTimeReachesHint": "In minutes",
+          "then": "Then"
+        },
+        "autoAddTrackers": "Automatically add these trackers to new downloads",
+        "autoAddTrackersHint": "One tracker per line"
+      },
+      "rss": {
+        "tabName": {
+          "general": "General",
+          "feeds": "Feeds",
+          "rules": "Rules"
+        },
+        "general": {
+          "reader": {
+            "subheader": "RSS Reader",
+            "enableProcessing": "Enable fetching RSS feeds",
+            "feedsRefreshInterval": "Feeds refresh interval",
+            "feedsRefreshIntervalHint": "In minutes",
+            "maximumArticlesPerFeed": "Maximum number of articles per feed"
+          },
+          "autoDownloader": {
+            "subheader": "RSS Torrent Auto Downloader",
+            "enable": "Enable auto downloading of RSS torrents"
+          },
+          "smartEpisodeFilter": {
+            "subheader": "RSS Smart Episode Filter",
+            "downloadEpisodes": "Download REPACK/PROPER episodes",
+            "filters": "Filters",
+            "filtersHint": "One per line"
+          }
+        },
+        "feeds": {
+          "btnCreateNew": "Add feed",
+          "refreshAll": "Refresh All"
+        },
+        "rules": {
+          "btnCreateNew": "Create Rule"
+        }
+      },
+      "webUI": {
+        "interface": {
+          "subheader": "Web User Interface (Remote Control)",
+          "ipAddress": "IP Address",
+          "port": "Port",
+          "useAlternativeWebUI": "Use Alternative WebUI",
+          "filesLocation": "Files location"
+        },
+        "authentication": {
+          "subheader": "Authentication",
+          "username": "Username",
+          "password": "Password",
+          "passwordPlaceholder": "(unchanged)",
+          "bypassLocalhost": "Bypass authentication for clients on localhost",
+          "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets",
+          "whitelistExamples": "Example: 172.17.32.0/24, fdff:ffff:c8::/40",
+          "maxAttempts": "Max attempts",
+          "banDuration": "Ban Duration",
+          "banDurationHint": "In seconds",
+          "sessionTimeout": "Session timeout",
+          "sessionTimeoutHint": "In seconds"
+        },
+        "https": {
+          "subheader": "Use HTTPS",
+          "certificate": "Certificate",
+          "key": "Key",
+          "tip": "Information about certificates"
+        },
+        "security": {
+          "subheader": "Security",
+          "clickjacking": "Enable clickjacking protection",
+          "csrf": "Enable Cross-Site Request Forgery (CSRF) protection",
+          "secureCookie": "Enable cookie secure flag (requires HTTPS)",
+          "hostHeaderValidation": "Enable Host header validation",
+          "hostHeaderValidationHint": "Seperated with semi-colon ( ; )",
+          "serverDomains": "Server Domains"
+        },
+        "customHeaders": "Add custom HTTP headers",
+        "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
+        "customHeadersHint": "One per line",
+        "reverseProxySupport": "Enable reverse proxy support",
+        "proxiesList": "Trusted proxies list",
+        "proxiesListHint": "Seperate IPs with semicolon ( ; )",
+        "dynDns": {
+          "subheader": "Update my dynamic domain name",
+          "providers": {
+            "dynDns": "DynDNS",
+            "noIp": "NO-IP"
+          },
+          "registerBtn": "Register",
+          "domainName": "Domain name",
+          "username": "Username",
+          "password": "Password"
+        }
+      },
+      "tagsAndCategories": {
+        "btnCreateNew": "Create new",
+        "subHeaderTags": "Available Tags:",
+        "subHeaderCategories": "Available Categories:"
+      },
+      "advanced": {
+        "openDoc": "Open documentation",
+        "qbittorrent": {
+          "subheader": "qBittorrent Section",
+          "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
+          "allocatedRamHint": "in MiB",
+          "networkInterfaces": {
+            "label": "Network interface",
+            "any": "Any interface"
+          },
+          "ipAddress": {
+            "label": "Optional IP address to bind to",
+            "all": "All addresses",
+            "allIPv4": "All IPv4 addresses",
+            "allIPv6": "All IPv6 addresses"
+          },
+          "saveInterval": "Save resume data interval",
+          "saveIntervalHint": "In minutes",
+          "recheckOnCompletion": "Recheck torrents on completion",
+          "refreshInterval": "Refresh interval",
+          "refreshIntervalHint": "In milliseconds",
+          "resolveCountries": "Resolve peer countries",
+          "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
+          "enableEmbeddedTracker": "Enable embedded tracker",
+          "embeddedTrackerPort": "Embedded tracker port",
+          "embeddedTrackerPortForwarding": "Enable port forwarding for embedded tracker"
+        },
+        "libtorrent": {
+          "subheader": "libtorrent Section",
+          "asyncIoThreads": "Asynchronous I/O threads",
+          "hashingThreads": "Hashing threads (libtorrent >= 2.0)",
+          "filePoolSize": "File pool size",
+          "outstandingMemory": "Outstanding memory when checking torrents",
+          "outstandingMemoryHint": "In MiB",
+          "diskCache": "Disk cache (libtorrent < 2.0)",
+          "diskCacheHint": "In MiB",
+          "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
+          "diskCacheExpiryHint": "In seconds",
+          "diskQueueSize": "Disk queue size",
+          "diskQueueSizeHint": "In KiB",
+          "diskIoType": "Disk IO Type (libtorrent >= 2.0; requires restart)",
+          "diskIoReadMode": "Disk IO read mode",
+          "diskIoWriteMode": "Disk IO write mode",
+          "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)",
+          "pieceExtentAffinity": "Use piece extent affinity",
+          "sendUploadPieceSuggestions": "Send upload piece suggestions",
+          "sendBufferWatermark": "Send buffer watermark",
+          "sendBufferWatermarkHint": "In KiB",
+          "sendBufferLowWatermark": "Send buffer low watermark",
+          "sendBufferLowWatermarkHint": "In KiB",
+          "sendBufferWatermarkFactor": "Send buffer watermark factor",
+          "sendBufferWatermarkFactorHint": "In %",
+          "outgoingConnectionsPerSecond": "Outgoing connections per second",
+          "socketBacklogSize": "Socket backlog size",
+          "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]",
+          "outgoingPortsMax": "Outgoing ports (Max) [0: Disabled]",
+          "upnpLeaseDuration": "UPnP lease duration [0: Permanent lease]",
+          "peerTos": "DSCP value for connections to peers",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP mixed mode algorithm",
+          "idnSupport": "Enable Internationalized Domain Name (IDN) support",
+          "allowMultipleConnectionsFromTheSameIPAddress": "Allow multiple connections from the same IP address",
+          "validateHTTPSTrackerCertificate": "Validate HTTPS tracker certificate",
+          "mitigateSSRF": "Server-side request forgery (SSRF) mitigation",
+          "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports",
+          "uploadSlotsBehavior": "Upload slots behavior",
+          "uploadChokingAlgorithm": "Upload choking algorithm",
+          "announceAllTrackers": "Always announce to all trackers in a tier",
+          "announceAllTiers": "Always announce to all tiers",
+          "announceIP": "IP address reported to trackers (requires restart)",
+          "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
+          "stopTrackerTimeout": "Stop tracker timeout",
+          "peerTurnover": "Peer turnover disconnect percentage",
+          "peerTurnoverHint": "In %",
+          "peerTurnoverCutoff": "Peer turnover threshold percentage",
+          "peerTurnoverCutoffHint": "In %",
+          "peerTurnoverInterval": "Peer turnover disconnect interval",
+          "peerTurnoverIntervalHint": "In seconds",
+          "requestQueueSize": "Maximum outstanding requests to a single peer"
+        }
+      }
+    },
+    "shareLimit": {
+      "input": {
+        "globalLimit": "Use global limit",
+        "unlimited": "Unlimited"
+      },
+      "limitRatio": "Limit Ratio",
+      "titleDuration": "Duration",
+      "titleRatio": "Ratio"
+    },
+    "newCategory": {
+      "categoryName": "Category name",
+      "Path": "Path",
+      "tipOnNoName": "Category name is required"
+    },
+    "newTag": {
+      "createNewTag": "Create New Tag",
+      "tagName": "Tag name"
+    },
+    "detail": {
+      "title": "Torrent Detail",
+      "tabTitleOverview": "Overview",
+      "tabTitleInfo": "Info",
+      "tabTitleTrackers": "Trackers",
+      "tabTitlePeers": "Peers",
+      "tabTitleContent": "Content",
+      "tabTitleTagsCategories": "Tags & Categories",
+      "pageOverview": {
+        "fetchingMetadata": "Fetching...",
+        "waitingForMetadata": "Waiting for metadata...",
+        "canvasRefreshDisabled": "Canvas refresh disabled to save performance",
+        "selectedFileSize": "Selected Files' Size",
+        "dlSpeedAverage": "Download Speed Average",
+        "upSpeedAverage": "Upload Speed Average",
+        "fileCount": "Selected Files"
+      },
+      "pageInfo": {
+        "eta": "ETA",
+        "peers": "Peers",
+        "seeds": "Seeds",
+        "trackers": "Trackers",
+        "comments": "Comments",
+        "createdBy": "Created By",
+        "seededFor": "Seeded For $0",
+        "firstLastPiecePriority": "First/Last Piece Priority",
+        "sequentialDownload": "Sequential Download",
+        "autoTMM": "Automatic Torrent Management",
+        "shareRatioLimit": "Share Ratio Limit",
+        "shareTimeLimit": "Share Time Limit (minutes)",
+        "downloadLimit": "Download Limit",
+        "uploadLimit": "Upload Limit",
+        "creation_date": "Creation Date",
+        "is_private": "Torrent Private",
+        "wasted_size": "Wasted"
+      },
+      "pageTrackers": {
+        "url": "URL",
+        "status": "Status",
+        "peers": "Peers",
+        "seeds": "Seeds",
+        "leeches": "Leeches",
+        "downloaded": "Downloaded",
+        "message": "Message"
+      },
+      "pagePeers": {
+        "ip": "IP",
+        "connection": "Connection",
+        "flags": "Flags",
+        "client": "Client",
+        "progress": "Progress",
+        "downloadSpeed": "DL Speed",
+        "downloaded": "Downloaded",
+        "upSpeed": "UP Speed",
+        "uploaded": "Uploaded",
+        "relevance": "Relevance",
+        "files": "Files"
+      },
+      "pageContent": {
+        "rootNode": "(Root Node)",
+        "fileInfo": "No file | {n} file | {n} files",
+        "folderInfo": "No folder | {n} folder | {n} folders"
+      },
+      "tagsAndCategories": {
+        "subHeaderTag": "Available Tags:",
+        "subHeaderCategories": "Available Categories:"
+      }
+    },
+    "add": {
+      "title": "Add a new Torrent",
+      "selectFiles": "Select your files",
+      "urlHint": "One link per line",
+      "downloadDirectory": "Download Directory",
+      "starttorrent": "Start torrent",
+      "skipHashCheck": "Skip hash check",
+      "automaticTorrentManagement": "Automatic Torrent Management",
+      "dropHereForAdd": "Drop here for add",
+      "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
+    },
+    "changeLocation": {
+      "title": "Change Location"
+    },
+    "rename": {
+      "title": "Rename",
+      "torrentName": "Torrent Name",
+      "oldPath": "Old Path",
+      "newPath": "New Path",
+      "errorConflict": "A file or folder with the same name already exists"
+    },
+    "sort": {
+      "title": "Sort Torrents",
+      "reverse": "Reverse",
+      "sortBy": {
+        "default": "Default",
+        "added_on": "Added On",
+        "amount_left": "Amount Left",
+        "auto_tmm": "Auto TMM",
+        "availability": "Availability",
+        "category": "Category",
+        "completed": "Completed",
+        "completion_on": "Completed On",
+        "content_path": "Content Path",
+        "dl_limit": "Download Limit",
+        "dlspeed": "Download Speed",
+        "download_path": "Download Path",
+        "downloaded": "Downloaded (Global)",
+        "downloaded_session": "Downloaded (Session)",
+        "eta": "ETA",
+        "f_l_piece_prio": "First / Last Piece Priority",
+        "force_start": "Force Start",
+        "globalSpeed": "Global Speed",
+        "globalVolume": "Global Volume",
+        "hash": "Hash",
+        "infohash_v1": "Infohash v1",
+        "infohash_v2": "Infohash v2",
+        "last_activity": "Last Activity",
+        "magnet_uri": "Magnet URI",
+        "max_ratio": "Max Ratio",
+        "max_seeding_time": "Max Seeding Time",
+        "name": "Name",
+        "num_complete": "Seeds (swarm)",
+        "num_incomplete": "Peers (swarm)",
+        "num_leechs": "Peers (connected)",
+        "num_seeds": "Seeds (connected)",
+        "priority": "Priority",
+        "progress": "Progress",
+        "ratio": "Ratio",
+        "ratio_limit": "Ratio Limit",
+        "save_path": "Save Path",
+        "seeding_time": "Seeding Time",
+        "seeding_time_limit": "Seeding Time Limit",
+        "seen_complete": "Seen Complete",
+        "seq_dl": "Sequential Download",
+        "size": "Size",
+        "state": "State",
+        "super_seeding": "Super Seeding",
+        "tags": "Tags",
+        "time_active": "Time Active",
+        "total_size": "Total Size",
+        "tracker": "Tracker",
+        "trackers_count": "Trackers Count",
+        "up_limit": "Upload Limit",
+        "uploaded": "Uploaded (Global)",
+        "uploaded_session": "Uploaded (Session)",
+        "upspeed": "Upload Speed"
+      }
+    },
+    "speedLimit": {
+      "speedLimit": "Speed Limit"
+    },
+    "delete": {
+      "check": "Also delete files from storage"
+    },
+    "shutdown": {
+      "title": "Shutdown qBittorrent",
+      "content": "Do you really want to shutdown qBittorrent?"
+    }
+  },
+  "toast": {
+    "loginSuccess": "Successfully logged in! 🎉",
+    "loginFailed": "Login failed 😕",
+    "settingsSaved": "Settings saved successfully!",
+    "categorySaved": "Category edited successfully!",
+    "feedSaved": "Feed saved successfully!",
+    "ruleSaved": "Rule saved!",
+    "renameFailed": "Unable to rename node",
+    "copySuccess": "Text copied!",
+    "copyNotSupported": "Unable to copy, context isn't secured",
+    "pasteSuccess": "Text pasted!",
+    "pasteNotSupported": "Unable to paste, context isn't secured",
+    "shutdownSuccess": "qBittorrent was shutdown successfully!",
+    "shutdownError": "Unable to shutdown app. Make sure qBittorrent is running!",
+    "invalidJson": "Invalid JSON! Check console for details",
+    "magnetHandlerNotSupported": "Unable to register handler, context isn't secured!",
+    "resetSettingsNeeded": "Old version of settings detected, reset them for the best experience!"
+  },
+  "rightClick": {
+    "resume": "resume",
+    "forceResume": "force resume",
+    "advanced": {
+      "advanced": "advanced",
+      "changeLocation": "change location",
+      "rename": "rename",
+      "forceRecheck": "Force recheck",
+      "forceReannounce": "Force reannounce",
+      "sequentialDownload": "Sequential download",
+      "firstLastPriority": "First/Last priority",
+      "automaticTorrentManagement": "Automatic Torrent Management"
+    },
+    "prio": {
+      "prio": "Set Priority",
+      "top": "Top",
+      "bottom": "Bottom",
+      "increase": "Increase",
+      "decrease": "Decrease"
+    },
+    "category": "Set Category",
+    "nocategory": "No Category",
+    "tags": "Set Tags",
+    "notags": "No Tag",
+    "limit": "Set Limit",
+    "copy": "Copy",
+    "export": "Export Torrent | Export Torrents",
+    "info": "Show Info"
+  },
+  "enums": {
+    "contentLayout": {
+      "title": "Torrent content layout",
+      "original": "Original",
+      "subfolder": "Create Subfolder",
+      "nosubfolder": "Remove Subfolder"
+    },
+    "stopCondition": {
+      "title": "Torrent stop condition",
+      "none": "None",
+      "metadataReceived": "Metadata Received",
+      "filesChecked": "Files Checked"
+    },
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP and μTP",
+      "tcp": "TCP",
+      "utp": "μTP"
+    },
+    "encryption": {
+      "preferEncryption": "Allow Encryption",
+      "forceOn": "Require Encryption",
+      "forceOff": "Disable Encryption"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Pause torrent",
+      "removeTorrent": "Remove torrent",
+      "removeTorrentAndFiles": "Remove torrent and its files",
+      "torrentSuperseeding": "Enable super seeding for torrent"
+    },
+    "scheduler": {
+      "everyDay": "Every day",
+      "everyWeekday": "Weekdays",
+      "everyWeekend": "Weekends",
+      "everyMonday": "Monday",
+      "everyTuesday": "Tuesday",
+      "everyWednesday": "Wednesday",
+      "everyThursday": "Thursday",
+      "everyFriday": "Friday",
+      "everySaturday": "Saturday",
+      "everySunday": "Sunday"
+    },
+    "diskIoType": {
+      "default": "Default",
+      "memoryMappedFiles": "Memory mapped files",
+      "posixCompliant": "POSIX-compliant"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Disable OS cache",
+      "enableOsCache": "Enable OS cache",
+      "writeThrough": "Write-through (libtorrent >= 2.0.6)"
+    },
+    "utpTcpMixedMode": {
+      "preferTcp": "Prefer TCP",
+      "peerProportional": "Peer proportional (throttles TCP)"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Fixed slots",
+      "uploadRateBased": "Upload rate based"
+    },
+    "uploadChokingAlgorithm": {
+      "roundRobin": "Round-robin",
+      "fastestUpload": "Fastest upload",
+      "antiLeech": "Anti-leech"
+    },
+    "monitoredFolderSaveLocation": {
+      "monitoredFolder": "Monitored Folder Location",
+      "defaultSavePath": "Default Save Path",
+      "other": "Other"
+    }
+  }
+}
