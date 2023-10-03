@@ -330,9 +330,7 @@
         "newPeersPlaceholder": "host:port",
         "newPeersHint": "One per line"
       },
-      "banPeers": {
-        "title": "Ban Peers"
-      }
+      "emptyList": "No peers connected at the moment"
     },
     "content": {
       "rootNode": "(Root Node)",

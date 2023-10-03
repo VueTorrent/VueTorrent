@@ -12,8 +12,8 @@ ul.no-bullet {
   overflow-wrap: anywhere !important;
 }
 
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
+.text-noselect {
+  -webkit-touch-callout: default; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Firefox */
@@ -21,6 +21,15 @@ ul.no-bullet {
   user-select: none;
   /* Non-prefixed version, currently
                          supported by Chrome and Opera */
+}
+
+.text-select {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 $sideborder-margin: 6px;
