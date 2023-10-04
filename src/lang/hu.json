@@ -53,7 +53,7 @@
       "selectAllCaption": "Kijelölés / kijelölés megszüntetése (Ctrl + A)"
     },
     "emptyTorrentList": "Nincs itt semmi látnivaló!",
-    "not_complete": "Not Yet Completed",
+    "not_complete": "Még nem fejeződött be",
     "torrentsCount": "Nincs torrent | {n} torrent | {n} torrent",
     "selectedTorrentsCount": "Nincs torrent | $0 a {n} torrentból ($1) | $0 a {n} torrentból ($1)"
   },
@@ -87,7 +87,7 @@
       "size": "Méret",
       "status": "Státusz",
       "tags": "Címkék",
-      "time_active": "Time Active",
+      "time_active": "Aktív idő",
       "total_size": "Teljes méret",
       "tracker": "Tracker",
       "trackers_count": "Trackerek száma",
@@ -165,7 +165,7 @@
         "mustContain": "Tartalmaznia kell",
         "useRegex": "Use Regular Expressions",
         "mustNotContain": "Nem tartalmazhatja",
-        "smartFilter": "Use Smart Episode Filter",
+        "smartFilter": "Okos epizódszűrő használata",
         "episodeFilter": "Epizód szűrő",
         "assignedCategory": "Kategória megadása",
         "savePath": "Save to",
@@ -187,11 +187,11 @@
       "title": "Matching RSS Articles"
     },
     "searchPluginManager": {
-      "title": "Plugin manager",
+      "title": "Bővítménykezelő",
       "checkForUpdates": "Frissítések keresése",
       "install": {
-        "title": "Install new plugin",
-        "label": "URL or file path"
+        "title": "Új bővítmény telepítése",
+        "label": "URL vagy elérési út"
       }
     },
     "search": {
