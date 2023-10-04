@@ -43,17 +43,17 @@
   "filter": "Szűrő",
   "close": "Bezárás",
   "useGlobalSettings": "Use Global Settings",
-  "selectAll": "Select All",
-  "selectNone": "Select None",
+  "selectAll": "Mind kijelölése",
+  "selectNone": "Kijelölés törlése",
   "dashboard": {
     "tooltips": {
-      "toggleSearch": "Toggle Search Filter",
-      "toggleSelect": "Toggle Select Mode",
-      "toggleSort": "Sort Torrents",
-      "selectAllCaption": "Select / Release All (Ctrl + A)"
+      "toggleSearch": "Keresés",
+      "toggleSelect": "Kijelölési mód",
+      "toggleSort": "Torrentek rendezése",
+      "selectAllCaption": "Kijelölés / kijelölés megszüntetése (Ctrl + A)"
     },
     "emptyTorrentList": "Nincs itt semmi látnivaló!",
-    "not_complete": "Not Yet Completed",
+    "not_complete": "Még nem fejeződött be",
     "torrentsCount": "Nincs torrent | {n} torrent | {n} torrent",
     "selectedTorrentsCount": "Nincs torrent | $0 a {n} torrentból ($1) | $0 a {n} torrentból ($1)"
   },
@@ -78,8 +78,8 @@
       "info_hash_v2": "Infohash v2",
       "last_activity": "Utolsó aktivitás",
       "peers": "Letöltők",
-      "progress": "Progress",
-      "progress_bar": "Progress Bar",
+      "progress": "Folyamat",
+      "progress_bar": "Folyamatjelző",
       "ratio": "Arány",
       "save_path": "Mentés útvonala",
       "seeds": "Fetöltők",
@@ -87,13 +87,13 @@
       "size": "Méret",
       "status": "Státusz",
       "tags": "Címkék",
-      "time_active": "Time Active",
+      "time_active": "Aktív idő",
       "total_size": "Teljes méret",
       "tracker": "Tracker",
       "trackers_count": "Trackerek száma",
       "upload_limit": "Feltölti sebesség limit",
       "upload_speed": "Feltöltési sebesség",
-      "uploaded": "Feltöltve (globális)",
+      "uploaded": "Feltöltve (összes)",
       "uploaded_session": "Feltöltve (munkamenet)"
     },
     "downloaded": "Letöltött",
@@ -106,8 +106,8 @@
     "stopSearch": "Stop"
   },
   "navbar": {
-    "currentSpeed": "Jelenlegi sebessék",
-    "alltimeTitle": "All-Time Stats",
+    "currentSpeed": "Jelenlegi sebesség",
+    "alltimeTitle": "Összesített statisztikák",
     "sessionTitle": "Munkamenet statisztikái",
     "freeSpace": "Szabad lemezterület",
     "topActions": {
@@ -127,7 +127,7 @@
       "downloading": "Letöltés",
       "seeding": "Feltöltés",
       "completed": "Befejezve",
-      "resumed": "Folytaott",
+      "resumed": "Folytatott",
       "paused": "Szüneteltetve",
       "active": "Aktív",
       "inactive": "Inaktív",
@@ -165,20 +165,20 @@
         "mustContain": "Tartalmaznia kell",
         "useRegex": "Use Regular Expressions",
         "mustNotContain": "Nem tartalmazhatja",
-        "smartFilter": "Use Smart Episode Filter",
+        "smartFilter": "Okos epizódszűrő használata",
         "episodeFilter": "Epizód szűrő",
-        "assignedCategory": "Assign Category",
+        "assignedCategory": "Kategória megadása",
         "savePath": "Save to",
         "ignoreDays": "Ignore Subsequent Matches for (0 to Disable)",
         "lastMatch": {
           "title": "Last Match",
-          "knownValue": "%1 days ago",
-          "unknownValue": "Unknown"
+          "knownValue": "%1 nappal ezelőtt",
+          "unknownValue": "Ismeretlen"
         },
         "addPaused": {
           "title": "Add Paused",
-          "always": "Always",
-          "never": "Never"
+          "always": "Mindig",
+          "never": "Soha"
         },
         "affectedFeeds": "Apply Rule to Feeds"
       }
@@ -187,11 +187,11 @@
       "title": "Matching RSS Articles"
     },
     "searchPluginManager": {
-      "title": "Plugin manager",
-      "checkForUpdates": "Check for Updates",
+      "title": "Bővítménykezelő",
+      "checkForUpdates": "Frissítések keresése",
       "install": {
-        "title": "Install new plugin",
-        "label": "URL or file path"
+        "title": "Új bővítmény telepítése",
+        "label": "URL vagy elérési út"
       }
     },
     "search": {
@@ -240,36 +240,36 @@
       "tabName": {
         "vueTorrent": "VueTorrent",
         "downloads": "Letöltések",
-        "connection": "Connection",
+        "connection": "Kapcsolat",
         "speed": "Sebesség",
         "bittorrent": "BitTorrent",
         "rss": "RSS",
         "webUI": "WebUI",
         "tagsAndCategories": "Címkék & kategóriák",
-        "advanced": "Advanced"
+        "advanced": "Haladó"
       },
       "vueTorrent": {
         "tabName": {
           "general": "Általános",
-          "desktopCard": "Desktop Card",
-          "mobileCard": "Mobile Card"
+          "desktopCard": "Asztali nézet",
+          "mobileCard": "Mobil nézet"
         },
         "general": {
-          "tip": "These settings are for the custom WebUI itself",
-          "currentSpeed": "Show Current Speed",
-          "speedGraph": "Show Speed Graph",
-          "sessionStats": "Show Session Stats",
-          "allTimeStats": "Show All-Time Stats",
-          "freeSpace": "Show Free Space",
-          "trackerFilter": "Show Tracker Filter",
-          "rightDrawer": "Right Drawer",
-          "topPagination": "Top Pagination",
-          "language": "Language",
-          "paginationSize": "Pagination size",
-          "vueTorrentTitle": "VueTorrent title",
-          "dateFormat": "Date Format",
-          "openSideBarOnStart": "Open Side Bar on launch",
-          "showShutdownButton": "Show shutdown button",
+          "tip": "Ezek a beállítások az egyedi WebUI-t módosítják",
+          "currentSpeed": "Jelenlegi sebesség megjelenítése",
+          "speedGraph": "Sebesség grafikon megjelenítése",
+          "sessionStats": "Munkamenet statisztikáinak megjelenítése",
+          "allTimeStats": "Összesített statisztikák megjelenítése",
+          "freeSpace": "Szabad hely megjelenítése",
+          "trackerFilter": "Tracker szűrő megjelenítése",
+          "rightDrawer": "Oldalsáv jobb oldalon",
+          "topPagination": "Lapozó megjelenítése felül",
+          "language": "Nyelv",
+          "paginationSize": "Torrentek száma oldalanként",
+          "vueTorrentTitle": "VueTorrent böngészőcím",
+          "dateFormat": "Dátumformátum",
+          "openSideBarOnStart": "Oldalsáv megjelenítése indításkor",
+          "showShutdownButton": "Kikapcsológomb megjelenítése",
           "useBinaryUnits": "Replace data values by binary units (kB -> KiB)",
           "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
           "refreshInterval": "qBittorrent API refresh interval",
@@ -277,12 +277,12 @@
           "contentInterval": "Torrent file content refresh interval",
           "contentIntervalHint": "In milliseconds",
           "torrentPieceCountRenderThreshold": "Torrent piece count to disable rendering",
-          "currentVersion": "Current Version",
-          "qbittorrentVersion": "QBittorrent Version",
-          "registerMagnet": "Register magnet links",
-          "importSettings": "Import Settings",
-          "exportSettings": "Export Settings",
-          "resetSettings": "Reset Settings"
+          "currentVersion": "Jelenlegi verzió",
+          "qbittorrentVersion": "QBittorrent verzió",
+          "registerMagnet": "Magnet linkek regisztrálása",
+          "importSettings": "Beállítások importálása",
+          "exportSettings": "Beállítások exportálása",
+          "resetSettings": "Beállítások alaphelyzetbe állítása"
         },
         "desktopCard": {
           "busyTorrentTip": "Properties to display for busy torrents on desktop",
@@ -300,80 +300,80 @@
           "autoDeleteMode": "Utána .torrent fájl törlése"
         },
         "publicSettings": {
-          "preAllocateDisk": "Pre-allocate disk space for all files",
-          "appendQBExtension": "Append .!qB extension to incomplete files"
+          "preAllocateDisk": "Lemezterület lefoglalása minden fájlnak",
+          "appendQBExtension": ".!qB kiterjesztés hozzáadása befejeztlen fájlokhoz"
         },
         "saveManagement": {
-          "subheader": "Saving Management",
-          "autoTMMEnabled": "Default Torrent Management Mode",
+          "subheader": "Mentéskezelés",
+          "autoTMMEnabled": "Alapértelmezett torrentkezelési mód",
           "defaultTMMOptions": {
-            "manual": "Manual",
-            "automatic": "Automatic"
+            "manual": "Kézi",
+            "automatic": "Automatikus"
           },
-          "torrentChangedTMM": "When Torrent Category changed",
-          "savePathChangedTMM": "When Default Save Path changed",
-          "categoryChangedTMM": "When Category Save Path changed",
+          "torrentChangedTMM": "Amikor a torrent kategóriája megváltozik",
+          "savePathChangedTMM": "Amikor az alapértelmezett letöltési útvonal megváltozik",
+          "categoryChangedTMM": "Ha a kategória mentési útja megváltozott",
           "paramChangedTMMOptions": {
-            "relocateTorrent": "Relocate torrent",
-            "switchToManual": "Switch torrent to Manual Mode"
+            "relocateTorrent": "Torrent áthelyezése",
+            "switchToManual": "Manuális módra váltás"
           },
-          "defaultSavePath": "Default Save Path",
-          "keepIncompleteIn": "Keep incomplete torrents in",
-          "exportDir": "Copy .torrent files to",
-          "exportDirFinished": "Copy .torrent files for finished downloads to"
+          "defaultSavePath": "Alapértelmezett mentési útvonal",
+          "keepIncompleteIn": "Befejezetlen torrentek helye",
+          "exportDir": ".torrent fájlok másolása ide",
+          "exportDirFinished": "Befejezett letöltések .torrent fájlainak másolása ide"
         },
         "monitoredFolders": {
-          "subheader": "Monitored Folders",
-          "newItem": "New Item",
-          "editItem": "Edit Item",
-          "monitoredFolderPath": "Monitored Folder",
+          "subheader": "Monitorozott mappák",
+          "newItem": "Új elem",
+          "editItem": "Elem szerkesztése",
+          "monitoredFolderPath": "Monitorozott mappák",
           "saveType": "Override Save Location",
           "otherPath": "Other Path",
-          "actions": "Actions",
-          "confirmDelete": "Are you sure you want to delete this item?",
-          "noData": "No monitored folder yet"
+          "actions": "Lehetőségek",
+          "confirmDelete": "Biztosan törölni szeretnéd ezt az elemet?",
+          "noData": "Még nincs monitorozott mappa"
         },
         "excludedFileNames": {
           "label": "Excluded file names",
           "hint": "One file name per line"
         },
         "mailNotification": {
-          "enabled": "Email notification upon download completion",
-          "from": "From",
-          "to": "To",
+          "enabled": "Email értesítés letöltés végeztével",
+          "from": "Feladó",
+          "to": "Címzett",
           "smtpServer": "SMTP szerver",
-          "sslEnabled": "This server requires a secure connection (SSL)",
-          "authEnabled": "Authentication",
+          "sslEnabled": "Ez a kiszolgáló biztonságos kapcsolatot (SSL) igényel",
+          "authEnabled": "Hitelesítés",
           "username": "Felhasználónév",
           "password": "Jelszó"
         },
         "runExternalProgram": {
-          "subheader": "Run external program",
-          "onAddedEnabled": "Run external program on torrent added:",
-          "onAddedLabel": "Command",
-          "onFinishedEnabled": "Run external program on torrent finished:",
-          "onFinishedLabel": "Command",
-          "supportParamTitle": "Supported parameters (case sensitive):",
-          "supportParamN": "%N: Torrent name",
-          "supportParamL": "%L: Category",
-          "supportParamG": "%G: Tags (separated by comma)",
-          "supportParamF": "%F: Content path (same as root path for multi-file torrent)",
-          "supportParamR": "%R: Root path (first torrent subdirectory path)",
-          "supportParamD": "%D: Save path",
-          "supportParamC": "%C: Number of files",
-          "supportParamZ": "%Z: Torrent size (bytes)",
-          "supportParamT": "%T: Current tracker",
+          "subheader": "Külső program indítása a letöltés végeztével",
+          "onAddedEnabled": "Külső program futtatása torrent hozzáadásakor:",
+          "onAddedLabel": "Parancs",
+          "onFinishedEnabled": "Külső program futtatása torrent befejezésekor:",
+          "onFinishedLabel": "Parancs",
+          "supportParamTitle": "Támogatott paraméterek (kis- és nagybetű érzékeny):",
+          "supportParamN": "%N: Torrent neve",
+          "supportParamL": "%L: Kategória",
+          "supportParamG": "%G: Címkék (vesszővel elválasztva)",
+          "supportParamF": "%F: Tartalom útvonala (többfájlok torrenteknél ugyanaz mint a gyökér útvonal)",
+          "supportParamR": "%R: Gyökér útvonala (első torrent alkönyvtár útvonala)",
+          "supportParamD": "%D: Mentés útvonala",
+          "supportParamC": "%C: Fájlok száma",
+          "supportParamZ": "%Z: Torrent mérete (bájt)",
+          "supportParamT": "%T: Jelenlegi tracker",
           "supportParamI": "%I: Info hash v1",
           "supportParamJ": "%J: Info hash v2",
           "supportParamK": "%K: Torrent ID",
-          "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")"
+          "tip": "Tipp:  Tegye a paramétereket idézőjelbe, hogy elkerülje azt, hogy az üres karaktereknél kettévágásra kerüljenek (pl., \"%N\")"
         }
       },
       "connection": {
-        "protocol": "Peer connection protocol",
+        "protocol": "Protokoll beállítása",
         "listeningPort": {
           "subheader": "Bejövő kapcsolat portja",
-          "incomingConnectionPort": "Port used for incoming connections",
+          "incomingConnectionPort": "Bejövő kapcsolatok portja",
           "randomPort": "Véletlenszerű port",
           "useUPnP": "UPnP / NAT-PMP használata portok átirányítására"
         },
@@ -440,14 +440,14 @@
         },
         "maxActiveCheckingTorrents": "Max active checking torrents",
         "torrentQueueing": {
-          "subheader": "Torrent Queueing",
-          "maxActiveDownload": "Maximum active downloads",
-          "maxActiveUpload": "Maximum active uploads",
-          "maxActiveTorrent": "Maximum active torrents",
-          "excludeSlowTorrent": "Do not count slow torrents in these limits",
-          "downloadRateLimit": "Download rate threshold (in KiB/s)",
-          "uploadRateLimit": "Upload rate threshold (in KiB/s)",
-          "torrentInactivityTimer": "Torrent inactivity timer (in seconds)"
+          "subheader": "Torrent ütemezés",
+          "maxActiveDownload": "Aktív letöltések maximális száma",
+          "maxActiveUpload": "Aktív feltöltések maximális száma",
+          "maxActiveTorrent": "Aktív torrentek maximális száma",
+          "excludeSlowTorrent": "Lassú torrentek figyelmen kívül hagyása a korlátoknál",
+          "downloadRateLimit": "Letöltési sebességkorlát (KiB/s)",
+          "uploadRateLimit": "Feltöltési sebességkorlát (KiB/s)",
+          "torrentInactivityTimer": "Torrent inaktivitási időzítő (másodperc)"
         },
         "seedLimits": {
           "subheader": "Feltöltési korlátok",
@@ -467,11 +467,11 @@
         },
         "general": {
           "reader": {
-            "subheader": "RSS Reader",
-            "enableProcessing": "Enable fetching RSS feeds",
-            "feedsRefreshInterval": "Feeds refresh interval",
-            "feedsRefreshIntervalHint": "In minutes",
-            "maximumArticlesPerFeed": "Maximum number of articles per feed"
+            "subheader": "RSS olvasó",
+            "enableProcessing": "RSS begyűjtés engedélyezése",
+            "feedsRefreshInterval": "Hírfolyam frissítési időköze",
+            "feedsRefreshIntervalHint": "perc",
+            "maximumArticlesPerFeed": "Maximum cikkek száma hírfolyamonként"
           },
           "autoDownloader": {
             "subheader": "RSS Torrent Auto Downloader",
@@ -529,11 +529,11 @@
           "hostHeaderValidationHint": "Seperated with semi-colon ( ; )",
           "serverDomains": "Server Domains"
         },
-        "customHeaders": "Add custom HTTP headers",
+        "customHeaders": "Egyedi HTTP fejléc megadása",
         "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...",
-        "customHeadersHint": "One per line",
-        "reverseProxySupport": "Enable reverse proxy support",
-        "proxiesList": "Trusted proxies list",
+        "customHeadersHint": "Soronként egy",
+        "reverseProxySupport": "Reverse proxy támogatás bekapcsolása",
+        "proxiesList": "Megbízható proxyk listája",
         "proxiesListHint": "Seperate IPs with semicolon ( ; )",
         "dynDns": {
           "subheader": "Update my dynamic domain name",
@@ -541,26 +541,26 @@
             "dynDns": "DynDNS",
             "noIp": "NO-IP"
           },
-          "registerBtn": "Register",
+          "registerBtn": "Regisztráció",
           "domainName": "Domain name",
-          "username": "Username",
-          "password": "Password"
+          "username": "Felhasználónév",
+          "password": "Jelszó"
         }
       },
       "tagsAndCategories": {
-        "btnCreateNew": "Create new",
-        "subHeaderTags": "Available Tags:",
-        "subHeaderCategories": "Available Categories:"
+        "btnCreateNew": "Új létrehozása",
+        "subHeaderTags": "Elérhető címkék:",
+        "subHeaderCategories": "Elérhető kategóriák:"
       },
       "advanced": {
-        "openDoc": "Open documentation",
+        "openDoc": "Dokumentáció megnyitása",
         "qbittorrent": {
           "subheader": "qBittorrent Section",
-          "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
-          "allocatedRamHint": "in MiB",
+          "allocatedRam": "Fizikai memória (RAM) használat limit (libtorrent >= 2.0)",
+          "allocatedRamHint": "MiB",
           "networkInterfaces": {
-            "label": "Network interface",
-            "any": "Any interface"
+            "label": "Hálózati interfész",
+            "any": "Bármelyik interfész"
           },
           "ipAddress": {
             "label": "Optional IP address to bind to",
@@ -640,111 +640,111 @@
       },
       "limitRatio": "Limit Ratio",
       "titleDuration": "Duration",
-      "titleRatio": "Ratio"
+      "titleRatio": "Arány"
     },
     "newCategory": {
-      "categoryName": "Category name",
-      "Path": "Path",
-      "tipOnNoName": "Category name is required"
+      "categoryName": "Kategória neve",
+      "Path": "Elérési út",
+      "tipOnNoName": "Kötelező megadni kategórianevet"
     },
     "newTag": {
-      "createNewTag": "Create New Tag",
-      "tagName": "Tag name"
+      "createNewTag": "Új címke létrehozása",
+      "tagName": "Címke neve"
     },
     "detail": {
-      "title": "Torrent Detail",
-      "tabTitleOverview": "Overview",
-      "tabTitleInfo": "Info",
-      "tabTitleTrackers": "Trackers",
-      "tabTitlePeers": "Peers",
-      "tabTitleContent": "Content",
-      "tabTitleTagsCategories": "Tags & Categories",
+      "title": "Torrent részletei",
+      "tabTitleOverview": "Áttekintés",
+      "tabTitleInfo": "Információk",
+      "tabTitleTrackers": "Trackerek",
+      "tabTitlePeers": "Kapcsolatok",
+      "tabTitleContent": "Tartalom",
+      "tabTitleTagsCategories": "Címkék & kategóriák",
       "pageOverview": {
-        "fetchingMetadata": "Fetching...",
-        "waitingForMetadata": "Waiting for metadata...",
+        "fetchingMetadata": "Betöltés...",
+        "waitingForMetadata": "Metaadatra várakozás...",
         "canvasRefreshDisabled": "Canvas refresh disabled to save performance",
         "selectedFileSize": "Selected Files' Size",
-        "dlSpeedAverage": "Download Speed Average",
-        "upSpeedAverage": "Upload Speed Average",
-        "fileCount": "Selected Files"
+        "dlSpeedAverage": "Átlagos letöltési sebesség",
+        "upSpeedAverage": "Átlagos feltöltési sebesség",
+        "fileCount": "Kiválasztott fájlok"
       },
       "pageInfo": {
-        "eta": "ETA",
-        "peers": "Peers",
-        "seeds": "Seeds",
-        "trackers": "Trackers",
-        "comments": "Comments",
-        "createdBy": "Created By",
+        "eta": "Hátralévő idő",
+        "peers": "Letöltők",
+        "seeds": "Feltöltők",
+        "trackers": "Trackerek",
+        "comments": "Megjegyzések",
+        "createdBy": "Készítette",
         "seededFor": "Seeded For $0",
-        "firstLastPiecePriority": "First/Last Piece Priority",
+        "firstLastPiecePriority": "Első/utolsó szelet prioritás",
         "sequentialDownload": "Sequential Download",
-        "autoTMM": "Automatic Torrent Management",
-        "shareRatioLimit": "Share Ratio Limit",
-        "shareTimeLimit": "Share Time Limit (minutes)",
-        "downloadLimit": "Download Limit",
-        "uploadLimit": "Upload Limit",
-        "creation_date": "Creation Date",
+        "autoTMM": "Automatikus torrentkezelés",
+        "shareRatioLimit": "Megosztási arány limit",
+        "shareTimeLimit": "Megosztási idő limit (perc)",
+        "downloadLimit": "Letöltési limit",
+        "uploadLimit": "Feltöltési limit",
+        "creation_date": "Létrehozás ideje",
         "is_private": "Torrent Private",
-        "wasted_size": "Wasted"
+        "wasted_size": "Elpazarolva"
       },
       "pageTrackers": {
         "url": "URL",
-        "status": "Status",
-        "peers": "Peers",
-        "seeds": "Seeds",
-        "leeches": "Leeches",
-        "downloaded": "Downloaded",
-        "message": "Message"
+        "status": "Státusz",
+        "peers": "Ügyfelek",
+        "seeds": "Feltöltők",
+        "leeches": "Letöltők",
+        "downloaded": "Letöltve",
+        "message": "Üzenet"
       },
       "pagePeers": {
         "ip": "IP",
-        "connection": "Connection",
-        "flags": "Flags",
-        "client": "Client",
-        "progress": "Progress",
-        "downloadSpeed": "DL Speed",
-        "downloaded": "Downloaded",
-        "upSpeed": "UP Speed",
-        "uploaded": "Uploaded",
-        "relevance": "Relevance",
-        "files": "Files"
+        "connection": "Kapcsolat",
+        "flags": "Zászlók",
+        "client": "Kliens",
+        "progress": "Haladás",
+        "downloadSpeed": "Le. sebesség",
+        "downloaded": "Letöltött",
+        "upSpeed": "Felt. sebesség",
+        "uploaded": "Feltöltve",
+        "relevance": "Relevancia",
+        "files": "Fájlok"
       },
       "pageContent": {
-        "rootNode": "(Root Node)",
+        "rootNode": "(gyökér)",
         "fileInfo": "No file | {n} file | {n} files",
         "folderInfo": "No folder | {n} folder | {n} folders"
       },
       "tagsAndCategories": {
-        "subHeaderTag": "Available Tags:",
-        "subHeaderCategories": "Available Categories:"
+        "subHeaderTag": "Elérhető címkék:",
+        "subHeaderCategories": "Elérhető kategóriák:"
       }
     },
     "add": {
-      "title": "Add a new Torrent",
-      "selectFiles": "Select your files",
-      "urlHint": "One link per line",
-      "downloadDirectory": "Download Directory",
-      "starttorrent": "Start torrent",
-      "skipHashCheck": "Skip hash check",
-      "automaticTorrentManagement": "Automatic Torrent Management",
+      "title": "Új torrent hozzáadása",
+      "selectFiles": ".torrent fájl tallózása",
+      "urlHint": "Soronként egy URL",
+      "downloadDirectory": "Letöltési célkönyvtár",
+      "starttorrent": "Torrent indítása",
+      "skipHashCheck": "Hash ellenőrzés kihagyása",
+      "automaticTorrentManagement": "Automatikus torrentkezelés",
       "dropHereForAdd": "Drop here for add",
       "oneOrMoreFilesInvalidTorrent": "One or more files are not valid torrents"
     },
     "changeLocation": {
-      "title": "Change Location"
+      "title": "Hely megváltoztatása"
     },
     "rename": {
-      "title": "Rename",
-      "torrentName": "Torrent Name",
-      "oldPath": "Old Path",
-      "newPath": "New Path",
-      "errorConflict": "A file or folder with the same name already exists"
+      "title": "Átnevezés",
+      "torrentName": "Torrent neve",
+      "oldPath": "Régi elérési út",
+      "newPath": "Új elérési út",
+      "errorConflict": "Egy ilyen fájl vagy mappa már létezik"
     },
     "sort": {
-      "title": "Sort Torrents",
+      "title": "Torrentek rendezése",
       "reverse": "Reverse",
       "sortBy": {
-        "default": "Default",
+        "default": "Alapértelmezett",
         "added_on": "Added On",
         "amount_left": "Amount Left",
         "auto_tmm": "Auto TMM",
@@ -776,8 +776,8 @@
         "num_leechs": "Peers (connected)",
         "num_seeds": "Seeds (connected)",
         "priority": "Priority",
-        "progress": "Progress",
-        "ratio": "Ratio",
+        "progress": "Haladás",
+        "ratio": "Arány",
         "ratio_limit": "Ratio Limit",
         "save_path": "Save Path",
         "seeding_time": "Seeding Time",
@@ -795,11 +795,11 @@
         "up_limit": "Upload Limit",
         "uploaded": "Uploaded (Global)",
         "uploaded_session": "Uploaded (Session)",
-        "upspeed": "Upload Speed"
+        "upspeed": "Feltöltési sebesség"
       }
     },
     "speedLimit": {
-      "speedLimit": "Speed Limit"
+      "speedLimit": "Sebesség korlát"
     },
     "delete": {
       "check": "Also delete files from storage"
@@ -828,40 +828,40 @@
     "resetSettingsNeeded": "Old version of settings detected, reset them for the best experience!"
   },
   "rightClick": {
-    "resume": "resume",
-    "forceResume": "force resume",
+    "resume": "folytatás",
+    "forceResume": "kényszerített folytatás",
     "advanced": {
-      "advanced": "advanced",
-      "changeLocation": "change location",
-      "rename": "rename",
-      "forceRecheck": "Force recheck",
-      "forceReannounce": "Force reannounce",
-      "sequentialDownload": "Sequential download",
-      "firstLastPriority": "First/Last priority",
-      "automaticTorrentManagement": "Automatic Torrent Management"
+      "advanced": "haladó",
+      "changeLocation": "hely megváltoztatása",
+      "rename": "átnevezés",
+      "forceRecheck": "Kényszerített újraellenőrzés ",
+      "forceReannounce": "Kényszerített újrajelentés",
+      "sequentialDownload": "Szekvenciális letöltés",
+      "firstLastPriority": "Első/utolsó prioritás",
+      "automaticTorrentManagement": "Automatikus torrentkezelés"
     },
     "prio": {
-      "prio": "Set Priority",
+      "prio": "Pritoritás megadása",
       "top": "Top",
       "bottom": "Bottom",
       "increase": "Increase",
       "decrease": "Decrease"
     },
-    "category": "Set Category",
-    "nocategory": "No Category",
-    "tags": "Set Tags",
-    "notags": "No Tag",
-    "limit": "Set Limit",
-    "copy": "Copy",
-    "export": "Export Torrent | Export Torrents",
-    "info": "Show Info"
+    "category": "Kategória",
+    "nocategory": "Kategórizálatlan",
+    "tags": "Címke megadása",
+    "notags": "Címkézetlen",
+    "limit": "Limit beállítása",
+    "copy": "Másolás",
+    "export": "Torrent exportálása | Torrentek exportálása",
+    "info": "Részletek"
   },
   "enums": {
     "contentLayout": {
       "title": "Torrent content layout",
-      "original": "Original",
-      "subfolder": "Create Subfolder",
-      "nosubfolder": "Remove Subfolder"
+      "original": "Eredeti",
+      "subfolder": "Almappa létrehozása",
+      "nosubfolder": "Almappa törlése"
     },
     "stopCondition": {
       "title": "Torrent stop condition",
@@ -870,14 +870,14 @@
       "filesChecked": "Files Checked"
     },
     "bittorrentProtocols": {
-      "tcp_utp": "TCP and μTP",
+      "tcp_utp": "TCP és μTP",
       "tcp": "TCP",
       "utp": "μTP"
     },
     "encryption": {
-      "preferEncryption": "Allow Encryption",
-      "forceOn": "Require Encryption",
-      "forceOff": "Disable Encryption"
+      "preferEncryption": "Titkosítás engedélyezése",
+      "forceOn": "Titkosítás megkövetelése",
+      "forceOff": "Titkosítás kikapcsolása"
     },
     "maxRatioAction": {
       "pauseTorrent": "Pause torrent",
@@ -886,19 +886,19 @@
       "torrentSuperseeding": "Enable super seeding for torrent"
     },
     "scheduler": {
-      "everyDay": "Every day",
-      "everyWeekday": "Weekdays",
-      "everyWeekend": "Weekends",
-      "everyMonday": "Monday",
-      "everyTuesday": "Tuesday",
-      "everyWednesday": "Wednesday",
-      "everyThursday": "Thursday",
-      "everyFriday": "Friday",
-      "everySaturday": "Saturday",
-      "everySunday": "Sunday"
+      "everyDay": "Minden nap",
+      "everyWeekday": "Hétköznap",
+      "everyWeekend": "Hétvégén",
+      "everyMonday": "Hétfő",
+      "everyTuesday": "Kedd",
+      "everyWednesday": "Szerda",
+      "everyThursday": "Csütörtök",
+      "everyFriday": "Péntek",
+      "everySaturday": "Szombat",
+      "everySunday": "Vasárnap"
     },
     "diskIoType": {
-      "default": "Default",
+      "default": "Alapértelmezett",
       "memoryMappedFiles": "Memory mapped files",
       "posixCompliant": "POSIX-compliant"
     },
