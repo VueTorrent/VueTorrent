@@ -8,7 +8,9 @@
     "build": "vue-tsc && vite build",
     "check-build": "vue-tsc",
     "preview": "vite preview",
-    "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u --ignore-path .gitignore"
+    "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u --ignore-path .gitignore",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@mdi/js": "^7.2.96",
@@ -38,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "@vitejs/plugin-vue": "^4.3.4",
+    "@vitest/coverage-v8": "^0.34.6",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-vue": "^9.17.0",
@@ -46,6 +49,7 @@
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-vuetify": "^1.0.2",
+    "vitest": "^0.34.6",
     "vue-tsc": "^1.8.10"
   }
 }

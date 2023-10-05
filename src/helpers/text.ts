@@ -33,12 +33,12 @@ export function getDomainBody(string: string): string {
   }
 }
 
-const urlRegExp = new RegExp(
+const getUrlRegExp = () => new RegExp(
   /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.\S{2,}|www\.[a-zA-Z0-9]+\.\S{2,})/gi
 )
 
 export function splitByUrl(data: string) {
-  const urls = data.match(urlRegExp)
+  const urls = data.match(getUrlRegExp())
   let resultArray: string[] = []
 
   if (urls) {
@@ -66,7 +66,7 @@ export function splitByUrl(data: string) {
 }
 
 export function stringContainsUrl(data: string) {
-  return urlRegExp.test(data)
+  return getUrlRegExp().test(data)
 }
 
 export function codeToFlag(code: string) {

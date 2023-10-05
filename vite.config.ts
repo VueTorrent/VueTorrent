@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import vue from '@vitejs/plugin-vue'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
@@ -29,6 +30,11 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       proxy: {
         '/api': `${proxyTarget}:${qBittorrentPort}`
+      }
+    },
+    test: {
+      coverage: {
+        reportsDirectory: './tests/unit/coverage'
       }
     }
   }
