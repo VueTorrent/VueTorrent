@@ -15,8 +15,8 @@ const ratio = computed(() => (props.session ? undefined : maindataStore.serverSt
 
 <template>
   <v-card variant="flat" color="primary">
-    <v-card-title class="px-0">{{ title }}</v-card-title>
-    <v-card-text class="px-0">
+    <v-card-title class="px-0 pb-0 text-uppercase white--text ml-1 font-weight-normal text-caption">{{ title }}</v-card-title>
+    <v-card-text class="px-0 pb-0">
       <div class="d-flex flex-column gap">
         <DataCard title="Downloaded" :value="download" color="download" icon="mdi-arrow-down" />
         <DataCard title="Uploaded" :value="upload" color="upload" icon="mdi-arrow-up" />

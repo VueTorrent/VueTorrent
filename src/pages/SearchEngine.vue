@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
             <v-icon>mdi-toy-brick</v-icon>
             <PluginManagerDialog v-model="pluginManagerDialogVisible" />
           </v-btn>
-          <v-btn icon="mdi-home" variant="plain" @click="goHome" />
+          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>
     </v-row>

@@ -3,14 +3,13 @@ defineProps<{ title: string; value: any; color: string }>()
 </script>
 
 <template>
-  <v-sheet color="secondary" rounded="lg" class="pa-3">
-    <div class="d-flex">
-      <div class="d-flex align-center justify-center" :class="`text-${color}`">{{ title }}</div>
-      <v-spacer />
-      <div :class="`text-${color}`">
-        <span class="font-weight-bold">{{ value }}</span>
-      </div>
-    </div>
+  <v-sheet color="secondary" rounded="md" class="pa-3">
+    <v-row>
+      <v-col cols="7" class="text-subtitle-1" :class="`text-${color}`">{{ title }}</v-col>
+      <v-col cols="5" :class="`text-${color}`">
+        <span class="font-weight-bold text-subtitle-1">{{ value }}</span>
+      </v-col>
+    </v-row>
   </v-sheet>
 </template>
 

@@ -271,7 +271,7 @@ onBeforeUnmount(() => {
             @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
-      <div class="pa-0">
+      <div class="pa-0" style="width: 10em">
         <v-autocomplete
           v-model="sortOptions.sortBy"
           :items="torrentSortOptions"
@@ -279,8 +279,7 @@ onBeforeUnmount(() => {
           auto-select-first
           density="compact"
           hide-details
-          rounded="pill"
-          variant="solo" />
+          variant="solo-filled" />
       </div>
       <v-col class="align-center justify-center">
         <span class="text-uppercase" style="float: right; font-size: 0.8em">

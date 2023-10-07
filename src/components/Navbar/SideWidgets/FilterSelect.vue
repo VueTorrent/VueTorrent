@@ -52,23 +52,37 @@ const trackers = computed(() => {
 <template>
   <v-list class="pb-0">
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title>Status</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.statusFilter" :items="statusOptions" class="text-accent" hide-details variant="outlined" />
+      <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-normal text-caption">Status</v-list-item-title>
+      <v-select
+        v-model="dashboardStore.sortOptions.statusFilter"
+        :items="statusOptions"
+        class="text-accent pt-1"
+        hide-details
+        density="compact"
+        variant="solo"
+        bg-color="secondary" />
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title>Category</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.categoryFilter" :items="categories" class="text-accent" hide-details variant="outlined" />
+      <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">Category</v-list-item-title>
+      <v-select
+        v-model="dashboardStore.sortOptions.categoryFilter"
+        :items="categories"
+        class="text-accent pt-1"
+        hide-details
+        density="compact"
+        variant="solo"
+        bg-color="secondary" />
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title>Tags</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.tagFilter" :items="tags" class="text-accent" hide-details variant="outlined" />
+      <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">Tags</v-list-item-title>
+      <v-select v-model="dashboardStore.sortOptions.tagFilter" :items="tags" class="text-accent pt-1" hide-details density="compact" variant="solo" bg-color="secondary" />
     </v-list-item>
 
     <v-list-item :class="{ 'px-0': true, 'pb-3': vueTorrentStore.showTrackerFilter }" v-if="vueTorrentStore.showTrackerFilter">
-      <v-list-item-title>Tracker</v-list-item-title>
-      <v-select v-model="dashboardStore.sortOptions.trackerFilter" :items="trackers" class="text-accent" hide-details variant="outlined" />
+      <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">Tracker</v-list-item-title>
+      <v-select v-model="dashboardStore.sortOptions.trackerFilter" :items="trackers" class="text-accent pt-1" hide-details density="compact" variant="solo" bg-color="secondary" />
     </v-list-item>
   </v-list>
 </template>

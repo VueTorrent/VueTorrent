@@ -117,7 +117,11 @@ watch(
 </script>
 
 <template>
-  <v-dialog v-model="navbarStore.addTorrentDialogVisible" fullscreen transition="dialog-bottom-transition">
+  <v-dialog
+    v-model="navbarStore.addTorrentDialogVisible"
+    transition="dialog-bottom-transition"
+    :fullscreen="$vuetify.display.mobile"
+    :class="$vuetify.display.mobile ? '' : 'w-50'">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent">
@@ -272,7 +276,7 @@ watch(
         </v-row>
       </v-card-text>
 
-      <v-card-actions>
+      <v-card-actions class="justify-center">
         <v-btn :disabled="!isFormValid" color="accent" variant="elevated" :text="$t('dialogs.add.submit')" @click="submit" />
         <v-btn color="error" variant="flat" :text="$t('common.close')" @click="close" />
       </v-card-actions>

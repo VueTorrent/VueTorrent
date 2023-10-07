@@ -8,15 +8,14 @@ const vueTorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <v-sheet color="secondary" rounded="lg" class="pa-3">
-    <div :class="['d-flex', `text-${color}`]">
-      <div class="d-flex align-center justify-center">{{ title }}</div>
-      <v-spacer />
-      <div>
-        <span class="font-weight-bold">{{ formatDataValue(value, vueTorrentStore.useBinarySize) }}</span>
-        <span class="text-caption ml-1">{{ formatDataUnit(value, vueTorrentStore.useBinarySize) }}</span>
-      </div>
-    </div>
+  <v-sheet color="secondary" rounded="md" class="pa-3">
+    <v-row :class="[`text-${color}`]">
+      <v-col cols="7" class="text-subtitle-1">{{ title }}</v-col>
+      <v-col cols="5" class="">
+        <span class="font-weight-bold text-subtitle-1">{{ formatDataValue(value, vueTorrentStore.useBinarySize) }}</span>
+        <span class="text-caption ml-1 text-subtitle-1">{{ formatDataUnit(value, vueTorrentStore.useBinarySize) }}</span>
+      </v-col>
+    </v-row>
   </v-sheet>
 </template>
 

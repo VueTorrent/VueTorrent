@@ -80,7 +80,7 @@ onUnmounted(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-home" variant="plain" @click="goHome" />
+          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>
     </v-row>

@@ -71,7 +71,7 @@ onBeforeUnmount(() => {
       <v-col>
         <div class="d-flex justify-end">
           <v-btn color="accent" icon="mdi-content-save" variant="plain" @click="saveSettings" />
-          <v-btn icon="mdi-home" variant="plain" @click="goHome" />
+          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>
     </v-row>

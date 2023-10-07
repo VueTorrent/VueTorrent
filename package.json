@@ -13,6 +13,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@fontsource/roboto-mono": "^5.0.12",
     "@mdi/js": "^7.2.96",
     "apexcharts": "^3.42.0",
     "axios": "^1.5.0",
@@ -20,8 +21,6 @@
     "lodash.debounce": "^4.0.8",
     "pinia": "^2.1.6",
     "pinia-plugin-persist": "^1.0.0",
-    "typeface-roboto": "^1.1.13",
-    "typeface-roboto-mono": "^1.1.13",
     "uuid": "^9.0.0",
     "vue": "^3.3.4",
     "vue-composable": "^1.0.0-beta.24",

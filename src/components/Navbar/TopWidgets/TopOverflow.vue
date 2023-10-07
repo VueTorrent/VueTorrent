@@ -8,8 +8,6 @@ defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEng
       <v-btn icon="mdi-dots-vertical" v-bind="props"></v-btn>
     </template>
     <v-list>
-      <v-list-subheader>Torrents</v-list-subheader>
-
       <v-list-item :title="$t('topbar.overflow.resume')" @click="$emit('resumeTorrents')">
         <template v-slot:prepend>
           <v-icon>mdi-play</v-icon>
