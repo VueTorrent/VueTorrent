@@ -1,57 +1,39 @@
 <script setup lang="ts">
-import { getDataUnit } from '@/utils/dataParse'
-import { ref } from 'vue'
+import { useVueTorrentStore } from '@/stores'
+import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
 
-// props
-defineProps<{
-  color: string
-  icon: string
-  value: number
-}>()
+defineProps({
+  icon: {
+    type: String,
+    required: true
+  },
+  color: {
+    type: String,
+    required: true
+  },
+  value: {
+    type: Number,
+    required: true
+  }
+})
 
-// data
-const open = ref(false)
-
-//methods
-const getSpeedValue = (value: string | number) => {
-  if (!value) return '0'
-  const data = Number(value)
-  const c = 1024
-  const d = data > 1048576 ? 1 : 0 // 2 decimals when MB
-  const f = Math.floor(Math.log(data) / Math.log(c))
-
-  return `${parseFloat((data / Math.pow(c, f)).toFixed(d))}`
-}
+const vueTorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <VDialog v-model="open">
-    <template #activator>
-      <VBtn
-        flat
-        rounded="md"
-        color="secondary"
-        :class="`speedCard w-100 text-${color}`"
-        @click="open = !open"
-        :prependIcon="icon"
-        height="50"
-        data-testid="SpeedCard-icon"
-      >
-        <VLayout class="justify-space-between flex-column" align-center justify-center>
-          <span data-testid="SpeedCard-value" class="align-self-center font-weight-bold">
-            {{ getSpeedValue(value) }}
-          </span>
-          <span data-testid="SpeedCard-unit" class="text-caption align-self-center mt-n1">
-            {{ getDataUnit(value) }}/s
-          </span>
-        </VLayout>
-      </VBtn>
-    </template>
-  </VDialog>
+  <v-sheet color="secondary" rounded="lg" class="px-5 py-3">
+    <div class="d-flex flex-row align-center justify-space-evenly card-gap-inner">
+      <v-icon :icon="icon" :color="color" />
+      <div class="d-flex flex-column align-center justify-center">
+        <span :class="`text-${color}`">{{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}</span>
+        <span class="text-caption" :class="`text-${color}`">{{ formatSpeedUnit(value, vueTorrentStore.useBitSpeed) }}</span>
+      </div>
+    </div>
+  </v-sheet>
 </template>
 
 <style scoped>
-.speedCard {
-  font-size: 1.1em;
+.card-gap-inner {
+  gap: 12px;
 }
 </style>

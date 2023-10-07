@@ -1,4 +1,4 @@
-import type { ConnectionStatus } from '@/enums/qbit'
+import type { ConnectionStatus } from '@/constants/qbit'
 
 export default interface ServerState {
   alltime_dl: number

@@ -1,15 +1,9 @@
-import type QbLoginPayload from './QbLoginPayload'
-import type QbAddTorrentPayload from './QbAddTorrentPayload'
-import type QbPeerLogPayload from './QbPeerLogPayload'
-import type { QbAppPreferencesPayload } from './QbAppPreferencesPayload'
-import type QbCreateFeedPayload from './QbCreateFeedPayload'
-import type QbBasePayload from './QbBasePayload'
+import type LoginPayload from './LoginPayload'
+import type AddTorrentPayload from './AddTorrentPayload'
+import type PeerLogPayload from './PeerLogPayload'
+import type { AppPreferencesPayload } from './AppPreferencesPayload'
+import type CreateFeedPayload from './CreateFeedPayload'
+import type BasePayload from './BasePayload'
+import type GetTorrentPayload from './GetTorrentPayload'
 
-export {
-  QbAppPreferencesPayload,
-  QbLoginPayload,
-  QbAddTorrentPayload,
-  QbPeerLogPayload,
-  QbBasePayload,
-  QbCreateFeedPayload
-}
+export { AppPreferencesPayload, LoginPayload, AddTorrentPayload, PeerLogPayload, BasePayload, CreateFeedPayload, GetTorrentPayload }

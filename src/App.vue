@@ -1,52 +1,102 @@
 <script setup lang="ts">
-import { useTheme } from 'vuetify'
-import { usePreferredDark } from '@vueuse/core'
-import Navbar from './components/Navbar/Navbar.vue'
-import { useAuthStore } from './stores/auth'
-import { useRouter } from 'vue-router/auto'
-import { useRoute } from 'vue-router'
-import { useModalsStore } from './stores/modals'
-import { storeToRefs } from 'pinia'
+import AddPanel from '@/components/AddPanel.vue'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import { computed, onBeforeMount, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-// composables
-const theme = useTheme()
-const prefersDark = usePreferredDark()
+import {
+  useAppStore,
+  useAuthStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useVueTorrentStore
+} from '@/stores'
+
+import Navbar from '@/components/Navbar/Navbar.vue'
+
 const router = useRouter()
 const route = useRoute()
+
 const authStore = useAuthStore()
-const modalsStore = useModalsStore()
+const appStore = useAppStore()
+const logStore = useLogStore()
+const maindataStore = useMaindataStore()
+const preferencesStore = usePreferenceStore()
+const vuetorrentStore = useVueTorrentStore()
 
-const { modals } = storeToRefs(modalsStore)
+const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
 
-if (prefersDark.value) {
-  theme.global.name.value = 'dark'
-} else {
-  theme.global.name.value = 'light'
+const checkAuthentication = async () => {
+  await authStore.updateAuthStatus()
+
+  if (!authStore.isAuthenticated && !onLoginPage.value) {
+    await vuetorrentStore.redirectToLogin()
+  } else {
+    redirectOnSuccess()
+  }
 }
 
-authStore.checkAuth().then(async (res) => {
-  await router.isReady()
-  // if not logged in
-  if (!res) return router.push('/login')
-  // if logged in but trying to go to login page
-  if (route.name == 'Login') return router.push({ name: 'Dashboard' })
-  // go to route
-  router.push(route.path)
+const blockContextMenu = () => {
+  document.addEventListener('contextmenu', event => {
+    if (!event.target) return
+
+    const targetNode = event.target as Element
+    const nodeName = targetNode.nodeName.toLowerCase()
+    const nodeType = targetNode.getAttribute('type')?.toLowerCase() ?? ''
+
+    if (['textarea', 'a', 'img'].includes(nodeName)) return
+    if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
+
+    event.preventDefault()
+    return false
+  })
+}
+
+const redirectOnSuccess = () => {
+  const redirectUrl = route.query.redirect as string | undefined
+  if (redirectUrl) router.push(redirectUrl)
+  else if (onLoginPage.value) router.push({ name: 'dashboard' })
+}
+
+onBeforeMount(() => {
+  if (vuetorrentStore.matchSystemTheme) {
+    vuetorrentStore.updateSystemTheme()
+  } else {
+    vuetorrentStore.updateTheme()
+  }
+  vuetorrentStore.setLanguage(vuetorrentStore.language)
+  checkAuthentication()
+  blockContextMenu()
 })
+
+watch(
+  () => authStore.isAuthenticated,
+  async isAuthenticated => {
+    if (isAuthenticated) {
+      appStore.pushInterval(() => maindataStore.updateMaindata(), vuetorrentStore.refreshInterval)
+      await maindataStore.updateMaindata()
+      await preferencesStore.fetchPreferences()
+      await logStore.fetchLogs()
+    } else {
+      appStore.clearIntervals()
+    }
+  },
+  {
+    immediate: true
+  }
+)
 </script>
 
 <template>
-  <VApp>
-    <template v-for="modal in modals" :key="modal.guid">
-      <component :is="modal.componentName" v-bind="{ guid: modal.guid, ...modal.props }" />
-    </template>
+  <v-app class="text-noselect">
     <Navbar v-if="authStore.isAuthenticated" />
-    <VMain>
-      <VContainer fluid>
-        <Suspense>
-          <RouterView />
-        </Suspense>
-      </VContainer>
-    </VMain>
-  </VApp>
+    <v-main>
+      <router-view />
+    </v-main>
+    <AddPanel />
+    <AddTorrentDialog />
+  </v-app>
 </template>
+
+<style scoped></style>

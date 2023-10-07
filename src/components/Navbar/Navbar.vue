@@ -1,89 +1,79 @@
 <script setup lang="ts">
-import { useMainData } from '@/composables/api/info'
-import { useAuthStore } from '@/stores/auth'
+import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
 import { ref } from 'vue'
-import { useDisplay } from 'vuetify'
-import BottomActions from './BottomActions.vue'
-import TopActions from './TopActions.vue'
+import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
+import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
+import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
+import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
+import TopContainer from '@/components/Navbar/TopWidgets/TopContainer.vue'
+import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
+import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
+import { useDashboardStore, useVueTorrentStore } from '@/stores'
 
-import CurrentSpeed from './CurrentSpeed.vue'
-import FreeSpace from './FreeSpace.vue'
-import SpeedGraph from './SpeedGraph.vue'
-import TransferStats from './TransferStats.vue'
+const dashboardStore = useDashboardStore()
+const vueTorrentStore = useVueTorrentStore()
 
-// composables
-const authStore = useAuthStore()
-const mainData = useMainData()
-const { mobile } = useDisplay()
+const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
 
-// data
-const drawer = ref(mobile.value ? false : true)
+const toggleDrawer = () => {
+  isDrawerOpen.value = !isDrawerOpen.value
+}
 </script>
 
 <template>
-  <VNavigationDrawer
-    v-model="drawer"
-    style="position: fixed"
-    width="256"
-    height="100%"
-    disableResizeWatcher
-    color="primary"
-  >
-    <VCard class="pa-1 pt-3" flat color="primary">
-      <CurrentSpeed />
-      <SpeedGraph />
-      <TransferStats />
-      <TransferStats isSession />
-      <FreeSpace :space="mainData.data.value?.server_state?.free_space_on_disk || 0" />
-      <!-- <FilterSelect :show-tracker-filter="true" /> -->
-    </VCard>
-    <template #append>
-      <div class="pa-2">
-        <BottomActions />
-      </div>
-    </template>
-  </VNavigationDrawer>
+  <v-navigation-drawer v-model="isDrawerOpen" color="primary" disable-route-watcher>
+    <v-list class="clean-px px-2">
+      <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
+        <CurrentSpeed />
+      </v-list-item>
 
-  <VAppBar>
-    <VAppBarNavIcon
-      class="text-grey"
-      aria-label="Open Navigation Drawer"
-      @click.stop="drawer = !drawer"
-    />
-    <VToolbarTitle
-      v-if="!$vuetify.display.xs"
-      :class="['text-grey', { 'subheading ml-0': $vuetify.display.smAndDown }]"
-    >
-      <span class="font-weight-light">qBit</span>
-      <span>torrent</span>
-    </VToolbarTitle>
-    <TopActions />
-  </VAppBar>
+      <v-list-item v-if="vueTorrentStore.showSpeedGraph">
+        <SpeedGraph />
+      </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showAlltimeStat">
+        <TransferStats :session="false" />
+      </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showSessionStat">
+        <TransferStats :session="true" />
+      </v-list-item>
+
+      <v-list-item v-if="vueTorrentStore.showFreeSpace">
+        <FreeSpace />
+      </v-list-item>
+
+      <v-list-item>
+        <FilterSelect />
+      </v-list-item>
+
+      <v-list-item density="compact">
+        <div class="d-flex justify-center text-accent">
+          {{ dashboardStore.torrentCountString }}
+        </div>
+      </v-list-item>
+    </v-list>
+    <template v-slot:append>
+      <BottomActions />
+    </template>
+  </v-navigation-drawer>
+
+  <v-app-bar>
+    <v-app-bar-nav-icon @click="toggleDrawer" />
+    <v-app-bar-title>
+      <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
+      <span v-if="$vuetify.display.smAndUp">Torrent</span>
+
+      <ActiveFilters />
+    </v-app-bar-title>
+
+    <TopContainer />
+  </v-app-bar>
 </template>
 
-<style lang="scss">
-#app > div > nav > nav > div.v-navigation-drawer__content {
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #56718c;
-    border-radius: 20px;
-  }
-}
-
-.v-app-bar > .v-toolbar__content {
-  padding-right: 0;
-}
-
-.navbar {
-  @media screen and (max-width: 480px) {
-    .v-toolbar__title {
-      display: none;
-    }
-    .spacer {
-      display: none;
-    }
-  }
+<style scoped lang="scss">
+.clean-px > * {
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
 }
 </style>

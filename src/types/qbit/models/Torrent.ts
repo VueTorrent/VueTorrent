@@ -1,5 +1,4 @@
-import type { TorrentState } from '@/enums/qbit'
-import type { Priority } from '@/enums/qbit'
+import type { TorrentState } from '@/constants/qbit'
 
 export default interface Torrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
@@ -22,7 +21,7 @@ export default interface Torrent {
   dl_limit: number
   /** Torrent download speed (bytes/s) */
   dlspeed: number
-  /** TODO */
+  /** Torrent download path */
   download_path: string
   /** Amount of data downloaded */
   downloaded: number
@@ -36,9 +35,9 @@ export default interface Torrent {
   force_start: boolean
   /** Torrent hash */
   hash: string
-  /** TODO */
+  /** Torrent SHA1 Hash */
   infohash_v1: string
-  /** TODO */
+  /** Torrent SHA256 Hash (only in LibTorrent v2) */
   infohash_v2: string
   /** Last time (Unix Epoch) when a chunk was downloaded/uploaded */
   last_activity: number
@@ -59,18 +58,18 @@ export default interface Torrent {
   /** Number of seeds connected to */
   num_seeds: number
   /** Torrent priority. Returns -1 if queuing is disabled or torrent is in seed mode */
-  priority: Priority
+  priority: number
   /** Torrent progress (percentage/100) */
   progress: number
   /** Torrent share ratio. Max ratio value: 9999. */
   ratio: number
-  /** TODO */
+  /** Upload share ratio limit */
   ratio_limit: number
   /** Path where this torrent's data is stored */
   save_path: string
   /** Torrent elapsed time while complete (seconds) */
   seeding_time: number
-  /** TODO */
+  /** Upload seeding time limit */
   seeding_time_limit: number
   /** Time (Unix Epoch) when this torrent was last seen complete */
   seen_complete: number
@@ -90,7 +89,7 @@ export default interface Torrent {
   total_size: number
   /** The first tracker with working status. Returns empty string if no tracker is working. */
   tracker: string
-  /** TODO */
+  /** The number of trackers registered for that torrent */
   trackers_count: number
   /** Torrent upload speed limit (bytes/s). -1 if unlimited. */
   up_limit: number

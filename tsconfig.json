@@ -1,29 +1,31 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "include": [
-    "vite.config.ts",
-    "typed-router.d.ts",
-    "*.d.ts",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "exclude": ["src/**.spec.ts"],
   "compilerOptions": {
-    "composite": true,
-    "baseUrl": ".",
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
     "paths": {
       "@/*": ["./src/*"]
     },
-    "lib": ["esnext", "dom", "WebWorker"],
-    "types": ["vuetify", "vite-plugin-pwa/client", "@types/webfontloader"],
-    "sourceMap": true,
-    "strict": true
+    "types": ["node", "vue3-toastify/global", "pinia-plugin-persist", "vitest/globals"]
   },
-  "references": [
-    {
-      "path": "./tsconfig.vitest.json"
-    }
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,20 +1,23 @@
-import { createApp, type DefineComponent } from 'vue'
-import { registerPlugins } from './plugins'
-
+import { createApp } from 'vue'
+import 'typeface-roboto'
+import 'typeface-roboto-mono'
 import '@/styles/styles.scss'
-
 import App from './App.vue'
-import router from './router'
 
-const app = createApp(App)
-registerPlugins(app)
+// Vue-Router
+import router from '@/plugins/router'
 
-// Register modal components globally
-const components = import.meta.glob('./components/Modals/**/*.vue', { eager: true })
-Object.entries(components).forEach(([path, definition]) => {
-  const componentName = (path.split('/').pop() as string).replace(/\.\w+$/, '')
-  app.component(componentName, (definition as DefineComponent).default)
-})
+// Vuetify
+import vuetify from '@/plugins/vuetify'
 
-app.use(router)
-app.mount('#app')
+// Vue-i18n
+import i18n from '@/plugins/i18n'
+
+// Vue-Toastify
+import Vue3Toastify from 'vue3-toastify'
+import options from '@/plugins/toastify'
+
+// Pinia
+import pinia from '@/plugins/pinia'
+
+createApp(App).use(router).use(vuetify).use(i18n).use(Vue3Toastify, options).use(pinia).mount('#app')

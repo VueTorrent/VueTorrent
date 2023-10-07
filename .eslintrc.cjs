@@ -1,19 +1,19 @@
-/* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
-
 module.exports = {
   root: true,
-  extends: [
-    'plugin:vue/vue3-essential',
-    'eslint:recommended',
-    '@vue/eslint-config-typescript',
-    '@vue/eslint-config-prettier/skip-formatting'
-  ],
-  parserOptions: {
-    ecmaVersion: 'latest'
+  env: {
+    node: true,
+    browser: true,
+    es2016: true
   },
+  extends: ['eslint:recommended', 'plugin:vue/recommended', '@vue/typescript/recommended', 'prettier', 'plugin:import/recommended'],
+  parserOptions: {
+    ecmaVersion: 2020
+  },
+  plugins: ['vue', 'prettier'],
   rules: {
-    'vue/multi-word-component-names': 0,
-    '@typescript-eslint/no-unused-vars': 0 // Disable while active dev because lot is changing
+    'vue/require-default-prop': 'off',
+    'vue/multi-word-component-names': 'off',
+    'vue/first-attribute-linebreak': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off'
   }
 }
