@@ -4,7 +4,7 @@ import { routes } from '@/pages'
 import { useAuthStore } from '@/stores'
 
 const router = createRouter({
-  history: createWebHashHistory('import.meta.env.VITE_PACKAGE_VERSION'),
+  history: createWebHashHistory(process.env.BASE_URL),
   routes
 })
 
