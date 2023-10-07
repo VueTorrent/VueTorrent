@@ -8,7 +8,6 @@ import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
-
 const router = useRouter()
 const { t } = useI18n()
 const navbarStore = useNavbarStore()
@@ -28,20 +27,16 @@ const titleFilter = computed({
 })
 
 const searchQuery = useSearchQuery(
-    () => rssStore.articles.sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)),
-    () => titleFilter.value,
-    (item: RssArticle) => item.title
+  () => rssStore.articles.sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)),
+  () => titleFilter.value,
+  (item: RssArticle) => item.title
 )
 const page = ref(1)
 const _page = computed({
   get: () => page.value || 1,
-  set: (v) => page.value = v
+  set: v => (page.value = v)
 })
-const {
-  result: paginatedResults,
-  currentPage,
-  lastPage
-} = useArrayPagination(searchQuery.results, { currentPage: _page, pageSize: 15 })
+const { result: paginatedResults, currentPage, lastPage } = useArrayPagination(searchQuery.results, { currentPage: _page, pageSize: 15 })
 
 function openLink(url: string) {
   window.open(url, '_blank', 'noreferrer')
@@ -122,10 +117,7 @@ onUnmounted(() => {
       </v-list-item>
 
       <v-list-item v-if="searchQuery.results.value.length">
-        <v-pagination v-model="currentPage"
-                      :length="lastPage"
-                      next-icon="mdi-menu-right"
-                      prev-icon="mdi-menu-left" />
+        <v-pagination v-model="currentPage" :length="lastPage" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
       </v-list-item>
 
       <v-list-item>
@@ -149,16 +141,9 @@ onUnmounted(() => {
                 <v-spacer />
 
                 <div class="d-flex flex-column">
-                  <v-btn icon="mdi-open-in-new"
-                         variant="text"
-                         @click.stop="openLink(feed.link)" />
-                  <v-btn color="accent"
-                         icon="mdi-check"
-                         variant="text"
-                         @click.stop="markAsRead(feed)" />
-                  <v-btn icon="mdi-download"
-                         variant="text"
-                         @click.stop="downloadArticle(feed)" />
+                  <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(feed.link)" />
+                  <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="markAsRead(feed)" />
+                  <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(feed)" />
                 </div>
               </div>
 
@@ -186,10 +171,7 @@ onUnmounted(() => {
       </v-list-item>
 
       <v-list-item v-if="searchQuery.results.value.length">
-        <v-pagination v-model="currentPage"
-                      :length="lastPage"
-                      next-icon="mdi-menu-right"
-                      prev-icon="mdi-menu-left" />
+        <v-pagination v-model="currentPage" :length="lastPage" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
       </v-list-item>
     </v-list>
   </div>

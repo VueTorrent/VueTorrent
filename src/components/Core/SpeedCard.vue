@@ -21,7 +21,7 @@ const vueTorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <v-sheet color="secondary" rounded="lg" class="px-5 py-3">
+  <v-sheet color="secondary" rounded="lg" class="py-3">
     <div class="d-flex flex-row align-center justify-space-evenly card-gap-inner">
       <v-icon :icon="icon" :color="color" />
       <div class="d-flex flex-column align-center justify-center">

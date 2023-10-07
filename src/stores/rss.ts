@@ -23,7 +23,7 @@ export const useRssStore = defineStore(
         if (!feed.articles) return
 
         feed.articles.forEach(article => {
-          if (keySet.has(article.id) || filters.unread && article.isRead) return
+          if (keySet.has(article.id) || (filters.unread && article.isRead)) return
 
           keySet.add(article.id)
           articles.push({
@@ -83,7 +83,7 @@ export const useRssStore = defineStore(
       feeds.value.forEach(feed => {
         if (!feed.articles) return
         feed.articles.forEach(async article => {
-          article.isRead || await qbit.markAsRead(feed.name, article.id)
+          article.isRead || (await qbit.markAsRead(feed.name, article.id))
         })
       })
       await fetchFeeds()

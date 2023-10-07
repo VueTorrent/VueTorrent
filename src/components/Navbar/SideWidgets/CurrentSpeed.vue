@@ -14,10 +14,14 @@ const maindataStore = useMaindataStore()
     </v-card-title>
     <v-card-text class="px-0">
       <v-sheet color="primary">
-        <div class="d-flex justify-space-around">
-          <SpeedCard icon="mdi-arrow-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />
-          <SpeedCard icon="mdi-arrow-up" color="upload" :value="maindataStore.serverState?.up_info_speed ?? 0" />
-        </div>
+        <v-row>
+          <v-col class="px-1 mx-1">
+            <SpeedCard icon="mdi-arrow-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />
+          </v-col>
+          <v-col class="px-1 mx-1">
+            <SpeedCard icon="mdi-arrow-up" color="upload" :value="maindataStore.serverState?.up_info_speed ?? 0" />
+          </v-col>
+        </v-row>
       </v-sheet>
     </v-card-text>
   </v-card>

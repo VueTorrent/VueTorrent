@@ -41,6 +41,4 @@ function getNodePriority(node: TreeFile) {
   </v-list-item>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

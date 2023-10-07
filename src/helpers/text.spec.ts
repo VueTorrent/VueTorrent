@@ -1,12 +1,4 @@
-import {
-  capitalize,
-  codeToFlag,
-  extractHostname,
-  getDomainBody,
-  splitByUrl,
-  stringContainsUrl,
-  titleCase
-} from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase } from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {

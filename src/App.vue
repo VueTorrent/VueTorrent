@@ -4,14 +4,7 @@ import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import { computed, onBeforeMount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import {
-  useAppStore,
-  useAuthStore,
-  useLogStore,
-  useMaindataStore,
-  usePreferenceStore,
-  useVueTorrentStore
-} from '@/stores'
+import { useAppStore, useAuthStore, useLogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 import Navbar from '@/components/Navbar/Navbar.vue'
 

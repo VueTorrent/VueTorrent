@@ -180,9 +180,7 @@ onBeforeMount(() => {
         </v-col>
 
         <v-col cols="12" md="3">
-          <v-select v-model="theme"
-                    :items="themeOptions"
-          :label="t('settings.vuetorrent.general.theme')"/>
+          <v-select v-model="theme" :items="themeOptions" :label="t('settings.vuetorrent.general.theme')" />
         </v-col>
 
         <v-col cols="12" md="3" class="d-flex align-center justify-center">

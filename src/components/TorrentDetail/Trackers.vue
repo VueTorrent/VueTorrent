@@ -47,9 +47,7 @@ const newTrackers = ref('')
 const timer = ref<NodeJS.Timeout | null>(null)
 const addTrackersDialog = ref(false)
 
-const editTrackerRules = [
-  (v: string) => !!v || t('torrentDetail.trackers.editTracker.newUrlRequired')
-]
+const editTrackerRules = [(v: string) => !!v || t('torrentDetail.trackers.editTracker.newUrlRequired')]
 const editTrackerDialog = reactive({
   isVisible: false,
   isFormValid: false,
@@ -144,9 +142,7 @@ watch(() => props.isActive, setupTimer)
 
               <div v-if="tracker.status !== TrackerStatus.NOT_WORKING">
                 <div>{{ formatTrackerValue(tracker) }}</div>
-                <div>
-                  Downloads: {{ formatTrackerValue(tracker.num_downloaded) }}
-                </div>
+                <div>Downloads: {{ formatTrackerValue(tracker.num_downloaded) }}</div>
               </div>
             </v-list-item-subtitle>
           </div>
@@ -167,12 +163,13 @@ watch(() => props.isActive, setupTimer)
                 <v-card-text>
                   <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
                     <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
-                    <v-text-field v-model="editTrackerDialog.newUrl"
-                                  id="input"
-                                  :rules="editTrackerRules"
-                                  :label="$t('torrentDetail.trackers.editTracker.newUrl')"
-                                  autofocus
-                                  @keydown.enter="editTracker" />
+                    <v-text-field
+                      v-model="editTrackerDialog.newUrl"
+                      id="input"
+                      :rules="editTrackerRules"
+                      :label="$t('torrentDetail.trackers.editTracker.newUrl')"
+                      autofocus
+                      @keydown.enter="editTracker" />
                   </v-form>
                 </v-card-text>
 
@@ -183,10 +180,7 @@ watch(() => props.isActive, setupTimer)
                 </v-card-actions>
               </v-card>
             </v-dialog>
-            <v-btn color="red"
-                   icon="mdi-delete"
-                   variant="text"
-                   @click="removeTracker(tracker)" />
+            <v-btn color="red" icon="mdi-delete" variant="text" @click="removeTracker(tracker)" />
           </div>
         </div>
       </v-list-item>
@@ -224,8 +218,7 @@ watch(() => props.isActive, setupTimer)
           </v-card>
         </v-dialog>
 
-        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')"
-               color="primary" @click="reannounceTrackers" />
+        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
       </div>
     </v-list-item>
   </v-list>

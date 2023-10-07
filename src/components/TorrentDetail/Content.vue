@@ -27,13 +27,9 @@ const renamePayload = reactive({
 })
 
 const fileSelection = computed({
-  get: () => cachedFiles.value
-    .filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD)
-    .map(file => file.index),
+  get: () => cachedFiles.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.index),
   async set(newValue: number[]) {
-    const oldValue = cachedFiles.value
-      .filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD)
-      .map(f => f.index)
+    const oldValue = cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD).map(f => f.index)
 
     const filesToExclude = oldValue
       .filter(index => !newValue.includes(index))
@@ -87,7 +83,7 @@ watch(
     }
   }
 )
-watch(renameDialog, (v) => {
+watch(renameDialog, v => {
   if (!v) {
     updateFileTree()
   }
@@ -104,8 +100,7 @@ onMounted(() => {
 
 <template>
   <v-card :loading="loading" flat>
-    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree"
-    @renameFolder="renameNode" @renameFile="renameNode" />
+    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree" @renameFolder="renameNode" @renameFile="renameNode" />
     <!--
     TODO: add treeview after merge
     https://github.com/vuetifyjs/vuetify/issues/13518

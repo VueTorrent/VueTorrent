@@ -6,7 +6,7 @@ defineProps<{
   root: TreeRoot
 }>()
 defineEmits<{
-  renameFolder: [node: TreeFolder],
+  renameFolder: [node: TreeFolder]
   renameFile: [node: TreeFile]
 }>()
 </script>
@@ -17,6 +17,4 @@ defineEmits<{
   </v-list>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -8,7 +8,7 @@ import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
-type PeerType = Peer & { host: string; }
+type PeerType = Peer & { host: string }
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
@@ -72,8 +72,7 @@ watch(() => props.isActive, setupTimer)
           <div>
             <v-list-item-title class="overflow-visible text-select">
               <span v-if="peer.country_code">
-                <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url"
-                     :title="peer.country" style="max-width: 32px" />
+                <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url" :title="peer.country" style="max-width: 32px" />
                 <span v-else :title="peer.country">{{ codeToFlag(peer.country_code).char }}</span>
               </span>
               <span>{{ peer.ip }}</span>
@@ -108,10 +107,7 @@ watch(() => props.isActive, setupTimer)
           <v-spacer />
 
           <div class="d-flex flex-column">
-            <v-btn color="red"
-                   icon="mdi-cancel"
-                   variant="text"
-                   @click="banPeer(peer)" />
+            <v-btn color="red" icon="mdi-cancel" variant="text" @click="banPeer(peer)" />
           </div>
         </div>
       </v-list-item>
@@ -136,9 +132,11 @@ watch(() => props.isActive, setupTimer)
               <v-container>
                 <v-row>
                   <v-col cols="12">
-                    <v-textarea v-model="newPeers" :label="t('torrentDetail.peers.addPeers.newPeers')"
-                                :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
-                                :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
+                    <v-textarea
+                      v-model="newPeers"
+                      :label="t('torrentDetail.peers.addPeers.newPeers')"
+                      :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
+                      :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
                   </v-col>
                 </v-row>
               </v-container>
@@ -158,10 +156,10 @@ watch(() => props.isActive, setupTimer)
 
 <style scoped>
 .gap {
-    gap: 8px;
+  gap: 8px;
 }
 
 .cursor-help {
-    cursor: help;
+  cursor: help;
 }
 </style>

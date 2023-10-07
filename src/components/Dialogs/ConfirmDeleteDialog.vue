@@ -79,6 +79,6 @@ const close = () => {
 
 <style scoped>
 .gap {
-    gap: 8px;
+  gap: 8px;
 }
 </style>

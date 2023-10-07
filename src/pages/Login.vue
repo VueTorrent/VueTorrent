@@ -53,23 +53,25 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-layout class="ma-10">
+  <v-layout class="mt-16">
     <v-card class="mx-auto" rounded="lg" min-width="250">
       <v-card-title>{{ t('login.title') }}</v-card-title>
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field v-model="loginForm.username"
-                        :label="t('login.username')"
-                        autofocus
-                        :rules="rules.username"
-                        @keydown.enter.prevent="login">
+          <v-text-field v-model="loginForm.username" :label="t('login.username')" autofocus :rules="rules.username" @keydown.enter.prevent="login" variant="outlined">
             <template v-slot:prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>
           </v-text-field>
 
-          <PasswordField v-model="loginForm.password" :label="t('login.password')" :rules="rules.password" prepend-icon="mdi-lock" @keydown.enter.prevent="login" />
+          <PasswordField
+            v-model="loginForm.password"
+            :label="t('login.password')"
+            :rules="rules.password"
+            prepend-icon="mdi-lock"
+            @keydown.enter.prevent="login"
+            variant="outlined" />
         </v-form>
       </v-card-text>
       <v-card-actions>
