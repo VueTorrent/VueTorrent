@@ -11,16 +11,27 @@ export default defineConfig(({ mode }) => {
   const qBittorrentPort = env.VITE_QBITTORRENT_PORT ?? '8080'
   const proxyTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
 
+  const version = process.env.NODE_ENV === 'production' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)
+
   return {
+    base: './',
     build: {
       target: 'esnext',
-      outDir: './vuetorrent/public'
+      outDir: './vuetorrent/public',
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vue: ['vue', 'vue-router']
+          }
+        }
+      }
     },
     define: {
+      'import.meta.env.VITE_PACKAGE_VERSION': version,
       'process.env': {}
     },
     plugins: [
-      vue(), 
+      vue(),
       vuetify(),
       VitePWA({
         includeAssets: ['favicon.ico', 'icon.svg', 'icon-192.png', 'icon-512.png', 'robots.txt'],
