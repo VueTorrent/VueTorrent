@@ -10,7 +10,8 @@
     "selectNone": "Select None",
     "selectAll": "Select All",
     "useGlobalSettings": "Use Global Settings",
-    "none": "(None)"
+    "none": "(None)",
+    "NA": "N/A"
   },
   "dashboard": {
     "not_complete": "Not Yet Completed",

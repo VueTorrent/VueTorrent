@@ -111,7 +111,8 @@ const longTextPpts = [
             <v-row>
               <InfoBase v-for="ppt in datetimePpts">
                 <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-                <template v-slot:text>{{ dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }} </template>
+                <template v-if="torrent[ppt.text] > 0" v-slot:text>{{ dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }} </template>
+                <template v-else v-slot:text> {{ $t('common.NA') }} </template>
               </InfoBase>
             </v-row>
           </v-expansion-panel-text>
