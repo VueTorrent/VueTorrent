@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.8.0](https://github.com/WDaan/VueTorrent/compare/v1.7.4...v1.8.0) (2023-10-04)
+
+
+### Features
+
+* login with url query ([#1108](https://github.com/WDaan/VueTorrent/issues/1108)) ([459b7e0](https://github.com/WDaan/VueTorrent/commit/459b7e08f2c630f6e92a459fd39b3dade7ef7fdf))
+
+
+### Bug Fixes
+
+* hungarian translations ([#1127](https://github.com/WDaan/VueTorrent/issues/1127)) ([2c9c9d5](https://github.com/WDaan/VueTorrent/commit/2c9c9d5ac197c1e56fec2f26c20fc631c2dc86e1))
+
+
+### Improvements
+
+* Add autofocus on login page ([#1117](https://github.com/WDaan/VueTorrent/issues/1117)) ([7ca220d](https://github.com/WDaan/VueTorrent/commit/7ca220dfa6eff9a6f943fcacd045ef6b8f2ce570))
+* add Hungarian translations ([#1121](https://github.com/WDaan/VueTorrent/issues/1121)) ([f584aad](https://github.com/WDaan/VueTorrent/commit/f584aadcea38e28251f7347a8d794eca8ce807a0))
+
 ## [1.7.4](https://github.com/WDaan/VueTorrent/compare/v1.7.3...v1.7.4) (2023-09-19)
 
 
