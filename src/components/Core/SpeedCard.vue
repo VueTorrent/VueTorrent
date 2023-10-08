@@ -34,9 +34,10 @@ const vueTorrentStore = useVueTorrentStore()
   </v-sheet>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@import '@fontsource-variable/roboto-mono';
 .roboto {
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Roboto Mono Variable', sans-serif !important;
   font-weight: 600;
 }
 </style>

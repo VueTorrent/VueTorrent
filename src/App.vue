@@ -91,5 +91,3 @@ watch(
     <AddTorrentDialog />
   </v-app>
 </template>
-
-<style scoped></style>

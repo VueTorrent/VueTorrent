@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import '@fontsource/roboto-mono'
+import '@fontsource-variable/roboto-mono'
 import '@/styles/styles.scss'
 import App from './App.vue'
 
