@@ -226,6 +226,19 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
+
+// mobile long press
+const timer = ref<NodeJS.Timeout>()
+
+function startPress(e: PointerEvent, torrent: TorrentType) {
+  timer.value = setTimeout(() => {
+    onRightClick(e, torrent)
+  }, 500)
+}
+
+function endPress() {
+  clearTimeout(timer.value)
+}
 </script>
 
 <template>
@@ -320,6 +333,9 @@ onBeforeUnmount(() => {
           :class="display.mobile ? 'mb-2' : 'mb-4'"
           class="pa-0"
           @contextmenu="onRightClick($event, torrent)"
+          @touchstart="startPress"
+          @touchend="endPress"
+          @touchcancel="endPress"
           @dblclick.prevent="goToInfo(torrent.hash)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
