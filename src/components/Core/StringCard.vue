@@ -7,7 +7,7 @@ defineProps<{ title: string; value: any; color: string }>()
     <v-row>
       <v-col cols="7" class="text-subtitle-1" :class="`text-${color}`">{{ title }}</v-col>
       <v-col cols="5" :class="`text-${color}`">
-        <span class="font-weight-bold text-subtitle-1">{{ value }}</span>
+        <span class="font-weight-normal text-subtitle-1">{{ value }}</span>
       </v-col>
     </v-row>
   </v-sheet>
