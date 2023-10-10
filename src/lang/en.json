@@ -282,7 +282,8 @@
           "registerMagnet": "Register magnet links",
           "importSettings": "Import Settings",
           "exportSettings": "Export Settings",
-          "resetSettings": "Reset Settings"
+          "resetSettings": "Reset Settings",
+          "disableAutoSearch": "Trigger search by click icon"
         },
         "desktopCard": {
           "busyTorrentTip": "Properties to display for busy torrents on desktop",

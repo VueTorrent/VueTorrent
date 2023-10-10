@@ -30,6 +30,7 @@ export default interface WebUISettings {
   showShutdownButton: boolean
   useBitSpeed: boolean
   useBinaryUnits: boolean
+  disableAutoSearch: boolean
   refreshInterval: number
   contentInterval: number
   torrentPieceCountRenderThreshold: number

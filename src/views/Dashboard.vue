@@ -23,6 +23,7 @@
             height="100%"
             width="100px"
             @click:clear="resetInput()"
+            @click:prepend-inner="manualSearch"
           />
         </v-card>
       </v-expand-x-transition>
@@ -280,7 +281,7 @@ export default {
         return this.dashboard.searchFilter
       },
       set: _.debounce(function (val) {
-        this.dashboard.searchFilter = val
+        if (val === null || val === '' || !this.getWebuiSettings().disableAutoSearch) this.dashboard.searchFilter = val
       }, 300)
     },
     topPagination() {
@@ -427,6 +428,9 @@ export default {
     },
     resetInput() {
       this.input = ''
+    },
+    manualSearch() {
+      this.dashboard.searchFilter = document.getElementById('searchInput').value
     },
     toTop() {
       this.$vuetify.goTo(0)
