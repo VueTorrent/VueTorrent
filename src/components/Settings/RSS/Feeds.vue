@@ -6,7 +6,6 @@ import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
 
 const rssStore = useRssStore()
 
-const dialog = ref(false)
 const timer = ref<NodeJS.Timeout>()
 const loading = ref(false)
 
@@ -31,6 +30,14 @@ async function updateFeedList() {
   loading.value = true
   await rssStore.fetchFeeds()
   loading.value = false
+}
+
+const dialog = ref(false)
+const initialFeed = ref<Feed>()
+
+function openFeedDialog(feed?: Feed) {
+  dialog.value = true
+  initialFeed.value = feed
 }
 
 onBeforeMount(async () => {
@@ -61,9 +68,8 @@ watch(dialog, value => {
             <v-icon v-else-if="feed.isLoading">mdi-cloud-sync</v-icon>
             <v-icon v-else>mdi-sync</v-icon>
           </v-btn>
-          <v-btn icon variant="plain" density="compact">
+          <v-btn icon variant="plain" density="compact" @click="openFeedDialog(feed)">
             <v-icon>mdi-pencil</v-icon>
-            <RssFeedDialog v-model="dialog" :initial-feed="feed" />
           </v-btn>
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteFeed(feed)" />
         </div>
@@ -77,15 +83,15 @@ watch(dialog, value => {
   </v-row>
   <v-row>
     <v-col cols="6" class="d-flex align-center justify-center">
-      <v-btn color="accent" @click.prevent>
+      <v-btn color="accent" @click="openFeedDialog()">
         {{ $t('settings.rss.feeds.createNew') }}
-        <RssFeedDialog v-model="dialog" />
       </v-btn>
     </v-col>
     <v-col cols="6" class="d-flex align-center justify-center">
       <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0" :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
     </v-col>
   </v-row>
+  <RssFeedDialog v-model="dialog" :initial-feed="initialFeed" disable-activator />
 </template>
 
 <style scoped lang="scss"></style>
