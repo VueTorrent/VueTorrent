@@ -4,7 +4,15 @@ import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import { computed, onBeforeMount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { useAppStore, useAuthStore, useLogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import {
+  useAppStore,
+  useAuthStore,
+  useDialogStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useVueTorrentStore
+} from '@/stores'
 
 import Navbar from '@/components/Navbar/Navbar.vue'
 
@@ -13,6 +21,7 @@ const route = useRoute()
 
 const authStore = useAuthStore()
 const appStore = useAppStore()
+const dialogStore = useDialogStore()
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
 const preferencesStore = usePreferenceStore()
@@ -83,6 +92,7 @@ watch(
 
 <template>
   <v-app class="text-noselect">
+    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component" v-bind="{ guid: dialog.guid, ...dialog.props }" />
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />

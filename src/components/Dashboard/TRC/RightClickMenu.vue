@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
-import { useDashboardStore, useMaindataStore, usePreferenceStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -17,6 +16,7 @@ const emit = defineEmits(['update:modelValue'])
 const { t } = useI18n()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 
@@ -44,12 +44,8 @@ async function pauseTorrents() {
   await maindataStore.pauseTorrents(hashes)
 }
 
-const deleteDialogVisible = ref(false)
-const deleteHashes = ref<string[]>([])
-
 function deleteTorrents() {
-  deleteHashes.value = [...dashboardStore.selectedTorrents]
-  deleteDialogVisible.value = true
+  dialogStore.createDialog('ConfirmDeleteDialog', { hashes: [...dashboardStore.selectedTorrents] })
 }
 
 const moveDialogVisible = ref(false)
@@ -310,7 +306,6 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-model="deleteDialogVisible" disable-activator :hashes="deleteHashes" />
   <MoveTorrentDialog v-model="moveDialogVisible" disable-activator :hashes="moveHashes" />
   <RenameTorrentDialog v-model="renameDialogVisible" disable-activator :hash="renameHash" />
 </template>

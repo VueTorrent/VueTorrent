@@ -1,9 +1,8 @@
 <script lang="ts" setup>
 import Torrent from '@/components/Dashboard/Torrent.vue'
 import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
-import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore, useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
@@ -17,9 +16,9 @@ const { t } = useI18n()
 const router = useRouter()
 const display = useDisplay()
 const dashboardStore = useDashboardStore()
+const dialogStore = useDialogStore()
 const { currentPage: dashboardPage, filteredTorrents, isSelectionMultiple, searchFilter, selectedTorrents, sortOptions, torrentCountString } = storeToRefs(useDashboardStore())
 const maindataStore = useMaindataStore()
-const navbarStore = useNavbarStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentSortOptions = [
@@ -78,7 +77,6 @@ const torrentSortOptions = [
 torrentSortOptions.splice(0, 0, { value: '', title: t('dashboard.sortBy.default') })
 
 const isSearchFilterVisible = ref(false)
-const isDeleteDialogVisible = ref(false)
 const trcProperties = reactive({
   isVisible: false,
   offset: [0, 0]
@@ -105,8 +103,6 @@ const {
 const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
-
-const isDialogVisible = computed(() => isDeleteDialogVisible.value || navbarStore.addTorrentDialogVisible)
 
 function toggleSelectTorrent(hash: string) {
   dashboardStore.toggleSelect(hash)
@@ -170,7 +166,7 @@ watch(
 )
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
-  if (isDialogVisible.value) {
+  if (dialogStore.isVisibleDialogs) {
     //e.preventDefault()
     return false
   }
@@ -207,7 +203,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     // no torrents select to delete
     if (selectedTorrents.value.length === 0) return
 
-    isDeleteDialogVisible.value = true
+    dialogStore.createDialog('ConfirmDeleteDialog', { hashes: dashboardStore.selectedTorrents })
   }
 }
 
@@ -360,7 +356,6 @@ function endPress() {
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
     <RightClickMenu v-model="trcProperties.isVisible" />
   </div>
-  <ConfirmDeleteDialog v-model="isDeleteDialogVisible" :hashes="dashboardStore.selectedTorrents" disable-activator />
 </template>
 
 <style>
