@@ -53,7 +53,7 @@
     "vite": "^4",
     "vite-plugin-eslint": "^1",
     "vite-plugin-pwa": "^0.16.5",
-    "vitest": "^0.34.4",
+    "vitest": "^0.34.6",
     "vue-template-compiler": "^2",
     "vue-typed-mixins": "^0.2.0"
   },
