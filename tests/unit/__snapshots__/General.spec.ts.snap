@@ -41,6 +41,9 @@ exports[`General > render correctly 1`] = `
       <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
         <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
       </v-col-stub>
+      <v-col-stub data-v-7da6d3e2=\\"\\" cols=\\"12\\" sm=\\"6\\" tag=\\"div\\">
+        <v-checkbox-stub data-v-7da6d3e2=\\"\\" errorcount=\\"1\\" errormessages=\\"\\" messages=\\"\\" rules=\\"\\" successmessages=\\"\\" backgroundcolor=\\"\\" hidedetails=\\"true\\" ripple=\\"true\\" valuecomparator=\\"[Function]\\" indeterminateicon=\\"$checkboxIndeterminate\\" officon=\\"$checkboxOff\\" onicon=\\"$checkboxOn\\" class=\\"ma-0 pa-0\\"></v-checkbox-stub>
+      </v-col-stub>
     </v-row-stub>
   </v-list-item-stub>
   <v-divider-stub data-v-7da6d3e2=\\"\\" class=\\"mb-5\\"></v-divider-stub>
