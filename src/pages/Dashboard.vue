@@ -167,7 +167,7 @@ watch(
 )
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
-  if (dialogStore.isVisibleDialogs) {
+  if (dialogStore.hasActiveDialog) {
     //e.preventDefault()
     return false
   }

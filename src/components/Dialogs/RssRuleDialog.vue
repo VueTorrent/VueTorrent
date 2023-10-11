@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
@@ -7,20 +8,14 @@ import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   initialRule?: FeedRule
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const rssStore = useRssStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -110,7 +105,7 @@ async function selectAll() {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 onBeforeMount(async () => {
@@ -128,7 +123,7 @@ onBeforeMount(async () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent" :title="$t(`dialogs.rss.rule.title.${initialRule ? 'edit' : 'create'}`)">

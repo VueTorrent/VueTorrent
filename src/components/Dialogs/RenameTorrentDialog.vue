@@ -1,23 +1,18 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useMaindataStore } from '@/stores'
 import { computed, onBeforeMount, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   hash: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const field = ref<HTMLInputElement>()
 const form = ref<VForm>()
@@ -41,7 +36,7 @@ async function submit() {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 onBeforeMount(() => {
@@ -53,7 +48,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>{{ $t('dialogs.renameTorrent.title') }}</v-card-title>
       <v-card-text>

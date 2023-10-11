@@ -1,25 +1,20 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useMaindataStore } from '@/stores'
-import { computed, nextTick, reactive, ref, watch } from 'vue'
+import { nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   hash: string
   isFolder: boolean
   oldName: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const form = ref<VForm>()
 const input = ref<HTMLInputElement>()
@@ -44,10 +39,10 @@ async function submit() {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
-watch(dialogVisible, value => {
+watch(isOpened, value => {
   if (!value) return
   formData.newName = props.oldName
 
@@ -65,7 +60,7 @@ watch(dialogVisible, value => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>{{ t('dialogs.moveTorrentFile.title', 1 + Number(isFolder)) }}</v-card-title>
       <v-card-text>

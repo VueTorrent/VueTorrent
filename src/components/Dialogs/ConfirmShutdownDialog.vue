@@ -1,27 +1,21 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useAppStore, useAuthStore, useVueTorrentStore } from '@/stores'
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
+const { isOpened } = useDialog(props.guid)
 const appStore = useAppStore()
 const authStore = useAuthStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
-
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 const shutdown = async () => {
   if (await appStore.shutdownQbit()) {
@@ -37,7 +31,7 @@ const shutdown = async () => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" width="auto" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened" width="auto">
     <v-card :title="$t('dialogs.shutdown.title')" :text="$t('dialogs.shutdown.content')">
       <v-card-actions class="justify-end">
         <v-spacer />

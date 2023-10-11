@@ -3,13 +3,14 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import RootNode from '@/components/TorrentDetail/Content/RootNode.vue'
 import { useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -19,7 +20,7 @@ const loading = ref(false)
 const cachedFiles = ref<TorrentFile[]>([])
 const { tree } = useTreeBuilder(cachedFiles)
 const openedItems = ref<string[]>([])
-const renameDialog = ref(false)
+const renameDialog = ref('')
 const renamePayload = reactive({
   hash: '',
   isFolder: false,
@@ -56,7 +57,7 @@ async function renameNode(node: TreeNode) {
   renamePayload.hash = props.torrent.hash
   renamePayload.isFolder = node.type === 'folder'
   renamePayload.oldName = node.fullName
-  renameDialog.value = true
+  renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
 }
 
 async function updateFileTree() {
@@ -83,7 +84,7 @@ watch(
     }
   }
 )
-watch(renameDialog, v => {
+watch(() => dialogStore.isDialogOpened(renameDialog.value), v => {
   if (!v) {
     updateFileTree()
   }
@@ -106,7 +107,6 @@ onMounted(() => {
     https://github.com/vuetifyjs/vuetify/issues/13518
     -->
   </v-card>
-  <MoveTorrentFileDialog v-model="renameDialog" v-bind="renamePayload" disable-activator />
 </template>
 
 <style scoped></style>

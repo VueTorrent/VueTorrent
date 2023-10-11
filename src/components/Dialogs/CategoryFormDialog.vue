@@ -1,24 +1,19 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useMaindataStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   initialCategory?: Category
 }>()
-const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
+const { isOpened } = useDialog(props.guid)
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -42,7 +37,7 @@ async function submit() {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 onBeforeMount(() => {
@@ -52,7 +47,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>{{ $t(`dialogs.category.title.${initialCategory ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>

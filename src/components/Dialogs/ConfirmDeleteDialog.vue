@@ -8,11 +8,10 @@ import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   guid: string
-  disableActivator?: boolean
   hashes: string[]
 }>()
 
-const { isDialogOpen } = useDialog(props.guid)
+const { isOpened } = useDialog(props.guid)
 
 const route = useRoute()
 const router = useRouter()
@@ -43,12 +42,12 @@ async function submit() {
 }
 
 const close = () => {
-  isDialogOpen.value = false
+  isOpened.value = false
 }
 </script>
 
 <template>
-  <v-dialog v-model="isDialogOpen" :activator="disableActivator ? undefined : 'parent'" max-width="1000">
+  <v-dialog v-model="isOpened" max-width="1000">
     <v-card>
       <v-card-title>{{ t('dialogs.delete.title', selection.length) }}</v-card-title>
       <v-card-text>

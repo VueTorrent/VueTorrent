@@ -1,16 +1,15 @@
 <script setup lang="ts">
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
-import { useMaindataStore } from '@/stores'
+import { useDialogStore, useMaindataStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, ref, watch } from 'vue'
 
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 
-const tagDialog = ref(false)
-const tagEditDialog = ref(false)
-const categoryDialog = ref(false)
-const categoryEditDialog = ref(false)
+const tagDialog = ref('')
+const categoryDialog = ref('')
 
 async function deleteTag(tagName: string) {
   await maindataStore.deleteTags([tagName])
@@ -22,17 +21,26 @@ async function deleteCategory(category: Category) {
   await maindataStore.fetchCategories()
 }
 
+function openTagFormDialog(initialTag?: string) {
+  tagDialog.value = dialogStore.createDialog(TagFormDialog, { initialTag })
+}
+
+function openCategoryFormDialog(initialCategory?: Category) {
+  categoryDialog.value = dialogStore.createDialog(CategoryFormDialog, { initialCategory })
+}
+
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
   await maindataStore.fetchTags()
 })
 
-watch(tagDialog, value => {
+watch(() => dialogStore.isDialogOpened(tagDialog.value), value => {
   if (!value) {
     maindataStore.fetchTags()
   }
 })
-watch(categoryDialog, value => {
+
+watch(() => dialogStore.isDialogOpened(categoryDialog.value), value => {
   if (!value) {
     maindataStore.fetchCategories()
   }
@@ -49,10 +57,7 @@ watch(categoryDialog, value => {
         <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
         <v-spacer />
         <div class="d-flex">
-          <v-btn icon variant="plain">
-            <v-icon>mdi-pencil</v-icon>
-            <TagFormDialog v-model="tagEditDialog" :initial-tag="tag" />
-          </v-btn>
+          <v-btn icon="mdi-pencil" variant="plain" @click="openTagFormDialog(tag)" />
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteTag(tag)" />
         </div>
       </v-sheet>
@@ -61,9 +66,8 @@ watch(categoryDialog, value => {
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click.prevent>
+      <v-btn color="accent" block @click="openTagFormDialog()">
         {{ $t('settings.tagsAndCategories.createNewTag') }}
-        <TagFormDialog v-model="tagDialog" />
       </v-btn>
     </v-col>
 
@@ -75,10 +79,7 @@ watch(categoryDialog, value => {
         <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
         <v-spacer />
         <div class="d-flex">
-          <v-btn icon variant="plain">
-            <v-icon>mdi-pencil</v-icon>
-            <CategoryFormDialog v-model="categoryEditDialog" :initial-category="category" />
-          </v-btn>
+          <v-btn icon="mdi-pencil" variant="plain" @click="openCategoryFormDialog(category)" />
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteCategory(category)" />
         </div>
       </v-sheet>
@@ -87,9 +88,8 @@ watch(categoryDialog, value => {
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click.prevent>
+      <v-btn color="accent" block @click="openCategoryFormDialog()">
         {{ $t('settings.tagsAndCategories.createNewCategory') }}
-        <CategoryFormDialog v-model="categoryDialog" />
       </v-btn>
     </v-col>
   </v-row>

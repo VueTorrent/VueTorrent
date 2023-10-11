@@ -3,7 +3,7 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { PieceState, FilePriority, TorrentState } from '@/constants/qbit'
 import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, ref, watch } from 'vue'
@@ -14,12 +14,11 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const theme = useTheme()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const canvas = ref<HTMLCanvasElement>()
-const moveTorrentDialogVisible = ref(false)
-const moveTorrentFileDialogVisible = ref(false)
 
 const comment = ref('')
 const downloadSpeedAvg = ref(0)
@@ -116,6 +115,14 @@ async function copyHash() {
   await navigator.clipboard.writeText(props.torrent.hash)
 }
 
+function openMoveTorrentDialog() {
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash] })
+}
+
+function openMoveTorrentFileDialog() {
+  dialogStore.createDialog(MoveTorrentFileDialog, { hash: props.torrent.hash, isFolder: false, oldName: torrentFileName.value })
+}
+
 watch(
   () => props.torrent,
   async () => {
@@ -197,19 +204,13 @@ watch(
             <v-col cols="6">
               <div>{{ $t('torrent.properties.save_path') }}:</div>
               <div>{{ torrent.savePath }}</div>
-              <v-btn icon color="accent" size="x-small">
-                <v-icon icon="mdi-pencil" color="black" />
-                <MoveTorrentDialog v-model="moveTorrentDialogVisible" :hashes="[torrent.hash]" />
-              </v-btn>
+              <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
               <div>{{ selectedFileCount }} / {{ torrentFileCount }}</div>
               <div v-if="selectedFileCount === 1">{{ torrentFileName }}</div>
-              <v-btn v-if="selectedFileCount === 1" icon color="accent" size="x-small">
-                <v-icon icon="mdi-pencil" />
-                <MoveTorrentFileDialog v-model="moveTorrentFileDialogVisible" :hash="torrent.hash" :is-folder="false" :old-name="torrentFileName" />
-              </v-btn>
+              <v-btn v-if="selectedFileCount === 1" icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentFileDialog" />
             </v-col>
           </v-row>
         </v-col>

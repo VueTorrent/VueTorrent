@@ -5,7 +5,7 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -49,20 +49,12 @@ function deleteTorrents() {
   dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
 
-const moveDialogVisible = ref(false)
-const moveHashes = ref<string[]>([])
-
 function moveTorrents() {
-  moveHashes.value = [...dashboardStore.selectedTorrents]
-  moveDialogVisible.value = true
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
 
-const renameDialogVisible = ref(false)
-const renameHash = ref<string>('')
-
 function renameTorrents() {
-  renameHash.value = dashboardStore.selectedTorrents[0]
-  renameDialogVisible.value = true
+  dialogStore.createDialog(RenameTorrentDialog, { hash: dashboardStore.selectedTorrents[0] })
 }
 
 async function forceRecheck() {
@@ -307,8 +299,6 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <MoveTorrentDialog v-model="moveDialogVisible" disable-activator :hashes="moveHashes" />
-  <RenameTorrentDialog v-model="renameDialogVisible" disable-activator :hash="renameHash" />
 </template>
 
 <style scoped lang="scss">

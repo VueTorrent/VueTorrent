@@ -17,7 +17,11 @@ export const useDialogStore = defineStore('dialogs',
   () => {
     const dialogs = ref<DialogTemplate<any>[]>([])
 
-    const isVisibleDialogs = computed(() => dialogs.value.length > 1 || useNavbarStore().addTorrentDialogVisible)
+    const hasActiveDialog = computed(() => dialogs.value.length > 1 || useNavbarStore().addTorrentDialogVisible)
+
+    function isDialogOpened(guid: string) {
+      return !!dialogs.value.find(dialog => dialog.guid === guid)
+    }
 
     function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>) {
       const guid = uuidv4()
@@ -36,5 +40,5 @@ export const useDialogStore = defineStore('dialogs',
       dialogs.value = dialogs.value.filter(dialog => dialog.guid !== guid)
     }
 
-    return { dialogs, isVisibleDialogs, createDialog, deleteDialog }
+    return { dialogs, hasActiveDialog, isDialogOpened, createDialog, deleteDialog }
   })

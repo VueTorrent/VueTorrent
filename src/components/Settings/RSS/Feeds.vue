@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
-import { useRssStore } from '@/stores'
+import { useDialogStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
 
+const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 const timer = ref<NodeJS.Timeout>()
 const loading = ref(false)
+const feedDialog = ref('')
 
 async function refreshFeed(item: Feed, updateList = true) {
   await rssStore.refreshFeed(item.name)
@@ -32,12 +34,8 @@ async function updateFeedList() {
   loading.value = false
 }
 
-const dialog = ref(false)
-const initialFeed = ref<Feed>()
-
-function openFeedDialog(feed?: Feed) {
-  dialog.value = true
-  initialFeed.value = feed
+function openFeedDialog(initialFeed?: Feed) {
+  feedDialog.value = dialogStore.createDialog(RssFeedDialog, { initialFeed })
 }
 
 onBeforeMount(async () => {
@@ -49,7 +47,7 @@ onUnmounted(() => {
   clearInterval(timer.value)
 })
 
-watch(dialog, value => {
+watch(() => dialogStore.isDialogOpened(feedDialog.value), value => {
   if (!value) {
     updateFeedList()
   }
@@ -91,7 +89,6 @@ watch(dialog, value => {
       <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0" :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
     </v-col>
   </v-row>
-  <RssFeedDialog v-model="dialog" :initial-feed="initialFeed" disable-activator />
 </template>
 
 <style scoped lang="scss"></style>

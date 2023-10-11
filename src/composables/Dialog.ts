@@ -5,7 +5,7 @@ export function useDialog(guid: string) {
   const hndlDialog = ref(true)
   const dialogStore = useDialogStore()
 
-  const isDialogOpen = computed({
+  const isOpened = computed({
     get: () => hndlDialog.value,
     set: v => {
       hndlDialog.value = v
@@ -19,5 +19,5 @@ export function useDialog(guid: string) {
 
   onUnmounted(deleteDialog)
 
-  return { isDialogOpen }
+  return { isOpened }
 }
