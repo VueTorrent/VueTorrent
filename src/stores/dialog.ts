@@ -1,24 +1,28 @@
 import { useNavbarStore } from '@/stores/navbar.ts'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
-import { computed, ref } from 'vue'
+import { AllowedComponentProps, Component, computed, ref, VNodeProps } from 'vue'
 
-type DialogTemplate = {
-  component: string
-  props: Object
+type ComponentProps<C extends Component> = C extends new (...args: any) => any
+  ? Omit<InstanceType<C>['$props'], keyof VNodeProps | keyof AllowedComponentProps>
+  : never;
+
+type DialogTemplate<C extends Component> = {
+  component: C
+  props: ComponentProps<C>
   guid: string
 }
 
 export const useDialogStore = defineStore('dialogs',
   () => {
-    const dialogs = ref<DialogTemplate[]>([])
+    const dialogs = ref<DialogTemplate<any>[]>([])
 
     const isVisibleDialogs = computed(() => dialogs.value.length > 1 || useNavbarStore().addTorrentDialogVisible)
 
-    function createDialog(componentName: string, props?: Object) {
+    function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>) {
       const guid = uuidv4()
       const template = {
-        component: componentName,
+        component,
         props: props || {},
         guid
       }

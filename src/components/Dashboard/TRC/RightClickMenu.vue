@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.vue'
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
@@ -45,7 +46,7 @@ async function pauseTorrents() {
 }
 
 function deleteTorrents() {
-  dialogStore.createDialog('ConfirmDeleteDialog', { hashes: [...dashboardStore.selectedTorrents] })
+  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
 
 const moveDialogVisible = ref(false)

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useDashboardStore, useDialogStore, useMaindataStore, useNavbarStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -24,7 +25,7 @@ const pauseTorrents = async () => {
 const deleteTorrents = () => {
   if (!hashes.value.length) return
 
-  dialogStore.createDialog('ConfirmDeleteDialog', { hashes: [...hashes.value], disableActivator: true })
+  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...hashes.value] })
 }
 const openSearchEngine = () => {
   router.push({ name: 'searchEngine' })

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Torrent from '@/components/Dashboard/Torrent.vue'
 import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
@@ -203,7 +204,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     // no torrents select to delete
     if (selectedTorrents.value.length === 0) return
 
-    dialogStore.createDialog('ConfirmDeleteDialog', { hashes: dashboardStore.selectedTorrents })
+    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: dashboardStore.selectedTorrents })
   }
 }
 
