@@ -1,6 +1,6 @@
 export enum Locales {
   EN = 'en',
-  // ES = 'es',
+  ES = 'es',
   FR = 'fr'
   // ID = 'id',
   // IT = 'it',
@@ -21,7 +21,7 @@ type LocaleDef = {
 
 export const LOCALES: LocaleDef[] = [
   { title: 'English', value: Locales.EN },
-  // { title: 'Español', value: Locales.ES },
+  { title: 'Español', value: Locales.ES },
   { title: 'Français', value: Locales.FR }
   // { title: 'Bahasa Indonesia', value: Locales.ID },
   // { title: 'Italiano', value: Locales.IT },

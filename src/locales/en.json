@@ -2,11 +2,11 @@
   "common": {
     "cancel": "Cancel",
     "close": "Close",
-    "save": "Save",
     "delete": "Delete",
     "ok": "OK",
     "yes": "Yes",
     "no": "No",
+    "save": "Save",
     "selectNone": "Select None",
     "selectAll": "Select All",
     "useGlobalSettings": "Use Global Settings",
