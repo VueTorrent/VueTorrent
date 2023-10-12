@@ -11,7 +11,8 @@
     "selectAll": "Select All",
     "useGlobalSettings": "Use Global Settings",
     "none": "(None)",
-    "NA": "N/A"
+    "NA": "N/A",
+    "emptyList": "Nothing to see here!"
   },
   "dashboard": {
     "not_complete": "Not Yet Completed",
@@ -77,7 +78,6 @@
       "upspeed": "Upload Speed"
     },
     "selectAll": "(Un)select All (Ctrl + A)",
-    "emptyTorrentList": "Nothing to see here!",
     "right_click": {
       "advanced": {
         "title": "Advanced",
@@ -123,14 +123,15 @@
   },
   "logs": {
     "title": "qBittorrent Logs",
-    "table": {
-      "id": "Log ID",
-      "type": "Log Level",
-      "message": "Message",
-      "timestamp": "Log Date"
-    },
     "filters": {
-      "type": "Log Level"
+      "type": "Log Level",
+      "sortBy": {
+        "label": "Sort by",
+        "id": "Log ID",
+        "type": "Log Level",
+        "message": "Message",
+        "timestamp": "Log Date"
+      }
     }
   },
   "rssArticles": {
@@ -140,7 +141,6 @@
       "unread": "Show unread articles only"
     },
     "markAllAsRead": "Mark all as read",
-    "emptyRssList": "Nothing to see here!",
     "item": {
       "feedName": "Feed name: {name}",
       "author": "Author: {author}",
