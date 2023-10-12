@@ -4,8 +4,8 @@
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
 </div>
 
-![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
-![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen)
+![Vue](https://img.shields.io/badge/Vue-%5E3.3.4-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.3.15-brightgreen)
 
 ![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
 ![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
@@ -108,8 +108,6 @@ but before you do that:
 
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
-## Credits
-
-- [qBittorrent](https://github.com/qbittorrent/qBittorrent)
-- Many thanks [@m4ximuel](https://github.com/m4ximuel) for designing the icon & helping out with the project
+## Contributors
+- [@m4ximuel](https://github.com/m4ximuel)
 - [@Larsluph](https://github.com/Larsluph)

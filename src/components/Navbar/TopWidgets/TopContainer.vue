@@ -50,12 +50,24 @@ const openSettings = () => {
 
   <v-divider inset vertical />
 
-  <TopOverflow v-if="$vuetify.display.mobile" @deleteTorrents="deleteTorrents" @openLogs="openLogs"
-               @openSearchEngine="openSearchEngine" @openSettings="openSettings" @openrssArticles="openrssArticles"
-               @pauseTorrents="pauseTorrents" @resumeTorrents="resumeTorrents" />
-  <TopActions v-else @deleteTorrents="deleteTorrents" @openLogs="openLogs" @openSearchEngine="openSearchEngine"
-              @openSettings="openSettings" @openrssArticles="openrssArticles" @pauseTorrents="pauseTorrents"
-              @resumeTorrents="resumeTorrents" />
+  <TopOverflow
+    v-if="$vuetify.display.mobile"
+    @deleteTorrents="deleteTorrents"
+    @openLogs="openLogs"
+    @openSearchEngine="openSearchEngine"
+    @openSettings="openSettings"
+    @openrssArticles="openrssArticles"
+    @pauseTorrents="pauseTorrents"
+    @resumeTorrents="resumeTorrents" />
+  <TopActions
+    v-else
+    @deleteTorrents="deleteTorrents"
+    @openLogs="openLogs"
+    @openSearchEngine="openSearchEngine"
+    @openSettings="openSettings"
+    @openrssArticles="openrssArticles"
+    @pauseTorrents="pauseTorrents"
+    @resumeTorrents="resumeTorrents" />
 </template>
 
 <style scoped></style>

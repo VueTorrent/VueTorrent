@@ -10,4 +10,16 @@ import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
 import { useVueTorrentStore } from './vuetorrent'
 
-export { useAppStore, useAuthStore, useDashboardStore, useDialogStore, useLogStore, useMaindataStore, useNavbarStore, usePreferenceStore, useRssStore, useSearchEngineStore, useVueTorrentStore }
+export {
+  useAppStore,
+  useAuthStore,
+  useDashboardStore,
+  useDialogStore,
+  useLogStore,
+  useMaindataStore,
+  useNavbarStore,
+  usePreferenceStore,
+  useRssStore,
+  useSearchEngineStore,
+  useVueTorrentStore
+}

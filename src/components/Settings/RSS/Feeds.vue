@@ -47,11 +47,14 @@ onUnmounted(() => {
   clearInterval(timer.value)
 })
 
-watch(() => dialogStore.isDialogOpened(feedDialog.value), value => {
-  if (!value) {
-    updateFeedList()
+watch(
+  () => dialogStore.isDialogOpened(feedDialog.value),
+  value => {
+    if (!value) {
+      updateFeedList()
+    }
   }
-})
+)
 </script>
 
 <template>

@@ -84,11 +84,14 @@ watch(
     }
   }
 )
-watch(() => dialogStore.isDialogOpened(renameDialog.value), v => {
-  if (!v) {
-    updateFileTree()
+watch(
+  () => dialogStore.isDialogOpened(renameDialog.value),
+  v => {
+    if (!v) {
+      updateFileTree()
+    }
   }
-})
+)
 
 onBeforeUnmount(() => {
   clearInterval(timer.value as NodeJS.Timeout)

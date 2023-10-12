@@ -20,6 +20,11 @@ export interface NetworkInterface {
   value: string
 }
 
+export interface NetworkInterface {
+  name: string
+  value: string
+}
+
 export default interface AppPreferences {
   /** List of trackers to add to new torrent */
   add_trackers: string

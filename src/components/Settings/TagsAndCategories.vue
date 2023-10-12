@@ -34,17 +34,23 @@ onBeforeMount(async () => {
   await maindataStore.fetchTags()
 })
 
-watch(() => dialogStore.isDialogOpened(tagDialog.value), value => {
-  if (!value) {
-    maindataStore.fetchTags()
+watch(
+  () => dialogStore.isDialogOpened(tagDialog.value),
+  value => {
+    if (!value) {
+      maindataStore.fetchTags()
+    }
   }
-})
+)
 
-watch(() => dialogStore.isDialogOpened(categoryDialog.value), value => {
-  if (!value) {
-    maindataStore.fetchCategories()
+watch(
+  () => dialogStore.isDialogOpened(categoryDialog.value),
+  value => {
+    if (!value) {
+      maindataStore.fetchCategories()
+    }
   }
-})
+)
 </script>
 
 <template>
