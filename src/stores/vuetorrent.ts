@@ -5,6 +5,7 @@ import { useMaindataStore } from '@/stores/maindata'
 import { PropertyData, TorrentProperty } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
+import { useMatchMedia } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
@@ -76,6 +77,9 @@ export const useVueTorrentStore = defineStore(
     watch(darkMode, updateTheme)
     watch(matchSystemTheme, updateSystemTheme)
 
+    const { matches } = useMatchMedia('(prefers-color-scheme: dark)')
+    watch(matches, handleSystemThemeSwitch)
+
     function setLanguage(newLang: string) {
       i18n.locale.value = newLang
     }
@@ -84,18 +88,14 @@ export const useVueTorrentStore = defineStore(
       theme.global.name.value = getCurrentThemeName.value
     }
 
-    function handleSystemThemeSwitch(e: { matches: boolean }) {
-      darkMode.value = e.matches
+    function updateSystemTheme() {
+      handleSystemThemeSwitch(matches.value)
     }
 
-    const mq = window.matchMedia('(prefers-color-scheme: dark)')
-    function updateSystemTheme() {
-      if (matchSystemTheme.value) {
-        mq.addEventListener('change', handleSystemThemeSwitch)
-        handleSystemThemeSwitch(mq)
-      } else {
-        mq.removeEventListener('change', handleSystemThemeSwitch)
-      }
+    function handleSystemThemeSwitch(matches: boolean) {
+      if (!matchSystemTheme.value) return
+
+      darkMode.value = matches
     }
 
     function toggleTheme() {
