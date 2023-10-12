@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
-import { useNavbarStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useNavbarStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -12,6 +12,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
+const dialogStore = useDialogStore()
 const navbarStore = useNavbarStore()
 const searchEngineStore = useSearchEngineStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -107,6 +108,10 @@ const goHome = () => {
   router.push({ name: 'dashboard' })
 }
 
+function openPluginManagerDialog() {
+  dialogStore.createDialog(PluginManagerDialog)
+}
+
 function handleKeyboardShortcut(e: KeyboardEvent) {
   if (isDialogVisible.value) {
     return false
@@ -150,10 +155,7 @@ onBeforeUnmount(() => {
       <v-col>
         <div class="d-flex justify-end">
           <v-btn icon="mdi-stop" variant="plain" color="error" @click="stopAllSearch" />
-          <v-btn icon variant="plain" color="primary">
-            <v-icon>mdi-toy-brick</v-icon>
-            <PluginManagerDialog v-model="pluginManagerDialogVisible" />
-          </v-btn>
+          <v-btn icon="mdi-toy-brick" variant="plain" color="primary" @click="openPluginManagerDialog" />
           <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>

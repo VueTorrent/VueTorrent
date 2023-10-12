@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore, useMaindataStore, useNavbarStore } from '@/stores'
-import { computed, ref } from 'vue'
+import { useDashboardStore, useDialogStore, useMaindataStore, useNavbarStore } from '@/stores'
+import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
 import TopOverflow from './TopOverflow.vue'
@@ -9,11 +9,9 @@ import TopOverflow from './TopOverflow.vue'
 const route = useRoute()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const navbarStore = useNavbarStore()
-
-const deleteTorrentDialogVisible = ref(false)
-const deleteHashes = ref<string[]>([])
 
 const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
 const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
@@ -27,8 +25,7 @@ const pauseTorrents = async () => {
 const deleteTorrents = () => {
   if (!hashes.value.length) return
 
-  deleteTorrentDialogVisible.value = true
-  deleteHashes.value = [...hashes.value]
+  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...hashes.value] })
 }
 const openSearchEngine = () => {
   router.push({ name: 'searchEngine' })
@@ -51,28 +48,14 @@ const openSettings = () => {
     </template>
   </v-tooltip>
 
-  <v-divider vertical inset />
+  <v-divider inset vertical />
 
-  <TopOverflow
-    v-if="$vuetify.display.mobile"
-    @resumeTorrents="resumeTorrents"
-    @pauseTorrents="pauseTorrents"
-    @deleteTorrents="deleteTorrents"
-    @openSearchEngine="openSearchEngine"
-    @openrssArticles="openrssArticles"
-    @openLogs="openLogs"
-    @openSettings="openSettings" />
-  <TopActions
-    v-else
-    @resumeTorrents="resumeTorrents"
-    @pauseTorrents="pauseTorrents"
-    @deleteTorrents="deleteTorrents"
-    @openSearchEngine="openSearchEngine"
-    @openrssArticles="openrssArticles"
-    @openLogs="openLogs"
-    @openSettings="openSettings" />
-
-  <ConfirmDeleteDialog v-model="deleteTorrentDialogVisible" :hashes="deleteHashes" disable-activator />
+  <TopOverflow v-if="$vuetify.display.mobile" @deleteTorrents="deleteTorrents" @openLogs="openLogs"
+               @openSearchEngine="openSearchEngine" @openSettings="openSettings" @openrssArticles="openrssArticles"
+               @pauseTorrents="pauseTorrents" @resumeTorrents="resumeTorrents" />
+  <TopActions v-else @deleteTorrents="deleteTorrents" @openLogs="openLogs" @openSearchEngine="openSearchEngine"
+              @openSettings="openSettings" @openrssArticles="openrssArticles" @pauseTorrents="pauseTorrents"
+              @resumeTorrents="resumeTorrents" />
 </template>
 
 <style scoped></style>

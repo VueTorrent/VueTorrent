@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -6,11 +7,11 @@ import { useRoute, useRouter } from 'vue-router'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   hashes: string[]
 }>()
-const emit = defineEmits(['update:modelValue'])
+
+const { isOpened } = useDialog(props.guid)
 
 const route = useRoute()
 const router = useRouter()
@@ -18,11 +19,6 @@ const { t } = useI18n()
 const dashboardStore = useDashboardStore()
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -41,17 +37,17 @@ async function submit() {
   close()
 
   if (route.name === 'torrentDetail') {
-    router.push({ name: 'dashboard' })
+    await router.push({ name: 'dashboard' })
   }
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'" max-width="1000">
+  <v-dialog v-model="isOpened" max-width="1000">
     <v-card>
       <v-card-title>{{ t('dialogs.delete.title', selection.length) }}</v-card-title>
       <v-card-text>

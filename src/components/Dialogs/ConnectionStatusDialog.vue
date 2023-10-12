@@ -1,21 +1,16 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const connectionStatusColor = computed(() => {
   switch (maindataStore.serverState?.connection_status) {
@@ -31,12 +26,12 @@ const connectionStatusColor = computed(() => {
 })
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-text>
         <v-list>

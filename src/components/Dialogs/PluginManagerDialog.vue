@@ -1,16 +1,16 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const searchEngineStore = useSearchEngineStore()
 
@@ -22,14 +22,10 @@ const headers = [
   { title: t('dialogs.pluginManager.headers.actions'), key: 'actions' }
 ]
 
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 const loading = ref(false)
 const updateLoading = ref(false)
 
-const installDialogVisible = ref(false)
+const installisOpened = ref(false)
 const isInstallFormValid = ref(false)
 const installInput = ref('')
 
@@ -69,16 +65,16 @@ async function uninstallPlugin(plugin: SearchPlugin) {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 function closeInstallDialog() {
-  installDialogVisible.value = false
+  installisOpened.value = false
 }
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title class="d-flex">
         <div>
@@ -88,7 +84,7 @@ function closeInstallDialog() {
         <v-spacer />
 
         <v-btn :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
-        <v-dialog v-model="installDialogVisible">
+        <v-dialog v-model="installisOpened">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" color="primary">
               {{ $t('dialogs.pluginManager.install.activator') }}

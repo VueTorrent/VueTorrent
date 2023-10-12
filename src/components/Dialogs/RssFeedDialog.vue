@@ -1,22 +1,17 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { onBeforeMount, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   initialFeed?: Feed
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const rssStore = useRssStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -36,7 +31,7 @@ async function save() {
 }
 
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 onBeforeMount(() => {
@@ -48,7 +43,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>{{ $t(`dialogs.rss.feed.title.${initialFeed ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>

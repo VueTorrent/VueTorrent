@@ -2,13 +2,14 @@
 import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useAppStore, useAuthStore, useMaindataStore, useVueTorrentStore } from '@/stores'
-import { computed, ref } from 'vue'
+import { useAppStore, useAuthStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const authStore = useAuthStore()
 const appStore = useAppStore()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const vueTorrentStore = useVueTorrentStore()
 
@@ -42,15 +43,19 @@ const connectionStatusText = computed(() => {
   return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${key}`) })
 })
 
-const connStatusDialog = ref(false)
-const shutdownDialog = ref(false)
-
 const logout = async () => {
   await authStore.logout()
   await vueTorrentStore.redirectToLogin()
 }
 const toggleAltSpeed = () => {
   appStore.toggleAlternativeMode()
+}
+
+function openConnectionStatusDialog() {
+  dialogStore.createDialog(ConnectionStatusDialog)
+}
+function openConfirmShutdownDialog() {
+  dialogStore.createDialog(ConfirmShutdownDialog)
 }
 </script>
 
@@ -80,10 +85,7 @@ const toggleAltSpeed = () => {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="connectionStatusText" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn variant="plain" icon v-bind="props">
-            <v-icon :icon="connectionStatusIcon" />
-            <ConnectionStatusDialog v-model="connStatusDialog" />
-          </v-btn>
+          <v-btn variant="plain" :icon="connectionStatusIcon" v-bind="props" @click="openConnectionStatusDialog" />
         </template>
       </v-tooltip>
     </v-col>
@@ -105,9 +107,8 @@ const toggleAltSpeed = () => {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="t('navbar.side.bottom_actions.shutdown')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn block color="error" rounded="0" v-bind="props">
+          <v-btn block color="error" rounded="0" v-bind="props" @click="openConfirmShutdownDialog">
             <v-icon size="x-large">mdi-power</v-icon>
-            <ConfirmShutdownDialog v-model="shutdownDialog" />
           </v-btn>
         </template>
       </v-tooltip>

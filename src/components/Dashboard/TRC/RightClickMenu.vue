@@ -3,9 +3,9 @@ import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
-import { useDashboardStore, useMaindataStore, usePreferenceStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -17,6 +17,7 @@ const emit = defineEmits(['update:modelValue'])
 const { t } = useI18n()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 
@@ -44,28 +45,16 @@ async function pauseTorrents() {
   await maindataStore.pauseTorrents(hashes)
 }
 
-const deleteDialogVisible = ref(false)
-const deleteHashes = ref<string[]>([])
-
 function deleteTorrents() {
-  deleteHashes.value = [...dashboardStore.selectedTorrents]
-  deleteDialogVisible.value = true
+  dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
-
-const moveDialogVisible = ref(false)
-const moveHashes = ref<string[]>([])
 
 function moveTorrents() {
-  moveHashes.value = [...dashboardStore.selectedTorrents]
-  moveDialogVisible.value = true
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
 
-const renameDialogVisible = ref(false)
-const renameHash = ref<string>('')
-
 function renameTorrents() {
-  renameHash.value = dashboardStore.selectedTorrents[0]
-  renameDialogVisible.value = true
+  dialogStore.createDialog(RenameTorrentDialog, { hash: dashboardStore.selectedTorrents[0] })
 }
 
 async function forceRecheck() {
@@ -310,9 +299,6 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
     </v-list>
   </v-menu>
-  <ConfirmDeleteDialog v-model="deleteDialogVisible" disable-activator :hashes="deleteHashes" />
-  <MoveTorrentDialog v-model="moveDialogVisible" disable-activator :hashes="moveHashes" />
-  <RenameTorrentDialog v-model="renameDialogVisible" disable-activator :hash="renameHash" />
 </template>
 
 <style scoped lang="scss">

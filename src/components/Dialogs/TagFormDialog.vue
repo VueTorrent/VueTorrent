@@ -1,23 +1,18 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables/Dialog.ts'
 import { useMaindataStore } from '@/stores'
-import { computed, onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
-  modelValue: boolean
-  disableActivator?: boolean
+  guid: string
   initialTag?: string
 }>()
-const emit = defineEmits(['update:modelValue'])
 
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
-
-const dialogVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -37,7 +32,7 @@ async function submit() {
   close()
 }
 const close = () => {
-  dialogVisible.value = false
+  isOpened.value = false
 }
 
 onBeforeMount(() => {
@@ -46,7 +41,7 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <v-dialog v-model="dialogVisible" :activator="disableActivator ? undefined : 'parent'">
+  <v-dialog v-model="isOpened">
     <v-card>
       <v-card-title>{{ $t(`dialogs.tag.title.${initialTag ? 'rename' : 'create'}`) }}</v-card-title>
       <v-card-text>
