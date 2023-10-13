@@ -31,7 +31,7 @@
     "vue3-apexcharts": "^1.4.4",
     "vue3-toastify": "^0.1.12",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.3.15"
+    "vuetify": "^3.3.21"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.1.0",

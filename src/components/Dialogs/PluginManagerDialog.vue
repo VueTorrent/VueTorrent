@@ -108,13 +108,13 @@ function closeInstallDialog() {
       <v-card-text>
         <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
           <template v-slot:item.enabled="{ item }">
-            <v-checkbox-btn :model-value="item.raw.enabled" @click="onTogglePlugin(item.raw)" />
+            <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>
           <template v-slot:item.url="{ item }">
-            <a :href="item.raw.url" :title="item.raw.name">{{ item.raw.url }}</a>
+            <a :href="item.url" :title="item.name">{{ item.url }}</a>
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item.raw)" />
+            <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item)" />
           </template>
           <template v-slot:tfoot></template>
         </v-data-table>
