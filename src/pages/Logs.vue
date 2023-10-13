@@ -4,6 +4,7 @@ import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
 import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
+import { useArrayPagination, useInterval } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -14,10 +15,10 @@ const logStore = useLogStore()
 const vueTorrentStore = useVueTorrentStore()
 
 const headers = ref([
-  { title: t('logs.table.id'), key: 'id', sortable: true },
-  { title: t('logs.table.type'), key: 'type', sortable: true },
-  { title: t('logs.table.message'), key: 'message', sortable: true },
-  { title: t('logs.table.timestamp'), key: 'timestamp', sortable: true }
+  { title: t('logs.filters.sortBy.id'), value: 'id' },
+  { title: t('logs.filters.sortBy.type'), value: 'type' },
+  { title: t('logs.filters.sortBy.message'), value: 'message' },
+  { title: t('logs.filters.sortBy.timestamp'), value: 'timestamp' }
 ])
 const logTypeOptions = ref([
   { title: LogType[LogType.NORMAL], value: LogType.NORMAL },
@@ -26,13 +27,19 @@ const logTypeOptions = ref([
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
 const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
-const sortBy = ref<{ key: string; order?: 'asc' | 'desc' }[]>([{ key: 'id', order: 'desc' }])
-const timer = ref<NodeJS.Timeout>()
+const sortBy = ref(['id'])
 
 const logs = computed(() => logStore.logs)
 const filteredLogs = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)
 const allTypesSelected = computed(() => logTypeFilter.value.length === logTypeOptions.value.length)
+
+const page = ref(1)
+const _page = computed({
+  get: () => page.value || 1,
+  set: v => (page.value = v)
+})
+const { result: paginatedResults, currentPage, lastPage } = useArrayPagination(filteredLogs, { currentPage: _page, pageSize: 30 })
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
@@ -61,12 +68,11 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
 
 onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  timer.value = setInterval(() => logStore.fetchLogs(), 15000)
+  useInterval(() => logStore.fetchLogs(), 15000)
   logStore.fetchLogs(-1)
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
-  clearInterval(timer.value)
 })
 </script>
 
@@ -86,17 +92,10 @@ onUnmounted(() => {
     </v-row>
 
     <v-list>
-      <v-data-table
-        :headers="headers"
-        :items="filteredLogs"
-        :footer-props="{ itemsPerPageOptions: [50, 100, 250, 500, 1000, -1] }"
-        :items-per-page="50"
-        item-value="id"
-        multi-sort
-        :sort-by="sortBy">
-        <template v-slot:top>
-          <div class="mx-4 mb-5">
-            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" multiple chips>
+      <v-list-item>
+        <v-row>
+          <v-col cols="6">
+            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" hide-details multiple chips>
               <template v-slot:prepend-item>
                 <v-list-item :title="$t('common.selectAll')" @click="toggleSelectAll">
                   <template v-slot:prepend>
@@ -106,22 +105,40 @@ onUnmounted(() => {
                 <v-divider />
               </template>
             </v-select>
-          </div>
-          <v-divider />
-        </template>
-        <template v-slot:[`item.id`]="{ item }">
-          <span :class="getLogTypeClassName(item.raw)">{{ item.raw.id }}</span>
-        </template>
-        <template v-slot:[`item.type`]="{ item }">
-          <span :class="getLogTypeClassName(item.raw)">{{ getLogTypeName(item.raw) }}</span>
-        </template>
-        <template v-slot:[`item.message`]="{ item }">
-          <span :class="getLogTypeClassName(item.raw)">{{ item.raw.message }}</span>
-        </template>
-        <template v-slot:[`item.timestamp`]="{ item }">
-          <span :class="getLogTypeClassName(item.raw)">{{ formatLogTimestamp(item.raw) }}</span>
-        </template>
-      </v-data-table>
+          </v-col>
+
+          <v-col cols="6">
+            <v-select v-model="sortBy" :items="headers" :label="$t('logs.filters.sortBy.label')" hide-details multiple chips />
+          </v-col>
+        </v-row>
+      </v-list-item>
+
+      <v-divider class="my-3" thickness="5" />
+
+      <v-list-item v-if="lastPage > 1">
+        <v-pagination v-model="currentPage" :length="lastPage" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
+      </v-list-item>
+
+      <v-divider />
+
+      <template v-for="(log, index) in paginatedResults">
+        <v-divider v-if="index > 0" />
+
+        <v-list-item :class="getLogTypeClassName(log)">
+          <v-list-item-title>{{ log.id }}) {{ log.message }}</v-list-item-title>
+          <v-list-item-subtitle>{{ getLogTypeName(log) }} | {{ formatLogTimestamp(log) }}</v-list-item-subtitle>
+        </v-list-item>
+      </template>
+
+      <v-list-item v-if="filteredLogs.length === 0">
+        {{ $t('logs.emptyLogList') }}
+      </v-list-item>
+
+      <v-divider />
+
+      <v-list-item v-if="lastPage > 1">
+        <v-pagination v-model="currentPage" :length="lastPage" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
+      </v-list-item>
     </v-list>
   </div>
 </template>

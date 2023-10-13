@@ -165,7 +165,7 @@ onUnmounted(() => {
           </template>
 
           <v-list-item v-if="searchQuery.results.value.length === 0">
-            {{ $t('rssArticles.emptyRssList') }}
+            {{ $t('common.emptyList') }}
           </v-list-item>
         </v-list>
       </v-list-item>

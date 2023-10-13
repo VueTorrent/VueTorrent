@@ -316,7 +316,7 @@ function endPress() {
       </v-expand-transition>
     </v-row>
     <div v-if="dashboardStore.filteredTorrents.length === 0" class="mt-5 text-xs-center">
-      <p class="text-grey">{{ t('dashboard.emptyTorrentList') }}</p>
+      <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
     <div v-else>
       <v-list id="torrentList" class="pa-0" color="transparent">
