@@ -301,11 +301,11 @@ const closeDeleteDialog = async () => {
         </v-toolbar>
       </template>
       <template v-slot:[`item.saveType`]="{ item }">
-        {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.raw.saveType)?.title }}
+        {{ monitoredFoldersMonitorTypeOptions.find(value => value.value === item.saveType)?.title }}
       </template>
       <template v-slot:[`item.actions`]="{ item }">
-        <v-icon size="small" @click="editItem(item.raw)">mdi-pencil</v-icon>
-        <v-icon size="small" @click="deleteItem(item.raw)">mdi-delete</v-icon>
+        <v-icon size="small" @click="editItem(item)">mdi-pencil</v-icon>
+        <v-icon size="small" @click="deleteItem(item)">mdi-delete</v-icon>
       </template>
       <template v-slot:no-data>
         {{ t('settings.downloads.monitoredFolders.noData') }}

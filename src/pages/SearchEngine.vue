@@ -235,10 +235,10 @@ onBeforeUnmount(() => {
             </v-row>
           </template>
           <template v-slot:item.fileSize="{ item }">
-            {{ formatData(item.raw.fileSize, vuetorrentStore.useBinarySize) }}
+            {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item.raw)"> </v-btn>
+            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"> </v-btn>
           </template>
         </v-data-table>
       </v-list-item>
