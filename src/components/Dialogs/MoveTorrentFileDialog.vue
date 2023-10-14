@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables/Dialog.ts'
 import { useMaindataStore } from '@/stores'
-import { nextTick, reactive, ref, watch } from 'vue'
+import { nextTick, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
@@ -42,8 +42,7 @@ const close = () => {
   isOpened.value = false
 }
 
-watch(isOpened, value => {
-  if (!value) return
+onBeforeMount(() => {
   formData.newName = props.oldName
 
   if (props.isFolder) {
