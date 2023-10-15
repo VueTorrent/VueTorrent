@@ -584,8 +584,8 @@
         "resetSettings": "Reset Settings"
       },
       "torrentCard": {
-        "busyTorrentTip": "Properties to display for busy torrents on desktop",
-        "doneTorrentTip": "Properties to display for completed torrents on desktop"
+        "busyTorrentTip": "Properties to display for busy torrents",
+        "doneTorrentTip": "Properties to display for completed torrents"
       }
     },
     "downloads": {
