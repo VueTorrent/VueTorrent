@@ -3,9 +3,9 @@ import { formatPercent, formatSpeed } from '@/helpers'
 import { Theme } from '@/plugins/vuetify'
 import { useMaindataStore } from '@/stores/maindata'
 import { PropertyData, TorrentProperty } from '@/types/vuetorrent'
+import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
-import { useMatchMedia } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
@@ -77,7 +77,7 @@ export const useVueTorrentStore = defineStore(
     watch(darkMode, updateTheme)
     watch(matchSystemTheme, updateSystemTheme)
 
-    const { matches } = useMatchMedia('(prefers-color-scheme: dark)')
+    const matches = useMediaQuery('(prefers-color-scheme: dark)')
     watch(matches, handleSystemThemeSwitch)
 
     function setLanguage(newLang: string) {
