@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useArrayPagination, useSearchQuery } from '@/composables'
-import { useNavbarStore, useRssStore } from '@/stores'
+import { useDialogStore, useNavbarStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
@@ -9,6 +9,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
+const dialogStore = useDialogStore()
 const navbarStore = useNavbarStore()
 const rssStore = useRssStore()
 
@@ -60,7 +61,7 @@ function goHome() {
   router.push({ name: 'dashboard' })
 }
 
-const isDialogVisible = computed(() => navbarStore.addTorrentDialogVisible || descriptionDialogVisible.value)
+const isDialogVisible = computed(() => dialogStore.hasActiveDialog || descriptionDialogVisible.value)
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'Escape' && !isDialogVisible.value) {

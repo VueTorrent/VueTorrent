@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import { useNavbarStore } from '@/stores'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import { useDialogStore, useNavbarStore } from '@/stores'
 
+const dialogStore = useDialogStore()
 const navbarStore = useNavbarStore()
+
+function openAddTorrentDialog() {
+  dialogStore.createDialog(AddTorrentDialog)
+}
 </script>
 
 <template>
-  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0" class="pointer" v-touch="{ up: navbarStore.showAddTorrentDialog }" @click="navbarStore.showAddTorrentDialog">
+  <v-bottom-navigation :active="navbarStore.pendingTorrentsCount > 0" class="pointer" v-touch="{ up: openAddTorrentDialog }" @click="openAddTorrentDialog">
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', navbarStore.pendingTorrentsCount)" />
     <v-spacer />
     <v-list-item>

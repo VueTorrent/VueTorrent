@@ -7,7 +7,6 @@ export const useNavbarStore = defineStore(
     const downloadData = ref<number[]>(new Array(15).fill(0))
     const uploadData = ref<number[]>(new Array(15).fill(0))
 
-    const addTorrentDialogVisible = ref(false)
     const addTorrentDialogFiles = ref<File[]>([])
     const addTorrentDialogUrls = ref('')
 
@@ -21,10 +20,6 @@ export const useNavbarStore = defineStore(
     function pushUploadData(data: number) {
       uploadData.value.shift()
       uploadData.value.push(data)
-    }
-
-    function showAddTorrentDialog() {
-      addTorrentDialogVisible.value = true
     }
 
     function pushTorrentToQueue(torrentDescriptor: File | string) {
@@ -41,13 +36,11 @@ export const useNavbarStore = defineStore(
     return {
       downloadData,
       uploadData,
-      addTorrentDialogVisible,
       addTorrentDialogFiles,
       addTorrentDialogUrls,
       pendingTorrentsCount,
       pushDownloadData,
       pushUploadData,
-      showAddTorrentDialog,
       pushTorrentToQueue
     }
   },

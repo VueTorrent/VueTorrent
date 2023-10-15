@@ -23,7 +23,7 @@ const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
 const { searchData } = storeToRefs(searchEngineStore)
 
-const isDialogVisible = computed(() => navbarStore.addTorrentDialogVisible || pluginManagerDialogVisible.value)
+const isDialogVisible = computed(() => dialogStore.hasActiveDialog || pluginManagerDialogVisible.value)
 
 const headers = [
   { title: t('searchEngine.headers.fileName'), key: 'fileName' },

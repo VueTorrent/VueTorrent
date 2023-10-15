@@ -1,12 +1,21 @@
 <script setup lang="ts">
+import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
 import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { computed, onBeforeMount, reactive, ref, watch } from 'vue'
+import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+const props = withDefaults(defineProps<{
+  guid: string
+  openSuddenly?: boolean
+}>(), {
+  openSuddenly: false
+})
+
+const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const navbarStore = useNavbarStore()
@@ -82,7 +91,7 @@ const submit = async () => {
   close()
 }
 const close = () => {
-  navbarStore.addTorrentDialogVisible = false
+  isOpened.value = false
 }
 
 const onCategoryChanged = () => {
@@ -100,26 +109,20 @@ onBeforeMount(async () => {
   formData.savepath = preferenceStore.preferences!.save_path
 })
 
-watch(
-  () => navbarStore.addTorrentDialogVisible,
-  async isVisible => {
-    if (!isVisible) return
-
-    if (maindataStore.categories.length < 1) {
-      await maindataStore.fetchCategories()
-    }
-    if (maindataStore.tags.length < 1) {
-      await maindataStore.fetchTags()
-    }
-  },
-  { immediate: true }
-)
+onBeforeMount(async () => {
+  if (maindataStore.categories.length < 1) {
+    await maindataStore.fetchCategories()
+  }
+  if (maindataStore.tags.length < 1) {
+    await maindataStore.fetchTags()
+  }
+})
 </script>
 
 <template>
   <v-dialog
-    v-model="navbarStore.addTorrentDialogVisible"
-    transition="dialog-bottom-transition"
+    v-model="isOpened"
+    :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'"
     :fullscreen="$vuetify.display.mobile"
     :class="$vuetify.display.mobile ? '' : 'w-50'">
     <v-card>
