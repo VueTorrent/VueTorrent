@@ -1,10 +1,9 @@
 <script lang="ts" setup>
-import { useSearchQuery } from '@/composables'
+import { useArrayPagination, useSearchQuery } from '@/composables'
 import { useNavbarStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
-import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -31,12 +30,8 @@ const searchQuery = useSearchQuery(
   () => titleFilter.value,
   (item: RssArticle) => item.title
 )
-const page = ref(1)
-const _page = computed({
-  get: () => page.value || 1,
-  set: v => (page.value = v)
-})
-const { result: paginatedResults, currentPage, lastPage } = useArrayPagination(searchQuery.results, { currentPage: _page, pageSize: 15 })
+
+const { paginatedResults, currentPage, pageCount } = useArrayPagination(searchQuery.results, 15)
 
 function openLink(url: string) {
   window.open(url, '_blank', 'noreferrer')
@@ -90,8 +85,7 @@ onUnmounted(() => {
     <v-row align="center" justify="center" no-gutters>
       <v-col>
         <h1 class="subtitle-1 ml-2" style="font-size: 1.6em !important">
-          {{ t('rssArticles.title') }}
-        </h1>
+          {{ t('rssArticles.title') }} </h1>
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
@@ -117,7 +111,7 @@ onUnmounted(() => {
       </v-list-item>
 
       <v-list-item v-if="searchQuery.results.value.length">
-        <v-pagination v-model="currentPage" :length="lastPage" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
       </v-list-item>
 
       <v-list-item>
@@ -171,7 +165,7 @@ onUnmounted(() => {
       </v-list-item>
 
       <v-list-item v-if="searchQuery.results.value.length">
-        <v-pagination v-model="currentPage" :length="lastPage" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
       </v-list-item>
     </v-list>
   </div>

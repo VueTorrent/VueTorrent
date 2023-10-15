@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { useMaindataStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'

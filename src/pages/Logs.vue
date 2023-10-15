@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { useArrayPagination } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
+import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
-import { useArrayPagination, useInterval } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -34,12 +35,7 @@ const filteredLogs = computed(() => logs.value.filter(log => logTypeFilter.value
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)
 const allTypesSelected = computed(() => logTypeFilter.value.length === logTypeOptions.value.length)
 
-const page = ref(1)
-const _page = computed({
-  get: () => page.value || 1,
-  set: v => (page.value = v)
-})
-const { result: paginatedResults, currentPage, lastPage } = useArrayPagination(filteredLogs, { currentPage: _page, pageSize: 30 })
+const { paginatedResults, currentPage, pageCount } = useArrayPagination(filteredLogs, 30)
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
@@ -68,7 +64,7 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
 
 onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  useInterval(() => logStore.fetchLogs(), 15000)
+  useIntervalFn(() => logStore.fetchLogs(), 15000)
   logStore.fetchLogs(-1)
 })
 onUnmounted(() => {
@@ -115,8 +111,8 @@ onUnmounted(() => {
 
       <v-divider class="my-3" thickness="5" />
 
-      <v-list-item v-if="lastPage > 1">
-        <v-pagination v-model="currentPage" :length="lastPage" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
+      <v-list-item v-if="pageCount > 1">
+        <v-pagination v-model="currentPage" :length="pageCount" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
       </v-list-item>
 
       <v-divider />
@@ -136,8 +132,8 @@ onUnmounted(() => {
 
       <v-divider />
 
-      <v-list-item v-if="lastPage > 1">
-        <v-pagination v-model="currentPage" :length="lastPage" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
+      <v-list-item v-if="pageCount > 1">
+        <v-pagination v-model="currentPage" :length="pageCount" prev-icon="mdi-menu-left" next-icon="mdi-menu-right" />
       </v-list-item>
     </v-list>
   </div>

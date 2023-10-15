@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useRssStore } from '@/stores'
 import { FeedRule } from '@/types/qbit/models'
