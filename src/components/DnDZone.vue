@@ -13,7 +13,6 @@ function onDragEnter() {
 function onDrop(files: File[] | null, event: DragEvent) {
   event.preventDefault()
   event.stopPropagation()
-  isOverDropZone.value = false
   if (!event.dataTransfer) return
 
   // Handle .torrent files
