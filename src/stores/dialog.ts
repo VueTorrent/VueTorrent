@@ -1,4 +1,3 @@
-import { useNavbarStore } from '@/stores/navbar.ts'
 import { defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { AllowedComponentProps, Component, computed, shallowRef, triggerRef, VNodeProps } from 'vue'
@@ -14,7 +13,7 @@ type DialogTemplate<C extends Component> = {
 export const useDialogStore = defineStore('dialogs', () => {
   const dialogs = shallowRef<DialogTemplate<any>[]>([])
 
-  const hasActiveDialog = computed(() => dialogs.value.length > 1 || useNavbarStore().addTorrentDialogVisible)
+  const hasActiveDialog = computed(() => dialogs.value.length > 1)
 
   function isDialogOpened(guid: string) {
     return !!dialogs.value.find(dialog => dialog.guid === guid)

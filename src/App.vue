@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import AddPanel from '@/components/AddPanel.vue'
-import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { computed, onBeforeMount, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
-import { useAppStore, useAuthStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 import Navbar from '@/components/Navbar/Navbar.vue'
+
+import {
+  useAppStore,
+  useAuthStore,
+  useDialogStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useVueTorrentStore
+} from '@/stores'
+import { computed, onBeforeMount, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
@@ -90,6 +97,5 @@ watch(
       <router-view />
     </v-main>
     <AddPanel />
-    <AddTorrentDialog />
   </v-app>
 </template>

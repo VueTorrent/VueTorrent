@@ -1,6 +1,7 @@
 <script lang="ts" setup>
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore, useDialogStore, useMaindataStore, useNavbarStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
@@ -11,32 +12,41 @@ const router = useRouter()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
-const navbarStore = useNavbarStore()
 
 const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
 const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
 
-const resumeTorrents = async () => {
+function openAddTorrentDialog() {
+  dialogStore.createDialog(AddTorrentDialog, { openSuddenly: true })
+}
+
+async function resumeTorrents() {
   await maindataStore.resumeTorrents(hashes.value)
 }
-const pauseTorrents = async () => {
+
+async function pauseTorrents() {
   await maindataStore.pauseTorrents(hashes.value)
 }
-const deleteTorrents = () => {
+
+function deleteTorrents() {
   if (!hashes.value.length) return
 
   dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...hashes.value] })
 }
-const openSearchEngine = () => {
+
+function openSearchEngine() {
   router.push({ name: 'searchEngine' })
 }
-const openrssArticles = () => {
+
+function openrssArticles() {
   router.push({ name: 'rssArticles' })
 }
-const openLogs = () => {
+
+function openLogs() {
   router.push({ name: 'logs' })
 }
-const openSettings = () => {
+
+function openSettings() {
   router.push({ name: 'settings' })
 }
 </script>
@@ -44,7 +54,7 @@ const openSettings = () => {
 <template>
   <v-tooltip :text="$t('topbar.addTorrents')" location="bottom">
     <template v-slot:activator="{ props }">
-      <v-btn icon="mdi-plus" v-bind="props" @click="navbarStore.showAddTorrentDialog" />
+      <v-btn icon="mdi-plus" v-bind="props" @click="openAddTorrentDialog" />
     </template>
   </v-tooltip>
 
