@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AddPanel from '@/components/AddPanel.vue'
-
+import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
 
 import {
@@ -97,5 +97,6 @@ watch(
       <router-view />
     </v-main>
     <AddPanel />
+    <DnDZone />
   </v-app>
 </template>
