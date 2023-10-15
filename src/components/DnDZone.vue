@@ -1,12 +1,16 @@
 <script lang="ts" setup>
-import { useNavbarStore } from '@/stores'
+import { useAuthStore, useNavbarStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
+const authStore = useAuthStore()
 const navbarStore = useNavbarStore()
 const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
+  if (route.name === 'login' || !authStore.isAuthenticated) return
   isOverDropZone.value = true
 }
 
