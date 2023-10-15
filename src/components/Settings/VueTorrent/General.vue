@@ -6,7 +6,7 @@ import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
-const paginationSizes = ref([5, 15, 30, 50])
+const paginationSizes = ref([0, 5, 15, 30, 50])
 const settingsField = ref('')
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')

@@ -99,7 +99,7 @@ const {
   lastPage
 } = useArrayPagination(filteredTorrents, {
   currentPage: _page,
-  pageSize: vuetorrentStore.paginationSize
+  pageSize: vuetorrentStore.paginationSize === 0 ? 999999 : vuetorrentStore.paginationSize //TODO: Change the pagination size to No. of torrents filtered
 })
 const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
 

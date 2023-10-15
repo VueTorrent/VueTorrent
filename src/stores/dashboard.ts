@@ -132,7 +132,10 @@ export const useDashboardStore = defineStore(
     })
 
     watch(filteredTorrents, newValue => {
-      const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
+      let pageCount = 1
+      if (vuetorrentStore.paginationSize > 0){ 
+        pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
+      }
       if (pageCount < currentPage.value) {
         currentPage.value = Math.max(1, pageCount)
       }
