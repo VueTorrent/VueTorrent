@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'

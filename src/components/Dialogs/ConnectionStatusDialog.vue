@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'

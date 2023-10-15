@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
 import { ref } from 'vue'

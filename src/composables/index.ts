@@ -1,5 +1,6 @@
+import { useDialog } from './Dialog'
 import { useSearchQuery } from './SearchQuery'
 import { useTorrentBuilder } from './TorrentBuilder'
 import { useTreeBuilder } from './TreeBuilder'
 
-export { useSearchQuery, useTorrentBuilder, useTreeBuilder }
+export { useDialog, useSearchQuery, useTorrentBuilder, useTreeBuilder }

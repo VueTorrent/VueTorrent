@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables/Dialog.ts'
+import { useDialog } from '@/composables'
 import { useMaindataStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
