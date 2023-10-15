@@ -2,9 +2,10 @@
 import { LogType } from '@/constants/qbit'
 import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
+import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
-import { useArrayPagination, useInterval } from 'vue-composable'
+import { useArrayPagination } from 'vue-composable'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -68,7 +69,7 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
 
 onBeforeMount(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  useInterval(() => logStore.fetchLogs(), 15000)
+  useIntervalFn(() => logStore.fetchLogs(), 15000)
   logStore.fetchLogs(-1)
 })
 onUnmounted(() => {
