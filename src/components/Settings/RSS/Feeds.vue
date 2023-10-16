@@ -2,12 +2,12 @@
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import { useDialogStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
-import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { onBeforeMount, ref, watch } from 'vue'
 
 const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
-const timer = ref<NodeJS.Timeout>()
 const loading = ref(false)
 const feedDialog = ref('')
 
@@ -38,13 +38,9 @@ function openFeedDialog(initialFeed?: Feed) {
   feedDialog.value = dialogStore.createDialog(RssFeedDialog, { initialFeed })
 }
 
-onBeforeMount(async () => {
-  await updateFeedList()
-  timer.value = setInterval(updateFeedList, 5000)
-})
-
-onUnmounted(() => {
-  clearInterval(timer.value)
+onBeforeMount(() => {
+  updateFeedList()
+  useIntervalFn(updateFeedList, 5000)
 })
 
 watch(
