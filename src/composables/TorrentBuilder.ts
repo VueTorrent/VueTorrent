@@ -13,7 +13,7 @@ export function useTorrentBuilder() {
       added_on: data.added_on,
       amount_left: data.amount_left,
       auto_tmm: data.auto_tmm,
-      availability: Math.round(data.availability * 100) / 100,
+      availability: Math.floor(data.availability * 100) / 100,
       available_peers: data.num_incomplete,
       available_seeds: data.num_complete,
       category: data.category,
