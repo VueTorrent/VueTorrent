@@ -6,7 +6,17 @@ import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
-const paginationSizes = ref([5, 15, 30, 50])
+const { t } = useI18n()
+const appStore = useAppStore()
+const vueTorrentStore = useVueTorrentStore()
+
+const paginationSizes = ref([
+  { title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 },
+  5,
+  15,
+  30,
+  50
+])
 const settingsField = ref('')
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
@@ -26,10 +36,6 @@ const theme = computed({
     }
   }
 })
-
-const { t } = useI18n()
-const appStore = useAppStore()
-const vueTorrentStore = useVueTorrentStore()
 
 const themeOptions = [
   { title: t('constants.theme.auto'), value: 'auto' },
@@ -150,7 +156,7 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize')" />
+          <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-select v-model="vueTorrentStore.title" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />

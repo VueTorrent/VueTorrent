@@ -42,6 +42,7 @@ export const useVueTorrentStore = defineStore(
     const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
+    const isInfiniteScrollActive = computed(() => paginationSize.value === -1)
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
@@ -187,6 +188,7 @@ export const useVueTorrentStore = defineStore(
       busyTorrentProperties,
       doneTorrentProperties,
       getCurrentThemeName,
+      isInfiniteScrollActive,
       setLanguage,
       updateTheme,
       updateSystemTheme,

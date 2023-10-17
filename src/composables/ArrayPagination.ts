@@ -13,7 +13,7 @@ export function useArrayPagination<T>(items: MaybeRefOrGetter<T[]>, pageSize: Ma
   } = useOffsetPagination({
     total: () => toValue(items).length,
     page,
-    pageSize
+    pageSize: () => toValue(pageSize) === -1 ? toValue(items).length : toValue(pageSize),
   })
 
   const paginatedResults = computed(() => {
