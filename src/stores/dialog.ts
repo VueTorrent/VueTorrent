@@ -13,7 +13,7 @@ type DialogTemplate<C extends Component> = {
 export const useDialogStore = defineStore('dialogs', () => {
   const dialogs = shallowRef<DialogTemplate<any>[]>([])
 
-  const hasActiveDialog = computed(() => dialogs.value.length > 1)
+  const hasActiveDialog = computed(() => dialogs.value.length > 0)
 
   function isDialogOpened(guid: string) {
     return !!dialogs.value.find(dialog => dialog.guid === guid)

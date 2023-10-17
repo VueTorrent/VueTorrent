@@ -61,10 +61,12 @@ function goHome() {
   router.push({ name: 'dashboard' })
 }
 
-const isDialogVisible = computed(() => dialogStore.hasActiveDialog || descriptionDialogVisible.value)
-
 function handleKeyboardShortcuts(e: KeyboardEvent) {
-  if (e.key === 'Escape' && !isDialogVisible.value) {
+  if (dialogStore.hasActiveDialog || descriptionDialogVisible.value) {
+    return false
+  }
+
+  if (e.key === 'Escape') {
     goHome()
   }
 }

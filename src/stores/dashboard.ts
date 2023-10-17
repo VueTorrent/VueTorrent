@@ -118,7 +118,8 @@ export const useDashboardStore = defineStore(
 
     function selectAllTorrents() {
       isSelectionMultiple.value = true
-      selectTorrents(...maindataStore.torrents.map(t => t.hash))
+      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...maindataStore.torrents.map(t => t.hash))
+      latestSelectedTorrent.value = 0
     }
 
     function unselectAllTorrents() {
