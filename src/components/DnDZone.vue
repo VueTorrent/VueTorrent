@@ -40,32 +40,45 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-show="isOverDropZone" ref="dndZoneRef" class="overlay dnd-zone-over">
-    <div class="dnd-zone d-flex flex-column justify-center align-center text-accent">
-      <v-icon size="75">mdi-cloud-upload</v-icon>
-      <span>{{ $t('dialogs.add.dropLabel') }}</span>
+  <v-scale-transition>
+    <div v-show="isOverDropZone" ref="dndZoneRef" class="dnd-zone-outer">
+      <div class="dnd-zone">
+        <div class="dnd-zone-content text-accent">
+          <v-icon size="75">mdi-cloud-upload</v-icon>
+          <span>{{ $t('dialogs.add.dropLabel') }}</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </v-scale-transition>
 </template>
 
 <style lang="scss" scoped>
-.overlay {
+.dnd-zone-outer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.66);
+  z-index: 9999;
 }
 
 .dnd-zone {
-  @extend .overlay;
-
-  background: black;
-  opacity: 0.66;
-  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.dnd-zone-over {
-  z-index: 9999;
+.dnd-zone-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 48px);
+  height: calc(100% - 48px);
+  border: 2px solid rgb(var(--v-theme-accent));
+  border-radius: 48px;
 }
 </style>
