@@ -169,7 +169,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
   // 'ctrl + A' => select torrents
   if (doesCommand(e) && e.key === 'a' && targetNode.tagName !== 'INPUT') {
-    dashboardStore.selectAllTorrents()
+    filteredTorrents.value.forEach(torrent => dashboardStore.selectTorrent(torrent.hash))
     e.preventDefault()
     return true
   }
