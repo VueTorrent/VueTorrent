@@ -11,7 +11,7 @@ export function useArrayPagination<T>(items: MaybeRefOrGetter<T[]>, pageSize: Ma
     next,
     prev,
   } = useOffsetPagination({
-    total: toValue(items).length,
+    total: () => toValue(items).length,
     page,
     pageSize
   })
