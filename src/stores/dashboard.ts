@@ -90,6 +90,7 @@ export const useDashboardStore = defineStore(
     }
 
     function selectTorrents(...hashes: string[]) {
+      isSelectionMultiple.value = true
       hashes.forEach(selectTorrent)
     }
 
@@ -150,6 +151,7 @@ export const useDashboardStore = defineStore(
       torrentCountString,
       isTorrentInSelection,
       selectTorrent,
+      selectTorrents,
       unselectTorrent,
       spanTorrentSelection,
       selectAllTorrents,
