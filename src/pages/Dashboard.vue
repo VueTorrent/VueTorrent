@@ -288,7 +288,7 @@ function endPress() {
     </div>
     <div v-else>
       <v-list id="torrentList" class="pa-0" color="transparent">
-        <v-list-item v-if="vuetorrentStore.isPaginationOnTop">
+        <v-list-item v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
           <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
                         @input="scrollToTop" />
         </v-list-item>
@@ -309,7 +309,7 @@ function endPress() {
           </div>
         </v-list-item>
 
-        <v-list-item v-if="!vuetorrentStore.isPaginationOnTop">
+        <v-list-item v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
           <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
                         @input="scrollToTop" />
         </v-list-item>

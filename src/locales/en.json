@@ -565,7 +565,10 @@
         "isPaginationOnTop": "Top Pagination",
         "matchSystemTheme": "Use System Theme",
         "language": "Language",
-        "paginationSize": "Pagination size",
+        "paginationSize": {
+          "label": "Pagination Size",
+          "infinite_scroll": "Infinite scroll"
+        },
         "vueTorrentTitle": "VueTorrent title",
         "dateFormat": "Date Format",
         "openSideBarOnStart": "Open Side Bar on launch",
