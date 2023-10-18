@@ -5,7 +5,7 @@ import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useMaindataStore } from '@/stores'
+import { useDialogStore, useMaindataStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -13,6 +13,7 @@ import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 
 const tab = ref('overview')
@@ -24,6 +25,10 @@ const goHome = () => {
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
+  if (dialogStore.hasActiveDialog) {
+    return false
+  }
+
   if (e.key === 'Escape') {
     goHome()
   }

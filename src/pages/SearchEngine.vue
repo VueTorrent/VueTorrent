@@ -23,8 +23,6 @@ const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
 const { searchData } = storeToRefs(searchEngineStore)
 
-const isDialogVisible = computed(() => dialogStore.hasActiveDialog || pluginManagerDialogVisible.value)
-
 const headers = [
   { title: t('searchEngine.headers.fileName'), key: 'fileName' },
   { title: t('searchEngine.headers.fileSize'), key: 'fileSize' },
@@ -113,7 +111,7 @@ function openPluginManagerDialog() {
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
-  if (isDialogVisible.value) {
+  if (dialogStore.hasActiveDialog || pluginManagerDialogVisible.value) {
     return false
   }
 

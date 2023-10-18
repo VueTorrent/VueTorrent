@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { usePreferenceStore } from '@/stores'
+import { useDialogStore, usePreferenceStore } from '@/stores'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
@@ -20,6 +20,7 @@ import VTorrentCard from '@/components/Settings/VueTorrent/TorrentCard.vue'
 
 const router = useRouter()
 const { t } = useI18n()
+const dialogStore = useDialogStore()
 const preferenceStore = usePreferenceStore()
 
 const tab = ref('vuetorrent')
@@ -47,6 +48,10 @@ const goHome = () => {
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
+  if (dialogStore.hasActiveDialog) {
+    return false
+  }
+
   if (e.key === 'Escape') {
     goHome()
   }

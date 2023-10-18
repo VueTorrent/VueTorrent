@@ -162,7 +162,6 @@ watch(
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) {
-    //e.preventDefault()
     return false
   }
 
@@ -170,8 +169,9 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
   // 'ctrl + A' => select torrents
   if (doesCommand(e) && e.key === 'a' && targetNode.tagName !== 'INPUT') {
+    dashboardStore.unselectAllTorrents()
+    dashboardStore.selectTorrents(...filteredTorrents.value.map(torrent => torrent.hash))
     e.preventDefault()
-    dashboardStore.selectAllTorrents()
     return true
   }
 
@@ -179,26 +179,36 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (doesCommand(e) && e.key === 'f') {
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement !== searchInput) {
-      e.preventDefault()
       isSearchFilterVisible.value = true
-      searchInput?.focus()
+      nextTick(() => searchInput?.focus())
+      e.preventDefault()
+      return true
     }
   }
 
-  // 'Escape' => Remove focus from search field
+  // 'Escape' => Remove focus from search field / unselect all torrents
   if (e.key === 'Escape') {
-    document.getElementById('searchInput')?.blur()
-    isSearchFilterVisible.value = false
+    const searchInput = document.getElementById('searchInput')
+    if (document.activeElement === searchInput) {
+      searchInput?.blur()
+      isSearchFilterVisible.value = false
+    } else if (isSearchFilterVisible.value) {
+      isSearchFilterVisible.value = false
+    } else {
+      isSelectionMultiple.value = false
+      dashboardStore.unselectAllTorrents()
+    }
+    e.preventDefault()
+    return true
   }
 
-  // 'Delete' => Delete modal
+  // 'Delete' => Open delete dialog
   if (e.key === 'Delete') {
-    e.preventDefault()
-
-    // no torrents select to delete
     if (selectedTorrents.value.length === 0) return
 
     dialogStore.createDialog(ConfirmDeleteDialog, { hashes: dashboardStore.selectedTorrents })
+    e.preventDefault()
+    return true
   }
 }
 
