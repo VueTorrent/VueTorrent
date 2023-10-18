@@ -72,7 +72,7 @@ const registerMagnetHandler = () => {
     return
   }
 
-  const templateUrl = location.href.replace('/settings', '/download=%s')
+  const templateUrl = location.href.replace('/settings', '/magnet/%s')
   navigator.registerProtocolHandler('magnet', templateUrl)
 }
 
