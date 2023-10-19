@@ -6,7 +6,7 @@ export const isWindows = window.navigator.userAgent.toLowerCase().includes('wind
 /**
  * Check if user is on MAC
  */
-export const isMac = window.navigator.userAgent.toLowerCase().includes('MAC')
+export const isMac = window.navigator.userAgent.toLowerCase().includes('mac')
 
 /**
  * Check Ctrl/Cmd key
