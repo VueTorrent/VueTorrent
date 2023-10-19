@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { formatSpeed } from '@/helpers'
-import { useNavbarStore, useVueTorrentStore } from '@/stores'
+import { useNavbarStore } from '@/stores/navbar'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { ApexOptions } from 'apexcharts'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'

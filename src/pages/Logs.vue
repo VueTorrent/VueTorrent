@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useArrayPagination } from '@/composables'
 import { LogType } from '@/constants/qbit'
-import { useLogStore, useVueTorrentStore } from '@/stores'
+import { useLogStore } from '@/stores/logs'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Log } from '@/types/qbit/models'
 import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'

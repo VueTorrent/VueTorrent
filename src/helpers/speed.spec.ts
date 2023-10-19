@@ -1,4 +1,4 @@
-import { formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers/speed.ts'
+import { formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers/speed'
 import { expect, test } from 'vitest'
 
 test('helpers/speed/formatSpeedValue', () => {

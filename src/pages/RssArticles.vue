@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { useArrayPagination, useSearchQuery } from '@/composables'
-import { useDialogStore, useNavbarStore, useRssStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useNavbarStore } from '@/stores/navbar'
+import { useRssStore } from '@/stores/rss'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'

@@ -1,4 +1,4 @@
-import { formatEta } from '@/helpers/datetime.ts'
+import { formatEta } from '@/helpers/datetime'
 import { expect, test } from 'vitest'
 
 test('helpers/datetime/formatEta', () => {

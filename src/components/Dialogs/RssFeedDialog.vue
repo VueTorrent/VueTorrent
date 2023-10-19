@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useRssStore } from '@/stores'
+import { useRssStore } from '@/stores/rss'
 import { Feed } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
 import { VForm } from 'vuetify/components'

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import RssRuleDialog from '@/components/Dialogs/RssRuleDialog.vue'
-import { useDialogStore, useRssStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useRssStore } from '@/stores/rss'
 import { FeedRule } from '@/types/qbit/models'
 import { useIntervalFn } from '@vueuse/core'
 import { onBeforeMount, ref, watch } from 'vue'

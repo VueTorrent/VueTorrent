@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'

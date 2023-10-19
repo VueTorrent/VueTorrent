@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
-import { useMaindataStore, useNavbarStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
+import { useMaindataStore } from '@/stores/maindata'
+import { useNavbarStore } from '@/stores/navbar'
+import { usePreferenceStore } from '@/stores/preferences'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Category } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { computed, onBeforeMount, reactive, ref } from 'vue'

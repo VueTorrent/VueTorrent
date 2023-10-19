@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TrackerStatus } from '@/constants/qbit'
-import { useMaindataStore } from '@/stores'
+import { useMaindataStore } from '@/stores/maindata'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { nextTick, onBeforeMount, onUnmounted, reactive, ref, watch } from 'vue'

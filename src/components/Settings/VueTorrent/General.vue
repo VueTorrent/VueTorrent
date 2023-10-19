@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { titleOptionsList } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales/locales'
-import { useAppStore, useVueTorrentStore } from '@/stores'
+import { useAppStore } from '@/stores/app'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'

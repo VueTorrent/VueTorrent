@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FilterState } from '@/constants/qbit'
-import { useDashboardStore } from '@/stores'
+import { useDashboardStore } from '@/stores/dashboard'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { useDialogStore, usePreferenceStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { usePreferenceStore } from '@/stores/preferences'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
