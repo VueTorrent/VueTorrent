@@ -99,6 +99,16 @@ const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.valu
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
 
+function toggleSearchFilter(forceState?: boolean) {
+  isSearchFilterVisible.value = forceState ?? !isSearchFilterVisible.value
+  if (isSearchFilterVisible.value) {
+    nextTick(() => {
+      const searchInput = document.getElementById('searchInput')
+      searchInput?.focus()
+    })
+  }
+}
+
 function toggleSelectTorrent(hash: string) {
   dashboardStore.toggleSelect(hash)
 }
@@ -179,8 +189,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (doesCommand(e) && e.key === 'f') {
     const searchInput = document.getElementById('searchInput')
     if (document.activeElement !== searchInput) {
-      isSearchFilterVisible.value = true
-      nextTick(() => searchInput?.focus())
+      toggleSearchFilter(true)
       e.preventDefault()
       return true
     }
@@ -189,11 +198,8 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   // 'Escape' => Remove focus from search field / unselect all torrents
   if (e.key === 'Escape') {
     const searchInput = document.getElementById('searchInput')
-    if (document.activeElement === searchInput) {
-      searchInput?.blur()
-      isSearchFilterVisible.value = false
-    } else if (isSearchFilterVisible.value) {
-      isSearchFilterVisible.value = false
+    if (document.activeElement === searchInput || isSearchFilterVisible.value) {
+      toggleSearchFilter(false)
     } else {
       isSelectionMultiple.value = false
       dashboardStore.unselectAllTorrents()
@@ -215,7 +221,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
   await maindataStore.fetchTags()
-  isSearchFilterVisible.value = hasSearchFilter.value
+  toggleSearchFilter(hasSearchFilter.value)
 })
 
 onMounted(() => {
@@ -255,7 +261,7 @@ function endPress() {
       <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'" v-bind="props"
-                 variant="plain" @click="isSearchFilterVisible = !isSearchFilterVisible" />
+                 variant="plain" @click="toggleSearchFilter()" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
