@@ -79,9 +79,17 @@ If you like to always have the latest and greatest, please sync to the `nightly-
   - search for new torrents straight from the WebUI!
   - search filtering powered by Fuse.js!
 - Keyboard shortcuts!
-  - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
-  - delete selected torrents with <kbd>delete</kbd>
-  - <kbd>Shift</kbd>-click to select from one torrent
+  - Mac keymap is supported (use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>)
+  - Press <kbd>Escape</kbd> to dismiss any dialogs or to return to Dashboard view
+  - Dashboard
+    - Select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
+    - Focus search input with <kbd>Ctrl</kbd>-<kbd>F</kbd>
+      - Press again to enable native browser search
+    - When no dialogs are opened, press <kbd>Escape</kbd> to unfocus search input
+      - Press again to unselect all torrents
+    - Delete selected torrents with <kbd>Delete</kbd> (<kbd>Fn</kbd>-<kbd>Backspace</kbd> on Mac)
+    - <kbd>Ctrl</kbd>-click on a torrent card to enable multi-select mode and select it
+    - Hold <kbd>Shift</kbd> and click on a torrent card to select all torrents between the last selected torrent and the clicked torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
   - beautiful transfer graphs
@@ -96,6 +104,20 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 I'll gladly accept help/pull requests & advice!
 
 [FAQ](../../wiki/FAQ)
+
+### Localize the app
+
+To help us localize VueTorrent, you will need to:
+- `src/locales/<your language>.json`
+  - Create a json file containing the translations by matching the structure of `en.json`
+    - every key may not be specified, that's fine, it will default to the english locale
+  - `<your language>` should match the ISO 639 locale code of the added language
+- `src/locales/locales.ts`
+  - add your language to the `Locales` enum, it should match the json filename
+  - Update the `LOCALES` constant with the local language name and the created enum value
+- `src/locales/index.ts`
+  - import the json file
+  - include it in the `messages` object using the created enum value as key
 
 ## Support
 
