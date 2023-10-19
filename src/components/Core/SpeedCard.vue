@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useVueTorrentStore } from '@/stores'
 import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 
 defineProps({
   icon: {

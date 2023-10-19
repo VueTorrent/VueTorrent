@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { useAuthStore, useNavbarStore } from '@/stores'
+import { useAuthStore } from '@/stores/auth'
+import { useNavbarStore } from '@/stores/navbar'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'

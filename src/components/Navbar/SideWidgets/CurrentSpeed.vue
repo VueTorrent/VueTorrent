@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useMaindataStore } from '@/stores'
 import SpeedCard from '@/components/Core/SpeedCard.vue'
+import { useMaindataStore } from '@/stores/maindata'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()

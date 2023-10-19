@@ -1,7 +1,7 @@
+import { useAuthStore } from '@/stores/auth'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import { routes } from '@/pages'
 
-import { useAuthStore } from '@/stores'
 
 const router = createRouter({
   history: createWebHashHistory(process.env.BASE_URL),

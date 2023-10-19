@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
+import { useAuthStore } from '@/stores/auth'
 import { onMounted, reactive, ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
 
-import { useAuthStore } from '@/stores'
 import { LoginPayload } from '@/types/qbit/payloads'
 
 const { t } = useI18n()

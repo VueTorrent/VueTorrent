@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
-import { ref } from 'vue'
 import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
+import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
 import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
 import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
 import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
-import TopContainer from '@/components/Navbar/TopWidgets/TopContainer.vue'
-import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
 import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
-import { useDashboardStore, useVueTorrentStore } from '@/stores'
+import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
+import TopContainer from '@/components/Navbar/TopWidgets/TopContainer.vue'
+import { useDashboardStore } from '@/stores/dashboard'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { ref } from 'vue'
 
 const dashboardStore = useDashboardStore()
 const vueTorrentStore = useVueTorrentStore()

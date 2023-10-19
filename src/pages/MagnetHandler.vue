@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNavbarStore } from '@/stores'
+import { useNavbarStore } from '@/stores/navbar'
 import { onBeforeMount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { usePreferenceStore } from '@/stores'
+
+import { usePreferenceStore } from '@/stores/preferences'
 
 const preferenceStore = usePreferenceStore()
 </script>

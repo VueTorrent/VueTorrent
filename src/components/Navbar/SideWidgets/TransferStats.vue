@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMaindataStore } from '@/stores'
+import { useMaindataStore } from '@/stores/maindata'
 import { computed } from 'vue'
 import DataCard from '@/components/Core/DataCard.vue'
 import StringCard from '@/components/Core/StringCard.vue'

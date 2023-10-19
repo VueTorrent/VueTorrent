@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { DashboardPropertyType } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore } from '@/stores/dashboard'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import ItemAmount from './DashboardItems/ItemAmount.vue'

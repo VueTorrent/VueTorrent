@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
-import { useDialogStore, useNavbarStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useNavbarStore } from '@/stores/navbar'
+import { useSearchEngineStore } from '@/stores/searchEngine'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'

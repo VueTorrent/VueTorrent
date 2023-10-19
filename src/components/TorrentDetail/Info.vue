@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import InfoBase from '@/components/TorrentDetail/InfoBase.vue'
 import dayjs from '@/plugins/dayjs'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { formatData, formatSpeed } from '@/helpers'

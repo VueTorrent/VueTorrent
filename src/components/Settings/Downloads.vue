@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
+import { usePreferenceStore } from '@/stores/preferences'
 import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { useDialogStore, useNavbarStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useNavbarStore } from '@/stores/navbar'
 
 const dialogStore = useDialogStore()
 const navbarStore = useNavbarStore()

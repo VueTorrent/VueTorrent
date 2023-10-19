@@ -2,16 +2,14 @@
 import AddPanel from '@/components/AddPanel.vue'
 import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
+import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
+import { useDialogStore } from '@/stores/dialog'
+import { useLogStore } from '@/stores/logs'
+import { useMaindataStore } from '@/stores/maindata'
+import { usePreferenceStore } from '@/stores/preferences'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 
-import {
-  useAppStore,
-  useAuthStore,
-  useDialogStore,
-  useLogStore,
-  useMaindataStore,
-  usePreferenceStore,
-  useVueTorrentStore
-} from '@/stores'
 import { computed, onBeforeMount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -91,7 +89,8 @@ watch(
 
 <template>
   <v-app class="text-noselect">
-    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component" v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component"
+               v-bind="{ guid: dialog.guid, ...dialog.props }" />
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />

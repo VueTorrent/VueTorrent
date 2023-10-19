@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
-import { useDialogStore, useMaindataStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useMaindataStore } from '@/stores/maindata'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, ref, watch } from 'vue'
 

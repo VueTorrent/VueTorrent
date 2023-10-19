@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DiskIOMode, DiskIOType, UploadChokingAlgorithm, UploadSlotsBehavior, UtpTcpMixedMode } from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
-import { usePreferenceStore } from '@/stores'
+import { usePreferenceStore } from '@/stores/preferences'
 import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 

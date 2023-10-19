@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SchedulerDays } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
+import { usePreferenceStore } from '@/stores/preferences'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 

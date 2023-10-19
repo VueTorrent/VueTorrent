@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useLogStore, useMaindataStore } from '@/stores'
+import { useLogStore } from '@/stores/logs'
+import { useMaindataStore } from '@/stores/maindata'
 import { computed } from 'vue'
 
 const props = defineProps<{

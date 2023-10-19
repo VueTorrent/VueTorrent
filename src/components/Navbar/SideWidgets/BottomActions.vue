@@ -2,7 +2,11 @@
 import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useAppStore, useAuthStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
+import { useDialogStore } from '@/stores/dialog'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

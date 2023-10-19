@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useSearchEngineStore } from '@/stores'
+import { useSearchEngineStore } from '@/stores/searchEngine'
 import { SearchPlugin } from '@/types/qbit/models'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'

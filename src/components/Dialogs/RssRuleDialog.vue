@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
-import { useMaindataStore, useRssStore } from '@/stores'
+import { useMaindataStore } from '@/stores/maindata'
+import { useRssStore } from '@/stores/rss'
 import { FeedRule } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'

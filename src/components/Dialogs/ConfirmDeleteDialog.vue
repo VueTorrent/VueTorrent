@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore } from '@/stores/dashboard'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
