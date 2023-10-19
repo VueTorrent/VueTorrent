@@ -3,7 +3,7 @@ import { useDialog } from '@/composables'
 import { useDashboardStore } from '@/stores/dashboard'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
-import { computed, ref } from 'vue'
+import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 import { VForm } from 'vuetify/components'
@@ -46,6 +46,22 @@ async function submit() {
 const close = () => {
   isOpened.value = false
 }
+
+function handleKeyboardShortcuts(e: KeyboardEvent) {
+  if (e.key === 'Enter') {
+    e.preventDefault()
+    submit()
+    return true
+  }
+}
+
+onBeforeMount(() => {
+  document.addEventListener('keydown', handleKeyboardShortcuts)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcuts)
+})
 </script>
 
 <template>
