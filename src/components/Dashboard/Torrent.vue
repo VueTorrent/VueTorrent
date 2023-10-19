@@ -16,7 +16,7 @@ import ItemRelativeTime from './DashboardItems/ItemRelativeTime.vue'
 import ItemSpeed from './DashboardItems/ItemSpeed.vue'
 import ItemText from './DashboardItems/ItemText.vue'
 
-const props = defineProps<{ torrent: Torrent }>()
+const props = defineProps<{ compact: boolean, torrent: Torrent }>()
 
 const dashboardStore = useDashboardStore()
 const maindataStore = useMaindataStore()
@@ -65,8 +65,11 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 
 <template>
   <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}` : undefined" width="100%" @click="onClick">
-    <v-card-title class="font-weight-bold">{{ torrent.name }}</v-card-title>
-    <v-card-text>
+    <v-card-title class="font-weight-bold text-wrap">{{ torrent.name }}</v-card-title>
+    <v-card-text v-if="compact">
+      <ItemPercent :compact="true" :torrent="torrent" value="progress" title="" />
+    </v-card-text>
+    <v-card-text v-else>
       <div class="d-flex gap flex-wrap">
         <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
       </div>

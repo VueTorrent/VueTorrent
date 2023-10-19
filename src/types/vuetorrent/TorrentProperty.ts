@@ -7,7 +7,7 @@ type pptMetadata =
   | { type: DashboardPropertyType.DATA; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DATETIME; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DURATION; props: { title: string; value: string } }
-  | { type: DashboardPropertyType.PERCENT; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.PERCENT; props: { title: string; value: string; compact: boolean } }
   | { type: DashboardPropertyType.RELATIVE; props: { title: string; value: string } }
   | { type: DashboardPropertyType.SPEED; props: { title: string; value: string } }
   | { type: DashboardPropertyType.TEXT; props: { title: string; value: string } }

@@ -242,7 +242,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.PROGRESS]: {
-    props: { title: 'progress', value: 'progress' },
+    props: { title: 'progress', value: 'progress', compact: false },
     type: DashboardPropertyType.PERCENT
   },
   [DashboardProperty.RATIO]: {

@@ -27,6 +27,7 @@ export const useDashboardStore = defineStore(
       tagFilter: null as string | null,
       trackerFilter: null as string | null
     })
+    const isCompactMode = ref(false)
 
     const { t } = useI18n()
     const maindataStore = useMaindataStore()
@@ -149,6 +150,7 @@ export const useDashboardStore = defineStore(
       selectedTorrents,
       latestSelectedTorrent,
       sortOptions,
+      isCompactMode,
       torrentCountString,
       isTorrentInSelection,
       selectTorrent,
@@ -168,7 +170,7 @@ export const useDashboardStore = defineStore(
         {
           storage: localStorage,
           key: 'vuetorrent_dashboard',
-          paths: ['searchFilter', 'sortOptions']
+          paths: ['searchFilter', 'sortOptions', 'isCompactMode']
         }
       ]
     }

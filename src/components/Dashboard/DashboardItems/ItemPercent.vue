@@ -4,7 +4,7 @@ import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ compact: boolean, torrent: Torrent; title: string; value: string }>()
 
 const isTorrentActive = computed(() => {
   return [
@@ -23,7 +23,11 @@ const isTorrentActive = computed(() => {
 </script>
 
 <template>
-  <div class="d-flex flex-column">
+  <v-progress-linear v-if="compact" :model-value="torrent[value]" :max="1" :striped="isTorrentActive" :height="20" :color="`torrent-${torrent.state}`" rounded="sm">
+    {{ formatPercent(torrent[value]) }}
+  </v-progress-linear>
+
+  <div v-else class="d-flex flex-column">
     <div class="text-caption text-grey">
       {{ $t(`torrent.properties.${title}`) }}
     </div>

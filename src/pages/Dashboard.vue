@@ -21,7 +21,16 @@ const router = useRouter()
 const display = useDisplay()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
-const { currentPage: dashboardPage, filteredTorrents, isSelectionMultiple, searchFilter, selectedTorrents, sortOptions, torrentCountString } = storeToRefs(useDashboardStore())
+const {
+  currentPage: dashboardPage,
+  filteredTorrents,
+  isSelectionMultiple,
+  searchFilter,
+  selectedTorrents,
+  sortOptions,
+  isCompactMode,
+  torrentCountString
+} = storeToRefs(useDashboardStore())
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -135,6 +144,10 @@ function toggleSelectMode() {
     dashboardStore.unselectAllTorrents()
   }
   isSelectionMultiple.value = !isSelectionMultiple.value
+}
+
+function toggleCompactMode() {
+  isCompactMode.value = !isCompactMode.value
 }
 
 function toggleSelectAll() {
@@ -273,6 +286,12 @@ function endPress() {
                  variant="plain" @click="toggleSelectMode" />
         </template>
       </v-tooltip>
+      <v-tooltip :text="t('dashboard.toggleCompactMode')" location="top">
+        <template v-slot:activator="{ props }">
+          <v-btn :icon="isCompactMode ? 'mdi-view-list' : 'mdi-view-module'" v-bind="props" variant="plain"
+                 @click="toggleCompactMode" />
+        </template>
+      </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'" v-bind="props"
@@ -305,35 +324,54 @@ function endPress() {
     <div v-if="dashboardStore.filteredTorrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
-    <div v-else>
-      <v-list id="torrentList" class="pa-0" color="transparent">
-        <v-list-item v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
-                        @input="scrollToTop" />
-        </v-list-item>
+    <v-row v-else-if="isCompactMode" id="torrentList">
+      <v-col v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive" cols="12">
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                      @input="scrollToTop" />
+      </v-col>
 
-        <v-list-item v-for="torrent in paginatedTorrents" :id="`torrent-${torrent.hash}`"
-                     :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0" @contextmenu="onRightClick($event, torrent)"
-                     @touchcancel="endPress" @touchend="endPress" @touchstart="startPress"
-                     @dblclick.prevent="goToInfo(torrent.hash)">
-          <div class="d-flex align-center">
-            <v-expand-x-transition>
-              <v-card v-show="dashboardStore.isSelectionMultiple" class="mr-3" color="transparent">
-                <v-btn
-                    :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                    color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
-              </v-card>
-            </v-expand-x-transition>
-            <Torrent :torrent="torrent" />
-          </div>
-        </v-list-item>
+      <v-col v-for="torrent in paginatedTorrents" cols="12" sm="6" md="4" lg="3" xl="2"
+             :class="display.mobile ? 'pb-2' : 'pb-4'" class="pt-0">
+        <div class="d-flex align-center">
+          <v-expand-x-transition>
+            <v-btn v-show="dashboardStore.isSelectionMultiple" class="mr-2"
+                   :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                   color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
+          </v-expand-x-transition>
+          <Torrent :compact="true" :torrent="torrent" />
+        </div>
+      </v-col>
 
-        <v-list-item v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
-                        @input="scrollToTop" />
-        </v-list-item>
-      </v-list>
-    </div>
+      <v-col v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive" cols="12">
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                      @input="scrollToTop" />
+      </v-col>
+    </v-row>
+    <v-list v-else id="torrentList" class="pa-0">
+      <v-list-item v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                      @input="scrollToTop" />
+      </v-list-item>
+
+      <v-list-item v-for="torrent in paginatedTorrents" :id="`torrent-${torrent.hash}`"
+                   :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0" @contextmenu="onRightClick($event, torrent)"
+                   @touchcancel="endPress" @touchend="endPress" @touchstart="startPress"
+                   @dblclick.prevent="goToInfo(torrent.hash)">
+        <div class="d-flex align-center">
+          <v-expand-x-transition>
+            <v-btn v-show="dashboardStore.isSelectionMultiple" class="mr-2"
+                :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
+          </v-expand-x-transition>
+          <Torrent :compact="false" :torrent="torrent" />
+        </div>
+      </v-list-item>
+
+      <v-list-item v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
+        <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                      @input="scrollToTop" />
+      </v-list-item>
+    </v-list>
   </div>
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
     <RightClickMenu v-model="trcProperties.isVisible" />
@@ -342,6 +380,6 @@ function endPress() {
 
 <style>
 #torrentList {
-    background-color: unset;
+  background-color: unset;
 }
 </style>

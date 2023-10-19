@@ -19,8 +19,9 @@
     "torrentsCount": "No torrent | {n} torrent | {n} torrents",
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})",
     "searchInputLabel": "Search",
-    "toggleSearchFilter": "Toggle Search Filter",
+    "toggleSearchFilter": "Toggle search filter",
     "toggleSelectMode": "Toggle select mode",
+    "toggleCompactMode": "Toggle compact mode",
     "toggleSortOrder": "Reverse sort order",
     "sortLabel": "Sort by",
     "sortBy": {
