@@ -24,12 +24,6 @@
   <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" alt="Screenshot Desktop (Dark Mode)" />
 </p>
 
-- Mobile
-<p>
-  <img src="readme_assets/screenshot-mobile.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" />
-  <img src="readme_assets/screenshot-mobile-navbar.png" width="400" alt="Screenshot Mobile Navbar (Light Mode)" /> 
-</p>
-
 - Mobile Dark Mode
 <p>
   <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Dark Mode)" />
