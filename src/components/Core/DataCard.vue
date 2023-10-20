@@ -8,7 +8,7 @@ const vueTorrentStore = useVueTorrentStore()
 </script>
 
 <template>
-  <v-sheet color="secondary" rounded="md" class="pa-3">
+  <v-sheet color="secondary" rounded="lg" class="pa-3">
     <v-row data-testid="card-wrapper" :class="[`text-${color}`]">
       <v-col data-testid="card-title" cols="7" class="text-subtitle-1">{{ title }}</v-col>
       <v-col cols="5" class="">

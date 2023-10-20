@@ -13,7 +13,7 @@ const maindataStore = useMaindataStore()
       {{ t('navbar.side.current_speed.title') }}
     </v-card-title>
     <v-card-text class="px-0">
-      <v-sheet color="primary">
+      <v-sheet color="primary" class="mx-2">
         <v-row class="pt-0">
           <v-col class="px-1 pt-1">
             <SpeedCard icon="mdi-chevron-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />
