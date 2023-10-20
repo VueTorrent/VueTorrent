@@ -14,7 +14,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@fontsource-variable/roboto-mono": "^5.0.14",
+    "@fontsource/roboto": "^5.0.8",
     "@mdi/js": "^7.2.96",
     "@vueuse/core": "^10.5.0",
     "apexcharts": "^3.42.0",

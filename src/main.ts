@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import '@fontsource-variable/roboto-mono'
 import '@/styles/styles.scss'
 import App from './App.vue'
 
@@ -18,5 +17,8 @@ import options from '@/plugins/toastify'
 
 // Pinia
 import pinia from '@/plugins/pinia'
+
+// Font
+import '@fontsource/roboto'
 
 createApp(App).use(router).use(vuetify).use(i18n).use(Vue3Toastify, options).use(pinia).mount('#app')
