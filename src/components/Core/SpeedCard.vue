@@ -27,7 +27,7 @@ const vueTorrentStore = useVueTorrentStore()
         <v-icon class="" :icon="icon" :color="color" />
       </v-col>
       <v-col cols="8" class="d-flex flex-column align-center justify-center">
-        <span class="text-subtitle-1" :class="`text-${color}`">{{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}</span>
+        <span class="text-subtitle-1 roboto" :class="`text-${color}`">{{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}</span>
         <span class="text-caption" :class="`text-${color}`">{{ formatSpeedUnit(value, vueTorrentStore.useBitSpeed) }}</span>
       </v-col>
     </v-row>
@@ -35,4 +35,9 @@ const vueTorrentStore = useVueTorrentStore()
 </template>
 
 <style scoped lang="scss">
+@import '@fontsource/roboto-mono';
+.roboto {
+  font-family: 'Roboto Mono', sans-serif !important;
+  font-weight: 500;
+}
 </style>
