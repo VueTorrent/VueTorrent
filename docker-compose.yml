@@ -1,4 +1,4 @@
-version: '3.6'
+version: '3.8'
 services:
   qbit:
     image: linuxserver/qbittorrent:latest
@@ -10,9 +10,9 @@ services:
       - UMASK_SET=022
       - WEBUI_PORT=8080
     volumes:
-      - ./config:/config
-      - ./Downloads:/downloads
+      - ./docker/config:/config
+      - ./docker/downloads:/downloads
       - ./vuetorrent:/vuetorrent
     ports:
-      - 8080:8080
+      - '8080:8080'
     restart: unless-stopped

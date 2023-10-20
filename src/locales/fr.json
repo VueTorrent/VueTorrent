@@ -1,0 +1,13 @@
+{
+  "dashboard": {
+    "title": "Tableau de Bord",
+    "goToSettings": "Aller aux paramètres"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "language": "Langue",
+    "save": "Sauvegarder",
+    "saveSuccess": "Paramètres sauvegardés avec succès!",
+    "goBack": "Page précédente"
+  }
+}

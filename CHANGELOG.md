@@ -2,39 +2,41 @@
 
 ## [1.8.0](https://github.com/WDaan/VueTorrent/compare/v1.7.4...v1.8.0) (2023-10-04)
 
-
 ### Features
 
-* login with url query ([#1108](https://github.com/WDaan/VueTorrent/issues/1108)) ([459b7e0](https://github.com/WDaan/VueTorrent/commit/459b7e08f2c630f6e92a459fd39b3dade7ef7fdf))
-
+- login with url query ([#1108](https://github.com/WDaan/VueTorrent/issues/1108)) ([459b7e0](https://github.com/WDaan/VueTorrent/commit/459b7e08f2c630f6e92a459fd39b3dade7ef7fdf))
 
 ### Bug Fixes
 
-* hungarian translations ([#1127](https://github.com/WDaan/VueTorrent/issues/1127)) ([2c9c9d5](https://github.com/WDaan/VueTorrent/commit/2c9c9d5ac197c1e56fec2f26c20fc631c2dc86e1))
-
+- hungarian translations ([#1127](https://github.com/WDaan/VueTorrent/issues/1127)) ([2c9c9d5](https://github.com/WDaan/VueTorrent/commit/2c9c9d5ac197c1e56fec2f26c20fc631c2dc86e1))
 
 ### Improvements
 
-* Add autofocus on login page ([#1117](https://github.com/WDaan/VueTorrent/issues/1117)) ([7ca220d](https://github.com/WDaan/VueTorrent/commit/7ca220dfa6eff9a6f943fcacd045ef6b8f2ce570))
-* add Hungarian translations ([#1121](https://github.com/WDaan/VueTorrent/issues/1121)) ([f584aad](https://github.com/WDaan/VueTorrent/commit/f584aadcea38e28251f7347a8d794eca8ce807a0))
+- Add autofocus on login page ([#1117](https://github.com/WDaan/VueTorrent/issues/1117))
+  ([7ca220d](https://github.com/WDaan/VueTorrent/commit/7ca220dfa6eff9a6f943fcacd045ef6b8f2ce570))
+- add Hungarian translations ([#1121](https://github.com/WDaan/VueTorrent/issues/1121))
+  ([f584aad](https://github.com/WDaan/VueTorrent/commit/f584aadcea38e28251f7347a8d794eca8ce807a0))
 
 ## [1.7.4](https://github.com/WDaan/VueTorrent/compare/v1.7.3...v1.7.4) (2023-09-19)
 
-
 ### Bug Fixes
 
-* change settings speed tab speed unit to KiBps ([#1082](https://github.com/WDaan/VueTorrent/issues/1082)) ([587038a](https://github.com/WDaan/VueTorrent/commit/587038a7ae25fcedcb29b358a12e5f3a3b38ce64))
-* formatDataValues for values with 4 digits or more ([#1083](https://github.com/WDaan/VueTorrent/issues/1083)) ([ad562f0](https://github.com/WDaan/VueTorrent/commit/ad562f056a4976b484ae7f98da2eef8153f9b0c4))
-* **logs:** wrong date parsing ([#1076](https://github.com/WDaan/VueTorrent/issues/1076)) ([14a6b90](https://github.com/WDaan/VueTorrent/commit/14a6b90547dda3284254608f6cd203bc84634768))
-* Revert "fix(logs): Wrong date parsing" ([#1099](https://github.com/WDaan/VueTorrent/issues/1099)) ([1110bdb](https://github.com/WDaan/VueTorrent/commit/1110bdb8b780d9512366d1e46ed8aecadb2efa4d))
+- change settings speed tab speed unit to KiBps ([#1082](https://github.com/WDaan/VueTorrent/issues/1082))
+  ([587038a](https://github.com/WDaan/VueTorrent/commit/587038a7ae25fcedcb29b358a12e5f3a3b38ce64))
+- formatDataValues for values with 4 digits or more ([#1083](https://github.com/WDaan/VueTorrent/issues/1083))
+  ([ad562f0](https://github.com/WDaan/VueTorrent/commit/ad562f056a4976b484ae7f98da2eef8153f9b0c4))
+- **logs:** wrong date parsing ([#1076](https://github.com/WDaan/VueTorrent/issues/1076))
+  ([14a6b90](https://github.com/WDaan/VueTorrent/commit/14a6b90547dda3284254608f6cd203bc84634768))
+- Revert "fix(logs): Wrong date parsing" ([#1099](https://github.com/WDaan/VueTorrent/issues/1099))
+  ([1110bdb](https://github.com/WDaan/VueTorrent/commit/1110bdb8b780d9512366d1e46ed8aecadb2efa4d))
 
 ## [1.7.3](https://github.com/WDaan/VueTorrent/compare/v1.7.2...v1.7.3) (2023-08-31)
 
-
 ### Bug Fixes
 
-* mobile long press [#911](https://github.com/WDaan/VueTorrent/issues/911) ([6871e54](https://github.com/WDaan/VueTorrent/commit/6871e54f94c19f4c5d54f6d5056a4f1b302a956a))
-* revert longpress fix, unreliable on pwa [#911](https://github.com/WDaan/VueTorrent/issues/911) ([3214997](https://github.com/WDaan/VueTorrent/commit/3214997194f76d01b3ead9439589c3103eb2728c))
+- mobile long press [#911](https://github.com/WDaan/VueTorrent/issues/911) ([6871e54](https://github.com/WDaan/VueTorrent/commit/6871e54f94c19f4c5d54f6d5056a4f1b302a956a))
+- revert longpress fix, unreliable on pwa [#911](https://github.com/WDaan/VueTorrent/issues/911)
+  ([3214997](https://github.com/WDaan/VueTorrent/commit/3214997194f76d01b3ead9439589c3103eb2728c))
 
 ## [1.7.2](https://github.com/WDaan/VueTorrent/compare/v1.7.1...v1.7.2) (2023-08-31)
 

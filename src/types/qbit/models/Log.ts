@@ -1,4 +1,4 @@
-import { LogType } from '@/enums/qbit'
+import { LogType } from '@/constants/qbit'
 
 export default interface Log {
   id: number

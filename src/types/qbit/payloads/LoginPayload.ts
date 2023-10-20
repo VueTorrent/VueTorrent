@@ -1,4 +1,4 @@
-import type { BasePayload } from '.'
+import type { BasePayload } from './index'
 
 export default interface LoginPayload extends BasePayload {
   /** Username used to access the WebUI */

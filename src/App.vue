@@ -1,82 +1,101 @@
-<template>
-  <v-app>
-    <component :is="modal.component" v-for="modal in modals" :key="modal.guid" v-bind="{ guid: modal.guid, ...modal.props }" />
-    <Navbar v-if="authenticated" />
-    <v-main class="background">
-      <router-view />
-    </v-main>
-  </v-app>
-</template>
-
-<script>
-import { mapState } from 'vuex'
+<script setup lang="ts">
+import AddPanel from '@/components/AddPanel.vue'
+import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
-import qbit from '@/services/qbit'
-import { General } from '@/mixins'
-import { getVersion } from './helpers'
+import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
+import { useDialogStore } from '@/stores/dialog'
+import { useLogStore } from '@/stores/logs'
+import { useMaindataStore } from '@/stores/maindata'
+import { usePreferenceStore } from '@/stores/preferences'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 
-export default {
-  name: 'App',
-  components: { Navbar },
-  mixins: [General],
-  computed: {
-    ...mapState(['modals', 'webuiSettings', 'authenticated']),
-    onLoginPage() {
-      return this.$router.currentRoute.name?.includes('login')
-    }
-  },
-  created() {
-    this.$vuetify.theme.dark = this.webuiSettings.darkTheme
-    this.$store.commit('SET_APP_VERSION', getVersion())
-    this.$store.commit('SET_LANGUAGE')
-    this.checkAuthentication()
-    this.blockContextMenu()
-  },
-  watch: {
-    authenticated(newValue) {
-      if (newValue) {
-        this.$store.dispatch('INIT_INTERVALS')
-        this.$store.commit('updateMainData')
-        this.$store.dispatch('FETCH_SETTINGS')
-      } else {
-        this.$store.commit('REMOVE_INTERVALS')
-      }
-    }
-  },
-  methods: {
-    async checkAuthentication() {
-      const authenticated = await qbit.getAuthenticationStatus()
-      if (authenticated) {
-        this.$store.commit('LOGIN', true)
-        this.$store.dispatch('INIT_INTERVALS')
-        this.$store.commit('updateMainData')
-        this.$store.dispatch('FETCH_SETTINGS')
-        if (this.onLoginPage) this.redirectOnSuccess()
-        return
-      }
+import { computed, onBeforeMount, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-      this.$store.commit('LOGIN', false)
-      if (!this.onLoginPage) return this.$router.push({ name: 'login', query: { redirect: this.$route.fullPath } })
-    },
-    blockContextMenu() {
-      document.addEventListener('contextmenu', event => {
-        if (!event.target) return
-        const nodeName = event.target.nodeName.toLowerCase()
-        const nodeType = event.target.getAttribute('type')
+const router = useRouter()
+const route = useRoute()
 
-        if (['textarea', 'a'].includes(nodeName)) return
-        if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
+const authStore = useAuthStore()
+const appStore = useAppStore()
+const dialogStore = useDialogStore()
+const logStore = useLogStore()
+const maindataStore = useMaindataStore()
+const preferencesStore = usePreferenceStore()
+const vuetorrentStore = useVueTorrentStore()
 
-        event.preventDefault()
+const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
 
-        return false
-      })
-    },
-    redirectOnSuccess() {
-      const redirect = this.$route.query.redirect
-      if (redirect) return this.$router.push(redirect)
-      this.$router.push({ name: 'dashboard' })
-    }
+const checkAuthentication = async () => {
+  await authStore.updateAuthStatus()
+
+  if (!authStore.isAuthenticated && !onLoginPage.value) {
+    await vuetorrentStore.redirectToLogin()
+  } else {
+    redirectOnSuccess()
   }
 }
+
+const blockContextMenu = () => {
+  document.addEventListener('contextmenu', event => {
+    if (!event.target) return
+
+    const targetNode = event.target as Element
+    const nodeName = targetNode.nodeName.toLowerCase()
+    const nodeType = targetNode.getAttribute('type')?.toLowerCase() ?? ''
+
+    if (['textarea', 'a', 'img'].includes(nodeName)) return
+    if (nodeName === 'input' && ['text', 'password', 'email', 'number'].includes(nodeType)) return
+
+    event.preventDefault()
+    return false
+  })
+}
+
+const redirectOnSuccess = () => {
+  const redirectUrl = route.query.redirect as string | undefined
+  if (redirectUrl) router.push(redirectUrl)
+  else if (onLoginPage.value) router.push({ name: 'dashboard' })
+}
+
+onBeforeMount(() => {
+  if (vuetorrentStore.matchSystemTheme) {
+    vuetorrentStore.updateSystemTheme()
+  } else {
+    vuetorrentStore.updateTheme()
+  }
+  vuetorrentStore.setLanguage(vuetorrentStore.language)
+  checkAuthentication()
+  blockContextMenu()
+})
+
+watch(
+  () => authStore.isAuthenticated,
+  async isAuthenticated => {
+    if (isAuthenticated) {
+      appStore.pushInterval(() => maindataStore.updateMaindata(), vuetorrentStore.refreshInterval)
+      await maindataStore.updateMaindata()
+      await preferencesStore.fetchPreferences()
+      await logStore.fetchLogs()
+    } else {
+      appStore.clearIntervals()
+    }
+  },
+  {
+    immediate: true
+  }
+)
 </script>
+
+<template>
+  <v-app class="text-noselect">
+    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component"
+               v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <Navbar v-if="authStore.isAuthenticated" />
+    <v-main>
+      <router-view />
+    </v-main>
+    <AddPanel />
+    <DnDZone />
+  </v-app>
+</template>

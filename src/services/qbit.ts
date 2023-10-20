@@ -5,7 +5,7 @@ import type {
   AppPreferences,
   Category,
   Feed,
-  FeedRule as QbitFeedRule,
+  FeedRule,
   Log,
   NetworkInterface,
   SearchJob,
@@ -16,11 +16,10 @@ import type {
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
-import type { MainDataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
-import type { FeedRule as VtFeedRule, SortOptions } from '@/types/vuetorrent'
-import type { Priority } from '@/enums/qbit'
-import { LogType } from '@/enums/qbit'
+import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
+import type { FilePriority } from '@/constants/qbit'
+import { LogType, PieceState } from '@/constants/qbit'
 
 type Parameters = Record<string, any>
 
@@ -79,7 +78,7 @@ export class QBitApi {
     return this.execute('/app/setPreferences', data)
   }
 
-  async getMainData(rid?: number): Promise<MainDataResponse> {
+  async getMaindata(rid?: number): Promise<MaindataResponse> {
     return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
@@ -87,21 +86,8 @@ export class QBitApi {
     return this.execute('/transfer/toggleSpeedLimitsMode')
   }
 
-  async getTorrents(payload: SortOptions): Promise<Torrent[]> {
-    const params: Parameters = {
-      sort: !payload.isCustomSortEnabled ? payload.sort : null,
-      reverse: !payload.isCustomSortEnabled ? payload.reverse : null,
-      filter: payload.filter ? payload.filter : null,
-      category: payload.category !== null ? payload.category : null,
-      tag: payload.tag !== null ? payload.tag : null
-    }
-
-    // clean
-    Object.keys(params).forEach(key => params[key] == null && delete params[key])
-
-    const data = new URLSearchParams(params)
-
-    return this.axios.get(`/torrents/info?${data.toString()}`).then(r => r.data)
+  async getTorrents(payload: GetTorrentPayload): Promise<Torrent[]> {
+    return this.axios.get('/torrents/info', { params: payload }).then(r => r.data)
   }
 
   async getTorrentTrackers(hash: string): Promise<Tracker[]> {
@@ -124,7 +110,7 @@ export class QBitApi {
     return this.execute('/torrents/rename', { hash, name })
   }
 
-  async getTorrentPieceStates(hash: string): Promise<number[]> {
+  async getTorrentPieceStates(hash: string): Promise<PieceState[]> {
     return this.axios
       .get('/torrents/pieceStates', {
         params: { hash }
@@ -141,7 +127,10 @@ export class QBitApi {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.axios.get('/torrents/tags').then(res => res.data.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
+    return this.axios
+      .get('/torrents/tags')
+      .then(res => res.data)
+      .then(tags => tags.sort((a: string, b: string) => a.localeCompare(b.toLowerCase(), undefined, { sensitivity: 'base' })))
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
@@ -161,25 +150,43 @@ export class QBitApi {
     })
   }
 
-  async setRule(rule: VtFeedRule) {
+  async setRule(ruleName: string, ruleDef: FeedRule) {
     return this.execute('/rss/setRule', {
-      ruleName: rule.name,
-      ruleDef: JSON.stringify(rule)
+      ruleName,
+      ruleDef: JSON.stringify(ruleDef)
     })
   }
 
-  async getFeeds(withData: boolean = false): Promise<Record<string, Feed>> {
-    return this.axios.get('/rss/items', { params: { withData } }).then(res => res.data)
+  async getFeeds(withData: boolean): Promise<Feed[]> {
+    return this.axios
+      .get('/rss/items', { params: { withData } })
+      .then(res => res.data)
+      .then(payload => {
+        const feeds = []
+        for (const key in payload) {
+          feeds.push({ name: key, ...payload[key] })
+        }
+        return feeds
+      })
   }
 
-  async getRules(): Promise<Record<string, QbitFeedRule>> {
-    return this.axios.get('/rss/rules').then(res => res.data)
+  async getRules(): Promise<FeedRule[]> {
+    return this.axios
+      .get('/rss/rules')
+      .then(res => res.data)
+      .then(payload => {
+        const rules: FeedRule[] = []
+        for (const key in payload) {
+          rules.push({ name: key, ...payload[key] })
+        }
+        return rules
+      })
   }
 
-  async editFeed(itemPath: string, destPath: string): Promise<void> {
+  async editFeed(oldName: string, newName: string): Promise<void> {
     return this.execute('/rss/moveItem', {
-      itemPath,
-      destPath
+      itemPath: oldName,
+      destPath: newName
     })
   }
 
@@ -243,7 +250,7 @@ export class QBitApi {
     return this.axios.post('/torrents/add', data)
   }
 
-  async setTorrentFilePriority(hash: string, idList: number[], priority: Priority): Promise<void> {
+  async setTorrentFilePriority(hash: string, idList: number[], priority: FilePriority): Promise<void> {
     const params = {
       hash,
       id: idList.join('|'),
@@ -277,6 +284,10 @@ export class QBitApi {
 
   async toggleFirstLastPiecePriority(hashes: string[]): Promise<void> {
     return this.torrentAction('toggleFirstLastPiecePrio', hashes)
+  }
+
+  async setSuperSeeding(hashes: string[], value: boolean): Promise<void> {
+    return this.torrentAction('setSuperSeeding', hashes, { value })
   }
 
   async setAutoTMM(hashes: string[], enable: boolean): Promise<void> {
@@ -355,6 +366,16 @@ export class QBitApi {
     return this.execute(`/torrents/addTrackers`, params)
   }
 
+  async editTorrentTracker(hash: string, origUrl: string, newUrl: string): Promise<void> {
+    const params = {
+      hash,
+      origUrl,
+      newUrl
+    }
+
+    return this.execute(`/torrents/editTracker`, params)
+  }
+
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
     const params = {
       hash,
@@ -427,7 +448,7 @@ export class QBitApi {
     })
   }
 
-  async deleteTag(tags: string[]): Promise<void> {
+  async deleteTags(tags: string[]): Promise<void> {
     return this.execute('/torrents/deleteTags', {
       tags: tags.join(',')
     })
@@ -547,10 +568,10 @@ export class QBitApi {
   }
 
   async shutdownApp(): Promise<boolean> {
-    return this.axios
-      .post('/app/shutdown')
-      .then(() => true)
-      .catch(() => false)
+    return this.axios.post('/app/shutdown').then(
+      () => true,
+      () => false
+    )
   }
 
   async getNetworkInterfaces(): Promise<NetworkInterface[]> {

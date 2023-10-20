@@ -1,11 +1,11 @@
 <div>
-  <img align="left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
+  <img style="float: left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
   <h1>VueTorrent</h1>
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
 </div>
 
-![Vue](https://img.shields.io/badge/Vue-%5E2.7.14-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
-![Vuetify](https://img.shields.io/badge/Vuetify-%5E2.6.10-brightgreen)
+![Vue](https://img.shields.io/badge/Vue-%5E3.3.4-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.3.15-brightgreen)
 
 ![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
 ![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
@@ -15,25 +15,25 @@
 ## Screenshots
 
 - Desktop
-<p align="middle">
-  <img src="readme_assets/screenshot-desktop.png" width="800" />
+<p>
+  <img src="readme_assets/screenshot-desktop.png" width="800" alt="Screenshot Desktop (Light Mode)" />
 </p>
 
 - Desktop Dark Mode
-<p align="middle">
-  <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" />
+<p>
+  <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" alt="Screenshot Desktop (Dark Mode)" />
 </p>
 
 - Mobile
-<p align="middle">
-  <img src="readme_assets/screenshot-mobile.png" width="400" />
-  <img src="readme_assets/screenshot-mobile-navbar.png" width="400" /> 
+<p>
+  <img src="readme_assets/screenshot-mobile.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" />
+  <img src="readme_assets/screenshot-mobile-navbar.png" width="400" alt="Screenshot Mobile Navbar (Light Mode)" /> 
 </p>
 
 - Mobile Dark Mode
-<p align="middle">
-  <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" />
-  <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" /> 
+<p>
+  <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Dark Mode)" />
+  <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" /> 
 </p>
 
 ## Installation
@@ -79,9 +79,17 @@ If you like to always have the latest and greatest, please sync to the `nightly-
   - search for new torrents straight from the WebUI!
   - search filtering powered by Fuse.js!
 - Keyboard shortcuts!
-  - select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
-  - delete selected torrents with <kbd>delete</kbd>
-  - <kbd>Shift</kbd>-click to select from one torrent
+  - Mac keymap is supported (use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>)
+  - Press <kbd>Escape</kbd> to dismiss any dialogs or to return to Dashboard view
+  - Dashboard
+    - Select all torrents with <kbd>Ctrl</kbd>-<kbd>A</kbd>
+    - Focus search input with <kbd>Ctrl</kbd>-<kbd>F</kbd>
+      - Press again to enable native browser search
+    - When no dialogs are opened, press <kbd>Escape</kbd> to unfocus search input
+      - Press again to unselect all torrents
+    - Delete selected torrents with <kbd>Delete</kbd> (<kbd>Fn</kbd>-<kbd>Backspace</kbd> on Mac)
+    - <kbd>Ctrl</kbd>-click on a torrent card to enable multi-select mode and select it
+    - Hold <kbd>Shift</kbd> and click on a torrent card to select all torrents between the last selected torrent and the clicked torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
   - beautiful transfer graphs
@@ -97,6 +105,20 @@ I'll gladly accept help/pull requests & advice!
 
 [FAQ](../../wiki/FAQ)
 
+### Localize the app
+
+To help us localize VueTorrent, you will need to:
+- `src/locales/<your language>.json`
+  - Create a json file containing the translations by matching the structure of `en.json`
+    - every key may not be specified, that's fine, it will default to the english locale
+  - `<your language>` should match the ISO 639 locale code of the added language
+- `src/locales/locales.ts`
+  - add your language to the `Locales` enum, it should match the json filename
+  - Update the `LOCALES` constant with the local language name and the created enum value
+- `src/locales/index.ts`
+  - import the json file
+  - include it in the `messages` object using the created enum value as key
+
 ## Support
 
 Open up an issue 😛
@@ -108,7 +130,6 @@ but before you do that:
 
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
-## Credits
-
-- [qBittorrent](https://github.com/qbittorrent/qBittorrent)
-- Many thanks [@m4ximuel](https://github.com/m4ximuel) for designing the icon & helping out with the project
+## Contributors
+- [@m4ximuel](https://github.com/m4ximuel)
+- [@Larsluph](https://github.com/Larsluph)

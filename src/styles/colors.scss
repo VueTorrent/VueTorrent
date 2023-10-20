@@ -1,49 +1,46 @@
-// Main colors
 $primary: #35495e;
 $secondary: #3e556d;
-$download: #64ceaa;
+$download: #5bb974;
 $upload: #00b3fa;
 $ratio: #00b2f8;
 $state: #1e9367;
 $category: #04669a;
-$tags: #048b9a;
-$tracker: #1eb9ac;
-// Torrent status colors
-$torrent-done: #16573e;
-$torrent-downloading: #5bb974;
-$torrent-fail: #f83e70;
-$torrent-errored: $torrent-fail;
-$torrent-paused: #9ca3af;
-$torrent-queued: #2e5eaa;
+$tag: #048b9a;
+$tracker: #c97d09;
+
+// State filter colors
+$state-downloading: #5bb974;
+$state-stalled_downloading: #5bb974;
+$state-seeding: #4ecde6;
+$state-stalled_uploading: #4ecde6;
+$state-completed: #16573e;
+$state-resumed: #bdbdbd;
+$state-active: #bdbdbd;
+$state-stalled: #696969;
+$state-paused: #696969;
+$state-inactive: #696969;
+$state-checking: #ff7043;
+$state-moving: #ffaa2c;
+$state-errored: #f83e70;
+
+// Torrent state colors
+$torrent-error: #f83e70;
+$torrent-missingFiles: #f83e70;
 $torrent-uploading: #4e79e6;
-$torrent-seeding: #4ecde6;
-$torrent-checking: #ff7043;
-$torrent-stalled: #4ade80;
-$torrent-metadata: #7e57c2;
+$torrent-forcedUP: #4e79e6;
+$torrent-pausedUP: #16573e;
+$torrent-queuedUP: #2e5eaa;
+$torrent-stalledUP: #4ecde6;
+$torrent-checkingUP: #ff7043;
+$torrent-allocating: #e5a241;
+$torrent-downloading: #5bb974;
+$torrent-forcedDL: #5bb974;
+$torrent-metaDL: #7e57c2;
+$torrent-pausedDL: #9ca3af;
+$torrent-queuedDL: #2e5eaa;
+$torrent-stalledDL: #4ade80;
+$torrent-checkingDL: #ff7043;
+$torrent-checkingResumeData: #ff7043;
 $torrent-moving: #ffaa2c;
-$torrent-unknown: #000000;
-
-:export {
-  primary: $primary;
-  secondary: $secondary;
-  download: $download;
-  upload: $upload;
-  ratio: $ratio;
-  state: $state;
-  category: $category;
-  tags: $tags;
-  tracker: $tracker;
-
-  torrent-done-color: $torrent-done;
-  torrent-downloading-color: $torrent-downloading;
-  torrent-fail-color: $torrent-fail;
-  torrent-errored-color: $torrent-errored;
-  torrent-paused-color: $torrent-paused;
-  torrent-queued-color: $torrent-queued;
-  torrent-seeding-color: $torrent-seeding;
-  torrent-checking-color: $torrent-checking;
-  torrent-stalled-color: $torrent-stalled;
-  torrent-metadata-color: $torrent-metadata;
-  torrent-moving-color: $torrent-moving;
-  torrent-unknown-color: $torrent-unknown;
-}
+$torrent-unknown-light: #000000;
+$torrent-unknown-dark: #ffffff;

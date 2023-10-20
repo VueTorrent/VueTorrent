@@ -1,4 +1,4 @@
-import { Priority } from '@/enums/qbit'
+import { FilePriority } from '@/constants/qbit'
 
 export interface TreeNode {
   /** Represents the type of the node */
@@ -24,7 +24,7 @@ export interface TreeFile extends TreeNode {
   /** True if file is seeding/complete */
   is_seed: boolean
   /** File priority */
-  priority: Priority
+  priority: FilePriority
   /** File progress */
   progress: number
   /** File size in bytes */

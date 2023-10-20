@@ -1,208 +1,102 @@
-@charset "utf-8";
-@import '@/styles/colors.scss';
+@import 'colors';
 
-$sideborder-margin: 6px;
-
-.sideborder.done {
-  border-left: #{$sideborder-margin} solid #{$torrent-done};
-}
-.sideborder.downloading {
-  border-left: #{$sideborder-margin} solid #{$torrent-downloading};
-}
-.sideborder.fail {
-  border-left: #{$sideborder-margin} solid #{$torrent-fail};
-}
-.sideborder.paused {
-  border-left: #{$sideborder-margin} solid #{$torrent-paused};
-}
-.sideborder.queued {
-  border-left: #{$sideborder-margin} solid #{$torrent-queued};
-}
-.sideborder.seeding {
-  border-left: #{$sideborder-margin} solid #{$torrent-seeding};
-}
-.sideborder.uploading {
-  border-left: #{$sideborder-margin} solid #{$torrent-uploading};
-}
-.sideborder.checking {
-  border-left: #{$sideborder-margin} solid #{$torrent-checking};
-}
-.sideborder.stalled {
-  border-left: #{$sideborder-margin} solid #{$torrent-stalled};
-}
-.sideborder.metadata {
-  border-left: #{$sideborder-margin} solid #{$torrent-metadata};
-}
-.sideborder.moving {
-  border-left: #{$sideborder-margin} solid #{$torrent-moving};
-}
-.sideborder.unknown {
-  border-left: #{$sideborder-margin} solid #{$torrent-unknown};
-}
-.v-chip.done {
-  background: #{$torrent-done} !important;
-}
-.v-chip.downloading {
-  background: #{$torrent-downloading} !important;
-}
-.v-chip.fail {
-  background: #{$torrent-fail} !important;
-}
-.v-chip.paused {
-  background: #{$torrent-paused} !important;
-}
-.v-chip.queued {
-  background: #{$torrent-queued} !important;
-}
-.v-chip.seeding {
-  background: #{$torrent-seeding} !important;
-}
-.v-chip.uploading {
-  background: #{$torrent-uploading} !important;
-}
-.v-chip.checking {
-  background: #{$torrent-checking} !important;
-}
-.v-chip.stalled {
-  background: #{$torrent-stalled} !important;
-}
-.v-chip.metadata {
-  background: #{$torrent-metadata} !important;
-}
-.v-chip.moving {
-  background: #{$torrent-moving} !important;
-}
-.v-chip.unknown {
-  background: #{$torrent-unknown} !important;
-}
-
-.v-text-field--outlined fieldset {
-  border-color: #{$primary} !important;
-}
-
-.v-text-field--outlined fieldset {
-  border-color: #{$primary} !important;
-}
-
-.v-input__slot:hover fieldset {
-  border-color: #{$primary} !important;
-}
-
-.v-application a {
-  color: inherit !important;
-}
-
-:root {
-  color-scheme: dark;
-}
-
-.noselect {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
+ul.no-bullet {
+  list-style-type: none;
 }
 
 .pointer {
   cursor: pointer;
 }
-.truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+.wrap-anywhere {
+  overflow-wrap: anywhere !important;
 }
 
-.robot-mono {
-  font-family: 'Roboto Mono', sans-serif;
-  letter-spacing: 0;
+.text-noselect {
+  -webkit-touch-callout: default; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         supported by Chrome and Opera */
 }
 
-.transparent {
-  background-color: transparent !important;
-  border-color: transparent !important;
-}
-// scrollbar designs & menu designs
-.v-card__text,
-.v-data-table__wrapper,
-div {
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: background-color;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background: gray;
-  }
-}
-.v-menu__content {
-  border-radius: 9px;
-  border: solid 1px rgb(127, 127, 127, 0.5);
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    background: var(--v-background-base) !important;
-    border-radius: 0 20px 20px 0;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background: gray;
-  }
-  .v-list {
-    margin: 0;
-    padding: 0;
-  }
-}
-body {
-  background-color: var(--v-background-base) !important;
-  &::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-    //background: #F5F5F5;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: gray;
-    border-radius: 20px;
-  }
+.text-select {
+  -webkit-touch-callout: default;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
-// Reversed switch input variant
-@mixin reverse-switch {
-  flex-direction: row-reverse;
-  justify-content: flex-end;
-  .v-application--is-ltr & {
-    .v-input--selection-controls__input {
-      margin-right: 0;
-      margin-left: 8px;
+$sideborder-margin: 6px;
+
+.sideborder {
+  border-left: #{$sideborder-margin} solid grey !important;
+
+  &.error {
+    border-left-color: #{$torrent-error} !important;
+  }
+  &.missingFiles {
+    border-left-color: #{$torrent-missingFiles} !important;
+  }
+  &.uploading {
+    border-left-color: #{$torrent-uploading} !important;
+  }
+  &.forcedUP {
+    border-left-color: #{$torrent-forcedUP} !important;
+  }
+  &.pausedUP {
+    border-left-color: #{$torrent-pausedUP} !important;
+  }
+  &.queuedUP {
+    border-left-color: #{$torrent-queuedUP} !important;
+  }
+  &.stalledUP {
+    border-left-color: #{$torrent-stalledUP} !important;
+  }
+  &.checkingUP {
+    border-left-color: #{$torrent-checkingUP} !important;
+  }
+  &.allocating {
+    border-left-color: #{$torrent-allocating} !important;
+  }
+  &.downloading {
+    border-left-color: #{$torrent-downloading} !important;
+  }
+  &.forcedDL {
+    border-left-color: #{$torrent-forcedDL} !important;
+  }
+  &.metaDL {
+    border-left-color: #{$torrent-metaDL} !important;
+  }
+  &.pausedDL {
+    border-left-color: #{$torrent-pausedDL} !important;
+  }
+  &.queuedDL {
+    border-left-color: #{$torrent-queuedDL} !important;
+  }
+  &.stalledDL {
+    border-left-color: #{$torrent-stalledDL} !important;
+  }
+  &.checkingDL {
+    border-left-color: #{$torrent-checkingDL} !important;
+  }
+  &.checkingResumeData {
+    border-left-color: #{$torrent-checkingResumeData} !important;
+  }
+  &.moving {
+    border-left-color: #{$torrent-moving} !important;
+  }
+  &.unknown {
+    &.v-theme--darkTheme {
+      border-left-color: #{$torrent-unknown-dark} !important;
+    }
+    &.v-theme-lightTheme {
+      border-left-color: #{$torrent-unknown-light} !important;
     }
   }
-  .v-application--is-rtl & {
-    .v-input--selection-controls__input {
-      margin-left: 0;
-      margin-right: 8px;
-    }
-  }
-}
-
-.theme--dark.v-input,
-.theme--dark.v-input input,
-.theme--dark.v-input textarea {
-  caret-color: auto;
-}
-
-.v-data-table {
-  width: 100% !important;
-}
-
-.v-tabs--align-with-title.theme--light > .v-slide-group--is-overflowing > .v-slide-group__prev > .v-icon,
-.v-tabs--align-with-title.theme--light > .v-slide-group--is-overflowing > .v-slide-group__next > .v-icon {
-  color: white;
-}
-
-.v-tabs--align-with-title.theme--light > .v-slide-group--is-overflowing > .v-slide-group__prev--disabled > .v-icon,
-.v-tabs--align-with-title.theme--light > .v-slide-group--is-overflowing > .v-slide-group__next--disabled > .v-icon {
-  color: #ffffffb0 !important;
 }

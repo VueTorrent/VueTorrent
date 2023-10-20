@@ -1,47 +1,43 @@
-<template>
-  <v-card v-ripple flat rounded="md" color="secondary" class="speedCard" data-testid="SpeedCard" @click="open">
-    <v-layout row align-center :class="color + '--text'">
-      <v-flex v-if="icon" xs2 class="pl-1">
-        <v-icon data-testid="SpeedCard-icon" :color="color" size="20px">
-          {{ icon }}
-        </v-icon>
-      </v-flex>
-      <v-layout column xs10>
-        <v-flex class="text-center font-weight-bold robot-mono">
-          <span data-testid="SpeedCard-value">{{ value | formatSpeedValue(shouldUseBitSpeed()) }}</span>
-        </v-flex>
-        <v-flex class="caption robot-mono text-center mt-n1">
-          <span data-testid="SpeedCard-unit">{{ value | formatSpeedUnit(shouldUseBitSpeed()) }}</span>
-        </v-flex>
-      </v-layout>
-    </v-layout>
-  </v-card>
-</template>
+<script setup lang="ts">
+import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-import { mapGetters } from 'vuex'
-import { General } from '@/mixins'
-
-export default defineComponent({
-  name: 'SpeedCard',
-  mixins: [General],
-  props: ['color', 'icon', 'value'],
-  computed: {
-    ...mapGetters(['shouldUseBitSpeed'])
+defineProps({
+  icon: {
+    type: String,
+    required: true
   },
-  methods: {
-    open() {
-      this.createModal('SpeedLimitModal', { mode: this.color })
-    }
+  color: {
+    type: String,
+    required: true
+  },
+  value: {
+    type: Number,
+    required: true
   }
 })
+
+const vueTorrentStore = useVueTorrentStore()
 </script>
 
-<style scoped>
-.speedCard {
-  padding: 20px 20px !important;
-  font-size: 1.1em;
-  cursor: pointer;
+<template>
+  <v-sheet color="secondary" rounded="lg" class="py-3">
+    <v-row class="d-flex flex-row align-center px-3">
+      <v-col cols="2" class="px-4">
+        <v-icon class="" :icon="icon" :color="color" />
+      </v-col>
+      <v-col cols="8" class="d-flex flex-column align-center justify-center">
+        <span class="text-subtitle-1 roboto" :class="`text-${color}`">{{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}</span>
+        <span class="text-caption" :class="`text-${color}`">{{ formatSpeedUnit(value, vueTorrentStore.useBitSpeed) }}</span>
+      </v-col>
+    </v-row>
+  </v-sheet>
+</template>
+
+<style scoped lang="scss">
+@import '@fontsource/roboto-mono';
+.roboto {
+  font-family: 'Roboto Mono', sans-serif !important;
+  font-weight: 500;
 }
 </style>
