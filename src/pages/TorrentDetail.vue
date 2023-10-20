@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import Content from '@/components/TorrentDetail/Content.vue'
 import Info from '@/components/TorrentDetail/Info.vue'
 import Overview from '@/components/TorrentDetail/Overview.vue'
@@ -19,7 +20,8 @@ const maindataStore = useMaindataStore()
 
 const tab = ref('overview')
 
-const torrent = computed(() => maindataStore.getTorrentByHash(route.params.hash as string))
+const hash = computed(() => route.params.hash as string)
+const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
@@ -28,6 +30,12 @@ const goHome = () => {
 function handleKeyboardShortcut(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) {
     return false
+  }
+
+  if (e.key === 'Delete') {
+    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [hash.value] })
+    e.preventDefault()
+    return true
   }
 
   if (e.key === 'Escape') {
