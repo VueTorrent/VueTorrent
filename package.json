@@ -17,6 +17,7 @@
     "@fontsource/roboto": "^5.0.8",
     "@fontsource/roboto-mono": "^5.0.14",
     "@mdi/js": "^7.2.96",
+    "@tanstack/vue-table": "^8.10.7",
     "@vueuse/core": "^10.5.0",
     "apexcharts": "^3.42.0",
     "axios": "^1.5.0",

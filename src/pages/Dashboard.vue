@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Torrent from '@/components/Dashboard/Torrent.vue'
+import Table from '@/components/Dashboard/Table.vue'
 import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useArrayPagination } from '@/composables'
@@ -93,11 +94,7 @@ const torrentTitleFilter = computed({
   }, 300)
 })
 
-const {
-  paginatedResults: paginatedTorrents,
-  currentPage,
-  pageCount
-} = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
+const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
 const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
@@ -256,32 +253,49 @@ function endPress() {
     <v-row class="ma-0 pa-0 mb-2">
       <v-expand-x-transition>
         <v-card v-show="isSearchFilterVisible" color="transparent">
-          <v-text-field id="searchInput" v-model="torrentTitleFilter" :label="t('dashboard.searchInputLabel')" clearable
-                        density="compact" hide-details prepend-inner-icon="mdi-magnify" rounded="pill" single-line
-                        style="width: 200px" variant="solo" @click:clear="resetInput()" />
+          <v-text-field
+            id="searchInput"
+            v-model="torrentTitleFilter"
+            :label="t('dashboard.searchInputLabel')"
+            clearable
+            density="compact"
+            hide-details
+            prepend-inner-icon="mdi-magnify"
+            rounded="pill"
+            single-line
+            style="width: 200px"
+            variant="solo"
+            @click:clear="resetInput()" />
         </v-card>
       </v-expand-x-transition>
       <v-tooltip :text="t('dashboard.toggleSearchFilter')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'" v-bind="props"
-                 variant="plain" @click="toggleSearchFilter()" />
+          <v-btn :icon="isSearchFilterVisible ? 'mdi-chevron-left-circle' : 'mdi-text-box-search'" v-bind="props" variant="plain" @click="toggleSearchFilter()" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props"
-                 variant="plain" @click="toggleSelectMode" />
+          <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
         </template>
       </v-tooltip>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'" v-bind="props"
-                 variant="plain" @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
+          <v-btn
+            :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
+            v-bind="props"
+            variant="plain"
+            @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
         </template>
       </v-tooltip>
       <div class="pa-0" style="width: 10em">
-        <v-autocomplete v-model="sortOptions.sortBy" :items="torrentSortOptions" :label="t('dashboard.sortLabel')"
-                        auto-select-first density="compact" hide-details variant="solo-filled" />
+        <v-autocomplete
+          v-model="sortOptions.sortBy"
+          :items="torrentSortOptions"
+          :label="t('dashboard.sortLabel')"
+          auto-select-first
+          density="compact"
+          hide-details
+          variant="solo-filled" />
       </div>
       <v-col class="align-center justify-center">
         <span class="text-uppercase" style="float: right; font-size: 0.8em">
@@ -294,8 +308,13 @@ function endPress() {
         <v-card v-show="isSelectionMultiple" color="transparent">
           <v-tooltip :text="t('common.selectAll')" location="bottom">
             <template v-slot:activator="{ props }">
-              <v-btn :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                     class="text-grey" color="transparent" style="left: -8px" v-bind="props" @click="toggleSelectAll" />
+              <v-btn
+                :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                class="text-grey"
+                color="transparent"
+                style="left: -8px"
+                v-bind="props"
+                @click="toggleSelectAll" />
             </template>
           </v-tooltip>
           <span class="text-grey">{{ t('dashboard.selectAll') }}</span>
@@ -305,23 +324,31 @@ function endPress() {
     <div v-if="dashboardStore.filteredTorrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
-    <div v-else>
+    <div v-else-if="false">
       <v-list id="torrentList" class="pa-0" color="transparent">
         <v-list-item v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
-                        @input="scrollToTop" />
+          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
         </v-list-item>
 
-        <v-list-item v-for="torrent in paginatedTorrents" :id="`torrent-${torrent.hash}`"
-                     :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0" @contextmenu="onRightClick($event, torrent)"
-                     @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress"
-                     @dblclick.prevent="goToInfo(torrent.hash)">
+        <v-list-item
+          v-for="torrent in paginatedTorrents"
+          :id="`torrent-${torrent.hash}`"
+          :class="display.mobile ? 'mb-2' : 'mb-4'"
+          class="pa-0"
+          @contextmenu="onRightClick($event, torrent)"
+          @touchcancel="endPress"
+          @touchend="endPress"
+          @touchmove="endPress"
+          @touchstart="startPress"
+          @dblclick.prevent="goToInfo(torrent.hash)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
               <v-card v-show="dashboardStore.isSelectionMultiple" class="mr-3" color="transparent">
                 <v-btn
-                    :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                    color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
+                  :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                  color="transparent"
+                  variant="flat"
+                  @click="toggleSelectTorrent(torrent.hash)" />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
@@ -329,12 +356,15 @@ function endPress() {
         </v-list-item>
 
         <v-list-item v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
-                        @input="scrollToTop" />
+          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
         </v-list-item>
       </v-list>
     </div>
+    <div v-else>
+      <Table :data="paginatedTorrents" />
+    </div>
   </div>
+
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
     <RightClickMenu v-model="trcProperties.isVisible" />
   </div>
@@ -342,6 +372,6 @@ function endPress() {
 
 <style>
 #torrentList {
-    background-color: unset;
+  background-color: unset;
 }
 </style>
