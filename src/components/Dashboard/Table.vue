@@ -25,6 +25,10 @@ import { Settings } from 'lucide-vue-next'
 import { h, ref } from 'vue'
 import { valueUpdater } from '@/lib/utils'
 
+import FacetedFilter from './FacetedFilter.vue'
+import { TorrentState } from '@/constants/qbit'
+import { computed } from 'vue'
+
 const props = defineProps<{ data: Array<Torrent> }>()
 
 const columnHelper = createColumnHelper<Torrent>()
@@ -74,8 +78,19 @@ const columnFilters = ref<ColumnFiltersState>([])
 const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
 
+const statuses = Object.keys(TorrentState)
+  .filter(value => isNaN(Number(value)) === true)
+  .map(key => {
+    return {
+      label: TorrentState[key],
+      value: TorrentState[key]
+    }
+  })
+
 const table = useVueTable({
-  data: props.data,
+  get data() {
+    return props.data
+  },
   columns,
   getCoreRowModel: getCoreRowModel(),
   getPaginationRowModel: getPaginationRowModel(),
@@ -100,6 +115,8 @@ const table = useVueTable({
     }
   }
 })
+
+const isFiltered = computed(() => table.getState().columnFilters.length > 0)
 </script>
 
 <template>
@@ -110,6 +127,14 @@ const table = useVueTable({
         placeholder="Filter name..."
         :model-value="table.getColumn('name')?.getFilterValue() as string"
         @update:model-value="table.getColumn('name')?.setFilterValue($event)" />
+      <!-- Data Filter -->
+      <FacetedFilter v-if="table.getColumn('state')" :column="table.getColumn('state')" title="Status" :options="statuses" />
+
+      <Button v-if="isFiltered" variant="ghost" class="h-8 px-2 lg:px-3" @click="table.resetColumnFilters()">
+        Reset
+        <Cross2Icon class="ml-2 h-4 w-4" />
+      </Button>
+      <!-- View filter -->
       <DropdownMenu>
         <DropdownMenuTrigger as-child>
           <Button variant="outline" class="ml-auto"> <Settings class="mr-2 h-4 w-4" /> View </Button>
