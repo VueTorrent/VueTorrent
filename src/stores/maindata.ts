@@ -10,7 +10,6 @@ import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { generateMultiple } from '@/utils/faker'
 import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 
@@ -183,7 +182,12 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (!isProduction.value && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
         const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
-        torrents.value.push(...generateMultiple(count).map(t => torrentBuilder.buildFromQbit(t)))
+
+        // TODO: Read fake torrents values from .env file (or smth else)
+        const fakeTorrents: Partial<Torrent> = []
+        for (let i = 0; i < count; i++) {
+          torrents.value.push(torrentBuilder.buildFromFaker(fakeTorrents.at(i) || {}))
+        }
       }
 
       // filter out deleted torrents from selection
