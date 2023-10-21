@@ -1,7 +1,7 @@
 export enum Locales {
   EN = 'en',
   ES = 'es',
-  FR = 'fr'
+  FR = 'fr',
   // ID = 'id',
   // IT = 'it',
   // JA = 'ja',
@@ -10,7 +10,7 @@ export enum Locales {
   // RU = 'ru',
   // UK = 'ua',
   // VI = 'vi',
-  // ZH_HANS = 'zh-hans',
+  ZH_HANS = 'zh-hans'
   // ZH_HANT = 'zh-hant'
 }
 
@@ -22,7 +22,7 @@ type LocaleDef = {
 export const LOCALES: LocaleDef[] = [
   { title: 'English', value: Locales.EN },
   { title: 'Español', value: Locales.ES },
-  { title: 'Français', value: Locales.FR }
+  { title: 'Français', value: Locales.FR },
   // { title: 'Bahasa Indonesia', value: Locales.ID },
   // { title: 'Italiano', value: Locales.IT },
   // { title: '日本語', value: Locales.JA },
@@ -31,6 +31,6 @@ export const LOCALES: LocaleDef[] = [
   // { title: 'Русский язык', value: Locales.RU },
   // { title: 'Українська', value: Locales.UK },
   // { title: 'Tiếng Việt', value: Locales.VI },
-  // { title: '简体中文', value: Locales.ZH_HANS },
+  { title: '简体中文', value: Locales.ZH_HANS }
   // { title: '繁體中文', value: Locales.ZH_HANT }
 ]
