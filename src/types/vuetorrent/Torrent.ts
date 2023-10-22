@@ -38,6 +38,7 @@ export default interface Torrent {
   seq_dl: boolean
   size: number
   state: TorrentState
+  stateString: string
   super_seeding: boolean
   tags: string[]
   time_active: number
