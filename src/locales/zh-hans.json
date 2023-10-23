@@ -12,7 +12,7 @@
         "useGlobalSettings": "使用全局设置",
         "none": "(无)",
         "NA": "不适用",
-        "emptyList": "没有可见项！"
+        "emptyList": "当前无内容显示"
     },
     "dashboard": {
         "not_complete": "未完成",
@@ -44,8 +44,8 @@
             "globalSpeed": "全局速度",
             "globalVolume": "全局容量",
             "hash": "哈希值",
-            "infohash_v1": "Infohash v1",
-            "infohash_v2": "Infohash v2",
+            "infohash_v1": "哈希值 v1",
+            "infohash_v2": "哈希值 v2",
             "last_activity": "最后活动时间",
             "magnet_uri": "磁力链接",
             "max_ratio": "最大分享率",
@@ -84,7 +84,7 @@
                 "change_location": "更改位置",
                 "rename": "重命名种子",
                 "recheck": "强制重新校验",
-                "reannounce": "强制重新公告",
+                "reannounce": "强制重新汇报",
                 "seq_dl": "顺序下载",
                 "f_l_prio": "首/尾优先级",
                 "auto_tmm": "自动种子管理"
@@ -135,7 +135,7 @@
         }
     },
     "rssArticles": {
-        "title": "RSS 文章",
+        "title": "RSS 资讯",
         "filters": {
             "title": "标题过滤器",
             "unread": "仅显示未读文章"
@@ -213,7 +213,7 @@
             "name": "种子名称",
             "num_leechs": "下载者数 (已连接)",
             "num_seeds": "做种者数 (已连接)",
-            "peers": "下载者",
+            "peers": "用户",
             "priority": "优先级",
             "progress": "进度",
             "progress_bar": "进度条",
@@ -267,7 +267,7 @@
             "overview": "概览",
             "info": "信息",
             "trackers": "Trackers",
-            "peers": "下载者",
+            "peers": "用户",
             "content": "内容",
             "tagsAndCategories": "标签和分类"
         },
@@ -275,8 +275,8 @@
             "copy_hash": "复制哈希值",
             "fetchingMetadata": "获取中...",
             "waitingForMetadata": "等待元数据...",
-            "canvasRenderDisabled": "画布渲染已禁用",
-            "canvasRefreshDisabled": "画布自动刷新已禁用",
+            "canvasRenderDisabled": "图像渲染已禁用",
+            "canvasRefreshDisabled": "图像自动刷新已禁用",
             "pieceCount": "{owned} / {total} ({pieceSize})",
             "fileCount": "已选择文件",
             "selectedFileSize": "已选择文件大小",
@@ -309,7 +309,7 @@
                 "newUrl": "新 URL",
                 "newUrlRequired": "新 URL 不能为空"
             },
-            "reannounce": "重新宣布"
+            "reannounce": "重新汇报"
         },
         "peers": {
             "table": {
@@ -331,7 +331,7 @@
                 "newPeersPlaceholder": "主机:端口",
                 "newPeersHint": "每行一个"
             },
-            "emptyList": "当前没有下载者连接"
+            "emptyList": "当前没有用户连接"
         },
         "content": {
             "rootNode": "(根节点)",
@@ -350,8 +350,8 @@
             "resume": "恢复种子",
             "pause": "暂停种子",
             "delete": "删除种子",
-            "searchEngine": "打开搜索引擎",
-            "rssArticles": "打开 RSS 文章",
+            "searchEngine": "搜索筛选",
+            "rssArticles": "打开 RSS 资讯",
             "logs": "打开日志",
             "settings": "打开设置"
         },
@@ -360,7 +360,7 @@
             "pause": "暂停",
             "delete": "删除",
             "searchEngine": "搜索引擎",
-            "rssArticles": "RSS 文章",
+            "rssArticles": "RSS 资讯",
             "logs": "qBit 日志",
             "settings": "设置"
         }
@@ -561,8 +561,8 @@
                 "showSessionStat": "显示会话统计信息",
                 "showFreeSpace": "显示剩余空间",
                 "showTrackerFilter": "显示 Tracker 过滤器",
-                "isDrawerRight": "右侧抽屉",
-                "isPaginationOnTop": "顶部分页",
+                "isDrawerRight": "侧边栏居右显示",
+                "isPaginationOnTop": "置顶分页按钮",
                 "matchSystemTheme": "使用系统主题",
                 "language": "语言",
                 "paginationSize": {
@@ -582,7 +582,7 @@
                 "currentVersion": "当前版本",
                 "qbittorrentVersion": "QBittorrent 版本",
                 "theme": "VueTorrent 主题",
-                "registerMagnet": "注册磁力链接",
+                "registerMagnet": "注册为磁力链程序",
                 "importSettings": "导入设置",
                 "exportSettings": "导出设置",
                 "resetSettings": "重置设置"
@@ -669,7 +669,7 @@
             }
         },
         "connection": {
-            "protocol": "Peer 连接协议",
+            "protocol": "对等连接协议",
             "listeningPort": {
                 "subheader": "监听端口",
                 "incomingConnectionPort": "用于传入连接的端口",
@@ -680,14 +680,14 @@
                 "subheader": "连接限制",
                 "globalMaxConnection": "全局最大连接数",
                 "perTorrentMaxConnection": "每个种子的最大连接数",
-                "globalMaxUploadSlots": "全局最大上传槽数",
-                "perTorrentMaxUploadSlots": "每个种子的最大上传槽数"
+                "globalMaxUploadSlots": "全局最大上传数",
+                "perTorrentMaxUploadSlots": "单个种子最大上传数"
             },
             "proxy": {
                 "subheader": "代理服务器",
                 "host": "主机",
                 "port": "端口",
-                "peerConnections": "使用代理服务器进行对等连接",
+                "peerConnections": "使用代理服务器进行用户连接",
                 "torrentOnly": "仅对种子使用代理服务器",
                 "hostNameLookup": "使用代理服务器进行主机名查找",
                 "auth": {
@@ -715,7 +715,7 @@
             "download": "下载",
             "tip": "0 表示无限制",
             "scheduler": {
-                "subheader": "安排使用备用速率限制",
+                "subheader": "定时使用备用速率限制",
                 "from": "开始时间",
                 "to": "结束时间",
                 "selectButtonLabel": "选择时间",
@@ -923,8 +923,8 @@
                 },
                 "uploadSlotsBehavior": "上传窗口策略",
                 "uploadChokingAlgorithm": "上传连接策略",
-                "announceAllTrackers": "始终向同一层中的所有 Tracker 汇报",
-                "announceAllTiers": "始终向所有层中的 Tracker 汇报",
+                "announceAllTrackers": "总是向同级的所有 Tracker 汇报",
+                "announceAllTiers": "总是向所有等级的 Tracker 汇报",
                 "announceIP": "向 Tracker 报告的 IP 地址（需要重启）",
                 "maxConcurrentHTTPAnnounces": "最大并行 HTTP 发布数",
                 "stopTrackerTimeout": "停止 Tracker 超时",
@@ -1001,7 +1001,7 @@
         },
         "utpTcpMixedMode": {
             "preferTcp": "优先使用 TCP",
-            "peerProportional": "对等方比例（限制 TCP）"
+            "peerProportional": "按用户比重（抑制TCP)"
         },
         "uploadSlotsBehavior": {
             "fixedSlots": "固定窗口数",
