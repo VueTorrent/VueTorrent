@@ -1,14 +1,12 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore } from '@/stores/maindata'
 import { useNavbarStore } from '@/stores/navbar'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
-import { Category } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { computed, onBeforeMount, reactive, ref } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = withDefaults(defineProps<{
@@ -28,18 +26,6 @@ const vueTorrentStore = useVueTorrentStore()
 const fileOverflowDisplayLimit = 2
 
 const isFormValid = computed(() => navbarStore.addTorrentDialogUrls.length > 0 || navbarStore.addTorrentDialogFiles.length > 0)
-const formData = reactive({
-  autoTMM: false,
-  skipChecking: false,
-  sequentialDownload: false,
-  firstLastPiecePrio: false,
-  startNow: true,
-  contentLayout: ContentLayout.ORIGINAL,
-  stopCondition: StopCondition.NONE,
-  savepath: '',
-  category: null as Category | null,
-  tags: [] as string[]
-})
 const tagSearch = ref('')
 const categorySearch = ref('')
 const isLoading = ref(false)
@@ -55,45 +41,29 @@ const stopConditionOptions = ref([
   { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }
 ])
 
-const resetForm = () => {
-  navbarStore.addTorrentDialogUrls = ''
-  navbarStore.addTorrentDialogFiles = []
-
-  formData.autoTMM = false
-  formData.skipChecking = false
-  formData.sequentialDownload = false
-  formData.firstLastPiecePrio = false
-  formData.startNow = true
-  formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
-  formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-  formData.savepath = preferenceStore.preferences!.save_path
-  formData.category = null
-  formData.tags = []
-}
-
 const submit = async () => {
   if (!isFormValid.value) return
 
   const params: AddTorrentPayload = {
-    savepath: formData.savepath,
-    paused: !formData.startNow,
-    skip_checking: formData.skipChecking,
-    autoTMM: formData.autoTMM,
-    sequentialDownload: formData.sequentialDownload,
-    firstLastPiecePrio: formData.firstLastPiecePrio,
-    contentLayout: formData.contentLayout,
-    stopCondition: formData.stopCondition
+    savepath: navbarStore.addTorrentDialogForm.savepath,
+    paused: !navbarStore.addTorrentDialogForm.startNow,
+    skip_checking: navbarStore.addTorrentDialogForm.skipChecking,
+    autoTMM: navbarStore.addTorrentDialogForm.autoTMM,
+    sequentialDownload: navbarStore.addTorrentDialogForm.sequentialDownload,
+    firstLastPiecePrio: navbarStore.addTorrentDialogForm.firstLastPiecePrio,
+    contentLayout: navbarStore.addTorrentDialogForm.contentLayout,
+    stopCondition: navbarStore.addTorrentDialogForm.stopCondition
   }
 
   if (navbarStore.addTorrentDialogUrls.length > 0) params.urls = navbarStore.addTorrentDialogUrls
-  if (formData.category && formData.category.name) params.category = formData.category.name
-  if (formData.tags.length > 0) params.tags = formData.tags.join(',')
+  if (navbarStore.addTorrentDialogForm.category && navbarStore.addTorrentDialogForm.category.name) params.category = navbarStore.addTorrentDialogForm.category.name
+  if (navbarStore.addTorrentDialogForm.tags.length > 0) params.tags = navbarStore.addTorrentDialogForm.tags.join(',')
 
   isLoading.value = true
   await maindataStore.addTorrents(params, navbarStore.addTorrentDialogFiles)
   isLoading.value = false
 
-  resetForm()
+  navbarStore.resetAddTorrentDialogForm()
   close()
 }
 const close = () => {
@@ -101,36 +71,28 @@ const close = () => {
 }
 
 const onCategoryChanged = () => {
-  formData.savepath = formData.category && formData.category.savePath ? formData.category.savePath : preferenceStore.preferences!.save_path
+  navbarStore.addTorrentDialogForm.savepath = navbarStore.addTorrentDialogForm.category && navbarStore.addTorrentDialogForm.category.savePath ? navbarStore.addTorrentDialogForm.category.savePath : preferenceStore.preferences!.save_path
 }
 
 onBeforeMount(async () => {
+  const promises = []
   if (!preferenceStore.preferences) {
-    await preferenceStore.fetchPreferences()
+    promises.push(preferenceStore.fetchPreferences())
   }
-  formData.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
-  formData.startNow = !preferenceStore.preferences!.start_paused_enabled
-  formData.contentLayout = preferenceStore.preferences!.torrent_content_layout
-  formData.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-  formData.savepath = preferenceStore.preferences!.save_path
-})
-
-onBeforeMount(async () => {
   if (maindataStore.categories.length < 1) {
-    await maindataStore.fetchCategories()
+    promises.push(maindataStore.fetchCategories())
   }
   if (maindataStore.tags.length < 1) {
-    await maindataStore.fetchTags()
+    promises.push(maindataStore.fetchTags())
   }
+
+  await Promise.all(promises)
 })
 </script>
 
 <template>
-  <v-dialog
-    v-model="isOpened"
-    :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'"
-    :fullscreen="$vuetify.display.mobile"
-    :class="$vuetify.display.mobile ? '' : 'w-50'">
+  <v-dialog v-model="isOpened" :class="$vuetify.display.mobile ? '' : 'w-50'"
+            :fullscreen="$vuetify.display.mobile" :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'">
     <v-card>
       <v-card-title>
         <v-toolbar color="transparent">
@@ -142,30 +104,24 @@ onBeforeMount(async () => {
       <v-card-text>
         <v-row>
           <v-col>
-            <v-file-input
-              v-model="navbarStore.addTorrentDialogFiles"
-              accept=".torrent"
-              counter
-              :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
-              multiple
-              persistent-clear
-              persistent-hint
-              prepend-icon=""
-              variant="outlined"
-              :label="t('dialogs.add.files')">
+            <v-file-input v-model="navbarStore.addTorrentDialogFiles" :label="t('dialogs.add.files')" :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
+                          accept=".torrent" counter multiple
+                          persistent-clear persistent-hint prepend-icon="" variant="outlined">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-paperclip</v-icon>
               </template>
               <template v-slot:selection="{ fileNames }">
                 <template v-for="(filename, index) in fileNames">
-                  <v-chip v-if="index < fileOverflowDisplayLimit" color="accent" label size="small" class="mr-2">{{ filename }} </v-chip>
+                  <v-chip v-if="index < fileOverflowDisplayLimit" class="mr-2" color="accent" label size="small">
+                    {{ filename }}
+                  </v-chip>
                 </template>
                 <span v-if="fileNames.length == fileOverflowDisplayLimit" class="text-overline text-grey-darken-2 ml-2">
                   {{ t('dialogs.add.fileOverflow', fileNames.length - fileOverflowDisplayLimit) }}
                 </span>
               </template>
             </v-file-input>
-            <v-textarea v-model="navbarStore.addTorrentDialogUrls" clearable :label="t('dialogs.add.links')">
+            <v-textarea v-model="navbarStore.addTorrentDialogUrls" :label="t('dialogs.add.links')" clearable>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-link</v-icon>
               </template>
@@ -175,15 +131,9 @@ onBeforeMount(async () => {
 
         <v-row>
           <v-col>
-            <v-combobox
-              v-model="formData.tags"
-              v-model:search="tagSearch"
-              :items="maindataStore.tags"
-              :hide-no-data="false"
-              clearable
-              chips
-              multiple
-              :label="t('dialogs.add.tags')">
+            <v-combobox v-model="navbarStore.addTorrentDialogForm.tags" v-model:search="tagSearch"
+                        :hide-no-data="false" :items="maindataStore.tags" :label="t('dialogs.add.tags')" chips clearable
+                        multiple>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-tag</v-icon>
               </template>
@@ -198,17 +148,9 @@ onBeforeMount(async () => {
                 </v-list-item>
               </template>
             </v-combobox>
-            <v-combobox
-              v-model="formData.category"
-              v-model:search="categorySearch"
-              :items="maindataStore.categories"
-              item-title="name"
-              return-object
-              :hide-no-data="false"
-              clearable
-              chips
-              label="Category"
-              @update:modelValue="onCategoryChanged">
+            <v-combobox v-model="navbarStore.addTorrentDialogForm.category" v-model:search="categorySearch"
+                        :hide-no-data="false" :items="maindataStore.categories" chips clearable
+                        item-title="name" label="Category" return-object @update:modelValue="onCategoryChanged">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-label</v-icon>
               </template>
@@ -228,7 +170,8 @@ onBeforeMount(async () => {
 
         <v-row>
           <v-col>
-            <v-text-field v-model="formData.savepath" :disabled="formData.autoTMM" :label="t('dialogs.add.savePath')">
+            <v-text-field v-model="navbarStore.addTorrentDialogForm.savepath"
+                          :disabled="navbarStore.addTorrentDialogForm.autoTMM" :label="t('dialogs.add.savePath')">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-folder</v-icon>
               </template>
@@ -238,27 +181,17 @@ onBeforeMount(async () => {
 
         <v-row>
           <v-col>
-            <v-select
-              v-model="formData.contentLayout"
-              :items="contentLayoutOptions"
-              hide-details
-              color="accent"
-              variant="solo-filled"
-              rounded="xl"
-              :label="t('constants.contentLayout.title')" />
+            <v-select v-model="navbarStore.addTorrentDialogForm.contentLayout" :items="contentLayoutOptions"
+                      :label="t('constants.contentLayout.title')" color="accent" hide-details rounded="xl"
+                      variant="solo-filled" />
           </v-col>
         </v-row>
 
         <v-row>
           <v-col>
-            <v-select
-              v-model="formData.stopCondition"
-              :items="stopConditionOptions"
-              hide-details
-              color="accent"
-              variant="solo-filled"
-              rounded="xl"
-              :label="t('constants.stopCondition.title')" />
+            <v-select v-model="navbarStore.addTorrentDialogForm.stopCondition" :items="stopConditionOptions"
+                      :label="t('constants.stopCondition.title')" color="accent" hide-details rounded="xl"
+                      variant="solo-filled" />
           </v-col>
         </v-row>
 
@@ -266,19 +199,24 @@ onBeforeMount(async () => {
           <v-col>
             <v-list>
               <v-list-item>
-                <v-checkbox v-model="formData.startNow" density="compact" hide-details :label="t('dialogs.add.startNow')" />
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.startNow" :label="t('dialogs.add.startNow')" density="compact"
+                            hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="formData.skipChecking" density="compact" hide-details :label="t('dialogs.add.skipChecking')" />
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.skipChecking" :label="t('dialogs.add.skipChecking')" density="compact"
+                            hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="formData.autoTMM" density="compact" hide-details :label="t('dialogs.add.autoTMM')" />
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.autoTMM" :label="t('dialogs.add.autoTMM')" density="compact"
+                            hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="formData.sequentialDownload" density="compact" hide-details :label="t('dialogs.add.sequentialDownload')" />
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.sequentialDownload" :label="t('dialogs.add.sequentialDownload')" density="compact"
+                            hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="formData.firstLastPiecePrio" density="compact" hide-details :label="t('dialogs.add.firstLastPiecePrio')" />
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.firstLastPiecePrio" :label="t('dialogs.add.firstLastPiecePrio')" density="compact"
+                            hide-details />
               </v-list-item>
             </v-list>
           </v-col>
