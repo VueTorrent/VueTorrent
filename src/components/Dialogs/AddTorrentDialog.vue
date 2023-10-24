@@ -42,6 +42,7 @@ const formData = reactive({
 })
 const tagSearch = ref('')
 const categorySearch = ref('')
+const isLoading = ref(false)
 
 const contentLayoutOptions = ref([
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
@@ -88,7 +89,9 @@ const submit = async () => {
   if (formData.category && formData.category.name) params.category = formData.category.name
   if (formData.tags.length > 0) params.tags = formData.tags.join(',')
 
+  isLoading.value = true
   await maindataStore.addTorrents(params, navbarStore.addTorrentDialogFiles)
+  isLoading.value = false
 
   resetForm()
   close()
@@ -283,7 +286,7 @@ onBeforeMount(async () => {
       </v-card-text>
 
       <v-card-actions class="justify-center">
-        <v-btn :disabled="!isFormValid" color="accent" variant="elevated" :text="$t('dialogs.add.submit')" @click="submit" />
+        <v-btn :disabled="!isFormValid" :loading="isLoading" color="accent" variant="elevated" :text="$t('dialogs.add.submit')" @click="submit" />
         <v-btn color="error" variant="flat" :text="$t('common.close')" @click="close" />
       </v-card-actions>
     </v-card>
