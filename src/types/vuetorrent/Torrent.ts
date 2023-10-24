@@ -50,6 +50,8 @@ export default interface Torrent {
   upspeed: number
 
   // computed
+  avgDownloadSpeed: number,
+  avgUploadSpeed: number,
   globalSpeed: number
   globalVolume: number
 

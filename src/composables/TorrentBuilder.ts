@@ -6,7 +6,7 @@ import { useI18n } from 'vue-i18n'
 export function useTorrentBuilder() {
   const { t } = useI18n()
 
-  const computedValues = ['globalSpeed', 'globalVolume', 'priority']
+  const computedValues = ['avgDownloadSpeed', 'avgUploadSpeed', 'globalSpeed', 'globalVolume', 'priority']
 
   function buildFromQbit(data: QbitTorrent): Torrent {
     const torrent = {
@@ -60,8 +60,15 @@ export function useTorrentBuilder() {
       upspeed: data.upspeed
     }
 
+    const dlDuration = torrent.time_active - torrent.seeding_time
+    const ulDuration = torrent.time_active
+
     return Object.freeze({
       ...torrent,
+      // const qlonglong dlDuration = torrent->activeTime() - torrent->finishedTime();
+      // dataDict[KEY_PROP_DL_SPEED_AVG] = torrent->totalDownload() / ((dlDuration == 0) ? -1 : dlDuration);
+      avgDownloadSpeed: torrent.downloaded / ((dlDuration == 0) ? -1 : dlDuration),
+      avgUploadSpeed: torrent.uploaded / ((ulDuration == 0) ? -1 : ulDuration),
       globalSpeed: torrent.dlspeed + torrent.upspeed,
       globalVolume: torrent.downloaded + torrent.uploaded
     })

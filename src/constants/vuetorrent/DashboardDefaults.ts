@@ -15,6 +15,14 @@ export const propsData: PropertyData = {
     active: true,
     order: 17
   },
+  [DashboardProperty.AVG_DOWNLOAD_SPEED]: {
+    active: false,
+    order: 40
+  },
+  [DashboardProperty.AVG_UPLOAD_SPEED]: {
+    active: false,
+    order: 41
+  },
   [DashboardProperty.CATEGORY]: {
     active: true,
     order: 14
@@ -172,6 +180,14 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.AVAILABILITY]: {
     props: { title: 'availability', value: 'availability' },
     type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.AVG_DOWNLOAD_SPEED]: {
+    props: { title: 'avg_download_speed', value: 'avgDownloadSpeed' },
+    type: DashboardPropertyType.SPEED
+  },
+  [DashboardProperty.AVG_UPLOAD_SPEED]: {
+    props: { title: 'avg_upload_speed', value: 'avgUploadSpeed' },
+    type: DashboardPropertyType.SPEED
   },
   [DashboardProperty.CATEGORY]: {
     props: { title: 'category', value: 'category', color: 'category' },

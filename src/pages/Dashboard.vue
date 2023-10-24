@@ -30,6 +30,8 @@ const torrentSortOptions = [
   { value: 'amount_left', title: t('dashboard.sortBy.amount_left') },
   { value: 'auto_tmm', title: t('dashboard.sortBy.auto_tmm') },
   { value: 'availability', title: t('dashboard.sortBy.availability') },
+  { value: 'avg_download_speed', title: t('dashboard.sortBy.avg_download_speed') },
+  { value: 'avg_upload_speed', title: t('dashboard.sortBy.avg_upload_speed') },
   { value: 'category', title: t('dashboard.sortBy.category') },
   { value: 'completed', title: t('dashboard.sortBy.completed') },
   { value: 'completion_on', title: t('dashboard.sortBy.completion_on') },
