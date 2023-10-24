@@ -12,7 +12,7 @@ import fr from './fr.json'
 // import uk from './uk.json'
 // import vi from './vi.json'
 import zh_hans from './zh-hans.json'
-// import zh_hant from './zh-hant.json'
+import zh_hant from './zh-hant.json'
 
 export const messages: Record<Locales, any> = {
   [Locales.EN]: en,
@@ -26,8 +26,8 @@ export const messages: Record<Locales, any> = {
   // [Locales.RU]: ru,
   // [Locales.UK]: uk,
   // [Locales.VI]: vi,
-  [Locales.ZH_HANS]: zh_hans
-  // [Locales.ZH_HANT]: zh_hant
+  [Locales.ZH_HANS]: zh_hans,
+  [Locales.ZH_HANT]: zh_hant
 }
 
 export const defaultLocale = Locales.EN
