@@ -72,6 +72,8 @@ const speedPpts = [
   { title: 'download_speed', text: 'dlspeed' },
   { title: 'upload_limit', text: 'up_limit' },
   { title: 'upload_speed', text: 'upspeed' },
+  { title: 'avg_download_speed', text: 'avgDownloadSpeed' },
+  { title: 'avg_upload_speed', text: 'avgUploadSpeed' },
   { title: 'global_speed', text: 'globalSpeed' }
 ]
 

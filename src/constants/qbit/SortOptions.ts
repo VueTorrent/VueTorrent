@@ -3,6 +3,8 @@ export enum SortOptions {
   AMOUNT_LEFT = 'amount_left',
   AUTO_TMM = 'auto_tmm',
   AVAILABILITY = 'availability',
+  AVG_DOWNLOAD_SPEED = 'avgDownloadSpeed',
+  AVG_UPLOAD_SPEED = 'avgUploadSpeed',
   CATEGORY = 'category',
   COMPLETED = 'completed',
   COMPLETION_ON = 'completion_on',

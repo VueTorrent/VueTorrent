@@ -2,6 +2,8 @@ export enum DashboardProperty {
   ADDED_ON = 'added_on',
   AMOUNT_LEFT = 'amount_left',
   AVAILABILITY = 'availability',
+  AVG_DOWNLOAD_SPEED = 'avg_download_speed',
+  AVG_UPLOAD_SPEED = 'avg_upload_speed',
   CATEGORY = 'category',
   COMPLETED_ON = 'completed_on',
   CONTENT_PATH = 'content_path',
