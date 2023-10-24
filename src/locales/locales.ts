@@ -10,8 +10,8 @@ export enum Locales {
   // RU = 'ru',
   // UK = 'ua',
   // VI = 'vi',
-  ZH_HANS = 'zh-hans'
-  // ZH_HANT = 'zh-hant'
+  ZH_HANS = 'zh-hans',
+  ZH_HANT = 'zh-hant'
 }
 
 type LocaleDef = {
@@ -31,6 +31,6 @@ export const LOCALES: LocaleDef[] = [
   // { title: 'Русский язык', value: Locales.RU },
   // { title: 'Українська', value: Locales.UK },
   // { title: 'Tiếng Việt', value: Locales.VI },
-  { title: '简体中文', value: Locales.ZH_HANS }
-  // { title: '繁體中文', value: Locales.ZH_HANT }
+  { title: '简体中文', value: Locales.ZH_HANS },
+  { title: '繁體中文', value: Locales.ZH_HANT }
 ]
