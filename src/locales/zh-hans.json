@@ -44,16 +44,16 @@
             "globalSpeed": "全局速度",
             "globalVolume": "全局容量",
             "hash": "哈希值",
-            "infohash_v1": "哈希值 v1",
-            "infohash_v2": "哈希值 v2",
+            "infohash_v1": "标识哈希 v1",
+            "infohash_v2": "标识哈希 v2",
             "last_activity": "最后活动时间",
             "magnet_uri": "磁力链接",
             "max_ratio": "最大分享率",
             "max_seeding_time": "最大做种时间",
             "name": "名称",
             "num_complete": "做种者 (群组)",
-            "num_incomplete": "下载者 (群组)",
-            "num_leechs": "下载者 (连接中)",
+            "num_incomplete": "用户 (群组)",
+            "num_leechs": "用户 (连接中)",
             "num_seeds": "做种者 (连接中)",
             "priority": "优先级",
             "progress": "进度",
@@ -189,7 +189,7 @@
             "amount_left": "剩余大小",
             "auto_tmm": "自动管理种子",
             "availability": "可用性",
-            "available_peers": "可用的下载者数",
+            "available_peers": "可用的用户数",
             "available_seeds": "可用的做种者数",
             "category": "分类",
             "empty_category": "(未分类)",
@@ -206,12 +206,12 @@
             "global_speed": "全局速度",
             "global_volume": "全局容量",
             "hash": "哈希值",
-            "infohash_v1": "Infohash v1",
-            "infohash_v2": "Infohash v2",
+            "infohash_v1": "标识哈希 v1",
+            "infohash_v2": "标识哈希 v2",
             "last_activity": "最后活动时间",
             "magnet": "磁力链接",
             "name": "种子名称",
-            "num_leechs": "下载者数 (已连接)",
+            "num_leechs": "用户数 (已连接)",
             "num_seeds": "做种者数 (已连接)",
             "peers": "用户",
             "priority": "优先级",
@@ -275,8 +275,8 @@
             "copy_hash": "复制哈希值",
             "fetchingMetadata": "获取中...",
             "waitingForMetadata": "等待元数据...",
-            "canvasRenderDisabled": "图像渲染已禁用",
-            "canvasRefreshDisabled": "图像自动刷新已禁用",
+            "canvasRenderDisabled": "图形渲染已禁用",
+            "canvasRefreshDisabled": "图形自动刷新已禁用",
             "pieceCount": "{owned} / {total} ({pieceSize})",
             "fileCount": "已选择文件",
             "selectedFileSize": "已选择文件大小",
@@ -287,13 +287,13 @@
             "upSpeedAverage": "平均上传速度"
         },
         "info": {
-            "datetime_values": "日期时间值",
-            "duration_values": "持续时间值",
-            "boolean_values": "布尔值",
-            "data_values": "数据值",
-            "speed_values": "速度值",
-            "text_values": "文本值",
-            "long_text_values": "长文本值"
+            "datetime_values": "时间相关",
+            "duration_values": "持续时间",
+            "boolean_values": "可选项",
+            "data_values": "数据流量",
+            "speed_values": "速度限制与状态",
+            "text_values": "P2P状态",
+            "long_text_values": "文件信息"
         },
         "trackers": {
             "tier": "层级：{n}",
@@ -326,15 +326,15 @@
                 "files": "文件"
             },
             "addPeers": {
-                "title": "添加下载者",
-                "newPeers": "要添加的下载者主机",
+                "title": "添加用户",
+                "newPeers": "要添加的用户主机",
                 "newPeersPlaceholder": "主机:端口",
                 "newPeersHint": "每行一个"
             },
             "emptyList": "当前没有用户连接"
         },
         "content": {
-            "rootNode": "(根节点)",
+            "rootNode": "(根目录)",
             "fileInfo": "{n} 个文件",
             "folderInfo": "{n} 个文件夹"
         },
@@ -386,7 +386,7 @@
             "filters": {
                 "disabled": "(已禁用)",
                 "uncategorized": "(未分类)",
-                "untagged": "(未标记)",
+                "untagged": "(无标签)",
                 "untracked": "(未跟踪)"
             },
             "bottom_actions": {
@@ -577,8 +577,8 @@
                 "useBitSpeed": "使用比特替换速度值（kB/s -> kbps）",
                 "refreshInterval": "qBittorrent API 刷新间隔",
                 "fileContentInterval": "种子文件内容刷新间隔",
-                "canvasRenderThreshold": "禁用画布渲染的块数",
-                "canvasRefreshThreshold": "禁用画布自动刷新的块数",
+                "canvasRenderThreshold": "禁用图形渲染的块数",
+                "canvasRefreshThreshold": "禁用图形自动刷新的块数",
                 "currentVersion": "当前版本",
                 "qbittorrentVersion": "QBittorrent 版本",
                 "theme": "VueTorrent 主题",
@@ -662,8 +662,8 @@
                 "supportParamC": "%C：文件数",
                 "supportParamZ": "%Z：种子大小（字节）",
                 "supportParamT": "%T：当前 Tracker",
-                "supportParamI": "%I：信息哈希值 v1",
-                "supportParamJ": "%J：信息哈希值 v2",
+                "supportParamI": "%I：标识哈希 v1",
+                "supportParamJ": "%J：标识哈希 v2",
                 "supportParamK": "%K：种子 ID",
                 "tip": "提示：使用引号将参数封装起来，以避免文本在空格处被截断（例如，\"%N\"）"
             }
@@ -723,8 +723,8 @@
             },
             "settings": {
                 "applyToUtp": "将速率限制应用于 µTP 协议",
-                "applyToTransportOverhead": "将速率限制应用于传输开销",
-                "applyToPeersOnLan": "将速率限制应用于局域网上的对等方"
+                "applyToTransportOverhead": "将速率限制应用于传输总开销",
+                "applyToPeersOnLan": "将速率限制应用于本地网络上的用户"
             }
         },
         "bittorrent": {
