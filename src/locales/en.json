@@ -7,6 +7,7 @@
     "yes": "Yes",
     "no": "No",
     "save": "Save",
+    "disable": "Disable",
     "selectNone": "Select None",
     "selectAll": "Select All",
     "useGlobalSettings": "Use Global Settings",
@@ -370,7 +371,7 @@
       "active_filters": {
         "menu_label": "Active filter: {n} | Active filters: {n}",
         "text": "Text filter: {value}",
-        "status": "Status filter: {value}",
+        "state": "State filter: {value}",
         "category": "Category filter: {value}",
         "tag": "Tag filter: {value}",
         "tracker": "Tracker filter: {value}"
@@ -385,8 +386,16 @@
       },
       "filters": {
         "disabled": "(Disabled)",
+        "state": "Torrent State Filter",
+        "selectedState": "{n} states selected",
+        "category": "Category Filter",
+        "selectedCategory": "{n} categories selected",
         "uncategorized": "(Uncategorized)",
+        "tag": "Tag Filter",
+        "selectedTag": "{n} tags selected",
         "untagged": "(Untagged)",
+        "tracker": "Tracker Filter",
+        "selectedTracker": "{n} trackers selected",
         "untracked": "(Untracked)"
       },
       "bottom_actions": {
@@ -1021,22 +1030,6 @@
       "title": "Add paused",
       "always": "Always",
       "never": "Never"
-    },
-    "filterStatus": {
-      "all": "All",
-      "downloading": "Downloading",
-      "seeding": "Seeding",
-      "completed": "Completed",
-      "resumed": "Resumed",
-      "paused": "Paused",
-      "active": "Active",
-      "inactive": "Inactive",
-      "stalled": "Stalled",
-      "stalled_uploading": "Stalled Uploading",
-      "stalled_downloading": "Stalled Downloading",
-      "checking": "Checking",
-      "moving": "Moving",
-      "errored": "Errored"
     },
     "connectionStatus": {
       "connected": "Connected",

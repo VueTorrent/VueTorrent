@@ -86,7 +86,7 @@ export class QBitApi {
     return this.execute('/transfer/toggleSpeedLimitsMode')
   }
 
-  async getTorrents(payload: GetTorrentPayload): Promise<Torrent[]> {
+  async getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]> {
     return this.axios.get('/torrents/info', { params: payload }).then(r => r.data)
   }
 

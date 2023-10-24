@@ -77,12 +77,12 @@ async function renderTorrentPieceStates() {
   let rectWidth = 1
 
   for (let i = 0; i < pieces.length; ++i) {
-    const status = pieces[i]
+    const state = pieces[i]
     let newColor = ''
 
-    if (status === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
-    else if (status === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
-    else if (status === PieceState.MISSING) {
+    if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
+    else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
+    else if (state === PieceState.MISSING) {
       const selected_piece_ranges = files.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
       for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
         if (i > min_piece_range && i < max_piece_range) {
