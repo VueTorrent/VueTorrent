@@ -52,7 +52,7 @@ function downloadArticle(item: RssArticle) {
 }
 
 async function markAsRead(item: RssArticle) {
-  await rssStore.markArticleAsRead(item)
+  await rssStore.markArticleAsRead(item.id)
 }
 
 async function markAllAsRead() {
@@ -121,28 +121,28 @@ onUnmounted(() => {
 
       <v-list-item>
         <v-list>
-          <template v-for="(feed, index) in paginatedResults">
+          <template v-for="(article, index) in paginatedResults">
             <v-divider v-if="index > 0" color="white" />
 
-            <v-list-item :class="{ 'rss-read': feed.isRead }" @click="showDescription(feed)">
+            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)">
               <div class="d-flex">
                 <div>
-                  <v-list-item-title class="text-wrap">{{ feed.title }}</v-list-item-title>
+                  <v-list-item-title class="text-wrap">{{ article.title }}</v-list-item-title>
 
                   <v-list-item-subtitle class="d-block">
-                    <div>{{ feed.parsedDate.toLocaleString() }}</div>
-                    <div v-if="feed.feedName">{{ t('rssArticles.item.feedName', { name: feed.feedName }) }}</div>
-                    <div v-if="feed.author">{{ t('rssArticles.item.author', { author: feed.author }) }}</div>
-                    <div v-if="feed.category">{{ t('rssArticles.item.category', { category: feed.category }) }}</div>
+                    <div>{{ article.parsedDate.toLocaleString() }}</div>
+                    <div>{{ t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') }) }}</div>
+                    <div v-if="article.author">{{ t('rssArticles.item.author', { author: article.author }) }}</div>
+                    <div v-if="article.category">{{ t('rssArticles.item.category', { category: article.category }) }}</div>
                   </v-list-item-subtitle>
                 </div>
 
                 <v-spacer />
 
                 <div class="d-flex flex-column">
-                  <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(feed.link)" />
-                  <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="markAsRead(feed)" />
-                  <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(feed)" />
+                  <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(article.link)" />
+                  <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="markAsRead(article)" />
+                  <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(article)" />
                 </div>
               </div>
 

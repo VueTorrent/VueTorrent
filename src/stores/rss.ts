@@ -2,7 +2,7 @@ import { qbit } from '@/services'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, shallowRef, triggerRef } from 'vue'
 
 export const useRssStore = defineStore(
   'rss',
@@ -10,32 +10,16 @@ export const useRssStore = defineStore(
     const feeds = ref<Feed[]>([])
     const rules = ref<FeedRule[]>([])
 
+    const _articles = shallowRef<RssArticle[]>([])
+    const keyMap = shallowRef<Record<string, string[]>>({})
+
     const filters = reactive({
       title: '',
       unread: false
     })
 
-    const articles = computed(() => {
-      const articles: RssArticle[] = []
-      const keySet = new Set<string>()
-
-      feeds.value.forEach((feed: Feed) => {
-        if (!feed.articles) return
-
-        feed.articles.forEach(article => {
-          if (keySet.has(article.id) || (filters.unread && article.isRead)) return
-
-          keySet.add(article.id)
-          articles.push({
-            feedName: feed.name,
-            parsedDate: new Date(article.date),
-            ...article
-          })
-        })
-      })
-
-      return articles
-    })
+    const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
+    const articles = computed(() => filters.unread ? unreadArticles.value : _articles.value)
 
     async function refreshFeed(feedName: string) {
       await qbit.refreshFeed(feedName)
@@ -67,25 +51,50 @@ export const useRssStore = defineStore(
 
     async function fetchFeeds() {
       feeds.value = await qbit.getFeeds(true)
+
+      _articles.value = []
+      keyMap.value = {}
+
+      feeds.value.forEach((feed: Feed) => {
+        if (!feed.articles) return
+
+        feed.articles.forEach(article => {
+          if (keyMap.value[article.id]) {
+            keyMap.value[article.id].push(feed.name)
+          } else {
+            keyMap.value[article.id] = [feed.name]
+            _articles.value.push({
+              parsedDate: new Date(article.date),
+              ...article
+            })
+          }
+        })
+      })
+
+      triggerRef(_articles)
+      triggerRef(keyMap)
     }
 
-    async function markArticleAsRead(article: RssArticle) {
-      await qbit.markAsRead(article.feedName, article.id)
+    function getFeedNames(articleId: string) {
+      return keyMap.value[articleId]
+    }
 
-      const feed = feeds.value.find(feed => feed.name === article.feedName)
-      if (!feed || !feed.articles) return
-      const art = feed.articles.find(a => a.id === article.id)
-      if (!art) return
-      art.isRead = true
+    async function markArticleAsRead(articleId: string) {
+      const feedNames = keyMap.value[articleId]
+      if (!feedNames) return
+
+      const promises: Promise<any>[] = []
+      feedNames.forEach(feedName => promises.push(qbit.markAsRead(feedName, articleId)))
+      await Promise.all(promises)
+
+      _articles.value.forEach(article => {
+        if (article.id === articleId) article.isRead = true
+      })
+      triggerRef(_articles)
     }
 
     async function markAllAsRead() {
-      feeds.value.forEach(feed => {
-        if (!feed.articles) return
-        feed.articles.forEach(async article => {
-          article.isRead || (await qbit.markAsRead(feed.name, article.id))
-        })
-      })
+      await Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead))
       await fetchFeeds()
     }
 
@@ -102,6 +111,7 @@ export const useRssStore = defineStore(
       rules,
       filters,
       articles,
+      unreadArticles,
       refreshFeed,
       createFeed,
       setRule,
@@ -110,6 +120,7 @@ export const useRssStore = defineStore(
       deleteFeed,
       deleteRule,
       fetchFeeds,
+      getFeedNames,
       markArticleAsRead,
       markAllAsRead,
       fetchRules,
