@@ -51,6 +51,7 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.state') }}
       </v-list-item-title>
       <v-select v-model="statusFilter" :items="statuses" bg-color="secondary"
+                :placeholder="t('navbar.side.filters.disabled')"
                 class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
@@ -71,6 +72,7 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.category') }}
       </v-list-item-title>
       <v-select v-model="categoryFilter" :items="categories" bg-color="secondary"
+                :placeholder="t('navbar.side.filters.disabled')"
                 class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
@@ -91,6 +93,7 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.tag') }}
       </v-list-item-title>
       <v-select v-model="tagFilter" :items="tags" bg-color="secondary"
+                :placeholder="t('navbar.side.filters.disabled')"
                 class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTags" />
@@ -112,6 +115,7 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
       <v-select v-model="trackerFilter" :items="trackers" bg-color="secondary"
+                :placeholder="t('navbar.side.filters.disabled')"
                 class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTrackers" />

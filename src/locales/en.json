@@ -387,16 +387,13 @@
       "filters": {
         "disabled": "(Disabled)",
         "state": "Torrent State Filter",
-        "selectedState": "{n} states selected",
         "category": "Category Filter",
-        "selectedCategory": "{n} categories selected",
         "uncategorized": "(Uncategorized)",
         "tag": "Tag Filter",
-        "selectedTag": "{n} tags selected",
         "untagged": "(Untagged)",
         "tracker": "Tracker Filter",
-        "selectedTracker": "{n} trackers selected",
-        "untracked": "(Untracked)"
+        "untracked": "(Untracked)",
+        "activeFilter": "{n} filters active"
       },
       "bottom_actions": {
         "logout": "Logout",
