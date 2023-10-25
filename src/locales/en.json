@@ -372,9 +372,13 @@
         "menu_label": "Active filter: {n} | Active filters: {n}",
         "text": "Text filter: {value}",
         "state": "State filter: {value}",
+        "multiple_state": "State filter: {n} states",
         "category": "Category filter: {value}",
+        "multiple_category": "Category filter: {n} categories",
         "tag": "Tag filter: {value}",
-        "tracker": "Tracker filter: {value}"
+        "multiple_tag": "Tag filter: {n} tags",
+        "tracker": "Tracker filter: {value}",
+        "multiple_tracker": "Tracker filter: {n} trackers"
       }
     },
     "side": {

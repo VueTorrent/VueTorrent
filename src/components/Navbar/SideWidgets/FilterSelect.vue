@@ -61,7 +61,7 @@ function selectAllTrackers() {
           <span v-if="index === 0 && statusFilter.length === 1"
                 class="text-accent">{{ t(`torrent.state.${ item.props.value }`) }}</span>
           <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.selectedState', dashboardStore.sortOptions.statusFilter.length)
+              t('navbar.side.filters.activeFilter', statusFilter.length)
             }}</span>
         </template>
       </v-select>
@@ -82,7 +82,7 @@ function selectAllTrackers() {
           <span v-if="index === 0 && categoryFilter.length === 1"
                 class="text-accent">{{ item.props.title }}</span>
           <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.selectedCategory', dashboardStore.sortOptions.categoryFilter.length)
+              t('navbar.side.filters.activeFilter', categoryFilter.length)
             }}</span>
         </template>
       </v-select>
@@ -100,10 +100,10 @@ function selectAllTrackers() {
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && dashboardStore.sortOptions.tagFilter.length === 1"
+          <span v-if="index === 0 && tagFilter.length === 1"
                 class="text-accent">{{ item.props.title }}</span>
           <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.selectedTag', dashboardStore.sortOptions.tagFilter.length)
+              t('navbar.side.filters.activeFilter', tagFilter.length)
             }}</span>
         </template>
       </v-select>
@@ -122,10 +122,10 @@ function selectAllTrackers() {
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && dashboardStore.sortOptions.trackerFilter.length === 1"
+          <span v-if="index === 0 && trackerFilter.length === 1"
                 class="text-accent">{{ item.props.title }}</span>
           <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.selectedTracker', dashboardStore.sortOptions.trackerFilter.length)
+              t('navbar.side.filters.activeFilter', trackerFilter.length)
             }}</span>
         </template>
       </v-select>
