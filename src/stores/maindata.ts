@@ -1,5 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { FilePriority } from '@/constants/qbit'
+import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
@@ -12,7 +12,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { generateMultiple } from '@/utils/faker'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
 
@@ -25,15 +25,22 @@ export const useMaindataStore = defineStore('maindata', () => {
   const torrents = ref<Torrent[]>([])
   const trackers = ref<string[]>([])
 
+  const filters = reactive({
+    statusFilter: [] as TorrentState[],
+    categoryFilter: [] as string[],
+    tagFilter: [] as (string | null)[],
+    trackerFilter: [] as (string | null)[]
+  })
+
   const torrentsWithFilters = computed(() => {
     return torrents.value.filter(torrent => {
-      if (dashboardStore.sortOptions.statusFilter.length > 0 && !dashboardStore.sortOptions.statusFilter.includes(torrent.state)) return false
-      if (dashboardStore.sortOptions.categoryFilter.length > 0 && !dashboardStore.sortOptions.categoryFilter.includes(torrent.category)) return false
-      if (dashboardStore.sortOptions.tagFilter.length > 0) {
-        if (torrent.tags.length === 0 && dashboardStore.sortOptions.tagFilter.includes(null)) return true
-        if (!torrent.tags.some(tag => dashboardStore.sortOptions.tagFilter.includes(tag))) return false
+      if (filters.statusFilter.length > 0 && !filters.statusFilter.includes(torrent.state)) return false
+      if (filters.categoryFilter.length > 0 && !filters.categoryFilter.includes(torrent.category)) return false
+      if (filters.tagFilter.length > 0) {
+        if (torrent.tags.length === 0 && filters.tagFilter.includes(null)) return true
+        if (!torrent.tags.some(tag => filters.tagFilter.includes(tag))) return false
       }
-      if (dashboardStore.sortOptions.trackerFilter.length > 0 && !dashboardStore.sortOptions.trackerFilter.includes(extractHostname(torrent.tracker))) return false
+      if (filters.trackerFilter.length > 0 && !filters.trackerFilter.includes(extractHostname(torrent.tracker))) return false
       return true
     })
   })
@@ -305,6 +312,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     torrents,
     torrentsWithFilters,
     trackers,
+    filters,
     getTorrentByHash,
     getTorrentIndexByHash,
     deleteTorrents,
@@ -347,5 +355,16 @@ export const useMaindataStore = defineStore('maindata', () => {
     banPeers,
     setTorrentFilePriority,
     exportTorrent
+  }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: localStorage,
+        key: 'vuetorrent_maindata',
+        paths: ['filters']
+      }
+    ]
   }
 })

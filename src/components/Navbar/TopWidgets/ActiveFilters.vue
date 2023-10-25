@@ -1,16 +1,20 @@
 <script setup lang="ts">
 import { useDashboardStore } from '@/stores/dashboard'
-import { computed } from 'vue'
+import { useMaindataStore } from '@/stores/maindata.ts'
+import { storeToRefs } from 'pinia'
+import { computed, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const dashboardStore = useDashboardStore()
+const { filters } = storeToRefs(useMaindataStore())
+const { statusFilter, categoryFilter, tagFilter, trackerFilter } = toRefs(filters.value)
 
 const isTextFilterActive = computed(() => dashboardStore.searchFilter?.length > 0)
-const isStatusFilterActive = computed(() => dashboardStore.sortOptions.statusFilter.length > 0)
-const isCategoryFilterActive = computed(() => dashboardStore.sortOptions.categoryFilter.length > 0)
-const isTagFilterActive = computed(() => dashboardStore.sortOptions.tagFilter.length > 0)
-const isTrackerFilterActive = computed(() => dashboardStore.sortOptions.trackerFilter.length > 0)
+const isStatusFilterActive = computed(() => statusFilter.value.length > 0)
+const isCategoryFilterActive = computed(() => categoryFilter.value.length > 0)
+const isTagFilterActive = computed(() => tagFilter.value.length > 0)
+const isTrackerFilterActive = computed(() => trackerFilter.value.length > 0)
 
 const filterCount = computed(
   () =>
@@ -37,14 +41,14 @@ const filterCount = computed(
         {{ t('navbar.top.active_filters.text', { value: dashboardStore.searchFilter }) }}
       </v-chip>
 
-      <v-chip v-if="isStatusFilterActive && dashboardStore.sortOptions.statusFilter.length === 1" variant="elevated" :color="'torrent-' + dashboardStore.sortOptions.statusFilter[0]">
-        {{ t('navbar.top.active_filters.state', { value: t(`torrent.state.${dashboardStore.sortOptions.statusFilter[0]}`) }) }}
+      <v-chip v-if="isStatusFilterActive && statusFilter.length === 1" :color="'torrent-' + statusFilter[0]" variant="elevated">
+        {{ t('navbar.top.active_filters.state', { value: t(`torrent.state.${ statusFilter[0] }`) }) }}
       </v-chip>
       <v-chip v-else-if="isStatusFilterActive" variant="elevated">
         {{ dashboardStore.sortOptions.statusFilter.length }} state filters active
       </v-chip>
 
-      <v-chip v-if="isCategoryFilterActive && dashboardStore.sortOptions.categoryFilter.length === 1" variant="elevated" color="category">
+      <v-chip v-if="isCategoryFilterActive && categoryFilter.length === 1" color="category" variant="elevated">
         {{
           t('navbar.top.active_filters.category', {
             value: dashboardStore.sortOptions.categoryFilter[0] === '' ? t('navbar.side.filters.uncategorized') : dashboardStore.sortOptions.categoryFilter[0]
@@ -55,15 +59,19 @@ const filterCount = computed(
         {{ dashboardStore.sortOptions.categoryFilter.length }} category filters active
       </v-chip>
 
-      <v-chip v-if="isTagFilterActive && dashboardStore.sortOptions.tagFilter.length === 1" variant="elevated" color="tag">
-        {{ t('navbar.top.active_filters.tag', { value: dashboardStore.sortOptions.tagFilter[0] === null ? t('navbar.side.filters.untagged') : dashboardStore.sortOptions.tagFilter[0] }) }}
+      <v-chip v-if="isTagFilterActive && tagFilter.length === 1" color="tag" variant="elevated">
+        {{
+          t('navbar.top.active_filters.tag', { value: tagFilter[0] === null ? t('navbar.side.filters.untagged') : tagFilter[0] })
+        }}
       </v-chip>
       <v-chip v-else-if="isTagFilterActive" variant="elevated" color="tag">
         {{ dashboardStore.sortOptions.tagFilter.length }} tag filters active
       </v-chip>
 
-      <v-chip v-if="isTrackerFilterActive && dashboardStore.sortOptions.trackerFilter.length === 1" variant="elevated" color="tracker">
-        {{ t('navbar.top.active_filters.tracker', { value: dashboardStore.sortOptions.trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : dashboardStore.sortOptions.trackerFilter[0] }) }}
+      <v-chip v-if="isTrackerFilterActive && trackerFilter.length === 1" color="tracker" variant="elevated">
+        {{
+          t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : trackerFilter[0] })
+        }}
       </v-chip>
       <v-chip v-else-if="isTrackerFilterActive" variant="elevated" color="tracker">
         {{ dashboardStore.sortOptions.trackerFilter.length }} tracker filters active

@@ -1,5 +1,4 @@
 import { useSearchQuery } from '@/composables'
-import { TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
 import { useMaindataStore } from '@/stores/maindata'
@@ -20,11 +19,7 @@ export const useDashboardStore = defineStore(
     const sortOptions = reactive({
       isCustomSortEnabled: false,
       sortBy: SortOptions.DEFAULT,
-      reverseOrder: false,
-      statusFilter: [] as TorrentState[],
-      categoryFilter: [] as string[],
-      tagFilter: [] as (string | null)[],
-      trackerFilter: [] as (string | null)[]
+      reverseOrder: false
     })
 
     const { t } = useI18n()
