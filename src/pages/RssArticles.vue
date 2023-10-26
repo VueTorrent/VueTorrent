@@ -124,7 +124,7 @@ onUnmounted(() => {
           <template v-for="(article, index) in paginatedResults">
             <v-divider v-if="index > 0" color="white" />
 
-            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)">
+            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)" @contextmenu="markAsRead(article)">
               <div class="d-flex">
                 <div>
                   <v-list-item-title class="text-wrap">{{ article.title }}</v-list-item-title>
