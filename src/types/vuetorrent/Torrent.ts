@@ -38,7 +38,7 @@ export default interface Torrent {
   size: number
   state: TorrentState
   super_seeding: boolean
-  tags: string[] | null
+  tags: string[]
   time_active: number
   total_size: number
   tracker: string

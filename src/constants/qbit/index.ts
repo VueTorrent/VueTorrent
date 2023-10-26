@@ -7,4 +7,4 @@ import { FilePriority } from './FilePriority'
 import { TorrentState } from './TorrentState'
 import { TrackerStatus } from './TrackerStatus'
 
-export { AppPreferences, ConnectionStatus, LogType, PieceState, FilePriority, TrackerStatus, TorrentState, FilterState }
+export { AppPreferences, ConnectionStatus, FilterState, LogType, PieceState, FilePriority, TrackerStatus, TorrentState }

@@ -1,10 +1,8 @@
 import { useSearchQuery } from '@/composables'
-import { FilterState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
-import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -21,18 +19,14 @@ export const useDashboardStore = defineStore(
     const sortOptions = reactive({
       isCustomSortEnabled: false,
       sortBy: SortOptions.DEFAULT,
-      reverseOrder: false,
-      statusFilter: FilterState.ALL as FilterState,
-      categoryFilter: null as string | null,
-      tagFilter: null as string | null,
-      trackerFilter: null as string | null
+      reverseOrder: false
     })
 
     const { t } = useI18n()
     const maindataStore = useMaindataStore()
     const vuetorrentStore = useVueTorrentStore()
     const searchQuery = useSearchQuery(
-      () => maindataStore.torrents,
+      () => maindataStore.torrentsWithFilters,
       searchFilter,
       torrent => torrent.name,
       results => {
@@ -68,16 +62,6 @@ export const useDashboardStore = defineStore(
         })
       } else {
         return t('dashboard.torrentsCount', filteredTorrents.value.length)
-      }
-    })
-
-    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
-      return {
-        filter: sortOptions.statusFilter ?? FilterState.ALL,
-        category: sortOptions.categoryFilter ?? undefined,
-        tag: sortOptions.tagFilter ?? undefined,
-        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
-        reverse: sortOptions.reverseOrder
       }
     })
 
@@ -157,8 +141,7 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
-      toggleSelect,
-      getTorrentsPayload
+      toggleSelect
     }
   },
   {

@@ -1,5 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { FilePriority } from '@/constants/qbit'
+import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
@@ -12,7 +12,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { generateMultiple } from '@/utils/faker'
 import { defineStore } from 'pinia'
-import { MaybeRefOrGetter, computed, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
 
@@ -24,6 +24,26 @@ export const useMaindataStore = defineStore('maindata', () => {
   const tags = ref<string[]>([])
   const torrents = ref<Torrent[]>([])
   const trackers = ref<string[]>([])
+
+  const filters = reactive({
+    statusFilter: [] as TorrentState[],
+    categoryFilter: [] as string[],
+    tagFilter: [] as (string | null)[],
+    trackerFilter: [] as (string | null)[]
+  })
+
+  const torrentsWithFilters = computed(() => {
+    return torrents.value.filter(torrent => {
+      if (filters.statusFilter.length > 0 && !filters.statusFilter.includes(torrent.state)) return false
+      if (filters.categoryFilter.length > 0 && !filters.categoryFilter.includes(torrent.category)) return false
+      if (filters.tagFilter.length > 0) {
+        if (torrent.tags.length === 0 && filters.tagFilter.includes(null)) return true
+        if (!torrent.tags.some(tag => filters.tagFilter.includes(tag))) return false
+      }
+      if (filters.trackerFilter.length > 0 && !filters.trackerFilter.includes(extractHostname(torrent.tracker))) return false
+      return true
+    })
+  })
 
   const authStore = useAuthStore()
   const dashboardStore = useDashboardStore()
@@ -143,7 +163,7 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       // fetch torrent data
       dashboardStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(dashboardStore.sortOptions.sortBy) !== -1
-      let data = await qbit.getTorrents(dashboardStore.getTorrentsPayload)
+      let data = await qbit.getTorrents()
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
@@ -153,16 +173,10 @@ export const useMaindataStore = defineStore('maindata', () => {
           .sort()
       }
 
-      if (vueTorrentStore.showTrackerFilter && dashboardStore.sortOptions.trackerFilter !== null) {
-        // don't calculate trackers when disabled
-        data = data.filter(d => extractHostname(d.tracker) === dashboardStore.sortOptions.trackerFilter)
-      }
-
       // update torrents
       torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
 
-      if (!isProduction.value) {
-        if (import.meta.env.VITE_USE_FAKE_TORRENTS === 'false') return
+      if (!isProduction.value && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
         const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
         torrents.value.push(...generateMultiple(count).map(t => torrentBuilder.buildFromQbit(t)))
       }
@@ -296,7 +310,9 @@ export const useMaindataStore = defineStore('maindata', () => {
     serverState,
     tags,
     torrents,
+    torrentsWithFilters,
     trackers,
+    filters,
     getTorrentByHash,
     getTorrentIndexByHash,
     deleteTorrents,
@@ -339,5 +355,16 @@ export const useMaindataStore = defineStore('maindata', () => {
     banPeers,
     setTorrentFilePriority,
     exportTorrent
+  }
+}, {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        storage: localStorage,
+        key: 'vuetorrent_maindata',
+        paths: ['filters']
+      }
+    ]
   }
 })

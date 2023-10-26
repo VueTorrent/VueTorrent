@@ -7,6 +7,7 @@
     "yes": "Yes",
     "no": "No",
     "save": "Save",
+    "disable": "Disable",
     "selectNone": "Select None",
     "selectAll": "Select All",
     "useGlobalSettings": "Use Global Settings",
@@ -374,10 +375,14 @@
       "active_filters": {
         "menu_label": "Active filter: {n} | Active filters: {n}",
         "text": "Text filter: {value}",
-        "status": "Status filter: {value}",
+        "state": "State filter: {value}",
+        "multiple_state": "State filter: {n} states",
         "category": "Category filter: {value}",
+        "multiple_category": "Category filter: {n} categories",
         "tag": "Tag filter: {value}",
-        "tracker": "Tracker filter: {value}"
+        "multiple_tag": "Tag filter: {n} tags",
+        "tracker": "Tracker filter: {value}",
+        "multiple_tracker": "Tracker filter: {n} trackers"
       }
     },
     "side": {
@@ -389,9 +394,14 @@
       },
       "filters": {
         "disabled": "(Disabled)",
+        "state": "Torrent State Filter",
+        "category": "Category Filter",
         "uncategorized": "(Uncategorized)",
+        "tag": "Tag Filter",
         "untagged": "(Untagged)",
-        "untracked": "(Untracked)"
+        "tracker": "Tracker Filter",
+        "untracked": "(Untracked)",
+        "activeFilter": "{n} filters active"
       },
       "bottom_actions": {
         "logout": "Logout",
@@ -1025,22 +1035,6 @@
       "title": "Add paused",
       "always": "Always",
       "never": "Never"
-    },
-    "filterStatus": {
-      "all": "All",
-      "downloading": "Downloading",
-      "seeding": "Seeding",
-      "completed": "Completed",
-      "resumed": "Resumed",
-      "paused": "Paused",
-      "active": "Active",
-      "inactive": "Inactive",
-      "stalled": "Stalled",
-      "stalled_uploading": "Stalled Uploading",
-      "stalled_downloading": "Stalled Downloading",
-      "checking": "Checking",
-      "moving": "Moving",
-      "errored": "Errored"
     },
     "connectionStatus": {
       "connected": "Connected",

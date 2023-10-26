@@ -51,7 +51,7 @@ const formatLogTimestamp = (log: Log) => {
   return dayjs(log.timestamp * 1000).format(vueTorrentStore.dateFormat)
 }
 const toggleSelectAll = () => {
-  if (logTypeFilter.value.length === logTypeOptions.value.length) {
+  if (allTypesSelected.value) {
     logTypeFilter.value = []
   } else {
     logTypeFilter.value = logTypeOptions.value.map(option => option.value)

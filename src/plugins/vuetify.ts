@@ -20,21 +20,6 @@ const variables = {
   tag: '#048B9A',
   tracker: '#C97D09',
 
-  // State filter colors
-  'state-downloading': '#5BB974',
-  'state-stalled_downloading': '#5BB974',
-  'state-seeding': '#4ECDE6',
-  'state-stalled_uploading': '#4ECDE6',
-  'state-completed': '#16573E',
-  'state-resumed': '#BDBDBD',
-  'state-active': '#BDBDBD',
-  'state-stalled': '#696969',
-  'state-paused': '#696969',
-  'state-inactive': '#696969',
-  'state-checking': '#FF7043',
-  'state-moving': '#FFAA2C',
-  'state-errored': '#F83E70',
-
   // Torrent state colors
   'torrent-error': '#F83E70',
   'torrent-missingFiles': '#F83E70',
