@@ -3,6 +3,7 @@ import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -62,6 +63,13 @@ export const useDashboardStore = defineStore(
         })
       } else {
         return t('dashboard.torrentsCount', filteredTorrents.value.length)
+      }
+    })
+
+    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
+      return {
+        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
+        reverse: sortOptions.reverseOrder
       }
     })
 
@@ -141,7 +149,8 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
-      toggleSelect
+      toggleSelect,
+      getTorrentsPayload
     }
   },
   {
