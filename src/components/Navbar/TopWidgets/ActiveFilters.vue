@@ -26,70 +26,70 @@ const filterCount = computed(
 )
 
 // TODO
-function resetAllFilters() {}
-function resetTextFilter() {}
-function resetStatusFilter() {}
-function resetCategoryFilter() {}
-function resetTagFilter() {}
-function resetTrackerFilter() {}
+function resetAllFilters() {
+  dashboardStore.searchFilter = ''
+  statusFilter.value = []
+  categoryFilter.value = []
+  tagFilter.value = []
+  trackerFilter.value = []
+}
+function resetTextFilter() {
+  dashboardStore.searchFilter = ''
+}
+function resetStatusFilter() {
+  statusFilter.value = []
+}
+function resetCategoryFilter() {
+  categoryFilter.value = []
+}
+function resetTagFilter() {
+  tagFilter.value = []
+}
+function resetTrackerFilter() {
+  trackerFilter.value = []
+}
 </script>
 
 <template>
   <v-menu close-delay="0" open-delay="0" open-on-click open-on-hover>
     <template v-slot:activator="{ props }">
       <v-slide-x-transition>
-        <v-chip v-if="filterCount > 0" v-bind="props" class="ml-6" color="primary" variant="elevated"
-                closable @click:close="resetAllFilters()">
+        <v-chip v-if="filterCount > 0" v-bind="props" class="ml-6" color="primary" variant="elevated" closable @click:close="resetAllFilters()">
           {{ t('navbar.top.active_filters.menu_label', filterCount) }}
         </v-chip>
       </v-slide-x-transition>
     </template>
 
     <div class="d-flex flex-column gap mt-3">
-      <v-chip v-if="isTextFilterActive" variant="elevated" color="grey"
-              closable @click:close="resetTextFilter()">
+      <v-chip v-if="isTextFilterActive" variant="elevated" color="grey" closable @click:close="resetTextFilter()">
         {{ t('navbar.top.active_filters.text', { value: dashboardStore.searchFilter }) }}
       </v-chip>
 
-      <v-chip v-if="isStatusFilterActive && statusFilter.length === 1" :color="'torrent-' + statusFilter[0]" variant="elevated"
-              closable @click:close="resetStatusFilter()">
-        {{ t('navbar.top.active_filters.state', { value: t(`torrent.state.${ statusFilter[0] }`) }) }}
+      <v-chip v-if="isStatusFilterActive && statusFilter.length === 1" :color="'torrent-' + statusFilter[0]" variant="elevated" closable @click:close="resetStatusFilter()">
+        {{ t('navbar.top.active_filters.state', { value: t(`torrent.state.${statusFilter[0]}`) }) }}
       </v-chip>
-      <v-chip v-else-if="isStatusFilterActive" variant="elevated"
-              closable @click:close="resetStatusFilter()">
+      <v-chip v-else-if="isStatusFilterActive" variant="elevated" closable @click:close="resetStatusFilter()">
         {{ t('navbar.top.active_filters.multiple_state', statusFilter.length) }}
       </v-chip>
 
-      <v-chip v-if="isCategoryFilterActive && categoryFilter.length === 1" color="category" variant="elevated"
-              closable @click:close="resetCategoryFilter()">
-        {{
-          t('navbar.top.active_filters.category', { value: categoryFilter[0] === '' ? t('navbar.side.filters.uncategorized') : categoryFilter[0] })
-        }}
+      <v-chip v-if="isCategoryFilterActive && categoryFilter.length === 1" color="category" variant="elevated" closable @click:close="resetCategoryFilter()">
+        {{ t('navbar.top.active_filters.category', { value: categoryFilter[0] === '' ? t('navbar.side.filters.uncategorized') : categoryFilter[0] }) }}
       </v-chip>
-      <v-chip v-else-if="isCategoryFilterActive" color="category" variant="elevated"
-              closable @click:close="resetCategoryFilter()">
+      <v-chip v-else-if="isCategoryFilterActive" color="category" variant="elevated" closable @click:close="resetCategoryFilter()">
         {{ t('navbar.top.active_filters.multiple_category', categoryFilter.length) }}
       </v-chip>
 
-      <v-chip v-if="isTagFilterActive && tagFilter.length === 1" color="tag" variant="elevated"
-              closable @click:close="resetTagFilter()">
-        {{
-          t('navbar.top.active_filters.tag', { value: tagFilter[0] === null ? t('navbar.side.filters.untagged') : tagFilter[0] })
-        }}
+      <v-chip v-if="isTagFilterActive && tagFilter.length === 1" color="tag" variant="elevated" closable @click:close="resetTagFilter()">
+        {{ t('navbar.top.active_filters.tag', { value: tagFilter[0] === null ? t('navbar.side.filters.untagged') : tagFilter[0] }) }}
       </v-chip>
-      <v-chip v-else-if="isTagFilterActive" color="tag" variant="elevated"
-              closable @click:close="resetTagFilter()">
+      <v-chip v-else-if="isTagFilterActive" color="tag" variant="elevated" closable @click:close="resetTagFilter()">
         {{ t('navbar.top.active_filters.multiple_tag', tagFilter.length) }}
       </v-chip>
 
-      <v-chip v-if="isTrackerFilterActive && trackerFilter.length === 1" color="tracker" variant="elevated"
-              closable @click:close="resetTrackerFilter()">
-        {{
-          t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : trackerFilter[0] })
-        }}
+      <v-chip v-if="isTrackerFilterActive && trackerFilter.length === 1" color="tracker" variant="elevated" closable @click:close="resetTrackerFilter()">
+        {{ t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : trackerFilter[0] }) }}
       </v-chip>
-      <v-chip v-else-if="isTrackerFilterActive" color="tracker" variant="elevated"
-              closable @click:close="resetTrackerFilter()">
+      <v-chip v-else-if="isTrackerFilterActive" color="tracker" variant="elevated" closable @click:close="resetTrackerFilter()">
         {{ t('navbar.top.active_filters.multiple_tracker', trackerFilter.length) }}
       </v-chip>
     </div>
