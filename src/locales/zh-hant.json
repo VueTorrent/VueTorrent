@@ -7,6 +7,7 @@
     "yes": "是",
     "no": "否",
     "save": "儲存",
+    "disable": "停用",
     "selectNone": "取消選擇全部",
     "selectAll": "選擇全部",
     "useGlobalSettings": "使用全域設定",
@@ -374,10 +375,14 @@
       "active_filters": {
         "menu_label": "啟用中的過濾器: {n} | 啟用中的過濾器: {n}",
         "text": "文本過濾器: {value}",
-        "status": "狀態過濾器: {value}",
+        "state": "狀態過濾器: {value}",
+        "multiple_state": "狀態過濾器: {n} 個狀態",
         "category": "分類過濾器: {value}",
+        "multiple_category": "分類過濾器: {n} 個分類",
         "tag": "標籤過濾器: {value}",
-        "tracker": "追蹤者過濾器: {value}"
+        "multiple_tag": "標籤過濾器: {n} 個標籤",
+        "tracker": "追蹤者過濾器: {value}",
+        "multiple_tracker": "追蹤者過濾器: {n} 個追蹤者"
       }
     },
     "side": {
@@ -389,9 +394,14 @@
       },
       "filters": {
         "disabled": "(已禁用)",
+        "state": "種子狀態過濾器",
+        "category": "分類過濾器",
         "uncategorized": "(未分類)",
+        "tag": "標籤過濾器",
         "untagged": "(未標籤)",
-        "untracked": "(未追蹤)"
+        "tracker": "追蹤者過濾器",
+        "untracked": "(未追蹤)",
+        "activeFilter": "{n} 個啟用中的過濾器"
       },
       "bottom_actions": {
         "logout": "登出",
@@ -1025,22 +1035,6 @@
       "title": "加入已暫停的",
       "always": "總是",
       "never": "永不"
-    },
-    "filterStatus": {
-      "all": "所有",
-      "downloading": "下載中",
-      "seeding": "做種中",
-      "completed": "已完成",
-      "resumed": "繼續",
-      "paused": "暫停",
-      "active": "活躍",
-      "inactive": "不活躍",
-      "stalled": "停止",
-      "stalled_uploading": "停止上傳",
-      "stalled_downloading": "停止下載",
-      "checking": "正在檢查",
-      "moving": "正在移動",
-      "errored": "錯誤"
     },
     "connectionStatus": {
       "connected": "已連線",
