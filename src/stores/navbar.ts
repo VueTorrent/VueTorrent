@@ -12,6 +12,8 @@ export const useNavbarStore = defineStore(
     const downloadData = ref<number[]>(new Array(15).fill(0))
     const uploadData = ref<number[]>(new Array(15).fill(0))
 
+    const isAddTorrentDialogFirstInit = ref(true)
+
     const addTorrentDialogFiles = ref<File[]>([])
     const addTorrentDialogUrls = ref('')
 
@@ -51,25 +53,33 @@ export const useNavbarStore = defineStore(
       }
     }
 
+    function initAddTorrentDialogForm() {
+      if (isAddTorrentDialogFirstInit.value) {
+        isAddTorrentDialogFirstInit.value = false
+        resetAddTorrentDialogForm()
+      }
+    }
+
     function resetAddTorrentDialogForm() {
       addTorrentDialogUrls.value = ''
       addTorrentDialogFiles.value = []
 
       addTorrentDialogForm.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
-      addTorrentDialogForm.skipChecking = false
-      addTorrentDialogForm.sequentialDownload = false
-      addTorrentDialogForm.firstLastPiecePrio = false
-      addTorrentDialogForm.startNow = !preferenceStore.preferences!.start_paused_enabled
-      addTorrentDialogForm.contentLayout = preferenceStore.preferences!.torrent_content_layout
-      addTorrentDialogForm.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-      addTorrentDialogForm.savepath = preferenceStore.preferences!.save_path
       addTorrentDialogForm.category = null
+      addTorrentDialogForm.contentLayout = preferenceStore.preferences!.torrent_content_layout
+      addTorrentDialogForm.firstLastPiecePrio = false
+      addTorrentDialogForm.savepath = preferenceStore.preferences!.save_path
+      addTorrentDialogForm.sequentialDownload = false
+      addTorrentDialogForm.skipChecking = false
+      addTorrentDialogForm.startNow = !preferenceStore.preferences!.start_paused_enabled
+      addTorrentDialogForm.stopCondition = preferenceStore.preferences!.torrent_stop_condition
       addTorrentDialogForm.tags = []
     }
 
     return {
       downloadData,
       uploadData,
+      isAddTorrentDialogFirstInit,
       addTorrentDialogFiles,
       addTorrentDialogUrls,
       addTorrentDialogForm,
@@ -77,6 +87,7 @@ export const useNavbarStore = defineStore(
       pushDownloadData,
       pushUploadData,
       pushTorrentToQueue,
+      initAddTorrentDialogForm,
       resetAddTorrentDialogForm
     }
   },

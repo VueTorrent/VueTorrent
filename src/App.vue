@@ -7,6 +7,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useDialogStore } from '@/stores/dialog'
 import { useLogStore } from '@/stores/logs'
 import { useMaindataStore } from '@/stores/maindata'
+import { useNavbarStore } from '@/stores/navbar.ts'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
@@ -21,6 +22,7 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
+const navbarStore = useNavbarStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -67,6 +69,7 @@ onBeforeMount(() => {
   vuetorrentStore.setLanguage(vuetorrentStore.language)
   checkAuthentication()
   blockContextMenu()
+  navbarStore.initAddTorrentDialogForm()
 })
 
 watch(
@@ -77,6 +80,8 @@ watch(
       await maindataStore.updateMaindata()
       await preferencesStore.fetchPreferences()
       await logStore.fetchLogs()
+      await maindataStore.fetchCategories()
+      await maindataStore.fetchTags()
     } else {
       appStore.clearIntervals()
     }

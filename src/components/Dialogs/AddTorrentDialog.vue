@@ -6,7 +6,7 @@ import { useNavbarStore } from '@/stores/navbar'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = withDefaults(defineProps<{
@@ -73,21 +73,6 @@ const close = () => {
 const onCategoryChanged = () => {
   navbarStore.addTorrentDialogForm.savepath = navbarStore.addTorrentDialogForm.category && navbarStore.addTorrentDialogForm.category.savePath ? navbarStore.addTorrentDialogForm.category.savePath : preferenceStore.preferences!.save_path
 }
-
-onBeforeMount(async () => {
-  const promises = []
-  if (!preferenceStore.preferences) {
-    promises.push(preferenceStore.fetchPreferences())
-  }
-  if (maindataStore.categories.length < 1) {
-    promises.push(maindataStore.fetchCategories())
-  }
-  if (maindataStore.tags.length < 1) {
-    promises.push(maindataStore.fetchTags())
-  }
-
-  await Promise.all(promises)
-})
 </script>
 
 <template>
