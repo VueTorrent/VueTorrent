@@ -69,7 +69,6 @@ onBeforeMount(() => {
   vuetorrentStore.setLanguage(vuetorrentStore.language)
   checkAuthentication()
   blockContextMenu()
-  navbarStore.initAddTorrentDialogForm()
 })
 
 watch(
@@ -82,6 +81,7 @@ watch(
       await logStore.fetchLogs()
       await maindataStore.fetchCategories()
       await maindataStore.fetchTags()
+      navbarStore.initAddTorrentDialogForm()
     } else {
       appStore.clearIntervals()
     }
