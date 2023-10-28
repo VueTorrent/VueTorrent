@@ -64,7 +64,7 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}` : undefined" width="100%" @click="onClick">
+  <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined" width="100%" @click="onClick">
     <v-card-title class="font-weight-bold">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">
