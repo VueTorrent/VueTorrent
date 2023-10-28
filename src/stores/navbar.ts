@@ -97,8 +97,7 @@ export const useNavbarStore = defineStore(
       strategies: [
         {
           storage: sessionStorage,
-          key: 'vuetorrent_navbar',
-          paths: ['downloadData', 'uploadData']
+          key: 'vuetorrent_navbar'
         }
       ]
     }
