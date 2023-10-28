@@ -338,10 +338,11 @@ export class QBitApi {
     return this.execute('/transfer/setUploadLimit', data)
   }
 
-  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number): Promise<void> {
+  async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
     return this.torrentAction('setShareLimits', hashes, {
       ratioLimit,
-      seedingTimeLimit
+      seedingTimeLimit,
+      inactiveSeedingTimeLimit
     })
   }
 

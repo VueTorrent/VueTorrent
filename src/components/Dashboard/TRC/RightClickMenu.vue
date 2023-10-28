@@ -3,6 +3,7 @@ import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
+import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import { useDashboardStore } from '@/stores/dashboard'
 import { useDialogStore } from '@/stores/dialog'
 import { useMaindataStore } from '@/stores/maindata'
@@ -91,6 +92,18 @@ async function toggleTag(tag: string) {
 
 async function copyValue(valueToCopy: string) {
   await navigator.clipboard.writeText(valueToCopy)
+}
+
+function setDownloadLimit() {
+  dialogStore.createDialog(SpeedLimitDialog, { hash: hash.value, mode: 'download' })
+}
+
+function setUploadLimit() {
+  dialogStore.createDialog(SpeedLimitDialog, { hash: hash.value, mode: 'upload' })
+}
+
+function setShareLimit() {
+  //TODO: dialogStore.createDialog(ShareLimitDialog, { hash: hash.value })
 }
 
 async function exportTorrents() {
@@ -208,23 +221,18 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: t('dashboard.right_click.speed_limit.download'),
         icon: 'mdi-download',
-        action: () => {
-          /* TODO */
-        }
+        action: setDownloadLimit
       },
       {
         text: t('dashboard.right_click.speed_limit.upload'),
         icon: 'mdi-upload',
-        action: () => {
-          /* TODO */
-        }
+        action: setUploadLimit
       },
       {
         text: t('dashboard.right_click.speed_limit.share'),
         icon: 'mdi-account-group',
-        action: () => {
-          /* TODO */
-        }
+        hidden: true,
+        action: setShareLimit
       }
     ]
   },

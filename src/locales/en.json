@@ -545,6 +545,11 @@
         "url": "Engine URL",
         "actions": "Actions"
       }
+    },
+    "speed_limit": {
+      "download": "Set Download Speed Limit",
+      "upload": "Set Upload Speed Limit",
+      "label": "Speed Limit"
     }
   },
   "settings": {
