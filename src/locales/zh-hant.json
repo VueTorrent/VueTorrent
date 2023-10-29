@@ -545,6 +545,11 @@
         "url": "引擎 URL",
         "actions": "動作"
       }
+    },
+    "speed_limit": {
+      "download": "設定下載速率限制",
+      "upload": "設定上傳速率限制",
+      "label": "速率限制"
     }
   },
   "settings": {
