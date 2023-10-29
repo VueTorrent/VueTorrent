@@ -93,7 +93,7 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 - Extra features the default WebUI doesn't have
   - mobile friendly! (can be installed as a PWA)
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
-- works with qBittorrent v4.4 and later
+- Optimized for the latest version of qBittorrent
 
 ## Contributing
 
@@ -103,17 +103,7 @@ I'll gladly accept help/pull requests & advice!
 
 ### Localize the app
 
-To help us localize VueTorrent, you will need to:
-- `src/locales/<your language>.json`
-  - Create a json file containing the translations by matching the structure of `en.json`
-    - every key may not be specified, that's fine, it will default to the english locale
-  - `<your language>` should match the ISO 639 locale code of the added language
-- `src/locales/locales.ts`
-  - add your language to the `Locales` enum, it should match the json filename
-  - Update the `LOCALES` constant with the local language name and the created enum value
-- `src/locales/index.ts`
-  - import the json file
-  - include it in the `messages` object using the created enum value as key
+We use [Tolgee](https://tolgee.io/) to manage translations. You can help translate the app by visiting [this link](TODO: invite link).
 
 ## Support
 
