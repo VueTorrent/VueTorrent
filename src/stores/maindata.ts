@@ -11,7 +11,7 @@ import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
-import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
@@ -180,11 +180,7 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (import.meta.env.DEV && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
         const count = Number(import.meta.env.VITE_FAKE_TORRENT_COUNT)
-
-        // TODO: Read fake torrents values from .env file (or smth else)
-        const fakeTorrents: Partial<Torrent> = [
-          { 'name': 'First Torrent', progress: .75 }
-        ]
+        const fakeTorrents: Partial<Torrent> = (await import('../../__mocks__/torrents.json')).default
 
         for (let i = 0; i < count; i++) {
           torrents.value.push(torrentBuilder.buildFromFaker(fakeTorrents.at(i) || {}, i))

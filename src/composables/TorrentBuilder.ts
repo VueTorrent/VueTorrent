@@ -123,9 +123,10 @@ export function useTorrentBuilder() {
   }
 
   function buildTorrent(data: StaticTorrent): Torrent {
-    const dlDuration = torrent.time_active - torrent.seeding_time
-    const ulDuration = torrent.time_active
+    const dlDuration = data.time_active - data.seeding_time
+    const ulDuration = data.time_active
 
+    // @ts-expect-error: Type is missing the following properties from type 'Torrent': ...
     return Object.freeze({
       ...data,
       avgDownloadSpeed: data.downloaded / ((dlDuration == 0) ? -1 : dlDuration),
