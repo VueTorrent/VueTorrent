@@ -382,7 +382,7 @@
                 "tag": "标签过滤器：{value}",
                 "multiple_tag": "标签过滤器：{n} 个标签",
                 "tracker": "Tracker 过滤器：{value}",
-                "multiple_tracker": "Tracker 过滤器：{n} 个追踪器"
+                "multiple_tracker": "Tracker 过滤器：{n} 个Tracker"
             }
         },
         "side": {
@@ -399,7 +399,7 @@
                 "uncategorized": "（未分类）",
                 "tag": "标签过滤器",
                 "untagged": "（无标签）",
-                "tracker": "追踪器过滤器",
+                "tracker": "Tracker过滤器",
                 "untracked": "（无tracker）",
                 "activeFilter": "当前有 {n} 个过滤器生效"
             },
@@ -545,6 +545,11 @@
                 "url": "引擎 URL",
                 "actions": "操作"
             }
+        },
+        "speed_limit": {
+            "download": "设置下载速度限制",
+            "upload": "设置上传速度限制",
+            "label": "速度限制"
         }
     },
     "settings": {
