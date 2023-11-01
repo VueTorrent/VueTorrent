@@ -22,8 +22,7 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "@/*": ["./src/*"],
-      "@mocks/*": ["./__mocks__/*"],
+      "@/*": ["./src/*"]
     },
     "types": ["node", "vue3-toastify/global", "pinia-plugin-persist", "vitest/globals"]
   },

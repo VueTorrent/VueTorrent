@@ -1,14 +1,19 @@
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { formatEta, getDomainBody } from '@/helpers'
+import { useMaindataStore } from '@/stores/maindata.ts'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { faker } from '@faker-js/faker'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume'>
 
 export function useTorrentBuilder() {
   const { t } = useI18n()
+  const maindataStore = useMaindataStore()
+
+  const categories = computed(() => maindataStore.categories.map(value => value.name) || ['ISO', 'Other', 'Movie', 'Music', 'TV'])
 
   const computedValues = ['avgDownloadSpeed', 'avgUploadSpeed', 'globalSpeed', 'globalVolume', 'priority']
 
@@ -67,18 +72,22 @@ export function useTorrentBuilder() {
   }
 
   function buildFromFaker(data: Partial<Torrent>, index: number): Torrent {
+    const added_on = data.added_on || faker.date.past().getTime()
+    const available_peers = data.available_peers || faker.number.int({ min: 0, max: 250 })
+    const available_seeds = data.available_seeds || faker.number.int({ min: 0, max: 250 })
     const state = data.state || faker.helpers.arrayElement(Object.values(TorrentState))
+    const total_size = data.total_size || faker.number.int({ min: 1000, max: 1_000_000_000_000 }) // [1 ko; 1 To]
     const tracker = data.tracker || faker.internet.url()
 
     return buildTorrent({
-      added_on: data.added_on || faker.date.recent().getTime(),
-      amount_left: data.amount_left || faker.number.float({ min: 0, max: 1, precision: 0.01 }),
+      added_on,
+      amount_left: data.amount_left || faker.number.int({ min: 0, max: total_size }),
       auto_tmm: data.auto_tmm || faker.datatype.boolean(),
-      availability: data.availability || faker.number.float({ min: 0, max: 1, precision: 0.01 }),
-      available_peers: data.available_peers || faker.number.int({ min: 0, max: 50 }),
-      available_seeds: data.available_seeds || faker.number.int({ min: 0, max: 50 }),
-      category: data.category || faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
-      completed_on: data.completion_on || faker.number.float({ min: 0, max: 1, precision: 0.01 }),
+      availability: data.availability || faker.number.float({ min: 0, max: 100, precision: 0.01 }),
+      available_peers,
+      available_seeds,
+      category: data.category || faker.helpers.arrayElement(categories.value),
+      completed_on: data.completed_on || faker.date.between({ from: added_on, to: Date.now() }),
       content_path: data.content_path || faker.system.filePath(),
       dl_limit: data.dl_limit || faker.number.float({ min: 0, max: 1, precision: 0.01 }),
       dlspeed: data.dlspeed || faker.number.int({ min: 0, max: 5000000 }),
@@ -94,8 +103,8 @@ export function useTorrentBuilder() {
       last_activity: data.last_activity || faker.number.int({ min: 0, max: 50 }),
       magnet: data.magnet_uri || faker.internet.url(),
       name: data.name || `Torrent ${ index + 1 }`,
-      num_leechs: data.num_leechs || faker.number.int({ min: 0, max: 50 }),
-      num_seeds: data.num_seeds || faker.number.int({ min: 0, max: 50 }),
+      num_leechs: data.num_leechs || faker.number.int(available_peers),
+      num_seeds: data.num_seeds || faker.number.int(available_seeds),
       priority: data.priority || FilePriority.NORMAL,
       progress: data.progress || faker.number.float({ min: 0, max: 1, precision: 0.01 }),
       ratio: data.ratio || faker.number.float({ min: 0, max: 5, precision: 0.01 }),
@@ -105,13 +114,13 @@ export function useTorrentBuilder() {
       seeding_time: data.seeding_time || faker.number.int({ min: 0, max: 50 }),
       seen_complete: data.seen_complete || faker.number.int({ min: 0, max: 50 }),
       seq_dl: data.seq_dl || faker.datatype.boolean(),
-      size: data.size || faker.number.int({ min: 1000000, max: 50000000000 }),
+      size: data.size || faker.number.int({ min: 1000, max: total_size }),
       state,
       stateString: t(`torrent.state.${ state }`),
       super_seeding: data.super_seeding || faker.datatype.boolean(),
       tags: data.tags || '',
       time_active: data.time_active || faker.number.int({ min: 1000, max: 900000 }),
-      total_size: data.total_size || faker.number.int({ min: 1000, max: 900000 }),
+      total_size,
       tracker,
       tracker_domain: getDomainBody(tracker),
       trackers_count: data.trackers_count || faker.number.int({ min: 1, max: 50 }),
