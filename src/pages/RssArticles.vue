@@ -127,7 +127,7 @@ onUnmounted(() => {
             <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)" @contextmenu="markAsRead(article)">
               <div class="d-flex">
                 <div>
-                  <v-list-item-title class="text-wrap">{{ article.title }}</v-list-item-title>
+                  <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }}</v-list-item-title>
 
                   <v-list-item-subtitle class="d-block">
                     <div>{{ article.parsedDate.toLocaleString() }}</div>
