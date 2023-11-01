@@ -2,6 +2,7 @@ import { useTorrentBuilder } from '@/composables'
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
+import { uuidFromRaw } from '@/helpers/text.ts'
 import { qbit } from '@/services'
 import { useAuthStore } from '@/stores/auth'
 import { useDashboardStore } from '@/stores/dashboard'
@@ -182,8 +183,8 @@ export const useMaindataStore = defineStore('maindata', () => {
         const count = Number(import.meta.env.VITE_FAKE_TORRENT_COUNT)
         const fakeTorrents: Partial<Torrent> = (await import('../../__mocks__/torrents.json')).default
 
-        for (let i = 0; i < count; i++) {
-          torrents.value.push(torrentBuilder.buildFromFaker(fakeTorrents.at(i) || {}, i))
+        for (let i = 1; i <= count; i++) {
+          torrents.value.push(torrentBuilder.buildFromFaker({ ...fakeTorrents.at(i), hash: uuidFromRaw(BigInt(i)) }, i))
         }
       }
 
