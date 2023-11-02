@@ -12,7 +12,7 @@ const { statusFilter, categoryFilter, tagFilter, trackerFilter } = toRefs(filter
 const vueTorrentStore = useVueTorrentStore()
 
 const statuses = computed(() => Object.values(TorrentState).map(state => (
-  { title: t(`torrent.state.${ state }`), value: state }
+    { title: t(`torrent.state.${ state }`), value: state }
 )))
 const categories = computed(() => [
   { title: t('navbar.side.filters.uncategorized'), value: '' },
@@ -50,8 +50,8 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-normal text-caption">
         {{ t('navbar.side.filters.state') }}
       </v-list-item-title>
-      <v-select v-model="statusFilter" :items="statuses" bg-color="secondary"
-                :placeholder="t('navbar.side.filters.disabled')"
+      <v-select v-model="statusFilter" :items="statuses" :placeholder="t('navbar.side.filters.disabled')"
+                bg-color="secondary"
                 class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
@@ -71,19 +71,19 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.category') }}
       </v-list-item-title>
-      <v-select v-model="categoryFilter" :items="categories" bg-color="secondary"
-                :placeholder="t('navbar.side.filters.disabled')"
-                class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select v-model="categoryFilter" :items="categories" :placeholder="t('navbar.side.filters.disabled')"
+                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && categoryFilter.length === 1"
-                class="text-accent">{{ item.props.title }}</span>
-          <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.activeFilter', categoryFilter.length)
-            }}</span>
+          <span v-if="index === 0 && categoryFilter.length === 1" class="text-accent">
+            {{ item.props.title }}
+          </span>
+          <span v-else-if="index === 0" class="text-accent">
+            {{ t('navbar.side.filters.activeFilter', categoryFilter.length) }}
+          </span>
         </template>
       </v-select>
     </v-list-item>
@@ -92,19 +92,19 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tag') }}
       </v-list-item-title>
-      <v-select v-model="tagFilter" :items="tags" bg-color="secondary"
-                :placeholder="t('navbar.side.filters.disabled')"
-                class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select v-model="tagFilter" :items="tags" :placeholder="t('navbar.side.filters.disabled')"
+                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTags" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && tagFilter.length === 1"
-                class="text-accent">{{ item.props.title }}</span>
-          <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.activeFilter', tagFilter.length)
-            }}</span>
+          <span v-if="index === 0 && tagFilter.length === 1" class="text-accent">
+            {{ item.props.title }}
+          </span>
+          <span v-else-if="index === 0" class="text-accent">
+            {{ t('navbar.side.filters.activeFilter', tagFilter.length) }}
+          </span>
         </template>
       </v-select>
     </v-list-item>
@@ -114,19 +114,19 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
-      <v-select v-model="trackerFilter" :items="trackers" bg-color="secondary"
-                :placeholder="t('navbar.side.filters.disabled')"
-                class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select v-model="trackerFilter" :items="trackers" :placeholder="t('navbar.side.filters.disabled')"
+                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTrackers" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && trackerFilter.length === 1"
-                class="text-accent">{{ item.props.title }}</span>
-          <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.activeFilter', trackerFilter.length)
-            }}</span>
+          <span v-if="index === 0 && trackerFilter.length === 1" class="text-accent">
+            {{ item.props.title }}
+          </span>
+          <span v-else-if="index === 0" class="text-accent">
+            {{ t('navbar.side.filters.activeFilter', trackerFilter.length) }}
+          </span>
         </template>
       </v-select>
     </v-list-item>
