@@ -45,7 +45,14 @@ const redirectOnSuccess = () => {
   }
 }
 
-onMounted(() => {
+onMounted(async () => {
+  if (route.query.username && route.query.password) {
+    await authStore.login(
+      route.query.username as string,
+      route.query.password as string
+    )
+  }
+
   if (authStore.isAuthenticated) {
     redirectOnSuccess()
   }

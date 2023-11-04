@@ -26,16 +26,10 @@ const navbarStore = useNavbarStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
+const onLoginPage = computed(() => route.name === 'login')
 
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
-
-  if (!authStore.isAuthenticated && !onLoginPage.value) {
-    await vuetorrentStore.redirectToLogin()
-  } else {
-    redirectOnSuccess()
-  }
 }
 
 const blockContextMenu = () => {

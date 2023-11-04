@@ -107,7 +107,7 @@ export const useVueTorrentStore = defineStore(
     }
 
     async function redirectToLogin() {
-      await router.push({ name: 'login', query: { redirect: router.currentRoute.value.fullPath } })
+      await router.push({ name: 'login', query: { redirect: router.currentRoute.value.path } })
     }
 
     function updateTitle() {
