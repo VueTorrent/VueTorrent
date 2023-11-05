@@ -52,7 +52,7 @@
       "last_activity": "Dernière activité",
       "magnet_uri": "Magnet URI",
       "max_ratio": "Ratio max",
-      "max_seeding_time": "Max Seeding Time", //TODO
+      "max_seeding_time": "Temps de partage maximum",
       "name": "Nom",
       "num_complete": "Seeds (essaim)",
       "num_incomplete": "Pairs (essaim)",
@@ -61,10 +61,10 @@
       "priority": "Priorité",
       "progress": "Progression",
       "ratio": "Ratio",
-      "ratio_limit": "Ratio Limit", //TODO
+      "ratio_limit": "Limite de ratio",
       "save_path": "Chemin de sauvegarde",
       "seeding_time": "Durée de seed",
-      "seeding_time_limit": "Seeding Time Limit", //TODO
+      "seeding_time_limit": "Limite de temps de partage",
       "seen_complete": "Seen Complete", //TODO
       "seq_dl": "Téléchargement séquentiel",
       "size": "Taille",
@@ -219,30 +219,30 @@
       "num_leechs": "Pairs (connectés)",
       "num_seeds": "Seeds (connecté)",
       "peers": "Pairs",
-      "priority": "Priority", //TODO
-      "progress": "Progress", //TODO
-      "progress_bar": "Progress Bar", //TODO
-      "ratio": "Ratio", //TODO
-      "ratio_limit": "Ratio limit", //TODO
+      "priority": "Priorité",
+      "progress": "Progression",
+      "progress_bar": "Barre de progression",
+      "ratio": "Ratio",
+      "ratio_limit": "Limite de ratio",
       "ratio_time_limit": "Ratio time limit", //TODO
-      "save_path": "Save Path", //TODO
-      "seeding_time": "Seeding time", //TODO
+      "save_path": "Chemin de sauvegarde",
+      "seeding_time": "Temps de partage",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete", //TODO
-      "seq_dl": "Sequential Download", //TODO
+      "seq_dl": "Téléchargement séquentiel",
       "size": "Taille",
       "state": "État",
       "super_seeding": "Super Seeding Mode", //TODO
       "tags": "Étiquettes",
       "empty_tags": "(pas d'étiquettes)",
-      "time_active": "Time Active", //TODO
+      "time_active": "Temps actif",
       "total_size": "Taille totale",
       "tracker": "Tracker",
-      "trackers_count": "Trackers Count", //TODO
-      "upload_limit": "Upload Limit", //TODO
-      "upload_speed": "Upload Speed", //TODO
-      "uploaded": "Uploaded (global)", //TODO
-      "uploaded_session": "Uploaded (session)" //TODO
+      "trackers_count": "Nombre de Trackers",
+      "upload_limit": "Limite de partage",
+      "upload_speed": "Vitesse de partage",
+      "uploaded": "Partagé (global)",
+      "uploaded_session": "Partagé (session)"
     },
     "state": {
       "metaDL": "Métadonnées",
@@ -267,14 +267,14 @@
     }
   },
   "torrentDetail": {
-    "title": "Torrent Detail", //TODO
+    "title": "Détail du torrent",
     "tabs": {
       "overview": "Vue d'ensemble",
       "info": "Info",
       "trackers": "Trackers",
-      "peers": "Peers", //TODO
+      "peers": "Pairs",
       "content": "Contenu",
-      "tagsAndCategories": "Tags & Categories" //TODO
+      "tagsAndCategories": "Étiquettes & Catégories"
     },
     "overview": {
       "copy_hash": "Copier le Hash",
@@ -282,9 +282,9 @@
       "waitingForMetadata": "En attente de métadonnées...",
       "canvasRenderDisabled": "Canvas rendering is disabled", //TODO
       "canvasRefreshDisabled": "Canvas auto-refresh is disabled", //TODO
-      "pieceCount": "{owned} / {total} ({pieceSize})", //TODO
-      "fileCount": "Selected Files", //TODO
-      "selectedFileSize": "Selected Files' Size", //TODO
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "fileCount": "Fichiers sélectionnés",
+      "selectedFileSize": "Taille des fichiers sélectionnés",
       "ratio": "Ratio",
       "downloaded": "Téléchargé",
       "uploaded": "Partagé",
@@ -302,33 +302,33 @@
     },
     "trackers": {
       "tier": "Tier: {n}", //TODO
-      "peersValue": "{peers} peers ({seeds} S /{leeches} L)", //TODO
+      "peersValue": "{peers} pairs ({seeds} S /{leeches} L)",
       "addTrackers": {
-        "title": "Add Trackers", //TODO
-        "newTrackers": "Tracker URLs to add", //TODO
+        "title": "Ajouter des tracker",
+        "newTrackers": "URL des trackers à ajouter",
         "newTrackersHint": "One per line, separate tiers with an empty line" //TODO
       },
       "editTracker": {
-        "title": "Edit Tracker", //TODO
-        "oldUrl": "Old URL", //TODO
-        "newUrl": "New URL", //TODO
-        "newUrlRequired": "New URL is required" //TODO
+        "title": "Editer Tracker",
+        "oldUrl": "Ancienne URL",
+        "newUrl": "Nouvelle URL",
+        "newUrlRequired": "Une nouvelle URL est nécessaire"
       },
-      "reannounce": "Reannounce all" //TODO
+      "reannounce": "Tout réannoncer"
     },
     "peers": {
       "table": {
-        "host": "Host",  //TODO
-        "connection": "Connection",  //TODO
+        "host": "Hôte",
+        "connection": "Connexion",
         "flags": "Flags",  //TODO
         "client": "Client",
         "progress": "Progrès",
-        "downloadSpeed": "DL",  //TODO
-        "downloaded": "Downloaded",  //TODO
-        "upSpeed": "UL",  //TODO
-        "uploaded": "Uploaded",  //TODO
+        "downloadSpeed": "Téléchargement",
+        "downloaded": "Téléchargé",
+        "upSpeed": "Partage",
+        "uploaded": "Partagé",
         "relevance": "Relevance",  //TODO
-        "files": "Files"  //TODO
+        "files": "Fichiers"
       },
       "addPeers": {
         "title": "Ajouter des pairs",
@@ -373,16 +373,16 @@
   "navbar": {
     "top": {
       "active_filters": {
-        "menu_label": "Active filter: {n} | Active filters: {n}",  //TODO
-        "text": "Text filter: {value}",  //TODO
-        "state": "State filter: {value}",  //TODO
-        "multiple_state": "State filter: {n} states",  //TODO
-        "category": "Category filter: {value}",  //TODO
-        "multiple_category": "Category filter: {n} categories",  //TODO
-        "tag": "Tag filter: {value}",  //TODO
-        "multiple_tag": "Tag filter: {n} tags",  //TODO
-        "tracker": "Tracker filter: {value}",  //TODO
-        "multiple_tracker": "Tracker filter: {n} trackers"  //TODO
+        "menu_label": "Filtre actif: {n} | Filtres actifs: {n}",
+        "text": "Filtre par texte: {value}",
+        "state": "Filtre par état: {value}",
+        "multiple_state": "Filtre par états: {n} états",
+        "category": "Filtre par catégorie: {value}",
+        "multiple_category": "Filtre par catégories: {n} catégories",
+        "tag": "Filtre par étiquette: {value}",
+        "multiple_tag": "Filtre par étiquettes: {n} étiquettes",
+        "tracker": "Filtre par tracker: {value}",
+        "multiple_tracker": "Filtre par trackers: {n} trackers"
       }
     },
     "side": {
@@ -405,38 +405,38 @@
       },
       "bottom_actions": {
         "logout": "Déconnexion",
-        "alt_speed": "Toggle alternative speed",  //TODO
+        "alt_speed": "Dés(activer) les vitesses alternatives",
         "conn_status": "Connection status: {status}",  //TODO
-        "dark_mode": "Switch to light mode | Switch to dark mode",  //TODO
-        "shutdown": "Shutdown qBittorrent"  //TODO
+        "dark_mode": "Passer au mode clair | Passer au mode sombre",
+        "shutdown": "Éteindre qBittorrent"
       }
     },
     "addPanel": {
-      "torrentsPendingCount": "{n} torrent awaiting upload | {n} torrents awaiting upload"  //TODO
+      "torrentsPendingCount": "{n} torrent en attente de partage | {n} torrents en attente de partage"
     }
   },
   "dialogs": {
     "shutdown": {
-      "title": "Shutdown qBittorrent",  //TODO
-      "content": "Do you really want to shutdown qBittorrent?",  //TODO
-      "success": "qBittorrent was shutdown successfully!",  //TODO
-      "error": "Unable to shutdown app. Make sure qBittorrent is running!"  //TODO
+      "title": "Éteindre qBittorrent",
+      "content": "Voulez-vous vraiment arrêter qBittorrent ?",
+      "success": "qBittorrent a été arrêté avec succès !",
+      "error": "Impossible d'éteindre l'application. Assurez-vous que qBittorrent soit en cours d'exécution !"
     },
     "rss": {
       "feed": {
         "title": {
-          "create": "Create RSS Feed",  //TODO
-          "edit": "Edit RSS Feed"  //TODO
+          "create": "Créer un flux RSS",
+          "edit": "Éediter le flux RSS"
         },
-        "name": "Name",  //TODO
-        "url": "URL"  //TODO
+        "name": "Nom",
+        "url": "URL"
       },
       "rule": {
         "title": {
           "create": "Create RSS Rule",  //TODO
           "edit": "Edit RSS Rule"  //TODO
         },
-        "name": "Name", //TODO
+        "name": "Nom",
         "useRegex": "Use Regular Expression", //TODO
         "mustContain": "Must Contain", //TODO
         "mustNotContain": "Must Not Contain", //TODO
@@ -450,8 +450,8 @@
         "ignoreDaysHint": "0 to disable", //TODO
         "lastMatch": {
           "label": "Last match", //TODO
-          "knownValue": "today | {n} day ago | {n} days ago", //TODO
-          "unknownValue": "Unknown" //TODO
+          "knownValue": "aujourd'hui | il y a {n} jour | il y a {n} jours",
+          "unknownValue": "Inconnu"
         },
         "addPaused": "Add paused", //TODO
         "affectedFeedsSubheader": "Affected Feeds", //TODO
@@ -488,13 +488,13 @@
       "dropLabel": "Déposez les fichiers torrent et les liens ici",
       "title": "Ajouter des torrents",
       "files": "Sélectionner les fichiers",
-      "fileOverflow": "+{n} more", //TODO
+      "fileOverflow": "+{n} supplémentaire(s)",
       "links": "Liens (magnet, http, fichiers, ...)",
       "tags": "Étiquettes",
-      "noTagMatch": "No tags matching \"{query}\". Press Enter to create it.", //TODO
-      "noTags": "No tags yet. Type a name to create one.", //TODO
-      "noCategoryMatch": "No categories matching \"{query}\". It will be created automatically.", //TODO
-      "noCategories": "No categories yet. Type a name to create one.", //TODO
+      "noTagMatch": "Aucune étiquette ne correspond à \"{query}\". Appuyez sur la touche Entrée pour la créer.",
+      "noTags": "Pas d'étiquettes pour le moment. Tapez un nom pour en créer une.",
+      "noCategoryMatch": "Aucune catégorie ne correspond à \"{query}\". Elle sera créée automatiquement.",
+      "noCategories": "Pas de catégories pour le moment. Tapez un nom pour en créer une.",
       "savePath": "Sauvegarder le chemin",
       "startNow": "Démarrer le torrent immédiatement",
       "skipChecking": "Sauter la vérification du hachage",
@@ -509,8 +509,8 @@
       "warnDelete": "En cochant cette case, tout ce qui est contenu dans ces torrents sera supprimé."
     },
     "connectionStatus": {
-      "status": "Connection Status", //TODO
-      "externalIp": "External IP Address" //TODO
+      "status": "État de la connexion",
+      "externalIp": "Adresse IP externe"
     },
     "moveTorrent": {
       "title": "Déplacer le torrent",
@@ -543,7 +543,7 @@
         "name": "Nom",
         "version": "Version",
         "url": "Engine URL", //TODO
-        "actions": "Actions" //TODO
+        "actions": "Actions"
       }
     },
     "speed_limit": {
@@ -574,7 +574,7 @@
       "bittorrent": "BitTorrent",
       "rss": "RSS",
       "rssGeneral": "Général",
-      "rssFeeds": "Feeds", //TODO
+      "rssFeeds": "Flux",
       "rssRules": "Rules", //TODO
       "webui": "WebUI",
       "tagsAndCategories": "Étiquettes & Catégories",
@@ -610,7 +610,7 @@
         "currentVersion": "Version actuelle",
         "qbittorrentVersion": "Version QBittorrent",
         "theme": "Thème VueTorrent",
-        "registerMagnet": "Register magnet links", //TODO
+        "registerMagnet": "Enregistrer les liens magnet",
         "importSettings": "Importer les paramètres",
         "exportSettings": "Exporter les paramètres",
         "resetSettings": "Réinitialiser les paramètres"
@@ -622,13 +622,13 @@
     },
     "downloads": {
       "whenAddTorrent": {
-        "subheader": "When adding a torrent", //TODO
-        "doNotAutoStart": "Do not start the download automatically", //TODO
-        "autoDeleteMode": "Delete .torrent files afterwards" //TODO
+        "subheader": "Lors de l'ajout d'un torrent",
+        "doNotAutoStart": "Ne pas lancer le téléchargement automatiquement",
+        "autoDeleteMode": "Supprimer les fichiers .torrent"
       },
       "publicSettings": {
-        "preAllocateDisk": "Pre-allocate disk space for all files", //TODO
-        "appendQBExtension": "Append .!qB extension to incomplete files" //TODO
+        "preAllocateDisk": "Pré-attribuer de l'espace disque pour tous les fichiers",
+        "appendQBExtension": "Ajouter l'extension .!qB aux fichiers incomplets"
       },
       "saveManagement": {
         "subheader": "Saving Management", //TODO
