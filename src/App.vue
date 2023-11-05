@@ -48,12 +48,6 @@ const blockContextMenu = () => {
   })
 }
 
-const redirectOnSuccess = () => {
-  const redirectUrl = route.query.redirect as string | undefined
-  if (redirectUrl) router.push(redirectUrl)
-  else if (onLoginPage.value) router.push({ name: 'dashboard' })
-}
-
 onBeforeMount(() => {
   if (vuetorrentStore.matchSystemTheme) {
     vuetorrentStore.updateSystemTheme()
