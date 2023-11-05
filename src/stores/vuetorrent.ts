@@ -38,8 +38,8 @@ export const useVueTorrentStore = defineStore(
     const canvasRenderThreshold = ref(3000)
     const canvasRefreshThreshold = ref(5000)
 
-    const busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
-    const doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
+    const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
+    const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
     const isInfiniteScrollActive = computed(() => paginationSize.value === -1)
@@ -47,7 +47,7 @@ export const useVueTorrentStore = defineStore(
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
 
-      for (const [k, v] of Object.entries(busyProperties.value)) {
+      for (const [k, v] of Object.entries(_busyProperties.value)) {
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
@@ -59,7 +59,7 @@ export const useVueTorrentStore = defineStore(
     const doneTorrentProperties = computed<TorrentProperty[]>(() => {
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
 
-      for (const [k, v] of Object.entries(doneProperties.value)) {
+      for (const [k, v] of Object.entries(_doneProperties.value)) {
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
@@ -142,22 +142,22 @@ export const useVueTorrentStore = defineStore(
 
     function updateBusyProperties(values: TorrentProperty[]) {
       values.forEach((ppt, index) => {
-        busyProperties.value[ppt.name].active = ppt.active
-        busyProperties.value[ppt.name].order = index + 1
+        _busyProperties.value[ppt.name].active = ppt.active
+        _busyProperties.value[ppt.name].order = index + 1
       })
     }
     function updateDoneProperties(values: TorrentProperty[]) {
       values.forEach((ppt, index) => {
-        doneProperties.value[ppt.name].active = ppt.active
-        doneProperties.value[ppt.name].order = index + 1
+        _doneProperties.value[ppt.name].active = ppt.active
+        _doneProperties.value[ppt.name].order = index + 1
       })
     }
 
     function toggleBusyProperty(name: DashboardProperty) {
-      busyProperties.value[name].active = !busyProperties.value[name].active
+      _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
     function toggleDoneProperty(name: DashboardProperty) {
-      doneProperties.value[name].active = !doneProperties.value[name].active
+      _doneProperties.value[name].active = !_doneProperties.value[name].active
     }
 
     return {
@@ -185,7 +185,9 @@ export const useVueTorrentStore = defineStore(
       title,
       useBinarySize,
       useBitSpeed,
+      _busyProperties,
       busyTorrentProperties,
+      _doneProperties,
       doneTorrentProperties,
       getCurrentThemeName,
       isInfiniteScrollActive,
