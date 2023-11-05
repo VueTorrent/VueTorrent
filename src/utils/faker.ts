@@ -51,6 +51,7 @@ export function generateTorrent(data: Partial<Torrent>): Torrent {
     force_start: faker.datatype.boolean(),
     /** Torrent hash */
     hash: faker.string.uuid(),
+    inactive_seeding_time_limit: faker.number.int({ min: 0, max: 50 }),
     /** TODO */
     infohash_v1: faker.string.uuid(),
     /** TODO */
@@ -59,6 +60,7 @@ export function generateTorrent(data: Partial<Torrent>): Torrent {
     last_activity: faker.number.int({ min: 0, max: 50 }),
     /** Magnet URI corresponding to this torrent */
     magnet_uri: faker.internet.url(),
+    max_inactive_seeding_time: faker.number.int({ min: 0, max: 50 }),
     /** Maximum share ratio until torrent is stopped from seeding/uploading */
     max_ratio: faker.number.float({ min: 0, max: 1, precision: 0.01 }),
     /** Maximum seeding time (seconds) until torrent is stopped from seeding */
