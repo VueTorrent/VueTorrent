@@ -1,40 +1,40 @@
 {
   "common": {
-    "cancel": "Cancel", //TODO
-    "close": "Close", //TODO
-    "delete": "Delete", //TODO
-    "ok": "OK", //TODO
-    "yes": "Yes", //TODO
-    "no": "No", //TODO
-    "save": "Save", //TODO
-    "disable": "Disable", //TODO
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "delete": "Supprimer",
+    "ok": "OK",
+    "yes": "Oui",
+    "no": "Non",
+    "save": "Enregistrer",
+    "disable": "Désactiver",
     "selectNone": "Select None", //TODO
-    "selectAll": "Select All", //TODO
-    "useGlobalSettings": "Use Global Settings", //TODO
-    "none": "(None)", //TODO
-    "NA": "N/A", //TODO
-    "emptyList": "Nothing to see here!" //TODO
+    "selectAll": "Tout sélectionner",
+    "useGlobalSettings": "Utiliser les paramètres globaux",
+    "none": "(Aucun)",
+    "NA": "N/A",
+    "emptyList": "Rien à voir ici !"
   },
   "dashboard": {
-    "not_complete": "Not Yet Completed", //TODO
+    "not_complete": "Pas encore achevé",
     "torrentsCount": "No torrent | {n} torrent | {n} torrents", //TODO
     "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})", //TODO
-    "searchInputLabel": "Search", //TODO
+    "searchInputLabel": "Recherche",
     "toggleSearchFilter": "Toggle Search Filter", //TODO
     "toggleSelectMode": "Toggle select mode", //TODO
     "toggleSortOrder": "Reverse sort order", //TODO
-    "sortLabel": "Sort by", //TODO
+    "sortLabel": "Trier par",
     "sortBy": {
-      "default": "Default", //TODO
-      "added_on": "Added On", //TODO
-      "amount_left": "Amount Left", //TODO
+      "default": "Défaut",
+      "added_on": "Ajouté le",
+      "amount_left": "Montant restant",
       "auto_tmm": "Auto TMM", //TODO
-      "availability": "Availability", //TODO
+      "availability": "Disponibilité",
       "avg_download_speed": "Avg DL Speed", //TODO
       "avg_upload_speed": "Avg UL Speed", //TODO
-      "category": "Category", //TODO
-      "completed": "Completed", //TODO
-      "completion_on": "Completed On", //TODO
+      "category": "Catégorie",
+      "completed": "Terminé",
+      "completion_on": "Terminé le",
       "content_path": "Content Path", //TODO
       "dl_limit": "Download Limit", //TODO
       "dlspeed": "Download Speed", //TODO
@@ -80,7 +80,7 @@
       "uploaded_session": "Uploaded (Session)", //TODO
       "upspeed": "Upload Speed" //TODO
     },
-    "selectAll": "(Un)select All (Ctrl + A)", //TODO
+    "selectAll": "(Dé)sélectionner tout (Ctrl + A)",
     "right_click": {
       "advanced": {
         "title": "Advanced", //TODO
@@ -104,9 +104,9 @@
         "disabled_title": "No tags" //TODO
       },
       "category": {
-        "title": "Set category", //TODO
-        "disabled_title": "No categories", //TODO
-        "clear": "(Clear category)" //TODO
+        "title": "Définir une catégorie",
+        "disabled_title": "Pas de catégories",
+        "clear": "(Réinitialiser les catégories)"
       },
       "speed_limit": {
         "title": "Set speed limit", //TODO
@@ -118,18 +118,18 @@
         "title": "Copy", //TODO
         "name": "Name", //TODO
         "hash": "Hash", //TODO
-        "magnet": "Magnet" //TODO
+        "magnet": "Magnet"
       },
       "export": "Export torrent | Export torrents", //TODO
       "info": "Show Info" //TODO
     }
   },
   "logs": {
-    "title": "qBittorrent Logs", //TODO
+    "title": "Logs qBittorrent",
     "filters": {
       "type": "Log Level", //TODO
       "sortBy": {
-        "label": "Sort by", //TODO
+        "label": "Trier par",
         "id": "Log ID", //TODO
         "type": "Log Level", //TODO
         "message": "Message", //TODO
@@ -151,12 +151,12 @@
     }
   },
   "searchEngine": {
-    "title": "Search torrents", //TODO
+    "title": "Rechercher des torrents",
     "tabHeaderEmpty": "(Empty query)", //TODO
     "query": "Search query", //TODO
     "filters": {
       "category": {
-        "label": "Search category", //TODO
+        "label": "Rechercher une catégorie", //TODO
         "all": "All", //TODO
         "movies": "Movies", //TODO
         "tv": "TV", //TODO
@@ -340,17 +340,17 @@
     },
     "content": {
       "rootNode": "(Root Node)",  //TODO
-      "fileInfo": "{n} file | {n} files",  //TODO
-      "folderInfo": "{n} folder | {n} folders"  //TODO
+      "fileInfo": "{n} fichier | {n} fichiers",
+      "folderInfo": "{n} dossier | {n} dossiers"
     },
     "tagsAndCategories": {
       "tags": "Tags",  //TODO
-      "categories": "Categories"  //TODO
+      "categories": "Catégories"
     }
   },
   "topbar": {
-    "searchTorrents": "Search torrents",  //TODO
-    "addTorrents": "Add Torrents",  //TODO
+    "searchTorrents": "Rechercher des torrents",
+    "addTorrents": "Ajouter des torrents",
     "actions": {
       "resume": "Resume Torrents",  //TODO
       "pause": "Pause Torrents",  //TODO
