@@ -8,7 +8,7 @@
     "no": "Non",
     "save": "Enregistrer",
     "disable": "Désactiver",
-    "selectNone": "Select None", //TODO
+    "selectNone": "Tout désélectionner ",
     "selectAll": "Tout sélectionner",
     "useGlobalSettings": "Utiliser les paramètres globaux",
     "none": "(Aucun)",
@@ -156,24 +156,24 @@
     "query": "Search query", //TODO
     "filters": {
       "category": {
-        "label": "Rechercher une catégorie", //TODO
-        "all": "All", //TODO
-        "movies": "Movies", //TODO
-        "tv": "TV", //TODO
-        "music": "Music", //TODO
-        "games": "Games", //TODO
-        "anime": "Anime", //TODO
-        "software": "Software", //TODO
-        "pictures": "Pictures", //TODO
-        "books": "Books" //TODO
+        "label": "Rechercher une catégorie",
+        "all": "Toutes",
+        "movies": "Films",
+        "tv": "TV",
+        "music": "Musique",
+        "games": "Jeux",
+        "anime": "Anime",
+        "software": "Logiciel",
+        "pictures": "Photos",
+        "books": "Livres"
       },
       "plugins": {
-        "label": "Search plugin", //TODO
-        "all": "All", //TODO
-        "enabled": "Enabled" //TODO
+        "label": "Rechercher des plugins",
+        "all": "Tous",
+        "enabled": "Activé"
       },
       "title": {
-        "label": "Filter by title" //TODO
+        "label": "Filtrer par titre"
       }
     },
     "runSearch": "Search", //TODO
@@ -188,8 +188,8 @@
   },
   "torrent": {
     "properties": {
-      "added_on": "Added On", //TODO
-      "amount_left": "Amount Left", //TODO
+      "added_on": "Date d'ajout",
+      "amount_left": "Montant restant",
       "auto_tmm": "Automatic Torrent Management", //TODO
       "availability": "Availability", //TODO
       "avg_download_speed": "Average Download Speed", //TODO
@@ -245,51 +245,51 @@
       "uploaded_session": "Uploaded (session)" //TODO
     },
     "state": {
-      "metaDL": "Metadata", //TODO
-      "forcedDL": "[F] Downloading", //TODO
-      "downloading": "Downloading", //TODO
-      "stalledDL": "Stalled", //TODO
-      "pausedDL": "Pausé",
-      "queuedDL": "Queued (DL)", //TODO
-      "forcedUP": "[F] Uploading", //TODO
-      "uploading": "Uploading", //TODO
-      "stalledUP": "Seeding", //TODO
-      "pausedUP": "Done", //TODO
-      "queuedUP": "Queued (UP)", //TODO
-      "checkingDL": "Checking (incomplete)", //TODO
-      "checkingUP": "Checking (finished)", //TODO
+      "metaDL": "Métadonnées",
+      "forcedDL": "[F] Téléchargement",
+      "downloading": "Téléchargement",
+      "stalledDL": "Bloqué",
+      "pausedDL": "En pause",
+      "queuedDL": "En file d'attente (DL)",
+      "forcedUP": "[F] Partage",
+      "uploading": "En partage",
+      "stalledUP": "En attente de partage",
+      "pausedUP": "Terminé",
+      "queuedUP": "En file d'attente (UP)",
+      "checkingDL": "Vérification (incomplète)",
+      "checkingUP": "Vérification (terminée)",
       "checkingResumeData": "Checking resume data", //TODO
-      "allocating": "Allocating", //TODO
-      "moving": "Moving", //TODO
-      "missingFiles": "Missing Files", //TODO
-      "error": "Error", //TODO
-      "unknown": "Unknown" //TODO
+      "allocating": "Attribution",
+      "moving": "Déplacement en cours",
+      "missingFiles": "Fichiers manquants",
+      "error": "Erreur",
+      "unknown": "Inconnu"
     }
   },
   "torrentDetail": {
     "title": "Torrent Detail", //TODO
     "tabs": {
-      "overview": "Overview", //TODO
-      "info": "Info", //TODO
-      "trackers": "Trackers", //TODO
+      "overview": "Vue d'ensemble",
+      "info": "Info",
+      "trackers": "Trackers",
       "peers": "Peers", //TODO
-      "content": "Content", //TODO
+      "content": "Contenu",
       "tagsAndCategories": "Tags & Categories" //TODO
     },
     "overview": {
-      "copy_hash": "Copy Hash", //TODO
-      "fetchingMetadata": "Fetching...", //TODO
-      "waitingForMetadata": "Waiting for metadata...", //TODO
+      "copy_hash": "Copier le Hash",
+      "fetchingMetadata": "Récupération...",
+      "waitingForMetadata": "En attente de métadonnées...",
       "canvasRenderDisabled": "Canvas rendering is disabled", //TODO
       "canvasRefreshDisabled": "Canvas auto-refresh is disabled", //TODO
       "pieceCount": "{owned} / {total} ({pieceSize})", //TODO
       "fileCount": "Selected Files", //TODO
       "selectedFileSize": "Selected Files' Size", //TODO
-      "ratio": "Ratio", //TODO
-      "downloaded": "Downloaded", //TODO
-      "uploaded": "Uploaded", //TODO
-      "dlSpeedAverage": "Download Speed Average", //TODO
-      "upSpeedAverage": "Upload Speed Average" //TODO
+      "ratio": "Ratio",
+      "downloaded": "Téléchargé",
+      "uploaded": "Partagé",
+      "dlSpeedAverage": "Vitesse de téléchargement moyenne",
+      "upSpeedAverage": "Vitesse de partage moyenne"
     },
     "info": {
       "datetime_values": "Datetime Values", //TODO
@@ -321,8 +321,8 @@
         "host": "Host",  //TODO
         "connection": "Connection",  //TODO
         "flags": "Flags",  //TODO
-        "client": "Client",  //TODO
-        "progress": "Progress",  //TODO
+        "client": "Client",
+        "progress": "Progrès",
         "downloadSpeed": "DL",  //TODO
         "downloaded": "Downloaded",  //TODO
         "upSpeed": "UL",  //TODO
@@ -331,12 +331,12 @@
         "files": "Files"  //TODO
       },
       "addPeers": {
-        "title": "Add Peers",  //TODO
-        "newPeers": "Peer hosts to add",  //TODO
-        "newPeersPlaceholder": "host:port",  //TODO
-        "newPeersHint": "One per line"  //TODO
+        "title": "Ajouter des pairs",
+        "newPeers": "Hôtes des pairs à ajouter",
+        "newPeersPlaceholder": "hôte:port",
+        "newPeersHint": "Un par ligne"
       },
-      "emptyList": "No peers connected at the moment"  //TODO
+      "emptyList": "Aucun pair n'est connecté pour le moment"
     },
     "content": {
       "rootNode": "(Root Node)",  //TODO
@@ -344,7 +344,7 @@
       "folderInfo": "{n} dossier | {n} dossiers"
     },
     "tagsAndCategories": {
-      "tags": "Tags",  //TODO
+      "tags": "Étiquettes",
       "categories": "Catégories"
     }
   },
@@ -355,18 +355,18 @@
       "resume": "Reprendre les Torrents", 
       "pause": "Pauser les Torrents", 
       "delete": "Supprimer les Torrents", 
-      "searchEngine": "Open Search Engine",  //TODO
-      "rssArticles": "Open RSS Articles",  //TODO
-      "logs": "Open Logs",  //TODO
-      "settings": "Open Settings"  //TODO
+      "searchEngine": "Ouvrir le moteur de recherche",
+      "rssArticles": "Ouvrir les articles RSS",
+      "logs": "Ouvrir les logs",
+      "settings": "Ouvrir les paramètres"
     },
     "overflow": {
       "resume": "Reprendre",
       "pause": "Pauser",
       "delete": "Supprimer",
-      "searchEngine": "Search Engine",  //TODO
-      "rssArticles": "RSS Articles",  //TODO
-      "logs": "qBit Logs",  //TODO
+      "searchEngine": "Moteur de recherche",
+      "rssArticles": "Articles RSS",
+      "logs": "Logs qBit",
       "settings": "Paramètres"
     }
   },
@@ -463,85 +463,85 @@
     },
     "tag": {
       "title": {
-        "create": "Create Tag", //TODO
-        "rename": "Rename Tag" //TODO
+        "create": "Créer une étiquette",
+        "rename": "Renommer l'étiquette"
       },
-      "oldName": "Old tag name", //TODO
-      "name": "Tag name", //TODO
-      "hint": "Pro tip: multiple tags can be created by separating them with a comma", //TODO
-      "required": "Tag name is required", //TODO
-      "comma": "Name cannot contain comma when renaming a tag", //TODO
-      "warnEdit": "Editing the tag name will migrate torrents to the new tag.\nErrors may happen, use with caution." //TODO
+      "oldName": "Ancien nom de l'étiquette",
+      "name": "Nom de l'étiquette",
+      "hint": "Pro tip: Il est possible de créer plusieurs étiquettes en les séparant par une virgule.",
+      "required": "Le nom de l'étiquette est obligatoire",
+      "comma": "Le nom ne peut pas contenir de virgule lorsque l'on renomme une étiquette",
+      "warnEdit": "Modifier le nom de l'étiquette entraînera la migration des torrents vers la nouvelle étiquette.\nDes erreurs peuvent se produire, à utiliser avec précaution."
     },
     "category": {
       "title": {
-        "create": "Create Category", //TODO
-        "edit": "Edit Category" //TODO
+        "create": "Créer une catégorie",
+        "edit": "Modifier la catégorie"
       },
-      "oldName": "Old category name", //TODO
-      "name": "Category Name", //TODO
-      "savePath": "Save Path", //TODO
-      "nameRequired": "Category name is required", //TODO
-      "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution." //TODO
+      "oldName": "Ancien nom de la catégorie",
+      "name": "Nom de la catégorie",
+      "savePath": "Sauvegarder le chemin",
+      "nameRequired": "Le nom de la catégorie est obligatoire",
+      "warnEdit": "Modifier le nom de la catégorie entraînera la migration des torrents vers la nouvelle catégorie..\nDes erreurs peuvent se produire, à utiliser avec précaution."
     },
     "add": {
-      "dropLabel": "Drop torrent files and links here", //TODO
-      "title": "Add Torrents", //TODO
-      "files": "Select files", //TODO
+      "dropLabel": "Déposez les fichiers torrent et les liens ici",
+      "title": "Ajouter des torrents",
+      "files": "Sélectionner les fichiers",
       "fileOverflow": "+{n} more", //TODO
-      "links": "Links (magnet, http, file, ...)", //TODO
-      "tags": "Tags", //TODO
+      "links": "Liens (magnet, http, fichiers, ...)",
+      "tags": "Étiquettes",
       "noTagMatch": "No tags matching \"{query}\". Press Enter to create it.", //TODO
       "noTags": "No tags yet. Type a name to create one.", //TODO
       "noCategoryMatch": "No categories matching \"{query}\". It will be created automatically.", //TODO
       "noCategories": "No categories yet. Type a name to create one.", //TODO
-      "savePath": "Save path", //TODO
-      "startNow": "Start torrent immediately", //TODO
-      "skipChecking": "Skip hash checking", //TODO
-      "autoTMM": "Automatic Torrent Management", //TODO
-      "sequentialDownload": "Sequential download", //TODO
-      "firstLastPiecePrio": "Prioritize first and last pieces", //TODO
-      "submit": "Add torrents" //TODO
+      "savePath": "Sauvegarder le chemin",
+      "startNow": "Démarrer le torrent immédiatement",
+      "skipChecking": "Sauter la vérification du hachage",
+      "autoTMM": "Gestion automatique des torrents",
+      "sequentialDownload": "Téléchargement séquentiel",
+      "firstLastPiecePrio": "Donner la priorité aux premières et dernières pièces",
+      "submit": "Ajouter les torrents"
     },
     "delete": {
-      "title": "Delete {n} torrent | Delete {n} torrents", //TODO
-      "deleteWithFiles": "Delete files with torrent", //TODO
-      "warnDelete": "Ticking this checkbox will delete everything contained in those torrents" //TODO
+      "title": "Supprimer {n} torrent | Supprimer {n} torrents",
+      "deleteWithFiles": "Supprimer également les fichiers",
+      "warnDelete": "En cochant cette case, tout ce qui est contenu dans ces torrents sera supprimé."
     },
     "connectionStatus": {
       "status": "Connection Status", //TODO
       "externalIp": "External IP Address" //TODO
     },
     "moveTorrent": {
-      "title": "Move Torrent", //TODO
-      "oldPath": "Old path", //TODO
-      "newPath": "New path", //TODO
-      "required": "New path is required", //TODO
-      "samePath": "New path must be different from old path" //TODO
+      "title": "Déplacer le torrent",
+      "oldPath": "Ancien chemin",
+      "newPath": "Nouveau chemin",
+      "required": "Un nouveau chemin est nécessaire",
+      "samePath": "Le nouveau chemin doit être différent de l'ancien"
     },
     "renameTorrent": {
-      "title": "Rename Torrent", //TODO
-      "oldName": "Old name", //TODO
-      "newName": "New name", //TODO
-      "required": "New name is required", //TODO
-      "sameName": "New name must be different from old name" //TODO
+      "title": "Renommer le torrent",
+      "oldName": "Ancien nom",
+      "newName": "Nouveau nom",
+      "required": "Un nouveau nom est requis",
+      "sameName": "Le nouveau nom doit être différent de l'ancien"
     },
     "moveTorrentFile": {
-      "title": "Move Torrent File | Move Torrent Folder", //TODO
-      "oldName": "Old name" //TODO
+      "title": "Déplacer le fichier Torrent | Déplacer le dossier Torrent",
+      "oldName": "Ancien nom"
     },
     "pluginManager": {
-      "title": "Plugin Manager", //TODO
-      "update": "Update plugins", //TODO
+      "title": "Gestionnaire de plugins",
+      "update": "Mettre les plugins à jour",
       "install": {
-        "activator": "Install new plugin", //TODO
-        "title": "Install Plugin", //TODO
-        "label": "Plugin URL" //TODO
+        "activator": "Installer un nouveau plugin",
+        "title": "Installer le plugin",
+        "label": "URL du plugin"
       },
       "headers": {
-        "enabled": "Enabled", //TODO
-        "name": "Name", //TODO
-        "version": "Version", //TODO
+        "enabled": "Activé",
+        "name": "Nom",
+        "version": "Version",
         "url": "Engine URL", //TODO
         "actions": "Actions" //TODO
       }
@@ -550,17 +550,26 @@
       "download": "Set Download Speed Limit", //TODO
       "upload": "Set Upload Speed Limit", //TODO
       "label": "Speed Limit" //TODO
+    },
+    "share_limit": {
+      "title": "Set Share Ratio Limit", //TODO
+      "global": "Use global share limit", //TODO
+      "disabled": "Set no share limit", //TODO
+      "enabled": "Set share limit to", //TODO
+      "ratio_limit": "Ratio", //TODO
+      "seeding_time_limit": "Total minutes", //TODO
+      "inactive_seeding_time_limit": "Inactive minutes" //TODO
     }
   },
   "settings": {
-    "title": "Settings", //TODO
-    "saveSuccess": "Settings saved successfully!", //TODO
+    "title": "Paramètres",
+    "saveSuccess": "paramètres sauvegardés avec succès !",
     "tabs": {
       "vuetorrent": "VueTorrent",
       "vuetorrentGeneral": "Général",
       "vuetorrentTorrentCard": "Torrent Card", //TODO
       "downloads": "Téléchargements",
-      "connection": "Connection", //TODO
+      "connection": "Connexion",
       "speed": "Vitesse",
       "bittorrent": "BitTorrent",
       "rss": "RSS",
@@ -568,7 +577,7 @@
       "rssFeeds": "Feeds", //TODO
       "rssRules": "Rules", //TODO
       "webui": "WebUI",
-      "tagsAndCategories": "Tags & Categories", //TODO
+      "tagsAndCategories": "Étiquettes & Catégories",
       "advanced": "Avancé"
     },
     "vuetorrent": {
