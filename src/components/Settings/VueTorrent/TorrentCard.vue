@@ -32,7 +32,7 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
         <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.busyTorrentTip') }}</v-list-subheader>
 
         <v-table>
-          <draggable v-model="busyTorrentProperties" item-key="name" tag="tbody">
+          <draggable v-model="busyTorrentProperties" item-key="name" tag="tbody" handle=".dnd-handle">
             <template v-slot:item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(true, element)" />
             </template>
