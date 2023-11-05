@@ -598,6 +598,7 @@
           "infinite_scroll": "Infinite scroll"
         },
         "vueTorrentTitle": "VueTorrent title",
+        "customTitle": "Custom title",
         "dateFormat": "Date Format",
         "openSideBarOnStart": "Open Side Bar on launch",
         "isShutdownButtonVisible": "Show shutdown button",
@@ -977,6 +978,12 @@
     }
   },
   "constants": {
+    "titleOptions": {
+      "default": "Default",
+      "global_speed": "Global Speed",
+      "first_torrent_speed": "First Torrent Speed",
+      "custom": "Custom"
+    },
     "contentLayout": {
       "title": "Torrent content layout",
       "original": "Original",
