@@ -2,6 +2,8 @@
   <img style="float: left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
   <h1>VueTorrent</h1>
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
+
+Join us on [Discord](https://discord.gg/KDQP7fR467)
 </div>
 
 ![Vue](https://img.shields.io/badge/Vue-%5E3.3.4-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
