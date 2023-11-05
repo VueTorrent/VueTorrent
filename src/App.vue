@@ -11,10 +11,7 @@ import { useNavbarStore } from '@/stores/navbar.ts'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
-import { computed, onBeforeMount, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
-const route = useRoute()
+import { onBeforeMount, watch } from 'vue'
 
 const authStore = useAuthStore()
 const appStore = useAppStore()
