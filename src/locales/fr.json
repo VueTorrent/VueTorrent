@@ -18,7 +18,7 @@
   "dashboard": {
     "not_complete": "Pas encore achevé",
     "torrentsCount": "Pas de torrent | {n} torrent | {n} torrents",
-    "selectedTorrentsCount": "No torrent | {count} of {total} torrent ({size}) | {count} of {total} torrents ({size})", //TODO
+    "selectedTorrentsCount": "Pas de torrent | {count} sur {total} torrent ({size}) | {count} sur {total} torrents ({size})",
     "searchInputLabel": "Recherche",
     "toggleSearchFilter": "(Dés)activer la barre de recherche",
     "toggleSelectMode": "(Dés)activer le mode sélection",
@@ -54,15 +54,15 @@
       "max_ratio": "Ratio max",
       "max_seeding_time": "Max Seeding Time", //TODO
       "name": "Nom",
-      "num_complete": "Seeds (swarm)", //TODO
-      "num_incomplete": "Peers (swarm)", //TODO
-      "num_leechs": "Peers (connected)", //TODO
-      "num_seeds": "Seeds (connected)", //TODO
+      "num_complete": "Seeds (essaim)",
+      "num_incomplete": "Pairs (essaim)",
+      "num_leechs": "Pairs (connectés)",
+      "num_seeds": "Seeds (connectés)",
       "priority": "Priorité",
       "progress": "Progression",
       "ratio": "Ratio",
       "ratio_limit": "Ratio Limit", //TODO
-      "save_path": "Save Path", //TODO
+      "save_path": "Chemin de sauvegarde",
       "seeding_time": "Durée de seed",
       "seeding_time_limit": "Seeding Time Limit", //TODO
       "seen_complete": "Seen Complete", //TODO
@@ -70,12 +70,12 @@
       "size": "Taille",
       "state": "État",
       "super_seeding": "Super Seeding", //TODO
-      "tags": "Tags", //TODO
+      "tags": "Étiquettes",
       "time_active": "Temps actif",
       "total_size": "Taille totale",
       "tracker": "Tracker",
       "trackers_count": "Nombre de Trackers",
-      "up_limit": "Upload Limit", //TODO
+      "up_limit": "Limite d'envoi",
       "uploaded": "Envoyé (Global)",
       "uploaded_session": "Envoyé (Session)",
       "upspeed": "Vitesse d'envoi"
@@ -83,25 +83,25 @@
     "selectAll": "(Dé)sélectionner tout (Ctrl + A)",
     "right_click": {
       "advanced": {
-        "title": "Advanced", //TODO
-        "change_location": "Change Location", //TODO
-        "rename": "Rename Torrent", //TODO
-        "recheck": "Force Recheck", //TODO
-        "reannounce": "Force Reannounce", //TODO
-        "seq_dl": "Sequential Download", //TODO
-        "f_l_prio": "First / Last Priority", //TODO
-        "auto_tmm": "Automatic Torrent Management" //TODO
+        "title": "Avancé",
+        "change_location": "Changer la destination",
+        "rename": "Renommer le torrent",
+        "recheck": "Forcer une revérification",
+        "reannounce": "Forcer une réannonce",
+        "seq_dl": "Télécharger dans l'ordre séquentiel",
+        "f_l_prio": "Premiers / Derniers morceaux en priorité",
+        "auto_tmm": "Gestion automatique du torrent"
       },
       "priority": {
-        "title": "Set Priority", //TODO
-        "top": "Top Prio", //TODO
-        "increase": "Increase Priority", //TODO
-        "decrease": "Decrease Priority", //TODO
-        "bottom": "Bottom Priority" //TODO
+        "title": "Définir la priorité",
+        "top": "Priorité maximum",
+        "increase": "Augmenter la priorité",
+        "decrease": "Diminuer la priorité",
+        "bottom": "Priorité minimum"
       },
       "tags": {
-        "title": "Set tags", //TODO
-        "disabled_title": "No tags" //TODO
+        "title": "Définir des étiquettes",
+        "disabled_title": "Pas d'étiquettes"
       },
       "category": {
         "title": "Définir une catégorie",
@@ -109,19 +109,19 @@
         "clear": "(Réinitialiser les catégories)"
       },
       "speed_limit": {
-        "title": "Set speed limit", //TODO
-        "download": "Set download limit", //TODO
-        "upload": "Set upload limit", //TODO
-        "share": "Set share limit" //TODO
+        "title": "Définir des limites de vitesse",
+        "download": "Définir une limite de téléchargement",
+        "upload": "Définir une limite d'envoi",
+        "share": "Définir une limite de partage"
       },
       "copy": {
-        "title": "Copy", //TODO
-        "name": "Name", //TODO
-        "hash": "Hash", //TODO
+        "title": "Copier",
+        "name": "Nom",
+        "hash": "Hash",
         "magnet": "Magnet"
       },
-      "export": "Export torrent | Export torrents", //TODO
-      "info": "Show Info" //TODO
+      "export": "Exporter le torrent | Exporter les torrents",
+      "info": "Affichier Infos"
     }
   },
   "logs": {
@@ -132,22 +132,22 @@
         "label": "Trier par",
         "id": "Log ID", //TODO
         "type": "Log Level", //TODO
-        "message": "Message", //TODO
+        "message": "Message",
         "timestamp": "Log Date" //TODO
       }
     }
   },
   "rssArticles": {
-    "title": "RSS Articles", //TODO
+    "title": "Articles RSS",
     "filters": {
-      "title": "Title filter", //TODO
-      "unread": "Show unread articles only" //TODO
+      "title": "Filtrer par titre",
+      "unread": "Afficher uniquement les articles non lus"
     },
-    "markAllAsRead": "Mark all as read", //TODO
+    "markAllAsRead": "Tout marquer comme lu",
     "item": {
-      "feedName": "Feed name: {name}", //TODO
-      "author": "Author: {author}", //TODO
-      "category": "Category: {category}" //TODO
+      "feedName": "Nom du flux: {name}",
+      "author": "Auteur: {author}",
+      "category": "Catégorie: {category}"
     }
   },
   "searchEngine": {
@@ -176,14 +176,14 @@
         "label": "Filtrer par titre"
       }
     },
-    "runSearch": "Search", //TODO
-    "stopSearch": "Stop", //TODO
+    "runSearch": "Rechercher",
+    "stopSearch": "Stop",
     "headers": {
-      "fileName": "Filename", //TODO
-      "fileSize": "File Size", //TODO
-      "nbSeeders": "Seeders", //TODO
-      "nbLeechers": "Leechers", //TODO
-      "siteUrl": "Site URL" //TODO
+      "fileName": "Nom du fichier",
+      "fileSize": "Taille du fichier",
+      "nbSeeders": "Seeders",
+      "nbLeechers": "Leechers",
+      "siteUrl": "URL du site"
     }
   },
   "torrent": {
@@ -191,34 +191,34 @@
       "added_on": "Date d'ajout",
       "amount_left": "Montant restant",
       "auto_tmm": "Automatic Torrent Management", //TODO
-      "availability": "Availability", //TODO
-      "avg_download_speed": "Average Download Speed", //TODO
-      "avg_upload_speed": "Average Upload Speed", //TODO
-      "available_peers": "Peers (swarm)", //TODO
-      "available_seeds": "Seeds (swarm)", //TODO
-      "category": "Category", //TODO
-      "empty_category": "(no category)", //TODO
-      "completed_on": "Completed On", //TODO
-      "content_path": "Content Path", //TODO
-      "download_limit": "Download Limit", //TODO
-      "download_speed": "Download Speed", //TODO
-      "downloaded": "Downloaded (global)", //TODO
-      "downloaded_session": "Downloaded (session)", //TODO
-      "download_path": "Download Path", //TODO
-      "eta": "ETA", //TODO
+      "availability": "Disponibilité",
+      "avg_download_speed": "Vitesse de téléchargement moyenne",
+      "avg_upload_speed": "Vitesse moyenne d'envoi",
+      "available_peers": "Pairs (essaim)",
+      "available_seeds": "Seeds (essaim)",
+      "category": "Catégorie",
+      "empty_category": "(aucune catégorie)",
+      "completed_on": "Complété le",
+      "content_path": "Chemin du contenu",
+      "download_limit": "Limite de téléchargement",
+      "download_speed": "Limite d'envoi",
+      "downloaded": "Téléchargé (global)",
+      "downloaded_session": "Téléchargé (session)",
+      "download_path": "Chemin de téléchargement",
+      "eta": "ETA",
       "f_l_piece_prio": "First / Last Piece Priority", //TODO
       "forced": "Forced state", //TODO
-      "global_speed": "Global Speed", //TODO
-      "global_volume": "Global Volume", //TODO
-      "hash": "Hash", //TODO
-      "infohash_v1": "Infohash v1", //TODO
-      "infohash_v2": "Infohash v2", //TODO
-      "last_activity": "Last Activity", //TODO
-      "magnet": "Magnet Link", //TODO
-      "name": "Torrent Title", //TODO
-      "num_leechs": "Peers (connected)", //TODO
-      "num_seeds": "Seeds (connected)", //TODO
-      "peers": "Peers", //TODO
+      "global_speed": "Vitesse globale",
+      "global_volume": "Volume global",
+      "hash": "Hash",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "last_activity": "Dernière activité",
+      "magnet": "Lien Magnet",
+      "name": "Titre du torrent",
+      "num_leechs": "Pairs (connectés)",
+      "num_seeds": "Seeds (connecté)",
+      "peers": "Pairs",
       "priority": "Priority", //TODO
       "progress": "Progress", //TODO
       "progress_bar": "Progress Bar", //TODO
@@ -227,11 +227,11 @@
       "ratio_time_limit": "Ratio time limit", //TODO
       "save_path": "Save Path", //TODO
       "seeding_time": "Seeding time", //TODO
-      "seeds": "Seeds", //TODO
+      "seeds": "Seeds",
       "seen_complete": "Seen Complete", //TODO
       "seq_dl": "Sequential Download", //TODO
       "size": "Taille",
-      "state": "State", //TODO
+      "state": "État",
       "super_seeding": "Super Seeding Mode", //TODO
       "tags": "Étiquettes",
       "empty_tags": "(pas d'étiquettes)",
@@ -556,7 +556,7 @@
       "global": "Use global share limit", //TODO
       "disabled": "Set no share limit", //TODO
       "enabled": "Set share limit to", //TODO
-      "ratio_limit": "Ratio", //TODO
+      "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes", //TODO
       "inactive_seeding_time_limit": "Inactive minutes" //TODO
     }
@@ -979,9 +979,9 @@
   "constants": {
     "contentLayout": {
       "title": "Torrent content layout", //TODO
-      "original": "Original", //TODO
-      "subfolder": "Create Subfolder", //TODO
-      "nosubfolder": "Remove Subfolder" //TODO
+      "original": "Original",
+      "subfolder": "Créer un sous-dossier",
+      "nosubfolder": "Supprimer le sous-dossier"
     },
     "stopCondition": {
       "title": "Condition d'arrêt du torrent",
@@ -995,9 +995,9 @@
       "utp": "μTP"
     },
     "encryption": {
-      "preferEncryption": "Allow Encryption", //TODO
-      "forceOn": "Require Encryption", //TODO
-      "forceOff": "Disable Encryption" //TODO
+      "preferEncryption": "Autoriser le cryptage",
+      "forceOn": "Exiger le cryptage",
+      "forceOff": "Désactiver le cryptage"
     },
     "maxRatioAction": {
       "pauseTorrent": "Mettre le torrent en pause",
@@ -1028,7 +1028,7 @@
       "writeThrough": "Write-through (libtorrent >= 2.0.6)" //TODO
     },
     "utpTcpMixedMode": {
-      "preferTcp": "Prefer TCP", //TODO
+      "preferTcp": "Préférer TCP",
       "peerProportional": "Peer proportional (throttles TCP)" //TODO
     },
     "uploadSlotsBehavior": {
@@ -1043,7 +1043,7 @@
     "monitoredFolderSaveLocation": {
       "monitoredFolder": "Monitored Folder Location", //TODO
       "defaultSavePath": "Default Save Path", //TODO
-      "other": "Other" //TODO
+      "other": "Autre"
     },
     "addPaused": {
       "title": "Add paused", //TODO
