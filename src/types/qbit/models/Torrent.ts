@@ -35,6 +35,7 @@ export default interface Torrent {
   force_start: boolean
   /** Torrent hash */
   hash: string
+  inactive_seeding_time_limit: number
   /** Torrent SHA1 Hash */
   infohash_v1: string
   /** Torrent SHA256 Hash (only in LibTorrent v2) */
@@ -43,6 +44,7 @@ export default interface Torrent {
   last_activity: number
   /** Magnet URI corresponding to this torrent */
   magnet_uri: string
+  max_inactive_seeding_time: number
   /** Maximum share ratio until torrent is stopped from seeding/uploading */
   max_ratio: number
   /** Maximum seeding time (seconds) until torrent is stopped from seeding */

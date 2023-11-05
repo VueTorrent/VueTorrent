@@ -550,6 +550,15 @@
       "download": "Set Download Speed Limit",
       "upload": "Set Upload Speed Limit",
       "label": "Speed Limit"
+    },
+    "share_limit": {
+      "title": "Set Share Ratio Limit",
+      "global": "Use global share limit",
+      "disabled": "Set no share limit",
+      "enabled": "Set share limit to",
+      "ratio_limit": "Ratio",
+      "seeding_time_limit": "Total minutes",
+      "inactive_seeding_time_limit": "Inactive minutes"
     }
   },
   "settings": {

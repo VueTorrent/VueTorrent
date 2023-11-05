@@ -3,6 +3,7 @@ import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
+import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import { useDashboardStore } from '@/stores/dashboard'
 import { useDialogStore } from '@/stores/dialog'
@@ -103,7 +104,7 @@ function setUploadLimit() {
 }
 
 function setShareLimit() {
-  //TODO: dialogStore.createDialog(ShareLimitDialog, { hash: hash.value })
+  dialogStore.createDialog(ShareLimitDialog, { hash: hash.value })
 }
 
 async function exportTorrents() {
@@ -231,7 +232,6 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: t('dashboard.right_click.speed_limit.share'),
         icon: 'mdi-account-group',
-        hidden: true,
         action: setShareLimit
       }
     ]
