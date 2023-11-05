@@ -21,7 +21,7 @@ const router = useRouter()
 const display = useDisplay()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
-const { currentPage: dashboardPage, filteredTorrents, isSelectionMultiple, searchFilter, selectedTorrents, sortOptions, torrentCountString } = storeToRefs(useDashboardStore())
+const { currentPage: dashboardPage, filteredTorrents, isSelectionMultiple, selectedTorrents, sortOptions, torrentCountString } = storeToRefs(useDashboardStore())
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -89,9 +89,9 @@ const trcProperties = reactive({
 })
 
 const torrentTitleFilter = computed({
-  get: () => searchFilter.value,
+  get: () => maindataStore.textFilter,
   set: debounce((newValue: string) => {
-    searchFilter.value = newValue
+    maindataStore.textFilter = newValue
   }, 300)
 })
 
@@ -100,7 +100,7 @@ const {
   currentPage,
   pageCount
 } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
-const hasSearchFilter = computed(() => !!searchFilter.value && searchFilter.value.length > 0)
+const hasSearchFilter = computed(() => !!maindataStore.textFilter && maindataStore.textFilter.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
 
@@ -125,7 +125,7 @@ function goToInfo(hash: string) {
 }
 
 function resetInput() {
-  searchFilter.value = ''
+  maindataStore.textFilter = ''
 }
 
 function scrollToTop() {

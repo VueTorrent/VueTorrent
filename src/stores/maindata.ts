@@ -12,7 +12,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { generateMultiple } from '@/utils/faker'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
 
@@ -25,22 +25,27 @@ export const useMaindataStore = defineStore('maindata', () => {
   const torrents = ref<Torrent[]>([])
   const trackers = ref<string[]>([])
 
-  const filters = reactive({
-    statusFilter: [] as TorrentState[],
-    categoryFilter: [] as string[],
-    tagFilter: [] as (string | null)[],
-    trackerFilter: [] as (string | null)[]
-  })
+  const isTextFilterActive = ref(true)
+  const isStatusFilterActive = ref(true)
+  const isCategoryFilterActive = ref(true)
+  const isTagFilterActive = ref(true)
+  const isTrackerFilterActive = ref(true)
+
+  const textFilter = ref('')
+  const statusFilter = ref<TorrentState[]>([])
+  const categoryFilter = ref<string[]>([])
+  const tagFilter = ref<(string | null)[]>([])
+  const trackerFilter = ref<(string | null)[]>([])
 
   const torrentsWithFilters = computed(() => {
     return torrents.value.filter(torrent => {
-      if (filters.statusFilter.length > 0 && !filters.statusFilter.includes(torrent.state)) return false
-      if (filters.categoryFilter.length > 0 && !filters.categoryFilter.includes(torrent.category)) return false
-      if (filters.tagFilter.length > 0) {
-        if (torrent.tags.length === 0 && filters.tagFilter.includes(null)) return true
-        if (!torrent.tags.some(tag => filters.tagFilter.includes(tag))) return false
+      if (statusFilter.value.length > 0 && isStatusFilterActive.value && !statusFilter.value.includes(torrent.state)) return false
+      if (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !categoryFilter.value.includes(torrent.category)) return false
+      if (tagFilter.value.length > 0 && isTagFilterActive.value) {
+        if (torrent.tags.length === 0 && tagFilter.value.includes(null)) return true
+        if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
       }
-      if (filters.trackerFilter.length > 0 && !filters.trackerFilter.includes(extractHostname(torrent.tracker))) return false
+      if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
       return true
     })
   })
@@ -167,10 +172,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
-          .map(t => t.tracker)
-          .map(url => extractHostname(url))
-          .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-          .sort()
+        .map(t => t.tracker)
+        .map(url => extractHostname(url))
+        .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+        .sort()
       }
 
       // update torrents
@@ -324,7 +329,16 @@ export const useMaindataStore = defineStore('maindata', () => {
     torrents,
     torrentsWithFilters,
     trackers,
-    filters,
+    isTextFilterActive,
+    textFilter,
+    isStatusFilterActive,
+    statusFilter,
+    isCategoryFilterActive,
+    categoryFilter,
+    isTagFilterActive,
+    tagFilter,
+    isTrackerFilterActive,
+    trackerFilter,
     getTorrentByHash,
     getTorrentIndexByHash,
     deleteTorrents,
@@ -378,7 +392,18 @@ export const useMaindataStore = defineStore('maindata', () => {
       {
         storage: localStorage,
         key: 'vuetorrent_maindata',
-        paths: ['filters']
+        paths: [
+          'isTextFilterActive',
+          'textFilter',
+          'isStatusFilterActive',
+          'statusFilter',
+          'isCategoryFilterActive',
+          'categoryFilter',
+          'isTagFilterActive',
+          'tagFilter',
+          'isTrackerFilterActive',
+          'trackerFilter',
+        ]
       }
     ]
   }

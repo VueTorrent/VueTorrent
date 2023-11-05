@@ -1,6 +1,6 @@
 import { MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
 
-export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: MaybeRefOrGetter<string>, getter: (item: T) => string, postProcess?: (items: T[]) => T[]) {
+export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: MaybeRefOrGetter<string | null>, getter: (item: T) => string, postProcess?: (items: T[]) => T[]) {
   const results = ref<T[]>([])
 
   watchEffect(() => {
