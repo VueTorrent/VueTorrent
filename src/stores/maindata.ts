@@ -311,6 +311,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     return await qbit.setUploadLimit(hashes, limit)
   }
 
+  async function setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number) {
+    return await qbit.setShareLimit(hashes, ratioLimit, seedingTimeLimit, inactiveSeedingTimeLimit)
+  }
+
   return {
     categories,
     isUpdatingMaindata,
@@ -364,7 +368,8 @@ export const useMaindataStore = defineStore('maindata', () => {
     setTorrentFilePriority,
     exportTorrent,
     setDownloadLimit,
-    setUploadLimit
+    setUploadLimit,
+    setShareLimit
   }
 }, {
   persist: {

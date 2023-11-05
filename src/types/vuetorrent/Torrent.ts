@@ -19,6 +19,7 @@ export default interface Torrent {
   f_l_piece_prio: boolean
   forced: boolean
   hash: string
+  inactive_seeding_time_limit: number
   infohash_v1: string
   infohash_v2: string
   last_activity: number
@@ -30,9 +31,9 @@ export default interface Torrent {
   progress: number
   ratio: number
   ratio_limit: number
-  ratio_time_limit: number
   savePath: string
   seeding_time: number
+  seeding_time_limit: number
   seen_complete: number
   seq_dl: boolean
   size: number
