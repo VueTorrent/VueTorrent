@@ -143,7 +143,7 @@ function toggleSelectAll() {
   if (isAllTorrentsSelected.value) {
     dashboardStore.unselectAllTorrents()
   } else {
-    dashboardStore.selectAllTorrents()
+    dashboardStore.selectTorrents(...filteredTorrents.value.map(t => t.hash))
   }
 }
 

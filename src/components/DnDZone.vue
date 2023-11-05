@@ -11,7 +11,7 @@ const navbarStore = useNavbarStore()
 const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
-  if (route.name === 'login' || !authStore.isAuthenticated) return
+  if (['login', 'settings'].includes(route.name as string) || !authStore.isAuthenticated) return
   isOverDropZone.value = true
 }
 

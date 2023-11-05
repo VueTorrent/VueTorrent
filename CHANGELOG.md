@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.1](https://github.com/WDaan/VueTorrent/compare/v2.0.0...v2.0.1) (2023-11-04)
+
+
+### Bug Fixes
+
+* **dashboard:** Take filters into account when selecting all torrents ([9f4aa4a](https://github.com/WDaan/VueTorrent/commit/9f4aa4a119046d72eb5c2ad0047205c32c426c7a))
+* **settings:** Add DnD exception on settings page ([d91070b](https://github.com/WDaan/VueTorrent/commit/d91070b4a28508d1ea7c4ad7e6e595f358194657))
+
+
+### Improvements
+
+* **settings reset:** Clear sessionStorage in addition to localStorage ([4eaaa33](https://github.com/WDaan/VueTorrent/commit/4eaaa33711f00fcb32515f58fedd6450d83f7cea))
+
 ## [2.0.0](https://github.com/WDaan/VueTorrent/compare/v1.8.0...v2.0.0) (2023-11-03)
 
 

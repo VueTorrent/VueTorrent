@@ -64,6 +64,7 @@ const exportSettings = () => {
 
 const resetSettings = () => {
   window.localStorage.clear()
+  window.sessionStorage.clear()
   location.reload()
 }
 

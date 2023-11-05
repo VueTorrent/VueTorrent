@@ -11,11 +11,7 @@ import { useNavbarStore } from '@/stores/navbar.ts'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
-import { computed, onBeforeMount, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-
-const router = useRouter()
-const route = useRoute()
+import { onBeforeMount, watch } from 'vue'
 
 const authStore = useAuthStore()
 const appStore = useAppStore()
@@ -26,16 +22,8 @@ const navbarStore = useNavbarStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const onLoginPage = computed(() => router.currentRoute.value.name === 'login')
-
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
-
-  if (!authStore.isAuthenticated && !onLoginPage.value) {
-    await vuetorrentStore.redirectToLogin()
-  } else {
-    redirectOnSuccess()
-  }
 }
 
 const blockContextMenu = () => {
@@ -52,12 +40,6 @@ const blockContextMenu = () => {
     event.preventDefault()
     return false
   })
-}
-
-const redirectOnSuccess = () => {
-  const redirectUrl = route.query.redirect as string | undefined
-  if (redirectUrl) router.push(redirectUrl)
-  else if (onLoginPage.value) router.push({ name: 'dashboard' })
 }
 
 onBeforeMount(() => {
