@@ -3,12 +3,19 @@ import { TorrentState } from '@/constants/qbit'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, toRefs } from 'vue'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const { categories: _categories, tags: _tags, trackers: _trackers, filters } = storeToRefs(useMaindataStore())
-const { statusFilter, categoryFilter, tagFilter, trackerFilter } = toRefs(filters.value)
+const {
+  categories: _categories,
+  tags: _tags,
+  trackers: _trackers,
+  statusFilter,
+  categoryFilter,
+  tagFilter,
+  trackerFilter
+} = storeToRefs(useMaindataStore())
 const vueTorrentStore = useVueTorrentStore()
 
 const statuses = computed(() => Object.values(TorrentState).map(state => (

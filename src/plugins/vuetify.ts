@@ -15,10 +15,23 @@ const variables = {
   download: '#5BB974',
   upload: '#00B3FA',
   ratio: '#00B2F8',
-  state: '#1E9367',
   category: '#04669A',
   tag: '#048B9A',
   tracker: '#C97D09',
+
+  // Active filters chip colors
+  'active-global': '#4f738d',
+  'active-global-disabled': '#35495E',
+  'active-text': '#4f738d',
+  'active-text-disabled': '#35495E',
+  'active-status': '#4f738d',
+  'active-status-disabled': '#35495E',
+  'active-category': '#04669A',
+  'active-category-disabled': '#02334d',
+  'active-tag': '#048B9A',
+  'active-tag-disabled': '#03464f',
+  'active-tracker': '#C97D09',
+  'active-tracker-disabled': '#6d4504',
 
   // Torrent state colors
   'torrent-error': '#F83E70',

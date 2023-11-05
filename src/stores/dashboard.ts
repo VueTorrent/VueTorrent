@@ -12,7 +12,6 @@ export const useDashboardStore = defineStore(
   'dashboard',
   () => {
     const currentPage = ref(1)
-    const searchFilter = ref('')
     const filteredTorrents = computed(() => searchQuery.results.value)
     const isSelectionMultiple = ref(false)
     const selectedTorrents = ref<string[]>([])
@@ -28,7 +27,7 @@ export const useDashboardStore = defineStore(
     const vuetorrentStore = useVueTorrentStore()
     const searchQuery = useSearchQuery(
       () => maindataStore.torrentsWithFilters,
-      searchFilter,
+      () => maindataStore.isTextFilterActive ? maindataStore.textFilter : null,
       torrent => torrent.name,
       results => {
         if (sortOptions.isCustomSortEnabled) {
@@ -51,10 +50,10 @@ export const useDashboardStore = defineStore(
     const torrentCountString = computed(() => {
       if (selectedTorrents.value.length) {
         const selectedSize = selectedTorrents.value
-          .map(hash => maindataStore.getTorrentByHash(hash))
-          .filter(torrent => torrent !== undefined)
-          .map(torrent => torrent!.size)
-          .reduce((partial, size) => partial + size, 0)
+        .map(hash => maindataStore.getTorrentByHash(hash))
+        .filter(torrent => torrent !== undefined)
+        .map(torrent => torrent!.size)
+        .reduce((partial, size) => partial + size, 0)
 
         return t('dashboard.selectedTorrentsCount', {
           count: selectedTorrents.value.length,
@@ -135,7 +134,6 @@ export const useDashboardStore = defineStore(
 
     return {
       currentPage,
-      searchFilter,
       filteredTorrents,
       isSelectionMultiple,
       selectedTorrents,
@@ -160,7 +158,7 @@ export const useDashboardStore = defineStore(
         {
           storage: localStorage,
           key: 'vuetorrent_dashboard',
-          paths: ['searchFilter', 'sortOptions']
+          paths: ['sortOptions']
         }
       ]
     }
