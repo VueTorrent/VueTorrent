@@ -24,7 +24,8 @@ export const useVueTorrentStore = defineStore(
     const showTrackerFilter = ref(false)
     const showSpeedInTitle = ref(false)
     const deleteWithFiles = ref(false)
-    const title = ref(TitleOptions.DEFAULT)
+    const uiTitleType = ref(TitleOptions.DEFAULT)
+    const uiTitleCustom = ref('')
     const isDrawerRight = ref(false)
     const isPaginationOnTop = ref(false)
     const paginationSize = ref(15)
@@ -111,7 +112,7 @@ export const useVueTorrentStore = defineStore(
     }
 
     function updateTitle() {
-      const mode = title.value
+      const mode = uiTitleType.value
       switch (mode) {
         case TitleOptions.GLOBAL_SPEED:
           document.title =
@@ -132,6 +133,9 @@ export const useVueTorrentStore = defineStore(
           } else {
             document.title = '[N/A] VueTorrent'
           }
+          break
+        case TitleOptions.CUSTOM:
+          document.title = uiTitleCustom.value
           break
         case TitleOptions.DEFAULT:
         default:
@@ -182,7 +186,8 @@ export const useVueTorrentStore = defineStore(
       showSpeedGraph,
       showSpeedInTitle,
       showTrackerFilter,
-      title,
+      uiTitleType,
+      uiTitleCustom,
       useBinarySize,
       useBitSpeed,
       _busyProperties,

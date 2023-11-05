@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { titleOptionsList } from '@/constants/vuetorrent'
+import { TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales/locales'
 import { useAppStore } from '@/stores/app'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
@@ -11,6 +11,13 @@ const { t } = useI18n()
 const appStore = useAppStore()
 const vueTorrentStore = useVueTorrentStore()
 
+const titleOptionsList = [
+  { title: t('constants.titleOptions.default'), value: TitleOptions.DEFAULT },
+  { title: t('constants.titleOptions.global_speed'), value: TitleOptions.GLOBAL_SPEED },
+  { title: t('constants.titleOptions.first_torrent_speed'), value: TitleOptions.FIRST_TORRENT_STATUS },
+  { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
+]
+
 const paginationSizes = ref([
   { title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 },
   5,
@@ -18,7 +25,6 @@ const paginationSizes = ref([
   30,
   50
 ])
-const settingsField = ref('')
 
 const isProduction = computed(() => process.env.NODE_ENV === 'production')
 const isDevelopment = computed(() => process.env.NODE_ENV === 'development')
@@ -53,14 +59,6 @@ const vueTorrentVersion = computed(() => {
 
   return null
 })
-
-const importSettings = () => {
-  //TODO
-}
-
-const exportSettings = () => {
-  //TODO
-}
 
 const resetSettings = () => {
   window.localStorage.clear()
@@ -161,10 +159,10 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-select v-model="vueTorrentStore.title" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
+          <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
-          <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
+          <v-text-field :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM" v-model="vueTorrentStore.uiTitleCustom" :label="t('settings.vuetorrent.general.customTitle')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -191,28 +189,20 @@ onBeforeMount(() => {
           <v-select v-model="theme" :items="themeOptions" :label="t('settings.vuetorrent.general.theme')" />
         </v-col>
 
-        <v-col cols="12" md="3" class="d-flex align-center justify-center">
-          <v-btn @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }}</v-btn>
+        <v-col cols="12" md="3">
+          <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-textarea v-model="settingsField" />
-    </v-list-item>
-
-    <v-list-item>
       <v-row>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn @click="importSettings">{{ t('settings.vuetorrent.general.importSettings') }}</v-btn>
+          <v-btn color="primary" @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }}</v-btn>
         </v-col>
 
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn @click="exportSettings">{{ t('settings.vuetorrent.general.exportSettings') }}</v-btn>
-        </v-col>
-
-        <v-col cols="12" class="d-flex align-center justify-center">
-          <v-btn dark color="red" @click="resetSettings">{{ t('settings.vuetorrent.general.resetSettings') }}</v-btn>
+          <v-btn color="red" @click="resetSettings">{{ t('settings.vuetorrent.general.resetSettings') }}</v-btn>
         </v-col>
       </v-row>
     </v-list-item>
