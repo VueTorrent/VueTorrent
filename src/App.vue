@@ -14,7 +14,6 @@ import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { computed, onBeforeMount, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-const router = useRouter()
 const route = useRoute()
 
 const authStore = useAuthStore()
@@ -25,8 +24,6 @@ const maindataStore = useMaindataStore()
 const navbarStore = useNavbarStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
-
-const onLoginPage = computed(() => route.name === 'login')
 
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
