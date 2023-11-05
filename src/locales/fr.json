@@ -1055,9 +1055,9 @@
       "not_working": "Not working" //TODO
     },
     "file_priority": {
-      "max": "Max", //TODO
-      "high": "High", //TODO
-      "normal": "Normal", //TODO
+      "max": "Maximum",
+      "high": "Haute",
+      "normal": "Normale",
       "unwanted": "Unwanted" //TODO
     },
     "theme": {
