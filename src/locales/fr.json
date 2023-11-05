@@ -977,6 +977,12 @@
     }
   },
   "constants": {
+    "titleOptions": {
+      "default": "Défaut",
+      "global_speed": "Vitesse globale",
+      "first_torrent_speed": "First Torrent Speed", //TODO 
+      "custom": "Custom" //TODO 
+    },
     "contentLayout": {
       "title": "Torrent content layout", //TODO
       "original": "Original",
