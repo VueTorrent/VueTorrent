@@ -221,6 +221,16 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     e.preventDefault()
     return true
   }
+
+  // 'Search' => Search view
+  if (e.key === '/') {
+    const searchInput = document.getElementById('searchInput')
+    if (document.activeElement !== searchInput && !isSearchFilterVisible.value) {
+      router.push({ name: 'searchEngine' })
+      e.preventDefault()
+    }
+    return true
+  }
 }
 
 onBeforeMount(async () => {
