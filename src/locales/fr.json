@@ -42,7 +42,7 @@
       "downloaded": "Téléchargé (Global)",
       "downloaded_session": "Téléchargé (Session)",
       "eta": "ETA",
-      "f_l_piece_prio": "First / Last Piece Priority", //TODO
+      "f_l_piece_prio": "Priorité première / dernière pièces",
       "force_start": "Démarrage forcé",
       "globalSpeed": "Vitesse globale",
       "globalVolume": "Volume global",
@@ -69,7 +69,7 @@
       "seq_dl": "Téléchargement séquentiel",
       "size": "Taille",
       "state": "État",
-      "super_seeding": "Super Seeding", //TODO
+      "super_seeding": "Super Seeding",
       "tags": "Étiquettes",
       "time_active": "Temps actif",
       "total_size": "Taille totale",
@@ -127,13 +127,13 @@
   "logs": {
     "title": "Logs qBittorrent",
     "filters": {
-      "type": "Log Level", //TODO
+      "type": "Niveau Log",
       "sortBy": {
         "label": "Trier par",
-        "id": "Log ID", //TODO
-        "type": "Log Level", //TODO
+        "id": "ID Log",
+        "type": "Niveau Log",
         "message": "Message",
-        "timestamp": "Log Date" //TODO
+        "timestamp": "Date Log"
       }
     }
   },
@@ -190,7 +190,7 @@
     "properties": {
       "added_on": "Date d'ajout",
       "amount_left": "Montant restant",
-      "auto_tmm": "Automatic Torrent Management", //TODO
+      "auto_tmm": "Gestion automatique du torrent",
       "availability": "Disponibilité",
       "avg_download_speed": "Vitesse de téléchargement moyenne",
       "avg_upload_speed": "Vitesse moyenne d'envoi",
@@ -206,7 +206,7 @@
       "downloaded_session": "Téléchargé (session)",
       "download_path": "Chemin de téléchargement",
       "eta": "ETA",
-      "f_l_piece_prio": "First / Last Piece Priority", //TODO
+      "f_l_piece_prio": "Priorité première / dernière pièces",
       "forced": "État forcé",
       "global_speed": "Vitesse globale",
       "global_volume": "Volume global",
@@ -232,7 +232,7 @@
       "seq_dl": "Téléchargement séquentiel",
       "size": "Taille",
       "state": "État",
-      "super_seeding": "Super Seeding Mode", //TODO
+      "super_seeding": "Mode Super Seeding",
       "tags": "Étiquettes",
       "empty_tags": "(pas d'étiquettes)",
       "time_active": "Temps actif",
@@ -292,13 +292,13 @@
       "upSpeedAverage": "Vitesse de partage moyenne"
     },
     "info": {
-      "datetime_values": "Datetime Values", //TODO
-      "duration_values": "Duration Values", //TODO
-      "boolean_values": "Boolean values", //TODO
-      "data_values": "Data values", //TODO
-      "speed_values": "Speed values", //TODO
-      "text_values": "Text values", //TODO
-      "long_text_values": "Long text values" //TODO
+      "datetime_values": "Valeurs temporelles",
+      "duration_values": "Valeurs de durée",
+      "boolean_values": "Valeurs des booléens",
+      "data_values": "Valeurs des données",
+      "speed_values": "Valeurs de vitesse",
+      "text_values": "Valeurs des textes",
+      "long_text_values": "Valeurs des textes longs"
     },
     "trackers": {
       "tier": "Tier: {n}",
@@ -339,7 +339,7 @@
       "emptyList": "Aucun pair n'est connecté pour le moment"
     },
     "content": {
-      "rootNode": "(Root Node)",  //TODO
+      "rootNode": "(Nœud racine)",
       "fileInfo": "{n} fichier | {n} fichiers",
       "folderInfo": "{n} dossier | {n} dossiers"
     },
@@ -394,19 +394,19 @@
       },
       "filters": {
         "disabled": "(Désactivé)", 
-        "state": "Torrent State Filter",  //TODO
-        "category": "Category Filter",  //TODO
-        "uncategorized": "(Uncategorized)",  //TODO
-        "tag": "Tag Filter",  //TODO
-        "untagged": "(Untagged)",  //TODO
-        "tracker": "Tracker Filter",  //TODO
-        "untracked": "(Untracked)",  //TODO
-        "activeFilter": "{n} filters active"  //TODO
+        "state": "Filtre par état du torrent",
+        "category": "Filtre par catégorie",
+        "uncategorized": "(Sans catégorie)",
+        "tag": "Filtre par étiquette",
+        "untagged": "(Sans étiquette)",
+        "tracker": "Filtre par tracker",
+        "untracked": "(Sans tracker)",
+        "activeFilter": "{n} filtres actifs"
       },
       "bottom_actions": {
         "logout": "Déconnexion",
         "alt_speed": "Dés(activer) les vitesses alternatives",
-        "conn_status": "Connection status: {status}",  //TODO
+        "conn_status": "État de la connexion: {status}",
         "dark_mode": "Passer au mode clair | Passer au mode sombre",
         "shutdown": "Éteindre qBittorrent"
       }
@@ -440,10 +440,10 @@
         "useRegex": "Utiliser une expression régulière (regex)",
         "mustContain": "Doit contenir",
         "mustNotContain": "Ne doit pas contenir",
-        "smartFilter": "Use Smart Episode filter", //TODO
-        "episodeFilter": "Episode Filter", //TODO
+        "smartFilter": "Utiliser le filtre d'épisode intelligent",
+        "episodeFilter": "Filtre d'épisode",
         "episodeFilterPlaceholder": "ex: S01E02-S01E05",
-        "assignedCategory": "Assigned Category", //TODO
+        "assignedCategory": "Catégorie assignée",
         "savePath": "Chemin de sauvegarde",
         "savePathPlaceholder": "Laisser vide pour utiliser l'emplacement par défaut",
         "ignoreDays": "Ignorer les articles publiés au cours des {days} derniers jours",
@@ -453,11 +453,11 @@
           "knownValue": "aujourd'hui | il y a {n} jour | il y a {n} jours",
           "unknownValue": "Inconnu"
         },
-        "addPaused": "Add paused", //TODO
-        "affectedFeedsSubheader": "Affected Feeds", //TODO
+        "addPaused": "Ajouter une pause",
+        "affectedFeedsSubheader": "Flux concernés",
         "matchingArticles": {
-          "title": "Matching Articles", //TODO
-          "noMatch": "No matching articles" //TODO
+          "title": "Articles correspondants",
+          "noMatch": "Aucun article correspondant"
         }
       }
     },
@@ -547,15 +547,15 @@
       }
     },
     "speed_limit": {
-      "download": "Set Download Speed Limit", //TODO
-      "upload": "Set Upload Speed Limit", //TODO
-      "label": "Speed Limit" //TODO
+      "download": "Définir une limite de vitesse de téléchargement",
+      "upload": "Définir une limite de vitesse de partage",
+      "label": "Limite de vitesse"
     },
     "share_limit": {
-      "title": "Set Share Ratio Limit", //TODO
-      "global": "Use global share limit", //TODO
-      "disabled": "Set no share limit", //TODO
-      "enabled": "Set share limit to", //TODO
+      "title": "Définir une limite de ratio de partage",
+      "global": "Utiliser les limites de partage globales",
+      "disabled": "Ne définit aucune limite de partage",
+      "enabled": "Définir la limite de partage à",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Minutes totales",
       "inactive_seeding_time_limit": "Minutes inactives"
@@ -585,26 +585,26 @@
         "tip": "Ces paramètres concernent l'interface WebUI personnalisée elle-même",
         "showCurrentSpeed": "Afficher la vitesse actuelle",
         "showSpeedGraph": "Afficher le graphique de vitesse",
-        "showAlltimeStat": "Show All-Time Stats", //TODO
-        "showSessionStat": "Show Session Stats", //TODO
+        "showAlltimeStat": "Afficher les stats absolues (tous les temps)",
+        "showSessionStat": "Afficher les stats de la session",
         "showFreeSpace": "Afficher l'espace libre",
-        "showTrackerFilter": "Show Tracker Filter", //TODO
-        "isDrawerRight": "Right Drawer", //TODO
-        "isPaginationOnTop": "Top Pagination", //TODO
+        "showTrackerFilter": "Affcher le filtre par tracker",
+        "isDrawerRight": "Tiroir droit",
+        "isPaginationOnTop": "Pagination supérieure",
         "matchSystemTheme": "Suivre le thème du système",
         "language": "Langue",
         "paginationSize": {
-          "label": "Pagination Size", //TODO
+          "label": "Taille de la pagination",
           "infinite_scroll": "Défilement infini"
         },
         "vueTorrentTitle": "Titre VueTorrent",
         "dateFormat": "Format de la date",
-        "openSideBarOnStart": "Open Side Bar on launch", //TODO
-        "isShutdownButtonVisible": "Show shutdown button", //TODO
+        "openSideBarOnStart": "Ouvrir le menu latéral au lancement",
+        "isShutdownButtonVisible": "Afficher le bouton d'arrêt",
         "useBinarySize": "Remplacer les tailles de données par des unités binaires (kB -> KiB)",
         "useBitSpeed": "Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)",
         "refreshInterval": "Intervalle de rafraîchissement de l'API qBittorrent",
-        "fileContentInterval": "Torrent file content refresh interval", //TODO
+        "fileContentInterval": "Intervalle de rafraîchissement du contenu des fichiers Torrent",
         "canvasRenderThreshold": "Piece count to disable canvas rendering", //TODO
         "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh", //TODO
         "currentVersion": "Version actuelle",
@@ -654,7 +654,7 @@
         "newItem": "Nouvel élement",
         "editItem": "Modifier l'élément",
         "monitoredFolderPath": "Dossier surveillé",
-        "saveType": "Override Save Location", //TODO
+        "saveType": "Outrepasser le chemin de sauvegarde",
         "otherPath": "Autre chemin",
         "actions": "Actions",
         "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
@@ -708,8 +708,8 @@
         "subheader": "Limites de connexions",
         "globalMaxConnection": "Nombre maximal global de connexions",
         "perTorrentMaxConnection": "Nombre maximal de connexions par torrent",
-        "globalMaxUploadSlots": "Global maximum number of upload slots", //TODO
-        "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent" //TODO
+        "globalMaxUploadSlots": "Nombre maximal global de slots d'envoi",
+        "perTorrentMaxUploadSlots": "Nombre maximal de slots d'envoi par torrent"
       },
       "proxy": {
         "subheader": "Serveur Proxy",
@@ -772,8 +772,8 @@
         "maxActiveUpload": "Nombre maximum de partages actifs",
         "maxActiveTorrent": "Maximum de torrents actifs",
         "excludeSlowTorrent": "Ne pas compter les torrents lents dans ces limites.",
-        "downloadRateLimit": "Download rate threshold", //TODO
-        "uploadRateLimit": "Upload rate threshold", //TODO
+        "downloadRateLimit": "Seuil du débit de téléchargement",
+        "uploadRateLimit": "Seuil du débit de d'envoi",
         "torrentInactivityTimer": "Considéré un torrent comme inactif après :"
       },
       "seedLimits": {
@@ -798,7 +798,7 @@
           "enable": "Activer les règles RSS"
         },
         "smartEpisodeFilter": {
-          "subheader": "RSS Smart Episode Filter", //TODO
+          "subheader": "Filtre d'épisode intelligent RSS",
           "downloadEpisodes": "Télécharger les épisodes REPACK/PROPER",
           "filters": "Filtres",
           "filtersHint": "Un par ligne"
@@ -949,12 +949,12 @@
           "mitigateSSRF": "Server-side request forgery (SSRF) mitigation", //TODO
           "blockPeersOnPrivilegedPorts": "Disallow connection to peers on privileged ports" //TODO
         },
-        "uploadSlotsBehavior": "Upload slots behavior", //TODO
+        "uploadSlotsBehavior": "Comportement des slots d'envoi",
         "uploadChokingAlgorithm": "Upload choking algorithm", //TODO
-        "announceAllTrackers": "Always announce to all trackers in a tier", //TODO
-        "announceAllTiers": "Always announce to all tiers", //TODO
-        "announceIP": "IP address reported to trackers (requires restart)", //TODO
-        "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces", //TODO
+        "announceAllTrackers": "Toujours annoncer à tous les trackers d'un tier",
+        "announceAllTiers": "Toujours annoncer à tous les tiers",
+        "announceIP": "Adresse IP signalée aux trackers (nécessite un redémarrage)",
+        "maxConcurrentHTTPAnnounces": "Nombre maximal d'annonces HTTP simultanées",
         "stopTrackerTimeout": "Stop tracker timeout", //TODO
         "peerTurnover": "Peer turnover disconnect percentage", //TODO
         "peerTurnoverCutoff": "Peer turnover threshold percentage", //TODO
