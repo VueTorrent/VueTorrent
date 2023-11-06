@@ -557,8 +557,8 @@
       "disabled": "Set no share limit", //TODO
       "enabled": "Set share limit to", //TODO
       "ratio_limit": "Ratio",
-      "seeding_time_limit": "Total minutes", //TODO
-      "inactive_seeding_time_limit": "Inactive minutes" //TODO
+      "seeding_time_limit": "Minutes totales",
+      "inactive_seeding_time_limit": "Minutes inactives"
     }
   },
   "settings": {
