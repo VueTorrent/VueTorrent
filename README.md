@@ -103,7 +103,7 @@ I'll gladly accept help/pull requests & advice!
 
 ### Localize the app
 
-We use [Tolgee](https://tolgee.io/) to manage translations. You can help translate the app by visiting [this link](TODO: invite link).
+We use [Tolgee](https://tolgee.io/) to manage translations. You can help translate the app by visiting [this link](https://app.tolgee.io/accept_invitation/sqSGXMwEkKapcAbNotICHxkxhIoPTuQKsrqpXHLxeXDxpTSBSo).
 
 ## Support
 
