@@ -152,8 +152,8 @@
   },
   "searchEngine": {
     "title": "Rechercher des torrents",
-    "tabHeaderEmpty": "(Empty query)", //TODO
-    "query": "Search query", //TODO
+    "tabHeaderEmpty": "(Requête vide)",
+    "query": "Requête de recherche",
     "filters": {
       "category": {
         "label": "Rechercher une catégorie",
@@ -207,7 +207,7 @@
       "download_path": "Chemin de téléchargement",
       "eta": "ETA",
       "f_l_piece_prio": "First / Last Piece Priority", //TODO
-      "forced": "Forced state", //TODO
+      "forced": "État forcé",
       "global_speed": "Vitesse globale",
       "global_volume": "Volume global",
       "hash": "Hash",
@@ -301,12 +301,12 @@
       "long_text_values": "Long text values" //TODO
     },
     "trackers": {
-      "tier": "Tier: {n}", //TODO
+      "tier": "Tier: {n}",
       "peersValue": "{peers} pairs ({seeds} S /{leeches} L)",
       "addTrackers": {
         "title": "Ajouter des tracker",
         "newTrackers": "URL des trackers à ajouter",
-        "newTrackersHint": "One per line, separate tiers with an empty line" //TODO
+        "newTrackersHint": "Une par ligne, séparer les tiers avec une ligne vide"
       },
       "editTracker": {
         "title": "Editer Tracker",
@@ -320,14 +320,14 @@
       "table": {
         "host": "Hôte",
         "connection": "Connexion",
-        "flags": "Flags",  //TODO
+        "flags": "Drapeaux",
         "client": "Client",
         "progress": "Progrès",
         "downloadSpeed": "Téléchargement",
         "downloaded": "Téléchargé",
         "upSpeed": "Partage",
         "uploaded": "Partagé",
-        "relevance": "Relevance",  //TODO
+        "relevance": "Pertinence",
         "files": "Fichiers"
       },
       "addPeers": {
@@ -433,23 +433,23 @@
       },
       "rule": {
         "title": {
-          "create": "Create RSS Rule",  //TODO
-          "edit": "Edit RSS Rule"  //TODO
+          "create": "Créer une règle RSS",
+          "edit": "Modifier la règle RSS"
         },
         "name": "Nom",
-        "useRegex": "Use Regular Expression", //TODO
-        "mustContain": "Must Contain", //TODO
-        "mustNotContain": "Must Not Contain", //TODO
+        "useRegex": "Utiliser une expression régulière (regex)",
+        "mustContain": "Doit contenir",
+        "mustNotContain": "Ne doit pas contenir",
         "smartFilter": "Use Smart Episode filter", //TODO
         "episodeFilter": "Episode Filter", //TODO
-        "episodeFilterPlaceholder": "e.g. S01E02-S01E05", //TODO
+        "episodeFilterPlaceholder": "ex: S01E02-S01E05",
         "assignedCategory": "Assigned Category", //TODO
-        "savePath": "Save Path", //TODO
-        "savePathPlaceholder": "Leave blank to use default save path", //TODO
-        "ignoreDays": "Ignore items published in the last {days} days", //TODO
-        "ignoreDaysHint": "0 to disable", //TODO
+        "savePath": "Chemin de sauvegarde",
+        "savePathPlaceholder": "Laisser vide pour utiliser l'emplacement par défaut",
+        "ignoreDays": "Ignorer les articles publiés au cours des {days} derniers jours",
+        "ignoreDaysHint": "0 pour désactiver",
         "lastMatch": {
-          "label": "Last match", //TODO
+          "label": "Dernière occurence",
           "knownValue": "aujourd'hui | il y a {n} jour | il y a {n} jours",
           "unknownValue": "Inconnu"
         },
@@ -575,7 +575,7 @@
       "rss": "RSS",
       "rssGeneral": "Général",
       "rssFeeds": "Flux",
-      "rssRules": "Rules", //TODO
+      "rssRules": "Règles",
       "webui": "WebUI",
       "tagsAndCategories": "Étiquettes & Catégories",
       "advanced": "Avancé"
@@ -587,15 +587,15 @@
         "showSpeedGraph": "Afficher le graphique de vitesse",
         "showAlltimeStat": "Show All-Time Stats", //TODO
         "showSessionStat": "Show Session Stats", //TODO
-        "showFreeSpace": "Show Free Space", //TODO
+        "showFreeSpace": "Afficher l'espace libre",
         "showTrackerFilter": "Show Tracker Filter", //TODO
         "isDrawerRight": "Right Drawer", //TODO
         "isPaginationOnTop": "Top Pagination", //TODO
-        "matchSystemTheme": "Use System Theme", //TODO
+        "matchSystemTheme": "Suivre le thème du système",
         "language": "Langue",
         "paginationSize": {
           "label": "Pagination Size", //TODO
-          "infinite_scroll": "Infinite scroll" //TODO
+          "infinite_scroll": "Défilement infini"
         },
         "vueTorrentTitle": "Titre VueTorrent",
         "dateFormat": "Format de la date",
@@ -641,28 +641,28 @@
         "savePathChangedTMM": "When Default Save Path changed", //TODO
         "categoryChangedTMM": "When Category Save Path changed", //TODO
         "paramChangedTMMOptions": {
-          "relocateTorrent": "Relocate torrent", //TODO
-          "switchToManual": "Switch torrent to Manual Mode" //TODO
+          "relocateTorrent": "Déplacer le torrent",
+          "switchToManual": "Passer le torrent en mode manuel"
         },
-        "defaultSavePath": "Default Save Path", //TODO
+        "defaultSavePath": "Chemin de sauvegarde par défaut",
         "keepIncomplete": "Keep incomplete torrents", //TODO
         "exportDir": "Copy .torrent files to", //TODO
         "exportDirFinished": "Copy .torrent files for finished downloads to" //TODO
       },
       "monitoredFolders": {
-        "subheader": "Monitored Folders", //TODO
-        "newItem": "New Item", //TODO
-        "editItem": "Edit Item", //TODO
-        "monitoredFolderPath": "Monitored Folder", //TODO
+        "subheader": "Dossiers surveillés",
+        "newItem": "Nouvel élement",
+        "editItem": "Modifier l'élément",
+        "monitoredFolderPath": "Dossier surveillé",
         "saveType": "Override Save Location", //TODO
-        "otherPath": "Other Path", //TODO
-        "actions": "Actions", //TODO
-        "confirmDelete": "Are you sure you want to delete this item?", //TODO
-        "noData": "No monitored folder yet" //TODO
+        "otherPath": "Autre chemin",
+        "actions": "Actions",
+        "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet élément ?",
+        "noData": "Aucun dossier surveillé pour le moment"
       },
       "excludedFileNames": {
-        "label": "Excluded file names", //TODO
-        "hint": "One filter per line" //TODO
+        "label": "Noms de fichiers exclus",
+        "hint": "Un filtre par ligne"
       },
       "mailNotification": {
         "enabled": "Notification par mail à la fin du téléchargement",
@@ -675,39 +675,39 @@
         "password": "Mot de passe"
       },
       "runExternalProgram": {
-        "subheader": "Run external program", //TODO
+        "subheader": "Exécuter un programme externe",
         "onAddedEnabled": "Run external program on torrent added:", //TODO
-        "onAddedLabel": "Command", //TODO
+        "onAddedLabel": "Commande",
         "onFinishedEnabled": "Run external program on torrent finished:", //TODO
-        "onFinishedLabel": "Command", //TODO
-        "supportParamTitle": "Supported parameters (case sensitive):", //TODO
-        "supportParamN": "%N: Torrent name", //TODO
-        "supportParamL": "%L: Category", //TODO
-        "supportParamG": "%G: Tags (separated by comma)", //TODO
+        "onFinishedLabel": "Commande",
+        "supportParamTitle": "Paramètres supportés (sensibles à la casse):",
+        "supportParamN": "%N: Nom du torrent",
+        "supportParamL": "%L: Catégorie",
+        "supportParamG": "%G: Étiquettes (séparées par une virgule)",
         "supportParamF": "%F: Content path (same as root path for multi-file torrent)", //TODO
         "supportParamR": "%R: Root path (first torrent subdirectory path)", //TODO
-        "supportParamD": "%D: Save path", //TODO
-        "supportParamC": "%C: Number of files", //TODO
-        "supportParamZ": "%Z: Torrent size (bytes)", //TODO
-        "supportParamT": "%T: Current tracker", //TODO
-        "supportParamI": "%I: Info hash v1", //TODO
-        "supportParamJ": "%J: Info hash v2", //TODO
-        "supportParamK": "%K: Torrent ID", //TODO
-        "tip": "Tip: Encapsulate parameter with quotation marks to avoid text being cut off at whitespace (e.g., \"%N\")" //TODO
+        "supportParamD": "%D: Sauvegarder le chemin",
+        "supportParamC": "%C: Nombre de fichiers",
+        "supportParamZ": "%Z: Taille du torrent (octets)",
+        "supportParamT": "%T: Tracker actuel",
+        "supportParamI": "%I: Info hash v1",
+        "supportParamJ": "%J: Info hash v2",
+        "supportParamK": "%K: ID du torrent",
+        "tip": "Conseil : Encapsulez le paramètre avec des guillemets pour éviter que le texte ne soit coupé au niveau des espaces blancs. (ex : \"%N\")"
       }
     },
     "connection": {
       "protocol": "Peer connection protocol", //TODO
       "listeningPort": {
-        "subheader": "Listening Port", //TODO
-        "incomingConnectionPort": "Port used for incoming connections", //TODO
-        "randomPort": "Random Port", //TODO
-        "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router" //TODO
+        "subheader": "Port d'écoute",
+        "incomingConnectionPort": "Port utilisé pour les connexions entrantes",
+        "randomPort": "Port aléatoire",
+        "useUPnP": "Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur"
       },
       "connectionLimits": {
-        "subheader": "Connection Limits", //TODO
-        "globalMaxConnection": "Global maximum number of connections", //TODO
-        "perTorrentMaxConnection": "Maximum number of connections per torrent", //TODO
+        "subheader": "Limites de connexions",
+        "globalMaxConnection": "Nombre maximal global de connexions",
+        "perTorrentMaxConnection": "Nombre maximal de connexions par torrent",
         "globalMaxUploadSlots": "Global maximum number of upload slots", //TODO
         "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent" //TODO
       },
@@ -715,9 +715,9 @@
         "subheader": "Serveur Proxy",
         "host": "Hôte",
         "port": "Port",
-        "peerConnections": "Use proxy for peer connections", //TODO
-        "torrentOnly": "Use proxy only for torrents", //TODO
-        "hostNameLookup": "Use proxy for hostname lookup", //TODO
+        "peerConnections": "Utiliser un proxy pour les connexions entre pairs",
+        "torrentOnly": "Utiliser un proxy uniquement pour les torrents",
+        "hostNameLookup": "Utiliser un proxy pour la recherche de noms d'hôtes",
         "auth": {
           "subtitle": "Authentification",
           "username": "Nom d'utilisateur",
@@ -726,44 +726,44 @@
         }
       },
       "ipFiltering": {
-        "subheader": "IP Filtering", //TODO
-        "filterPath": "Filter path (.dat, .p2p, .p2b)", //TODO
-        "applyToTrackers": "Apply to trackers", //TODO
-        "bannedIps": "Manually banned IP addresses", //TODO
-        "bannedIpsHint": "One on each line" //TODO
+        "subheader": "Filtrage par IP",
+        "filterPath": "Chemin du filtre (.dat, .p2p, .p2b)",
+        "applyToTrackers": "Appliquer aux trackers",
+        "bannedIps": "Adresses IP bannies manuellement",
+        "bannedIpsHint": "Une sur chaque ligne"
       }
     },
     "speed": {
       "subheader": {
-        "global": "Global Rate Limits", //TODO
-        "alternative": "Alternative Rate Limits", //TODO
-        "settings": "Rate Limits Settings" //TODO
+        "global": "Limites de vitesses globales",
+        "alternative": "Limites de vitesses alternatives",
+        "settings": "Paramètres des limites de vitesses"
       },
-      "upload": "Upload", //TODO
-      "download": "Download", //TODO
-      "tip": "0 means unlimited", //TODO
+      "upload": "Partage",
+      "download": "Téléchargement",
+      "tip": "0 signifie illimité",
       "scheduler": {
-        "subheader": "Schedule the use of alternative rate limits", //TODO
-        "from": "From", //TODO
-        "to": "To", //TODO
-        "selectButtonLabel": "Select time", //TODO
-        "when": "When" //TODO
+        "subheader": "Programmer l'utilisation des limites alternatives",
+        "from": "De",
+        "to": "Vers",
+        "selectButtonLabel": "Sélectionner l'heure",
+        "when": "Quand"
       },
       "settings": {
-        "applyToUtp": "Apply rate limit to µTP protocol", //TODO
+        "applyToUtp": "Appliquer les limites de vitesse au protocole µTP",
         "applyToTransportOverhead": "Apply rate limit to transport overhead", //TODO
-        "applyToPeersOnLan": "Apply rate limit to peers on LAN" //TODO
+        "applyToPeersOnLan": "Appliquer les limites de vitesse aux pairs sur le réseau local"
       }
     },
     "bittorrent": {
       "privacy": {
-        "subheader": "Privacy", //TODO
-        "enableDHT": "Enable DHT (decentralized network) to find more peers", //TODO
-        "enablePeX": "Enable Peer Exchange (PeX) to find more peers", //TODO
-        "enableLPD": "Enable Local Peer Discovery to find more peers", //TODO
-        "encryptionMode": "Encryption Mode", //TODO
-        "enableAnonymous": "Enable anonymous mode", //TODO
-        "moreInfo": "More Information" //TODO
+        "subheader": "Vie privée",
+        "enableDHT": "Activer le DHT (réseau décentralisé) pour trouver plus de pairs",
+        "enablePeX": "Activer l'échange de pairs (PeX) pour trouver plus de pairs",
+        "enableLPD": "Activer la découverte de pairs locaux pour trouver plus de pairs",
+        "encryptionMode": "Mode de cryptage",
+        "enableAnonymous": "Activer le mode anonyme",
+        "moreInfo": "Plus d'informations"
       },
       "maxActiveCheckingTorrents": "Max active checking torrents", //TODO
       "torrentQueueing": {
@@ -777,21 +777,21 @@
         "torrentInactivityTimer": "Torrent inactivity timer" //TODO
       },
       "seedLimits": {
-        "subheader": "Seed Limits", //TODO
-        "whenRatioReaches": "When ratio reaches", //TODO
-        "whenSeedingTimeReaches": "When seeding time reaches", //TODO
-        "then": "Then" //TODO
+        "subheader": "Limites de partage",
+        "whenRatioReaches": "Lorsque le ratio atteint",
+        "whenSeedingTimeReaches": "Lorsque le temps de partage atteint",
+        "then": "Alors"
       },
-      "autoAddTrackers": "Automatically add these trackers to new downloads", //TODO
-      "autoAddTrackersHint": "One tracker per line" //TODO
+      "autoAddTrackers": "Ajouter automatiquement ces trackers aux nouveaux téléchargements",
+      "autoAddTrackersHint": "Un tracker par ligne"
     },
     "rss": {
       "general": {
         "reader": {
-          "subheader": "RSS Reader", //TODO
-          "enableProcessing": "Enable fetching RSS feeds", //TODO
-          "feedsRefreshInterval": "Feeds refresh interval", //TODO
-          "maximumArticlesPerFeed": "Maximum number of articles per feed" //TODO
+          "subheader": "Lecteur RSS",
+          "enableProcessing": "Activer la récupération de flux RSS",
+          "feedsRefreshInterval": "Intervalle de rafraîchissement des flux",
+          "maximumArticlesPerFeed": "Nombre maximum d'articles par flux"
         },
         "autoDownloader": {
           "subheader": "RSS Torrent Auto Downloader", //TODO
@@ -799,100 +799,100 @@
         },
         "smartEpisodeFilter": {
           "subheader": "RSS Smart Episode Filter", //TODO
-          "downloadEpisodes": "Download REPACK/PROPER episodes", //TODO
-          "filters": "Filters", //TODO
-          "filtersHint": "One per line" //TODO
+          "downloadEpisodes": "Télécharger les épisodes REPACK/PROPER",
+          "filters": "Filtres",
+          "filtersHint": "Un par ligne"
         }
       },
       "feeds": {
-        "createNew": "Add feed", //TODO
-        "refreshAll": "Refresh All", //TODO
-        "noFeeds": "No feeds yet" //TODO
+        "createNew": "Ajouter un flux",
+        "refreshAll": "Tout rafraîchir",
+        "noFeeds": "Aucun flux pour le moment"
       },
       "rules": {
-        "createNew": "Create Rule", //TODO
-        "noRules": "No rules yet" //TODO
+        "createNew": "Créer une règle",
+        "noRules": "Aucune règle pour le moment"
       }
     },
     "webUI": {
       "interface": {
         "subheader": "Web User Interface (Remote Control)", //TODO
-        "ipAddress": "IP Address", //TODO
-        "port": "Port", //TODO
-        "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router", //TODO
-        "useAlternativeWebUI": "Use Alternative WebUI" //TODO
+        "ipAddress": "Adresse IP",
+        "port": "Port",
+        "useUPnP": "Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur",
+        "useAlternativeWebUI": "Utiliser une WebUI alternative"
       },
       "authentication": {
-        "subheader": "Authentication", //TODO
+        "subheader": "Authentification",
         "username": "Nom d'utilisateur",
         "password": "Mot de passe",
-        "passwordPlaceholder": "(unchanged)", //TODO
-        "bypassLocalhost": "Bypass authentication for clients on localhost", //TODO
-        "bypassWhitelist": "Bypass authentication for clients in whitelisted IP subnets", //TODO
-        "whitelistExamples": "Example: 192.168.1.0/24, fdff:ffff:c8::/40", //TODO
-        "maxAttempts": "Max attempts", //TODO
-        "banDuration": "Ban Duration", //TODO
-        "banDurationHint": "In seconds", //TODO
-        "sessionTimeout": "Session timeout", //TODO
-        "sessionTimeoutHint": "In seconds" //TODO
+        "passwordPlaceholder": "(inchangé)",
+        "bypassLocalhost": "Contourner l'authentification pour les clients en localhost",
+        "bypassWhitelist": "Contournement de l'authentification pour les clients des sous-réseaux IP figurant sur la liste blanche",
+        "whitelistExamples": "Exemple: 192.168.1.0/24, fdff:ffff:c8::/40",
+        "maxAttempts": "Nombre maximal de tentatives",
+        "banDuration": "Durée du bannissement",
+        "banDurationHint": "En secondes",
+        "sessionTimeout": "Délai d'attente de la session",
+        "sessionTimeoutHint": "En secondes"
       },
       "https": {
-        "subheader": "Use HTTPS", //TODO
-        "certificate": "Certificate", //TODO
-        "key": "Key", //TODO
-        "tip": "Information about certificates" //TODO
+        "subheader": "Utiliser HTTPS",
+        "certificate": "Certificat",
+        "key": "Clé",
+        "tip": "Informations sur les certificats"
       },
       "security": {
-        "subheader": "Security", //TODO
-        "clickjacking": "Enable clickjacking protection", //TODO
-        "csrf": "Enable Cross-Site Request Forgery (CSRF) protection", //TODO
-        "secureCookie": "Enable cookie secure flag (requires HTTPS)", //TODO
-        "hostHeaderValidation": "Enable Host header validation", //TODO
-        "hostHeaderValidationHint": "Seperated with semi-colon ( ; )", //TODO
-        "serverDomains": "Server Domains" //TODO
+        "subheader": "Sécurité",
+        "clickjacking": "Activer la protection contre le détournement de clics",
+        "csrf": "Activer la protection contre le Cross-Site Request Forgery (CSRF)",
+        "secureCookie": "Activer l'indicateur de sécurité des cookies (nécessite HTTPS)",
+        "hostHeaderValidation": "Activer la validation de l'en-tête Hôte",
+        "hostHeaderValidationHint": "Séparés par un point-virgule ( ; )",
+        "serverDomains": "Domaines du serveur"
       },
-      "customHeaders": "Add custom HTTP headers", //TODO
-      "customHeadersPlaceholder": "Header1: value1\nHeader2: value2\n...", //TODO
-      "customHeadersHint": "One per line", //TODO
-      "reverseProxySupport": "Enable reverse proxy support", //TODO
-      "proxiesList": "Trusted proxies list", //TODO
-      "proxiesListHint": "Seperate IPs with semicolon ( ; )", //TODO
+      "customHeaders": "Ajouter des en-têtes HTTP personnalisés",
+      "customHeadersPlaceholder": "En-tête1: valeur1\nEn-tête2: valeur2\n...",
+      "customHeadersHint": "Un par ligne",
+      "reverseProxySupport": "Activer la prise en charge du proxy inverse",
+      "proxiesList": "Liste des proxys de confiance",
+      "proxiesListHint": "Séparer les IP par un point-virgule ( ; )",
       "dynDns": {
-        "subheader": "Update my dynamic domain name", //TODO
+        "subheader": "Mettre à jour mon nom de domaine dynamique",
         "providers": {
-          "dynDns": "DynDNS", //TODO
-          "noIp": "NO-IP" //TODO
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
         },
-        "registerBtn": "Register", //TODO
-        "domainName": "Domain name", //TODO
+        "registerBtn": "Enregistrer",
+        "domainName": "Nom de domaine",
         "username": "Nom d'utilisateur",
         "password": "Mot de passe"
       }
     },
     "tagsAndCategories": {
-      "createNewTag": "Create new tag", //TODO
-      "createNewCategory": "Create new category", //TODO
-      "tagsSubheader": "Available Tags:", //TODO
-      "categoriesSubheader": "Available Categories:", //TODO
-      "noTags": "No tags yet", //TODO
-      "noCategories": "No categories yet" //TODO
+      "createNewTag": "Créer une nouvelle étiquette",
+      "createNewCategory": "Créer une nouvelle catégorie",
+      "tagsSubheader": "Étiquettes disponibles:",
+      "categoriesSubheader": "Catégories disponibles:",
+      "noTags": "Aucune étiquette pour le moment",
+      "noCategories": "Aucune catégorie pour le moment"
     },
     "advanced": {
-      "openDoc": "Open documentation", //TODO
+      "openDoc": "Ouvrir la documentation",
       "qbittorrent": {
-        "subheader": "qBittorrent Section", //TODO
-        "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)", //TODO
+        "subheader": "Section qBittorrent",
+        "allocatedRam": "Limite d'utilisation de la mémoire physique (RAM) (libtorrent >= 2.0)",
         "networking": {
-          "title": "Networking", //TODO
+          "title": "Réseau",
           "networkInterfaces": {
-            "label": "Network interface", //TODO
-            "any": "Any interface" //TODO
+            "label": "Interface réseau",
+            "any": "Toute interface"
           },
           "ipAddress": {
-            "label": "Optional IP address to bind to", //TODO
-            "all": "All addresses", //TODO
-            "allIPv4": "All IPv4 addresses", //TODO
-            "allIPv6": "All IPv6 addresses" //TODO
+            "label": "Adresse IP facultative à laquelle se rattacher",
+            "all": "Toutes les adresses",
+            "allIPv4": "Toutes les adresses IPv4",
+            "allIPv6": "Toutes les adresses IPv6"
           }
         },
         "saveInterval": "Save resume data interval", //TODO
@@ -908,7 +908,7 @@
         }
       },
       "libtorrent": {
-        "subheader": "libtorrent Section", //TODO
+        "subheader": "Section libtorrent",
         "threads": {
           "subheader": "Threads", //TODO
           "asyncIoThreads": "Asynchronous I/O threads", //TODO
@@ -934,7 +934,7 @@
         "outgoingConnectionsPerSecond": "Outgoing connections per second", //TODO
         "socketBacklogSize": "Socket backlog size", //TODO
         "networking": {
-          "subheader": "Networking", //TODO
+          "subheader": "Réseau",
           "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]", //TODO
           "outgoingPortsMax": "Outgoing ports (Max) [0: Disabled]", //TODO
           "upnpLeaseDuration": "UPnP lease duration [0: Permanent lease]", //TODO
