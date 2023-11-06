@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TitleOptions } from '@/constants/vuetorrent'
-import { LOCALES } from '@/locales/locales'
+import { LOCALES } from '@/locales'
 import { useAppStore } from '@/stores/app'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { computed, onBeforeMount, ref } from 'vue'
