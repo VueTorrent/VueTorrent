@@ -601,9 +601,9 @@
         "dateFormat": "Format de la date",
         "openSideBarOnStart": "Open Side Bar on launch", //TODO
         "isShutdownButtonVisible": "Show shutdown button", //TODO
-        "useBinarySize": "Replace data sizes by binary units (kB -> KiB)", //TODO
-        "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)", //TODO
-        "refreshInterval": "qBittorrent API refresh interval", //TODO
+        "useBinarySize": "Remplacer les tailles de données par des unités binaires (kB -> KiB)",
+        "useBitSpeed": "Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)",
+        "refreshInterval": "Intervalle de rafraîchissement de l'API qBittorrent",
         "fileContentInterval": "Torrent file content refresh interval", //TODO
         "canvasRenderThreshold": "Piece count to disable canvas rendering", //TODO
         "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh", //TODO
@@ -616,8 +616,8 @@
         "resetSettings": "Réinitialiser les paramètres"
       },
       "torrentCard": {
-        "busyTorrentTip": "Properties to display for busy torrents", //TODO
-        "doneTorrentTip": "Properties to display for completed torrents" //TODO
+        "busyTorrentTip": "Propriétés à afficher pour les torrents occupés",
+        "doneTorrentTip": "Propriétés à afficher pour les torrents terminés"
       }
     },
     "downloads": {
@@ -631,23 +631,23 @@
         "appendQBExtension": "Ajouter l'extension .!qB aux fichiers incomplets"
       },
       "saveManagement": {
-        "subheader": "Saving Management", //TODO
-        "autoTMMEnabled": "Default Torrent Management Mode", //TODO
+        "subheader": "Gestion de l'enregistrement",
+        "autoTMMEnabled": "Mode de gestion par défaut des torrents",
         "defaultTMMOptions": {
           "manual": "Manuel",
           "automatic": "Automatique"
         },
-        "torrentChangedTMM": "When Torrent Category changed", //TODO
-        "savePathChangedTMM": "When Default Save Path changed", //TODO
-        "categoryChangedTMM": "When Category Save Path changed", //TODO
+        "torrentChangedTMM": "Lorsque la catégorie du torrent est modifiée",
+        "savePathChangedTMM": "Lorsque le chemin de sauvegarde par défaut est modifié",
+        "categoryChangedTMM": "Lorsque le chemin de sauvegarde de la catégorie est modifié",
         "paramChangedTMMOptions": {
           "relocateTorrent": "Déplacer le torrent",
           "switchToManual": "Passer le torrent en mode manuel"
         },
         "defaultSavePath": "Chemin de sauvegarde par défaut",
-        "keepIncomplete": "Keep incomplete torrents", //TODO
-        "exportDir": "Copy .torrent files to", //TODO
-        "exportDirFinished": "Copy .torrent files for finished downloads to" //TODO
+        "keepIncomplete": "Conserver les torrents incomplets",
+        "exportDir": "Copier les fichiers .torrent vers",
+        "exportDirFinished": "Copier les fichiers .torrent pour les téléchargements terminés vers"
       },
       "monitoredFolders": {
         "subheader": "Dossiers surveillés",
@@ -676,16 +676,16 @@
       },
       "runExternalProgram": {
         "subheader": "Exécuter un programme externe",
-        "onAddedEnabled": "Run external program on torrent added:", //TODO
+        "onAddedEnabled": "Exécution d'un programme externe à l'ajout d'un torrent:",
         "onAddedLabel": "Commande",
-        "onFinishedEnabled": "Run external program on torrent finished:", //TODO
+        "onFinishedEnabled": "Exécution d'un programme externe à la complétion d'un torrent:",
         "onFinishedLabel": "Commande",
         "supportParamTitle": "Paramètres supportés (sensibles à la casse):",
         "supportParamN": "%N: Nom du torrent",
         "supportParamL": "%L: Catégorie",
         "supportParamG": "%G: Étiquettes (séparées par une virgule)",
-        "supportParamF": "%F: Content path (same as root path for multi-file torrent)", //TODO
-        "supportParamR": "%R: Root path (first torrent subdirectory path)", //TODO
+        "supportParamF": "%F: Chemin du contenu (Identique au chemin racine pour les torrents multi-fichiers)",
+        "supportParamR": "%R: Chemin racine (premier chemin du sous-répertoire du torrent)",
         "supportParamD": "%D: Sauvegarder le chemin",
         "supportParamC": "%C: Nombre de fichiers",
         "supportParamZ": "%Z: Taille du torrent (octets)",
@@ -697,7 +697,7 @@
       }
     },
     "connection": {
-      "protocol": "Peer connection protocol", //TODO
+      "protocol": "Protocole de connextion aux pairs",
       "listeningPort": {
         "subheader": "Port d'écoute",
         "incomingConnectionPort": "Port utilisé pour les connexions entrantes",
@@ -765,16 +765,16 @@
         "enableAnonymous": "Activer le mode anonyme",
         "moreInfo": "Plus d'informations"
       },
-      "maxActiveCheckingTorrents": "Max active checking torrents", //TODO
+      "maxActiveCheckingTorrents": "Nombre maximal vérifications de torrents actives",
       "torrentQueueing": {
-        "subheader": "Torrent Queueing", //TODO
-        "maxActiveDownload": "Maximum active downloads", //TODO
-        "maxActiveUpload": "Maximum active uploads", //TODO
-        "maxActiveTorrent": "Maximum active torrents", //TODO
-        "excludeSlowTorrent": "Do not count slow torrents in these limits", //TODO
+        "subheader": "File d'attente des torrents",
+        "maxActiveDownload": "Nombre maximum de téléchargements actifs",
+        "maxActiveUpload": "Nombre maximum de partages actifs",
+        "maxActiveTorrent": "Maximum de torrents actifs",
+        "excludeSlowTorrent": "Ne pas compter les torrents lents dans ces limites.",
         "downloadRateLimit": "Download rate threshold", //TODO
         "uploadRateLimit": "Upload rate threshold", //TODO
-        "torrentInactivityTimer": "Torrent inactivity timer" //TODO
+        "torrentInactivityTimer": "Considéré un torrent comme inactif après :"
       },
       "seedLimits": {
         "subheader": "Limites de partage",
@@ -794,8 +794,8 @@
           "maximumArticlesPerFeed": "Nombre maximum d'articles par flux"
         },
         "autoDownloader": {
-          "subheader": "RSS Torrent Auto Downloader", //TODO
-          "enable": "Enable RSS rules processing" //TODO
+          "subheader": "Téléchargement automatique des torrents RSS",
+          "enable": "Activer les règles RSS"
         },
         "smartEpisodeFilter": {
           "subheader": "RSS Smart Episode Filter", //TODO
@@ -816,7 +816,7 @@
     },
     "webUI": {
       "interface": {
-        "subheader": "Web User Interface (Remote Control)", //TODO
+        "subheader": "Interface utilisateur Web (Contrôle à distance)",
         "ipAddress": "Adresse IP",
         "port": "Port",
         "useUPnP": "Utiliser la redirection de port UPnP / NAT-PMP à partir de mon routeur",
@@ -896,15 +896,15 @@
           }
         },
         "saveInterval": "Save resume data interval", //TODO
-        "recheckOnCompletion": "Recheck torrents on completion", //TODO
-        "refreshInterval": "GUI Refresh interval", //TODO
-        "resolveCountries": "Resolve peer countries", //TODO
-        "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed", //TODO
+        "recheckOnCompletion": "Revérifier les torrents une fois complétés",
+        "refreshInterval": "Intervalle de rafraîchissement de l'interface graphique",
+        "resolveCountries": "Détecter les pays des pairs",
+        "reannounceOnIpPortChanged": "Réannoncer à tous les traqueurs un changement d'IP ou de port",
         "embeddedTracker": {
-          "title": "Embedded Tracker", //TODO
-          "enable": "Enable embedded tracker", //TODO
-          "port": "Embedded tracker port", //TODO
-          "portForward": "Enable port forwarding for embedded tracker" //TODO
+          "title": "Trackers intégré",
+          "enable": "Activer le tracker intégré",
+          "port": "Port du tracker intégré",
+          "portForward": "Activer la redirection de port pour le tracker intégré"
         }
       },
       "libtorrent": {
@@ -917,13 +917,13 @@
           "outstandingMemory": "Outstanding memory when checking torrents" //TODO
         },
         "disk": {
-          "subheader": "Disk", //TODO
-          "diskCache": "Disk cache (libtorrent < 2.0)", //TODO
-          "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)", //TODO
-          "diskQueueSize": "Disk queue size", //TODO
-          "diskIoType": "Disk IO Type (libtorrent >= 2.0; requires restart)", //TODO
-          "diskIoReadMode": "Disk IO read mode", //TODO
-          "diskIoWriteMode": "Disk IO write mode" //TODO
+          "subheader": "Disque",
+          "diskCache": "Cache du disque (libtorrent < 2.0)",
+          "diskCacheExpiry": "Intervalle d'expiration du cache disque (libtorrent < 2.0)",
+          "diskQueueSize": "Taille de la file d'attente du disque",
+          "diskIoType": "Type d'E/S du disque (libtorrent >= 2.0; nécessite un redémarrage)",
+          "diskIoReadMode": "Mode de lecture des E/s du disque",
+          "diskIoWriteMode": "Mode d'écriture des E/S du disque"
         },
         "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)", //TODO
         "pieceExtentAffinity": "Use piece extent affinity", //TODO
@@ -935,11 +935,11 @@
         "socketBacklogSize": "Socket backlog size", //TODO
         "networking": {
           "subheader": "Réseau",
-          "outgoingPortsMin": "Outgoing ports (Min) [0: Disabled]", //TODO
-          "outgoingPortsMax": "Outgoing ports (Max) [0: Disabled]", //TODO
-          "upnpLeaseDuration": "UPnP lease duration [0: Permanent lease]", //TODO
-          "peerTos": "DSCP value for connections to peers", //TODO
-          "utpTcpMixedModeAlgorithm": "μTP-TCP mixed mode algorithm" //TODO
+          "outgoingPortsMin": "Ports sortants (Min) [0 : désactivé]",
+          "outgoingPortsMax": "Ports sortants (Max) [0 : Désactivé]",
+          "upnpLeaseDuration": "Durée du bail UPnP [0 : bail permanent].",
+          "peerTos": "Valeur DSCP pour les connexions aux pairs",
+          "utpTcpMixedModeAlgorithm": "Mode d'algorithme mixte μTP-TCP"
         },
         "security": {
           "subheader": "Sécurité",
@@ -980,8 +980,8 @@
     "titleOptions": {
       "default": "Défaut",
       "global_speed": "Vitesse globale",
-      "first_torrent_speed": "First Torrent Speed", //TODO 
-      "custom": "Custom" //TODO 
+      "first_torrent_speed": "Vitesse du premier torrent", 
+      "custom": "Personnalisée" 
     },
     "contentLayout": {
       "title": "Torrent content layout", //TODO
@@ -1025,13 +1025,13 @@
     },
     "diskIoType": {
       "default": "Défaut",
-      "memoryMappedFiles": "Memory mapped files", //TODO
-      "posixCompliant": "POSIX-compliant" //TODO
+      "memoryMappedFiles": "Fichiers en mémoire",
+      "posixCompliant": "Conforme à POSIX"
     },
     "diskIoMode": {
       "disableOsCache": "Désactiver le cache système",
       "enableOsCache": "Activer le cache système",
-      "writeThrough": "Write-through (libtorrent >= 2.0.6)" //TODO
+      "writeThrough": "Réécriture (libtorrent >= 2.0.6)"
     },
     "utpTcpMixedMode": {
       "preferTcp": "Préférer TCP",
@@ -1044,7 +1044,7 @@
     "uploadChokingAlgorithm": {
       "roundRobin": "Round-robin", //TODO
       "fastestUpload": "Fastest upload", //TODO
-      "antiLeech": "Anti-leech" //TODO
+      "antiLeech": "Anti-leech"
     },
     "monitoredFolderSaveLocation": {
       "monitoredFolder": "Monitored Folder Location", //TODO
@@ -1058,22 +1058,22 @@
     },
     "connectionStatus": {
       "connected": "Connecté",
-      "firewalled": "Firewalled", //TODO
+      "firewalled": "Firewalled",
       "disconnected": "Déconnecté",
       "unknown": "Inconnu"
     },
     "trackerStatus": {
       "disabled": "Désactivé",
-      "not_yet_contacted": "Not contacted yet", //TODO
-      "working": "Working", //TODO
+      "not_yet_contacted": "Non connecté",
+      "working": "En fonctionnement",
       "updating": "Mise à jour",
-      "not_working": "Not working" //TODO
+      "not_working": "Non fonctionnel"
     },
     "file_priority": {
       "max": "Maximum",
       "high": "Haute",
       "normal": "Normale",
-      "unwanted": "Unwanted" //TODO
+      "unwanted": "Ne pas télécharger"
     },
     "theme": {
       "auto": "Adapter au thème du système",
