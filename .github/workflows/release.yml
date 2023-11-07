@@ -13,7 +13,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Run release please
         uses: google-github-actions/release-please-action@v3
         id: release
@@ -31,8 +30,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.setup-release.outputs.release_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -48,6 +45,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Update locales
+        run: |
+          curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
+          unzip -o -d ./src/locales locales.zip
 
       - name: Build VueTorrent
         run: npm run build
@@ -89,6 +91,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Update locales
+        run: |
+          curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
+          unzip -o -d ./src/locales locales.zip
 
       - name: Build VueTorrent
         run: npm run build
