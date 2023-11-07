@@ -8,7 +8,6 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       upload_url: ${{ steps.release.outputs.upload_url }}
-      release_ref: v${{ steps.release.outputs.version }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -74,8 +73,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.setup-release.outputs.release_ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
