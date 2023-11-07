@@ -8,6 +8,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       upload_url: ${{ steps.release.outputs.upload_url }}
+      release_ref: v${{ steps.release.outputs.version }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
