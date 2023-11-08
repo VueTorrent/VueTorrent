@@ -2,7 +2,7 @@ import { useTorrentBuilder } from '@/composables'
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
-import { uuidFromRaw } from '@/helpers/text.ts'
+import { uuidFromRaw } from '@/helpers/text'
 import { qbit } from '@/services'
 import { useAuthStore } from '@/stores/auth'
 import { useDashboardStore } from '@/stores/dashboard'
@@ -12,7 +12,7 @@ import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
