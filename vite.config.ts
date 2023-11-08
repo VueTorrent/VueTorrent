@@ -7,10 +7,12 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'node:path'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd())
   const qBittorrentPort = env.VITE_QBITTORRENT_PORT ?? '8080'
   const proxyTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
+
+  const version = command === 'build' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)
 
   return {
     base: './',
@@ -29,7 +31,7 @@ export default defineConfig(({ mode }) => {
       }
     },
     define: {
-      'import.meta.env.VITE_PACKAGE_VERSION': process.env.npm_package_version,
+      'import.meta.env.VITE_PACKAGE_VERSION': version,
       'process.env': {}
     },
     plugins: [
