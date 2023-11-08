@@ -1,1 +1,0 @@
-import{as as t}from"./index-eb4687b6.js";import{A as s,a8 as n,a0 as r,C as u}from"./vue-527a2fe8.js";const c=s({__name:"MagnetHandler",setup(m){const a=n(),o=r();return u(async()=>{const e=decodeURIComponent(a.params.url);e.startsWith("magnet:")&&t().pushTorrentToQueue(e),await o.push({name:"dashboard"})}),()=>{}}});export{c as default};
