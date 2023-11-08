@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.1.0](https://github.com/WDaan/VueTorrent/compare/v2.0.1...v2.1.0) (2023-11-08)
+
+
+### Features
+
+* **filters:** Allow to disable filters temporarily ([6f9ee5d](https://github.com/WDaan/VueTorrent/commit/6f9ee5d0e36bd0a9e1707f50edc84d8979ae7a51))
+* **localization:** Bringing back Russian locale ([#1281](https://github.com/WDaan/VueTorrent/issues/1281)) ([20dc684](https://github.com/WDaan/VueTorrent/commit/20dc6843aa587dd571362efa34cd6cc986af4591))
+* **ShareLimit:** Add torrent share limit dialog ([ed0991e](https://github.com/WDaan/VueTorrent/commit/ed0991e0a5b3985dbea40d343dc6a3c8224e1f32))
+* **title:** Ability to set custom browser tab title ([1f58005](https://github.com/WDaan/VueTorrent/commit/1f58005109ab5b8a1cf6d9575246e24a105cc3a8))
+
+
+### Bug Fixes
+
+* **TorrentCard:** Fix properties not being persisted ([#1252](https://github.com/WDaan/VueTorrent/issues/1252)) ([c61b957](https://github.com/WDaan/VueTorrent/commit/c61b957683c5ee6591b27de755fdad062e93e16f))
+
+
+### Improvements
+
+* **faker:** Improve torrent mocking ([#1187](https://github.com/WDaan/VueTorrent/issues/1187)) ([8b1f641](https://github.com/WDaan/VueTorrent/commit/8b1f641fca79ad580bcb6d94f41ad0f52c495e80))
+* **localization:** Integrate Tolgee inside CI ([#1276](https://github.com/WDaan/VueTorrent/issues/1276)) ([86e12da](https://github.com/WDaan/VueTorrent/commit/86e12da8d0f3ef5e2f7b335277590f8769daf104))
+* **TorrentCard:** Only process drag on handle ([#1253](https://github.com/WDaan/VueTorrent/issues/1253)) ([681e59f](https://github.com/WDaan/VueTorrent/commit/681e59f7c76eb5b984aa968782a81d08fd271cc3))
+* **Torrent:** Wrap title ([55c2ef8](https://github.com/WDaan/VueTorrent/commit/55c2ef811543ebcc84124d3304689f2901064e77))
+
 ## [2.0.1](https://github.com/WDaan/VueTorrent/compare/v2.0.0...v2.0.1) (2023-11-04)
 
 
