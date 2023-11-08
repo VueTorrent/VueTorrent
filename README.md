@@ -103,7 +103,7 @@ I'll gladly accept help/pull requests & advice!
 
 ### Localize the app
 
-We use [Tolgee](https://tolgee.io/) to manage translations. You can help translate the app by visiting [this link](https://app.tolgee.io/accept_invitation/sqSGXMwEkKapcAbNotICHxkxhIoPTuQKsrqpXHLxeXDxpTSBSo).
+We use [Tolgee](https://tolgee.io/) to manage translations. If you want to help, let us know which locale do you want to work on in the discord server to be added to the project.
 
 ## Support
 
