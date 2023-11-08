@@ -26,9 +26,6 @@ const paginationSizes = ref([
   50
 ])
 
-const isProduction = computed(() => process.env.NODE_ENV === 'production')
-const isDevelopment = computed(() => process.env.NODE_ENV === 'development')
-
 const theme = computed({
   get() {
     if (vueTorrentStore.matchSystemTheme) return 'auto'
@@ -51,9 +48,9 @@ const themeOptions = [
 ]
 
 const vueTorrentVersion = computed(() => {
-  if (isProduction.value) {
+  if (import.meta.env.PROD) {
     return 'import.meta.env.VITE_PACKAGE_VERSION'
-  } else if (isDevelopment.value) {
+  } else if (import.meta.env.DEV) {
     return 'DEV'
   }
 

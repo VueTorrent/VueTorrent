@@ -2,6 +2,7 @@ import { useTorrentBuilder } from '@/composables'
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
+import { uuidFromRaw } from '@/helpers/text'
 import { qbit } from '@/services'
 import { useAuthStore } from '@/stores/auth'
 import { useDashboardStore } from '@/stores/dashboard'
@@ -10,11 +11,8 @@ import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Category, ServerState } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { generateMultiple } from '@/utils/faker'
 import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
-
-const isProduction = computed(() => process.env.NODE_ENV === 'production')
 
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
@@ -181,9 +179,13 @@ export const useMaindataStore = defineStore('maindata', () => {
       // update torrents
       torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
 
-      if (!isProduction.value && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
-        const count = import.meta.env.VITE_FAKE_TORRENT_COUNT
-        torrents.value.push(...generateMultiple(count).map(t => torrentBuilder.buildFromQbit(t)))
+      if (import.meta.env.DEV && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
+        const count = Number(import.meta.env.VITE_FAKE_TORRENT_COUNT)
+        const fakeTorrents: Partial<Torrent> = (await import('../../__mocks__/torrents.json')).default
+
+        for (let i = 1; i <= count; i++) {
+          torrents.value.push(torrentBuilder.buildFromFaker({ ...fakeTorrents.at(i), hash: uuidFromRaw(BigInt(i)) }, i))
+        }
       }
 
       // filter out deleted torrents from selection
