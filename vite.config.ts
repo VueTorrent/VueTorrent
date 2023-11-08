@@ -7,12 +7,10 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { resolve } from 'node:path'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
   const qBittorrentPort = env.VITE_QBITTORRENT_PORT ?? '8080'
   const proxyTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
-
-  const version = command === 'build' ? process.env.npm_package_version : JSON.stringify(process.env.npm_package_version)
 
   return {
     base: './',
@@ -22,18 +20,16 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            // vue stuff
-            vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persist'],
-            // vuetify stuff
-            vuetify: ['vuetify'],
-            // faker stuff
-            faker: ['@faker-js/faker']
+            apexcharts: ['apexcharts', 'vue3-apexcharts'],
+            faker: ['@faker-js/faker'],
+            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-plugin-persist'],
+            vuetify: ['vuetify']
           }
         }
       }
     },
     define: {
-      'import.meta.env.VITE_PACKAGE_VERSION': version,
+      'import.meta.env.VITE_PACKAGE_VERSION': process.env.npm_package_version,
       'process.env': {}
     },
     plugins: [
@@ -57,7 +53,7 @@ export default defineConfig(({ command, mode }) => {
         base: './',
         useCredentials: true,
         workbox: {
-          maximumFileSizeToCacheInBytes: 10000000,
+          maximumFileSizeToCacheInBytes: 10_000_000,
           skipWaiting: true,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']
         }
