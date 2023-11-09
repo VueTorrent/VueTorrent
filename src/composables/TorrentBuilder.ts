@@ -3,7 +3,7 @@ import { formatEta, getDomainBody } from '@/helpers'
 import { useMaindataStore } from '@/stores/maindata.ts'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker/locale/en'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 

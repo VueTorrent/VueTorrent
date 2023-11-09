@@ -22,12 +22,10 @@ export default defineConfig(({ command, mode }) => {
       rollupOptions: {
         output: {
           manualChunks: {
-            // vue stuff
-            vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persist'],
-            // vuetify stuff
-            vuetify: ['vuetify'],
-            // faker stuff
-            faker: ['@faker-js/faker']
+            apexcharts: ['apexcharts', 'vue3-apexcharts'],
+            faker: ['@faker-js/faker'],
+            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-plugin-persist'],
+            vuetify: ['vuetify']
           }
         }
       }
@@ -57,7 +55,7 @@ export default defineConfig(({ command, mode }) => {
         base: './',
         useCredentials: true,
         workbox: {
-          maximumFileSizeToCacheInBytes: 10000000,
+          maximumFileSizeToCacheInBytes: 10_000_000,
           skipWaiting: true,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']
         }
