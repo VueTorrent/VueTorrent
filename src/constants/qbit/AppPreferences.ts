@@ -12,7 +12,8 @@ export enum ContentLayout {
 
 export enum DynDnsService {
   USE_DYNDNS,
-  USE_NOIP
+  USE_NOIP,
+  USE_NONE = -1
 }
 
 export enum Encryption {
