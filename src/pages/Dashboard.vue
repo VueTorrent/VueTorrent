@@ -326,7 +326,7 @@ function endPress() {
 
         <v-list-item v-for="torrent in paginatedTorrents" :id="`torrent-${torrent.hash}`"
                      :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0" @contextmenu="onRightClick($event, torrent)"
-                     @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress"
+                     @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event, torrent)"
                      @dblclick.prevent="goToInfo(torrent.hash)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
