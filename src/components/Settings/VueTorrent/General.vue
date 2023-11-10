@@ -71,6 +71,7 @@ const registerMagnetHandler = () => {
 
   const templateUrl = location.href.replace('/settings', '/magnet/%s')
   navigator.registerProtocolHandler('magnet', templateUrl)
+  toast.success('Magnet handler registered')
 }
 
 onBeforeMount(() => {
