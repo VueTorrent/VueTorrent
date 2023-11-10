@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.1.1](https://github.com/WDaan/VueTorrent/compare/v2.1.0...v2.1.1) (2023-11-10)
+
+
+### Bug Fixes
+
+* **Navbar:** Add missing bind on right drawer setting ([#1294](https://github.com/WDaan/VueTorrent/issues/1294)) ([672ab08](https://github.com/WDaan/VueTorrent/commit/672ab0863f3ee41a5fb2fd17bdba81306fb91be3))
+* **RightClickMenu:** Fix target not being selected on long press ([#1295](https://github.com/WDaan/VueTorrent/issues/1295)) ([d80cc35](https://github.com/WDaan/VueTorrent/commit/d80cc35e94f3caa94520abf5ed83ba29b7d3bc2c))
+* **settings:** Update drag handling to completed properties ([#1286](https://github.com/WDaan/VueTorrent/issues/1286)) ([dd53e6f](https://github.com/WDaan/VueTorrent/commit/dd53e6fc9d299b506b8c3f28c19ee131aa811430))
+
+
+### Improvements
+
+* **MagnetHandler:** Open add dialog on magnet link ([#1293](https://github.com/WDaan/VueTorrent/issues/1293)) ([0c546f1](https://github.com/WDaan/VueTorrent/commit/0c546f1b373b34162ea437c16a7a0574321a8a7f))
+
 ## [2.1.0](https://github.com/WDaan/VueTorrent/compare/v2.0.1...v2.1.0) (2023-11-08)
 
 
