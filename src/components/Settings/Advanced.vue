@@ -9,7 +9,7 @@ import {
 } from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
 import { usePreferenceStore } from '@/stores/preferences'
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -19,42 +19,42 @@ const resumeDataStorageTypeOptions = [
   { title: t('settings.advanced.qbittorrent.resumeDataStorageType.legacy'), value: ResumeDataStorageType.LEGACY },
   { title: t('settings.advanced.qbittorrent.resumeDataStorageType.sqlite'), value: ResumeDataStorageType.SQLITE }
 ]
-const networkInterfaceOptions = ref([{
+const networkInterfaceOptions = [{
   title: t('settings.advanced.qbittorrent.networking.networkInterfaces.any'),
   value: ''
-}])
-const ipAddressesOptions = ref([
+}]
+const ipAddressesOptions = [
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.all'), value: '' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv4'), value: '0.0.0.0' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' }
-])
-const diskIoTypeOptions = ref([
+]
+const diskIoTypeOptions = [
   { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
   { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
   { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT }
-])
-const diskIoModeReadOptions = ref([
+]
+const diskIoModeReadOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
   { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE }
-])
-const diskIoModeWriteOptions = ref([
+]
+const diskIoModeWriteOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
   { title: t('constants.diskIoMode.enableOsCache'), value: DiskIOMode.ENABLE_OS_CACHE },
   { title: t('constants.diskIoMode.writeThrough'), value: DiskIOMode.WRITE_THROUGH }
-])
-const utpTcpMixedModeOptions = ref([
+]
+const utpTcpMixedModeOptions = [
   { title: t('constants.utpTcpMixedMode.preferTcp'), value: UtpTcpMixedMode.PREFER_TCP },
   { title: t('constants.utpTcpMixedMode.peerProportional'), value: UtpTcpMixedMode.PEER_PROPORTIONAL }
-])
-const uploadSlotsBehaviorOptions = ref([
+]
+const uploadSlotsBehaviorOptions = [
   { title: t('constants.uploadSlotsBehavior.fixedSlots'), value: UploadSlotsBehavior.FIXED_SLOTS },
   { title: t('constants.uploadSlotsBehavior.uploadRateBased'), value: UploadSlotsBehavior.UPLOAD_RATE_BASED }
-])
-const uploadChokingAlgorithmOptions = ref([
+]
+const uploadChokingAlgorithmOptions = [
   { title: t('constants.uploadChokingAlgorithm.roundRobin'), value: UploadChokingAlgorithm.ROUND_ROBIN },
   { title: t('constants.uploadChokingAlgorithm.fastestUpload'), value: UploadChokingAlgorithm.FASTEST_UPLOAD },
   { title: t('constants.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH }
-])
+]
 
 const torrentFileSizeLimit = computed({
   get: () => preferenceStore.preferences!.torrent_file_size_limit / 1024 / 1024,
@@ -66,12 +66,12 @@ const torrentFileSizeLimit = computed({
 onBeforeMount(async () => {
   const networkInterfaces = await qbit.getNetworkInterfaces()
   for (const networkInterface of networkInterfaces) {
-    networkInterfaceOptions.value.push({ title: networkInterface.name, value: networkInterface.value })
+    networkInterfaceOptions.push({ title: networkInterface.name, value: networkInterface.value })
   }
 
   const ipAddresses = await qbit.getAddresses(preferenceStore.preferences!.current_network_interface)
   for (const ipAddress of ipAddresses) {
-    ipAddressesOptions.value.push({ title: ipAddress, value: ipAddress })
+    ipAddressesOptions.push({ title: ipAddress, value: ipAddress })
   }
 })
 </script>
@@ -87,22 +87,13 @@ onBeforeMount(async () => {
     </v-list-subheader>
 
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.resume_data_storage_type" hide-details
-                :items="resumeDataStorageTypeOptions"
-                :label="$t('settings.advanced.qbittorrent.resumeDataStorageType.label')" />
-    </v-list-item>
-
-    <v-list-item>
       <v-row>
-        <v-col cols="12" sm="4">
-          <v-text-field
-            v-model="preferenceStore.preferences!.memory_working_set_limit"
-            type="number"
-            hide-details
-            suffix="MiB"
-            :label="t('settings.advanced.qbittorrent.allocatedRam')" />
+        <v-col cols="12" sm="6">
+          <v-select v-model="preferenceStore.preferences!.resume_data_storage_type" hide-details
+                    :items="resumeDataStorageTypeOptions"
+                    :label="$t('settings.advanced.qbittorrent.resumeDataStorageType.label')" />
         </v-col>
-        <v-col cols="12" sm="4">
+        <v-col cols="12" sm="6">
           <v-text-field
             v-model="preferenceStore.preferences!.save_resume_data_interval"
             type="number"
@@ -110,7 +101,16 @@ onBeforeMount(async () => {
             :suffix="t('units.minutes')"
             :label="t('settings.advanced.qbittorrent.saveInterval')" />
         </v-col>
-        <v-col cols="12" sm="4">
+
+        <v-col cols="12" sm="6">
+          <v-text-field
+            v-model="preferenceStore.preferences!.memory_working_set_limit"
+            type="number"
+            hide-details
+            suffix="MiB"
+            :label="t('settings.advanced.qbittorrent.allocatedRam')" />
+        </v-col>
+        <v-col cols="12" sm="6">
           <v-text-field v-model="torrentFileSizeLimit"
                         type="number"
                         hide-details
@@ -205,15 +205,6 @@ onBeforeMount(async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.bdecode_depth_limit" type="number" hide-details
-                        :label="t('settings.advanced.libtorrent.threads.bdecodeDepthLimit')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.bdecode_token_limit" type="number" hide-details
-                        :label="t('settings.advanced.libtorrent.threads.bdecodeTokenLimit')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
           <v-text-field v-model="preferenceStore.preferences!.async_io_threads" type="number" hide-details
                         :label="t('settings.advanced.libtorrent.threads.asyncIoThreads')" />
         </v-col>
@@ -285,10 +276,19 @@ onBeforeMount(async () => {
       </v-row>
     </v-list-item>
 
-    <v-divider class="mx-10 mt-3" />
+    <v-divider class="mx-10 my-3" />
 
     <v-list-item>
       <v-row>
+        <v-col cols="12" sm="6">
+          <v-text-field v-model="preferenceStore.preferences!.bdecode_depth_limit" type="number" hide-details
+                        :label="t('settings.advanced.libtorrent.threads.bdecodeDepthLimit')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-text-field v-model="preferenceStore.preferences!.bdecode_token_limit" type="number" hide-details
+                        :label="t('settings.advanced.libtorrent.threads.bdecodeTokenLimit')" />
+        </v-col>
+
         <v-col cols="12" sm="4">
           <v-checkbox v-model="preferenceStore.preferences!.enable_coalesce_read_write" hide-details
                       :label="t('settings.advanced.libtorrent.coalesceReadsWrites')" />
@@ -336,13 +336,13 @@ onBeforeMount(async () => {
         </v-col>
 
         <v-col cols="12" sm="4">
-          <v-text-field v-model="preferenceStore.preferences!.socket_send_buffer_size" type="number" hide-details
+          <v-text-field v-model="preferenceStore.preferences!.socket_send_buffer_size" type="number"
                         :label="t('settings.advanced.libtorrent.socketSendBufferSize')"
                         :hint="$t('settings.advanced.libtorrent.socketSendBufferSizeHint')"
           suffix="kiB" />
         </v-col>
         <v-col cols="12" sm="4">
-          <v-text-field v-model="preferenceStore.preferences!.socket_receive_buffer_size" type="number" hide-details
+          <v-text-field v-model="preferenceStore.preferences!.socket_receive_buffer_size" type="number"
                         :label="t('settings.advanced.libtorrent.socketReceiveBufferSize')"
                         :hint="$t('settings.advanced.libtorrent.socketReceiveBufferSizeHint')"
                         suffix="kiB" />

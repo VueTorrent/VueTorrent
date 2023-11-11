@@ -152,6 +152,7 @@ const thenTypes = ref([
             v-model="preferenceStore.preferences!.max_seeding_time"
             :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
             type="number"
+            hide-details
             :suffix="t('units.minutes')" />
         </v-col>
       </v-row>
@@ -187,7 +188,7 @@ const thenTypes = ref([
       </v-row>
     </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-3" />
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.add_trackers_enabled" hide-details :label="t('settings.bittorrent.autoAddTrackers')" />

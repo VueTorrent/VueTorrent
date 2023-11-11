@@ -36,12 +36,10 @@ export enum MaxRatioAction {
 }
 
 export enum ProxyType {
-  DISABLED = 0,
-  HTTP = 1,
-  SOCKS5 = 2,
-  HTTP_PW = 3,
-  SOCKS5_PW = 4,
-  SOCKS4 = 5
+  NONE = 'None',
+  SOCKS4 = 'SOCKS4',
+  SOCKS5 = 'SOCKS5',
+  HTTP = 'HTTP'
 }
 
 export enum ResumeDataStorageType {
@@ -53,6 +51,7 @@ export enum ScanDirsEnum {
   MONITORED_FOLDER,
   DEFAULT_SAVE_PATH
 }
+
 export type ScanDirs = ScanDirsEnum | string
 
 export enum SchedulerDays {

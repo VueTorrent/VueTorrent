@@ -204,12 +204,6 @@ const closeDeleteDialog = async () => {
         </v-col>
 
         <v-col cols="12">
-          <v-checkbox v-model="preferenceStore.preferences!.use_subcategories"
-                      hide-details
-                      :label="t('settings.downloads.saveManagement.useSubcategories')" />
-        </v-col>
-
-        <v-col cols="12">
           <v-text-field v-model="preferenceStore.preferences!.save_path" hide-details :label="t('settings.downloads.saveManagement.defaultSavePath')" />
         </v-col>
 
