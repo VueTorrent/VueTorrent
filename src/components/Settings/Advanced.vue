@@ -9,7 +9,7 @@ import {
 } from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
 import { usePreferenceStore } from '@/stores/preferences'
-import { onBeforeMount, ref } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -56,6 +56,13 @@ const uploadChokingAlgorithmOptions = ref([
   { title: t('constants.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH }
 ])
 
+const torrentFileSizeLimit = computed({
+  get: () => preferenceStore.preferences!.torrent_file_size_limit / 1024 / 1024,
+  set: (value: number) => {
+    preferenceStore.preferences!.torrent_file_size_limit = value * 1024 * 1024
+  }
+})
+
 onBeforeMount(async () => {
   const networkInterfaces = await qbit.getNetworkInterfaces()
   for (const networkInterface of networkInterfaces) {
@@ -81,12 +88,13 @@ onBeforeMount(async () => {
 
     <v-list-item>
       <v-select v-model="preferenceStore.preferences!.resume_data_storage_type" hide-details
-                :items="resumeDataStorageTypeOptions" :label="$t('settings.advanced.qbittorrent.resumeDataStorageType.label')" />
+                :items="resumeDataStorageTypeOptions"
+                :label="$t('settings.advanced.qbittorrent.resumeDataStorageType.label')" />
     </v-list-item>
 
     <v-list-item>
       <v-row>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="4">
           <v-text-field
             v-model="preferenceStore.preferences!.memory_working_set_limit"
             type="number"
@@ -94,14 +102,20 @@ onBeforeMount(async () => {
             suffix="MiB"
             :label="t('settings.advanced.qbittorrent.allocatedRam')" />
         </v-col>
-
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="4">
           <v-text-field
             v-model="preferenceStore.preferences!.save_resume_data_interval"
             type="number"
             hide-details
             :suffix="t('units.minutes')"
             :label="t('settings.advanced.qbittorrent.saveInterval')" />
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-text-field v-model="torrentFileSizeLimit"
+                        type="number"
+                        hide-details
+                        suffix="MiB"
+                        :label="$t('settings.advanced.qbittorrent.torrentFileSizeLimit')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -313,14 +327,27 @@ onBeforeMount(async () => {
             :label="t('settings.advanced.libtorrent.sendBufferWatermarkFactor')" />
         </v-col>
 
-        <v-col cols="12" sm="6">
+        <v-col cols="12">
           <v-text-field
             v-model="preferenceStore.preferences!.connection_speed"
             type="number"
             hide-details
             :label="t('settings.advanced.libtorrent.outgoingConnectionsPerSecond')" />
         </v-col>
-        <v-col cols="12" sm="6">
+
+        <v-col cols="12" sm="4">
+          <v-text-field v-model="preferenceStore.preferences!.socket_send_buffer_size" type="number" hide-details
+                        :label="t('settings.advanced.libtorrent.socketSendBufferSize')"
+                        :hint="$t('settings.advanced.libtorrent.socketSendBufferSizeHint')"
+          suffix="kiB" />
+        </v-col>
+        <v-col cols="12" sm="4">
+          <v-text-field v-model="preferenceStore.preferences!.socket_receive_buffer_size" type="number" hide-details
+                        :label="t('settings.advanced.libtorrent.socketReceiveBufferSize')"
+                        :hint="$t('settings.advanced.libtorrent.socketReceiveBufferSizeHint')"
+                        suffix="kiB" />
+        </v-col>
+        <v-col cols="12" sm="4">
           <v-text-field v-model="preferenceStore.preferences!.socket_backlog_size" type="number" hide-details
                         :label="t('settings.advanced.libtorrent.socketBacklogSize')" />
         </v-col>
