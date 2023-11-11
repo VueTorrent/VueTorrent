@@ -149,6 +149,10 @@ const closeDeleteDialog = async () => {
     <v-list-item>
       <v-select v-model="preferenceStore.preferences!.torrent_content_layout" hide-details :items="contentLayoutOptions" :label="t('constants.contentLayout.title')" />
 
+      <v-checkbox v-model="preferenceStore.preferences!.add_to_top_of_queue" hide-details :label="t('settings.downloads.whenAddTorrent.addToTopOfQueue')" />
+
+      <v-checkbox v-model="preferenceStore.preferences!.merge_trackers" hide-details :label="t('settings.downloads.whenAddTorrent.mergeTrackers')" />
+
       <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
       <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />

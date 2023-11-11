@@ -22,6 +22,12 @@ export enum Encryption {
   FORCE_OFF
 }
 
+export enum FileLogAgeType {
+  DAYS,
+  MONTHS,
+  YEARS
+}
+
 export enum MaxRatioAction {
   PAUSE_TORRENT = 0,
   REMOVE_TORRENT = 1,
@@ -36,6 +42,11 @@ export enum ProxyType {
   HTTP_PW = 3,
   SOCKS5_PW = 4,
   SOCKS4 = 5
+}
+
+export enum ResumeDataStorageType {
+  LEGACY = 'Legacy',
+  SQLITE = 'SQLite'
 }
 
 export enum ScanDirsEnum {

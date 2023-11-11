@@ -1,3 +1,4 @@
+import { FileLogAgeType, ResumeDataStorageType } from '@/constants/qbit/AppPreferences'
 import type {
   BitTorrentProtocol,
   ContentLayout,
@@ -75,7 +76,8 @@ export default interface AppPreferences {
   connection_speed: number
   /** IP Address to bind to. Empty String means All addresses */
   current_interface_address: string
-  current_interface_name: string
+  /** Current network interface name used. readonly field */
+  readonly current_interface_name: string
   /** Network Interface used */
   current_network_interface: string
   /** True if DHT is enabled */
@@ -124,7 +126,7 @@ export default interface AppPreferences {
   /** Path to directory to copy .torrent files of completed downloads to. Slashes are used as path separators */
   export_dir_fin: string
   file_log_age: number
-  file_log_age_type: number
+  file_log_age_type: FileLogAgeType
   file_log_backup_enabled: boolean
   file_log_delete_old: boolean
   file_log_enabled: boolean
@@ -242,7 +244,7 @@ export default interface AppPreferences {
   request_queue_size: number
   /** True resolves peer countries */
   resolve_peer_countries: boolean
-  resume_data_storage_type: string
+  resume_data_storage_type: ResumeDataStorageType
   /** Enable auto-downloading of torrents from the RSS feeds */
   rss_auto_downloading_enabled: boolean
   /** For API ≥ v2.5.1: Enable downloading of repack/proper Episodes */

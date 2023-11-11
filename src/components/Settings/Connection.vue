@@ -119,7 +119,8 @@ watch(
 <template>
   <v-list>
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.bittorrent_protocol" hide-details :items="bittorrent_protocol" :label="t('settings.connection.protocol')" />
+      <v-select v-model="preferenceStore.preferences!.bittorrent_protocol" hide-details :items="bittorrent_protocol"
+                :label="t('settings.connection.protocol')" />
     </v-list-item>
 
     <v-divider class="mt-3" />
@@ -128,16 +129,21 @@ watch(
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.listen_port" type="number" hide-details :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
+          <v-text-field v-model="preferenceStore.preferences!.listen_port" type="number" hide-details
+                        :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }}</v-btn>
+          <v-btn color="primary" @click="generateRandomPort">{{
+              t('settings.connection.listeningPort.randomPort')
+            }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.upnp" hide-details :label="t('settings.connection.listeningPort.useUPnP')" />
+      <v-checkbox v-model="preferenceStore.preferences!.upnp" hide-details
+                  :label="t('settings.connection.listeningPort.useUPnP')" />
     </v-list-item>
 
     <v-divider />
@@ -215,31 +221,46 @@ watch(
             hide-details
             :label="t('settings.connection.proxy.port')" />
         </v-col>
+
+        <v-col cols="12">
+          <v-checkbox
+            v-model="preferenceStore.preferences!.proxy_hostname_lookup"
+            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+            hide-details
+            :label="t('settings.connection.proxy.hostNameLookup')" />
+        </v-col>
       </v-row>
     </v-list-item>
 
     <v-list-item>
       <v-row no-gutters>
-        <v-col cols="12" md="4">
+        <v-col cols="12" sm="6" md="3">
+          <v-checkbox
+            v-model="preferenceStore.preferences!.proxy_bittorrent"
+            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
+            hide-details
+            :label="t('settings.connection.proxy.bittorrent')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="3">
           <v-checkbox
             v-model="preferenceStore.preferences!.proxy_peer_connections"
             :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             hide-details
             :label="t('settings.connection.proxy.peerConnections')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" sm="6" md="3">
           <v-checkbox
-            v-model="preferenceStore.preferences!.proxy_torrents_only"
-            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+            v-model="preferenceStore.preferences!.proxy_rss"
+            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             hide-details
-            :label="t('settings.connection.proxy.torrentOnly')" />
+            :label="t('settings.connection.proxy.rss')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" sm="6" md="3">
           <v-checkbox
-            v-model="preferenceStore.preferences!.proxy_hostname_lookup"
-            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED || preferenceStore.preferences!.proxy_type === ProxyType.SOCKS4"
+            v-model="preferenceStore.preferences!.proxy_misc"
+            :disabled="preferenceStore.preferences!.proxy_type === ProxyType.DISABLED"
             hide-details
-            :label="t('settings.connection.proxy.hostNameLookup')" />
+            :label="t('settings.connection.proxy.misc')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -291,12 +312,15 @@ watch(
     <v-list-subheader>{{ t('settings.connection.ipFiltering.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_enabled" hide-details :label="t('settings.connection.ipFiltering.filterPath')" />
-      <v-text-field v-model="preferenceStore.preferences!.ip_filter_path" :disabled="!preferenceStore.preferences!.ip_filter_enabled" hide-details />
+      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_enabled" hide-details
+                  :label="t('settings.connection.ipFiltering.filterPath')" />
+      <v-text-field v-model="preferenceStore.preferences!.ip_filter_path"
+                    :disabled="!preferenceStore.preferences!.ip_filter_enabled" hide-details />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_trackers" hide-details :label="t('settings.connection.ipFiltering.applyToTrackers')" />
+      <v-checkbox v-model="preferenceStore.preferences!.ip_filter_trackers" hide-details
+                  :label="t('settings.connection.ipFiltering.applyToTrackers')" />
     </v-list-item>
 
     <v-list-item>
@@ -304,7 +328,8 @@ watch(
     </v-list-item>
 
     <v-list-item>
-      <v-textarea v-model="preferenceStore.preferences!.banned_IPs" auto-grow clearable persistent-hint :hint="t('settings.connection.ipFiltering.bannedIpsHint')" />
+      <v-textarea v-model="preferenceStore.preferences!.banned_IPs" auto-grow clearable persistent-hint
+                  :hint="t('settings.connection.ipFiltering.bannedIpsHint')" />
     </v-list-item>
   </v-list>
 </template>

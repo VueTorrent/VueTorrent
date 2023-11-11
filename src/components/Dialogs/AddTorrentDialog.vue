@@ -89,7 +89,8 @@ const onCategoryChanged = () => {
       <v-card-text>
         <v-row>
           <v-col>
-            <v-file-input v-model="navbarStore.addTorrentDialogFiles" :label="t('dialogs.add.files')" :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
+            <v-file-input v-model="navbarStore.addTorrentDialogFiles" :label="t('dialogs.add.files')"
+                          :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
                           accept=".torrent" counter multiple
                           persistent-clear persistent-hint prepend-icon="" variant="outlined">
               <template v-slot:prepend>
@@ -184,23 +185,28 @@ const onCategoryChanged = () => {
           <v-col>
             <v-list>
               <v-list-item>
-                <v-checkbox v-model="navbarStore.addTorrentDialogForm.startNow" :label="t('dialogs.add.startNow')" density="compact"
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.startNow" :label="t('dialogs.add.startNow')"
+                            density="compact"
                             hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="navbarStore.addTorrentDialogForm.skipChecking" :label="t('dialogs.add.skipChecking')" density="compact"
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.skipChecking"
+                            :label="t('dialogs.add.skipChecking')" density="compact"
                             hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="navbarStore.addTorrentDialogForm.autoTMM" :label="t('dialogs.add.autoTMM')" density="compact"
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.autoTMM" :label="t('dialogs.add.autoTMM')"
+                            density="compact"
                             hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="navbarStore.addTorrentDialogForm.sequentialDownload" :label="t('dialogs.add.sequentialDownload')" density="compact"
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.sequentialDownload"
+                            :label="t('dialogs.add.sequentialDownload')" density="compact"
                             hide-details />
               </v-list-item>
               <v-list-item>
-                <v-checkbox v-model="navbarStore.addTorrentDialogForm.firstLastPiecePrio" :label="t('dialogs.add.firstLastPiecePrio')" density="compact"
+                <v-checkbox v-model="navbarStore.addTorrentDialogForm.firstLastPiecePrio"
+                            :label="t('dialogs.add.firstLastPiecePrio')" density="compact"
                             hide-details />
               </v-list-item>
             </v-list>
@@ -209,7 +215,8 @@ const onCategoryChanged = () => {
       </v-card-text>
 
       <v-card-actions class="justify-center">
-        <v-btn :disabled="!isFormValid" :loading="isLoading" color="accent" variant="elevated" :text="$t('dialogs.add.submit')" @click="submit" />
+        <v-btn :disabled="!isFormValid" :loading="isLoading" color="accent" variant="elevated"
+               :text="$t('dialogs.add.submit')" @click="submit" />
         <v-btn color="error" variant="flat" :text="$t('common.close')" @click="close" />
       </v-card-actions>
     </v-card>
