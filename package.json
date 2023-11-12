@@ -6,7 +6,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "npm run check-build && vite build",
     "check-build": "vue-tsc",
     "preview": "vite preview",
     "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u --ignore-path .gitignore",

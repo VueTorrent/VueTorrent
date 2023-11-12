@@ -1,0 +1,21 @@
+name: 'Tolgee Actions'
+description: 'Extract metadata and data from Tolgee project'
+inputs:
+  tolgee_secret:
+    description: 'Valid API key for the Tolgee project to use'
+    required: true
+  author_name:
+    description: 'Name used when updating locale data'
+    required: false
+    default: 'github-actions[bot]'
+  author_email:
+    description: 'Email used when updating locale data'
+    required: false
+    default: 'github-actions[bot]@users.noreply.github.com'
+  commit_message:
+    description: 'Commit message used when updating locale data'
+    required: false
+    default: ''
+runs:
+  using: node20
+  main: 'dist/index.js'
