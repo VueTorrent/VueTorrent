@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,9 +28,10 @@ jobs:
         run: npm ci
 
       - name: Update locales
-        run: |
-          curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
-          unzip -o -d ./src/locales locales.zip
+        uses: ./tolgee-action
+        with:
+          tolgee_secret: ${{ secrets.TOLGEE_TOKEN }}
+          commit_message: 'chore(localization): Pull changes from Tolgee'
 
       - name: Build VueTorrent
         run: npm run build
