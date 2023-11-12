@@ -32,11 +32,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update locales
+      - name: Update locales data
         run: |
           curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
           unzip -o -d ./src/locales locales.zip
           rm locales.zip
+
+      - name: Update locales metadata
+        uses: VueTorrent/tolgee-action@v1
+        with:
+          tolgee_secret: ${{ secrets.TOLGEE_TOKEN }}
 
       - name: Lint
         run: npm run lint
