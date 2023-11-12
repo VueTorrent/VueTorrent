@@ -141,6 +141,7 @@ const thenTypes = ref([
         </v-col>
       </v-row>
     </v-list-item>
+
     <v-list-item>
       <v-row>
         <v-col cols="6">
@@ -151,10 +152,27 @@ const thenTypes = ref([
             v-model="preferenceStore.preferences!.max_seeding_time"
             :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
             type="number"
+            hide-details
             :suffix="t('units.minutes')" />
         </v-col>
       </v-row>
     </v-list-item>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="6">
+          <v-checkbox v-model="preferenceStore.preferences!.max_inactive_seeding_time_enabled" hide-details :label="t('settings.bittorrent.seedLimits.whenInactiveSeedingTimeReaches')" />
+        </v-col>
+        <v-col cols="6">
+          <v-text-field
+            v-model="preferenceStore.preferences!.max_inactive_seeding_time"
+            :disabled="!preferenceStore.preferences!.max_inactive_seeding_time_enabled"
+            type="number"
+            :suffix="t('units.minutes')" />
+        </v-col>
+      </v-row>
+    </v-list-item>
+
     <v-list-item>
       <v-row>
         <v-col>
@@ -170,7 +188,7 @@ const thenTypes = ref([
       </v-row>
     </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-3" />
 
     <v-list-item>
       <v-checkbox v-model="preferenceStore.preferences!.add_trackers_enabled" hide-details :label="t('settings.bittorrent.autoAddTrackers')" />

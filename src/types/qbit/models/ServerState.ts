@@ -3,7 +3,6 @@ import type { ConnectionStatus } from '@/constants/qbit'
 export default interface ServerState {
   alltime_dl: number
   alltime_ul: number
-  alltime_ratio: number
   average_time_queue: number
   connection_status: ConnectionStatus
   dht_nodes: number
@@ -25,5 +24,6 @@ export default interface ServerState {
   up_info_speed: number
   up_rate_limit: number
   use_alt_speed_limits: boolean
+  use_subcategories: boolean
   write_cache_overload: string
 }

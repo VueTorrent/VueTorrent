@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Behavior from '@/components/Settings/Behavior.vue'
 import { useDialogStore } from '@/stores/dialog'
 import { usePreferenceStore } from '@/stores/preferences'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
@@ -85,6 +86,7 @@ onBeforeUnmount(() => {
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
         <v-tab value="vuetorrent">{{ t('settings.tabs.vuetorrent') }}</v-tab>
+        <v-tab value="behavior">{{ t('settings.tabs.behavior') }}</v-tab>
         <v-tab value="downloads">{{ t('settings.tabs.downloads') }}</v-tab>
         <v-tab value="connection">{{ t('settings.tabs.connection') }}</v-tab>
         <v-tab value="speed">{{ t('settings.tabs.speed') }}</v-tab>
@@ -114,6 +116,10 @@ onBeforeUnmount(() => {
             <VTorrentCard />
           </v-window-item>
         </v-window>
+      </v-window-item>
+
+      <v-window-item value="behavior">
+        <Behavior />
       </v-window-item>
 
       <v-window-item value="downloads">

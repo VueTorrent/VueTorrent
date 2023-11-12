@@ -1,3 +1,4 @@
+import { FileLogAgeType, ResumeDataStorageType } from '@/constants/qbit/AppPreferences'
 import type {
   BitTorrentProtocol,
   ContentLayout,
@@ -20,12 +21,8 @@ export interface NetworkInterface {
   value: string
 }
 
-export interface NetworkInterface {
-  name: string
-  value: string
-}
-
 export default interface AppPreferences {
+  add_to_top_of_queue: boolean
   /** List of trackers to add to new torrent */
   add_trackers: string
   /** Enable automatic adding of trackers to new torrents */
@@ -53,14 +50,16 @@ export default interface AppPreferences {
   auto_tmm_enabled: boolean
   /** True if external program should be run after torrent has finished downloading */
   autorun_enabled: boolean
-  /** Program path/name/arguments to run if autorun_enabled is enabled; path is separated by slashes; you can use %f and %n arguments, which will be expanded by qBittorent as path_to_torrent_file and torrent_name (from the GUI; not the .torrent file name) respectively */
-  autorun_program: string
   /** True if external program should be run after torrent has been added */
   autorun_on_torrent_added_enabled: boolean
   /** Program path/name/arguments to run if autorun_on_torrent_added_enabled is enabled; path is separated by slashes; you can use %f and %n arguments, which will be expanded by qBittorent as path_to_torrent_file and torrent_name (from the GUI; not the .torrent file name) respectively */
   autorun_on_torrent_added_program: string
+  /** Program path/name/arguments to run if autorun_enabled is enabled; path is separated by slashes; you can use %f and %n arguments, which will be expanded by qBittorent as path_to_torrent_file and torrent_name (from the GUI; not the .torrent file name) respectively */
+  autorun_program: string
   /** List of banned IPs */
   banned_IPs: string
+  bdecode_depth_limit: number
+  bdecode_token_limit: number
   /** Bittorrent Protocol to use (see list of possible values below) */
   bittorrent_protocol: BitTorrentProtocol
   block_peers_on_privileged_ports: boolean
@@ -77,6 +76,8 @@ export default interface AppPreferences {
   connection_speed: number
   /** IP Address to bind to. Empty String means All addresses */
   current_interface_address: string
+  /** Current network interface name used. readonly field */
+  readonly current_interface_name: string
   /** Network Interface used */
   current_network_interface: string
   /** True if DHT is enabled */
@@ -124,6 +125,13 @@ export default interface AppPreferences {
   export_dir: string
   /** Path to directory to copy .torrent files of completed downloads to. Slashes are used as path separators */
   export_dir_fin: string
+  file_log_age: number
+  file_log_age_type: FileLogAgeType
+  file_log_backup_enabled: boolean
+  file_log_delete_old: boolean
+  file_log_enabled: boolean
+  file_log_max_size: number
+  file_log_path: string
   /** File pool size */
   file_pool_size: number
   hashing_threads: number
@@ -176,6 +184,8 @@ export default interface AppPreferences {
   max_connec: number
   /** Maximum number of simultaneous connections per torrent */
   max_connec_per_torrent: number
+  max_inactive_seeding_time: number
+  max_inactive_seeding_time_enabled: boolean
   /** Get the global share ratio limit */
   max_ratio: number
   /** Action performed when a torrent reaches the maximum share ratio. See list of possible values here below. */
@@ -191,6 +201,7 @@ export default interface AppPreferences {
   /** Maximum number of upload slots per torrent */
   max_uploads_per_torrent: number
   memory_working_set_limit: number
+  merge_trackers: boolean
   /** Maximal outgoing port (0: Disabled) */
   outgoing_ports_max: number
   /** Minimal outgoing port (0: Disabled) */
@@ -206,17 +217,18 @@ export default interface AppPreferences {
   preallocate_all: boolean
   /** True proxy requires authentication; doesn't apply to SOCKS4 proxies */
   proxy_auth_enabled: boolean
+  proxy_bittorrent: boolean
   proxy_hostname_lookup: boolean
   /** Proxy IP address or domain name */
   proxy_ip: string
+  proxy_misc: boolean
   /** Password for proxy authentication */
   proxy_password: string
   /** True if peer and web seed connections should be proxified; this option will have any effect only in qBittorent built against libtorrent version 0.16.X and higher */
   proxy_peer_connections: boolean
   /** Proxy port */
   proxy_port: number
-  /** True if proxy is only used for torrents */
-  proxy_torrents_only: boolean
+  proxy_rss: boolean
   /** See list of possible values here below */
   proxy_type: ProxyType
   /** Username for proxy authentication */
@@ -232,6 +244,7 @@ export default interface AppPreferences {
   request_queue_size: number
   /** True resolves peer countries */
   resolve_peer_countries: boolean
+  resume_data_storage_type: ResumeDataStorageType
   /** Enable auto-downloading of torrents from the RSS feeds */
   rss_auto_downloading_enabled: boolean
   /** For API ≥ v2.5.1: Enable downloading of repack/proper Episodes */
@@ -278,6 +291,8 @@ export default interface AppPreferences {
   slow_torrent_ul_rate_threshold: number
   /** Socket backlog size */
   socket_backlog_size: number
+  socket_receive_buffer_size: number
+  socket_send_buffer_size: number
   ssrf_mitigation: boolean
   /** True if torrents should be added in a Paused state */
   start_paused_enabled: boolean
@@ -291,6 +306,7 @@ export default interface AppPreferences {
   torrent_changed_tmm_enabled: boolean
   /** Default content layout to select when adding a new torrent */
   torrent_content_layout: ContentLayout
+  torrent_file_size_limit: number
   /** Default stop condition to select when adding a new torrent */
   torrent_stop_condition: StopCondition
   /** Global upload speed limit in KiB/s; 0 means no limit is applied */
@@ -306,6 +322,7 @@ export default interface AppPreferences {
   use_category_paths_in_manual_mode: boolean
   /** True if WebUI HTTPS access is enabled */
   use_https: boolean
+  use_subcategories: boolean
   /** μTP-TCP mixed mode algorithm (see list of possible values below) */
   utp_tcp_mixed_mode: UtpTcpMixedMode
   validate_https_tracker_certificate: boolean
