@@ -181,7 +181,7 @@ const thenTypes = ref([
         <v-col>
           <v-select
             v-model="preferenceStore.preferences!.max_ratio_act"
-            :disabled="!preferenceStore.preferences!.max_ratio_enabled && !preferenceStore.preferences!.max_seeding_time_enabled"
+            :disabled="!preferenceStore.preferences!.max_ratio_enabled && !preferenceStore.preferences!.max_seeding_time_enabled && !preferenceStore.preferences!.max_inactive_seeding_time_enabled"
             hide-details
             :items="thenTypes" />
         </v-col>
