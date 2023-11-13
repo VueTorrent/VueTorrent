@@ -19,7 +19,7 @@
     "@mdi/js": "^7.2.96",
     "@vueuse/core": "^10.5.0",
     "apexcharts": "^3.44.0",
-    "axios": "^1.5.0",
+    "axios": "^1.6.1",
     "dayjs": "^1.11.9",
     "lodash.debounce": "^4.0.8",
     "pinia": "^2.1.6",
