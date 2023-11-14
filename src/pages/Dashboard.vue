@@ -19,9 +19,16 @@ import { useDisplay } from 'vuetify'
 const { t } = useI18n()
 const router = useRouter()
 const display = useDisplay()
+const {
+  currentPage: dashboardPage,
+  isSelectionMultiple,
+  selectedTorrents,
+  sortOptions,
+  torrentCountString
+} = storeToRefs(useDashboardStore())
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
-const { currentPage: dashboardPage, filteredTorrents, isSelectionMultiple, selectedTorrents, sortOptions, torrentCountString } = storeToRefs(useDashboardStore())
+const { filteredTorrents } = storeToRefs(useMaindataStore())
 const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -90,8 +97,8 @@ const trcProperties = reactive({
 
 const torrentTitleFilter = computed({
   get: () => maindataStore.textFilter,
-  set: debounce((newValue: string) => {
-    maindataStore.textFilter = newValue
+  set: debounce((newValue: string | null) => {
+    maindataStore.textFilter = newValue ?? ''
   }, 300)
 })
 
@@ -217,7 +224,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'Delete') {
     if (selectedTorrents.value.length === 0) return
 
-    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: dashboardStore.selectedTorrents })
+    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: selectedTorrents.value })
     e.preventDefault()
     return true
   }
@@ -314,7 +321,7 @@ function endPress() {
         </v-card>
       </v-expand-transition>
     </v-row>
-    <div v-if="dashboardStore.filteredTorrents.length === 0" class="mt-5 text-xs-center">
+    <div v-if="filteredTorrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
     <div v-else>
@@ -326,14 +333,15 @@ function endPress() {
 
         <v-list-item v-for="torrent in paginatedTorrents" :id="`torrent-${torrent.hash}`"
                      :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0" @contextmenu="onRightClick($event, torrent)"
-                     @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event, torrent)"
+                     @touchcancel="endPress" @touchend="endPress" @touchmove="endPress"
+                     @touchstart="startPress($event, torrent)"
                      @dblclick.prevent="goToInfo(torrent.hash)">
           <div class="d-flex align-center">
             <v-expand-x-transition>
-              <v-card v-show="dashboardStore.isSelectionMultiple" class="mr-3" color="transparent">
+              <v-card v-show="isSelectionMultiple" class="mr-3" color="transparent">
                 <v-btn
-                    :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                    color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
+                  :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+                  color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
               </v-card>
             </v-expand-x-transition>
             <Torrent :torrent="torrent" />
@@ -354,6 +362,6 @@ function endPress() {
 
 <style>
 #torrentList {
-    background-color: unset;
+  background-color: unset;
 }
 </style>

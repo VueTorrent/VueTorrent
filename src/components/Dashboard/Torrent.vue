@@ -30,7 +30,7 @@ const torrentProperties = computed(() => {
 
 function onClick(e: MouseEvent) {
   if (e.shiftKey) {
-    dashboardStore.spanTorrentSelection(maindataStore.getTorrentIndexByHash(props.torrent.hash))
+    dashboardStore.spanTorrentSelection(props.torrent.hash)
   } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
     dashboardStore.isSelectionMultiple = true
     dashboardStore.toggleSelect(props.torrent.hash)

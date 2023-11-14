@@ -1,4 +1,4 @@
-import { useTorrentBuilder } from '@/composables'
+import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { SortOptions } from '@/constants/qbit/SortOptions'
 import { extractHostname } from '@/helpers'
@@ -44,15 +44,39 @@ export const useMaindataStore = defineStore('maindata', () => {
         if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
       }
       if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
+
       return true
     })
   })
+  const filteredTorrents = computed(() => searchQuery.results.value)
 
   const authStore = useAuthStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const vueTorrentStore = useVueTorrentStore()
   const torrentBuilder = useTorrentBuilder()
+
+  const searchQuery = useSearchQuery(
+    torrentsWithFilters,
+    () => isTextFilterActive.value ? textFilter.value : null,
+    torrent => torrent.name,
+    results => {
+      if (dashboardStore.sortOptions.isCustomSortEnabled) {
+        if (dashboardStore.sortOptions.sortBy === 'priority') {
+          results.sort((a, b) => {
+            if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
+            else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
+            else if (a.priority <= 0) return 1
+            else return -1
+          })
+        } else {
+          results.sort((a, b) => a[dashboardStore.sortOptions.sortBy] - b[dashboardStore.sortOptions.sortBy] || a.added_on - b.added_on)
+        }
+        if (dashboardStore.sortOptions.reverseOrder) results.reverse()
+      }
+      return results
+    }
+  )
 
   async function fetchCategories() {
     categories.value = await qbit.getCategories()
@@ -139,7 +163,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   function getTorrentIndexByHash(hash: string) {
-    return torrents.value.findIndex(t => t.hash === hash)
+    return filteredTorrents.value.findIndex(t => t.hash === hash)
   }
 
   async function deleteTorrents(hashes: string[], deleteWithFiles: boolean) {
@@ -329,7 +353,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     serverState,
     tags,
     torrents,
-    torrentsWithFilters,
+    filteredTorrents,
     trackers,
     isTextFilterActive,
     textFilter,
@@ -404,7 +428,7 @@ export const useMaindataStore = defineStore('maindata', () => {
           'isTagFilterActive',
           'tagFilter',
           'isTrackerFilterActive',
-          'trackerFilter',
+          'trackerFilter'
         ]
       }
     ]
