@@ -5,9 +5,6 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import colors from 'vuetify/lib/util/colors'
 
-// Labs components
-import { VDataTable } from 'vuetify/labs/VDataTable'
-
 const variables = {
   // Main colors
   primary: '#35495E',
@@ -83,10 +80,7 @@ export enum Theme {
 }
 
 export default createVuetify({
-  components: {
-    ...components,
-    VDataTable
-  },
+  components,
   directives,
   display: {
     mobileBreakpoint: 'sm'
