@@ -35,17 +35,31 @@ const close = () => {
   <v-dialog v-model="isOpened">
     <v-card>
       <v-card-text>
-        <v-list>
-          <v-list-item :title="$t('dialogs.connectionStatus.status')">
-            <span :class="['ml-2', connectionStatusColor]">
-              {{ $t('constants.connectionStatus.' + maindataStore.serverState?.connection_status) }}
-            </span>
-          </v-list-item>
-          <v-list-item :title="$t('dialogs.connectionStatus.externalIp')">
-            <span class="ml-2" v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
-            <span class="ml-2 text-error" v-else>No IP detected</span>
-          </v-list-item>
-        </v-list>
+        <v-row>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.status') }}</div>
+            <div :class="['ml-2', connectionStatusColor]">{{ $t('constants.connectionStatus.' + maindataStore.serverState?.connection_status) }}</div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.externalIp') }}</div>
+            <div class="ml-2">
+              <span v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
+              <span v-else class="text-error">No IP detected</span>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.dht_nodes') }}</div>
+            <div class="ml-2">
+              {{ maindataStore.serverState?.dht_nodes }}
+            </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.total_peer_connections') }}</div>
+            <div class="ml-2">
+              {{ maindataStore.serverState?.total_peer_connections }}
+            </div>
+          </v-col>
+        </v-row>
       </v-card-text>
       <v-card-actions>
         <v-spacer />
