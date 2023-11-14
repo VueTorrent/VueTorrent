@@ -2,7 +2,6 @@
 import { DashboardPropertyType } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore } from '@/stores/dashboard'
-import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
@@ -19,7 +18,6 @@ import ItemText from './DashboardItems/ItemText.vue'
 const props = defineProps<{ torrent: Torrent }>()
 
 const dashboardStore = useDashboardStore()
-const maindataStore = useMaindataStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
