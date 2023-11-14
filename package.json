@@ -41,7 +41,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "@types/node": "^20.9.0",
     "@types/uuid": "^9.0.6",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
     "@typescript-eslint/parser": "^6.9.0",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vitest/coverage-v8": "^0.34.6",
