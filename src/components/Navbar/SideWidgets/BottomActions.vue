@@ -17,6 +17,8 @@ const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const vueTorrentStore = useVueTorrentStore()
 
+const isPublic = import.meta.env.VITE_DISABLE_AUTH === 'true'
+
 const isAltSpeedEnabled = computed(() => !!maindataStore.serverState?.use_alt_speed_limits)
 const connectionStatusIcon = computed(() => {
   switch (maindataStore.serverState?.connection_status) {
@@ -68,7 +70,7 @@ function openConfirmShutdownDialog() {
     <v-col class="d-flex justify-center">
       <v-tooltip :text="t('navbar.side.bottom_actions.logout')" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn variant="plain" icon="mdi-exit-to-app" v-bind="props" @click="logout" />
+          <v-btn variant="plain" icon="mdi-exit-to-app" v-bind="props" @click="logout" v-show="!isPublic"/>
         </template>
       </v-tooltip>
     </v-col>
