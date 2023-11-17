@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { useAuthStore } from '@/stores/auth'
-import { onMounted, reactive, ref } from 'vue'
+import { onMounted, reactive, ref, watchEffect } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
 import { useI18n } from 'vue-i18n'
@@ -52,7 +52,9 @@ onMounted(async () => {
       route.query.password as string
     )
   }
+})
 
+watchEffect(() => {
   if (authStore.isAuthenticated) {
     redirectOnSuccess()
   }
