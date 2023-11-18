@@ -22,6 +22,7 @@ export interface NetworkInterface {
 }
 
 export default interface AppPreferences {
+  /** Whether torrents should be placed at the top of the queue when added */
   add_to_top_of_queue: boolean
   /** List of trackers to add to new torrent */
   add_trackers: string
@@ -35,6 +36,7 @@ export default interface AppPreferences {
   alternative_webui_enabled: boolean
   /** File path to the alternative WebUI */
   alternative_webui_path: string
+  /** IP address reported to trackers */
   announce_ip: string
   /** True always announce to all tiers */
   announce_to_all_tiers: boolean
@@ -58,10 +60,13 @@ export default interface AppPreferences {
   autorun_program: string
   /** List of banned IPs */
   banned_IPs: string
+  /** depth limit used when decoding bencoded torrent files */
   bdecode_depth_limit: number
+  /** token limit used when decoding bencoded torrent files */
   bdecode_token_limit: number
-  /** Bittorrent Protocol to use (see list of possible values below) */
+  /** Bittorrent Protocol to use */
   bittorrent_protocol: BitTorrentProtocol
+  /** Whether peers connection should be blocked on privileged ports (< 1024) */
   block_peers_on_privileged_ports: boolean
   /** (White)list of ipv4/ipv6 subnets for which webui authentication should be bypassed; list entries are separated by commas */
   bypass_auth_subnet_whitelist: string
@@ -73,6 +78,7 @@ export default interface AppPreferences {
   category_changed_tmm_enabled: boolean
   /** Outstanding memory when checking torrents in MiB */
   checking_memory_use: number
+  /** Outgoing connections per second */
   connection_speed: number
   /** IP Address to bind to. Empty String means All addresses */
   current_interface_address: string
@@ -86,9 +92,13 @@ export default interface AppPreferences {
   disk_cache: number
   /** Disk cache expiry interval in seconds */
   disk_cache_ttl: number
+  /** Disk IO read mode */
   disk_io_read_mode: DiskIOMode
+  /** Disk IO type */
   disk_io_type: DiskIOType
+  /** Disk IO write mode */
   disk_io_write_mode: DiskIOMode
+  /** Disk queue size */
   disk_queue_size: number
   /** Global download speed limit in KiB/s; -1 means no limit is applied */
   dl_limit: number
@@ -106,6 +116,7 @@ export default interface AppPreferences {
   dyndns_username: string
   /** Port used for embedded tracker */
   embedded_tracker_port: number
+   /** Enable port forwarding for embedded tracker */
   embedded_tracker_port_forwarding: boolean
   /** True enables coalesce reads & writes */
   enable_coalesce_read_write: boolean
@@ -119,22 +130,39 @@ export default interface AppPreferences {
   enable_upload_suggestions: boolean
   /** See list of possible values here below */
   encryption: Encryption
+  /** File name patterns to automatically exclude on added torrents */
   excluded_file_names: string
+  /** Whether to use the `excluded_file_names` patterns */
   excluded_file_names_enabled: boolean
   /** Path to directory to copy .torrent files to. Slashes are used as path separators */
   export_dir: string
   /** Path to directory to copy .torrent files of completed downloads to. Slashes are used as path separators */
   export_dir_fin: string
+  /** Max backup log files retention time */
   file_log_age: number
+  /** File log age unit */
   file_log_age_type: FileLogAgeType
+  /** Enable log file backup */
   file_log_backup_enabled: boolean
+  /** Enable log file auto-delete after a certain period of time */
   file_log_delete_old: boolean
+  /** Enable log files */
   file_log_enabled: boolean
+  /** Log file max size before backing up */
   file_log_max_size: number
+  /** Log files save path */
   file_log_path: string
   /** File pool size */
   file_pool_size: number
+  /**
+   * Number of disk I/O threads to use for piece hash verification
+   * These threads are in addition to the regular disk I/O threads.
+   *
+   * These are only used when force rechecking torrent.
+   * The hash checking done while downloading are done by the regular disk I/O threads
+   */
   hashing_threads: number
+  /** Support internationalized domain name (IDN) */
   idn_support_enabled: boolean
   /** True if ".!qB" should be appended to incomplete files */
   incomplete_files_ext: boolean
@@ -172,6 +200,7 @@ export default interface AppPreferences {
   mail_notification_ssl_enabled: boolean
   /** Username for smtp authentication */
   mail_notification_username: string
+  /** Max active checking torrents */
   max_active_checking_torrents: number
   /** Maximum number of active simultaneous downloads */
   max_active_downloads: number
@@ -179,12 +208,15 @@ export default interface AppPreferences {
   max_active_torrents: number
   /** Maximum number of active simultaneous uploads */
   max_active_uploads: number
+  /** Limits the number of concurrent HTTP tracker announces */
   max_concurrent_http_announces: number
   /** Maximum global number of simultaneous connections */
   max_connec: number
   /** Maximum number of simultaneous connections per torrent */
   max_connec_per_torrent: number
+  /** Number of minutes to keep seeding a torrent while inactive */
   max_inactive_seeding_time: number
+  /** True enables max inactive seeding time */
   max_inactive_seeding_time_enabled: boolean
   /** Get the global share ratio limit */
   max_ratio: number
@@ -200,16 +232,23 @@ export default interface AppPreferences {
   max_uploads: number
   /** Maximum number of upload slots per torrent */
   max_uploads_per_torrent: number
+  /** Physical memory (RAM) usage limit */
   memory_working_set_limit: number
+  /** Whether trackers should be merged when adding a duplicate torrent */
   merge_trackers: boolean
   /** Maximal outgoing port (0: Disabled) */
   outgoing_ports_max: number
   /** Minimal outgoing port (0: Disabled) */
   outgoing_ports_min: number
+  /** Type of service (ToS) for connections to peers */
   peer_tos: number
+  /** Peer turnover disconnect percentage */
   peer_turnover: number
+  /** Peer turnover threshold percentage */
   peer_turnover_cutoff: number
+  /** Peer turnover disconnect interval */
   peer_turnover_interval: number
+  /** Whether to log performance warnings */
   performance_warning: boolean
   /** True if PeX is enabled */
   pex: boolean
@@ -217,17 +256,21 @@ export default interface AppPreferences {
   preallocate_all: boolean
   /** True proxy requires authentication; doesn't apply to SOCKS4 proxies */
   proxy_auth_enabled: boolean
+  /** Whether to use proxy for BitTorrent purposes */
   proxy_bittorrent: boolean
+  /** Perform hostname lookup via proxy */
   proxy_hostname_lookup: boolean
   /** Proxy IP address or domain name */
   proxy_ip: string
+  /** Whether to use proxy for general purposes */
   proxy_misc: boolean
   /** Password for proxy authentication */
   proxy_password: string
-  /** True if peer and web seed connections should be proxified; this option will have any effect only in qBittorent built against libtorrent version 0.16.X and higher */
+  /** Whether to use proxy for peer connections */
   proxy_peer_connections: boolean
   /** Proxy port */
   proxy_port: number
+  /** Whether to use proxy for RSS purposes */
   proxy_rss: boolean
   /** See list of possible values here below */
   proxy_type: ProxyType
@@ -237,13 +280,17 @@ export default interface AppPreferences {
   queueing_enabled: boolean
   /** True if the port is randomly selected */
   random_port: boolean
+  /** Reannounce to all trackers when IP or port changed */
   reannounce_when_address_changed: boolean
   /** True rechecks torrents on completion */
   recheck_completed_torrents: boolean
+  /** Refresh interval (in ms) */
   refresh_interval: number
+  /** Maximum outstanding requests to a single peer */
   request_queue_size: number
   /** True resolves peer countries */
   resolve_peer_countries: boolean
+  /** Resume data storage type */
   resume_data_storage_type: ResumeDataStorageType
   /** Enable auto-downloading of torrents from the RSS feeds */
   rss_auto_downloading_enabled: boolean
@@ -291,8 +338,11 @@ export default interface AppPreferences {
   slow_torrent_ul_rate_threshold: number
   /** Socket backlog size */
   socket_backlog_size: number
+  /** Socket receive buffer size */
   socket_receive_buffer_size: number
+  /** Socket send buffer size */
   socket_send_buffer_size: number
+  /** Server-side request forgery (SSRF) mitigation **/
   ssrf_mitigation: boolean
   /** True if torrents should be added in a Paused state */
   start_paused_enabled: boolean
@@ -306,6 +356,7 @@ export default interface AppPreferences {
   torrent_changed_tmm_enabled: boolean
   /** Default content layout to select when adding a new torrent */
   torrent_content_layout: ContentLayout
+  /** .torrent file size limit */
   torrent_file_size_limit: number
   /** Default stop condition to select when adding a new torrent */
   torrent_stop_condition: StopCondition
@@ -319,12 +370,15 @@ export default interface AppPreferences {
   upnp: boolean
   /** UPnP lease duration (0: Permanent lease) */
   upnp_lease_duration: number
+  /** Whether to use category save path when autoTMM isn't enabled */
   use_category_paths_in_manual_mode: boolean
   /** True if WebUI HTTPS access is enabled */
   use_https: boolean
+  /** Whether to use subcategories */
   use_subcategories: boolean
   /** μTP-TCP mixed mode algorithm (see list of possible values below) */
   utp_tcp_mixed_mode: UtpTcpMixedMode
+  /** Validate HTTPS tracker certificates */
   validate_https_tracker_certificate: boolean
   /** IP address to use for the WebUI */
   web_ui_address: string
@@ -350,7 +404,9 @@ export default interface AppPreferences {
   web_ui_password?: string
   /** WebUI port */
   web_ui_port: number
+  /** Trusted proxies list */
   web_ui_reverse_proxies_list: string
+  /** Enable reverse proxy support */
   web_ui_reverse_proxy_enabled: boolean
   /** True if WebUI cookie Secure flag is enabled */
   web_ui_secure_cookie_enabled: boolean

@@ -82,6 +82,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     categories.value = await qbit.getCategories()
   }
 
+  function getCategoryFromName(categoryName?: string) {
+    return categories.value.find(c => c.name === categoryName)
+  }
+
   async function createCategory(category: Category) {
     await qbit.createCategory(category)
   }
@@ -369,6 +373,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     getTorrentIndexByHash,
     deleteTorrents,
     fetchCategories,
+    getCategoryFromName,
     createCategory,
     setTorrentCategory,
     editCategory,

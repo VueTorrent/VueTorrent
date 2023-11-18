@@ -1,6 +1,5 @@
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences.ts'
 import { usePreferenceStore } from '@/stores/preferences.ts'
-import { Category } from '@/types/qbit/models'
+import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 
@@ -15,20 +14,9 @@ export const useNavbarStore = defineStore(
     const isAddTorrentDialogFirstInit = ref(true)
 
     const addTorrentDialogFiles = ref<File[]>([])
-    const addTorrentDialogUrls = ref('')
+    const addTorrentDialogUrls = ref<string>('')
 
-    const addTorrentDialogForm = reactive({
-      autoTMM: false,
-      skipChecking: false,
-      sequentialDownload: false,
-      firstLastPiecePrio: false,
-      startNow: true,
-      contentLayout: ContentLayout.ORIGINAL,
-      stopCondition: StopCondition.NONE,
-      savepath: '',
-      category: null as Category | null,
-      tags: [] as string[]
-    })
+    const addTorrentDialogForm = reactive<AddTorrentPayload>({})
 
     const pendingTorrentsCount = computed(() => addTorrentDialogFiles.value.length + addTorrentDialogUrls.value.split('\n').filter(url => url.trim() !== '').length)
 
@@ -64,16 +52,24 @@ export const useNavbarStore = defineStore(
       addTorrentDialogUrls.value = ''
       addTorrentDialogFiles.value = []
 
+      addTorrentDialogForm.addToTopOfQueue = preferenceStore.preferences!.add_to_top_of_queue
       addTorrentDialogForm.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
-      addTorrentDialogForm.category = null
+      addTorrentDialogForm.category = undefined
       addTorrentDialogForm.contentLayout = preferenceStore.preferences!.torrent_content_layout
+      addTorrentDialogForm.cookie = undefined
+      addTorrentDialogForm.dlLimit = preferenceStore.preferences!.dl_limit
       addTorrentDialogForm.firstLastPiecePrio = false
+      addTorrentDialogForm.inactiveSeedingTimeLimit = undefined
+      addTorrentDialogForm.paused = preferenceStore.preferences!.start_paused_enabled
+      addTorrentDialogForm.ratioLimit = undefined
+      addTorrentDialogForm.rename = undefined
       addTorrentDialogForm.savepath = preferenceStore.preferences!.save_path
+      addTorrentDialogForm.seedingTimeLimit = undefined
       addTorrentDialogForm.sequentialDownload = false
-      addTorrentDialogForm.skipChecking = false
-      addTorrentDialogForm.startNow = !preferenceStore.preferences!.start_paused_enabled
+      addTorrentDialogForm.skip_checking = false
       addTorrentDialogForm.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-      addTorrentDialogForm.tags = []
+      addTorrentDialogForm.tags = undefined
+      addTorrentDialogForm.upLimit = preferenceStore.preferences!.up_limit
     }
 
     return {
