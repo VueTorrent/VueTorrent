@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
+import { useAddTorrentStore } from '@/stores/addTorrents'
 import { useMaindataStore } from '@/stores/maindata'
-import { useNavbarStore } from '@/stores/navbar'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -19,13 +19,9 @@ const props = withDefaults(defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
+const addTorrentStore = useAddTorrentStore()
 const maindataStore = useMaindataStore()
-const navbarStore = useNavbarStore()
-const {
-  addTorrentDialogUrls: urls,
-  addTorrentDialogFiles: files,
-  addTorrentDialogForm: form
-} = storeToRefs(navbarStore)
+const { urls, files, form } = storeToRefs(addTorrentStore)
 const preferenceStore = usePreferenceStore()
 const vueTorrentStore = useVueTorrentStore()
 
@@ -139,14 +135,14 @@ function submit() {
 
   const promise = maindataStore.addTorrents(form.value, files.value)
   .then(() => {
-    navbarStore.resetAddTorrentDialogForm()
+    addTorrentStore.resetForm()
     close()
   })
 
   toast.promise(promise, {
     pending: t('dialogs.add.pending'),
-    error: t('dialogs.add.error', navbarStore.pendingTorrentsCount),
-    success: t('dialogs.add.success', navbarStore.pendingTorrentsCount)
+    error: t('dialogs.add.error', addTorrentStore.pendingTorrentsCount),
+    success: t('dialogs.add.success', addTorrentStore.pendingTorrentsCount)
   })
 }
 

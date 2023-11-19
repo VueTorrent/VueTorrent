@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
+import { useAddTorrentStore } from '@/stores/addTorrents'
 import { useDialogStore } from '@/stores/dialog'
-import { useNavbarStore } from '@/stores/navbar'
 import { useSearchEngineStore } from '@/stores/searchEngine'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
@@ -15,8 +15,8 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
+const addTorrentStore = useAddTorrentStore()
 const dialogStore = useDialogStore()
-const navbarStore = useNavbarStore()
 const searchEngineStore = useSearchEngineStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -82,7 +82,7 @@ function deleteTab() {
 }
 
 function downloadTorrent(result: SearchResult) {
-  navbarStore.pushTorrentToQueue(result.fileUrl)
+  addTorrentStore.pushTorrentToQueue(result.fileUrl)
 }
 
 async function runNewSearch() {
