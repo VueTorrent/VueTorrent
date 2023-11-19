@@ -68,6 +68,14 @@ const category = computed<string | undefined>({
   set: value => form.value.category = value || undefined
 })
 
+const downloadPath = computed({
+  get: () => form.value.downloadPath,
+  set: value => {
+    form.value.useDownloadPath = !!value || undefined
+    form.value.downloadPath = value || undefined
+  }
+})
+
 const startNow = computed({
   get: () => !form.value.paused,
   set: value => form.value.paused = !value
@@ -84,8 +92,7 @@ const dlLimit = computed({
   set: value => {
     if (!value) {
       form.value.dlLimit = undefined
-    }
-    else {
+    } else {
       const parsedValue = parseInt(value)
       if (parsedValue > 0) {
         form.value.dlLimit = parsedValue * 1024
@@ -105,8 +112,7 @@ const upLimit = computed({
   set: value => {
     if (!value) {
       form.value.upLimit = undefined
-    }
-    else {
+    } else {
       const parsedValue = parseInt(value)
       if (parsedValue > 0) {
         form.value.upLimit = parsedValue * 1024
@@ -143,6 +149,8 @@ function submit() {
     pending: t('dialogs.add.pending'),
     error: t('dialogs.add.error', addTorrentStore.pendingTorrentsCount),
     success: t('dialogs.add.success', addTorrentStore.pendingTorrentsCount)
+  }, {
+    autoClose: 1500
   })
 }
 
@@ -182,7 +190,8 @@ const onCategoryChanged = () => {
                     {{ filename }}
                   </v-chip>
                 </template>
-                <span v-if="fileNames.length === fileOverflowDisplayLimit + 1" class="text-overline text-grey-darken-2 ml-2">
+                <span v-if="fileNames.length === fileOverflowDisplayLimit + 1"
+                      class="text-overline text-grey-darken-2 ml-2">
                   {{ t('dialogs.add.fileOverflow', fileNames.length - fileOverflowDisplayLimit) }}
                 </span>
               </template>
@@ -192,8 +201,8 @@ const onCategoryChanged = () => {
                 <v-icon color="accent">mdi-link</v-icon>
               </template>
             </v-textarea>
-            <v-text-field v-model="cookie" v-if="!!urls" :label="$t('dialogs.add.cookie')" clearable
-            :placeholder="$t('dialogs.add.cookiePlaceholder')">
+            <v-text-field v-if="!!urls" v-model="cookie" :label="$t('dialogs.add.cookie')" :placeholder="$t('dialogs.add.cookiePlaceholder')"
+                          clearable>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-cookie</v-icon>
               </template>
@@ -206,8 +215,8 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12" md="6">
-            <v-combobox v-model="tags" v-model:search="tagSearch" chips clearable multiple hide-details
-                        :hide-no-data="false" :items="maindataStore.tags" :label="t('dialogs.add.tags')">
+            <v-combobox v-model="tags" v-model:search="tagSearch" :hide-no-data="false" :items="maindataStore.tags" :label="t('dialogs.add.tags')" chips
+                        clearable hide-details multiple>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-tag</v-icon>
               </template>
@@ -225,8 +234,8 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12" md="6">
-            <v-combobox v-model="category" v-model:search="categorySearch" clearable hide-details
-                        :hide-no-data="false" :items="categories" :label="$t('dialogs.add.category')"
+            <v-combobox v-model="category" v-model:search="categorySearch" :hide-no-data="false" :items="categories"
+                        :label="$t('dialogs.add.category')" clearable hide-details
                         @update:modelValue="onCategoryChanged">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-label</v-icon>
@@ -245,18 +254,17 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12">
-            <div class="d-flex align-center">
-              <v-icon color="accent">mdi-tray-arrow-down</v-icon>
-              <span class="mx-2"><v-checkbox-btn v-model="form.useDownloadPath" /></span>
-              <v-text-field v-model="form.downloadPath" hide-details
-                            :disabled="!form.useDownloadPath" :label="t('dialogs.add.downloadPath')" />
-
-            </div>
+            <v-text-field v-model="downloadPath" :disabled="form.autoTMM"
+                          :label="t('dialogs.add.downloadPath')" hide-details>
+              <template v-slot:prepend>
+                <v-icon color="accent">mdi-tray-arrow-down</v-icon>
+              </template>
+            </v-text-field>
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="form.savepath" hide-details
-                          :disabled="form.autoTMM" :label="t('dialogs.add.savePath')">
+            <v-text-field v-model="form.savepath" :disabled="form.autoTMM"
+                          :label="t('dialogs.add.savePath')" hide-details>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-content-save</v-icon>
               </template>
@@ -304,42 +312,55 @@ const onCategoryChanged = () => {
         </v-row>
 
         <v-row>
-          <v-col cols="12" md="6">
-            <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')"
-                          suffix="KiB/s" hide-details>
-              <template v-slot:prepend>
-                <v-icon color="accent">mdi-download</v-icon>
-              </template>
-            </v-text-field>
-          </v-col>
-          <v-col cols="12" md="6">
-            <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')"
-                          suffix="KiB/s" hide-details>
-              <template v-slot:prepend>
-                <v-icon color="accent">mdi-upload</v-icon>
-              </template>
-            </v-text-field>
-          </v-col>
+          <v-col cols="12">
+            <v-expansion-panels>
+              <v-expansion-panel color="primary" :title="$t('dialogs.add.limitCollapse')">
+                <v-expansion-panel-text>
+                  <v-row>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')"
+                                    hide-details suffix="KiB/s">
+                        <template v-slot:prepend>
+                          <v-icon color="accent">mdi-download</v-icon>
+                        </template>
+                      </v-text-field>
+                    </v-col>
+                    <v-col cols="12" md="6">
+                      <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')"
+                                    hide-details suffix="KiB/s">
+                        <template v-slot:prepend>
+                          <v-icon color="accent">mdi-upload</v-icon>
+                        </template>
+                      </v-text-field>
+                    </v-col>
 
-          <v-col cols="12" md="4">
-            <v-text-field v-model="ratioLimit" :label="$t('dialogs.add.ratioLimit')"
-                          type="number" :hint="$t('dialogs.add.limitHint')" />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field v-model="seedingTimeLimit" :label="$t('dialogs.add.seedingTimeLimit')" type="number"
-                          :suffix="$t('units.minutes')" :hint="$t('dialogs.add.limitHint')" />
-          </v-col>
-          <v-col cols="12" md="4">
-            <v-text-field v-model="inactiveSeedingTimeLimit" :label="$t('dialogs.add.inactiveSeedingTimeLimit')" type="number"
-                          :suffix="$t('units.minutes')" :hint="$t('dialogs.add.limitHint')" />
+                    <v-col cols="12" md="4">
+                      <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.limitHint')"
+                                    :label="$t('dialogs.add.ratioLimit')" type="number" />
+                    </v-col>
+                    <v-col cols="12" md="4">
+                      <v-text-field v-model="seedingTimeLimit" :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.seedingTimeLimit')"
+                                    :suffix="$t('units.minutes')" type="number" />
+                    </v-col>
+                    <v-col cols="12" md="4">
+                      <v-text-field v-model="inactiveSeedingTimeLimit" :hint="$t('dialogs.add.limitHint')"
+                                    :label="$t('dialogs.add.inactiveSeedingTimeLimit')"
+                                    :suffix="$t('units.minutes')" type="number" />
+                    </v-col>
+                  </v-row>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </v-col>
         </v-row>
       </v-card-text>
 
       <v-card-actions class="justify-center">
+        <v-btn :text="$t('dialogs.add.resetForm')" color="error" variant="flat" @click="addTorrentStore.resetForm()" />
+        <v-spacer />
         <v-btn :disabled="!isFormValid" :text="$t('dialogs.add.submit')" color="accent"
                variant="elevated" @click="submit" />
-        <v-btn :text="$t('common.close')" color="error" variant="flat" @click="close" />
+        <v-btn :text="$t('common.close')" color="" variant="flat" @click="close" />
       </v-card-actions>
     </v-card>
   </v-dialog>
