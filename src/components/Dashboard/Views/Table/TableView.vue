@@ -39,7 +39,7 @@ function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
-async function onRightClick(e: PointerEvent, torrent: TorrentType) {
+async function onRightClick(e: MouseEvent, torrent: TorrentType) {
   e.preventDefault()
 
   if (trcProperties.isVisible) {
@@ -61,9 +61,27 @@ async function onRightClick(e: PointerEvent, torrent: TorrentType) {
 // mobile long press
 const timer = ref<NodeJS.Timeout>()
 
-function startPress(e: PointerEvent, torrent: TorrentType) {
+function startPress(e: TouchEvent, torrent: TorrentType) {
   timer.value = setTimeout(() => {
-    onRightClick(e, torrent)
+    e.preventDefault()
+    const touches = e.changedTouches
+    const first = touches[0]
+
+    const simulatedEvent = new MouseEvent('mousedown', {
+      screenX: first.screenX,
+      screenY: first.screenY,
+      clientX: first.clientX,
+      clientY: first.clientY,
+      ctrlKey: false,
+      shiftKey: false,
+      altKey: false,
+      metaKey: false,
+      button: 2,
+      buttons: 2,
+      relatedTarget: e.target,
+      view: e.view
+    })
+    onRightClick(simulatedEvent, torrent)
   }, 500)
 }
 
@@ -102,7 +120,7 @@ watch(
       <tbody>
       <tr v-for="torrent in paginatedTorrents" :class="`text-torrent-${torrent.state}`"
           @dblclick.prevent="goToInfo(torrent.hash)" @contextmenu="onRightClick($event, torrent)"
-          @touchcancel="endPress" @touchend="endPress" @touchstart="startPress">
+          @touchcancel="endPress" @touchend="endPress" @touchstart="startPress($event, torrent)">
         <td>
           <v-checkbox-btn :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" color="transparent" variant="flat" @click="toggleSelectTorrent(torrent.hash)" />
         </td>

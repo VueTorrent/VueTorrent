@@ -8,17 +8,14 @@ import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { Torrent as TorrentType } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { t } = useI18n()
 const router = useRouter()
-const display = useDisplay()
 const {
   currentPage: dashboardPage,
   isSelectionMultiple,
@@ -126,16 +123,6 @@ function toggleSearchFilter(forceState?: boolean) {
   }
 }
 
-function toggleSelectTorrent(hash: string) {
-  dashboardStore.toggleSelect(hash)
-}
-
-function goToInfo(hash: string) {
-  if (!isSelectionMultiple.value) {
-    router.push({ name: 'torrentDetail', params: { hash } })
-  }
-}
-
 function resetInput() {
   torrentStore.textFilter = ''
 }
@@ -156,25 +143,6 @@ function toggleSelectAll() {
     dashboardStore.unselectAllTorrents()
   } else {
     dashboardStore.selectTorrents(...filteredTorrents.value.map(t => t.hash))
-  }
-}
-
-async function onRightClick(e: PointerEvent, torrent: TorrentType) {
-  e.preventDefault()
-
-  if (trcProperties.isVisible) {
-    trcProperties.isVisible = false
-    await nextTick()
-  }
-
-  trcProperties.isVisible = true
-  trcProperties.offset = [e.pageX, e.pageY]
-
-  if (!isSelectionMultiple.value) {
-    dashboardStore.unselectAllTorrents()
-    dashboardStore.selectTorrent(torrent.hash)
-  } else if (selectedTorrents.value.length === 0) {
-    dashboardStore.selectTorrent(torrent.hash)
   }
 }
 
@@ -260,19 +228,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
-
-// mobile long press
-const timer = ref<NodeJS.Timeout>()
-
-function startPress(e: PointerEvent, torrent: TorrentType) {
-  timer.value = setTimeout(() => {
-    onRightClick(e, torrent)
-  }, 500)
-}
-
-function endPress() {
-  clearTimeout(timer.value)
-}
 </script>
 
 <template>

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { doesCommand } from '@/helpers'
 import { useDashboardStore } from '@/stores/dashboard'
-import { useMaindataStore } from '@/stores/maindata'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import ItemData from '@/components/Dashboard/DashboardItems/ItemData.vue'
@@ -10,11 +9,10 @@ import ItemPercent from './DashboardItems/ItemPercent.vue'
 const props = defineProps<{ torrent: Torrent }>()
 
 const dashboardStore = useDashboardStore()
-const maindataStore = useMaindataStore()
 
 function onClick(e: MouseEvent) {
   if (e.shiftKey) {
-    dashboardStore.spanTorrentSelection(maindataStore.getTorrentIndexByHash(props.torrent.hash))
+    dashboardStore.spanTorrentSelection(props.torrent.hash)
   } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
     dashboardStore.isSelectionMultiple = true
     dashboardStore.toggleSelect(props.torrent.hash)

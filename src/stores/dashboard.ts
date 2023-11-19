@@ -1,4 +1,4 @@
-import { DashboardDisplayMode } from '@/constants/vuetorrent/DashboardDisplayMode.ts'
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
