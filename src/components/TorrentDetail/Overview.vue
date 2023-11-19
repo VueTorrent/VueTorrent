@@ -149,6 +149,8 @@ watch(
 )
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
+  if (dialogStore.hasActiveDialog) return false
+
   if (e.key === 's') {
     e.preventDefault()
     openMoveTorrentDialog()
