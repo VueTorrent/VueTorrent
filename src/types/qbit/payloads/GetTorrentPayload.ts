@@ -1,5 +1,4 @@
-import { FilterState } from '@/constants/qbit'
-import { SortOptions } from '@/constants/qbit/SortOptions'
+import { FilterState, SortOptions } from '@/constants/qbit'
 
 export default interface GetTorrentPayload {
   filter?: FilterState

@@ -1,6 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { FilePriority } from '@/constants/qbit'
-import { SortOptions } from '@/constants/qbit/SortOptions'
+import { FilePriority, SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
 import { uuidFromRaw } from '@/helpers/text'
 import { qbit } from '@/services'
@@ -118,8 +117,8 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // fetch torrent data
-      dashboardStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(dashboardStore.sortOptions.sortBy) !== -1
-      let data = await qbit.getTorrents(dashboardStore.getTorrentsPayload)
+      torrentStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(torrentStore.sortOptions.sortBy) !== -1
+      let data = await qbit.getTorrents(torrentStore.getTorrentsPayload)
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data

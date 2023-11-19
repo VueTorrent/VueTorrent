@@ -20,14 +20,13 @@ const {
   currentPage: dashboardPage,
   isSelectionMultiple,
   selectedTorrents,
-  sortOptions,
   torrentCountString
 } = storeToRefs(useDashboardStore())
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
-const { filteredTorrents } = storeToRefs(torrentStore)
+const { filteredTorrents, sortOptions } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentSortOptions = [

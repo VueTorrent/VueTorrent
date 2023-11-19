@@ -1,12 +1,11 @@
 import { useSearchQuery } from '@/composables'
-import { TorrentState } from '@/constants/qbit'
+import { SortOptions, TorrentState } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
-import { AddTorrentPayload } from '@/types/qbit/payloads'
+import { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { defineStore, storeToRefs } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
-import { useDashboardStore } from './dashboard'
+import { defineStore } from 'pinia'
+import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
 
 export const useTorrentStore = defineStore('torrents', () => {
   const torrents = ref<Torrent[]>([])
@@ -38,14 +37,25 @@ export const useTorrentStore = defineStore('torrents', () => {
   })
   const filteredTorrents = computed(() => searchQuery.results.value)
 
-  const { sortOptions } = storeToRefs(useDashboardStore())
+  const sortOptions = reactive({
+    isCustomSortEnabled: false,
+    sortBy: SortOptions.DEFAULT,
+    reverseOrder: false
+  })
+  const getTorrentsPayload = computed<GetTorrentPayload>(() => {
+    return {
+      sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
+      reverse: sortOptions.reverseOrder
+    }
+  })
+
   const searchQuery = useSearchQuery(
     torrentsWithFilters,
     () => isTextFilterActive.value ? textFilter.value : null,
     torrent => torrent.name,
     results => {
-      if (sortOptions.value.isCustomSortEnabled) {
-        if (sortOptions.value.sortBy === 'priority') {
+      if (sortOptions.isCustomSortEnabled) {
+        if (sortOptions.sortBy === 'priority') {
           results.sort((a, b) => {
             if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
             else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
@@ -53,9 +63,9 @@ export const useTorrentStore = defineStore('torrents', () => {
             else return -1
           })
         } else {
-          results.sort((a, b) => a[sortOptions.value.sortBy] - b[sortOptions.value.sortBy] || a.added_on - b.added_on)
+          results.sort((a, b) => a[sortOptions.sortBy] - b[sortOptions.sortBy] || a.added_on - b.added_on)
         }
-        if (sortOptions.value.reverseOrder) results.reverse()
+        if (sortOptions.reverseOrder) results.reverse()
       }
       return results
     }
@@ -139,6 +149,8 @@ export const useTorrentStore = defineStore('torrents', () => {
     trackerFilter,
     torrentsWithFilters,
     filteredTorrents,
+    sortOptions,
+    getTorrentsPayload,
     searchQuery,
     setTorrentCategory,
     addTorrentTags,
@@ -174,7 +186,8 @@ export const useTorrentStore = defineStore('torrents', () => {
           'isTagFilterActive',
           'tagFilter',
           'isTrackerFilterActive',
-          'trackerFilter'
+          'trackerFilter',
+          'sortOptions'
         ]
       }
     ]

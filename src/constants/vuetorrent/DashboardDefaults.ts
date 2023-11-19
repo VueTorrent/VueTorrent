@@ -1,6 +1,27 @@
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
-import { PropertyData, PropertyMetadata } from '@/types/vuetorrent'
+
+type pptData = { active: boolean; order: number }
+type pptMetadata =
+  | { type: DashboardPropertyType.AMOUNT; props: { title: string; value: string; total: string } }
+  | { type: DashboardPropertyType.CHIP; props: { title: string; value: string; color: string } }
+  | { type: DashboardPropertyType.DATA; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.DATETIME; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.DURATION; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.PERCENT; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.RELATIVE; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.SPEED; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.TEXT; props: { title: string; value: string } }
+
+export type TorrentProperty = { name: DashboardProperty } & pptData & pptMetadata
+
+export interface PropertyData {
+  [key: DashboardProperty | string]: pptData
+}
+
+export interface PropertyMetadata {
+  [key: DashboardProperty | string]: pptMetadata
+}
 
 export const propsData: PropertyData = {
   [DashboardProperty.ADDED_ON]: {

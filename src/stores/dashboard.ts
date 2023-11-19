@@ -1,8 +1,6 @@
-import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
-import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
@@ -14,11 +12,6 @@ export const useDashboardStore = defineStore(
     const isSelectionMultiple = ref(false)
     const selectedTorrents = ref<string[]>([])
     const latestSelectedTorrent = ref<string>()
-    const sortOptions = reactive({
-      isCustomSortEnabled: false,
-      sortBy: SortOptions.DEFAULT,
-      reverseOrder: false
-    })
 
     const { t } = useI18n()
     const torrentStore = useTorrentStore()
@@ -39,13 +32,6 @@ export const useDashboardStore = defineStore(
         })
       } else {
         return t('dashboard.torrentsCount', torrentStore.filteredTorrents.length)
-      }
-    })
-
-    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
-      return {
-        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
-        reverse: sortOptions.reverseOrder
       }
     })
 
@@ -121,7 +107,6 @@ export const useDashboardStore = defineStore(
       isSelectionMultiple,
       selectedTorrents,
       latestSelectedTorrent,
-      sortOptions,
       torrentCountString,
       isTorrentInSelection,
       selectTorrent,
@@ -130,20 +115,8 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
-      toggleSelect,
-      getTorrentsPayload
+      toggleSelect
     }
   },
-  {
-    persist: {
-      enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_dashboard',
-          paths: ['sortOptions']
-        }
-      ]
-    }
-  }
+
 )

@@ -1,6 +1,12 @@
-import { DashboardProperty, propsData, propsMetadata, TitleOptions } from '@/constants/vuetorrent'
+import {
+  DashboardProperty,
+  PropertyData,
+  propsData,
+  propsMetadata,
+  TitleOptions,
+  TorrentProperty
+} from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify'
-import { PropertyData, TorrentProperty } from '@/types/vuetorrent'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
