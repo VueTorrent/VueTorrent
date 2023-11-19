@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from '@/stores'
 
 const preferenceStore = usePreferenceStore()
 </script>
@@ -10,7 +10,8 @@ const preferenceStore = usePreferenceStore()
     <v-list-subheader>{{ $t('settings.rss.general.reader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details :label="$t('settings.rss.general.reader.enableProcessing')" />
+      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details
+                  :label="$t('settings.rss.general.reader.enableProcessing')" />
 
       <v-row>
         <v-col cols="12" sm="6">
@@ -22,7 +23,8 @@ const preferenceStore = usePreferenceStore()
             :label="$t('settings.rss.general.reader.feedsRefreshInterval')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
+          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number"
+                        :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -31,7 +33,8 @@ const preferenceStore = usePreferenceStore()
     <v-list-subheader>{{ $t('settings.rss.general.autoDownloader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0" :label="$t('settings.rss.general.autoDownloader.enable')" />
+      <v-checkbox v-model="preferenceStore.preferences!.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0"
+                  :label="$t('settings.rss.general.autoDownloader.enable')" />
     </v-list-item>
 
     <v-divider />

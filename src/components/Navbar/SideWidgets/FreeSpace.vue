@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import DataCard from '@/components/Core/DataCard.vue'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 
 const maindataStore = useMaindataStore()
 </script>

@@ -1,11 +1,9 @@
-import { SortOptions } from '@/constants/qbit/SortOptions'
 import { formatData } from '@/helpers'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
-import { GetTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
-import { computed, reactive, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useTorrentStore } from './torrents'
+import { useVueTorrentStore } from './vuetorrent'
 
 export const useDashboardStore = defineStore(
   'dashboard',
@@ -14,38 +12,26 @@ export const useDashboardStore = defineStore(
     const isSelectionMultiple = ref(false)
     const selectedTorrents = ref<string[]>([])
     const latestSelectedTorrent = ref<string>()
-    const sortOptions = reactive({
-      isCustomSortEnabled: false,
-      sortBy: SortOptions.DEFAULT,
-      reverseOrder: false
-    })
 
     const { t } = useI18n()
-    const maindataStore = useMaindataStore()
+    const torrentStore = useTorrentStore()
     const vuetorrentStore = useVueTorrentStore()
 
     const torrentCountString = computed(() => {
       if (selectedTorrents.value.length) {
         const selectedSize = selectedTorrents.value
-        .map(hash => maindataStore.getTorrentByHash(hash))
+        .map(hash => torrentStore.getTorrentByHash(hash))
         .filter(torrent => torrent !== undefined)
         .map(torrent => torrent!.size)
         .reduce((partial, size) => partial + size, 0)
 
         return t('dashboard.selectedTorrentsCount', {
           count: selectedTorrents.value.length,
-          total: maindataStore.filteredTorrents.length,
+          total: torrentStore.filteredTorrents.length,
           size: formatData(selectedSize, vuetorrentStore.useBinarySize)
         })
       } else {
-        return t('dashboard.torrentsCount', maindataStore.filteredTorrents.length)
-      }
-    })
-
-    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
-      return {
-        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
-        reverse: sortOptions.reverseOrder
+        return t('dashboard.torrentsCount', torrentStore.filteredTorrents.length)
       }
     })
 
@@ -84,19 +70,19 @@ export const useDashboardStore = defineStore(
     function spanTorrentSelection(endHash: string) {
       if (!latestSelectedTorrent.value) return
 
-      const latestIndex = maindataStore.getTorrentIndexByHash(latestSelectedTorrent.value)
-      const endIndex = maindataStore.getTorrentIndexByHash(endHash)
+      const latestIndex = torrentStore.getTorrentIndexByHash(latestSelectedTorrent.value)
+      const endIndex = torrentStore.getTorrentIndexByHash(endHash)
 
       const start = Math.min(endIndex, latestIndex)
       const end = Math.max(endIndex, latestIndex)
-      const hashes = maindataStore.filteredTorrents.slice(start, end + 1).map(t => t.hash)
+      const hashes = torrentStore.filteredTorrents.slice(start, end + 1).map(t => t.hash)
       selectTorrents(...hashes)
     }
 
     function selectAllTorrents() {
       isSelectionMultiple.value = true
-      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...maindataStore.torrents.map(t => t.hash))
-      latestSelectedTorrent.value = maindataStore.torrents[0]?.hash
+      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...torrentStore.torrents.map(t => t.hash))
+      latestSelectedTorrent.value = torrentStore.torrents[0]?.hash
     }
 
     function unselectAllTorrents() {
@@ -109,7 +95,7 @@ export const useDashboardStore = defineStore(
       }
     })
 
-    watch(() => maindataStore.filteredTorrents, newValue => {
+    watch(() => torrentStore.filteredTorrents, newValue => {
       const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
       if (pageCount < currentPage.value) {
         currentPage.value = Math.max(1, pageCount)
@@ -121,7 +107,6 @@ export const useDashboardStore = defineStore(
       isSelectionMultiple,
       selectedTorrents,
       latestSelectedTorrent,
-      sortOptions,
       torrentCountString,
       isTorrentInSelection,
       selectTorrent,
@@ -130,20 +115,8 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
-      toggleSelect,
-      getTorrentsPayload
+      toggleSelect
     }
   },
-  {
-    persist: {
-      enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_dashboard',
-          paths: ['sortOptions']
-        }
-      ]
-    }
-  }
+
 )

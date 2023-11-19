@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useAppStore } from '@/stores/app'
-import { useAuthStore } from '@/stores/auth'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useAppStore, useAuthStore, useVueTorrentStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 

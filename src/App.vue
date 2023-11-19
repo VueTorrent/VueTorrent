@@ -2,16 +2,22 @@
 import AddPanel from '@/components/AddPanel.vue'
 import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useAppStore } from '@/stores/app'
-import { useAuthStore } from '@/stores/auth'
-import { useDialogStore } from '@/stores/dialog'
-import { useLogStore } from '@/stores/logs'
-import { useMaindataStore } from '@/stores/maindata'
-import { usePreferenceStore } from '@/stores/preferences'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { TitleOptions } from '@/constants/vuetorrent'
+import { formatPercent, formatSpeed } from '@/helpers'
+import {
+  useAddTorrentStore,
+  useAppStore,
+  useAuthStore,
+  useDialogStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useTorrentStore,
+  useVueTorrentStore
+} from '@/stores'
+import { storeToRefs } from 'pinia'
 
-import { onBeforeMount, watch } from 'vue'
+import { onBeforeMount, watch, watchEffect } from 'vue'
 
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
@@ -19,8 +25,11 @@ const authStore = useAuthStore()
 const dialogStore = useDialogStore()
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
+const { serverState } = storeToRefs(maindataStore)
+const { torrents } = storeToRefs(useTorrentStore())
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
+const { language, matchSystemTheme, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
 
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
@@ -43,12 +52,12 @@ const blockContextMenu = () => {
 }
 
 onBeforeMount(() => {
-  if (vuetorrentStore.matchSystemTheme) {
+  if (matchSystemTheme.value) {
     vuetorrentStore.updateSystemTheme()
   } else {
     vuetorrentStore.updateTheme()
   }
-  vuetorrentStore.setLanguage(vuetorrentStore.language)
+  vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
   blockContextMenu()
 })
@@ -72,6 +81,39 @@ watch(
     immediate: true
   }
 )
+
+watchEffect(() => {
+  const mode = uiTitleType.value
+  switch (mode) {
+    case TitleOptions.GLOBAL_SPEED:
+      document.title =
+        '[' +
+        `D: ${ formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value) }, ` +
+        `U: ${ formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value) }` +
+        '] VueTorrent'
+      break
+    case TitleOptions.FIRST_TORRENT_STATUS:
+      const torrent = torrents.value.at(0)
+      if (torrent) {
+        document.title =
+          '[' +
+          `D: ${ formatSpeed(torrent.dlspeed, useBitSpeed.value) }, ` +
+          `U: ${ formatSpeed(torrent.upspeed, useBitSpeed.value) }, ` +
+          `${ formatPercent(torrent.progress) }` +
+          '] VueTorrent'
+      } else {
+        document.title = '[N/A] VueTorrent'
+      }
+      break
+    case TitleOptions.CUSTOM:
+      document.title = uiTitleCustom.value
+      break
+    case TitleOptions.DEFAULT:
+    default:
+      document.title = 'VueTorrent'
+      break
+  }
+})
 </script>
 
 <template>

@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useAuthStore } from '@/stores/auth'
+import { useAddTorrentStore, useAuthStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -23,7 +22,7 @@ function onDrop(files: File[] | null, event: DragEvent) {
 
   // Handle .torrent files
   const torrentFiles = (files || [])
-    .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
+  .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
   const links = event.dataTransfer.getData('text/plain').split('\n')
   .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 

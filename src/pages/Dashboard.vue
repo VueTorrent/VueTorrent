@@ -4,10 +4,7 @@ import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useArrayPagination } from '@/composables'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
@@ -23,13 +20,13 @@ const {
   currentPage: dashboardPage,
   isSelectionMultiple,
   selectedTorrents,
-  sortOptions,
   torrentCountString
 } = storeToRefs(useDashboardStore())
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
-const { filteredTorrents } = storeToRefs(useMaindataStore())
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
+const { filteredTorrents, sortOptions } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentSortOptions = [
@@ -96,9 +93,9 @@ const trcProperties = reactive({
 })
 
 const torrentTitleFilter = computed({
-  get: () => maindataStore.textFilter,
+  get: () => torrentStore.textFilter,
   set: debounce((newValue: string | null) => {
-    maindataStore.textFilter = newValue ?? ''
+    torrentStore.textFilter = newValue ?? ''
   }, 300)
 })
 
@@ -107,7 +104,7 @@ const {
   currentPage,
   pageCount
 } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
-const hasSearchFilter = computed(() => !!maindataStore.textFilter && maindataStore.textFilter.length > 0)
+const hasSearchFilter = computed(() => !!torrentStore.textFilter && torrentStore.textFilter.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
 
@@ -132,7 +129,7 @@ function goToInfo(hash: string) {
 }
 
 function resetInput() {
-  maindataStore.textFilter = ''
+  torrentStore.textFilter = ''
 }
 
 function scrollToTop() {

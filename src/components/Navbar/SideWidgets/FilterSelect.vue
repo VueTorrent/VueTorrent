@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { TorrentState } from '@/constants/qbit'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -10,16 +9,18 @@ const { t } = useI18n()
 const {
   categories: _categories,
   tags: _tags,
-  trackers: _trackers,
+  trackers: _trackers
+} = storeToRefs(useMaindataStore())
+const {
   statusFilter,
   categoryFilter,
   tagFilter,
   trackerFilter
-} = storeToRefs(useMaindataStore())
+} = storeToRefs(useTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
 
 const statuses = computed(() => Object.values(TorrentState).map(state => (
-    { title: t(`torrent.state.${ state }`), value: state }
+  { title: t(`torrent.state.${ state }`), value: state }
 )))
 const categories = computed(() => [
   { title: t('navbar.side.filters.uncategorized'), value: '' },

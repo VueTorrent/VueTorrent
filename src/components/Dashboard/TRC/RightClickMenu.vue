@@ -5,10 +5,7 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { usePreferenceStore } from '@/stores/preferences'
+import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTorrentStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -25,6 +22,7 @@ const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
+const torrentStore = useTorrentStore()
 
 const trcVisible = computed({
   get: () => props.modelValue,
@@ -34,20 +32,20 @@ const trcVisible = computed({
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
 const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
-const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
-const torrents = computed(() => dashboardStore.selectedTorrents.map(maindataStore.getTorrentByHash).filter(torrent => !!torrent))
+const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
+const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
 const availableCategories = computed(() => [{ name: '' }, ...maindataStore.categories])
 
 async function resumeTorrents() {
-  await maindataStore.resumeTorrents(hashes)
+  await torrentStore.resumeTorrents(hashes)
 }
 
 async function forceResumeTorrents() {
-  await maindataStore.forceResumeTorrents(hashes)
+  await torrentStore.forceResumeTorrents(hashes)
 }
 
 async function pauseTorrents() {
-  await maindataStore.pauseTorrents(hashes)
+  await torrentStore.pauseTorrents(hashes)
 }
 
 function deleteTorrents() {
@@ -63,7 +61,7 @@ function renameTorrents() {
 }
 
 async function forceRecheck() {
-  await maindataStore.recheckTorrents(hashes)
+  await torrentStore.recheckTorrents(hashes)
 }
 
 async function forceReannounce() {
@@ -87,8 +85,8 @@ function hasTag(tag: string) {
 }
 
 async function toggleTag(tag: string) {
-  if (hasTag(tag)) await maindataStore.removeTorrentTags(hashes.value, [tag])
-  else await maindataStore.addTorrentTags(hashes.value, [tag])
+  if (hasTag(tag)) await torrentStore.removeTorrentTags(hashes.value, [tag])
+  else await torrentStore.addTorrentTags(hashes.value, [tag])
 }
 
 async function copyValue(valueToCopy: string) {
@@ -109,12 +107,12 @@ function setShareLimit() {
 
 async function exportTorrents() {
   hashes.value.forEach(hash => {
-    maindataStore.exportTorrent(hash).then(blob => {
+    torrentStore.exportTorrent(hash).then(blob => {
       const url = window.URL.createObjectURL(blob)
       const link = document.createElement('a')
       link.href = url
       link.style.opacity = '0'
-      link.setAttribute('download', `${hash}.torrent`)
+      link.setAttribute('download', `${ hash }.torrent`)
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -173,22 +171,22 @@ const menuData = computed<TRCMenuEntry[]>(() => [
       {
         text: t('dashboard.right_click.priority.top'),
         icon: 'mdi-priority-high',
-        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'topPrio')
+        action: async () => await torrentStore.setTorrentPriority(hashes.value, 'topPrio')
       },
       {
         text: t('dashboard.right_click.priority.increase'),
         icon: 'mdi-arrow-up',
-        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'increasePrio')
+        action: async () => await torrentStore.setTorrentPriority(hashes.value, 'increasePrio')
       },
       {
         text: t('dashboard.right_click.priority.decrease'),
         icon: 'mdi-arrow-down',
-        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'decreasePrio')
+        action: async () => await torrentStore.setTorrentPriority(hashes.value, 'decreasePrio')
       },
       {
         text: t('dashboard.right_click.priority.bottom'),
         icon: 'mdi-priority-low',
-        action: async () => await maindataStore.setTorrentPriority(hashes.value, 'bottomPrio')
+        action: async () => await torrentStore.setTorrentPriority(hashes.value, 'bottomPrio')
       }
     ]
   },
@@ -212,7 +210,7 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     disabledIcon: 'mdi-label-off',
     children: availableCategories.value.map(category => ({
       text: category.name === '' ? t('dashboard.right_click.category.clear') : category.name,
-      action: async () => await maindataStore.setTorrentCategory(hashes.value, category.name)
+      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name)
     }))
   },
   {
@@ -273,7 +271,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 </script>
 
 <template>
-  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true" transition="slide-y-transition" scroll-strategy="none">
+  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true"
+          transition="slide-y-transition" scroll-strategy="none">
     <v-list>
       <v-list-item>
         <div class="d-flex justify-space-around">
@@ -286,7 +285,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
+              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
+                     @click="forceResumeTorrents" />
             </template>
             <span>Force Resume</span>
           </v-tooltip>
@@ -300,7 +300,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
+              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props"
+                     @click="deleteTorrents" />
             </template>
             <span>Delete</span>
           </v-tooltip>

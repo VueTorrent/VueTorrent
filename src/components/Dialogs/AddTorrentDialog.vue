@@ -1,10 +1,7 @@
 <script lang="ts" setup>
 import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useMaindataStore } from '@/stores/maindata'
-import { usePreferenceStore } from '@/stores/preferences'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useAddTorrentStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -20,9 +17,10 @@ const props = withDefaults(defineProps<{
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const addTorrentStore = useAddTorrentStore()
-const maindataStore = useMaindataStore()
 const { urls, files, form } = storeToRefs(addTorrentStore)
+const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
+const torrentStore = useTorrentStore()
 const vueTorrentStore = useVueTorrentStore()
 
 const fileOverflowDisplayLimit = 2
@@ -139,7 +137,7 @@ const inactiveSeedingTimeLimit = computed({
 function submit() {
   if (!isFormValid.value) return
 
-  const promise = maindataStore.addTorrents(form.value, files.value)
+  const promise = torrentStore.addTorrents(form.value, files.value)
   .then(() => {
     addTorrentStore.resetForm()
     close()

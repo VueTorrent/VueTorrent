@@ -1,18 +1,17 @@
-import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { FilePriority, TorrentState } from '@/constants/qbit'
-import { SortOptions } from '@/constants/qbit/SortOptions'
+import { useTorrentBuilder } from '@/composables'
+import { FilePriority, SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
 import { uuidFromRaw } from '@/helpers/text'
 import { qbit } from '@/services'
-import { useAuthStore } from '@/stores/auth'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useNavbarStore } from '@/stores/navbar'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { Category, ServerState } from '@/types/qbit/models'
-import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
+import { defineStore, storeToRefs } from 'pinia'
+import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { useAuthStore } from './auth'
+import { useDashboardStore } from './dashboard'
+import { useNavbarStore } from './navbar'
+import { useTorrentStore } from './torrents'
+import { useVueTorrentStore } from './vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
@@ -20,63 +19,16 @@ export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
   const serverState = ref<ServerState>()
   const tags = ref<string[]>([])
-  const torrents = ref<Torrent[]>([])
+
   const trackers = ref<string[]>([])
-
-  const isTextFilterActive = ref(true)
-  const isStatusFilterActive = ref(true)
-  const isCategoryFilterActive = ref(true)
-  const isTagFilterActive = ref(true)
-  const isTrackerFilterActive = ref(true)
-
-  const textFilter = ref('')
-  const statusFilter = ref<TorrentState[]>([])
-  const categoryFilter = ref<string[]>([])
-  const tagFilter = ref<(string | null)[]>([])
-  const trackerFilter = ref<(string | null)[]>([])
-
-  const torrentsWithFilters = computed(() => {
-    return torrents.value.filter(torrent => {
-      if (statusFilter.value.length > 0 && isStatusFilterActive.value && !statusFilter.value.includes(torrent.state)) return false
-      if (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !categoryFilter.value.includes(torrent.category)) return false
-      if (tagFilter.value.length > 0 && isTagFilterActive.value) {
-        if (torrent.tags.length === 0 && tagFilter.value.includes(null)) return true
-        if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
-      }
-      if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
-
-      return true
-    })
-  })
-  const filteredTorrents = computed(() => searchQuery.results.value)
 
   const authStore = useAuthStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
+  const torrentStore = useTorrentStore()
+  const { torrents } = storeToRefs(torrentStore)
   const vueTorrentStore = useVueTorrentStore()
   const torrentBuilder = useTorrentBuilder()
-
-  const searchQuery = useSearchQuery(
-    torrentsWithFilters,
-    () => isTextFilterActive.value ? textFilter.value : null,
-    torrent => torrent.name,
-    results => {
-      if (dashboardStore.sortOptions.isCustomSortEnabled) {
-        if (dashboardStore.sortOptions.sortBy === 'priority') {
-          results.sort((a, b) => {
-            if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
-            else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
-            else if (a.priority <= 0) return 1
-            else return -1
-          })
-        } else {
-          results.sort((a, b) => a[dashboardStore.sortOptions.sortBy] - b[dashboardStore.sortOptions.sortBy] || a.added_on - b.added_on)
-        }
-        if (dashboardStore.sortOptions.reverseOrder) results.reverse()
-      }
-      return results
-    }
-  )
 
   async function fetchCategories() {
     categories.value = await qbit.getCategories()
@@ -88,10 +40,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function createCategory(category: Category) {
     await qbit.createCategory(category)
-  }
-
-  async function setTorrentCategory(hashes: string[], category: string) {
-    await qbit.setCategory(hashes, category)
   }
 
   async function editCategory(category: Category, oldCategory?: string) {
@@ -131,14 +79,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.createTag(tags)
   }
 
-  async function addTorrentTags(hashes: string[], tags: string[]) {
-    await qbit.addTorrentTag(hashes, tags)
-  }
-
-  async function removeTorrentTags(hashes: string[], tags: string[]) {
-    await qbit.removeTorrentTag(hashes, tags)
-  }
-
   async function editTag(oldTag: string, newTag: string) {
     if (oldTag === newTag) return
 
@@ -162,22 +102,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.deleteTags(tags)
   }
 
-  function getTorrentByHash(hash: string) {
-    return torrents.value.find(t => t.hash === hash)
-  }
-
-  function getTorrentIndexByHash(hash: string) {
-    return filteredTorrents.value.findIndex(t => t.hash === hash)
-  }
-
-  async function deleteTorrents(hashes: string[], deleteWithFiles: boolean) {
-    await qbit.deleteTorrents(hashes, deleteWithFiles)
-  }
-
-  async function moveTorrents(hashes: string[], newPath: string) {
-    await qbit.setTorrentLocation(hashes, newPath)
-  }
-
   async function updateMaindata() {
     if (isUpdatingMaindata.value) return
     isUpdatingMaindata.value = true
@@ -193,8 +117,8 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // fetch torrent data
-      dashboardStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(dashboardStore.sortOptions.sortBy) !== -1
-      let data = await qbit.getTorrents(dashboardStore.getTorrentsPayload)
+      torrentStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(torrentStore.sortOptions.sortBy) !== -1
+      let data = await qbit.getTorrents(torrentStore.getTorrentsPayload)
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
@@ -219,8 +143,6 @@ export const useMaindataStore = defineStore('maindata', () => {
       // filter out deleted torrents from selection
       const hash_index = torrents.value.map(torrent => torrent.hash)
       dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => hash_index.includes(hash))
-
-      vueTorrentStore.updateTitle()
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
@@ -234,20 +156,8 @@ export const useMaindataStore = defineStore('maindata', () => {
     }
   }
 
-  async function addTorrents(payload: AddTorrentPayload, torrents: File[]) {
-    return await qbit.addTorrents(payload, torrents)
-  }
-
-  async function getTorrentProperties(hash: string) {
-    return await qbit.getTorrentProperties(hash)
-  }
-
   async function fetchFiles(hash: string, indexes?: number[]) {
     return await qbit.getTorrentFiles(hash, indexes)
-  }
-
-  async function renameTorrent(hash: string, newName: string) {
-    await qbit.setTorrentName(hash, newName)
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
@@ -260,22 +170,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function fetchPieceState(hash: string) {
     return await qbit.getTorrentPieceStates(hash)
-  }
-
-  async function resumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.resumeTorrents(toValue(hashes))
-  }
-
-  async function forceResumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.forceStartTorrents(toValue(hashes))
-  }
-
-  async function pauseTorrents(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.pauseTorrents(toValue(hashes))
-  }
-
-  async function recheckTorrents(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.recheckTorrents(toValue(hashes))
   }
 
   async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
@@ -296,10 +190,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function setSuperSeeding(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
     await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
-  }
-
-  async function setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio') {
-    await qbit.setTorrentPriority(hashes, priority)
   }
 
   async function getTorrentTrackers(hash: string) {
@@ -334,10 +224,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.setTorrentFilePriority(hash, ids, priority)
   }
 
-  async function exportTorrent(hash: string) {
-    return await qbit.exportTorrent(hash)
-  }
-
   async function setDownloadLimit(limit: number, hashes: string[]) {
     return await qbit.setDownloadLimit(hashes, limit)
   }
@@ -356,53 +242,26 @@ export const useMaindataStore = defineStore('maindata', () => {
     rid,
     serverState,
     tags,
-    torrents,
-    filteredTorrents,
     trackers,
-    isTextFilterActive,
-    textFilter,
-    isStatusFilterActive,
-    statusFilter,
-    isCategoryFilterActive,
-    categoryFilter,
-    isTagFilterActive,
-    tagFilter,
-    isTrackerFilterActive,
-    trackerFilter,
-    getTorrentByHash,
-    getTorrentIndexByHash,
-    deleteTorrents,
     fetchCategories,
     getCategoryFromName,
     createCategory,
-    setTorrentCategory,
     editCategory,
     deleteCategories,
     fetchTags,
     createTags,
-    addTorrentTags,
-    removeTorrentTags,
     editTag,
     deleteTags,
-    moveTorrents,
     updateMaindata,
-    addTorrents,
-    getTorrentProperties,
     fetchFiles,
-    renameTorrent,
     renameTorrentFile,
     renameTorrentFolder,
     fetchPieceState,
-    resumeTorrents,
-    forceResumeTorrents,
-    pauseTorrents,
-    recheckTorrents,
     reannounceTorrents,
     toggleSeqDl,
     toggleFLPiecePrio,
     toggleAutoTmm,
     setSuperSeeding,
-    setTorrentPriority,
     getTorrentTrackers,
     addTorrentTrackers,
     editTorrentTracker,
@@ -411,31 +270,8 @@ export const useMaindataStore = defineStore('maindata', () => {
     addTorrentPeers,
     banPeers,
     setTorrentFilePriority,
-    exportTorrent,
     setDownloadLimit,
     setUploadLimit,
     setShareLimit
-  }
-}, {
-  persist: {
-    enabled: true,
-    strategies: [
-      {
-        storage: localStorage,
-        key: 'vuetorrent_maindata',
-        paths: [
-          'isTextFilterActive',
-          'textFilter',
-          'isStatusFilterActive',
-          'statusFilter',
-          'isCategoryFilterActive',
-          'categoryFilter',
-          'isTagFilterActive',
-          'tagFilter',
-          'isTrackerFilterActive',
-          'trackerFilter'
-        ]
-      }
-    ]
   }
 })

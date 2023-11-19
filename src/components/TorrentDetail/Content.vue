@@ -3,9 +3,7 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import RootNode from '@/components/TorrentDetail/Content/RootNode.vue'
 import { useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
@@ -35,15 +33,15 @@ const fileSelection = computed({
     const oldValue = cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD).map(f => f.index)
 
     const filesToExclude = oldValue
-      .filter(index => !newValue.includes(index))
-      .map(index => cachedFiles.value.find(f => f.index === index))
-      .filter(f => f && f.priority !== FilePriority.DO_NOT_DOWNLOAD)
-      .map(f => (f as TorrentFile).index)
+    .filter(index => !newValue.includes(index))
+    .map(index => cachedFiles.value.find(f => f.index === index))
+    .filter(f => f && f.priority !== FilePriority.DO_NOT_DOWNLOAD)
+    .map(f => (f as TorrentFile).index)
     const filesToInclude = newValue
-      .filter(index => !oldValue.includes(index))
-      .map(index => cachedFiles.value.find(f => f.index === index))
-      .filter(f => f && f.priority === FilePriority.DO_NOT_DOWNLOAD)
-      .map(f => (f as TorrentFile).index)
+    .filter(index => !oldValue.includes(index))
+    .map(index => cachedFiles.value.find(f => f.index === index))
+    .filter(f => f && f.priority === FilePriority.DO_NOT_DOWNLOAD)
+    .map(f => (f as TorrentFile).index)
 
     if (filesToExclude.length) {
       await maindataStore.setTorrentFilePriority(props.torrent.hash, filesToExclude, FilePriority.DO_NOT_DOWNLOAD)
@@ -106,7 +104,8 @@ onMounted(() => {
 
 <template>
   <v-card :loading="loading" flat>
-    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree" @renameFolder="renameNode" @renameFile="renameNode" />
+    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree" @renameFolder="renameNode"
+              @renameFile="renameNode" />
     <!--
     TODO: add treeview after merge
     https://github.com/vuetifyjs/vuetify/issues/13518

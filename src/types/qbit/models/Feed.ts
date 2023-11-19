@@ -1,4 +1,4 @@
-import { FeedArticle } from '@/types/qbit/models'
+import FeedArticle from './FeedArticle'
 
 export default interface Feed {
   name: string

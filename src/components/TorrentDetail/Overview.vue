@@ -1,11 +1,18 @@
 <script setup lang="ts">
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
-import { PieceState, FilePriority, TorrentState } from '@/constants/qbit'
-import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { FilePriority, PieceState, TorrentState } from '@/constants/qbit'
+import {
+  formatData,
+  formatDataUnit,
+  formatDataValue,
+  formatPercent,
+  formatSpeed,
+  getDomainBody,
+  splitByUrl,
+  stringContainsUrl
+} from '@/helpers'
+import { useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, ref, watch } from 'vue'
@@ -18,6 +25,7 @@ const { t } = useI18n()
 const theme = useTheme()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const canvas = ref<HTMLCanvasElement>()
@@ -33,14 +41,14 @@ const torrentPieceOwned = ref(0)
 const torrentPieceCount = ref(0)
 const uploadSpeedAvg = ref(0)
 
-const torrentStateColor = computed(() => `torrent-${props.torrent.state}`)
-const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
+const torrentStateColor = computed(() => `torrent-${ props.torrent.state }`)
+const pieceSize = computed(() => `${ parseInt(formatDataValue(torrentPieceSize.value, true)) } ${ formatDataUnit(torrentPieceSize.value, true) }`)
 const isFetchingMetadata = computed(() => props.torrent.state === TorrentState.META_DL)
 const shouldRenderPieceState = computed(() => !isFetchingMetadata.value && torrentPieceCount.value > 0 && torrentPieceCount.value < vuetorrentStore.canvasRenderThreshold)
 const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && torrentPieceCount.value < vuetorrentStore.canvasRefreshThreshold)
 
 async function getTorrentProperties() {
-  const ppts = await maindataStore.getTorrentProperties(props.torrent.hash)
+  const ppts = await torrentStore.getTorrentProperties(props.torrent.hash)
   comment.value = ppts.comment
   downloadSpeedAvg.value = ppts.dl_speed_avg
   torrentPieceCount.value = ppts.pieces_num
@@ -122,7 +130,11 @@ function openMoveTorrentDialog() {
 }
 
 function openMoveTorrentFileDialog() {
-  dialogStore.createDialog(MoveTorrentFileDialog, { hash: props.torrent.hash, isFolder: false, oldName: torrentFileName.value })
+  dialogStore.createDialog(MoveTorrentFileDialog, {
+    hash: props.torrent.hash,
+    isFolder: false,
+    oldName: torrentFileName.value
+  })
 }
 
 watch(
@@ -157,7 +169,8 @@ watch(
         <v-col cols="12" md="6">
           <v-row>
             <v-col cols="4" md="4">
-              <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100" :model-value="torrent?.progress * 100 ?? 0" :width="15">
+              <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100"
+                                   :model-value="torrent?.progress * 100 ?? 0" :width="15">
                 <template v-slot>
                   <span v-if="isFetchingMetadata">{{ $t('torrentDetail.overview.fetchingMetadata') }}</span>
                   <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" size="x-large" />
@@ -212,7 +225,8 @@ watch(
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
               <div>{{ selectedFileCount }} / {{ torrentFileCount }}</div>
               <div v-if="selectedFileCount === 1">{{ torrentFileName }}</div>
-              <v-btn v-if="selectedFileCount === 1" icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentFileDialog" />
+              <v-btn v-if="selectedFileCount === 1" icon="mdi-pencil" color="accent" size="x-small"
+                     @click="openMoveTorrentFileDialog" />
             </v-col>
           </v-row>
         </v-col>
@@ -220,7 +234,7 @@ watch(
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.state') }}:</div>
-              <v-chip variant="flat" :color="torrentStateColor">{{ $t(`torrent.state.${torrent.state}`) }}</v-chip>
+              <v-chip variant="flat" :color="torrentStateColor">{{ $t(`torrent.state.${ torrent.state }`) }}</v-chip>
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>

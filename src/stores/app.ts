@@ -1,6 +1,6 @@
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
 import { qbit } from '@/services'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
   const intervals = ref<number[]>([])

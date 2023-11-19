@@ -1,4 +1,4 @@
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from './preferences'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'

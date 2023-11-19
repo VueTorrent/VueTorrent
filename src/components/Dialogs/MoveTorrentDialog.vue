@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata'
+import { useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -22,14 +22,14 @@ const formData = reactive({
 
 const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required'), (v: string) => v !== oldPath.value || t('dialogs.moveTorrent.samePath')]
 
-const torrents = computed(() => props.hashes.map(maindataStore.getTorrentByHash))
+const torrents = computed(() => props.hashes.map(torrentStore.getTorrentByHash))
 const oldPath = computed(() => torrents.value[0]?.savePath)
 
 async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await maindataStore.moveTorrents(props.hashes, formData.newPath)
+  await torrentStore.moveTorrents(props.hashes, formData.newPath)
 
   close()
 }
@@ -50,7 +50,8 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldPath" :model-value="oldPath" disabled :label="$t('dialogs.moveTorrent.oldPath')" />
-          <v-text-field v-model="formData.newPath" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
+          <v-text-field v-model="formData.newPath" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')"
+                        @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

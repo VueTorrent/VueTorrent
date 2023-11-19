@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TrackerStatus } from '@/constants/qbit'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { nextTick, onBeforeMount, onUnmounted, reactive, ref, watch } from 'vue'
@@ -162,7 +162,8 @@ watch(() => props.isActive, setupTimer)
 
                 <v-card-text>
                   <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
-                    <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
+                    <v-text-field :model-value="editTrackerDialog.oldUrl" disabled
+                                  :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
                     <v-text-field
                       v-model="editTrackerDialog.newUrl"
                       id="input"
@@ -175,7 +176,9 @@ watch(() => props.isActive, setupTimer)
 
                 <v-card-actions>
                   <v-spacer />
-                  <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }}</v-btn>
+                  <v-btn color="error" :disabled="!editTrackerDialog.isFormValid"
+                         @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }}
+                  </v-btn>
                   <v-btn color="accent" @click="editTracker">{{ t('common.ok') }}</v-btn>
                 </v-card-actions>
               </v-card>
@@ -218,7 +221,8 @@ watch(() => props.isActive, setupTimer)
           </v-card>
         </v-dialog>
 
-        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
+        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')"
+               color="primary" @click="reannounceTrackers" />
       </div>
     </v-list-item>
   </v-list>
@@ -233,15 +237,19 @@ watch(() => props.isActive, setupTimer)
   .tracker-disabled {
     color: darken(lightgrey, 5%);
   }
+
   .tracker-not_yet_contacted {
     color: orange;
   }
+
   .tracker-working {
     color: lightgreen;
   }
+
   .tracker-not_working {
     color: lightcoral;
   }
+
   .tracker-updating {
     color: lightblue;
   }
@@ -251,15 +259,19 @@ watch(() => props.isActive, setupTimer)
   .tracker-disabled {
     color: grey;
   }
+
   .tracker-not_yet_contacted {
     color: orange;
   }
+
   .tracker-working {
     color: green;
   }
+
   .tracker-not_working {
     color: red;
   }
+
   .tracker-updating {
     color: dodgerblue;
   }

@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { DashboardPropertyType } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import ItemAmount from './DashboardItems/ItemAmount.vue'
@@ -62,11 +61,13 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined" width="100%" @click="onClick">
+  <v-card :class="`sideborder ${torrent.state} pointer`"
+          :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined" width="100%" @click="onClick">
     <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text class="pa-2 pt-0">
       <div class="d-flex gap flex-wrap">
-        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
+        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props"
+                   v-for="ppt in torrentProperties" />
       </div>
     </v-card-text>
   </v-card>

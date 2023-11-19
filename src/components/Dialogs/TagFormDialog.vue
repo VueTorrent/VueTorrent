@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -31,6 +31,7 @@ async function submit() {
 
   close()
 }
+
 const close = () => {
   isOpened.value = false
 }
@@ -43,11 +44,12 @@ onBeforeMount(() => {
 <template>
   <v-dialog v-model="isOpened">
     <v-card>
-      <v-card-title>{{ $t(`dialogs.tag.title.${initialTag ? 'rename' : 'create'}`) }}</v-card-title>
+      <v-card-title>{{ $t(`dialogs.tag.title.${ initialTag ? 'rename' : 'create' }`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
           <v-text-field v-if="initialTag" :model-value="initialTag" disabled :label="$t('dialogs.tag.oldName')" />
-          <v-text-field v-model="tagName" :rules="rules" autofocus :hint="$t('dialogs.tag.hint')" :label="$t('dialogs.tag.name')" />
+          <v-text-field v-model="tagName" :rules="rules" autofocus :hint="$t('dialogs.tag.hint')"
+                        :label="$t('dialogs.tag.name')" />
           <v-scroll-x-transition>
             <div class="text-warning" v-if="!!initialTag && initialTag !== tagName">
               <v-icon>mdi-alert</v-icon>

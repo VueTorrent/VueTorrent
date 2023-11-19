@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from '@/stores'
 import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -147,25 +147,33 @@ const closeDeleteDialog = async () => {
     <v-list-subheader>{{ t('settings.downloads.whenAddTorrent.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-select v-model="preferenceStore.preferences!.torrent_content_layout" hide-details :items="contentLayoutOptions" :label="t('constants.contentLayout.title')" />
+      <v-select v-model="preferenceStore.preferences!.torrent_content_layout" hide-details :items="contentLayoutOptions"
+                :label="t('constants.contentLayout.title')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.add_to_top_of_queue" hide-details :label="t('settings.downloads.whenAddTorrent.addToTopOfQueue')" />
+      <v-checkbox v-model="preferenceStore.preferences!.add_to_top_of_queue" hide-details
+                  :label="t('settings.downloads.whenAddTorrent.addToTopOfQueue')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.merge_trackers" hide-details :label="t('settings.downloads.whenAddTorrent.mergeTrackers')" />
+      <v-checkbox v-model="preferenceStore.preferences!.merge_trackers" hide-details
+                  :label="t('settings.downloads.whenAddTorrent.mergeTrackers')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
+      <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled" hide-details
+                  :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
-      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />
+      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions"
+                :label="t('constants.stopCondition.title')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode" hide-details :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
+      <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode" hide-details
+                  :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
     </v-list-item>
 
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.preallocate_all" hide-details :label="t('settings.downloads.publicSettings.preAllocateDisk')" />
+      <v-checkbox v-model="preferenceStore.preferences!.preallocate_all" hide-details
+                  :label="t('settings.downloads.publicSettings.preAllocateDisk')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext" hide-details :label="t('settings.downloads.publicSettings.appendQBExtension')" />
+      <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext" hide-details
+                  :label="t('settings.downloads.publicSettings.appendQBExtension')" />
     </v-list-item>
 
     <v-divider />
@@ -204,7 +212,8 @@ const closeDeleteDialog = async () => {
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model="preferenceStore.preferences!.save_path" hide-details :label="t('settings.downloads.saveManagement.defaultSavePath')" />
+          <v-text-field v-model="preferenceStore.preferences!.save_path" hide-details
+                        :label="t('settings.downloads.saveManagement.defaultSavePath')" />
         </v-col>
 
         <v-col cols="12">
@@ -265,7 +274,8 @@ const closeDeleteDialog = async () => {
                 <v-container>
                   <v-row>
                     <v-col cols="12">
-                      <v-text-field v-model="monitoredFoldersEditedItem.monitoredFolderPath" :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')" />
+                      <v-text-field v-model="monitoredFoldersEditedItem.monitoredFolderPath"
+                                    :label="t('settings.downloads.monitoredFolders.monitoredFolderPath')" />
                     </v-col>
                     <v-col cols="12">
                       <v-select
@@ -319,7 +329,8 @@ const closeDeleteDialog = async () => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.excluded_file_names_enabled" hide-details :label="t('settings.downloads.excludedFileNames.label')" />
+      <v-checkbox v-model="preferenceStore.preferences!.excluded_file_names_enabled" hide-details
+                  :label="t('settings.downloads.excludedFileNames.label')" />
     </v-list-item>
     <v-list-item>
       <v-textarea
@@ -334,7 +345,8 @@ const closeDeleteDialog = async () => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_enabled" hide-details :label="t('settings.downloads.mailNotification.enabled')" />
+      <v-checkbox v-model="preferenceStore.preferences!.mail_notification_enabled" hide-details
+                  :label="t('settings.downloads.mailNotification.enabled')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
@@ -403,13 +415,15 @@ const closeDeleteDialog = async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12" md="6">
-          <v-checkbox v-model="preferenceStore.preferences!.autorun_on_torrent_added_enabled" hide-details :label="t('settings.downloads.runExternalProgram.onAddedEnabled')" />
+          <v-checkbox v-model="preferenceStore.preferences!.autorun_on_torrent_added_enabled" hide-details
+                      :label="t('settings.downloads.runExternalProgram.onAddedEnabled')" />
           <v-text-field
             v-model="preferenceStore.preferences!.autorun_on_torrent_added_program"
             :disabled="!preferenceStore.preferences!.autorun_on_torrent_added_enabled"
             hide-details
             :label="t('settings.downloads.runExternalProgram.onAddedLabel')" />
-          <v-checkbox v-model="preferenceStore.preferences!.autorun_enabled" hide-details :label="t('settings.downloads.runExternalProgram.onFinishedEnabled')" />
+          <v-checkbox v-model="preferenceStore.preferences!.autorun_enabled" hide-details
+                      :label="t('settings.downloads.runExternalProgram.onFinishedEnabled')" />
           <v-text-field
             v-model="preferenceStore.preferences!.autorun_program"
             :disabled="!preferenceStore.preferences!.autorun_enabled"

@@ -1,3 +1,4 @@
+import { NetworkInterface } from '@/types/qbit/models/AppPreferences.ts'
 import type { AxiosInstance } from 'axios'
 import axios from 'axios'
 import type {
@@ -7,7 +8,6 @@ import type {
   Feed,
   FeedRule,
   Log,
-  NetworkInterface,
   SearchJob,
   SearchPlugin,
   SearchStatus,

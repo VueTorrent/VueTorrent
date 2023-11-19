@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
@@ -73,7 +72,8 @@ watch(() => props.isActive, setupTimer)
           <div>
             <v-list-item-title class="overflow-visible text-select">
               <span v-if="peer.country_code">
-                <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url" :title="peer.country" style="max-width: 32px" />
+                <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url"
+                     :title="peer.country" style="max-width: 32px" />
                 <span v-else :title="peer.country">{{ codeToFlag(peer.country_code).char }}</span>
               </span>
               <span>{{ peer.ip }}</span>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
 
 type ShareType = 'global' | 'disabled' | 'enabled'
@@ -14,6 +14,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const isFormValid = ref(false)
 
@@ -53,7 +54,7 @@ async function submit() {
 }
 
 onBeforeMount(async () => {
-  const torrent = maindataStore.getTorrentByHash(props.hash)
+  const torrent = torrentStore.getTorrentByHash(props.hash)
   if (!torrent) {
     return close()
   }

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
-import { useAuthStore } from '@/stores/auth'
-import { onMounted, reactive, ref, watchEffect } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { toast } from 'vue3-toastify'
-import { useI18n } from 'vue-i18n'
+import { useAuthStore } from '@/stores'
 
 import { LoginPayload } from '@/types/qbit/payloads'
+import { onMounted, reactive, ref, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useRoute, useRouter } from 'vue-router'
+import { toast } from 'vue3-toastify'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -68,7 +68,8 @@ watchEffect(() => {
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field v-model="loginForm.username" :label="t('login.username')" autofocus :rules="rules.username" @keydown.enter.prevent="login" variant="outlined">
+          <v-text-field v-model="loginForm.username" :label="t('login.username')" autofocus :rules="rules.username"
+                        @keydown.enter.prevent="login" variant="outlined">
             <template v-slot:prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>

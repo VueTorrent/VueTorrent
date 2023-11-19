@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import DashboardItem from '@/components/Settings/VueTorrent/DashboardItem.vue'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
-import { TorrentProperty } from '@/types/vuetorrent'
+import { TorrentProperty } from '@/constants/vuetorrent'
+import { useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import Draggable from 'vuedraggable'
 

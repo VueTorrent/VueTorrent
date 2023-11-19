@@ -1,5 +1,3 @@
-import { TreeFile } from '@/types/vuetorrent'
-
 enum FileIcon {
   PDF = 'mdi-file-pdf-box',
   IMAGE = 'mdi-file-image',
@@ -53,7 +51,7 @@ export const typesMap: Record<string, FileIcon> = {
   jar: FileIcon.EXECUTABLE
 }
 
-export function getFileIcon(file: TreeFile) {
-  const type = file.name.split('.').pop()?.toLowerCase() || ''
+export function getFileIcon(filename: string) {
+  const type = filename.split('.').pop()?.toLowerCase() || ''
   return typesMap[type] || 'mdi-file'
 }

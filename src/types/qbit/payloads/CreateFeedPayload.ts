@@ -1,4 +1,4 @@
-import type { BasePayload } from './index'
+import type BasePayload from './BasePayload'
 
 export default interface CreateFeedPayload extends BasePayload {
   url: string

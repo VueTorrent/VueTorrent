@@ -1,8 +1,6 @@
 <script lang="ts" setup>
 import { useArrayPagination, useSearchQuery } from '@/composables'
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useDialogStore } from '@/stores/dialog'
-import { useRssStore } from '@/stores/rss'
+import { useAddTorrentStore, useDialogStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
@@ -124,16 +122,26 @@ onUnmounted(() => {
           <template v-for="(article, index) in paginatedResults">
             <v-divider v-if="index > 0" color="white" />
 
-            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)" @contextmenu="markAsRead(article)">
+            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)"
+                         @contextmenu="markAsRead(article)">
               <div class="d-flex">
                 <div>
-                  <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }}</v-list-item-title>
+                  <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{
+                      article.title
+                    }}
+                  </v-list-item-title>
 
                   <v-list-item-subtitle class="d-block">
                     <div>{{ article.parsedDate.toLocaleString() }}</div>
-                    <div>{{ t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') }) }}</div>
+                    <div>{{
+                        t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') })
+                      }}
+                    </div>
                     <div v-if="article.author">{{ t('rssArticles.item.author', { author: article.author }) }}</div>
-                    <div v-if="article.category">{{ t('rssArticles.item.category', { category: article.category }) }}</div>
+                    <div v-if="article.category">{{
+                        t('rssArticles.item.category', { category: article.category })
+                      }}
+                    </div>
                   </v-list-item-subtitle>
                 </div>
 

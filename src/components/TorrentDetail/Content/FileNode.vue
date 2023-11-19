@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { FilePriority } from '@/constants/qbit'
 import { getFileIcon } from '@/constants/vuetorrent'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { formatData, formatPercent } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 import { TreeFile } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
-import { formatData, formatPercent } from '@/helpers'
 
 defineProps<{
   node: TreeFile
@@ -29,7 +29,7 @@ function getNodePriority(node: TreeFile) {
 </script>
 
 <template>
-  <v-list-item :title="node.name" :value="node.index" :prepend-icon="getFileIcon(node)">
+  <v-list-item :title="node.name" :value="node.index" :prepend-icon="getFileIcon(node.name)">
     <template v-slot:append>
       <span class="mr-2">[ {{ formatData(node.size, vuetorrentStore.useBinarySize) }} ]</span>
       <span class="mr-2">{{ formatPercent(node.progress) }}</span>
