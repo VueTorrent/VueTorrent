@@ -1,28 +1,29 @@
 <script setup lang="ts">
-import { useMaindataStore } from '@/stores'
+import { useMaindataStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, onBeforeMount } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const activeCategory = computed(() => maindataStore.categories.map(cat => cat.name).indexOf(props.torrent.category))
 const activeTags = computed(() => maindataStore.tags.filter(tag => props.torrent.tags?.includes(tag)))
 
 async function setCategory(category: string) {
   if (props.torrent.category === category) {
-    await maindataStore.setTorrentCategory([props.torrent.hash], '')
+    await torrentStore.setTorrentCategory([props.torrent.hash], '')
   } else {
-    await maindataStore.setTorrentCategory([props.torrent.hash], category)
+    await torrentStore.setTorrentCategory([props.torrent.hash], category)
   }
 }
 
 async function toggleTag(tag: string) {
   if (props.torrent.tags?.includes(tag)) {
-    await maindataStore.removeTorrentTags([props.torrent.hash], [tag])
+    await torrentStore.removeTorrentTags([props.torrent.hash], [tag])
   } else {
-    await maindataStore.addTorrentTags([props.torrent.hash], [tag])
+    await torrentStore.addTorrentTags([props.torrent.hash], [tag])
   }
 }
 

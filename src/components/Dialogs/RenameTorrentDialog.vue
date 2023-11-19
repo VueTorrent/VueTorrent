@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores'
+import { useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, onMounted, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const field = ref<HTMLInputElement>()
 const form = ref<VForm>()
@@ -23,14 +23,14 @@ const formData = reactive({
 
 const rules = [(v: string) => !!v || t('dialogs.renameTorrent.required'), (v: string) => v !== oldName.value || t('dialogs.renameTorrent.sameName')]
 
-const torrent = computed(() => maindataStore.getTorrentByHash(props.hash))
+const torrent = computed(() => torrentStore.getTorrentByHash(props.hash))
 const oldName = computed(() => torrent.value?.name)
 
 async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await maindataStore.renameTorrent(props.hash, formData.newName)
+  await torrentStore.renameTorrent(props.hash, formData.newName)
 
   close()
 }

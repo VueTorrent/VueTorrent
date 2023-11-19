@@ -1,7 +1,5 @@
 import { DashboardProperty, propsData, propsMetadata, TitleOptions } from '@/constants/vuetorrent'
-import { formatPercent, formatSpeed } from '@/helpers'
 import { Theme } from '@/plugins/vuetify'
-import { useMaindataStore } from '@/stores/maindata'
 import { PropertyData, TorrentProperty } from '@/types/vuetorrent'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
@@ -73,7 +71,6 @@ export const useVueTorrentStore = defineStore(
     const i18n = useI18n()
     const router = useRouter()
     const theme = useTheme()
-    const maindataStore = useMaindataStore()
 
     watch(language, setLanguage)
     watch(darkMode, updateTheme)
@@ -109,39 +106,6 @@ export const useVueTorrentStore = defineStore(
 
     async function redirectToLogin() {
       await router.push({ name: 'login', query: { redirect: router.currentRoute.value.path } })
-    }
-
-    function updateTitle() {
-      const mode = uiTitleType.value
-      switch (mode) {
-        case TitleOptions.GLOBAL_SPEED:
-          document.title =
-            '[' +
-            `D: ${ formatSpeed(maindataStore.serverState?.dl_info_speed ?? 0, useBitSpeed.value) }, ` +
-            `U: ${ formatSpeed(maindataStore.serverState?.up_info_speed ?? 0, useBitSpeed.value) }` +
-            '] VueTorrent'
-          break
-        case TitleOptions.FIRST_TORRENT_STATUS:
-          const torrent = maindataStore.torrents.at(0)
-          if (torrent) {
-            document.title =
-              '[' +
-              `D: ${ formatSpeed(torrent.dlspeed, useBitSpeed.value) }, ` +
-              `U: ${ formatSpeed(torrent.upspeed, useBitSpeed.value) }, ` +
-              `${ formatPercent(torrent.progress) }` +
-              '] VueTorrent'
-          } else {
-            document.title = '[N/A] VueTorrent'
-          }
-          break
-        case TitleOptions.CUSTOM:
-          document.title = uiTitleCustom.value
-          break
-        case TitleOptions.DEFAULT:
-        default:
-          document.title = 'VueTorrent'
-          break
-      }
     }
 
     function updateBusyProperties(values: TorrentProperty[]) {
@@ -203,7 +167,6 @@ export const useVueTorrentStore = defineStore(
       updateSystemTheme,
       toggleTheme,
       redirectToLogin,
-      updateTitle,
       updateBusyProperties,
       updateDoneProperties,
       toggleBusyProperty,

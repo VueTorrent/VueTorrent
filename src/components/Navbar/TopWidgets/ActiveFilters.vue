@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMaindataStore } from '@/stores'
+import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -16,7 +16,7 @@ const {
   tagFilter,
   isTrackerFilterActive,
   trackerFilter
-} = storeToRefs(useMaindataStore())
+} = storeToRefs(useTorrentStore())
 
 const globalFilterActive = computed(
   () =>

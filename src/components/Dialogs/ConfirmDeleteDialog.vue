@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useDashboardStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -17,18 +17,18 @@ const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const dashboardStore = useDashboardStore()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
 
-const selection = computed(() => maindataStore.torrents.filter(t => props.hashes?.includes(t.hash)))
+const selection = computed(() => torrentStore.torrents.filter(t => props.hashes?.includes(t.hash)))
 
 async function submit() {
   if (!isFormValid.value) return
 
-  await maindataStore.deleteTorrents(
+  await torrentStore.deleteTorrents(
     selection.value.map(t => t.hash),
     vuetorrentStore.deleteWithFiles
   )

@@ -1,4 +1,4 @@
-import { useDialogStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
 import { computed, onUnmounted, ref } from 'vue'
 
 export function useDialog(guid: string) {

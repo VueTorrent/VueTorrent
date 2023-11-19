@@ -12,7 +12,7 @@ import {
   splitByUrl,
   stringContainsUrl
 } from '@/helpers'
-import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, ref, watch } from 'vue'
@@ -25,6 +25,7 @@ const { t } = useI18n()
 const theme = useTheme()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const canvas = ref<HTMLCanvasElement>()
@@ -47,7 +48,7 @@ const shouldRenderPieceState = computed(() => !isFetchingMetadata.value && torre
 const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && torrentPieceCount.value < vuetorrentStore.canvasRefreshThreshold)
 
 async function getTorrentProperties() {
-  const ppts = await maindataStore.getTorrentProperties(props.torrent.hash)
+  const ppts = await torrentStore.getTorrentProperties(props.torrent.hash)
   comment.value = ppts.comment
   downloadSpeedAvg.value = ppts.dl_speed_avg
   torrentPieceCount.value = ppts.pieces_num

@@ -29,7 +29,7 @@ function getNodePriority(node: TreeFile) {
 </script>
 
 <template>
-  <v-list-item :title="node.name" :value="node.index" :prepend-icon="getFileIcon(node)">
+  <v-list-item :title="node.name" :value="node.index" :prepend-icon="getFileIcon(node.name)">
     <template v-slot:append>
       <span class="mr-2">[ {{ formatData(node.size, vuetorrentStore.useBinarySize) }} ]</span>
       <span class="mr-2">{{ formatPercent(node.progress) }}</span>

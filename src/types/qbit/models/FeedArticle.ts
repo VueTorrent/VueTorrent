@@ -1,4 +1,4 @@
-export interface FeedArticle {
+export default interface FeedArticle {
   author: string
   category: string
   date: string

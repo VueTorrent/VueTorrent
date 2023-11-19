@@ -9,6 +9,7 @@ import { useNavbarStore } from './navbar'
 import { usePreferenceStore } from './preferences'
 import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
+import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
 
 export {
@@ -23,5 +24,6 @@ export {
   usePreferenceStore,
   useRssStore,
   useSearchEngineStore,
+  useTorrentStore,
   useVueTorrentStore
 }

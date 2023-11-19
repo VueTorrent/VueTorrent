@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores'
+import { useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -22,14 +22,14 @@ const formData = reactive({
 
 const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required'), (v: string) => v !== oldPath.value || t('dialogs.moveTorrent.samePath')]
 
-const torrents = computed(() => props.hashes.map(maindataStore.getTorrentByHash))
+const torrents = computed(() => props.hashes.map(torrentStore.getTorrentByHash))
 const oldPath = computed(() => torrents.value[0]?.savePath)
 
 async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await maindataStore.moveTorrents(props.hashes, formData.newPath)
+  await torrentStore.moveTorrents(props.hashes, formData.newPath)
 
   close()
 }

@@ -1,19 +1,14 @@
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { formatEta, getDomainBody } from '@/helpers'
-import { useMaindataStore } from '@/stores'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { faker } from '@faker-js/faker/locale/en'
-import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume'>
 
 export function useTorrentBuilder() {
   const { t } = useI18n()
-  const maindataStore = useMaindataStore()
-
-  const categories = computed(() => maindataStore.categories.map(value => value.name) || ['ISO', 'Other', 'Movie', 'Music', 'TV'])
 
   const computedValues = ['avgDownloadSpeed', 'avgUploadSpeed', 'globalSpeed', 'globalVolume', 'priority']
 
@@ -86,7 +81,7 @@ export function useTorrentBuilder() {
       availability: data.availability || faker.number.float({ min: 0, max: 100, precision: 0.01 }),
       available_peers,
       available_seeds,
-      category: data.category || faker.helpers.arrayElement(categories.value),
+      category: data.category || faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
       completed_on: data.completed_on || faker.date.between({ from: added_on, to: Date.now() }),
       content_path: data.content_path || faker.system.filePath(),
       dl_limit: data.dl_limit || faker.number.float({ min: 0, max: 1, precision: 0.01 }),

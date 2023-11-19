@@ -2,13 +2,14 @@
 import InfoBase from '@/components/TorrentDetail/InfoBase.vue'
 import { formatData, formatSpeed } from '@/helpers'
 import dayjs from '@/plugins/dayjs'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const auto_tmm = computed({
@@ -25,9 +26,9 @@ const forced = computed({
   get: () => props.torrent.forced,
   set: value => {
     if (value) {
-      maindataStore.forceResumeTorrents([props.torrent.hash])
+      torrentStore.forceResumeTorrents([props.torrent.hash])
     } else {
-      maindataStore.resumeTorrents([props.torrent.hash])
+      torrentStore.resumeTorrents([props.torrent.hash])
     }
   }
 })

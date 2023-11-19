@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore, useDialogStore, useMaindataStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
@@ -11,7 +11,7 @@ const route = useRoute()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
 const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
@@ -21,11 +21,11 @@ function openAddTorrentDialog() {
 }
 
 async function resumeTorrents() {
-  await maindataStore.resumeTorrents(hashes.value)
+  await torrentStore.resumeTorrents(hashes.value)
 }
 
 async function pauseTorrents() {
-  await maindataStore.pauseTorrents(hashes.value)
+  await torrentStore.pauseTorrents(hashes.value)
 }
 
 function deleteTorrents() {

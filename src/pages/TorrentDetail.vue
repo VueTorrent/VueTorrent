@@ -6,7 +6,7 @@ import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useDialogStore, useMaindataStore } from '@/stores'
+import { useDialogStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -15,12 +15,12 @@ const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const dialogStore = useDialogStore()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
 
 const tab = ref('overview')
 
 const hash = computed(() => route.params.hash as string)
-const torrent = computed(() => maindataStore.getTorrentByHash(hash.value))
+const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
