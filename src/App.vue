@@ -2,23 +2,23 @@
 import AddPanel from '@/components/AddPanel.vue'
 import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
+import { useAddTorrentStore } from '@/stores/addTorrents'
 import { useAppStore } from '@/stores/app'
 import { useAuthStore } from '@/stores/auth'
 import { useDialogStore } from '@/stores/dialog'
 import { useLogStore } from '@/stores/logs'
 import { useMaindataStore } from '@/stores/maindata'
-import { useNavbarStore } from '@/stores/navbar.ts'
 import { usePreferenceStore } from '@/stores/preferences'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 
 import { onBeforeMount, watch } from 'vue'
 
-const authStore = useAuthStore()
+const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
+const authStore = useAuthStore()
 const dialogStore = useDialogStore()
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
-const navbarStore = useNavbarStore()
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -63,7 +63,7 @@ watch(
       await logStore.fetchLogs()
       await maindataStore.fetchCategories()
       await maindataStore.fetchTags()
-      navbarStore.initAddTorrentDialogForm()
+      addTorrentStore.initForm()
     } else {
       appStore.clearIntervals()
     }

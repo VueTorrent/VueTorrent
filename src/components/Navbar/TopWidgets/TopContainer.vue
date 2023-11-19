@@ -19,7 +19,7 @@ const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
 const hashes = computed(() => (isOnTorrentDetail.value ? [route.params.hash as string] : dashboardStore.selectedTorrents))
 
 function openAddTorrentDialog() {
-  dialogStore.createDialog(AddTorrentDialog, { openSuddenly: true })
+  dialogStore.createDialog(AddTorrentDialog)
 }
 
 async function resumeTorrents() {

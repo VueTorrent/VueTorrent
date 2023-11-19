@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useArrayPagination, useSearchQuery } from '@/composables'
+import { useAddTorrentStore } from '@/stores/addTorrents'
 import { useDialogStore } from '@/stores/dialog'
-import { useNavbarStore } from '@/stores/navbar'
 import { useRssStore } from '@/stores/rss'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
@@ -11,8 +11,8 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
+const addTorrentStore = useAddTorrentStore()
 const dialogStore = useDialogStore()
-const navbarStore = useNavbarStore()
 const rssStore = useRssStore()
 
 const descriptionDialogVisible = ref(false)
@@ -48,7 +48,7 @@ function showDescription(article: RssArticle) {
 }
 
 function downloadArticle(item: RssArticle) {
-  navbarStore.pushTorrentToQueue(item.torrentURL)
+  addTorrentStore.pushTorrentToQueue(item.torrentURL)
 }
 
 async function markAsRead(item: RssArticle) {

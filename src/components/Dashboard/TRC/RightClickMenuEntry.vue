@@ -22,7 +22,7 @@ defineProps<{
       <span v-if="disabled && disabledText">{{ disabledText }}</span>
       <span v-else>{{ text }}</span>
       <v-spacer />
-      <v-icon v-if="children">mdi-chevron-right</v-icon>
+      <v-icon v-if="!disabled && children">mdi-chevron-right</v-icon>
     </div>
     <v-menu v-if="children" activator="parent" :open-on-hover="true" :open-on-click="true" close-delay="0" open-delay="0" location="right">
       <v-list>

@@ -1,13 +1,14 @@
 <script lang="ts" setup>
+import { useAddTorrentStore } from '@/stores/addTorrents'
 import { useAuthStore } from '@/stores/auth'
-import { useNavbarStore } from '@/stores/navbar'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+const addTorrentStore = useAddTorrentStore()
 const authStore = useAuthStore()
-const navbarStore = useNavbarStore()
+
 const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
@@ -26,8 +27,8 @@ function onDrop(files: File[] | null, event: DragEvent) {
   const links = event.dataTransfer.getData('text/plain').split('\n')
   .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
-  torrentFiles.forEach(navbarStore.pushTorrentToQueue)
-  links.forEach(navbarStore.pushTorrentToQueue)
+  torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
+  links.forEach(addTorrentStore.pushTorrentToQueue)
 }
 
 const { isOverDropZone } = useDropZone(dndZoneRef, { onDrop })
