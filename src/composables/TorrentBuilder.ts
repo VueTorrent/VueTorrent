@@ -1,6 +1,6 @@
 import { FilePriority, TorrentState } from '@/constants/qbit'
 import { formatEta, getDomainBody } from '@/helpers'
-import { useMaindataStore } from '@/stores/maindata.ts'
+import { useMaindataStore } from '@/stores'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { faker } from '@faker-js/faker/locale/en'

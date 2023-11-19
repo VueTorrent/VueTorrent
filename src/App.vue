@@ -2,14 +2,16 @@
 import AddPanel from '@/components/AddPanel.vue'
 import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useAppStore } from '@/stores/app'
-import { useAuthStore } from '@/stores/auth'
-import { useDialogStore } from '@/stores/dialog'
-import { useLogStore } from '@/stores/logs'
-import { useMaindataStore } from '@/stores/maindata'
-import { usePreferenceStore } from '@/stores/preferences'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import {
+  useAddTorrentStore,
+  useAppStore,
+  useAuthStore,
+  useDialogStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useVueTorrentStore
+} from '@/stores'
 
 import { onBeforeMount, watch } from 'vue'
 

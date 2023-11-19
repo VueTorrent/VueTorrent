@@ -5,10 +5,7 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { usePreferenceStore } from '@/stores/preferences'
+import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore } from '@/stores'
 import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -114,7 +111,7 @@ async function exportTorrents() {
       const link = document.createElement('a')
       link.href = url
       link.style.opacity = '0'
-      link.setAttribute('download', `${hash}.torrent`)
+      link.setAttribute('download', `${ hash }.torrent`)
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -273,7 +270,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 </script>
 
 <template>
-  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true" transition="slide-y-transition" scroll-strategy="none">
+  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true"
+          transition="slide-y-transition" scroll-strategy="none">
     <v-list>
       <v-list-item>
         <div class="d-flex justify-space-around">
@@ -286,7 +284,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
+              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
+                     @click="forceResumeTorrents" />
             </template>
             <span>Force Resume</span>
           </v-tooltip>
@@ -300,7 +299,8 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 
           <v-tooltip location="top">
             <template v-slot:activator="{ props }">
-              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
+              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props"
+                     @click="deleteTorrents" />
             </template>
             <span>Delete</span>
           </v-tooltip>

@@ -8,7 +8,7 @@ import {
   UtpTcpMixedMode
 } from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from '@/stores'
 import { computed, onBeforeMount } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -339,7 +339,7 @@ onBeforeMount(async () => {
           <v-text-field v-model="preferenceStore.preferences!.socket_send_buffer_size" type="number"
                         :label="t('settings.advanced.libtorrent.socketSendBufferSize')"
                         :hint="$t('settings.advanced.libtorrent.socketSendBufferSizeHint')"
-          suffix="kiB" />
+                        suffix="kiB" />
         </v-col>
         <v-col cols="12" sm="4">
           <v-text-field v-model="preferenceStore.preferences!.socket_receive_buffer_size" type="number"

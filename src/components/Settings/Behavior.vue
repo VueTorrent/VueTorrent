@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FileLogAgeType } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from '@/stores'
 
 const preferenceStore = usePreferenceStore()
 

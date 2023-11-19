@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
+import { useDashboardStore, useDialogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
-import { usePreferenceStore } from '@/stores/preferences'
+import { usePreferenceStore } from '@/stores'
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -36,14 +36,17 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="9">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_address" hide-details :label="t('settings.webUI.interface.ipAddress')" />
+          <v-text-field v-model="preferenceStore.preferences!.web_ui_address" hide-details
+                        :label="t('settings.webUI.interface.ipAddress')" />
         </v-col>
         <v-col cols="3">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_port" hide-details :label="t('settings.webUI.interface.port')" />
+          <v-text-field v-model="preferenceStore.preferences!.web_ui_port" hide-details
+                        :label="t('settings.webUI.interface.port')" />
         </v-col>
 
         <v-col cols="12" class="pt-0">
-          <v-checkbox v-model="preferenceStore.preferences!.web_ui_upnp" hide-details :label="t('settings.webUI.interface.useUPnP')" />
+          <v-checkbox v-model="preferenceStore.preferences!.web_ui_upnp" hide-details
+                      :label="t('settings.webUI.interface.useUPnP')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -69,7 +72,8 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_username" hide-details :label="t('settings.webUI.authentication.username')" />
+          <v-text-field v-model="preferenceStore.preferences!.web_ui_username" hide-details
+                        :label="t('settings.webUI.authentication.username')" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
@@ -82,10 +86,12 @@ watch(webUiPassword, newValue => {
         </v-col>
 
         <v-col cols="12" class="py-0">
-          <v-checkbox v-model="preferenceStore.preferences!.bypass_local_auth" hide-details :label="t('settings.webUI.authentication.bypassLocalhost')" />
+          <v-checkbox v-model="preferenceStore.preferences!.bypass_local_auth" hide-details
+                      :label="t('settings.webUI.authentication.bypassLocalhost')" />
         </v-col>
         <v-col cols="12" class="pt-0">
-          <v-checkbox v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled" hide-details :label="t('settings.webUI.authentication.bypassWhitelist')" />
+          <v-checkbox v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled" hide-details
+                      :label="t('settings.webUI.authentication.bypassWhitelist')" />
           <v-textarea
             v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist"
             :disabled="!preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled"
@@ -99,7 +105,8 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="4">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_max_auth_fail_count" type="number" hide-details :label="t('settings.webUI.authentication.maxAttempts')" />
+          <v-text-field v-model="preferenceStore.preferences!.web_ui_max_auth_fail_count" type="number" hide-details
+                        :label="t('settings.webUI.authentication.maxAttempts')" />
         </v-col>
 
         <v-col cols="12" sm="4">
@@ -127,7 +134,8 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="12" class="pb-0">
-          <v-checkbox v-model="preferenceStore.preferences!.use_https" hide-details :label="t('settings.webUI.https.subheader')" />
+          <v-checkbox v-model="preferenceStore.preferences!.use_https" hide-details
+                      :label="t('settings.webUI.https.subheader')" />
         </v-col>
         <v-col cols="12" class="pt-0">
           <v-text-field
@@ -147,7 +155,8 @@ watch(webUiPassword, newValue => {
     </v-list-item>
 
     <v-list-item>
-      <a href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts" target="_blank">{{ t('settings.webUI.https.tip') }}</a>
+      <a href="https://httpd.apache.org/docs/current/ssl/ssl_faq.html#aboutcerts"
+         target="_blank">{{ t('settings.webUI.https.tip') }}</a>
     </v-list-item>
 
     <v-divider />
@@ -163,7 +172,8 @@ watch(webUiPassword, newValue => {
             :label="t('settings.webUI.security.clickjacking')" />
         </v-col>
         <v-col cols="12" class="py-0">
-          <v-checkbox v-model="preferenceStore.preferences!.web_ui_csrf_protection_enabled" hide-details density="compact" :label="t('settings.webUI.security.csrf')" />
+          <v-checkbox v-model="preferenceStore.preferences!.web_ui_csrf_protection_enabled" hide-details
+                      density="compact" :label="t('settings.webUI.security.csrf')" />
         </v-col>
         <v-col cols="12" class="py-0">
           <v-checkbox
@@ -195,7 +205,8 @@ watch(webUiPassword, newValue => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.web_ui_use_custom_http_headers_enabled" hide-details :label="t('settings.webUI.customHeaders')" />
+      <v-checkbox v-model="preferenceStore.preferences!.web_ui_use_custom_http_headers_enabled" hide-details
+                  :label="t('settings.webUI.customHeaders')" />
     </v-list-item>
     <v-list-item>
       <v-textarea
@@ -211,7 +222,8 @@ watch(webUiPassword, newValue => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.web_ui_reverse_proxy_enabled" hide-details :label="t('settings.webUI.reverseProxySupport')" />
+      <v-checkbox v-model="preferenceStore.preferences!.web_ui_reverse_proxy_enabled" hide-details
+                  :label="t('settings.webUI.reverseProxySupport')" />
     </v-list-item>
     <v-list-item>
       <v-text-field
@@ -226,15 +238,19 @@ watch(webUiPassword, newValue => {
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.dyndns_enabled" hide-details :label="t('settings.webUI.dynDns.subheader')" />
+      <v-checkbox v-model="preferenceStore.preferences!.dyndns_enabled" hide-details
+                  :label="t('settings.webUI.dynDns.subheader')" />
     </v-list-item>
     <v-list-item>
       <v-row>
         <v-col cols="8">
-          <v-select v-model="dynDnsProvider" :disabled="!preferenceStore.preferences!.dyndns_enabled" density="compact" hide-details :items="dynDnsProviderOptions" />
+          <v-select v-model="dynDnsProvider" :disabled="!preferenceStore.preferences!.dyndns_enabled" density="compact"
+                    hide-details :items="dynDnsProviderOptions" />
         </v-col>
         <v-col cols="4">
-          <v-btn :disabled="!preferenceStore.preferences!.dyndns_enabled" @click="registerDynDNS">{{ $t('settings.webUI.dynDns.registerBtn') }}</v-btn>
+          <v-btn :disabled="!preferenceStore.preferences!.dyndns_enabled" @click="registerDynDNS">
+            {{ $t('settings.webUI.dynDns.registerBtn') }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>

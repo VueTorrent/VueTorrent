@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -50,7 +50,8 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldPath" :model-value="oldPath" disabled :label="$t('dialogs.moveTorrent.oldPath')" />
-          <v-text-field v-model="formData.newPath" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
+          <v-text-field v-model="formData.newPath" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')"
+                        @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

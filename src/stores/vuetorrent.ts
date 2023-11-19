@@ -1,4 +1,4 @@
-import { propsData, propsMetadata, DashboardProperty, TitleOptions } from '@/constants/vuetorrent'
+import { DashboardProperty, propsData, propsMetadata, TitleOptions } from '@/constants/vuetorrent'
 import { formatPercent, formatSpeed } from '@/helpers'
 import { Theme } from '@/plugins/vuetify'
 import { useMaindataStore } from '@/stores/maindata'
@@ -117,8 +117,8 @@ export const useVueTorrentStore = defineStore(
         case TitleOptions.GLOBAL_SPEED:
           document.title =
             '[' +
-            `D: ${formatSpeed(maindataStore.serverState?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
-            `U: ${formatSpeed(maindataStore.serverState?.up_info_speed ?? 0, useBitSpeed.value)}` +
+            `D: ${ formatSpeed(maindataStore.serverState?.dl_info_speed ?? 0, useBitSpeed.value) }, ` +
+            `U: ${ formatSpeed(maindataStore.serverState?.up_info_speed ?? 0, useBitSpeed.value) }` +
             '] VueTorrent'
           break
         case TitleOptions.FIRST_TORRENT_STATUS:
@@ -126,9 +126,9 @@ export const useVueTorrentStore = defineStore(
           if (torrent) {
             document.title =
               '[' +
-              `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
-              `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
-              `${formatPercent(torrent.progress)}` +
+              `D: ${ formatSpeed(torrent.dlspeed, useBitSpeed.value) }, ` +
+              `U: ${ formatSpeed(torrent.upspeed, useBitSpeed.value) }, ` +
+              `${ formatPercent(torrent.progress) }` +
               '] VueTorrent'
           } else {
             document.title = '[N/A] VueTorrent'
@@ -150,6 +150,7 @@ export const useVueTorrentStore = defineStore(
         _busyProperties.value[ppt.name].order = index + 1
       })
     }
+
     function updateDoneProperties(values: TorrentProperty[]) {
       values.forEach((ppt, index) => {
         _doneProperties.value[ppt.name].active = ppt.active
@@ -160,6 +161,7 @@ export const useVueTorrentStore = defineStore(
     function toggleBusyProperty(name: DashboardProperty) {
       _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
+
     function toggleDoneProperty(name: DashboardProperty) {
       _doneProperties.value[name].active = !_doneProperties.value[name].active
     }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
 
 type ShareType = 'global' | 'disabled' | 'enabled'

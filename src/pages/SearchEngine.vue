@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
-import { useAddTorrentStore } from '@/stores/addTorrents'
-import { useDialogStore } from '@/stores/dialog'
-import { useSearchEngineStore } from '@/stores/searchEngine'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { formatData } from '@/helpers'
+import { useAddTorrentStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { formatData } from '@/helpers'
 import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -54,10 +51,10 @@ const plugins = computed(() => {
   ]
 
   searchEngineStore.searchPlugins
-    .filter((plugin: SearchPlugin) => plugin.enabled)
-    .forEach((plugin: SearchPlugin) => {
-      plugins.push({ title: plugin.name, value: plugin.name })
-    })
+  .filter((plugin: SearchPlugin) => plugin.enabled)
+  .forEach((plugin: SearchPlugin) => {
+    plugins.push({ title: plugin.name, value: plugin.name })
+  })
 
   return plugins
 })
@@ -173,7 +170,8 @@ onBeforeUnmount(() => {
         <v-spacer />
 
         <v-btn icon="mdi-plus-circle-outline" variant="plain" color="accent" @click="createNewTab" />
-        <v-btn icon="mdi-minus-circle-outline" variant="plain" color="error" :disabled="searchData.length === 1" @click="deleteTab" />
+        <v-btn icon="mdi-minus-circle-outline" variant="plain" color="error" :disabled="searchData.length === 1"
+               @click="deleteTab" />
       </v-container>
     </v-row>
 
@@ -227,11 +225,14 @@ onBeforeUnmount(() => {
       <v-divider class="my-3" />
 
       <v-list-item>
-        <v-data-table :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage">
+        <v-data-table :headers="headers" :items="filteredResults"
+                      :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
+                      :items-per-page.sync="selectedTab.itemsPerPage">
           <template v-slot:top>
             <v-row>
               <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="$t('searchEngine.filters.title.label')" />
+                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details
+                              :label="$t('searchEngine.filters.title.label')" />
               </v-col>
             </v-row>
           </template>
@@ -239,7 +240,7 @@ onBeforeUnmount(() => {
             {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
           </template>
           <template v-slot:item.actions="{ item }">
-            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"> </v-btn>
+            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"></v-btn>
           </template>
         </v-data-table>
       </v-list-item>

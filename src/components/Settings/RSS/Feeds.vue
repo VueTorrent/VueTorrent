@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
-import { useDialogStore } from '@/stores/dialog'
-import { useRssStore } from '@/stores/rss'
+import { useDialogStore, useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { useIntervalFn } from '@vueuse/core'
 import { onBeforeMount, ref, watch } from 'vue'
@@ -86,7 +85,8 @@ watch(
       </v-btn>
     </v-col>
     <v-col cols="6" class="d-flex align-center justify-center">
-      <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0" :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
+      <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0"
+             :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
     </v-col>
   </v-row>
 </template>

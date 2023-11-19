@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useSearchEngineStore } from '@/stores/searchEngine'
+import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -83,7 +83,8 @@ function closeInstallDialog() {
 
         <v-spacer />
 
-        <v-btn :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
+        <v-btn :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading"
+               @click="updatePlugins" />
         <v-dialog v-model="installisOpened">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" color="primary">
@@ -106,7 +107,8 @@ function closeInstallDialog() {
         </v-dialog>
       </v-card-title>
       <v-card-text>
-        <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
+        <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins"
+                      :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
           <template v-slot:item.enabled="{ item }">
             <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>

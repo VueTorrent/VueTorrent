@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import BottomActions from '@/components/Navbar/SideWidgets/BottomActions.vue'
-import CurrentSpeed from '@/components/Navbar/SideWidgets/CurrentSpeed.vue'
-import FilterSelect from '@/components/Navbar/SideWidgets/FilterSelect.vue'
-import FreeSpace from '@/components/Navbar/SideWidgets/FreeSpace.vue'
-import SpeedGraph from '@/components/Navbar/SideWidgets/SpeedGraph.vue'
-import TransferStats from '@/components/Navbar/SideWidgets/TransferStats.vue'
-import ActiveFilters from '@/components/Navbar/TopWidgets/ActiveFilters.vue'
-import TopContainer from '@/components/Navbar/TopWidgets/TopContainer.vue'
-import { useDashboardStore } from '@/stores/dashboard'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { ref } from 'vue'
+import BottomActions from './SideWidgets/BottomActions.vue'
+import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
+import FilterSelect from './SideWidgets/FilterSelect.vue'
+import FreeSpace from './SideWidgets/FreeSpace.vue'
+import SpeedGraph from './SideWidgets/SpeedGraph.vue'
+import TransferStats from './SideWidgets/TransferStats.vue'
+import ActiveFilters from './TopWidgets/ActiveFilters.vue'
+import TopContainer from './TopWidgets/TopContainer.vue'
 
 const dashboardStore = useDashboardStore()
 const vueTorrentStore = useVueTorrentStore()
@@ -22,7 +21,8 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" :location="vueTorrentStore.isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
+  <v-navigation-drawer v-model="isDrawerOpen" :location="vueTorrentStore.isDrawerRight ? 'right' : 'left'"
+                       color="primary" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
       <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
         <CurrentSpeed />

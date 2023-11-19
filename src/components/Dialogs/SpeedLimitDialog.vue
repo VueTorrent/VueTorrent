@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores/maindata.ts'
+import { useMaindataStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
 
 const props = defineProps<{

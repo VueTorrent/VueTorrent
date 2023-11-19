@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useLogStore } from '@/stores/logs'
-import { useMaindataStore } from '@/stores/maindata'
+import { useLogStore, useMaindataStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -38,7 +37,9 @@ const close = () => {
         <v-row>
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.status') }}</div>
-            <div :class="['ml-2', connectionStatusColor]">{{ $t('constants.connectionStatus.' + maindataStore.serverState?.connection_status) }}</div>
+            <div :class="['ml-2', connectionStatusColor]">
+              {{ $t('constants.connectionStatus.' + maindataStore.serverState?.connection_status) }}
+            </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.externalIp') }}</div>

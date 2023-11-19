@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { FilePriority } from '@/constants/qbit'
 import { getFileIcon } from '@/constants/vuetorrent'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { formatData, formatPercent } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 import { TreeFile } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
-import { formatData, formatPercent } from '@/helpers'
 
 defineProps<{
   node: TreeFile

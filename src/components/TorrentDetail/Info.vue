@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import InfoBase from '@/components/TorrentDetail/InfoBase.vue'
+import { formatData, formatSpeed } from '@/helpers'
 import dayjs from '@/plugins/dayjs'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
-import { formatData, formatSpeed } from '@/helpers'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -113,9 +112,11 @@ const longTextPpts = [
           <v-expansion-panel-text>
             <v-row>
               <InfoBase v-for="ppt in datetimePpts">
-                <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-                <template v-if="torrent[ppt.text] > 0" v-slot:text>{{ dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }} </template>
-                <template v-else v-slot:text> {{ $t('common.NA') }} </template>
+                <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
+                <template v-if="torrent[ppt.text] > 0" v-slot:text>
+                  {{ dayjs(torrent[ppt.text] * 1000).format(vuetorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }}
+                </template>
+                <template v-else v-slot:text> {{ $t('common.NA') }}</template>
               </InfoBase>
             </v-row>
           </v-expansion-panel-text>
@@ -125,7 +126,7 @@ const longTextPpts = [
           <v-expansion-panel-text>
             <v-row>
               <InfoBase v-for="ppt in durationPpts">
-                <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
+                <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
                 <template v-slot:text>{{ dayjs.duration(torrent[ppt.text], 's').humanize() }}</template>
               </InfoBase>
             </v-row>
@@ -137,31 +138,36 @@ const longTextPpts = [
             <v-row>
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="auto_tmm" hide-details density="compact" :label="$t('torrent.properties.auto_tmm')" />
+                  <v-checkbox v-model="auto_tmm" hide-details density="compact"
+                              :label="$t('torrent.properties.auto_tmm')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="f_l_piece_prio" hide-details density="compact" :label="$t('torrent.properties.f_l_piece_prio')" />
+                  <v-checkbox v-model="f_l_piece_prio" hide-details density="compact"
+                              :label="$t('torrent.properties.f_l_piece_prio')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="forced" hide-details density="compact" :label="$t('torrent.properties.forced')" />
+                  <v-checkbox v-model="forced" hide-details density="compact"
+                              :label="$t('torrent.properties.forced')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="seq_dl" hide-details density="compact" :label="$t('torrent.properties.seq_dl')" />
+                  <v-checkbox v-model="seq_dl" hide-details density="compact"
+                              :label="$t('torrent.properties.seq_dl')" />
                 </template>
               </InfoBase>
 
               <InfoBase>
                 <template v-slot:title>
-                  <v-checkbox v-model="super_seeding" hide-details density="compact" :label="$t('torrent.properties.super_seeding')" />
+                  <v-checkbox v-model="super_seeding" hide-details density="compact"
+                              :label="$t('torrent.properties.super_seeding')" />
                 </template>
               </InfoBase>
             </v-row>
@@ -172,7 +178,7 @@ const longTextPpts = [
           <v-expansion-panel-text>
             <v-row>
               <InfoBase v-for="ppt in dataPpts">
-                <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
+                <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
                 <template v-slot:text>{{ formatData(torrent[ppt.text], vuetorrentStore.useBinarySize) }}</template>
               </InfoBase>
             </v-row>
@@ -183,7 +189,7 @@ const longTextPpts = [
           <v-expansion-panel-text>
             <v-row>
               <InfoBase v-for="ppt in speedPpts">
-                <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
+                <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
                 <template v-slot:text>{{ formatSpeed(torrent[ppt.text], vuetorrentStore.useBitSpeed) }}</template>
               </InfoBase>
             </v-row>
@@ -194,7 +200,7 @@ const longTextPpts = [
           <v-expansion-panel-text>
             <v-row>
               <InfoBase v-for="ppt in textPpts">
-                <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
+                <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
                 <template v-slot:text>{{ torrent[ppt.text] }}</template>
               </InfoBase>
             </v-row>

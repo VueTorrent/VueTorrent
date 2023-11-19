@@ -2,11 +2,7 @@
 import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useAppStore } from '@/stores/app'
-import { useAuthStore } from '@/stores/auth'
-import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
+import { useAppStore, useAuthStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -44,7 +40,7 @@ const connectionStatusText = computed(() => {
       key = 'unknown'
   }
 
-  return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${key}`) })
+  return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${ key }`) })
 })
 
 const logout = async () => {
@@ -58,6 +54,7 @@ const toggleAltSpeed = () => {
 function openConnectionStatusDialog() {
   dialogStore.createDialog(ConnectionStatusDialog)
 }
+
 function openConfirmShutdownDialog() {
   dialogStore.createDialog(ConfirmShutdownDialog)
 }

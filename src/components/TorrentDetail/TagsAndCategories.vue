@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed, onBeforeMount } from 'vue'
 

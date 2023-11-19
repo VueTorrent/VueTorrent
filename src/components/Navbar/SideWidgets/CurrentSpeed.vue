@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-import { useMaindataStore } from '@/stores/maindata'
+import { useMaindataStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -16,7 +16,8 @@ const maindataStore = useMaindataStore()
       <v-sheet color="primary" class="mx-2">
         <v-row class="pt-0">
           <v-col class="px-1 pt-1">
-            <SpeedCard icon="mdi-chevron-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />
+            <SpeedCard icon="mdi-chevron-down" color="download"
+                       :value="maindataStore.serverState?.dl_info_speed ?? 0" />
           </v-col>
           <v-col class="px-1 pt-1">
             <SpeedCard icon="mdi-chevron-up" color="upload" :value="maindataStore.serverState?.up_info_speed ?? 0" />
