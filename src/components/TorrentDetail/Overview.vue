@@ -16,7 +16,7 @@ import { useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore }
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
 
@@ -165,6 +165,30 @@ watch(
     await getTorrentProperties()
   }
 )
+
+function handleKeyboardShortcuts(e: KeyboardEvent) {
+  if (dialogStore.hasActiveDialog) return false
+
+  if (e.key === 's') {
+    e.preventDefault()
+    openMoveTorrentDialog()
+    return true
+  }
+
+  if (e.key === 'f' && selectedFileCount.value === 1) {
+    e.preventDefault()
+    openMoveTorrentFileDialog()
+    return true
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('keydown', handleKeyboardShortcuts)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcuts)
+})
 </script>
 
 <template>
