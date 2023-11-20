@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SchedulerDays } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -19,6 +19,24 @@ const schedulerOptions = ref([
   { title: t('constants.scheduler.everySaturday'), value: SchedulerDays.EVERY_SATURDAY },
   { title: t('constants.scheduler.everySunday'), value: SchedulerDays.EVERY_SUNDAY }
 ])
+
+const upLimit = computed({
+  get: () => preferenceStore.preferences!.up_limit / 1024,
+  set: (value: number) => preferenceStore.preferences!.up_limit = value * 1024
+})
+const dlLimit = computed({
+  get: () => preferenceStore.preferences!.dl_limit / 1024,
+  set: (value: number) => preferenceStore.preferences!.dl_limit = value * 1024
+})
+
+const altUpLimit = computed({
+  get: () => preferenceStore.preferences!.alt_up_limit / 1024,
+  set: (value: number) => preferenceStore.preferences!.alt_up_limit = value * 1024
+})
+const altDlLimit = computed({
+  get: () => preferenceStore.preferences!.alt_dl_limit / 1024,
+  set: (value: number) => preferenceStore.preferences!.alt_dl_limit = value * 1024
+})
 </script>
 
 <template>
@@ -30,11 +48,11 @@ const schedulerOptions = ref([
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.up_limit" hide-details suffix="kiB/s"
+              <v-text-field v-model="upLimit" hide-details suffix="kiB/s"
                             :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.dl_limit" hide-details suffix="kiB/s"
+              <v-text-field v-model="dlLimit" hide-details suffix="kiB/s"
                             :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
@@ -51,11 +69,11 @@ const schedulerOptions = ref([
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.alt_up_limit" hide-details suffix="kiB/s"
+              <v-text-field v-model="altUpLimit" hide-details suffix="kiB/s"
                             :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="preferenceStore.preferences!.alt_dl_limit" hide-details suffix="kiB/s"
+              <v-text-field v-model="altDlLimit" hide-details suffix="kiB/s"
                             :label="t('settings.speed.download')" />
             </v-col>
           </v-row>

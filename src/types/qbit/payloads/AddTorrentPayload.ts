@@ -49,8 +49,6 @@ export default interface AddTorrentPayload {
   tags?: string
   /** Set torrent upload speed limit. Unit in bytes/second */
   upLimit?: number
-  /** URLs separated with newlines */
-  urls?: string
   /** Whether to enable use of `downloadPath` */
   useDownloadPath?: boolean
 }

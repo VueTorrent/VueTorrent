@@ -94,15 +94,15 @@ async function copyValue(valueToCopy: string) {
 }
 
 function setDownloadLimit() {
-  dialogStore.createDialog(SpeedLimitDialog, { hash: hash.value, mode: 'download' })
+  dialogStore.createDialog(SpeedLimitDialog, { hashes: hashes.value, mode: 'download' })
 }
 
 function setUploadLimit() {
-  dialogStore.createDialog(SpeedLimitDialog, { hash: hash.value, mode: 'upload' })
+  dialogStore.createDialog(SpeedLimitDialog, { hashes: hashes.value, mode: 'upload' })
 }
 
 function setShareLimit() {
-  dialogStore.createDialog(ShareLimitDialog, { hash: hash.value })
+  dialogStore.createDialog(ShareLimitDialog, { hashes: hashes.value })
 }
 
 async function exportTorrents() {

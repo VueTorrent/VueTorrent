@@ -42,6 +42,7 @@ export const useVueTorrentStore = defineStore(
     const fileContentInterval = ref(5000)
     const canvasRenderThreshold = ref(3000)
     const canvasRefreshThreshold = ref(5000)
+    const useIdForRssLinks = ref(false)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -162,6 +163,7 @@ export const useVueTorrentStore = defineStore(
       uiTitleCustom,
       useBinarySize,
       useBitSpeed,
+      useIdForRssLinks,
       _busyProperties,
       busyTorrentProperties,
       _doneProperties,
