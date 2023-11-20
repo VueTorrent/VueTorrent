@@ -5,7 +5,7 @@ import { onBeforeMount, ref } from 'vue'
 
 const props = defineProps<{
   guid: string
-  hash: string
+  hashes: string[]
   mode: 'download' | 'upload'
 }>()
 
@@ -24,17 +24,17 @@ async function submit() {
   const formattedValue = Math.max(0, value.value) * 1000
   switch (props.mode) {
     case 'download':
-      await maindataStore.setDownloadLimit(formattedValue, [props.hash])
+      await maindataStore.setDownloadLimit(formattedValue, props.hashes)
       break
     case 'upload':
-      await maindataStore.setUploadLimit(formattedValue, [props.hash])
+      await maindataStore.setUploadLimit(formattedValue, props.hashes)
       break
   }
   close()
 }
 
 onBeforeMount(async () => {
-  const torrent = torrentStore.getTorrentByHash(props.hash)
+  const torrent = torrentStore.getTorrentByHash(props.hashes[0])
   if (!torrent) {
     return close()
   }

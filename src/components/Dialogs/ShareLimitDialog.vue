@@ -9,7 +9,7 @@ const DISABLED = -1
 
 const props = defineProps<{
   guid: string
-  hash: string
+  hashes: string[]
 }>()
 
 const { isOpened } = useDialog(props.guid)
@@ -38,13 +38,13 @@ function close() {
 async function submit() {
   switch (shareType.value) {
     case 'global':
-      await maindataStore.setShareLimit([props.hash], GLOBAL, GLOBAL, GLOBAL)
+      await maindataStore.setShareLimit(props.hashes, GLOBAL, GLOBAL, GLOBAL)
       break
     case 'disabled':
-      await maindataStore.setShareLimit([props.hash], DISABLED, DISABLED, DISABLED)
+      await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED)
       break
     case 'enabled':
-      await maindataStore.setShareLimit([props.hash],
+      await maindataStore.setShareLimit(props.hashes,
         ratioLimitEnabled.value ? ratioLimit.value : DISABLED,
         seedingTimeLimitEnabled.value ? seedingTimeLimit.value : DISABLED,
         inactiveSeedingTimeLimitEnabled.value ? inactiveSeedingTimeLimit.value : DISABLED)
@@ -54,7 +54,7 @@ async function submit() {
 }
 
 onBeforeMount(async () => {
-  const torrent = torrentStore.getTorrentByHash(props.hash)
+  const torrent = torrentStore.getTorrentByHash(props.hashes[0])
   if (!torrent) {
     return close()
   }
