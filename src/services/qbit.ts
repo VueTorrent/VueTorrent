@@ -226,14 +226,14 @@ export class QBitApi {
 
   // Post
 
-  async addTorrents(params: AddTorrentPayload, torrents: File[]): Promise<void> {
+  async addTorrents(torrents: File[], urls: string, params: AddTorrentPayload): Promise<void> {
     let data
     if (torrents) {
       // torrent files
       const formData = new FormData()
       if (params) {
         for (const [key, value] of Object.entries(params)) {
-          formData.append(key, value)
+          !!value && formData.set(key, value)
         }
       }
 
@@ -246,7 +246,7 @@ export class QBitApi {
       // magnet links
       data = new URLSearchParams(params as Parameters)
     }
-
+    !!urls && data.set('urls', urls)
     return this.axios.post('/torrents/add', data)
   }
 
