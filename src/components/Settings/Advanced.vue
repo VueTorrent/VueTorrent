@@ -9,7 +9,7 @@ import {
 } from '@/constants/qbit/AppPreferences'
 import { qbit } from '@/services'
 import { usePreferenceStore } from '@/stores'
-import { computed, onBeforeMount } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -19,15 +19,15 @@ const resumeDataStorageTypeOptions = [
   { title: t('settings.advanced.qbittorrent.resumeDataStorageType.legacy'), value: ResumeDataStorageType.LEGACY },
   { title: t('settings.advanced.qbittorrent.resumeDataStorageType.sqlite'), value: ResumeDataStorageType.SQLITE }
 ]
-const networkInterfaceOptions = [{
+const networkInterfaceOptions = ref([{
   title: t('settings.advanced.qbittorrent.networking.networkInterfaces.any'),
   value: ''
-}]
-const ipAddressesOptions = [
+}])
+const ipAddressesOptions = ref([
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.all'), value: '' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv4'), value: '0.0.0.0' },
   { title: t('settings.advanced.qbittorrent.networking.ipAddress.allIPv6'), value: '::' }
-]
+])
 const diskIoTypeOptions = [
   { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
   { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
@@ -66,12 +66,12 @@ const torrentFileSizeLimit = computed({
 onBeforeMount(async () => {
   const networkInterfaces = await qbit.getNetworkInterfaces()
   for (const networkInterface of networkInterfaces) {
-    networkInterfaceOptions.push({ title: networkInterface.name, value: networkInterface.value })
+    networkInterfaceOptions.value.push({ title: networkInterface.name, value: networkInterface.value })
   }
 
   const ipAddresses = await qbit.getAddresses(preferenceStore.preferences!.current_network_interface)
   for (const ipAddress of ipAddresses) {
-    ipAddressesOptions.push({ title: ipAddress, value: ipAddress })
+    ipAddressesOptions.value.push({ title: ipAddress, value: ipAddress })
   }
 })
 </script>
