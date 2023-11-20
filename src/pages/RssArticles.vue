@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useArrayPagination, useSearchQuery } from '@/composables'
-import { useAddTorrentStore, useDialogStore, useRssStore } from '@/stores'
+import { useAddTorrentStore, useDialogStore, useRssStore, useVueTorrentStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
@@ -12,6 +12,7 @@ const { t } = useI18n()
 const addTorrentStore = useAddTorrentStore()
 const dialogStore = useDialogStore()
 const rssStore = useRssStore()
+const vuetorrentStore = useVueTorrentStore()
 
 const descriptionDialogVisible = ref(false)
 const rssDescription = reactive({
@@ -34,14 +35,15 @@ const searchQuery = useSearchQuery(
 
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(searchQuery.results, 15)
 
-function openLink(url: string) {
+function openLink(article: RssArticle) {
+  const url = vuetorrentStore.useIdForRssLinks ? article.id : article.link
   window.open(url, '_blank', 'noreferrer')
 }
 
 function showDescription(article: RssArticle) {
   if (!article.description) return
-  rssDescription.title = article.title
-  rssDescription.content = article.description
+  rssDescription.title = article.title.trim()
+  rssDescription.content = article.description.trim()
   descriptionDialogVisible.value = true
 }
 
@@ -148,7 +150,7 @@ onUnmounted(() => {
                 <v-spacer />
 
                 <div class="d-flex flex-column">
-                  <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(article.link)" />
+                  <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(article)" />
                   <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="markAsRead(article)" />
                   <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(article)" />
                 </div>
