@@ -1,8 +1,9 @@
 <script setup lang="ts">
 
-import { usePreferenceStore } from '@/stores'
+import { usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 const preferenceStore = usePreferenceStore()
+const vuetorrentStore = useVueTorrentStore()
 </script>
 
 <template>
@@ -54,6 +55,14 @@ const preferenceStore = usePreferenceStore()
         persistent-hint
         :hint="$t('settings.rss.general.smartEpisodeFilter.filtersHint')"
         :label="$t('settings.rss.general.smartEpisodeFilter.filters')" />
+    </v-list-item>
+
+    <v-divider />
+
+    <v-list-item>
+      <v-checkbox v-model="vuetorrentStore.useIdForRssLinks"
+                  hide-details
+                  :label="$t('settings.rss.general.useIdForRssLinks')" />
     </v-list-item>
   </v-list>
 </template>
