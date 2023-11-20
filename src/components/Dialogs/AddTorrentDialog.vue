@@ -197,13 +197,14 @@ const onCategoryChanged = () => {
                 <v-icon color="accent">mdi-link</v-icon>
               </template>
             </v-textarea>
-            <v-text-field v-if="!!urls" v-model="cookie" :label="$t('dialogs.add.cookie')" :placeholder="$t('dialogs.add.cookiePlaceholder')"
-                          clearable>
+            <v-text-field v-if="!!urls" v-model="cookie" clearable autocomplete="cookie"
+                          :label="$t('dialogs.add.cookie')" :placeholder="$t('dialogs.add.cookiePlaceholder')">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-cookie</v-icon>
               </template>
             </v-text-field>
-            <v-text-field v-model="rename" :label="$t('dialogs.add.rename')" clearable hide-details>
+            <v-text-field v-model="rename" clearable hide-details autocomplete="rename"
+                          :label="$t('dialogs.add.rename')">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-rename</v-icon>
               </template>
@@ -211,8 +212,8 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12" md="6">
-            <v-combobox v-model="tags" v-model:search="tagSearch" :hide-no-data="false" :items="maindataStore.tags" :label="t('dialogs.add.tags')" chips
-                        clearable hide-details multiple>
+            <v-combobox v-model="tags" v-model:search="tagSearch" :hide-no-data="false" :items="maindataStore.tags"
+                        :label="t('dialogs.add.tags')" chips clearable hide-details multiple autocomplete="tags">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-tag</v-icon>
               </template>
@@ -231,7 +232,7 @@ const onCategoryChanged = () => {
 
           <v-col cols="12" md="6">
             <v-combobox v-model="category" v-model:search="categorySearch" :hide-no-data="false" :items="categories"
-                        :label="$t('dialogs.add.category')" clearable hide-details
+                        :label="$t('dialogs.add.category')" clearable hide-details autocomplete="categories"
                         @update:modelValue="onCategoryChanged">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-label</v-icon>
@@ -250,7 +251,7 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="downloadPath" :disabled="form.autoTMM"
+            <v-text-field v-model="downloadPath" :disabled="form.autoTMM" autocomplete="downloadPath"
                           :label="t('dialogs.add.downloadPath')" hide-details>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-tray-arrow-down</v-icon>
@@ -259,7 +260,7 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="form.savepath" :disabled="form.autoTMM"
+            <v-text-field v-model="form.savepath" :disabled="form.autoTMM" autocomplete="savepath"
                           :label="t('dialogs.add.savePath')" hide-details>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-content-save</v-icon>
@@ -314,7 +315,7 @@ const onCategoryChanged = () => {
                 <v-expansion-panel-text>
                   <v-row>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')"
+                      <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')" autocomplete="dlLimit"
                                     hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-download</v-icon>
@@ -322,7 +323,7 @@ const onCategoryChanged = () => {
                       </v-text-field>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')"
+                      <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')" autocomplete="upLimit"
                                     hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-upload</v-icon>
@@ -331,16 +332,20 @@ const onCategoryChanged = () => {
                     </v-col>
 
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.limitHint')"
-                                    :label="$t('dialogs.add.ratioLimit')" type="number" />
+                      <v-text-field v-model="ratioLimit" autocomplete="ratioLimit"
+                                    :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.ratioLimit')"
+                                    type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="seedingTimeLimit" :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.seedingTimeLimit')"
+                      <v-text-field v-model="seedingTimeLimit" autocomplete="seedingTimeLimit"
+                                    :label="$t('dialogs.add.seedingTimeLimit')"
+                                    :hint="$t('dialogs.add.limitHint')"
                                     :suffix="$t('units.minutes')" type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="inactiveSeedingTimeLimit" :hint="$t('dialogs.add.limitHint')"
+                      <v-text-field v-model="inactiveSeedingTimeLimit" autocomplete="inactiveSeedingTimeLimit"
                                     :label="$t('dialogs.add.inactiveSeedingTimeLimit')"
+                                    :hint="$t('dialogs.add.limitHint')"
                                     :suffix="$t('units.minutes')" type="number" />
                     </v-col>
                   </v-row>
@@ -355,7 +360,7 @@ const onCategoryChanged = () => {
         <v-btn :text="$t('dialogs.add.resetForm')" color="error" variant="flat" @click="addTorrentStore.resetForm()" />
         <v-spacer />
         <v-btn :disabled="!isFormValid" :text="$t('dialogs.add.submit')" color="accent"
-               variant="elevated" @click="submit" />
+               type="submit" variant="elevated" @click="submit" />
         <v-btn :text="$t('common.close')" color="" variant="flat" @click="close" />
       </v-card-actions>
     </v-card>
