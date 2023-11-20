@@ -137,18 +137,16 @@ const inactiveSeedingTimeLimit = computed({
 function submit() {
   if (!isFormValid.value) return
 
-  const promise = torrentStore.addTorrents(form.value, files.value)
-  .then(() => {
-    addTorrentStore.resetForm()
-    close()
-  })
-
-  toast.promise(promise, {
+  toast.promise(torrentStore.addTorrents(files.value, urls.value, form.value), {
     pending: t('dialogs.add.pending'),
     error: t('dialogs.add.error', addTorrentStore.pendingTorrentsCount),
     success: t('dialogs.add.success', addTorrentStore.pendingTorrentsCount)
   }, {
     autoClose: 1500
+  })
+  .then(() => {
+    addTorrentStore.resetForm()
+    close()
   })
 }
 
