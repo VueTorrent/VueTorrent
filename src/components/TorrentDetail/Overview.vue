@@ -15,6 +15,7 @@ import {
 import { useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
+import { useIntervalFn } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTheme } from 'vuetify'
@@ -137,14 +138,31 @@ function openMoveTorrentFileDialog() {
   })
 }
 
+const { resume: resumeTimer, pause: pauseTimer } = useIntervalFn(async () => {
+  await updateTorrentFiles()
+  if (shouldRefreshPieceState.value) {
+    await renderTorrentPieceStates()
+  }
+}, vuetorrentStore.fileContentInterval, {
+  immediate: true,
+  immediateCallback: true
+})
+
+watch(
+  () => props.isActive,
+  newValue => {
+    if (newValue) {
+      resumeTimer()
+    } else {
+      pauseTimer()
+    }
+  }
+)
+
 watch(
   () => props.torrent,
   async () => {
     await getTorrentProperties()
-    await updateTorrentFiles()
-    if (shouldRefreshPieceState.value) {
-      await renderTorrentPieceStates()
-    }
   }
 )
 </script>
