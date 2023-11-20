@@ -5,21 +5,26 @@ import { useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
-import { Torrent, TreeNode } from '@/types/vuetorrent'
-import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { Torrent, TreeFile, TreeNode } from '@/types/vuetorrent'
+import { useIntervalFn } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
+import { computed, nextTick, onMounted, reactive, ref, watch } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
-const vuetorrentStore = useVueTorrentStore()
+const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
-const timer = ref<NodeJS.Timeout | null>(null)
+const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval,{
+  immediate: false,
+  immediateCallback: true
+})
 const apiLock = ref(false)
 const loading = ref(false)
 const cachedFiles = ref<TorrentFile[]>([])
 const { tree } = useTreeBuilder(cachedFiles)
-const openedItems = ref<string[]>([])
+const openedItems = ref(['(root)'])
 const renameDialog = ref('')
 const renamePayload = reactive({
   hash: '',
@@ -60,6 +65,11 @@ async function renameNode(node: TreeNode) {
   renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
 }
 
+async function setFilePriority(node: TreeFile, priority: FilePriority) {
+  await maindataStore.setTorrentFilePriority(props.torrent.hash, [node.index], priority)
+  await updateFileTree()
+}
+
 async function updateFileTree() {
   if (apiLock.value) return
   apiLock.value = true
@@ -77,13 +87,14 @@ watch(
   () => props.isActive,
   newValue => {
     if (newValue) {
-      timer.value = setInterval(updateFileTree, vuetorrentStore.fileContentInterval)
-      updateFileTree().then(() => openedItems.value.push('(root)'))
+      resumeTimer()
+      updateFileTree()
     } else {
-      clearInterval(timer.value as NodeJS.Timeout)
+      pauseTimer()
     }
   }
 )
+
 watch(
   () => dialogStore.isDialogOpened(renameDialog.value),
   v => {
@@ -93,19 +104,15 @@ watch(
   }
 )
 
-onBeforeUnmount(() => {
-  clearInterval(timer.value as NodeJS.Timeout)
-})
 onMounted(() => {
-  timer.value = setInterval(updateFileTree, vuetorrentStore.fileContentInterval)
-  updateFileTree().then(() => openedItems.value.push('(root)'))
+  resumeTimer()
 })
 </script>
 
 <template>
   <v-card :loading="loading" flat>
-    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree" @renameFolder="renameNode"
-              @renameFile="renameNode" />
+    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree"
+              @renameFolder="renameNode" @renameFile="renameNode" @setFilePriority="setFilePriority" />
     <!--
     TODO: add treeview after merge
     https://github.com/vuetifyjs/vuetify/issues/13518
