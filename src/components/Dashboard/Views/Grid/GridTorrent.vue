@@ -3,7 +3,7 @@ import { doesCommand } from '@/helpers'
 import { useDashboardStore } from '@/stores/dashboard'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
-import ItemData from '@/components/Dashboard/DashboardItems/ItemData.vue'
+import ItemData from '@/components/Dashboard/Views/List/DashboardItems/ItemData.vue'
 import ItemPercent from './DashboardItems/ItemPercent.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
