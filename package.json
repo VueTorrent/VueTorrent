@@ -29,7 +29,7 @@
     "uuid": "^9.0.1",
     "vite-plugin-pwa": "^0.16.5",
     "vue": "^3.3.4",
-    "vue-i18n": "^9.3.0",
+    "vue-i18n": "^9.7.0",
     "vue-router": "^4.2.4",
     "vue3-apexcharts": "^1.4.4",
     "vue3-toastify": "^0.1.14",
