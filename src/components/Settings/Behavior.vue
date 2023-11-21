@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { FileLogAgeType } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
 
 const fileLogAgeTypeOptions = [
-  { title: 'days', value: FileLogAgeType.DAYS },
-  { title: 'months', value: FileLogAgeType.MONTHS },
-  { title: 'years', value: FileLogAgeType.YEARS }
+  { title: t('constants.file_log_age_type.days'), value: FileLogAgeType.DAYS },
+  { title: t('constants.file_log_age_type.months'), value: FileLogAgeType.MONTHS },
+  { title: t('constants.file_log_age_type.years'), value: FileLogAgeType.YEARS }
 ]
 </script>
 

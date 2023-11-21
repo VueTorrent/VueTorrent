@@ -83,13 +83,13 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab value="vuetorrent">{{ t('settings.tabs.vuetorrent') }}</v-tab>
+        <v-tab value="vuetorrent">{{ t('settings.tabs.vuetorrent.title') }}</v-tab>
         <v-tab value="behavior">{{ t('settings.tabs.behavior') }}</v-tab>
         <v-tab value="downloads">{{ t('settings.tabs.downloads') }}</v-tab>
         <v-tab value="connection">{{ t('settings.tabs.connection') }}</v-tab>
         <v-tab value="speed">{{ t('settings.tabs.speed') }}</v-tab>
         <v-tab value="bittorrent">{{ t('settings.tabs.bittorrent') }}</v-tab>
-        <v-tab value="rss">{{ t('settings.tabs.rss') }}</v-tab>
+        <v-tab value="rss">{{ t('settings.tabs.rss.title') }}</v-tab>
         <v-tab value="webui">{{ t('settings.tabs.webui') }}</v-tab>
         <v-tab value="tagsAndCategories">{{ t('settings.tabs.tagsAndCategories') }}</v-tab>
         <v-tab value="advanced">{{ t('settings.tabs.advanced') }}</v-tab>
@@ -100,10 +100,10 @@ onBeforeUnmount(() => {
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" bg-color="transparent" show-arrows>
           <v-tab value="general">
-            {{ t('settings.tabs.vuetorrentGeneral') }}
+            {{ t('settings.tabs.vuetorrent.general') }}
           </v-tab>
           <v-tab value="torrentCard">
-            {{ t('settings.tabs.vuetorrentTorrentCard') }}
+            {{ t('settings.tabs.vuetorrent.torrent_card') }}
           </v-tab>
         </v-tabs>
         <v-window v-model="innerTabV">
@@ -139,13 +139,13 @@ onBeforeUnmount(() => {
       <v-window-item value="rss">
         <v-tabs v-model="innerTabR" grow color="accent" bg-color="transparent">
           <v-tab value="general">
-            {{ t('settings.tabs.rssGeneral') }}
+            {{ t('settings.tabs.rss.general') }}
           </v-tab>
           <v-tab value="feeds">
-            {{ t('settings.tabs.rssFeeds') }}
+            {{ t('settings.tabs.rss.feeds') }}
           </v-tab>
           <v-tab value="rules">
-            {{ t('settings.tabs.rssRules') }}
+            {{ t('settings.tabs.rss.rules') }}
           </v-tab>
         </v-tabs>
         <v-window v-model="innerTabR">

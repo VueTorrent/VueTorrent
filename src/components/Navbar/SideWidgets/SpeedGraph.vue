@@ -59,11 +59,11 @@ const chartOptions: ApexOptions = {
 
 const series = computed(() => [
   {
-    name: 'upload',
+    name: t('navbar.side.speed_graph.upload_label'),
     data: navbarStore.uploadData
   },
   {
-    name: 'download',
+    name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
   }
 ])

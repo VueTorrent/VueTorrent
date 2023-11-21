@@ -64,13 +64,13 @@ const resetSettings = () => {
 
 const registerMagnetHandler = () => {
   if (typeof navigator.registerProtocolHandler !== 'function') {
-    toast.error(t('toast.magnetHandlerNotSupported'))
+    toast.error(t('toast.magnet_handler.not_supported'))
     return
   }
 
   const templateUrl = location.href.replace('/settings', '/magnet/%s')
   navigator.registerProtocolHandler('magnet', templateUrl)
-  toast.success('Magnet handler registered')
+  toast.success(t('toast.magnet_handler.registered'))
 }
 
 onBeforeMount(() => {

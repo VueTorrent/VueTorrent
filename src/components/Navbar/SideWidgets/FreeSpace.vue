@@ -6,7 +6,7 @@ const maindataStore = useMaindataStore()
 </script>
 
 <template>
-  <DataCard title="Free Space" :value="maindataStore.serverState?.free_space_on_disk ?? 0" color="upload" />
+  <DataCard :title="$t('navbar.side.stats.free_space')" :value="maindataStore.serverState?.free_space_on_disk ?? 0" color="upload" />
 </template>
 
 <style scoped></style>
