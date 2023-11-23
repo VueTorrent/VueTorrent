@@ -147,17 +147,26 @@ function toggleSelectAll() {
   }
 }
 
-function goToInfo(torrent: TorrentType) {
+function goToInfo(_: Event, torrent: TorrentType) {
   if (!isSelectionMultiple.value) {
     router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
   }
 }
 
-function onClick(_: PointerEvent, torrent: TorrentType) {
+function onCheckboxClick(_: PointerEvent, torrent: TorrentType) {
   dashboardStore.toggleSelect(torrent.hash)
 }
 
-async function onRightClick(e: PointerEvent, torrent: TorrentType) {
+function onTorrentClick(e: PointerEvent, torrent: TorrentType) {
+  if (e.shiftKey) {
+    dashboardStore.spanTorrentSelection(torrent.hash)
+  } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
+    dashboardStore.isSelectionMultiple = true
+    dashboardStore.toggleSelect(torrent.hash)
+  }
+}
+
+async function onTorrentRightClick(e: PointerEvent, torrent: TorrentType) {
   e.preventDefault()
 
   if (trcProperties.isVisible) {
@@ -181,7 +190,7 @@ const timer = ref<NodeJS.Timeout>()
 
 function startPress(e: PointerEvent, torrent: TorrentType) {
   timer.value = setTimeout(() => {
-    onRightClick(e, torrent)
+    onTorrentRightClick(e, torrent)
   }, 500)
 }
 
@@ -378,15 +387,18 @@ onBeforeUnmount(() => {
                     next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
 
-    <ListView v-if="isListView"
-              :paginated-torrents="paginatedTorrents" @goToInfo="goToInfo"
-              @onClick="onClick" @onRightClick="onRightClick" @startPress="startPress" @endPress="endPress" />
-    <GridView v-else-if="isGridView" class="mb-2"
-              :paginated-torrents="paginatedTorrents" @goToInfo="goToInfo"
-              @onClick="onClick" @onRightClick="onRightClick" @startPress="startPress" @endPress="endPress" />
-    <TableView v-else-if="isTableView"
-               :paginated-torrents="paginatedTorrents" @goToInfo="goToInfo"
-               @onClick="onClick" @onRightClick="onRightClick" @startPress="startPress" @endPress="endPress" />
+    <ListView v-if="isListView" :paginated-torrents="paginatedTorrents"
+              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+              @startPress="startPress" @endPress="endPress" />
+    <GridView v-else-if="isGridView" class="mb-2" :paginated-torrents="paginatedTorrents"
+              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+              @startPress="startPress" @endPress="endPress" />
+    <TableView v-else-if="isTableView" :paginated-torrents="paginatedTorrents"
+               @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+               @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+               @startPress="startPress" @endPress="endPress" />
 
     <div v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
       <v-pagination v-model="currentPage" :length="pageCount"

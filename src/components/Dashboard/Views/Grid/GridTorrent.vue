@@ -1,21 +1,55 @@
 <script setup lang="ts">
-import { doesCommand } from '@/helpers'
+import { DashboardPropertyType } from '@/constants/vuetorrent'
+import { useVueTorrentStore } from '@/stores'
 import { useDashboardStore } from '@/stores/dashboard'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
-import ItemData from '@/components/Dashboard/Views/List/DashboardItems/ItemData.vue'
-import ItemPercent from './DashboardItems/ItemPercent.vue'
+import ItemAmount from '@/components/Dashboard/DashboardItems/ItemAmount.vue'
+import ItemChip from '@/components/Dashboard/DashboardItems/ItemChip.vue'
+import ItemData from '@/components/Dashboard/DashboardItems/ItemData.vue'
+import ItemDateTime from '@/components/Dashboard/DashboardItems/ItemDateTime.vue'
+import ItemDuration from '@/components/Dashboard/DashboardItems/ItemDuration.vue'
+import ItemPercent from '@/components/Dashboard/DashboardItems/ItemPercent.vue'
+import ItemRelativeTime from '@/components/Dashboard/DashboardItems/ItemRelativeTime.vue'
+import ItemSpeed from '@/components/Dashboard/DashboardItems/ItemSpeed.vue'
+import ItemText from '@/components/Dashboard/DashboardItems/ItemText.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
 
-const dashboardStore = useDashboardStore()
+defineEmits<{
+  onTorrentClick: [e: PointerEvent, torrent: Torrent]
+}>()
 
-function onClick(e: MouseEvent) {
-  if (e.shiftKey) {
-    dashboardStore.spanTorrentSelection(props.torrent.hash)
-  } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
-    dashboardStore.isSelectionMultiple = true
-    dashboardStore.toggleSelect(props.torrent.hash)
+const dashboardStore = useDashboardStore()
+const vuetorrentStore = useVueTorrentStore()
+
+const torrentProperties = computed(() => {
+  let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneTorrentProperties : vuetorrentStore.busyTorrentProperties
+
+  return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
+})
+
+const getComponent = (type: DashboardPropertyType) => {
+  switch (type) {
+    case DashboardPropertyType.AMOUNT:
+      return ItemAmount
+    case DashboardPropertyType.CHIP:
+      return ItemChip
+    case DashboardPropertyType.DATA:
+      return ItemData
+    case DashboardPropertyType.DATETIME:
+      return ItemDateTime
+    case DashboardPropertyType.DURATION:
+      return ItemDuration
+    case DashboardPropertyType.PERCENT:
+      return ItemPercent
+    case DashboardPropertyType.RELATIVE:
+      return ItemRelativeTime
+    case DashboardPropertyType.SPEED:
+      return ItemSpeed
+    case DashboardPropertyType.TEXT:
+    default:
+      return ItemText
   }
 }
 
@@ -23,13 +57,14 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined" width="100%" @click="onClick">
-    <v-card-title class="font-weight-bold text-wrap">{{ torrent.name }}</v-card-title>
+  <v-card :class="`sideborder ${torrent.state} pointer`" height="100%"
+          :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
+          @click="$emit('onTorrentClick', $event, torrent)">
+    <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">
-        <ItemData :torrent="torrent" title="size" value="size" />
-        <v-chip :color="`torrent-${torrent.state}`" variant="flat">{{ torrent.stateString }}</v-chip>
-        <ItemPercent :torrent="torrent" value="progress" title="" />
+        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props"
+                   v-for="ppt in torrentProperties" />
       </div>
     </v-card-text>
   </v-card>

@@ -33,13 +33,13 @@ const vuetorrentStore = useVueTorrentStore()
     </thead>
     <tbody>
     <tr v-for="torrent in paginatedTorrents" :class="`text-torrent-${torrent.state}`"
-        @contextmenu="$emit('onRightClick', $event, torrent)"
+        @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')"
         @touchstart="$emit('startPress', $event, torrent)"
         @dblclick.prevent="$emit('goToInfo', torrent)">
       <td>
         <v-checkbox-btn :model-value="dashboardStore.isTorrentInSelection(torrent.hash)"
-            :color="`torrent-${torrent.state}`" variant="flat" @click="$emit('onClick', $event, torrent)" />
+            :color="`torrent-${torrent.state}`" variant="flat" @click="$emit('onCheckboxClick', $event, torrent)" />
       </td>
       <td>{{ torrent.name }}</td>
       <td>{{ formatData(torrent.size, vuetorrentStore.useBinarySize) }}</td>
