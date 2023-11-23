@@ -13,7 +13,7 @@ import VGeneral from '@/components/Settings/VueTorrent/General.vue'
 import VTorrentCard from '@/components/Settings/VueTorrent/TorrentCard.vue'
 import WebUI from '@/components/Settings/WebUI.vue'
 import { useDialogStore, usePreferenceStore } from '@/stores'
-import { onBeforeUnmount, onMounted, ref } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
@@ -22,6 +22,30 @@ const router = useRouter()
 const { t } = useI18n()
 const dialogStore = useDialogStore()
 const preferenceStore = usePreferenceStore()
+
+const tabs = [
+  { text: t('settings.tabs.vuetorrent.title'), value: 'vuetorrent' },
+  { text: t('settings.tabs.behavior'), value: 'behavior' },
+  { text: t('settings.tabs.downloads'), value: 'downloads' },
+  { text: t('settings.tabs.connection'), value: 'connection' },
+  { text: t('settings.tabs.speed'), value: 'speed' },
+  { text: t('settings.tabs.bittorrent'), value: 'bittorrent' },
+  { text: t('settings.tabs.rss.title'), value: 'rss' },
+  { text: t('settings.tabs.webui'), value: 'webui' },
+  { text: t('settings.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
+  { text: t('settings.tabs.advanced'), value: 'advanced' }
+]
+
+const tabsV = [
+  { text: t('settings.tabs.vuetorrent.general'), value: 'general' },
+  { text: t('settings.tabs.vuetorrent.torrent_card'), value: 'torrentCard' }
+]
+
+const tabsR = [
+  { text: t('settings.tabs.rss.general'), value: 'general' },
+  { text: t('settings.tabs.rss.feeds'), value: 'feeds' },
+  { text: t('settings.tabs.rss.rules'), value: 'rules' }
+]
 
 const tab = ref('vuetorrent')
 const innerTabV = ref('general')
@@ -57,8 +81,27 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 }
 
+function updateTabHandle() {
+  const tabRouteParam = router.currentRoute.value.params.tab as string
+  const subtabRouteParam = router.currentRoute.value.params.subtab as string
+  if (tabRouteParam) {
+    if (tabRouteParam === 'vuetorrent' && subtabRouteParam) {
+      innerTabV.value = subtabRouteParam
+    } else if (tabRouteParam === 'rss' && subtabRouteParam) {
+      innerTabR.value = subtabRouteParam
+    }
+    tab.value = tabRouteParam
+  }
+}
+
+watchEffect(() => {
+  updateTabHandle()
+})
+
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
+  updateTabHandle()
+
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
@@ -83,29 +126,18 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab value="vuetorrent">{{ t('settings.tabs.vuetorrent.title') }}</v-tab>
-        <v-tab value="behavior">{{ t('settings.tabs.behavior') }}</v-tab>
-        <v-tab value="downloads">{{ t('settings.tabs.downloads') }}</v-tab>
-        <v-tab value="connection">{{ t('settings.tabs.connection') }}</v-tab>
-        <v-tab value="speed">{{ t('settings.tabs.speed') }}</v-tab>
-        <v-tab value="bittorrent">{{ t('settings.tabs.bittorrent') }}</v-tab>
-        <v-tab value="rss">{{ t('settings.tabs.rss.title') }}</v-tab>
-        <v-tab value="webui">{{ t('settings.tabs.webui') }}</v-tab>
-        <v-tab value="tagsAndCategories">{{ t('settings.tabs.tagsAndCategories') }}</v-tab>
-        <v-tab value="advanced">{{ t('settings.tabs.advanced') }}</v-tab>
+        <v-tab v-for="{text, value} in tabs" :key="value" :value="value" :href="`#/settings/${value}`" :text="text" />
       </v-tabs>
     </v-row>
 
     <v-window v-model="tab">
       <v-window-item value="vuetorrent">
-        <v-tabs v-model="innerTabV" grow color="accent" bg-color="transparent" show-arrows>
-          <v-tab value="general">
-            {{ t('settings.tabs.vuetorrent.general') }}
-          </v-tab>
-          <v-tab value="torrentCard">
-            {{ t('settings.tabs.vuetorrent.torrent_card') }}
-          </v-tab>
+        <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
+          <v-tab v-for="{text, value} in tabsV" :value="value" :text="text"
+                 :href="`#/settings/vuetorrent/${value}`" :class="{ 'text-accent': innerTabV === value }" />
+          <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
+
         <v-window v-model="innerTabV">
           <v-window-item value="general">
             <VGeneral />
@@ -138,15 +170,9 @@ onBeforeUnmount(() => {
 
       <v-window-item value="rss">
         <v-tabs v-model="innerTabR" grow color="accent" bg-color="transparent">
-          <v-tab value="general">
-            {{ t('settings.tabs.rss.general') }}
-          </v-tab>
-          <v-tab value="feeds">
-            {{ t('settings.tabs.rss.feeds') }}
-          </v-tab>
-          <v-tab value="rules">
-            {{ t('settings.tabs.rss.rules') }}
-          </v-tab>
+          <v-tab v-for="{text, value} in tabsR" :key="value" :value="value" :text="text"
+                 :href="`#/settings/rss/${value}`" :class="{ 'text-accent': innerTabR === value }" />
+          <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
         <v-window v-model="innerTabR">
           <v-window-item value="general">

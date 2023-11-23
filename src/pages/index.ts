@@ -8,7 +8,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     name: 'settings',
-    path: '/settings',
+    path: '/settings/:tab?/:subtab?',
     component: () => import('./Settings.vue')
   },
   {
