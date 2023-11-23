@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
       </v-tabs>
     </v-row>
 
-    <v-window v-model="tab">
+    <v-window v-model="tab" :touch="false">
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" bg-color="transparent" show-arrows>
           <v-tab value="general">
@@ -106,7 +106,7 @@ onBeforeUnmount(() => {
             {{ t('settings.tabs.vuetorrent.torrent_card') }}
           </v-tab>
         </v-tabs>
-        <v-window v-model="innerTabV">
+        <v-window v-model="innerTabV" :touch="false">
           <v-window-item value="general">
             <VGeneral />
           </v-window-item>
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
             {{ t('settings.tabs.rss.rules') }}
           </v-tab>
         </v-tabs>
-        <v-window v-model="innerTabR">
+        <v-window v-model="innerTabR" :touch="false">
           <v-window-item value="general">
             <RGeneral />
           </v-window-item>

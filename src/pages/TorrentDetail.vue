@@ -76,7 +76,7 @@ onBeforeUnmount(() => {
       </v-tabs>
     </v-row>
 
-    <v-window v-model="tab" v-if="torrent">
+    <v-window v-model="tab" :touch="false" v-if="torrent">
       <v-window-item value="overview">
         <Overview :torrent="torrent" :is-active="tab === 'overview'" />
       </v-window-item>
