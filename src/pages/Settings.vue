@@ -130,7 +130,7 @@ onBeforeUnmount(() => {
       </v-tabs>
     </v-row>
 
-    <v-window v-model="tab">
+    <v-window v-model="tab" :touch="false">
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
           <v-tab v-for="{text, value} in tabsV" :value="value" :text="text"
@@ -138,7 +138,7 @@ onBeforeUnmount(() => {
           <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
 
-        <v-window v-model="innerTabV">
+        <v-window v-model="innerTabV" :touch="false">
           <v-window-item value="general">
             <VGeneral />
           </v-window-item>
@@ -174,7 +174,7 @@ onBeforeUnmount(() => {
                  :href="`#/settings/rss/${value}`" :class="{ 'text-accent': innerTabR === value }" />
           <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
-        <v-window v-model="innerTabR">
+        <v-window v-model="innerTabR" :touch="false">
           <v-window-item value="general">
             <RGeneral />
           </v-window-item>
