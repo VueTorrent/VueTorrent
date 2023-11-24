@@ -11,7 +11,10 @@ const authStore = useAuthStore()
 const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
-  if (['login', 'settings'].includes(route.name as string) || !authStore.isAuthenticated) return
+  if (
+    (route.name as string) === 'login'
+    || (route.name as string) === 'settings' && route.params.tab === 'vuetorrent' && route.params.subtab === 'torrentCard'
+    || !authStore.isAuthenticated) return
   isOverDropZone.value = true
 }
 
