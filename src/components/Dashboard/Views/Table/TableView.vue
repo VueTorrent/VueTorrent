@@ -5,7 +5,7 @@ import { useDashboardStore } from '@/stores/dashboard.ts'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
-const props = defineProps<{
+defineProps<{
   paginatedTorrents: TorrentType[]
 }>()
 
@@ -26,13 +26,18 @@ const getTorrentProperties = computed(() => vuetorrentStore.tableProperties.filt
 function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
+
+const getTorrentRowColorClass = (torrent: TorrentType) => [
+  `text-torrent-${ torrent.state }`,
+  isTorrentSelected(torrent) ? `bg-torrent-${ torrent.state }-darken-3 selected` : ''
+]
 </script>
 
 <template>
-  <v-table id="torrentList" class="pa-0">
+  <v-table id="torrentList" class="pa-0" density="compact">
     <thead>
     <tr>
-      <th></th>
+      <th v-if="dashboardStore.isSelectionMultiple" />
       <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
       <th v-for="ppt in getTorrentProperties" class="text-left">
@@ -41,16 +46,16 @@ function isTorrentSelected(torrent: TorrentType) {
     </tr>
     </thead>
     <tbody>
-    <tr v-for="torrent in paginatedTorrents" :class="`text-torrent-${torrent.state}`"
+    <tr v-for="torrent in paginatedTorrents" :class="getTorrentRowColorClass(torrent)"
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
         @touchstart="$emit('startPress', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick.prevent="$emit('onTorrentDblClick', torrent)">
-      <td>
-        <v-checkbox-btn :model-value="dashboardStore.isTorrentInSelection(torrent.hash)"
-                        :color="`torrent-${torrent.state}`" variant="flat"
-                        @click="$emit('onCheckboxClick', $event, torrent)" />
+      <td v-if="dashboardStore.isSelectionMultiple">
+        <v-checkbox-btn :model-value="isTorrentSelected(torrent)"
+                        :color="`torrent-${torrent.state}`" variant="text"
+                        @click.stop="$emit('onCheckboxClick', $event, torrent)" />
       </td>
       <td>{{ torrent.name }}</td>
       <TableTorrent :torrent="torrent" />
@@ -59,8 +64,29 @@ function isTorrentSelected(torrent: TorrentType) {
   </v-table>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use 'vuetify/settings';
+
 #torrentList {
   background-color: unset;
+
+  tbody tr:nth-child(odd) {
+    background-color: settings.$card-background;
+  }
+
+  tbody tr.selected {
+    position: relative;
+
+    &:nth-child(odd)::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, .15);
+      pointer-events: none;
+    }
+  }
 }
 </style>
