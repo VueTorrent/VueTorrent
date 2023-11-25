@@ -24,7 +24,7 @@ const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
-  let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneTorrentProperties : vuetorrentStore.busyTorrentProperties
+  let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneGridProperties : vuetorrentStore.busyGridProperties
 
   return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
 })
