@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useTorrentStore } from '@/stores'
+import { useMaindataStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   guid: string
-  hashes: string[]
+  hashes: string[],
+  mode: 'dl' | 'save'
 }>()
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
+const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
@@ -20,16 +22,24 @@ const formData = reactive({
   newPath: ''
 })
 
-const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required'), (v: string) => v !== oldPath.value || t('dialogs.moveTorrent.samePath')]
+const rules = [(v: string) => !!v || t('dialogs.moveTorrent.required')]
 
 const torrents = computed(() => props.hashes.map(torrentStore.getTorrentByHash))
-const oldPath = computed(() => torrents.value[0]?.savePath)
+const oldPath = computed(() => {
+  switch (props.mode) {
+    case 'dl':
+      return torrents.value[0]?.download_path
+    case 'save':
+      return torrents.value[0]?.savePath
+  }
+})
 
 async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await torrentStore.moveTorrents(props.hashes, formData.newPath)
+  await maindataStore.toggleAutoTmm(props.hashes, false)
+  await torrentStore.moveTorrents(props.mode, props.hashes, formData.newPath)
 
   close()
 }
@@ -39,14 +49,14 @@ const close = () => {
 }
 
 onBeforeMount(() => {
-  formData.newPath = torrents.value[0]?.savePath || ''
+  formData.newPath = oldPath.value || ''
 })
 </script>
 
 <template>
   <v-dialog v-model="isOpened">
     <v-card>
-      <v-card-title>{{ $t('dialogs.moveTorrent.title') }}</v-card-title>
+      <v-card-title>{{ $t(`dialogs.moveTorrent.${mode}.title`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldPath" :model-value="oldPath" disabled :label="$t('dialogs.moveTorrent.oldPath')" />
