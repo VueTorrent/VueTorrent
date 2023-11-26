@@ -354,8 +354,22 @@ export class QBitApi {
     return this.torrentAction('recheck', hashes)
   }
 
-  async setTorrentLocation(hashes: string[], location: string): Promise<void> {
-    return this.torrentAction('setLocation', hashes, { location })
+  async setTorrentDownloadPath(hashes: string[], path: string): Promise<void> {
+    const params = {
+      id: hashes.length ? hashes.join('|') : 'all',
+      path
+    }
+
+    return this.execute(`/torrents/setDownloadPath`, params)
+  }
+
+  async setTorrentSavePath(hashes: string[], path: string): Promise<void> {
+    const params = {
+      id: hashes.length ? hashes.join('|') : 'all',
+      path
+    }
+
+    return this.execute(`/torrents/setSavePath`, params)
   }
 
   async addTorrentTrackers(hash: string, trackers: string): Promise<void> {

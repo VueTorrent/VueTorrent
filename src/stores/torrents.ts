@@ -95,8 +95,13 @@ export const useTorrentStore = defineStore('torrents', () => {
     await qbit.deleteTorrents(hashes, deleteWithFiles)
   }
 
-  async function moveTorrents(hashes: string[], newPath: string) {
-    await qbit.setTorrentLocation(hashes, newPath)
+  async function moveTorrents(mode: 'dl' | 'save', hashes: string[], newPath: string) {
+    switch (mode) {
+      case 'dl':
+        return await qbit.setTorrentDownloadPath(hashes, newPath)
+      case 'save':
+        return await qbit.setTorrentSavePath(hashes, newPath)
+    }
   }
 
   async function addTorrents(torrents: File[], urls: string, payload: AddTorrentPayload) {

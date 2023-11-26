@@ -126,8 +126,8 @@ async function copyHash() {
   await navigator.clipboard.writeText(props.torrent.hash)
 }
 
-function openMoveTorrentDialog() {
-  dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash] })
+function openMoveTorrentDialog(mode: 'dl' | 'save') {
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [props.torrent.hash], mode })
 }
 
 function openMoveTorrentFileDialog() {
@@ -169,9 +169,15 @@ watch(
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) return false
 
+  if (e.key === 'd') {
+    e.preventDefault()
+    openMoveTorrentDialog('dl')
+    return true
+  }
+
   if (e.key === 's') {
     e.preventDefault()
-    openMoveTorrentDialog()
+    openMoveTorrentDialog('save')
     return true
   }
 
@@ -210,7 +216,7 @@ onUnmounted(() => {
       <v-row>
         <v-col cols="12" md="6">
           <v-row>
-            <v-col cols="4" md="4">
+            <v-col cols="4">
               <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100"
                                    :model-value="torrent?.progress * 100 ?? 0" :width="15">
                 <template v-slot>
@@ -220,7 +226,7 @@ onUnmounted(() => {
                 </template>
               </v-progress-circular>
             </v-col>
-            <v-col cols="8" md="8" class="d-flex flex-column align-center justify-center">
+            <v-col cols="8" class="d-flex flex-column align-center justify-center">
               <div v-if="isFetchingMetadata">
                 <span>{{ $t('torrentDetail.overview.waitingForMetadata') }}</span>
               </div>
@@ -259,9 +265,9 @@ onUnmounted(() => {
 
           <v-row>
             <v-col cols="6">
-              <div>{{ $t('torrent.properties.save_path') }}:</div>
-              <div>{{ torrent.savePath }}</div>
-              <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog" />
+              <div>{{ $t('torrent.properties.download_path') }}:</div>
+              <div>{{ torrent.download_path }}</div>
+              <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog('dl')" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
@@ -271,7 +277,20 @@ onUnmounted(() => {
                      @click="openMoveTorrentFileDialog" />
             </v-col>
           </v-row>
+
+          <v-row>
+            <v-col cols="6">
+              <div>{{ $t('torrent.properties.save_path') }}:</div>
+              <div>{{ torrent.savePath }}</div>
+              <v-btn icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentDialog('save')" />
+            </v-col>
+            <v-col cols="6">
+              <div>{{ $t('torrent.properties.content_path') }}:</div>
+              <div>{{ torrent.content_path }}</div>
+            </v-col>
+          </v-row>
         </v-col>
+
         <v-col cols="12" md="6">
           <v-row>
             <v-col cols="6">

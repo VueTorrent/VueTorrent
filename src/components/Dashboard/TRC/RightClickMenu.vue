@@ -52,8 +52,12 @@ function deleteTorrents() {
   dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [...dashboardStore.selectedTorrents] })
 }
 
-function moveTorrents() {
-  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents] })
+function setDownloadPath() {
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents], mode: 'dl' })
+}
+
+function setSavePath() {
+  dialogStore.createDialog(MoveTorrentDialog, { hashes: [...dashboardStore.selectedTorrents], mode: 'save' })
 }
 
 function renameTorrents() {
@@ -126,9 +130,14 @@ const menuData = computed<TRCMenuEntry[]>(() => [
     icon: 'mdi-head-cog',
     children: [
       {
-        text: t('dashboard.right_click.advanced.change_location'),
-        icon: 'mdi-folder',
-        action: moveTorrents
+        text: t('dashboard.right_click.advanced.download_path'),
+        icon: 'mdi-tray-arrow-down',
+        action: setDownloadPath
+      },
+      {
+        text: t('dashboard.right_click.advanced.save_path'),
+        icon: 'mdi-content-save',
+        action: setSavePath
       },
       {
         text: t('dashboard.right_click.advanced.rename'),
