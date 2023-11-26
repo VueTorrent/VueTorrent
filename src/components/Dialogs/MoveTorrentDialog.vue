@@ -18,7 +18,7 @@ const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
-const field = ref<HistoryField>()
+const field = ref<typeof HistoryField>()
 const isFormValid = ref(false)
 const formData = reactive({
   newPath: ''
@@ -43,7 +43,7 @@ async function submit() {
   await maindataStore.toggleAutoTmm(props.hashes, false)
   await torrentStore.moveTorrents(props.mode, props.hashes, formData.newPath)
 
-  field.value.submit()
+  field.value?.submit()
 
   close()
 }
