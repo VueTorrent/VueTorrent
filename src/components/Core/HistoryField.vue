@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { HistoryKey } from '@/constants/vuetorrent'
 import { useHistoryStore } from '@/stores'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
   modelValue?: string
-  historyKey: string
+  historyKey: HistoryKey
 }>()
 
 const emit = defineEmits<{
@@ -12,6 +13,8 @@ const emit = defineEmits<{
 }>()
 
 const historyStore = useHistoryStore()
+
+const field = ref<HTMLInputElement>()
 
 const historyValue = computed(() => historyStore.getHistory(props.historyKey))
 const _value = computed({
@@ -24,12 +27,13 @@ function saveValueToHistory() {
 }
 
 defineExpose({
-  saveValueToHistory
+  saveValueToHistory,
+  focus: () => field.value?.focus()
 })
 </script>
 
 <template>
-  <v-combobox v-model="_value" :items="historyValue" />
+  <v-combobox v-model="_value" ref="field" :items="historyValue" />
 </template>
 
 <style scoped>

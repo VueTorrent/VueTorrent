@@ -1,13 +1,14 @@
+import { HistoryKey } from '@/constants/vuetorrent'
 import { defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 
-type History = Record<string, string[]>
+type History = Partial<Record<HistoryKey, string[]>>
 
 export const useHistoryStore = defineStore('history', () => {
   const _history = reactive<History>({})
   const historySize = ref(3)
 
-  function pushValueToHistory(key: string, value: string) {
+  function pushValueToHistory(key: HistoryKey, value: string) {
     const historyValue = getHistory(key)
     historyValue.splice(0, 0, value)
 
@@ -23,7 +24,7 @@ export const useHistoryStore = defineStore('history', () => {
     _history[key] = historyValue
   }
 
-  function getHistory(key: string) {
+  function getHistory(key: HistoryKey) {
     return _history[key] || []
   }
 

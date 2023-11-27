@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
+import { HistoryKey } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
 import { useAddTorrentStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
@@ -17,7 +19,7 @@ const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const queryInput = ref<HTMLInputElement>()
+const queryInput = ref<typeof HistoryField>()
 
 const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
@@ -85,6 +87,7 @@ function downloadTorrent(result: SearchResult) {
 async function runNewSearch() {
   await searchEngineStore.runNewSearch(selectedTab.value)
   selectedTab.value.timer = setInterval(() => refreshResults(selectedTab.value), 1000)
+  queryInput.value?.saveValueToHistory()
 }
 
 async function stopSearch(tab: SearchData) {
@@ -179,15 +182,9 @@ onBeforeUnmount(() => {
       <v-list-item>
         <v-row class="mt-1">
           <v-col cols="12" md="6">
-            <v-text-field
-              v-model="selectedTab.query"
-              ref="queryInput"
-              autofocus
-              density="compact"
-              hide-details
-              clearable
-              :label="$t('searchEngine.query')"
-              @keydown.enter.prevent="runNewSearch" />
+            <HistoryField v-model="selectedTab.query" :history-key="HistoryKey.SEARCH_ENGINE_QUERY" ref="queryInput"
+                          autofocus density="compact" hide-details clearable
+                          :label="$t('searchEngine.query')" @keydown.enter.prevent="runNewSearch" />
           </v-col>
 
           <v-col cols="6" sm="5" md="2">
