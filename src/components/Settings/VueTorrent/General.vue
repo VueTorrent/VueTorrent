@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
-import { useAppStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useHistoryStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 const { t } = useI18n()
 const appStore = useAppStore()
+const historyStore = useHistoryStore()
 const vueTorrentStore = useVueTorrentStore()
 
 const titleOptionsList = [
@@ -142,13 +143,17 @@ onBeforeMount(() => {
 
     <v-list-item>
       <v-row>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="4">
           <v-text-field v-model="vueTorrentStore.refreshInterval" type="number" hide-details suffix="ms"
                         :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="4">
           <v-text-field v-model="vueTorrentStore.fileContentInterval" type="number" hide-details suffix="ms"
                         :label="t('settings.vuetorrent.general.fileContentInterval')" />
+        </v-col>
+        <v-col cols="12" md="4">
+          <v-text-field v-model="historyStore.historySize" type="number" hide-details
+                        :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
       </v-row>
       <v-row>

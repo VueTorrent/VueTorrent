@@ -30,6 +30,7 @@ export const useHistoryStore = defineStore('history', () => {
 
   return {
     _history,
+    historySize,
     pushValueToHistory,
     getHistory
   }
