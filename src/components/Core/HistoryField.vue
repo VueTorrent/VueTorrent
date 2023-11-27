@@ -19,12 +19,12 @@ const _value = computed({
   set: (value: string) => emit('update:modelValue', value)
 })
 
-function submit() {
+function saveValueToHistory() {
   historyStore.pushValueToHistory(props.historyKey, _value.value)
 }
 
 defineExpose({
-  submit
+  saveValueToHistory
 })
 </script>
 

@@ -19,6 +19,8 @@ export const useHistoryStore = defineStore('history', () => {
     if (historyValue.length > historySize.value) {
       historyValue.splice(historySize.value, historyValue.length - historySize.value)
     }
+
+    _history[key] = historyValue
   }
 
   function getHistory(key: string) {
