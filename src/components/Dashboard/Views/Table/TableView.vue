@@ -21,7 +21,7 @@ defineEmits<{
 const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const getTorrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => a.order - b.order))
+const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => a.order - b.order))
 
 function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
@@ -41,7 +41,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
       <th v-if="dashboardStore.isSelectionMultiple" />
       <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
-      <th v-for="ppt in getTorrentProperties" class="text-left">
+      <th v-for="ppt in torrentProperties" class="text-left">
         {{ $t(`torrent.properties.${ ppt.props.title }`) }}
       </th>
     </tr>
@@ -52,7 +52,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
         @touchstart="$emit('startPress', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
-        @dblclick.prevent="$emit('onTorrentDblClick', $event, torrent)">
+        @dblclick="$emit('onTorrentDblClick', $event, torrent)">
       <td :class="`pa-0 bg-torrent-${ torrent.state }`" />
       <td v-if="dashboardStore.isSelectionMultiple">
         <v-checkbox-btn :model-value="isTorrentSelected(torrent)"
