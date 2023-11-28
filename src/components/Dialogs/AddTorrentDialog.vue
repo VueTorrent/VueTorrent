@@ -1,6 +1,8 @@
 <script lang="ts" setup>
+import HistoryField from '@/components/Core/HistoryField.vue'
 import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
+import { HistoryKey } from '@/constants/vuetorrent'
 import { useAddTorrentStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
@@ -36,6 +38,10 @@ const stopConditionOptions = [
 ]
 
 const isFormValid = computed(() => urls.value.length > 0 || files.value.length > 0)
+
+const cookieField = ref<typeof HistoryField>()
+const dlPathField = ref<typeof HistoryField>()
+const savePathField = ref<typeof HistoryField>()
 
 const cookie = computed({
   get: () => form.value.cookie,
@@ -145,6 +151,9 @@ function submit() {
     autoClose: 1500
   })
   .then(() => {
+    cookieField.value?.saveValueToHistory()
+    dlPathField.value?.saveValueToHistory()
+    savePathField.value?.saveValueToHistory()
     addTorrentStore.resetForm()
     close()
   })
@@ -197,14 +206,13 @@ const onCategoryChanged = () => {
                 <v-icon color="accent">mdi-link</v-icon>
               </template>
             </v-textarea>
-            <v-text-field v-if="!!urls" v-model="cookie" clearable autocomplete="cookie"
+            <HistoryField v-if="!!urls" v-model="cookie" :historyKey="HistoryKey.COOKIE" ref="cookieField" clearable
                           :label="$t('dialogs.add.cookie')" :placeholder="$t('dialogs.add.cookiePlaceholder')">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-cookie</v-icon>
               </template>
-            </v-text-field>
-            <v-text-field v-model="rename" clearable hide-details autocomplete="rename"
-                          :label="$t('dialogs.add.rename')">
+            </HistoryField>
+            <v-text-field v-model="rename" clearable hide-details :label="$t('dialogs.add.rename')">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-rename</v-icon>
               </template>
@@ -251,21 +259,21 @@ const onCategoryChanged = () => {
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="downloadPath" :disabled="form.autoTMM" autocomplete="downloadPath"
-                          :label="t('dialogs.add.downloadPath')" hide-details>
+            <HistoryField v-model="downloadPath" :history-key="HistoryKey.TORRENT_PATH" ref="dlPathField"
+                          :disabled="form.autoTMM" :label="t('dialogs.add.downloadPath')" hide-details>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-tray-arrow-down</v-icon>
               </template>
-            </v-text-field>
+            </HistoryField>
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="form.savepath" :disabled="form.autoTMM" autocomplete="savepath"
-                          :label="t('dialogs.add.savePath')" hide-details>
+            <HistoryField v-model="form.savepath" :history-key="HistoryKey.TORRENT_PATH" ref="savePathField"
+                          :disabled="form.autoTMM" :label="t('dialogs.add.savePath')" hide-details>
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-content-save</v-icon>
               </template>
-            </v-text-field>
+            </HistoryField>
           </v-col>
 
           <v-col cols="12" md="6">
@@ -315,7 +323,7 @@ const onCategoryChanged = () => {
                 <v-expansion-panel-text>
                   <v-row>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')" autocomplete="dlLimit"
+                      <v-text-field v-model="dlLimit" :label="$t('dialogs.add.dlLimit')"
                                     hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-download</v-icon>
@@ -323,7 +331,7 @@ const onCategoryChanged = () => {
                       </v-text-field>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')" autocomplete="upLimit"
+                      <v-text-field v-model="upLimit" :label="$t('dialogs.add.upLimit')"
                                     hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-upload</v-icon>
@@ -332,18 +340,18 @@ const onCategoryChanged = () => {
                     </v-col>
 
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="ratioLimit" autocomplete="ratioLimit"
+                      <v-text-field v-model="ratioLimit"
                                     :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.ratioLimit')"
                                     type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="seedingTimeLimit" autocomplete="seedingTimeLimit"
+                      <v-text-field v-model="seedingTimeLimit"
                                     :label="$t('dialogs.add.seedingTimeLimit')"
                                     :hint="$t('dialogs.add.limitHint')"
                                     :suffix="$t('units.minutes')" type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="inactiveSeedingTimeLimit" autocomplete="inactiveSeedingTimeLimit"
+                      <v-text-field v-model="inactiveSeedingTimeLimit"
                                     :label="$t('dialogs.add.inactiveSeedingTimeLimit')"
                                     :hint="$t('dialogs.add.limitHint')"
                                     :suffix="$t('units.minutes')" type="number" />

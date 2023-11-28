@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import HistoryField from '@/components/Core/HistoryField.vue'
 import { useDialog } from '@/composables'
+import { HistoryKey } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -17,6 +19,7 @@ const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
+const field = ref<typeof HistoryField>()
 const isFormValid = ref(false)
 const formData = reactive({
   newPath: ''
@@ -41,6 +44,8 @@ async function submit() {
   await maindataStore.toggleAutoTmm(props.hashes, false)
   await torrentStore.moveTorrents(props.mode, props.hashes, formData.newPath)
 
+  field.value?.saveValueToHistory()
+
   close()
 }
 
@@ -60,7 +65,8 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldPath" :model-value="oldPath" disabled :label="$t('dialogs.moveTorrent.oldPath')" />
-          <v-text-field v-model="formData.newPath" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')"
+          <HistoryField v-model="formData.newPath" :historyKey="HistoryKey.TORRENT_PATH" ref="field"
+                        :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')"
                         @keydown.enter="submit" />
         </v-form>
       </v-card-text>

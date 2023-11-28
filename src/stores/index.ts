@@ -3,6 +3,7 @@ import { useAppStore } from './app'
 import { useAuthStore } from './auth'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
+import { useHistoryStore } from './history'
 import { useLogStore } from './logs'
 import { useMaindataStore } from './maindata'
 import { useNavbarStore } from './navbar'
@@ -18,6 +19,7 @@ export {
   useAuthStore,
   useDashboardStore,
   useDialogStore,
+  useHistoryStore,
   useLogStore,
   useMaindataStore,
   useNavbarStore,
