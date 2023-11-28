@@ -9,11 +9,11 @@ defineProps<{
 }>()
 
 defineEmits<{
-  onCheckboxClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentDblClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentRightClick: [e: PointerEvent, torrent: TorrentType],
-  startPress: [e: PointerEvent, torrent: TorrentType],
+  onCheckboxClick: [torrent: TorrentType],
+  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType],
+  onTorrentDblClick: [torrent: TorrentType],
+  onTorrentRightClick: [e: MouseEvent, torrent: TorrentType],
+  startPress: [e: Touch, torrent: TorrentType],
   endPress: []
 }>()
 
@@ -27,14 +27,14 @@ const dashboardStore = useDashboardStore()
                  :class="display.mobile ? 'mb-2' : 'mb-4'" class="pa-0"
                  @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
                  @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
-                 @touchstart="$emit('startPress', $event, torrent)"
-                 @dblclick="$emit('onTorrentDblClick', $event, torrent)">
+                 @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
+                 @dblclick="$emit('onTorrentDblClick', torrent)">
       <div class="d-flex align-center">
         <v-expand-x-transition>
           <v-btn v-show="dashboardStore.isSelectionMultiple"
                  :color="`torrent-${torrent.state}`"
                  :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                 class="mr-2" variant="text" @click="$emit('onCheckboxClick', $event, torrent)" />
+                 class="mr-2" variant="text" @click="$emit('onCheckboxClick', torrent)" />
         </v-expand-x-transition>
         <ListTorrent :torrent="torrent" @onTorrentClick="(e, t) => $emit('onTorrentClick', e, t)" />
       </div>

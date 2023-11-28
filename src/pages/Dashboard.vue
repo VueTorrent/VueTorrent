@@ -147,17 +147,17 @@ function toggleSelectAll() {
   }
 }
 
-function goToInfo(_: Event, torrent: TorrentType) {
+function goToInfo(torrent: TorrentType) {
   if (!isSelectionMultiple.value) {
     router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
   }
 }
 
-function onCheckboxClick(_: PointerEvent, torrent: TorrentType) {
+function onCheckboxClick(torrent: TorrentType) {
   dashboardStore.toggleSelect(torrent.hash)
 }
 
-function onTorrentClick(e: PointerEvent, torrent: TorrentType) {
+function onTorrentClick(e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType) {
   if (e.shiftKey) {
     dashboardStore.spanTorrentSelection(torrent.hash)
   } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
@@ -166,9 +166,7 @@ function onTorrentClick(e: PointerEvent, torrent: TorrentType) {
   }
 }
 
-async function onTorrentRightClick(e: PointerEvent, torrent: TorrentType) {
-  e.preventDefault()
-
+async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
   if (trcProperties.isVisible) {
     trcProperties.isVisible = false
     await nextTick()
@@ -188,7 +186,7 @@ async function onTorrentRightClick(e: PointerEvent, torrent: TorrentType) {
 // mobile long press
 const timer = ref<NodeJS.Timeout>()
 
-function startPress(e: PointerEvent, torrent: TorrentType) {
+function startPress(e: Touch, torrent: TorrentType) {
   timer.value = setTimeout(() => {
     onTorrentRightClick(e, torrent)
   }, 500)
@@ -258,12 +256,12 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 }
 
 watch(
-    () => trcProperties.isVisible,
-    newValue => {
-      if (!newValue && !isSelectionMultiple.value) {
-        dashboardStore.unselectAllTorrents()
-      }
+  () => trcProperties.isVisible,
+  newValue => {
+    if (!newValue && !isSelectionMultiple.value) {
+      dashboardStore.unselectAllTorrents()
     }
+  }
 )
 
 onBeforeMount(async () => {

@@ -16,7 +16,7 @@ import { computed } from 'vue'
 const props = defineProps<{ torrent: Torrent }>()
 
 defineEmits<{
-  onTorrentClick: [e: PointerEvent, torrent: Torrent]
+  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: Torrent]
 }>()
 
 const dashboardStore = useDashboardStore()

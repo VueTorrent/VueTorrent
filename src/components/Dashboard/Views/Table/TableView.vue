@@ -10,11 +10,11 @@ defineProps<{
 }>()
 
 defineEmits<{
-  onCheckboxClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentDblClick: [e: PointerEvent, torrent: TorrentType],
-  onTorrentRightClick: [e: PointerEvent, torrent: TorrentType],
-  startPress: [e: PointerEvent, torrent: TorrentType],
+  onCheckboxClick: [torrent: TorrentType],
+  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType],
+  onTorrentDblClick: [torrent: TorrentType],
+  onTorrentRightClick: [e: MouseEvent, torrent: TorrentType],
+  startPress: [e: Touch, torrent: TorrentType],
   endPress: []
 }>()
 
@@ -50,14 +50,14 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
     <tr v-for="torrent in paginatedTorrents" :class="getTorrentRowColorClass(torrent)" v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
-        @touchstart="$emit('startPress', $event, torrent)"
+        @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
-        @dblclick="$emit('onTorrentDblClick', $event, torrent)">
+        @dblclick="$emit('onTorrentDblClick', torrent)">
       <td :class="`pa-0 bg-torrent-${ torrent.state }`" />
       <td v-if="dashboardStore.isSelectionMultiple">
         <v-checkbox-btn :model-value="isTorrentSelected(torrent)"
                         :color="`torrent-${torrent.state}`" variant="text"
-                        @click.stop="$emit('onCheckboxClick', $event, torrent)" />
+                        @click.stop="$emit('onCheckboxClick', torrent)" />
       </td>
       <td>{{ torrent.name }}</td>
       <TableTorrent :torrent="torrent" />
