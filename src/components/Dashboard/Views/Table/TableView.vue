@@ -47,7 +47,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
     </tr>
     </thead>
     <tbody>
-    <tr v-for="torrent in paginatedTorrents" :class="getTorrentRowColorClass(torrent)"
+    <tr v-for="torrent in paginatedTorrents" :class="getTorrentRowColorClass(torrent)" v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
         @touchstart="$emit('startPress', $event, torrent)"
