@@ -28,7 +28,7 @@ function isTorrentSelected(torrent: TorrentType) {
 }
 
 const getTorrentRowColorClass = (torrent: TorrentType) => [
-  `text-torrent-${ torrent.state }`,
+  'pointer',
   isTorrentSelected(torrent) ? `bg-torrent-${ torrent.state }-darken-3 selected` : ''
 ]
 </script>
@@ -37,6 +37,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
   <v-table id="torrentList" class="pa-0" density="compact">
     <thead>
     <tr>
+      <th class="px-1" />
       <th v-if="dashboardStore.isSelectionMultiple" />
       <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
@@ -51,7 +52,8 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
         @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
         @touchstart="$emit('startPress', $event, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
-        @dblclick.prevent="$emit('onTorrentDblClick', torrent)">
+        @dblclick.prevent="$emit('onTorrentDblClick', $event, torrent)">
+      <td :class="`pa-0 bg-torrent-${ torrent.state }`" />
       <td v-if="dashboardStore.isSelectionMultiple">
         <v-checkbox-btn :model-value="isTorrentSelected(torrent)"
                         :color="`torrent-${torrent.state}`" variant="text"
