@@ -34,7 +34,7 @@ jobs:
         run: npm run build
 
       - name: Push to nightly-release
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: nightly-release
