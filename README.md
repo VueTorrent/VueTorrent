@@ -4,6 +4,7 @@
   <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
 
 Join us on [Discord](https://discord.gg/KDQP7fR467)
+
 </div>
 
 ![Vue](https://img.shields.io/badge/Vue-%5E3.3.4-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
@@ -117,5 +118,6 @@ but before you do that:
 <a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
 
 ## Contributors
+
 - [@m4ximuel](https://github.com/m4ximuel)
 - [@Larsluph](https://github.com/Larsluph)

@@ -3,7 +3,9 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 
-export const useAddTorrentStore = defineStore('addTorrents', () => {
+export const useAddTorrentStore = defineStore(
+  'addTorrents',
+  () => {
     const preferenceStore = usePreferenceStore()
 
     const isFirstInit = ref(true)
@@ -80,4 +82,5 @@ export const useAddTorrentStore = defineStore('addTorrents', () => {
         }
       ]
     }
-  })
+  }
+)

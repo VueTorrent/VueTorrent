@@ -10,7 +10,7 @@ defineProps<{
   node: TreeFile
 }>()
 defineEmits<{
-  renameFile: [node: TreeFile],
+  renameFile: [node: TreeFile]
   setFilePriority: [node: TreeFile, priority: FilePriority]
 }>()
 

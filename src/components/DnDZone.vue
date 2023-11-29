@@ -12,9 +12,11 @@ const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
   if (
-    (route.name as string) === 'login'
-    || (route.name as string) === 'settings' && route.params.tab === 'vuetorrent' && route.params.subtab === 'torrentCard'
-    || !authStore.isAuthenticated) return
+    (route.name as string) === 'login' ||
+    ((route.name as string) === 'settings' && route.params.tab === 'vuetorrent' && route.params.subtab === 'torrentCard') ||
+    !authStore.isAuthenticated
+  )
+    return
   isOverDropZone.value = true
 }
 
@@ -24,10 +26,11 @@ function onDrop(files: File[] | null, event: DragEvent) {
   if (!event.dataTransfer) return
 
   // Handle .torrent files
-  const torrentFiles = (files || [])
-  .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
-  const links = event.dataTransfer.getData('text/plain').split('\n')
-  .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
+  const torrentFiles = (files || []).filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
+  const links = event.dataTransfer
+    .getData('text/plain')
+    .split('\n')
+    .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)

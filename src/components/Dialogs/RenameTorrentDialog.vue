@@ -54,8 +54,7 @@ onMounted(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.renameTorrent.oldName')" />
-          <v-text-field v-model="formData.newName" ref="field" :rules="rules" autofocus
-                        :label="$t('dialogs.renameTorrent.newName')" @keydown.enter="submit" />
+          <v-text-field v-model="formData.newName" ref="field" :rules="rules" autofocus :label="$t('dialogs.renameTorrent.newName')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

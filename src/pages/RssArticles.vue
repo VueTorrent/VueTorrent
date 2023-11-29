@@ -90,7 +90,8 @@ onUnmounted(() => {
     <v-row align="center" justify="center" no-gutters>
       <v-col>
         <h1 class="subtitle-1 ml-2" style="font-size: 1.6em !important">
-          {{ t('rssArticles.title') }} </h1>
+          {{ t('rssArticles.title') }}
+        </h1>
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
@@ -124,26 +125,16 @@ onUnmounted(() => {
           <template v-for="(article, index) in paginatedResults">
             <v-divider v-if="index > 0" color="white" />
 
-            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)"
-                         @contextmenu="markAsRead(article)">
+            <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)" @contextmenu="markAsRead(article)">
               <div class="d-flex">
                 <div>
-                  <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{
-                      article.title
-                    }}
-                  </v-list-item-title>
+                  <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }} </v-list-item-title>
 
                   <v-list-item-subtitle class="d-block">
                     <div>{{ article.parsedDate.toLocaleString() }}</div>
-                    <div>{{
-                        t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') })
-                      }}
-                    </div>
+                    <div>{{ t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') }) }}</div>
                     <div v-if="article.author">{{ t('rssArticles.item.author', { author: article.author }) }}</div>
-                    <div v-if="article.category">{{
-                        t('rssArticles.item.category', { category: article.category })
-                      }}
-                    </div>
+                    <div v-if="article.category">{{ t('rssArticles.item.category', { category: article.category }) }}</div>
                   </v-list-item-subtitle>
                 </div>
 

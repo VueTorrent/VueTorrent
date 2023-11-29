@@ -101,7 +101,6 @@ watchEffect(() => {
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   updateTabHandle()
-
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
@@ -126,15 +125,14 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-for="{text, value} in tabs" :key="value" :value="value" :href="`#/settings/${value}`" :text="text" />
+        <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :href="`#/settings/${value}`" :text="text" />
       </v-tabs>
     </v-row>
 
     <v-window v-model="tab" :touch="false">
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
-          <v-tab v-for="{text, value} in tabsV" :value="value" :text="text"
-                 :href="`#/settings/vuetorrent/${value}`" :class="{ 'text-accent': innerTabV === value }" />
+          <v-tab v-for="{ text, value } in tabsV" :value="value" :text="text" :href="`#/settings/vuetorrent/${value}`" :class="{ 'text-accent': innerTabV === value }" />
           <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
 
@@ -170,8 +168,7 @@ onBeforeUnmount(() => {
 
       <v-window-item value="rss">
         <v-tabs v-model="innerTabR" grow color="accent" bg-color="transparent">
-          <v-tab v-for="{text, value} in tabsR" :key="value" :value="value" :text="text"
-                 :href="`#/settings/rss/${value}`" :class="{ 'text-accent': innerTabR === value }" />
+          <v-tab v-for="{ text, value } in tabsR" :key="value" :value="value" :text="text" :href="`#/settings/rss/${value}`" :class="{ 'text-accent': innerTabR === value }" />
           <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
         </v-tabs>
         <v-window v-model="innerTabR" :touch="false">

@@ -45,7 +45,7 @@ onBeforeMount(() => {
 <template>
   <v-dialog v-model="isOpened">
     <v-card>
-      <v-card-title>{{ $t(`dialogs.rss.feed.title.${ initialFeed ? 'edit' : 'create' }`) }}</v-card-title>
+      <v-card-title>{{ $t(`dialogs.rss.feed.title.${initialFeed ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-model="formData.name" :label="$t('dialogs.rss.feed.name')" />

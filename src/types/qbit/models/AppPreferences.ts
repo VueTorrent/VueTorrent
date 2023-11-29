@@ -116,7 +116,7 @@ export default interface AppPreferences {
   dyndns_username: string
   /** Port used for embedded tracker */
   embedded_tracker_port: number
-   /** Enable port forwarding for embedded tracker */
+  /** Enable port forwarding for embedded tracker */
   embedded_tracker_port_forwarding: boolean
   /** True enables coalesce reads & writes */
   enable_coalesce_read_write: boolean

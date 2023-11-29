@@ -91,7 +91,27 @@ export default createVuetify({
   theme: {
     defaultTheme: Theme.LIGHT,
     variations: {
-      colors: ['torrent-error', 'torrent-missingFiles', 'torrent-uploading', 'torrent-forcedUP', 'torrent-pausedUP', 'torrent-queuedUP', 'torrent-stalledUP', 'torrent-checkingUP', 'torrent-allocating', 'torrent-downloading', 'torrent-forcedDL', 'torrent-metaDL', 'torrent-pausedDL', 'torrent-queuedDL', 'torrent-stalledDL', 'torrent-checkingDL', 'torrent-checkingResumeData', 'torrent-moving', 'torrent-unknown'],
+      colors: [
+        'torrent-error',
+        'torrent-missingFiles',
+        'torrent-uploading',
+        'torrent-forcedUP',
+        'torrent-pausedUP',
+        'torrent-queuedUP',
+        'torrent-stalledUP',
+        'torrent-checkingUP',
+        'torrent-allocating',
+        'torrent-downloading',
+        'torrent-forcedDL',
+        'torrent-metaDL',
+        'torrent-pausedDL',
+        'torrent-queuedDL',
+        'torrent-stalledDL',
+        'torrent-checkingDL',
+        'torrent-checkingResumeData',
+        'torrent-moving',
+        'torrent-unknown'
+      ],
       lighten: 3,
       darken: 3
     },

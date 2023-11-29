@@ -51,7 +51,7 @@ export function useTorrentBuilder() {
       seq_dl: data.seq_dl,
       size: data.size,
       state: data.state,
-      stateString: t(`torrent.state.${ data.state }`),
+      stateString: t(`torrent.state.${data.state}`),
       super_seeding: data.super_seeding,
       tags: data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : [],
       time_active: data.time_active,
@@ -97,7 +97,7 @@ export function useTorrentBuilder() {
       infohash_v2: data.infohash_v2 || faker.string.uuid(),
       last_activity: data.last_activity || faker.number.int({ min: 0, max: 50 }),
       magnet: data.magnet_uri || faker.internet.url(),
-      name: data.name || `Torrent ${ index + 1 }`,
+      name: data.name || `Torrent ${index + 1}`,
       num_leechs: data.num_leechs || faker.number.int(available_peers),
       num_seeds: data.num_seeds || faker.number.int(available_seeds),
       priority: data.priority || FilePriority.NORMAL,
@@ -111,7 +111,7 @@ export function useTorrentBuilder() {
       seq_dl: data.seq_dl || faker.datatype.boolean(),
       size: data.size || faker.number.int({ min: 1000, max: total_size }),
       state,
-      stateString: t(`torrent.state.${ state }`),
+      stateString: t(`torrent.state.${state}`),
       super_seeding: data.super_seeding || faker.datatype.boolean(),
       tags: data.tags || '',
       time_active: data.time_active || faker.number.int({ min: 1000, max: 900000 }),
@@ -133,8 +133,8 @@ export function useTorrentBuilder() {
     // @ts-expect-error: Type is missing the following properties from type 'Torrent': ...
     return Object.freeze({
       ...data,
-      avgDownloadSpeed: data.downloaded / ((dlDuration == 0) ? -1 : dlDuration),
-      avgUploadSpeed: data.uploaded / ((ulDuration == 0) ? -1 : ulDuration),
+      avgDownloadSpeed: data.downloaded / (dlDuration == 0 ? -1 : dlDuration),
+      avgUploadSpeed: data.uploaded / (ulDuration == 0 ? -1 : ulDuration),
       globalSpeed: data.dlspeed + data.upspeed,
       globalVolume: data.downloaded + data.uploaded
     })

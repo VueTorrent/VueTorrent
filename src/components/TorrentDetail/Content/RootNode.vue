@@ -8,17 +8,18 @@ defineProps<{
 }>()
 defineEmits<{
   renameFolder: [node: TreeFolder]
-  renameFile: [node: TreeFile],
+  renameFile: [node: TreeFile]
   setFilePriority: [node: TreeFile, priority: FilePriority]
 }>()
 </script>
 
 <template>
   <v-list density="compact" select-strategy="classic">
-    <FolderNode :node="root"
-                @renameFolder="n => $emit('renameFolder', n)"
-                @renameFile="n => $emit('renameFile', n)"
-                @setFilePriority="(n, prio) => $emit('setFilePriority', n, prio)" />
+    <FolderNode
+      :node="root"
+      @renameFolder="n => $emit('renameFolder', n)"
+      @renameFile="n => $emit('renameFile', n)"
+      @setFilePriority="(n, prio) => $emit('setFilePriority', n, prio)" />
   </v-list>
 </template>
 

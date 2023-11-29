@@ -19,7 +19,7 @@ export const useRssStore = defineStore(
     })
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
-    const articles = computed(() => filters.unread ? unreadArticles.value : _articles.value)
+    const articles = computed(() => (filters.unread ? unreadArticles.value : _articles.value))
 
     async function refreshFeed(feedName: string) {
       await qbit.refreshFeed(feedName)

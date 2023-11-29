@@ -9,7 +9,7 @@ import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   guid: string
-  hashes: string[],
+  hashes: string[]
   mode: 'dl' | 'save'
 }>()
 
@@ -65,9 +65,14 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldPath" :model-value="oldPath" disabled :label="$t('dialogs.moveTorrent.oldPath')" />
-          <HistoryField v-model="formData.newPath" :historyKey="HistoryKey.TORRENT_PATH" ref="field"
-                        :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')"
-                        @keydown.enter="submit" />
+          <HistoryField
+            v-model="formData.newPath"
+            :historyKey="HistoryKey.TORRENT_PATH"
+            ref="field"
+            :rules="rules"
+            autofocus
+            :label="$t('dialogs.moveTorrent.newPath')"
+            @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

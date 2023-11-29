@@ -21,8 +21,7 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" :location="vueTorrentStore.isDrawerRight ? 'right' : 'left'"
-                       color="primary" disable-route-watcher>
+  <v-navigation-drawer v-model="isDrawerOpen" :location="vueTorrentStore.isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
       <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
         <CurrentSpeed />

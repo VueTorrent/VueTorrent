@@ -85,8 +85,7 @@ watch(
       </v-btn>
     </v-col>
     <v-col cols="6" class="d-flex align-center justify-center">
-      <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0"
-             :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
+      <v-btn color="accent" :loading="loading" :disabled="rssStore.feeds.length === 0" :text="$t('settings.rss.feeds.refreshAll')" @click="refreshAllFeeds" />
     </v-col>
   </v-row>
 </template>

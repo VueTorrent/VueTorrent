@@ -4,17 +4,7 @@ import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { formatPercent, formatSpeed } from '@/helpers'
-import {
-  useAddTorrentStore,
-  useAppStore,
-  useAuthStore,
-  useDialogStore,
-  useLogStore,
-  useMaindataStore,
-  usePreferenceStore,
-  useTorrentStore,
-  useVueTorrentStore
-} from '@/stores'
+import { useAddTorrentStore, useAppStore, useAuthStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 
 import { onBeforeMount, watch, watchEffect } from 'vue'
@@ -88,8 +78,8 @@ watchEffect(() => {
     case TitleOptions.GLOBAL_SPEED:
       document.title =
         '[' +
-        `D: ${ formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value) }, ` +
-        `U: ${ formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value) }` +
+        `D: ${formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
+        `U: ${formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value)}` +
         '] VueTorrent'
       break
     case TitleOptions.FIRST_TORRENT_STATUS:
@@ -97,9 +87,9 @@ watchEffect(() => {
       if (torrent) {
         document.title =
           '[' +
-          `D: ${ formatSpeed(torrent.dlspeed, useBitSpeed.value) }, ` +
-          `U: ${ formatSpeed(torrent.upspeed, useBitSpeed.value) }, ` +
-          `${ formatPercent(torrent.progress) }` +
+          `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
+          `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
+          `${formatPercent(torrent.progress)}` +
           '] VueTorrent'
       } else {
         document.title = '[N/A] VueTorrent'
@@ -118,8 +108,7 @@ watchEffect(() => {
 
 <template>
   <v-app class="text-noselect">
-    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component"
-               v-bind="{ guid: dialog.guid, ...dialog.props }" />
+    <component v-for="dialog in dialogStore.dialogs" :is="dialog.component" v-bind="{ guid: dialog.guid, ...dialog.props }" />
     <Navbar v-if="authStore.isAuthenticated" />
     <v-main>
       <router-view />

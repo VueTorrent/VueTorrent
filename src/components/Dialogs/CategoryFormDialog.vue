@@ -49,15 +49,12 @@ onBeforeMount(() => {
 <template>
   <v-dialog v-model="isOpened">
     <v-card>
-      <v-card-title>{{ $t(`dialogs.category.title.${ initialCategory ? 'edit' : 'create' }`) }}</v-card-title>
+      <v-card-title>{{ $t(`dialogs.category.title.${initialCategory ? 'edit' : 'create'}`) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
-          <v-text-field v-if="!!initialCategory" :model-value="initialCategory.name" disabled
-                        :label="$t('dialogs.category.oldName')" />
-          <v-text-field v-model="formData.name" :rules="nameRules" :autofocus="!initialCategory"
-                        :label="$t('dialogs.category.name')" />
-          <v-text-field v-model="formData.savePath" :autofocus="!!initialCategory"
-                        :label="$t('dialogs.category.savePath')" />
+          <v-text-field v-if="!!initialCategory" :model-value="initialCategory.name" disabled :label="$t('dialogs.category.oldName')" />
+          <v-text-field v-model="formData.name" :rules="nameRules" :autofocus="!initialCategory" :label="$t('dialogs.category.name')" />
+          <v-text-field v-model="formData.savePath" :autofocus="!!initialCategory" :label="$t('dialogs.category.savePath')" />
           <v-scroll-x-transition>
             <div class="text-warning" v-if="!!initialCategory && initialCategory.name !== formData.name">
               <v-icon>mdi-alert</v-icon>

@@ -40,7 +40,7 @@ const connectionStatusText = computed(() => {
       key = 'unknown'
   }
 
-  return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${ key }`) })
+  return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${key}`) })
 })
 
 const logout = async () => {

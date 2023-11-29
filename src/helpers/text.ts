@@ -85,6 +85,6 @@ export function codeToFlag(code: string) {
 }
 
 export function uuidFromRaw(bits: bigint) {
-  let bitString = bits.toString(16).slice(-32).padStart(32, "0");
-  return `${bitString.slice(-32, -24)}-${bitString.slice(-24, -20)}-${bitString.slice(-20, -16)}-${bitString.slice(-16, -12)}-${bitString.slice(-12)}`;
+  let bitString = bits.toString(16).slice(-32).padStart(32, '0')
+  return `${bitString.slice(-32, -24)}-${bitString.slice(-24, -20)}-${bitString.slice(-20, -16)}-${bitString.slice(-16, -12)}-${bitString.slice(-12)}`
 }
