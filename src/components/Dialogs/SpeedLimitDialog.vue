@@ -55,14 +55,15 @@ onBeforeMount(async () => {
     <v-card :title="$t(`dialogs.speed_limit.${mode}`)">
       <v-card-text>
         <v-form v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
-          <v-text-field v-model="value"
-                        type="number"
-                        autofocus
-                        clearable
-                        :label="$t('dialogs.speed_limit.label')"
-                        prepend-inner-icon="mdi-speedometer"
-                        suffix="kB/s"
-                        @keydown.enter.prevent="submit" />
+          <v-text-field
+            v-model="value"
+            type="number"
+            autofocus
+            clearable
+            :label="$t('dialogs.speed_limit.label')"
+            prepend-inner-icon="mdi-speedometer"
+            suffix="kB/s"
+            @keydown.enter.prevent="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>
@@ -74,6 +75,4 @@ onBeforeMount(async () => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

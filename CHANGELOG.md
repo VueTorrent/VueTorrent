@@ -2,118 +2,142 @@
 
 ## [2.2.0](https://github.com/WDaan/VueTorrent/compare/v2.1.1...v2.2.0) (2023-11-20)
 
-
 ### Features
 
-* **AddTorrentDialog:** Rework dialog to add missing parameters ([#1323](https://github.com/WDaan/VueTorrent/issues/1323)) ([f69851c](https://github.com/WDaan/VueTorrent/commit/f69851cc39bd7ca47f426a5eb5d900c5c428b758))
-* **ConnectionStatusDialog:** Add DHT node and active peer connections ([#1312](https://github.com/WDaan/VueTorrent/issues/1312)) ([6f01c00](https://github.com/WDaan/VueTorrent/commit/6f01c008e88ad3c4a45fab7f8624416975756033))
-* **Content:** Add menu to set file priority ([#1333](https://github.com/WDaan/VueTorrent/issues/1333)) ([f83fe06](https://github.com/WDaan/VueTorrent/commit/f83fe0691a939a99ed4490d22d8aba9c1994d67d))
-* **Overview:** Add keyboard shortcuts ([#1335](https://github.com/WDaan/VueTorrent/issues/1335)) ([15a20a3](https://github.com/WDaan/VueTorrent/commit/15a20a3a4e68d86ddf54c0ee13463ed2288ddfc9))
-* **preferences:** Update settings page to include missing preferences ([#1296](https://github.com/WDaan/VueTorrent/issues/1296)) ([e034071](https://github.com/WDaan/VueTorrent/commit/e0340710cc7dce842d260edaf0848e241a36208b))
-* **RSS:** Add conf to use ID instead of link ([#1334](https://github.com/WDaan/VueTorrent/issues/1334)) ([6af7537](https://github.com/WDaan/VueTorrent/commit/6af75375571fadd650d1342c132e34d3ec6c3f49))
-
+- **AddTorrentDialog:** Rework dialog to add missing parameters ([#1323](https://github.com/WDaan/VueTorrent/issues/1323))
+  ([f69851c](https://github.com/WDaan/VueTorrent/commit/f69851cc39bd7ca47f426a5eb5d900c5c428b758))
+- **ConnectionStatusDialog:** Add DHT node and active peer connections ([#1312](https://github.com/WDaan/VueTorrent/issues/1312))
+  ([6f01c00](https://github.com/WDaan/VueTorrent/commit/6f01c008e88ad3c4a45fab7f8624416975756033))
+- **Content:** Add menu to set file priority ([#1333](https://github.com/WDaan/VueTorrent/issues/1333))
+  ([f83fe06](https://github.com/WDaan/VueTorrent/commit/f83fe0691a939a99ed4490d22d8aba9c1994d67d))
+- **Overview:** Add keyboard shortcuts ([#1335](https://github.com/WDaan/VueTorrent/issues/1335))
+  ([15a20a3](https://github.com/WDaan/VueTorrent/commit/15a20a3a4e68d86ddf54c0ee13463ed2288ddfc9))
+- **preferences:** Update settings page to include missing preferences ([#1296](https://github.com/WDaan/VueTorrent/issues/1296))
+  ([e034071](https://github.com/WDaan/VueTorrent/commit/e0340710cc7dce842d260edaf0848e241a36208b))
+- **RSS:** Add conf to use ID instead of link ([#1334](https://github.com/WDaan/VueTorrent/issues/1334))
+  ([6af7537](https://github.com/WDaan/VueTorrent/commit/6af75375571fadd650d1342c132e34d3ec6c3f49))
 
 ### Bug Fixes
 
-* **AddTorrentDialog:** Add autocomplete attribute ([#1331](https://github.com/WDaan/VueTorrent/issues/1331)) ([aaa4cc1](https://github.com/WDaan/VueTorrent/commit/aaa4cc16e9e7cac207a8286ce950e924c7718327))
-* **AddTorrentDialog:** Prevent undefined values from being sent through API ([#1330](https://github.com/WDaan/VueTorrent/issues/1330)) ([6575ade](https://github.com/WDaan/VueTorrent/commit/6575ade19e0bb6443bc8e29187cf952ff4f67262))
-* authentication race condition ([#1319](https://github.com/WDaan/VueTorrent/issues/1319)) ([153268f](https://github.com/WDaan/VueTorrent/commit/153268f30d3f2f8c618083caebd51894a42bc32a))
-* **dashboard:** Fix span selection not using filters ([#1311](https://github.com/WDaan/VueTorrent/issues/1311)) ([06d1815](https://github.com/WDaan/VueTorrent/commit/06d1815f002b01843518a6bbf54b976c35be1054))
-* reduce title size [#1288](https://github.com/WDaan/VueTorrent/issues/1288) ([aab5cc1](https://github.com/WDaan/VueTorrent/commit/aab5cc16edd7247196daf298a366e0d369cfb932))
-* reduce title size [#1288](https://github.com/WDaan/VueTorrent/issues/1288) ([0c7701a](https://github.com/WDaan/VueTorrent/commit/0c7701a4d2cd46b7851760e46dc7cf85ef0b6f5a))
-* **Settings/Speed:** Fix speed values conversion ([#1332](https://github.com/WDaan/VueTorrent/issues/1332)) ([02c0496](https://github.com/WDaan/VueTorrent/commit/02c049692bb6fc88f1ca76faa1b271118eb7eb4a))
-* **settings:** Update disabled state in Bittorrent tab ([#1301](https://github.com/WDaan/VueTorrent/issues/1301)) ([f1cefe4](https://github.com/WDaan/VueTorrent/commit/f1cefe4e3ced36b81feab03e7e5fdf852b7b131e))
-* **TRC:** Use all selected torrents for transfer limits ([#1329](https://github.com/WDaan/VueTorrent/issues/1329)) ([3614081](https://github.com/WDaan/VueTorrent/commit/3614081f198e1bedd35a2fbf54aa18a366594cf6))
-
+- **AddTorrentDialog:** Add autocomplete attribute ([#1331](https://github.com/WDaan/VueTorrent/issues/1331))
+  ([aaa4cc1](https://github.com/WDaan/VueTorrent/commit/aaa4cc16e9e7cac207a8286ce950e924c7718327))
+- **AddTorrentDialog:** Prevent undefined values from being sent through API ([#1330](https://github.com/WDaan/VueTorrent/issues/1330))
+  ([6575ade](https://github.com/WDaan/VueTorrent/commit/6575ade19e0bb6443bc8e29187cf952ff4f67262))
+- authentication race condition ([#1319](https://github.com/WDaan/VueTorrent/issues/1319))
+  ([153268f](https://github.com/WDaan/VueTorrent/commit/153268f30d3f2f8c618083caebd51894a42bc32a))
+- **dashboard:** Fix span selection not using filters ([#1311](https://github.com/WDaan/VueTorrent/issues/1311))
+  ([06d1815](https://github.com/WDaan/VueTorrent/commit/06d1815f002b01843518a6bbf54b976c35be1054))
+- reduce title size [#1288](https://github.com/WDaan/VueTorrent/issues/1288) ([aab5cc1](https://github.com/WDaan/VueTorrent/commit/aab5cc16edd7247196daf298a366e0d369cfb932))
+- reduce title size [#1288](https://github.com/WDaan/VueTorrent/issues/1288) ([0c7701a](https://github.com/WDaan/VueTorrent/commit/0c7701a4d2cd46b7851760e46dc7cf85ef0b6f5a))
+- **Settings/Speed:** Fix speed values conversion ([#1332](https://github.com/WDaan/VueTorrent/issues/1332))
+  ([02c0496](https://github.com/WDaan/VueTorrent/commit/02c049692bb6fc88f1ca76faa1b271118eb7eb4a))
+- **settings:** Update disabled state in Bittorrent tab ([#1301](https://github.com/WDaan/VueTorrent/issues/1301))
+  ([f1cefe4](https://github.com/WDaan/VueTorrent/commit/f1cefe4e3ced36b81feab03e7e5fdf852b7b131e))
+- **TRC:** Use all selected torrents for transfer limits ([#1329](https://github.com/WDaan/VueTorrent/issues/1329))
+  ([3614081](https://github.com/WDaan/VueTorrent/commit/3614081f198e1bedd35a2fbf54aa18a366594cf6))
 
 ### Improvements
 
-* **stores:** Rework store structure to prevent circular imports ([#1325](https://github.com/WDaan/VueTorrent/issues/1325)) ([179af5a](https://github.com/WDaan/VueTorrent/commit/179af5a1d6886b9543b9170ae697f1011af501b9))
+- **stores:** Rework store structure to prevent circular imports ([#1325](https://github.com/WDaan/VueTorrent/issues/1325))
+  ([179af5a](https://github.com/WDaan/VueTorrent/commit/179af5a1d6886b9543b9170ae697f1011af501b9))
 
 ## [2.1.1](https://github.com/WDaan/VueTorrent/compare/v2.1.0...v2.1.1) (2023-11-10)
 
-
 ### Bug Fixes
 
-* **Navbar:** Add missing bind on right drawer setting ([#1294](https://github.com/WDaan/VueTorrent/issues/1294)) ([672ab08](https://github.com/WDaan/VueTorrent/commit/672ab0863f3ee41a5fb2fd17bdba81306fb91be3))
-* **RightClickMenu:** Fix target not being selected on long press ([#1295](https://github.com/WDaan/VueTorrent/issues/1295)) ([d80cc35](https://github.com/WDaan/VueTorrent/commit/d80cc35e94f3caa94520abf5ed83ba29b7d3bc2c))
-* **settings:** Update drag handling to completed properties ([#1286](https://github.com/WDaan/VueTorrent/issues/1286)) ([dd53e6f](https://github.com/WDaan/VueTorrent/commit/dd53e6fc9d299b506b8c3f28c19ee131aa811430))
-
+- **Navbar:** Add missing bind on right drawer setting ([#1294](https://github.com/WDaan/VueTorrent/issues/1294))
+  ([672ab08](https://github.com/WDaan/VueTorrent/commit/672ab0863f3ee41a5fb2fd17bdba81306fb91be3))
+- **RightClickMenu:** Fix target not being selected on long press ([#1295](https://github.com/WDaan/VueTorrent/issues/1295))
+  ([d80cc35](https://github.com/WDaan/VueTorrent/commit/d80cc35e94f3caa94520abf5ed83ba29b7d3bc2c))
+- **settings:** Update drag handling to completed properties ([#1286](https://github.com/WDaan/VueTorrent/issues/1286))
+  ([dd53e6f](https://github.com/WDaan/VueTorrent/commit/dd53e6fc9d299b506b8c3f28c19ee131aa811430))
 
 ### Improvements
 
-* **MagnetHandler:** Open add dialog on magnet link ([#1293](https://github.com/WDaan/VueTorrent/issues/1293)) ([0c546f1](https://github.com/WDaan/VueTorrent/commit/0c546f1b373b34162ea437c16a7a0574321a8a7f))
+- **MagnetHandler:** Open add dialog on magnet link ([#1293](https://github.com/WDaan/VueTorrent/issues/1293))
+  ([0c546f1](https://github.com/WDaan/VueTorrent/commit/0c546f1b373b34162ea437c16a7a0574321a8a7f))
 
 ## [2.1.0](https://github.com/WDaan/VueTorrent/compare/v2.0.1...v2.1.0) (2023-11-08)
 
-
 ### Features
 
-* **filters:** Allow to disable filters temporarily ([6f9ee5d](https://github.com/WDaan/VueTorrent/commit/6f9ee5d0e36bd0a9e1707f50edc84d8979ae7a51))
-* **localization:** Bringing back Russian locale ([#1281](https://github.com/WDaan/VueTorrent/issues/1281)) ([20dc684](https://github.com/WDaan/VueTorrent/commit/20dc6843aa587dd571362efa34cd6cc986af4591))
-* **ShareLimit:** Add torrent share limit dialog ([ed0991e](https://github.com/WDaan/VueTorrent/commit/ed0991e0a5b3985dbea40d343dc6a3c8224e1f32))
-* **title:** Ability to set custom browser tab title ([1f58005](https://github.com/WDaan/VueTorrent/commit/1f58005109ab5b8a1cf6d9575246e24a105cc3a8))
-
+- **filters:** Allow to disable filters temporarily ([6f9ee5d](https://github.com/WDaan/VueTorrent/commit/6f9ee5d0e36bd0a9e1707f50edc84d8979ae7a51))
+- **localization:** Bringing back Russian locale ([#1281](https://github.com/WDaan/VueTorrent/issues/1281))
+  ([20dc684](https://github.com/WDaan/VueTorrent/commit/20dc6843aa587dd571362efa34cd6cc986af4591))
+- **ShareLimit:** Add torrent share limit dialog ([ed0991e](https://github.com/WDaan/VueTorrent/commit/ed0991e0a5b3985dbea40d343dc6a3c8224e1f32))
+- **title:** Ability to set custom browser tab title ([1f58005](https://github.com/WDaan/VueTorrent/commit/1f58005109ab5b8a1cf6d9575246e24a105cc3a8))
 
 ### Bug Fixes
 
-* **TorrentCard:** Fix properties not being persisted ([#1252](https://github.com/WDaan/VueTorrent/issues/1252)) ([c61b957](https://github.com/WDaan/VueTorrent/commit/c61b957683c5ee6591b27de755fdad062e93e16f))
-
+- **TorrentCard:** Fix properties not being persisted ([#1252](https://github.com/WDaan/VueTorrent/issues/1252))
+  ([c61b957](https://github.com/WDaan/VueTorrent/commit/c61b957683c5ee6591b27de755fdad062e93e16f))
 
 ### Improvements
 
-* **faker:** Improve torrent mocking ([#1187](https://github.com/WDaan/VueTorrent/issues/1187)) ([8b1f641](https://github.com/WDaan/VueTorrent/commit/8b1f641fca79ad580bcb6d94f41ad0f52c495e80))
-* **localization:** Integrate Tolgee inside CI ([#1276](https://github.com/WDaan/VueTorrent/issues/1276)) ([86e12da](https://github.com/WDaan/VueTorrent/commit/86e12da8d0f3ef5e2f7b335277590f8769daf104))
-* **TorrentCard:** Only process drag on handle ([#1253](https://github.com/WDaan/VueTorrent/issues/1253)) ([681e59f](https://github.com/WDaan/VueTorrent/commit/681e59f7c76eb5b984aa968782a81d08fd271cc3))
-* **Torrent:** Wrap title ([55c2ef8](https://github.com/WDaan/VueTorrent/commit/55c2ef811543ebcc84124d3304689f2901064e77))
+- **faker:** Improve torrent mocking ([#1187](https://github.com/WDaan/VueTorrent/issues/1187))
+  ([8b1f641](https://github.com/WDaan/VueTorrent/commit/8b1f641fca79ad580bcb6d94f41ad0f52c495e80))
+- **localization:** Integrate Tolgee inside CI ([#1276](https://github.com/WDaan/VueTorrent/issues/1276))
+  ([86e12da](https://github.com/WDaan/VueTorrent/commit/86e12da8d0f3ef5e2f7b335277590f8769daf104))
+- **TorrentCard:** Only process drag on handle ([#1253](https://github.com/WDaan/VueTorrent/issues/1253))
+  ([681e59f](https://github.com/WDaan/VueTorrent/commit/681e59f7c76eb5b984aa968782a81d08fd271cc3))
+- **Torrent:** Wrap title ([55c2ef8](https://github.com/WDaan/VueTorrent/commit/55c2ef811543ebcc84124d3304689f2901064e77))
 
 ## [2.0.1](https://github.com/WDaan/VueTorrent/compare/v2.0.0...v2.0.1) (2023-11-04)
 
-
 ### Bug Fixes
 
-* **dashboard:** Take filters into account when selecting all torrents ([9f4aa4a](https://github.com/WDaan/VueTorrent/commit/9f4aa4a119046d72eb5c2ad0047205c32c426c7a))
-* **settings:** Add DnD exception on settings page ([d91070b](https://github.com/WDaan/VueTorrent/commit/d91070b4a28508d1ea7c4ad7e6e595f358194657))
-
+- **dashboard:** Take filters into account when selecting all torrents ([9f4aa4a](https://github.com/WDaan/VueTorrent/commit/9f4aa4a119046d72eb5c2ad0047205c32c426c7a))
+- **settings:** Add DnD exception on settings page ([d91070b](https://github.com/WDaan/VueTorrent/commit/d91070b4a28508d1ea7c4ad7e6e595f358194657))
 
 ### Improvements
 
-* **settings reset:** Clear sessionStorage in addition to localStorage ([4eaaa33](https://github.com/WDaan/VueTorrent/commit/4eaaa33711f00fcb32515f58fedd6450d83f7cea))
+- **settings reset:** Clear sessionStorage in addition to localStorage ([4eaaa33](https://github.com/WDaan/VueTorrent/commit/4eaaa33711f00fcb32515f58fedd6450d83f7cea))
 
 ## [2.0.0](https://github.com/WDaan/VueTorrent/compare/v1.8.0...v2.0.0) (2023-11-03)
 
-
 ### ⚠ BREAKING CHANGES
 
-* Vue3 Rewrite ([#757](https://github.com/WDaan/VueTorrent/issues/757))
+- Vue3 Rewrite ([#757](https://github.com/WDaan/VueTorrent/issues/757))
 
 ### Features
 
-* **dashboard:** Add DL / UL Speed average to DashboardItems ([#1203](https://github.com/WDaan/VueTorrent/issues/1203)) ([7af47f9](https://github.com/WDaan/VueTorrent/commit/7af47f9e3d375be39fe133f10c69eeee5fa3ff43))
-* **filters:** Allow multiple selection ([#1202](https://github.com/WDaan/VueTorrent/issues/1202)) ([41318c3](https://github.com/WDaan/VueTorrent/commit/41318c3d85da44833b7ce1e2afba9a613b07c624))
-* **transfer limit:** Add callbacks for download / upload torrent limit ([#1217](https://github.com/WDaan/VueTorrent/issues/1217)) ([1792df9](https://github.com/WDaan/VueTorrent/commit/1792df965ba78c83264b315b6f1ecbaca4b08e04))
-* Vue3 Rewrite ([#757](https://github.com/WDaan/VueTorrent/issues/757)) ([575b071](https://github.com/WDaan/VueTorrent/commit/575b071f6db9edc01412fab45109d3f4d203552d))
-
+- **dashboard:** Add DL / UL Speed average to DashboardItems ([#1203](https://github.com/WDaan/VueTorrent/issues/1203))
+  ([7af47f9](https://github.com/WDaan/VueTorrent/commit/7af47f9e3d375be39fe133f10c69eeee5fa3ff43))
+- **filters:** Allow multiple selection ([#1202](https://github.com/WDaan/VueTorrent/issues/1202))
+  ([41318c3](https://github.com/WDaan/VueTorrent/commit/41318c3d85da44833b7ce1e2afba9a613b07c624))
+- **transfer limit:** Add callbacks for download / upload torrent limit ([#1217](https://github.com/WDaan/VueTorrent/issues/1217))
+  ([1792df9](https://github.com/WDaan/VueTorrent/commit/1792df965ba78c83264b315b6f1ecbaca4b08e04))
+- Vue3 Rewrite ([#757](https://github.com/WDaan/VueTorrent/issues/757)) ([575b071](https://github.com/WDaan/VueTorrent/commit/575b071f6db9edc01412fab45109d3f4d203552d))
 
 ### Bug Fixes
 
-* **AddTorrentDialog:** Dialog was never initialized with default values ([#1214](https://github.com/WDaan/VueTorrent/issues/1214)) ([44fd8d3](https://github.com/WDaan/VueTorrent/commit/44fd8d38619b7a468f8f0a7e04c71cf9cd94683b))
-* **AddTorrentDialog:** Fix persistence not working ([#1213](https://github.com/WDaan/VueTorrent/issues/1213)) ([9ee6533](https://github.com/WDaan/VueTorrent/commit/9ee65335e129139a4cff4ba307d94b8075f66558))
-* **AddTorrent:** Error while accessing preferences ([#1216](https://github.com/WDaan/VueTorrent/issues/1216)) ([c760072](https://github.com/WDaan/VueTorrent/commit/c76007241dbd604f6e31bc506b88a065dc57d920))
-* Chinese translations([#1189](https://github.com/WDaan/VueTorrent/issues/1189)) ([3f34cfc](https://github.com/WDaan/VueTorrent/commit/3f34cfcfdb9b9ff0a0c1030e2cb82fd671c562a0))
-* **dashboard:** Sort not working anymore ([#1211](https://github.com/WDaan/VueTorrent/issues/1211)) ([b2bbcb9](https://github.com/WDaan/VueTorrent/commit/b2bbcb987e7569bfb58bf01930f4d6cbcb9e95c3))
-* **rss:** Update overflow rules to handle long name without spaces ([#1228](https://github.com/WDaan/VueTorrent/issues/1228)) ([e2ce2e8](https://github.com/WDaan/VueTorrent/commit/e2ce2e86f5ff59499834a91b8de6c3bc8aa1e156))
-
+- **AddTorrentDialog:** Dialog was never initialized with default values ([#1214](https://github.com/WDaan/VueTorrent/issues/1214))
+  ([44fd8d3](https://github.com/WDaan/VueTorrent/commit/44fd8d38619b7a468f8f0a7e04c71cf9cd94683b))
+- **AddTorrentDialog:** Fix persistence not working ([#1213](https://github.com/WDaan/VueTorrent/issues/1213))
+  ([9ee6533](https://github.com/WDaan/VueTorrent/commit/9ee65335e129139a4cff4ba307d94b8075f66558))
+- **AddTorrent:** Error while accessing preferences ([#1216](https://github.com/WDaan/VueTorrent/issues/1216))
+  ([c760072](https://github.com/WDaan/VueTorrent/commit/c76007241dbd604f6e31bc506b88a065dc57d920))
+- Chinese translations([#1189](https://github.com/WDaan/VueTorrent/issues/1189)) ([3f34cfc](https://github.com/WDaan/VueTorrent/commit/3f34cfcfdb9b9ff0a0c1030e2cb82fd671c562a0))
+- **dashboard:** Sort not working anymore ([#1211](https://github.com/WDaan/VueTorrent/issues/1211))
+  ([b2bbcb9](https://github.com/WDaan/VueTorrent/commit/b2bbcb987e7569bfb58bf01930f4d6cbcb9e95c3))
+- **rss:** Update overflow rules to handle long name without spaces ([#1228](https://github.com/WDaan/VueTorrent/issues/1228))
+  ([e2ce2e8](https://github.com/WDaan/VueTorrent/commit/e2ce2e86f5ff59499834a91b8de6c3bc8aa1e156))
 
 ### Improvements
 
-* add Chinese translations ([#1185](https://github.com/WDaan/VueTorrent/issues/1185)) ([c50f1df](https://github.com/WDaan/VueTorrent/commit/c50f1df4d6027588e6d8fc9465d0bfeafd934f83))
-* **AddTorrentDialog:** Add loading prop to add button ([#1192](https://github.com/WDaan/VueTorrent/issues/1192)) ([ac3bb69](https://github.com/WDaan/VueTorrent/commit/ac3bb69a13e9b2bef3030f0b500ee37f1c79b0c5))
-* **AddTorrentDialog:** persist form in sessionStorage ([#1193](https://github.com/WDaan/VueTorrent/issues/1193)) ([e59f6bf](https://github.com/WDaan/VueTorrent/commit/e59f6bf206e7ace0fbc5eead955ada5caa63bd4a))
-* **filters:** Reorder states ([197b9d7](https://github.com/WDaan/VueTorrent/commit/197b9d7d029c6669cccfb4c4fc183d62fed45de6))
-* **rss:** Improve duplicate RSS article handling ([#1191](https://github.com/WDaan/VueTorrent/issues/1191)) ([ee01382](https://github.com/WDaan/VueTorrent/commit/ee0138277177dbd9c5054ed81fb8ab11d5b919f0))
-* **rss:** Right click mark article as read ([#1210](https://github.com/WDaan/VueTorrent/issues/1210)) ([ee03b5c](https://github.com/WDaan/VueTorrent/commit/ee03b5cb58125df8fb073e264cc61bfda85ccd3b))
-* **TorrentCard:** Darken selected item background ([#1215](https://github.com/WDaan/VueTorrent/issues/1215)) ([8214a0e](https://github.com/WDaan/VueTorrent/commit/8214a0ebd43637bbe3eb7098f5b0ff5a5d0951b8))
+- add Chinese translations ([#1185](https://github.com/WDaan/VueTorrent/issues/1185))
+  ([c50f1df](https://github.com/WDaan/VueTorrent/commit/c50f1df4d6027588e6d8fc9465d0bfeafd934f83))
+- **AddTorrentDialog:** Add loading prop to add button ([#1192](https://github.com/WDaan/VueTorrent/issues/1192))
+  ([ac3bb69](https://github.com/WDaan/VueTorrent/commit/ac3bb69a13e9b2bef3030f0b500ee37f1c79b0c5))
+- **AddTorrentDialog:** persist form in sessionStorage ([#1193](https://github.com/WDaan/VueTorrent/issues/1193))
+  ([e59f6bf](https://github.com/WDaan/VueTorrent/commit/e59f6bf206e7ace0fbc5eead955ada5caa63bd4a))
+- **filters:** Reorder states ([197b9d7](https://github.com/WDaan/VueTorrent/commit/197b9d7d029c6669cccfb4c4fc183d62fed45de6))
+- **rss:** Improve duplicate RSS article handling ([#1191](https://github.com/WDaan/VueTorrent/issues/1191))
+  ([ee01382](https://github.com/WDaan/VueTorrent/commit/ee0138277177dbd9c5054ed81fb8ab11d5b919f0))
+- **rss:** Right click mark article as read ([#1210](https://github.com/WDaan/VueTorrent/issues/1210))
+  ([ee03b5c](https://github.com/WDaan/VueTorrent/commit/ee03b5cb58125df8fb073e264cc61bfda85ccd3b))
+- **TorrentCard:** Darken selected item background ([#1215](https://github.com/WDaan/VueTorrent/issues/1215))
+  ([8214a0e](https://github.com/WDaan/VueTorrent/commit/8214a0ebd43637bbe3eb7098f5b0ff5a5d0951b8))
 
 ## [1.8.0](https://github.com/WDaan/VueTorrent/compare/v1.7.4...v1.8.0) (2023-10-04)
 

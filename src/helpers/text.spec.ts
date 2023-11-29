@@ -1,13 +1,4 @@
-import {
-  capitalize,
-  codeToFlag,
-  extractHostname,
-  getDomainBody,
-  splitByUrl,
-  stringContainsUrl,
-  titleCase,
-  uuidFromRaw
-} from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase, uuidFromRaw } from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -81,7 +72,7 @@ test('helpers/text/codeToFlag', () => {
 test('helpers/text/uuidFromRaw', () => {
   expect(uuidFromRaw(0n)).toBe('00000000-0000-0000-0000-000000000000')
   expect(uuidFromRaw(1n)).toBe('00000000-0000-0000-0000-000000000001')
-  expect(uuidFromRaw(0xAAAAAn)).toBe('00000000-0000-0000-0000-0000000aaaaa')
-  expect(uuidFromRaw(0x00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
-  expect(uuidFromRaw(0xABCDEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
+  expect(uuidFromRaw(0xaaaaan)).toBe('00000000-0000-0000-0000-0000000aaaaa')
+  expect(uuidFromRaw(0x00000ffffffffffffffffffffffffffffffffn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
+  expect(uuidFromRaw(0xabcdeffffffffffffffffffffffffffffffffn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
 })

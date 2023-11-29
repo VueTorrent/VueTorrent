@@ -16,7 +16,7 @@ const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
-const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval,{
+const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval, {
   immediate: false,
   immediateCallback: true
 })
@@ -38,15 +38,15 @@ const fileSelection = computed({
     const oldValue = cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD).map(f => f.index)
 
     const filesToExclude = oldValue
-    .filter(index => !newValue.includes(index))
-    .map(index => cachedFiles.value.find(f => f.index === index))
-    .filter(f => f && f.priority !== FilePriority.DO_NOT_DOWNLOAD)
-    .map(f => (f as TorrentFile).index)
+      .filter(index => !newValue.includes(index))
+      .map(index => cachedFiles.value.find(f => f.index === index))
+      .filter(f => f && f.priority !== FilePriority.DO_NOT_DOWNLOAD)
+      .map(f => (f as TorrentFile).index)
     const filesToInclude = newValue
-    .filter(index => !oldValue.includes(index))
-    .map(index => cachedFiles.value.find(f => f.index === index))
-    .filter(f => f && f.priority === FilePriority.DO_NOT_DOWNLOAD)
-    .map(f => (f as TorrentFile).index)
+      .filter(index => !oldValue.includes(index))
+      .map(index => cachedFiles.value.find(f => f.index === index))
+      .filter(f => f && f.priority === FilePriority.DO_NOT_DOWNLOAD)
+      .map(f => (f as TorrentFile).index)
 
     if (filesToExclude.length) {
       await maindataStore.setTorrentFilePriority(props.torrent.hash, filesToExclude, FilePriority.DO_NOT_DOWNLOAD)
@@ -111,8 +111,7 @@ onMounted(() => {
 
 <template>
   <v-card :loading="loading" flat>
-    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree"
-              @renameFolder="renameNode" @renameFile="renameNode" @setFilePriority="setFilePriority" />
+    <RootNode v-model:opened="openedItems" v-model:selected="fileSelection" :root="tree" @renameFolder="renameNode" @renameFile="renameNode" @setFilePriority="setFilePriority" />
     <!--
     TODO: add treeview after merge
     https://github.com/vuetifyjs/vuetify/issues/13518

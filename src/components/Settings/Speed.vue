@@ -22,20 +22,20 @@ const schedulerOptions = ref([
 
 const upLimit = computed({
   get: () => preferenceStore.preferences!.up_limit / 1024,
-  set: (value: number) => preferenceStore.preferences!.up_limit = value * 1024
+  set: (value: number) => (preferenceStore.preferences!.up_limit = value * 1024)
 })
 const dlLimit = computed({
   get: () => preferenceStore.preferences!.dl_limit / 1024,
-  set: (value: number) => preferenceStore.preferences!.dl_limit = value * 1024
+  set: (value: number) => (preferenceStore.preferences!.dl_limit = value * 1024)
 })
 
 const altUpLimit = computed({
   get: () => preferenceStore.preferences!.alt_up_limit / 1024,
-  set: (value: number) => preferenceStore.preferences!.alt_up_limit = value * 1024
+  set: (value: number) => (preferenceStore.preferences!.alt_up_limit = value * 1024)
 })
 const altDlLimit = computed({
   get: () => preferenceStore.preferences!.alt_dl_limit / 1024,
-  set: (value: number) => preferenceStore.preferences!.alt_dl_limit = value * 1024
+  set: (value: number) => (preferenceStore.preferences!.alt_dl_limit = value * 1024)
 })
 </script>
 
@@ -48,12 +48,10 @@ const altDlLimit = computed({
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="upLimit" hide-details suffix="kiB/s"
-                            :label="t('settings.speed.upload')" />
+              <v-text-field v-model="upLimit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="dlLimit" hide-details suffix="kiB/s"
-                            :label="t('settings.speed.download')" />
+              <v-text-field v-model="dlLimit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
@@ -69,12 +67,10 @@ const altDlLimit = computed({
 
           <v-row class="mx-1">
             <v-col cols="12" md="6">
-              <v-text-field v-model="altUpLimit" hide-details suffix="kiB/s"
-                            :label="t('settings.speed.upload')" />
+              <v-text-field v-model="altUpLimit" hide-details suffix="kiB/s" :label="t('settings.speed.upload')" />
             </v-col>
             <v-col cols="12" md="6">
-              <v-text-field v-model="altDlLimit" hide-details suffix="kiB/s"
-                            :label="t('settings.speed.download')" />
+              <v-text-field v-model="altDlLimit" hide-details suffix="kiB/s" :label="t('settings.speed.download')" />
             </v-col>
           </v-row>
 
@@ -88,8 +84,7 @@ const altDlLimit = computed({
     <v-divider class="mt-2" />
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.scheduler_enabled" hide-details
-                  :label="t('settings.speed.scheduler.subheader')" />
+      <v-checkbox v-model="preferenceStore.preferences!.scheduler_enabled" hide-details :label="t('settings.speed.scheduler.subheader')" />
     </v-list-item>
 
     <v-list-item>
@@ -98,12 +93,10 @@ const altDlLimit = computed({
           <v-list-subheader>{{ t('settings.speed.scheduler.from') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
 
         <v-spacer />
@@ -112,12 +105,10 @@ const altDlLimit = computed({
           <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min"
-                        :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -136,18 +127,15 @@ const altDlLimit = computed({
     <v-list-subheader>{{ t('settings.speed.subheader.settings') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_utp_rate" hide-details
-                  :label="t('settings.speed.settings.applyToUtp')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_utp_rate" hide-details :label="t('settings.speed.settings.applyToUtp')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_tcp_overhead" hide-details
-                  :label="t('settings.speed.settings.applyToTransportOverhead')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_tcp_overhead" hide-details :label="t('settings.speed.settings.applyToTransportOverhead')" />
     </v-list-item>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.limit_lan_peers" hide-details
-                  :label="t('settings.speed.settings.applyToPeersOnLan')" />
+      <v-checkbox v-model="preferenceStore.preferences!.limit_lan_peers" hide-details :label="t('settings.speed.settings.applyToPeersOnLan')" />
     </v-list-item>
   </v-list>
 </template>

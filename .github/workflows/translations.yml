@@ -1,11 +1,10 @@
-name: Update Translations 
+name: Update Translations
 
 on:
   workflow_dispatch:
   schedule:
     # At 00:00 on Sunday.
-    - cron:  '0 0 * * 0'
-  push:
+    - cron: '0 0 * * 0'
 
 permissions:
   contents: write
@@ -27,7 +26,7 @@ jobs:
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: update translations"
-          branch: "update-tolgee-translations"
-          title: "chore: update translations"
+          commit-message: 'chore: update translations'
+          branch: 'update-tolgee-translations'
+          title: 'chore: update translations'
           delete-branch: true

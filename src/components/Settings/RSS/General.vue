@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { usePreferenceStore, useVueTorrentStore } from '@/stores'
 
 const preferenceStore = usePreferenceStore()
@@ -11,8 +10,7 @@ const vuetorrentStore = useVueTorrentStore()
     <v-list-subheader>{{ $t('settings.rss.general.reader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details
-                  :label="$t('settings.rss.general.reader.enableProcessing')" />
+      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details :label="$t('settings.rss.general.reader.enableProcessing')" />
 
       <v-row>
         <v-col cols="12" sm="6">
@@ -24,8 +22,7 @@ const vuetorrentStore = useVueTorrentStore()
             :label="$t('settings.rss.general.reader.feedsRefreshInterval')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number"
-                        :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
+          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -34,8 +31,7 @@ const vuetorrentStore = useVueTorrentStore()
     <v-list-subheader>{{ $t('settings.rss.general.autoDownloader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0"
-                  :label="$t('settings.rss.general.autoDownloader.enable')" />
+      <v-checkbox v-model="preferenceStore.preferences!.rss_auto_downloading_enabled" hide-details class="ma-0 pa-0" :label="$t('settings.rss.general.autoDownloader.enable')" />
     </v-list-item>
 
     <v-divider />
@@ -60,9 +56,7 @@ const vuetorrentStore = useVueTorrentStore()
     <v-divider />
 
     <v-list-item>
-      <v-checkbox v-model="vuetorrentStore.useIdForRssLinks"
-                  hide-details
-                  :label="$t('settings.rss.general.useIdForRssLinks')" />
+      <v-checkbox v-model="vuetorrentStore.useIdForRssLinks" hide-details :label="$t('settings.rss.general.useIdForRssLinks')" />
     </v-list-item>
   </v-list>
 </template>

@@ -11,7 +11,7 @@ const vuetorrentStore = useVueTorrentStore()
 <template>
   <div class="d-flex flex-column">
     <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${ title }`) }}
+      {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
       {{ formatSpeedValue(torrent[value], vuetorrentStore.useBitSpeed) }}

@@ -53,10 +53,10 @@ const plugins = computed(() => {
   ]
 
   searchEngineStore.searchPlugins
-  .filter((plugin: SearchPlugin) => plugin.enabled)
-  .forEach((plugin: SearchPlugin) => {
-    plugins.push({ title: plugin.name, value: plugin.name })
-  })
+    .filter((plugin: SearchPlugin) => plugin.enabled)
+    .forEach((plugin: SearchPlugin) => {
+      plugins.push({ title: plugin.name, value: plugin.name })
+    })
 
   return plugins
 })
@@ -173,8 +173,7 @@ onBeforeUnmount(() => {
         <v-spacer />
 
         <v-btn icon="mdi-plus-circle-outline" variant="plain" color="accent" @click="createNewTab" />
-        <v-btn icon="mdi-minus-circle-outline" variant="plain" color="error" :disabled="searchData.length === 1"
-               @click="deleteTab" />
+        <v-btn icon="mdi-minus-circle-outline" variant="plain" color="error" :disabled="searchData.length === 1" @click="deleteTab" />
       </v-container>
     </v-row>
 
@@ -182,9 +181,16 @@ onBeforeUnmount(() => {
       <v-list-item>
         <v-row class="mt-1">
           <v-col cols="12" md="6">
-            <HistoryField v-model="selectedTab.query" :history-key="HistoryKey.SEARCH_ENGINE_QUERY" ref="queryInput"
-                          autofocus density="compact" hide-details clearable
-                          :label="$t('searchEngine.query')" @keydown.enter.prevent="runNewSearch" />
+            <HistoryField
+              v-model="selectedTab.query"
+              :history-key="HistoryKey.SEARCH_ENGINE_QUERY"
+              ref="queryInput"
+              autofocus
+              density="compact"
+              hide-details
+              clearable
+              :label="$t('searchEngine.query')"
+              @keydown.enter.prevent="runNewSearch" />
           </v-col>
 
           <v-col cols="6" sm="5" md="2">
@@ -222,14 +228,11 @@ onBeforeUnmount(() => {
       <v-divider class="my-3" />
 
       <v-list-item>
-        <v-data-table :headers="headers" :items="filteredResults"
-                      :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
-                      :items-per-page.sync="selectedTab.itemsPerPage">
+        <v-data-table :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage">
           <template v-slot:top>
             <v-row>
               <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details
-                              :label="$t('searchEngine.filters.title.label')" />
+                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="$t('searchEngine.filters.title.label')" />
               </v-col>
             </v-row>
           </template>

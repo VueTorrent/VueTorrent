@@ -6,34 +6,14 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const {
-  categories: _categories,
-  tags: _tags,
-  trackers: _trackers
-} = storeToRefs(useMaindataStore())
-const {
-  statusFilter,
-  categoryFilter,
-  tagFilter,
-  trackerFilter
-} = storeToRefs(useTorrentStore())
+const { categories: _categories, tags: _tags, trackers: _trackers } = storeToRefs(useMaindataStore())
+const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
 
-const statuses = computed(() => Object.values(TorrentState).map(state => (
-  { title: t(`torrent.state.${ state }`), value: state }
-)))
-const categories = computed(() => [
-  { title: t('navbar.side.filters.uncategorized'), value: '' },
-  ..._categories.value.map(c => ({ title: c.name, value: c.name }))
-])
-const tags = computed(() => [
-  { title: t('navbar.side.filters.untagged'), value: null },
-  ..._tags.value.map(tag => ({ title: tag, value: tag }))
-])
-const trackers = computed(() => [
-  { title: t('navbar.side.filters.untracked'), value: '' },
-  ..._trackers.value.map(tracker => ({ title: tracker, value: tracker }))
-])
+const statuses = computed(() => Object.values(TorrentState).map(state => ({ title: t(`torrent.state.${state}`), value: state })))
+const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ..._categories.value.map(c => ({ title: c.name, value: c.name }))])
+const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ..._tags.value.map(tag => ({ title: tag, value: tag }))])
+const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: '' }, ..._trackers.value.map(tracker => ({ title: tracker, value: tracker }))])
 
 function selectAllStatuses() {
   statusFilter.value = []
@@ -58,19 +38,23 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-normal text-caption">
         {{ t('navbar.side.filters.state') }}
       </v-list-item-title>
-      <v-select v-model="statusFilter" :items="statuses" :placeholder="t('navbar.side.filters.disabled')"
-                bg-color="secondary"
-                class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select
+        v-model="statusFilter"
+        :items="statuses"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && statusFilter.length === 1"
-                class="text-accent">{{ t(`torrent.state.${ item.props.value }`) }}</span>
-          <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.activeFilter', statusFilter.length)
-            }}</span>
+          <span v-if="index === 0 && statusFilter.length === 1" class="text-accent">{{ t(`torrent.state.${item.props.value}`) }}</span>
+          <span v-else-if="index === 0" class="text-accent">{{ t('navbar.side.filters.activeFilter', statusFilter.length) }}</span>
         </template>
       </v-select>
     </v-list-item>
@@ -79,8 +63,16 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.category') }}
       </v-list-item-title>
-      <v-select v-model="categoryFilter" :items="categories" :placeholder="t('navbar.side.filters.disabled')"
-                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select
+        v-model="categoryFilter"
+        :items="categories"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
           <v-divider />
@@ -100,8 +92,16 @@ function selectAllTrackers() {
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tag') }}
       </v-list-item-title>
-      <v-select v-model="tagFilter" :items="tags" :placeholder="t('navbar.side.filters.disabled')"
-                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select
+        v-model="tagFilter"
+        :items="tags"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTags" />
           <v-divider />
@@ -117,13 +117,20 @@ function selectAllTrackers() {
       </v-select>
     </v-list-item>
 
-    <v-list-item v-if="vueTorrentStore.showTrackerFilter"
-                 :class="{ 'px-0': true, 'pb-3': vueTorrentStore.showTrackerFilter }">
+    <v-list-item v-if="vueTorrentStore.showTrackerFilter" :class="{ 'px-0': true, 'pb-3': vueTorrentStore.showTrackerFilter }">
       <v-list-item-title class="px-0 text-uppercase white--text ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
-      <v-select v-model="trackerFilter" :items="trackers" :placeholder="t('navbar.side.filters.disabled')"
-                bg-color="secondary" class="text-accent pt-1" density="compact" hide-details multiple variant="solo">
+      <v-select
+        v-model="trackerFilter"
+        :items="trackers"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTrackers" />
           <v-divider />

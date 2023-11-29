@@ -41,7 +41,7 @@ const goHome = () => {
   router.push({ name: 'dashboard' })
 }
 const getLogTypeClassName = (log: Log) => {
-  return `logtype-${ LogType[log?.type]?.toLowerCase() }`
+  return `logtype-${LogType[log?.type]?.toLowerCase()}`
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]
@@ -91,13 +91,11 @@ onUnmounted(() => {
       <v-list-item>
         <v-row>
           <v-col cols="6">
-            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" hide-details
-                      multiple chips>
+            <v-select v-model="logTypeFilter" :items="logTypeOptions" :label="$t('logs.filters.type')" hide-details multiple chips>
               <template v-slot:prepend-item>
                 <v-list-item :title="$t('common.selectAll')" @click="toggleSelectAll">
                   <template v-slot:prepend>
-                    <v-checkbox-btn :indeterminate="someTypesSelected && !allTypesSelected"
-                                    :model-value="someTypesSelected" />
+                    <v-checkbox-btn :indeterminate="someTypesSelected && !allTypesSelected" :model-value="someTypesSelected" />
                   </template>
                 </v-list-item>
                 <v-divider />
@@ -106,8 +104,7 @@ onUnmounted(() => {
           </v-col>
 
           <v-col cols="6">
-            <v-select v-model="sortBy" :items="headers" :label="$t('logs.filters.sortBy.label')" hide-details multiple
-                      chips />
+            <v-select v-model="sortBy" :items="headers" :label="$t('logs.filters.sortBy.label')" hide-details multiple chips />
           </v-col>
         </v-row>
       </v-list-item>

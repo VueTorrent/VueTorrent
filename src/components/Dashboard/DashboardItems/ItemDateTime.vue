@@ -11,7 +11,7 @@ const vueTorrentStore = useVueTorrentStore()
 <template>
   <div class="d-flex flex-column">
     <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${ title }`) }}
+      {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div>
       <span v-if="torrent[value] > 0">

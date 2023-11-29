@@ -44,10 +44,12 @@ async function submit() {
       await maindataStore.setShareLimit(props.hashes, DISABLED, DISABLED, DISABLED)
       break
     case 'enabled':
-      await maindataStore.setShareLimit(props.hashes,
+      await maindataStore.setShareLimit(
+        props.hashes,
         ratioLimitEnabled.value ? ratioLimit.value : DISABLED,
         seedingTimeLimitEnabled.value ? seedingTimeLimit.value : DISABLED,
-        inactiveSeedingTimeLimitEnabled.value ? inactiveSeedingTimeLimit.value : DISABLED)
+        inactiveSeedingTimeLimitEnabled.value ? inactiveSeedingTimeLimit.value : DISABLED
+      )
       break
   }
   close()
@@ -95,27 +97,25 @@ onBeforeMount(async () => {
           <v-row>
             <v-col cols="12" class="d-flex align-center">
               <span><v-checkbox-btn v-model="ratioLimitEnabled" :disabled="isFieldsDisabled" /></span>
-              <v-text-field v-model="ratioLimit"
-                            :disabled="isFieldsDisabled || !ratioLimitEnabled"
-                            density="compact"
-                            hide-details
-                            :label="$t('dialogs.share_limit.ratio_limit')" />
+              <v-text-field v-model="ratioLimit" :disabled="isFieldsDisabled || !ratioLimitEnabled" density="compact" hide-details :label="$t('dialogs.share_limit.ratio_limit')" />
             </v-col>
             <v-col cols="12" class="d-flex align-center">
               <span><v-checkbox-btn v-model="seedingTimeLimitEnabled" :disabled="isFieldsDisabled" /></span>
-              <v-text-field v-model="seedingTimeLimit"
-                            :disabled="isFieldsDisabled || !seedingTimeLimitEnabled"
-                            density="compact"
-                            hide-details
-                            :label="$t('dialogs.share_limit.seeding_time_limit')" />
+              <v-text-field
+                v-model="seedingTimeLimit"
+                :disabled="isFieldsDisabled || !seedingTimeLimitEnabled"
+                density="compact"
+                hide-details
+                :label="$t('dialogs.share_limit.seeding_time_limit')" />
             </v-col>
             <v-col cols="12" class="d-flex align-center">
               <span><v-checkbox-btn v-model="inactiveSeedingTimeLimitEnabled" :disabled="isFieldsDisabled" /></span>
-              <v-text-field v-model="inactiveSeedingTimeLimit"
-                            :disabled="isFieldsDisabled || !inactiveSeedingTimeLimitEnabled"
-                            density="compact"
-                            hide-details
-                            :label="$t('dialogs.share_limit.inactive_seeding_time_limit')" />
+              <v-text-field
+                v-model="inactiveSeedingTimeLimit"
+                :disabled="isFieldsDisabled || !inactiveSeedingTimeLimitEnabled"
+                density="compact"
+                hide-details
+                :label="$t('dialogs.share_limit.inactive_seeding_time_limit')" />
             </v-col>
           </v-row>
         </v-form>
@@ -129,6 +129,4 @@ onBeforeMount(async () => {
   </v-dialog>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

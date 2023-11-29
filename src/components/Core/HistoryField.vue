@@ -36,6 +36,4 @@ defineExpose({
   <v-combobox v-model="_value" ref="field" :items="historyValue" />
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

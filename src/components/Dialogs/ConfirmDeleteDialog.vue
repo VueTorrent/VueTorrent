@@ -71,8 +71,7 @@ onUnmounted(() => {
           <div class="d-flex flex-wrap gap">
             <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
-          <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details
-                      :label="$t('dialogs.delete.deleteWithFiles')" />
+          <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
           <v-scroll-x-transition>
             <div class="text-red" v-show="vuetorrentStore.deleteWithFiles">
               <v-icon>mdi-alert</v-icon>

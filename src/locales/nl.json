@@ -1,20 +1,20 @@
 {
-  "common" : {
-    "cancel" : "Annuleren",
-    "close" : "Sluiten",
-    "delete" : "Verwijderen",
-    "disable" : "Uitschakelen",
-    "emptyList" : "Niets te zien hier!",
-    "none" : "(Geen)",
-    "save" : "Opslaan",
-    "selectAll" : "Alles selecteren"
+  "common": {
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "delete": "Verwijderen",
+    "disable": "Uitschakelen",
+    "emptyList": "Niets te zien hier!",
+    "none": "(Geen)",
+    "save": "Opslaan",
+    "selectAll": "Alles selecteren"
   },
-  "constants" : {
-    "bittorrentProtocols" : {
-      "tcp_utp" : "TCP en μTP"
+  "constants": {
+    "bittorrentProtocols": {
+      "tcp_utp": "TCP en μTP"
     },
-    "connectionStatus" : {
-      "connected" : "Verbonden"
+    "connectionStatus": {
+      "connected": "Verbonden"
     }
   }
 }
