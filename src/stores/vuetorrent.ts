@@ -40,6 +40,11 @@ export const useVueTorrentStore = defineStore(
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
+    const _busyGridProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
+    const _doneGridProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
+
+    const _tableProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
+
     const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
     const isInfiniteScrollActive = computed(() => paginationSize.value === -1)
 
@@ -59,6 +64,44 @@ export const useVueTorrentStore = defineStore(
       const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
 
       for (const [k, v] of Object.entries(_doneProperties.value)) {
+        formattedPpt[v.order - 1] = {
+          name: k as DashboardProperty,
+          ...v,
+          ...propsMetadata[k]
+        }
+      }
+      return formattedPpt
+    })
+
+    const busyGridProperties = computed<TorrentProperty[]>(() => {
+      const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
+
+      for (const [k, v] of Object.entries(_busyGridProperties.value)) {
+        formattedPpt[v.order - 1] = {
+          name: k as DashboardProperty,
+          ...v,
+          ...propsMetadata[k]
+        }
+      }
+      return formattedPpt
+    })
+    const doneGridProperties = computed<TorrentProperty[]>(() => {
+      const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
+
+      for (const [k, v] of Object.entries(_doneGridProperties.value)) {
+        formattedPpt[v.order - 1] = {
+          name: k as DashboardProperty,
+          ...v,
+          ...propsMetadata[k]
+        }
+      }
+      return formattedPpt
+    })
+
+    const tableProperties = computed<TorrentProperty[]>(() => {
+      const formattedPpt: TorrentProperty[] = new Array(Object.keys(propsData).length)
+
+      for (const [k, v] of Object.entries(_tableProperties.value)) {
         formattedPpt[v.order - 1] = {
           name: k as DashboardProperty,
           ...v,
@@ -122,12 +165,45 @@ export const useVueTorrentStore = defineStore(
       })
     }
 
+    function updateBusyGridProperties(values: TorrentProperty[]) {
+      values.forEach((ppt, index) => {
+        _busyGridProperties.value[ppt.name].active = ppt.active
+        _busyGridProperties.value[ppt.name].order = index + 1
+      })
+    }
+
+    function updateDoneGridProperties(values: TorrentProperty[]) {
+      values.forEach((ppt, index) => {
+        _doneGridProperties.value[ppt.name].active = ppt.active
+        _doneGridProperties.value[ppt.name].order = index + 1
+      })
+    }
+
+    function updateTableProperties(values: TorrentProperty[]) {
+      values.forEach((ppt, index) => {
+        _tableProperties.value[ppt.name].active = ppt.active
+        _tableProperties.value[ppt.name].order = index + 1
+      })
+    }
+
     function toggleBusyProperty(name: DashboardProperty) {
       _busyProperties.value[name].active = !_busyProperties.value[name].active
     }
 
     function toggleDoneProperty(name: DashboardProperty) {
       _doneProperties.value[name].active = !_doneProperties.value[name].active
+    }
+
+    function toggleBusyGridProperty(name: DashboardProperty) {
+      _busyGridProperties.value[name].active = !_busyGridProperties.value[name].active
+    }
+
+    function toggleDoneGridProperty(name: DashboardProperty) {
+      _doneGridProperties.value[name].active = !_doneGridProperties.value[name].active
+    }
+
+    function toggleTableProperty(name: DashboardProperty) {
+      _tableProperties.value[name].active = !_tableProperties.value[name].active
     }
 
     return {
@@ -161,6 +237,12 @@ export const useVueTorrentStore = defineStore(
       busyTorrentProperties,
       _doneProperties,
       doneTorrentProperties,
+      _busyGridProperties,
+      busyGridProperties,
+      _doneGridProperties,
+      doneGridProperties,
+      _tableProperties,
+      tableProperties,
       getCurrentThemeName,
       isInfiniteScrollActive,
       setLanguage,
@@ -170,8 +252,14 @@ export const useVueTorrentStore = defineStore(
       redirectToLogin,
       updateBusyProperties,
       updateDoneProperties,
+      updateBusyGridProperties,
+      updateDoneGridProperties,
+      updateTableProperties,
       toggleBusyProperty,
-      toggleDoneProperty
+      toggleDoneProperty,
+      toggleBusyGridProperty,
+      toggleDoneGridProperty,
+      toggleTableProperty
     }
   },
   {

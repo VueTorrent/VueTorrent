@@ -10,7 +10,9 @@ import RRules from '@/components/Settings/RSS/Rules.vue'
 import Speed from '@/components/Settings/Speed.vue'
 import TagsAndCategories from '@/components/Settings/TagsAndCategories.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
-import VTorrentCard from '@/components/Settings/VueTorrent/TorrentCard.vue'
+import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.vue'
+import VTorrentCardGrid from '@/components/Settings/VueTorrent/TorrentCard/Grid.vue'
+import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Table.vue'
 import WebUI from '@/components/Settings/WebUI.vue'
 import { useDialogStore, usePreferenceStore } from '@/stores'
 import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
@@ -38,7 +40,9 @@ const tabs = [
 
 const tabsV = [
   { text: t('settings.tabs.vuetorrent.general'), value: 'general' },
-  { text: t('settings.tabs.vuetorrent.torrent_card'), value: 'torrentCard' }
+  { text: t('settings.tabs.vuetorrent.torrent_card.list'), value: 'torrentCardList' },
+  { text: t('settings.tabs.vuetorrent.torrent_card.grid'), value: 'torrentCardGrid' },
+  { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' }
 ]
 
 const tabsR = [
@@ -102,6 +106,7 @@ onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   updateTabHandle()
 })
+
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
 })
@@ -140,8 +145,14 @@ onBeforeUnmount(() => {
           <v-window-item value="general">
             <VGeneral />
           </v-window-item>
-          <v-window-item value="torrentCard">
-            <VTorrentCard />
+          <v-window-item value="torrentCardList">
+            <VTorrentCardList />
+          </v-window-item>
+          <v-window-item value="torrentCardGrid">
+            <VTorrentCardGrid />
+          </v-window-item>
+          <v-window-item value="torrentCardTable">
+            <VTorrentCardTable />
           </v-window-item>
         </v-window>
       </v-window-item>

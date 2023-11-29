@@ -1,23 +1,30 @@
 <script lang="ts" setup>
-import Torrent from '@/components/Dashboard/Torrent.vue'
 import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
+import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
+import ListView from '@/components/Dashboard/Views/List/ListView.vue'
+import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useArrayPagination } from '@/composables'
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, mergeProps, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { useDisplay } from 'vuetify'
 
 const { t } = useI18n()
 const router = useRouter()
-const display = useDisplay()
-const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, torrentCountString } = storeToRefs(useDashboardStore())
 const dashboardStore = useDashboardStore()
+const {
+  currentPage: dashboardPage,
+  isSelectionMultiple,
+  selectedTorrents,
+  displayMode,
+  torrentCountString
+} = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
@@ -94,7 +101,15 @@ const torrentTitleFilter = computed({
   }, 300)
 })
 
-const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
+const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
+const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
+const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
+
+const {
+  paginatedResults: paginatedTorrents,
+  currentPage,
+  pageCount
+} = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
 const hasSearchFilter = computed(() => !!torrentStore.textFilter && torrentStore.textFilter.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
@@ -106,16 +121,6 @@ function toggleSearchFilter(forceState?: boolean) {
       const searchInput = document.getElementById('searchInput')
       searchInput?.focus()
     })
-  }
-}
-
-function toggleSelectTorrent(hash: string) {
-  dashboardStore.toggleSelect(hash)
-}
-
-function goToInfo(hash: string) {
-  if (!isSelectionMultiple.value) {
-    router.push({ name: 'torrentDetail', params: { hash } })
   }
 }
 
@@ -142,9 +147,26 @@ function toggleSelectAll() {
   }
 }
 
-async function onRightClick(e: PointerEvent, torrent: TorrentType) {
-  e.preventDefault()
+function goToInfo(torrent: TorrentType) {
+  if (!isSelectionMultiple.value) {
+    router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
+  }
+}
 
+function onCheckboxClick(torrent: TorrentType) {
+  dashboardStore.toggleSelect(torrent.hash)
+}
+
+function onTorrentClick(e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType) {
+  if (e.shiftKey) {
+    dashboardStore.spanTorrentSelection(torrent.hash)
+  } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
+    dashboardStore.isSelectionMultiple = true
+    dashboardStore.toggleSelect(torrent.hash)
+  }
+}
+
+async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
   if (trcProperties.isVisible) {
     trcProperties.isVisible = false
     await nextTick()
@@ -161,14 +183,19 @@ async function onRightClick(e: PointerEvent, torrent: TorrentType) {
   }
 }
 
-watch(
-  () => trcProperties.isVisible,
-  newValue => {
-    if (!newValue && !isSelectionMultiple.value) {
-      dashboardStore.unselectAllTorrents()
-    }
-  }
-)
+// mobile long press
+const timer = ref<NodeJS.Timeout>()
+
+function startPress(e: Touch, torrent: TorrentType) {
+  timer.value = setTimeout(() => {
+    onTorrentRightClick(e, torrent)
+  }, 500)
+}
+
+function endPress() {
+  clearTimeout(timer.value)
+}
+// END mobile long press
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) {
@@ -228,6 +255,15 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
+watch(
+  () => trcProperties.isVisible,
+  newValue => {
+    if (!newValue && !isSelectionMultiple.value) {
+      dashboardStore.unselectAllTorrents()
+    }
+  }
+)
+
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
   await maindataStore.fetchTags()
@@ -243,19 +279,6 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
-
-// mobile long press
-const timer = ref<NodeJS.Timeout>()
-
-function startPress(e: PointerEvent, torrent: TorrentType) {
-  timer.value = setTimeout(() => {
-    onRightClick(e, torrent)
-  }, 500)
-}
-
-function endPress() {
-  clearTimeout(timer.value)
-}
 </script>
 
 <template>
@@ -288,6 +311,27 @@ function endPress() {
           <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
         </template>
       </v-tooltip>
+      <v-menu>
+        <template v-slot:activator="{ props: menu }">
+          <v-tooltip :text="$t('dashboard.displayMode.title')" location="top">
+            <template v-slot:activator="{ props: tooltip }">
+              <v-btn icon v-bind="mergeProps(menu, tooltip)" variant="plain">
+                <v-icon v-if="displayMode === DashboardDisplayMode.LIST" icon="mdi-view-list" />
+                <v-icon v-if="displayMode === DashboardDisplayMode.GRID" icon="mdi-view-grid" />
+                <v-icon v-if="displayMode === DashboardDisplayMode.TABLE" icon="mdi-table" />
+              </v-btn>
+            </template>
+          </v-tooltip>
+        </template>
+        <v-list>
+          <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list"
+                       @click="displayMode = DashboardDisplayMode.LIST" />
+          <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid"
+                       @click="displayMode = DashboardDisplayMode.GRID" />
+          <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table"
+                       @click="displayMode = DashboardDisplayMode.TABLE" />
+        </v-list>
+      </v-menu>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
         <template v-slot:activator="{ props }">
           <v-btn
@@ -331,53 +375,40 @@ function endPress() {
         </v-card>
       </v-expand-transition>
     </v-row>
+
     <div v-if="filteredTorrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
-    <div v-else>
-      <v-list id="torrentList" class="pa-0" color="transparent">
-        <v-list-item v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
-        </v-list-item>
 
-        <v-list-item
-          v-for="torrent in paginatedTorrents"
-          :id="`torrent-${torrent.hash}`"
-          :class="display.mobile ? 'mb-2' : 'mb-4'"
-          class="pa-0"
-          @contextmenu="onRightClick($event, torrent)"
-          @touchcancel="endPress"
-          @touchend="endPress"
-          @touchmove="endPress"
-          @touchstart="startPress($event, torrent)"
-          @dblclick.prevent="goToInfo(torrent.hash)">
-          <div class="d-flex align-center">
-            <v-expand-x-transition>
-              <v-card v-show="isSelectionMultiple" class="mr-3" color="transparent">
-                <v-btn
-                  :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
-                  color="transparent"
-                  variant="flat"
-                  @click="toggleSelectTorrent(torrent.hash)" />
-              </v-card>
-            </v-expand-x-transition>
-            <Torrent :torrent="torrent" />
-          </div>
-        </v-list-item>
+    <div v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
+      <v-pagination v-model="currentPage" :length="pageCount"
+                    next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+    </div>
 
-        <v-list-item v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
-          <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
-        </v-list-item>
-      </v-list>
+    <ListView v-if="isListView" :paginated-torrents="paginatedTorrents"
+              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+              @startPress="startPress" @endPress="endPress" />
+    <GridView v-else-if="isGridView" class="mb-2" :paginated-torrents="paginatedTorrents"
+              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+              @startPress="startPress" @endPress="endPress" />
+    <TableView v-else-if="isTableView" :paginated-torrents="paginatedTorrents"
+               @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
+               @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
+               @startPress="startPress" @endPress="endPress" />
+
+    <div v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive">
+      <v-pagination v-model="currentPage" :length="pageCount"
+                    next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
+
   <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
     <RightClickMenu v-model="trcProperties.isVisible" />
   </div>
 </template>
 
-<style>
-#torrentList {
-  background-color: unset;
-}
+<style scoped>
+
 </style>

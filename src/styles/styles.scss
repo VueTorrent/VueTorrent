@@ -35,68 +35,68 @@ ul.no-bullet {
 $sideborder-margin: 6px;
 
 .sideborder {
-  border-left: #{$sideborder-margin} solid grey !important;
+  border-left: #{$sideborder-margin} solid grey;
 
   &.error {
-    border-left-color: #{$torrent-error} !important;
+    border-left-color: #{$torrent-error};
   }
   &.missingFiles {
-    border-left-color: #{$torrent-missingFiles} !important;
+    border-left-color: #{$torrent-missingFiles};
   }
   &.uploading {
-    border-left-color: #{$torrent-uploading} !important;
+    border-left-color: #{$torrent-uploading};
   }
   &.forcedUP {
-    border-left-color: #{$torrent-forcedUP} !important;
+    border-left-color: #{$torrent-forcedUP};
   }
   &.pausedUP {
-    border-left-color: #{$torrent-pausedUP} !important;
+    border-left-color: #{$torrent-pausedUP};
   }
   &.queuedUP {
-    border-left-color: #{$torrent-queuedUP} !important;
+    border-left-color: #{$torrent-queuedUP};
   }
   &.stalledUP {
-    border-left-color: #{$torrent-stalledUP} !important;
+    border-left-color: #{$torrent-stalledUP};
   }
   &.checkingUP {
-    border-left-color: #{$torrent-checkingUP} !important;
+    border-left-color: #{$torrent-checkingUP};
   }
   &.allocating {
-    border-left-color: #{$torrent-allocating} !important;
+    border-left-color: #{$torrent-allocating};
   }
   &.downloading {
-    border-left-color: #{$torrent-downloading} !important;
+    border-left-color: #{$torrent-downloading};
   }
   &.forcedDL {
-    border-left-color: #{$torrent-forcedDL} !important;
+    border-left-color: #{$torrent-forcedDL};
   }
   &.metaDL {
-    border-left-color: #{$torrent-metaDL} !important;
+    border-left-color: #{$torrent-metaDL};
   }
   &.pausedDL {
-    border-left-color: #{$torrent-pausedDL} !important;
+    border-left-color: #{$torrent-pausedDL};
   }
   &.queuedDL {
-    border-left-color: #{$torrent-queuedDL} !important;
+    border-left-color: #{$torrent-queuedDL};
   }
   &.stalledDL {
-    border-left-color: #{$torrent-stalledDL} !important;
+    border-left-color: #{$torrent-stalledDL};
   }
   &.checkingDL {
-    border-left-color: #{$torrent-checkingDL} !important;
+    border-left-color: #{$torrent-checkingDL};
   }
   &.checkingResumeData {
-    border-left-color: #{$torrent-checkingResumeData} !important;
+    border-left-color: #{$torrent-checkingResumeData};
   }
   &.moving {
-    border-left-color: #{$torrent-moving} !important;
+    border-left-color: #{$torrent-moving};
   }
   &.unknown {
     &.v-theme--darkTheme {
-      border-left-color: #{$torrent-unknown-dark} !important;
+      border-left-color: #{$torrent-unknown-dark};
     }
     &.v-theme-lightTheme {
-      border-left-color: #{$torrent-unknown-light} !important;
+      border-left-color: #{$torrent-unknown-light};
     }
   }
 }

@@ -129,16 +129,18 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // update torrents
-      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
+      const tempTorrents = data.map(t => torrentBuilder.buildFromQbit(t))
 
       if (import.meta.env.DEV && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
         const count = Number(import.meta.env.VITE_FAKE_TORRENT_COUNT)
         const fakeTorrents: Partial<Torrent> = (await import('../../__mocks__/torrents.json')).default
 
-        for (let i = 1; i <= count; i++) {
-          torrents.value.push(torrentBuilder.buildFromFaker({ ...fakeTorrents.at(i), hash: uuidFromRaw(BigInt(i)) }, i))
+        for (let i = 0; i < count; i++) {
+          tempTorrents.push(torrentBuilder.buildFromFaker({ ...fakeTorrents.at(i), hash: uuidFromRaw(BigInt(i)) }, i))
         }
       }
+
+      torrents.value = tempTorrents
 
       // filter out deleted torrents from selection
       const hash_index = torrents.value.map(torrent => torrent.hash)

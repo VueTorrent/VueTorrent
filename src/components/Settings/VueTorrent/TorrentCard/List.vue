@@ -29,7 +29,7 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
   <v-row>
     <v-col cols="12" md="6">
       <v-list>
-        <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.busyTorrentTip') }}</v-list-subheader>
+        <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.list.busyTip') }}</v-list-subheader>
 
         <v-table>
           <draggable v-model="busyTorrentProperties" item-key="name" tag="tbody" handle=".dnd-handle">
@@ -43,7 +43,7 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
 
     <v-col cols="12" md="6">
       <v-list>
-        <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.doneTorrentTip') }}</v-list-subheader>
+        <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.list.doneTip') }}</v-list-subheader>
 
         <v-table>
           <draggable v-model="doneTorrentProperties" item-key="name" tag="tbody" handle=".dnd-handle">

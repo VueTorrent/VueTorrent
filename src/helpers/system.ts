@@ -11,6 +11,6 @@ export const isMac = window.navigator.userAgent.toLowerCase().includes('mac')
 /**
  * Check Ctrl/Cmd key
  */
-export function doesCommand(e: KeyboardEvent | MouseEvent | TouchEvent): boolean {
+export function doesCommand(e: { metaKey: boolean, ctrlKey: boolean }): boolean {
   return isMac ? e.metaKey : e.ctrlKey
 }

@@ -11,9 +11,12 @@ const authStore = useAuthStore()
 const dndZoneRef = ref<HTMLDivElement>()
 
 function onDragEnter() {
+  const routeName = route.name as string
+  const tabParam = route.params.tab as string
+  const subtabParam = route.params.subtab as string
   if (
-    (route.name as string) === 'login' ||
-    ((route.name as string) === 'settings' && route.params.tab === 'vuetorrent' && route.params.subtab === 'torrentCard') ||
+    (routeName) === 'login' ||
+    ((routeName) === 'settings' && tabParam === 'vuetorrent' && subtabParam.startsWith('torrentCard')) ||
     !authStore.isAuthenticated
   )
     return
@@ -25,12 +28,11 @@ function onDrop(files: File[] | null, event: DragEvent) {
   event.stopPropagation()
   if (!event.dataTransfer) return
 
-  // Handle .torrent files
-  const torrentFiles = (files || []).filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
-  const links = event.dataTransfer
-    .getData('text/plain')
-    .split('\n')
-    .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
+  const torrentFiles = (files || [])
+  .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
+
+  const links = event.dataTransfer.getData('text/plain').split('\n')
+  .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)

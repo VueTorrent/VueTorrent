@@ -1,3 +1,4 @@
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
@@ -10,6 +11,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const isSelectionMultiple = ref(false)
   const selectedTorrents = ref<string[]>([])
   const latestSelectedTorrent = ref<string>()
+  const displayMode = ref(DashboardDisplayMode.LIST)
 
   const { t } = useI18n()
   const torrentStore = useTorrentStore()
@@ -100,22 +102,35 @@ export const useDashboardStore = defineStore('dashboard', () => {
       if (pageCount < currentPage.value) {
         currentPage.value = Math.max(1, pageCount)
       }
-    }
-  )
+    })
 
-  return {
-    currentPage,
-    isSelectionMultiple,
-    selectedTorrents,
-    latestSelectedTorrent,
-    torrentCountString,
-    isTorrentInSelection,
-    selectTorrent,
-    selectTorrents,
-    unselectTorrent,
-    spanTorrentSelection,
-    selectAllTorrents,
-    unselectAllTorrents,
-    toggleSelect
+    return {
+      currentPage,
+      isSelectionMultiple,
+      selectedTorrents,
+      latestSelectedTorrent,
+      displayMode,
+      torrentCountString,
+      isTorrentInSelection,
+      selectTorrent,
+      selectTorrents,
+      unselectTorrent,
+      spanTorrentSelection,
+      selectAllTorrents,
+      unselectAllTorrents,
+      toggleSelect
+    }
+  },
+  {
+    persist: {
+      enabled: true,
+      strategies: [
+        {
+          storage: localStorage,
+          key: 'vuetorrent_dashboard',
+          paths: ['displayMode']
+        }
+      ]
+    }
   }
-})
+)
