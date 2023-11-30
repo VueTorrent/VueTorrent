@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { useAddTorrentStore, useAuthStore } from '@/stores'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
+import { useAddTorrentStore, useAuthStore, useDialogStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -7,6 +8,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const authStore = useAuthStore()
+const dialogStore = useDialogStore()
 
 const dndZoneRef = ref<HTMLDivElement>()
 
@@ -36,6 +38,10 @@ function onDrop(files: File[] | null, event: DragEvent) {
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
+
+  if (!dialogStore.hasActiveDialog) {
+    dialogStore.createDialog(AddTorrentDialog, {})
+  }
 }
 
 const { isOverDropZone } = useDropZone(dndZoneRef, { onDrop })
