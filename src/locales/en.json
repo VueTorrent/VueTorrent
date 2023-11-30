@@ -255,7 +255,7 @@
       "cookie": "Cookie",
       "cookiePlaceholder": "name1=value1; name2=value2; ...",
       "dlLimit": "Download limit",
-      "downloadPath": "Download path",
+      "downloadPath": "Download path (when incomplete)",
       "dropLabel": "Drop torrent files and links here",
       "error": "Error while adding torrents",
       "fileOverflow": "+{n} more",
@@ -273,7 +273,7 @@
       "ratioLimit": "Ratio limit",
       "rename": "Rename torrent",
       "resetForm": "Reset form",
-      "savePath": "Save path",
+      "savePath": "Save path (when completed)",
       "seedingTimeLimit": "Seeding time limit",
       "sequentialDownload": "Sequential download",
       "skipChecking": "Skip hash checking",
@@ -793,7 +793,7 @@
         },
         "exportDir": "Copy .torrent files to",
         "exportDirFinished": "Copy .torrent files for finished downloads to",
-        "keepIncomplete": "Keep incomplete torrents",
+        "keepIncomplete": "Default Download Path (incomplete torrents)",
         "paramChangedTMMOptions": {
           "relocateTorrent": "Relocate torrent",
           "switchToManual": "Switch torrent to Manual Mode"
@@ -880,7 +880,11 @@
       "vuetorrent": {
         "general": "General",
         "title": "VueTorrent",
-        "torrent_card": "Torrent Card"
+        "torrent_card": {
+          "grid": "Grid View",
+          "list": "List View",
+          "table": "Table View"
+        }
       },
       "webui": "WebUI"
     },
@@ -931,8 +935,17 @@
         "vueTorrentTitle": "VueTorrent title"
       },
       "torrentCard": {
-        "busyTorrentTip": "Properties to display for busy torrents",
-        "doneTorrentTip": "Properties to display for completed torrents"
+        "grid": {
+          "busyTip": "Properties to display for busy torrents in grid view",
+          "doneTip": "Properties to display for completed torrents in grid view"
+        },
+        "list": {
+          "busyTip": "Properties to display for busy torrents in list view",
+          "doneTip": "Properties to display for completed torrents in list view"
+        },
+        "table": {
+          "tip": "Properties to display for torrents in table view"
+        }
       }
     },
     "webUI": {
