@@ -906,6 +906,7 @@
         "dateFormat": "Date Format",
         "exportSettings": "Export Settings",
         "fileContentInterval": "Torrent file content refresh interval",
+        "hideChipIfUnset": "Hide chips if unset",
         "historySize": "History size on eligible fields",
         "importSettings": "Import Settings",
         "isDrawerRight": "Right Drawer",

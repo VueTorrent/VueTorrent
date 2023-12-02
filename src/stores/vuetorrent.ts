@@ -25,6 +25,7 @@ export const useVueTorrentStore = defineStore(
     const uiTitleCustom = ref('')
     const isDrawerRight = ref(false)
     const isPaginationOnTop = ref(false)
+    const hideChipIfUnset = ref(false)
     const paginationSize = ref(15)
     const dateFormat = ref('YYYY-MM-DD HH:mm:ss')
     const openSideBarOnStart = ref(true)
@@ -215,6 +216,7 @@ export const useVueTorrentStore = defineStore(
       fileContentInterval,
       isDrawerRight,
       isPaginationOnTop,
+      hideChipIfUnset,
       isShutdownButtonVisible,
       language,
       matchSystemTheme,
