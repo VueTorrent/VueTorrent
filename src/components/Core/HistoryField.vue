@@ -33,7 +33,9 @@ defineExpose({
 </script>
 
 <template>
-  <v-combobox v-model="_value" ref="field" :items="historyValue" />
+  <v-combobox v-model="_value" ref="field" :items="historyValue">
+    <template v-slot:prepend><slot name="prepend" /></template>
+  </v-combobox>
 </template>
 
 <style scoped></style>
