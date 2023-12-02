@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
-import dayjs from '@/plugins/dayjs.ts'
+import dayjs from '@/plugins/dayjs'
 
 defineProps<{ torrent: Torrent; title: string; value: string }>()
 </script>

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import TableTorrent from '@/components/Dashboard/Views/Table/TableTorrent.vue'
-import { useVueTorrentStore } from '@/stores'
-import { useDashboardStore } from '@/stores/dashboard.ts'
+import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { computed } from 'vue'
 

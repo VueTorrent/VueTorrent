@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import dayjs from '@/plugins/dayjs.ts'
+import dayjs from '@/plugins/dayjs'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
