@@ -231,9 +231,9 @@ export class QBitApi {
     if (torrents) {
       // torrent files
       const formData = new FormData()
-      if (params) {
-        for (const [key, value] of Object.entries(params)) {
-          !!value && formData.set(key, value)
+      for (const [key, value] of Object.entries(params || {})) {
+        if (value !== undefined) {
+          formData.set(key, value)
         }
       }
 
