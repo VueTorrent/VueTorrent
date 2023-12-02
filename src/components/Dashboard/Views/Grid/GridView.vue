@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import GridTorrent from '@/components/Dashboard/Views/Grid/GridTorrent.vue'
-import { useDashboardStore } from '@/stores/dashboard.ts'
+import { useDashboardStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { useDisplay } from 'vuetify'
 

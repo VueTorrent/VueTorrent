@@ -1,4 +1,4 @@
-import { NetworkInterface } from '@/types/qbit/models/AppPreferences.ts'
+import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AxiosInstance } from 'axios'
 import axios from 'axios'
 import type {
