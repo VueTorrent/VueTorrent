@@ -2,24 +2,27 @@
 
 ## [2.3.0](https://github.com/WDaan/VueTorrent/compare/v2.2.0...v2.3.0) (2023-11-29)
 
-
 ### Features
 
-* **history:** Add history to some fields ([#1361](https://github.com/WDaan/VueTorrent/issues/1361)) ([ef50c6c](https://github.com/WDaan/VueTorrent/commit/ef50c6c3411ce4745ed79eae3c156250fe68a7f4))
-* **Settings:** Handle tab routes in settings ([#1355](https://github.com/WDaan/VueTorrent/issues/1355)) ([fdad814](https://github.com/WDaan/VueTorrent/commit/fdad814b1fabf9b3f141f5685fc9291434866e26))
-
+- **history:** Add history to some fields ([#1361](https://github.com/WDaan/VueTorrent/issues/1361))
+  ([ef50c6c](https://github.com/WDaan/VueTorrent/commit/ef50c6c3411ce4745ed79eae3c156250fe68a7f4))
+- **Settings:** Handle tab routes in settings ([#1355](https://github.com/WDaan/VueTorrent/issues/1355))
+  ([fdad814](https://github.com/WDaan/VueTorrent/commit/fdad814b1fabf9b3f141f5685fc9291434866e26))
 
 ### Bug Fixes
 
-* **Advanced:** Network interfaces doesn't fill properly ([#1337](https://github.com/WDaan/VueTorrent/issues/1337)) ([3c44709](https://github.com/WDaan/VueTorrent/commit/3c447098c63c2fd758947067f3a3c2b3ea763078))
-* **tabs:** Remove swipe gestures ([#1356](https://github.com/WDaan/VueTorrent/issues/1356)) ([41e021c](https://github.com/WDaan/VueTorrent/commit/41e021c63c67e87146f354f6c5aecbb6906486ee))
-
+- **Advanced:** Network interfaces doesn't fill properly ([#1337](https://github.com/WDaan/VueTorrent/issues/1337))
+  ([3c44709](https://github.com/WDaan/VueTorrent/commit/3c447098c63c2fd758947067f3a3c2b3ea763078))
+- **tabs:** Remove swipe gestures ([#1356](https://github.com/WDaan/VueTorrent/issues/1356))
+  ([41e021c](https://github.com/WDaan/VueTorrent/commit/41e021c63c67e87146f354f6c5aecbb6906486ee))
 
 ### Improvements
 
-* Add download path management ([#1359](https://github.com/WDaan/VueTorrent/issues/1359)) ([988ecaa](https://github.com/WDaan/VueTorrent/commit/988ecaaa03116c2c4fa9a4cbb4ce4e284fa4c7c3))
-* add translations cron ([#1367](https://github.com/WDaan/VueTorrent/issues/1367)) ([02d97f5](https://github.com/WDaan/VueTorrent/commit/02d97f5283cf7f6d9f6a0fff42f07287c9c8f2dd))
-* **localization:** Add missing keys to Tolgee ([#1349](https://github.com/WDaan/VueTorrent/issues/1349)) ([3adeea4](https://github.com/WDaan/VueTorrent/commit/3adeea456f7f74307f1e221be506f72ed9d94ea0))
+- Add download path management ([#1359](https://github.com/WDaan/VueTorrent/issues/1359))
+  ([988ecaa](https://github.com/WDaan/VueTorrent/commit/988ecaaa03116c2c4fa9a4cbb4ce4e284fa4c7c3))
+- add translations cron ([#1367](https://github.com/WDaan/VueTorrent/issues/1367)) ([02d97f5](https://github.com/WDaan/VueTorrent/commit/02d97f5283cf7f6d9f6a0fff42f07287c9c8f2dd))
+- **localization:** Add missing keys to Tolgee ([#1349](https://github.com/WDaan/VueTorrent/issues/1349))
+  ([3adeea4](https://github.com/WDaan/VueTorrent/commit/3adeea456f7f74307f1e221be506f72ed9d94ea0))
 
 ## [2.2.0](https://github.com/WDaan/VueTorrent/compare/v2.1.1...v2.2.0) (2023-11-20)
 
