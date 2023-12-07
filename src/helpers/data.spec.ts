@@ -68,4 +68,7 @@ test('helpers/data/formatData', () => {
 
   expect(formatData(1024, false)).toBe('1.02 kB')
   expect(formatData(1024, true)).toBe('1.00 kiB')
+
+  expect(formatData(1052804121, true)).toBe('1004 MiB')
+  expect(formatData(1066436574, true)).toBe('1017 MiB')
 })
