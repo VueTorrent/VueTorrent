@@ -22,7 +22,7 @@ jobs:
           changelog-types:
             '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Improvements","hidden":false}]'
 
-  upload-release:
+  build-release:
     needs: setup-release
     if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
@@ -52,6 +52,22 @@ jobs:
 
       - name: Build VueTorrent
         run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+          retention-days: 1
+
+  upload-release:
+    needs: [ setup-release, build-release ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
 
       - name: Zip VueTorrent
         run: zip -qq -r ./vuetorrent.zip ./vuetorrent
@@ -67,35 +83,16 @@ jobs:
           asset_content_type: application/zip
 
   push-release:
-    needs: setup-release
-    if: needs.setup-release.outputs.release_created
+    needs: build-release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/download-artifact@v3
         with:
-          node-version: '18'
-
-      - name: Build Node.js cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Update locales
-        run: |
-          curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
-          unzip -o -d ./src/locales locales.zip
-
-      - name: Build VueTorrent
-        run: npm run build
+          name: vuetorrent-build
+          path: ./vuetorrent
 
       - name: Push to latest-release
         uses: JamesIves/github-pages-deploy-action@v4.5.0
@@ -103,3 +100,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: latest-release
           FOLDER: ./vuetorrent
+
+  clean-artifacts:
+    needs: [upload-release, push-release]
+    runs-on: ubuntu-latest
+
