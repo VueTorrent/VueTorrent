@@ -2,6 +2,7 @@
   "packages": {
     ".": {
       "release-type": "node",
+      "include-component-in-tag": false,
       "changelog-path": "CHANGELOG.md",
       "changelog-sections": [
         {
