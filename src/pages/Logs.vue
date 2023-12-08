@@ -41,7 +41,7 @@ const goHome = () => {
   router.push({ name: 'dashboard' })
 }
 const getLogTypeClassName = (log: Log) => {
-  return `logtype-${LogType[log?.type]?.toLowerCase()}`
+  return `logtype-${ LogType[log?.type]?.toLowerCase() }`
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]
@@ -62,10 +62,10 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
   }
 }
 
-onBeforeMount(() => {
+onBeforeMount(async () => {
   document.addEventListener('keydown', handleKeyboardShortcut)
+  await logStore.cleanAndFetchLogs()
   useIntervalFn(logStore.fetchLogs, 15000)
-  logStore.fetchLogs(-1)
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
