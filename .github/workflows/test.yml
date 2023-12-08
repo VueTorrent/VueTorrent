@@ -1,6 +1,11 @@
 name: Test Core Components
 on:
   pull_request:
+    types:
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
     branches:
       - master
   push:
