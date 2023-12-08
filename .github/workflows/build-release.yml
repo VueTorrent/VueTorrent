@@ -1,10 +1,12 @@
-name: Build release
+name: Build project and release
 on:
   push:
     branches:
       - master
+
 jobs:
   setup-release:
+    name: Run release please
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       upload_url: ${{ steps.release.outputs.upload_url }}
@@ -12,6 +14,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Run release please
         uses: google-github-actions/release-please-action@v4
         id: release
@@ -23,8 +26,8 @@ jobs:
             '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Improvements","hidden":false}]'
 
   build-release:
+    name: Build VueTorrent
     needs: setup-release
-    if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -60,8 +63,30 @@ jobs:
           path: ./vuetorrent
           retention-days: 1
 
+  push-nightly:
+    name: Push to nightly branch
+    runs-on: ubuntu-latest
+    needs: build-release
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+
+      - name: Push to nightly-release
+        uses: JamesIves/github-pages-deploy-action@v4.5.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: nightly-release
+          FOLDER: ./vuetorrent
+
   upload-release:
+    name: Upload release to GitHub
     needs: [ setup-release, build-release ]
+    if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v3
@@ -83,7 +108,9 @@ jobs:
           asset_content_type: application/zip
 
   push-release:
-    needs: build-release
+    name: Push to latest branch
+    needs: [ setup-release, build-release ]
+    if: needs.setup-release.outputs.release_created
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -100,8 +127,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: latest-release
           FOLDER: ./vuetorrent
-
-  clean-artifacts:
-    needs: [upload-release, push-release]
-    runs-on: ubuntu-latest
-
