@@ -6,24 +6,23 @@ on:
 
 jobs:
   setup-release:
-    name: Run release please
+    name: Run Release Please action
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       upload_url: ${{ steps.release.outputs.upload_url }}
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    permissions:
+      contents: write
+      pull-requests: write
 
+    steps:
       - name: Run release please
         uses: google-github-actions/release-please-action@v4
         id: release
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          release-type: node
-          package-name: vuetorrent
-          changelog-types:
-            '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Improvements","hidden":false}]'
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
 
   build-release:
     name: Build VueTorrent
@@ -67,6 +66,9 @@ jobs:
     name: Push to nightly branch
     runs-on: ubuntu-latest
     needs: build-release
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,9 +81,8 @@ jobs:
       - name: Push to nightly-release
         uses: JamesIves/github-pages-deploy-action@v4.5.0
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: nightly-release
-          FOLDER: ./vuetorrent
+          branch: nightly-release
+          folder: ./vuetorrent
 
   upload-release:
     name: Upload release to GitHub
