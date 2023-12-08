@@ -433,14 +433,8 @@
   "logs": {
     "emptyLogList": "No logs found",
     "filters": {
-      "sortBy": {
-        "id": "Log ID",
-        "label": "Sort by",
-        "message": "Message",
-        "timestamp": "Log Date",
-        "type": "Log Level"
-      },
-      "type": "Log Level"
+      "type": "Log Level",
+      "query": "Search in log message"
     },
     "title": "qBittorrent Logs"
   },

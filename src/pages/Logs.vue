@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useArrayPagination } from '@/composables'
+import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
@@ -15,12 +15,6 @@ const { t } = useI18n()
 const logStore = useLogStore()
 const vueTorrentStore = useVueTorrentStore()
 
-const headers = ref([
-  { title: t('logs.filters.sortBy.id'), value: 'id' },
-  { title: t('logs.filters.sortBy.type'), value: 'type' },
-  { title: t('logs.filters.sortBy.message'), value: 'message' },
-  { title: t('logs.filters.sortBy.timestamp'), value: 'timestamp' }
-])
 const logTypeOptions = ref([
   { title: LogType[LogType.NORMAL], value: LogType.NORMAL },
   { title: LogType[LogType.INFO], value: LogType.INFO },
@@ -28,10 +22,11 @@ const logTypeOptions = ref([
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
 const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
-const sortBy = ref(['id'])
+const query = ref('')
 
-const logs = computed(() => logStore.logs)
-const filteredLogs = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
+const logs = computed<Log[]>(() => logStore.logs)
+const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
+const { results: filteredLogs } = useSearchQuery(filteredLogsByType, query, (log: Log) => log.message)
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)
 const allTypesSelected = computed(() => logTypeFilter.value.length === logTypeOptions.value.length)
 
@@ -104,7 +99,7 @@ onUnmounted(() => {
           </v-col>
 
           <v-col cols="6">
-            <v-select v-model="sortBy" :items="headers" :label="$t('logs.filters.sortBy.label')" hide-details multiple chips />
+            <v-text-field v-model="query" :label="$t('logs.filters.query')" hide-details />
           </v-col>
         </v-row>
       </v-list-item>
