@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.4.0](https://github.com/WDaan/VueTorrent/compare/v2.3.0...v2.4.0) (2023-12-09)
+
+
+### Features
+
+* **Chips:** Add option to hide values if empty ([#1380](https://github.com/WDaan/VueTorrent/issues/1380)) ([6b94f6e](https://github.com/WDaan/VueTorrent/commit/6b94f6e2c28d8f8271a3059e5a5d3b75ed360379))
+* **dashboard:** Add display mode configuration ([#1184](https://github.com/WDaan/VueTorrent/issues/1184)) ([cd695ab](https://github.com/WDaan/VueTorrent/commit/cd695ab96da160493f0e7c790e117a056989e4c8))
+
+
+### Bug Fixes
+
+* **AddTorrentDialog:** Fix falsy values not sent to qbit ([#1377](https://github.com/WDaan/VueTorrent/issues/1377)) ([8abda97](https://github.com/WDaan/VueTorrent/commit/8abda97341d3446890ad41f5d45618b87c6ad03f))
+* **duration:** Values greater than a month weren't displayed ([#1381](https://github.com/WDaan/VueTorrent/issues/1381)) ([8ba6d12](https://github.com/WDaan/VueTorrent/commit/8ba6d120c699f68806e9735068c9a917de386323))
+* **helpers:** Rework toPrecision ([#1394](https://github.com/WDaan/VueTorrent/issues/1394)) ([69398e0](https://github.com/WDaan/VueTorrent/commit/69398e02a5efdeb226486839a5259ea9dbba2fef))
+
+
+### Performance Improvements
+
+* **DnDZone:** Open add dialog on drop ([#1374](https://github.com/WDaan/VueTorrent/issues/1374)) ([5635099](https://github.com/WDaan/VueTorrent/commit/5635099eee2b14cfebb2a8f5775c59c02c3a61dc))
+* **logs:** Prevent duplication and add message filter ([#1398](https://github.com/WDaan/VueTorrent/issues/1398)) ([a1c900c](https://github.com/WDaan/VueTorrent/commit/a1c900c0b30405869634f8c7947de80875c36a2e))
+* Prevent rounding for relative time values ([#1378](https://github.com/WDaan/VueTorrent/issues/1378)) ([86bba4e](https://github.com/WDaan/VueTorrent/commit/86bba4e8937e1b8cbe8503efe894682e82c06aef))
+* Update translations ([#1373](https://github.com/WDaan/VueTorrent/issues/1373)) ([a9d9721](https://github.com/WDaan/VueTorrent/commit/a9d972117999c8c24e24b35f71dbf79825b5b65d))
+
 ## [2.3.0](https://github.com/WDaan/VueTorrent/compare/v2.2.0...v2.3.0) (2023-11-29)
 
 ### Features
