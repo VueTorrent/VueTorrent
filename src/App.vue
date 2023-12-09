@@ -59,7 +59,7 @@ watch(
       appStore.pushInterval(() => maindataStore.updateMaindata(), vuetorrentStore.refreshInterval)
       await maindataStore.updateMaindata()
       await preferencesStore.fetchPreferences()
-      await logStore.fetchLogs()
+      await logStore.cleanAndFetchLogs()
       await maindataStore.fetchCategories()
       await maindataStore.fetchTags()
       addTorrentStore.initForm()
