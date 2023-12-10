@@ -2,11 +2,11 @@ export default interface FeedArticle {
   /** Article author */
   author: string
   /** Article category */
-  category: string
+  category?: string
   /** Article publication date */
   date: string
   /** Article description */
-  description: string
+  description?: string
   /** Article ID */
   id: string
   /** Whether the article has already been read */

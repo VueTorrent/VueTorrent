@@ -1,13 +1,14 @@
 /// <reference types="vite/client" />
 
-interface ImportMetaEnv {
+import { ImportMetaEnv as BaseImportMetaEnv } from 'vite'
+
+interface ImportMetaEnv extends BaseImportMetaEnv {
   readonly VITE_PACKAGE_VERSION: string
 
   readonly VITE_QBITTORRENT_TARGET: string
   readonly VITE_QBITTORRENT_PORT: number
 
-  readonly VITE_USE_FAKE_TORRENTS: string
-  readonly VITE_FAKE_TORRENT_COUNT: number
+  readonly VITE_USE_MOCK_PROVIDER: string
 }
 
 interface ImportMeta {

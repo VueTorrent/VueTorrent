@@ -9,7 +9,7 @@ export const usePreferenceStore = defineStore(
     const preferences = ref<AppPreferences>()
 
     async function fetchPreferences() {
-      preferences.value = await qbit.getAppPreferences()
+      preferences.value = await qbit.getPreferences()
     }
 
     async function setPreferences() {

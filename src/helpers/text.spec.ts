@@ -1,4 +1,4 @@
-import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase, uuidFromRaw } from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase } from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -67,12 +67,4 @@ test('helpers/text/codeToFlag', () => {
 
   expect(codeToFlag('it').char).toBe('🇮🇹')
   expect(codeToFlag('it').url).toBe('https://cdn.jsdelivr.net/npm/twemoji/2/svg/1f1ee-1f1f9.svg')
-})
-
-test('helpers/text/uuidFromRaw', () => {
-  expect(uuidFromRaw(0n)).toBe('00000000-0000-0000-0000-000000000000')
-  expect(uuidFromRaw(1n)).toBe('00000000-0000-0000-0000-000000000001')
-  expect(uuidFromRaw(0xaaaaan)).toBe('00000000-0000-0000-0000-0000000aaaaa')
-  expect(uuidFromRaw(0x00000ffffffffffffffffffffffffffffffffn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
-  expect(uuidFromRaw(0xabcdeffffffffffffffffffffffffffffffffn)).toBe('ffffffff-ffff-ffff-ffff-ffffffffffff')
 })
