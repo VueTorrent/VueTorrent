@@ -6,8 +6,8 @@ enum FileIcon {
   MUSIC = 'mdi-music',
   VIDEO = 'mdi-movie',
   SUBTITLE = 'mdi-subtitles',
-  ARCHIVE = 'mdi-folder-zip',
-  EXECUTABLE = 'mdi-application'
+  ARCHIVE = 'mdi-zip-box-outline',
+  EXECUTABLE = 'mdi-application-brackets'
 }
 
 export const typesMap: Record<string, FileIcon> = {
@@ -42,12 +42,12 @@ export const typesMap: Record<string, FileIcon> = {
   zip: FileIcon.ARCHIVE,
   gz: FileIcon.ARCHIVE,
   '7z': FileIcon.ARCHIVE,
+  iso: FileIcon.ARCHIVE,
 
   exe: FileIcon.EXECUTABLE,
   msi: FileIcon.EXECUTABLE,
   dmg: FileIcon.EXECUTABLE,
   deb: FileIcon.EXECUTABLE,
-  iso: FileIcon.EXECUTABLE,
   jar: FileIcon.EXECUTABLE
 }
 

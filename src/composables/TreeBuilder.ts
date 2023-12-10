@@ -1,15 +1,9 @@
 import { TorrentFile } from '@/types/qbit/models'
-import { TreeFile, TreeFolder, TreeRoot } from '@/types/vuetorrent'
+import { TreeFile, TreeFolder } from '@/types/vuetorrent'
 import { MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
 
-function getEmptyRoot(): TreeRoot {
-  return {
-    type: 'root',
-    name: '',
-    fullName: '',
-    id: '',
-    children: []
-  }
+function getEmptyRoot() {
+  return new TreeFolder('(root)', '(root)')
 }
 
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
@@ -21,7 +15,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
     const files = toValue(items) ?? []
 
     for (const file of files) {
-      let cursor: TreeRoot | TreeFolder = rootNode
+      let cursor = rootNode
       file.name
         .replace('\\', '/')
         .split('/')
@@ -29,32 +23,13 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
           const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
 
           if (file.name.replace('\\', '/').split('/').pop() === nodeName) {
-            const newFile: TreeFile = {
-              type: 'file',
-              name: nodeName,
-              fullName: nextPath,
-              id: file.index,
-              availability: file.availability,
-              index: file.index,
-              is_seed: file.is_seed,
-              priority: file.priority,
-              progress: file.progress,
-              size: file.size
-            }
-            cursor.children.push(newFile)
+            cursor.children.push(new TreeFile(file, nodeName))
           } else {
             const folder = cursor.children.find(el => el.name === nodeName) as TreeFolder | undefined
             if (folder) {
               cursor = folder
             } else {
-              // if not found, create folder and set cursor to folder
-              const newFolder: TreeFolder = {
-                type: 'folder',
-                name: nodeName,
-                fullName: nextPath,
-                id: nextPath,
-                children: []
-              }
+              const newFolder = new TreeFolder(nodeName, nextPath)
               cursor.children.push(newFolder)
               cursor = newFolder
             }
