@@ -18,16 +18,7 @@ const titleOptionsList = [
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
 ]
 
-const paginationSizes = ref([
-  { title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 },
-  5,
-  15,
-  30,
-  50,
-  100,
-  250,
-  500
-])
+const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
 const theme = computed({
   get() {

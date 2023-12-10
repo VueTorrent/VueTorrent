@@ -7,7 +7,7 @@ export function toPrecision(value: number, precision: number): string {
   if (strValue.length < Math.floor(Math.log10(value)) + 1) {
     return strValue
   } else {
-    const result = strValue.substring(0, precision + 1);
+    const result = strValue.substring(0, precision + 1)
     if (result.endsWith('.')) {
       return result.slice(0, -1)
     }

@@ -36,7 +36,7 @@ const goHome = () => {
   router.push({ name: 'dashboard' })
 }
 const getLogTypeClassName = (log: Log) => {
-  return `logtype-${ LogType[log?.type]?.toLowerCase() }`
+  return `logtype-${LogType[log?.type]?.toLowerCase()}`
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]

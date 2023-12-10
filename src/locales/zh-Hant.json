@@ -141,10 +141,12 @@
     "right_click": {
       "advanced": {
         "auto_tmm": "自動種子管理 (ATM)",
+        "download_path": "設定下載路徑",
         "f_l_prio": "首末優先",
         "reannounce": "強制重新發佈",
         "recheck": "強制重新檢查",
         "rename": "重新命名",
+        "save_path": "設置儲存路徑",
         "seq_dl": "順序下載",
         "title": "進階"
       },
@@ -303,15 +305,21 @@
       "title": "移除 {n} 個種子 | 移除 {n} 個種子",
       "warnDelete": "打勾此方格將移除種子包含的所有內容。"
     },
-    "moveTorrentFile": {
-      "oldName": "舊名稱",
-      "title": "移動種子檔案 | 移動種子資料夾"
-    },
     "moveTorrent": {
+      "dl": {
+        "title": "更改下載路徑"
+      },
       "newPath": "新路徑",
       "oldPath": "舊路徑",
       "required": "必須填寫新路徑",
-      "samePath": "新路徑必須與舊路徑不同"
+      "samePath": "新路徑必須與舊路徑不同",
+      "save": {
+        "title": "更改儲存路徑"
+      }
+    },
+    "moveTorrentFile": {
+      "oldName": "舊名稱",
+      "title": "移動種子檔案 | 移動種子資料夾"
     },
     "pluginManager": {
       "headers": {
@@ -424,13 +432,6 @@
   "logs": {
     "emptyLogList": "未找到日誌",
     "filters": {
-      "sortBy": {
-        "id": "日誌 ID",
-        "label": "排序方式",
-        "message": "訊息",
-        "timestamp": "日誌日期",
-        "type": "日誌等級"
-      },
       "type": "日誌等級"
     },
     "title": "qBittorrent 日誌"
@@ -870,8 +871,7 @@
       "tagsAndCategories": "標籤和分類",
       "vuetorrent": {
         "general": "一般",
-        "title": "VueTorrent",
-        "torrent_card": "種子卡片"
+        "title": "VueTorrent"
       },
       "webui": "網頁介面"
     },
@@ -893,6 +893,7 @@
         "dateFormat": "日期格式",
         "exportSettings": "匯出設定",
         "fileContentInterval": "種子檔案內容更新區間",
+        "historySize": "符合條件欄位的歷史大小",
         "importSettings": "匯入設定",
         "isDrawerRight": "側邊欄居右顯示",
         "isPaginationOnTop": "分頁欄於頂部顯示",
@@ -919,10 +920,6 @@
         "useBinarySize": "以二進位制取代容量單位 (kB -> KiB)",
         "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
         "vueTorrentTitle": "VueTorrent 標題"
-      },
-      "torrentCard": {
-        "busyTorrentTip": "忙碌中的種子顯示的屬性",
-        "doneTorrentTip": "已完成的種子顯示的屬性"
       }
     },
     "webUI": {
@@ -1111,6 +1108,7 @@
       "download_speed": "下載速率",
       "empty_category": "(無分類)",
       "empty_tags": "(無標籤)",
+      "empty_tracker_domain": "(無追蹤者)",
       "eta": "預估剩餘時間",
       "f_l_piece_prio": "首末塊優先",
       "forced": "強制狀態",

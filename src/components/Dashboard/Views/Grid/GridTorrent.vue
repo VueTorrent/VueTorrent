@@ -17,7 +17,7 @@ import ItemText from '@/components/Dashboard/DashboardItems/ItemText.vue'
 const props = defineProps<{ torrent: Torrent }>()
 
 defineEmits<{
-  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: Torrent]
+  onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: Torrent]
 }>()
 
 const dashboardStore = useDashboardStore()
@@ -57,14 +57,15 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" height="100%"
-          :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
-          @click="$emit('onTorrentClick', $event, torrent)">
+  <v-card
+    :class="`sideborder ${torrent.state} pointer`"
+    height="100%"
+    :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
+    @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">
-        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props"
-                   v-for="ppt in torrentProperties" />
+        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
       </div>
     </v-card-text>
   </v-card>
