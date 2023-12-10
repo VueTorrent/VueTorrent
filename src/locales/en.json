@@ -433,8 +433,8 @@
   "logs": {
     "emptyLogList": "No logs found",
     "filters": {
-      "type": "Log Level",
-      "query": "Search in log message"
+      "query": "Search in log message",
+      "type": "Log Level"
     },
     "title": "qBittorrent Logs"
   },

@@ -16,7 +16,7 @@ import { computed } from 'vue'
 const props = defineProps<{ torrent: Torrent }>()
 
 defineEmits<{
-  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: Torrent]
+  onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: Torrent]
 }>()
 
 const dashboardStore = useDashboardStore()
@@ -55,9 +55,11 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 </script>
 
 <template>
-  <v-card :class="`sideborder ${torrent.state} pointer`" width="100%"
-          :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
-          @click="$emit('onTorrentClick', $event, torrent)">
+  <v-card
+    :class="`sideborder ${torrent.state} pointer`"
+    width="100%"
+    :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
+    @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text class="pa-2 pt-0">
       <div class="d-flex gap flex-wrap">

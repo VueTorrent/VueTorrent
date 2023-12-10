@@ -373,13 +373,6 @@
   },
   "logs": {
     "filters": {
-      "sortBy": {
-        "id": "ID лога",
-        "label": "Сортировать по",
-        "message": "Сообщение",
-        "timestamp": "Дата лога",
-        "type": "Уровень логирования"
-      },
       "type": "Уровень логирования"
     },
     "title": "Логи qBittorrent"
@@ -773,8 +766,7 @@
       "tagsAndCategories": "Теги и категории",
       "vuetorrent": {
         "general": "Общее",
-        "title": "VueTorrent",
-        "torrent_card": "Карточка торрента"
+        "title": "VueTorrent"
       },
       "webui": "WebUI"
     },
@@ -821,10 +813,6 @@
         "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
         "useBitSpeed": "Заменить значения скорости на биты (kB/s -> kbps)",
         "vueTorrentTitle": "Заголовок VueTorrent"
-      },
-      "torrentCard": {
-        "busyTorrentTip": "Свойства для отображения активных торрентов",
-        "doneTorrentTip": "Свойства для отображения завершенных торрентов"
       }
     },
     "webUI": {

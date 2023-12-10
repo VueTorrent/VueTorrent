@@ -9,11 +9,11 @@ defineProps<{
 }>()
 
 defineEmits<{
-  onCheckboxClick: [torrent: TorrentType],
-  onTorrentClick: [e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType],
-  onTorrentDblClick: [torrent: TorrentType],
-  onTorrentRightClick: [e: MouseEvent, torrent: TorrentType],
-  startPress: [e: Touch, torrent: TorrentType],
+  onCheckboxClick: [torrent: TorrentType]
+  onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
+  onTorrentDblClick: [torrent: TorrentType]
+  onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
+  startPress: [e: Touch, torrent: TorrentType]
   endPress: []
 }>()
 
@@ -26,41 +26,41 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => [
-  'pointer',
-  isTorrentSelected(torrent) ? `bg-torrent-${ torrent.state }-darken-3 selected` : ''
-]
+const getTorrentRowColorClass = (torrent: TorrentType) => ['pointer', isTorrentSelected(torrent) ? `bg-torrent-${torrent.state}-darken-3 selected` : '']
 </script>
 
 <template>
   <v-table id="torrentList" class="pa-0" density="compact">
     <thead>
-    <tr>
-      <th class="px-1" />
-      <th v-if="dashboardStore.isSelectionMultiple" />
-      <th class="text-left">{{ $t('torrent.properties.name') }}</th>
+      <tr>
+        <th class="px-1" />
+        <th v-if="dashboardStore.isSelectionMultiple" />
+        <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
-      <th v-for="ppt in torrentProperties" class="text-left">
-        {{ $t(`torrent.properties.${ ppt.props.title }`) }}
-      </th>
-    </tr>
+        <th v-for="ppt in torrentProperties" class="text-left">
+          {{ $t(`torrent.properties.${ppt.props.title}`) }}
+        </th>
+      </tr>
     </thead>
     <tbody>
-    <tr v-for="torrent in paginatedTorrents" :class="getTorrentRowColorClass(torrent)" v-ripple
+      <tr
+        v-for="torrent in paginatedTorrents"
+        :class="getTorrentRowColorClass(torrent)"
+        v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
-        @touchcancel="$emit('endPress')" @touchend="$emit('endPress')" @touchmove="$emit('endPress')"
+        @touchcancel="$emit('endPress')"
+        @touchend="$emit('endPress')"
+        @touchmove="$emit('endPress')"
         @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
-      <td :class="`pa-0 bg-torrent-${ torrent.state }`" />
-      <td v-if="dashboardStore.isSelectionMultiple">
-        <v-checkbox-btn :model-value="isTorrentSelected(torrent)"
-                        :color="`torrent-${torrent.state}`" variant="text"
-                        @click.stop="$emit('onCheckboxClick', torrent)" />
-      </td>
-      <td>{{ torrent.name }}</td>
-      <TableTorrent :torrent="torrent" />
-    </tr>
+        <td :class="`pa-0 bg-torrent-${torrent.state}`" />
+        <td v-if="dashboardStore.isSelectionMultiple">
+          <v-checkbox-btn :model-value="isTorrentSelected(torrent)" :color="`torrent-${torrent.state}`" variant="text" @click.stop="$emit('onCheckboxClick', torrent)" />
+        </td>
+        <td>{{ torrent.name }}</td>
+        <TableTorrent :torrent="torrent" />
+      </tr>
     </tbody>
   </v-table>
 </template>
@@ -79,7 +79,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [
     position: relative;
 
     &:nth-child(odd)::after {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;

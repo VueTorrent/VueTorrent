@@ -388,13 +388,6 @@
   },
   "logs": {
     "filters": {
-      "sortBy": {
-        "id": "ID du journal",
-        "label": " Trier par",
-        "message": "Message",
-        "timestamp": "Date du journal",
-        "type": "Niveau de journalisation"
-      },
       "type": "Niveau de journalisation"
     },
     "title": "Logs de qBittorrent"
@@ -805,8 +798,7 @@
       "tagsAndCategories": "Étiquettes & Catégories",
       "vuetorrent": {
         "general": "Général",
-        "title": "VueTorrent",
-        "torrent_card": "Carte Torrent"
+        "title": "VueTorrent"
       },
       "webui": "WebUI"
     },
@@ -852,10 +844,6 @@
         "useBinarySize": "Remplacer les tailles de données par des unités binaires (kB -> KiB)",
         "useBitSpeed": "Remplacer les valeurs de vitesse par des bits (kB/s -> kbps)",
         "vueTorrentTitle": "Titre de VueTorrent"
-      },
-      "torrentCard": {
-        "busyTorrentTip": "Propriétés à afficher pour les torrents occupés",
-        "doneTorrentTip": "Propriétés à afficher pour les torrents terminés"
       }
     },
     "webUI": {

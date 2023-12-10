@@ -18,13 +18,7 @@ import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
-const {
-  currentPage: dashboardPage,
-  isSelectionMultiple,
-  selectedTorrents,
-  displayMode,
-  torrentCountString
-} = storeToRefs(dashboardStore)
+const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displayMode, torrentCountString } = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
@@ -105,11 +99,7 @@ const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIS
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
 
-const {
-  paginatedResults: paginatedTorrents,
-  currentPage,
-  pageCount
-} = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
+const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
 const hasSearchFilter = computed(() => !!torrentStore.textFilter && torrentStore.textFilter.length > 0)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
@@ -157,7 +147,7 @@ function onCheckboxClick(torrent: TorrentType) {
   dashboardStore.toggleSelect(torrent.hash)
 }
 
-function onTorrentClick(e: { shiftKey: boolean, metaKey: boolean, ctrlKey: boolean }, torrent: TorrentType) {
+function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType) {
   if (e.shiftKey) {
     dashboardStore.spanTorrentSelection(torrent.hash)
   } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
@@ -324,12 +314,9 @@ onBeforeUnmount(() => {
           </v-tooltip>
         </template>
         <v-list>
-          <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list"
-                       @click="displayMode = DashboardDisplayMode.LIST" />
-          <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid"
-                       @click="displayMode = DashboardDisplayMode.GRID" />
-          <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table"
-                       @click="displayMode = DashboardDisplayMode.TABLE" />
+          <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
+          <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
+          <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
         </v-list>
       </v-menu>
       <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
@@ -381,26 +368,40 @@ onBeforeUnmount(() => {
     </div>
 
     <div v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount"
-                    next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
 
-    <ListView v-if="isListView" :paginated-torrents="paginatedTorrents"
-              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
-              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
-              @startPress="startPress" @endPress="endPress" />
-    <GridView v-else-if="isGridView" class="mb-2" :paginated-torrents="paginatedTorrents"
-              @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
-              @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
-              @startPress="startPress" @endPress="endPress" />
-    <TableView v-else-if="isTableView" :paginated-torrents="paginatedTorrents"
-               @onTorrentClick="onTorrentClick" @onTorrentDblClick="goToInfo"
-               @onCheckboxClick="onCheckboxClick" @onTorrentRightClick="onTorrentRightClick"
-               @startPress="startPress" @endPress="endPress" />
+    <ListView
+      v-if="isListView"
+      :paginated-torrents="paginatedTorrents"
+      @onTorrentClick="onTorrentClick"
+      @onTorrentDblClick="goToInfo"
+      @onCheckboxClick="onCheckboxClick"
+      @onTorrentRightClick="onTorrentRightClick"
+      @startPress="startPress"
+      @endPress="endPress" />
+    <GridView
+      v-else-if="isGridView"
+      class="mb-2"
+      :paginated-torrents="paginatedTorrents"
+      @onTorrentClick="onTorrentClick"
+      @onTorrentDblClick="goToInfo"
+      @onCheckboxClick="onCheckboxClick"
+      @onTorrentRightClick="onTorrentRightClick"
+      @startPress="startPress"
+      @endPress="endPress" />
+    <TableView
+      v-else-if="isTableView"
+      :paginated-torrents="paginatedTorrents"
+      @onTorrentClick="onTorrentClick"
+      @onTorrentDblClick="goToInfo"
+      @onCheckboxClick="onCheckboxClick"
+      @onTorrentRightClick="onTorrentRightClick"
+      @startPress="startPress"
+      @endPress="endPress" />
 
     <div v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount"
-                    next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
 
@@ -409,6 +410,4 @@ onBeforeUnmount(() => {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
