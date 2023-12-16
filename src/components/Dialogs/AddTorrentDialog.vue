@@ -417,14 +417,23 @@ const onCategoryChanged = () => {
         </v-row>
       </v-card-text>
 
-      <v-card-actions class="justify-center">
-        <v-btn :text="$t('dialogs.add.resetForm')" color="error" variant="flat" @click="addTorrentStore.resetForm()" />
+      <v-card-actions class="justify-center" :id="$vuetify.display.mobile ? 'sticky-card-actions' : ''">
+        <v-btn :text="$t('dialogs.add.resetForm')" color="warning" variant="flat" @click="addTorrentStore.resetForm()" />
         <v-spacer />
         <v-btn :disabled="!isFormValid" :text="$t('dialogs.add.submit')" color="accent" type="submit" variant="elevated" @click="submit" />
-        <v-btn :text="$t('common.close')" color="" variant="flat" @click="close" />
+        <v-btn :text="$t('common.close')" color="error" variant="flat" @click="close" />
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
-<style scoped></style>
+<style scoped>
+#sticky-card-actions {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(var(--v-theme-surface));
+  z-index: 1000;
+}
+</style>
