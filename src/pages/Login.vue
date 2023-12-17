@@ -59,7 +59,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <v-layout class="mt-16">
+  <v-container class="fill-height">
     <v-card class="mx-auto" rounded="lg" min-width="250">
       <v-card-title>{{ t('login.title') }}</v-card-title>
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
@@ -86,7 +86,7 @@ watchEffect(() => {
         </v-btn>
       </v-card-actions>
     </v-card>
-  </v-layout>
+  </v-container>
 </template>
 
 <style scoped></style>
