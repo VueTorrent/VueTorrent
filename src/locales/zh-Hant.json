@@ -432,6 +432,7 @@
   "logs": {
     "emptyLogList": "未找到日誌",
     "filters": {
+      "query": "在日誌信息中搜索",
       "type": "日誌等級"
     },
     "title": "qBittorrent 日誌"
@@ -871,7 +872,12 @@
       "tagsAndCategories": "標籤和分類",
       "vuetorrent": {
         "general": "一般",
-        "title": "VueTorrent"
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "網格檢視",
+          "list": "清單檢視",
+          "table": "表格檢視"
+        }
       },
       "webui": "網頁介面"
     },
@@ -920,6 +926,19 @@
         "useBinarySize": "以二進位制取代容量單位 (kB -> KiB)",
         "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
         "vueTorrentTitle": "VueTorrent 標題"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "在網格檢視中為忙碌中的種子顯示的屬性",
+          "doneTip": "在網格檢視中為已完成的種子顯示的屬性"
+        },
+        "list": {
+          "busyTip": "在清單檢視中為忙碌中的種子顯示的屬性",
+          "doneTip": "在清單檢視中為已完成的種子顯示的屬性"
+        },
+        "table": {
+          "tip": "要在表格檢視中為種子顯示的屬性"
+        }
       }
     },
     "webUI": {
