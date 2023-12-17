@@ -37,6 +37,9 @@ jobs:
           curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
           unzip -o -d ./src/locales locales.zip
 
+      - name: rm locales.zip
+        run: rm locales.zip
+
       - name: Lint
         run: npm run lint
 
