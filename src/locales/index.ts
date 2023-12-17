@@ -1,6 +1,7 @@
 import en from './en.json'
 import fr from './fr.json'
 import nl from './nl.json'
+import it from './it-IT.json'
 import ru from './ru.json'
 import zh_hans from './zh-Hans.json'
 import zh_hant from './zh-Hant.json'
