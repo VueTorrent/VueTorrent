@@ -1,8 +1,9 @@
-import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { qbit } from '@/services'
-import { useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore } from '@/stores/dialog'
+import { useMaindataStore } from '@/stores/maindata'
+import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
 import { TRCMenuEntry, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
@@ -74,10 +75,19 @@ export const useContentStore = defineStore('torrentDetail', () => {
   })
 
   async function renameNode(node: TreeNode) {
+    const { default: MoveTorrentFileDialog } = await import('@/components/Dialogs/MoveTorrentFileDialog.vue')
     renamePayload.hash = trcProperties.hash
     renamePayload.isFolder = node.type === 'folder'
     renamePayload.oldName = node.fullName
     renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
+  }
+
+  async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
+    await qbit.renameFile(hash, oldPath, newPath)
+  }
+
+  async function renameTorrentFolder(hash: string, oldPath: string, newPath: string) {
+    await qbit.renameFolder(hash, oldPath, newPath)
   }
 
   async function setFilePriority(fileIdx: number[], priority: FilePriority) {
@@ -101,6 +111,8 @@ export const useContentStore = defineStore('torrentDetail', () => {
     updateFileTree,
     pauseTimer,
     resumeTimer,
+    renameTorrentFile,
+    renameTorrentFolder,
     setFilePriority
   }
 })

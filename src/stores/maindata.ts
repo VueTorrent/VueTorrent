@@ -148,14 +148,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     return await qbit.getTorrentFiles(hash, indexes)
   }
 
-  async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
-    await qbit.renameFile(hash, oldPath, newPath)
-  }
-
-  async function renameTorrentFolder(hash: string, oldPath: string, newPath: string) {
-    await qbit.renameFolder(hash, oldPath, newPath)
-  }
-
   async function fetchPieceState(hash: string) {
     return await qbit.getTorrentPieceStates(hash)
   }
@@ -238,8 +230,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     deleteTags,
     updateMaindata,
     fetchFiles,
-    renameTorrentFile,
-    renameTorrentFolder,
     fetchPieceState,
     reannounceTorrents,
     toggleSeqDl,
