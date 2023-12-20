@@ -43,7 +43,7 @@ const themeOptions = [
 
 const vueTorrentVersion = computed(() => {
   if (import.meta.env.PROD) {
-    return 'import.meta.env.VITE_PACKAGE_VERSION'
+    return import.meta.env.VITE_PACKAGE_VERSION
   } else if (import.meta.env.DEV) {
     return 'DEV'
   }

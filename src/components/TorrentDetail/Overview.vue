@@ -212,7 +212,7 @@ onUnmounted(() => {
         <v-col cols="12" md="6">
           <v-row>
             <v-col cols="4">
-              <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100" :model-value="torrent?.progress * 100 ?? 0" :width="15">
+              <v-progress-circular :color="torrentStateColor" :indeterminate="isFetchingMetadata" :size="100" :model-value="torrent?.progress * 100 || 0" :width="15">
                 <template v-slot>
                   <span v-if="isFetchingMetadata">{{ $t('torrentDetail.overview.fetchingMetadata') }}</span>
                   <v-icon v-else-if="torrent.progress === 1" icon="mdi-check" size="x-large" />
