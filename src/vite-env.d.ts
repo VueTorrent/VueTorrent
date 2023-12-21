@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  readonly VITE_PACKAGE_VERSION: string
+
   readonly VITE_QBITTORRENT_TARGET: string
   readonly VITE_QBITTORRENT_PORT: number
 
