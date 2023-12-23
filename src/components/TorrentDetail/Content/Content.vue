@@ -18,12 +18,12 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     await nextTick()
   }
 
-  trcProperties.value = {
+  Object.assign(trcProperties.value, {
     isVisible: true,
     offset: [e.pageX, e.pageY],
     hash: props.torrent.hash,
     target: node
-  }
+  })
 }
 
 watch(
