@@ -44,6 +44,10 @@ export class TreeFile {
     return [this.id]
   }
 
+  isSelected(selection: Set<string>): boolean {
+    return selection.has(this.fullName)
+  }
+
   getProgress(): number {
     return this.progress
   }
@@ -84,6 +88,10 @@ export class TreeFolder {
 
   getChildrenIds(): number[] {
     return this.children.map(child => child.getChildrenIds()).flat()
+  }
+
+  isSelected(selection: Set<string>): boolean {
+    return selection.has(this.fullName)
   }
 
   getProgress(): number {

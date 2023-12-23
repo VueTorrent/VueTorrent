@@ -24,6 +24,10 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     hash: props.torrent.hash,
     target: node
   })
+
+  if (contentStore.internalSelection.size <= 1) {
+    contentStore.internalSelection = new Set([node.fullName])
+  }
 }
 
 watch(
@@ -48,6 +52,7 @@ watch(
 )
 
 onMounted(() => {
+  contentStore.internalSelection.clear()
   trcProperties.value.hash = props.torrent.hash
   contentStore.resumeTimer()
 })

@@ -1060,7 +1060,8 @@
       "priority": "Set priority",
       "rename": {
         "file": "Rename",
-        "folder": "Rename folder"
+        "folder": "Rename folder",
+        "bulk": "Bulk rename"
       },
       "rootNode": "(Root)"
     },

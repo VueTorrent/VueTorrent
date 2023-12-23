@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { FilePriority } from '@/constants/qbit'
 import { getFileIcon } from '@/constants/vuetorrent'
-import { formatData } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
+import { doesCommand, formatData } from '@/helpers'
+import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 
@@ -18,10 +18,12 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
+const contentStore = useContentStore()
 const vuetorrentStore = useVueTorrentStore()
 
-function openNode(node: TreeNode) {
+function openNode(e: Event, node: TreeNode) {
   if (node.type === 'file') return
+  e.stopPropagation()
 
   const index = props.openedItems.indexOf(node.fullName)
   if (index === -1) {
@@ -31,11 +33,23 @@ function openNode(node: TreeNode) {
   }
 }
 
-async function toggleSelection(node: TreeNode) {
+async function toggleFileSelection(node: TreeNode) {
   if (node.getPriority() === FilePriority.DO_NOT_DOWNLOAD) {
     emit('setFilePrio', node.getChildrenIds(), FilePriority.NORMAL)
   } else {
     emit('setFilePrio', node.getChildrenIds(), FilePriority.DO_NOT_DOWNLOAD)
+  }
+}
+
+function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node: TreeNode) {
+  if (doesCommand(e)) {
+    if (contentStore.internalSelection.has(node.fullName)) {
+      contentStore.internalSelection.delete(node.fullName)
+    } else {
+      contentStore.internalSelection.add(node.fullName)
+    }
+  } else {
+    contentStore.internalSelection = new Set([node.fullName])
   }
 }
 
@@ -58,9 +72,9 @@ function getPriorityColor(node: TreeNode) {
     case FilePriority.DO_NOT_DOWNLOAD:
       return 'grey'
     case FilePriority.MIXED:
-      return 'primary'
-    case FilePriority.NORMAL:
       return ''
+    case FilePriority.NORMAL:
+      return 'green'
     case FilePriority.HIGH:
       return 'warning'
     case FilePriority.MAXIMAL:
@@ -80,21 +94,25 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <template v-for="node in nodes">
-    <li :class="`d-flex flex-column depth-${depth}`"
-        @click.stop="openNode(node)" @contextmenu="$emit('onRightClick', $event, node)">
+    <li :class="[`d-flex flex-column depth-${depth}`, (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
+        @click.stop="toggleInternalSelection($event, node)"
+        @contextmenu="$emit('onRightClick', $event, node)">
       <div class="d-flex">
-        <div class="d-flex align-center" @click.stop="toggleSelection(node)">
+        <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
           <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
           <v-icon v-else-if="node.getPriority() === FilePriority.MIXED" icon="mdi-checkbox-intermediate-variant" />
           <v-icon v-else :color="getPriorityColor(node)" icon="mdi-checkbox-marked" />
         </div>
 
-        <div class="d-flex align-center spacer">
+        <div class="d-flex align-center spacer" @click="openNode($event, node)">
           <template v-if="node.type === 'folder'">
+            <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+
             <v-icon v-if="node.name === '(root)'" icon="mdi-file-tree" />
             <v-icon v-else-if="openedItems.includes(node.fullName)" icon="mdi-folder-open" color="#ffe476" />
             <v-icon v-else icon="mdi-folder" color="#ffe476" />
           </template>
+
           <v-icon v-else :icon="getFileIcon(node.name)" />
         </div>
 
@@ -104,16 +122,10 @@ function getNodeSubtitle(node: TreeNode) {
             {{ getNodeSubtitle(node) }}
           </span>
         </div>
-
-        <v-spacer />
-
-        <div class="d-flex" v-if="node.type === 'folder'">
-          <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-        </div>
       </div>
 
       <div>
-        <v-progress-linear :model-value="node.getProgress()" max="1" />
+        <v-progress-linear :model-value="node.getProgress()" :color="getPriorityColor(node)" max="1" />
       </div>
     </li>
     <ContentNode v-if="node.type === 'folder' && openedItems.includes(node.fullName)"

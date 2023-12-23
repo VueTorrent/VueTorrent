@@ -23,12 +23,23 @@ export const useContentStore = defineStore('torrentDetail', () => {
     hash: '',
     target: null as TreeNode | null
   })
+  const internalSelection = ref<Set<string>>(new Set())
+  const apiLock = ref(false)
+  const loading = ref(false)
+  const cachedFiles = ref<TorrentFile[]>([])
+  const { tree } = useTreeBuilder(cachedFiles)
 
   const menuData = computed<TRCMenuEntry[]>(() => ([
     {
+      text: t(`torrentDetail.content.rename.bulk`),
+      icon: 'mdi-rename',
+      hidden: internalSelection.value.size <= 1,
+      action: bulkRename
+    },
+    {
       text: t(`torrentDetail.content.rename.${ trcProperties.target?.type || 'file' }`),
       icon: 'mdi-rename',
-      hidden: trcProperties.target?.name === '(root)',
+      hidden: internalSelection.value.size > 1 || trcProperties.target?.name === '(root)',
       action: () => renameNode(trcProperties.target!)
     },
     {
@@ -47,11 +58,6 @@ export const useContentStore = defineStore('torrentDetail', () => {
     immediate: false,
     immediateCallback: true
   })
-
-  const apiLock = ref(false)
-  const loading = ref(false)
-  const cachedFiles = ref<TorrentFile[]>([])
-  const { tree } = useTreeBuilder(cachedFiles)
 
   async function updateFileTree() {
     if (apiLock.value) return
@@ -82,6 +88,10 @@ export const useContentStore = defineStore('torrentDetail', () => {
     renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
   }
 
+  async function bulkRename() {
+    //TODO
+  }
+
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
     await qbit.renameFile(hash, oldPath, newPath)
   }
@@ -106,6 +116,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
 
   return {
     trcProperties,
+    internalSelection,
     menuData,
     tree,
     updateFileTree,

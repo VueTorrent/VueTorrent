@@ -1,4 +1,4 @@
-import { formatSpeed, formatSpeedUnit, formatSpeedValue } from '@/helpers/speed'
+import { formatSpeed, formatSpeedUnit, formatSpeedValue } from './speed'
 import { expect, test } from 'vitest'
 
 test('helpers/speed/formatSpeedValue', () => {
