@@ -43,14 +43,29 @@ function getNodeDescription(node: TreeNode) {
   const [folderCount, fileCount] = node.getDeepCount()
 
   const res = []
+  if (folderCount > 1) {
+    res.push(t('torrentDetail.content.folderInfo', folderCount - 1))
+  }
   if (fileCount > 0) {
     res.push(t('torrentDetail.content.fileInfo', fileCount))
   }
-  if (folderCount > 0) {
-    res.push(t('torrentDetail.content.folderInfo', folderCount))
-  }
 
   return res.join(', ')
+}
+
+function getPriorityColor(node: TreeNode) {
+  switch(node.getPriority()) {
+    case FilePriority.DO_NOT_DOWNLOAD:
+      return 'grey'
+    case FilePriority.MIXED:
+      return 'primary'
+    case FilePriority.NORMAL:
+      return ''
+    case FilePriority.HIGH:
+      return 'warning'
+    case FilePriority.MAXIMAL:
+      return 'error'
+  }
 }
 
 function getNodeSubtitle(node: TreeNode) {
@@ -65,12 +80,13 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <template v-for="node in nodes">
-    <li :class="`d-flex flex-column depth-${depth}`" @click.stop="openNode(node)" @contextmenu="$emit('onRightClick', $event, node)">
+    <li :class="`d-flex flex-column depth-${depth}`"
+        @click.stop="openNode(node)" @contextmenu="$emit('onRightClick', $event, node)">
       <div class="d-flex">
         <div class="d-flex align-center" @click.stop="toggleSelection(node)">
           <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
           <v-icon v-else-if="node.getPriority() === FilePriority.MIXED" icon="mdi-checkbox-intermediate-variant" />
-          <v-icon v-else icon="mdi-checkbox-marked" />
+          <v-icon v-else :color="getPriorityColor(node)" icon="mdi-checkbox-marked" />
         </div>
 
         <div class="d-flex align-center spacer">
@@ -83,10 +99,16 @@ function getNodeSubtitle(node: TreeNode) {
         </div>
 
         <div class="d-flex flex-column">
-          <span>{{ node.name }}</span>
+          <span :class="`text-${getPriorityColor(node)}`">{{ node.name }}</span>
           <span class="text-grey">
             {{ getNodeSubtitle(node) }}
           </span>
+        </div>
+
+        <v-spacer />
+
+        <div class="d-flex" v-if="node.type === 'folder'">
+          <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
         </div>
       </div>
 
