@@ -137,7 +137,7 @@
       "table": "表格",
       "title": "顯示模式"
     },
-    "not_complete": "未完成",
+    "not_complete": "永不最後完整可見",
     "right_click": {
       "advanced": {
         "auto_tmm": "自動種子管理 (ATM)",
@@ -254,7 +254,7 @@
       "cookie": "Cookie",
       "cookiePlaceholder": "名稱1=值1; 名稱2=值2; ...",
       "dlLimit": "下載限制",
-      "downloadPath": "下載路徑",
+      "downloadPath": "下載路徑 (未完成時)",
       "dropLabel": "拖拽檔案和連結至此處",
       "error": "新增種子時出錯",
       "fileOverflow": "+{n} 個",
@@ -272,7 +272,7 @@
       "ratioLimit": "分享率限制",
       "rename": "重新命名種子",
       "resetForm": "重置表單",
-      "savePath": "儲存路徑",
+      "savePath": "儲存路徑 (已完成時)",
       "seedingTimeLimit": "做種時間限制",
       "sequentialDownload": "順序下載",
       "skipChecking": "跳過雜湊值檢查",
@@ -721,7 +721,7 @@
         "misc": "對一般用途使用代理",
         "peerConnections": "使用代理來連線下載者",
         "port": "埠",
-        "rss": "只對種子使用代理",
+        "rss": "對 RSS 使用代理",
         "subheader": "代理伺服器"
       }
     },
@@ -786,7 +786,7 @@
         },
         "exportDir": "複製 .torrent 檔案到",
         "exportDirFinished": "複製已完成的 .torrent 檔案到",
-        "keepIncomplete": "保留未完成的種子",
+        "keepIncomplete": "預設下載路徑 (未完成的種子)",
         "paramChangedTMMOptions": {
           "relocateTorrent": "重新定位種子",
           "switchToManual": "切換種子至手動模式"
@@ -899,6 +899,7 @@
         "dateFormat": "日期格式",
         "exportSettings": "匯出設定",
         "fileContentInterval": "種子檔案內容更新區間",
+        "hideChipIfUnset": "未設置時隱藏塊",
         "historySize": "符合條件欄位的歷史大小",
         "importSettings": "匯入設定",
         "isDrawerRight": "側邊欄居右顯示",
