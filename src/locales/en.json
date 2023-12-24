@@ -180,6 +180,12 @@
       "tags": {
         "disabled_title": "No tags",
         "title": "Set tags"
+      },
+      "top": {
+        "delete": "Delete",
+        "force_resume": "Force Resume",
+        "pause": "Pause",
+        "resume": "Resume"
       }
     },
     "searchInputLabel": "Search",
@@ -1031,6 +1037,11 @@
     "content": {
       "fileInfo": "{n} file | {n} files",
       "folderInfo": "{n} folder | {n} folders",
+      "priority": "Set priority",
+      "rename": {
+        "file": "Rename",
+        "folder": "Rename folder"
+      },
       "rootNode": "(Root Node)"
     },
     "info": {
