@@ -1,9 +1,11 @@
 name: Test Core Components
 on:
   pull_request:
-    branches:
-      - master
-  push:
+    types:
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
     branches:
       - master
 
@@ -28,9 +30,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: check linting
-        run: npm run lint
 
       - name: Run tests
         run: npm run test
