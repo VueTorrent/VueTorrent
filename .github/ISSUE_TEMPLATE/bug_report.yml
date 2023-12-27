@@ -1,0 +1,85 @@
+name: Bug report
+description: File a bug report to help us improve
+title: '[Bug]: '
+labels:
+  - Bug
+  - triage
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug description
+      description: Actual Behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expectations
+    attributes:
+      label: Expectations
+      description: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant debug informations
+      description: Can be a curl command, a log extract, ...
+      render: shell
+  - type: dropdown
+    id: download-source
+    attributes:
+      label: How did you install VueTorrent?
+      options:
+        - Downloaded from GitHub releases
+        - Fetched from latest-release branch
+        - Fetched from nightly-release branch
+        - Built from source
+        - Using a third-party docker image (hotio or others)
+        - Other (specify in env description)
+      default: 0
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment description
+      value: |-
+        Device type and name: 
+        OS: 
+
+        PWA: Yes / No
+        Running inside a container: Yes / No
+      render: plain text
+    validations:
+      required: true
+  - type: input
+    id: qbit-version
+    attributes:
+      label: qBittorrent version
+      description: Can be found at the bottom of the settings view
+      placeholder: x.x.x
+    validations:
+      required: true
+  - type: input
+    id: vuetorrent-version
+    attributes:
+      label: VueTorrent version
+      description: Can be found at the bottom of the settings view
+      placeholder: x.x.x
+    validations:
+      required: true
+  - type: checkboxes
+    id: agreements
+    attributes:
+      label: Agreements
+      description: 'Before creating a new issue, I already checked the following:'
+      options:
+        - label: The bug still occurs on the nightly build
+          required: true
+        - label: The bug still occurs on the latest version of qBittorrent
+          required: true
+        - label: A similar issue doesn't already exist
+          required: true

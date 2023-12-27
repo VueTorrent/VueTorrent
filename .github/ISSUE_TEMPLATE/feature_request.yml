@@ -1,0 +1,30 @@
+name: Feature Request
+description: Suggest a new feature for this project
+title: '[Feature Request]: '
+labels:
+  - triage
+  - Feature
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the problem or missing capability
+    validations:
+      required: true
+  - type: textarea
+    id: proposition
+    attributes:
+      label: Describe the solution you'd like
+      description: If you have a solution in mind, please describe it.
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Describe alternatives you've considered
+      description: Have you considered any alternative solutions or workarounds?
+  - type: checkboxes
+    attributes:
+      label: Complementary informations
+      options:
+        - label: Is this feature already implemented in the default WebUI?
+          required: false
