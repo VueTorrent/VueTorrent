@@ -38,9 +38,6 @@ jobs:
           unzip -o -d ./src/locales locales.zip
           rm locales.zip
 
-      - name: rm locales.zip
-        run: rm locales.zip
-
       - name: Lint
         run: npm run lint
 
