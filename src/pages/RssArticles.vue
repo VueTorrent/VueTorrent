@@ -55,10 +55,6 @@ async function markAsRead(item: RssArticle) {
   await rssStore.markArticleAsRead(item.id)
 }
 
-async function markAllAsRead() {
-  await rssStore.markAllAsRead()
-}
-
 function goHome() {
   router.push({ name: 'dashboard' })
 }
@@ -110,7 +106,7 @@ onUnmounted(() => {
             <div class="d-flex flex-row align-center justify-center">
               <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
               <v-spacer />
-              <v-btn :text="$t('rssArticles.markAllAsRead')" color="primary" @click="markAllAsRead" />
+              <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary" @click="rssStore.markAllAsRead()" />
             </div>
           </v-col>
         </v-row>
