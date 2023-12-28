@@ -34,9 +34,9 @@ export class QBitApi {
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
   }
 
-  async execute(action: string, params?: Parameters): Promise<any> {
+  async post(action: string, params?: Parameters): Promise<any> {
     const data = new URLSearchParams(params)
-    return this.axios.post(action, data).then(res => res.data)
+    return this.axios.post(action, data)
   }
 
   /** Begin General functions * */
@@ -75,7 +75,8 @@ export class QBitApi {
       json: JSON.stringify(params)
     }
 
-    return this.execute('/app/setPreferences', data)
+    return this.post('/app/setPreferences', data)
+    .then(res => res.data)
   }
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
@@ -83,7 +84,8 @@ export class QBitApi {
   }
 
   async toggleSpeedLimitsMode(): Promise<void> {
-    return this.execute('/transfer/toggleSpeedLimitsMode')
+    return this.post('/transfer/toggleSpeedLimitsMode')
+    .then(res => res.data)
   }
 
   async getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]> {
@@ -107,7 +109,8 @@ export class QBitApi {
   }
 
   async setTorrentName(hash: string, name: string): Promise<void> {
-    return this.execute('/torrents/rename', { hash, name })
+    return this.post('/torrents/rename', { hash, name })
+    .then(res => res.data)
   }
 
   async getTorrentPieceStates(hash: string): Promise<PieceState[]> {
@@ -144,17 +147,19 @@ export class QBitApi {
   // RSS
 
   async createFeed(payload: CreateFeedPayload): Promise<void> {
-    return this.execute('/rss/addFeed', {
+    return this.post('/rss/addFeed', {
       url: payload.url,
       path: payload.name
     })
+    .then(res => res.data)
   }
 
   async setRule(ruleName: string, ruleDef: FeedRule) {
-    return this.execute('/rss/setRule', {
+    return this.post('/rss/setRule', {
       ruleName,
       ruleDef: JSON.stringify(ruleDef)
     })
+    .then(res => res.data)
   }
 
   async getFeeds(withData: boolean): Promise<Feed[]> {
@@ -162,7 +167,7 @@ export class QBitApi {
       .get('/rss/items', { params: { withData } })
       .then(res => res.data)
       .then(payload => {
-        const feeds = []
+        const feeds = [] as Feed[]
         for (const key in payload) {
           feeds.push({ name: key, ...payload[key] })
         }
@@ -183,41 +188,51 @@ export class QBitApi {
       })
   }
 
-  async editFeed(oldName: string, newName: string): Promise<void> {
-    return this.execute('/rss/moveItem', {
+  async renameFeed(oldName: string, newName: string): Promise<void> {
+    return this.post('/rss/moveItem', {
       itemPath: oldName,
       destPath: newName
     })
+    .then(res => res.data)
+  }
+
+  async setFeedUrl(path: string, url: string) {
+    return this.post('/rss/setFeedURL', { path, url })
   }
 
   async renameRule(ruleName: string, newRuleName: string): Promise<void> {
-    return this.execute('/rss/renameRule', {
+    return this.post('/rss/renameRule', {
       ruleName,
       newRuleName
     })
+    .then(res => res.data)
   }
 
   async deleteRule(ruleName: string): Promise<void> {
-    return this.execute('rss/removeRule', { ruleName })
+    return this.post('rss/removeRule', { ruleName })
+    .then(res => res.data)
   }
 
   async deleteFeed(name: string): Promise<void> {
-    return this.execute('rss/removeItem', {
+    return this.post('rss/removeItem', {
       path: name
     })
+    .then(res => res.data)
   }
 
   async markAsRead(itemPath: string, articleId: string) {
-    return this.execute('rss/markAsRead', {
+    return this.post('rss/markAsRead', {
       itemPath,
       articleId
     })
+    .then(res => res.data)
   }
 
   async refreshFeed(itemPath: string) {
-    return this.execute('rss/refreshItem', {
+    return this.post('rss/refreshItem', {
       itemPath
     })
+    .then(res => res.data)
   }
 
   async getMatchingArticles(ruleName: string): Promise<Record<string, string[]>> {
@@ -257,7 +272,8 @@ export class QBitApi {
       priority
     }
 
-    return this.execute('/torrents/filePrio', params)
+    return this.post('/torrents/filePrio', params)
+    .then(res => res.data)
   }
 
   async deleteTorrents(hashes: string[], deleteFiles: boolean): Promise<void> {
@@ -324,7 +340,8 @@ export class QBitApi {
       limit
     }
 
-    return this.execute('/transfer/setDownloadLimit', data)
+    return this.post('/transfer/setDownloadLimit', data)
+    .then(res => res.data)
   }
 
   /**
@@ -335,7 +352,8 @@ export class QBitApi {
       limit
     }
 
-    return this.execute('/transfer/setUploadLimit', data)
+    return this.post('/transfer/setUploadLimit', data)
+    .then(res => res.data)
   }
 
   async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
@@ -360,7 +378,8 @@ export class QBitApi {
       path
     }
 
-    return this.execute(`/torrents/setDownloadPath`, params)
+    return this.post(`/torrents/setDownloadPath`, params)
+    .then(res => res.data)
   }
 
   async setTorrentSavePath(hashes: string[], path: string): Promise<void> {
@@ -369,7 +388,8 @@ export class QBitApi {
       path
     }
 
-    return this.execute(`/torrents/setSavePath`, params)
+    return this.post(`/torrents/setSavePath`, params)
+    .then(res => res.data)
   }
 
   async addTorrentTrackers(hash: string, trackers: string): Promise<void> {
@@ -378,7 +398,8 @@ export class QBitApi {
       urls: trackers
     }
 
-    return this.execute(`/torrents/addTrackers`, params)
+    return this.post(`/torrents/addTrackers`, params)
+    .then(res => res.data)
   }
 
   async editTorrentTracker(hash: string, origUrl: string, newUrl: string): Promise<void> {
@@ -388,7 +409,8 @@ export class QBitApi {
       newUrl
     }
 
-    return this.execute(`/torrents/editTracker`, params)
+    return this.post(`/torrents/editTracker`, params)
+    .then(res => res.data)
   }
 
   async removeTorrentTrackers(hash: string, trackers: string[]): Promise<void> {
@@ -397,7 +419,8 @@ export class QBitApi {
       urls: trackers.join('|')
     }
 
-    return this.execute(`/torrents/removeTrackers`, params)
+    return this.post(`/torrents/removeTrackers`, params)
+    .then(res => res.data)
   }
 
   async addTorrentPeers(hashes: string[], peers: string[]): Promise<void> {
@@ -409,7 +432,8 @@ export class QBitApi {
       peers: peers.join('|')
     }
 
-    return this.execute('/transfer/banPeers', params)
+    return this.post('/transfer/banPeers', params)
+    .then(res => res.data)
   }
 
   async torrentAction(action: string, hashes: string[], extra?: Record<string, any>): Promise<any> {
@@ -418,7 +442,8 @@ export class QBitApi {
       ...extra
     }
 
-    return this.execute(`/torrents/${action}`, params)
+    return this.post(`/torrents/${action}`, params)
+    .then(res => res.data)
   }
 
   async renameFile(hash: string, oldPath: string, newPath: string): Promise<void> {
@@ -428,7 +453,8 @@ export class QBitApi {
       newPath
     }
 
-    return this.execute('/torrents/renameFile', params)
+    return this.post('/torrents/renameFile', params)
+    .then(res => res.data)
   }
 
   async renameFolder(hash: string, oldPath: string, newPath: string): Promise<void> {
@@ -438,14 +464,16 @@ export class QBitApi {
       newPath
     }
 
-    return this.execute('/torrents/renameFolder', params)
+    return this.post('/torrents/renameFolder', params)
+    .then(res => res.data)
   }
 
   /** Torrent Priority **/
   async setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio'): Promise<void> {
-    return this.execute(`/torrents/${priority}`, {
+    return this.post(`/torrents/${priority}`, {
       hashes: hashes.join('|')
     })
+    .then(res => res.data)
   }
 
   /** Begin Torrent Tags **/
@@ -458,15 +486,17 @@ export class QBitApi {
   }
 
   async createTag(tags: string[]): Promise<void> {
-    return this.execute('/torrents/createTags', {
+    return this.post('/torrents/createTags', {
       tags: tags.join(',')
     })
+    .then(res => res.data)
   }
 
   async deleteTags(tags: string[]): Promise<void> {
-    return this.execute('/torrents/deleteTags', {
+    return this.post('/torrents/deleteTags', {
       tags: tags.join(',')
     })
+    .then(res => res.data)
   }
 
   /** Begin Categories **/
@@ -478,16 +508,18 @@ export class QBitApi {
   }
 
   async deleteCategory(categories: string[]): Promise<void> {
-    return this.execute('/torrents/removeCategories', {
+    return this.post('/torrents/removeCategories', {
       categories: categories.join('\n')
     })
+    .then(res => res.data)
   }
 
   async createCategory(cat: Category): Promise<void> {
-    return this.execute('/torrents/createCategory', {
+    return this.post('/torrents/createCategory', {
       category: cat.name,
       savePath: cat.savePath
     })
+    .then(res => res.data)
   }
 
   async setCategory(hashes: string[], category: string): Promise<void> {
@@ -500,7 +532,8 @@ export class QBitApi {
       savePath: cat.savePath
     }
 
-    return this.execute('/torrents/editCategory', params)
+    return this.post('/torrents/editCategory', params)
+    .then(res => res.data)
   }
 
   async exportTorrent(hash: string): Promise<Blob> {
@@ -523,32 +556,34 @@ export class QBitApi {
       plugins: plugins.join('|')
     }
 
-    return this.execute('/search/start', params)
+    return this.post('/search/start', params)
+    .then(res => res.data)
   }
 
   async stopSearch(id: number): Promise<boolean> {
-    return this.execute('/search/stop', { id }).then(
+    return this.post('/search/stop', { id }).then(
       () => true,
       () => false
     )
   }
 
   async getSearchStatus(id?: number): Promise<SearchStatus[]> {
-    return this.execute('/search/status', {
+    return this.post('/search/status', {
       id: id !== undefined ? id : 0
     }).then(res => res.data)
   }
 
   async getSearchResults(id: number, offset?: number, limit?: number): Promise<SearchResultsResponse> {
-    return this.execute('/search/results', {
+    return this.post('/search/results', {
       id,
       limit,
       offset
     })
+    .then(res => res.data)
   }
 
   async deleteSearchPlugin(id: number): Promise<boolean> {
-    return this.execute('/search/delete', { id }).then(
+    return this.post('/search/delete', { id }).then(
       () => true,
       () => false
     )
@@ -559,14 +594,15 @@ export class QBitApi {
   }
 
   async installSearchPlugin(sources: string[]) {
-    return this.execute('/search/installPlugin', { sources: sources.join('|') }).then(
+    return this.post('/search/installPlugin', { sources: sources.join('|') }).then(
       () => true,
       () => false
     )
   }
 
   async uninstallSearchPlugin(names: string[]) {
-    return this.execute('/search/uninstallPlugin', { names: names.join('|') })
+    return this.post('/search/uninstallPlugin', { names: names.join('|') })
+    .then(res => res.data)
   }
 
   async enableSearchPlugin(names: string[], enable: boolean): Promise<void> {
@@ -575,11 +611,13 @@ export class QBitApi {
       enable
     }
 
-    return this.execute('/search/enablePlugin', params)
+    return this.post('/search/enablePlugin', params)
+    .then(res => res.data)
   }
 
   async updateSearchPlugins(): Promise<void> {
-    return this.execute('/search/updatePlugins')
+    return this.post('/search/updatePlugins')
+    .then(res => res.data)
   }
 
   async shutdownApp(): Promise<boolean> {

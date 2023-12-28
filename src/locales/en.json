@@ -358,7 +358,11 @@
           "create": "Create RSS Feed",
           "edit": "Edit RSS Feed"
         },
-        "url": "URL"
+        "url": "URL",
+        "rules": {
+          "name_required": "Feed name is required",
+          "url_required": "Feed URL is required"
+        }
       },
       "rule": {
         "addPaused": "Add paused",
@@ -514,6 +518,11 @@
       "feedName": "Feed name: {name}"
     },
     "markAllAsRead": "Mark all as read",
+    "promise": {
+      "pending": "Marking...",
+      "success": "{n} marked as read",
+      "error": "An error occured while marking articles"
+    },
     "title": "RSS Articles"
   },
   "searchEngine": {
@@ -1009,6 +1018,9 @@
     "magnet_handler": {
       "not_supported": "Current context isn't secure. Unable to register handler.",
       "registered": "Magnet handler registered."
+    },
+    "qbit": {
+      "not_supported": "Only available for qbit >= {version}"
     }
   },
   "topbar": {

@@ -1,17 +1,22 @@
 import { qbit } from '@/services'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
+import { AxiosError } from 'axios'
 import { defineStore } from 'pinia'
-import { computed, reactive, ref, shallowRef, triggerRef } from 'vue'
+import { computed, reactive, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 
 export const useRssStore = defineStore(
   'rss',
   () => {
+    const { t } = useI18n()
+
     const feeds = ref<Feed[]>([])
     const rules = ref<FeedRule[]>([])
 
-    const _articles = shallowRef<RssArticle[]>([])
-    const keyMap = shallowRef<Record<string, string[]>>({})
+    const _articles = ref<RssArticle[]>([])
+    const keyMap = ref<Record<string, string[]>>({})
 
     const filters = reactive({
       title: '',
@@ -33,8 +38,18 @@ export const useRssStore = defineStore(
       await qbit.setRule(ruleName, ruleDef)
     }
 
-    async function editFeed(oldName: string, newName: string) {
-      await qbit.editFeed(oldName, newName)
+    async function renameFeed(oldName: string, newName: string) {
+      await qbit.renameFeed(oldName, newName)
+    }
+
+    async function setFeedUrl(feedName: string, feedUrl: string) {
+      await qbit.setFeedUrl(feedName, feedUrl)
+      .catch((error: AxiosError) => {
+        console.log(error)
+        if (error.response?.status === 404) {
+          toast.error(t('toast.qbit.not_supported', { version: '4.6.0' }))
+        }
+      })
     }
 
     async function renameRule(oldName: string, newName: string) {
@@ -70,9 +85,6 @@ export const useRssStore = defineStore(
           }
         })
       })
-
-      triggerRef(_articles)
-      triggerRef(keyMap)
     }
 
     function getFeedNames(articleId: string) {
@@ -90,11 +102,19 @@ export const useRssStore = defineStore(
       _articles.value.forEach(article => {
         if (article.id === articleId) article.isRead = true
       })
-      triggerRef(_articles)
     }
 
     async function markAllAsRead() {
-      await Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead))
+      const unreadArticlesCount = unreadArticles.value.length
+      await toast.promise(Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead)),
+        {
+          pending: t('rssArticles.promise.pending'),
+          error: t('rssArticles.promise.error'),
+          success: t('rssArticles.promise.success', unreadArticlesCount)
+        },
+        {
+          autoClose: 1500
+        })
       await fetchFeeds()
     }
 
@@ -115,7 +135,8 @@ export const useRssStore = defineStore(
       refreshFeed,
       createFeed,
       setRule,
-      editFeed,
+      renameFeed,
+      setFeedUrl,
       renameRule,
       deleteFeed,
       deleteRule,

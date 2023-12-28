@@ -63,8 +63,10 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 - `npm start`
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (starts a qbittorrent docker, optional)
-- Open the WebUI on localhost with the default username `admin` and password `adminadmin`.
-- Make sure CSRF protection is disabled on the target server!
+- Open the WebUI on localhost with the default credentials
+  - Default username is always `admin`
+  - Default password is `adminadmin` **on 4.6.0 and below**, and is generated on 4.6.1 and above
+- Make sure "CSRF protection" and "Host header verification" is disabled on the target server!
 - Edit `env.development` to tweak your dev environment (e.g. fake torrents)
 
 ## Features
