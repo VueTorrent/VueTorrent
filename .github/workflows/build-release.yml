@@ -29,6 +29,10 @@ jobs:
     name: Build VueTorrent
     needs: setup-release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
