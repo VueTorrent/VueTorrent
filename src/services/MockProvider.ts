@@ -23,13 +23,10 @@ import { faker } from '@faker-js/faker/locale/en'
 import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
-  private async generateResponse<T>(options?: {
-    result?: T;
-    shouldResolve?: boolean
-  }): Promise<T> {
+  private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean }): Promise<T> {
     const result = options?.result === undefined ? undefined : options.result
     const shouldResolve = options?.shouldResolve === undefined ? true : options.shouldResolve
-    return new Promise<T>((resolve, reject) => shouldResolve ? resolve(result!) : reject(result))
+    return new Promise<T>((resolve, reject) => (shouldResolve ? resolve(result!) : reject(result)))
   }
 
   /// AppController ///
@@ -259,12 +256,12 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({
       result: [
         {
-          'name': 'lo',
-          'value': 'lo'
+          name: 'lo',
+          value: 'lo'
         },
         {
-          'name': 'eth0',
-          'value': 'eth0'
+          name: 'eth0',
+          value: 'eth0'
         }
       ]
     })
@@ -274,15 +271,11 @@ export default class MockProvider implements IProvider {
     switch (iface) {
       case 'lo':
         return this.generateResponse({
-          result: [
-            '127.0.0.1'
-          ]
+          result: ['127.0.0.1']
         })
       case 'eth0':
         return this.generateResponse({
-          result: [
-            '172.21.0.2'
-          ]
+          result: ['172.21.0.2']
         })
       default:
         return this.generateResponse({ result: [] })
@@ -452,9 +445,7 @@ export default class MockProvider implements IProvider {
       result: [
         {
           addPaused: null,
-          affectedFeeds: [
-            'https://www.example.com/feed'
-          ],
+          affectedFeeds: ['https://www.example.com/feed'],
           assignedCategory: '',
           enabled: true,
           episodeFilter: '',
@@ -535,24 +526,24 @@ export default class MockProvider implements IProvider {
 
   async getSearchStatus(id?: number): Promise<SearchStatus[]> {
     return this.generateResponse({
-      result: [
-        { id: id ?? 1, status: 'Stopped', total: 1 }
-      ]
+      result: [{ id: id ?? 1, status: 'Stopped', total: 1 }]
     })
   }
 
   async getSearchResults(_0: number, _1?: number, _2?: number): Promise<SearchResultsResponse> {
     return this.generateResponse({
       result: {
-        results: [{
-          descrLink: 'https://www.example.com/torrent/SDb4v2op8wm',
-          fileName: 'Sample title 1',
-          fileSize: 100,
-          fileUrl: 'https://www.example.com/torrent/SDb4v2op8wm',
-          nbLeechers: 0,
-          nbSeeders: 0,
-          siteUrl: 'https://www.example.com'
-        }],
+        results: [
+          {
+            descrLink: 'https://www.example.com/torrent/SDb4v2op8wm',
+            fileName: 'Sample title 1',
+            fileSize: 100,
+            fileUrl: 'https://www.example.com/torrent/SDb4v2op8wm',
+            nbLeechers: 0,
+            nbSeeders: 0,
+            siteUrl: 'https://www.example.com'
+          }
+        ],
         status: 'Stopped',
         total: 1
       }
@@ -570,9 +561,7 @@ export default class MockProvider implements IProvider {
           enabled: true,
           fullName: 'Example',
           name: 'Example',
-          supportedCategories: [
-            { id: '0', name: 'All' }
-          ],
+          supportedCategories: [{ id: '0', name: 'All' }],
           url: 'https://www.example.com',
           version: '1.0.0'
         }
@@ -739,54 +728,54 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({
       result: [
         {
-          'msg': '',
-          'num_downloaded': 0,
-          'num_leeches': 0,
-          'num_peers': 0,
-          'num_seeds': 0,
-          'status': 2,
-          'tier': -1,
-          'url': '** [DHT] **'
+          msg: '',
+          num_downloaded: 0,
+          num_leeches: 0,
+          num_peers: 0,
+          num_seeds: 0,
+          status: 2,
+          tier: -1,
+          url: '** [DHT] **'
         },
         {
-          'msg': '',
-          'num_downloaded': 0,
-          'num_leeches': 0,
-          'num_peers': 0,
-          'num_seeds': 0,
-          'status': 2,
-          'tier': -1,
-          'url': '** [PeX] **'
+          msg: '',
+          num_downloaded: 0,
+          num_leeches: 0,
+          num_peers: 0,
+          num_seeds: 0,
+          status: 2,
+          tier: -1,
+          url: '** [PeX] **'
         },
         {
-          'msg': '',
-          'num_downloaded': 0,
-          'num_leeches': 0,
-          'num_peers': 0,
-          'num_seeds': 0,
-          'status': 2,
-          'tier': -1,
-          'url': '** [LSD] **'
+          msg: '',
+          num_downloaded: 0,
+          num_leeches: 0,
+          num_peers: 0,
+          num_seeds: 0,
+          status: 2,
+          tier: -1,
+          url: '** [LSD] **'
         },
         {
-          'msg': '',
-          'num_downloaded': -1,
-          'num_leeches': -1,
-          'num_peers': -1,
-          'num_seeds': -1,
-          'status': 1,
-          'tier': 0,
-          'url': 'https://torrent.ubuntu.com/announce'
+          msg: '',
+          num_downloaded: -1,
+          num_leeches: -1,
+          num_peers: -1,
+          num_seeds: -1,
+          status: 1,
+          tier: 0,
+          url: 'https://torrent.ubuntu.com/announce'
         },
         {
-          'msg': '',
-          'num_downloaded': -1,
-          'num_leeches': -1,
-          'num_peers': -1,
-          'num_seeds': -1,
-          'status': 1,
-          'tier': 1,
-          'url': 'https://ipv6.torrent.ubuntu.com/announce'
+          msg: '',
+          num_downloaded: -1,
+          num_leeches: -1,
+          num_peers: -1,
+          num_seeds: -1,
+          status: 1,
+          tier: 1,
+          url: 'https://ipv6.torrent.ubuntu.com/announce'
         }
       ]
     })

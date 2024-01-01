@@ -83,4 +83,3 @@ export function codeToFlag(code: string) {
     url
   }
 }
-
