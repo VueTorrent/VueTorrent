@@ -69,7 +69,11 @@ export const useAddTorrentStore = defineStore(
       pendingTorrentsCount,
       pushTorrentToQueue,
       initForm,
-      resetForm
+      resetForm,
+      $reset: () => {
+        isFirstInit.value = true
+        initForm()
+      }
     }
   },
   {

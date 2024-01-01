@@ -1,4 +1,11 @@
-import { DashboardProperty, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty } from '@/constants/vuetorrent'
+import {
+  DashboardProperty,
+  PropertyData,
+  propsData,
+  propsMetadata,
+  TitleOptions,
+  TorrentProperty
+} from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
@@ -261,7 +268,44 @@ export const useVueTorrentStore = defineStore(
       toggleDoneProperty,
       toggleBusyGridProperty,
       toggleDoneGridProperty,
-      toggleTableProperty
+      toggleTableProperty,
+      $reset: () => {
+        language.value = 'en'
+        matchSystemTheme.value = true
+        darkMode.value = false
+        showFreeSpace.value = true
+        showSpeedGraph.value = true
+        showSessionStat.value = true
+        showAlltimeStat.value = true
+        showCurrentSpeed.value = true
+        showTrackerFilter.value = false
+        showSpeedInTitle.value = false
+        deleteWithFiles.value = false
+        uiTitleType.value = TitleOptions.DEFAULT
+        uiTitleCustom.value = ''
+        isDrawerRight.value = false
+        isPaginationOnTop.value = false
+        hideChipIfUnset.value = false
+        paginationSize.value = 15
+        dateFormat.value = 'YYYY-MM-DD HH:mm:ss'
+        openSideBarOnStart.value = true
+        isShutdownButtonVisible.value = false
+        useBitSpeed.value = false
+        useBinarySize.value = false
+        refreshInterval.value = 2000
+        fileContentInterval.value = 5000
+        canvasRenderThreshold.value = 3000
+        canvasRefreshThreshold.value = 5000
+        useIdForRssLinks.value = false
+
+        _busyProperties.value = JSON.parse(JSON.stringify(propsData))
+        _doneProperties.value = JSON.parse(JSON.stringify(propsData))
+
+        _busyGridProperties.value = JSON.parse(JSON.stringify(propsData))
+        _doneGridProperties.value = JSON.parse(JSON.stringify(propsData))
+
+        _tableProperties.value = JSON.parse(JSON.stringify(propsData))
+      }
     }
   },
   {

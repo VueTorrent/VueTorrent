@@ -34,7 +34,12 @@ export const useHistoryStore = defineStore(
       _history,
       historySize,
       pushValueToHistory,
-      getHistory
+      getHistory,
+      $reset: () => {
+        for (const [key] of Object.entries(_history)) {
+          delete _history[key as HistoryKey]
+        }
+      }
     }
   },
   {

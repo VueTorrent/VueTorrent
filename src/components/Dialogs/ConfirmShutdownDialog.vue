@@ -19,7 +19,7 @@ const close = () => {
 }
 const shutdown = async () => {
   if (await appStore.shutdownQbit()) {
-    authStore.setAuthStatus(false)
+    authStore.isAuthenticated = false
     await vueTorrentStore.redirectToLogin()
     toast.success(t('dialogs.shutdown.success'))
   } else {

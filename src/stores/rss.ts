@@ -10,8 +10,6 @@ import { toast } from 'vue3-toastify'
 export const useRssStore = defineStore(
   'rss',
   () => {
-    const { t } = useI18n()
-
     const feeds = ref<Feed[]>([])
     const rules = ref<FeedRule[]>([])
 
@@ -25,6 +23,8 @@ export const useRssStore = defineStore(
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
     const articles = computed(() => (filters.unread ? unreadArticles.value : _articles.value))
+
+    const { t } = useI18n()
 
     async function refreshFeed(feedName: string) {
       await qbit.refreshFeed(feedName)
@@ -145,7 +145,15 @@ export const useRssStore = defineStore(
       markArticleAsRead,
       markAllAsRead,
       fetchRules,
-      fetchMatchingArticles
+      fetchMatchingArticles,
+      $reset: () => {
+        feeds.value = []
+        rules.value = []
+        _articles.value = []
+        keyMap.value = {}
+        filters.title = ''
+        filters.unread = false
+      }
     }
   },
   {

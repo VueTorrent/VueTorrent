@@ -27,5 +27,17 @@ export const useAppStore = defineStore('app', () => {
     return await qbit.shutdownApp()
   }
 
-  return { intervals, version, fetchQbitVersion, pushInterval, clearIntervals, shutdownQbit, toggleAlternativeMode }
+  return {
+    intervals,
+    version,
+    fetchQbitVersion,
+    pushInterval,
+    clearIntervals,
+    shutdownQbit,
+    toggleAlternativeMode,
+    $reset: () => {
+      clearIntervals()
+      version.value = 'unknown'
+    }
+  }
 })
