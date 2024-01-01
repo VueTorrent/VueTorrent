@@ -146,24 +146,25 @@ const inactiveSeedingTimeLimit = computed({
 function submit() {
   if (!isFormValid.value) return
 
-  toast.promise(
-    torrentStore.addTorrents(files.value, urls.value, form.value),
-    {
-      pending: t('dialogs.add.pending'),
-      error: t('dialogs.add.error', addTorrentStore.pendingTorrentsCount),
-      success: t('dialogs.add.success', addTorrentStore.pendingTorrentsCount)
-    },
-    {
-      autoClose: 1500
-    }
-  )
-  .then(() => {
-    cookieField.value?.saveValueToHistory()
-    dlPathField.value?.saveValueToHistory()
-    savePathField.value?.saveValueToHistory()
-    addTorrentStore.resetForm()
-    close()
-  })
+  toast
+    .promise(
+      torrentStore.addTorrents(files.value, urls.value, form.value),
+      {
+        pending: t('dialogs.add.pending'),
+        error: t('dialogs.add.error', addTorrentStore.pendingTorrentsCount),
+        success: t('dialogs.add.success', addTorrentStore.pendingTorrentsCount)
+      },
+      {
+        autoClose: 1500
+      }
+    )
+    .then(() => {
+      cookieField.value?.saveValueToHistory()
+      dlPathField.value?.saveValueToHistory()
+      savePathField.value?.saveValueToHistory()
+      addTorrentStore.resetForm()
+      close()
+    })
 }
 
 function close() {
@@ -213,8 +214,7 @@ const onCategoryChanged = () => {
                       {{ filename }}
                     </v-chip>
                   </template>
-                  <span v-if="fileNames.length === fileOverflowDisplayLimit + 1"
-                        class="text-overline text-grey-darken-2 ml-2">
+                  <span v-if="fileNames.length === fileOverflowDisplayLimit + 1" class="text-overline text-grey-darken-2 ml-2">
                     {{ t('dialogs.add.fileOverflow', fileNames.length - fileOverflowDisplayLimit) }}
                   </span>
                 </template>
@@ -351,28 +351,22 @@ const onCategoryChanged = () => {
 
           <v-row class="mx-3">
             <v-col cols="12" md="6">
-              <v-checkbox v-model="startNow" :label="t('dialogs.add.startNow')" color="accent" density="compact"
-                          hide-details />
+              <v-checkbox v-model="startNow" :label="t('dialogs.add.startNow')" color="accent" density="compact" hide-details />
             </v-col>
             <v-col cols="12" md="6">
-              <v-checkbox v-model="form.addToTopOfQueue" :label="t('dialogs.add.addToTopOfQueue')" color="accent"
-                          density="compact" hide-details />
+              <v-checkbox v-model="form.addToTopOfQueue" :label="t('dialogs.add.addToTopOfQueue')" color="accent" density="compact" hide-details />
             </v-col>
             <v-col cols="12" md="6">
-              <v-checkbox v-model="form.skip_checking" :label="t('dialogs.add.skipChecking')" color="accent"
-                          density="compact" hide-details />
+              <v-checkbox v-model="form.skip_checking" :label="t('dialogs.add.skipChecking')" color="accent" density="compact" hide-details />
             </v-col>
             <v-col cols="12" md="6">
-              <v-checkbox v-model="form.autoTMM" :label="t('dialogs.add.autoTMM')" color="accent" density="compact"
-                          hide-details />
+              <v-checkbox v-model="form.autoTMM" :label="t('dialogs.add.autoTMM')" color="accent" density="compact" hide-details />
             </v-col>
             <v-col cols="12" md="6">
-              <v-checkbox v-model="form.sequentialDownload" :label="t('dialogs.add.sequentialDownload')" color="accent"
-                          density="compact" hide-details />
+              <v-checkbox v-model="form.sequentialDownload" :label="t('dialogs.add.sequentialDownload')" color="accent" density="compact" hide-details />
             </v-col>
             <v-col cols="12" md="6">
-              <v-checkbox v-model="form.firstLastPiecePrio" :label="t('dialogs.add.firstLastPiecePrio')" color="accent"
-                          density="compact" hide-details />
+              <v-checkbox v-model="form.firstLastPiecePrio" :label="t('dialogs.add.firstLastPiecePrio')" color="accent" density="compact" hide-details />
             </v-col>
           </v-row>
 
@@ -398,8 +392,7 @@ const onCategoryChanged = () => {
                       </v-col>
 
                       <v-col cols="12" md="4">
-                        <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.limitHint')"
-                                      :label="$t('dialogs.add.ratioLimit')" type="number" />
+                        <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.ratioLimit')" type="number" />
                       </v-col>
                       <v-col cols="12" md="4">
                         <v-text-field
@@ -431,8 +424,7 @@ const onCategoryChanged = () => {
       <v-card-actions class="mb-2">
         <v-btn :text="$t('dialogs.add.resetForm')" color="error" variant="flat" @click="addTorrentStore.resetForm()" />
         <v-spacer />
-        <v-btn :disabled="!isFormValid" :text="$t('dialogs.add.submit')" color="accent" type="submit" variant="elevated"
-               @click="submit" />
+        <v-btn :disabled="!isFormValid" :text="$t('dialogs.add.submit')" color="accent" type="submit" variant="elevated" @click="submit" />
         <v-btn :text="$t('common.close')" color="" variant="flat" @click="close" />
       </v-card-actions>
     </v-card>
