@@ -38,7 +38,11 @@ export const useDialogStore = defineStore('dialogs', () => {
   }
 
   return {
-    dialogs, hasActiveDialog, isDialogOpened, createDialog, deleteDialog,
+    dialogs,
+    hasActiveDialog,
+    isDialogOpened,
+    createDialog,
+    deleteDialog,
     $reset: () => {
       dialogs.value = []
     }

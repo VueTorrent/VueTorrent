@@ -38,7 +38,10 @@ export const useLogStore = defineStore('logs', () => {
   }
 
   return {
-    logs, externalIp, fetchLogs, cleanAndFetchLogs,
+    logs,
+    externalIp,
+    fetchLogs,
+    cleanAndFetchLogs,
     $reset: async () => {
       while (_lock.value) {}
       logs.value = []

@@ -20,12 +20,15 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   return {
-    isAuthenticated, login, logout, updateAuthStatus,
+    isAuthenticated,
+    login,
+    logout,
+    updateAuthStatus,
     $reset: async () => {
       try {
         await qbit.logout()
-      } catch (e) {}
-      finally {
+      } catch (e) {
+      } finally {
         isAuthenticated.value = false
       }
     }

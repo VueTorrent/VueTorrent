@@ -17,7 +17,9 @@ export const usePreferenceStore = defineStore(
     }
 
     return {
-      preferences, fetchPreferences, setPreferences,
+      preferences,
+      fetchPreferences,
+      setPreferences,
       $reset: async () => {
         await fetchPreferences()
       }

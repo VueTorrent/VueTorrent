@@ -1,6 +1,6 @@
 import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
 
-export default interface AddTorrentPayload extends Record<string, any>{
+export default interface AddTorrentPayload extends Record<string, any> {
   /** Whether to add the torrent at the top of the queue */
   addToTopOfQueue?: boolean
   /** Whether Automatic Torrent Management should be used */
