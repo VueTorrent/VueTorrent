@@ -10,7 +10,7 @@
     "postbuild": "node write-version.cjs",
     "check-build": "vue-tsc",
     "preview": "vite preview",
-    "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u --ignore-path .gitignore",
+    "lint": "eslint --fix --ignore-path .gitignore && prettier . -w -u",
     "test": "vitest run",
     "coverage": "vitest run --coverage"
   },
