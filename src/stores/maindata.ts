@@ -1,10 +1,8 @@
 import { useTorrentBuilder } from '@/composables'
 import { FilePriority, SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
-import { uuidFromRaw } from '@/helpers/text'
 import { qbit } from '@/services'
 import { Category, ServerState } from '@/types/qbit/models'
-import { Torrent } from '@/types/vuetorrent'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useAuthStore } from './auth'
@@ -17,7 +15,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   const categories = ref<Category[]>([])
   const isUpdatingMaindata = ref(false)
   const rid = ref<number>()
-  const serverState = ref<ServerState>()
+  const serverState = ref<ServerState>({} as ServerState)
   const tags = ref<string[]>([])
   const trackers = ref<string[]>([])
 
@@ -128,18 +126,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // update torrents
-      const tempTorrents = data.map(t => torrentBuilder.buildFromQbit(t))
-
-      if (import.meta.env.DEV && import.meta.env.VITE_USE_FAKE_TORRENTS === 'true') {
-        const count = Number(import.meta.env.VITE_FAKE_TORRENT_COUNT)
-        const fakeTorrents: Partial<Torrent> = (await import('../../__mocks__/torrents.json')).default
-
-        for (let i = 0; i < count; i++) {
-          tempTorrents.push(torrentBuilder.buildFromFaker({ ...fakeTorrents.at(i), hash: uuidFromRaw(BigInt(i)) }, i))
-        }
-      }
-
-      torrents.value = tempTorrents
+      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
 
       // filter out deleted torrents from selection
       const hash_index = torrents.value.map(torrent => torrent.hash)

@@ -21,7 +21,6 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             // apexcharts: ['apexcharts', 'vue3-apexcharts'],
-            faker: ['@faker-js/faker'],
             vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-plugin-persist'],
             vuetify: ['vuetify']
           }

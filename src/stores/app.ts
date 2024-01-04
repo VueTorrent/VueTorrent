@@ -16,7 +16,7 @@ export const useAppStore = defineStore('app', () => {
   }
 
   async function fetchQbitVersion() {
-    version.value = await qbit.getAppVersion()
+    version.value = await qbit.getVersion()
   }
 
   async function toggleAlternativeMode() {
