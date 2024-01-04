@@ -21,7 +21,11 @@ export const useNavbarStore = defineStore(
       downloadData,
       uploadData,
       pushDownloadData,
-      pushUploadData
+      pushUploadData,
+      $reset: () => {
+        downloadData.value = new Array(15).fill(null)
+        uploadData.value = new Array(15).fill(null)
+      }
     }
   },
   {

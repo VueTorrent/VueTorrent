@@ -19,7 +19,6 @@ export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
   const serverState = ref<ServerState>()
   const tags = ref<string[]>([])
-
   const trackers = ref<string[]>([])
 
   const authStore = useAuthStore()
@@ -148,7 +147,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
-        authStore.setAuthStatus(false)
+        authStore.isAuthenticated = false
         await vueTorrentStore.redirectToLogin()
       } else {
         console.error(error)
@@ -274,6 +273,14 @@ export const useMaindataStore = defineStore('maindata', () => {
     setTorrentFilePriority,
     setDownloadLimit,
     setUploadLimit,
-    setShareLimit
+    setShareLimit,
+    $reset: () => {
+      while (isUpdatingMaindata.value) {}
+      categories.value = []
+      rid.value = undefined
+      serverState.value = undefined
+      tags.value = []
+      trackers.value = []
+    }
   }
 })

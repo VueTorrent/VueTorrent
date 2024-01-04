@@ -10,8 +10,6 @@ import { toast } from 'vue3-toastify'
 export const useRssStore = defineStore(
   'rss',
   () => {
-    const { t } = useI18n()
-
     const feeds = ref<Feed[]>([])
     const rules = ref<FeedRule[]>([])
 
@@ -25,6 +23,8 @@ export const useRssStore = defineStore(
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
     const articles = computed(() => (filters.unread ? unreadArticles.value : _articles.value))
+
+    const { t } = useI18n()
 
     async function refreshFeed(feedName: string) {
       await qbit.refreshFeed(feedName)
@@ -43,8 +43,7 @@ export const useRssStore = defineStore(
     }
 
     async function setFeedUrl(feedName: string, feedUrl: string) {
-      await qbit.setFeedUrl(feedName, feedUrl)
-      .catch((error: AxiosError) => {
+      await qbit.setFeedUrl(feedName, feedUrl).catch((error: AxiosError) => {
         console.log(error)
         if (error.response?.status === 404) {
           toast.error(t('toast.qbit.not_supported', { version: '4.6.0' }))
@@ -106,7 +105,8 @@ export const useRssStore = defineStore(
 
     async function markAllAsRead() {
       const unreadArticlesCount = unreadArticles.value.length
-      await toast.promise(Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead)),
+      await toast.promise(
+        Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead)),
         {
           pending: t('rssArticles.promise.pending'),
           error: t('rssArticles.promise.error'),
@@ -114,7 +114,8 @@ export const useRssStore = defineStore(
         },
         {
           autoClose: 1500
-        })
+        }
+      )
       await fetchFeeds()
     }
 
@@ -145,7 +146,15 @@ export const useRssStore = defineStore(
       markArticleAsRead,
       markAllAsRead,
       fetchRules,
-      fetchMatchingArticles
+      fetchMatchingArticles,
+      $reset: () => {
+        feeds.value = []
+        rules.value = []
+        _articles.value = []
+        keyMap.value = {}
+        filters.title = ''
+        filters.unread = false
+      }
     }
   },
   {

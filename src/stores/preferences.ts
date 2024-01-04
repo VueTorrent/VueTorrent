@@ -16,7 +16,14 @@ export const usePreferenceStore = defineStore(
       await qbit.setPreferences(preferences.value!)
     }
 
-    return { preferences, fetchPreferences, setPreferences }
+    return {
+      preferences,
+      fetchPreferences,
+      setPreferences,
+      $reset: async () => {
+        await fetchPreferences()
+      }
+    }
   },
   {
     persist: {

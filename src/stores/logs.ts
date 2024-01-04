@@ -30,12 +30,22 @@ export const useLogStore = defineStore('logs', () => {
   }
 
   async function extractExternalIpFromLogs(logsToParse: Log[]) {
-    const log = logsToParse.find(log => log.message.includes('Detected external IP. IP: '))
+    const log = logsToParse.find(log => log.message.includes('Detected external IP.'))
     if (!log) return
 
-    const match = log?.message.match(/Detected external IP\. IP: "(.*)"/)!
-    externalIp.value = match[1]
+    const match = log.message.match(/IP: "(.*)"/)
+    if (match) externalIp.value = match[1]
   }
 
-  return { logs, externalIp, fetchLogs, cleanAndFetchLogs }
+  return {
+    logs,
+    externalIp,
+    fetchLogs,
+    cleanAndFetchLogs,
+    $reset: async () => {
+      while (_lock.value) {}
+      logs.value = []
+      externalIp.value = undefined
+    }
+  }
 })

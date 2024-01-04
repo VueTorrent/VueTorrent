@@ -121,7 +121,14 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
-      toggleSelect
+      toggleSelect,
+      $reset: () => {
+        currentPage.value = 1
+        isSelectionMultiple.value = false
+        selectedTorrents.value = []
+        latestSelectedTorrent.value = undefined
+        displayMode.value = DashboardDisplayMode.LIST
+      }
     }
   },
   {

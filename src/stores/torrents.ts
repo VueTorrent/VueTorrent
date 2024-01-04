@@ -174,7 +174,21 @@ export const useTorrentStore = defineStore(
       pauseTorrents,
       recheckTorrents,
       setTorrentPriority,
-      exportTorrent
+      exportTorrent,
+      $reset: () => {
+        torrents.value = []
+
+        isTextFilterActive.value = true
+        textFilter.value = ''
+        isStatusFilterActive.value = true
+        statusFilter.value = []
+        isCategoryFilterActive.value = true
+        categoryFilter.value = []
+        isTagFilterActive.value = true
+        tagFilter.value = []
+        isTrackerFilterActive.value = true
+        trackerFilter.value = []
+      }
     }
   },
   {

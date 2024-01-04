@@ -2,7 +2,7 @@ import { qbit } from '@/services'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
-import { v1 as genUuid } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 
 export const useSearchEngineStore = defineStore(
@@ -13,7 +13,7 @@ export const useSearchEngineStore = defineStore(
 
     function createNewTab() {
       searchData.value.push({
-        uniqueId: genUuid(),
+        uniqueId: uuidv4(),
         id: 0,
         query: '',
         itemsPerPage: 10,
@@ -81,7 +81,12 @@ export const useSearchEngineStore = defineStore(
       installSearchPlugin,
       uninstallSearchPlugin,
       toggleSearchPlugin,
-      updatePlugins
+      updatePlugins,
+      $reset: () => {
+        searchData.value = []
+        searchPlugins.value = []
+        createNewTab()
+      }
     }
   },
   {

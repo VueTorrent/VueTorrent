@@ -35,8 +35,16 @@ export const useDialogStore = defineStore('dialogs', () => {
 
   function deleteDialog(guid: string) {
     dialogs.value = dialogs.value.filter(dialog => dialog.guid !== guid)
-    triggerRef(dialogs)
   }
 
-  return { dialogs, hasActiveDialog, isDialogOpened, createDialog, deleteDialog }
+  return {
+    dialogs,
+    hasActiveDialog,
+    isDialogOpened,
+    createDialog,
+    deleteDialog,
+    $reset: () => {
+      dialogs.value = []
+    }
+  }
 })
