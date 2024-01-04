@@ -265,7 +265,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       while (isUpdatingMaindata.value) {}
       categories.value = []
       rid.value = undefined
-      serverState.value = undefined
+      serverState.value = {} as ServerState
       tags.value = []
       trackers.value = []
     }
