@@ -2,13 +2,30 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import ContentNode from './ContentNode.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const contentStore = useContentStore()
 const { trcProperties, tree } = storeToRefs(contentStore)
+
+const flatTree = computed(() => {
+  const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
+    const path = parentPath === '' ? node.name : parentPath + '/' + node.name
+
+    if (node.type === 'file') {
+      return [node]
+    } else if (openedItems.value.includes(node.fullName)) {
+      const children = node.children.flatMap(el => flatten(el, path))
+      return [node, ...children]
+    } else {
+      return [node]
+    }
+  }
+
+  return flatten(tree.value, '')
+})
 
 const openedItems = ref(['(root)'])
 
@@ -60,34 +77,27 @@ onMounted(() => {
 
 <template>
   <v-card>
-    <v-card-text>
-      <ul class="tree-root">
+    <v-virtual-scroll id="tree-root" :items="flatTree" height="750" class="pa-2">
+      <template #default="{ item }">
         <ContentNode :opened-items="openedItems"
-                     :nodes="[tree]"
-                     :depth="0"
+                     :node="item"
                      @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
                      @onRightClick="(e, node) => onRightClick(e, node)" />
-      </ul>
-    </v-card-text>
+      </template>
+    </v-virtual-scroll>
   </v-card>
 </template>
 
 <style lang="scss">
-ul.tree-root {
+#_tree-root {
   font-size: medium;
   list-style-type: none;
 
-  @for $i from 0 through 10 {
-    .depth-#{$i} {
-      padding-left: $i * 32px;
-    }
-  }
-
-  li {
-    margin-top: 8px;
+  div.v-virtual-scroll__item {
+    padding-top: 8px;
 
     &:first-child {
-      margin-top: 0;
+      padding-top: 0;
     }
 
     &:last-child {

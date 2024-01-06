@@ -4,12 +4,12 @@ import { getFileIcon } from '@/constants/vuetorrent'
 import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
-  nodes: TreeNode[]
+  node: TreeNode
   openedItems: string[]
-  depth: number
 }>()
 
 const emit = defineEmits<{
@@ -20,6 +20,8 @@ const emit = defineEmits<{
 const { t } = useI18n()
 const contentStore = useContentStore()
 const vuetorrentStore = useVueTorrentStore()
+
+const depth = computed(() => props.node.fullName.split('/').length)
 
 function openNode(e: Event, node: TreeNode) {
   if (node.type === 'file') return
@@ -93,48 +95,41 @@ function getNodeSubtitle(node: TreeNode) {
 </script>
 
 <template>
-  <template v-for="node in nodes">
-    <li :class="[`d-flex flex-column depth-${depth}`, (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
-        @click.stop="toggleInternalSelection($event, node)"
-        @contextmenu="$emit('onRightClick', $event, node)">
-      <div class="d-flex">
-        <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
-          <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
-          <v-icon v-else-if="node.getPriority() === FilePriority.MIXED" icon="mdi-checkbox-intermediate-variant" />
-          <v-icon v-else :color="getPriorityColor(node)" icon="mdi-checkbox-marked" />
-        </div>
-
-        <div class="d-flex align-center spacer" @click="openNode($event, node)">
-          <template v-if="node.type === 'folder'">
-            <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
-
-            <v-icon v-if="node.name === '(root)'" icon="mdi-file-tree" />
-            <v-icon v-else-if="openedItems.includes(node.fullName)" icon="mdi-folder-open" color="#ffe476" />
-            <v-icon v-else icon="mdi-folder" color="#ffe476" />
-          </template>
-
-          <v-icon v-else :icon="getFileIcon(node.name)" />
-        </div>
-
-        <div class="d-flex flex-column">
-          <span :class="`text-${getPriorityColor(node)}`">{{ node.name }}</span>
-          <span class="text-grey">
-            {{ getNodeSubtitle(node) }}
-          </span>
-        </div>
+  <div :class="[`d-flex flex-column`, (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
+      :style="node.name !== '(root)' ? `padding-left: ${depth * 32}px` : ''"
+      @click.stop="toggleInternalSelection($event, node)"
+      @contextmenu="$emit('onRightClick', $event, node)">
+    <div class="d-flex">
+      <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
+        <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
+        <v-icon v-else-if="node.getPriority() === FilePriority.MIXED" icon="mdi-checkbox-intermediate-variant" />
+        <v-icon v-else :color="getPriorityColor(node)" icon="mdi-checkbox-marked" />
       </div>
 
-      <div>
-        <v-progress-linear :model-value="node.getProgress()" :color="getPriorityColor(node)" max="1" />
+      <div class="d-flex align-center spacer" @click="openNode($event, node)">
+        <template v-if="node.type === 'folder'">
+          <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+
+          <v-icon v-if="node.name === '(root)'" icon="mdi-file-tree" />
+          <v-icon v-else-if="openedItems.includes(node.fullName)" icon="mdi-folder-open" color="#ffe476" />
+          <v-icon v-else icon="mdi-folder" color="#ffe476" />
+        </template>
+
+        <v-icon v-else :icon="getFileIcon(node.name)" />
       </div>
-    </li>
-    <ContentNode v-if="node.type === 'folder' && openedItems.includes(node.fullName)"
-                 :opened-items="openedItems"
-                 :nodes="node.children"
-                 :depth="depth+1"
-                 @setFilePrio="(fileIdx, prio) => $emit('setFilePrio', fileIdx, prio)"
-                 @onRightClick="($e, $node) => $emit('onRightClick', $e, $node)" />
-  </template>
+
+      <div class="d-flex flex-column">
+        <span :class="`text-${getPriorityColor(node)}`">{{ node.name }}</span>
+        <span class="text-grey">
+          {{ getNodeSubtitle(node) }}
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <v-progress-linear :model-value="node.getProgress()" :color="getPriorityColor(node)" max="1" />
+    </div>
+  </div>
 </template>
 
 <style scoped lang="scss">
