@@ -24,8 +24,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
     target: null as TreeNode | null
   })
   const internalSelection = ref<Set<string>>(new Set())
-  const apiLock = ref(false)
-  const loading = ref(false)
+  const _lock = ref(false)
   const cachedFiles = ref<TorrentFile[]>([])
   const { tree } = useTreeBuilder(cachedFiles)
 
@@ -60,15 +59,13 @@ export const useContentStore = defineStore('torrentDetail', () => {
   })
 
   async function updateFileTree() {
-    if (apiLock.value) return
-    apiLock.value = true
-    loading.value = true
+    if (_lock.value) return
+    _lock.value = true
     await nextTick()
 
     cachedFiles.value = await maindataStore.fetchFiles(trcProperties.hash)
 
-    loading.value = false
-    apiLock.value = false
+    _lock.value = false
     await nextTick()
   }
 
@@ -124,6 +121,11 @@ export const useContentStore = defineStore('torrentDetail', () => {
     resumeTimer,
     renameTorrentFile,
     renameTorrentFolder,
-    setFilePriority
+    setFilePriority,
+    $reset: () => {
+      while (_lock.value) {}
+      internalSelection.value = new Set()
+      cachedFiles.value = []
+    }
   }
 })

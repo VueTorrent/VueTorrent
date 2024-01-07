@@ -2,7 +2,7 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import ContentNode from './ContentNode.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
@@ -73,6 +73,7 @@ onMounted(() => {
   trcProperties.value.hash = props.torrent.hash
   contentStore.resumeTimer()
 })
+onUnmounted(() => contentStore.$reset())
 </script>
 
 <template>
