@@ -23,6 +23,18 @@ import { faker } from '@faker-js/faker/locale/en'
 import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
+  private static instance: MockProvider
+  private static hashes: string[] = new Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT)).fill('').map(() => faker.string.hexadecimal({ length: 40, prefix: '', casing: 'lower' }))
+
+  private constructor() {}
+
+  static getInstance(): MockProvider {
+    if (!MockProvider.instance) {
+      MockProvider.instance = new MockProvider()
+    }
+    return MockProvider.instance
+  }
+
   private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean }): Promise<T> {
     const result = options?.result === undefined ? undefined : options.result
     const shouldResolve = options?.shouldResolve === undefined ? true : options.shouldResolve
@@ -655,73 +667,72 @@ export default class MockProvider implements IProvider {
   /// TorrentsController ///
 
   async getTorrents(_?: GetTorrentPayload): Promise<Torrent[]> {
-    const added_on = faker.date.past().getTime()
-    const hash = faker.string.hexadecimal({ length: 40, prefix: '', casing: 'lower' })
-    const name = faker.system.fileName()
-    const num_complete = faker.number.int({ min: 0, max: 250 })
-    const num_incomplete = faker.number.int({ min: 0, max: 250 })
-    const state = faker.helpers.enumValue(TorrentState)
-    const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
-    const completed = faker.number.int({ min: 0, max: total_size })
-    const tracker = faker.internet.url()
+    const result = MockProvider.hashes.map(hash => {
+      const added_on = faker.date.past().getTime()
+      const name = faker.system.fileName()
+      const num_complete = faker.number.int({ min: 0, max: 250 })
+      const num_incomplete = faker.number.int({ min: 0, max: 250 })
+      const state = faker.helpers.enumValue(TorrentState)
+      const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
+      const completed = faker.number.int({ min: 0, max: total_size })
+      const tracker = faker.internet.url()
 
-    return this.generateResponse({
-      result: [
-        {
-          added_on,
-          amount_left: faker.number.int({ min: 0, max: total_size }),
-          auto_tmm: faker.datatype.boolean(),
-          availability: faker.number.float({ min: 0, max: 100, precision: 0.01 }),
-          category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
-          completed,
-          completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime(),
-          content_path: faker.system.filePath(),
-          dl_limit: faker.number.float({ min: 0, max: 1, precision: 0.01 }),
-          dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
-          download_path: faker.system.directoryPath(),
-          downloaded: completed,
-          downloaded_session: completed,
-          eta: faker.number.int({ min: 0, max: 900000 }),
-          f_l_piece_prio: faker.datatype.boolean(),
-          force_start: faker.datatype.boolean(),
-          hash,
-          inactive_seeding_time_limit: -2,
-          infohash_v1: hash,
-          infohash_v2: '',
-          last_activity: faker.number.int({ min: 0, max: 50 }),
-          magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
-          max_inactive_seeding_time: -1,
-          max_ratio: -1,
-          max_seeding_time: -1,
-          name,
-          num_complete,
-          num_incomplete,
-          num_leechs: faker.number.int({ min: 0, max: num_incomplete }),
-          num_seeds: faker.number.int({ min: 0, max: num_complete }),
-          priority: 1,
-          progress: completed / total_size,
-          ratio: 0,
-          ratio_limit: -2,
-          save_path: faker.system.directoryPath(),
-          seeding_time: 0,
-          seeding_time_limit: -2,
-          seen_complete: -3600,
-          seq_dl: faker.datatype.boolean(),
-          size: total_size,
-          state,
-          super_seeding: faker.datatype.boolean(),
-          tags: '',
-          time_active: 0,
-          total_size,
-          tracker,
-          trackers_count: 1,
-          up_limit: 0,
-          uploaded: 0,
-          uploaded_session: 0,
-          upspeed: 0
-        }
-      ]
+      return {
+        added_on,
+        amount_left: faker.number.int({ min: 0, max: total_size }),
+        auto_tmm: faker.datatype.boolean(),
+        availability: faker.number.float({ min: 0, max: 100, precision: 0.01 }),
+        category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
+        completed,
+        completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime(),
+        content_path: faker.system.filePath(),
+        dl_limit: faker.number.float({ min: 0, max: 1, precision: 0.01 }),
+        dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
+        download_path: faker.system.directoryPath(),
+        downloaded: completed,
+        downloaded_session: completed,
+        eta: faker.number.int({ min: 0, max: 900000 }),
+        f_l_piece_prio: faker.datatype.boolean(),
+        force_start: faker.datatype.boolean(),
+        hash,
+        inactive_seeding_time_limit: -2,
+        infohash_v1: hash,
+        infohash_v2: '',
+        last_activity: faker.number.int({ min: 0, max: 50 }),
+        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
+        max_inactive_seeding_time: -1,
+        max_ratio: -1,
+        max_seeding_time: -1,
+        name,
+        num_complete,
+        num_incomplete,
+        num_leechs: faker.number.int({ min: 0, max: num_incomplete }),
+        num_seeds: faker.number.int({ min: 0, max: num_complete }),
+        priority: 1,
+        progress: completed / total_size,
+        ratio: 0,
+        ratio_limit: -2,
+        save_path: faker.system.directoryPath(),
+        seeding_time: 0,
+        seeding_time_limit: -2,
+        seen_complete: -3600,
+        seq_dl: faker.datatype.boolean(),
+        size: total_size,
+        state,
+        super_seeding: faker.datatype.boolean(),
+        tags: '',
+        time_active: 0,
+        total_size,
+        tracker,
+        trackers_count: 1,
+        up_limit: 0,
+        uploaded: 0,
+        uploaded_session: 0,
+        upspeed: 0
+      }
     })
+
+    return this.generateResponse({ result })
   }
 
   async getTorrentTrackers(_: string): Promise<Tracker[]> {

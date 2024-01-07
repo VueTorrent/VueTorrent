@@ -115,7 +115,7 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       // fetch torrent data
       torrentStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(torrentStore.sortOptions.sortBy) !== -1
-      let data = await qbit.getTorrents(torrentStore.getTorrentsPayload)
+      const data = await qbit.getTorrents(torrentStore.getTorrentsPayload)
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data

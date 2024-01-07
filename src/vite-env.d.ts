@@ -9,6 +9,7 @@ interface ImportMetaEnv extends BaseImportMetaEnv {
   readonly VITE_QBITTORRENT_PORT: number
 
   readonly VITE_USE_MOCK_PROVIDER: string
+  readonly VITE_FAKE_TORRENTS_COUNT: number
 }
 
 interface ImportMeta {
