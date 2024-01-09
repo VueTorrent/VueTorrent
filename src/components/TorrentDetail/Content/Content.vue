@@ -14,10 +14,14 @@ const flatTree = computed(() => {
   const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
     const path = parentPath === '' ? node.name : parentPath + '/' + node.name
 
-    if (node.type === 'file') {
-      return [node]
-    } else if (openedItems.value.includes(node.fullName)) {
-      const children = node.children.flatMap(el => flatten(el, path))
+    if (node.type === 'folder' && openedItems.value.includes(node.fullName)) {
+      const children = node.children
+      .toSorted((a: TreeNode, b: TreeNode) => {
+        if (a.type === 'folder' && b.type === 'file') return -1
+        if (a.type === 'file' && b.type === 'folder') return 1
+        return a.name.localeCompare(b.name)
+      })
+      .flatMap(el => flatten(el, path))
       return [node, ...children]
     } else {
       return [node]
@@ -78,7 +82,7 @@ onUnmounted(() => contentStore.$reset())
 
 <template>
   <v-card>
-    <v-virtual-scroll id="tree-root" :items="flatTree" height="750" class="pa-2">
+    <v-virtual-scroll id="tree-root" :items="flatTree" height="750" item-height="48" class="pa-2">
       <template #default="{ item }">
         <ContentNode :opened-items="openedItems"
                      :node="item"
