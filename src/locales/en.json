@@ -354,15 +354,15 @@
     "rss": {
       "feed": {
         "name": "Name",
+        "rules": {
+          "name_required": "Feed name is required",
+          "url_required": "Feed URL is required"
+        },
         "title": {
           "create": "Create RSS Feed",
           "edit": "Edit RSS Feed"
         },
-        "url": "URL",
-        "rules": {
-          "name_required": "Feed name is required",
-          "url_required": "Feed URL is required"
-        }
+        "url": "URL"
       },
       "rule": {
         "addPaused": "Add paused",
@@ -519,9 +519,9 @@
     },
     "markAllAsRead": "Mark all as read",
     "promise": {
+      "error": "An error occured while marking articles",
       "pending": "Marking...",
-      "success": "{n} marked as read",
-      "error": "An error occured while marking articles"
+      "success": "{n} articles marked as read"
     },
     "title": "RSS Articles"
   },
