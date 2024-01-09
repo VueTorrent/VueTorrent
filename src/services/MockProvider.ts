@@ -24,7 +24,9 @@ import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
-  private static hashes: string[] = new Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT)).fill('').map(() => faker.string.hexadecimal({ length: 40, prefix: '', casing: 'lower' }))
+  private static hashes: string[] = new Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT))
+    .fill('')
+    .map(() => faker.string.hexadecimal({ length: 40, prefix: '', casing: 'lower' }))
 
   private constructor() {}
 
@@ -699,7 +701,7 @@ export default class MockProvider implements IProvider {
         infohash_v1: hash,
         infohash_v2: '',
         last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
+        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
         max_inactive_seeding_time: -1,
         max_ratio: -1,
         max_seeding_time: -1,

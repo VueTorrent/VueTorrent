@@ -2,26 +2,28 @@
 
 ## [2.5.0](https://github.com/WDaan/VueTorrent/compare/v2.4.0...v2.5.0) (2024-01-09)
 
-
 ### Features
 
-* **RSS:** Allow edit feed URL (4.6.0+) ([#1433](https://github.com/WDaan/VueTorrent/issues/1433)) ([ade6def](https://github.com/WDaan/VueTorrent/commit/ade6defb826f3868532ac4d16ad0bdb2eec5a556))
-
+- **RSS:** Allow edit feed URL (4.6.0+) ([#1433](https://github.com/WDaan/VueTorrent/issues/1433))
+  ([ade6def](https://github.com/WDaan/VueTorrent/commit/ade6defb826f3868532ac4d16ad0bdb2eec5a556))
 
 ### Bug Fixes
 
-* make info tab selectable [#1413](https://github.com/WDaan/VueTorrent/issues/1413) ([7e8cc9c](https://github.com/WDaan/VueTorrent/commit/7e8cc9cdbcaa741c2c91c79b8cb113587662174c))
-* **sortBy:** Fix height overflow ([#1441](https://github.com/WDaan/VueTorrent/issues/1441)) ([b261d15](https://github.com/WDaan/VueTorrent/commit/b261d1547a966155740e47227d6e29c316e9136a))
-* sticky add button [#1415](https://github.com/WDaan/VueTorrent/issues/1415) ([64c595e](https://github.com/WDaan/VueTorrent/commit/64c595eeac6e48d86c11ddc533122f1658c1b6a8))
-
+- make info tab selectable [#1413](https://github.com/WDaan/VueTorrent/issues/1413) ([7e8cc9c](https://github.com/WDaan/VueTorrent/commit/7e8cc9cdbcaa741c2c91c79b8cb113587662174c))
+- **sortBy:** Fix height overflow ([#1441](https://github.com/WDaan/VueTorrent/issues/1441))
+  ([b261d15](https://github.com/WDaan/VueTorrent/commit/b261d1547a966155740e47227d6e29c316e9136a))
+- sticky add button [#1415](https://github.com/WDaan/VueTorrent/issues/1415) ([64c595e](https://github.com/WDaan/VueTorrent/commit/64c595eeac6e48d86c11ddc533122f1658c1b6a8))
 
 ### Improvements
 
-* **add-torrent:** Use scrollable dialog instead of manual infinite scroll ([#1442](https://github.com/WDaan/VueTorrent/issues/1442)) ([7288861](https://github.com/WDaan/VueTorrent/commit/7288861515ffb81d23ddcbce6446f0ad7726cab2))
-* center login screen ([f773756](https://github.com/WDaan/VueTorrent/commit/f773756b163f3dae13076bfa4008ba9f3c905ca9))
-* **dev:** Add MockProvider ([#1435](https://github.com/WDaan/VueTorrent/issues/1435)) ([f5524b7](https://github.com/WDaan/VueTorrent/commit/f5524b7d8b3c4e73369078636d8b67027f8f265b))
-* **SpeedGraph:** Init values with null ([#1422](https://github.com/WDaan/VueTorrent/issues/1422)) ([51d58cf](https://github.com/WDaan/VueTorrent/commit/51d58cfc4962f3c4fcc71d9e65a09863f695e025))
-* tweak torrent title ([0e67cea](https://github.com/WDaan/VueTorrent/commit/0e67cea318170000ec8fa00ac6918724f3ede999))
+- **add-torrent:** Use scrollable dialog instead of manual infinite scroll ([#1442](https://github.com/WDaan/VueTorrent/issues/1442))
+  ([7288861](https://github.com/WDaan/VueTorrent/commit/7288861515ffb81d23ddcbce6446f0ad7726cab2))
+- center login screen ([f773756](https://github.com/WDaan/VueTorrent/commit/f773756b163f3dae13076bfa4008ba9f3c905ca9))
+- **dev:** Add MockProvider ([#1435](https://github.com/WDaan/VueTorrent/issues/1435))
+  ([f5524b7](https://github.com/WDaan/VueTorrent/commit/f5524b7d8b3c4e73369078636d8b67027f8f265b))
+- **SpeedGraph:** Init values with null ([#1422](https://github.com/WDaan/VueTorrent/issues/1422))
+  ([51d58cf](https://github.com/WDaan/VueTorrent/commit/51d58cfc4962f3c4fcc71d9e65a09863f695e025))
+- tweak torrent title ([0e67cea](https://github.com/WDaan/VueTorrent/commit/0e67cea318170000ec8fa00ac6918724f3ede999))
 
 ## [2.4.0](https://github.com/WDaan/VueTorrent/compare/v2.3.0...v2.4.0) (2023-12-09)
 
