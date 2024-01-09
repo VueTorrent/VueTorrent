@@ -413,6 +413,6 @@ onBeforeUnmount(() => {
 
 <style>
 .v-autocomplete .v-field:not(.v-field--focused) input {
-  display: none
+  display: none;
 }
 </style>
