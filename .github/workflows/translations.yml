@@ -6,11 +6,6 @@ on:
     # At 00:00 on Sunday.
     - cron: '0 0 * * 0'
 
-permissions:
-  contents: write
-  pull-requests: write
-  actions: write
-
 jobs:
   update-translations:
     runs-on: ubuntu-latest
@@ -45,7 +40,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GH_PAT }}
+          base: master
           commit-message: 'chore: update translations'
           branch: 'update-tolgee-translations'
           title: 'chore: update translations'
