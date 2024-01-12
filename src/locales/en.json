@@ -1015,6 +1015,10 @@
     }
   },
   "toast": {
+    "copy": {
+      "error": "Unable to copy, context isn't secured!",
+      "success": "Copied to clipboard!"
+    },
     "magnet_handler": {
       "not_supported": "Current context isn't secure. Unable to register handler.",
       "registered": "Magnet handler registered."

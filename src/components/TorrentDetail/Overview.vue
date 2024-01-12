@@ -9,6 +9,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 import { useTheme } from 'vuetify'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
@@ -114,7 +115,14 @@ async function renderTorrentPieceStates() {
 }
 
 async function copyHash() {
-  await navigator.clipboard.writeText(props.torrent.hash)
+  try {
+    await navigator.clipboard.writeText(props.torrent.hash)
+  } catch (error) {
+    toast.error(t('toast.copy.error'))
+    return
+  }
+
+  toast.success(t('toast.copy.success'))
 }
 
 function openMoveTorrentDialog(mode: 'dl' | 'save') {
