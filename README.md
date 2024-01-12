@@ -100,7 +100,8 @@ If you like to always have the latest and greatest, please sync to the `nightly-
 
 ## Contributing
 
-I'll gladly accept help/pull requests & advice!
+Open up a PR or create an issue to discuss.
+Reach out on Discord if you need help getting started!
 
 [FAQ](../../wiki/FAQ)
 
