@@ -20,7 +20,18 @@ function selectAllStatuses() {
 }
 
 function selectActive() {
-  statusFilter.value = [TorrentState.META_DL, TorrentState.DOWNLOADING, TorrentState.FORCED_DL, TorrentState.UPLOADING, TorrentState.FORCED_UP, TorrentState.MOVING]
+  statusFilter.value = [
+    TorrentState.UPLOADING,
+    TorrentState.CHECKING_UP,
+    TorrentState.FORCED_UP,
+    TorrentState.ALLOCATING,
+    TorrentState.DOWNLOADING,
+    TorrentState.META_DL,
+    TorrentState.CHECKING_DL,
+    TorrentState.FORCED_DL,
+    TorrentState.CHECKING_RESUME_DATA,
+    TorrentState.MOVING
+  ]
 }
 
 function selectAllCategories() {
