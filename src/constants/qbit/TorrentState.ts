@@ -1,22 +1,22 @@
 export enum TorrentState {
   /** Torrent has just started downloading and is fetching metadata */
-  META_DL = 'metaDL',
+  META_DL = '下载元数据',
   /** Torrent is forced to downloading to ignore queue limit */
-  FORCED_DL = 'forcedDL',
+  FORCED_DL = '[F] 下载',
   /** Torrent is being downloaded and data is being transferred */
-  DOWNLOADING = 'downloading',
+  DOWNLOADING = '下载',
   /** Torrent is being downloaded, but no connection were made */
-  STALLED_DL = 'stalledDL',
+  STALLED_DL = '暂停下载',
   /** Torrent is paused and has NOT finished downloading */
-  PAUSED_DL = 'pausedDL',
+  PAUSED_DL = '暂停',
   /** Queuing is enabled and torrent is queued for download */
-  QUEUED_DL = 'queuedDL',
+  QUEUED_DL = '排队',
   /** Torrent is forced to uploading and ignore queue limit */
-  FORCED_UP = 'forcedUP',
+  FORCED_UP = '[F] 做种',
   /** Torrent is being seeded and data is being transferred */
-  UPLOADING = 'uploading',
+  UPLOADING = '做种',
   /** Torrent is being seeded, but no connection were made */
-  STALLED_UP = 'stalledUP',
+  STALLED_UP = '上传已暂停',
   /** Torrent is paused and has finished downloading */
   PAUSED_UP = 'pausedUP',
   /** Queuing is enabled and torrent is queued for upload */
@@ -26,15 +26,15 @@ export enum TorrentState {
   /** Torrent has finished downloading and is being checked */
   CHECKING_UP = 'checkingUP',
   /** Checking resume data on qBt startup */
-  CHECKING_RESUME_DATA = 'checkingResumeData',
+  CHECKING_RESUME_DATA = '校验恢复数据',
   /** Torrent is allocating disk space for download */
   ALLOCATING = 'allocating',
   /** Torrent is moving to another location */
-  MOVING = 'moving',
+  MOVING = '移动中',
   /** Torrent data files is missing */
-  MISSING_FILES = 'missingFiles',
+  MISSING_FILES = '丢失文件',
   /** Some error occurred, applies to paused torrents */
-  ERROR = 'error',
+  ERROR = '错误',
   /** Unknown status */
-  UNKNOWN = 'unknown'
+  UNKNOWN = '未知'
 }
