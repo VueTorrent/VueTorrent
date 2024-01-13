@@ -19,6 +19,21 @@ function selectAllStatuses() {
   statusFilter.value = []
 }
 
+function selectActive() {
+  statusFilter.value = [
+    TorrentState.UPLOADING,
+    TorrentState.CHECKING_UP,
+    TorrentState.FORCED_UP,
+    TorrentState.ALLOCATING,
+    TorrentState.DOWNLOADING,
+    TorrentState.META_DL,
+    TorrentState.CHECKING_DL,
+    TorrentState.FORCED_DL,
+    TorrentState.CHECKING_RESUME_DATA,
+    TorrentState.MOVING
+  ]
+}
+
 function selectAllCategories() {
   categoryFilter.value = []
 }
@@ -40,7 +55,7 @@ function selectAllTrackers() {
       </v-list-item-title>
       <v-select
         v-model="statusFilter"
-        :items="statuses"
+        :items="statuses.sort((a, b) => a.title.localeCompare(b.title))"
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
@@ -50,6 +65,7 @@ function selectAllTrackers() {
         variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
+          <v-list-item :title="$t('common.active')" @click="selectActive" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">

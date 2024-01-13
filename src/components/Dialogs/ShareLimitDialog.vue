@@ -128,5 +128,3 @@ onBeforeMount(async () => {
     </v-card>
   </v-dialog>
 </template>
-
-<style scoped></style>
