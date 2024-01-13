@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
-import { useAppStore, useHistoryStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -11,6 +12,7 @@ const { t } = useI18n()
 const appStore = useAppStore()
 const historyStore = useHistoryStore()
 const vueTorrentStore = useVueTorrentStore()
+const dialogStore = useDialogStore()
 
 const github = new Github()
 
@@ -58,6 +60,25 @@ const resetSettings = () => {
   window.localStorage.clear()
   window.sessionStorage.clear()
   location.reload()
+}
+
+const downloadSettings = () => {
+  const settings = window.localStorage.getItem('vuetorrent_webuiSettings')
+  if (!settings) return
+  const blob = new Blob([settings], { type: 'application/json' })
+  const blobUrl = URL.createObjectURL(blob)
+
+  const a = document.createElement('a')
+  a.href = blobUrl
+  a.download = 'settings.json'
+
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+}
+
+const importSettings = () => {
+  dialogStore.createDialog(ImportSettingsDialog)
 }
 
 const registerMagnetHandler = () => {
@@ -187,10 +208,6 @@ onBeforeMount(() => {
             <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
           </h3>
         </v-col>
-
-        <v-col cols="4">
-          <v-btn color="primary" @click="checkNewVersion">{{ t('settings.vuetorrent.general.check_new') }} </v-btn>
-        </v-col>
       </v-row>
     </v-list-item>
 
@@ -199,8 +216,21 @@ onBeforeMount(() => {
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
           <v-btn color="primary" @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }} </v-btn>
         </v-col>
-
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
+          <v-btn color="primary" @click="checkNewVersion">{{ t('settings.vuetorrent.general.check_new') }} </v-btn>
+        </v-col>
+      </v-row>
+    </v-list-item>
+
+    <v-list-item>
+      <v-row>
+        <v-col cols="12" sm="4" class="d-flex align-center justify-center">
+          <v-btn color="primary" @click="importSettings">{{ t('settings.vuetorrent.general.import') }}</v-btn>
+        </v-col>
+        <v-col cols="12" sm="4" class="d-flex align-center justify-center">
+          <v-btn color="primary" @click="downloadSettings">{{ t('settings.vuetorrent.general.download') }}</v-btn>
+        </v-col>
+        <v-col cols="12" sm="4" class="d-flex align-center justify-center">
           <v-btn color="red" @click="resetSettings">{{ t('settings.vuetorrent.general.resetSettings') }}</v-btn>
         </v-col>
       </v-row>
