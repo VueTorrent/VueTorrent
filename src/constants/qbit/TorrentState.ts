@@ -16,19 +16,19 @@ export enum TorrentState {
   /** Torrent is being seeded and data is being transferred */
   UPLOADING = '做种',
   /** Torrent is being seeded, but no connection were made */
-  STALLED_UP = '上传已暂停',
+  STALLED_UP = '等待',
   /** Torrent is paused and has finished downloading */
-  PAUSED_UP = 'pausedUP',
+  PAUSED_UP = '完成',
   /** Queuing is enabled and torrent is queued for upload */
-  QUEUED_UP = 'queuedUP',
+  QUEUED_UP = '排队',
   /** Same as checkingUP, but torrent has NOT finished downloading */
-  CHECKING_DL = 'checkingDL',
+  CHECKING_DL = '校验',
   /** Torrent has finished downloading and is being checked */
-  CHECKING_UP = 'checkingUP',
+  CHECKING_UP = '校验',
   /** Checking resume data on qBt startup */
   CHECKING_RESUME_DATA = '校验恢复数据',
   /** Torrent is allocating disk space for download */
-  ALLOCATING = 'allocating',
+  ALLOCATING = '分配中',
   /** Torrent is moving to another location */
   MOVING = '移动中',
   /** Torrent data files is missing */
