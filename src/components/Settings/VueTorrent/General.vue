@@ -196,7 +196,11 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
         </v-col>
         <v-col cols="12" md="8">
-          <v-text-field :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM" v-model="vueTorrentStore.uiTitleCustom" hide-details :label="t('settings.vuetorrent.general.customTitle')" />
+          <v-text-field
+            :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM"
+            v-model="vueTorrentStore.uiTitleCustom"
+            hide-details
+            :label="t('settings.vuetorrent.general.customTitle')" />
         </v-col>
       </v-row>
 

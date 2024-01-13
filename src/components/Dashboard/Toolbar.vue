@@ -111,8 +111,7 @@ function toggleSelectMode() {
   <div class="d-flex my-3">
     <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
       <template v-slot:activator="{ props }">
-        <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props"
-               variant="plain" @click="toggleSelectMode" />
+        <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
       </template>
     </v-tooltip>
     <v-menu>
@@ -128,12 +127,9 @@ function toggleSelectMode() {
         </v-tooltip>
       </template>
       <v-list>
-        <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list"
-                     @click="displayMode = DashboardDisplayMode.LIST" />
-        <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid"
-                     @click="displayMode = DashboardDisplayMode.GRID" />
-        <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table"
-                     @click="displayMode = DashboardDisplayMode.TABLE" />
+        <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
+        <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
+        <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
       </v-list>
     </v-menu>
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
