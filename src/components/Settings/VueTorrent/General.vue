@@ -96,7 +96,7 @@ const checkNewVersion = async () => {
   if (vueTorrentVersion.value === 'DEV') return
 
   const latest = await github.getVersion()
-  if ('vueTorrentVersion.value' === latest) return
+  if (`v${vueTorrentVersion.value}` === latest) return
 
   toast.info(t('toast.new_version'))
 }
