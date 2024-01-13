@@ -99,3 +99,13 @@ $sideborder-margin: 6px;
     }
   }
 }
+
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  background: background-color;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background: #6b7280;
+}
