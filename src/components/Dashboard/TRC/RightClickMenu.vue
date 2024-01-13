@@ -10,6 +10,7 @@ import { TRCMenuEntry } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import { toast } from 'vue3-toastify'
 
 const props = defineProps<{
   modelValue: boolean
@@ -94,7 +95,14 @@ async function toggleTag(tag: string) {
 }
 
 async function copyValue(valueToCopy: string) {
-  await navigator.clipboard.writeText(valueToCopy)
+  try {
+    await navigator.clipboard.writeText(valueToCopy)
+  } catch (error) {
+    toast.error(t('toast.copy.error'))
+    return
+  }
+
+  toast.success(t('toast.copy.success'))
 }
 
 function setDownloadLimit() {
