@@ -6,7 +6,7 @@ export enum TorrentState {
   /** Torrent is being downloaded and data is being transferred */
   DOWNLOADING = '下载',
   /** Torrent is being downloaded, but no connection were made */
-  STALLED_DL = '暂停下载',
+  STALLED_DL = '停滞',
   /** Torrent is paused and has NOT finished downloading */
   PAUSED_DL = '暂停',
   /** Queuing is enabled and torrent is queued for download */
