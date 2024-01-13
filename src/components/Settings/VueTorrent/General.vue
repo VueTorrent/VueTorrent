@@ -172,28 +172,47 @@ onBeforeMount(() => {
           <v-text-field v-model="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
       </v-row>
+
       <v-row>
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.canvasRenderThreshold" type="number" :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
+          <v-text-field v-model="vueTorrentStore.canvasRenderThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.canvasRefreshThreshold" type="number" :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
+          <v-text-field v-model="vueTorrentStore.canvasRefreshThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" md="4">
+          <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
+        </v-col>
+        <v-col cols="12" md="8">
+          <v-text-field :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM" v-model="vueTorrentStore.uiTitleCustom" hide-details :label="t('settings.vuetorrent.general.customTitle')" />
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12" md="6">
+          <v-select v-model="theme" :items="themeOptions" :label="t('settings.vuetorrent.general.theme')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
         </v-col>
       </v-row>
     </v-list-item>
 
-    <v-list-item :class="$vuetify.display.mdAndDown ? 'w-100' : 'w-50'" class="mx-auto">
-      <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
-      <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
-      <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
-      <v-text-field :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM" v-model="vueTorrentStore.uiTitleCustom" :label="t('settings.vuetorrent.general.customTitle')" />
-      <v-select v-model="theme" :items="themeOptions" :label="t('settings.vuetorrent.general.theme')" />
-      <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
-    </v-list-item>
-
     <v-list-item>
       <v-row>
-        <v-col cols="4" class="d-flex align-center justify-center">
+        <v-col cols="6" class="d-flex align-center justify-center">
           <h3>
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
@@ -202,11 +221,8 @@ onBeforeMount(() => {
           </h3>
         </v-col>
 
-        <v-col cols="4" class="d-flex align-center justify-center">
-          <h3>
-            {{ t('settings.vuetorrent.general.qbittorrentVersion') }}
-            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
-          </h3>
+        <v-col cols="6" class="d-flex align-center justify-center">
+          <v-btn color="primary" @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }} </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -214,7 +230,10 @@ onBeforeMount(() => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="registerMagnetHandler">{{ t('settings.vuetorrent.general.registerMagnet') }} </v-btn>
+          <h3>
+            {{ t('settings.vuetorrent.general.qbittorrentVersion') }}
+            <a target="_blank" :href="`https://github.com/qbittorrent/qBittorrent/releases/tag/release-${appStore.version}`">{{ appStore.version }}</a>
+          </h3>
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
           <v-btn color="primary" @click="checkNewVersion">{{ t('settings.vuetorrent.general.check_new') }} </v-btn>
