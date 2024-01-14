@@ -6,6 +6,10 @@ on:
     # At 00:00 on Sunday.
     - cron: '0 0 * * 0'
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   update-translations:
     runs-on: ubuntu-latest
