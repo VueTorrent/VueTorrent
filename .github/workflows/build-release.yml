@@ -92,7 +92,7 @@ jobs:
   upload-release:
     name: Upload release to GitHub
     needs: [setup-release, build-release]
-    if: needs.setup-release.outputs.release_created
+    if: needs.setup-release.outputs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -116,7 +116,7 @@ jobs:
   push-release:
     name: Push to latest branch
     needs: [setup-release, build-release]
-    if: needs.setup-release.outputs.release_created
+    if: needs.setup-release.outputs
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
