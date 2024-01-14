@@ -313,6 +313,11 @@
       "title": "Delete {n} torrent | Delete {n} torrents",
       "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
     },
+    "importSettings": {
+      "required": "Providing settings is required",
+      "title": "Import Settings",
+      "valid": "Please provide valid settings"
+    },
     "moveTorrent": {
       "dl": {
         "title": "Change Download Path"
