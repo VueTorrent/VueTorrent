@@ -53,7 +53,7 @@ jobs:
 
       - name: Update locales
         run: |
-          curl -H 'X-API-KEY: tgpak_gq3tonc7njugq5dugjtg6mtqmq2dc5deof2wi2btou4ww2lkge' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
+          curl -H 'X-API-KEY: ${{ secrets.TOLGEE_TOKEN }}' 'https://app.tolgee.io/v2/projects/export' -o locales.zip
           unzip -o -d ./src/locales locales.zip
           rm locales.zip
 
