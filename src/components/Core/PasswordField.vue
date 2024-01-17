@@ -17,7 +17,7 @@ const icon = computed(() => (showPassword.value ? 'mdi-eye' : 'mdi-eye-off'))
 </script>
 
 <template>
-  <v-text-field :type="type" :append-inner-icon="hideIcon ? '' : icon" @click:append-inner="toggleShow">
+  <v-text-field name="password" :type="type" :append-inner-icon="hideIcon ? '' : icon" @click:append-inner="toggleShow">
     <template v-slot:prepend v-if="prependIcon">
       <v-icon color="accent" :icon="prependIcon" />
     </template>
