@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useDashboardStore, useVueTorrentStore } from '@/stores'
-import { ref } from 'vue'
+import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { storeToRefs } from 'pinia'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
 import FilterSelect from './SideWidgets/FilterSelect.vue'
@@ -11,9 +11,15 @@ import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 
 const dashboardStore = useDashboardStore()
-const vueTorrentStore = useVueTorrentStore()
-
-const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
+const { isDrawerOpen } = storeToRefs(useNavbarStore())
+const {
+  isDrawerRight,
+  showCurrentSpeed,
+  showSpeedGraph,
+  showAlltimeStat,
+  showSessionStat,
+  showFreeSpace
+} = storeToRefs(useVueTorrentStore())
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -21,25 +27,26 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" :location="vueTorrentStore.isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
+  <v-navigation-drawer v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'"
+                       color="primary" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
-      <v-list-item v-if="vueTorrentStore.showCurrentSpeed">
+      <v-list-item v-if="showCurrentSpeed">
         <CurrentSpeed />
       </v-list-item>
 
-      <v-list-item v-if="vueTorrentStore.showSpeedGraph">
+      <v-list-item v-if="showSpeedGraph">
         <SpeedGraph />
       </v-list-item>
 
-      <v-list-item v-if="vueTorrentStore.showAlltimeStat">
+      <v-list-item v-if="showAlltimeStat">
         <TransferStats :session="false" />
       </v-list-item>
 
-      <v-list-item v-if="vueTorrentStore.showSessionStat">
+      <v-list-item v-if="showSessionStat">
         <TransferStats :session="true" />
       </v-list-item>
 
-      <v-list-item v-if="vueTorrentStore.showFreeSpace">
+      <v-list-item v-if="showFreeSpace">
         <FreeSpace />
       </v-list-item>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SortOptions } from '@/constants/qbit'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
-import { useDashboardStore, useTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
@@ -9,11 +9,13 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const torrentStore = useTorrentStore()
-const { sortOptions } = storeToRefs(torrentStore)
-
 const dashboardStore = useDashboardStore()
 const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
+
+const { isDrawerOpen } = storeToRefs(useNavbarStore())
+
+const torrentStore = useTorrentStore()
+const { sortOptions } = storeToRefs(torrentStore)
 
 const torrentSortOptions = [
   { value: SortOptions.ADDED_ON, title: t('dashboard.sortBy.added_on') },
@@ -150,7 +152,7 @@ function toggleSelectMode() {
         density="compact"
         hide-details
         variant="solo-filled"
-        style="max-width: 180px" />
+        :style="`width: ${$vuetify.display.xs || $vuetify.display.sm && isDrawerOpen ? 180 : 300}px`" />
     </div>
 
     <v-spacer />

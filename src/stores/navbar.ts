@@ -1,9 +1,14 @@
+import { useVueTorrentStore } from './vuetorrent'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useNavbarStore = defineStore(
   'navbar',
   () => {
+    const vueTorrentStore = useVueTorrentStore()
+
+    const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
+
     const downloadData = ref<(number | null)[]>(new Array(15).fill(null))
     const uploadData = ref<(number | null)[]>(new Array(15).fill(null))
 
@@ -18,6 +23,7 @@ export const useNavbarStore = defineStore(
     }
 
     return {
+      isDrawerOpen,
       downloadData,
       uploadData,
       pushDownloadData,
