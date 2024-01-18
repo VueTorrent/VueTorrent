@@ -14,6 +14,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   setFilePrio: [fileIdx: number[], prio: FilePriority]
+  onRightClick: [e: MouseEvent | Touch, node: TreeNode]
 }>()
 
 const { t } = useI18n()
@@ -64,7 +65,7 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <template v-for="node in nodes">
-    <li :class="`d-flex flex-column depth-${depth}`" @click.stop="openNode(node)">
+    <li :class="`d-flex flex-column depth-${depth}`" @click.stop="openNode(node)" @contextmenu="$emit('onRightClick', $event, node)">
       <div class="d-flex">
         <div class="d-flex align-center" @click.stop="toggleSelection(node)">
           <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
@@ -97,7 +98,8 @@ function getNodeSubtitle(node: TreeNode) {
                  :opened-items="openedItems"
                  :nodes="node.children"
                  :depth="depth+1"
-                 @setFilePrio="(fileIdx, prio) => $emit('setFilePrio', fileIdx, prio)" />
+                 @setFilePrio="(fileIdx, prio) => $emit('setFilePrio', fileIdx, prio)"
+                 @onRightClick="($e, $node) => $emit('onRightClick', $e, $node)" />
   </template>
 </template>
 

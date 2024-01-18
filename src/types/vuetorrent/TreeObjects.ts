@@ -44,8 +44,8 @@ export class TreeFile {
     return [this.id]
   }
 
-  getProgress(): number | null {
-    return this.priority === FilePriority.DO_NOT_DOWNLOAD ? null : this.progress
+  getProgress(): number {
+    return this.progress
   }
 
   getDeepCount(): [number, number] {
@@ -87,7 +87,7 @@ export class TreeFolder {
   }
 
   getProgress(): number {
-    const values = this.children.map(child => child.getProgress()).filter(value => value !== null) as number[]
+    const values = this.children.map(child => child.getProgress())
 
     if (values.length === 0) return 0
     return values.reduce((prev, curr) => prev + curr, 0) / values.length

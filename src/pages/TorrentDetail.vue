@@ -1,18 +1,20 @@
 <script setup lang="ts">
+import RightClickMenu from '@/components/Core/RightClickMenu'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import Content from '@/components/TorrentDetail/Content.vue'
+import Content from '@/components/TorrentDetail/Content'
 import Info from '@/components/TorrentDetail/Info.vue'
 import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useDialogStore, useTorrentStore } from '@/stores'
+import { useContentStore, useDialogStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const { t } = useI18n()
+const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
@@ -111,6 +113,10 @@ onBeforeUnmount(() => {
         <TagsAndCategories :torrent="torrent" :is-active="tab === 'tagsAndCategories'" />
       </v-window-item>
     </v-window>
+  </div>
+
+  <div :style="`position: absolute; left: ${contentStore.trcProperties.offset[0]}px; top: ${contentStore.trcProperties.offset[1]}px;`">
+    <RightClickMenu v-model="contentStore.trcProperties.isVisible" :menu-data="contentStore.menuData" />
   </div>
 </template>
 

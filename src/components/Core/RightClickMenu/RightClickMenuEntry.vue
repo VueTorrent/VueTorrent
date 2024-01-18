@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { TRCMenuEntry } from '@/types/vuetorrent'
 
-defineProps<{
+const props = defineProps<{
   text: string
   icon?: string
   action?: () => void
@@ -12,10 +12,16 @@ defineProps<{
   divider?: boolean
   children?: TRCMenuEntry[]
 }>()
+
+const onClick = () => {
+  if (props.action) {
+    props.action()
+  }
+}
 </script>
 
 <template>
-  <v-list-item class="px-3 pointer" :disabled="disabled" v-if="!hidden" @click="action">
+  <v-list-item class="px-3 pointer" :disabled="disabled" v-if="!hidden" @click="onClick">
     <div class="d-flex">
       <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
       <v-icon class="mr-2" v-else-if="icon">{{ icon }}</v-icon>
