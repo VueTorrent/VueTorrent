@@ -53,19 +53,13 @@ function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node
   }
 }
 
-function getPriorityColor(node: TreeNode) {
-  switch (node.getPriority()) {
-    case FilePriority.DO_NOT_DOWNLOAD:
-      return 'grey'
-    case FilePriority.MIXED:
-      return ''
-    case FilePriority.NORMAL:
-      return 'green'
-    case FilePriority.HIGH:
-      return 'warning'
-    case FilePriority.MAXIMAL:
-      return 'error'
+function getNodeColor(node: TreeNode) {
+  if (node.getPriority() === FilePriority.DO_NOT_DOWNLOAD) {
+    return 'grey'
   }
+
+  const progress = node.getProgress()
+  return progress === 1 ? 'cyan' : 'green'
 }
 </script>
 
@@ -76,12 +70,12 @@ function getPriorityColor(node: TreeNode) {
        @contextmenu="$emit('onRightClick', $event, node)">
     <FileNode v-if="node.type === 'file'"
               :node="node"
-              :color="getPriorityColor(node)"
+              :color="getNodeColor(node)"
               @toggleFileSelection="toggleFileSelection" />
     <FolderNode v-else
                 :node="node"
                 :opened-items="openedItems"
-                :color="getPriorityColor(node)"
+                :color="getNodeColor(node)"
                 @toggleFileSelection="toggleFileSelection"
                 @openNode="openNode" />
   </div>

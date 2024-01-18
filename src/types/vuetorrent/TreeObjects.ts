@@ -95,7 +95,9 @@ export class TreeFolder {
   }
 
   getProgress(): number {
-    const values = this.children.map(child => child.getProgress())
+    const values = this.children
+    .filter(child => child.getPriority() !== FilePriority.DO_NOT_DOWNLOAD)
+    .map(child => child.getProgress())
 
     if (values.length === 0) return 0
     return values.reduce((prev, curr) => prev + curr, 0) / values.length

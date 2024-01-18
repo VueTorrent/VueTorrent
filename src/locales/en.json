@@ -64,7 +64,8 @@
       "high": "High",
       "max": "Max",
       "normal": "Normal",
-      "unwanted": "Unwanted"
+      "unwanted": "Unwanted",
+      "mixed": "Mixed"
     },
     "maxRatioAction": {
       "pauseTorrent": "Pause torrent",
