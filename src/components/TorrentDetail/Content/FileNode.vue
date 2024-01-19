@@ -38,10 +38,10 @@ const vuetorrentStore = useVueTorrentStore()
     <v-spacer />
 
     <div class="d-flex align-center">
-      <v-icon v-if="node.getPriority() === FilePriority.MAXIMAL">mdi-arrow-up</v-icon>
-      <v-icon v-else-if="node.getPriority() === FilePriority.HIGH">mdi-arrow-top-right</v-icon>
+      <v-icon v-if="node.getPriority() === FilePriority.MAXIMAL" color="error">mdi-arrow-up</v-icon>
+      <v-icon v-else-if="node.getPriority() === FilePriority.HIGH" color="warning">mdi-arrow-top-right</v-icon>
       <v-icon v-else-if="node.getPriority() === FilePriority.NORMAL">mdi-minus</v-icon>
-      <v-icon v-else-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD">mdi-cancel</v-icon>
+      <v-icon v-else-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" color="grey">mdi-cancel</v-icon>
     </div>
   </div>
   <v-progress-linear :model-value="node.getProgress()" :max="1" :color="color" rounded="sm" />

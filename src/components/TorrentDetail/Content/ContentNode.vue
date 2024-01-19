@@ -59,7 +59,7 @@ function getNodeColor(node: TreeNode) {
   }
 
   const progress = node.getProgress()
-  return progress === 1 ? 'cyan' : 'green'
+  return progress === 1 ? 'green' : ''
 }
 </script>
 
