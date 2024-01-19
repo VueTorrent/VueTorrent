@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { FilePriority } from '@/constants/qbit'
 import { getFileIcon } from '@/constants/vuetorrent'
-import { formatData, formatPercent } from '@/helpers'
+import { formatData } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { TreeFile } from '@/types/vuetorrent'
-import { useI18n } from 'vue-i18n'
 
 defineProps<{
   node: TreeFile
@@ -15,19 +14,7 @@ defineEmits<{
   toggleFileSelection: [node: TreeFile]
 }>()
 
-const { t } = useI18n()
 const vuetorrentStore = useVueTorrentStore()
-
-const filePrioOptions = [
-  { title: t('constants.file_priority.max'), value: FilePriority.MAXIMAL },
-  { title: t('constants.file_priority.high'), value: FilePriority.HIGH },
-  { title: t('constants.file_priority.normal'), value: FilePriority.NORMAL },
-  { title: t('constants.file_priority.unwanted'), value: FilePriority.DO_NOT_DOWNLOAD }
-]
-
-function getPrioName(prio: FilePriority) {
-  return filePrioOptions.find((o) => o.value === prio)?.title || 'unknown'
-}
 </script>
 
 <template>
@@ -50,16 +37,14 @@ function getPrioName(prio: FilePriority) {
 
     <v-spacer />
 
-    <div class="d-flex align-center mr-3">
-      [ {{ getPrioName(node.getPriority()) }} ]
-    </div>
-
     <div class="d-flex align-center">
-      <v-progress-linear :model-value="node.getProgress()" :max="1" :height="20" :color="color" rounded="sm" style="width: 7em">
-        {{ formatPercent(node.getProgress()) }}
-      </v-progress-linear>
+      <v-icon v-if="node.getPriority() === FilePriority.MAXIMAL">mdi-arrow-up</v-icon>
+      <v-icon v-else-if="node.getPriority() === FilePriority.HIGH">mdi-arrow-top-right</v-icon>
+      <v-icon v-else-if="node.getPriority() === FilePriority.NORMAL">mdi-minus</v-icon>
+      <v-icon v-else-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD">mdi-cancel</v-icon>
     </div>
   </div>
+  <v-progress-linear :model-value="node.getProgress()" :max="1" :color="color" rounded="sm" />
 </template>
 
 <style scoped>

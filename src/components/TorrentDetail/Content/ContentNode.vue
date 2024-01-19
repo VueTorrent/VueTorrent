@@ -64,7 +64,7 @@ function getNodeColor(node: TreeNode) {
 </script>
 
 <template>
-  <div :class="[`d-flex flex-column`, (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
+  <div :class="['d-flex flex-column py-2 pr-3', (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
        :style="node.name !== '(root)' ? `padding-left: ${depth * 32}px` : ''"
        @click.stop="toggleInternalSelection($event, node)"
        @contextmenu="$emit('onRightClick', $event, node)">

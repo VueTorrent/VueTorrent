@@ -21,7 +21,7 @@ const onClick = () => {
 </script>
 
 <template>
-  <v-list-item class="px-3 pointer" :disabled="disabled" v-if="!hidden" @click="onClick">
+  <v-list-item class="px-3" :disabled="disabled" v-if="!hidden" @click="onClick">
     <div class="d-flex">
       <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
       <v-icon class="mr-2" v-else-if="icon">{{ icon }}</v-icon>

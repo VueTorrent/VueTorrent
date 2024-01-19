@@ -45,10 +45,10 @@ export const useContentStore = defineStore('torrentDetail', () => {
       text: t('torrentDetail.content.priority'),
       icon: 'mdi-trending-up',
       children: [
-        { text: t('constants.file_priority.max'), icon: 'mdi-priority-high', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.MAXIMAL) },
-        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-up', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.HIGH) },
-        { text: t('constants.file_priority.normal'), icon: 'mdi-arrow-down', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.NORMAL) },
-        { text: t('constants.file_priority.unwanted'), icon: 'mdi-close', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.DO_NOT_DOWNLOAD) }
+        { text: t('constants.file_priority.max'), icon: 'mdi-arrow-up', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.MAXIMAL) },
+        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-top-right', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.HIGH) },
+        { text: t('constants.file_priority.normal'), icon: 'mdi-minus', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.NORMAL) },
+        { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.DO_NOT_DOWNLOAD) }
       ]
     }
   ]))
