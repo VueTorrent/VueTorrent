@@ -35,26 +35,7 @@ Join us on [Discord](https://discord.gg/KDQP7fR467)
 
 ## Installation
 
-### Manual
-
-- Visit the [Releases](https://github.com/WDaan/VueTorrent/releases) page!
-- Download the latest `vuetorrent.zip`
-- Unzip the downloaded file
-- Point your alternate WebUI location to the `vuetorrent` folder in qBittorrent settings
-
-### From Source
-
-- Clone branch using
-  - `git clone --single-branch --branch latest-release https://github.com/WDaan/VueTorrent.git`
-- Pull changes every once in a while, using `git pull`
-
-If you like to always have the latest and greatest, please sync to the `nightly-release`-branch. This can contain breaking changes though.
-
-### Lazy/Easy
-
-- use [hotio's qbittorrent](https://hotio.dev/containers/qbittorrent/) docker image, that comes pre-packed with VueTorrent.
-
-[Alternative methods - May work for older QBit versions](../../wiki/Alternative_Installation_Methods)
+Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 
 ## Development
 
