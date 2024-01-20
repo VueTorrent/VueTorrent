@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('./sw.js', { scope: './' })})}
+"serviceWorker"in navigator&&window.addEventListener("load",(async()=>{await navigator.serviceWorker.register("/sw.js")}));
