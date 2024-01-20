@@ -28,7 +28,6 @@
     "pinia": "^2.1.6",
     "pinia-plugin-persist": "^1.0.0",
     "uuid": "^9.0.1",
-    "vite-plugin-pwa": "^0.17.4",
     "vite-plugin-vuetify": "^2.0.1",
     "vue": "^3.4.14",
     "vue-i18n": "^9.9.0",

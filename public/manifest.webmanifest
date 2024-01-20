@@ -1,0 +1,22 @@
+{
+  "name": "VueTorrent",
+  "short_name": "VueTorrent",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#000",
+  "lang": "en",
+  "scope": "./",
+  "theme_color": "#597566",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
