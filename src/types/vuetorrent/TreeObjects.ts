@@ -48,6 +48,10 @@ export class TreeFile {
     return selection.has(this.fullName)
   }
 
+  isWanted(): boolean {
+    return this.priority !== FilePriority.DO_NOT_DOWNLOAD
+  }
+
   getProgress(): number {
     return this.progress
   }
@@ -92,6 +96,20 @@ export class TreeFolder {
 
   isSelected(selection: Set<string>): boolean {
     return selection.has(this.fullName)
+  }
+
+  isWanted(): boolean | null {
+    const children = this.children.map(child => child.isWanted())
+
+    const indeterminate = children.filter(child => child === null).length
+    const wanted = children.filter(child => child === true).length
+    const unwanted = children.filter(child => child === false).length
+
+    if (indeterminate > 0) return null
+    if (wanted > 0 && unwanted > 0) return null
+    if (wanted > 0) return true
+    if (unwanted > 0) return false
+    return null
   }
 
   getProgress(): number {

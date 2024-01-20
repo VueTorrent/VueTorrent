@@ -44,8 +44,8 @@ function getNodeSubtitle(node: TreeNode) {
 <template>
   <div class="d-flex">
     <div class="d-flex align-center" @click.stop="$emit('toggleFileSelection', node)">
-      <v-icon v-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" icon="mdi-checkbox-blank-outline" />
-      <v-icon v-else-if="node.getPriority() === FilePriority.MIXED" icon="mdi-checkbox-intermediate-variant" />
+      <v-icon v-if="node.isWanted() === false" icon="mdi-checkbox-blank-outline" />
+      <v-icon v-else-if="node.isWanted() === null" icon="mdi-checkbox-intermediate-variant" />
       <v-icon v-else :color="color" icon="mdi-checkbox-marked" />
     </div>
 
