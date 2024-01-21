@@ -30,10 +30,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
       'process.env': {}
     },
-    plugins: [
-      vue(),
-      vuetify()
-    ],
+    plugins: [vue(), vuetify()],
     publicDir: './public',
     resolve: {
       alias: {

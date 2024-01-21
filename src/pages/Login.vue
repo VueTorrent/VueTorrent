@@ -65,7 +65,14 @@ watchEffect(() => {
       <v-card-subtitle>{{ t('login.subtitle') }}</v-card-subtitle>
       <v-card-text>
         <v-form v-model="rulesOk" @submit.prevent="login">
-          <v-text-field v-model="loginForm.username" name="username" :label="t('login.username')" autofocus :rules="rules.username" @keydown.enter.prevent="login" variant="outlined">
+          <v-text-field
+            v-model="loginForm.username"
+            name="username"
+            :label="t('login.username')"
+            autofocus
+            :rules="rules.username"
+            @keydown.enter.prevent="login"
+            variant="outlined">
             <template v-slot:prepend>
               <v-icon color="accent" icon="mdi-account" />
             </template>
