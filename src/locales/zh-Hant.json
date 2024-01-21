@@ -1,5 +1,6 @@
 {
   "common": {
+    "active": "活躍",
     "cancel": "取消",
     "close": "關閉",
     "delete": "移除",
@@ -179,6 +180,12 @@
       "tags": {
         "disabled_title": "無標籤",
         "title": "設定標籤"
+      },
+      "top": {
+        "delete": "移除",
+        "force_resume": "強制繼續",
+        "pause": "暫停",
+        "resume": "繼續"
       }
     },
     "searchInputLabel": "搜尋",
@@ -305,6 +312,11 @@
       "title": "移除 {n} 個種子 | 移除 {n} 個種子",
       "warnDelete": "打勾此方格將移除種子包含的所有內容。"
     },
+    "importSettings": {
+      "required": "必須提供設定",
+      "title": "匯入設定",
+      "valid": "請提供有效的設定"
+    },
     "moveTorrent": {
       "dl": {
         "title": "更改下載路徑"
@@ -347,6 +359,10 @@
     "rss": {
       "feed": {
         "name": "名稱",
+        "rules": {
+          "name_required": "必須填寫訂閱名稱",
+          "url_required": "必須填寫訂閱連結"
+        },
         "title": {
           "create": "新增 RSS 訂閱源",
           "edit": "編輯 RSS 訂閱源"
@@ -507,6 +523,11 @@
       "feedName": "訂閱源名稱: {name}"
     },
     "markAllAsRead": "標記全部項目為已讀",
+    "promise": {
+      "error": "標記文章時發生錯誤",
+      "pending": "標記中...",
+      "success": "已標記 {n} 篇文章為已讀"
+    },
     "title": "RSS 文章"
   },
   "searchEngine": {
@@ -894,13 +915,16 @@
       "general": {
         "canvasRefreshThreshold": "種子分塊閾值以禁用 Canvas 自動更新",
         "canvasRenderThreshold": "種子分塊閾值以禁用 Canvas 渲染",
+        "check_new": "檢查新版本",
         "currentVersion": "當前版本",
         "customTitle": "自訂標題",
         "dateFormat": "日期格式",
+        "download": "下載設定",
         "exportSettings": "匯出設定",
         "fileContentInterval": "種子檔案內容更新區間",
         "hideChipIfUnset": "未設置時隱藏塊",
         "historySize": "符合條件欄位的歷史大小",
+        "import": "匯入設定",
         "importSettings": "匯入設定",
         "isDrawerRight": "側邊欄居右顯示",
         "isPaginationOnTop": "分頁欄於頂部顯示",
@@ -999,9 +1023,17 @@
     }
   },
   "toast": {
+    "copy": {
+      "error": "無法複製，當前環境不安全!",
+      "success": "已複製到剪貼簿!"
+    },
     "magnet_handler": {
       "not_supported": "當前環境不安全，無法註冊處理器。",
       "registered": "磁力連結處理器已註冊。"
+    },
+    "new_version": "新版本已發佈!",
+    "qbit": {
+      "not_supported": "僅適用於 qbit >= {version}"
     }
   },
   "topbar": {
@@ -1030,6 +1062,11 @@
     "content": {
       "fileInfo": "{n} 個檔案 | {n} 個檔案",
       "folderInfo": "{n} 個資料夾 | {n} 個資料夾",
+      "priority": "設定優先級",
+      "rename": {
+        "file": "重新命名",
+        "folder": "重新命名資料夾"
+      },
       "rootNode": "(根節點)"
     },
     "info": {
