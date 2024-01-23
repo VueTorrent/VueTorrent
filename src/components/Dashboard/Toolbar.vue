@@ -1,20 +1,21 @@
 <script setup lang="ts">
 import { SortOptions } from '@/constants/qbit'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
-import { useDashboardStore, useTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
-import { mergeProps } from 'vue'
+import { computed, mergeProps } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const torrentStore = useTorrentStore()
-const { sortOptions } = storeToRefs(torrentStore)
-
 const dashboardStore = useDashboardStore()
 const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
+
+const { isDrawerOpen } = storeToRefs(useNavbarStore())
+
+const torrentStore = useTorrentStore()
+const { sortOptions } = storeToRefs(torrentStore)
 
 const torrentSortOptions = [
   { value: SortOptions.ADDED_ON, title: t('dashboard.sortBy.added_on') },
@@ -93,72 +94,71 @@ function toggleSelectMode() {
 </script>
 
 <template>
-  <v-row class="ma-0 pa-0 mb-2">
-    <v-col cols="9" md="4" order="2" order-md="1" class="ma-0 pa-0">
-      <v-row class="ma-0 pa-0">
-        <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
-          <template v-slot:activator="{ props }">
-            <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
-          </template>
-        </v-tooltip>
-        <v-menu>
-          <template v-slot:activator="{ props: menu }">
-            <v-tooltip :text="$t('dashboard.displayMode.title')" location="top">
-              <template v-slot:activator="{ props: tooltip }">
-                <v-btn icon v-bind="mergeProps(menu, tooltip)" variant="plain">
-                  <v-icon v-if="displayMode === DashboardDisplayMode.LIST" icon="mdi-view-list" />
-                  <v-icon v-if="displayMode === DashboardDisplayMode.GRID" icon="mdi-view-grid" />
-                  <v-icon v-if="displayMode === DashboardDisplayMode.TABLE" icon="mdi-table" />
-                </v-btn>
-              </template>
-            </v-tooltip>
-          </template>
-          <v-list>
-            <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
-            <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
-            <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
-          </v-list>
-        </v-menu>
-        <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
-          <template v-slot:activator="{ props }">
-            <v-btn
-              :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
-              v-bind="props"
-              variant="plain"
-              @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
-          </template>
-        </v-tooltip>
-        <div class="pa-0" style="width: 8em">
-          <v-autocomplete
-            v-model="sortOptions.sortBy"
-            :items="torrentSortOptions"
-            :label="t('dashboard.sortLabel')"
-            auto-select-first
-            density="compact"
-            hide-details
-            variant="solo-filled" />
-        </div>
-      </v-row>
-    </v-col>
-    <v-col cols="10" md="6" order="1" order-md="2" :class="$vuetify.display.smAndDown ? 'mb-4 mx-auto' : ''" class="ma-0 pa-0">
-      <v-card color="transparent" max-width="300">
-        <v-text-field
-          id="searchInput"
-          v-model="torrentTitleFilter"
-          :label="t('dashboard.searchInputLabel')"
-          clearable
-          density="compact"
-          single-line
-          hide-details
-          prepend-inner-icon="mdi-magnify"
-          variant="solo"
-          @click:clear="resetInput()" />
-      </v-card>
-    </v-col>
-    <v-col cols="3" md="2" order="3" class="align-center justify-center">
-      <span class="text-uppercase" style="float: right; font-size: 0.8em">
-        {{ torrentCountString }}
-      </span>
+  <v-row>
+    <v-col cols="12">
+      <v-text-field
+        id="searchInput"
+        v-model="torrentTitleFilter"
+        :label="t('dashboard.searchInputLabel')"
+        clearable
+        density="compact"
+        single-line
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        variant="solo"
+        @click:clear="resetInput()" />
     </v-col>
   </v-row>
+
+  <div class="d-flex my-3">
+    <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
+      </template>
+    </v-tooltip>
+    <v-menu>
+      <template v-slot:activator="{ props: menu }">
+        <v-tooltip :text="$t('dashboard.displayMode.title')" location="top">
+          <template v-slot:activator="{ props: tooltip }">
+            <v-btn icon v-bind="mergeProps(menu, tooltip)" variant="plain">
+              <v-icon v-if="displayMode === DashboardDisplayMode.LIST" icon="mdi-view-list" />
+              <v-icon v-if="displayMode === DashboardDisplayMode.GRID" icon="mdi-view-grid" />
+              <v-icon v-if="displayMode === DashboardDisplayMode.TABLE" icon="mdi-table" />
+            </v-btn>
+          </template>
+        </v-tooltip>
+      </template>
+      <v-list>
+        <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
+        <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
+        <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
+      </v-list>
+    </v-menu>
+    <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn
+          :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
+          v-bind="props"
+          variant="plain"
+          @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
+      </template>
+    </v-tooltip>
+    <div class="pa-0">
+      <v-autocomplete
+        v-model="sortOptions.sortBy"
+        :items="torrentSortOptions"
+        :label="t('dashboard.sortLabel')"
+        auto-select-first
+        density="compact"
+        hide-details
+        variant="solo-filled"
+        :style="`width: ${$vuetify.display.xs || $vuetify.display.sm && isDrawerOpen ? 180 : 300}px`" />
+    </div>
+
+    <v-spacer />
+
+    <div class="d-flex align-center text-uppercase" style="font-size: 0.8em">
+      {{ torrentCountString }}
+    </div>
+  </div>
 </template>

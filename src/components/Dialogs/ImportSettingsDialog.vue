@@ -17,14 +17,15 @@ const rules = [
   (v: string) => {
     if (!v) return t('dialogs.importSettings.required')
 
+    let settings
     try {
-      const settings = JSON.parse(v)
-
-      // naive 1 key check
-      if (!settings.darkMode) return t('dialogs.importSettings.required')
+      settings = JSON.parse(v)
     } catch (e) {
       return t('dialogs.importSettings.valid')
     }
+
+    // naive 1 key check
+    if (!settings.darkMode) return t('dialogs.importSettings.required')
 
     return true
   }
@@ -37,7 +38,6 @@ function close() {
 async function submit() {
   window.localStorage.setItem('vuetorrent_webuiSettings', settings.value)
   window.location.reload()
-  close()
 }
 </script>
 
@@ -46,7 +46,7 @@ async function submit() {
     <v-card :title="$t('dialogs.importSettings.title')">
       <v-card-text>
         <v-form v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
-          <v-textarea v-model="settings" clearable auto-grow :rules="rules" />
+          <v-textarea v-model="settings" clearable :rules="rules" />
         </v-form>
       </v-card-text>
       <v-card-actions>
