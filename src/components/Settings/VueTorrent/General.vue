@@ -2,11 +2,11 @@
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
+import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
-import { Github } from '@/services/Github'
 
 const { t } = useI18n()
 const appStore = useAppStore()
@@ -55,6 +55,26 @@ const vueTorrentVersion = computed(() => {
 
   return null
 })
+
+const paginationSize = computed({
+  get: () => {
+    if (vueTorrentStore.paginationSize === -1)
+      return t('settings.vuetorrent.general.paginationSize.infinite_scroll')
+    return vueTorrentStore.paginationSize.toString()
+  },
+  set: (v: string) => {
+    const input = parseInt(v, 10)
+    if (isNaN(input)) return
+
+    if (input <= 0 && input !== -1) {
+      vueTorrentStore.paginationSize = -1
+    } else {
+      vueTorrentStore.paginationSize = input
+    }
+  }
+})
+
+const paginationSizeMessages = computed(() => vueTorrentStore.paginationSize > 1000 ? t('settings.vuetorrent.general.paginationSize.warning') : '')
 
 const resetSettings = () => {
   window.localStorage.clear()
@@ -187,7 +207,12 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-select v-model="vueTorrentStore.paginationSize" flat hide-details :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
+          <v-combobox v-model="paginationSize"
+                      :messages="paginationSizeMessages"
+                      flat
+                      :items="paginationSizes"
+                      :label="t('settings.vuetorrent.general.paginationSize.label')" />
+
         </v-col>
       </v-row>
 
