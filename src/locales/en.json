@@ -935,7 +935,8 @@
         "openSideBarOnStart": "Open Side Bar on launch",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
-          "label": "Pagination Size"
+          "label": "Pagination Size",
+          "warning": "Using high values can affect performances"
         },
         "qbittorrentVersion": "QBittorrent Version",
         "refreshInterval": "qBittorrent API refresh interval",
