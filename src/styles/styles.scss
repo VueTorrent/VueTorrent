@@ -8,6 +8,10 @@ ul.no-bullet {
   cursor: pointer;
 }
 
+.wrap-word {
+  overflow-wrap: break-word !important;
+}
+
 .wrap-anywhere {
   overflow-wrap: anywhere !important;
 }

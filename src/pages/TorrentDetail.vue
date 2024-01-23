@@ -51,7 +51,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="pa-3">
+  <div class="pa-3 text-select">
     <v-row no-gutters align="center" justify="center">
       <v-col>
         <h1 style="font-size: 1.6em !important" class="subtitle-1 ml-2">

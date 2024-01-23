@@ -106,7 +106,7 @@ const longTextPpts = [
 </script>
 
 <template>
-  <v-list class="text-select">
+  <v-list>
     <v-list-item>
       <v-expansion-panels>
         <v-expansion-panel :title="$t('torrentDetail.info.datetime_values')">
