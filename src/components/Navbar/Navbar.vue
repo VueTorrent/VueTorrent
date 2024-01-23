@@ -55,7 +55,7 @@ const toggleDrawer = () => {
       </v-list-item>
 
       <v-list-item density="compact">
-        <div class="d-flex justify-center text-accent">
+        <div class="d-flex justify-center text-accent text-select">
           {{ dashboardStore.torrentCountString }}
         </div>
       </v-list-item>

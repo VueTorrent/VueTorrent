@@ -125,7 +125,7 @@ onUnmounted(() => {
                   <v-list-item-subtitle>{{ getLogTypeName(log) }} | {{ formatLogTimestamp(log) }}</v-list-item-subtitle>
                 </template>
               </v-expansion-panel-title>
-              <v-expansion-panel-text>{{ log.message }}</v-expansion-panel-text>
+              <v-expansion-panel-text class="text-select">{{ log.message }}</v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
         </v-list-item>

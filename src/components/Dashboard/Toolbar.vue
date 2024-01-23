@@ -157,7 +157,7 @@ function toggleSelectMode() {
 
     <v-spacer />
 
-    <div class="d-flex align-center text-uppercase" style="font-size: 0.8em">
+    <div class="d-flex align-center text-uppercase text-select" style="font-size: 0.8em">
       {{ torrentCountString }}
     </div>
   </div>
