@@ -39,6 +39,6 @@ const vueTorrentStore = useVueTorrentStore()
 
 .roboto {
   font-family: 'Roboto Mono', sans-serif !important;
-  font-weight: 500;
+  font-weight: 600;
 }
 </style>
