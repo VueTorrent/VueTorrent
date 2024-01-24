@@ -6,12 +6,7 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
 import { TitleOptions } from './TitleOptions'
-
-export enum VuetorrentTheme {
-  LIGHT = 0,
-  DARK = 1,
-  SYSTEM = 2
-}
+import { VuetorrentTheme } from './VuetorrentTheme'
 
 export {
   TorrentProperty,
@@ -25,5 +20,6 @@ export {
   getFileIcon,
   typesMap,
   HistoryKey,
-  TitleOptions
+  TitleOptions,
+  VuetorrentTheme
 }
