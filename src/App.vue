@@ -42,11 +42,7 @@ const blockContextMenu = () => {
 }
 
 onBeforeMount(() => {
-  if (matchSystemTheme.value) {
-    vuetorrentStore.updateSystemTheme()
-  } else {
-    vuetorrentStore.updateTheme()
-  }
+  vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
   blockContextMenu()

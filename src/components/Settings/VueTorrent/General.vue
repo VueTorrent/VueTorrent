@@ -25,27 +25,6 @@ const titleOptionsList = [
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
-const theme = computed({
-  get() {
-    if (vueTorrentStore.matchSystemTheme) return 'auto'
-    else if (vueTorrentStore.darkMode) return 'dark'
-    else return 'light'
-  },
-  set(v: string) {
-    if (v === 'auto') vueTorrentStore.matchSystemTheme = true
-    else {
-      vueTorrentStore.matchSystemTheme = false
-      vueTorrentStore.darkMode = v === 'dark'
-    }
-  }
-})
-
-const themeOptions = [
-  { title: t('constants.theme.auto'), value: 'auto' },
-  { title: t('constants.theme.light'), value: 'light' },
-  { title: t('constants.theme.dark'), value: 'dark' }
-]
-
 const vueTorrentVersion = computed(() => {
   if (import.meta.env.PROD) {
     return import.meta.env.VITE_PACKAGE_VERSION
@@ -58,8 +37,7 @@ const vueTorrentVersion = computed(() => {
 
 const paginationSize = computed({
   get: () => {
-    if (vueTorrentStore.paginationSize === -1)
-      return t('settings.vuetorrent.general.paginationSize.infinite_scroll')
+    if (vueTorrentStore.paginationSize === -1) return t('settings.vuetorrent.general.paginationSize.infinite_scroll')
     return vueTorrentStore.paginationSize.toString()
   },
   set: (v: string) => {
@@ -74,7 +52,7 @@ const paginationSize = computed({
   }
 })
 
-const paginationSizeMessages = computed(() => vueTorrentStore.paginationSize > 1000 ? t('settings.vuetorrent.general.paginationSize.warning') : '')
+const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize > 1000 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
 
 const resetSettings = () => {
   window.localStorage.clear()
@@ -207,12 +185,7 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-combobox v-model="paginationSize"
-                      :messages="paginationSizeMessages"
-                      flat
-                      :items="paginationSizes"
-                      :label="t('settings.vuetorrent.general.paginationSize.label')" />
-
+          <v-combobox v-model="paginationSize" :messages="paginationSizeMessages" flat :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
       </v-row>
 
@@ -230,9 +203,6 @@ onBeforeMount(() => {
       </v-row>
 
       <v-row>
-        <v-col cols="12" md="6">
-          <v-select v-model="theme" :items="themeOptions" :label="t('settings.vuetorrent.general.theme')" />
-        </v-col>
         <v-col cols="12" md="6">
           <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
         </v-col>
@@ -285,5 +255,3 @@ onBeforeMount(() => {
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped lang="scss"></style>

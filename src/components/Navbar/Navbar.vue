@@ -12,14 +12,7 @@ import TopContainer from './TopWidgets/TopContainer.vue'
 
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-const {
-  isDrawerRight,
-  showCurrentSpeed,
-  showSpeedGraph,
-  showAlltimeStat,
-  showSessionStat,
-  showFreeSpace
-} = storeToRefs(useVueTorrentStore())
+const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace } = storeToRefs(useVueTorrentStore())
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
@@ -27,8 +20,7 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'"
-                       color="primary" disable-route-watcher>
+  <v-navigation-drawer v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
       <v-list-item v-if="showCurrentSpeed">
         <CurrentSpeed />

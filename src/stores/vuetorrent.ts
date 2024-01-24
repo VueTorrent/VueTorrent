@@ -1,4 +1,4 @@
-import { DashboardProperty, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty } from '@/constants/vuetorrent'
+import { DashboardProperty, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, VuetorrentTheme } from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
@@ -11,8 +11,7 @@ export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
     const language = ref('en')
-    const matchSystemTheme = ref(true)
-    const darkMode = ref(false)
+    const vuetorrentTheme = ref<VuetorrentTheme>(VuetorrentTheme.SYSTEM)
     const showFreeSpace = ref(true)
     const showSpeedGraph = ref(true)
     const showSessionStat = ref(true)
@@ -46,7 +45,6 @@ export const useVueTorrentStore = defineStore(
 
     const _tableProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
 
-    const getCurrentThemeName = computed(() => (darkMode.value ? Theme.DARK : Theme.LIGHT))
     const isInfiniteScrollActive = computed(() => paginationSize.value === -1)
 
     const busyTorrentProperties = computed<TorrentProperty[]>(() => {
@@ -117,34 +115,43 @@ export const useVueTorrentStore = defineStore(
     const theme = useTheme()
 
     watch(language, setLanguage)
-    watch(darkMode, updateTheme)
-    watch(matchSystemTheme, updateSystemTheme)
 
-    const matches = useMediaQuery('(prefers-color-scheme: dark)')
-    watch(matches, handleSystemThemeSwitch)
+    const mediaQueryPreferDark = useMediaQuery('(prefers-color-scheme: dark)')
+    watch(mediaQueryPreferDark, updateTheme)
 
     function setLanguage(newLang: string) {
       i18n.locale.value = newLang
     }
 
     function updateTheme() {
-      theme.global.name.value = getCurrentThemeName.value
-    }
-
-    function updateSystemTheme() {
-      handleSystemThemeSwitch(matches.value)
-    }
-
-    function handleSystemThemeSwitch(matches: boolean) {
-      if (!matchSystemTheme.value) return
-
-      darkMode.value = matches
+      switch (vuetorrentTheme.value) {
+        case VuetorrentTheme.LIGHT:
+          theme.global.name.value = Theme.LIGHT
+          break
+        case VuetorrentTheme.DARK:
+          theme.global.name.value = Theme.DARK
+          break
+        case VuetorrentTheme.SYSTEM:
+          theme.global.name.value = mediaQueryPreferDark.value ? Theme.DARK : Theme.LIGHT
+      }
     }
 
     function toggleTheme() {
-      darkMode.value = !theme.current.value.dark
-      if (matchSystemTheme.value) {
-        matchSystemTheme.value = false
+      switch (vuetorrentTheme.value) {
+        // if light, switch to dark
+        case VuetorrentTheme.LIGHT:
+          vuetorrentTheme.value = VuetorrentTheme.DARK
+          updateTheme()
+          break
+        // if dark, switch to system
+        case VuetorrentTheme.DARK:
+          vuetorrentTheme.value = VuetorrentTheme.SYSTEM
+          updateTheme()
+          break
+        // if system, switch to light
+        case VuetorrentTheme.SYSTEM:
+          vuetorrentTheme.value = VuetorrentTheme.LIGHT
+          updateTheme()
       }
     }
 
@@ -210,7 +217,7 @@ export const useVueTorrentStore = defineStore(
     return {
       canvasRenderThreshold,
       canvasRefreshThreshold,
-      darkMode,
+      vuetorrentTheme,
       dateFormat,
       deleteWithFiles,
       fileContentInterval,
@@ -219,7 +226,6 @@ export const useVueTorrentStore = defineStore(
       hideChipIfUnset,
       isShutdownButtonVisible,
       language,
-      matchSystemTheme,
       openSideBarOnStart,
       paginationSize,
       refreshInterval,
@@ -245,11 +251,9 @@ export const useVueTorrentStore = defineStore(
       doneGridProperties,
       _tableProperties,
       tableProperties,
-      getCurrentThemeName,
       isInfiniteScrollActive,
       setLanguage,
       updateTheme,
-      updateSystemTheme,
       toggleTheme,
       redirectToLogin,
       updateBusyProperties,
@@ -264,8 +268,7 @@ export const useVueTorrentStore = defineStore(
       toggleTableProperty,
       $reset: () => {
         language.value = 'en'
-        matchSystemTheme.value = true
-        darkMode.value = false
+        vuetorrentTheme.value = VuetorrentTheme.SYSTEM
         showFreeSpace.value = true
         showSpeedGraph.value = true
         showSessionStat.value = true

@@ -2,6 +2,7 @@
 import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vue'
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
+import { VuetorrentTheme } from '@/constants/vuetorrent'
 import { useAppStore, useAuthStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -41,6 +42,14 @@ const connectionStatusText = computed(() => {
   }
 
   return t('navbar.side.bottom_actions.conn_status', { status: t(`constants.connectionStatus.${key}`) })
+})
+
+const themeIcon = computed(() => {
+  if (vueTorrentStore.vuetorrentTheme === VuetorrentTheme.DARK) return 'mdi-brightness-4'
+
+  if (vueTorrentStore.vuetorrentTheme === VuetorrentTheme.SYSTEM) return 'mdi-theme-light-dark'
+
+  return 'mdi-brightness-7'
 })
 
 const logout = async () => {
@@ -92,14 +101,9 @@ function openConfirmShutdownDialog() {
     </v-col>
 
     <v-col class="d-flex justify-center">
-      <v-tooltip :text="t('navbar.side.bottom_actions.dark_mode', Number(vueTorrentStore.darkMode))" location="top">
+      <v-tooltip :text="t('navbar.side.bottom_actions.dark_mode', vueTorrentStore.vuetorrentTheme)" location="top">
         <template v-slot:activator="{ props }">
-          <v-btn
-            :disabled="vueTorrentStore.matchSystemTheme"
-            variant="plain"
-            :icon="vueTorrentStore.matchSystemTheme ? 'mdi-theme-light-dark' : vueTorrentStore.darkMode ? 'mdi-brightness-4' : 'mdi-brightness-7'"
-            v-bind="props"
-            @click="vueTorrentStore.toggleTheme()" />
+          <v-btn variant="plain" :icon="themeIcon" v-bind="props" @click="vueTorrentStore.toggleTheme()" />
         </template>
       </v-tooltip>
     </v-col>

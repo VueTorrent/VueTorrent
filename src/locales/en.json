@@ -100,11 +100,6 @@
       "none": "None",
       "title": "Torrent stop condition"
     },
-    "theme": {
-      "auto": "Follow system theme",
-      "dark": "Dark theme",
-      "light": "Light theme"
-    },
     "titleOptions": {
       "custom": "Custom",
       "default": "Default",
@@ -462,7 +457,7 @@
       "bottom_actions": {
         "alt_speed": "Toggle alternative speed",
         "conn_status": "Connection status: {status}",
-        "dark_mode": "Switch to light mode | Switch to dark mode",
+        "dark_mode": "light mode | dark mode | follow system settings",
         "logout": "Logout",
         "shutdown": "Shutdown qBittorrent"
       },
@@ -948,7 +943,6 @@
         "showSessionStat": "Show Session Stats",
         "showSpeedGraph": "Show Speed Graph",
         "showTrackerFilter": "Show Tracker Filter",
-        "theme": "VueTorrent Theme",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
