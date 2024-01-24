@@ -926,7 +926,6 @@
         "isPaginationOnTop": "Top Pagination",
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
-        "matchSystemTheme": "Use System Theme",
         "openSideBarOnStart": "Open Side Bar on launch",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",

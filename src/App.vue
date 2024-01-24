@@ -19,7 +19,7 @@ const { serverState } = storeToRefs(maindataStore)
 const { torrents } = storeToRefs(useTorrentStore())
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
-const { language, matchSystemTheme, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
+const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
 
 const checkAuthentication = async () => {
   await authStore.updateAuthStatus()
