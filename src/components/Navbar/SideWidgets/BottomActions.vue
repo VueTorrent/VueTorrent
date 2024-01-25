@@ -45,11 +45,14 @@ const connectionStatusText = computed(() => {
 })
 
 const themeIcon = computed(() => {
-  if (vueTorrentStore.vuetorrentTheme === VuetorrentTheme.DARK) return 'mdi-brightness-4'
-
-  if (vueTorrentStore.vuetorrentTheme === VuetorrentTheme.SYSTEM) return 'mdi-theme-light-dark'
-
-  return 'mdi-brightness-7'
+  switch (vueTorrentStore.vuetorrentTheme) {
+    case VuetorrentTheme.DARK:
+      return 'mdi-brightness-4'
+    case VuetorrentTheme.SYSTEM:
+      return 'mdi-theme-light-dark'
+    default:
+      return 'mdi-brightness-7'
+  }
 })
 
 const logout = async () => {
