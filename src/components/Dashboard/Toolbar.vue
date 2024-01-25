@@ -152,7 +152,7 @@ function toggleSelectMode() {
         density="compact"
         hide-details
         variant="solo-filled"
-        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 180 : 300}px`" />
+        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
 
     <v-spacer />
