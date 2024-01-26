@@ -23,32 +23,58 @@ export const useContentStore = defineStore('torrentDetail', () => {
     hash: '',
     target: null as TreeNode | null
   })
-  const internalSelection = ref<Set<string>>(new Set())
   const _lock = ref(false)
   const cachedFiles = ref<TorrentFile[]>([])
+  const openedItems = ref(['(root)'])
   const { tree } = useTreeBuilder(cachedFiles)
+
+  const flatTree = computed(() => {
+    const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
+      const path = parentPath === '' ? node.name : parentPath + '/' + node.name
+
+      if (node.type === 'folder' && openedItems.value.includes(node.fullName)) {
+        const children = node.children
+        .toSorted((a: TreeNode, b: TreeNode) => {
+          if (a.type === 'folder' && b.type === 'file') return -1
+          if (a.type === 'file' && b.type === 'folder') return 1
+          return a.name.localeCompare(b.name)
+        })
+        .flatMap(el => flatten(el, path))
+        return [node, ...children]
+      } else {
+        return [node]
+      }
+    }
+
+    return flatten(tree.value, '')
+  })
+
+  const internalSelection = ref<Set<string>>(new Set())
+  const selectedNodes = computed<TreeNode[]>(() => internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName)))
+  const selectedNode = computed<TreeNode | null>(() => selectedNodes.value.length > 0 ? selectedNodes.value[0] : null)
+  const selectedIds = computed<number[]>(() => selectedNodes.value.map(node => node.getChildrenIds()).flat().filter((v, i, a) => a.indexOf(v) === i))
 
   const menuData = computed<TRCMenuEntry[]>(() => ([
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
-      hidden: internalSelection.value.size <= 1,
+      hidden: true, // internalSelection.value.size <= 1
       action: bulkRename
     },
     {
-      text: t(`torrentDetail.content.rename.${ trcProperties.target?.type || 'file' }`),
+      text: t(`torrentDetail.content.rename.${ selectedNode.value?.type || 'file' }`),
       icon: 'mdi-rename',
-      hidden: internalSelection.value.size > 1 || trcProperties.target?.name === '(root)',
-      action: () => renameNode(trcProperties.target!)
+      hidden: internalSelection.value.size > 1 || selectedNode.value?.name === '(root)',
+      action: () => renameNode(selectedNode.value!)
     },
     {
       text: t('torrentDetail.content.priority'),
       icon: 'mdi-trending-up',
       children: [
-        { text: t('constants.file_priority.max'), icon: 'mdi-arrow-up', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.MAXIMAL) },
-        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-top-right', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.HIGH) },
-        { text: t('constants.file_priority.normal'), icon: 'mdi-minus', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.NORMAL) },
-        { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(trcProperties.target!.getChildrenIds(), FilePriority.DO_NOT_DOWNLOAD) }
+        { text: t('constants.file_priority.max'), icon: 'mdi-arrow-up', action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL) },
+        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-top-right', action: () => setFilePriority(selectedIds.value, FilePriority.HIGH) },
+        { text: t('constants.file_priority.normal'), icon: 'mdi-minus', action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL) },
+        { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD) }
       ]
     }
   ]))
@@ -115,7 +141,9 @@ export const useContentStore = defineStore('torrentDetail', () => {
     trcProperties,
     internalSelection,
     menuData,
+    openedItems,
     tree,
+    flatTree,
     updateFileTree,
     pauseTimer,
     resumeTimer,
@@ -126,6 +154,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
       while (_lock.value) {}
       internalSelection.value = new Set()
       cachedFiles.value = []
+      openedItems.value = ['(root)']
     }
   }
 })

@@ -2,36 +2,13 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { nextTick, onMounted, onUnmounted, watch } from 'vue'
 import ContentNode from './ContentNode.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const contentStore = useContentStore()
-const { trcProperties, tree } = storeToRefs(contentStore)
-
-const flatTree = computed(() => {
-  const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
-    const path = parentPath === '' ? node.name : parentPath + '/' + node.name
-
-    if (node.type === 'folder' && openedItems.value.includes(node.fullName)) {
-      const children = node.children
-      .toSorted((a: TreeNode, b: TreeNode) => {
-        if (a.type === 'folder' && b.type === 'file') return -1
-        if (a.type === 'file' && b.type === 'folder') return 1
-        return a.name.localeCompare(b.name)
-      })
-      .flatMap(el => flatten(el, path))
-      return [node, ...children]
-    } else {
-      return [node]
-    }
-  }
-
-  return flatten(tree.value, '')
-})
-
-const openedItems = ref(['(root)'])
+const { trcProperties, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
 
 async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
   if (trcProperties.value.isVisible) {
@@ -42,23 +19,13 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
   Object.assign(trcProperties.value, {
     isVisible: true,
     offset: [e.pageX, e.pageY],
-    hash: props.torrent.hash,
-    target: node
+    hash: props.torrent.hash
   })
 
-  if (contentStore.internalSelection.size <= 1) {
-    contentStore.internalSelection = new Set([node.fullName])
+  if (internalSelection.value.size <= 1) {
+    internalSelection.value = new Set([node.fullName])
   }
 }
-
-watch(
-  () => trcProperties.value.isVisible,
-  newValue => {
-    if (!newValue) {
-      trcProperties.value.target = null
-    }
-  }
-)
 
 watch(
   () => props.isActive,
@@ -73,7 +40,7 @@ watch(
 )
 
 onMounted(() => {
-  contentStore.internalSelection.clear()
+  internalSelection.value.clear()
   trcProperties.value.hash = props.torrent.hash
   contentStore.resumeTimer()
 })
