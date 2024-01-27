@@ -65,7 +65,7 @@ function getNodeColor(node: TreeNode) {
 
 <template>
   <div :class="['d-flex flex-column py-2 pr-3', (node.isSelected(contentStore.internalSelection)) ? 'bg-grey-darken-3' : '']"
-       :style="node.name !== '(root)' ? `padding-left: ${depth * 32}px` : ''"
+       :style="node.name !== '(root)' && !$vuetify.display.mobile ? `padding-left: ${depth * 32}px` : ''"
        @click.stop="toggleInternalSelection($event, node)"
        @contextmenu="$emit('onRightClick', $event, node)">
     <FileNode v-if="node.type === 'file'"
