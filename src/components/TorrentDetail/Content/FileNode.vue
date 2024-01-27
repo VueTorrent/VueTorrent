@@ -35,7 +35,7 @@ function getNodePriority(node: TreeFile) {
       <span class="mr-2">[ {{ formatData(node.size, vuetorrentStore.useBinarySize) }} ]</span>
       <span class="mr-2">{{ formatPercent(node.progress) }}</span>
       <span class="mr-4">[ {{ getNodePriority(node) }} ]</span>
-      <v-menu open-on-hover open-on-click open-delay="0" close-delay="0">
+      <v-menu open-on-hover open-on-click open-delay="0" close-delay="5">
         <template v-slot:activator="{ props }">
           <v-btn v-bind="props" class="mr-2" color="accent" size="x-small" icon="mdi-trending-up" />
         </template>

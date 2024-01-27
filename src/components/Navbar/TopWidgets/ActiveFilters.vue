@@ -125,7 +125,7 @@ function resetTrackerFilter() {
 </script>
 
 <template>
-  <v-menu close-delay="0" open-delay="0" open-on-click open-on-hover open-on-focus>
+  <v-menu close-delay="5" open-delay="0" open-on-click open-on-hover open-on-focus>
     <template v-slot:activator="{ props }">
       <v-slide-x-transition>
         <v-chip v-if="filterPresentCount > 0" v-bind="props" class="ml-6" :color="globalFilterColor" variant="elevated" closable @click:close="resetAllFilters()">
