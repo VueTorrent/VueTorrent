@@ -2,13 +2,22 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { nextTick, onMounted, onUnmounted, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, watch } from 'vue'
+import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
+const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
 const { trcProperties, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
+
+const height = computed(() => {
+  // 48px for the tabs and page title
+  // 64px for the toolbar
+  // 12px for the padding (top and bottom)
+  return deviceHeight.value - 48 * 2 - 64 - 12 * 2
+})
 
 async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
   if (trcProperties.value.isVisible) {
@@ -49,7 +58,7 @@ onUnmounted(() => contentStore.$reset())
 
 <template>
   <v-card>
-    <v-virtual-scroll id="tree-root" :items="flatTree" height="750" item-height="48" class="pa-2">
+    <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
         <ContentNode :opened-items="openedItems"
                      :node="item"
