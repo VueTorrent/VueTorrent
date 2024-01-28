@@ -65,8 +65,7 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.moveTorrentFile.oldName')" />
-          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus
-                        :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
+          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

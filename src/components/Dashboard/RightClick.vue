@@ -118,7 +118,7 @@ async function exportTorrents() {
       const link = document.createElement('a')
       link.href = url
       link.style.opacity = '0'
-      link.setAttribute('download', `${ hash }.torrent`)
+      link.setAttribute('download', `${hash}.torrent`)
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -282,8 +282,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
 </script>
 
 <template>
-  <div
-    :style="`position: absolute; left: ${rightClickProperties.offset[0]}px; top: ${rightClickProperties.offset[1]}px;`">
+  <div :style="`position: absolute; left: ${rightClickProperties.offset[0]}px; top: ${rightClickProperties.offset[1]}px;`">
     <RightClickMenu v-model="rightClickProperties.isVisible" :menu-data="menuData">
       <template v-slot:top>
         <v-list-item>
@@ -297,8 +296,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
-                <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
-                       @click="forceResumeTorrents" />
+                <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
               </template>
               <span>{{ $t('dashboard.right_click.top.force_resume') }}</span>
             </v-tooltip>
@@ -312,8 +310,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
-                <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props"
-                       @click="deleteTorrents" />
+                <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
               </template>
               <span>{{ $t('dashboard.right_click.top.delete') }}</span>
             </v-tooltip>
@@ -324,6 +321,4 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -94,21 +94,19 @@ function toggleSelectMode() {
 </script>
 
 <template>
-  <v-row>
-    <v-col cols="12">
-      <v-text-field
-        id="searchInput"
-        v-model="torrentTitleFilter"
-        :label="t('dashboard.searchInputLabel')"
-        clearable
-        density="compact"
-        single-line
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        variant="solo"
-        @click:clear="resetInput()" />
-    </v-col>
-  </v-row>
+  <div>
+    <v-text-field
+      id="searchInput"
+      v-model="torrentTitleFilter"
+      :label="t('dashboard.searchInputLabel')"
+      clearable
+      density="compact"
+      single-line
+      hide-details
+      prepend-inner-icon="mdi-magnify"
+      variant="solo"
+      @click:clear="resetInput()" />
+  </div>
 
   <div class="d-flex my-3">
     <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">

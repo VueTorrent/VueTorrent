@@ -59,10 +59,11 @@ onUnmounted(() => contentStore.$reset())
   <v-card>
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
-        <ContentNode :opened-items="openedItems"
-                     :node="item"
-                     @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
-                     @onRightClick="(e, node) => onRightClick(e, node)" />
+        <ContentNode
+          :opened-items="openedItems"
+          :node="item"
+          @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
+          @onRightClick="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>

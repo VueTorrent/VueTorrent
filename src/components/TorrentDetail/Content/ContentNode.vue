@@ -100,10 +100,11 @@ function getNodeSubtitle(node: TreeNode) {
 </script>
 
 <template>
-  <div :class="['d-flex flex-column py-2 pr-3', (node.isSelected(contentStore.internalSelection)) ? 'selected' : '']"
-       :style="`padding-left: ${depth}px`"
-       @click.stop="toggleInternalSelection($event, node)"
-       @contextmenu="$emit('onRightClick', $event, node)">
+  <div
+    :class="['d-flex flex-column py-2 pr-3', node.isSelected(contentStore.internalSelection) ? 'selected' : '']"
+    :style="`padding-left: ${depth}px`"
+    @click.stop="toggleInternalSelection($event, node)"
+    @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">

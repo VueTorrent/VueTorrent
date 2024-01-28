@@ -119,10 +119,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
-        .map(t => t.tracker)
-        .map(url => extractHostname(url))
-        .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-        .sort()
+          .map(t => t.tracker)
+          .map(url => extractHostname(url))
+          .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+          .sort()
       }
 
       // update torrents

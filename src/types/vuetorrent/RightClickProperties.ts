@@ -1,4 +1,4 @@
 export default interface RightClickProperties {
-  isVisible: boolean,
+  isVisible: boolean
   offset: [number, number]
 }

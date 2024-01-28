@@ -84,10 +84,12 @@ export class TreeFolder {
 
   getPriority(): FilePriority {
     if (this.children.length === 0) return FilePriority.DO_NOT_DOWNLOAD
-    return this.children.map(child => child.getPriority()).reduce((prev, curr) => {
-      if (prev === FilePriority.MIXED || prev === curr) return prev
-      return FilePriority.MIXED
-    })
+    return this.children
+      .map(child => child.getPriority())
+      .reduce((prev, curr) => {
+        if (prev === FilePriority.MIXED || prev === curr) return prev
+        return FilePriority.MIXED
+      })
   }
 
   getChildrenIds(): number[] {
@@ -113,18 +115,21 @@ export class TreeFolder {
   }
 
   getProgress(): number {
-    const values = this.children
-    .filter(child => child.getPriority() !== FilePriority.DO_NOT_DOWNLOAD)
-    .map(child => child.getProgress())
+    const values = this.children.filter(child => child.getPriority() !== FilePriority.DO_NOT_DOWNLOAD).map(child => child.getProgress())
 
     if (values.length === 0) return 0
     return values.reduce((prev, curr) => prev + curr, 0) / values.length
   }
 
   getDeepCount(): [number, number] {
-    const [folders, files] = this.children.map(child => child.getDeepCount()).reduce((prev, curr) => {
-      return [prev[0] + curr[0], prev[1] + curr[1]]
-    }, [0, 0])
+    const [folders, files] = this.children
+      .map(child => child.getDeepCount())
+      .reduce(
+        (prev, curr) => {
+          return [prev[0] + curr[0], prev[1] + curr[1]]
+        },
+        [0, 0]
+      )
     return [folders + 1, files]
   }
 

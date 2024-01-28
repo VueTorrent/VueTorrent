@@ -36,12 +36,12 @@ export const useContentStore = defineStore('torrentDetail', () => {
 
       if (node.type === 'folder' && openedItems.value.includes(node.fullName)) {
         const children = node.children
-        .toSorted((a: TreeNode, b: TreeNode) => {
-          if (a.type === 'folder' && b.type === 'file') return -1
-          if (a.type === 'file' && b.type === 'folder') return 1
-          return a.name.localeCompare(b.name)
-        })
-        .flatMap(el => flatten(el, path))
+          .toSorted((a: TreeNode, b: TreeNode) => {
+            if (a.type === 'folder' && b.type === 'file') return -1
+            if (a.type === 'file' && b.type === 'folder') return 1
+            return a.name.localeCompare(b.name)
+          })
+          .flatMap(el => flatten(el, path))
         return [node, ...children]
       } else {
         return [node]
@@ -52,11 +52,16 @@ export const useContentStore = defineStore('torrentDetail', () => {
   })
 
   const internalSelection = ref<Set<string>>(new Set())
-  const selectedNodes = computed<TreeNode[]>(() => internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName)))
-  const selectedNode = computed<TreeNode | null>(() => selectedNodes.value.length > 0 ? selectedNodes.value[0] : null)
-  const selectedIds = computed<number[]>(() => selectedNodes.value.map(node => node.getChildrenIds()).flat().filter((v, i, a) => a.indexOf(v) === i))
+  const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
+  const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
+  const selectedIds = computed<number[]>(() =>
+    selectedNodes.value
+      .map(node => node.getChildrenIds())
+      .flat()
+      .filter((v, i, a) => a.indexOf(v) === i)
+  )
 
-  const menuData = computed<RightClickMenuEntryType[]>(() => ([
+  const menuData = computed<RightClickMenuEntryType[]>(() => [
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
@@ -64,7 +69,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
       action: bulkRename
     },
     {
-      text: t(`torrentDetail.content.rename.${ selectedNode.value?.type || 'file' }`),
+      text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.name === '(root)',
       action: () => renameNode(selectedNode.value!)
@@ -79,7 +84,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
         { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD) }
       ]
     }
-  ]))
+  ])
 
   const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval, {
     immediate: false,

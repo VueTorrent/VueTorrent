@@ -2,49 +2,61 @@ import { FilePriority } from '@/constants/qbit'
 import { beforeEach, expect, test } from 'vitest'
 import { TreeFile, TreeFolder } from './TreeObjects'
 
-const file_unwanted = new TreeFile({
-  availability: 1,
-  index: 0,
-  is_seed: true,
-  name: 'test/test1.txt',
-  piece_range: [0, 0],
-  priority: FilePriority.DO_NOT_DOWNLOAD,
-  progress: 0,
-  size: 1000,
-}, 'test1.txt')
+const file_unwanted = new TreeFile(
+  {
+    availability: 1,
+    index: 0,
+    is_seed: true,
+    name: 'test/test1.txt',
+    piece_range: [0, 0],
+    priority: FilePriority.DO_NOT_DOWNLOAD,
+    progress: 0,
+    size: 1000
+  },
+  'test1.txt'
+)
 
-const file_normal = new TreeFile({
-  availability: 1,
-  index: 1,
-  is_seed: true,
-  name: 'test/test2.txt',
-  piece_range: [0, 0],
-  priority: FilePriority.NORMAL,
-  progress: 1,
-  size: 1000,
-}, 'test2.txt')
+const file_normal = new TreeFile(
+  {
+    availability: 1,
+    index: 1,
+    is_seed: true,
+    name: 'test/test2.txt',
+    piece_range: [0, 0],
+    priority: FilePriority.NORMAL,
+    progress: 1,
+    size: 1000
+  },
+  'test2.txt'
+)
 
-const file_high = new TreeFile({
-  availability: 1,
-  index: 2,
-  is_seed: true,
-  name: 'test/test3.txt',
-  piece_range: [0, 0],
-  priority: FilePriority.HIGH,
-  progress: 1,
-  size: 1000,
-}, 'test3.txt')
+const file_high = new TreeFile(
+  {
+    availability: 1,
+    index: 2,
+    is_seed: true,
+    name: 'test/test3.txt',
+    piece_range: [0, 0],
+    priority: FilePriority.HIGH,
+    progress: 1,
+    size: 1000
+  },
+  'test3.txt'
+)
 
-const file_maximal = new TreeFile({
-  availability: 1,
-  index: 3,
-  is_seed: true,
-  name: 'test/test4.txt',
-  piece_range: [0, 0],
-  priority: FilePriority.MAXIMAL,
-  progress: 1,
-  size: 1000,
-}, 'test4.txt')
+const file_maximal = new TreeFile(
+  {
+    availability: 1,
+    index: 3,
+    is_seed: true,
+    name: 'test/test4.txt',
+    piece_range: [0, 0],
+    priority: FilePriority.MAXIMAL,
+    progress: 1,
+    size: 1000
+  },
+  'test4.txt'
+)
 
 const folder = new TreeFolder('test', 'test')
 
