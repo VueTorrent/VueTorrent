@@ -20,7 +20,7 @@ const toggleDrawer = () => {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
+  <v-navigation-drawer class="ios-padding" v-model="isDrawerOpen" :location="isDrawerRight ? 'right' : 'left'" color="primary" disable-route-watcher>
     <v-list class="clean-px px-2 pt-0">
       <v-list-item v-if="showCurrentSpeed">
         <CurrentSpeed />
@@ -57,7 +57,7 @@ const toggleDrawer = () => {
     </template>
   </v-navigation-drawer>
 
-  <v-app-bar>
+  <v-app-bar class="ios-padding">
     <v-app-bar-nav-icon @click="toggleDrawer" />
     <v-app-bar-title>
       <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>

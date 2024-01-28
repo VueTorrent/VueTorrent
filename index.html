@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width" />
     <meta name="description" content="VueTorrent" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -18,11 +18,12 @@
     <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials" />
     <script src="/registerSW.js"></script>
   </head>
+
   <body>
     <noscript>
       <strong>We're sorry but Vuetorrent doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div style="padding-top: calc(env(safe-area-inset-top) * 0.5)" id="app"></div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

@@ -113,3 +113,12 @@ $sideborder-margin: 6px;
   border-radius: 16px;
   background: #6b7280;
 }
+
+/* iOS PWA */
+.ios-padding {
+  padding-top: calc(env(safe-area-inset-top) * 0.5);
+}
+
+.ios-margin {
+  margin-top: calc(env(safe-area-inset-top) * 0.5);
+}

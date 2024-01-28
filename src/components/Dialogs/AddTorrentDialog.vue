@@ -184,7 +184,7 @@ const onCategoryChanged = () => {
     scrollable
     :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'">
     <v-card>
-      <v-card-title>
+      <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
           <v-toolbar-title>{{ t('dialogs.add.title') }}</v-toolbar-title>
           <v-btn icon="mdi-close" @click="close" />
@@ -427,5 +427,3 @@ const onCategoryChanged = () => {
     </v-card>
   </v-dialog>
 </template>
-
-<style scoped></style>
