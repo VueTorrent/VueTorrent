@@ -2,20 +2,11 @@
 import { formatSpeedUnit, formatSpeedValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 
-defineProps({
-  icon: {
-    type: String,
-    required: true
-  },
-  color: {
-    type: String,
-    required: true
-  },
-  value: {
-    type: Number,
-    required: true
-  }
-})
+defineProps<{
+  icon: string
+  color: string
+  value: number
+}>()
 
 const vueTorrentStore = useVueTorrentStore()
 </script>

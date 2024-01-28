@@ -1,15 +1,21 @@
 <script lang="ts" setup>
-import RightClickMenu from '@/components/Dashboard/TRC/RightClickMenu.vue'
+import Toolbar from '@/components/Dashboard/Toolbar.vue'
+import TRC from '@/components/Dashboard/RightClick.vue'
 import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import Toolbar from '@/components/Dashboard/Toolbar.vue'
 import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { Torrent as TorrentType } from '@/types/vuetorrent'
+import {
+  useDashboardStore,
+  useDialogStore,
+  useMaindataStore,
+  useTorrentStore,
+  useVueTorrentStore
+} from '@/stores'
+import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -29,11 +35,14 @@ const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIS
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
 
-const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
+const {
+  paginatedResults: paginatedTorrents,
+  currentPage,
+  pageCount
+} = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
 
 const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
-
-const trcProperties = reactive({
+const rightClickProperties = reactive<RightClickProperties>({
   isVisible: false,
   offset: [0, 0]
 })
@@ -83,13 +92,13 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
 }
 
 async function onTorrentRightClick(e: MouseEvent | Touch, torrent: TorrentType) {
-  if (trcProperties.isVisible) {
-    trcProperties.isVisible = false
+  if (rightClickProperties.isVisible) {
+    rightClickProperties.isVisible = false
     await nextTick()
   }
 
-  trcProperties.isVisible = true
-  trcProperties.offset = [e.pageX, e.pageY]
+  rightClickProperties.isVisible = true
+  rightClickProperties.offset = [e.pageX, e.pageY]
 
   if (!isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()
@@ -172,7 +181,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 }
 
 watch(
-  () => trcProperties.isVisible,
+  () => rightClickProperties.isVisible,
   newValue => {
     if (!newValue && !isSelectionMultiple.value) {
       dashboardStore.unselectAllTorrents()
@@ -224,7 +233,8 @@ onBeforeUnmount(() => {
     </div>
 
     <div v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                    @input="scrollToTop" />
     </div>
 
     <ListView
@@ -257,13 +267,12 @@ onBeforeUnmount(() => {
       @endPress="endPress" />
 
     <div v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left"
+                    @input="scrollToTop" />
     </div>
   </div>
 
-  <div :style="`position: absolute; left: ${trcProperties.offset[0]}px; top: ${trcProperties.offset[1]}px;`">
-    <RightClickMenu v-model="trcProperties.isVisible" />
-  </div>
+  <TRC :right-click-properties="rightClickProperties" />
 </template>
 
 <style>

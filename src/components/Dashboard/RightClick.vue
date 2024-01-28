@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import RightClickMenuEntry from '@/components/Dashboard/TRC/RightClickMenuEntry.vue'
+import RightClickMenu from '@/components/Core/RightClickMenu'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTorrentStore } from '@/stores'
-import { TRCMenuEntry } from '@/types/vuetorrent'
+import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
-const props = defineProps<{
-  modelValue: boolean
+defineProps<{
+  rightClickProperties: { isVisible: boolean; offset: [number, number] }
 }>()
-const emit = defineEmits(['update:modelValue'])
 
 const { t } = useI18n()
 const router = useRouter()
@@ -24,11 +23,6 @@ const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const torrentStore = useTorrentStore()
-
-const trcVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
 
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
 const hashes = computed(() => dashboardStore.selectedTorrents)
@@ -124,7 +118,7 @@ async function exportTorrents() {
       const link = document.createElement('a')
       link.href = url
       link.style.opacity = '0'
-      link.setAttribute('download', `${hash}.torrent`)
+      link.setAttribute('download', `${ hash }.torrent`)
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
@@ -132,7 +126,7 @@ async function exportTorrents() {
   })
 }
 
-const menuData = computed<TRCMenuEntry[]>(() => [
+const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.advanced.title'),
     icon: 'mdi-head-cog',
@@ -288,48 +282,48 @@ const menuData = computed<TRCMenuEntry[]>(() => [
 </script>
 
 <template>
-  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true" transition="slide-y-transition" scroll-strategy="none">
-    <v-list>
-      <v-list-item>
-        <div class="d-flex justify-space-around">
-          <v-tooltip location="top">
-            <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-play" v-bind="props" @click="resumeTorrents" />
-            </template>
-            <span>Resume</span>
-          </v-tooltip>
+  <div
+    :style="`position: absolute; left: ${rightClickProperties.offset[0]}px; top: ${rightClickProperties.offset[1]}px;`">
+    <RightClickMenu v-model="rightClickProperties.isVisible" :menu-data="menuData">
+      <template v-slot:top>
+        <v-list-item>
+          <div class="d-flex justify-space-around">
+            <v-tooltip location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn density="compact" variant="plain" icon="mdi-play" v-bind="props" @click="resumeTorrents" />
+              </template>
+              <span>{{ $t('dashboard.right_click.top.resume') }}</span>
+            </v-tooltip>
 
-          <v-tooltip location="top">
-            <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
-            </template>
-            <span>Force Resume</span>
-          </v-tooltip>
+            <v-tooltip location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props"
+                       @click="forceResumeTorrents" />
+              </template>
+              <span>{{ $t('dashboard.right_click.top.force_resume') }}</span>
+            </v-tooltip>
 
-          <v-tooltip location="top">
-            <template v-slot:activator="{ props }">
-              <v-btn density="compact" variant="plain" icon="mdi-pause" v-bind="props" @click="pauseTorrents" />
-            </template>
-            <span>Pause</span>
-          </v-tooltip>
+            <v-tooltip location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn density="compact" variant="plain" icon="mdi-pause" v-bind="props" @click="pauseTorrents" />
+              </template>
+              <span>{{ $t('dashboard.right_click.top.pause') }}</span>
+            </v-tooltip>
 
-          <v-tooltip location="top">
-            <template v-slot:activator="{ props }">
-              <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
-            </template>
-            <span>Delete</span>
-          </v-tooltip>
-        </div>
-      </v-list-item>
-
-      <RightClickMenuEntry v-for="entry in menuData" v-bind="entry" />
-    </v-list>
-  </v-menu>
+            <v-tooltip location="top">
+              <template v-slot:activator="{ props }">
+                <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props"
+                       @click="deleteTorrents" />
+              </template>
+              <span>{{ $t('dashboard.right_click.top.delete') }}</span>
+            </v-tooltip>
+          </div>
+        </v-list-item>
+      </template>
+    </RightClickMenu>
+  </div>
 </template>
 
-<style scoped lang="scss">
-.menu-scrollable {
-  max-height: 500px;
-  overflow: visible;
-}
+<style scoped>
+
 </style>

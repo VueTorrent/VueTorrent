@@ -1,25 +1,35 @@
 <script setup lang="ts">
+import RightClickMenu from '@/components/Core/RightClickMenu'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import Content from '@/components/TorrentDetail/Content.vue'
+import Content from '@/components/TorrentDetail/Content'
 import Info from '@/components/TorrentDetail/Info.vue'
 import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useDialogStore, useTorrentStore } from '@/stores'
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { useContentStore, useDialogStore, useTorrentStore } from '@/stores'
+import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
-const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
+const tabs = [
+  { text: t('torrentDetail.tabs.overview'), value: 'overview' },
+  { text: t('torrentDetail.tabs.info'), value: 'info' },
+  { text: t('torrentDetail.tabs.trackers'), value: 'trackers' },
+  { text: t('torrentDetail.tabs.peers'), value: 'peers' },
+  { text: t('torrentDetail.tabs.content'), value: 'content' },
+  { text: t('torrentDetail.tabs.tagsAndCategories'), value: 'tagsAndCategories' }
+]
+
 const tab = ref('overview')
 
-const hash = computed(() => route.params.hash as string)
+const hash = computed(() => router.currentRoute.value.params.hash as string)
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 
 const goHome = () => {
@@ -42,8 +52,20 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 }
 
+function updateTabHandle() {
+  const tabRouteParam = router.currentRoute.value.params.tab as string
+  if (tabRouteParam) {
+    tab.value = tabRouteParam
+  }
+}
+
+watchEffect(() => {
+  updateTabHandle()
+})
+
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
+  updateTabHandle()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
@@ -67,12 +89,7 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab value="overview">{{ t('torrentDetail.tabs.overview') }}</v-tab>
-        <v-tab value="info">{{ t('torrentDetail.tabs.info') }}</v-tab>
-        <v-tab value="trackers">{{ t('torrentDetail.tabs.trackers') }}</v-tab>
-        <v-tab value="peers">{{ t('torrentDetail.tabs.peers') }}</v-tab>
-        <v-tab value="content">{{ t('torrentDetail.tabs.content') }}</v-tab>
-        <v-tab value="tagsAndCategories">{{ t('torrentDetail.tabs.tagsAndCategories') }}</v-tab>
+        <v-tab v-for="{ text, value } in tabs" :value="value" :href="`#/torrent/${hash}/${value}`" :text="text" />
       </v-tabs>
     </v-row>
 
@@ -96,6 +113,10 @@ onBeforeUnmount(() => {
         <TagsAndCategories :torrent="torrent" :is-active="tab === 'tagsAndCategories'" />
       </v-window-item>
     </v-window>
+  </div>
+
+  <div :style="`position: absolute; left: ${contentStore.rightClickProperties.offset[0]}px; top: ${contentStore.rightClickProperties.offset[1]}px;`">
+    <RightClickMenu v-model="contentStore.rightClickProperties.isVisible" :menu-data="contentStore.menuData" />
   </div>
 </template>
 

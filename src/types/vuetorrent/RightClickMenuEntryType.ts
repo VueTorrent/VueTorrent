@@ -1,4 +1,4 @@
-export type TRCMenuEntry = {
+export type RightClickMenuEntryType = {
   text: string
   icon?: string
   action?: () => void
@@ -6,6 +6,5 @@ export type TRCMenuEntry = {
   disabled?: boolean
   disabledText?: string
   disabledIcon?: string
-  divider?: boolean
-  children?: TRCMenuEntry[]
+  children?: RightClickMenuEntryType[]
 }

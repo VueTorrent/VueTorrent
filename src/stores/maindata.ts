@@ -1,5 +1,5 @@
 import { useTorrentBuilder } from '@/composables'
-import { FilePriority, SortOptions } from '@/constants/qbit'
+import { SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
 import { qbit } from '@/services'
 import { Category, ServerState } from '@/types/qbit/models'
@@ -119,10 +119,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data
-          .map(t => t.tracker)
-          .map(url => extractHostname(url))
-          .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-          .sort()
+        .map(t => t.tracker)
+        .map(url => extractHostname(url))
+        .filter((domain, index, self) => index === self.indexOf(domain) && domain)
+        .sort()
       }
 
       // update torrents
@@ -146,14 +146,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function fetchFiles(hash: string, indexes?: number[]) {
     return await qbit.getTorrentFiles(hash, indexes)
-  }
-
-  async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
-    await qbit.renameFile(hash, oldPath, newPath)
-  }
-
-  async function renameTorrentFolder(hash: string, oldPath: string, newPath: string) {
-    await qbit.renameFolder(hash, oldPath, newPath)
   }
 
   async function fetchPieceState(hash: string) {
@@ -208,10 +200,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.banPeers(peers)
   }
 
-  async function setTorrentFilePriority(hash: string, ids: number[], priority: FilePriority) {
-    await qbit.setTorrentFilePriority(hash, ids, priority)
-  }
-
   async function setDownloadLimit(limit: number, hashes: string[]) {
     return await qbit.setDownloadLimit(hashes, limit)
   }
@@ -242,8 +230,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     deleteTags,
     updateMaindata,
     fetchFiles,
-    renameTorrentFile,
-    renameTorrentFolder,
     fetchPieceState,
     reannounceTorrents,
     toggleSeqDl,
@@ -257,7 +243,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     getTorrentPeers,
     addTorrentPeers,
     banPeers,
-    setTorrentFilePriority,
     setDownloadLimit,
     setUploadLimit,
     setShareLimit,

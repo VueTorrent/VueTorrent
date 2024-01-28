@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores'
+import { useContentStore } from '@/stores'
 import { nextTick, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -14,7 +14,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const contentStore = useContentStore()
 
 const form = ref<VForm>()
 const input = ref<HTMLInputElement>()
@@ -30,9 +30,9 @@ async function submit() {
   if (!isFormValid.value) return
 
   if (props.isFolder) {
-    await maindataStore.renameTorrentFolder(props.hash, props.oldName, formData.newName)
+    await contentStore.renameTorrentFolder(props.hash, props.oldName, formData.newName)
   } else {
-    await maindataStore.renameTorrentFile(props.hash, props.oldName, formData.newName)
+    await contentStore.renameTorrentFile(props.hash, props.oldName, formData.newName)
   }
 
   close()
@@ -65,7 +65,8 @@ onBeforeMount(() => {
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-text-field v-if="oldName" :model-value="oldName" disabled :label="$t('dialogs.moveTorrentFile.oldName')" />
-          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
+          <v-text-field v-model="formData.newName" ref="input" :rules="rules" autofocus
+                        :label="$t('dialogs.moveTorrent.newPath')" @keydown.enter="submit" />
         </v-form>
       </v-card-text>
       <v-card-actions>

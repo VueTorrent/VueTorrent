@@ -1,6 +1,7 @@
 import { useAddTorrentStore } from './addTorrents'
 import { useAppStore } from './app'
 import { useAuthStore } from './auth'
+import { useContentStore } from './content'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
 import { useHistoryStore } from './history'
@@ -17,6 +18,7 @@ export {
   useAddTorrentStore,
   useAppStore,
   useAuthStore,
+  useContentStore,
   useDashboardStore,
   useDialogStore,
   useHistoryStore,

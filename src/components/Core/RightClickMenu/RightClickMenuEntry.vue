@@ -1,21 +1,17 @@
 <script setup lang="ts">
-import { TRCMenuEntry } from '@/types/vuetorrent'
+import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
-defineProps<{
-  text: string
-  icon?: string
-  action?: () => void
-  hidden?: boolean
-  disabled?: boolean
-  disabledText?: string
-  disabledIcon?: string
-  divider?: boolean
-  children?: TRCMenuEntry[]
-}>()
+const props = defineProps<RightClickMenuEntryType>()
+
+const onClick = () => {
+  if (props.action) {
+    props.action()
+  }
+}
 </script>
 
 <template>
-  <v-list-item class="px-3 pointer" :disabled="disabled" v-if="!hidden" @click="action">
+  <v-list-item class="px-3" :disabled="disabled" v-if="!hidden" @click="onClick">
     <div class="d-flex">
       <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
       <v-icon class="mr-2" v-else-if="icon">{{ icon }}</v-icon>

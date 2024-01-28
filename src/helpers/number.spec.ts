@@ -1,4 +1,4 @@
-import { formatPercent, toPrecision } from '@/helpers/number'
+import { formatPercent, toPrecision } from './number'
 import { expect, test } from 'vitest'
 
 test('helpers/number/toPrecision', () => {
