@@ -6,6 +6,7 @@ import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { computed } from 'vue'
+import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
   node: TreeNode
@@ -20,10 +21,17 @@ const emit = defineEmits<{
 const folderColor = '#ffe476'
 
 const { t } = useI18n()
+const { mobile } = useDisplay()
 const contentStore = useContentStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const depth = computed(() => props.node.fullName.split('/').length)
+const depth = computed(() => {
+  if (props.node.name === '(root)') return 0
+
+  const effectiveDepth = props.node.fullName.split('/').length
+  const depthStep = mobile.value ? 12 : 24
+  return effectiveDepth * depthStep
+})
 
 function openNode(e: Event, node: TreeNode) {
   if (node.type === 'file') return
@@ -93,7 +101,7 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div :class="['d-flex flex-column py-2 pr-3', (node.isSelected(contentStore.internalSelection)) ? 'selected' : '']"
-       :style="node.name !== '(root)' && !$vuetify.display.mobile ? `padding-left: ${depth * 32}px` : ''"
+       :style="`padding-left: ${depth}px`"
        @click.stop="toggleInternalSelection($event, node)"
        @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
@@ -104,9 +112,9 @@ function getNodeSubtitle(node: TreeNode) {
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
 
-      <!-- Node icons -->
+      <!-- Node icon -->
       <div class="d-flex align-center spacer" @click="openNode($event, node)">
-        <v-icon>{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+        <v-icon v-if="node.type === 'folder'">{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
 
         <v-icon v-if="node.name === '(root)'" icon="mdi-file-tree" />
         <v-icon v-else-if="node.type === 'file'" :icon="getFileIcon(node.name)" />
@@ -145,7 +153,7 @@ function getNodeSubtitle(node: TreeNode) {
 
 .v-theme--darkTheme .selected {
   background-color: rgb(var(--v-theme-surface));
-  filter: brightness(125%);
+  filter: brightness(135%);
 }
 
 .v-theme--lightTheme .selected {
