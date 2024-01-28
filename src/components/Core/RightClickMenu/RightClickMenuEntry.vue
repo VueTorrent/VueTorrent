@@ -1,17 +1,7 @@
 <script setup lang="ts">
-import { TRCMenuEntry } from '@/types/vuetorrent'
+import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
-const props = defineProps<{
-  text: string
-  icon?: string
-  action?: () => void
-  hidden?: boolean
-  disabled?: boolean
-  disabledText?: string
-  disabledIcon?: string
-  divider?: boolean
-  children?: TRCMenuEntry[]
-}>()
+const props = defineProps<RightClickMenuEntryType>()
 
 const onClick = () => {
   if (props.action) {

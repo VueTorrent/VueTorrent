@@ -5,23 +5,25 @@ import { useDialogStore } from '@/stores/dialog'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
-import { TRCMenuEntry, TreeNode } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, RightClickProperties, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 export const useContentStore = defineStore('torrentDetail', () => {
   const { t } = useI18n()
+  const route = useRoute()
   const dialogStore = useDialogStore()
   const maindataStore = useMaindataStore()
   const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
-  const trcProperties = reactive({
+  const hash = computed(() => route.params.hash as string)
+
+  const rightClickProperties = reactive<RightClickProperties>({
     isVisible: false,
-    offset: [0, 0],
-    hash: '',
-    target: null as TreeNode | null
+    offset: [0, 0]
   })
   const _lock = ref(false)
   const cachedFiles = ref<TorrentFile[]>([])
@@ -54,7 +56,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
   const selectedNode = computed<TreeNode | null>(() => selectedNodes.value.length > 0 ? selectedNodes.value[0] : null)
   const selectedIds = computed<number[]>(() => selectedNodes.value.map(node => node.getChildrenIds()).flat().filter((v, i, a) => a.indexOf(v) === i))
 
-  const menuData = computed<TRCMenuEntry[]>(() => ([
+  const menuData = computed<RightClickMenuEntryType[]>(() => ([
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
@@ -89,7 +91,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
     _lock.value = true
     await nextTick()
 
-    cachedFiles.value = await maindataStore.fetchFiles(trcProperties.hash)
+    cachedFiles.value = await maindataStore.fetchFiles(hash.value)
 
     _lock.value = false
     await nextTick()
@@ -105,7 +107,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
 
   async function renameNode(node: TreeNode) {
     const { default: MoveTorrentFileDialog } = await import('@/components/Dialogs/MoveTorrentFileDialog.vue')
-    renamePayload.hash = trcProperties.hash
+    renamePayload.hash = hash.value
     renamePayload.isFolder = node.type === 'folder'
     renamePayload.oldName = node.fullName
     renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
@@ -124,7 +126,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
   }
 
   async function setFilePriority(fileIdx: number[], priority: FilePriority) {
-    await qbit.setTorrentFilePriority(trcProperties.hash, fileIdx, priority)
+    await qbit.setTorrentFilePriority(hash.value, fileIdx, priority)
     await updateFileTree()
   }
 
@@ -138,7 +140,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
   )
 
   return {
-    trcProperties,
+    rightClickProperties,
     internalSelection,
     menuData,
     openedItems,

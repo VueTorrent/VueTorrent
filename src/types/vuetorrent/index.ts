@@ -3,6 +3,7 @@ import type { SearchData } from './SearchData'
 import type Torrent from './Torrent'
 import type { TreeNode } from './TreeObjects'
 import { TreeFile, TreeFolder } from './TreeObjects'
-import type { TRCMenuEntry } from './TRCMenuEntry'
+import type { RightClickMenuEntryType } from './RightClickMenuEntryType'
+import type RightClickProperties from './RightClickProperties'
 
-export { RssArticle, SearchData, Torrent, TreeNode, TreeFile, TreeFolder, TRCMenuEntry }
+export { RssArticle, SearchData, Torrent, TreeNode, TreeFile, TreeFolder, RightClickMenuEntryType, RightClickProperties }

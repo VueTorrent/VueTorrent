@@ -10,7 +10,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
-const { trcProperties, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
+const { rightClickProperties, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -20,12 +20,12 @@ const height = computed(() => {
 })
 
 async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
-  if (trcProperties.value.isVisible) {
-    trcProperties.value.isVisible = false
+  if (rightClickProperties.value.isVisible) {
+    rightClickProperties.value.isVisible = false
     await nextTick()
   }
 
-  Object.assign(trcProperties.value, {
+  Object.assign(rightClickProperties.value, {
     isVisible: true,
     offset: [e.pageX, e.pageY],
     hash: props.torrent.hash
@@ -50,7 +50,6 @@ watch(
 
 onMounted(() => {
   internalSelection.value.clear()
-  trcProperties.value.hash = props.torrent.hash
   contentStore.resumeTimer()
 })
 onUnmounted(() => contentStore.$reset())

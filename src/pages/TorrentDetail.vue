@@ -115,8 +115,8 @@ onBeforeUnmount(() => {
     </v-window>
   </div>
 
-  <div :style="`position: absolute; left: ${contentStore.trcProperties.offset[0]}px; top: ${contentStore.trcProperties.offset[1]}px;`">
-    <RightClickMenu v-model="contentStore.trcProperties.isVisible" :menu-data="contentStore.menuData" />
+  <div :style="`position: absolute; left: ${contentStore.rightClickProperties.offset[0]}px; top: ${contentStore.rightClickProperties.offset[1]}px;`">
+    <RightClickMenu v-model="contentStore.rightClickProperties.isVisible" :menu-data="contentStore.menuData" />
   </div>
 </template>
 

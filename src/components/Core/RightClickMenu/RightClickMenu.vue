@@ -1,22 +1,16 @@
 <script setup lang="ts">
 import RightClickMenuEntry from './RightClickMenuEntry.vue'
-import { TRCMenuEntry } from '@/types/vuetorrent'
-import { computed } from 'vue'
+import { RightClickMenuEntryType } from '@/types/vuetorrent'
 
-const props = defineProps<{
-  modelValue: boolean
-  menuData: TRCMenuEntry[]
+defineProps<{
+  menuData: RightClickMenuEntryType[]
 }>()
-const emit = defineEmits(['update:modelValue'])
 
-const trcVisible = computed({
-  get: () => props.modelValue,
-  set: value => emit('update:modelValue', value)
-})
+const rightClickMenuVisible = defineModel<boolean>({ required: true })
 </script>
 
 <template>
-  <v-menu v-if="trcVisible" v-model="trcVisible" activator="parent" :close-on-content-click="true"
+  <v-menu v-if="rightClickMenuVisible" v-model="rightClickMenuVisible" activator="parent" :close-on-content-click="true"
           transition="slide-y-transition" scroll-strategy="none">
     <v-list>
       <slot name="top" />
