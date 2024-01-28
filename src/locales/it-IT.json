@@ -96,11 +96,6 @@
       "none": "Nessuna",
       "title": "Condizione di Stop del Torrent"
     },
-    "theme": {
-      "auto": "Come il Tema di Sistema",
-      "dark": "Tema Scuro",
-      "light": "Tema Chiaro"
-    },
     "titleOptions": {
       "custom": "Personalizzato",
       "default": "Predefinito",

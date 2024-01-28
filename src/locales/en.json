@@ -254,7 +254,7 @@
       "addToTopOfQueue": "Add to top of queue",
       "autoTMM": "Automatic Torrent Management",
       "category": "Category",
-      "cookie": "Cookie",
+      "cookie": "Cookies",
       "cookiePlaceholder": "name1=value1; name2=value2; ...",
       "dlLimit": "Download limit",
       "downloadPath": "Download path (when incomplete)",
@@ -402,7 +402,7 @@
       "inactive_seeding_time_limit": "Inactive minutes",
       "ratio_limit": "Ratio",
       "seeding_time_limit": "Total minutes",
-      "title": "Set Share Ratio Limit"
+      "title": "Set share ratio limit"
     },
     "shutdown": {
       "content": "Do you really want to shutdown qBittorrent?",
@@ -457,7 +457,7 @@
       "bottom_actions": {
         "alt_speed": "Toggle alternative speed",
         "conn_status": "Connection status: {status}",
-        "dark_mode": "light mode | dark mode | follow system settings",
+        "dark_mode": " Light mode | Dark mode | Follow system settings",
         "logout": "Logout",
         "shutdown": "Shutdown qBittorrent"
       },
@@ -760,9 +760,9 @@
       "monitoredFolders": {
         "actions": "Actions",
         "confirmDelete": "Are you sure you want to delete this item?",
-        "editItem": "Edit Item",
+        "editItem": "Edit",
         "monitoredFolderPath": "Monitored Folder",
-        "newItem": "New Item",
+        "newItem": "New",
         "noData": "No monitored folder yet",
         "otherPath": "Other Path",
         "saveType": "Override Save Location",
@@ -773,9 +773,9 @@
         "preAllocateDisk": "Pre-allocate disk space for all files"
       },
       "runExternalProgram": {
-        "onAddedEnabled": "Run external program on torrent added:",
+        "onAddedEnabled": "Run external program on torrent added",
         "onAddedLabel": "Command",
-        "onFinishedEnabled": "Run external program on torrent finished:",
+        "onFinishedEnabled": "Run external program on torrent finished",
         "onFinishedLabel": "Command",
         "subheader": "Run external program",
         "supportParamC": "%C: Number of files",
@@ -796,7 +796,7 @@
       "saveManagement": {
         "autoTMMEnabled": "Default Torrent Management Mode",
         "categoryChangedTMM": "When Category Save Path changed",
-        "defaultSavePath": "Default Save Path",
+        "defaultSavePath": "Default Save Path (complete)",
         "defaultTMMOptions": {
           "automatic": "Automatic",
           "manual": "Manual"
@@ -850,7 +850,7 @@
         "noRules": "No rules yet"
       }
     },
-    "saveSuccess": "Settings saved successfully!",
+    "saveSuccess": "Settings saved!",
     "speed": {
       "download": "Download",
       "scheduler": {
@@ -915,7 +915,7 @@
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
         "dateFormat": "Date Format",
-        "download": "Download settings",
+        "download": "Export settings",
         "exportSettings": "Export Settings",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
@@ -930,9 +930,9 @@
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
           "label": "Pagination Size",
-          "warning": "Using high values can affect performances"
+          "warning": "Using high values can affect performance"
         },
-        "qbittorrentVersion": "QBittorrent Version",
+        "qbittorrentVersion": "qBittorrent Version",
         "refreshInterval": "qBittorrent API refresh interval",
         "registerMagnet": "Register magnet links",
         "resetSettings": "Reset Settings",
@@ -945,11 +945,11 @@
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
-        "vueTorrentTitle": "VueTorrent title"
+        "vueTorrentTitle": "Tab title"
       },
       "torrentCard": {
         "grid": {
-          "busyTip": "Properties to display for busy torrents in grid view",
+          "busyTip": "Properties to display for incomplete torrents in grid view",
           "doneTip": "Properties to display for completed torrents in grid view"
         },
         "list": {
@@ -999,7 +999,7 @@
       "interface": {
         "ipAddress": "IP Address",
         "port": "Port",
-        "subheader": "Web User Interface (Remote Control)",
+        "subheader": "Web User Interface",
         "useAlternativeWebUI": "Use Alternative WebUI",
         "useUPnP": "Use UPnP / NAT-PMP port forwarding from my router"
       },
@@ -1011,7 +1011,7 @@
         "csrf": "Enable Cross-Site Request Forgery (CSRF) protection",
         "hostHeaderValidation": "Enable Host header validation",
         "hostHeaderValidationHint": "Seperated with semi-colon ( ; )",
-        "secureCookie": "Enable cookie secure flag (requires HTTPS)",
+        "secureCookie": "Enable cookie \"secure\" flag (requires HTTPS)",
         "serverDomains": "Server Domains",
         "subheader": "Security"
       }
@@ -1044,7 +1044,7 @@
     "addTorrents": "Add Torrents",
     "overflow": {
       "delete": "Delete",
-      "logs": "qBit Logs",
+      "logs": "qBittorrent Logs",
       "pause": "Pause",
       "resume": "Resume",
       "rssArticles": "RSS Articles",
@@ -1062,7 +1062,7 @@
         "file": "Rename",
         "folder": "Rename folder"
       },
-      "rootNode": "(Root Node)"
+      "rootNode": "(Root)"
     },
     "info": {
       "boolean_values": "Boolean values",
@@ -1135,7 +1135,7 @@
         "oldUrl": "Old URL",
         "title": "Edit Tracker"
       },
-      "peersValue": "{peers} peers ({seeds} S /{leeches} L)",
+      "peersValue": "{peers} peers ({seeds} S / {leeches} L)",
       "reannounce": "Reannounce all",
       "tier": "Tier: {n}"
     }

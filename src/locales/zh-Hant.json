@@ -99,11 +99,6 @@
       "none": "無",
       "title": "種子停止條件"
     },
-    "theme": {
-      "auto": "跟隨系統主題",
-      "dark": "暗色主題",
-      "light": "亮色主題"
-    },
     "titleOptions": {
       "custom": "自訂",
       "default": "預設",
@@ -930,7 +925,6 @@
         "isPaginationOnTop": "分頁欄於頂部顯示",
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
-        "matchSystemTheme": "使用系統主題",
         "openSideBarOnStart": "啟動時顯示側邊欄",
         "paginationSize": {
           "infinite_scroll": "無限滾動",
@@ -946,7 +940,6 @@
         "showSessionStat": "顯示會話狀態",
         "showSpeedGraph": "顯示速率圖表",
         "showTrackerFilter": "顯示追蹤者過濾",
-        "theme": "VueTorrent 主題",
         "tip": "這些設定適用於自訂WebUI",
         "useBinarySize": "以二進位制取代容量單位 (kB -> KiB)",
         "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
