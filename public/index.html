@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width" />
     <meta name="description" content="VueTorrent" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -13,15 +13,20 @@
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <meta name="theme-color" content="#000" />
     <title>VueTorrent</title>
-    <script type="module" crossorigin src="./assets/index-fj5-vamU.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/vue-EkRptf2M.js">
-    <link rel="modulepreload" crossorigin href="./assets/vuetify-FD_HUlNY.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-XtlGFseb.css">
-  <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
+
+    <!-- PWA setup -->
+    <link rel="manifest" href="./manifest.webmanifest" crossorigin="use-credentials" />
+    <script src="./registerSW.js"></script>
+    <script type="module" crossorigin src="./assets/index-z3dneNLh.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/vue-7zd71vkt.js">
+    <link rel="modulepreload" crossorigin href="./assets/vuetify-10uagJf8.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-9ZPy5lS6.css">
+  </head>
+
   <body>
     <noscript>
       <strong>We're sorry but Vuetorrent doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div style="padding-top: calc(env(safe-area-inset-top) * 0.5)" id="app"></div>
   </body>
 </html>
