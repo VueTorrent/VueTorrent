@@ -1,5 +1,40 @@
 # Changelog
 
+## [2.6.0](https://github.com/VueTorrent/VueTorrent/compare/v2.5.0...v2.6.0) (2024-01-28)
+
+
+### Features
+
+* Add Czech locale ([6a73a9c](https://github.com/VueTorrent/VueTorrent/commit/6a73a9c35b8c005f23d76c6237bc3a77cd120d4f))
+* **content:** Rework content tab entirely ([#1470](https://github.com/VueTorrent/VueTorrent/issues/1470)) ([6758072](https://github.com/VueTorrent/VueTorrent/commit/6758072296124abc9efcf4929ec4ec308c8a966a))
+
+
+### Bug Fixes
+
+* **accessibility:** Add name attributes to login form ([#1467](https://github.com/VueTorrent/VueTorrent/issues/1467)) ([bf9566f](https://github.com/VueTorrent/VueTorrent/commit/bf9566fbbf36cbf18a69a8c2bf8cb289564394e8))
+* bump font weight [#1390](https://github.com/VueTorrent/VueTorrent/issues/1390) ([5c40261](https://github.com/VueTorrent/VueTorrent/commit/5c40261463c733fd6c61c2b5a27aee4dbf02ca23))
+* **clipboard:** Add missing toast on clipboard action ([#1452](https://github.com/VueTorrent/VueTorrent/issues/1452)) ([9b81865](https://github.com/VueTorrent/VueTorrent/commit/9b81865ded1fcc57c105376418a1e76871b6626b))
+* disable progress bar striping [#1324](https://github.com/VueTorrent/VueTorrent/issues/1324) ([5e06f6d](https://github.com/VueTorrent/VueTorrent/commit/5e06f6d1f2018f74307d8a7dc09ed485c1cca179))
+* horizontal scroll mobile ([da5a917](https://github.com/VueTorrent/VueTorrent/commit/da5a917ed932847bf6658f20cdbca070796a59bb))
+* ios pwa status bar [#545](https://github.com/VueTorrent/VueTorrent/issues/545) ([196aff6](https://github.com/VueTorrent/VueTorrent/commit/196aff6d6064d3132362e293c5dd2c9651e8cfeb))
+* scrollbar styling [#1397](https://github.com/VueTorrent/VueTorrent/issues/1397) ([7fb4107](https://github.com/VueTorrent/VueTorrent/commit/7fb410732a21dbacac6c82e7f96fec2b92d03726))
+* submenu broken [#1483](https://github.com/VueTorrent/VueTorrent/issues/1483) ([0a1cb1e](https://github.com/VueTorrent/VueTorrent/commit/0a1cb1ea6a1b36647863dcfa75e63890ab0e3173))
+* use expansion panel for logs [#1420](https://github.com/VueTorrent/VueTorrent/issues/1420) ([6979c49](https://github.com/VueTorrent/VueTorrent/commit/6979c493ca65071633c4938a5f2bf8d5d236c9c2))
+* **v-menu:** Prevent menu close on all menus ([#1487](https://github.com/VueTorrent/VueTorrent/issues/1487)) ([71538e3](https://github.com/VueTorrent/VueTorrent/commit/71538e3d4ce7251e83c65c7a9d0040485f216383))
+
+
+### Improvements
+
+* add check latest version [#941](https://github.com/VueTorrent/VueTorrent/issues/941) ([6eb2c15](https://github.com/VueTorrent/VueTorrent/commit/6eb2c15e20f4706098664e674ffa20ee2ac98c21))
+* bring back active filter [#1280](https://github.com/VueTorrent/VueTorrent/issues/1280) ([afe4fa5](https://github.com/VueTorrent/VueTorrent/commit/afe4fa578456b807bf78a1f0f357fc995eca3168))
+* bring back settings import [#1322](https://github.com/VueTorrent/VueTorrent/issues/1322) ([53fe2e5](https://github.com/VueTorrent/VueTorrent/commit/53fe2e55b64ea6cd1990b0a6c42a822203ff1258))
+* darkmode toggle [#1478](https://github.com/VueTorrent/VueTorrent/issues/1478) ([97def1d](https://github.com/VueTorrent/VueTorrent/commit/97def1d915e588918e3b3cfa43f1ccf8d4df16ca))
+* **pagination:** Allow for custom values for pagination size ([#1482](https://github.com/VueTorrent/VueTorrent/issues/1482)) ([8db1a29](https://github.com/VueTorrent/VueTorrent/commit/8db1a293ee01e3c1420051df9fd51850ff1bc9c3))
+* **PWA:** Use Network-only strategy for service worker ([#1468](https://github.com/VueTorrent/VueTorrent/issues/1468)) ([f4842c4](https://github.com/VueTorrent/VueTorrent/commit/f4842c444484a2e7eda14bd84ed2fba094a695b0))
+* search box spacing ([#1458](https://github.com/VueTorrent/VueTorrent/issues/1458)) ([4ec69b6](https://github.com/VueTorrent/VueTorrent/commit/4ec69b660cfe5ad037938d494295224e6902dfae))
+* UI text ([#1481](https://github.com/VueTorrent/VueTorrent/issues/1481)) ([6b03b31](https://github.com/VueTorrent/VueTorrent/commit/6b03b312736a61f65e457f524b871f26b57b64af))
+* use search bar [#891](https://github.com/VueTorrent/VueTorrent/issues/891) ([67d76b6](https://github.com/VueTorrent/VueTorrent/commit/67d76b63345b1f2b260d7a47af7680eb060c3a72))
+
 ## [2.5.0](https://github.com/WDaan/VueTorrent/compare/v2.4.0...v2.5.0) (2024-01-09)
 
 ### Features
