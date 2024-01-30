@@ -2,6 +2,7 @@
 import { useDialog } from '@/composables'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { VForm } from 'vuetify/components'
 
 const props = defineProps<{
   guid: string
@@ -10,22 +11,18 @@ const props = defineProps<{
 const { t } = useI18n()
 const { isOpened } = useDialog(props.guid)
 
+const form = ref<VForm>()
 const isFormValid = ref(false)
 const settings = ref('')
 
 const rules = [
+  (v: string) => !!v || t('dialogs.importSettings.required'),
   (v: string) => {
-    if (!v) return t('dialogs.importSettings.required')
-
-    let settings
     try {
-      settings = JSON.parse(v)
+      JSON.parse(v)
     } catch (e) {
       return t('dialogs.importSettings.valid')
     }
-
-    // naive 1 key check
-    if (!settings.darkMode) return t('dialogs.importSettings.required')
 
     return true
   }
@@ -36,6 +33,9 @@ function close() {
 }
 
 async function submit() {
+  await form.value?.validate()
+  if (!isFormValid.value) return
+
   window.localStorage.setItem('vuetorrent_webuiSettings', settings.value)
   window.location.reload()
 }
@@ -45,7 +45,7 @@ async function submit() {
   <v-dialog v-model="isOpened" max-width="500">
     <v-card :title="$t('dialogs.importSettings.title')">
       <v-card-text>
-        <v-form v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
+        <v-form v-model="isFormValid" ref="form" @submit.prevent @keydown.enter.prevent="submit">
           <v-textarea v-model="settings" clearable :rules="rules" />
         </v-form>
       </v-card-text>
