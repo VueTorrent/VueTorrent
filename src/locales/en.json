@@ -478,7 +478,6 @@
       },
       "speed_graph": {
         "download_label": "Download",
-        "relative_time": "Now | {n} second ago | {n} seconds ago",
         "upload_label": "Upload"
       },
       "stats": {

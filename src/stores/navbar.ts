@@ -1,6 +1,6 @@
 import { useVueTorrentStore } from './vuetorrent'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export const useNavbarStore = defineStore(
   'navbar',
@@ -9,28 +9,38 @@ export const useNavbarStore = defineStore(
 
     const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
 
-    const downloadData = ref<(number | null)[]>(new Array(15).fill(null))
-    const uploadData = ref<(number | null)[]>(new Array(15).fill(null))
+    const _timeData = ref<(number | null)[]>(new Array(15).fill(null))
+    const _downloadData = ref<(number | null)[]>(new Array(15).fill(null))
+    const _uploadData = ref<(number | null)[]>(new Array(15).fill(null))
+
+    const downloadData = computed(() => _timeData.value.map((e, i) => [e, _downloadData.value[i]]))
+    const uploadData = computed(() => _timeData.value.map((e, i) => [e, _uploadData.value[i]]))
+
+    function pushTimeData() {
+      _timeData.value.shift()
+      _timeData.value.push(new Date().getTime())
+    }
 
     function pushDownloadData(data: number) {
-      downloadData.value.shift()
-      downloadData.value.push(data)
+      _downloadData.value.shift()
+      _downloadData.value.push(data)
     }
 
     function pushUploadData(data: number) {
-      uploadData.value.shift()
-      uploadData.value.push(data)
+      _uploadData.value.shift()
+      _uploadData.value.push(data)
     }
 
     return {
       isDrawerOpen,
       downloadData,
       uploadData,
+      pushTimeData,
       pushDownloadData,
       pushUploadData,
       $reset: () => {
-        downloadData.value = new Array(15).fill(null)
-        uploadData.value = new Array(15).fill(null)
+        _downloadData.value = new Array(15).fill(null)
+        _uploadData.value = new Array(15).fill(null)
       }
     }
   },

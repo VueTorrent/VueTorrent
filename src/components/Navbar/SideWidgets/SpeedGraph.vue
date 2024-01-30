@@ -2,6 +2,7 @@
 import { formatSpeed } from '@/helpers'
 import { useNavbarStore, useVueTorrentStore } from '@/stores'
 import { ApexOptions } from 'apexcharts'
+import dayjs from '@/plugins/dayjs'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import VueApexCharts from 'vue3-apexcharts'
@@ -44,9 +45,7 @@ const chartOptions: ApexOptions = {
     theme: 'dark',
     x: {
       formatter: (value: number) => {
-        const step = vuetorrentStore.refreshInterval / 1000
-        const val = navbarStore.downloadData.length * step - value * step
-        return t('navbar.side.speed_graph.relative_time', val)
+        return dayjs(value).fromNow()
       }
     },
     y: {
