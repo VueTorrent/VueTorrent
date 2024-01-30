@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { TorrentState } from '@/constants/qbit'
 import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
-import { computed } from 'vue'
 
 defineProps<{ torrent: Torrent; title: string; value: string }>()
 </script>
