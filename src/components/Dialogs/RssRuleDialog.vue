@@ -116,7 +116,7 @@ const close = () => {
 
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
-  await rssStore.fetchRules()
+  await rssStore.fetchFeeds()
   if (hasInitialRule.value) {
     lastSavedName.value = props.initialRule!.name!
     Object.assign(formData, props.initialRule!)
