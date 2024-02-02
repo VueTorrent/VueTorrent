@@ -141,6 +141,7 @@ onBeforeMount(async () => {
           <v-row>
             <v-col cols="12" sm="6" class="scrollable-col">
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
+              <v-switch v-model="formData.enabled" color="accent" inset hide-details :label="$t('dialogs.rss.rule.enabled')" />
 
               <v-divider />
 

@@ -370,6 +370,7 @@
         "addPaused": "Add paused",
         "affectedFeedsSubheader": "Affected Feeds",
         "assignedCategory": "Assigned Category",
+        "enabled": "Enable rule",
         "episodeFilter": "Episode Filter",
         "episodeFilterPlaceholder": "e.g. S01E02-S01E05",
         "ignoreDays": "Ignore items published in the last {days} days",
