@@ -2,7 +2,7 @@
 import { useDialog } from '@/composables'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, useRssStore } from '@/stores'
-import { FeedRule } from '@/types/qbit/models'
+import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -19,22 +19,7 @@ const rssStore = useRssStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
-const formData = reactive({
-  addPaused: null,
-  affectedFeeds: [] as string[],
-  assignedCategory: '',
-  enabled: true,
-  episodeFilter: '',
-  ignoreDays: 0,
-  lastMatch: '',
-  mustContain: '',
-  mustNotContain: '',
-  name: '',
-  savePath: '',
-  smartFilter: false,
-  torrentContentLayout: null,
-  useRegex: false
-})
+const formData = reactive<FeedRule>(getEmptyRule())
 const lastSavedName = ref('')
 const matchingArticles = ref<{ type: string; value?: string }[]>([])
 
@@ -68,6 +53,24 @@ const lastMatch = computed(() => {
 const hasInitialRule = computed(() => {
   return !!(props.initialRule && props.initialRule.name)
 })
+
+function getEmptyRule(): FeedRule {
+  return {
+    affectedFeeds: [] as string[],
+    enabled: true,
+    episodeFilter: '',
+    ignoreDays: 0,
+    lastMatch: '',
+    mustContain: '',
+    mustNotContain: '',
+    name: '',
+    priority: 0,
+    smartFilter: false,
+    useRegex: false,
+    previouslyMatchedEpisodes: hasInitialRule.value ? props.initialRule!.previouslyMatchedEpisodes : [],
+    torrentParams: getEmptyParams()
+  }
+}
 
 async function updateArticles() {
   if (lastSavedName.value === '') return
@@ -121,7 +124,7 @@ onBeforeMount(async () => {
     lastSavedName.value = props.initialRule!.name!
     Object.assign(formData, props.initialRule!)
   } else {
-    form.value?.reset()
+    Object.assign(formData, getEmptyRule())
   }
 
   await updateArticles()
@@ -141,7 +144,8 @@ onBeforeMount(async () => {
           <v-row>
             <v-col cols="12" sm="6" class="scrollable-col">
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
-              <v-switch v-model="formData.enabled" color="accent" inset hide-details :label="$t('dialogs.rss.rule.enabled')" />
+              <v-switch v-model="formData.enabled" color="accent" inset hide-details
+                        :label="$t('dialogs.rss.rule.enabled')" />
 
               <v-divider />
 
@@ -149,19 +153,26 @@ onBeforeMount(async () => {
               <v-text-field v-model="formData.mustContain" :label="$t('dialogs.rss.rule.mustContain')" />
               <v-text-field v-model="formData.mustNotContain" :label="$t('dialogs.rss.rule.mustNotContain')" />
               <v-checkbox v-model="formData.smartFilter" hide-details :label="$t('dialogs.rss.rule.smartFilter')" />
-              <v-text-field v-model="formData.episodeFilter" :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')" :label="$t('dialogs.rss.rule.episodeFilter')" />
+              <v-text-field v-model="formData.episodeFilter"
+                            :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')"
+                            :label="$t('dialogs.rss.rule.episodeFilter')" />
 
               <v-divider class="mb-4" />
 
-              <v-select v-model="formData.assignedCategory" :items="categories" :label="$t('dialogs.rss.rule.assignedCategory')" />
-              <v-text-field v-model="formData.savePath" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')" :label="$t('dialogs.rss.rule.savePath')" />
-              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
+              <v-select v-model="formData.torrentParams.category" :items="categories"
+                        :label="$t('dialogs.rss.rule.assignedCategory')" />
+              <v-text-field v-model="formData.torrentParams.save_path" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')"
+                            :label="$t('dialogs.rss.rule.savePath')" />
+              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')"
+                            :label="$t('dialogs.rss.rule.ignoreDays')" />
               <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />
 
-              <v-select v-model="formData.addPaused" :items="addPausedOptions" :label="$t('constants.addPaused.title')" />
-              <v-select v-model="formData.torrentContentLayout" :items="contentLayoutOptions" :label="$t('constants.contentLayout.title')" />
+              <v-select v-model="formData.torrentParams.stopped" :items="addPausedOptions"
+                        :label="$t('constants.addPaused.title')" />
+              <v-select v-model="formData.torrentParams.content_layout" :items="contentLayoutOptions"
+                        :label="$t('constants.contentLayout.title')" />
 
               <v-list-subheader>{{ $t('dialogs.rss.rule.affectedFeedsSubheader') }}</v-list-subheader>
 
@@ -174,7 +185,8 @@ onBeforeMount(async () => {
                 </v-col>
               </v-row>
 
-              <v-checkbox v-for="item in rssStore.feeds" v-model="formData.affectedFeeds" multiple hide-details :label="item.name" :value="item.url" />
+              <v-checkbox v-for="item in rssStore.feeds" v-model="formData.affectedFeeds" multiple hide-details
+                          :label="item.name" :value="item.url" />
             </v-col>
 
             <v-divider :vertical="!$vuetify.display.mobile" />
@@ -187,7 +199,8 @@ onBeforeMount(async () => {
                   <v-list-subheader inset v-else-if="item.type === 'subheader'">{{ item.value }}</v-list-subheader>
                   <v-list-item v-else class="mb-3">{{ item.value }}</v-list-item>
                 </template>
-                <v-list-item v-if="matchingArticles.length === 0" :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
+                <v-list-item v-if="matchingArticles.length === 0"
+                             :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
               </v-list>
             </v-col>
           </v-row>

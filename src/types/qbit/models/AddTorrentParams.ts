@@ -1,0 +1,59 @@
+import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
+import { AppPreferences } from '@/types/qbit/models'
+import { TorrentOperatingMode } from '@/constants/qbit'
+
+export default interface AddTorrentParams {
+  /** Torrent category */
+  category?: string
+  /** Comma-concatenated list of torrent tags */
+  tags?: string
+  /** Torrent save path */
+  save_path: string
+  /** Whether the download_path attribute should be used */
+  use_download_path?: boolean
+  /** Torrent download path */
+  download_path?: string
+  /** Torrent operating mode (used for forced state) */
+  operating_mode?: TorrentOperatingMode
+  /** Whether this torrent should be added at the top of the waiting queue */
+  add_to_top_of_queue?: boolean
+  /** Whether this torrent should be added in paused state */
+  stopped?: boolean
+  /** Overrides the default value of the torrent stop condition */
+  stop_condition?: StopCondition
+  /** Skip hash checking */
+  skip_checking: boolean
+  /** Overrides the default value of the torrent content layout */
+  content_layout?: ContentLayout
+  /** Overrides the default value of the TMM attribute */
+  use_auto_tmm?: boolean
+  /** Torrent upload limit (in kb/s), set to -1 to disable (default) */
+  upload_limit?: number
+  /** Torrent download limit (in kb/s), set to -1 to disable (default) */
+  download_limit?: number
+  /** Upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
+  seeding_time_limit?: number
+  /** Inactive upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
+  inactive_seeding_time_limit?: number
+  /** Ratio limit, -1 to disable, -2 to use global value (default) */
+  ratio_limit?: number
+}
+
+export function getEmptyParams(prefs?: AppPreferences): AddTorrentParams {
+  return {
+    save_path: prefs?.save_path ?? '',
+    skip_checking: false,
+    add_to_top_of_queue: prefs?.add_to_top_of_queue ?? false,
+    content_layout: prefs?.torrent_content_layout,
+    stop_condition: prefs?.torrent_stop_condition,
+    download_limit: prefs?.dl_limit,
+    upload_limit: prefs?.up_limit,
+    use_download_path: !!prefs?.temp_path,
+    download_path: !!prefs?.temp_path ? prefs?.temp_path : '',
+    stopped: prefs?.start_paused_enabled,
+    use_auto_tmm: prefs?.auto_tmm_enabled,
+    ratio_limit: -2,
+    seeding_time_limit: -2,
+    inactive_seeding_time_limit: -2
+  }
+}

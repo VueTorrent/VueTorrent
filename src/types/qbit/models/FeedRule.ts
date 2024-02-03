@@ -1,3 +1,5 @@
+import { AddTorrentParams } from '@/types/qbit/models'
+
 export default interface FeedRule {
   /** The feed URLs the rule applies to */
   affectedFeeds: string[]
@@ -69,4 +71,7 @@ export default interface FeedRule {
   smartFilter: boolean
   /** Enable regex mode in "mustContain" and "mustNotContain" */
   useRegex: boolean
+
+  /** Parameters to apply to torrents added using that rule */
+  torrentParams: AddTorrentParams
 }
