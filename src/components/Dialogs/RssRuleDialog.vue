@@ -154,7 +154,7 @@ onBeforeMount(async () => {
 
               <v-select v-model="formData.assignedCategory" :items="categories" :label="$t('dialogs.rss.rule.assignedCategory')" />
               <v-text-field v-model="formData.savePath" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')" :label="$t('dialogs.rss.rule.savePath')" />
-              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
+              <v-text-field v-model.number="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
               <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />

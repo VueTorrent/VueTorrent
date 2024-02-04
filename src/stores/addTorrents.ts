@@ -13,7 +13,7 @@ export const useAddTorrentStore = defineStore(
     const files = ref<File[]>([])
     const urls = ref<string>('')
 
-    const form = reactive<AddTorrentPayload>({})
+    const form = reactive<Partial<AddTorrentPayload>>({})
 
     const pendingTorrentsCount = computed(() => files.value.length + urls.value.split('\n').filter(url => url.trim() !== '').length)
 

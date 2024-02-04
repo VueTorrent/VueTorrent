@@ -15,14 +15,14 @@ const vuetorrentStore = useVueTorrentStore()
       <v-row>
         <v-col cols="12" sm="6">
           <v-text-field
-            v-model="preferenceStore.preferences!.rss_refresh_interval"
+            v-model.number="preferenceStore.preferences!.rss_refresh_interval"
             type="number"
             hide-details
-            :suffix="$t('units.minutes')"
+            :suffix="$t('units.minutes', preferenceStore.preferences!.rss_refresh_interval)"
             :label="$t('settings.rss.general.reader.feedsRefreshInterval')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
+          <v-text-field v-model.number="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.general.reader.maximumArticlesPerFeed')" />
         </v-col>
       </v-row>
     </v-list-item>
