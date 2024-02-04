@@ -15,11 +15,13 @@ const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 
 const contentLayoutOptions = [
+  { title: t('common.useGlobalSettings'), value: null },
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
   { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
   { title: t('constants.contentLayout.nosubfolder'), value: AppPreferences.ContentLayout.NO_SUBFOLDER }
 ]
 const stopConditionOptions = [
+  { title: t('common.useGlobalSettings'), value: null },
   { title: t('constants.stopCondition.none'), value: AppPreferences.StopCondition.NONE },
   { title: t('constants.stopCondition.metadataReceived'), value: AppPreferences.StopCondition.METADATA_RECEIVED },
   { title: t('constants.stopCondition.filesChecked'), value: AppPreferences.StopCondition.FILES_CHECKED }

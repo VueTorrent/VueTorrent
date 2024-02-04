@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AddTorrentParamsDialog from '@/components/Dialogs/AddTorrentParamsDialog.vue'
 import { useDialog } from '@/composables'
-import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, usePreferenceStore, useRssStore } from '@/stores'
 import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
@@ -28,27 +27,6 @@ const isFormValid = ref(false)
 const formData = reactive<FeedRule>(getEmptyRule())
 const lastSavedName = ref('')
 const matchingArticles = ref<{ type: string; value?: string }[]>([])
-
-const addPausedOptions = [
-  { title: t('common.useGlobalSettings'), value: null },
-  { title: t('constants.addPaused.always'), value: true },
-  { title: t('constants.addPaused.never'), value: false }
-]
-const contentLayoutOptions = [
-  { title: t('common.useGlobalSettings'), value: null },
-  { title: t('constants.contentLayout.original'), value: ContentLayout.ORIGINAL },
-  { title: t('constants.contentLayout.subfolder'), value: ContentLayout.SUBFOLDER },
-  { title: t('constants.contentLayout.nosubfolder'), value: ContentLayout.NO_SUBFOLDER }
-]
-const categories = computed(() => {
-  return [
-    { title: t('common.none'), value: '' },
-    ...maindataStore.categories.map(category => ({
-      title: category.name,
-      value: category.name
-    }))
-  ]
-})
 
 const lastMatch = computed(() => {
   if (formData.lastMatch === '') return t('dialogs.rss.rule.lastMatch.unknownValue').toString()

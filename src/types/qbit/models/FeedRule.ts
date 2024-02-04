@@ -69,9 +69,8 @@ export default interface FeedRule {
    * Supports the formats: S01E01, 1x1, 2017.12.31 and 31.12.2017 (Date formats also support - as a separator)
    */
   smartFilter: boolean
-  /** Enable regex mode in "mustContain" and "mustNotContain" */
-  useRegex: boolean
-
   /** Parameters to apply to torrents added using that rule */
   torrentParams: AddTorrentParams
+  /** Enable regex mode in "mustContain" and "mustNotContain" */
+  useRegex: boolean
 }

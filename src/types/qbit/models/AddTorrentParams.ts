@@ -3,40 +3,40 @@ import { AppPreferences } from '@/types/qbit/models'
 import { TorrentOperatingMode } from '@/constants/qbit'
 
 export default interface AddTorrentParams {
-  /** Torrent category */
-  category?: string
-  /** List of torrent tags */
-  tags?: string[]
-  /** Torrent save path */
-  save_path: string
-  /** Whether the download_path attribute should be used */
-  use_download_path?: boolean
-  /** Torrent download path */
-  download_path?: string
-  /** Torrent operating mode (used for forced state) */
-  operating_mode?: TorrentOperatingMode
   /** Whether this torrent should be added at the top of the waiting queue */
   add_to_top_of_queue?: boolean
-  /** Whether this torrent should be added in paused state */
-  stopped?: boolean
-  /** Overrides the default value of the torrent stop condition */
-  stop_condition?: StopCondition
-  /** Skip hash checking */
-  skip_checking: boolean
+  /** Torrent category */
+  category?: string
   /** Overrides the default value of the torrent content layout */
   content_layout?: ContentLayout
-  /** Overrides the default value of the TMM attribute */
-  use_auto_tmm?: boolean
-  /** Torrent upload limit (in kb/s), set to -1 to disable (default) */
-  upload_limit?: number
   /** Torrent download limit (in kb/s), set to -1 to disable (default) */
   download_limit?: number
-  /** Upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
-  seeding_time_limit?: number
+  /** Torrent download path */
+  download_path?: string
   /** Inactive upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
   inactive_seeding_time_limit?: number
+  /** Torrent operating mode (used for forced state) */
+  operating_mode?: TorrentOperatingMode
   /** Ratio limit, -1 to disable, -2 to use global value (default) */
   ratio_limit?: number
+  /** Torrent save path */
+  save_path: string
+  /** Upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
+  seeding_time_limit?: number
+  /** Skip hash checking */
+  skip_checking: boolean
+  /** Overrides the default value of the torrent stop condition */
+  stop_condition?: StopCondition
+  /** Whether this torrent should be added in paused state */
+  stopped?: boolean
+  /** List of torrent tags */
+  tags?: string[]
+  /** Torrent upload limit (in kb/s), set to -1 to disable (default) */
+  upload_limit?: number
+  /** Overrides the default value of the TMM attribute */
+  use_auto_tmm?: boolean
+  /** Whether the download_path attribute should be used */
+  use_download_path?: boolean
 }
 
 export function getEmptyParams(prefs?: AppPreferences): AddTorrentParams {

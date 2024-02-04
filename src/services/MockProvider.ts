@@ -1,4 +1,11 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -458,9 +465,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({
       result: [
         {
-          addPaused: null,
           affectedFeeds: ['https://www.example.com/feed'],
-          assignedCategory: '',
           enabled: true,
           episodeFilter: '',
           ignoreDays: 0,
@@ -470,15 +475,13 @@ export default class MockProvider implements IProvider {
           name: 'rule1',
           previouslyMatchedEpisodes: [],
           priority: 0,
-          savePath: '',
           smartFilter: false,
-          torrentContentLayout: null,
           torrentParams: {
             category: '',
             download_limit: -1,
             download_path: '',
             inactive_seeding_time_limit: -2,
-            operating_mode: 'AutoManaged',
+            operating_mode: TorrentOperatingMode.AUTO_MANAGED,
             ratio_limit: -2,
             save_path: '',
             seeding_time_limit: -2,
