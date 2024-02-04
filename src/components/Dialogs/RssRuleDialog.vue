@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
-import { useMaindataStore, useRssStore } from '@/stores'
+import { useMaindataStore, usePreferenceStore, useRssStore } from '@/stores'
 import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -12,9 +12,14 @@ const props = defineProps<{
   initialRule?: FeedRule
 }>()
 
+const hasInitialRule = computed(() => {
+  return !!(props.initialRule && props.initialRule.name)
+})
+
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
+const preferenceStore = usePreferenceStore()
 const rssStore = useRssStore()
 
 const form = ref<VForm>()
@@ -50,9 +55,6 @@ const lastMatch = computed(() => {
   const delta = new Date().getTime() - new Date(formData.lastMatch).getTime()
   return t('dialogs.rss.rule.lastMatch.knownValue', Math.floor(delta / (1000 * 60 * 60 * 24)).toString())
 })
-const hasInitialRule = computed(() => {
-  return !!(props.initialRule && props.initialRule.name)
-})
 
 function getEmptyRule(): FeedRule {
   return {
@@ -68,7 +70,7 @@ function getEmptyRule(): FeedRule {
     smartFilter: false,
     useRegex: false,
     previouslyMatchedEpisodes: hasInitialRule.value ? props.initialRule!.previouslyMatchedEpisodes : [],
-    torrentParams: getEmptyParams()
+    torrentParams: getEmptyParams(preferenceStore.preferences)
   }
 }
 
