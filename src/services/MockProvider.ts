@@ -1,11 +1,4 @@
-import {
-  ConnectionStatus,
-  FilePriority,
-  LogType,
-  PieceState,
-  TorrentOperatingMode,
-  TorrentState
-} from '@/constants/qbit'
+import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,

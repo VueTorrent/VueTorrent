@@ -125,8 +125,7 @@ onBeforeMount(async () => {
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
 
               <div class="d-flex">
-                <v-switch v-model="formData.enabled" color="accent" inset hide-details
-                          :label="$t('dialogs.rss.rule.enabled')" />
+                <v-switch v-model="formData.enabled" color="accent" inset hide-details :label="$t('dialogs.rss.rule.enabled')" />
 
                 <v-spacer />
 
@@ -144,14 +143,11 @@ onBeforeMount(async () => {
               <v-text-field v-model="formData.mustContain" :label="$t('dialogs.rss.rule.mustContain')" />
               <v-text-field v-model="formData.mustNotContain" :label="$t('dialogs.rss.rule.mustNotContain')" />
               <v-checkbox v-model="formData.smartFilter" hide-details :label="$t('dialogs.rss.rule.smartFilter')" />
-              <v-text-field v-model="formData.episodeFilter"
-                            :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')"
-                            :label="$t('dialogs.rss.rule.episodeFilter')" />
+              <v-text-field v-model="formData.episodeFilter" :placeholder="$t('dialogs.rss.rule.episodeFilterPlaceholder')" :label="$t('dialogs.rss.rule.episodeFilter')" />
 
               <v-divider class="mb-4" />
 
-              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')"
-                            :label="$t('dialogs.rss.rule.ignoreDays')" />
+              <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
               <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />
@@ -167,8 +163,7 @@ onBeforeMount(async () => {
                 </v-col>
               </v-row>
 
-              <v-checkbox v-for="item in rssStore.feeds" v-model="formData.affectedFeeds" multiple hide-details
-                          :label="item.name" :value="item.url" />
+              <v-checkbox v-for="item in rssStore.feeds" v-model="formData.affectedFeeds" multiple hide-details :label="item.name" :value="item.url" />
             </v-col>
 
             <v-divider :vertical="!$vuetify.display.mobile" />
@@ -181,8 +176,7 @@ onBeforeMount(async () => {
                   <v-list-subheader inset v-else-if="item.type === 'subheader'">{{ item.value }}</v-list-subheader>
                   <v-list-item v-else class="mb-3">{{ item.value }}</v-list-item>
                 </template>
-                <v-list-item v-if="matchingArticles.length === 0"
-                             :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
+                <v-list-item v-if="matchingArticles.length === 0" :title="$t('dialogs.rss.rule.matchingArticles.noMatch')" />
               </v-list>
             </v-col>
           </v-row>

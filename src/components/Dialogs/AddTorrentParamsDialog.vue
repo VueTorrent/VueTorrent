@@ -48,7 +48,7 @@ const downloadPath = computed<string | undefined>({
 })
 
 function getLimit(value?: number) {
-  return (!value || value === -1) ? '' : (value / 1024).toString()
+  return !value || value === -1 ? '' : (value / 1024).toString()
 }
 
 const downloadLimit = computed({
@@ -107,11 +107,7 @@ const onCategoryChanged = () => {
 </script>
 
 <template>
-  <v-dialog
-    v-model="isOpened"
-    :class="$vuetify.display.mobile ? '' : 'w-75'"
-    :fullscreen="$vuetify.display.mobile"
-    scrollable>
+  <v-dialog v-model="isOpened" :class="$vuetify.display.mobile ? '' : 'w-75'" :fullscreen="$vuetify.display.mobile" scrollable>
     <v-card>
       <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
@@ -230,21 +226,16 @@ const onCategoryChanged = () => {
 
         <v-row class="mx-3">
           <v-col cols="12" md="6">
-            <v-checkbox v-model="form.stopped" :label="t('dialogs.add.params.stopped')" color="accent" density="compact"
-                        hide-details />
+            <v-checkbox v-model="form.stopped" :label="t('dialogs.add.params.stopped')" color="accent" density="compact" hide-details />
           </v-col>
           <v-col cols="12" md="6">
-            <v-checkbox v-model="form.add_to_top_of_queue" :label="t('dialogs.add.params.add_to_top_of_queue')"
-                        color="accent" density="compact" hide-details />
+            <v-checkbox v-model="form.add_to_top_of_queue" :label="t('dialogs.add.params.add_to_top_of_queue')" color="accent" density="compact" hide-details />
           </v-col>
           <v-col cols="12" md="6">
-            <v-checkbox v-model="form.skip_checking" :label="t('dialogs.add.params.skip_checking')" color="accent"
-                        density="compact" hide-details />
+            <v-checkbox v-model="form.skip_checking" :label="t('dialogs.add.params.skip_checking')" color="accent" density="compact" hide-details />
           </v-col>
           <v-col cols="12" md="6">
-            <v-checkbox v-model="form.use_auto_tmm" :label="t('dialogs.add.params.use_auto_tmm')" color="accent"
-                        density="compact"
-                        hide-details />
+            <v-checkbox v-model="form.use_auto_tmm" :label="t('dialogs.add.params.use_auto_tmm')" color="accent" density="compact" hide-details />
           </v-col>
         </v-row>
 
@@ -255,16 +246,14 @@ const onCategoryChanged = () => {
                 <v-expansion-panel-text>
                   <v-row>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="downloadLimit" :label="$t('dialogs.add.params.download_limit')" hide-details
-                                    suffix="KiB/s">
+                      <v-text-field v-model="downloadLimit" :label="$t('dialogs.add.params.download_limit')" hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-download</v-icon>
                         </template>
                       </v-text-field>
                     </v-col>
                     <v-col cols="12" md="6">
-                      <v-text-field v-model="uploadLimit" :label="$t('dialogs.add.params.upload_limit')" hide-details
-                                    suffix="KiB/s">
+                      <v-text-field v-model="uploadLimit" :label="$t('dialogs.add.params.upload_limit')" hide-details suffix="KiB/s">
                         <template v-slot:prepend>
                           <v-icon color="accent">mdi-upload</v-icon>
                         </template>
@@ -272,8 +261,7 @@ const onCategoryChanged = () => {
                     </v-col>
 
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.params.limit_hint')"
-                                    :label="$t('dialogs.add.params.ratio_limit')" type="number" />
+                      <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.params.limit_hint')" :label="$t('dialogs.add.params.ratio_limit')" type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
                       <v-text-field

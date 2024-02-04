@@ -19,9 +19,7 @@ import type Log from './Log'
 
 type ApplicationVersion = string
 
-export {
-  getEmptyParams
-}
+export { getEmptyParams }
 
 export type {
   AddTorrentParams,
