@@ -6,7 +6,7 @@ export default createI18n({
   locale: defaultLocale,
   fallbackLocale,
   messages,
-  pluralizationRules: {
+  pluralRules: {
     'ru': (choice, choicesLength) => {
       if (choice === 0) {
         return 0;
