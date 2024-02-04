@@ -63,9 +63,9 @@
     "file_priority": {
       "high": "High",
       "max": "Max",
+      "mixed": "Mixed",
       "normal": "Normal",
-      "unwanted": "Unwanted",
-      "mixed": "Mixed"
+      "unwanted": "Unwanted"
     },
     "maxRatioAction": {
       "pauseTorrent": "Pause torrent",
@@ -370,6 +370,7 @@
         "addPaused": "Add paused",
         "affectedFeedsSubheader": "Affected Feeds",
         "assignedCategory": "Assigned Category",
+        "enabled": "Enable rule",
         "episodeFilter": "Episode Filter",
         "episodeFilterPlaceholder": "e.g. S01E02-S01E05",
         "ignoreDays": "Ignore items published in the last {days} days",
@@ -478,7 +479,6 @@
       },
       "speed_graph": {
         "download_label": "Download",
-        "relative_time": "Now | {n} second ago | {n} seconds ago",
         "upload_label": "Upload"
       },
       "stats": {
@@ -1060,9 +1060,9 @@
       "folderInfo": "{n} folder | {n} folders",
       "priority": "Set priority",
       "rename": {
+        "bulk": "Bulk rename",
         "file": "Rename",
-        "folder": "Rename folder",
-        "bulk": "Bulk rename"
+        "folder": "Rename folder"
       },
       "rootNode": "(Root)"
     },

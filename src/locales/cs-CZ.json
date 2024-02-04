@@ -218,7 +218,13 @@
       "max_seeding_time": "Maximální doba odesílání",
       "name": "Název",
       "num_complete": "Odesílající (swarm)",
-      "num_incomplete": "Uživatelé (swarm)"
+      "num_incomplete": "Stahující (swarm)",
+      "num_leechs": "Stahující (připojení)",
+      "num_seeds": "Odesílající (připojení)",
+      "priority": "Priorita",
+      "progress": "Postup",
+      "ratio": "Poměr",
+      "ratio_limit": "Poměrový limit"
     }
   }
 }
