@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AddTorrentParamsDialog from '@/components/Dialogs/AddTorrentParamsDialog.vue'
 import { useDialog } from '@/composables'
 import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { useMaindataStore, usePreferenceStore, useRssStore } from '@/stores'
@@ -125,8 +126,6 @@ onBeforeMount(async () => {
   if (hasInitialRule.value) {
     lastSavedName.value = props.initialRule!.name!
     Object.assign(formData, props.initialRule!)
-  } else {
-    Object.assign(formData, getEmptyRule())
   }
 
   await updateArticles()
@@ -146,8 +145,20 @@ onBeforeMount(async () => {
           <v-row>
             <v-col cols="12" sm="6" class="scrollable-col">
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
-              <v-switch v-model="formData.enabled" color="accent" inset hide-details
-                        :label="$t('dialogs.rss.rule.enabled')" />
+
+              <div class="d-flex">
+                <v-switch v-model="formData.enabled" color="accent" inset hide-details
+                          :label="$t('dialogs.rss.rule.enabled')" />
+
+                <v-spacer />
+
+                <div class="d-flex align-center">
+                  <v-btn class="d-flex align-center justify-center" color="accent">
+                    {{ $t('dialogs.add.params.title') }}
+                    <AddTorrentParamsDialog v-model="formData.torrentParams" activator="parent" />
+                  </v-btn>
+                </div>
+              </div>
 
               <v-divider />
 
@@ -161,20 +172,11 @@ onBeforeMount(async () => {
 
               <v-divider class="mb-4" />
 
-              <v-select v-model="formData.torrentParams.category" :items="categories"
-                        :label="$t('dialogs.rss.rule.assignedCategory')" />
-              <v-text-field v-model="formData.torrentParams.save_path" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')"
-                            :label="$t('dialogs.rss.rule.savePath')" />
               <v-text-field v-model="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')"
                             :label="$t('dialogs.rss.rule.ignoreDays')" />
               <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />
-
-              <v-select v-model="formData.torrentParams.stopped" :items="addPausedOptions"
-                        :label="$t('constants.addPaused.title')" />
-              <v-select v-model="formData.torrentParams.content_layout" :items="contentLayoutOptions"
-                        :label="$t('constants.contentLayout.title')" />
 
               <v-list-subheader>{{ $t('dialogs.rss.rule.affectedFeedsSubheader') }}</v-list-subheader>
 

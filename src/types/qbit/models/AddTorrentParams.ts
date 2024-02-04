@@ -5,8 +5,8 @@ import { TorrentOperatingMode } from '@/constants/qbit'
 export default interface AddTorrentParams {
   /** Torrent category */
   category?: string
-  /** Comma-concatenated list of torrent tags */
-  tags?: string
+  /** List of torrent tags */
+  tags?: string[]
   /** Torrent save path */
   save_path: string
   /** Whether the download_path attribute should be used */

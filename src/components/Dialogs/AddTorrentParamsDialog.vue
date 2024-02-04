@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import HistoryField from '@/components/Core/HistoryField.vue'
-import { useDialog } from '@/composables'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { useMaindataStore, usePreferenceStore } from '@/stores'
@@ -8,13 +7,9 @@ import { AddTorrentParams } from '@/types/qbit/models'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-const props = defineProps<{
-  guid: string
-}>()
-
 const form = defineModel<AddTorrentParams>({ required: true })
+const isOpened = defineModel<boolean>('isOpened')
 
-const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
@@ -34,10 +29,6 @@ const downloadPathField = ref<typeof HistoryField>()
 const savePathField = ref<typeof HistoryField>()
 
 const tagSearch = ref('')
-const tags = computed({
-  get: () => form.value.tags?.split(',') ?? [],
-  set: value => (form.value.tags = value.join(','))
-})
 
 const categorySearch = ref('')
 const categoryNames = computed(() => maindataStore.categories.map(c => c.name))
@@ -131,7 +122,7 @@ const onCategoryChanged = () => {
         <v-row>
           <v-col cols="12" md="6">
             <v-combobox
-              v-model="tags"
+              v-model="form.tags"
               v-model:search="tagSearch"
               :hide-no-data="false"
               :items="maindataStore.tags"
