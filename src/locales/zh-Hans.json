@@ -459,7 +459,6 @@
       },
       "speed_graph": {
         "download_label": "下载",
-        "relative_time": "现在 | {n} 秒前 | {n} 秒前",
         "upload_label": "上传"
       },
       "stats": {
