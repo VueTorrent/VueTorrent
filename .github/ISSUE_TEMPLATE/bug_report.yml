@@ -1,6 +1,9 @@
 name: Bug report
 description: File a bug report to help us improve
 title: '[Bug]: '
+labels:
+  - Bug
+  - triage
 body:
   - type: markdown
     attributes:
@@ -33,6 +36,8 @@ body:
         1. ...
         2. ...
         ...
+    validations:
+      required: true
   - type: dropdown
     id: download-source
     attributes:
@@ -87,8 +92,3 @@ body:
           required: true
         - label: A similar issue doesn't already exist
           required: true
-  - type: markdown
-    attributes:
-      value: >-
-        This template was generated with [Issue Forms
-        Creator](https://issue-forms-creator.netlify.app)
