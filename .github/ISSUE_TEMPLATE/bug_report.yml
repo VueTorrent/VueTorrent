@@ -1,9 +1,6 @@
 name: Bug report
 description: File a bug report to help us improve
 title: '[Bug]: '
-labels:
-  - Bug
-  - triage
 body:
   - type: markdown
     attributes:
@@ -28,6 +25,14 @@ body:
       label: Relevant debug informations
       description: Can be a curl command, a log extract, ...
       render: shell
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to reproduce
+      value: |-
+        1. ...
+        2. ...
+        ...
   - type: dropdown
     id: download-source
     attributes:
@@ -39,7 +44,6 @@ body:
         - Built from source
         - Using a third-party docker image (hotio or others)
         - Other (specify in env description)
-      default: 0
     validations:
       required: true
   - type: textarea
@@ -83,3 +87,8 @@ body:
           required: true
         - label: A similar issue doesn't already exist
           required: true
+  - type: markdown
+    attributes:
+      value: >-
+        This template was generated with [Issue Forms
+        Creator](https://issue-forms-creator.netlify.app)
