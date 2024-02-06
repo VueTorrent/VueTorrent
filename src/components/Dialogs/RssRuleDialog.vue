@@ -1,8 +1,8 @@
 <script setup lang="ts">
+import AddTorrentParamsDialog from '@/components/Dialogs/AddTorrentParamsDialog.vue'
 import { useDialog } from '@/composables'
-import { ContentLayout } from '@/constants/qbit/AppPreferences'
-import { useMaindataStore, useRssStore } from '@/stores'
-import { FeedRule } from '@/types/qbit/models'
+import { useMaindataStore, usePreferenceStore, useRssStore } from '@/stores'
+import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -12,52 +12,21 @@ const props = defineProps<{
   initialRule?: FeedRule
 }>()
 
+const hasInitialRule = computed(() => {
+  return !!(props.initialRule && props.initialRule.name)
+})
+
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
+const preferenceStore = usePreferenceStore()
 const rssStore = useRssStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
-const formData = reactive({
-  addPaused: null,
-  affectedFeeds: [] as string[],
-  assignedCategory: '',
-  enabled: true,
-  episodeFilter: '',
-  ignoreDays: 0,
-  lastMatch: '',
-  mustContain: '',
-  mustNotContain: '',
-  name: '',
-  savePath: '',
-  smartFilter: false,
-  torrentContentLayout: null,
-  useRegex: false
-})
+const formData = reactive<FeedRule>(getEmptyRule())
 const lastSavedName = ref('')
 const matchingArticles = ref<{ type: string; value?: string }[]>([])
-
-const addPausedOptions = [
-  { title: t('common.useGlobalSettings'), value: null },
-  { title: t('constants.addPaused.always'), value: true },
-  { title: t('constants.addPaused.never'), value: false }
-]
-const contentLayoutOptions = [
-  { title: t('common.useGlobalSettings'), value: null },
-  { title: t('constants.contentLayout.original'), value: ContentLayout.ORIGINAL },
-  { title: t('constants.contentLayout.subfolder'), value: ContentLayout.SUBFOLDER },
-  { title: t('constants.contentLayout.nosubfolder'), value: ContentLayout.NO_SUBFOLDER }
-]
-const categories = computed(() => {
-  return [
-    { title: t('common.none'), value: '' },
-    ...maindataStore.categories.map(category => ({
-      title: category.name,
-      value: category.name
-    }))
-  ]
-})
 
 const lastMatch = computed(() => {
   if (formData.lastMatch === '') return t('dialogs.rss.rule.lastMatch.unknownValue').toString()
@@ -65,9 +34,24 @@ const lastMatch = computed(() => {
   const delta = new Date().getTime() - new Date(formData.lastMatch).getTime()
   return t('dialogs.rss.rule.lastMatch.knownValue', Math.floor(delta / (1000 * 60 * 60 * 24)).toString())
 })
-const hasInitialRule = computed(() => {
-  return !!(props.initialRule && props.initialRule.name)
-})
+
+function getEmptyRule(): FeedRule {
+  return {
+    affectedFeeds: [] as string[],
+    enabled: true,
+    episodeFilter: '',
+    ignoreDays: 0,
+    lastMatch: '',
+    mustContain: '',
+    mustNotContain: '',
+    name: '',
+    priority: 0,
+    smartFilter: false,
+    useRegex: false,
+    previouslyMatchedEpisodes: hasInitialRule.value ? props.initialRule!.previouslyMatchedEpisodes : [],
+    torrentParams: getEmptyParams(preferenceStore.preferences)
+  }
+}
 
 async function updateArticles() {
   if (lastSavedName.value === '') return
@@ -120,8 +104,6 @@ onBeforeMount(async () => {
   if (hasInitialRule.value) {
     lastSavedName.value = props.initialRule!.name!
     Object.assign(formData, props.initialRule!)
-  } else {
-    form.value?.reset()
   }
 
   await updateArticles()
@@ -142,6 +124,19 @@ onBeforeMount(async () => {
             <v-col cols="12" sm="6" class="scrollable-col">
               <v-text-field v-model="formData.name" autofocus required :label="$t('dialogs.rss.rule.name')" />
 
+              <div class="d-flex">
+                <v-switch v-model="formData.enabled" color="accent" inset hide-details :label="$t('dialogs.rss.rule.enabled')" />
+
+                <v-spacer />
+
+                <div class="d-flex align-center">
+                  <v-btn class="d-flex align-center justify-center" color="accent">
+                    {{ $t('dialogs.add.params.title') }}
+                    <AddTorrentParamsDialog v-model="formData.torrentParams" activator="parent" />
+                  </v-btn>
+                </div>
+              </div>
+
               <v-divider />
 
               <v-checkbox v-model="formData.useRegex" hide-details :label="$t('dialogs.rss.rule.useRegex')" />
@@ -152,15 +147,10 @@ onBeforeMount(async () => {
 
               <v-divider class="mb-4" />
 
-              <v-select v-model="formData.assignedCategory" :items="categories" :label="$t('dialogs.rss.rule.assignedCategory')" />
-              <v-text-field v-model="formData.savePath" :placeholder="$t('dialogs.rss.rule.savePathPlaceholder')" :label="$t('dialogs.rss.rule.savePath')" />
               <v-text-field v-model.number="formData.ignoreDays" type="number" :hint="$t('dialogs.rss.rule.ignoreDaysHint')" :label="$t('dialogs.rss.rule.ignoreDays')" />
               <v-text-field v-model="lastMatch" disabled :label="$t('dialogs.rss.rule.lastMatch.label')" />
 
               <v-divider />
-
-              <v-select v-model="formData.addPaused" :items="addPausedOptions" :label="$t('constants.addPaused.title')" />
-              <v-select v-model="formData.torrentContentLayout" :items="contentLayoutOptions" :label="$t('constants.contentLayout.title')" />
 
               <v-list-subheader>{{ $t('dialogs.rss.rule.affectedFeedsSubheader') }}</v-list-subheader>
 

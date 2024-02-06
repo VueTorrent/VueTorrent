@@ -11,6 +11,11 @@ const rssStore = useRssStore()
 const loading = ref(false)
 const ruleDialog = ref('')
 
+async function toggleRule(rule: FeedRule) {
+  await rssStore.setRule(rule.name, { ...rule, enabled: !rule.enabled })
+  await rssStore.fetchRules()
+}
+
 async function deleteRule(rule: FeedRule) {
   await rssStore.deleteRule(rule.name!)
   await rssStore.fetchRules()
@@ -50,8 +55,11 @@ watch(
         <div class="pl-4">{{ rule.name }}</div>
         <v-spacer />
         <div>
-          <v-btn icon="mdi-pencil" variant="plain" density="compact" @click="openRuleDialog(rule)" />
-          <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteRule(rule)" />
+          <v-btn v-if="rule.enabled" class="my-2 mr-2" icon="mdi-check" color="accent" variant="plain" density="compact" @click="toggleRule(rule)" />
+          <v-btn v-if="!rule.enabled" class="my-2 mr-2" icon="mdi-cancel" color="red" variant="plain" density="compact" @click="toggleRule(rule)" />
+
+          <v-btn class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="openRuleDialog(rule)" />
+          <v-btn class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(rule)" />
         </div>
       </v-sheet>
     </v-col>

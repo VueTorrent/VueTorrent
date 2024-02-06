@@ -1,3 +1,5 @@
+import type AddTorrentParams from './AddTorrentParams'
+import { getEmptyParams } from './AddTorrentParams'
 import type AppPreferences from './AppPreferences'
 import type Category from './Category'
 import type ServerState from './ServerState'
@@ -17,7 +19,10 @@ import type Log from './Log'
 
 type ApplicationVersion = string
 
+export { getEmptyParams }
+
 export type {
+  AddTorrentParams,
   ApplicationVersion,
   AppPreferences,
   Category,
