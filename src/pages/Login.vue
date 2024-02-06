@@ -67,6 +67,7 @@ watchEffect(() => {
         <v-form v-model="rulesOk" @submit.prevent="login">
           <v-text-field
             v-model="loginForm.username"
+            id="username"
             name="username"
             :label="t('login.username')"
             autofocus
@@ -80,6 +81,7 @@ watchEffect(() => {
 
           <PasswordField
             v-model="loginForm.password"
+            id="password"
             :label="t('login.password')"
             :rules="rules.password"
             prepend-icon="mdi-lock"
