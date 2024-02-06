@@ -392,22 +392,22 @@ const onCategoryChanged = () => {
                     </v-col>
 
                     <v-col cols="12" md="4">
-                      <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.ratioLimit')" type="number" />
+                      <v-text-field v-model.number="ratioLimit" :hint="$t('dialogs.add.limitHint')" :label="$t('dialogs.add.ratioLimit')" type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
                       <v-text-field
-                        v-model="seedingTimeLimit"
+                        v-model.number="seedingTimeLimit"
                         :label="$t('dialogs.add.seedingTimeLimit')"
                         :hint="$t('dialogs.add.limitHint')"
-                        :suffix="$t('units.minutes')"
+                        :suffix="$t('units.minutes', form.seedingTimeLimit ?? 0)"
                         type="number" />
                     </v-col>
                     <v-col cols="12" md="4">
                       <v-text-field
-                        v-model="inactiveSeedingTimeLimit"
+                        v-model.number="inactiveSeedingTimeLimit"
                         :label="$t('dialogs.add.inactiveSeedingTimeLimit')"
                         :hint="$t('dialogs.add.limitHint')"
-                        :suffix="$t('units.minutes')"
+                        :suffix="$t('units.minutes', form.inactiveSeedingTimeLimit ?? 0)"
                         type="number" />
                     </v-col>
                   </v-row>

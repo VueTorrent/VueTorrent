@@ -87,7 +87,7 @@ watch(webUiPassword, newValue => {
         <v-col cols="12" class="pt-0">
           <v-checkbox v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled" hide-details :label="t('settings.webUI.authentication.bypassWhitelist')" />
           <v-textarea
-            v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist"
+            v-model.number="preferenceStore.preferences!.bypass_auth_subnet_whitelist"
             :disabled="!preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled"
             type="number"
             hide-details
@@ -99,12 +99,12 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="4">
-          <v-text-field v-model="preferenceStore.preferences!.web_ui_max_auth_fail_count" type="number" hide-details :label="t('settings.webUI.authentication.maxAttempts')" />
+          <v-text-field v-model.number="preferenceStore.preferences!.web_ui_max_auth_fail_count" type="number" hide-details :label="t('settings.webUI.authentication.maxAttempts')" />
         </v-col>
 
         <v-col cols="12" sm="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.web_ui_ban_duration"
+            v-model.number="preferenceStore.preferences!.web_ui_ban_duration"
             type="number"
             persistent-hint
             :hint="t('settings.webUI.authentication.banDurationHint')"
@@ -113,7 +113,7 @@ watch(webUiPassword, newValue => {
 
         <v-col cols="12" sm="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.web_ui_session_timeout"
+            v-model.number="preferenceStore.preferences!.web_ui_session_timeout"
             type="number"
             persistent-hint
             :hint="t('settings.webUI.authentication.sessionTimeoutHint')"

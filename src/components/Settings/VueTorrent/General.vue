@@ -161,22 +161,22 @@ onBeforeMount(() => {
     <v-list-item>
       <v-row>
         <v-col cols="12" md="4">
-          <v-text-field v-model="vueTorrentStore.refreshInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.refreshInterval')" />
+          <v-text-field v-model.number="vueTorrentStore.refreshInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.refreshInterval')" />
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field v-model="vueTorrentStore.fileContentInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.fileContentInterval')" />
+          <v-text-field v-model.number="vueTorrentStore.fileContentInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.fileContentInterval')" />
         </v-col>
         <v-col cols="12" md="4">
-          <v-text-field v-model="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
+          <v-text-field v-model.number="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
       </v-row>
 
       <v-row>
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.canvasRenderThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
+          <v-text-field v-model.number="vueTorrentStore.canvasRenderThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.canvasRefreshThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
+          <v-text-field v-model.number="vueTorrentStore.canvasRefreshThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
         </v-col>
       </v-row>
 

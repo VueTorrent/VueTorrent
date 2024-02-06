@@ -93,10 +93,10 @@ const altDlLimit = computed({
           <v-list-subheader>{{ t('settings.speed.scheduler.from') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model.number="preferenceStore.preferences!.schedule_from_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_from_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model.number="preferenceStore.preferences!.schedule_from_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
 
         <v-spacer />
@@ -105,10 +105,10 @@ const altDlLimit = computed({
           <v-list-subheader>{{ t('settings.speed.scheduler.to') }}</v-list-subheader>
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model.number="preferenceStore.preferences!.schedule_to_hour" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
         <v-col cols="4" md="2">
-          <v-text-field v-model="preferenceStore.preferences!.schedule_to_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
+          <v-text-field v-model.number="preferenceStore.preferences!.schedule_to_min" :disabled="!preferenceStore.preferences!.scheduler_enabled" type="number" />
         </v-col>
       </v-row>
     </v-list-item>

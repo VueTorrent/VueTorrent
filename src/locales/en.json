@@ -56,9 +56,9 @@
       "preferEncryption": "Allow Encryption"
     },
     "file_log_age_type": {
-      "days": "Days",
-      "months": "Months",
-      "years": "Years"
+      "days": "Day | Day | Days",
+      "months": "Month | Month | Months",
+      "years": "Year | Year | Years"
     },
     "file_priority": {
       "high": "High",
@@ -1224,7 +1224,7 @@
     }
   },
   "units": {
-    "minutes": "minutes",
-    "seconds": "seconds"
+    "minutes": "minute | minute | minutes",
+    "seconds": "second | second | seconds"
   }
 }

@@ -106,7 +106,7 @@ export default class QBitProvider implements IProvider {
   /// AuthController ///
 
   async login(params: LoginPayload): Promise<string> {
-    const payload = new URLSearchParams(params)
+    const payload = new URLSearchParams(params as Parameters)
     return this.axios.post('/auth/login', payload, { validateStatus: (status: number) => status === 200 || status === 403 }).then(
       res => res.data,
       err => console.log(err)

@@ -56,7 +56,7 @@ onBeforeMount(async () => {
       <v-card-text>
         <v-form v-model="isFormValid" @submit.prevent @keydown.enter.prevent="submit">
           <v-text-field
-            v-model="value"
+            v-model.number="value"
             type="number"
             autofocus
             clearable
