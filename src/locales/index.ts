@@ -4,6 +4,7 @@ import fr from './fr.json'
 import it from './it-IT.json'
 import ko from './ko.json'
 import nl from './nl.json'
+import pl from './pl.json'
 import ru from './ru.json'
 import zh_hans from './zh-Hans.json'
 import zh_hant from './zh-Hant.json'
@@ -20,6 +21,7 @@ export enum Locales {
   IT = 'it-IT',
   KO = 'ko',
   NL = 'nl',
+  PL = 'pl',
   RU = 'ru',
   ZH_HANS = 'zh-Hans',
   ZH_HANT = 'zh-Hant'
@@ -32,6 +34,7 @@ export const LOCALES: LocaleDef[] = [
   { title: 'Italian', value: Locales.IT },
   { title: '한국어', value: Locales.KO },
   { title: 'Nederlands', value: Locales.NL },
+  { title: 'polski', value: Locales.PL },
   { title: 'Русский', value: Locales.RU },
   { title: '简体中文', value: Locales.ZH_HANS },
   { title: '繁體中文', value: Locales.ZH_HANT }
@@ -44,6 +47,7 @@ export const messages: Record<Locales, any> = {
   [Locales.IT]: it,
   [Locales.KO]: ko,
   [Locales.NL]: nl,
+  [Locales.PL]: pl,
   [Locales.RU]: ru,
   [Locales.ZH_HANS]: zh_hans,
   [Locales.ZH_HANT]: zh_hant
