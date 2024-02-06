@@ -50,7 +50,7 @@ const thenTypes = ref([
     <v-divider />
 
     <v-list-item class="my-3">
-      <v-text-field v-model="preferenceStore.preferences!.max_active_checking_torrents" type="number" hide-details :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
+      <v-text-field v-model.number="preferenceStore.preferences!.max_active_checking_torrents" type="number" hide-details :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
     </v-list-item>
 
     <v-divider />
@@ -63,7 +63,7 @@ const thenTypes = ref([
 
         <v-col cols="12" sm="6" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.max_active_downloads"
+            v-model.number="preferenceStore.preferences!.max_active_downloads"
             :disabled="!preferenceStore.preferences!.queueing_enabled"
             type="number"
             hide-details
@@ -71,7 +71,7 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="12" sm="6" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.max_active_uploads"
+            v-model.number="preferenceStore.preferences!.max_active_uploads"
             :disabled="!preferenceStore.preferences!.queueing_enabled"
             type="number"
             hide-details
@@ -79,7 +79,7 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.max_active_torrents"
+            v-model.number="preferenceStore.preferences!.max_active_torrents"
             :disabled="!preferenceStore.preferences!.queueing_enabled"
             type="number"
             hide-details
@@ -100,7 +100,7 @@ const thenTypes = ref([
       <v-row class="mb-2">
         <v-col cols="12" sm="6" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
+            v-model.number="preferenceStore.preferences!.slow_torrent_dl_rate_threshold"
             :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
             type="number"
             hide-details
@@ -109,7 +109,7 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="12" sm="6" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
+            v-model.number="preferenceStore.preferences!.slow_torrent_ul_rate_threshold"
             :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
             type="number"
             hide-details
@@ -118,12 +118,12 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="12" md="4">
           <v-text-field
-            v-model="preferenceStore.preferences!.slow_torrent_inactive_timer"
+            v-model.number="preferenceStore.preferences!.slow_torrent_inactive_timer"
             :disabled="!preferenceStore.preferences!.queueing_enabled || !preferenceStore.preferences!.dont_count_slow_torrents"
             type="number"
             hide-details
             :label="t('settings.bittorrent.torrentQueueing.torrentInactivityTimer')"
-            :suffix="t('units.seconds')" />
+            :suffix="t('units.seconds', preferenceStore.preferences!.slow_torrent_inactive_timer)" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -137,7 +137,7 @@ const thenTypes = ref([
           <v-checkbox v-model="preferenceStore.preferences!.max_ratio_enabled" hide-details :label="t('settings.bittorrent.seedLimits.whenRatioReaches')" />
         </v-col>
         <v-col cols="6">
-          <v-text-field v-model="preferenceStore.preferences!.max_ratio" :disabled="!preferenceStore.preferences!.max_ratio_enabled" type="number" hide-details />
+          <v-text-field v-model.number="preferenceStore.preferences!.max_ratio" :disabled="!preferenceStore.preferences!.max_ratio_enabled" type="number" hide-details />
         </v-col>
       </v-row>
     </v-list-item>
@@ -149,11 +149,11 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model="preferenceStore.preferences!.max_seeding_time"
+            v-model.number="preferenceStore.preferences!.max_seeding_time"
             :disabled="!preferenceStore.preferences!.max_seeding_time_enabled"
             type="number"
             hide-details
-            :suffix="t('units.minutes')" />
+            :suffix="t('units.minutes', preferenceStore.preferences!.max_seeding_time)" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -168,10 +168,10 @@ const thenTypes = ref([
         </v-col>
         <v-col cols="6">
           <v-text-field
-            v-model="preferenceStore.preferences!.max_inactive_seeding_time"
+            v-model.number="preferenceStore.preferences!.max_inactive_seeding_time"
             :disabled="!preferenceStore.preferences!.max_inactive_seeding_time_enabled"
             type="number"
-            :suffix="t('units.minutes')" />
+            :suffix="t('units.minutes', preferenceStore.preferences!.max_inactive_seeding_time)" />
         </v-col>
       </v-row>
     </v-list-item>

@@ -28,6 +28,16 @@ body:
       label: Relevant debug informations
       description: Can be a curl command, a log extract, ...
       render: shell
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to reproduce
+      value: |-
+        1. ...
+        2. ...
+        ...
+    validations:
+      required: true
   - type: dropdown
     id: download-source
     attributes:
@@ -39,7 +49,6 @@ body:
         - Built from source
         - Using a third-party docker image (hotio or others)
         - Other (specify in env description)
-      default: 0
     validations:
       required: true
   - type: textarea

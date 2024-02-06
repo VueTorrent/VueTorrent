@@ -56,16 +56,16 @@
       "preferEncryption": "Allow Encryption"
     },
     "file_log_age_type": {
-      "days": "Days",
-      "months": "Months",
-      "years": "Years"
+      "days": "Day | Day | Days",
+      "months": "Month | Month | Months",
+      "years": "Year | Year | Years"
     },
     "file_priority": {
       "high": "High",
       "max": "Max",
+      "mixed": "Mixed",
       "normal": "Normal",
-      "unwanted": "Unwanted",
-      "mixed": "Mixed"
+      "unwanted": "Unwanted"
     },
     "maxRatioAction": {
       "pauseTorrent": "Pause torrent",
@@ -501,7 +501,6 @@
       },
       "speed_graph": {
         "download_label": "Download",
-        "relative_time": "Now | {n} second ago | {n} seconds ago",
         "upload_label": "Upload"
       },
       "stats": {
@@ -1083,9 +1082,9 @@
       "folderInfo": "{n} folder | {n} folders",
       "priority": "Set priority",
       "rename": {
+        "bulk": "Bulk rename",
         "file": "Rename",
-        "folder": "Rename folder",
-        "bulk": "Bulk rename"
+        "folder": "Rename folder"
       },
       "rootNode": "(Root)"
     },
@@ -1247,7 +1246,7 @@
     }
   },
   "units": {
-    "minutes": "minutes",
-    "seconds": "seconds"
+    "minutes": "minute | minute | minutes",
+    "seconds": "second | second | seconds"
   }
 }

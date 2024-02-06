@@ -109,6 +109,7 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (response.server_state) {
         serverState.value = { ...serverState.value, ...response.server_state }
+        navbarStore.pushTimeData()
         navbarStore.pushDownloadData(serverState.value.dl_info_speed)
         navbarStore.pushUploadData(serverState.value.up_info_speed)
       }

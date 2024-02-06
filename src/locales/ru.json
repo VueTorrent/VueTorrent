@@ -62,6 +62,7 @@
     "file_priority": {
       "high": "Высокий",
       "max": "Максимальный",
+      "mixed": "Смешанный",
       "normal": "Нормальный",
       "unwanted": "Ненужный"
     },
@@ -207,7 +208,7 @@
       "f_l_piece_prio": "По статусу приоритета первой/последней части",
       "force_start": "По статусу принудительного старта",
       "globalSpeed": "Общей скорости",
-      "globalVolume": "Роздано/загружено всего",
+      "globalVolume": "Отдано/загружено всего",
       "hash": "Хэшу",
       "infohash_v1": "Хеш-сумме v1",
       "infohash_v2": "Хеш-сумме v2",
@@ -238,8 +239,8 @@
       "tracker": "Трекеру",
       "trackers_count": "Количеству трекеров",
       "up_limit": "Ограничению раздачи",
-      "uploaded": "Розданному (всего)",
-      "uploaded_session": "Розданному (за сессию)",
+      "uploaded": "Отдано (всего)",
+      "uploaded_session": "Отдано (за сессию)",
       "upspeed": "Скорости раздачи"
     },
     "sortLabel": "Сортировать по",
@@ -368,6 +369,7 @@
         "addPaused": "Добавить приостановленным",
         "affectedFeedsSubheader": "Затронутые ленты",
         "assignedCategory": "Присвоенные категории",
+        "enabled": "Включить правило",
         "episodeFilter": "Фильтр эпизодов",
         "episodeFilterPlaceholder": "прим. S01E02-S01E05",
         "ignoreDays": "Игнорировать элементы, опубликованные за последние {days} дней",
@@ -476,7 +478,6 @@
       },
       "speed_graph": {
         "download_label": "Загрузка",
-        "relative_time": "Сейчас | {n} секунд(у/ы) назад | {n} секунд назад",
         "upload_label": "Раздача"
       },
       "stats": {
@@ -489,7 +490,7 @@
         "session": {
           "title": "Статистика за сессию"
         },
-        "uploaded": "Роздано"
+        "uploaded": "Отдано"
       }
     },
     "top": {
@@ -759,7 +760,7 @@
       "monitoredFolders": {
         "actions": "Действия",
         "confirmDelete": "Вы уверены что хотите удалить эту запись?",
-        "editItem": "Редактировать запись",
+        "editItem": "Редактировать",
         "monitoredFolderPath": "Отслеживаемая папка",
         "newItem": "Новая запись",
         "noData": "Ещё нет отслеживаемых папок",
@@ -772,9 +773,9 @@
         "preAllocateDisk": "Резервировать место на диске для всех файлов"
       },
       "runExternalProgram": {
-        "onAddedEnabled": "Запустить внешнюю программу при добавлении торрента:",
+        "onAddedEnabled": "Запустить внешнюю программу при добавлении торрента",
         "onAddedLabel": "Команда",
-        "onFinishedEnabled": "Запустить внешнюю программу при завершении торрента:",
+        "onFinishedEnabled": "Запустить внешнюю программу при завершении торрента",
         "onFinishedLabel": "Команда",
         "subheader": "Запускать внешнюю программу",
         "supportParamC": "%C: Количество файлов",
@@ -849,7 +850,7 @@
         "noRules": "Правил пока нет"
       }
     },
-    "saveSuccess": "Параметры сохранены!",
+    "saveSuccess": "Настройки сохранены!",
     "speed": {
       "download": "Загрузка",
       "scheduler": {
@@ -944,7 +945,7 @@
         "tip": "Общие настройки пользовательского WebUI",
         "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
         "useBitSpeed": "Заменить значения скорости на биты (kB/s -> kbps)",
-        "vueTorrentTitle": "Заголовок VueTorrent"
+        "vueTorrentTitle": "Заголовок вкладки"
       },
       "torrentCard": {
         "grid": {
@@ -998,7 +999,7 @@
       "interface": {
         "ipAddress": "IP адрес",
         "port": "Порт",
-        "subheader": "Веб-интерфейс пользователя (дистанционное управление)",
+        "subheader": "Веб-интерфейс пользователя",
         "useAlternativeWebUI": "Использовать альтернативный WebUI",
         "useUPnP": "Использовать UPnP / NAT-PMP для автоматического проброса порта на моём роутере"
       },
@@ -1043,7 +1044,7 @@
     "addTorrents": "Добавить торренты",
     "overflow": {
       "delete": "Удалить",
-      "logs": "Логи qBit",
+      "logs": "Логи qBittorrent",
       "pause": "Пауза",
       "resume": "Возобновить",
       "rssArticles": "RSS статьи",
@@ -1058,10 +1059,11 @@
       "folderInfo": "{n} папка | {n} папок",
       "priority": "Установить приоритет",
       "rename": {
+        "bulk": "Массовое переименование",
         "file": "Переименовать",
         "folder": "Переименовать папку"
       },
-      "rootNode": "(Корневой узел)"
+      "rootNode": "(Корень)"
     },
     "info": {
       "boolean_values": "Логические значения",
@@ -1083,7 +1085,7 @@
       "pieceCount": "{owned} / {total} ({pieceSize})",
       "ratio": "Рейтинг",
       "selectedFileSize": "Размер выбранных файлов",
-      "uploaded": "Роздано",
+      "uploaded": "Отдано",
       "upSpeedAverage": "Средняя скорость раздачи",
       "waitingForMetadata": "Ожидание метадаты..."
     },
@@ -1105,7 +1107,7 @@
         "host": "Хост",
         "progress": "Прогресс",
         "relevance": "Актуальность",
-        "uploaded": "Роздано",
+        "uploaded": "Отдано",
         "upSpeed": "Рздч"
       }
     },
@@ -1134,7 +1136,7 @@
         "oldUrl": "Старая ссылка",
         "title": "Редактировать трекер"
       },
-      "peersValue": "{peers} пиров ({seeds} S /{leeches} L)",
+      "peersValue": "{peers} пиров ({seeds} С / {leeches} Л)",
       "reannounce": "Переанонсировать всё",
       "tier": "Ранг: {n}"
     }
@@ -1164,7 +1166,7 @@
       "f_l_piece_prio": "Приоритет первой / последней части",
       "forced": "Принудительное состояние",
       "global_speed": "Общая скорость",
-      "global_volume": "Роздано/загружено всего",
+      "global_volume": "Отдано/загружено всего",
       "hash": "Хэш",
       "infohash_v1": "Хеш-сумма v1",
       "infohash_v2": "Хеш-сумма v2",
@@ -1193,8 +1195,8 @@
       "total_size": "Общий размер",
       "tracker": "Трекер",
       "trackers_count": "Количество трекеров",
-      "uploaded": "Роздано (всего)",
-      "uploaded_session": "Роздано (за сессию)",
+      "uploaded": "Отдано (всего)",
+      "uploaded_session": "Отдано (за сессию)",
       "upload_limit": "Ограничение раздачи",
       "upload_speed": "Скорость отдачи"
     },

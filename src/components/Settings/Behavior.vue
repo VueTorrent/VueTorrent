@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { FileLogAgeType } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const preferenceStore = usePreferenceStore()
 
-const fileLogAgeTypeOptions = [
-  { title: t('constants.file_log_age_type.days'), value: FileLogAgeType.DAYS },
-  { title: t('constants.file_log_age_type.months'), value: FileLogAgeType.MONTHS },
-  { title: t('constants.file_log_age_type.years'), value: FileLogAgeType.YEARS }
-]
+const fileLogAgeTypeOptions = computed(() => [
+  { title: t('constants.file_log_age_type.days', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.DAYS },
+  { title: t('constants.file_log_age_type.months', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.MONTHS },
+  { title: t('constants.file_log_age_type.years', preferenceStore.preferences!.file_log_age), value: FileLogAgeType.YEARS }
+])
 </script>
 
 <template>
@@ -45,7 +46,7 @@ const fileLogAgeTypeOptions = [
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
-            v-model="preferenceStore.preferences!.file_log_max_size"
+            v-model.number="preferenceStore.preferences!.file_log_max_size"
             :disabled="!preferenceStore.preferences!.file_log_enabled || !preferenceStore.preferences!.file_log_backup_enabled"
             type="number"
             hide-details
@@ -62,9 +63,10 @@ const fileLogAgeTypeOptions = [
         </v-col>
         <v-col cols="3">
           <v-text-field
-            v-model="preferenceStore.preferences!.file_log_age"
+            v-model.number="preferenceStore.preferences!.file_log_age"
             :disabled="!preferenceStore.preferences!.file_log_enabled || !preferenceStore.preferences!.file_log_delete_old"
             hide-details
+            type="number"
             :label="$t('settings.behavior.logs.file_log_age')" />
         </v-col>
         <v-col cols="3">

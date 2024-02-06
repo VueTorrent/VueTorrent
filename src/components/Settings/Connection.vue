@@ -79,7 +79,7 @@ watch(
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model="preferenceStore.preferences!.listen_port" type="number" hide-details :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
+          <v-text-field v-model.number="preferenceStore.preferences!.listen_port" type="number" hide-details :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
           <v-btn color="primary" @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }} </v-btn>
@@ -100,7 +100,7 @@ watch(
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_conn_enabled" /></span>
             <v-text-field
-              v-model="preferenceStore.preferences!.max_connec"
+              v-model.number="preferenceStore.preferences!.max_connec"
               :disabled="!max_conn_enabled"
               type="number"
               hide-details
@@ -111,7 +111,7 @@ watch(
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_conn_per_torrent_enabled" /></span>
             <v-text-field
-              v-model="preferenceStore.preferences!.max_connec_per_torrent"
+              v-model.number="preferenceStore.preferences!.max_connec_per_torrent"
               :disabled="!max_conn_per_torrent_enabled"
               type="number"
               hide-details
@@ -122,7 +122,7 @@ watch(
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_uploads_enabled" /></span>
             <v-text-field
-              v-model="preferenceStore.preferences!.max_uploads"
+              v-model.number="preferenceStore.preferences!.max_uploads"
               :disabled="!max_uploads_enabled"
               type="number"
               hide-details
@@ -133,7 +133,7 @@ watch(
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_uploads_per_torrent_enabled" /></span>
             <v-text-field
-              v-model="preferenceStore.preferences!.max_uploads_per_torrent"
+              v-model.number="preferenceStore.preferences!.max_uploads_per_torrent"
               :disabled="!max_uploads_per_torrent_enabled"
               type="number"
               hide-details
@@ -155,7 +155,7 @@ watch(
           <v-text-field v-model="preferenceStore.preferences!.proxy_ip" :disabled="isProxyDisabled" hide-details :label="t('settings.connection.proxy.host')" />
         </v-col>
         <v-col cols="6" md="4">
-          <v-text-field v-model="preferenceStore.preferences!.proxy_port" :disabled="isProxyDisabled" type="number" hide-details :label="t('settings.connection.proxy.port')" />
+          <v-text-field v-model.number="preferenceStore.preferences!.proxy_port" :disabled="isProxyDisabled" type="number" hide-details :label="t('settings.connection.proxy.port')" />
         </v-col>
       </v-row>
     </v-list-item>

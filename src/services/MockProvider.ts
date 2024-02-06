@@ -24,9 +24,9 @@ import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
-  private static hashes: string[] = new Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT))
+  private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT))
     .fill('')
-    .map(() => faker.string.hexadecimal({ length: 40, prefix: '', casing: 'lower' }))
+    .map((_, i) => (i+1).toString(16).padStart(40, '0'))
 
   private constructor() {}
 
@@ -679,12 +679,12 @@ export default class MockProvider implements IProvider {
         added_on,
         amount_left: faker.number.int({ min: 0, max: total_size }),
         auto_tmm: faker.datatype.boolean(),
-        availability: faker.number.float({ min: 0, max: 100, precision: 0.01 }),
+        availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
         category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
         completed,
         completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime(),
         content_path: faker.system.filePath(),
-        dl_limit: faker.number.float({ min: 0, max: 1, precision: 0.01 }),
+        dl_limit: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
         dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
         download_path: faker.system.directoryPath(),
         downloaded: completed,

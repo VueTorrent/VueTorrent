@@ -476,7 +476,6 @@
       },
       "speed_graph": {
         "download_label": "下載",
-        "relative_time": "現在 | {n} 秒前 | {n} 秒前",
         "upload_label": "上傳"
       },
       "stats": {

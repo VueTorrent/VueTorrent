@@ -40,8 +40,8 @@
       "title": "Agencement du contenu du torrent"
     },
     "diskIoMode": {
-      "disableOsCache": "Désactiver le cache du système",
-      "enableOsCache": "Activer le cache du système",
+      "disableOsCache": "Désactiver le cache du système d’exploitation",
+      "enableOsCache": "Activer le cache du système d’exploitation",
       "writeThrough": "Double écriture (libtorrent >= 2.0.6)"
     },
     "diskIoType": {
@@ -61,7 +61,7 @@
     },
     "file_priority": {
       "high": "Haute",
-      "max": "Max",
+      "max": "Maximale",
       "normal": "Normale",
       "unwanted": "Ignoré"
     },
@@ -69,10 +69,10 @@
       "pauseTorrent": "Suspendre le torrent",
       "removeTorrent": "Supprimer le torrent",
       "removeTorrentAndFiles": "Supprimer le torrent et ses fichiers",
-      "torrentSuperseeding": "Activer le mode super seed"
+      "torrentSuperseeding": "Activer le super partage pour ce torrent"
     },
     "monitoredFolderSaveLocation": {
-      "defaultSavePath": "Chemin d'enregistrement par défaut",
+      "defaultSavePath": "Répertoire de destination par défaut",
       "monitoredFolder": "Emplacement du dossier surveillé",
       "other": "Autre"
     },
@@ -83,15 +83,15 @@
     },
     "scheduler": {
       "everyDay": "Tous les jours",
-      "everyFriday": "Tous les vendredi",
-      "everyMonday": "Tous les lundi",
-      "everySaturday": "Tous les samedi",
-      "everySunday": "Tous les dimanche",
-      "everyThursday": "Tous les jeudi",
-      "everyTuesday": "Tous les mardi",
-      "everyWednesday": "Tous les mercredi",
+      "everyFriday": "Tous les vendredis",
+      "everyMonday": "Tous les lundis",
+      "everySaturday": "Tous les samedis",
+      "everySunday": "Tous les dimanches",
+      "everyThursday": "Tous les jeudis",
+      "everyTuesday": "Tous les mardis",
+      "everyWednesday": "Tous les mercredis",
       "everyWeekday": "Tous les jours de la semaine",
-      "everyWeekend": "Tous les jours du weekend"
+      "everyWeekend": "Tous les week-ends"
     },
     "stopCondition": {
       "filesChecked": "Fichiers vérifiés",
@@ -119,10 +119,10 @@
     },
     "uploadSlotsBehavior": {
       "fixedSlots": "Emplacements fixes",
-      "uploadRateBased": "Basé sur la vitesse de téléversement"
+      "uploadRateBased": "Basé sur la vitesse d'envoi"
     },
     "utpTcpMixedMode": {
-      "peerProportional": "Proportionnel au pair (ralenti le TCP)",
+      "peerProportional": "Proportionnel par pair (limite les connexions TCP)",
       "preferTcp": "Préférer TCP"
     }
   },
@@ -136,19 +136,19 @@
     "not_complete": "Jamais vu complété",
     "right_click": {
       "advanced": {
-        "auto_tmm": "Gestion automatique du torrent",
+        "auto_tmm": "Gestion de torrent automatique",
         "download_path": "Chemin de téléchargement",
         "f_l_prio": "Priorité aux premiers / derniers",
         "reannounce": "Réannoncer",
-        "recheck": "Revérifier",
+        "recheck": "Forcer la revérification",
         "rename": "Renommer le torrent",
-        "save_path": "Chemin d'enregistrement",
+        "save_path": "Définir le répertoire de destination",
         "seq_dl": "Téléchargement séquentiel",
         "title": "Avancé"
       },
       "category": {
         "clear": "(Effacer la catégorie)",
-        "disabled_title": "Aucune catégories",
+        "disabled_title": "Aucune catégorie",
         "title": "Définir la catégorie"
       },
       "copy": {
@@ -170,7 +170,7 @@
         "download": "Définir la limite de téléchargement",
         "share": "Définir la limite partagée",
         "title": "Définir la vitesse limite",
-        "upload": "Définir la limite de téléversement"
+        "upload": "Définir la limite d'envoi"
       },
       "tags": {
         "disabled_title": "Aucune étiquette",
@@ -216,22 +216,22 @@
       "max_ratio": "Ratio maximum",
       "max_seeding_time": "Temps de seed max",
       "name": "Nom",
-      "num_complete": "Seeders (essaim)",
+      "num_complete": "Sources  (essaim)",
       "num_incomplete": "Pairs (essaim)",
       "num_leechs": "Pairs (connectés)",
-      "num_seeds": "Seeders (connectés)",
+      "num_seeds": "Sources (connectées)",
       "priority": "Priorité",
       "progress": "Progression",
       "ratio": "Ratio",
       "ratio_limit": "Limite du ratio",
-      "save_path": "Chemin d'enregistrement",
+      "save_path": "Répertoire de destination",
       "seeding_time": "Temps de seed",
       "seeding_time_limit": "Limite du temps de seed",
       "seen_complete": "Vu complété",
       "seq_dl": "Téléchargement séquentiel",
       "size": "Taille",
       "state": "État",
-      "super_seeding": "Super seed",
+      "super_seeding": "Super Partage",
       "tags": "Étiquettes",
       "time_active": "Temps actif",
       "total_size": "Taille totale",
@@ -274,7 +274,7 @@
       "ratioLimit": "Limite du ratio",
       "rename": "Renommer le torrent",
       "resetForm": "Réinitialiser le formulaire",
-      "savePath": "Chemin d'enregistrement (complet)",
+      "savePath": "Répertoire de destination (lorsque terminé)",
       "seedingTimeLimit": "Limite du temps de seed",
       "sequentialDownload": "Téléchargement séquentiel",
       "skipChecking": "Sauter la vérification du hachage",
@@ -283,13 +283,13 @@
       "success": "{n} torrent ajouté | {n} torrents ajoutés",
       "tags": "Étiquettes",
       "title": "Ajouter des torrents",
-      "upLimit": "Limite de téléversement"
+      "upLimit": "Limite d'envoi"
     },
     "category": {
       "name": "Nom de la catégorie",
       "nameRequired": "Le nom de la catégorie est requis",
       "oldName": "Ancien nom de la catégorie",
-      "savePath": "Chemin d'enregistrement",
+      "savePath": "Répertoire de destination",
       "title": {
         "create": "Créer une catégorie",
         "edit": "Modifier la catégorie"
@@ -321,7 +321,7 @@
       "required": "Un nouveau chemin est requis",
       "samePath": "Le nouveau chemin doit être différent de l'ancien",
       "save": {
-        "title": "Changer le chemin d'enregistrement"
+        "title": "Modifier le répertoire de destination"
       }
     },
     "moveTorrentFile": {
@@ -384,8 +384,8 @@
         "mustContain": "Doit contenir",
         "mustNotContain": "Ne doit pas contenir",
         "name": "Nom",
-        "savePath": "Chemin d'enregistrement",
-        "savePathPlaceholder": "Laisser vide pour utiliser le chemin d'enregistrement par défaut",
+        "savePath": "Répertoire de destination",
+        "savePathPlaceholder": "Laisser vide pour utiliser le répertoire de destination par défaut",
         "smartFilter": "Utiliser le filtre d'épisode intelligent",
         "title": {
           "create": "Créer une règle RSS",
@@ -476,8 +476,7 @@
       },
       "speed_graph": {
         "download_label": "Téléchargement",
-        "relative_time": "Maintenant | il y a {n} seconde | il y a {n} secondes",
-        "upload_label": "Téléversement"
+        "upload_label": "Envoi"
       },
       "stats": {
         "alltime": {
@@ -552,7 +551,7 @@
       "fileName": "Nom de fichier",
       "fileSize": "Taille du fichier",
       "nbLeechers": "Leechers",
-      "nbSeeders": "Seeders",
+      "nbSeeders": "Partageurs",
       "siteUrl": "URL du site"
     },
     "query": "Requête de recherche",
@@ -666,7 +665,7 @@
         "file_log_delete_old": "Supprimer les anciennes archives des logs",
         "file_log_enabled": "Activer les fichiers de log",
         "file_log_max_size": "Archiver les fichiers de log après",
-        "file_log_path": "Chemin d'enregistrement",
+        "file_log_path": "Répertoire de destination",
         "subheader": "Gestion des logs"
       },
       "performance_warning": "Loguer les avertissements de performance"
@@ -696,7 +695,7 @@
         "excludeSlowTorrent": "Ne comptez pas les torrents lents dans ces limites.",
         "maxActiveDownload": "Nombre maximum de téléchargements actifs",
         "maxActiveTorrent": "Nombre maximum de torrents actifs",
-        "maxActiveUpload": "Nombre maximum de téléversements actifs",
+        "maxActiveUpload": "Nombre maximum d'envois actifs",
         "subheader": "Mise en file d'attente des torrents",
         "torrentInactivityTimer": "Minuterie d'inactivité des torrents",
         "uploadRateLimit": "Seuil du taux de téléchargement"
@@ -705,9 +704,9 @@
     "connection": {
       "connectionLimits": {
         "globalMaxConnection": "Nombre maximum global de connexions",
-        "globalMaxUploadSlots": "Nombre maximum global d'emplacements de téléversement",
+        "globalMaxUploadSlots": "Nombre maximum global d'emplacements d'envoi",
         "perTorrentMaxConnection": "Nombre maximum de connexions par torrent",
-        "perTorrentMaxUploadSlots": "Nombre maximum d'emplacements de téléversement par torrent",
+        "perTorrentMaxUploadSlots": "Nombre maximum d'emplacements d'envoi par torrent",
         "subheader": "Limites de connexion"
       },
       "ipFiltering": {
@@ -778,7 +777,7 @@
         "onFinishedLabel": "Commande",
         "subheader": "Exécuter un programme externe",
         "supportParamC": "%C : Nombre de fichiers",
-        "supportParamD": "%D : Chemin d'enregistrement",
+        "supportParamD": "%D : Répertoire de destination",
         "supportParamF": "%F : Chemin du contenu (identique à la racine pour les torrents multi-fichiers)",
         "supportParamG": "%G : Étiquettes (séparées par une virgule)",
         "supportParamI": "%I: Info hash v1",
@@ -794,8 +793,8 @@
       },
       "saveManagement": {
         "autoTMMEnabled": "Mode de gestion des torrents par défaut",
-        "categoryChangedTMM": "Lorsque le chemin d'enregistrement de la catégorie est modifié",
-        "defaultSavePath": "Chemin d'enregistrement par défaut (complet)",
+        "categoryChangedTMM": "Lorsque le répertoire de destination de la catégorie est modifié",
+        "defaultSavePath": "Répertoire de destination par défaut (complet)",
         "defaultTMMOptions": {
           "automatic": "Automatique",
           "manual": "Manuel"
@@ -807,7 +806,7 @@
           "relocateTorrent": "Déplacer le torrent",
           "switchToManual": "Passer le torrent en mode manuel"
         },
-        "savePathChangedTMM": "Lorsque le chemin d'enregistrement par défaut est modifié",
+        "savePathChangedTMM": "Lorsque le répertoire de destination par défaut est modifié",
         "subheader": "Gestion de la sauvegarde",
         "torrentChangedTMM": "Lorsque la catégorie des torrents a changé"
       },
@@ -1058,6 +1057,7 @@
       "folderInfo": "{n} dossier | {n} dossiers",
       "priority": "Définir la priorité",
       "rename": {
+        "bulk": "Renommer en masse",
         "file": "Renommer",
         "folder": "Renommer le dossier"
       },
@@ -1146,9 +1146,9 @@
       "auto_tmm": "Gestion automatique des torrents",
       "availability": "Disponibilité",
       "available_peers": "Pairs (essaim)",
-      "available_seeds": "Seeders (essaim)",
+      "available_seeds": "Sources  (essaim)",
       "avg_download_speed": "Vitesse de téléchargement moyenne",
-      "avg_upload_speed": "Vitesse de téléversement moyenne",
+      "avg_upload_speed": "Vitesse d'envoi moyenne",
       "category": "Catégorie",
       "completed_on": "Terminé le",
       "content_path": "Chemin du contenu",
@@ -1172,7 +1172,7 @@
       "magnet": "Lien magnet",
       "name": "Titre du torrent",
       "num_leechs": "Pairs (connectés)",
-      "num_seeds": "Seeders (connectés)",
+      "num_seeds": "Sources (connectées)",
       "peers": "Pairs",
       "priority": "Priorité",
       "progress": "Progression",
@@ -1196,7 +1196,7 @@
       "uploaded": "Partagé (global)",
       "uploaded_session": "Partagé (session)",
       "upload_limit": "Limite de téléchargement",
-      "upload_speed": "Vitesse de téléversement"
+      "upload_speed": "Vitesse d'envoi"
     },
     "state": {
       "allocating": "Allocation",
@@ -1206,7 +1206,7 @@
       "downloading": "Téléchargement",
       "error": "Erreur",
       "forcedDL": "[F] Téléchargement",
-      "forcedUP": "[F] Téléversement",
+      "forcedUP": "[F] Envoi",
       "metaDL": "Métadonnées",
       "missingFiles": "Fichiers manquants",
       "moving": "Déplacement",
@@ -1217,7 +1217,7 @@
       "stalledDL": "En suspens",
       "stalledUP": "En cours de seed",
       "unknown": "Inconnu",
-      "uploading": "Téléversement"
+      "uploading": "Envoi"
     }
   },
   "units": {
