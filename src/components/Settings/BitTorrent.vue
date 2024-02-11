@@ -50,7 +50,11 @@ const thenTypes = ref([
     <v-divider />
 
     <v-list-item class="my-3">
-      <v-text-field v-model.number="preferenceStore.preferences!.max_active_checking_torrents" type="number" hide-details :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
+      <v-text-field
+        v-model.number="preferenceStore.preferences!.max_active_checking_torrents"
+        type="number"
+        hide-details
+        :label="t('settings.bittorrent.maxActiveCheckingTorrents')" />
     </v-list-item>
 
     <v-divider />

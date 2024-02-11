@@ -55,13 +55,14 @@
       "preferEncryption": "Autoriser le chiffrement"
     },
     "file_log_age_type": {
-      "days": "Jours",
-      "months": "Mois",
-      "years": "Années"
+      "days": "Jour | Jour | Jours",
+      "months": "Mois | Mois | Mois",
+      "years": "Année | Année | Années"
     },
     "file_priority": {
       "high": "Haute",
       "max": "Maximale",
+      "mixed": "Mixte",
       "normal": "Normale",
       "unwanted": "Ignoré"
     },
@@ -368,6 +369,7 @@
         "addPaused": "Ajouter en pause",
         "affectedFeedsSubheader": "Flux affectés",
         "assignedCategory": "Catégorie attribuée",
+        "enabled": "Activer la règle",
         "episodeFilter": "Filtre d'épisode",
         "episodeFilterPlaceholder": "ex: S01E02-S01E05",
         "ignoreDays": "Ignorer les élements publiées dans les {days} derniers jours",
@@ -1221,7 +1223,7 @@
     }
   },
   "units": {
-    "minutes": "minutes",
-    "seconds": "secondes"
+    "minutes": "minute | minute | minutes",
+    "seconds": "seconde | seconde | secondes"
   }
 }

@@ -1,7 +1,7 @@
-import cz from './cs-CZ.json'
+import cs_cz from './cs-CZ.json'
 import en from './en.json'
 import fr from './fr.json'
-import it from './it-IT.json'
+import it_it from './it-IT.json'
 import ko from './ko.json'
 import nl from './nl.json'
 import pl from './pl.json'
@@ -9,16 +9,13 @@ import ru from './ru.json'
 import zh_hans from './zh-Hans.json'
 import zh_hant from './zh-Hant.json'
 
-type LocaleDef = {
-  title: string
-  value: Locales
-}
+type LocaleDef = { title: string; value: Locales }
 
 export enum Locales {
-  CZ = 'cs-CZ',
+  CS_CZ = 'cs-CZ',
   EN = 'en',
   FR = 'fr',
-  IT = 'it-IT',
+  IT_IT = 'it-IT',
   KO = 'ko',
   NL = 'nl',
   PL = 'pl',
@@ -28,10 +25,10 @@ export enum Locales {
 }
 
 export const LOCALES: LocaleDef[] = [
-  { title: 'čeština', value: Locales.CZ },
+  { title: 'čeština (Česko)', value: Locales.CS_CZ },
   { title: 'English', value: Locales.EN },
   { title: 'Français', value: Locales.FR },
-  { title: 'Italian', value: Locales.IT },
+  { title: 'italiano (Italia)', value: Locales.IT_IT },
   { title: '한국어', value: Locales.KO },
   { title: 'Nederlands', value: Locales.NL },
   { title: 'polski', value: Locales.PL },
@@ -41,10 +38,10 @@ export const LOCALES: LocaleDef[] = [
 ]
 
 export const messages: Record<Locales, any> = {
-  [Locales.CZ]: cz,
+  [Locales.CS_CZ]: cs_cz,
   [Locales.EN]: en,
   [Locales.FR]: fr,
-  [Locales.IT]: it,
+  [Locales.IT_IT]: it_it,
   [Locales.KO]: ko,
   [Locales.NL]: nl,
   [Locales.PL]: pl,

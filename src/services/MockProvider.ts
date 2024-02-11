@@ -26,7 +26,7 @@ export default class MockProvider implements IProvider {
   private static instance: MockProvider
   private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT))
     .fill('')
-    .map((_, i) => (i+1).toString(16).padStart(40, '0'))
+    .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
   private constructor() {}
 
