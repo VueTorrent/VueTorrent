@@ -194,10 +194,18 @@ onBeforeMount(async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model.number="preferenceStore.preferences!.async_io_threads" type="number" hide-details :label="t('settings.advanced.libtorrent.threads.asyncIoThreads')" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.async_io_threads"
+            type="number"
+            hide-details
+            :label="t('settings.advanced.libtorrent.threads.asyncIoThreads')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field v-model.number="preferenceStore.preferences!.hashing_threads" type="number" hide-details :label="t('settings.advanced.libtorrent.threads.hashingThreads')" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.hashing_threads"
+            type="number"
+            hide-details
+            :label="t('settings.advanced.libtorrent.threads.hashingThreads')" />
         </v-col>
 
         <v-col cols="12" sm="6">
@@ -220,7 +228,12 @@ onBeforeMount(async () => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-text-field v-model.number="preferenceStore.preferences!.disk_cache" type="number" hide-details suffix="MiB" :label="t('settings.advanced.libtorrent.disk.diskCache')" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.disk_cache"
+            type="number"
+            hide-details
+            suffix="MiB"
+            :label="t('settings.advanced.libtorrent.disk.diskCache')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
@@ -456,7 +469,11 @@ onBeforeMount(async () => {
             :label="t('settings.advanced.libtorrent.maxConcurrentHTTPAnnounces')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-text-field v-model.number="preferenceStore.preferences!.stop_tracker_timeout" type="number" hide-details :label="t('settings.advanced.libtorrent.stopTrackerTimeout')" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.stop_tracker_timeout"
+            type="number"
+            hide-details
+            :label="t('settings.advanced.libtorrent.stopTrackerTimeout')" />
         </v-col>
 
         <v-col cols="12" sm="4">

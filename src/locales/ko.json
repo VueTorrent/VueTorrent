@@ -1,1 +1,1229 @@
-{}
+{
+  "common": {
+    "active": "활성",
+    "cancel": "취소",
+    "close": "닫기",
+    "delete": "삭제",
+    "disable": "비활성",
+    "emptyList": "이 곳은 비어있습니다!",
+    "NA": "N/A",
+    "no": "아니요",
+    "none": "(없음)",
+    "ok": "확인",
+    "save": "저장",
+    "selectAll": "모두 선택",
+    "selectNone": "선택 안함",
+    "useGlobalSettings": "전역 설정 사용",
+    "yes": "예"
+  },
+  "constants": {
+    "addPaused": {
+      "always": "항상",
+      "never": "절대 안함",
+      "title": "일시 중지 추가"
+    },
+    "bittorrentProtocols": {
+      "tcp": "TCP",
+      "tcp_utp": "TCP 및 μTP",
+      "utp": "μTP"
+    },
+    "connectionStatus": {
+      "connected": "연결됨",
+      "disconnected": "연결 끊김",
+      "firewalled": "방화벽",
+      "unknown": "알려지지 않음"
+    },
+    "contentLayout": {
+      "nosubfolder": "하위 폴더 제거",
+      "original": "원본",
+      "subfolder": "하위 디렉토리 생성",
+      "title": "토렌트 파일 배치"
+    },
+    "diskIoMode": {
+      "disableOsCache": "OS 캐시 비활성화",
+      "enableOsCache": "OS 캐시 활성화",
+      "writeThrough": "디스크 동기 (Write-Through) 쓰기모드(libtorrent 모듈 >= 2.0.6)"
+    },
+    "diskIoType": {
+      "default": "기본값",
+      "memoryMappedFiles": "메모리 매핑 파일",
+      "posixCompliant": "POSIX 호환"
+    },
+    "encryption": {
+      "forceOff": "암호화 비활성화",
+      "forceOn": "암호화 필수",
+      "preferEncryption": "암호화 허용"
+    },
+    "file_log_age_type": {
+      "days": "일 | 일 | 일",
+      "months": "월 | 월 | 개월",
+      "years": "년 | 년 | 년"
+    },
+    "file_priority": {
+      "high": "높음",
+      "max": "최대",
+      "mixed": "혼합",
+      "normal": "일반",
+      "unwanted": "받지 않음"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "토렌트 일시중지",
+      "removeTorrent": "토렌트 제거",
+      "removeTorrentAndFiles": "토렌트 및 해당 파일 제거",
+      "torrentSuperseeding": "수퍼 시딩 활성화"
+    },
+    "monitoredFolderSaveLocation": {
+      "defaultSavePath": "기본 저장 경로",
+      "monitoredFolder": "모니터링(Watch) 디렉토리 위치",
+      "other": "기타"
+    },
+    "proxy_type": {
+      "http": "HTTP",
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
+    },
+    "scheduler": {
+      "everyDay": "매일",
+      "everyFriday": "매주 금요일",
+      "everyMonday": "매주 월요일",
+      "everySaturday": "매주 토요일",
+      "everySunday": "매주 일요일",
+      "everyThursday": "매주 목요일",
+      "everyTuesday": "매주 화요일",
+      "everyWednesday": "매주 수요일",
+      "everyWeekday": "매주 평일",
+      "everyWeekend": "매주 주말"
+    },
+    "stopCondition": {
+      "filesChecked": "확인된 파일",
+      "metadataReceived": "Metadata 수신",
+      "none": "없음",
+      "title": "토렌트 중지 조건"
+    },
+    "titleOptions": {
+      "custom": "사용자 지정",
+      "default": "기본값",
+      "first_torrent_speed": "첫 번째 토렌트 속도",
+      "global_speed": "전역 속도"
+    },
+    "trackerStatus": {
+      "disabled": "비활성화",
+      "not_working": "작동하지 않음",
+      "not_yet_contacted": "트래커가 아직 연결되지 않음",
+      "updating": "업데이트 중",
+      "working": "작동 중"
+    },
+    "uploadChokingAlgorithm": {
+      "antiLeech": "Anti-leech",
+      "fastestUpload": "가장 빠른 업로드",
+      "roundRobin": "Round-robin"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "고정 슬롯",
+      "uploadRateBased": "업로드 속도 기준"
+    },
+    "utpTcpMixedMode": {
+      "peerProportional": "피어 비례(TCP 조절)",
+      "preferTcp": "TCP 우선"
+    }
+  },
+  "dashboard": {
+    "displayMode": {
+      "grid": "Grid",
+      "list": "목록",
+      "table": "표",
+      "title": "표시 모드"
+    },
+    "not_complete": "완료되지 않음",
+    "right_click": {
+      "advanced": {
+        "auto_tmm": "자동 토렌트 관리",
+        "download_path": "다운로드 디렉토리 설정",
+        "f_l_prio": "우선순위",
+        "reannounce": "강제 재배포",
+        "recheck": "강제 재검사",
+        "rename": "토렌트 이름 바꾸기",
+        "save_path": "저장 경로 설정",
+        "seq_dl": "순차 다운로드",
+        "title": "고급 설정"
+      },
+      "category": {
+        "clear": "(카테고리 지우기)",
+        "disabled_title": "카테고리 없음",
+        "title": "카테고리 설정"
+      },
+      "copy": {
+        "hash": "Hash",
+        "magnet": "마그넷",
+        "name": "이름",
+        "title": "복사"
+      },
+      "export": "토렌트 내보내기 | 토렌트 내보내기",
+      "info": "정보 표시",
+      "priority": {
+        "bottom": "하위 우선순위",
+        "decrease": "우선순위 감소",
+        "increase": "우선순위 증가",
+        "title": "우선순위 설정",
+        "top": "최우선 순위"
+      },
+      "speed_limit": {
+        "download": "다운로드 속도 제한",
+        "share": "공유 제한",
+        "title": "속도 제한 설정",
+        "upload": "업로드 속도 제한 설정"
+      },
+      "tags": {
+        "disabled_title": "태그 없음",
+        "title": "태그 설정"
+      },
+      "top": {
+        "delete": "삭제",
+        "force_resume": "강제 이어하기",
+        "pause": "일시 중지",
+        "resume": "이어하기"
+      }
+    },
+    "searchInputLabel": "검색",
+    "selectAll": "모두 선택/해제 (Ctrl + A) ",
+    "selectedTorrentsCount": "토런트 없음 | {total}개 토렌트 중 {count}개 ({size}) | {total}개 토렌트 중 {count}개 ({size})",
+    "sortBy": {
+      "added_on": "추가 날짜",
+      "amount_left": "남은 양",
+      "auto_tmm": "자동 TMM",
+      "availability": "가용성",
+      "avg_download_speed": "평균 다운로드 속도",
+      "avg_upload_speed": "평균 업로드 속도",
+      "category": "카테고리",
+      "completed": "완료됨",
+      "completion_on": "완료 날짜",
+      "content_path": "컨텐츠 경로",
+      "default": "기본값",
+      "dl_limit": "다운로드 제한",
+      "dlspeed": "다운로드 속도",
+      "downloaded": "다운로드됨 (전역)",
+      "downloaded_session": "다운로드됨 (세션)",
+      "download_path": "다운로드 경로",
+      "eta": "남은 예상 시간",
+      "f_l_piece_prio": "우선순위",
+      "force_start": "강제 시작",
+      "globalSpeed": "전역 속도",
+      "globalVolume": "전체 볼륨",
+      "hash": "Hash",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "last_activity": "최근 활동",
+      "magnet_uri": "마그넷 URI",
+      "max_ratio": "최대 비율",
+      "max_seeding_time": "최대 시딩 시간",
+      "name": "이름",
+      "num_complete": "시드 (Swarm)",
+      "num_incomplete": "피어(Swarm)",
+      "num_leechs": "피어 (연결됨)",
+      "num_seeds": "시드 (연결됨)",
+      "priority": "우선순위",
+      "progress": "진행 상황",
+      "ratio": "비율",
+      "ratio_limit": "비율 제한",
+      "save_path": "저장 경로",
+      "seeding_time": "시딩 시간",
+      "seeding_time_limit": "시딩 시간 제한",
+      "seen_complete": "완료됨",
+      "seq_dl": "순차 다운로드",
+      "size": "크기",
+      "state": "상태",
+      "super_seeding": "슈퍼 시딩",
+      "tags": "태그",
+      "time_active": "활성 시간",
+      "total_size": "총 크기",
+      "tracker": "트래커",
+      "trackers_count": "트래커 수",
+      "up_limit": "업로드 제한",
+      "uploaded": "업로드됨 (전역)",
+      "uploaded_session": "업로드됨 (세션)",
+      "upspeed": "업로드 속도"
+    },
+    "sortLabel": "정렬 기준",
+    "toggleSearchFilter": "검색 필터 전환",
+    "toggleSelectMode": "선택 모드 전환",
+    "toggleSortOrder": "역순 정렬",
+    "torrentsCount": "토렌트 없음 | {n}개의 토렌트 | {n}개의 토렌트"
+  },
+  "dialogs": {
+    "add": {
+      "addToTopOfQueue": "대기열 맨 위로 올리기",
+      "autoTMM": "자동 토렌트 관리",
+      "category": "카테고리",
+      "cookie": "Cookies",
+      "cookiePlaceholder": "NAME1=값1; NAME2=값2; ...",
+      "dlLimit": "다운로드 제한",
+      "downloadPath": "다운로드 경로 (미완료 시)",
+      "dropLabel": "토렌트 파일과 링크를 여기로 끌어다 놓으세요",
+      "error": "토렌트 추가 중 오류",
+      "fileOverflow": "+{n}개 더보기",
+      "files": "파일 선택",
+      "firstLastPiecePrio": "첫 번째와 마지막 조각 우선순위 설정",
+      "inactiveSeedingTimeLimit": "비활성 시딩 시간 제한",
+      "limitCollapse": "제한 구성",
+      "limitHint": "비활성화하려면 -1, 전역값을 사용하려면 -2 또는 비워둡니다.",
+      "links": "링크 (마그넷, http, file, ...)",
+      "noCategories": "아직 카테고리가 없습니다. 이름을 입력하여 새로 만드세요.",
+      "noCategoryMatch": "\"{query}\"와(과) 일치하는 카테고리가 없습니다. 자동으로 생성됩니다.",
+      "noTagMatch": "\"{query}\"에 대한 일치하는 태그가 없습니다. Enter를 눌러 생성하세요.",
+      "noTags": "아직 태그가 없습니다.이름을 입력하여 새로 만드세요.",
+      "pending": "토렌트 전송 중...",
+      "ratioLimit": "비율 제한",
+      "rename": "토렌트 이름 바꾸기",
+      "resetForm": "양식 재설정",
+      "savePath": "저장 경로 (완료 시)",
+      "seedingTimeLimit": "시딩 시간 제한",
+      "sequentialDownload": "순차 다운로드",
+      "skipChecking": "해시 확인 건너뛰기",
+      "startNow": "토렌트 다운로드 즉시 시작",
+      "submit": "토렌트 추가",
+      "success": "{n}개 토렌트 추가됨",
+      "tags": "태그",
+      "title": "토렌트 추가",
+      "upLimit": "업로드 제한"
+    },
+    "category": {
+      "name": "카테고리 이름",
+      "nameRequired": "카테고리 이름은 필수 입력 사항입니다.",
+      "oldName": "이전 카테고리 이름",
+      "savePath": "저장 경로",
+      "title": {
+        "create": "카테고리 생성",
+        "edit": "카테고리 편집"
+      },
+      "warnEdit": "카테고리 이름을 수정하면 토렌트가 새 카테고리로 마이그레이션됩니다.\n오류가 발생할 수 있으니 주의해서 사용하세요."
+    },
+    "connectionStatus": {
+      "dht_nodes": "DHT 노드",
+      "externalIp": "외부 IP 주소",
+      "status": "연결 상태",
+      "total_peer_connections": "활성 피어 연결"
+    },
+    "delete": {
+      "deleteWithFiles": "토렌트와 함께 파일 삭제",
+      "title": "{n}개의 토렌트 삭제 | {n}개의 토렌트 삭제",
+      "warnDelete": "이 확인란을 선택하면 해당 토렌트에 포함된 모든 내용이 삭제됩니다."
+    },
+    "importSettings": {
+      "required": "설정을 입력해야 합니다.",
+      "title": "설정 가져오기",
+      "valid": "올바른 설정을 입력하십시오."
+    },
+    "moveTorrent": {
+      "dl": {
+        "title": "다운로드 경로 변경"
+      },
+      "newPath": "새 경로",
+      "oldPath": "이전 경로",
+      "required": "새 경로는 필수 입력 사항입니다",
+      "samePath": "새 경로는 이전 경로와 달라야 합니다.",
+      "save": {
+        "title": "저장 경로 변경"
+      }
+    },
+    "moveTorrentFile": {
+      "oldName": "이전 이름",
+      "title": "토렌트 파일 이동 | 토렌트 폴더 이동"
+    },
+    "pluginManager": {
+      "headers": {
+        "actions": "작업",
+        "enabled": "활성화됨",
+        "name": "이름",
+        "url": "엔진 URL",
+        "version": "버전"
+      },
+      "install": {
+        "activator": "새 플러그인 설치",
+        "label": "플러그인 URL",
+        "title": "플러그인 설치"
+      },
+      "title": "플러그인 매니저",
+      "update": "플러그인 업데이트"
+    },
+    "renameTorrent": {
+      "newName": "새 이름",
+      "oldName": "이전 이름",
+      "required": "새 이름은 필수 입력 사항입니다",
+      "sameName": "새 이름은 이전 이름과 달라야 합니다.",
+      "title": "토렌트 이름 바꾸기"
+    },
+    "rss": {
+      "feed": {
+        "name": "이름",
+        "rules": {
+          "name_required": "피드 이름은 필수 입력 사항입니다.",
+          "url_required": "피드 URL은 필수입니다."
+        },
+        "title": {
+          "create": "RSS 피드 생성",
+          "edit": "RSS 피드 편집"
+        },
+        "url": "URL"
+      },
+      "rule": {
+        "addPaused": "일시 중지 추가",
+        "affectedFeedsSubheader": "영향을 받는 피드",
+        "assignedCategory": "할당된 카테고리",
+        "enabled": "규칙 사용",
+        "episodeFilter": "에피소드 필터",
+        "episodeFilterPlaceholder": "예: S01E02-S01E05",
+        "ignoreDays": "지난 {days}일 동안 등록된 피드 무시하기",
+        "ignoreDaysHint": "0: 비활성화",
+        "lastMatch": {
+          "knownValue": "오늘 | {n}일 전 | {n}일 전",
+          "label": "마지막 Match",
+          "unknownValue": "알 수 없음"
+        },
+        "matchingArticles": {
+          "noMatch": "일치하는 피드가 없습니다.",
+          "title": "일치하는 피드"
+        },
+        "mustContain": "반드시 포함해야 하는 항목",
+        "mustNotContain": "다음을 포함하지 않아야 합니다.",
+        "name": "이름",
+        "savePath": "저장 경로",
+        "savePathPlaceholder": "기본 저장 경로를 사용하려면 비워 둡니다.",
+        "smartFilter": "Smart episode 필터 사용하기",
+        "title": {
+          "create": "RSS 규칙 생성",
+          "edit": "RSS 규칙 편집"
+        },
+        "useRegex": "정규 표현식 사용"
+      }
+    },
+    "share_limit": {
+      "disabled": "공유 제한 없음 설정",
+      "enabled": "공유 제한 설정:",
+      "global": "전역 공유 제한 사용",
+      "inactive_seeding_time_limit": "비활성 시간 (분)",
+      "ratio_limit": "비율(레이쇼)",
+      "seeding_time_limit": "총 시간(분)",
+      "title": "공유 비율 제한 설정"
+    },
+    "shutdown": {
+      "content": "정말로 qBittorrent를 종료하시겠습니까?",
+      "error": "앱을 종료할 수 없습니다. qBittorrent가 실행 중인지 확인하세요!",
+      "success": "q비트토렌트가 성공적으로 종료되었습니다!",
+      "title": "qBittorrent 종료"
+    },
+    "speed_limit": {
+      "download": "다운로드 속도 제한 설정",
+      "label": "속도 제한",
+      "upload": "업로드 속도 제한 설정"
+    },
+    "tag": {
+      "comma": "태그 이름을 변경할 때 이름에 쉼표가 포함될 수 없습니다.",
+      "hint": "팁: 쉼표로 구분하여 여러 태그를 만들 수 있습니다",
+      "name": "태그 이름",
+      "oldName": "이전 태그 이름",
+      "required": "태그 이름은 필수 입력 사항입니다",
+      "title": {
+        "create": "태그 만들기",
+        "rename": "태그 이름 바꾸기"
+      },
+      "warnEdit": "태그 이름을 수정하면 토렌트가 새 태그로 마이그레이션됩니다.\n오류가 발생할 수 있으니 주의해서 사용하세요."
+    }
+  },
+  "login": {
+    "error": "로그인에 실패했습니다!",
+    "password": "비밀번호",
+    "rules": {
+      "password_required": "비밀번호는 필수 입력 사항입니다",
+      "username_required": "사용자 이름은 필수 입력 사항입니다"
+    },
+    "submit": "로그인",
+    "subtitle": "자격 증명 입력",
+    "success": "로그인 성공!",
+    "title": "로그인",
+    "username": "사용자 이름"
+  },
+  "logs": {
+    "emptyLogList": "로그를 찾을 수 없음",
+    "filters": {
+      "query": "로그 메시지 검색",
+      "type": "로그 레벨"
+    },
+    "title": "qBittorrent 로그"
+  },
+  "navbar": {
+    "addPanel": {
+      "torrentsPendingCount": "업로드 대기 중인 토런트 {n}개"
+    },
+    "side": {
+      "bottom_actions": {
+        "alt_speed": "대체 속도 전환",
+        "conn_status": "연결 상태: {status}",
+        "dark_mode": "밝은 모드 | 어두운 모드 | 시스템 설정 따르기",
+        "logout": "로그아웃",
+        "shutdown": "qBittorrent 종료"
+      },
+      "current_speed": {
+        "title": "현재 속도"
+      },
+      "filters": {
+        "activeFilter": "{n} 필터가 활성화되었습니다.",
+        "category": "카테고리 필터",
+        "disabled": "(비활성화)",
+        "state": "토렌트 상태 필터",
+        "tag": "태그 필터",
+        "tracker": "트래커 필터",
+        "uncategorized": "(분류되지 않음)",
+        "untagged": "(태그 없음)",
+        "untracked": "(추적되지 않음)"
+      },
+      "speed_graph": {
+        "download_label": "다운로드",
+        "upload_label": "업로드"
+      },
+      "stats": {
+        "alltime": {
+          "title": "역대 통계"
+        },
+        "downloaded": "다운로드됨",
+        "free_space": "여유 공간",
+        "ratio": "비율(레이쇼)",
+        "session": {
+          "title": "세션 통계"
+        },
+        "uploaded": "업로드됨"
+      }
+    },
+    "top": {
+      "active_filters": {
+        "category": "카테고리 필터: {value} ",
+        "menu_label": "활성 필터: {n} | 활성 필터: {n}개",
+        "multiple_category": "카테고리 필터: {n}개의 카테고리",
+        "multiple_state": "상태 필터: {n}개의 상태",
+        "multiple_tag": "태그 필터: {n}개 태그",
+        "multiple_tracker": "트래커 필터: {n}개의 트래커",
+        "state": "상태 필터: {value} ",
+        "tag": "태그 필터: {value} ",
+        "text": "텍스트 필터: {value} ",
+        "tracker": "트래커 필터: {value}"
+      }
+    }
+  },
+  "rssArticles": {
+    "filters": {
+      "title": "제목 필터",
+      "unread": "읽지 않은 피드만 표시"
+    },
+    "item": {
+      "author": "작성자: {author}",
+      "category": "카테고리: {category}",
+      "feedName": "피드 이름: {name}"
+    },
+    "markAllAsRead": "모두 읽음으로 표시",
+    "promise": {
+      "error": "피드를 표시하는 동안 오류가 발생했습니다.",
+      "pending": "표시 중...",
+      "success": "{n}개의 기사를 읽음으로 표시함"
+    },
+    "title": "RSS 피드"
+  },
+  "searchEngine": {
+    "filters": {
+      "category": {
+        "all": "모두",
+        "anime": "애니메이션",
+        "books": "도서",
+        "games": "게임",
+        "label": "검색 카테고리",
+        "movies": "영화",
+        "music": "음악",
+        "pictures": "사진",
+        "software": "소프트웨어",
+        "tv": "TV"
+      },
+      "plugins": {
+        "all": "전체",
+        "enabled": "활성화됨",
+        "label": "검색 플러그인"
+      },
+      "title": {
+        "label": "제목으로 필터링"
+      }
+    },
+    "headers": {
+      "fileName": "파일 이름",
+      "fileSize": "파일 크기",
+      "nbLeechers": "리처 수",
+      "nbSeeders": "시드 수",
+      "siteUrl": "사이트 URL"
+    },
+    "query": "검색어",
+    "runSearch": "검색",
+    "stopSearch": "중지",
+    "tabHeaderEmpty": "(검색어 없음)",
+    "title": "검색 엔진"
+  },
+  "settings": {
+    "advanced": {
+      "libtorrent": {
+        "announceAllTiers": "항상 모든 티어에게 알립니다",
+        "announceAllTrackers": "항상 같은 티어의 모든 트래커에게 알립니다.",
+        "announceIP": "트래커에 보고되는 IP 주소 (재시작 필요) ",
+        "coalesceReadsWrites": "읽기 및 쓰기 통합(libtorrent < 2.0)",
+        "disk": {
+          "diskCache": "디스크 캐시 (libtorrent <2.0)",
+          "diskCacheExpiry": "디스크 캐시 만료 간격(libtorrent <2.0)",
+          "diskIoReadMode": "디스크 IO 읽기 모드",
+          "diskIoType": "디스크 IO 유형(libtorrent >= 2.0, 재시작 필요)",
+          "diskIoWriteMode": "디스크 IO 쓰기 모드",
+          "diskQueueSize": "디스크 큐 크기",
+          "subheader": "디스크"
+        },
+        "maxConcurrentHTTPAnnounces": "동시에 처리할 수 있는 최대 HTTP 알림 수",
+        "networking": {
+          "outgoingPortsMax": "송신 포트(최대) [0: 사용 안 함]",
+          "outgoingPortsMin": "송신 포트(최소) [0: 사용 안 함]",
+          "peerTos": "피어 연결에 대한 DSCP 값",
+          "subheader": "네트워킹",
+          "upnpLeaseDuration": "UPnP 임대 기간 [0: 영구 임대] ",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP 혼합 모드 알고리즘"
+        },
+        "outgoingConnectionsPerSecond": "초당 발신 연결 수",
+        "peerTurnover": "피어 전환 연결 해제 백분율",
+        "peerTurnoverCutoff": "피어 교체 임계치 백분율",
+        "peerTurnoverInterval": "피어 전환 연결 해제 간격",
+        "pieceExtentAffinity": "조각 범위 선호도 사용",
+        "requestQueueSize": "단일 피어에 대한 최대 미결 요청 수",
+        "security": {
+          "allowMultipleConnectionsFromTheSameIPAddress": "동일한 IP 주소에서 여러 개의 연결 허용하기",
+          "blockPeersOnPrivilegedPorts": "권한 있는 포트에서는 피어에 대한 연결을 허용하지 않습니다.",
+          "idnSupport": "IDN(Internationalized Domain Name) 지원 사용",
+          "mitigateSSRF": "서버 측 요청 위조(SSRF) 완화",
+          "subheader": "보안",
+          "validateHTTPSTrackerCertificate": "HTTPS 트래커 인증서 유효성 검사"
+        },
+        "sendBufferLowWatermark": "버퍼 부족 워터마크 전송",
+        "sendBufferWatermark": "버퍼 워터마크 전송",
+        "sendBufferWatermarkFactor": "버퍼 워터마크 계수 보내기",
+        "sendUploadPieceSuggestions": "업로드 조각 제안 보내기",
+        "socketBacklogSize": "소켓 대기열 크기",
+        "socketReceiveBufferSize": "수신 소켓 버퍼 크기",
+        "socketReceiveBufferSizeHint": "0: 시스템 기본값",
+        "socketSendBufferSize": "전송 소켓 버퍼 크기",
+        "socketSendBufferSizeHint": "0: 시스템 기본값",
+        "stopTrackerTimeout": "트래커 시간 초과 중지",
+        "subheader": "libtorrent 섹션",
+        "threads": {
+          "asyncIoThreads": "비동기 I/O 스레드",
+          "bdecodeDepthLimit": "B디코딩 깊이 제한",
+          "bdecodeTokenLimit": "Bdecode 토큰 제한",
+          "filePoolSize": "파일 Pool 크기",
+          "hashingThreads": "스레드 해싱(libtorrent >= 2.0)",
+          "outstandingMemory": "Outstanding memory when checking torrents",
+          "subheader": "스레드"
+        },
+        "uploadChokingAlgorithm": "업로드 차단 알고리즘",
+        "uploadSlotsBehavior": "업로드 슬롯 동작 방식"
+      },
+      "openDoc": "문서 열기",
+      "qbittorrent": {
+        "allocatedRam": "물리적 메모리(RAM) 사용량 제한(libtorrent >= 2.0)",
+        "embeddedTracker": {
+          "enable": "내장 트래커 활성화",
+          "port": "내장 트래커 포트",
+          "portForward": "내장 트래커를 위한 포트 포워딩 활성화",
+          "title": "내장 트래커"
+        },
+        "networking": {
+          "ipAddress": {
+            "all": "모든 주소",
+            "allIPv4": "모든 IPv4 주소",
+            "allIPv6": "모든 IPv6 주소",
+            "label": "바인딩(결합)할 IP 주소(선택 사항)"
+          },
+          "networkInterfaces": {
+            "any": "모든 인터페이스",
+            "label": "네트워크 인터페이스"
+          },
+          "title": "네트워킹"
+        },
+        "reannounceOnIpPortChanged": "IP 또는 포트가 변경되면 모든 트래커에게 다시 알립니다.",
+        "recheckOnCompletion": "완료 시 다운로드 파일 무결성 검사",
+        "refreshInterval": "GUI 새로 고침 간격",
+        "resolveCountries": "피어국가 분석",
+        "resumeDataStorageType": {
+          "label": "이어받기 데이터 저장 유형(qBittorrent 재시작 필요)",
+          "legacy": "Fastresume files",
+          "sqlite": "SQLite 데이터베이스(실험적)"
+        },
+        "saveInterval": "재개 데이터 저장 간격",
+        "subheader": "qBittorrent 섹션",
+        "torrentFileSizeLimit": ".torrent 파일 크기 제한"
+      }
+    },
+    "behavior": {
+      "logs": {
+        "file_log_age": "다음보다 오래된 백업 로그 삭제",
+        "file_log_backup_enabled": "로그 파일 백업 사용",
+        "file_log_delete_old": "이전 백업 로그 삭제",
+        "file_log_enabled": "로그 파일 사용",
+        "file_log_max_size": "다음에 로그 파일을 백업합니다.",
+        "file_log_path": "저장 경로",
+        "subheader": "로그 관리"
+      },
+      "performance_warning": "로그 성능 경고"
+    },
+    "bittorrent": {
+      "autoAddTrackers": "새로운 다운로드에 이러한 트래커를 자동으로 추가합니다.",
+      "autoAddTrackersHint": "한 줄에 하나의 트래커",
+      "maxActiveCheckingTorrents": "최대 활성 토렌트 확인",
+      "privacy": {
+        "enableAnonymous": "익명 모드 사용",
+        "enableDHT": "DHT(분산 네트워크)를 활성화하여 더 많은 피어 찾기",
+        "enableLPD": "로컬 피어 검색을 활성화하여 더 많은 피어 찾기",
+        "enablePeX": "피어 익스체인지(PeX)를 활성화하여 더 많은 피어 찾기",
+        "encryptionMode": "암호화 모드",
+        "moreInfo": "자세한 정보",
+        "subheader": "개인정보 보호"
+      },
+      "seedLimits": {
+        "subheader": "시드 제한",
+        "then": "그런 다음",
+        "whenInactiveSeedingTimeReaches": "비활성 시딩 시간에 도달하면",
+        "whenRatioReaches": "비율에 도달하면",
+        "whenSeedingTimeReaches": "시딩 시간에 도달하면"
+      },
+      "torrentQueueing": {
+        "downloadRateLimit": "다운로드 속도 임계값",
+        "excludeSlowTorrent": "이 제한에 느린 토렌트는 포함하지 않기",
+        "maxActiveDownload": "최대 활성 다운로드 수",
+        "maxActiveTorrent": "최대 활성 토렌트 수",
+        "maxActiveUpload": "최대 활성 업로드 수",
+        "subheader": "토렌트 대기열",
+        "torrentInactivityTimer": "토렌트 비활성 타이머",
+        "uploadRateLimit": "업로드 속도 제한"
+      }
+    },
+    "connection": {
+      "connectionLimits": {
+        "globalMaxConnection": "전역 최대 연결 수",
+        "globalMaxUploadSlots": "전역 최대 업로드 슬롯 수",
+        "perTorrentMaxConnection": "토렌트 당 최대 연결 수",
+        "perTorrentMaxUploadSlots": "토렌트 당 최대 업로드 슬롯 수",
+        "subheader": "연결 제한"
+      },
+      "ipFiltering": {
+        "applyToTrackers": "트래커에 적용하기",
+        "bannedIps": "수동으로 차단한 IP 주소",
+        "bannedIpsHint": "한 줄에 하나씩",
+        "filterPath": "필터 경로 (.dat, .p2p, .p2b)",
+        "subheader": "IP 필터링"
+      },
+      "listeningPort": {
+        "incomingConnectionPort": "수신 연결에 사용되는 포트",
+        "randomPort": "무작위 포트",
+        "subheader": "수신 포트",
+        "useUPnP": "UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"
+      },
+      "protocol": "피어 연결 프로토콜",
+      "proxy": {
+        "auth": {
+          "password": "비밀번호",
+          "subtitle": "계정설정",
+          "tip": "정보: 비밀번호는 암호화되지 않은 상태로 저장됩니다.",
+          "username": "로그인 ID"
+        },
+        "bittorrent": "BitTorrent 용도로 Proxy 사용",
+        "host": "호스트",
+        "hostNameLookup": "호스트 이름 조회에 Proxy 사용",
+        "misc": "일반적인 용도로 Proxy 사용",
+        "peerConnections": "피어 연결에 Proxy 사용",
+        "port": "포트",
+        "rss": "RSS 용도로 Proxy 사용",
+        "subheader": "Proxy Server"
+      }
+    },
+    "downloads": {
+      "excludedFileNames": {
+        "hint": "한 줄에 하나의 필터",
+        "label": "제외된 파일 이름"
+      },
+      "mailNotification": {
+        "authEnabled": "계정설정",
+        "enabled": "다운로드 완료 시 이메일 알림",
+        "from": "From",
+        "password": "비밀번호",
+        "smtpServer": "SMTP 서버",
+        "sslEnabled": "이 서버에는 보안 연결(SSL)이 필요합니다.",
+        "to": "To",
+        "username": "로그인 ID"
+      },
+      "monitoredFolders": {
+        "actions": "작업",
+        "confirmDelete": "이 항목을 삭제하시겠습니까?",
+        "editItem": "편집",
+        "monitoredFolderPath": "모니터링(Watch) 폴더",
+        "newItem": "새로 만들기",
+        "noData": "아직 모니터링되는 폴더 없음",
+        "otherPath": "기타 경로",
+        "saveType": "저장 위치 재정의(Override Save Location)",
+        "subheader": "모니터링(Watch) 폴더"
+      },
+      "publicSettings": {
+        "appendQBExtension": "완료되지 않은 파일에 .!qB 확장자 추가하기",
+        "preAllocateDisk": "다운로드할 파일에 대해 디스크 공간 사전 할당"
+      },
+      "runExternalProgram": {
+        "onAddedEnabled": "토렌트 추가 후 외부 프로그램 실행",
+        "onAddedLabel": "커맨드",
+        "onFinishedEnabled": "토렌트 다운로드 완료 후 외부 프로그램 실행",
+        "onFinishedLabel": "커맨드",
+        "subheader": "외부 프로그램 실행",
+        "supportParamC": "%C: 파일 개수",
+        "supportParamD": "%D: 저장 경로",
+        "supportParamF": "%F: 콘텐츠 경로(다중 파일 토렌트의 루트 경로와 동일)",
+        "supportParamG": "%G: 태그(쉼표로 구분)",
+        "supportParamI": "%I: Infohash v1",
+        "supportParamJ": "%J: Infohash v2",
+        "supportParamK": "%K: 토렌트 ID",
+        "supportParamL": "%L: 카테고리",
+        "supportParamN": "%N: 토렌트 이름",
+        "supportParamR": "%R: 루트 경로 (첫 번째 토런트 하위 디렉터리 경로)",
+        "supportParamT": "%T: 현재 트래커",
+        "supportParamTitle": "지원되는 매개변수(대소문자 구분):",
+        "supportParamZ": "%Z: 토렌트 크기 (바이트)",
+        "tip": "팁: 공백에서 텍스트가 잘리는 것을 방지하려면 매개 변수를 따옴표로 묶으세요 (예: \"%N\")"
+      },
+      "saveManagement": {
+        "autoTMMEnabled": "기본 토렌트 관리 모드",
+        "categoryChangedTMM": "카테고리 저장 경로가 변경된 경우",
+        "defaultSavePath": "기본 저장 경로 (완료)",
+        "defaultTMMOptions": {
+          "automatic": "자동",
+          "manual": "수동"
+        },
+        "exportDir": ".torrent 파일을 다음 위치로 복사",
+        "exportDirFinished": "다운로드가 완료된 .torrent 파일을 다음 위치로 복사",
+        "keepIncomplete": "기본 다운로드 경로(미완료된 토렌트)",
+        "paramChangedTMMOptions": {
+          "relocateTorrent": "토렌트 이동하기",
+          "switchToManual": "토렌트를 수동 모드로 전환"
+        },
+        "savePathChangedTMM": "기본 저장 경로가 변경된 경우",
+        "subheader": "저장 관리",
+        "torrentChangedTMM": "토렌트 카테고리가 변경되었을 때"
+      },
+      "whenAddTorrent": {
+        "addToTopOfQueue": "대기열 맨 위로 올리기",
+        "autoDeleteMode": "나중에 .torrent 파일 삭제",
+        "doNotAutoStart": "자동으로 다운로드 시작하지 않기",
+        "mergeTrackers": "토렌트가 이미 존재하는 경우 트래커 병합하기",
+        "subheader": "토렌트를 추가할 때"
+      }
+    },
+    "rss": {
+      "feeds": {
+        "createNew": "피드 추가",
+        "noFeeds": "아직 피드가 없습니다",
+        "refreshAll": "모두 새로고침"
+      },
+      "general": {
+        "autoDownloader": {
+          "enable": "RSS 규칙 처리 활성화",
+          "subheader": "RSS 토렌트 자동 다운로더"
+        },
+        "reader": {
+          "enableProcessing": "RSS 피드 가져오기 활성화",
+          "feedsRefreshInterval": "피드 새로고침 간격",
+          "maximumArticlesPerFeed": "피드 당 수집할 최대 기사 수",
+          "subheader": "RSS 리더"
+        },
+        "smartEpisodeFilter": {
+          "downloadEpisodes": "REPACK/PROPER 에피소드 다운로드",
+          "filters": "필터",
+          "filtersHint": "한 줄에 하나씩",
+          "subheader": "RSS Smart episode 필터"
+        },
+        "useIdForRssLinks": "RSS 피드에 ID사용"
+      },
+      "rules": {
+        "createNew": "규칙 생성",
+        "noRules": "아직 규칙이 없습니다"
+      }
+    },
+    "saveSuccess": "설정이 저장되었습니다!",
+    "speed": {
+      "download": "다운로드",
+      "scheduler": {
+        "from": "시작시간",
+        "selectButtonLabel": "시간 선택",
+        "subheader": "대체 속도 제한 사용 일정",
+        "to": "종료시간",
+        "when": "스케쥴"
+      },
+      "settings": {
+        "applyToPeersOnLan": "LAN 내 피어에 대해 속도 제한 적용",
+        "applyToTransportOverhead": "Transport overhead에 대한 속도 제한 적용",
+        "applyToUtp": "µTP 프로토콜에 속도 제한 적용"
+      },
+      "subheader": {
+        "alternative": "대체 속도 제한",
+        "global": "전역 속도 제한",
+        "settings": "속도 제한"
+      },
+      "tip": "0은 무제한을 의미합니다",
+      "upload": "업로드"
+    },
+    "tabs": {
+      "advanced": "고급 설정",
+      "behavior": "동작",
+      "bittorrent": "BitTorrent",
+      "connection": "연결수",
+      "downloads": "다운로드",
+      "rss": {
+        "feeds": "피드",
+        "general": "일반",
+        "rules": "규칙",
+        "title": "RSS"
+      },
+      "speed": "속도",
+      "tagsAndCategories": "태그 및 카테고리",
+      "vuetorrent": {
+        "general": "일반",
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "그리드 형식보기(Grid view)",
+          "list": "목록 형식 보기(List view)",
+          "table": "테이블 형식 보기(Table View)"
+        }
+      },
+      "webui": "WebUI"
+    },
+    "tagsAndCategories": {
+      "categoriesSubheader": "사용 가능한 카테고리:",
+      "createNewCategory": "새 카테고리 만들기",
+      "createNewTag": "새 태그 만들기",
+      "noCategories": "아직 카테고리가 없습니다",
+      "noTags": "아직 태그가 없습니다",
+      "tagsSubheader": "사용 가능한 태그:"
+    },
+    "title": "설정",
+    "vuetorrent": {
+      "general": {
+        "canvasRefreshThreshold": "설정된 조각 개수 초과 시, 뷰화면 자동 새로고침 비활성화",
+        "canvasRenderThreshold": "설정된 조각 개수 초과 시, 캔버스 렌더링 비활성화",
+        "check_new": "새 버전 확인",
+        "currentVersion": "현재 버전",
+        "customTitle": "사용자 지정 제목",
+        "dateFormat": "날짜 표시 형식",
+        "download": "설정 내보내기",
+        "exportSettings": "설정 내보내기",
+        "fileContentInterval": "토렌트 진행사항 새로고침 간격",
+        "hideChipIfUnset": "설정되지 않은 경우 해당 옵션 숨기기",
+        "historySize": "대상 필드의 기록 크기",
+        "import": "설정 가져오기",
+        "importSettings": "설정 가져오기",
+        "isDrawerRight": "오른쪽 탭",
+        "isPaginationOnTop": "상단 페이지 매김",
+        "isShutdownButtonVisible": "종료 버튼 표시",
+        "language": "표시 언어",
+        "openSideBarOnStart": "시작 시 사이드바 열기",
+        "paginationSize": {
+          "infinite_scroll": "무한 스크롤",
+          "label": "Pagination 크기",
+          "warning": "높은 값을 사용하면 성능에 영향을 줄 수 있습니다."
+        },
+        "qbittorrentVersion": "qBittorrent 버전",
+        "refreshInterval": "qBittorrent API 새로 고침 간격",
+        "registerMagnet": "마그넷 링크 등록",
+        "resetSettings": "설정 초기화",
+        "showAlltimeStat": "역대 통계 보기",
+        "showCurrentSpeed": "현재 속도 표시",
+        "showFreeSpace": "여유 공간 표시",
+        "showSessionStat": "세션 통계 표시",
+        "showSpeedGraph": "속도 그래프 표시",
+        "showTrackerFilter": "트래커 필터 표시",
+        "tip": "이 설정은 사용자 지정 WebUI에 대한 설정입니다.",
+        "useBinarySize": "데이터 크기 표시를 이진 단위로 바꾸기(kB -> KiB)",
+        "useBitSpeed": "속도 값 표시를 비트로 바꾸기(kB/s -> kbps)",
+        "vueTorrentTitle": "탭 제목"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "그리드 보기에서 미완료된 토렌트에 대해 표시할 속성",
+          "doneTip": "그리드 보기에서 완료된 토렌트에 대해 표시할 속성"
+        },
+        "list": {
+          "busyTip": "목록 보기에서 사용 중인 토렌트에 대해 표시할 속성",
+          "doneTip": "목록 보기에서 완료된 토렌트에 대해 표시할 속성"
+        },
+        "table": {
+          "tip": "테이블 보기에서 토렌트에 대해 표시할 속성"
+        }
+      }
+    },
+    "webUI": {
+      "authentication": {
+        "banDuration": "차단 시간",
+        "banDurationHint": "초(seconds) 단위",
+        "bypassLocalhost": "localhost에서 접속할 시 로그인 절차 없음",
+        "bypassWhitelist": "아래 IP주소에 대해서는 로그인 절차 없이 접근 가능(Whitelist)",
+        "maxAttempts": "로그인 최대 시도 횟수",
+        "password": "비밀번호",
+        "passwordPlaceholder": "(변경 없음)",
+        "sessionTimeout": "세션 만료 시간",
+        "sessionTimeoutHint": "초(seconds) 단위",
+        "subheader": "계정설정",
+        "username": "로그인 ID",
+        "whitelistExamples": "예시: 192.168.1.0/24, fdff:ffff:c8::/40"
+      },
+      "customHeaders": "사용자 정의 HTTP 헤더 추가",
+      "customHeadersHint": "한 줄에 하나씩",
+      "customHeadersPlaceholder": "Header1: value1 Header2: value2 ...",
+      "dynDns": {
+        "domainName": "도메인 주소",
+        "password": "비밀번호",
+        "providers": {
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
+        },
+        "registerBtn": "등록",
+        "subheader": "DDNS 활성화",
+        "username": "로그인 ID"
+      },
+      "https": {
+        "certificate": "인증서",
+        "key": "Key",
+        "subheader": "HTTPS 사용",
+        "tip": "인증서에 대한 정보"
+      },
+      "interface": {
+        "ipAddress": "IP 주소",
+        "port": "포트",
+        "subheader": "웹 사용자 인터페이스",
+        "useAlternativeWebUI": "대체 WebUI 사용",
+        "useUPnP": "UPnP / NAT-PMP 기능 사용(공유기/라우터에서 지원할 경우)"
+      },
+      "proxiesList": "신뢰할 수 있는 프록시 목록",
+      "proxiesListHint": "IP 주소를 세미콜론( ;)으로 구분합니다",
+      "reverseProxySupport": "역방향 프록시(Reverse proxy) 지원 활성화",
+      "security": {
+        "clickjacking": "클릭재킹(Clickjacking) 보호 활성화",
+        "csrf": "CSRF(사이트 간 요청 위조) 보호 활성화",
+        "hostHeaderValidation": "호스트 헤더 유효성 검사 사용",
+        "hostHeaderValidationHint": "세미콜론( ;)으로 구분합니다.",
+        "secureCookie": "\"secure\" cookie flag 활성화 (HTTPS필요)",
+        "serverDomains": "서버 도메인",
+        "subheader": "보안"
+      }
+    }
+  },
+  "toast": {
+    "copy": {
+      "error": "복사할 수 없습니다. 현재 응답이 안전하지 않습니다!",
+      "success": "클립보드에 복사되었습니다!"
+    },
+    "magnet_handler": {
+      "not_supported": "현재 응답이 안전하지 않습니다. 핸들러를 등록할 수 없습니다.",
+      "registered": "마그넷 핸들러가 등록되었습니다."
+    },
+    "new_version": "새 버전을 사용할 수 있습니다!",
+    "qbit": {
+      "not_supported": "qBittorrent >= {version}에서만 사용할 수 있습니다."
+    }
+  },
+  "topbar": {
+    "actions": {
+      "delete": "토렌트 삭제",
+      "logs": "Log 열기",
+      "pause": "토렌트 일시 중지",
+      "resume": "토렌트 재개",
+      "rssArticles": "RSS 피드 열기",
+      "searchEngine": "검색 엔진 열기",
+      "settings": "설정 열기"
+    },
+    "addTorrents": "토렌트 추가",
+    "overflow": {
+      "delete": "삭제",
+      "logs": "qBittorrent 로그",
+      "pause": "일시 중지",
+      "resume": "이어하기",
+      "rssArticles": "RSS 피드",
+      "searchEngine": "검색 엔진",
+      "settings": "설정"
+    },
+    "searchTorrents": "토렌트 검색"
+  },
+  "torrentDetail": {
+    "content": {
+      "fileInfo": "{n} 파일 | {n} 파일",
+      "folderInfo": "{n} 디렉토리 | {n} 디렉토리",
+      "priority": "우선순위 설정",
+      "rename": {
+        "bulk": "일괄 이름 바꾸기",
+        "file": "이름 바꾸기",
+        "folder": "디렉토리 이름 바꾸기"
+      },
+      "rootNode": "(Root)"
+    },
+    "info": {
+      "boolean_values": "Boolean 값",
+      "data_values": "데이터 값",
+      "datetime_values": "날짜/시간 값",
+      "duration_values": "지속 시간 값",
+      "long_text_values": "긴 텍스트 값",
+      "speed_values": "속도 값",
+      "text_values": "텍스트 값"
+    },
+    "overview": {
+      "canvasRefreshDisabled": "캔버스 자동 새로고침이 비활성화되었습니다",
+      "canvasRenderDisabled": "캔버스 렌더링이 비활성화되었습니다",
+      "copy_hash": "해시 복사",
+      "dlSpeedAverage": "평균 다운로드 속도",
+      "downloaded": "다운로드됨",
+      "fetchingMetadata": "불러오는 중...",
+      "fileCount": "선택한 파일",
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "ratio": "비율",
+      "selectedFileSize": "선택한 파일 크기",
+      "uploaded": "업로드됨",
+      "upSpeedAverage": "평균 업로드 속도",
+      "waitingForMetadata": "메타데이터를 기다리는 중..."
+    },
+    "peers": {
+      "addPeers": {
+        "newPeers": "추가할 피어 호스트",
+        "newPeersHint": "한 줄에 하나씩",
+        "newPeersPlaceholder": "host:port",
+        "title": "피어 추가"
+      },
+      "emptyList": "현재 연결된 피어가 없습니다",
+      "table": {
+        "client": "클라이언트",
+        "connection": "연결",
+        "downloaded": "다운로드됨",
+        "downloadSpeed": "다운로드 속도",
+        "files": "파일",
+        "flags": "플래그",
+        "host": "호스트",
+        "progress": "진행 상황",
+        "relevance": "관련성",
+        "uploaded": "업로드됨",
+        "upSpeed": "업로드 속도"
+      }
+    },
+    "tabs": {
+      "content": "콘텐츠",
+      "info": "정보",
+      "overview": "개요",
+      "peers": "피어",
+      "tagsAndCategories": "태그 및 카테고리",
+      "trackers": "트래커"
+    },
+    "tagsAndCategories": {
+      "categories": "카테고리",
+      "tags": "태그"
+    },
+    "title": "토렌트 세부 정보",
+    "trackers": {
+      "addTrackers": {
+        "newTrackers": "추가할 트래커 URL",
+        "newTrackersHint": "한 줄에 하나씩, 빈 줄로 계층을 구분합니다.",
+        "title": "트래커 추가"
+      },
+      "editTracker": {
+        "newUrl": "새 URL",
+        "newUrlRequired": "새 URL이 필요합니다",
+        "oldUrl": "이전 URL",
+        "title": "트래커 편집"
+      },
+      "peersValue": "{peers} 피어({seeds} S / {leeches} L)",
+      "reannounce": "모든 트래커에 다시 요청",
+      "tier": "Tier: {n}"
+    }
+  },
+  "torrent": {
+    "properties": {
+      "added_on": "추가 날짜",
+      "amount_left": "남은 양",
+      "auto_tmm": "자동 토렌트 관리",
+      "availability": "가용성",
+      "available_peers": "피어(Swarm)",
+      "available_seeds": "시드 (Swarm)",
+      "avg_download_speed": "평균 다운로드 속도",
+      "avg_upload_speed": "평균 업로드 속도",
+      "category": "카테고리",
+      "completed_on": "완료 날짜",
+      "content_path": "컨텐츠 경로",
+      "downloaded": "다운로드됨 (전역)",
+      "downloaded_session": "다운로드됨 (세션)",
+      "download_limit": "다운로드 제한",
+      "download_path": "다운로드 경로",
+      "download_speed": "다운로드 속도",
+      "empty_category": "카테고리 없음",
+      "empty_tags": "태그 없음",
+      "empty_tracker_domain": "(트래커 없음)",
+      "eta": "남은 예상 시간",
+      "f_l_piece_prio": "우선순위",
+      "forced": "강제 상태",
+      "global_speed": "전역 속도",
+      "global_volume": "전체 볼륨",
+      "hash": "Hash",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "last_activity": "최근 활동",
+      "magnet": "마그넷 링크",
+      "name": "토렌트 제목",
+      "num_leechs": "피어 (연결됨)",
+      "num_seeds": "시드 (연결됨)",
+      "peers": "피어",
+      "priority": "우선순위",
+      "progress": "진행 상황",
+      "progress_bar": "진행률",
+      "ratio": "비율(레이쇼)",
+      "ratio_limit": "비율 제한",
+      "ratio_time_limit": "비율 시간 제한",
+      "save_path": "저장 경로",
+      "seeding_time": "시딩 시간",
+      "seeds": "시드",
+      "seen_complete": "완료됨",
+      "seq_dl": "순차 다운로드",
+      "size": "크기",
+      "state": "상태",
+      "super_seeding": "슈퍼 시딩 모드",
+      "tags": "태그",
+      "time_active": "활성 시간",
+      "total_size": "총 크기",
+      "tracker": "트래커",
+      "trackers_count": "트래커 수",
+      "uploaded": "업로드됨 (전역)",
+      "uploaded_session": "업로드됨 (세션)",
+      "upload_limit": "업로드 제한",
+      "upload_speed": "업로드 속도"
+    },
+    "state": {
+      "allocating": "할당",
+      "checkingDL": "확인 중(미완료)",
+      "checkingResumeData": "재개 데이터 확인 중",
+      "checkingUP": "확인(완료)",
+      "downloading": "다운로드 중",
+      "error": "오류",
+      "forcedDL": "[강제] 다운로드 중",
+      "forcedUP": "[강제] 업로드 중",
+      "metaDL": "메타데이터",
+      "missingFiles": "누락된 파일",
+      "moving": "이동",
+      "pausedDL": "일시 중지됨",
+      "pausedUP": "완료됨",
+      "queuedDL": "대기 중 (다운로드)",
+      "queuedUP": "대기 중 (업로드)",
+      "stalledDL": "정지됨",
+      "stalledUP": "시딩 중",
+      "unknown": "알 수 없음",
+      "uploading": "업로드 중"
+    }
+  },
+  "units": {
+    "minutes": "분 | 분 | 분",
+    "seconds": "초 | 초 | 초"
+  }
+}

@@ -99,7 +99,11 @@ watch(webUiPassword, newValue => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="4">
-          <v-text-field v-model.number="preferenceStore.preferences!.web_ui_max_auth_fail_count" type="number" hide-details :label="t('settings.webUI.authentication.maxAttempts')" />
+          <v-text-field
+            v-model.number="preferenceStore.preferences!.web_ui_max_auth_fail_count"
+            type="number"
+            hide-details
+            :label="t('settings.webUI.authentication.maxAttempts')" />
         </v-col>
 
         <v-col cols="12" sm="4">

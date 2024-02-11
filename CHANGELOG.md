@@ -2,24 +2,28 @@
 
 ## [2.7.0](https://github.com/VueTorrent/VueTorrent/compare/v2.6.0...v2.7.0) (2024-02-07)
 
-
 ### Features
 
-* **rss:** Update rule form to include `enabled` and `torrentParams` ([#1501](https://github.com/VueTorrent/VueTorrent/issues/1501)) ([aefa996](https://github.com/VueTorrent/VueTorrent/commit/aefa996a6c69ae30c760161f905d884f17d71f30))
-
+- **rss:** Update rule form to include `enabled` and `torrentParams` ([#1501](https://github.com/VueTorrent/VueTorrent/issues/1501))
+  ([aefa996](https://github.com/VueTorrent/VueTorrent/commit/aefa996a6c69ae30c760161f905d884f17d71f30))
 
 ### Bug Fixes
 
-* **import:** Update field validation to prevent false negative ([#1495](https://github.com/VueTorrent/VueTorrent/issues/1495)) ([35d8700](https://github.com/VueTorrent/VueTorrent/commit/35d87002576beb9b19588730cb7600b67dfccc5c))
-* **localization:** Add missing ru pluralization rule ([#1500](https://github.com/VueTorrent/VueTorrent/issues/1500)) ([01ac1bb](https://github.com/VueTorrent/VueTorrent/commit/01ac1bb577bffb79630501bf49be3ed78ed36c10))
-* **progress:** Remove striping on table view ([#1490](https://github.com/VueTorrent/VueTorrent/issues/1490)) ([3256b1b](https://github.com/VueTorrent/VueTorrent/commit/3256b1b186106ce31a9398d9c22e110f8088d63c))
-* **RSS:** Fetch feeds when opening the RSS Rule dialog ([#1496](https://github.com/VueTorrent/VueTorrent/issues/1496)) ([7421e28](https://github.com/VueTorrent/VueTorrent/commit/7421e288397c522895e2cfd754e884566658e5e6))
-
+- **import:** Update field validation to prevent false negative ([#1495](https://github.com/VueTorrent/VueTorrent/issues/1495))
+  ([35d8700](https://github.com/VueTorrent/VueTorrent/commit/35d87002576beb9b19588730cb7600b67dfccc5c))
+- **localization:** Add missing ru pluralization rule ([#1500](https://github.com/VueTorrent/VueTorrent/issues/1500))
+  ([01ac1bb](https://github.com/VueTorrent/VueTorrent/commit/01ac1bb577bffb79630501bf49be3ed78ed36c10))
+- **progress:** Remove striping on table view ([#1490](https://github.com/VueTorrent/VueTorrent/issues/1490))
+  ([3256b1b](https://github.com/VueTorrent/VueTorrent/commit/3256b1b186106ce31a9398d9c22e110f8088d63c))
+- **RSS:** Fetch feeds when opening the RSS Rule dialog ([#1496](https://github.com/VueTorrent/VueTorrent/issues/1496))
+  ([7421e28](https://github.com/VueTorrent/VueTorrent/commit/7421e288397c522895e2cfd754e884566658e5e6))
 
 ### Improvements
 
-* **autofill:** Add valid id on login fields ([#1507](https://github.com/VueTorrent/VueTorrent/issues/1507)) ([fc76202](https://github.com/VueTorrent/VueTorrent/commit/fc762022375b3af7175be91b8aaf8848c390df02))
-* **SpeedGraph:** Add time as X axis instead of computed step ([#1494](https://github.com/VueTorrent/VueTorrent/issues/1494)) ([d750370](https://github.com/VueTorrent/VueTorrent/commit/d750370282d3c6d0df7daf96e3495511ba0d9ae4))
+- **autofill:** Add valid id on login fields ([#1507](https://github.com/VueTorrent/VueTorrent/issues/1507))
+  ([fc76202](https://github.com/VueTorrent/VueTorrent/commit/fc762022375b3af7175be91b8aaf8848c390df02))
+- **SpeedGraph:** Add time as X axis instead of computed step ([#1494](https://github.com/VueTorrent/VueTorrent/issues/1494))
+  ([d750370](https://github.com/VueTorrent/VueTorrent/commit/d750370282d3c6d0df7daf96e3495511ba0d9ae4))
 
 ## [2.6.0](https://github.com/VueTorrent/VueTorrent/compare/v2.5.0...v2.6.0) (2024-01-28)
 
