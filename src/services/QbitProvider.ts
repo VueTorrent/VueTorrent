@@ -341,6 +341,16 @@ export default class QBitProvider implements IProvider {
         params: { hash, indexes: indexes?.join('|') }
       })
       .then(res => res.data)
+      .then(
+        (files: TorrentFile[]) => (files.some(file => file.index === undefined) ? files.map((file: TorrentFile, index: number) => ({ ...file, index })) : files)
+        /**
+         * We manually add indexes to the response if they are missing to provide compatibility with older versions of qbittorent (< 4.4.0)
+         * https://github.com/qbittorrent/qBittorrent/pull/14795
+         *
+         * We leave newer versions unaltered, as the files could be sent in different orders or be filtered
+         * https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#set-file-priority
+         */
+      )
   }
 
   async getAvailableTags(): Promise<string[]> {
