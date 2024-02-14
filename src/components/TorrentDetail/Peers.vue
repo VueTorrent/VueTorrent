@@ -70,7 +70,7 @@ watch(() => props.isActive, setupTimer)
       <v-list-item>
         <div class="d-flex">
           <div>
-            <v-list-item-title class="overflow-visible">
+            <v-list-item-title class="wrap-anywhere" style="white-space: unset">
               <span v-if="peer.country_code">
                 <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url" :title="peer.country" style="max-width: 32px" />
                 <span v-else :title="peer.country">{{ codeToFlag(peer.country_code).char }}</span>
