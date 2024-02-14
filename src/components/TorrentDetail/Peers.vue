@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@/helpers'
-import { useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
@@ -12,6 +12,7 @@ type PeerType = Peer & { host: string }
 
 const { t } = useI18n()
 const maindataStore = useMaindataStore()
+const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const loading = ref(false)
@@ -44,6 +45,7 @@ function closeAddDialog() {
 
 async function banPeer(peer: PeerType) {
   await maindataStore.banPeers([peer.host])
+  await preferenceStore.fetchPreferences()
   await updatePeers()
 }
 
