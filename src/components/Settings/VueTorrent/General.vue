@@ -185,7 +185,13 @@ onBeforeMount(() => {
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-combobox v-model="paginationSize" :messages="paginationSizeMessages" flat :items="paginationSizes" :label="t('settings.vuetorrent.general.paginationSize.label')" />
+          <v-combobox
+            v-model="paginationSize"
+            :messages="paginationSizeMessages"
+            flat
+            :items="paginationSizes"
+            :return-object="false"
+            :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
       </v-row>
 
