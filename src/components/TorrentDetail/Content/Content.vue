@@ -2,7 +2,7 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onMounted, onUnmounted, watch } from 'vue'
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
@@ -36,6 +36,23 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
   }
 }
 
+// mobile long press
+const timer = ref<NodeJS.Timeout>()
+
+function startPress(e: Touch, node: TreeNode) {
+  console.log('startPress')
+  timer.value = setTimeout(() => {
+    console.log('triggered')
+    onRightClick(e, node)
+  }, 500)
+}
+
+function endPress() {
+  console.log('endPress')
+  clearTimeout(timer.value)
+}
+// END mobile long press
+
 watch(
   () => props.isActive,
   newValue => {
@@ -63,7 +80,11 @@ onUnmounted(() => contentStore.$reset())
           :opened-items="openedItems"
           :node="item"
           @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
-          @onRightClick="(e, node) => onRightClick(e, node)" />
+          @touchcancel="endPress"
+          @touchend="endPress"
+          @touchmove="endPress"
+          @touchstart="startPress($event.touches.item(0)!, item)"
+          @onRightClick="(e, node) => onRightClick(e, node)"/>
       </template>
     </v-virtual-scroll>
   </v-card>
