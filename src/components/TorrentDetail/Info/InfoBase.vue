@@ -1,7 +1,3 @@
-<script setup lang="ts">
-defineProps<{ compact?: boolean }>()
-</script>
-
 <template>
   <v-col cols="12" sm="6" lg="3">
     <v-sheet rounded="xl" class="d-flex align-center py-2 border">
@@ -15,5 +11,3 @@ defineProps<{ compact?: boolean }>()
     </v-sheet>
   </v-col>
 </template>
-
-<style scoped></style>

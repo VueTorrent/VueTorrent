@@ -12,7 +12,7 @@ import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
-export const useContentStore = defineStore('torrentDetail', () => {
+export const useContentStore = defineStore('content', () => {
   const { t } = useI18n()
   const route = useRoute()
   const dialogStore = useDialogStore()
