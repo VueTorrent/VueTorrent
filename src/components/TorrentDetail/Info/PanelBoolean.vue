@@ -86,7 +86,3 @@ const super_seeding = computed({
     </v-expansion-panel-text>
   </v-expansion-panel>
 </template>
-
-<style scoped>
-
-</style>
