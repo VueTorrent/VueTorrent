@@ -159,9 +159,10 @@ export const useContentStore = defineStore('torrentDetail', () => {
     setFilePriority,
     $reset: () => {
       while (_lock.value) {}
-      internalSelection.value = new Set()
+      internalSelection.value.clear()
       cachedFiles.value = []
       openedItems.value = ['(root)']
+      pauseTimer()
     }
   }
 })
