@@ -65,7 +65,8 @@ const saveSettings = async () => {
     for (const registration of registrations) {
       await registration.unregister()
     }
-    window.location.hash = ''
+    location.hash = ''
+    location.reload()
   } else {
     goHome()
   }
