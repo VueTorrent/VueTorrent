@@ -3,10 +3,11 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { FilePriority, PieceState, TorrentState } from '@/constants/qbit'
 import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
-import { useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useDialogStore, useMaindataStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { TorrentFile } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
+import { storeToRefs } from 'pinia'
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -18,37 +19,28 @@ const { t } = useI18n()
 const theme = useTheme()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
-const torrentStore = useTorrentStore()
+const { properties } = storeToRefs(useTorrentDetailStore())
 const vuetorrentStore = useVueTorrentStore()
 
 const canvas = ref<HTMLCanvasElement>()
 
-const comment = ref('')
-const downloadSpeedAvg = ref(0)
 const files = ref<TorrentFile[]>([])
 const selectedFileCount = ref(0)
 const torrentFileCount = ref(0)
 const torrentFileName = ref('')
-const torrentPieceSize = ref(0)
-const torrentPieceOwned = ref(0)
-const torrentPieceCount = ref(0)
-const uploadSpeedAvg = ref(0)
+
+const comment = computed(() => properties.value?.comment ?? '')
+const downloadSpeedAvg = computed(() => properties.value?.dl_speed_avg ?? 0)
+const torrentPieceSize = computed(() => properties.value?.piece_size ?? 0)
+const torrentPieceOwned = computed(() => properties.value?.pieces_have ?? 0)
+const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
+const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
 const torrentStateColor = computed(() => `torrent-${props.torrent.state}`)
 const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
 const isFetchingMetadata = computed(() => props.torrent.state === TorrentState.META_DL)
 const shouldRenderPieceState = computed(() => !isFetchingMetadata.value && torrentPieceCount.value > 0 && torrentPieceCount.value < vuetorrentStore.canvasRenderThreshold)
 const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && torrentPieceCount.value < vuetorrentStore.canvasRefreshThreshold)
-
-async function getTorrentProperties() {
-  const ppts = await torrentStore.getTorrentProperties(props.torrent.hash)
-  comment.value = ppts.comment
-  downloadSpeedAvg.value = ppts.dl_speed_avg
-  torrentPieceCount.value = ppts.pieces_num
-  torrentPieceOwned.value = ppts.pieces_have
-  torrentPieceSize.value = ppts.piece_size
-  uploadSpeedAvg.value = ppts.up_speed_avg
-}
 
 async function updateTorrentFiles() {
   files.value = await maindataStore.fetchFiles(props.torrent.hash)
@@ -159,13 +151,6 @@ watch(
     } else {
       pauseTimer()
     }
-  }
-)
-
-watch(
-  () => props.torrent,
-  async () => {
-    await getTorrentProperties()
   }
 )
 

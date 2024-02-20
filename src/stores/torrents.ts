@@ -110,10 +110,6 @@ export const useTorrentStore = defineStore(
       return await qbit.addTorrents(torrents, urls, payload)
     }
 
-    async function getTorrentProperties(hash: string) {
-      return await qbit.getTorrentProperties(hash)
-    }
-
     async function renameTorrent(hash: string, newName: string) {
       await qbit.setTorrentName(hash, newName)
     }
@@ -167,7 +163,6 @@ export const useTorrentStore = defineStore(
       deleteTorrents,
       moveTorrents,
       addTorrents,
-      getTorrentProperties,
       renameTorrent,
       resumeTorrents,
       forceResumeTorrents,

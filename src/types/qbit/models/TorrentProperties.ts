@@ -1,43 +1,43 @@
 export default interface TorrentProperties {
-  /** When this torrent was added (unix timestamp) */
+  /** When this torrent was added (unix timestamp), similar to `added_on` */
   addition_date: number
   /** Torrent comment */
   comment: string
-  /** Torrent completion date (unix timestamp) */
+  /** Torrent completion date (unix timestamp), similar to `completed_on` */
   completion_date: number
   /** Torrent creator */
   created_by: string
   /** Torrent creation date (Unix timestamp) */
   creation_date: number
-  /** Torrent download limit (bytes/s) */
+  /** Torrent download limit (bytes/s), similar to `dl_limit` */
   dl_limit: number
-  /** Torrent download speed (bytes/second) */
+  /** Torrent download speed (bytes/second), similar to `dlspeed` */
   dl_speed: number
   /** Torrent average download speed (bytes/second) */
   dl_speed_avg: number
-  /** Torrent download path */
+  /** Torrent download path, similar to `download_path` */
   download_path: string
-  /** Torrent ETA (seconds) */
+  /** Torrent ETA (seconds), similar to `eta` */
   eta: number
-  /** Torrent hash */
+  /** Torrent hash, similar to `hash` */
   hash: string
-  /** Torrent Infohash V1 */
+  /** Torrent Infohash V1, similar to `infohash_v1` */
   infohash_v1: string
-  /** Torrent Infohash V2 */
+  /** Torrent Infohash V2, similar to `infohash_v2` */
   infohash_v2: string
   /** Whether torrent is private or not */
   is_private: boolean
-  /** Last seen complete date (unix timestamp) */
+  /** Last seen complete date (unix timestamp), similar to `seen_complete` */
   last_seen: number
-  /** Torrent name */
+  /** Torrent name, similar to `name` */
   name: string
   /** Torrent connection count */
   nb_connections: number
   /** Torrent connection count limit */
   nb_connections_limit: number
-  /** Number of peers connected to */
+  /** Number of peers connected to, similar to `num_leechs` */
   peers: number
-  /** Number of peers in the swarm */
+  /** Number of peers in the swarm, similar to `available_peers` */
   peers_total: number
   /** Torrent piece size (bytes) */
   piece_size: number
@@ -47,33 +47,33 @@ export default interface TorrentProperties {
   pieces_num: number
   /** Number of seconds until the next announce */
   reannounce: number
-  /** Torrent save path */
+  /** Torrent save path, similar to `save_path` */
   save_path: string
-  /** Torrent elapsed time while complete (seconds) */
+  /** Torrent elapsed time while complete (seconds), similar to `seeding_time` */
   seeding_time: number
-  /** Number of seeds connected to */
+  /** Number of seeds connected to, similar to `num_seeds` */
   seeds: number
-  /** Number of seeds in the swarm */
+  /** Number of seeds in the swarm, similar to `available_seeds` */
   seeds_total: number
-  /** Torrent share ratio */
+  /** Torrent share ratio, similar to `ratio` */
   share_ratio: number
-  /** Torrent elapsed time (seconds) */
+  /** Torrent elapsed time (seconds), similar to `time_active` */
   time_elapsed: number
-  /** Total data downloaded for torrent (bytes) */
+  /** Total data downloaded for torrent (bytes), similar to `downloaded` */
   total_downloaded: number
-  /** Total data downloaded this session (bytes) */
+  /** Total data downloaded this session (bytes), similar to `downloaded_session` */
   total_downloaded_session: number
-  /** Torrent total size (bytes) */
+  /** Torrent total size (bytes), similar to `total_size` */
   total_size: number
-  /** Total data uploaded for torrent (bytes) */
+  /** Total data uploaded for torrent (bytes), similar to `uploaded` */
   total_uploaded: number
-  /** Total data uploaded this session (bytes) */
+  /** Total data uploaded this session (bytes), similar to `uploaded_session` */
   total_uploaded_session: number
   /** Total data wasted for torrent (bytes) */
   total_wasted: number
-  /** Torrent upload limit (bytes/s) */
+  /** Torrent upload limit (bytes/s), similar to `up_limit` */
   up_limit: number
-  /** Torrent upload speed (bytes/second) */
+  /** Torrent upload speed (bytes/second), similar to `upspeed` */
   up_speed: number
   /** Torrent average upload speed (bytes/second) */
   up_speed_avg: number
