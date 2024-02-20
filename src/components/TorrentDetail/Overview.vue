@@ -3,12 +3,10 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { FilePriority, PieceState, TorrentState } from '@/constants/qbit'
 import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
-import { useDialogStore, useMaindataStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
-import { TorrentFile } from '@/types/qbit/models'
+import { useContentStore, useDialogStore, useMaindataStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { useIntervalFn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
-import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { useTheme } from 'vuetify'
@@ -17,6 +15,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const theme = useTheme()
+const { cachedFiles } = storeToRefs(useContentStore())
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
@@ -24,10 +23,9 @@ const vuetorrentStore = useVueTorrentStore()
 
 const canvas = ref<HTMLCanvasElement>()
 
-const files = ref<TorrentFile[]>([])
-const selectedFileCount = ref(0)
-const torrentFileCount = ref(0)
-const torrentFileName = ref('')
+const selectedFiles = computed(() => cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD))
+const torrentFileCount = computed(() => cachedFiles.value.length)
+const torrentFileName = computed(() => (selectedFiles.value.length === 1 ? selectedFiles.value[0].name : ''))
 
 const comment = computed(() => properties.value?.comment ?? '')
 const downloadSpeedAvg = computed(() => properties.value?.dl_speed_avg ?? 0)
@@ -41,16 +39,6 @@ const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.va
 const isFetchingMetadata = computed(() => props.torrent.state === TorrentState.META_DL)
 const shouldRenderPieceState = computed(() => !isFetchingMetadata.value && torrentPieceCount.value > 0 && torrentPieceCount.value < vuetorrentStore.canvasRenderThreshold)
 const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && torrentPieceCount.value < vuetorrentStore.canvasRefreshThreshold)
-
-async function updateTorrentFiles() {
-  files.value = await maindataStore.fetchFiles(props.torrent.hash)
-  torrentFileCount.value = files.value.length
-  const selectedFiles = files.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD)
-  selectedFileCount.value = selectedFiles.length
-  if (selectedFileCount.value === 1) {
-    torrentFileName.value = selectedFiles[0].name
-  }
-}
 
 /**
  * Source:
@@ -76,7 +64,7 @@ async function renderTorrentPieceStates() {
     if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
     else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
     else if (state === PieceState.MISSING) {
-      const selected_piece_ranges = files.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
+      const selected_piece_ranges = cachedFiles.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
       for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
         if (i > min_piece_range && i < max_piece_range) {
           newColor = theme.current.value.colors['torrent-pausedDL']
@@ -129,30 +117,11 @@ function openMoveTorrentFileDialog() {
   })
 }
 
-const { resume: resumeTimer, pause: pauseTimer } = useIntervalFn(
-  async () => {
-    await updateTorrentFiles()
-    if (shouldRefreshPieceState.value) {
-      await renderTorrentPieceStates()
-    }
-  },
-  vuetorrentStore.fileContentInterval,
-  {
-    immediate: true,
-    immediateCallback: true
+watch(cachedFiles, () => {
+  if (props.isActive && shouldRefreshPieceState.value) {
+    renderTorrentPieceStates()
   }
-)
-
-watch(
-  () => props.isActive,
-  newValue => {
-    if (newValue) {
-      resumeTimer()
-    } else {
-      pauseTimer()
-    }
-  }
-)
+})
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) return false
@@ -169,7 +138,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
     return true
   }
 
-  if (e.key === 'f' && selectedFileCount.value === 1) {
+  if (e.key === 'f' && selectedFiles.value.length === 1) {
     e.preventDefault()
     openMoveTorrentFileDialog()
     return true
@@ -258,9 +227,9 @@ onUnmounted(() => {
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrentDetail.overview.fileCount') }}:</div>
-              <div>{{ selectedFileCount }} / {{ torrentFileCount }}</div>
-              <div v-if="selectedFileCount === 1">{{ torrentFileName }}</div>
-              <v-btn v-if="selectedFileCount === 1" icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentFileDialog" />
+              <div>{{ selectedFiles.length }} / {{ torrentFileCount }}</div>
+              <div v-if="selectedFiles.length === 1">{{ torrentFileName }}</div>
+              <v-btn v-if="selectedFiles.length === 1" icon="mdi-pencil" color="accent" size="x-small" @click="openMoveTorrentFileDialog" />
             </v-col>
           </v-row>
 

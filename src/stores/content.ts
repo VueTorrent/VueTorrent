@@ -148,6 +148,7 @@ export const useContentStore = defineStore('content', () => {
     rightClickProperties,
     internalSelection,
     menuData,
+    cachedFiles,
     openedItems,
     tree,
     flatTree,
