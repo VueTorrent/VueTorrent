@@ -37,7 +37,7 @@ async function submit() {
   if (!isFormValid.value) return
 
   window.localStorage.setItem('vuetorrent_webuiSettings', settings.value)
-  window.location.reload()
+  location.reload()
 }
 </script>
 
