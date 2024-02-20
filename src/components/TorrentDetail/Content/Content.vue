@@ -2,7 +2,7 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onMounted, onUnmounted, watch } from 'vue'
+import { computed, nextTick } from 'vue'
 import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
@@ -35,24 +35,6 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     internalSelection.value = new Set([node.fullName])
   }
 }
-
-watch(
-  () => props.isActive,
-  newValue => {
-    if (newValue) {
-      contentStore.resumeTimer()
-      contentStore.updateFileTree()
-    } else {
-      contentStore.pauseTimer()
-    }
-  }
-)
-
-onMounted(() => {
-  internalSelection.value.clear()
-  contentStore.resumeTimer()
-})
-onUnmounted(() => contentStore.$reset())
 </script>
 
 <template>
