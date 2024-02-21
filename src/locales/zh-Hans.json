@@ -1141,7 +1141,7 @@
     },
     "state": {
       "allocating": "分配中",
-      "checkingDL": "校验中 (未完成`)",
+      "checkingDL": "校验中 (未完成)",
       "checkingResumeData": "校验恢复数据",
       "checkingUP": "校验中 (已完成)",
       "downloading": "下载中",
