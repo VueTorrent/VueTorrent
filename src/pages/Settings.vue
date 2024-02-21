@@ -61,11 +61,14 @@ const saveSettings = async () => {
   await preferenceStore.fetchPreferences()
 
   if (!preferenceStore.preferences!.alternative_webui_enabled) {
-    const registrations = await navigator.serviceWorker.getRegistrations()
-    for (const registration of registrations) {
-      await registration.unregister()
+    if ("serviceWorker" in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations()
+      for (const registration of registrations) {
+        await registration.unregister()
+      }
     }
-    window.location.hash = ''
+    location.hash = ''
+    location.reload()
   } else {
     goHome()
   }

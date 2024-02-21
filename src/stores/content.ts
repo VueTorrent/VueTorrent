@@ -12,7 +12,7 @@ import { computed, nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
-export const useContentStore = defineStore('torrentDetail', () => {
+export const useContentStore = defineStore('content', () => {
   const { t } = useI18n()
   const route = useRoute()
   const dialogStore = useDialogStore()
@@ -148,6 +148,7 @@ export const useContentStore = defineStore('torrentDetail', () => {
     rightClickProperties,
     internalSelection,
     menuData,
+    cachedFiles,
     openedItems,
     tree,
     flatTree,
@@ -159,9 +160,10 @@ export const useContentStore = defineStore('torrentDetail', () => {
     setFilePriority,
     $reset: () => {
       while (_lock.value) {}
-      internalSelection.value = new Set()
+      internalSelection.value.clear()
       cachedFiles.value = []
       openedItems.value = ['(root)']
+      pauseTimer()
     }
   }
 })

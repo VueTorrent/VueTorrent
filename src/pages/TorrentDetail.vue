@@ -2,13 +2,13 @@
 import RightClickMenu from '@/components/Core/RightClickMenu'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import Content from '@/components/TorrentDetail/Content'
-import Info from '@/components/TorrentDetail/Info.vue'
+import Info from '@/components/TorrentDetail/Info/Info.vue'
 import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useContentStore, useDialogStore, useTorrentStore } from '@/stores'
-import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
+import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
+import { computed, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -17,6 +17,7 @@ const { t } = useI18n()
 const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
+const torrentDetailStore = useTorrentDetailStore()
 
 const tabs = [
   { text: t('torrentDetail.tabs.overview'), value: 'overview' },
@@ -63,12 +64,20 @@ watchEffect(() => {
   updateTabHandle()
 })
 
+watch(torrent, () => {
+  torrentDetailStore.fetchProperties(hash.value)
+})
+
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   updateTabHandle()
+  torrentDetailStore.fetchProperties(hash.value)
+  contentStore.resumeTimer()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
+  torrentDetailStore.$reset()
+  contentStore.$reset()
 })
 </script>
 

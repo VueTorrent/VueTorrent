@@ -52,24 +52,6 @@ function endPress() {
   clearTimeout(timer.value)
 }
 // END mobile long press
-
-watch(
-  () => props.isActive,
-  newValue => {
-    if (newValue) {
-      contentStore.resumeTimer()
-      contentStore.updateFileTree()
-    } else {
-      contentStore.pauseTimer()
-    }
-  }
-)
-
-onMounted(() => {
-  internalSelection.value.clear()
-  contentStore.resumeTimer()
-})
-onUnmounted(() => contentStore.$reset())
 </script>
 
 <template>
