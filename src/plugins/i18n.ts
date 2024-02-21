@@ -13,6 +13,9 @@ export default createI18n({
       }
       const teen = choice > 10 && choice < 20
       const endsWithOne = choice % 10 === 1
+      if (choicesLength == 2) {
+        return choice === 1 ? 0 : 1
+      }
       if (choicesLength < 4) {
         return !teen && endsWithOne ? 1 : 2
       }
