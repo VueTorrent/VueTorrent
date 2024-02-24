@@ -1061,6 +1061,7 @@
   },
   "torrentDetail": {
     "content": {
+      "filter_placeholder": "Search in file tree",
       "fileInfo": "{n} file | {n} files",
       "folderInfo": "{n} folder | {n} folders",
       "priority": "Set priority",
