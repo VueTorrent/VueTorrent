@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import RightClickMenu from '@/components/Core/RightClickMenu'
-import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import Content from '@/components/TorrentDetail/Content'
 import Info from '@/components/TorrentDetail/Info/Info.vue'
 import Overview from '@/components/TorrentDetail/Overview.vue'
@@ -40,12 +39,6 @@ const goHome = () => {
 function handleKeyboardShortcut(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog) {
     return false
-  }
-
-  if (e.key === 'Delete') {
-    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [hash.value] })
-    e.preventDefault()
-    return true
   }
 
   if (e.key === 'Escape') {

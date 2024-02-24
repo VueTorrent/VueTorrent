@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { useSearchQuery } from '@/composables'
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
@@ -12,11 +13,17 @@ const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
 const { rightClickProperties, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
 
+const filter = ref<string>('')
+
+const { results: filteredTree } = useSearchQuery(flatTree, filter, item => item.fullName)
+
 const height = computed(() => {
   // 48px for the tabs and page title
   // 64px for the toolbar
   // 12px for the padding (top and bottom)
-  return deviceHeight.value - 48 * 2 - 64 - 12 * 2
+  // 56px for the filter text field
+  // 8px for its top margin
+  return deviceHeight.value - 48 * 2 - 64 - 12 * 2 - 56 - 8
 })
 
 async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
@@ -39,7 +46,9 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
 
 <template>
   <v-card>
-    <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
+    <v-text-field v-model="filter" class="mt-2 mx-3" hide-details :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+
+    <v-virtual-scroll id="tree-root" :items="filteredTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
         <ContentNode
           :opened-items="openedItems"

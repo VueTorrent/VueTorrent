@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
 import { FilePriority, PieceState, TorrentState } from '@/constants/qbit'
@@ -124,7 +125,7 @@ watch(cachedFiles, () => {
 })
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
-  if (dialogStore.hasActiveDialog) return false
+  if (dialogStore.hasActiveDialog || !props.isActive) return false
 
   if (e.key === 'd') {
     e.preventDefault()
@@ -141,6 +142,12 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'f' && selectedFiles.value.length === 1) {
     e.preventDefault()
     openMoveTorrentFileDialog()
+    return true
+  }
+
+  if (e.key === 'Delete') {
+    e.preventDefault()
+    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: [props.torrent.hash] })
     return true
   }
 }
