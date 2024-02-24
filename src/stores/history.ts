@@ -11,6 +11,8 @@ export const useHistoryStore = defineStore(
     const historySize = ref(3)
 
     function pushValueToHistory(key: HistoryKey, value: string) {
+      if (!value) return
+
       const historyValue = getHistory(key)
       historyValue.splice(0, 0, value)
 

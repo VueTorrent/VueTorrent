@@ -61,7 +61,7 @@ const saveSettings = async () => {
   await preferenceStore.fetchPreferences()
 
   if (!preferenceStore.preferences!.alternative_webui_enabled) {
-    if ("serviceWorker" in navigator) {
+    if ('serviceWorker' in navigator) {
       const registrations = await navigator.serviceWorker.getRegistrations()
       for (const registration of registrations) {
         await registration.unregister()
