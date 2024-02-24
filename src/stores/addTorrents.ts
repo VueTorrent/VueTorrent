@@ -13,12 +13,14 @@ export const useAddTorrentStore = defineStore(
     const files = ref<File[]>([])
     const urls = ref<string>('')
 
-    const form = reactive<Partial<{
-      cookie: string
-      firstLastPiecePrio: boolean
-      rename: string
-      sequentialDownload: boolean
-    }>>({})
+    const form = reactive<
+      Partial<{
+        cookie: string
+        firstLastPiecePrio: boolean
+        rename: string
+        sequentialDownload: boolean
+      }>
+    >({})
     const addTorrentParams = reactive<AddTorrentParams>({})
 
     const pendingTorrentsCount = computed(() => files.value.length + urls.value.split('\n').filter(url => url.trim() !== '').length)

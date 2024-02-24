@@ -275,7 +275,3 @@ defineExpose({ saveFields })
     </v-col>
   </v-row>
 </template>
-
-<style scoped>
-
-</style>
