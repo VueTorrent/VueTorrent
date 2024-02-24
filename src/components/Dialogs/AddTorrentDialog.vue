@@ -35,7 +35,7 @@ const cookieField = ref<typeof HistoryField>()
 const addTorrentParamsForm = ref<typeof AddTorrentParamsForm>()
 
 const cookie = computed({
-  get: () => form.value.cookie || '',
+  get: () => form.value.cookie,
   set: value => (form.value.cookie = value || undefined)
 })
 

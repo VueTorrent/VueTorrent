@@ -7,7 +7,7 @@ const props = defineProps<{
   historyKey: HistoryKey
 }>()
 
-const _value = defineModel<string>({ required: true })
+const _value = defineModel<string | undefined>({ required: true })
 
 const historyStore = useHistoryStore()
 
@@ -16,7 +16,7 @@ const field = ref<HTMLInputElement>()
 const historyValue = computed(() => historyStore.getHistory(props.historyKey))
 
 function saveValueToHistory() {
-  historyStore.pushValueToHistory(props.historyKey, _value.value)
+  historyStore.pushValueToHistory(props.historyKey, _value.value ?? '')
 }
 
 defineExpose({
