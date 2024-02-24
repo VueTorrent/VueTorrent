@@ -4,23 +4,16 @@ import { useHistoryStore } from '@/stores'
 import { computed, ref } from 'vue'
 
 const props = defineProps<{
-  modelValue?: string
   historyKey: HistoryKey
 }>()
 
-const emit = defineEmits<{
-  'update:modelValue': [value: string]
-}>()
+const _value = defineModel<string>({ required: true })
 
 const historyStore = useHistoryStore()
 
 const field = ref<HTMLInputElement>()
 
 const historyValue = computed(() => historyStore.getHistory(props.historyKey))
-const _value = computed({
-  get: () => props.modelValue ?? '',
-  set: (value: string) => emit('update:modelValue', value)
-})
 
 function saveValueToHistory() {
   historyStore.pushValueToHistory(props.historyKey, _value.value)
