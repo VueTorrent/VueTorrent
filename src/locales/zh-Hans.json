@@ -1,5 +1,6 @@
 {
   "common": {
+    "active": "活跃",
     "cancel": "取消",
     "close": "关闭",
     "delete": "删除",
@@ -46,7 +47,7 @@
     "diskIoType": {
       "default": "默认",
       "memoryMappedFiles": "文件映射",
-      "posixCompliant": "POSIX 兼容"
+      "posixCompliant": "兼容POSIX"
     },
     "encryption": {
       "forceOff": "禁用加密",
@@ -61,6 +62,7 @@
     "file_priority": {
       "high": "高",
       "max": "最高",
+      "mixed": "混合",
       "normal": "正常",
       "unwanted": "不需要"
     },
@@ -135,7 +137,7 @@
     "not_complete": "从未完整可见",
     "right_click": {
       "advanced": {
-        "auto_tmm": "自动种子管理",
+        "auto_tmm": "自动种子管理（ATM）",
         "download_path": "设置下载路径",
         "f_l_prio": "首/尾优先级",
         "reannounce": "强制重新汇报",
@@ -168,12 +170,18 @@
       "speed_limit": {
         "download": "下载限速",
         "share": "分享率限制",
-        "title": "种子限制设置",
+        "title": "设置种子限制",
         "upload": "上传限速"
       },
       "tags": {
         "disabled_title": "无标签",
         "title": "设置标签"
+      },
+      "top": {
+        "delete": "删除",
+        "force_resume": "强制继续",
+        "pause": "暂停",
+        "resume": "继续"
       }
     },
     "searchInputLabel": "搜索",
@@ -182,7 +190,7 @@
     "sortBy": {
       "added_on": "添加时间",
       "amount_left": "剩余大小",
-      "auto_tmm": "自动种子管理",
+      "auto_tmm": "自动种子管理（ATM）",
       "availability": "可用性",
       "avg_download_speed": "平均下载速度",
       "avg_upload_speed": "平均上传速度",
@@ -196,15 +204,15 @@
       "downloaded": "已下载 (全局)",
       "downloaded_session": "已下载 (本次会话)",
       "download_path": "下载路径",
-      "eta": "剩余时间",
-      "f_l_piece_prio": "首/尾块优先级",
+      "eta": "预计剩余时间",
+      "f_l_piece_prio": "首/尾块优先",
       "force_start": "强制开始",
       "globalSpeed": "全局速度",
       "globalVolume": "全局容量",
       "hash": "哈希值",
       "infohash_v1": "哈希值 v1",
       "infohash_v2": "哈希值 v2",
-      "last_activity": "最后活动时间",
+      "last_activity": "最后活跃时间",
       "magnet_uri": "磁力链接",
       "max_ratio": "最大分享率",
       "max_seeding_time": "最大做种时长",
@@ -219,14 +227,14 @@
       "ratio_limit": "分享率限制",
       "save_path": "保存路径",
       "seeding_time": "做种时长",
-      "seeding_time_limit": "全部做种时长限制",
+      "seeding_time_limit": "做种时长限制",
       "seen_complete": "最后完整可见",
       "seq_dl": "顺序下载",
       "size": "大小",
       "state": "状态",
       "super_seeding": "超级做种",
       "tags": "标签",
-      "time_active": "活动时间",
+      "time_active": "活跃时间",
       "total_size": "总大小",
       "tracker": "Tracker",
       "trackers_count": "Tracker 数量",
@@ -236,47 +244,47 @@
       "upspeed": "上传速度"
     },
     "sortLabel": "排序方式",
-    "toggleSearchFilter": "搜索种子",
-    "toggleSelectMode": "切换复选框",
-    "toggleSortOrder": "切换排序",
+    "toggleSearchFilter": "切换搜索过滤器",
+    "toggleSelectMode": "切换选择模式",
+    "toggleSortOrder": "反转排序",
     "torrentsCount": "无种子 | {n} 个种子 | {n} 个种子"
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "添加到队列首位",
-      "autoTMM": "自动种子管理",
-      "category": "分类",
       "cookie": "Cookie",
-      "cookiePlaceholder": "name1=value1; name2=value2; ...",
-      "dlLimit": "下载速度限制",
-      "downloadPath": "下载路径",
-      "dropLabel": "将种子文件和链接拖到此处",
-      "error": "添加种子时出错",
-      "fileOverflow": "+{n} 个",
+      "cookie_placeholder": "name1=value1; name2=value2; ...",
+      "drop_label": "将种子文件和链接拖到此处",
+      "file_overflow": "+{n} 个",
       "files": "选择(多个)文件",
-      "firstLastPiecePrio": "优先下载首尾块",
-      "inactiveSeedingTimeLimit": "不活跃做种时长限制",
-      "limitCollapse": "种子限制设置",
-      "limitHint": "填写 \"-1\"表示禁用，\"-2\"或留空为使用全局限制",
+      "first_last_piece_prio": "优先下载首尾块",
       "links": "链接 (磁力, http, 文件链接等)",
-      "noCategories": "还没有分类。输入名称创建一个。",
-      "noCategoryMatch": "没有匹配 \"{query}\" 的分类。将自动创建。",
-      "noTagMatch": "没有匹配 \"{query}\" 的标签。按 Enter 键创建。",
-      "noTags": "还没有标签。输入名称创建一个。",
-      "pending": "正在上传...",
-      "ratioLimit": "分享率限制",
+      "params": {
+        "add_to_top_of_queue": "添加到队列首位",
+        "category": "分类",
+        "download_limit": "下载速度限制",
+        "download_path": "下载路径（未完成时）",
+        "inactive_seeding_time_limit": "非活跃做种时长限制",
+        "limit_collapse": "种子限制设置",
+        "limit_hint": "\"-1\"表示禁用，\"-2\"或留空为使用全局设置",
+        "no_categories": "暂无分类。输入名称创建一个。",
+        "no_categories_match": "没有匹配 \"{query}\" 的分类。将自动创建。",
+        "no_tags": "暂无标签。输入名称创建一个。",
+        "no_tags_match": "没有匹配 \"{query}\" 的标签。按 Enter 键创建。",
+        "ratio_limit": "分享率限制",
+        "save_path": "保存路径（已完成时）",
+        "seeding_time_limit": "做种时长限制",
+        "skip_checking": "跳过哈希校验",
+        "stopped": "不立即开始下载",
+        "tags": "标签",
+        "title": "种子参数",
+        "upload_limit": "上传速度限制",
+        "use_auto_tmm": "自动种子管理（ATM）"
+      },
       "rename": "重命名种子文件",
-      "resetForm": "重置为默认",
-      "savePath": "保存路径",
-      "seedingTimeLimit": "全部做种时长限制",
-      "sequentialDownload": "顺序下载",
-      "skipChecking": "跳过哈希校验",
-      "startNow": "立即开始下载",
+      "reset_form": "重置表格",
+      "sequential_download": "顺序下载",
       "submit": "添加种子",
-      "success": "{n} 个种子已添加 | {n} 个种子已添加",
-      "tags": "标签",
-      "title": "添加种子",
-      "upLimit": "上传速度限制"
+      "title": "添加种子"
     },
     "category": {
       "name": "分类名称",
@@ -293,12 +301,17 @@
       "dht_nodes": "DHT 节点",
       "externalIp": "外部 IP 地址",
       "status": "连接状态",
-      "total_peer_connections": "活跃的对等点连接"
+      "total_peer_connections": "活跃的用户连接"
     },
     "delete": {
       "deleteWithFiles": "删除种子及其文件",
       "title": "删除 {n} 个种子 | 删除 {n} 个种子",
       "warnDelete": "勾选此复选框将删除这些种子中包含的所有内容"
+    },
+    "importSettings": {
+      "required": "必须提供设置",
+      "title": "导入设置",
+      "valid": "请提供有效的设置"
     },
     "moveTorrent": {
       "dl": {
@@ -342,6 +355,10 @@
     "rss": {
       "feed": {
         "name": "名称",
+        "rules": {
+          "name_required": "订阅名称不能为空",
+          "url_required": "订阅 URL 不能为空"
+        },
         "title": {
           "create": "创建 RSS 订阅源",
           "edit": "编辑 RSS 订阅源"
@@ -352,6 +369,7 @@
         "addPaused": "添加时暂停",
         "affectedFeedsSubheader": "受影响的订阅源",
         "assignedCategory": "分配的分类",
+        "enabled": "启用规则",
         "episodeFilter": "剧集过滤器",
         "episodeFilterPlaceholder": "例如: S01E02-S01E05",
         "ignoreDays": "忽略在过去 {days} 天内发布的内容",
@@ -369,7 +387,7 @@
         "mustNotContain": "不能包含",
         "name": "名称",
         "savePath": "保存路径",
-        "savePathPlaceholder": "留空使用默认保存路径",
+        "savePathPlaceholder": "留空以使用默认保存路径",
         "smartFilter": "使用智能剧集过滤器",
         "title": {
           "create": "创建 RSS 规则",
@@ -379,12 +397,12 @@
       }
     },
     "share_limit": {
-      "disabled": "不设置分享率限制",
-      "enabled": "将分享率限制设置为",
-      "global": "使用全局分享率限制",
-      "inactive_seeding_time_limit": "不活跃做种时长 (分钟)",
+      "disabled": "设置为无分享限制",
+      "enabled": "设置分享限制为",
+      "global": "使用全局分享限制",
+      "inactive_seeding_time_limit": "非活跃时长 (分钟)",
       "ratio_limit": "分享率",
-      "seeding_time_limit": "全部做种时长 (分钟)",
+      "seeding_time_limit": "总做种时长 (分钟)",
       "title": "设置分享率限制"
     },
     "shutdown": {
@@ -394,7 +412,7 @@
       "title": "关闭 qBittorrent"
     },
     "speed_limit": {
-      "download": "下载限速",
+      "download": "设置下载速度限制",
       "label": "速度限制",
       "upload": "上传限速"
     },
@@ -427,6 +445,7 @@
   "logs": {
     "emptyLogList": "未找到日志",
     "filters": {
+      "query": "在日志信息中搜索",
       "type": "日志级别"
     },
     "title": "qBittorrent 日志"
@@ -439,7 +458,7 @@
       "bottom_actions": {
         "alt_speed": "切换备用速度",
         "conn_status": "连接状态：{status}",
-        "dark_mode": "切换到浅色模式 | 切换到深色模式",
+        "dark_mode": "浅色模式 | 深色模式 | 跟随系统设置",
         "logout": "注销",
         "shutdown": "关闭 qBittorrent"
       },
@@ -450,7 +469,7 @@
         "activeFilter": "已激活 {n} 个过滤器",
         "category": "分类过滤器",
         "disabled": "(已禁用)",
-        "state": "状态过滤器",
+        "state": "种子状态过滤器",
         "tag": "标签过滤器",
         "tracker": "Tracker 过滤器",
         "uncategorized": "(未分类)",
@@ -491,7 +510,7 @@
   },
   "rssArticles": {
     "filters": {
-      "title": "按标题过滤",
+      "title": "标题过滤器",
       "unread": "仅显示未读文章"
     },
     "item": {
@@ -500,6 +519,11 @@
       "feedName": "订阅源名称：{name}"
     },
     "markAllAsRead": "全部标记为已读",
+    "promise": {
+      "error": "标记文章时出错",
+      "pending": "标记中... ",
+      "success": "{n}篇文章已标记为已读"
+    },
     "title": "RSS 资讯"
   },
   "searchEngine": {
@@ -587,7 +611,7 @@
         "socketSendBufferSize": "Socket发送缓冲区大小",
         "socketSendBufferSizeHint": "0：系统默认",
         "stopTrackerTimeout": "Tracker 停止超时",
-        "subheader": "libtorrent 相关",
+        "subheader": "libtorrent 部分",
         "threads": {
           "asyncIoThreads": "异步 I/O 线程",
           "bdecodeDepthLimit": "Bdecode 深度限制",
@@ -622,9 +646,9 @@
           },
           "title": "网络"
         },
-        "reannounceOnIpPortChanged": "当 IP 或端口更改时，重新通知所有 trackers",
-        "recheckOnCompletion": "完成后重新校验 Torrent",
-        "refreshInterval": "刷新间隔",
+        "reannounceOnIpPortChanged": "当 IP 或端口变更时重新向所有 Tracker汇报",
+        "recheckOnCompletion": "完成后重新校验种子",
+        "refreshInterval": "界面刷新间隔",
         "resolveCountries": "解析用户所在国家",
         "resumeDataStorageType": {
           "label": "恢复数据存储类型 (需重新启动)",
@@ -651,7 +675,7 @@
     "bittorrent": {
       "autoAddTrackers": "自动将这些 Tracker 添加到新下载",
       "autoAddTrackersHint": "每行一个 Tracker",
-      "maxActiveCheckingTorrents": "最大活动检查种子数",
+      "maxActiveCheckingTorrents": "最大活跃检查种子数",
       "privacy": {
         "enableAnonymous": "启用匿名模式",
         "enableDHT": "启用 DHT (去中心化网络) 以找到更多用户",
@@ -662,20 +686,20 @@
         "subheader": "隐私"
       },
       "seedLimits": {
-        "subheader": "种子限制设置",
+        "subheader": "做种限制",
         "then": "随后",
         "whenInactiveSeedingTimeReaches": "当非活跃做种时长达到",
         "whenRatioReaches": "当分享率达到",
-        "whenSeedingTimeReaches": "当全部做种时长达到"
+        "whenSeedingTimeReaches": "当做种时长达到"
       },
       "torrentQueueing": {
         "downloadRateLimit": "下载速率阈值",
         "excludeSlowTorrent": "在这些限制中不计算慢速种子",
-        "maxActiveDownload": "最大活动下载数",
-        "maxActiveTorrent": "最大活动种子数",
-        "maxActiveUpload": "最大活动上传数",
-        "subheader": "种子排队",
-        "torrentInactivityTimer": "种子不活动计时器",
+        "maxActiveDownload": "最大活跃下载数",
+        "maxActiveTorrent": "最大活跃种子数",
+        "maxActiveUpload": "最大活跃上传数",
+        "subheader": "种子队列",
+        "torrentInactivityTimer": "种子非活跃计时器",
         "uploadRateLimit": "上传速率阈值"
       }
     },
@@ -690,7 +714,7 @@
       "ipFiltering": {
         "applyToTrackers": "应用于 Tracker",
         "bannedIps": "手动禁止的 IP 地址",
-        "bannedIpsHint": "每行一个过滤器",
+        "bannedIpsHint": "每行一个",
         "filterPath": "过滤器路径 (.dat、.p2p、.p2b)",
         "subheader": "IP 过滤"
       },
@@ -700,7 +724,7 @@
         "subheader": "监听端口",
         "useUPnP": "使用 UPnP / NAT-PMP 端口转发"
       },
-      "protocol": "对等连接协议",
+      "protocol": "Peer连接协议",
       "proxy": {
         "auth": {
           "password": "密码",
@@ -736,16 +760,16 @@
       "monitoredFolders": {
         "actions": "操作",
         "confirmDelete": "确定要删除此项目吗？",
-        "editItem": "编辑项目",
+        "editItem": "编辑",
         "monitoredFolderPath": "监视文件夹",
-        "newItem": "新项目",
+        "newItem": "新建",
         "noData": "尚未监视文件夹",
         "otherPath": "其他路径",
         "saveType": "覆盖保存位置",
         "subheader": "监视文件夹"
       },
       "publicSettings": {
-        "appendQBExtension": "未完成的文件后缀名添加 .!qB",
+        "appendQBExtension": "为未完成的文件添加 .!qB 后缀名",
         "preAllocateDisk": "为所有文件预分配磁盘空间"
       },
       "runExternalProgram": {
@@ -771,22 +795,22 @@
       },
       "saveManagement": {
         "autoTMMEnabled": "默认种子管理模式",
-        "categoryChangedTMM": "分类保存路径更改时",
-        "defaultSavePath": "默认保存路径",
+        "categoryChangedTMM": "当分类保存路径更改时",
+        "defaultSavePath": "默认保存路径（完成时）",
         "defaultTMMOptions": {
           "automatic": "自动",
           "manual": "手动"
         },
         "exportDir": "将 .torrent 文件复制到",
         "exportDirFinished": "将已完成下载的 .torrent 文件复制到",
-        "keepIncomplete": "保留未完成的种子",
+        "keepIncomplete": "默认下载路径（未完成的种子）",
         "paramChangedTMMOptions": {
           "relocateTorrent": "重新定位种子",
           "switchToManual": "将种子切换到手动模式"
         },
-        "savePathChangedTMM": "默认保存路径更改时",
+        "savePathChangedTMM": "当默认保存路径更改时",
         "subheader": "保存管理",
-        "torrentChangedTMM": "种子分类更改时"
+        "torrentChangedTMM": "当种子分类更改时"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "添加到队列首位",
@@ -799,7 +823,7 @@
     "rss": {
       "feeds": {
         "createNew": "添加订阅源",
-        "noFeeds": "尚未添加订阅源",
+        "noFeeds": "暂无订阅源",
         "refreshAll": "全部刷新"
       },
       "general": {
@@ -816,14 +840,14 @@
         "smartEpisodeFilter": {
           "downloadEpisodes": "下载 REPACK/PROPER 剧集",
           "filters": "过滤器",
-          "filtersHint": "每行一个过滤器",
+          "filtersHint": "每行一个",
           "subheader": "RSS 智能剧集过滤器"
         },
         "useIdForRssLinks": "在 RSS 文章链接中使用 ID"
       },
       "rules": {
         "createNew": "创建规则",
-        "noRules": "尚未创建规则"
+        "noRules": "暂无规则"
       }
     },
     "saveSuccess": "设置已成功保存！",
@@ -865,7 +889,12 @@
       "tagsAndCategories": "标签和分类",
       "vuetorrent": {
         "general": "常规设置",
-        "title": "VueTorrent"
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "网格视图",
+          "list": "列表视图",
+          "table": "表格视图"
+        }
       },
       "webui": "WebUI"
     },
@@ -873,32 +902,37 @@
       "categoriesSubheader": "可用分类：",
       "createNewCategory": "创建新分类",
       "createNewTag": "创建新标签",
-      "noCategories": "尚未添加分类",
-      "noTags": "尚未添加标签",
+      "noCategories": "暂无分类",
+      "noTags": "暂无标签",
       "tagsSubheader": "可用标签："
     },
     "title": "设置",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "禁用图形自动刷新的块数",
-        "canvasRenderThreshold": "禁用图形渲染的块数",
+        "canvasRefreshThreshold": "禁用Canvas自动刷新的种子块数阈值",
+        "canvasRenderThreshold": "禁用Canvas渲染的种子块数阈值",
+        "check_new": "检查新版本",
         "currentVersion": "当前版本",
         "customTitle": "自定义标题",
         "dateFormat": "日期格式",
+        "download": "导出设置",
         "exportSettings": "导出设置",
         "fileContentInterval": "种子文件内容刷新间隔",
+        "hideChipIfUnset": "未设置时隐藏卡片",
         "historySize": "符合条件字段的历史大小",
+        "import": "导入设置",
         "importSettings": "导入设置",
         "isDrawerRight": "侧边栏居右显示",
-        "isPaginationOnTop": "置顶分页按钮",
+        "isPaginationOnTop": "分页按钮置顶",
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
         "openSideBarOnStart": "启动时打开侧边栏",
         "paginationSize": {
           "infinite_scroll": "无限滚动",
-          "label": "分页大小"
+          "label": "分页大小",
+          "warning": "使用过高的值可能会影响性能"
         },
-        "qbittorrentVersion": "QBittorrent 版本",
+        "qbittorrentVersion": "qBittorrent 版本",
         "refreshInterval": "qBittorrent API 刷新间隔",
         "registerMagnet": "注册为磁力链程序",
         "resetSettings": "重置设置",
@@ -908,10 +942,23 @@
         "showSessionStat": "显示本次会话统计",
         "showSpeedGraph": "显示速度图表",
         "showTrackerFilter": "显示 Tracker 过滤器",
-        "tip": "这些设置是为自定义 WebUI 设计的",
+        "tip": "这些设置适用于自定义WebUI",
         "useBinarySize": "使用二进制计算数据占用 (kB -> KiB)",
         "useBitSpeed": "以kbps表示速度 (kB/s -> kbps)",
         "vueTorrentTitle": "VueTorrent 标题"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "在网格视图中为未完成的种子显示的属性",
+          "doneTip": "在网格视图中为已完成的种子显示的属性"
+        },
+        "list": {
+          "busyTip": "在列表视图中为未完成的种子显示的属性",
+          "doneTip": "在列表视图中为已完成的种子显示的属性"
+        },
+        "table": {
+          "tip": "在表格视图中为种子显示的属性"
+        }
       }
     },
     "webUI": {
@@ -964,24 +1011,37 @@
         "csrf": "启用跨站点请求伪造 (CSRF) 保护",
         "hostHeaderValidation": "启用主机头验证",
         "hostHeaderValidationHint": "使用分号 ( ; ) 分隔",
-        "secureCookie": "启用 cookie 安全标志 (需要 HTTPS)",
+        "secureCookie": "启用 Cookie 安全标志 (需要 HTTPS)",
         "serverDomains": "服务器域名",
         "subheader": "安全"
       }
     }
   },
   "toast": {
+    "add": {
+      "error": "添加种子时出错",
+      "pending": "正在上传...",
+      "success": "{n} 个种子已添加 | {n} 个种子已添加"
+    },
+    "copy": {
+      "error": "无法复制，当前环境不安全！",
+      "success": "已复制到剪贴板！"
+    },
     "magnet_handler": {
-      "not_supported": "当前上下文不安全。无法注册处理程序。",
+      "not_supported": "当前环境不安全，无法注册处理程序。",
       "registered": "磁力链处理程序已注册。"
+    },
+    "new_version": "新版本可用！",
+    "qbit": {
+      "not_supported": "仅适用于 qbit >= {version}"
     }
   },
   "topbar": {
     "actions": {
-      "delete": "删除",
-      "logs": "日志",
-      "pause": "暂停",
-      "resume": "开始",
+      "delete": "删除种子",
+      "logs": "打开日志",
+      "pause": "暂停种子",
+      "resume": "继续种子",
       "rssArticles": "RSS 订阅",
       "searchEngine": "搜索",
       "settings": "设置"
@@ -989,10 +1049,10 @@
     "addTorrents": "添加种子",
     "overflow": {
       "delete": "删除",
-      "logs": "日志",
+      "logs": "qBittorrent日志",
       "pause": "暂停",
       "resume": "恢复",
-      "rssArticles": "RSS",
+      "rssArticles": "RSS 资讯",
       "searchEngine": "搜索",
       "settings": "设置"
     },
@@ -1000,22 +1060,28 @@
   },
   "torrentDetail": {
     "content": {
-      "fileInfo": "{n} 个文件",
-      "folderInfo": "{n} 个文件夹",
+      "fileInfo": "{n} 个文件 | {n} 个文件",
+      "folderInfo": "{n} 个文件夹 | {n} 文件夹",
+      "priority": "设置优先级",
+      "rename": {
+        "bulk": "批量重命名",
+        "file": "重命名",
+        "folder": "重命名文件夹"
+      },
       "rootNode": "(根目录)"
     },
     "info": {
-      "boolean_values": "可选项",
-      "data_values": "数据流量",
-      "datetime_values": "时间相关",
-      "duration_values": "持续时间",
-      "long_text_values": "文件信息",
-      "speed_values": "速度限制与状态",
-      "text_values": "P2P状态"
+      "boolean_values": "布尔值",
+      "data_values": "数据值",
+      "datetime_values": "日期时间值",
+      "duration_values": "持续时间值",
+      "long_text_values": "长文本值",
+      "speed_values": "速度值",
+      "text_values": "文本值"
     },
     "overview": {
-      "canvasRefreshDisabled": "图形自动刷新已禁用",
-      "canvasRenderDisabled": "图形渲染已禁用",
+      "canvasRefreshDisabled": "Canvas自动刷新已禁用",
+      "canvasRenderDisabled": "Canvas渲染已禁用",
       "copy_hash": "复制哈希值",
       "dlSpeedAverage": "平均下载速度",
       "downloaded": "已下载",
@@ -1075,8 +1141,8 @@
         "oldUrl": "旧 URL",
         "title": "编辑 Tracker"
       },
-      "peersValue": "{peers} 个连接 ({seeds} 做种 / {leeches} 下载)",
-      "reannounce": "重新汇报",
+      "peersValue": "{peers} 个用户 ({seeds} 做种 / {leeches} 下载)",
+      "reannounce": "全部重新汇报",
       "tier": "层级：{n}"
     }
   },
@@ -1084,15 +1150,18 @@
     "properties": {
       "added_on": "添加时间",
       "amount_left": "剩余大小",
-      "auto_tmm": "自动管理种子",
+      "auto_tmm": "自动管理种子（ATM）",
       "availability": "可用性",
-      "available_peers": "可用的用户数",
-      "available_seeds": "可用的做种者数",
+      "available_peers": "可用的用户数（群）",
+      "available_seeds": "可用的做种者数（群）",
       "avg_download_speed": "平均下载速度",
       "avg_upload_speed": "平均上传速度",
       "category": "分类",
+      "comment": "注释",
       "completed_on": "完成时间",
       "content_path": "文件路径",
+      "created_by": "创建者",
+      "creation_date": "创建日期",
       "downloaded": "已下载 (全局)",
       "downloaded_session": "已下载 (本次会话)",
       "download_limit": "下载限速",
@@ -1100,18 +1169,21 @@
       "download_speed": "下载速度",
       "empty_category": "(未分类)",
       "empty_tags": "(无标签)",
-      "empty_tracker_domain": "(无 tracker)",
-      "eta": "剩余时间",
-      "f_l_piece_prio": "首/尾块优先级",
+      "empty_tracker_domain": "(无 Tracker)",
+      "eta": "预计剩余时间",
+      "f_l_piece_prio": "首/尾块优先",
       "forced": "强制状态",
       "global_speed": "全局速度",
       "global_volume": "全局容量",
       "hash": "哈希值",
       "infohash_v1": "哈希值 v1",
       "infohash_v2": "哈希值 v2",
-      "last_activity": "最后活动时间",
+      "is_private": "私有种子",
+      "last_activity": "最后活跃时间",
       "magnet": "磁力链接",
       "name": "种子名称",
+      "nb_connections": "总连接数",
+      "nb_connections_limit": "连接限制",
       "num_leechs": "用户数 (已连接)",
       "num_seeds": "做种者数 (已连接)",
       "peers": "用户",
@@ -1121,6 +1193,7 @@
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
       "ratio_time_limit": "分享时长限制",
+      "reannounce": "下次重新汇报时间",
       "save_path": "保存路径",
       "seeding_time": "做种时长",
       "seeds": "做种者",
@@ -1130,8 +1203,9 @@
       "state": "状态",
       "super_seeding": "超级做种模式",
       "tags": "标签",
-      "time_active": "活动时间",
+      "time_active": "活跃时间",
       "total_size": "总大小",
+      "total_wasted": "无用的数据",
       "tracker": "Tracker",
       "trackers_count": "Tracker 数量",
       "uploaded": "已上传 (全局)",
@@ -1141,7 +1215,7 @@
     },
     "state": {
       "allocating": "分配中",
-      "checkingDL": "校验中 (未完成`)",
+      "checkingDL": "校验中 (未完成)",
       "checkingResumeData": "校验恢复数据",
       "checkingUP": "校验中 (已完成)",
       "downloading": "下载中",

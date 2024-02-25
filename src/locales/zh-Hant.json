@@ -20,7 +20,7 @@
     "addPaused": {
       "always": "總是",
       "never": "永不",
-      "title": "加入已暫停的"
+      "title": "加入時暫停"
     },
     "bittorrentProtocols": {
       "tcp": "TCP",
@@ -62,6 +62,7 @@
     "file_priority": {
       "high": "高",
       "max": "最高",
+      "mixed": "混合",
       "normal": "一般",
       "unwanted": "不要下載"
     },
@@ -122,7 +123,7 @@
       "uploadRateBased": "基於上傳速率"
     },
     "utpTcpMixedMode": {
-      "peerProportional": "下載者比例 (TCP 節流)",
+      "peerProportional": "用戶比例 (TCP 節流)",
       "preferTcp": "偏好 TCP"
     }
   },
@@ -133,10 +134,10 @@
       "table": "表格",
       "title": "顯示模式"
     },
-    "not_complete": "永不最後完整可見",
+    "not_complete": "從未完整可見",
     "right_click": {
       "advanced": {
-        "auto_tmm": "自動種子管理 (ATM)",
+        "auto_tmm": "自動種子管理 （ATM）",
         "download_path": "設定下載路徑",
         "f_l_prio": "首末優先",
         "reannounce": "強制重新發佈",
@@ -189,7 +190,7 @@
     "sortBy": {
       "added_on": "新增於",
       "amount_left": "剩餘大小",
-      "auto_tmm": "自動種子管理",
+      "auto_tmm": "自動種子管理（ATM）",
       "availability": "可得性",
       "avg_download_speed": "平均下載速率",
       "avg_upload_speed": "平均上傳速率",
@@ -211,14 +212,14 @@
       "hash": "雜湊值",
       "infohash_v1": "資訊雜湊值 v1",
       "infohash_v2": "資訊雜湊值 v2",
-      "last_activity": "最後活動",
+      "last_activity": "最後活躍",
       "magnet_uri": "磁力連結",
       "max_ratio": "最大分享率",
       "max_seeding_time": "最大做種時間",
       "name": "名稱",
       "num_complete": "種子數 (群)",
-      "num_incomplete": "下載者數 (群)",
-      "num_leechs": "下載者數 (已連線)",
+      "num_incomplete": "下載者 (群)",
+      "num_leechs": "下載者 (已連線)",
       "num_seeds": "種子數 (已連線)",
       "priority": "優先級",
       "progress": "進度",
@@ -244,46 +245,46 @@
     },
     "sortLabel": "排序方式",
     "toggleSearchFilter": "切換搜尋過濾器",
-    "toggleSelectMode": "選擇模式",
+    "toggleSelectMode": "切換選擇模式",
     "toggleSortOrder": "反轉排序",
     "torrentsCount": "無種子 | {n} 個種子 | {n} 個種子"
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "新增至佇列頂部",
-      "autoTMM": "自動種子管理 (ATM)",
-      "category": "分類",
       "cookie": "Cookie",
-      "cookiePlaceholder": "名稱1=值1; 名稱2=值2; ...",
-      "dlLimit": "下載限制",
-      "downloadPath": "下載路徑 (未完成時)",
-      "dropLabel": "拖拽檔案和連結至此處",
-      "error": "新增種子時出錯",
-      "fileOverflow": "+{n} 個",
+      "cookie_placeholder": "名稱1=值1; 名稱2=值2; ...",
+      "drop_label": "拖拽檔案和連結至此處",
+      "file_overflow": "+{n} 個",
       "files": "選擇檔案",
-      "firstLastPiecePrio": "優先下載首末塊",
-      "inactiveSeedingTimeLimit": "閒置做種時間限制",
-      "limitCollapse": "限制設定",
-      "limitHint": "-1 以禁用, -2 或空使用全域值",
+      "first_last_piece_prio": "優先下載首末塊",
       "links": "連結 (磁力, http, 檔案, ...)",
-      "noCategories": "尚無分類。輸入名稱以新增",
-      "noCategoryMatch": "無分類符合 \"{query}\"。將會自動新增。",
-      "noTagMatch": "無標籤符合 \"{query}\"。 按 Enter 鍵以新增。",
-      "noTags": "尚無標籤。輸入名稱以新增。",
-      "pending": "正在傳送種子...",
-      "ratioLimit": "分享率限制",
+      "params": {
+        "add_to_top_of_queue": "新增至佇列頂部",
+        "category": "分類",
+        "download_limit": "下載限制",
+        "download_path": "下載路徑 （未完成時）",
+        "inactive_seeding_time_limit": "閒置做種時間限制",
+        "limit_collapse": "限制設定",
+        "limit_hint": "-1 以禁用, -2 或空使用全域值",
+        "no_categories": "尚無分類。輸入名稱以新增",
+        "no_categories_match": "無分類符合 \"{query}\"。將會自動新增。",
+        "no_tags": "尚無標籤。輸入名稱以新增。",
+        "no_tags_match": "無標籤符合 \"{query}\"。 按 Enter 鍵以新增。",
+        "ratio_limit": "分享率限制",
+        "save_path": "儲存路徑 （已完成時）",
+        "seeding_time_limit": "做種時間限制",
+        "skip_checking": "跳過雜湊值檢查",
+        "stopped": "不立即開始",
+        "tags": "標籤",
+        "title": "種子設定",
+        "upload_limit": "上傳限制",
+        "use_auto_tmm": "自動種子管理（ATM）"
+      },
       "rename": "重新命名種子",
-      "resetForm": "重置表單",
-      "savePath": "儲存路徑 (已完成時)",
-      "seedingTimeLimit": "做種時間限制",
-      "sequentialDownload": "順序下載",
-      "skipChecking": "跳過雜湊值檢查",
-      "startNow": "立即開始",
+      "reset_form": "重置表單",
+      "sequential_download": "順序下載",
       "submit": "新增種子",
-      "success": "已添加 {n} 個種子 | 已添加 {n} 個種子",
-      "tags": "標籤",
-      "title": "新增種子",
-      "upLimit": "上傳限制"
+      "title": "新增種子"
     },
     "category": {
       "name": "分類名稱",
@@ -300,7 +301,7 @@
       "dht_nodes": "DHT 節點",
       "externalIp": "外部 IP 位置",
       "status": "連線狀態",
-      "total_peer_connections": "活躍的下載者連接數"
+      "total_peer_connections": "活躍的用戶連接數"
     },
     "delete": {
       "deleteWithFiles": "移除種子與其檔案",
@@ -365,9 +366,10 @@
         "url": "連結"
       },
       "rule": {
-        "addPaused": "加入已暫停的",
+        "addPaused": "加入時暫停",
         "affectedFeedsSubheader": "受影響的訂閱源",
         "assignedCategory": "指派分類",
+        "enabled": "啟用規則",
         "episodeFilter": "章節過濾器",
         "episodeFilterPlaceholder": "例子: S01E02-S01E05",
         "ignoreDays": "忽略過去 {day} 天內發佈的項目",
@@ -398,7 +400,7 @@
       "disabled": "設定無分享限制",
       "enabled": "設定分享限制為",
       "global": "使用全域分享限制",
-      "inactive_seeding_time_limit": "不活躍分鐘數",
+      "inactive_seeding_time_limit": "閒置分鐘數",
       "ratio_limit": "分享率",
       "seeding_time_limit": "總分鐘數",
       "title": "設定分享率限制"
@@ -455,8 +457,8 @@
     "side": {
       "bottom_actions": {
         "alt_speed": "替補速率限制",
-        "conn_status": "連線狀態: {status}",
-        "dark_mode": "切換至亮色介面 | 切換至暗色介面",
+        "conn_status": "連線狀態：{status}",
+        "dark_mode": "淺色介面 | 深色介面 | 遵循系統設定",
         "logout": "登出",
         "shutdown": "結束 qBittorrent"
       },
@@ -466,7 +468,7 @@
       "filters": {
         "activeFilter": "{n} 個過濾器啟用中",
         "category": "分類過濾器",
-        "disabled": "(已禁用)",
+        "disabled": "(已停用)",
         "state": "種子狀態過濾器",
         "tag": "標籤過濾器",
         "tracker": "追蹤者過濾器",
@@ -493,7 +495,7 @@
     },
     "top": {
       "active_filters": {
-        "category": "分類過濾器: {value}",
+        "category": "分類過濾器：{value}",
         "menu_label": "啟用中的過濾器: {n} | 啟用中的過濾器: {n}",
         "multiple_category": "分類過濾器: {n} 個分類",
         "multiple_state": "狀態過濾器: {n} 種狀態",
@@ -550,7 +552,7 @@
     "headers": {
       "fileName": "檔案名稱",
       "fileSize": "檔案大小",
-      "nbLeechers": "蝗族",
+      "nbLeechers": "下載者",
       "nbSeeders": "種子",
       "siteUrl": "網站連結"
     },
@@ -580,20 +582,20 @@
         "networking": {
           "outgoingPortsMax": "連出埠（最大）[0: 停用]",
           "outgoingPortsMin": "連出埠（最小）[0: 停用]",
-          "peerTos": "連接到下載者的 DSCP 值",
+          "peerTos": "連接到用戶的 DSCP 值",
           "subheader": "網路",
           "upnpLeaseDuration": "UPnP 租約期限 [0: 永久租約]",
           "utpTcpMixedModeAlgorithm": "μTP-TCP 混合模式演算法"
         },
         "outgoingConnectionsPerSecond": "每秒對外連線數",
-        "peerTurnover": "下載者流動斷線百分比",
-        "peerTurnoverCutoff": "下載者流動閾值百分比",
-        "peerTurnoverInterval": "下載者流動斷線區間",
+        "peerTurnover": "用戶流動斷線百分比",
+        "peerTurnoverCutoff": "用戶流動閾值百分比",
+        "peerTurnoverInterval": "用戶流動斷線區間",
         "pieceExtentAffinity": "使用分塊範圍關聯",
-        "requestQueueSize": "對單個下載者的最多未完成請求",
+        "requestQueueSize": "對單個用戶的最多未完成請求",
         "security": {
           "allowMultipleConnectionsFromTheSameIPAddress": "允許從同一個 IP 位置而來的多重連線",
-          "blockPeersOnPrivilegedPorts": "不允許連線到在特權連接埠上的下載者",
+          "blockPeersOnPrivilegedPorts": "不允許連線到在特權連接埠上的用戶",
           "idnSupport": "啟用國際化域名 (IDN)支援",
           "mitigateSSRF": "伺服器端請求偽造 (SSRF) 緩解",
           "subheader": "安全",
@@ -647,7 +649,7 @@
         "reannounceOnIpPortChanged": "當 IP 或連接埠變更時通知所有追蹤者",
         "recheckOnCompletion": "完成後重新檢查種子",
         "refreshInterval": "介面重新整理區間",
-        "resolveCountries": "解析下載者國家",
+        "resolveCountries": "解析用戶國家",
         "resumeDataStorageType": {
           "label": "恢復數據儲存類型 (需要重新啟動)",
           "legacy": "快速恢復檔案",
@@ -676,9 +678,9 @@
       "maxActiveCheckingTorrents": "最大活躍的正在檢查種子數",
       "privacy": {
         "enableAnonymous": "啟用匿名模式",
-        "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多下載者",
-        "enableLPD": "啟用本地下載者搜尋以尋找更多下載者",
-        "enablePeX": "啟用節點交換 (PeX) 以尋找更多下載者",
+        "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多用戶",
+        "enableLPD": "啟用本地用戶搜尋以尋找更多用戶",
+        "enablePeX": "啟用節點交換 (PeX) 以尋找更多用戶",
         "encryptionMode": "加密模式",
         "moreInfo": "更多資訊",
         "subheader": "隱私"
@@ -697,7 +699,7 @@
         "maxActiveTorrent": "最大活躍種子數",
         "maxActiveUpload": "最大活躍上傳數",
         "subheader": "種子佇列",
-        "torrentInactivityTimer": "種子不活躍計時器",
+        "torrentInactivityTimer": "種子閒置計時器",
         "uploadRateLimit": "上傳速率閾值"
       }
     },
@@ -722,7 +724,7 @@
         "subheader": "監聽埠",
         "useUPnP": "使用從路由器轉送的 UPnP / NAT-PMP 連接埠"
       },
-      "protocol": "下載者連線協定",
+      "protocol": "用戶連線協定",
       "proxy": {
         "auth": {
           "password": "密碼",
@@ -734,7 +736,7 @@
         "host": "主機",
         "hostNameLookup": "為主機名稱查詢使用代理",
         "misc": "對一般用途使用代理",
-        "peerConnections": "使用代理來連線下載者",
+        "peerConnections": "使用代理來連線用戶",
         "port": "埠",
         "rss": "對 RSS 使用代理",
         "subheader": "代理伺服器"
@@ -758,9 +760,9 @@
       "monitoredFolders": {
         "actions": "動作",
         "confirmDelete": "你確認想要移除此項目？",
-        "editItem": "編輯項目",
+        "editItem": "編輯",
         "monitoredFolderPath": "已監視的資料夾",
-        "newItem": "新項目",
+        "newItem": "新增",
         "noData": "沒有已監視的資料夾",
         "otherPath": "其他路徑",
         "saveType": "覆寫儲存位置",
@@ -787,14 +789,14 @@
         "supportParamN": "%N: 種子名稱",
         "supportParamR": "%R: 根路徑 (第一個種子的子目錄路徑)",
         "supportParamT": "%T: 當前的追蹤者",
-        "supportParamTitle": "支援的參數",
+        "supportParamTitle": "支援的參數（區分大小寫）：",
         "supportParamZ": "%Z: 種子大小 (位元組 byte)",
         "tip": "提示: 把參數以引號包起來以避免被空格切斷 (例如: \"%N\")"
       },
       "saveManagement": {
         "autoTMMEnabled": "預設種子管理模式",
         "categoryChangedTMM": "當分類儲存路徑變更時",
-        "defaultSavePath": "預設儲存路徑",
+        "defaultSavePath": "預設儲存路徑 (完成時)",
         "defaultTMMOptions": {
           "automatic": "自動",
           "manual": "手動"
@@ -859,7 +861,7 @@
         "when": "何時"
       },
       "settings": {
-        "applyToPeersOnLan": "套用速率限制至 LAN 上的下載者",
+        "applyToPeersOnLan": "套用速率限制至 LAN 上的用戶",
         "applyToTransportOverhead": "套用速率限制至傳輸負載",
         "applyToUtp": "套用速率限制至 µTP 協定"
       },
@@ -913,7 +915,7 @@
         "currentVersion": "當前版本",
         "customTitle": "自訂標題",
         "dateFormat": "日期格式",
-        "download": "下載設定",
+        "download": "匯出設定",
         "exportSettings": "匯出設定",
         "fileContentInterval": "種子檔案內容更新區間",
         "hideChipIfUnset": "未設置時隱藏塊",
@@ -927,9 +929,10 @@
         "openSideBarOnStart": "啟動時顯示側邊欄",
         "paginationSize": {
           "infinite_scroll": "無限滾動",
-          "label": "每頁展示數量"
+          "label": "每頁展示數量",
+          "warning": "使用过高的值可能会影响性能"
         },
-        "qbittorrentVersion": "QBittorrent 版本",
+        "qbittorrentVersion": "qBittorrent 版本",
         "refreshInterval": "qBittorrent API 更新區間",
         "registerMagnet": "註冊磁力連結",
         "resetSettings": "重置設定",
@@ -946,15 +949,15 @@
       },
       "torrentCard": {
         "grid": {
-          "busyTip": "在網格檢視中為忙碌中的種子顯示的屬性",
+          "busyTip": "在網格檢視中為未完成的種子顯示的屬性",
           "doneTip": "在網格檢視中為已完成的種子顯示的屬性"
         },
         "list": {
-          "busyTip": "在清單檢視中為忙碌中的種子顯示的屬性",
+          "busyTip": "在清單檢視中為未完成的種子顯示的屬性",
           "doneTip": "在清單檢視中為已完成的種子顯示的屬性"
         },
         "table": {
-          "tip": "要在表格檢視中為種子顯示的屬性"
+          "tip": "在表格檢視中為種子顯示的屬性"
         }
       }
     },
@@ -1008,13 +1011,18 @@
         "csrf": "啟用跨站請求偽造 (CSRF) 保護",
         "hostHeaderValidation": "啟用主機標頭驗證",
         "hostHeaderValidationHint": "使用分號分隔 ( ; )",
-        "secureCookie": "啟用 cookie 安全旗標（需要 HTTPS）",
+        "secureCookie": "啟用Cookie 安全旗標（需要 HTTPS）",
         "serverDomains": "伺服器網域",
         "subheader": "安全"
       }
     }
   },
   "toast": {
+    "add": {
+      "error": "新增種子時出錯",
+      "pending": "正在傳送種子...",
+      "success": "已添加 {n} 個種子 | 已添加 {n} 個種子"
+    },
     "copy": {
       "error": "無法複製，當前環境不安全!",
       "success": "已複製到剪貼簿!"
@@ -1041,7 +1049,7 @@
     "addTorrents": "新增種子",
     "overflow": {
       "delete": "移除",
-      "logs": "qBit 日誌",
+      "logs": "qBittorrent日誌",
       "pause": "暫停",
       "resume": "繼續",
       "rssArticles": "RSS 文章",
@@ -1056,6 +1064,7 @@
       "folderInfo": "{n} 個資料夾 | {n} 個資料夾",
       "priority": "設定優先級",
       "rename": {
+        "bulk": "批量重命名",
         "file": "重新命名",
         "folder": "重新命名資料夾"
       },
@@ -1087,12 +1096,12 @@
     },
     "peers": {
       "addPeers": {
-        "newPeers": "要新增的下載者主機",
+        "newPeers": "要新增的用戶主機",
         "newPeersHint": "每行一個",
         "newPeersPlaceholder": "主機:埠",
-        "title": "新增下載者"
+        "title": "新增用戶"
       },
-      "emptyList": "當前無已連接的下載者",
+      "emptyList": "當前無已連接的用戶",
       "table": {
         "client": "客戶端",
         "connection": "連線",
@@ -1111,7 +1120,7 @@
       "content": "內容",
       "info": "資訊",
       "overview": "概覽",
-      "peers": "下載者",
+      "peers": "用戶",
       "tagsAndCategories": "標籤和分類",
       "trackers": "追蹤者"
     },
@@ -1132,7 +1141,7 @@
         "oldUrl": "舊連結",
         "title": "編輯追蹤者"
       },
-      "peersValue": "{peers} 下載者 ({seeds} 種子 /{leeches} 蝗族)",
+      "peersValue": "{peers} 个用户 ({seeds} 種子 /{leeches} 下载)",
       "reannounce": "全部重新發佈",
       "tier": "層: {n}"
     }
@@ -1141,15 +1150,18 @@
     "properties": {
       "added_on": "新增於",
       "amount_left": "剩餘大小",
-      "auto_tmm": "自動種子管理",
+      "auto_tmm": "自動種子管理（ATM）",
       "availability": "可得性",
       "available_peers": "下載者 (群)",
       "available_seeds": "種子 (群)",
       "avg_download_speed": "平均下載速率",
       "avg_upload_speed": "平均上傳速率",
       "category": "分類",
+      "comment": "註釋",
       "completed_on": "完成於",
       "content_path": "內容路徑",
+      "created_by": "創建者",
+      "creation_date": "創建日期",
       "downloaded": "已下載 (全域)",
       "downloaded_session": "已下載 (會話)",
       "download_limit": "下載限制",
@@ -1166,9 +1178,12 @@
       "hash": "雜湊值",
       "infohash_v1": "資訊雜湊值 v1",
       "infohash_v2": "資訊雜湊值 v2",
-      "last_activity": "最後活動",
+      "is_private": "私有种子",
+      "last_activity": "最後活躍",
       "magnet": "磁力連結",
       "name": "種子標題",
+      "nb_connections": "總連線數",
+      "nb_connections_limit": "連線限制",
       "num_leechs": "下載者 (已連線)",
       "num_seeds": "種子 (已連線)",
       "peers": "下載者",
@@ -1178,6 +1193,7 @@
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
       "ratio_time_limit": "分享時間限制",
+      "reannounce": "下次重新發佈时间",
       "save_path": "儲存路徑",
       "seeding_time": "做種時間",
       "seeds": "種子",
@@ -1189,6 +1205,7 @@
       "tags": "標籤",
       "time_active": "經過時間",
       "total_size": "總大小",
+      "total_wasted": "無用的資料",
       "tracker": "追蹤者",
       "trackers_count": "追蹤者數",
       "uploaded": "已上傳 (全域)",

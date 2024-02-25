@@ -241,39 +241,18 @@
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "Aggiungi in cima alla coda",
-      "autoTMM": "Gestione Torrent Automatica ",
-      "category": "Categoria",
       "cookie": "Cookie",
-      "cookiePlaceholder": "nome1=valore1; nome2=valore2; ...",
-      "dlLimit": "Limite di Download",
-      "downloadPath": "Percorso di Download (quando incompleto)",
-      "dropLabel": "Trascina qui link e file torrent",
-      "error": "Errore durante l'aggiunta dei torrent",
-      "fileOverflow": "+{n} altri",
+      "cookie_placeholder": "nome1=valore1; nome2=valore2; ...",
+      "drop_label": "Trascina qui link e file torrent",
+      "file_overflow": "+{n} altri",
       "files": "Seleziona i File",
-      "firstLastPiecePrio": "Dai priorità al primo e all'ultimo pezzo",
-      "inactiveSeedingTimeLimit": "Tempo Limite Seeding Inattivo",
-      "limitCollapse": "Configura Limiti",
-      "limitHint": "-1 per disabilitare, -2 o vuoto per utilizzare il valore globale",
+      "first_last_piece_prio": "Dai priorità al primo e all'ultimo pezzo",
       "links": "Link (magnet, http, file, ...)",
-      "noCategories": "Ancora nessuna categoria. Digita un nome per crearne una.",
-      "noCategoryMatch": "Nessuna categoria corrispondente a \"{query}\". Verrà creata automaticamente.",
-      "noTagMatch": "Nessuna etichetta corrispondente a \"{query}\". Premi Invio per crearla.",
-      "noTags": "Ancora nessuna etichetta. Digita un nome per crearne una.",
-      "pending": "Inviando torrent...",
-      "ratioLimit": "Limite di Rapporto",
       "rename": "Rinomina Torrent",
-      "resetForm": "Resetta modulo",
-      "seedingTimeLimit": "Limite Tempo di Seeding",
-      "sequentialDownload": "Download Sequenziale",
-      "skipChecking": "Salta il controllo hash",
-      "startNow": "Avvia subito il Torrent",
+      "reset_form": "Resetta modulo",
+      "sequential_download": "Download Sequenziale",
       "submit": "Aggiungi Torrent",
-      "success": "{n} Torrent aggiunto | {n} Torrent aggiunti",
-      "tags": "Etichette",
-      "title": "Aggiungi Torrent",
-      "upLimit": "Limite di Upload"
+      "title": "Aggiungi Torrent"
     },
     "category": {
       "name": "Nome Categoria",
@@ -489,6 +468,13 @@
       "author": "Autore: {author}",
       "category": "Categoria: {category}",
       "feedName": "Nome feed: {name}"
+    }
+  },
+  "toast": {
+    "add": {
+      "error": "Errore durante l'aggiunta dei torrent",
+      "pending": "Inviando torrent...",
+      "success": "{n} Torrent aggiunto | {n} Torrent aggiunti"
     }
   }
 }
