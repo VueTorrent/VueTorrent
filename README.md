@@ -2,8 +2,7 @@
 
 The sleekest looking WebUI for qBittorrent made with Vue.js!
 
-[![Discord](https://img.shields.io/badge/Discord_server-join-blue?logo=discord&logoColor=white)](https://discord.gg/KDQP7fR467)
-[![Wiki](https://img.shields.io/badge/Wiki-Click_me-blue)](https://github.com/VueTorrent/VueTorrent/wiki)
+[![Discord](https://img.shields.io/discord/1170618192956243998?logo=discord)](https://discord.gg/KDQP7fR467)
 
 ![VueTorrent](https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/VueTorrent-logo.png)
 
@@ -82,6 +81,9 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
   - mobile friendly! (can be installed as a PWA)
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
 - Optimized for the latest version of qBittorrent
+- Additional backend for improved experience, [see the repo for more info](https://github.com/VueTorrent/vuetorrent-backend)
+  - This is a work in progress, and is not required to use VueTorrent
+  - Stores server-side settings
 
 ## Important Information
 
@@ -91,9 +93,17 @@ Everything that is compatible with qBittorrent will work regardless of the WebUI
 
 ## Contributing
 
-Refer to the [Contributing Guidelines](https://github.com/VueTorrent/VueTorrent/blob/master/.github/CONTRIBUTING.md)
+We gladly accept contributions!
+
+Any help is appreciated, whether it's reporting bugs, suggesting enhancements, contributing code or localizing the app.
+
+See the [Contributing Guidelines](https://github.com/VueTorrent/VueTorrent/blob/master/.github/CONTRIBUTING.md) for more information.
 
 ## Support
+
+[![Discord](https://img.shields.io/discord/1170618192956243998?logo=discord)](https://discord.gg/KDQP7fR467)
+[![Wiki](https://img.shields.io/badge/Wiki-blue)](https://github.com/VueTorrent/VueTorrent/wiki)
+[![FAQ](https://img.shields.io/badge/FAQ-orange)](https://github.com/VueTorrent/VueTorrent/wiki/FAQ)
 
 Open up an issue 😛
 
@@ -102,7 +112,11 @@ but before you do that:
 - confirm you're on the latest version of VueTorrent
 - confirm there is no other issue mentioning the same problem
 
-<a href="https://www.buymeacoffee.com/wdaan"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=wdaan&button_colour=FFDD00&font_colour=000000&font_family=Arial&outline_colour=000000&coffee_colour=ffffff"></a>
+## Funding
+
+All donations are appreciated but purely optional.
+
+Checkout the sponsor section of the repository.
 
 ## Contributors
 

@@ -26,14 +26,9 @@ export const usePreferenceStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_preferences'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )

@@ -1,6 +1,6 @@
-import { useVueTorrentStore } from './vuetorrent'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
+import { useVueTorrentStore } from './vuetorrent'
 
 export const useNavbarStore = defineStore(
   'navbar',
@@ -45,14 +45,9 @@ export const useNavbarStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_navbar'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )

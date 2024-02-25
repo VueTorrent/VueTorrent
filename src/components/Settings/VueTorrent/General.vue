@@ -206,6 +206,10 @@ onBeforeMount(() => {
         <v-col cols="12" md="6">
           <v-text-field v-model="vueTorrentStore.dateFormat" :placeholder="defaultDateFormat" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
         </v-col>
+
+        <v-col cols="12" md="6">
+          <v-text-field v-model="vueTorrentStore.backendUrl" :label="t('settings.vuetorrent.general.backendUrl')" />
+        </v-col>
       </v-row>
     </v-list-item>
 

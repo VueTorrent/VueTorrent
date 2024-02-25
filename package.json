@@ -28,7 +28,7 @@
     "dayjs": "^1.11.9",
     "lodash.debounce": "^4.0.8",
     "pinia": "^2.1.6",
-    "pinia-plugin-persist": "^1.0.0",
+    "pinia-persistence-plugin": "^0.0.5",
     "pixi.js": "^8.0.4",
     "uuid": "^9.0.1",
     "vite-plugin-vuetify": "^2.0.3",
