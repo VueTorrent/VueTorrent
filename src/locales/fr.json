@@ -1,6 +1,6 @@
 {
   "common": {
-    "active": "Actif",
+    "active": "Activer",
     "cancel": "Annuler",
     "close": "Fermer",
     "delete": "Supprimer",
@@ -138,7 +138,7 @@
     "right_click": {
       "advanced": {
         "auto_tmm": "Gestion de torrent automatique",
-        "download_path": "Chemin de téléchargement",
+        "download_path": "Définir le chemin de téléchargement",
         "f_l_prio": "Priorité aux premiers / derniers",
         "reannounce": "Réannoncer",
         "recheck": "Forcer la revérification",
@@ -169,7 +169,7 @@
       },
       "speed_limit": {
         "download": "Définir la limite de téléchargement",
-        "share": "Définir la limite partagée",
+        "share": "Définir la limite de partage",
         "title": "Définir la vitesse limite",
         "upload": "Définir la limite d'envoi"
       },
@@ -238,7 +238,7 @@
       "total_size": "Taille totale",
       "tracker": "Tracker",
       "trackers_count": "Nombre de trackers",
-      "up_limit": "Limite de partage",
+      "up_limit": "Limite d'envoi",
       "uploaded": "Partagé (Global)",
       "uploaded_session": "Partagé (Session)",
       "upspeed": "Vitesse de partage"
@@ -251,40 +251,40 @@
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "Ajouter en haut de la file d'attente",
-      "autoTMM": "Gestion automatique du torrent",
-      "category": "Catégorie",
       "cookie": "Cookies",
-      "cookiePlaceholder": "nom1=valeur1; nom2=valeur2; ...",
-      "dlLimit": "Limite de téléchargement",
-      "downloadPath": "Chemin de téléchargement (incomplet)",
-      "dropLabel": "Déposez les fichiers torrent et les liens ici",
-      "error": "Erreur lors de l'ajout des torrents",
-      "fileOverflow": "+{n} de plus",
+      "cookie_placeholder": "nom1=valeur1; nom2=valeur2; ...",
+      "drop_label": "Déposez les fichiers torrent et les liens ici",
+      "file_overflow": "+{n} de plus",
       "files": "Selectionner les fichiers",
-      "firstLastPiecePrio": "Prioriser la première / dernière pièce",
-      "inactiveSeedingTimeLimit": "Limite du temps de seed inactif",
-      "limitCollapse": "Configurer les limites",
-      "limitHint": "-1 pour désactiver, -2 ou vide pour utiliser la valeur globale",
+      "first_last_piece_prio": "Prioriser la première / dernière pièce",
       "links": "Liens (magnet, http, fichier, ...)",
-      "noCategories": "Aucune catégorie pour le moment. Entrez un nom pour en créer une.",
-      "noCategoryMatch": "Aucune catégorie ne correspond à \"{query}\". Elle sera créée automatiquement.",
-      "noTagMatch": "Aucune étiquette ne correspond à \"{query}\". Appuyez sur Entrée pour la créer.",
-      "noTags": "Aucune étiquette pour le moment. Entrez un nom pour en créer une.",
-      "pending": "Envoi des torrents...",
-      "ratioLimit": "Limite du ratio",
+      "params": {
+        "add_to_top_of_queue": "Ajouter en haut de la file d'attente",
+        "category": "Catégorie",
+        "download_limit": "Limite de téléchargement",
+        "download_path": "Chemin de téléchargement (incomplet)",
+        "inactive_seeding_time_limit": "Limite du temps de seed inactif",
+        "limit_collapse": "Configurer les limites",
+        "limit_hint": "-1 pour désactiver, -2 ou vide pour utiliser la valeur globale",
+        "no_categories": "Aucune catégorie pour le moment. Entrez un nom pour en créer une.",
+        "no_categories_match": "Aucune catégorie ne correspond à \"{query}\". Elle sera créée automatiquement.",
+        "no_tags": "Aucune étiquette pour le moment. Entrez un nom pour en créer une.",
+        "no_tags_match": "Aucune étiquette ne correspond à \"{query}\". Appuyez sur Entrée pour la créer.",
+        "ratio_limit": "Limite du ratio",
+        "save_path": "Répertoire de destination (complet)",
+        "seeding_time_limit": "Limite du temps de seed",
+        "skip_checking": "Passer la vérification du hash",
+        "stopped": "Ne pas lancer le téléchargement",
+        "tags": "Étiquettes",
+        "title": "Paramètres de torrent",
+        "upload_limit": "Limite d'envoi",
+        "use_auto_tmm": "Gestion automatique du torrent"
+      },
       "rename": "Renommer le torrent",
-      "resetForm": "Réinitialiser le formulaire",
-      "savePath": "Répertoire de destination (lorsque terminé)",
-      "seedingTimeLimit": "Limite du temps de seed",
-      "sequentialDownload": "Téléchargement séquentiel",
-      "skipChecking": "Sauter la vérification du hachage",
-      "startNow": "Démarrer le torrent immédiatement",
+      "reset_form": "Réinitialiser le formulaire",
+      "sequential_download": "Téléchargement séquentiel",
       "submit": "Ajouter des torrents",
-      "success": "{n} torrent ajouté | {n} torrents ajoutés",
-      "tags": "Étiquettes",
-      "title": "Ajouter des torrents",
-      "upLimit": "Limite d'envoi"
+      "title": "Ajouter des torrents"
     },
     "category": {
       "name": "Nom de la catégorie",
@@ -482,7 +482,7 @@
       },
       "stats": {
         "alltime": {
-          "title": "Afficher les statistiques globales"
+          "title": "Statistiques globales"
         },
         "downloaded": "Téléchargé",
         "free_space": "Espace libre",
@@ -1018,6 +1018,11 @@
     }
   },
   "toast": {
+    "add": {
+      "error": "Erreur lors de l'ajout des torrents",
+      "pending": "Envoi des torrents...",
+      "success": "{n} torrent ajouté | {n} torrents ajoutés"
+    },
     "copy": {
       "error": "Impossible de copier, le contexte n'est pas sécurisé !",
       "success": "Copié dans le presse-papiers !"
@@ -1197,7 +1202,7 @@
       "trackers_count": "Nombre de trackers",
       "uploaded": "Partagé (global)",
       "uploaded_session": "Partagé (session)",
-      "upload_limit": "Limite de téléchargement",
+      "upload_limit": "Limite d'envoi",
       "upload_speed": "Vitesse d'envoi"
     },
     "state": {

@@ -135,7 +135,7 @@
       "table": "Table",
       "title": "Display mode"
     },
-    "not_complete": "Never Seen Complete",
+    "not_complete": "Never seen complete",
     "right_click": {
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
@@ -269,8 +269,8 @@
         "limit_hint": "-1 to disable, -2 or empty to use global value",
         "no_categories": "No categories yet. Type a name to create one.",
         "no_categories_match": "No categories matching \"{query}\". It will be created automatically.",
-        "no_tags_match": "No tags matching \"{query}\". Press Enter to create it.",
         "no_tags": "No tags yet. Type a name to create one.",
+        "no_tags_match": "No tags matching \"{query}\". Press Enter to create it.",
         "ratio_limit": "Ratio limit",
         "save_path": "Save path (when completed)",
         "seeding_time_limit": "Seeding time limit",
@@ -291,7 +291,7 @@
       "name": "Category Name",
       "nameRequired": "Category name is required",
       "oldName": "Old category name",
-      "save_path": "Save Path",
+      "savePath": "Save Path",
       "title": {
         "create": "Create Category",
         "edit": "Edit Category"
@@ -954,7 +954,7 @@
           "doneTip": "Properties to display for completed torrents in grid view"
         },
         "list": {
-          "busyTip": "Properties to display for busy torrents in list view",
+          "busyTip": "Properties to display for incomplete torrents in list view",
           "doneTip": "Properties to display for completed torrents in list view"
         },
         "table": {
@@ -1061,8 +1061,8 @@
   },
   "torrentDetail": {
     "content": {
-      "filter_placeholder": "Search in file tree",
       "fileInfo": "{n} file | {n} files",
+      "filter_placeholder": "Search in file tree",
       "folderInfo": "{n} folder | {n} folders",
       "priority": "Set priority",
       "rename": {
@@ -1164,11 +1164,11 @@
       "content_path": "Content Path",
       "created_by": "Created by",
       "creation_date": "Creation Date",
+      "downloaded": "Downloaded (global)",
+      "downloaded_session": "Downloaded (session)",
       "download_limit": "Download Limit",
       "download_path": "Download Path",
       "download_speed": "Download Speed",
-      "downloaded": "Downloaded (global)",
-      "downloaded_session": "Downloaded (session)",
       "empty_category": "(no category)",
       "empty_tags": "(no tags)",
       "empty_tracker_domain": "(no tracker)",
@@ -1210,10 +1210,10 @@
       "total_wasted": "Wasted data",
       "tracker": "Tracker",
       "trackers_count": "Trackers Count",
-      "upload_limit": "Upload Limit",
-      "upload_speed": "Upload Speed",
       "uploaded": "Uploaded (global)",
-      "uploaded_session": "Uploaded (session)"
+      "uploaded_session": "Uploaded (session)",
+      "upload_limit": "Upload Limit",
+      "upload_speed": "Upload Speed"
     },
     "state": {
       "allocating": "Allocating",
