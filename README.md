@@ -14,6 +14,7 @@ Join us on [Discord](https://discord.gg/KDQP7fR467)
 ![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
 ![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent) ![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
 ![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 ## Screenshots
 
