@@ -40,15 +40,12 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
 const timer = ref<NodeJS.Timeout>()
 
 function startPress(e: Touch, node: TreeNode) {
-  console.log('startPress')
   timer.value = setTimeout(() => {
-    console.log('triggered')
     onRightClick(e, node)
   }, 500)
 }
 
 function endPress() {
-  console.log('endPress')
   clearTimeout(timer.value)
 }
 // END mobile long press
