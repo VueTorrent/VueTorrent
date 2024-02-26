@@ -251,40 +251,18 @@
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "대기열 맨 위로 올리기",
-      "autoTMM": "자동 토렌트 관리",
-      "category": "카테고리",
       "cookie": "Cookies",
-      "cookiePlaceholder": "NAME1=값1; NAME2=값2; ...",
-      "dlLimit": "다운로드 제한",
-      "downloadPath": "다운로드 경로 (미완료 시)",
-      "dropLabel": "토렌트 파일과 링크를 여기로 끌어다 놓으세요",
-      "error": "토렌트 추가 중 오류",
-      "fileOverflow": "+{n}개 더보기",
+      "cookie_placeholder": "NAME1=값1; NAME2=값2; ...",
+      "drop_label": "토렌트 파일과 링크를 여기로 끌어다 놓으세요",
+      "file_overflow": "+{n}개 더보기",
       "files": "파일 선택",
-      "firstLastPiecePrio": "첫 번째와 마지막 조각 우선순위 설정",
-      "inactiveSeedingTimeLimit": "비활성 시딩 시간 제한",
-      "limitCollapse": "제한 구성",
-      "limitHint": "비활성화하려면 -1, 전역값을 사용하려면 -2 또는 비워둡니다.",
+      "first_last_piece_prio": "첫 번째와 마지막 조각 우선순위 설정",
       "links": "링크 (마그넷, http, file, ...)",
-      "noCategories": "아직 카테고리가 없습니다. 이름을 입력하여 새로 만드세요.",
-      "noCategoryMatch": "\"{query}\"와(과) 일치하는 카테고리가 없습니다. 자동으로 생성됩니다.",
-      "noTagMatch": "\"{query}\"에 대한 일치하는 태그가 없습니다. Enter를 눌러 생성하세요.",
-      "noTags": "아직 태그가 없습니다.이름을 입력하여 새로 만드세요.",
-      "pending": "토렌트 전송 중...",
-      "ratioLimit": "비율 제한",
       "rename": "토렌트 이름 바꾸기",
-      "resetForm": "양식 재설정",
-      "savePath": "저장 경로 (완료 시)",
-      "seedingTimeLimit": "시딩 시간 제한",
-      "sequentialDownload": "순차 다운로드",
-      "skipChecking": "해시 확인 건너뛰기",
-      "startNow": "토렌트 다운로드 즉시 시작",
+      "reset_form": "양식 재설정",
+      "sequential_download": "순차 다운로드",
       "submit": "토렌트 추가",
-      "success": "{n}개 토렌트 추가됨",
-      "tags": "태그",
-      "title": "토렌트 추가",
-      "upLimit": "업로드 제한"
+      "title": "토렌트 추가"
     },
     "category": {
       "name": "카테고리 이름",
@@ -1018,6 +996,11 @@
     }
   },
   "toast": {
+    "add": {
+      "error": "토렌트 추가 중 오류",
+      "pending": "토렌트 전송 중...",
+      "success": "{n}개 토렌트 추가됨"
+    },
     "copy": {
       "error": "복사할 수 없습니다. 현재 응답이 안전하지 않습니다!",
       "success": "클립보드에 복사되었습니다!"

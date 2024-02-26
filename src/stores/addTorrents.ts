@@ -1,7 +1,7 @@
-import { usePreferenceStore } from './preferences'
-import { AddTorrentPayload } from '@/types/qbit/payloads'
+import { AddTorrentParams } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
+import { usePreferenceStore } from './preferences'
 
 export const useAddTorrentStore = defineStore(
   'addTorrents',
@@ -13,7 +13,15 @@ export const useAddTorrentStore = defineStore(
     const files = ref<File[]>([])
     const urls = ref<string>('')
 
-    const form = reactive<Partial<AddTorrentPayload>>({})
+    const form = reactive<
+      Partial<{
+        cookie: string
+        firstLastPiecePrio: boolean
+        rename: string
+        sequentialDownload: boolean
+      }>
+    >({})
+    const addTorrentParams = reactive<AddTorrentParams>({})
 
     const pendingTorrentsCount = computed(() => files.value.length + urls.value.split('\n').filter(url => url.trim() !== '').length)
 
@@ -39,26 +47,27 @@ export const useAddTorrentStore = defineStore(
       urls.value = ''
       files.value = []
 
-      form.addToTopOfQueue = preferenceStore.preferences!.add_to_top_of_queue
-      form.autoTMM = preferenceStore.preferences!.auto_tmm_enabled
-      form.category = undefined
-      form.contentLayout = preferenceStore.preferences!.torrent_content_layout
       form.cookie = undefined
-      form.dlLimit = preferenceStore.preferences!.dl_limit
-      form.downloadPath = preferenceStore.preferences!.temp_path
       form.firstLastPiecePrio = false
-      form.inactiveSeedingTimeLimit = undefined
-      form.paused = preferenceStore.preferences!.start_paused_enabled
-      form.ratioLimit = undefined
       form.rename = undefined
-      form.savepath = preferenceStore.preferences!.save_path
-      form.seedingTimeLimit = undefined
       form.sequentialDownload = false
-      form.skip_checking = false
-      form.stopCondition = preferenceStore.preferences!.torrent_stop_condition
-      form.tags = undefined
-      form.upLimit = preferenceStore.preferences!.up_limit
-      form.useDownloadPath = preferenceStore.preferences!.temp_path_enabled
+
+      addTorrentParams.add_to_top_of_queue = preferenceStore.preferences!.add_to_top_of_queue
+      addTorrentParams.category = undefined
+      addTorrentParams.content_layout = preferenceStore.preferences!.torrent_content_layout
+      addTorrentParams.download_limit = preferenceStore.preferences!.dl_limit
+      addTorrentParams.download_path = preferenceStore.preferences!.temp_path
+      addTorrentParams.inactive_seeding_time_limit = undefined
+      addTorrentParams.ratio_limit = undefined
+      addTorrentParams.save_path = preferenceStore.preferences!.save_path
+      addTorrentParams.seeding_time_limit = undefined
+      addTorrentParams.skip_checking = false
+      addTorrentParams.stop_condition = preferenceStore.preferences!.torrent_stop_condition
+      addTorrentParams.stopped = preferenceStore.preferences!.start_paused_enabled
+      addTorrentParams.tags = undefined
+      addTorrentParams.upload_limit = preferenceStore.preferences!.up_limit
+      addTorrentParams.use_auto_tmm = preferenceStore.preferences!.auto_tmm_enabled
+      addTorrentParams.use_download_path = preferenceStore.preferences!.temp_path_enabled
     }
 
     return {
@@ -66,6 +75,7 @@ export const useAddTorrentStore = defineStore(
       files,
       urls,
       form,
+      addTorrentParams,
       pendingTorrentsCount,
       pushTorrentToQueue,
       initForm,

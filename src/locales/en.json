@@ -135,7 +135,7 @@
       "table": "Table",
       "title": "Display mode"
     },
-    "not_complete": "Never Seen Complete",
+    "not_complete": "Never seen complete",
     "right_click": {
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
@@ -252,40 +252,27 @@
   },
   "dialogs": {
     "add": {
-      "addToTopOfQueue": "Add to top of queue",
-      "autoTMM": "Automatic Torrent Management",
-      "category": "Category",
       "cookie": "Cookies",
-      "cookiePlaceholder": "name1=value1; name2=value2; ...",
-      "dlLimit": "Download limit",
-      "downloadPath": "Download path (when incomplete)",
-      "dropLabel": "Drop torrent files and links here",
-      "error": "Error while adding torrents",
-      "fileOverflow": "+{n} more",
+      "cookie_placeholder": "name1=value1; name2=value2; ...",
+      "drop_label": "Drop torrent files and links here",
+      "file_overflow": "+{n} more",
       "files": "Select files",
-      "firstLastPiecePrio": "Prioritize first and last pieces",
-      "inactiveSeedingTimeLimit": "Inactive seeding time limit",
-      "limitCollapse": "Configure limits",
-      "limitHint": "-1 to disable, -2 or empty to use global value",
+      "first_last_piece_prio": "Prioritize first and last pieces",
       "links": "Links (magnet, http, file, ...)",
-      "noCategories": "No categories yet. Type a name to create one.",
-      "noCategoryMatch": "No categories matching \"{query}\". It will be created automatically.",
-      "noTagMatch": "No tags matching \"{query}\". Press Enter to create it.",
-      "noTags": "No tags yet. Type a name to create one.",
       "params": {
         "add_to_top_of_queue": "Add to top of queue",
         "category": "Category",
         "download_limit": "Download limit",
-        "downloadPath": "Download Path (when incomplete)",
+        "download_path": "Download Path (when incomplete)",
         "inactive_seeding_time_limit": "Inactive seeding time limit",
         "limit_collapse": "Configure limits",
         "limit_hint": "-1 to disable, -2 or empty to use global value",
-        "noCategories": "No categories yet. Type a name to create one.",
-        "noCategoryMatch": "No categories matching \"{query}\". It will be created automatically.",
-        "noTagMatch": "No tags matching \"{query}\". Press Enter to create it.",
-        "noTags": "No tags yet. Type a name to create one.",
+        "no_categories": "No categories yet. Type a name to create one.",
+        "no_categories_match": "No categories matching \"{query}\". It will be created automatically.",
+        "no_tags": "No tags yet. Type a name to create one.",
+        "no_tags_match": "No tags matching \"{query}\". Press Enter to create it.",
         "ratio_limit": "Ratio limit",
-        "savePath": "Save path (when completed)",
+        "save_path": "Save path (when completed)",
         "seeding_time_limit": "Seeding time limit",
         "skip_checking": "Skip hash checking",
         "stopped": "Don't start download",
@@ -294,20 +281,11 @@
         "upload_limit": "Upload limit",
         "use_auto_tmm": "Automatic Torrent Management"
       },
-      "pending": "Sending torrents...",
-      "ratioLimit": "Ratio limit",
       "rename": "Rename torrent",
-      "resetForm": "Reset form",
-      "savePath": "Save path (when completed)",
-      "seedingTimeLimit": "Seeding time limit",
-      "sequentialDownload": "Sequential download",
-      "skipChecking": "Skip hash checking",
-      "startNow": "Start torrent immediately",
+      "reset_form": "Reset form",
+      "sequential_download": "Sequential download",
       "submit": "Add torrents",
-      "success": "{n} torrent added | {n} torrents added",
-      "tags": "Tags",
-      "title": "Add Torrents",
-      "upLimit": "Upload limit"
+      "title": "Add Torrents"
     },
     "category": {
       "name": "Category Name",
@@ -976,7 +954,7 @@
           "doneTip": "Properties to display for completed torrents in grid view"
         },
         "list": {
-          "busyTip": "Properties to display for busy torrents in list view",
+          "busyTip": "Properties to display for incomplete torrents in list view",
           "doneTip": "Properties to display for completed torrents in list view"
         },
         "table": {
@@ -1041,6 +1019,11 @@
     }
   },
   "toast": {
+    "add": {
+      "error": "Error while adding torrents",
+      "pending": "Sending torrents...",
+      "success": "{n} torrent added | {n} torrents added"
+    },
     "copy": {
       "error": "Unable to copy, context isn't secured!",
       "success": "Copied to clipboard!"
@@ -1079,6 +1062,7 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} file | {n} files",
+      "filter_placeholder": "Search in file tree",
       "folderInfo": "{n} folder | {n} folders",
       "priority": "Set priority",
       "rename": {
@@ -1180,11 +1164,11 @@
       "content_path": "Content Path",
       "created_by": "Created by",
       "creation_date": "Creation Date",
+      "downloaded": "Downloaded (global)",
+      "downloaded_session": "Downloaded (session)",
       "download_limit": "Download Limit",
       "download_path": "Download Path",
       "download_speed": "Download Speed",
-      "downloaded": "Downloaded (global)",
-      "downloaded_session": "Downloaded (session)",
       "empty_category": "(no category)",
       "empty_tags": "(no tags)",
       "empty_tracker_domain": "(no tracker)",
@@ -1226,10 +1210,10 @@
       "total_wasted": "Wasted data",
       "tracker": "Tracker",
       "trackers_count": "Trackers Count",
-      "upload_limit": "Upload Limit",
-      "upload_speed": "Upload Speed",
       "uploaded": "Uploaded (global)",
-      "uploaded_session": "Uploaded (session)"
+      "uploaded_session": "Uploaded (session)",
+      "upload_limit": "Upload Limit",
+      "upload_speed": "Upload Speed"
     },
     "state": {
       "allocating": "Allocating",

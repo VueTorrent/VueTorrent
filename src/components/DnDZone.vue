@@ -56,7 +56,7 @@ onUnmounted(() => {
       <div class="dnd-zone">
         <div class="dnd-zone-content text-accent">
           <v-icon size="75">mdi-cloud-upload</v-icon>
-          <span>{{ $t('dialogs.add.dropLabel') }}</span>
+          <span>{{ $t('dialogs.add.drop_label') }}</span>
         </div>
       </div>
     </div>

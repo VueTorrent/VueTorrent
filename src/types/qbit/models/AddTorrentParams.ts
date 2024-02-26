@@ -20,11 +20,11 @@ export default interface AddTorrentParams {
   /** Ratio limit, -1 to disable, -2 to use global value (default) */
   ratio_limit?: number
   /** Torrent save path */
-  save_path: string
+  save_path?: string
   /** Upload seeding time limit (in minutes), -1 to disable, -2 to use global value (default) */
   seeding_time_limit?: number
   /** Skip hash checking */
-  skip_checking: boolean
+  skip_checking?: boolean
   /** Overrides the default value of the torrent stop condition */
   stop_condition?: StopCondition
   /** Whether this torrent should be added in paused state */
