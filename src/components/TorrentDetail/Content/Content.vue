@@ -42,6 +42,20 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     internalSelection.value = new Set([node.fullName])
   }
 }
+
+// mobile long press
+const timer = ref<NodeJS.Timeout>()
+
+function startPress(e: Touch, node: TreeNode) {
+  timer.value = setTimeout(() => {
+    onRightClick(e, node)
+  }, 500)
+}
+
+function endPress() {
+  clearTimeout(timer.value)
+}
+// END mobile long press
 </script>
 
 <template>
@@ -54,7 +68,11 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
           :opened-items="openedItems"
           :node="item"
           @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
-          @onRightClick="(e, node) => onRightClick(e, node)" />
+          @touchcancel="endPress"
+          @touchend="endPress"
+          @touchmove="endPress"
+          @touchstart="startPress($event.touches.item(0)!, item)"
+          @onRightClick="(e, node) => onRightClick(e, node)"/>
       </template>
     </v-virtual-scroll>
   </v-card>
