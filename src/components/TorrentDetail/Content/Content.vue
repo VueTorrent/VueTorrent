@@ -72,7 +72,7 @@ function endPress() {
           @touchend="endPress"
           @touchmove="endPress"
           @touchstart="startPress($event.touches.item(0)!, item)"
-          @onRightClick="(e, node) => onRightClick(e, node)"/>
+          @onRightClick="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>

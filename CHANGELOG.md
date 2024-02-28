@@ -2,27 +2,39 @@
 
 ## [2.7.1](https://github.com/VueTorrent/VueTorrent/compare/v2.7.0...v2.7.1) (2024-02-26)
 
-
 ### Bug Fixes
 
-* auto-reload in unsecure contexts ([#1532](https://github.com/VueTorrent/VueTorrent/issues/1532)) ([e8c5e04](https://github.com/VueTorrent/VueTorrent/commit/e8c5e04161e9827f5bf056519d1c042d10ed01e4))
-* auto-reload when disabling VueTorrent ([#1531](https://github.com/VueTorrent/VueTorrent/issues/1531)) ([aaf2ecb](https://github.com/VueTorrent/VueTorrent/commit/aaf2ecbde11e085ef00f5058eede7beb697a0db7))
-* **content:** Add right click workaround for apple devices ([#1521](https://github.com/VueTorrent/VueTorrent/issues/1521)) ([94949ec](https://github.com/VueTorrent/VueTorrent/commit/94949ecca8194ad361131b2c9fddab9add76e2d8))
-* **content:** file list not loading ([#1524](https://github.com/VueTorrent/VueTorrent/issues/1524)) ([8a9bf16](https://github.com/VueTorrent/VueTorrent/commit/8a9bf16710e864d39934bd1c2f95a9bedef0ee98))
-* **Peers:** Wrap IPv6 to display ban button ([#1517](https://github.com/VueTorrent/VueTorrent/issues/1517)) ([dfd7bf7](https://github.com/VueTorrent/VueTorrent/commit/dfd7bf714836ca654f8097b963348ffd2f4eef40))
-* pluralization logic in i18n.ts for "ru" ([#1537](https://github.com/VueTorrent/VueTorrent/issues/1537)) ([bd60cb7](https://github.com/VueTorrent/VueTorrent/commit/bd60cb72e56b7831457678f154b96f2b5c705dbd))
-* **preferences:** Update banned IP field when banning from the Peers tab ([#1518](https://github.com/VueTorrent/VueTorrent/issues/1518)) ([55f4865](https://github.com/VueTorrent/VueTorrent/commit/55f4865ca1bf5a71f245c57c877e8fdcbc0216f3))
-* **QbitProvider:** manually add indexes to getTorrentFiles response to provide compatibility with older version (&lt; 4.4.0) ([#1510](https://github.com/VueTorrent/VueTorrent/issues/1510)) ([512d177](https://github.com/VueTorrent/VueTorrent/commit/512d1770410e87bd6c896e10d5f22fbc0122bd69))
-* **settings:** Infinite scroll value not recognized ([#1520](https://github.com/VueTorrent/VueTorrent/issues/1520)) ([f540ccd](https://github.com/VueTorrent/VueTorrent/commit/f540ccd1ba910a715bb036f5d957dbcc611b3aea))
-
+- auto-reload in unsecure contexts ([#1532](https://github.com/VueTorrent/VueTorrent/issues/1532))
+  ([e8c5e04](https://github.com/VueTorrent/VueTorrent/commit/e8c5e04161e9827f5bf056519d1c042d10ed01e4))
+- auto-reload when disabling VueTorrent ([#1531](https://github.com/VueTorrent/VueTorrent/issues/1531))
+  ([aaf2ecb](https://github.com/VueTorrent/VueTorrent/commit/aaf2ecbde11e085ef00f5058eede7beb697a0db7))
+- **content:** Add right click workaround for apple devices ([#1521](https://github.com/VueTorrent/VueTorrent/issues/1521))
+  ([94949ec](https://github.com/VueTorrent/VueTorrent/commit/94949ecca8194ad361131b2c9fddab9add76e2d8))
+- **content:** file list not loading ([#1524](https://github.com/VueTorrent/VueTorrent/issues/1524))
+  ([8a9bf16](https://github.com/VueTorrent/VueTorrent/commit/8a9bf16710e864d39934bd1c2f95a9bedef0ee98))
+- **Peers:** Wrap IPv6 to display ban button ([#1517](https://github.com/VueTorrent/VueTorrent/issues/1517))
+  ([dfd7bf7](https://github.com/VueTorrent/VueTorrent/commit/dfd7bf714836ca654f8097b963348ffd2f4eef40))
+- pluralization logic in i18n.ts for "ru" ([#1537](https://github.com/VueTorrent/VueTorrent/issues/1537))
+  ([bd60cb7](https://github.com/VueTorrent/VueTorrent/commit/bd60cb72e56b7831457678f154b96f2b5c705dbd))
+- **preferences:** Update banned IP field when banning from the Peers tab ([#1518](https://github.com/VueTorrent/VueTorrent/issues/1518))
+  ([55f4865](https://github.com/VueTorrent/VueTorrent/commit/55f4865ca1bf5a71f245c57c877e8fdcbc0216f3))
+- **QbitProvider:** manually add indexes to getTorrentFiles response to provide compatibility with older version (&lt; 4.4.0)
+  ([#1510](https://github.com/VueTorrent/VueTorrent/issues/1510)) ([512d177](https://github.com/VueTorrent/VueTorrent/commit/512d1770410e87bd6c896e10d5f22fbc0122bd69))
+- **settings:** Infinite scroll value not recognized ([#1520](https://github.com/VueTorrent/VueTorrent/issues/1520))
+  ([f540ccd](https://github.com/VueTorrent/VueTorrent/commit/f540ccd1ba910a715bb036f5d957dbcc611b3aea))
 
 ### Improvements
 
-* **AddTorrentDialog:** Deduplicate AddTorrent form and AddTorrentParamsForm ([#1541](https://github.com/VueTorrent/VueTorrent/issues/1541)) ([8e14e7c](https://github.com/VueTorrent/VueTorrent/commit/8e14e7c60d4cc9f256460089a259800316a465bc))
-* **Content tab:** Allow filtering files by name ([#1542](https://github.com/VueTorrent/VueTorrent/issues/1542)) ([47de865](https://github.com/VueTorrent/VueTorrent/commit/47de8657d6948913b4ed16596999b99713d8799d))
-* **Info:** add torrent properties ([#1528](https://github.com/VueTorrent/VueTorrent/issues/1528)) ([196f5e3](https://github.com/VueTorrent/VueTorrent/commit/196f5e33f3f93150d833dcb2c0940fb45b8ede49))
-* **sw:** Use relative addresses for better compatibility with reverse proxies ([#1511](https://github.com/VueTorrent/VueTorrent/issues/1511)) ([a3dc22e](https://github.com/VueTorrent/VueTorrent/commit/a3dc22e27e074674df14823b6e78fddf0fb924a3))
-* **TorrentDetail:** Reduce API calls by centralizing files data ([#1529](https://github.com/VueTorrent/VueTorrent/issues/1529)) ([e92d305](https://github.com/VueTorrent/VueTorrent/commit/e92d3051e8613e7774039d6800925940899426e2))
+- **AddTorrentDialog:** Deduplicate AddTorrent form and AddTorrentParamsForm ([#1541](https://github.com/VueTorrent/VueTorrent/issues/1541))
+  ([8e14e7c](https://github.com/VueTorrent/VueTorrent/commit/8e14e7c60d4cc9f256460089a259800316a465bc))
+- **Content tab:** Allow filtering files by name ([#1542](https://github.com/VueTorrent/VueTorrent/issues/1542))
+  ([47de865](https://github.com/VueTorrent/VueTorrent/commit/47de8657d6948913b4ed16596999b99713d8799d))
+- **Info:** add torrent properties ([#1528](https://github.com/VueTorrent/VueTorrent/issues/1528))
+  ([196f5e3](https://github.com/VueTorrent/VueTorrent/commit/196f5e33f3f93150d833dcb2c0940fb45b8ede49))
+- **sw:** Use relative addresses for better compatibility with reverse proxies ([#1511](https://github.com/VueTorrent/VueTorrent/issues/1511))
+  ([a3dc22e](https://github.com/VueTorrent/VueTorrent/commit/a3dc22e27e074674df14823b6e78fddf0fb924a3))
+- **TorrentDetail:** Reduce API calls by centralizing files data ([#1529](https://github.com/VueTorrent/VueTorrent/issues/1529))
+  ([e92d305](https://github.com/VueTorrent/VueTorrent/commit/e92d3051e8613e7774039d6800925940899426e2))
 
 ## [2.7.0](https://github.com/VueTorrent/VueTorrent/compare/v2.6.0...v2.7.0) (2024-02-07)
 
