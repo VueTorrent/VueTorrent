@@ -177,7 +177,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.priority.title'),
     icon: 'mdi-priority-high',
-    hidden: !preferenceStore.preferences!.queueing_enabled,
+    hidden: !(preferenceStore.preferences?.queueing_enabled || false),
     children: [
       {
         text: t('dashboard.right_click.priority.top'),
