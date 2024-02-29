@@ -1,19 +1,18 @@
-<div>
-  <img style="float: left" width="200" src="https://cdn.jsdelivr.net/gh/WDaan/VueTorrent/VueTorrent-logo.png" alt="VueTorrent"/>
-  <h1>VueTorrent</h1>
-  <p>The sleekest looking WebUI for qBittorrent made with Vue.js!</p>
+# VueTorrent
+
+The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 Join us on [Discord](https://discord.gg/KDQP7fR467)
 
-</div>
+![VueTorrent](https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/VueTorrent-logo.png)
 
-![Vue](https://img.shields.io/badge/Vue-%5E3.3.4-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
-![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.3.15-brightgreen)
+![Vue](https://img.shields.io/badge/Vue-%5E3.4.20-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
+![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.5.6-brightgreen)
 
-![stars](https://img.shields.io/github/stars/WDaan/VueTorrent) ![Forks](https://img.shields.io/github/forks/WDaan/VueTorrent)
-![Issues](https://img.shields.io/github/issues/WDaan/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/WDaan/VueTorrent)
-![Closed PR](https://img.shields.io/github/issues-pr-closed/WDaan/VueTorrent) ![Version](https://img.shields.io/github/v/release/wdaan/vuetorrent)
-![Test Status](https://img.shields.io/github/actions/workflow/status/wdaan/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/WDaan/VueTorrent/total)
+![stars](https://img.shields.io/github/stars/VueTorrent/VueTorrent) ![Forks](https://img.shields.io/github/forks/VueTorrent/VueTorrent)
+![Issues](https://img.shields.io/github/issues/VueTorrent/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/VueTorrent/VueTorrent)
+![Closed PR](https://img.shields.io/github/issues-pr-closed/VueTorrent/VueTorrent) ![Version](https://img.shields.io/github/v/release/VueTorrent/vuetorrent)
+![Test Status](https://img.shields.io/github/actions/workflow/status/VueTorrent/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/VueTorrent/VueTorrent/total)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 ## Screenshots
@@ -58,7 +57,6 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
   - selectively download files
   - view info / trackers / peers / content / tags & categories
   - search for new torrents straight from the WebUI!
-  - search filtering powered by Fuse.js!
 - Keyboard shortcuts!
   - Mac keymap is supported (use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>)
   - Press <kbd>Escape</kbd> to dismiss any dialogs or to return to Dashboard view
@@ -69,7 +67,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
     - When no dialogs are opened, press <kbd>Escape</kbd> to unfocus search input
       - Press again to unselect all torrents
     - Delete selected torrents with <kbd>Delete</kbd> (<kbd>Fn</kbd>-<kbd>Backspace</kbd> on Mac)
-    - <kbd>Ctrl</kbd>-click on a torrent card to enable multi-select mode and select it
+    - <kbd>Ctrl</kbd>-click on a torrent card to enable multi-select mode
     - Hold <kbd>Shift</kbd> and click on a torrent card to select all torrents between the last selected torrent and the clicked torrent
 - System
   - see session stats (down / upload speed, session uploaded / downloaded, free space)
@@ -80,9 +78,15 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
   - Configureable Dashboard: choose which torrent properties are shown for both busy and completed torrents
 - Optimized for the latest version of qBittorrent
 
+## Important Information
+
+VueTorrent is a **WebUI** (think of it as a "visual skin") that uses qBittorrent's API, enabling compatibility with automation solutions like the Servarr stack.
+
+Everything that is compatible with qBittorrent will work if you choose to use VueTorrent.
+
 ## Contributing
 
-Open up a PR or create an issue to discuss. Reach out on Discord if you need help getting started!
+Open up a PR or create an issue to discuss. Reach out on [Discord](https://discord.gg/KDQP7fR467) if you need help getting started!
 
 [FAQ](../../wiki/FAQ)
 
