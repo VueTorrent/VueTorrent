@@ -2,6 +2,8 @@
 
 The sleekest looking WebUI for qBittorrent made with Vue.js!
 
+Join us on [Discord](https://discord.gg/KDQP7fR467)
+
 ![VueTorrent](https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/VueTorrent-logo.png)
 
 ![Vue](https://img.shields.io/badge/Vue-%5E3.4.20-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
@@ -84,7 +86,7 @@ Everything that is compatible with qBittorrent will work if you choose to use Vu
 
 ## Contributing
 
-Open up a PR or create an issue to discuss. Reach out on Discord if you need help getting started!
+Open up a PR or create an issue to discuss. Reach out on [Discord](https://discord.gg/KDQP7fR467) if you need help getting started!
 
 [FAQ](../../wiki/FAQ)
 
