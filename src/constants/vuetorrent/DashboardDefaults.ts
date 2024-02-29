@@ -4,7 +4,7 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 type pptData = { active: boolean; order: number }
 type pptMetadata =
   | { type: DashboardPropertyType.AMOUNT; props: { title: string; value: string; total: string } }
-  | { type: DashboardPropertyType.CHIP; props: { title: string; value: string; color: string } }
+  | { type: DashboardPropertyType.CHIP; props: { title: string; value: string; color: string; enableHashColor: boolean } }
   | { type: DashboardPropertyType.DATA; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DATETIME; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DURATION; props: { title: string; value: string } }
@@ -211,7 +211,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.SPEED
   },
   [DashboardProperty.CATEGORY]: {
-    props: { title: 'category', value: 'category', color: 'category' },
+    props: { title: 'category', value: 'category', color: 'category', enableHashColor: true },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.COMPLETED_ON]: {
@@ -315,11 +315,11 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.STATE]: {
-    props: { title: 'state', value: 'stateString', color: 'torrent-$1' },
+    props: { title: 'state', value: 'stateString', color: 'torrent-$1', enableHashColor: false },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TAGS]: {
-    props: { title: 'tags', value: 'tags', color: 'tag' },
+    props: { title: 'tags', value: 'tags', color: 'tag', enableHashColor: true },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TIME_ACTIVE]: {
@@ -331,7 +331,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.TRACKER]: {
-    props: { title: 'tracker', value: 'tracker_domain', color: 'tracker' },
+    props: { title: 'tracker', value: 'tracker_domain', color: 'tracker', enableHashColor: false },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TRACKERS_COUNT]: {
