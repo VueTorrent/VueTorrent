@@ -271,7 +271,7 @@
         "no_tags": "尚無標籤。輸入名稱以新增。",
         "no_tags_match": "無標籤符合 \"{query}\"。 按 Enter 鍵以新增。",
         "ratio_limit": "分享率限制",
-        "save_path": "儲存路徑 （已完成時）",
+        "save_path": "儲存路徑 （完成時）",
         "seeding_time_limit": "做種時間限制",
         "skip_checking": "跳過雜湊值檢查",
         "stopped": "不立即開始",
@@ -445,7 +445,7 @@
   "logs": {
     "emptyLogList": "未找到日誌",
     "filters": {
-      "query": "在日誌信息中搜索",
+      "query": "在日誌信息中搜尋",
       "type": "日誌等級"
     },
     "title": "qBittorrent 日誌"
@@ -916,12 +916,10 @@
         "customTitle": "自訂標題",
         "dateFormat": "日期格式",
         "download": "匯出設定",
-        "exportSettings": "匯出設定",
         "fileContentInterval": "種子檔案內容更新區間",
         "hideChipIfUnset": "未設置時隱藏塊",
         "historySize": "符合條件欄位的歷史大小",
         "import": "匯入設定",
-        "importSettings": "匯入設定",
         "isDrawerRight": "側邊欄居右顯示",
         "isPaginationOnTop": "分頁欄於頂部顯示",
         "isShutdownButtonVisible": "顯示結束按鈕",
@@ -1061,6 +1059,7 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} 個檔案 | {n} 個檔案",
+      "filter_placeholder": "在檔案樹中搜尋",
       "folderInfo": "{n} 個資料夾 | {n} 個資料夾",
       "priority": "設定優先級",
       "rename": {
