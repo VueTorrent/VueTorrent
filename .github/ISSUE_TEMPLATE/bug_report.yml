@@ -4,10 +4,12 @@ title: '[Bug]: '
 labels:
   - Bug
   - triage
+
 body:
   - type: markdown
     attributes:
       value: Thanks for taking the time to fill out this bug report!
+
   - type: textarea
     id: bug-description
     attributes:
@@ -15,6 +17,7 @@ body:
       description: Actual Behavior
     validations:
       required: true
+
   - type: textarea
     id: expectations
     attributes:
@@ -22,12 +25,17 @@ body:
       description: Expected behavior
     validations:
       required: true
+
   - type: textarea
     id: logs
     attributes:
       label: Relevant debug informations
-      description: Can be a curl command, a log extract, ...
+      description: |
+        Include here as much information as possible related to the bug, such as requests, errors, or screenshots.
+        This field is highly recommended, as it will help us to understand the issue better.
+        Related network requests must be included for any issue with the qBittorrent API.
       render: shell
+
   - type: textarea
     id: reproduction-steps
     attributes:
@@ -38,6 +46,7 @@ body:
         ...
     validations:
       required: true
+
   - type: dropdown
     id: download-source
     attributes:
@@ -51,6 +60,7 @@ body:
         - Other (specify in env description)
     validations:
       required: true
+
   - type: textarea
     id: environment
     attributes:
@@ -64,6 +74,7 @@ body:
       render: plain text
     validations:
       required: true
+
   - type: input
     id: qbit-version
     attributes:
@@ -72,6 +83,7 @@ body:
       placeholder: x.x.x
     validations:
       required: true
+
   - type: input
     id: vuetorrent-version
     attributes:
@@ -80,6 +92,7 @@ body:
       placeholder: x.x.x
     validations:
       required: true
+
   - type: checkboxes
     id: agreements
     attributes:
