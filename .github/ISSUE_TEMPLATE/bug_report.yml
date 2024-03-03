@@ -32,8 +32,8 @@ body:
       label: Relevant debug informations
       description: |
         Include here as much information as possible related to the bug, such as requests, errors, or screenshots.
-        This field is highly recommended, as it will help us to understand the issue better.
-        Related network requests must be included for any issue with the qBittorrent API.
+        THIS FIELD IS HIGHLY RECOMMENDED, as it will help us to better understand the issue.
+        Related network requests MUST be included for any issue with the qBittorrent API.
       render: shell
 
   - type: textarea
