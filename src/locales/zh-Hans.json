@@ -271,7 +271,7 @@
         "no_tags": "暂无标签。输入名称创建一个。",
         "no_tags_match": "没有匹配 \"{query}\" 的标签。按 Enter 键创建。",
         "ratio_limit": "分享率限制",
-        "save_path": "保存路径（已完成时）",
+        "save_path": "保存路径（完成时）",
         "seeding_time_limit": "做种时长限制",
         "skip_checking": "跳过哈希校验",
         "stopped": "不立即开始下载",
@@ -916,12 +916,10 @@
         "customTitle": "自定义标题",
         "dateFormat": "日期格式",
         "download": "导出设置",
-        "exportSettings": "导出设置",
         "fileContentInterval": "种子文件内容刷新间隔",
         "hideChipIfUnset": "未设置时隐藏卡片",
         "historySize": "符合条件字段的历史大小",
         "import": "导入设置",
-        "importSettings": "导入设置",
         "isDrawerRight": "侧边栏居右显示",
         "isPaginationOnTop": "分页按钮置顶",
         "isShutdownButtonVisible": "显示关闭按钮",
@@ -1061,6 +1059,7 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} 个文件 | {n} 个文件",
+      "filter_placeholder": "在文件树中搜索",
       "folderInfo": "{n} 个文件夹 | {n} 文件夹",
       "priority": "设置优先级",
       "rename": {

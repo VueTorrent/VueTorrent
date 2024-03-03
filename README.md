@@ -12,7 +12,8 @@ Join us on [Discord](https://discord.gg/KDQP7fR467)
 ![stars](https://img.shields.io/github/stars/VueTorrent/VueTorrent) ![Forks](https://img.shields.io/github/forks/VueTorrent/VueTorrent)
 ![Issues](https://img.shields.io/github/issues/VueTorrent/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/VueTorrent/VueTorrent)
 ![Closed PR](https://img.shields.io/github/issues-pr-closed/VueTorrent/VueTorrent) ![Version](https://img.shields.io/github/v/release/VueTorrent/vuetorrent)
-![Test Status](https://img.shields.io/github/actions/workflow/status/VueTorrent/vuetorrent/test.yml) ![Downloads](https://img.shields.io/github/downloads/VueTorrent/VueTorrent/total)
+![Test Status](https://img.shields.io/github/actions/workflow/status/VueTorrent/vuetorrent/test.yml)
+![Downloads](https://img.shields.io/github/downloads/VueTorrent/VueTorrent/total)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
 ## Screenshots
