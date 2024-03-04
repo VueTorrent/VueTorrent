@@ -17,11 +17,11 @@
   "dependencies": {
     "@ctrl/tinycolor": "^4.0.3",
     "@faker-js/faker": "^8.4.1",
-    "@fontsource/roboto": "^5.0.8",
-    "@fontsource/roboto-mono": "^5.0.16",
+    "@fontsource/roboto": "^5.0.12",
+    "@fontsource/roboto-mono": "^5.0.17",
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
-    "@vueuse/core": "^10.8.0",
+    "@vueuse/core": "^10.9.0",
     "apexcharts": "^3.46.0",
     "axios": "^1.6.7",
     "dayjs": "^1.11.9",
@@ -29,22 +29,22 @@
     "pinia": "^2.1.6",
     "pinia-plugin-persist": "^1.0.0",
     "uuid": "^9.0.1",
-    "vite-plugin-vuetify": "^2.0.1",
-    "vue": "^3.4.20",
-    "vue-i18n": "^9.9.1",
+    "vite-plugin-vuetify": "^2.0.2",
+    "vue": "^3.4.21",
+    "vue-i18n": "^9.10.1",
     "vue-router": "^4.3.0",
     "vue3-apexcharts": "^1.5.2",
     "vue3-toastify": "^0.2.1",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.5.6"
+    "vuetify": "^3.5.7"
   },
   "devDependencies": {
     "@pinia/testing": "^0.1.3",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/node": "^20.11.20",
+    "@types/node": "^20.11.24",
     "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^7.1.1",
+    "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitest/coverage-v8": "^1.3.1",
     "@vue/test-utils": "^2.4.4",
@@ -55,8 +55,8 @@
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4",
+    "vite": "^5.1.5",
     "vitest": "^1.2.2",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^2.0.4"
   }
 }
