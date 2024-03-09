@@ -11,6 +11,8 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { useTheme } from 'vuetify'
+import { Application, Graphics } from 'pixi.js'
+import IntervalTree from '@flatten-js/interval-tree'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -45,14 +47,29 @@ const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && t
  * Source:
  * https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
  */
+let pieceApp: Application | null = null
+let pieceSelectedRanges: IntervalTree | null = null
+let pieceLastGraphics: Graphics | null = null
 async function renderTorrentPieceStates() {
   if (!canvas.value) return
 
   const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
 
-  canvas.value.width = pieces.length || -1
-  const ctx = canvas.value.getContext('2d') as CanvasRenderingContext2D
-  ctx.clearRect(0, 0, canvas.value.width, canvas.value.height)
+  // Build lookup for piece ranges of files that aren't DO_NOT_DOWNLOAD
+  // allows look up by piece index in O(log(n)) time, previous method lookup time grew quadratically or worse with number of pieces
+  if (pieceSelectedRanges === null) {
+    pieceSelectedRanges = new IntervalTree()
+    for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) pieceSelectedRanges.insert([...file.piece_range], file)
+  }
+
+  canvas.value.width = 4096
+  if (pieceApp === null) {
+    pieceApp = new Application()
+    await pieceApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
+    ;[...canvas.value.attributes].forEach(attr => (pieceApp !== null && attr.nodeValue !== null ? pieceApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
+    canvas.value.replaceWith(pieceApp.canvas)
+  }
+  const graphics = new Graphics()
 
   // Group contiguous colors together and draw as a single rectangle
   let color = ''
@@ -64,15 +81,7 @@ async function renderTorrentPieceStates() {
 
     if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
     else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
-    else if (state === PieceState.MISSING) {
-      const selected_piece_ranges = cachedFiles.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.piece_range)
-      for (const [min_piece_range, max_piece_range] of selected_piece_ranges) {
-        if (i > min_piece_range && i < max_piece_range) {
-          newColor = theme.current.value.colors['torrent-pausedDL']
-          break
-        }
-      }
-    }
+    else if (state === PieceState.MISSING && pieceSelectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-pausedDL']
 
     if (newColor === color) {
       ++rectWidth
@@ -80,8 +89,8 @@ async function renderTorrentPieceStates() {
     }
 
     if (color !== '') {
-      ctx.fillStyle = color
-      ctx.fillRect(i - rectWidth, 0, rectWidth, canvas.value.height)
+      graphics.rect(((i - rectWidth) / pieces.length) * canvas.value.width, 0, (rectWidth / pieces.length) * canvas.value.width, canvas.value.height)
+      graphics.fill(color)
     }
 
     rectWidth = 1
@@ -90,9 +99,13 @@ async function renderTorrentPieceStates() {
 
   // Fill a rect at the end of the canvas if one is needed
   if (color !== '') {
-    ctx.fillStyle = color
-    ctx.fillRect(pieces.length - rectWidth, 0, rectWidth, canvas.value.height)
+    graphics.rect(((pieces.length - rectWidth) / pieces.length) * canvas.value.width, 0, (rectWidth / pieces.length) * canvas.value.width, canvas.value.height)
+    graphics.fill(color)
   }
+
+  pieceApp.stage.addChild(graphics)
+  if (pieceLastGraphics !== null) pieceLastGraphics.destroy()
+  pieceLastGraphics = graphics
 }
 
 async function copyHash() {
@@ -157,6 +170,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  if (pieceApp !== null) pieceApp.destroy({ removeView: false }, { children: true })
+  if (pieceLastGraphics !== null) pieceLastGraphics.destroy()
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
 </script>
