@@ -163,7 +163,7 @@ onMounted(async () => {
     if (piecesApp === null) {
       const app = new Application()
       await app.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-      ;[...canvas.value.attributes].forEach(attr => (attr.nodeValue !== null ? app.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
+      for (const attr of [...canvas.value.attributes]) app.canvas.setAttribute(attr.nodeName, attr.nodeValue ?? '')
       canvas.value.replaceWith(app.canvas)
       piecesApp = app
     }
