@@ -48,7 +48,6 @@ const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && t
  * https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
  */
 let pieceApp: Application | null = null
-let pieceSelectedRanges: IntervalTree | null = null
 let pieceLastGraphics: Graphics | null = null
 async function renderTorrentPieceStates() {
   if (!canvas.value) return
@@ -57,10 +56,8 @@ async function renderTorrentPieceStates() {
 
   // Build lookup for piece ranges of files that aren't DO_NOT_DOWNLOAD
   // allows look up by piece index in O(log(n)) time, previous method lookup time grew quadratically or worse with number of pieces
-  if (pieceSelectedRanges === null) {
-    pieceSelectedRanges = new IntervalTree()
-    for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) pieceSelectedRanges.insert([...file.piece_range], file)
-  }
+  const pieceSelectedRanges = new IntervalTree()
+  for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) pieceSelectedRanges.insert([...file.piece_range], file)
 
   canvas.value.width = 4096
   if (pieceApp === null) {
