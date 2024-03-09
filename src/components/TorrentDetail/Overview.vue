@@ -51,6 +51,7 @@ let piecesApp: Application | null = null
 let piecesAppLastGraphics: Graphics | null = null
 async function renderTorrentPieceStates() {
   if (!canvas.value) return
+  if (!piecesApp) return
 
   const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
 
@@ -59,13 +60,6 @@ async function renderTorrentPieceStates() {
   const piecesSelectedRanges = new IntervalTree()
   for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) piecesSelectedRanges.insert([...file.piece_range], file)
 
-  canvas.value.width = 4096
-  if (piecesApp === null) {
-    piecesApp = new Application()
-    await piecesApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-    ;[...canvas.value.attributes].forEach(attr => (piecesApp !== null && attr.nodeValue !== null ? piecesApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
-    canvas.value.replaceWith(piecesApp.canvas)
-  }
   const graphics = new Graphics()
 
   // Group contiguous colors together and draw as a single rectangle
@@ -162,14 +156,23 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
-onMounted(() => {
+onMounted(async () => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
+  if (canvas.value) {
+    canvas.value.width = 4096
+    if (piecesApp === null) {
+      piecesApp = new Application()
+      await piecesApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
+      ;[...canvas.value.attributes].forEach(attr => (piecesApp !== null && attr.nodeValue !== null ? piecesApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
+      canvas.value.replaceWith(piecesApp.canvas)
+    }
+  }
 })
 
 onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyboardShortcuts)
   if (piecesApp !== null) piecesApp.destroy({ removeView: false }, { children: true })
   if (piecesAppLastGraphics !== null) piecesAppLastGraphics.destroy()
-  document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
 </script>
 
