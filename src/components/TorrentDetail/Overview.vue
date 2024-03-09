@@ -47,8 +47,8 @@ const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && t
  * Source:
  * https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
  */
-let pieceApp: Application | null = null
-let pieceLastGraphics: Graphics | null = null
+let piecesApp: Application | null = null
+let piecesAppLastGraphics: Graphics | null = null
 async function renderTorrentPieceStates() {
   if (!canvas.value) return
 
@@ -56,15 +56,15 @@ async function renderTorrentPieceStates() {
 
   // Build lookup for piece ranges of files that aren't DO_NOT_DOWNLOAD
   // allows look up by piece index in O(log(n)) time, previous method lookup time grew quadratically or worse with number of pieces
-  const pieceSelectedRanges = new IntervalTree()
-  for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) pieceSelectedRanges.insert([...file.piece_range], file)
+  const piecesSelectedRanges = new IntervalTree()
+  for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) piecesSelectedRanges.insert([...file.piece_range], file)
 
   canvas.value.width = 4096
-  if (pieceApp === null) {
-    pieceApp = new Application()
-    await pieceApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-    ;[...canvas.value.attributes].forEach(attr => (pieceApp !== null && attr.nodeValue !== null ? pieceApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
-    canvas.value.replaceWith(pieceApp.canvas)
+  if (piecesApp === null) {
+    piecesApp = new Application()
+    await piecesApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
+    ;[...canvas.value.attributes].forEach(attr => (piecesApp !== null && attr.nodeValue !== null ? piecesApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
+    canvas.value.replaceWith(piecesApp.canvas)
   }
   const graphics = new Graphics()
 
@@ -78,7 +78,7 @@ async function renderTorrentPieceStates() {
 
     if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
     else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
-    else if (state === PieceState.MISSING && pieceSelectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-pausedDL']
+    else if (state === PieceState.MISSING && piecesSelectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-pausedDL']
 
     if (newColor === color) {
       ++rectWidth
@@ -100,9 +100,9 @@ async function renderTorrentPieceStates() {
     graphics.fill(color)
   }
 
-  pieceApp.stage.addChild(graphics)
-  if (pieceLastGraphics !== null) pieceLastGraphics.destroy()
-  pieceLastGraphics = graphics
+  piecesApp.stage.addChild(graphics)
+  if (piecesAppLastGraphics !== null) piecesAppLastGraphics.destroy()
+  piecesAppLastGraphics = graphics
 }
 
 async function copyHash() {
@@ -167,8 +167,8 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
-  if (pieceApp !== null) pieceApp.destroy({ removeView: false }, { children: true })
-  if (pieceLastGraphics !== null) pieceLastGraphics.destroy()
+  if (piecesApp !== null) piecesApp.destroy({ removeView: false }, { children: true })
+  if (piecesAppLastGraphics !== null) piecesAppLastGraphics.destroy()
   document.removeEventListener('keydown', handleKeyboardShortcuts)
 })
 </script>
