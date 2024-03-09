@@ -47,11 +47,12 @@ const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && t
  * Source:
  * https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
  */
-let piecesApp: Application | null = null
+let piecesApp: Promise<Application | false> | null = null
 let piecesAppLastGraphics: Graphics | null = null
 async function renderTorrentPieceStates() {
   if (!canvas.value) return
-  if (!piecesApp) return
+  const app = await piecesApp
+  if (!app) return
 
   const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
 
@@ -94,8 +95,9 @@ async function renderTorrentPieceStates() {
     graphics.fill(color)
   }
 
-  piecesApp.stage.addChild(graphics)
-  if (piecesAppLastGraphics !== null) piecesAppLastGraphics.destroy()
+  app.stage.addChild(graphics)
+  piecesSelectedRanges.clear()
+  if (piecesAppLastGraphics) piecesAppLastGraphics.destroy()
   piecesAppLastGraphics = graphics
 }
 
@@ -156,24 +158,41 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
-onMounted(async () => {
+onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  if (canvas.value) {
-    canvas.value.width = 4096
-    if (piecesApp === null) {
+  // Sometimes canvas/shouldRefreshPieceState refs are not yet loaded when onMounted fires
+  // wait up to 10s polling until they appear
+  piecesApp = new Promise<Application | false>(function waitForPiecesAppPromise(resolve, reject) {
+    const startTime = Date.now()
+    const waitForRefsIntervalID = setInterval(async function waitForRefsInterval() {
+      if (!canvas.value) {
+        if (shouldRefreshPieceState.value === false) {
+          clearInterval(waitForRefsIntervalID)
+          resolve(false)
+          return
+        }
+        if (Date.now() - startTime >= 10000) {
+          clearInterval(waitForRefsIntervalID)
+          reject(new Error('canvas.value not set after 10 seconds'))
+        }
+        return
+      }
+      clearInterval(waitForRefsIntervalID)
+      canvas.value.width = 4096
       const app = new Application()
       await app.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-      for (const attr of [...canvas.value.attributes]) app.canvas.setAttribute(attr.nodeName, attr.nodeValue ?? '')
+      for (const attr of canvas.value.attributes) app.canvas.setAttribute(attr.nodeName, attr.nodeValue ?? '')
       canvas.value.replaceWith(app.canvas)
-      piecesApp = app
-    }
-  }
+      resolve(app)
+    }, 100)
+  })
 })
 
-onUnmounted(() => {
+onUnmounted(async () => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
-  if (piecesApp !== null) piecesApp.destroy({ removeView: false }, { children: true })
-  if (piecesAppLastGraphics !== null) piecesAppLastGraphics.destroy()
+  const app = await piecesApp
+  if (app) app.destroy({ removeView: false }, { children: true })
+  if (piecesAppLastGraphics) piecesAppLastGraphics.destroy()
 })
 </script>
 
