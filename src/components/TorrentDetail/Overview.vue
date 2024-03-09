@@ -161,10 +161,11 @@ onMounted(async () => {
   if (canvas.value) {
     canvas.value.width = 4096
     if (piecesApp === null) {
-      piecesApp = new Application()
-      await piecesApp.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-      ;[...canvas.value.attributes].forEach(attr => (piecesApp !== null && attr.nodeValue !== null ? piecesApp.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
-      canvas.value.replaceWith(piecesApp.canvas)
+      const app = new Application()
+      await app.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
+      ;[...canvas.value.attributes].forEach(attr => (attr.nodeValue !== null ? app.canvas.setAttribute(attr.nodeName, attr.nodeValue) : null))
+      canvas.value.replaceWith(app.canvas)
+      piecesApp = app
     }
   }
 })
