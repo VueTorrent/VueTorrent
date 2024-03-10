@@ -37,7 +37,8 @@ export default defineConfig(({ mode }) => {
       topLevelAwait({
         promiseExportName: '__tla',
         promiseImportName: i => `__tla_${i}`
-      })],
+      })
+    ],
     publicDir: './public',
     resolve: {
       alias: {
