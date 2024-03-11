@@ -2,29 +2,23 @@
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
-import { FilePriority, PieceState, TorrentState } from '@/constants/qbit'
+import { FilePriority, TorrentState } from '@/constants/qbit'
 import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getDomainBody, splitByUrl, stringContainsUrl } from '@/helpers'
-import { useContentStore, useDialogStore, useMaindataStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
+import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
-import { useTheme } from 'vuetify'
-import { Application, Graphics } from 'pixi.js'
-import IntervalTree from '@flatten-js/interval-tree'
+import PieceCanvas from './PieceCanvas.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
-const theme = useTheme()
 const { cachedFiles } = storeToRefs(useContentStore())
 const dialogStore = useDialogStore()
-const maindataStore = useMaindataStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const vuetorrentStore = useVueTorrentStore()
-
-const canvas = ref<HTMLCanvasElement>()
 
 const selectedFiles = computed(() => cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD))
 const torrentFileCount = computed(() => cachedFiles.value.length)
@@ -40,66 +34,6 @@ const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 const torrentStateColor = computed(() => `torrent-${props.torrent.state}`)
 const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
 const isFetchingMetadata = computed(() => props.torrent.state === TorrentState.META_DL)
-const shouldRenderPieceState = computed(() => !isFetchingMetadata.value && torrentPieceCount.value > 0 && torrentPieceCount.value < vuetorrentStore.canvasRenderThreshold)
-const shouldRefreshPieceState = computed(() => shouldRenderPieceState.value && torrentPieceCount.value < vuetorrentStore.canvasRefreshThreshold)
-
-/**
- * Source:
- * https://github.com/qbittorrent/qBittorrent/blob/6229b817300344759139d2fedbd59651065a561d/src/webui/www/private/scripts/prop-general.js#L230
- */
-let piecesApp: Promise<Application | false> | null = null
-let piecesAppLastGraphics: Graphics | null = null
-async function renderTorrentPieceStates() {
-  if (!canvas.value) return
-  const app = await piecesApp
-  if (!app) return
-
-  const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
-
-  // Build lookup for piece ranges of files that aren't DO_NOT_DOWNLOAD
-  // allows look up by piece index in O(log(n)) time, previous method lookup time grew quadratically or worse with number of pieces
-  const piecesSelectedRanges = new IntervalTree()
-  for (const file of cachedFiles.value) if (file.priority !== FilePriority.DO_NOT_DOWNLOAD) piecesSelectedRanges.insert([...file.piece_range], file)
-
-  const graphics = new Graphics()
-
-  // Group contiguous colors together and draw as a single rectangle
-  let color = ''
-  let rectWidth = 1
-
-  for (let i = 0; i < pieces.length; ++i) {
-    const state = pieces[i]
-    let newColor = ''
-
-    if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
-    else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
-    else if (state === PieceState.MISSING && piecesSelectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-pausedDL']
-
-    if (newColor === color) {
-      ++rectWidth
-      continue
-    }
-
-    if (color !== '') {
-      graphics.rect(((i - rectWidth) / pieces.length) * canvas.value.width, 0, (rectWidth / pieces.length) * canvas.value.width, canvas.value.height)
-      graphics.fill(color)
-    }
-
-    rectWidth = 1
-    color = newColor
-  }
-
-  // Fill a rect at the end of the canvas if one is needed
-  if (color !== '') {
-    graphics.rect(((pieces.length - rectWidth) / pieces.length) * canvas.value.width, 0, (rectWidth / pieces.length) * canvas.value.width, canvas.value.height)
-    graphics.fill(color)
-  }
-
-  app.stage.addChild(graphics)
-  piecesSelectedRanges.clear()
-  if (piecesAppLastGraphics) piecesAppLastGraphics.destroy()
-  piecesAppLastGraphics = graphics
-}
 
 async function copyHash() {
   try {
@@ -123,12 +57,6 @@ function openMoveTorrentFileDialog() {
     oldName: torrentFileName.value
   })
 }
-
-watch(cachedFiles, () => {
-  if (props.isActive && shouldRefreshPieceState.value) {
-    renderTorrentPieceStates()
-  }
-})
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (dialogStore.hasActiveDialog || !props.isActive) return false
@@ -160,39 +88,10 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  // Sometimes canvas/shouldRefreshPieceState refs are not yet loaded when onMounted fires
-  // wait up to 10s polling until they appear
-  piecesApp = new Promise<Application | false>(function waitForPiecesAppPromise(resolve, reject) {
-    const startTime = Date.now()
-    const waitForRefsIntervalID = setInterval(async function waitForRefsInterval() {
-      if (!canvas.value) {
-        if (shouldRefreshPieceState.value === false) {
-          clearInterval(waitForRefsIntervalID)
-          resolve(false)
-          return
-        }
-        if (Date.now() - startTime >= 10000) {
-          clearInterval(waitForRefsIntervalID)
-          reject(new Error('canvas.value not set after 10 seconds'))
-        }
-        return
-      }
-      clearInterval(waitForRefsIntervalID)
-      canvas.value.width = 4096
-      const app = new Application()
-      await app.init({ antialias: true, width: canvas.value.width, height: canvas.value.height })
-      for (const attr of canvas.value.attributes) app.canvas.setAttribute(attr.nodeName, attr.nodeValue ?? '')
-      canvas.value.replaceWith(app.canvas)
-      resolve(app)
-    }, 100)
-  })
 })
 
 onUnmounted(async () => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
-  const app = await piecesApp
-  if (app) app.destroy({ removeView: false }, { children: true })
-  if (piecesAppLastGraphics) piecesAppLastGraphics.destroy()
 })
 </script>
 
@@ -228,15 +127,8 @@ onUnmounted(async () => {
               <div v-if="isFetchingMetadata">
                 <span>{{ $t('torrentDetail.overview.waitingForMetadata') }}</span>
               </div>
-              <div v-else-if="shouldRenderPieceState">
-                <canvas ref="canvas" width="0" height="10" />
-              </div>
-
-              <div v-if="!isFetchingMetadata && !shouldRenderPieceState">
-                <span>{{ $t('torrentDetail.overview.canvasRenderDisabled') }}</span>
-              </div>
-              <div v-else-if="!isFetchingMetadata && !shouldRefreshPieceState">
-                <span>{{ $t('torrentDetail.overview.canvasRefreshDisabled') }}</span>
+              <div v-else>
+                <PieceCanvas :torrent="torrent" :isActive="isActive" />
               </div>
 
               <div v-if="torrentPieceCount > 0">
@@ -362,11 +254,6 @@ onUnmounted(async () => {
 </template>
 
 <style scoped>
-canvas {
-  height: 100%;
-  width: 100%;
-}
-
 .chipgap {
   gap: 4px;
 }
