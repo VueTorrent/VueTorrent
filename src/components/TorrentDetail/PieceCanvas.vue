@@ -89,7 +89,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <canvas ref="canvas" height="20" />
+  <canvas ref="canvas" width="4096" height="20" />
 </template>
 
 <style scoped>
