@@ -910,8 +910,6 @@
     "title": "Settings",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
-        "canvasRenderThreshold": "Piece count to disable canvas rendering",
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
@@ -1080,8 +1078,6 @@
       "text_values": "Text values"
     },
     "overview": {
-      "canvasRefreshDisabled": "Canvas auto-refresh is disabled",
-      "canvasRenderDisabled": "Canvas rendering is disabled",
       "copy_hash": "Copy Hash",
       "dlSpeedAverage": "Download Speed Average",
       "downloaded": "Downloaded",
