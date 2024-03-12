@@ -1,0 +1,25 @@
+name: Wiki edit proposal
+description: Propose changes to the wiki
+title: '[Wiki]: '
+labels:
+  - wiki
+  - triage
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide which changes this will refer to
+    validations:
+      required: true
+  - type: textarea
+    id: changes
+    attributes:
+      label: Changes
+      description: |
+        Attach all changes here.
+        - For single page modification, include it as text or attach a file, either in patch format or the whole page in markdown.
+        - For multiple page modifications, always attach a file. It must be a zip of the changes or a single patch file.
+    validations:
+      required: true

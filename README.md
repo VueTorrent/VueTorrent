@@ -2,33 +2,37 @@
 
 The sleekest looking WebUI for qBittorrent made with Vue.js!
 
-Join us on [Discord](https://discord.gg/KDQP7fR467)
+[![Discord](https://img.shields.io/badge/Discord_server-join-blue?logo=discord&logoColor=white)](https://discord.gg/KDQP7fR467)
+[![Wiki](https://img.shields.io/badge/Wiki-Click_me-blue)](https://github.com/VueTorrent/VueTorrent/wiki)
 
 ![VueTorrent](https://cdn.jsdelivr.net/gh/VueTorrent/VueTorrent@master/VueTorrent-logo.png)
 
-![Vue](https://img.shields.io/badge/Vue-%5E3.4.20-brightgreen) ![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
-![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.5.6-brightgreen)
+![Vue](https://img.shields.io/badge/Vue-%5E3.4.20-brightgreen) ![Vuetify](https://img.shields.io/badge/Vuetify-%5E3.5.6-brightgreen)
+![qBittorrent](https://img.shields.io/badge/qBittorrent-4.4%2B-brightgreen)
 
 ![stars](https://img.shields.io/github/stars/VueTorrent/VueTorrent) ![Forks](https://img.shields.io/github/forks/VueTorrent/VueTorrent)
 ![Issues](https://img.shields.io/github/issues/VueTorrent/VueTorrent) ![Closed](https://img.shields.io/github/issues-closed/VueTorrent/VueTorrent)
 ![Closed PR](https://img.shields.io/github/issues-pr-closed/VueTorrent/VueTorrent) ![Version](https://img.shields.io/github/v/release/VueTorrent/vuetorrent)
 ![Test Status](https://img.shields.io/github/actions/workflow/status/VueTorrent/vuetorrent/test.yml)
 ![Downloads](https://img.shields.io/github/downloads/VueTorrent/VueTorrent/total)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor_Covenant-2.1-4baaaa.svg)](.github/CODE_OF_CONDUCT.md)
 
 ## Screenshots
 
 - Desktop
+
 <p>
   <img src="readme_assets/screenshot-desktop.png" width="800" alt="Screenshot Desktop (Light Mode)" />
 </p>
 
 - Desktop Dark Mode
+
 <p>
   <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" alt="Screenshot Desktop (Dark Mode)" />
 </p>
 
-- Mobile Dark Mode
+- Mobile
+
 <p>
   <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Dark Mode)" />
   <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" /> 
@@ -83,17 +87,11 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 
 VueTorrent is a **WebUI** (think of it as a "visual skin") that uses qBittorrent's API, enabling compatibility with automation solutions like the Servarr stack.
 
-Everything that is compatible with qBittorrent will work if you choose to use VueTorrent.
+Everything that is compatible with qBittorrent will work regardless of the WebUI you chose to use.
 
 ## Contributing
 
-Open up a PR or create an issue to discuss. Reach out on [Discord](https://discord.gg/KDQP7fR467) if you need help getting started!
-
-[FAQ](../../wiki/FAQ)
-
-### Localize the app
-
-We use [Tolgee](https://tolgee.io/) to manage translations. If you want to help, let us know which locale do you want to work on in the discord server to be added to the project.
+Refer to the [Contributing Guidelines](https://github.com/VueTorrent/VueTorrent/blob/master/.github/CONTRIBUTING.md)
 
 ## Support
 
