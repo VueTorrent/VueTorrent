@@ -142,21 +142,6 @@ onUnmounted(() => {
                   <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(article)" />
                 </div>
               </div>
-
-              <v-dialog v-model="descriptionDialogVisible">
-                <v-card>
-                  <v-card-title>
-                    <v-toolbar color="transparent">
-                      <v-toolbar-title>{{ rssDescription.title }}</v-toolbar-title>
-                      <v-btn icon="mdi-close" @click="descriptionDialogVisible = false" />
-                    </v-toolbar>
-                  </v-card-title>
-
-                  <v-card-text>
-                    <div class="description-container" v-html="rssDescription.content" />
-                  </v-card-text>
-                </v-card>
-              </v-dialog>
             </v-list-item>
           </template>
 
@@ -170,6 +155,21 @@ onUnmounted(() => {
         <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
       </v-list-item>
     </v-list>
+
+    <v-dialog v-model="descriptionDialogVisible">
+      <v-card>
+        <v-card-title>
+          <v-toolbar color="transparent">
+            <v-toolbar-title>{{ rssDescription.title }}</v-toolbar-title>
+            <v-btn icon="mdi-close" @click="descriptionDialogVisible = false" />
+          </v-toolbar>
+        </v-card-title>
+
+        <v-card-text>
+          <div class="description-container" v-html="rssDescription.content" />
+        </v-card-text>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
