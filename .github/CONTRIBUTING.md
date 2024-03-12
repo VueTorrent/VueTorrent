@@ -40,3 +40,10 @@ VueTorrent welcomes localization contributions!
 
 We no longer accept PRs for translations as all locale data in this repo is there only for reference and building from source.
 Instead head to our [Discord server](https://discord.gg/KDQP7fR467) to get your invitation link to the [Tolgee](https://tolgee.io) project.
+
+## Wiki changes
+
+To propose changes to the project's wiki, you can open an issue using the "Wiki edit proposal" template.
+
+1. Provide a description of which part of the documentation this proposal will address.
+1. Attach changes by following the field's description.
