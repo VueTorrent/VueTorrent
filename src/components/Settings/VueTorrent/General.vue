@@ -173,15 +173,6 @@ onBeforeMount(() => {
 
       <v-row>
         <v-col cols="12" md="6">
-          <v-text-field v-model.number="vueTorrentStore.canvasRenderThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRenderThreshold')" />
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-text-field v-model.number="vueTorrentStore.canvasRefreshThreshold" hide-details type="number" :label="t('settings.vuetorrent.general.canvasRefreshThreshold')" />
-        </v-col>
-      </v-row>
-
-      <v-row>
-        <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="6">

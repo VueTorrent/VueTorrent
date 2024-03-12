@@ -33,8 +33,6 @@ export const useVueTorrentStore = defineStore(
     const useBinarySize = ref(false)
     const refreshInterval = ref(2000)
     const fileContentInterval = ref(5000)
-    const canvasRenderThreshold = ref(3000)
-    const canvasRefreshThreshold = ref(5000)
     const useIdForRssLinks = ref(false)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -215,8 +213,6 @@ export const useVueTorrentStore = defineStore(
     }
 
     return {
-      canvasRenderThreshold,
-      canvasRefreshThreshold,
       vuetorrentTheme,
       dateFormat,
       deleteWithFiles,
@@ -290,8 +286,6 @@ export const useVueTorrentStore = defineStore(
         useBinarySize.value = false
         refreshInterval.value = 2000
         fileContentInterval.value = 5000
-        canvasRenderThreshold.value = 3000
-        canvasRefreshThreshold.value = 5000
         useIdForRssLinks.value = false
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))

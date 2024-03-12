@@ -51,30 +51,35 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <v-scale-transition>
-    <div v-show="isOverDropZone" ref="dndZoneRef" class="dnd-zone-outer">
-      <div class="dnd-zone">
-        <div class="dnd-zone-content text-accent">
-          <v-icon size="75">mdi-cloud-upload</v-icon>
-          <span>{{ $t('dialogs.add.drop_label') }}</span>
+  <div v-show="isOverDropZone" ref="dndZoneRef" class="dnd-zone-outer">
+    <v-scale-transition>
+      <div v-show="isOverDropZone" class="dnd-zone">
+        <div class="dnd-zone-inner">
+          <div class="dnd-zone-content text-accent">
+            <v-icon size="75">mdi-cloud-upload</v-icon>
+            <span>{{ $t('dialogs.add.drop_label') }}</span>
+          </div>
         </div>
       </div>
-    </div>
-  </v-scale-transition>
+    </v-scale-transition>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-.dnd-zone-outer {
+.dnd-zone, .dnd-zone-outer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.dnd-zone-outer {
   background-color: rgba(0, 0, 0, 0.66);
   z-index: 9999;
 }
 
-.dnd-zone {
+.dnd-zone-inner {
   width: 100%;
   height: 100%;
   display: flex;
