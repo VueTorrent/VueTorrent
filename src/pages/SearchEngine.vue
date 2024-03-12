@@ -84,6 +84,10 @@ function downloadTorrent(result: SearchResult) {
   addTorrentStore.pushTorrentToQueue(result.fileUrl)
 }
 
+function openLink(result: SearchResult) {
+  window.open(result.descrLink, '_blank', 'noreferrer')
+}
+
 async function runNewSearch() {
   await searchEngineStore.runNewSearch(selectedTab.value)
   selectedTab.value.timer = setInterval(() => refreshResults(selectedTab.value), 1000)
@@ -240,6 +244,7 @@ onBeforeUnmount(() => {
             {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
           </template>
           <template v-slot:item.actions="{ item }">
+            <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
             <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"></v-btn>
           </template>
         </v-data-table>
