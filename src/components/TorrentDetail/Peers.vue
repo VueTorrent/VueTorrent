@@ -82,13 +82,13 @@ watch(() => props.isActive, setupTimer)
             </v-list-item-title>
 
             <v-list-item-subtitle class="d-block">
-              <div>
-                Flags: <span class="cursor-help" :title="peer.flags_desc">{{ peer.flags }}</span>
+              <div v-show="peer.flags">
+                {{ $t('torrentDetail.peers.table.flags') }}: <span class="cursor-help" :title="peer.flags_desc">{{ peer.flags }}</span>
               </div>
 
-              <div>Progress: {{ formatPercent(peer.progress) }}</div>
+              <div>{{ $t('torrentDetail.peers.table.progress') }}: {{ formatPercent(peer.progress) }}</div>
 
-              <div v-show="peer.client || peer.peer_id_client">Client: {{ peer.client }} ({{ peer.peer_id_client }})</div>
+              <div v-show="peer.client || peer.peer_id_client">{{ $t('torrentDetail.peers.table.client') }}: {{ peer.client }} ({{ peer.peer_id_client }})</div>
 
               <div>
                 <v-icon icon="mdi-arrow-down" color="download" />
@@ -99,12 +99,14 @@ watch(() => props.isActive, setupTimer)
               </div>
 
               <div>
+                {{ $t('torrentDetail.peers.table.downloaded') }}
                 {{ formatData(peer.downloaded, vuetorrentStore.useBinarySize) }}
                 |
+                {{ $t('torrentDetail.peers.table.uploaded') }}
                 {{ formatData(peer.uploaded, vuetorrentStore.useBinarySize) }}
               </div>
 
-              <div>Relevance: {{ formatPercent(peer.relevance) }}</div>
+              <div>{{ $t('torrentDetail.peers.table.relevance') }}: {{ formatPercent(peer.relevance) }}</div>
             </v-list-item-subtitle>
           </div>
 
