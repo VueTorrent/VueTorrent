@@ -88,6 +88,8 @@ watch(() => props.isActive, setupTimer)
 
               <div>Progress: {{ formatPercent(peer.progress) }}</div>
 
+              <div v-show="peer.client || peer.peer_id_client">Client: {{ peer.client }} ({{ peer.peer_id_client }})</div>
+
               <div>
                 <v-icon icon="mdi-arrow-down" color="download" />
                 {{ formatSpeed(peer.dl_speed, vuetorrentStore.useBitSpeed) }}
