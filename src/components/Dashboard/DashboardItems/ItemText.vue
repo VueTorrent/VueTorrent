@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+defineProps<{ torrent: Torrent; title: string; value: string, color?: (v: any) => string }>()
 </script>
 
 <template>
@@ -9,7 +9,7 @@ defineProps<{ torrent: Torrent; title: string; value: string }>()
     <div class="text-caption text-grey">
       {{ $t(`torrent.properties.${title}`) }}
     </div>
-    <div>{{ torrent[value] }}</div>
+    <div :class="color ? color(torrent[value]) : ''">{{ torrent[value] }}</div>
   </div>
 </template>
 

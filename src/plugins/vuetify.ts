@@ -15,6 +15,10 @@ const variables = {
   category: '#04669A',
   tag: '#048B9A',
   tracker: '#C97D09',
+  'ratio-bad': '#eb2a2a',
+  'ratio-almost': '#e78310',
+  'ratio-good': '#36bd58',
+  'ratio-best': '#2e78d8',
 
   // Active filters chip colors
   'active-global': '#4f738d',
