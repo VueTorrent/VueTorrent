@@ -301,6 +301,7 @@
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
       "externalIp": "External IP Address",
+      "noExternalIp": "Unable to detect from logs",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
     },
