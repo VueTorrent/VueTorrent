@@ -1107,7 +1107,7 @@
         "downloaded": "已下載",
         "downloadSpeed": "下載速率",
         "files": "檔案",
-        "flags": "旗",
+        "flags": "旗標",
         "host": "主機",
         "progress": "進度",
         "relevance": "關聯",
@@ -1228,7 +1228,7 @@
       "pausedUP": "已完成",
       "queuedDL": "排隊中 (下載)",
       "queuedUP": "排隊中 (上傳)",
-      "stalledDL": "停止",
+      "stalledDL": "停滞中",
       "stalledUP": "做種中",
       "unknown": "未知",
       "uploading": "上傳中"

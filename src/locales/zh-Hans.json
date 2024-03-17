@@ -79,8 +79,8 @@
     },
     "proxy_type": {
       "http": "HTTP",
-      "socks4": "SOCKS V4",
-      "socks5": "SOCKS V5"
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
     },
     "scheduler": {
       "everyDay": "每天",
@@ -617,7 +617,7 @@
           "bdecodeDepthLimit": "Bdecode 深度限制",
           "bdecodeTokenLimit": "Bdecode 令牌限制",
           "filePoolSize": "文件池大小",
-          "hashingThreads": "散列线程 (libtorrent >= 2.0)",
+          "hashingThreads": "哈希校验线程数 (libtorrent >= 2.0)",
           "outstandingMemory": "校验时内存使用扩增量",
           "subheader": "线程"
         },
@@ -675,7 +675,7 @@
     "bittorrent": {
       "autoAddTrackers": "自动将这些 Tracker 添加到新下载",
       "autoAddTrackersHint": "每行一个 Tracker",
-      "maxActiveCheckingTorrents": "最大活跃检查种子数",
+      "maxActiveCheckingTorrents": "最大活跃校验种子数",
       "privacy": {
         "enableAnonymous": "启用匿名模式",
         "enableDHT": "启用 DHT (去中心化网络) 以找到更多用户",
@@ -763,7 +763,7 @@
         "editItem": "编辑",
         "monitoredFolderPath": "监视文件夹",
         "newItem": "新建",
-        "noData": "尚未监视文件夹",
+        "noData": "暂无监视文件夹",
         "otherPath": "其他路径",
         "saveType": "覆盖保存位置",
         "subheader": "监视文件夹"
@@ -941,7 +941,7 @@
         "showSpeedGraph": "显示速度图表",
         "showTrackerFilter": "显示 Tracker 过滤器",
         "tip": "这些设置适用于自定义WebUI",
-        "useBinarySize": "使用二进制计算数据占用 (kB -> KiB)",
+        "useBinarySize": "以KiB表示文件大小 (kB -> KiB)",
         "useBitSpeed": "以kbps表示速度 (kB/s -> kbps)",
         "vueTorrentTitle": "VueTorrent 标题"
       },
@@ -992,7 +992,7 @@
         "certificate": "证书",
         "key": "密钥",
         "subheader": "使用 HTTPS",
-        "tip": "有关证书的信息"
+        "tip": "证书相关信息"
       },
       "interface": {
         "ipAddress": "IP 地址",
@@ -1079,8 +1079,8 @@
       "text_values": "文本值"
     },
     "overview": {
-      "canvasRefreshDisabled": "Canvas自动刷新已禁用",
-      "canvasRenderDisabled": "Canvas渲染已禁用",
+      "canvasRefreshDisabled": "已禁用Canvas自动刷新",
+      "canvasRenderDisabled": "已禁用Canvas渲染",
       "copy_hash": "复制哈希值",
       "dlSpeedAverage": "平均下载速度",
       "downloaded": "已下载",
