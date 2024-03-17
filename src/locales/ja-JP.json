@@ -18,7 +18,9 @@
   },
   "constants": {
     "addPaused": {
-      "always": "常に"
+      "always": "常に",
+      "never": "一度もない",
+      "title": "一時停止を追加"
     },
     "bittorrentProtocols": {
       "tcp": "TCP",
@@ -132,6 +134,7 @@
       "table": "テーブル",
       "title": "表示モード"
     },
+    "not_complete": "完了確認なし",
     "right_click": {
       "advanced": {
         "auto_tmm": "自動Torrent管理",
@@ -363,6 +366,7 @@
         "url": "URL"
       },
       "rule": {
+        "addPaused": "一時停止を追加",
         "affectedFeedsSubheader": "影響を受けるフィード",
         "assignedCategory": "割り当てられたカテゴリー",
         "enabled": "ルールを有効にする",
@@ -801,9 +805,437 @@
         "exportDirFinished": "完了した.torrentファイルのコピー先",
         "keepIncomplete": "ダウンロードパス (未完了時)",
         "paramChangedTMMOptions": {
-          "relocateTorrent": "Torrentを再配置"
+          "relocateTorrent": "Torrentを再配置",
+          "switchToManual": "Torrentを手動モードに切り替える"
+        },
+        "savePathChangedTMM": "デフォルトの保存パスが変更されたとき",
+        "subheader": "保存管理",
+        "torrentChangedTMM": "Torrentのカテゴリーが変更されたとき"
+      },
+      "whenAddTorrent": {
+        "addToTopOfQueue": "キューの先頭に追加",
+        "autoDeleteMode": "追加後に.torrentファイルを削除する",
+        "doNotAutoStart": "ダウンロードを自動的に開始しない",
+        "mergeTrackers": "既存のTorrentにトラッカーをマージする",
+        "subheader": "Torrentの追加時"
+      }
+    },
+    "rss": {
+      "feeds": {
+        "createNew": "フィードを追加",
+        "noFeeds": "フィードがありません",
+        "refreshAll": "すべて更新"
+      },
+      "general": {
+        "autoDownloader": {
+          "enable": "RSSルール処理を有効にする",
+          "subheader": "RSS Torrent自動ダウンローダー"
+        },
+        "reader": {
+          "enableProcessing": "RSSフィードの取得を有効にする",
+          "feedsRefreshInterval": "フィードの更新間隔",
+          "maximumArticlesPerFeed": "フィードごとの記事数の上限",
+          "subheader": "RSSリーダー"
+        },
+        "smartEpisodeFilter": {
+          "downloadEpisodes": "REPACK/PROPERエピソードをダウンロードする",
+          "filters": "フィルター",
+          "filtersHint": "1行に1つのフィルター",
+          "subheader": "RSS スマートエピソードフィルター"
+        },
+        "useIdForRssLinks": "RSS記事のリンクにIDを使用する"
+      },
+      "rules": {
+        "createNew": "ルールを作成",
+        "noRules": "ルールがありません"
+      }
+    },
+    "saveSuccess": "設定が保存されました!",
+    "speed": {
+      "download": "ダウンロード",
+      "scheduler": {
+        "from": "開始時間",
+        "selectButtonLabel": "時間を選択",
+        "subheader": "代替速度制限の使用をスケジュール",
+        "to": "終了時間",
+        "when": "いつ"
+      },
+      "settings": {
+        "applyToPeersOnLan": "LAN上のピアに速度制限を適用する",
+        "applyToTransportOverhead": "トランスポートオーバーヘッドに速度制限を適用する",
+        "applyToUtp": "µTPプロトコルに速度制限を適用する"
+      },
+      "subheader": {
+        "alternative": "代替速度制限",
+        "global": "グローバル速度制限",
+        "settings": "速度制限設定"
+      },
+      "tip": "0=無制限",
+      "upload": "アップロード"
+    },
+    "tabs": {
+      "advanced": "高度な設定",
+      "behavior": "動作",
+      "bittorrent": "BitTorrent",
+      "connection": "接続",
+      "downloads": "ダウンロード",
+      "rss": {
+        "feeds": "フィード",
+        "general": "一般",
+        "rules": "ルール",
+        "title": "RSS"
+      },
+      "speed": "速度",
+      "tagsAndCategories": "タグ/カテゴリー",
+      "vuetorrent": {
+        "general": "一般",
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "グリッドビュー",
+          "list": "リストビュー",
+          "table": "テーブルビュー"
+        }
+      },
+      "webui": "WebUI"
+    },
+    "tagsAndCategories": {
+      "categoriesSubheader": "利用可能なカテゴリー:",
+      "createNewCategory": "新しいカテゴリーを作成",
+      "createNewTag": "新しいタグを作成",
+      "noCategories": "カテゴリーなし",
+      "noTags": "タグなし",
+      "tagsSubheader": "利用可能なタグ:"
+    },
+    "title": "設定",
+    "vuetorrent": {
+      "general": {
+        "canvasRefreshThreshold": "キャンバスの自動更新を無効にするピース数",
+        "canvasRenderThreshold": "キャンバスのレンダリングを無効にするピース数",
+        "check_new": "新しいバージョンを確認する",
+        "currentVersion": "現在のバージョン",
+        "customTitle": "カスタムタイトル",
+        "dateFormat": "日付フォーマット",
+        "download": "設定のエクスポート",
+        "fileContentInterval": "Torrentファイルのコンテンツの更新間隔",
+        "hideChipIfUnset": "未設定の場合はチップを非表示にする",
+        "historySize": "対象フィールドの履歴サイズ",
+        "import": "設定のインポート",
+        "isDrawerRight": "右側のドロワー",
+        "isPaginationOnTop": "ページネーションを上部に表示",
+        "isShutdownButtonVisible": "シャットダウンボタンを表示",
+        "language": "言語",
+        "openSideBarOnStart": "起動時にサイドバーを開く",
+        "paginationSize": {
+          "infinite_scroll": "無限スクロール",
+          "label": "ページネーションのサイズ",
+          "warning": "高い値を使用するとパフォーマンスに影響する可能性があります"
+        },
+        "qbittorrentVersion": "qBittorrentバージョン",
+        "refreshInterval": "qBittorrent API更新間隔",
+        "registerMagnet": "マグネットリンクを登録する",
+        "resetSettings": "設定をリセット",
+        "showAlltimeStat": "過去の統計を表示する",
+        "showCurrentSpeed": "現在の速度を表示する",
+        "showFreeSpace": "空き容量を表示する",
+        "showSessionStat": "セッション統計を表示する",
+        "showSpeedGraph": "速度グラフを表示する",
+        "showTrackerFilter": "トラッカーフィルターを表示する",
+        "tip": "これらの設定はカスタムWebUI自体のためのものです",
+        "useBinarySize": "データサイズの単位をバイナリ単位に置き換える (kB -> KiB)",
+        "useBitSpeed": "速度の値をビットに置き換える (kB/s -> kbps)",
+        "vueTorrentTitle": "タブのタイトル"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "グリッドビューで表示する未完了のTorrentのプロパティ",
+          "doneTip": "グリッドビューで表示する完了したTorrentのプロパティ"
+        },
+        "list": {
+          "busyTip": "リストビューで表示する未完了のTorrentのプロパティ",
+          "doneTip": "リストビューで表示する完了したTorrentのプロパティ"
+        },
+        "table": {
+          "tip": "テーブルビューで表示するTorrentのプロパティ"
         }
       }
+    },
+    "webUI": {
+      "authentication": {
+        "banDuration": "アクセス禁止期間",
+        "banDurationHint": "秒単位",
+        "bypassLocalhost": "localhost上ではクライアントの認証を行わない",
+        "bypassWhitelist": "ホワイトリストに登録されたIPサブネット内のクライアントの認証を行わない",
+        "maxAttempts": "最大試行回数",
+        "password": "パスワード",
+        "passwordPlaceholder": "(変更なし)",
+        "sessionTimeout": "セッションタイムアウト",
+        "sessionTimeoutHint": "秒単位",
+        "subheader": "認証",
+        "username": "ユーザー名",
+        "whitelistExamples": "例: 192.168.1.0/24, fdff:ffff:c8::/40"
+      },
+      "customHeaders": "カスタムHTTPヘッダーを追加する",
+      "customHeadersHint": "1行に1つのヘッダー",
+      "customHeadersPlaceholder": "Header1: 値1\nHeader2: 値2\n... ",
+      "dynDns": {
+        "domainName": "ドメイン名",
+        "password": "パスワード",
+        "providers": {
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
+        },
+        "registerBtn": "登録",
+        "subheader": "ダイナミックドメイン名を更新する",
+        "username": "ユーザー名"
+      },
+      "https": {
+        "certificate": "証明書",
+        "key": "鍵",
+        "subheader": "HTTPSを使用する",
+        "tip": "証明書に関する情報"
+      },
+      "interface": {
+        "ipAddress": "IPアドレス",
+        "port": "ポート",
+        "subheader": "Webユーザーインターフェース",
+        "useAlternativeWebUI": "代替WebUIを使用する",
+        "useUPnP": "ルーターからのポート転送にUPnP/NAT-PMPを使用する"
+      },
+      "proxiesList": "信頼できるプロキシのリスト",
+      "proxiesListHint": "IPはセミコロン(;)で区切る",
+      "reverseProxySupport": "リバースプロキシのサポートを有効にする",
+      "security": {
+        "clickjacking": "クリックジャッキング保護を有効にする",
+        "csrf": "クロスサイトリクエストフォージェリ(CSRF)保護を有効にする",
+        "hostHeaderValidation": "ホストヘッダー検証を有効にする",
+        "hostHeaderValidationHint": "セミコロン(;)で区切る",
+        "secureCookie": "CookieのSecureフラグを有効にする (HTTPSが必要)",
+        "serverDomains": "サーバードメイン",
+        "subheader": "セキュリティ"
+      }
     }
+  },
+  "toast": {
+    "add": {
+      "error": "Torrentの追加中にエラーが発生しました",
+      "pending": "Torrentを送信中...",
+      "success": "{n}個のTorrentが追加されました | {n}個のTorrentが追加されました"
+    },
+    "copy": {
+      "error": "コピーできません。コンテキストがセキュリティで保護されていません。",
+      "success": "クリップボードにコピーしました!"
+    },
+    "magnet_handler": {
+      "not_supported": "現在のコンテキストは安全ではありません。ハンドラーを登録できません。",
+      "registered": "マグネットハンドラーが登録されました。"
+    },
+    "new_version": "新しいバージョンが利用可能です!",
+    "qbit": {
+      "not_supported": "qBittorrent >= {version}でのみ利用可能です"
+    }
+  },
+  "topbar": {
+    "actions": {
+      "delete": "Torrentを削除",
+      "logs": "ログを開く",
+      "pause": "Torrentを一時停止",
+      "resume": "Torrentを再開",
+      "rssArticles": "RSS記事を開く",
+      "searchEngine": "検索エンジンを開く",
+      "settings": "設定を開く"
+    },
+    "addTorrents": "Torrentを追加",
+    "overflow": {
+      "delete": "削除",
+      "logs": "qBittorrentログ",
+      "pause": "一時停止",
+      "resume": "再開",
+      "rssArticles": "RSSフィード",
+      "searchEngine": "検索エンジン",
+      "settings": "設定"
+    },
+    "searchTorrents": "Torrentを検索"
+  },
+  "torrentDetail": {
+    "content": {
+      "fileInfo": "{n}ファイル | {n}ファイル",
+      "filter_placeholder": "ファイルツリー内を検索",
+      "folderInfo": "{n}フォルダー | {n}フォルダー",
+      "priority": "優先度の設定",
+      "rename": {
+        "bulk": "名前の一括変更",
+        "file": "名前の変更",
+        "folder": "フォルダ名を変更"
+      },
+      "rootNode": "(ルート)"
+    },
+    "info": {
+      "boolean_values": "ブール値",
+      "data_values": "データ値",
+      "datetime_values": "日時の値",
+      "duration_values": "期間の値",
+      "long_text_values": "長いテキスト値",
+      "speed_values": "速度値",
+      "text_values": "テキスト値"
+    },
+    "overview": {
+      "canvasRefreshDisabled": "キャンバスの自動更新が無効になっています",
+      "canvasRenderDisabled": "キャンバスのレンダリングが無効になっています",
+      "copy_hash": "ハッシュをコピー",
+      "dlSpeedAverage": "DL速度平均",
+      "downloaded": "DL済み",
+      "fetchingMetadata": "メタデータを取得中...",
+      "fileCount": "選択されたファイル",
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "ratio": "共有比",
+      "selectedFileSize": "選択されたファイルのサイズ",
+      "uploaded": "UP済み",
+      "upSpeedAverage": "UP速度平均",
+      "waitingForMetadata": "メタデータを待機中... "
+    },
+    "peers": {
+      "addPeers": {
+        "newPeers": "追加するピアホスト",
+        "newPeersHint": "1行に1つのピア",
+        "newPeersPlaceholder": "ホスト:ポート",
+        "title": "ピアを追加する"
+      },
+      "emptyList": "現在ピアが接続されていません",
+      "table": {
+        "client": "クライアント",
+        "connection": "接続",
+        "downloaded": "DL済み",
+        "downloadSpeed": "DL",
+        "files": "ファイル",
+        "flags": "フラグ",
+        "host": "ホスト",
+        "progress": "進捗状況",
+        "relevance": "関連性",
+        "uploaded": "UP済み",
+        "upSpeed": "UP"
+      }
+    },
+    "tabs": {
+      "content": "コンテンツ",
+      "info": "情報",
+      "overview": "概要",
+      "peers": "ピア",
+      "tagsAndCategories": "タグ/カテゴリー",
+      "trackers": "トラッカー"
+    },
+    "tagsAndCategories": {
+      "categories": "カテゴリー",
+      "tags": "タグ"
+    },
+    "title": "Torrentの詳細",
+    "trackers": {
+      "addTrackers": {
+        "newTrackers": "追加するトラッカーURL",
+        "newTrackersHint": "1行に1つ、空行でTierを区切る",
+        "title": "トラッカーを追加する"
+      },
+      "editTracker": {
+        "newUrl": "新しいURL",
+        "newUrlRequired": "新しいURLが必要です",
+        "oldUrl": "古いURL",
+        "title": "トラッカーを編集する"
+      },
+      "peersValue": "{peers} ピア ({seeds} S / {leeches} L)",
+      "reannounce": "すべて再アナウンス",
+      "tier": "Tier: {n}"
+    }
+  },
+  "torrent": {
+    "properties": {
+      "added_on": "追加日時",
+      "amount_left": "残り",
+      "auto_tmm": "自動Torrent管理",
+      "availability": "可用性",
+      "available_peers": "ピア (スウォーム)",
+      "available_seeds": "シード (スウォーム)",
+      "avg_download_speed": "DL速度平均",
+      "avg_upload_speed": "UP速度平均",
+      "category": "カテゴリー",
+      "comment": "コメント",
+      "completed_on": "完了日時",
+      "content_path": "コンテンツパス",
+      "created_by": "作成者",
+      "creation_date": "作成日時",
+      "downloaded": "DL済み (グローバル)",
+      "downloaded_session": "DL済み (セッション)",
+      "download_limit": "DL速度制限",
+      "download_path": "ダウンロードパス",
+      "download_speed": "DL速度",
+      "empty_category": "(カテゴリーなし)",
+      "empty_tags": "(タグなし)",
+      "empty_tracker_domain": "(トラッカーなし)",
+      "eta": "予測所要時間",
+      "f_l_piece_prio": "最初と最後のピースを優先",
+      "forced": "強制状態",
+      "global_speed": "全体速度",
+      "global_volume": "グローバルサイズ",
+      "hash": "ハッシュ",
+      "infohash_v1": "Infoハッシュ v1",
+      "infohash_v2": "Infoハッシュ v2",
+      "is_private": "プライベートTorrent",
+      "last_activity": "最終アクティビティ",
+      "magnet": "Magnetリンク",
+      "name": "Torrentタイトル",
+      "nb_connections": "合計接続数",
+      "nb_connections_limit": "接続制限",
+      "num_leechs": "ピア (接続中)",
+      "num_seeds": "シード (接続中)",
+      "peers": "ピア",
+      "priority": "優先度",
+      "progress": "進捗状況",
+      "progress_bar": "進捗状況バー",
+      "ratio": "共有比",
+      "ratio_limit": "共有比制限",
+      "ratio_time_limit": "共有時間制限",
+      "reannounce": "次の再アナウンスまで",
+      "save_path": "保存先パス",
+      "seeding_time": "シード時間",
+      "seeds": "シード",
+      "seen_complete": "完了確認日時",
+      "seq_dl": "シーケンシャルダウンロード",
+      "size": "サイズ",
+      "state": "状態",
+      "super_seeding": "スーパーシードモード",
+      "tags": "タグ",
+      "time_active": "アクティブ時間",
+      "total_size": "合計サイズ",
+      "total_wasted": "破棄されたデータ",
+      "tracker": "トラッカー",
+      "trackers_count": "トラッカー数",
+      "uploaded": "UP済み (グローバル)",
+      "uploaded_session": "UP済み (セッション)",
+      "upload_limit": "UP速度制限",
+      "upload_speed": "UP速度"
+    },
+    "state": {
+      "allocating": "割り当て中",
+      "checkingDL": "チェック中 (未完了)",
+      "checkingResumeData": "再開データを確認中",
+      "checkingUP": "チェック中 (完了)",
+      "downloading": "ダウンロード中",
+      "error": "エラー",
+      "forcedDL": "[F] ダウンロード中",
+      "forcedUP": "[F] アップロード中",
+      "metaDL": "メタデータ",
+      "missingFiles": "ファイル不足",
+      "moving": "移動中",
+      "pausedDL": "一時停止",
+      "pausedUP": "完了",
+      "queuedDL": "待機中 (DL)",
+      "queuedUP": "待機中 (UP)",
+      "stalledDL": "停滞",
+      "stalledUP": "シード中",
+      "unknown": "不明",
+      "uploading": "アップロード中"
+    }
+  },
+  "units": {
+    "minutes": "分 | 分 | 分",
+    "seconds": "秒 | 秒 | 秒"
   }
 }

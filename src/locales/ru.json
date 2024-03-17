@@ -1210,7 +1210,7 @@
       "uploaded": "Отдано (всего)",
       "uploaded_session": "Отдано (за сессию)",
       "upload_limit": "Ограничение раздачи",
-      "upload_speed": "Скорость отдачи"
+      "upload_speed": "Скорость раздачи"
     },
     "state": {
       "allocating": "Резервирование",

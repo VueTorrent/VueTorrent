@@ -66,7 +66,8 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.dnd-zone, .dnd-zone-outer {
+.dnd-zone,
+.dnd-zone-outer {
   position: fixed;
   top: 0;
   left: 0;

@@ -1,5 +1,6 @@
 import cs_cz from './cs-CZ.json'
 import en from './en.json'
+import es from './es.json'
 import fr from './fr.json'
 import hu from './hu.json'
 import it_it from './it-IT.json'
@@ -16,6 +17,7 @@ type LocaleDef = { title: string; value: Locales }
 export enum Locales {
   CS_CZ = 'cs-CZ',
   EN = 'en',
+  ES = 'es',
   FR = 'fr',
   HU = 'hu',
   IT_IT = 'it-IT',
@@ -31,6 +33,7 @@ export enum Locales {
 export const LOCALES: LocaleDef[] = [
   { title: 'čeština (Česko)', value: Locales.CS_CZ },
   { title: 'English', value: Locales.EN },
+  { title: 'español', value: Locales.ES },
   { title: 'Français', value: Locales.FR },
   { title: 'magyar', value: Locales.HU },
   { title: 'italiano (Italia)', value: Locales.IT_IT },
@@ -46,6 +49,7 @@ export const LOCALES: LocaleDef[] = [
 export const messages: Record<Locales, any> = {
   [Locales.CS_CZ]: cs_cz,
   [Locales.EN]: en,
+  [Locales.ES]: es,
   [Locales.FR]: fr,
   [Locales.HU]: hu,
   [Locales.IT_IT]: it_it,
