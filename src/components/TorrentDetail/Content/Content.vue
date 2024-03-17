@@ -60,7 +60,7 @@ function endPress() {
 
 <template>
   <v-card>
-    <v-text-field v-model="filter" class="mt-2 mx-3" hide-details :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+    <v-text-field v-model="filter" class="mt-2 mx-3" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
 
     <v-virtual-scroll id="tree-root" :items="filteredTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
