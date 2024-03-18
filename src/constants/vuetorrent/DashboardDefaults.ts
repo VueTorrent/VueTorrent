@@ -4,14 +4,17 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 type pptData = { active: boolean; order: number }
 type pptMetadata =
   | { type: DashboardPropertyType.AMOUNT; props: { title: string; value: string; total: string } }
-  | { type: DashboardPropertyType.CHIP; props: { title: string; value: string; color: string; enableHashColor: boolean } }
+  | {
+  type: DashboardPropertyType.CHIP;
+  props: { title: string; value: string; color: string; enableHashColor: boolean }
+}
   | { type: DashboardPropertyType.DATA; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DATETIME; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DURATION; props: { title: string; value: string } }
   | { type: DashboardPropertyType.PERCENT; props: { title: string; value: string } }
   | { type: DashboardPropertyType.RELATIVE; props: { title: string; value: string } }
   | { type: DashboardPropertyType.SPEED; props: { title: string; value: string } }
-  | { type: DashboardPropertyType.TEXT; props: { title: string; value: string } }
+  | { type: DashboardPropertyType.TEXT; props: { title: string; value: string; color?: (v: any) => string } }
 
 export type TorrentProperty = { name: DashboardProperty } & pptData & pptMetadata
 
@@ -283,7 +286,16 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.PERCENT
   },
   [DashboardProperty.RATIO]: {
-    props: { title: 'ratio', value: 'ratio' },
+    props: {
+      title: 'ratio',
+      value: 'ratio',
+      color: (v: number) => {
+        if (v < 0.5) return 'text-ratio-bad'
+        if (v < 1) return 'text-ratio-almost'
+        if (v < 5) return 'text-ratio-good'
+        return 'text-ratio-best'
+      }
+    },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.RATIO_LIMIT]: {
