@@ -1,6 +1,6 @@
-import{D as ft,u as K,a as dt,c as T,i as mt,k as ht,n as X,w as pt,__tla as __tla_0}from"./TorrentDetail-_aQGL23x.js";let de,C,H,te,ee,Et,ne,at,re,V,L,nt,ie,St,me,oe,se,le,ae,ce,fe,ue;let __tla=Promise.all([(()=>{try{return __tla_0}catch{}})()]).then(async()=>{const $=Object.create(null),q=Object.create(null);V=function(o,t){let e=q[o];return e===void 0&&($[t]===void 0&&($[t]=1),q[o]=e=$[t]++),e};let M;function gt(){return(!M||M?.isContextLost())&&(M=ft.get().createCanvas().getContext("webgl",{})),M}let S;function xt(){if(!S){S="mediump";const o=gt();o&&o.getShaderPrecisionFormat&&(S=o.getShaderPrecisionFormat(o.FRAGMENT_SHADER,o.HIGH_FLOAT).precision?"highp":"mediump")}return S}function vt(o,t,e){return t?o:e?(o=o.replace("out vec4 finalColor;",""),`
+import{D as ft,u as K,a as dt,c as T,i as mt,k as ht,n as X,w as pt,__tla as __tla_0}from"./TorrentDetail-RWM9At2X.js";let de,C,H,te,ee,Et,ne,at,re,V,L,nt,ie,St,me,oe,se,le,ae,ce,fe,ue;let __tla=Promise.all([(()=>{try{return __tla_0}catch{}})()]).then(async()=>{const $=Object.create(null),q=Object.create(null);V=function(o,t){let e=q[o];return e===void 0&&($[t]===void 0&&($[t]=1),q[o]=e=$[t]++),e};let M;function gt(){return(!M||M?.isContextLost())&&(M=ft.get().createCanvas().getContext("webgl",{})),M}let S;function xt(){if(!S){S="mediump";const o=gt();o&&o.getShaderPrecisionFormat&&(S=o.getShaderPrecisionFormat(o.FRAGMENT_SHADER,o.HIGH_FLOAT).precision?"highp":"mediump")}return S}function vt(o,t,e){return t?o:e?(o=o.replace("out vec4 finalColor;",""),`
         
-        #ifdef GL_ES // This checks if it's WebGL1
+        #ifdef GL_ES // This checks if it is WebGL1
         #define in varying
         #define finalColor gl_FragColor
         #define texture texture2D
@@ -8,7 +8,7 @@ import{D as ft,u as K,a as dt,c as T,i as mt,k as ht,n as X,w as pt,__tla as __t
         ${o}
         `):`
         
-        #ifdef GL_ES // This checks if it's WebGL1
+        #ifdef GL_ES // This checks if it is WebGL1
         #define in attribute
         #define out varying
         #endif
@@ -57,13 +57,15 @@ ${n.join(`
             0.0, 0.0, 1.0
           );
         var position = aPosition;
+        var uv = aUV;
 
         {{start}}
         
         vColor = vec4<f32>(1., 1., 1., 1.);
-        vUV = aUV;
 
         {{main}}
+
+        vUV = uv;
 
         var modelViewProjectionMatrix = globalUniforms.uProjectionMatrix * worldTransformMatrix * modelMatrix;
 
@@ -112,14 +114,16 @@ ${n.join(`
             0.0, 0.0, 1.0
           );
         vec2 position = aPosition;
-
+        vec2 uv = aUV;
+        
         {{start}}
         
         vColor = vec4(1.);
-        vUV = aUV;
-
+        
         {{main}}
-
+        
+        vUV = uv;
+        
         mat3 modelViewProjectionMatrix = uProjectionMatrix * worldTransformMatrix * modelMatrix;
 
         gl_Position = vec4((modelViewProjectionMatrix * vec3(position, 1.0)).xy, 0.0, 1.0);
