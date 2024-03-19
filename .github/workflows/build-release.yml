@@ -118,16 +118,6 @@ jobs:
           asset_name: vuetorrent.zip
           asset_content_type: application/zip
 
-      - name: Send discord webhook
-        uses: SethCohen/github-releases-to-discord@v1.15.0
-        with:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          color: "6606506"
-          username: "Release Changelog"
-          avatar_url: "https://raw.githubusercontent.com/VueTorrent/VueTorrent/master/VueTorrent-logo.png"
-          footer_title: "Changelog"
-          footer_timestamp: true
-
   push-release:
     name: Push to latest branch
     needs: [setup-release, build-release]
@@ -148,3 +138,19 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: latest-release
           FOLDER: ./vuetorrent
+
+  notify:
+    runs-on: ubuntu-latest
+    name: Send Notifications
+    needs: [push-release, upload-release]
+    steps:
+      - name: Send discord webhook
+        uses: SethCohen/github-releases-to-discord@v1.15.0
+        continue-on-error: true
+        with:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          color: "6606506"
+          username: "Release Changelog"
+          avatar_url: "https://raw.githubusercontent.com/VueTorrent/VueTorrent/master/VueTorrent-logo.png"
+          footer_title: "Changelog"
+          footer_timestamp: true
