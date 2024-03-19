@@ -5,9 +5,9 @@ type pptData = { active: boolean; order: number }
 type pptMetadata =
   | { type: DashboardPropertyType.AMOUNT; props: { title: string; value: string; total: string } }
   | {
-  type: DashboardPropertyType.CHIP;
-  props: { title: string; value: string; color: string; enableHashColor: boolean }
-}
+      type: DashboardPropertyType.CHIP
+      props: { title: string; value: string; color: string; enableHashColor: boolean }
+    }
   | { type: DashboardPropertyType.DATA; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DATETIME; props: { title: string; value: string } }
   | { type: DashboardPropertyType.DURATION; props: { title: string; value: string } }
