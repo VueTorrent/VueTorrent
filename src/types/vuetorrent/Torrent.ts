@@ -57,5 +57,5 @@ export default interface Torrent {
   globalSpeed: number
   globalVolume: number
 
-  [key: string]: any
+  [k: string]: any
 }

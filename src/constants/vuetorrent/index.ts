@@ -8,6 +8,8 @@ import { HistoryKey } from './HistoryKey'
 import { TitleOptions } from './TitleOptions'
 import { VuetorrentTheme } from './VuetorrentTheme'
 
+const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
+
 export {
   TorrentProperty,
   PropertyData,
@@ -21,5 +23,6 @@ export {
   typesMap,
   HistoryKey,
   TitleOptions,
-  VuetorrentTheme
+  VuetorrentTheme,
+  defaultDateFormat
 }

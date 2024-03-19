@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
@@ -204,7 +204,7 @@ onBeforeMount(() => {
 
       <v-row>
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.dateFormat" placeholder="DD/MM/YYYY, HH:mm:ss" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
+          <v-text-field v-model="vueTorrentStore.dateFormat" :placeholder="defaultDateFormat" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
         </v-col>
       </v-row>
     </v-list-item>

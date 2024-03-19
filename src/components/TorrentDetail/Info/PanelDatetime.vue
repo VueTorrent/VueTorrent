@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { formatTimeSec } from '@/helpers'
 import InfoBase from './InfoBase.vue'
-import dayjs from '@/plugins/dayjs'
 import { useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -26,7 +26,7 @@ const torrentValues = [
         <InfoBase v-for="ppt in torrentValues">
           <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
           <template v-if="ppt.getter() > 0" v-slot:text>
-            {{ dayjs(ppt.getter() * 1000).format(dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }}
+            {{ formatTimeSec(ppt.getter(), dateFormat) }}
           </template>
           <template v-else v-slot:text> {{ $t('common.NA') }}</template>
         </InfoBase>
