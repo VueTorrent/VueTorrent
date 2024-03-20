@@ -2,26 +2,37 @@
 
 ## [2.7.2](https://github.com/VueTorrent/VueTorrent/compare/v2.7.1...v2.7.2) (2024-03-19)
 
-
 ### Bug Fixes
 
-* **rightClick:** Prevent queueing_enabled error when not logged in ([#1553](https://github.com/VueTorrent/VueTorrent/issues/1553)) ([2ed76f0](https://github.com/VueTorrent/VueTorrent/commit/2ed76f05ffd6af22e6ef44b40f1356af0a7cfe02))
-* support lower version browsers with top level await [#1563](https://github.com/VueTorrent/VueTorrent/issues/1563) ([38c590e](https://github.com/VueTorrent/VueTorrent/commit/38c590ed51e80e7f902cd1863e7f632202eb3ede))
-* **TorrentDetail:** Application crash, execution timing ([#1572](https://github.com/VueTorrent/VueTorrent/issues/1572)) ([073187b](https://github.com/VueTorrent/VueTorrent/commit/073187b42fbf4214658f120530f198eba3386002))
-
+- **rightClick:** Prevent queueing_enabled error when not logged in ([#1553](https://github.com/VueTorrent/VueTorrent/issues/1553))
+  ([2ed76f0](https://github.com/VueTorrent/VueTorrent/commit/2ed76f05ffd6af22e6ef44b40f1356af0a7cfe02))
+- support lower version browsers with top level await [#1563](https://github.com/VueTorrent/VueTorrent/issues/1563)
+  ([38c590e](https://github.com/VueTorrent/VueTorrent/commit/38c590ed51e80e7f902cd1863e7f632202eb3ede))
+- **TorrentDetail:** Application crash, execution timing ([#1572](https://github.com/VueTorrent/VueTorrent/issues/1572))
+  ([073187b](https://github.com/VueTorrent/VueTorrent/commit/073187b42fbf4214658f120530f198eba3386002))
 
 ### Improvements
 
-* Add category / tag chip color ([#1539](https://github.com/VueTorrent/VueTorrent/issues/1539)) ([05b3e35](https://github.com/VueTorrent/VueTorrent/commit/05b3e357c998a74feb9816b9540dd47c0a92cd78))
-* Add ratio colors ([#1581](https://github.com/VueTorrent/VueTorrent/issues/1581)) ([4c6410d](https://github.com/VueTorrent/VueTorrent/commit/4c6410dee7e03ec4f3a0a1b1c104d7de04243f0d))
-* **connection status:** Improve external IP error message ([#1587](https://github.com/VueTorrent/VueTorrent/issues/1587)) ([d84f00e](https://github.com/VueTorrent/VueTorrent/commit/d84f00ef5459da5b89f184b9b43d3bc73eedeba4))
-* **content:** Add clear icon on search input ([#1583](https://github.com/VueTorrent/VueTorrent/issues/1583)) ([5a989aa](https://github.com/VueTorrent/VueTorrent/commit/5a989aa38585f6c4925a1222a8fc65f70c5de13c))
-* **DnDZone:** Prevent stuck zone when leaving too early ([#1568](https://github.com/VueTorrent/VueTorrent/issues/1568)) ([2943ed1](https://github.com/VueTorrent/VueTorrent/commit/2943ed11160e6ad4d2b1a6d799d7ebf7f9720854))
-* **logs:** Bring back colors and improve responsive design ([#1580](https://github.com/VueTorrent/VueTorrent/issues/1580)) ([ba2b0ef](https://github.com/VueTorrent/VueTorrent/commit/ba2b0efe27f7ecf3c40d89f716b9f263a2371cef))
-* **RssArticles:** Prevent de-duplication of description dialog ([#1575](https://github.com/VueTorrent/VueTorrent/issues/1575)) ([cd9a384](https://github.com/VueTorrent/VueTorrent/commit/cd9a3845a02812657ffc105908792c77c069798d))
-* **SearchEngine:** Add description link ([#1574](https://github.com/VueTorrent/VueTorrent/issues/1574)) ([61de1fa](https://github.com/VueTorrent/VueTorrent/commit/61de1fab44772778cd9e3840146a15baa711f15e))
-* **search:** Handle dash (-) sign to exclude tokens from results ([#1551](https://github.com/VueTorrent/VueTorrent/issues/1551)) ([78e6750](https://github.com/VueTorrent/VueTorrent/commit/78e6750ea75ac1dc412cffec0526f6d8b2575530))
-* **TorrentDetail:** Overview Piece Renderer ([#1564](https://github.com/VueTorrent/VueTorrent/issues/1564)) ([5ed280c](https://github.com/VueTorrent/VueTorrent/commit/5ed280c0ddabc5917721c685359d30530ab24ac7))
+- Add category / tag chip color ([#1539](https://github.com/VueTorrent/VueTorrent/issues/1539))
+  ([05b3e35](https://github.com/VueTorrent/VueTorrent/commit/05b3e357c998a74feb9816b9540dd47c0a92cd78))
+- Add ratio colors ([#1581](https://github.com/VueTorrent/VueTorrent/issues/1581))
+  ([4c6410d](https://github.com/VueTorrent/VueTorrent/commit/4c6410dee7e03ec4f3a0a1b1c104d7de04243f0d))
+- **connection status:** Improve external IP error message ([#1587](https://github.com/VueTorrent/VueTorrent/issues/1587))
+  ([d84f00e](https://github.com/VueTorrent/VueTorrent/commit/d84f00ef5459da5b89f184b9b43d3bc73eedeba4))
+- **content:** Add clear icon on search input ([#1583](https://github.com/VueTorrent/VueTorrent/issues/1583))
+  ([5a989aa](https://github.com/VueTorrent/VueTorrent/commit/5a989aa38585f6c4925a1222a8fc65f70c5de13c))
+- **DnDZone:** Prevent stuck zone when leaving too early ([#1568](https://github.com/VueTorrent/VueTorrent/issues/1568))
+  ([2943ed1](https://github.com/VueTorrent/VueTorrent/commit/2943ed11160e6ad4d2b1a6d799d7ebf7f9720854))
+- **logs:** Bring back colors and improve responsive design ([#1580](https://github.com/VueTorrent/VueTorrent/issues/1580))
+  ([ba2b0ef](https://github.com/VueTorrent/VueTorrent/commit/ba2b0efe27f7ecf3c40d89f716b9f263a2371cef))
+- **RssArticles:** Prevent de-duplication of description dialog ([#1575](https://github.com/VueTorrent/VueTorrent/issues/1575))
+  ([cd9a384](https://github.com/VueTorrent/VueTorrent/commit/cd9a3845a02812657ffc105908792c77c069798d))
+- **SearchEngine:** Add description link ([#1574](https://github.com/VueTorrent/VueTorrent/issues/1574))
+  ([61de1fa](https://github.com/VueTorrent/VueTorrent/commit/61de1fab44772778cd9e3840146a15baa711f15e))
+- **search:** Handle dash (-) sign to exclude tokens from results ([#1551](https://github.com/VueTorrent/VueTorrent/issues/1551))
+  ([78e6750](https://github.com/VueTorrent/VueTorrent/commit/78e6750ea75ac1dc412cffec0526f6d8b2575530))
+- **TorrentDetail:** Overview Piece Renderer ([#1564](https://github.com/VueTorrent/VueTorrent/issues/1564))
+  ([5ed280c](https://github.com/VueTorrent/VueTorrent/commit/5ed280c0ddabc5917721c685359d30530ab24ac7))
 
 ## [2.7.1](https://github.com/VueTorrent/VueTorrent/compare/v2.7.0...v2.7.1) (2024-02-26)
 

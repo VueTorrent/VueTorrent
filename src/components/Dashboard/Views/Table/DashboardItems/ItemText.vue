@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent; title: string; value: string, color?: (v: any) => string }>()
+defineProps<{ torrent: Torrent; title: string; value: string; color?: (v: any) => string }>()
 </script>
 
 <template>
