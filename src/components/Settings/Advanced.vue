@@ -458,7 +458,7 @@ onBeforeMount(async () => {
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model.number="preferenceStore.preferences!.announce_ip" type="number" hide-details :label="t('settings.advanced.libtorrent.announceIP')" />
+          <v-text-field v-model="preferenceStore.preferences!.announce_ip" hide-details :label="t('settings.advanced.libtorrent.announceIP')" />
         </v-col>
 
         <v-col cols="12" sm="6">
