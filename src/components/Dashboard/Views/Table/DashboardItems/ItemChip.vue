@@ -2,11 +2,12 @@
 import { getColorFromName } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; title: string; value: string; color: string; enableHashColor: boolean }>()
 
-const vueTorrentStore = useVueTorrentStore()
+const { hideChipIfUnset, enableHashColors } = storeToRefs(useVueTorrentStore())
 
 const values = computed(() => {
   const val = props.torrent[props.value]
@@ -17,15 +18,16 @@ const values = computed(() => {
 })
 
 const emptyValue = computed(() => values.value.length < 1)
+const useRandomColor = computed(() => enableHashColors.value && props.enableHashColor)
 </script>
 
 <template>
   <td>
-    <div class="d-flex flex-row gap" v-if="!(vueTorrentStore.hideChipIfUnset && emptyValue)">
+    <div class="d-flex flex-row gap" v-if="!(hideChipIfUnset && emptyValue)">
       <v-chip v-if="!values || emptyValue" :color="color.replace('$1', torrent[value])" variant="flat">
         {{ $t(`torrent.properties.empty_${value}`) }}
       </v-chip>
-      <v-chip v-else v-for="val in values" :color="enableHashColor ? getColorFromName(val) : color.replace('$1', torrent.state)" variant="flat">
+      <v-chip v-else v-for="val in values" :color="useRandomColor ? getColorFromName(val) : color.replace('$1', torrent.state)" variant="flat">
         {{ val }}
       </v-chip>
     </div>
