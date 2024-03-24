@@ -25,6 +25,7 @@ export const useVueTorrentStore = defineStore(
     const isDrawerRight = ref(false)
     const isPaginationOnTop = ref(false)
     const hideChipIfUnset = ref(false)
+    const enableHashColors = ref(true)
     const paginationSize = ref(15)
     const dateFormat = ref('YYYY-MM-DD HH:mm:ss')
     const openSideBarOnStart = ref(true)
@@ -220,6 +221,7 @@ export const useVueTorrentStore = defineStore(
       isDrawerRight,
       isPaginationOnTop,
       hideChipIfUnset,
+      enableHashColors,
       isShutdownButtonVisible,
       language,
       openSideBarOnStart,
@@ -278,6 +280,7 @@ export const useVueTorrentStore = defineStore(
         isDrawerRight.value = false
         isPaginationOnTop.value = false
         hideChipIfUnset.value = false
+        enableHashColors.value = true
         paginationSize.value = 15
         dateFormat.value = 'YYYY-MM-DD HH:mm:ss'
         openSideBarOnStart.value = true
