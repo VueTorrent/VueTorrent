@@ -68,13 +68,6 @@ const getGeoDetails = () => {
             </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
-            <div>{{ 'Geolocation Details' }}</div>
-            <div class="ml-2">
-              <span v-if="geoDetails">{{ geoDetails }}</span>
-              <span v-else class="text-warning">{{ 'Fetching geolocation details failed' }}</span>
-            </div>
-          </v-col>
-          <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.dht_nodes') }}</div>
             <div class="ml-2">
               {{ maindataStore.serverState?.dht_nodes }}
@@ -84,6 +77,13 @@ const getGeoDetails = () => {
             <div>{{ $t('dialogs.connectionStatus.total_peer_connections') }}</div>
             <div class="ml-2">
               {{ maindataStore.serverState?.total_peer_connections }}
+            </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ 'Geolocation Details' }}</div>
+            <div class="ml-2">
+              <span v-if="geoDetails">{{ geoDetails }}</span>
+              <span v-else class="text-warning">{{ 'Fetching geolocation details failed' }}</span>
             </div>
           </v-col>
         </v-row>
