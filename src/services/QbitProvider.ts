@@ -103,6 +103,10 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
   }
 
+  async getGeoDetails(geoDetails: string): Promise<string> {
+    return this.axios.get('/app/resolveGeoDetails', { params: { geoDetails } }).then(r => r.data)
+  }
+
   /// AuthController ///
 
   async login(params: LoginPayload): Promise<string> {

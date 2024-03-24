@@ -2,7 +2,7 @@
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -25,8 +25,27 @@ const connectionStatusColor = computed(() => {
   }
 })
 
+const geoDetails = ref<string | null>(null);
+
 const close = () => {
   isOpened.value = false
+}
+
+onMounted(() => {
+  getGeoDetails();
+});
+
+const getGeoDetails = () => {
+  const externalIp = logStore.externalIp;
+  fetch('https://ipinfo.io/' + externalIp + '/json')
+    .then(response => response.json())
+    .then(data => {
+      geoDetails.value = data.city + ', ' + data.region + ', ' + data.country + ' | ' + data.org;
+      console.log('Geolocation Details:', geoDetails.value);
+    })
+    .catch(error => {
+      console.error('Error fetching geolocation details:', error);
+    });
 }
 </script>
 
@@ -47,6 +66,12 @@ const close = () => {
               <span v-if="logStore.externalIp">{{ logStore.externalIp }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.noExternalIp') }}</span>
             </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t("Geolocation Details") }}</div>
+            <div class="ml-2"></div>
+              <span v-if="geoDetails">{{ geoDetails }}</span>
+              <span v-else>{{ ('Fetching geolocation details failed') }}</span>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.dht_nodes') }}</div>

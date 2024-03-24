@@ -56,6 +56,12 @@ export default interface IProvider {
   /// AuthController ///
 
   /**
+   * Get the country from the external IP address
+   * @param geoDetails
+   */
+  getGeoDetails(geoDetails: string): Promise<string>
+
+  /**
    * Login to the application
    */
   login(params: LoginPayload): Promise<string>
