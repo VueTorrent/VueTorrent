@@ -299,8 +299,7 @@ export default class MockProvider implements IProvider {
   async getGeoDetails(geoDetails: string): Promise<string> {
     switch (geoDetails) {
       case null:
-        return this.generateResponse({ result: 'Unknown'
-        })
+        return this.generateResponse({ result: 'Unknown' })
       default:
         return this.generateResponse({ result: 'Wakanda' })
     }

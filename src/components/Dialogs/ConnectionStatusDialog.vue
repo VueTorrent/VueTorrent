@@ -25,27 +25,27 @@ const connectionStatusColor = computed(() => {
   }
 })
 
-const geoDetails = ref<string | null>(null);
+const geoDetails = ref<string | null>(null)
 
 const close = () => {
   isOpened.value = false
 }
 
 onMounted(() => {
-  getGeoDetails();
-});
+  getGeoDetails()
+})
 
 const getGeoDetails = () => {
-  const externalIp = logStore.externalIp;
+  const externalIp = logStore.externalIp
   fetch('https://ipinfo.io/' + externalIp + '/json')
     .then(response => response.json())
     .then(data => {
-      geoDetails.value = data.city + ', ' + data.region + ', ' + data.country + ' | ' + data.org;
-      console.log('Geolocation Details:', geoDetails.value);
+      geoDetails.value = data.city + ', ' + data.region + ', ' + data.country + ' | ' + data.org
+      console.log('Geolocation Details:', geoDetails.value)
     })
     .catch(error => {
-      console.error('Error fetching geolocation details:', error);
-    });
+      console.error('Error fetching geolocation details:', error)
+    })
 }
 </script>
 
@@ -68,10 +68,11 @@ const getGeoDetails = () => {
             </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
-            <div>{{ $t("Geolocation Details") }}</div>
-            <div class="ml-2"></div>
+            <div>{{ 'Geolocation Details' }}</div>
+            <div class="ml-2">
               <span v-if="geoDetails">{{ geoDetails }}</span>
-              <span v-else>{{ ('Fetching geolocation details failed') }}</span>
+              <span v-else class="text-warning">{{ 'Fetching geolocation details failed' }}</span>
+            </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.dht_nodes') }}</div>
