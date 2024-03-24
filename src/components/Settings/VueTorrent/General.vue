@@ -141,6 +141,9 @@ onBeforeMount(() => {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.hideChipIfUnset" hide-details density="compact" :label="t('settings.vuetorrent.general.hideChipIfUnset')" />
         </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.enableHashColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableHashColors')" />
+        </v-col>
 
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
