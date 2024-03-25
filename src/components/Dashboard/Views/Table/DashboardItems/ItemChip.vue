@@ -26,10 +26,10 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
 <template>
   <td>
     <div class="d-flex flex-row gap" v-if="shouldShowChip">
-      <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat">
+      <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat" size="small">
         {{ $t(emptyValueKey) }}
       </v-chip>
-      <v-chip v-else v-for="v in val" :color="useRandomColor ? getColorFromName(v) : color(torrent)" variant="flat">
+      <v-chip v-else v-for="v in val" :color="useRandomColor ? getColorFromName(v) : color(torrent)" variant="flat" size="small">
         {{ v }}
       </v-chip>
     </div>
