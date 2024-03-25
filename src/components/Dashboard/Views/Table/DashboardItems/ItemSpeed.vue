@@ -2,14 +2,13 @@
 import { formatSpeed } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
+import { storeToRefs } from 'pinia'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+defineProps<{ torrent: Torrent; value: (t: Torrent) => number }>()
 
-const vuetorrentStore = useVueTorrentStore()
+const { useBitSpeed } = storeToRefs(useVueTorrentStore())
 </script>
 
 <template>
-  <td>{{ formatSpeed(torrent[value], vuetorrentStore.useBitSpeed) }}</td>
+  <td>{{ formatSpeed(value(torrent), useBitSpeed) }}</td>
 </template>
-
-<style scoped></style>

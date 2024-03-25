@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import dayjs from '@/plugins/dayjs'
+import { formatTimeSec } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number }>()
 
-const vueTorrentStore = useVueTorrentStore()
+const { dateFormat } = storeToRefs(useVueTorrentStore())
+const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
   <div class="d-flex flex-column">
-    <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${title}`) }}
+    <div v-if="titleKey" class="text-caption text-grey">
+      {{ $t(titleKey) }}
     </div>
     <div>
-      <span v-if="torrent[value] > 0">
-        {{ dayjs(torrent[value] * 1000).format(vueTorrentStore.dateFormat ?? 'DD/MM/YYYY, HH:mm:ss') }}
+      <span v-if="val > 0">
+        {{ formatTimeSec(val, dateFormat) }}
       </span>
       <span v-else>{{ $t('dashboard.not_complete') }}</span>
     </div>
   </div>
 </template>
-
-<style scoped></style>
