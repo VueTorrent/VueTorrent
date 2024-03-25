@@ -41,11 +41,11 @@ export const propsData: PropertyData = {
   },
   [DashboardProperty.AVG_DOWNLOAD_SPEED]: {
     active: false,
-    order: 40
+    order: 39
   },
   [DashboardProperty.AVG_UPLOAD_SPEED]: {
     active: false,
-    order: 41
+    order: 40
   },
   [DashboardProperty.CATEGORY]: {
     active: true,
@@ -127,17 +127,13 @@ export const propsData: PropertyData = {
     active: false,
     order: 37
   },
-  [DashboardProperty.RATIO_TIME_LIMIT]: {
-    active: false,
-    order: 38
-  },
   [DashboardProperty.SAVE_PATH]: {
     active: false,
     order: 6
   },
   [DashboardProperty.SEEDING_TIME]: {
     active: false,
-    order: 39
+    order: 38
   },
   [DashboardProperty.SEEDS]: {
     active: true,
