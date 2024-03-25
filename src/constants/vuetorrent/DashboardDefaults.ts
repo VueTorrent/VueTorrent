@@ -1,4 +1,5 @@
 import { Torrent } from '@/types/vuetorrent'
+import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
 
@@ -299,11 +300,15 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.RATIO_LIMIT]: {
-    props: { titleKey: 'torrent.properties.ratio_limit', value: t => t.ratio_limit.toString() },
-    type: DashboardPropertyType.TEXT
-  },
-  [DashboardProperty.RATIO_TIME_LIMIT]: {
-    props: { titleKey: 'torrent.properties.ratio_time_limit', value: () => '' },
+    props: {
+      titleKey: 'torrent.properties.ratio_limit',
+      value: t => {
+        const i18n = useI18n()
+        if (t.ratio_limit === -1) return i18n.t('common.disabled')
+        else if (t.ratio_limit === -2) return i18n.t('common.global_value')
+        else return t.ratio_limit.toString()
+      }
+    },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.SAVE_PATH]: {
