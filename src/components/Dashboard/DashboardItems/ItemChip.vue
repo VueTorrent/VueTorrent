@@ -27,10 +27,10 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
       {{ $t(`torrent.properties.${title}`) }}
     </div>
     <div class="d-flex flex-row gap">
-      <v-chip v-if="!values || emptyValue" :color="color.replace('$1', torrent[value])" variant="flat">
+      <v-chip v-if="!values || emptyValue" :color="color.replace('$1', torrent[value])" variant="flat" size="small">
         {{ $t(`torrent.properties.empty_${value}`) }}
       </v-chip>
-      <v-chip v-else v-for="val in values" :color="useRandomColor ? getColorFromName(val) : color.replace('$1', torrent.state)" variant="flat">
+      <v-chip v-else v-for="val in values" :color="useRandomColor ? getColorFromName(val) : color.replace('$1', torrent.state)" variant="flat" size="small">
         {{ val }}
       </v-chip>
     </div>
