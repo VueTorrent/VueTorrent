@@ -311,7 +311,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.SEEDING_TIME_LIMIT]: {
-    props: { titleKey: 'torrent.properties.seeding_time', value: t => t.seeding_time },
+    props: { titleKey: 'torrent.properties.seeding_time_limit', value: t => t.seeding_time_limit },
     type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.SEEDS]: {
