@@ -7,11 +7,11 @@ import Draggable from 'vuedraggable'
 
 const vueTorrentStore = useVueTorrentStore()
 
-const busyTorrentProperties = computed({
+const busyProperties = computed({
   get: () => vueTorrentStore.busyTorrentProperties,
   set: newValue => vueTorrentStore.updateBusyProperties(newValue)
 })
-const doneTorrentProperties = computed({
+const doneProperties = computed({
   get: () => vueTorrentStore.doneTorrentProperties,
   set: newValue => vueTorrentStore.updateDoneProperties(newValue)
 })
@@ -23,6 +23,17 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
     vueTorrentStore.toggleDoneProperty(property.name)
   }
 }
+
+function setActiveToAll(isBusy: boolean, active: boolean) {
+  if (isBusy) {
+    busyProperties.value = busyProperties.value.map(property => ({ ...property, active }))
+  } else {
+    doneProperties.value = doneProperties.value.map(property => ({ ...property, active }))
+  }
+}
+
+const selectNone = (isBusy: boolean) => setActiveToAll(isBusy, false)
+const selectAll = (isBusy: boolean) => setActiveToAll(isBusy, true)
 </script>
 
 <template>
@@ -31,8 +42,19 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
       <v-list>
         <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.list.busyTip') }}</v-list-subheader>
 
+        <v-list-item>
+          <v-row>
+            <v-col cols="6" class="d-flex justify-center">
+              <v-btn :text="$t('common.selectAll')" color="primary" @click="selectAll(true)" />
+            </v-col>
+            <v-col cols="6" class="d-flex justify-center">
+              <v-btn :text="$t('common.selectNone')" color="primary" @click="selectNone(true)" />
+            </v-col>
+          </v-row>
+        </v-list-item>
+
         <v-table>
-          <draggable v-model="busyTorrentProperties" item-key="name" tag="tbody" handle=".dnd-handle">
+          <draggable v-model="busyProperties" item-key="name" tag="tbody" handle=".dnd-handle">
             <template v-slot:item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(true, element)" />
             </template>
@@ -45,8 +67,19 @@ function toggleActive(isBusy: boolean, property: TorrentProperty) {
       <v-list>
         <v-list-subheader>{{ $t('settings.vuetorrent.torrentCard.list.doneTip') }}</v-list-subheader>
 
+        <v-list-item>
+          <v-row>
+            <v-col cols="6" class="d-flex justify-center">
+              <v-btn :text="$t('common.selectAll')" color="primary" @click="selectAll(false)" />
+            </v-col>
+            <v-col cols="6" class="d-flex justify-center">
+              <v-btn :text="$t('common.selectNone')" color="primary" @click="selectNone(false)" />
+            </v-col>
+          </v-row>
+        </v-list-item>
+
         <v-table>
-          <draggable v-model="doneTorrentProperties" item-key="name" tag="tbody" handle=".dnd-handle">
+          <draggable v-model="doneProperties" item-key="name" tag="tbody" handle=".dnd-handle">
             <template v-slot:item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(false, element)" />
             </template>
