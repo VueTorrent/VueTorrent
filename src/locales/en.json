@@ -1198,6 +1198,7 @@
       "reannounce": "Next reannounce in",
       "save_path": "Save Path",
       "seeding_time": "Seeding time",
+      "seeding_time_limit": "Seeding time limit",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete",
       "seq_dl": "Sequential Download",

@@ -1184,6 +1184,7 @@
       "progress_bar": "Barre de progression",
       "ratio": "Ratio",
       "ratio_limit": "Limite du ratio",
+      "ratio_time_limit": "Limite de temps du ratio",
       "save_path": "Sauvegarder le chemin",
       "seeding_time": "Temps de seed",
       "seeds": "Seeders",

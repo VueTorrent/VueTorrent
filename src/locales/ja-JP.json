@@ -1191,6 +1191,7 @@
       "progress_bar": "進捗状況バー",
       "ratio": "共有比",
       "ratio_limit": "共有比制限",
+      "ratio_time_limit": "共有時間制限",
       "reannounce": "次の再アナウンスまで",
       "save_path": "保存先パス",
       "seeding_time": "シード時間",

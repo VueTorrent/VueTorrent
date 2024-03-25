@@ -1191,6 +1191,7 @@
       "progress_bar": "Haladás Sáv",
       "ratio": "Arány",
       "ratio_limit": "Arány korlát",
+      "ratio_time_limit": "Arány időkorlát",
       "reannounce": "Következő újrahirdetés",
       "save_path": "Mentési Útvonal",
       "seeding_time": "Seedelési idő",

@@ -11,6 +11,7 @@ const { properties } = storeToRefs(useTorrentDetailStore())
 
 const torrentValues = [
   { title: 'seeding_time', getter: () => props.torrent.seeding_time },
+  { title: 'seeding_time_limit', getter: () => props.torrent.seeding_time_limit },
   { title: 'time_active', getter: () => props.torrent.time_active },
   { title: 'reannounce', getter: () => properties.value?.reannounce ?? 0 }
 ]

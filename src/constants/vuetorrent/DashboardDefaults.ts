@@ -41,11 +41,11 @@ export const propsData: PropertyData = {
   },
   [DashboardProperty.AVG_DOWNLOAD_SPEED]: {
     active: false,
-    order: 39
+    order: 40
   },
   [DashboardProperty.AVG_UPLOAD_SPEED]: {
     active: false,
-    order: 40
+    order: 41
   },
   [DashboardProperty.CATEGORY]: {
     active: true,
@@ -134,6 +134,10 @@ export const propsData: PropertyData = {
   [DashboardProperty.SEEDING_TIME]: {
     active: false,
     order: 38
+  },
+  [DashboardProperty.SEEDING_TIME_LIMIT]: {
+    active: false,
+    order: 39
   },
   [DashboardProperty.SEEDS]: {
     active: true,
@@ -303,6 +307,10 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.SEEDING_TIME]: {
+    props: { titleKey: 'torrent.properties.seeding_time', value: t => t.seeding_time },
+    type: DashboardPropertyType.DURATION
+  },
+  [DashboardProperty.SEEDING_TIME_LIMIT]: {
     props: { titleKey: 'torrent.properties.seeding_time', value: t => t.seeding_time },
     type: DashboardPropertyType.DURATION
   },

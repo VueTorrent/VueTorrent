@@ -1162,6 +1162,7 @@
       "progress_bar": "진행률",
       "ratio": "비율(레이쇼)",
       "ratio_limit": "비율 제한",
+      "ratio_time_limit": "비율 시간 제한",
       "save_path": "저장 경로",
       "seeding_time": "시딩 시간",
       "seeds": "시드",

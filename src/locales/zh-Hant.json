@@ -1191,6 +1191,7 @@
       "progress_bar": "進度列",
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
+      "ratio_time_limit": "分享時間限制",
       "reannounce": "下次重新發佈时间",
       "save_path": "儲存路徑",
       "seeding_time": "做種時間",

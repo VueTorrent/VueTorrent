@@ -26,6 +26,7 @@ export enum DashboardProperty {
   RATIO_LIMIT = 'ratio_limit',
   SAVE_PATH = 'save_path',
   SEEDING_TIME = 'seeding_time',
+  SEEDING_TIME_LIMIT = 'seeding_time_limit',
   SEEDS = 'seeds',
   SEEN_COMPLETE = 'seen_complete',
   SIZE = 'size',

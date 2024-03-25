@@ -1191,6 +1191,7 @@
       "progress_bar": "Barra de progreso",
       "ratio": "Ratio",
       "ratio_limit": "Límite de ratio",
+      "ratio_time_limit": "Límite de tiempo de ratio",
       "reannounce": "Próximo reanuncio en",
       "save_path": "Ruta de guardado",
       "seeding_time": "Tiempo de siembra",
