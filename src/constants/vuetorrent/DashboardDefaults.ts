@@ -298,10 +298,6 @@ export const propsMetadata: PropertyMetadata = {
     props: { titleKey: 'torrent.properties.ratio_limit', value: t => t.ratio_limit.toString() },
     type: DashboardPropertyType.TEXT
   },
-  [DashboardProperty.RATIO_TIME_LIMIT]: {
-    props: { titleKey: 'torrent.properties.ratio_time_limit', value: () => '' },
-    type: DashboardPropertyType.TEXT
-  },
   [DashboardProperty.SAVE_PATH]: {
     props: { titleKey: 'torrent.properties.save_path', value: t => t.savePath },
     type: DashboardPropertyType.TEXT
