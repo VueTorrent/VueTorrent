@@ -24,6 +24,7 @@ export enum DashboardProperty {
   PROGRESS = 'progress',
   RATIO = 'ratio',
   RATIO_LIMIT = 'ratio_limit',
+  /** @deprecated property isn't bound to anything */
   RATIO_TIME_LIMIT = 'ratio_time_limit',
   SAVE_PATH = 'save_path',
   SEEDING_TIME = 'seeding_time',

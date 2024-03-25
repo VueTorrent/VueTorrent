@@ -2,11 +2,9 @@
 import { Torrent } from '@/types/vuetorrent'
 import dayjs from '@/plugins/dayjs'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+defineProps<{ torrent: Torrent; value: (t: Torrent) => number }>()
 </script>
 
 <template>
-  <td>{{ dayjs(torrent[value] * 1000).fromNow() }}</td>
+  <td>{{ dayjs(value(torrent) * 1000).fromNow() }}</td>
 </template>
-
-<style scoped></style>

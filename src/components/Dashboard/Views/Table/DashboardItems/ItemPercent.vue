@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => number; color: (T: Torrent) => string }>()
+
+const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
   <td>
-    <v-progress-linear :model-value="torrent[value]" :max="1" :height="20" :color="`torrent-${torrent.state}`" rounded="sm" style="width: 10em">
-      {{ formatPercent(torrent[value]) }}
+    <v-progress-linear :model-value="val" :max="1" :height="20" :color="color(torrent)" rounded="sm" style="width: 10em">
+      {{ formatPercent(val) }}
     </v-progress-linear>
   </td>
 </template>
-
-<style scoped></style>

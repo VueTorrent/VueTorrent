@@ -10,7 +10,7 @@ const props = defineProps<{ torrent: Torrent }>()
 const { properties } = storeToRefs(useTorrentDetailStore())
 
 const torrentValues = [
-  { title: 'ratio_time_limit', getter: () => props.torrent.ratio_time_limit },
+  { title: 'ratio_time_limit', getter: () => 0 },
   { title: 'seeding_time', getter: () => props.torrent.seeding_time },
   { title: 'time_active', getter: () => props.torrent.time_active },
   { title: 'reannounce', getter: () => properties.value?.reannounce ?? 0 }

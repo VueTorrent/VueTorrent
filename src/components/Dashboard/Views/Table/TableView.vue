@@ -38,7 +38,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['pointer', isTorrentS
         <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
         <th v-for="ppt in torrentProperties" class="text-left">
-          {{ $t(`torrent.properties.${ppt.props.title}`) }}
+          {{ $t(ppt.props.titleKey) }}
         </th>
       </tr>
     </thead>

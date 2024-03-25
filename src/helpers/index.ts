@@ -1,6 +1,6 @@
 import { getColorFromName } from './colors'
 import { formatDataValue, formatDataUnit, formatData } from './data'
-import { formatEta } from './datetime'
+import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
 import { toPrecision, formatPercent } from './number'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { isWindows, isMac, doesCommand } from './system'
@@ -12,6 +12,8 @@ export {
   formatDataUnit,
   formatData,
   formatEta,
+  formatTimeMs,
+  formatTimeSec,
   toPrecision,
   formatPercent,
   formatSpeedValue,

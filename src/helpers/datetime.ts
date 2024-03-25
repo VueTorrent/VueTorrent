@@ -1,3 +1,6 @@
+import { defaultDateFormat } from '@/constants/vuetorrent'
+import dayjs from '@/plugins/dayjs'
+
 export function formatEta(value: number): string {
   const options = { dayLimit: 100 }
   const minute = 60
@@ -46,4 +49,12 @@ export function formatEta(value: number): string {
   }
 
   return parts.join(' ')
+}
+
+export function formatTimeMs(value: number, format: string): string {
+  return dayjs(value).format(format ?? defaultDateFormat)
+}
+
+export function formatTimeSec(value: number, format: string): string {
+  return formatTimeMs(value * 1000, format)
 }
