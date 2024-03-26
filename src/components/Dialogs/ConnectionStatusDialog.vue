@@ -2,7 +2,7 @@
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
 import { useLogStore, useMaindataStore } from '@/stores'
-import { computed, ref, onMounted } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<{
   guid: string
@@ -25,27 +25,8 @@ const connectionStatusColor = computed(() => {
   }
 })
 
-const geoDetails = ref<string | null>(null)
-
 const close = () => {
   isOpened.value = false
-}
-
-onMounted(() => {
-  getGeoDetails()
-})
-
-const getGeoDetails = () => {
-  const externalIp = logStore.externalIp
-  fetch('https://ipinfo.io/' + externalIp + '/json')
-    .then(response => response.json())
-    .then(data => {
-      geoDetails.value = data.city + ', ' + data.region + ', ' + data.country + ' | ' + data.org
-      console.log('Geolocation Details:', geoDetails.value)
-    })
-    .catch(error => {
-      console.error('Error fetching geolocation details:', error)
-    })
 }
 </script>
 
@@ -80,10 +61,17 @@ const getGeoDetails = () => {
             </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
-            <div>{{ 'Geolocation Details' }}</div>
+            <div>{{ $t('dialogs.connectionStatus.isp_details') }}</div>
             <div class="ml-2">
-              <span v-if="geoDetails">{{ geoDetails }}</span>
-              <span v-else class="text-warning">{{ 'Fetching geolocation details failed' }}</span>
+              <span v-if="logStore.ispDetails" class="text-info">{{ logStore.ispDetails }}</span>
+              <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_isp_failed') }}</span>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.geo_details') }}</div>
+            <div class="ml-2">
+              <span v-if="logStore.geoDetails" class="text-info">{{ logStore.geoDetails }}</span>
+              <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_geo_failed') }}</span>
             </div>
           </v-col>
         </v-row>
