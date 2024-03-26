@@ -127,15 +127,15 @@ export const propsData: PropertyData = {
     active: false,
     order: 37
   },
-  [DashboardProperty.RATIO_TIME_LIMIT]: {
-    active: false,
-    order: 38
-  },
   [DashboardProperty.SAVE_PATH]: {
     active: false,
     order: 6
   },
   [DashboardProperty.SEEDING_TIME]: {
+    active: false,
+    order: 38
+  },
+  [DashboardProperty.SEEDING_TIME_LIMIT]: {
     active: false,
     order: 39
   },
@@ -302,16 +302,16 @@ export const propsMetadata: PropertyMetadata = {
     props: { titleKey: 'torrent.properties.ratio_limit', value: t => t.ratio_limit.toString() },
     type: DashboardPropertyType.TEXT
   },
-  [DashboardProperty.RATIO_TIME_LIMIT]: {
-    props: { titleKey: 'torrent.properties.ratio_time_limit', value: () => '' },
-    type: DashboardPropertyType.TEXT
-  },
   [DashboardProperty.SAVE_PATH]: {
     props: { titleKey: 'torrent.properties.save_path', value: t => t.savePath },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.SEEDING_TIME]: {
     props: { titleKey: 'torrent.properties.seeding_time', value: t => t.seeding_time },
+    type: DashboardPropertyType.DURATION
+  },
+  [DashboardProperty.SEEDING_TIME_LIMIT]: {
+    props: { titleKey: 'torrent.properties.seeding_time_limit', value: t => t.seeding_time_limit },
     type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.SEEDS]: {
