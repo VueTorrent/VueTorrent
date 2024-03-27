@@ -11,6 +11,7 @@ class BackendProvider {
 
   constructor() {
     this.axios = axios.create({
+      withCredentials: true,
       headers: {
         put: { 'Content-Type': 'application/json' }
       }

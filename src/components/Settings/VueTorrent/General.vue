@@ -208,7 +208,7 @@ onBeforeMount(() => {
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.backendUrl" :label="t('settings.vuetorrent.general.backendUrl')" />
+          <v-text-field v-model="vueTorrentStore.backendUrl" :label="t('settings.vuetorrent.general.backendUrl')" placeholder="https://YOUR-HOST:PORT/" />
         </v-col>
       </v-row>
     </v-list-item>
