@@ -26,7 +26,7 @@ const contentStore = useContentStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const depth = computed(() => {
-  if (props.node.name === '(root)') return 0
+  if (props.node.fullName === '') return 0
 
   const effectiveDepth = props.node.fullName.split('/').length
   const depthStep = mobile.value ? 12 : 24
@@ -117,7 +117,7 @@ function getNodeSubtitle(node: TreeNode) {
       <div class="d-flex align-center spacer" @click="openNode($event, node)">
         <v-icon v-if="node.type === 'folder'">{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
 
-        <v-icon v-if="node.name === '(root)'" icon="mdi-file-tree" />
+        <v-icon v-if="node.fullName === ''" icon="mdi-file-tree" />
         <v-icon v-else-if="node.type === 'file'" :icon="getFileIcon(node.name)" />
         <v-icon v-else-if="openedItems.includes(node.fullName)" icon="mdi-folder-open" :color="folderColor" />
         <v-icon v-else icon="mdi-folder" :color="folderColor" />

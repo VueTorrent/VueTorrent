@@ -27,7 +27,7 @@ export const useContentStore = defineStore('content', () => {
   })
   const _lock = ref(false)
   const cachedFiles = ref<TorrentFile[]>([])
-  const openedItems = ref(['(root)'])
+  const openedItems = ref([''])
   const { tree } = useTreeBuilder(cachedFiles)
 
   const flatTree = computed(() => {
@@ -71,7 +71,7 @@ export const useContentStore = defineStore('content', () => {
     {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
-      hidden: internalSelection.value.size > 1 || selectedNode.value?.name === '(root)',
+      hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)
     },
     {
@@ -162,7 +162,7 @@ export const useContentStore = defineStore('content', () => {
       while (_lock.value) {}
       internalSelection.value.clear()
       cachedFiles.value = []
-      openedItems.value = ['(root)']
+      openedItems.value = ['']
       pauseTimer()
     }
   }
