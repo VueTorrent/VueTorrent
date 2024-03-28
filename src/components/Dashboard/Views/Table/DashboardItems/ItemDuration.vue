@@ -3,10 +3,11 @@ import dayjs from '@/plugins/dayjs'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => number }>()
 
+const val = computed(() => props.value(props.torrent))
 const formattedDuration = computed(() => {
-  const duration = dayjs.duration(props.torrent[props.value], 'seconds')
+  const duration = dayjs.duration(val.value, 'seconds')
 
   const durationValues = [duration.years(), duration.months(), duration.days(), duration.hours(), duration.minutes(), duration.seconds()]
   const durationLabels = ['Y', 'M', 'd', 'h', 'm', 's']
@@ -25,10 +26,8 @@ const formattedDuration = computed(() => {
 </script>
 
 <template>
-  <td v-if="torrent[value] > 0">
+  <td v-if="val > 0">
     {{ formattedDuration }}
   </td>
   <td v-else>{{ $t('dashboard.not_complete') }}</td>
 </template>
-
-<style scoped></style>

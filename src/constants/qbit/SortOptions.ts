@@ -6,7 +6,9 @@ export enum SortOptions {
   AVG_DOWNLOAD_SPEED = 'avgDownloadSpeed',
   AVG_UPLOAD_SPEED = 'avgUploadSpeed',
   CATEGORY = 'category',
+  /** @deprecated rework with sort system */
   COMPLETED = 'completed',
+  /** @deprecated rework with sort system */
   COMPLETION_ON = 'completion_on',
   CONTENT_PATH = 'content_path',
   DEFAULT = '',

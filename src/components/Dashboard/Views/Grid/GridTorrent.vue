@@ -65,7 +65,9 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
     <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex gap flex-wrap">
-        <component :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" v-for="ppt in torrentProperties" />
+        <template v-for="ppt in torrentProperties">
+          <component v-if="ppt.props" :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" />
+        </template>
       </div>
     </v-card-text>
   </v-card>

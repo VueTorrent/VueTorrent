@@ -1,19 +1,17 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent; title: string; value: string; total: string }>()
+defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number; total?: (t: Torrent) => number }>()
 </script>
 
 <template>
   <div class="d-flex flex-column">
-    <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${title}`) }}
+    <div v-if="titleKey" class="text-caption text-grey">
+      {{ $t(titleKey) }}
     </div>
     <div>
-      {{ torrent[value] }}
-      <span class="text-caption text-grey"> / {{ torrent[total] }} </span>
+      {{ value(torrent) }}
+      <span v-if="total" class="text-caption text-grey"> / {{ total(torrent) }} </span>
     </div>
   </div>
 </template>
-
-<style scoped></style>

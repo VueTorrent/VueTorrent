@@ -5,33 +5,36 @@ import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; title: string; value: string; color: string; enableHashColor: boolean }>()
+const props = withDefaults(defineProps<{
+  torrent: Torrent
+  titleKey?: string
+  value: (t: Torrent) => string[]
+  emptyValueKey: string
+  color: (t: Torrent) => string
+  enableHashColor?: boolean
+}>(), {
+  enableHashColor: false
+})
 
 const { hideChipIfUnset, enableHashColors } = storeToRefs(useVueTorrentStore())
 
-const values = computed(() => {
-  const val = props.torrent[props.value]
-  const type = typeof val
-
-  if (type === 'string') return val.length > 0 ? [val] : []
-  else if (type === 'object' /* array */) return val
-})
-
-const emptyValue = computed(() => values.value.length < 1)
+const val = computed(() => props.value(props.torrent))
+const emptyValue = computed(() => val.value.length < 1 || val.value[0] === '')
+const shouldShowChip = computed(() => !(hideChipIfUnset.value && emptyValue.value))
 const useRandomColor = computed(() => enableHashColors.value && props.enableHashColor)
 </script>
 
 <template>
-  <div class="d-flex flex-column" v-if="!(hideChipIfUnset && emptyValue)">
-    <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${title}`) }}
+  <div class="d-flex flex-column" v-if="shouldShowChip">
+    <div v-if="titleKey" class="text-caption text-grey">
+      {{ $t(titleKey) }}
     </div>
     <div class="d-flex flex-row gap">
-      <v-chip v-if="!values || emptyValue" :color="color.replace('$1', torrent[value])" variant="flat">
-        {{ $t(`torrent.properties.empty_${value}`) }}
+      <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat" size="small">
+        {{ $t(emptyValueKey) }}
       </v-chip>
-      <v-chip v-else v-for="val in values" :color="useRandomColor ? getColorFromName(val) : color.replace('$1', torrent.state)" variant="flat">
-        {{ val }}
+      <v-chip v-else v-for="v in val" :color="useRandomColor ? getColorFromName(v) : color(torrent)" variant="flat" size="small">
+        {{ v }}
       </v-chip>
     </div>
   </div>

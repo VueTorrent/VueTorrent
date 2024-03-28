@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent; title: string; value: string; color?: (v: any) => string }>()
+const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => string, color?: (v: any) => string }>()
+
+const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
-  <td :class="color ? color(torrent[value]) : ''">{{ torrent[value] }}</td>
+  <td :class="color ? color(val) : ''">{{ val }}</td>
 </template>
-
-<style scoped></style>
