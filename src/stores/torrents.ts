@@ -187,27 +187,9 @@ export const useTorrentStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_torrents',
-          paths: [
-            'isTextFilterActive',
-            'textFilter',
-            'isStatusFilterActive',
-            'statusFilter',
-            'isCategoryFilterActive',
-            'categoryFilter',
-            'isTagFilterActive',
-            'tagFilter',
-            'isTrackerFilterActive',
-            'trackerFilter',
-            'sortOptions'
-          ]
-        }
-      ]
+      storageItems: [{ storage: localStorage, excludePaths: ['torrents'] }]
     }
   }
 )

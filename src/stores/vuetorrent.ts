@@ -1,5 +1,6 @@
 import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, VuetorrentTheme } from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify'
+import { backendStorage } from '@/services/backend'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
@@ -10,6 +11,8 @@ import { useTheme } from 'vuetify'
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
+    const backendUrl = ref('')
+
     const language = ref('en')
     const vuetorrentTheme = ref<VuetorrentTheme>(VuetorrentTheme.SYSTEM)
     const showFreeSpace = ref(true)
@@ -214,6 +217,7 @@ export const useVueTorrentStore = defineStore(
     }
 
     return {
+      backendUrl,
       vuetorrentTheme,
       dateFormat,
       deleteWithFiles,
@@ -265,6 +269,7 @@ export const useVueTorrentStore = defineStore(
       toggleDoneGridProperty,
       toggleTableProperty,
       $reset: () => {
+        backendUrl.value = ''
         language.value = 'en'
         vuetorrentTheme.value = VuetorrentTheme.SYSTEM
         showFreeSpace.value = true
@@ -302,13 +307,11 @@ export const useVueTorrentStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_webuiSettings'
-        }
+      storageItems: [
+        { storage: localStorage, key: 'webuiSettings' },
+        { storage: backendStorage, key: 'webuiSettings', excludePaths: ['backendUrl']}
       ]
     }
   }

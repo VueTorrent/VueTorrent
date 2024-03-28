@@ -132,15 +132,9 @@ export const useDashboardStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_dashboard',
-          paths: ['displayMode']
-        }
-      ]
+      storageItems: [{ storage: localStorage, includePaths: ['displayMode'] }]
     }
   }
 )
