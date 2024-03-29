@@ -1,3 +1,4 @@
+import { ContentLayout } from '@/constants/qbit/AppPreferences.ts'
 import { AddTorrentParams } from '@/types/qbit/models'
 
 export default interface FeedRule {
@@ -73,4 +74,17 @@ export default interface FeedRule {
   torrentParams: AddTorrentParams
   /** Enable regex mode in "mustContain" and "mustNotContain" */
   useRegex: boolean
+
+  /** Torrent save path
+   * @deprecated since v4.6.0 */
+  savePath?: string
+  /** Torrent category
+   * @deprecated since v4.6.0 */
+  assignedCategory?: string
+  /** Torrent paused state
+   * @deprecated since v4.6.0 */
+  addPaused?: boolean
+  /** Torrent content layout
+   * @deprecated since v4.6.0 */
+  torrentContentLayout?: ContentLayout
 }
