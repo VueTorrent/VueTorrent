@@ -176,7 +176,22 @@ export default class QBitProvider implements IProvider {
       .then(payload => {
         const rules: FeedRule[] = []
         for (const key in payload) {
-          rules.push({ name: key, ...payload[key] })
+          const ruleBody = payload[key] as Omit<FeedRule, "name">
+          const rule = {
+            name: key,
+            ...ruleBody
+          }
+
+          if (!Object.hasOwn(rule, 'torrentParams')) {
+            rule.torrentParams = {
+              save_path: ruleBody.savePath,
+              category: ruleBody.assignedCategory,
+              stopped: ruleBody.addPaused,
+              content_layout: ruleBody.torrentContentLayout
+            }
+          }
+
+          rules.push(rule)
         }
         return rules
       })
