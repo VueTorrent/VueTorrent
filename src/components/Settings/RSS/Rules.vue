@@ -55,9 +55,13 @@ watch(
         <div class="pl-4">{{ rule.name }}</div>
         <v-spacer />
         <div>
-          <v-btn v-if="rule.enabled" class="my-2 mr-2" icon="mdi-check" color="accent" variant="plain" density="compact" @click="toggleRule(rule)" />
-          <v-btn v-if="!rule.enabled" class="my-2 mr-2" icon="mdi-cancel" color="red" variant="plain" density="compact" @click="toggleRule(rule)" />
-
+          <v-btn
+            class="my-2 mr-2"
+            :icon="rule.enabled ? 'mdi-check' : 'mdi-cancel'"
+            :color="rule.enabled ? 'accent' : 'red'"
+            variant="plain"
+            density="compact"
+            @click="toggleRule(rule)" />
           <v-btn class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="openRuleDialog(rule)" />
           <v-btn class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(rule)" />
         </div>
@@ -77,5 +81,3 @@ watch(
     </v-col>
   </v-row>
 </template>
-
-<style scoped lang="scss"></style>

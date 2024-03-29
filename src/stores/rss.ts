@@ -35,7 +35,13 @@ export const useRssStore = defineStore(
     }
 
     async function setRule(ruleName: string, ruleDef: FeedRule) {
-      await qbit.setRule(ruleName, ruleDef)
+      await qbit.setRule(ruleName, {
+        ...ruleDef,
+        savePath: ruleDef.torrentParams.save_path,
+        assignedCategory: ruleDef.torrentParams.category,
+        addPaused: ruleDef.torrentParams.stopped,
+        torrentContentLayout: ruleDef.torrentParams.content_layout
+      })
     }
 
     async function renameFeed(oldName: string, newName: string) {
