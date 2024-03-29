@@ -176,7 +176,7 @@ export default class QBitProvider implements IProvider {
       .then(payload => {
         const rules: FeedRule[] = []
         for (const key in payload) {
-          const ruleBody = payload[key] as Omit<FeedRule, "name">
+          const ruleBody = payload[key] as Omit<FeedRule, 'name'>
           const rule = {
             name: key,
             ...ruleBody
