@@ -356,6 +356,21 @@
       "sameName": "New name must be different from old name",
       "title": "Rename Torrent"
     },
+    "bulkRenameFiles": {
+      "title": "Bulk Rename",
+      "regexp": "Regular Expression",
+      "target": "Replacement Input",
+      "col_origin_name": "Original",
+      "col_result_name": "Result",
+      "run": "Run",
+      "success": "Rename Successful",
+      "nothing_no_do": "No tasks to do",
+      "duplicated": "Duplicate Filename",
+      "not_changed": "Filename Not Changed",
+      "fold": "Collapse",
+      "unfold": "Expand",
+      "notForFolder": "Folder Renaming Not Supported"
+    },
     "rss": {
       "feed": {
         "name": "Name",

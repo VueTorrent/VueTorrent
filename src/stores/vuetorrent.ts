@@ -35,6 +35,9 @@ export const useVueTorrentStore = defineStore(
     const refreshInterval = ref(2000)
     const fileContentInterval = ref(5000)
     const useIdForRssLinks = ref(false)
+    const bulkRenameRegexp = ref('')
+    const bulkRenameRegexpFlags = ref([])
+    const bulkRenameTarget = ref('')
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -239,6 +242,9 @@ export const useVueTorrentStore = defineStore(
       useBinarySize,
       useBitSpeed,
       useIdForRssLinks,
+      bulkRenameRegexp,
+      bulkRenameRegexpFlags,
+      bulkRenameTarget,
       _busyProperties,
       busyTorrentProperties,
       _doneProperties,
