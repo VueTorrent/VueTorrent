@@ -364,13 +364,13 @@
       "col_result_name": "Result",
       "run": "Run",
       "success": "Rename Successful",
-      "nothing_no_do": "No tasks to do",
       "duplicated": "Duplicate Filename",
       "not_changed": "Filename Not Changed",
       "fold": "Collapse",
       "unfold": "Expand",
       "notForFolder": "Folder Renaming Not Supported",
-      "select_regex_flags": "Select Regular Expression Flags"
+      "select_regex_flags": "Select Regular Expression Flags",
+      "nothing_to_do": "No tasks to do"
     },
     "rss": {
       "feed": {

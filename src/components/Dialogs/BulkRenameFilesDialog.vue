@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
+import HistoryField from '@/components/Core/HistoryField.vue'
 import { getFileIcon } from '@/constants/vuetorrent'
 import { useContentStore } from '@/stores'
 import { TreeFolder, TreeNode } from '@/types/vuetorrent'
-import { storeToRefs } from 'pinia'
+import { HistoryKey } from '@/constants/vuetorrent'
 import { reactive, ref, onMounted, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -22,11 +23,11 @@ const contentStore = useContentStore()
 const form = ref<VForm>()
 const isFormValid = ref(false)
 const hasDuplicated = ref(false)
-const {
-  bulkRenameRegexp: regexpInput,
-  bulkRenameRegexpFlags: regexpFlagsInput,
-  bulkRenameTarget: targetInput
-} = storeToRefs(contentStore)
+const regexpInput = ref('')
+const regexpEl = ref<typeof HistoryField>()
+const regexpFlagsInput = ref([])
+const targetInput = ref('')
+const targetEl = ref<typeof HistoryField>()
 const running = ref(false)
 
 const rules = [(v: string) => !!v]
@@ -157,13 +158,13 @@ const fileCheckChange = (item: ItemRow) => {
 }
 
 const dryRunRename = (partialItems?: ItemRow[]) => {
-  let regexp: RegExp;
+  let regexp: RegExp
   try {
     regexp = new RegExp(regexpInput.value, regexpFlagsInput.value.join(''))
   } catch {
     return
   }
-  (partialItems ? partialItems : items).forEach(item => {
+  ;(partialItems ? partialItems : items).forEach(item => {
     if (item.type === 'file') {
       if (isFormValid.value && item.selected && regexp.test(item.name)) {
         item.targetName = item.name.replace(regexp, targetInput.value)
@@ -192,7 +193,7 @@ const dryRunRename = (partialItems?: ItemRow[]) => {
 
 const run = async () => {
   if (!candidateItems.value.length) {
-    return toast.warn(t('dialogs.bulkRenameFiles.nothing_no_do'))
+    return toast.warn(t('dialogs.bulkRenameFiles.nothing_to_do'))
   }
   const reqList = []
   for (const item of candidateItems.value) {
@@ -202,6 +203,8 @@ const run = async () => {
   Promise.all(reqList)
     .then(() => {
       toast.success(t('dialogs.bulkRenameFiles.success'))
+      regexpEl.value?.saveValueToHistory()
+      targetEl.value?.saveValueToHistory()
     })
     .catch(e => {
       toast.error(e.toString())
@@ -239,7 +242,14 @@ onMounted(() => {
         <v-form v-model="isFormValid" ref="form">
           <v-row no-gutters align="center" justify="center">
             <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
-              <v-text-field hide-details density="compact" v-model="regexpInput" :rules="rules" :label="$t('dialogs.bulkRenameFiles.regexp')">
+              <HistoryField
+                :historyKey="HistoryKey.BULK_RENAME_REGEXP"
+                ref="regexpEl"
+                hide-details
+                density="compact"
+                v-model="regexpInput"
+                :rules="rules"
+                :label="$t('dialogs.bulkRenameFiles.regexp')">
                 <template v-slot:append>
                   <v-select
                     v-model="regexpFlagsInput"
@@ -250,13 +260,20 @@ onMounted(() => {
                     multiple
                     hide-details></v-select>
                 </template>
-              </v-text-field>
+              </HistoryField>
             </v-col>
             <v-col cols="auto">
-              <v-icon class="mx-2" icon="mdi-arrow-right" />
+              <v-icon class="mx-2" :icon="`mdi-arrow-${$vuetify.display.mobile ? 'down' : 'right'}`" />
             </v-col>
             <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
-              <v-text-field hide-details density="compact" v-model="targetInput" :rules="rules" :label="$t('dialogs.bulkRenameFiles.target')" />
+              <HistoryField
+                :historyKey="HistoryKey.BULK_RENAME_TARGET"
+                ref="targetEl"
+                hide-details
+                density="compact"
+                v-model="targetInput"
+                :rules="rules"
+                :label="$t('dialogs.bulkRenameFiles.target')" />
             </v-col>
             <v-col cols="auto">
               <v-badge :class="$vuetify.display.mobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
@@ -273,7 +290,11 @@ onMounted(() => {
                 <v-checkbox-btn v-else v-model="item.selected" :indeterminate="item.indeterminate" @change="folderCheckChange(item)" />
               </template>
               <template v-slot:item.name>
-                <span class="fold-toggle" :class="{ clickable: item.type === 'folder' }" :style="{'padding-left': `${item.indent*20}px`}" @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
+                <span
+                  class="fold-toggle"
+                  :class="{ clickable: item.type === 'folder' }"
+                  :style="{ 'padding-left': `${item.indent * 20}px` }"
+                  @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
                   <v-tooltip v-if="item.type === 'folder'" location="top" activator="parent">
                     {{ t(`dialogs.bulkRenameFiles.${item.folded ? 'unfold' : 'fold'}`) }}
                   </v-tooltip>
@@ -313,7 +334,7 @@ onMounted(() => {
   min-width: 100px;
 }
 .v-card-text {
-  height: calc(100vh - 112px)
+  height: calc(100vh - 112px);
 }
 .v-table {
   overflow: auto;
@@ -329,7 +350,8 @@ onMounted(() => {
 .fold-toggle.clickable {
   cursor: pointer;
 }
-.fold-toggle, .target-name {
+.fold-toggle,
+.target-name {
   word-break: keep-all;
   white-space: pre;
 }

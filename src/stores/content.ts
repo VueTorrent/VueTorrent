@@ -28,10 +28,6 @@ export const useContentStore = defineStore('content', () => {
   const _lock = ref(false)
   const cachedFiles = ref<TorrentFile[]>([])
   const openedItems = ref([''])
-  
-  const bulkRenameRegexp = ref('')
-  const bulkRenameRegexpFlags = ref([])
-  const bulkRenameTarget = ref('')
   const { tree } = useTreeBuilder(cachedFiles)
 
   const flatTree = computed(() => {
@@ -158,9 +154,6 @@ export const useContentStore = defineStore('content', () => {
     menuData,
     cachedFiles,
     openedItems,
-    bulkRenameRegexp,
-    bulkRenameRegexpFlags,
-    bulkRenameTarget,
     tree,
     flatTree,
     updateFileTree,
