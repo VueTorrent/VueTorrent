@@ -86,6 +86,8 @@ watch(() => props.isActive, setupTimer)
                 Flags: <span class="cursor-help" :title="peer.flags_desc">{{ peer.flags }}</span>
               </div>
 
+              <div>Client: {{ peer.client }}</div>
+
               <div>Progress: {{ formatPercent(peer.progress) }}</div>
 
               <div>
