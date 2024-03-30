@@ -369,7 +369,8 @@
       "not_changed": "Filename Not Changed",
       "fold": "Collapse",
       "unfold": "Expand",
-      "notForFolder": "Folder Renaming Not Supported"
+      "notForFolder": "Folder Renaming Not Supported",
+      "select_regex_flags": "Select Regular Expression Flags"
     },
     "rss": {
       "feed": {
