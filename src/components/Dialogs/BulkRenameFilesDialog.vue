@@ -157,7 +157,11 @@ const fileCheckChange = (item: ItemRow) => {
   dryRunRename([item])
 }
 
-const dryRunRename = (partialItems?: ItemRow[]) => {
+const dryRunRename = async (partialItems?: ItemRow[]) => {
+  await form.value?.validate()
+  if (!isFormValid.value) {
+    return
+  }
   let regexp: RegExp
   try {
     regexp = new RegExp(regexpInput.value, regexpFlagsInput.value.join(''))
@@ -166,7 +170,7 @@ const dryRunRename = (partialItems?: ItemRow[]) => {
   }
   ;(partialItems ? partialItems : items).forEach(item => {
     if (item.type === 'file') {
-      if (isFormValid.value && item.selected && regexp.test(item.name)) {
+      if (item.selected && regexp.test(item.name)) {
         item.targetName = item.name.replace(regexp, targetInput.value)
         item.targetFullName = (item.parentItem!.fullName === '' ? '' : item.parentItem!.fullName + '/') + item.targetName
       } else {
@@ -241,7 +245,7 @@ onMounted(() => {
       <v-card-text class="d-flex flex-column">
         <v-form v-model="isFormValid" ref="form">
           <v-row no-gutters align="center" justify="center">
-            <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
+            <v-col :cols="$vuetify.display.mobile ? 9 : undefined">
               <HistoryField
                 :historyKey="HistoryKey.BULK_RENAME_REGEXP"
                 ref="regexpEl"
@@ -250,17 +254,18 @@ onMounted(() => {
                 v-model="regexpInput"
                 :rules="rules"
                 :label="$t('dialogs.bulkRenameFiles.regexp')">
-                <template v-slot:append>
-                  <v-select
-                    v-model="regexpFlagsInput"
-                    :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
-                    :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
-                    label="Flags"
-                    density="compact"
-                    multiple
-                    hide-details></v-select>
-                </template>
               </HistoryField>
+            </v-col>
+            <v-col :cols="$vuetify.display.mobile ? 3 : 'auto'">
+              <v-select
+                class="ml-2"
+                v-model="regexpFlagsInput"
+                :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
+                :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
+                label="Flags"
+                density="compact"
+                multiple
+                hide-details></v-select>
             </v-col>
             <v-col cols="auto">
               <v-icon class="mx-2" :icon="`mdi-arrow-${$vuetify.display.mobile ? 'down' : 'right'}`" />
@@ -273,7 +278,8 @@ onMounted(() => {
                 density="compact"
                 v-model="targetInput"
                 :rules="rules"
-                :label="$t('dialogs.bulkRenameFiles.target')" />
+                :label="$t('dialogs.bulkRenameFiles.target')">
+              </HistoryField>
             </v-col>
             <v-col cols="auto">
               <v-badge :class="$vuetify.display.mobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
@@ -330,9 +336,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.v-select {
-  min-width: 100px;
-}
 .v-card-text {
   height: calc(100vh - 112px);
 }
