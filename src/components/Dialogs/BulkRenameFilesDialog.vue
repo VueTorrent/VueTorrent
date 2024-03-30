@@ -231,18 +231,17 @@ onMounted(() => {
 <template>
   <v-dialog v-model="isOpened" persistent>
     <v-card density="compact">
-        <v-toolbar color="transparent">
-          <v-toolbar-title>{{ $t('dialogs.bulkRenameFiles.title') }}</v-toolbar-title>
-          <v-btn icon="mdi-close" @click="close()" />
-        </v-toolbar>
-      <v-card-text>
+      <v-toolbar color="transparent">
+        <v-toolbar-title>{{ $t('dialogs.bulkRenameFiles.title') }}</v-toolbar-title>
+        <v-btn icon="mdi-close" @click="close()" />
+      </v-toolbar>
+      <v-card-text class="d-flex flex-column">
         <v-form v-model="isFormValid" ref="form">
           <v-row no-gutters align="center" justify="center">
             <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
               <v-text-field hide-details density="compact" v-model="regexpInput" :rules="rules" :label="$t('dialogs.bulkRenameFiles.regexp')">
                 <template v-slot:append>
                   <v-select
-                    style="min-width: 100px"
                     v-model="regexpFlagsInput"
                     :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
                     :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
@@ -266,7 +265,7 @@ onMounted(() => {
             </v-col>
           </v-row>
         </v-form>
-        <v-data-table-virtual :headers="headers" :items="items" density="compact" height="calc(100vh - 200px)" fixed-header>
+        <v-data-table-virtual :headers="headers" :items="items" density="compact" fixed-header>
           <template v-slot:item="{ index, item }">
             <v-data-table-row v-show="item.show" :index="index" :item="item as any">
               <template v-slot:item.selected>
@@ -310,6 +309,15 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.v-select {
+  min-width: 100px;
+}
+.v-card-text {
+  height: calc(100vh - 112px)
+}
+.v-table {
+  overflow: auto;
+}
 .target-name {
   &.duplicated {
     color: red;
