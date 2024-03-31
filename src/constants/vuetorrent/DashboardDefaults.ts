@@ -215,7 +215,13 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.SPEED
   },
   [DashboardProperty.CATEGORY]: {
-    props: { titleKey: 'torrent.properties.category', emptyValueKey: 'torrent.properties.empty_category', value: t => [t.category], color: () => 'category', enableHashColor: true },
+    props: {
+      titleKey: 'torrent.properties.category',
+      emptyValueKey: 'torrent.properties.empty_category',
+      value: t => [t.category],
+      color: () => 'category',
+      enableHashColor: true
+    },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.COMPLETED_ON]: {
@@ -352,7 +358,13 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.TRACKER]: {
-    props: { titleKey: 'torrent.properties.tracker', emptyValueKey: 'torrent.properties.empty_category', value: t => [t.tracker_domain], color: () => 'tracker', enableHashColor: true },
+    props: {
+      titleKey: 'torrent.properties.tracker',
+      emptyValueKey: 'torrent.properties.empty_category',
+      value: t => [t.tracker_domain],
+      color: () => 'tracker',
+      enableHashColor: true
+    },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TRACKERS_COUNT]: {

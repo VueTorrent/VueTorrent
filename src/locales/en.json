@@ -303,6 +303,10 @@
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
       "externalIp": "External IP Address",
+      "fetch_geo_failed": "Unable to fetch geolocation details",
+      "fetch_isp_failed": "Unable to fetch ISP details",
+      "geo_details": "Geolocation details",
+      "isp_details": "ISP details",
       "noExternalIp": "Unable to detect from logs",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
@@ -920,9 +924,9 @@
         "customTitle": "Custom title",
         "dateFormat": "Date Format",
         "download": "Export settings",
+        "enableHashColors": "Enable generated chip colors",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
-        "enableHashColors": "Enable generated chip colors",
         "historySize": "History size on eligible fields",
         "import": "Import Settings",
         "isDrawerRight": "Right Drawer",
