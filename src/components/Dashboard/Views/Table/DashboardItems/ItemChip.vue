@@ -5,15 +5,18 @@ import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-const props = withDefaults(defineProps<{
-  torrent: Torrent
-  value: (t: Torrent) => string[]
-  emptyValueKey: string
-  color: (t: Torrent) => string
-  enableHashColor?: boolean
-}>(), {
-  enableHashColor: false
-})
+const props = withDefaults(
+  defineProps<{
+    torrent: Torrent
+    value: (t: Torrent) => string[]
+    emptyValueKey: string
+    color: (t: Torrent) => string
+    enableHashColor?: boolean
+  }>(),
+  {
+    enableHashColor: false
+  }
+)
 
 const { hideChipIfUnset, enableHashColors } = storeToRefs(useVueTorrentStore())
 

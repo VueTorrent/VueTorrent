@@ -2,7 +2,7 @@
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => string, color?: (v: any) => string }>()
+const props = defineProps<{ torrent: Torrent; value: (t: Torrent) => string; color?: (v: any) => string }>()
 
 const val = computed(() => props.value(props.torrent))
 </script>
