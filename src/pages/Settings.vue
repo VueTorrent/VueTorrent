@@ -62,7 +62,9 @@ const saveSettings = async () => {
   toast.success(t('settings.saveSuccess'))
   await preferenceStore.fetchPreferences()
 
+  const oldInit = backend.isInitialized
   backend.init(vuetorrentStore.backendUrl)
+  const newInit = backend.isInitialized
 
   if (!preferenceStore.preferences!.alternative_webui_enabled) {
     if ('serviceWorker' in navigator) {
@@ -74,8 +76,11 @@ const saveSettings = async () => {
     location.hash = ''
     location.reload()
   } else {
-    goHome()
-    return backend.ping()
+    if (!oldInit && newInit) {
+      location.reload()
+    } else {
+      await backend.ping()
+    }
   }
 }
 

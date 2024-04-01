@@ -5,7 +5,7 @@ import { toast } from 'vue3-toastify'
 
 class BackendProvider {
   private axios: AxiosInstance
-  private isInitialized: boolean = false
+  private _isInitialized: boolean = false
   private up: boolean = true
   private pingPromise: Promise<boolean> | null = null
 
@@ -18,9 +18,13 @@ class BackendProvider {
     })
   }
 
+  get isInitialized() {
+    return this._isInitialized
+  }
+
   init(baseURL: string) {
     this.axios.defaults.baseURL = baseURL
-    this.isInitialized = !!baseURL
+    this._isInitialized = !!baseURL
   }
 
   /**
@@ -28,7 +32,7 @@ class BackendProvider {
    * @returns true if backend is up, false otherwise
    */
   async ping(): Promise<boolean> {
-    if (!this.isInitialized) return false
+    if (!this._isInitialized) return false
     if (this.pingPromise) {
       return this.pingPromise
     }
@@ -61,7 +65,7 @@ class BackendProvider {
   }
 
   shouldDiscardCalls() {
-    return !this.isInitialized || !this.up
+    return !this._isInitialized || !this.up
   }
 
   /**
