@@ -5,6 +5,7 @@
     "close": "关闭",
     "delete": "删除",
     "disable": "禁用",
+    "disabled": "已禁用",
     "emptyList": "当前无内容显示",
     "NA": "不适用",
     "no": "否",
@@ -300,6 +301,7 @@
     "connectionStatus": {
       "dht_nodes": "DHT 节点",
       "externalIp": "外部 IP 地址",
+      "noExternalIp": "无法从日志中删除",
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
     },
@@ -1021,6 +1023,7 @@
       "pending": "正在上传...",
       "success": "{n} 个种子已添加 | {n} 个种子已添加"
     },
+    "backend_unreachable": "后台无法访问",
     "copy": {
       "error": "无法复制，当前环境不安全！",
       "success": "已复制到剪贴板！"
@@ -1191,10 +1194,10 @@
       "progress_bar": "进度条",
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
-      "ratio_time_limit": "分享时长限制",
       "reannounce": "下次重新汇报时间",
       "save_path": "保存路径",
       "seeding_time": "做种时长",
+      "seeding_time_limit": "做种时长限制",
       "seeds": "做种者",
       "seen_complete": "最后完整可见",
       "seq_dl": "顺序下载",

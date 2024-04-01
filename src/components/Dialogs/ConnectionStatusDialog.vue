@@ -60,6 +60,20 @@ const close = () => {
               {{ maindataStore.serverState?.total_peer_connections }}
             </div>
           </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.isp_details') }}</div>
+            <div class="ml-2">
+              <span v-if="logStore.ispDetails" class="text-info">{{ logStore.ispDetails }}</span>
+              <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_isp_failed') }}</span>
+            </div>
+          </v-col>
+          <v-col cols="12" sm="6" lg="3">
+            <div>{{ $t('dialogs.connectionStatus.geo_details') }}</div>
+            <div class="ml-2">
+              <span v-if="logStore.geoDetails" class="text-info">{{ logStore.geoDetails }}</span>
+              <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_geo_failed') }}</span>
+            </div>
+          </v-col>
         </v-row>
       </v-card-text>
       <v-card-actions>

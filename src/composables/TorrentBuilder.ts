@@ -82,7 +82,7 @@ export function useTorrentBuilder() {
         return data.downloaded + data.uploaded
       },
       get stateString() {
-        return t(`torrent.state.${ data.state }`)
+        return t(`torrent.state.${data.state}`)
       }
     })
   }

@@ -8,7 +8,7 @@ import type Tracker from './Tracker'
 import type Peer from './Peer'
 import type TorrentFile from './TorrentFile'
 import type TorrentProperties from './TorrentProperties'
-import type FeedRule from './FeedRule'
+import type { FeedRule, LegacyFeedRule } from './FeedRule'
 import type Feed from './Feed'
 import type SearchPlugin from './SearchPlugin'
 import type SearchJob from './SearchJob'
@@ -33,6 +33,7 @@ export type {
   TorrentFile,
   TorrentProperties,
   FeedRule,
+  LegacyFeedRule,
   FeedArticle,
   Feed,
   SearchPlugin,
