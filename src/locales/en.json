@@ -925,6 +925,7 @@
         "dateFormat": "Date Format",
         "download": "Export settings",
         "enableHashColors": "Enable generated chip colors",
+        "enableRatioColors": "Enable ratio colors",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
         "historySize": "History size on eligible fields",
