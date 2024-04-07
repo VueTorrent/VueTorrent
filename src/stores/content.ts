@@ -1,4 +1,4 @@
-import { useTreeBuilder } from '@/composables'
+import {useSearchQuery, useTreeBuilder} from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { qbit } from '@/services'
 import { useDialogStore } from '@/stores/dialog'
@@ -26,9 +26,11 @@ export const useContentStore = defineStore('content', () => {
     offset: [0, 0]
   })
   const _lock = ref(false)
+  const filenameFilter = ref('')
   const cachedFiles = ref<TorrentFile[]>([])
   const openedItems = ref([''])
-  const { tree } = useTreeBuilder(cachedFiles)
+  const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
+  const { tree } = useTreeBuilder(filteredFiles)
 
   const flatTree = computed(() => {
     const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
@@ -148,8 +150,10 @@ export const useContentStore = defineStore('content', () => {
     rightClickProperties,
     internalSelection,
     menuData,
+    filenameFilter,
     cachedFiles,
     openedItems,
+    filteredFiles,
     tree,
     flatTree,
     updateFileTree,
@@ -161,6 +165,7 @@ export const useContentStore = defineStore('content', () => {
     $reset: () => {
       while (_lock.value) {}
       internalSelection.value.clear()
+      filenameFilter.value = ''
       cachedFiles.value = []
       openedItems.value = ['']
       pauseTimer()
