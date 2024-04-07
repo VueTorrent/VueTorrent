@@ -307,7 +307,7 @@
     },
     "delete": {
       "deleteWithFiles": "删除种子及其文件",
-      "title": "删除 {n} 个种子 | 删除 {n} 个种子",
+      "title": "{n, plural, other {删除 {n} 个种子 | 删除 {n} 个种子}}",
       "warnDelete": "勾选此复选框将删除这些种子中包含的所有内容"
     },
     "importSettings": {
