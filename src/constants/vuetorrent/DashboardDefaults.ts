@@ -330,7 +330,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.SEEDS]: {
-    props: { titleKey: 'torrent.properties.seeds', value: t => t.num_seeds, total: t => t.available_peers },
+    props: { titleKey: 'torrent.properties.seeds', value: t => t.num_seeds, total: t => t.available_seeds },
     type: DashboardPropertyType.AMOUNT
   },
   [DashboardProperty.SEEN_COMPLETE]: {
