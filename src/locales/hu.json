@@ -306,7 +306,7 @@
     },
     "delete": {
       "deleteWithFiles": "A fájlok törlése a torrenttel együtt",
-      "title": "{n} torrent törlése | {n} torrentek törlése",
+      "title": "{n, plural, other {{n} torrent törlése | {n} torrentek törlése}}",
       "warnDelete": "Ennek a jelölőnégyzetnek a bejelölése minden torrentben található fájlt töröl"
     },
     "importSettings": {

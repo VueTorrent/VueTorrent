@@ -298,7 +298,7 @@
         "create": "Create Category",
         "edit": "Edit Category"
       },
-      "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
+      "warnEdit": "Editing the category name will migrate torrents to the new category. Errors may happen, use with caution."
     },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
@@ -313,7 +313,7 @@
     },
     "delete": {
       "deleteWithFiles": "Delete files with torrent",
-      "title": "Delete {n} torrent | Delete {n} torrents",
+      "title": "{n, plural, one {Delete {n} torrent} other {Delete {n} torrents}}",
       "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
     },
     "importSettings": {

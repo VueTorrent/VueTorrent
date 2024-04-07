@@ -301,12 +301,13 @@
     "connectionStatus": {
       "dht_nodes": "DHT 節點",
       "externalIp": "外部 IP 位置",
+      "noExternalIp": "無法從日誌中移除",
       "status": "連線狀態",
       "total_peer_connections": "活躍的用戶連接數"
     },
     "delete": {
       "deleteWithFiles": "移除種子與其檔案",
-      "title": "移除 {n} 個種子 | 移除 {n} 個種子",
+      "title": "{n, plural, other {移除 {n} 個種子 | 移除 {n} 個種子}}",
       "warnDelete": "打勾此方格將移除種子包含的所有內容。"
     },
     "importSettings": {
@@ -1022,6 +1023,7 @@
       "pending": "正在傳送種子...",
       "success": "已添加 {n} 個種子 | 已添加 {n} 個種子"
     },
+    "backend_unreachable": "後端無法訪問",
     "copy": {
       "error": "無法複製，當前環境不安全!",
       "success": "已複製到剪貼簿!"

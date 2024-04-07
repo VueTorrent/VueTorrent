@@ -7,6 +7,7 @@
     "disable": "Désactiver",
     "disabled": "Désactivé",
     "emptyList": "Rien à voir ici !",
+    "global_value": "Valeur globale",
     "NA": "N/A",
     "no": "Non",
     "none": "(Aucun)",
@@ -240,9 +241,9 @@
       "tracker": "Tracker",
       "trackers_count": "Nombre de trackers",
       "up_limit": "Limite d'envoi",
-      "uploaded": "Partagé (Global)",
-      "uploaded_session": "Partagé (Session)",
-      "upspeed": "Vitesse de partage"
+      "uploaded": "Téléversé (Global)",
+      "uploaded_session": "Téléversé (Session)",
+      "upspeed": "Vitesse de téléversement"
     },
     "sortLabel": "Trier par",
     "toggleSearchFilter": "(Dés)activer le filtre de recherche",
@@ -301,12 +302,17 @@
     "connectionStatus": {
       "dht_nodes": "Nœuds DHT",
       "externalIp": "Adresse IP externe",
+      "fetch_geo_failed": "Impossible de récupérer les informations de géolocalisation",
+      "fetch_isp_failed": "Impossible de récupérer les informations du FAI",
+      "geo_details": "Informations de géolocalisation",
+      "isp_details": "Informations du FAI",
+      "noExternalIp": "Impossible de détecter à partir des logs",
       "status": "Statut de connexion",
       "total_peer_connections": "Connexions entre pairs actives"
     },
     "delete": {
       "deleteWithFiles": "Supprimer le torrent et son contenu",
-      "title": "Supprimer {n} torrent | Supprimer {n} torrents",
+      "title": "{n, plural, many {Supprimer {n} torrents} other {Supprimer {n} torrent} }",
       "warnDelete": "En cochant cette case, tout ce qui est contenu dans ces torrents sera supprimé."
     },
     "importSettings": {
@@ -917,6 +923,7 @@
         "customTitle": "Titre personnalisé",
         "dateFormat": "Format de la date",
         "download": "Exporter les paramètres",
+        "enableHashColors": "Activer les couleurs générées sur les capsules",
         "fileContentInterval": "Intervalle de rafraîchissement du contenu des torrents",
         "hideChipIfUnset": "Masquer les capsules si non défini",
         "historySize": "Taille de l'historique sur les champs éligibles",
@@ -1022,6 +1029,7 @@
       "pending": "Envoi des torrents...",
       "success": "{n} torrent ajouté | {n} torrents ajoutés"
     },
+    "backend_unreachable": "Le back-end est injoignable",
     "copy": {
       "error": "Impossible de copier, le contexte n'est pas sécurisé !",
       "success": "Copié dans le presse-papiers !"
@@ -1060,6 +1068,7 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} fichier | {n} fichiers",
+      "filter_placeholder": "Rechercher dans l'arborescence",
       "folderInfo": "{n} dossier | {n} dossiers",
       "priority": "Définir la priorité",
       "rename": {
@@ -1156,8 +1165,11 @@
       "avg_download_speed": "Vitesse de téléchargement moyenne",
       "avg_upload_speed": "Vitesse d'envoi moyenne",
       "category": "Catégorie",
+      "comment": "Commentaire",
       "completed_on": "Terminé le",
       "content_path": "Chemin du contenu",
+      "created_by": "Créé par",
+      "creation_date": "Date de création",
       "downloaded": "Téléchargé (global)",
       "downloaded_session": "Téléchargé (session)",
       "download_limit": "Limite de téléchargement",
@@ -1174,9 +1186,12 @@
       "hash": "Hash",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
+      "is_private": "Torrent privé",
       "last_activity": "Dernière activité",
       "magnet": "Lien magnet",
       "name": "Titre du torrent",
+      "nb_connections": "Nombre total de connexions",
+      "nb_connections_limit": "Limites de connexion",
       "num_leechs": "Pairs (connectés)",
       "num_seeds": "Sources (connectées)",
       "peers": "Pairs",
@@ -1185,6 +1200,7 @@
       "progress_bar": "Barre de progression",
       "ratio": "Ratio",
       "ratio_limit": "Limite du ratio",
+      "reannounce": "Prochaine annonce dans",
       "save_path": "Sauvegarder le chemin",
       "seeding_time": "Temps de seed",
       "seeding_time_limit": "Limite du temps de seed",
@@ -1197,6 +1213,7 @@
       "tags": "Étiquettes",
       "time_active": "Temps d'activité",
       "total_size": "Taille totale",
+      "total_wasted": "Données gaspillées",
       "tracker": "Tracker",
       "trackers_count": "Nombre de trackers",
       "uploaded": "Partagé (global)",

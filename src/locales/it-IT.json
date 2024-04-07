@@ -272,7 +272,7 @@
       "status": "Stato Connessione"
     },
     "delete": {
-      "title": "Elimina {n} Torrent | Elimina {n} Torrent",
+      "title": "{n, plural, other {Elimina {n} Torrent | Elimina {n} Torrent}}",
       "warnDelete": "Spuntando questa casella verranno eliminati tutti i contenuti in quei torrent"
     },
     "moveTorrent": {
