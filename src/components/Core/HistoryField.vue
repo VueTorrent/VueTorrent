@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { HistoryKey } from '@/constants/vuetorrent'
 import { useHistoryStore } from '@/stores'
-import { computed, ref, useSlots } from 'vue'
+import { computed, ref } from 'vue'
 
 const props = defineProps<{
   historyKey: HistoryKey
 }>()
-
-const slots = useSlots()
 
 const _value = defineModel<string | undefined>({ required: true })
 
@@ -29,7 +27,7 @@ defineExpose({
 
 <template>
   <v-combobox v-model="_value" ref="field" :items="historyValue">
-    <template v-slot:prepend v-if="slots.prepend"><slot name="prepend" /></template>
+    <template v-slot:prepend v-if="$slots.prepend"><slot name="prepend" /></template>
   </v-combobox>
 </template>
 

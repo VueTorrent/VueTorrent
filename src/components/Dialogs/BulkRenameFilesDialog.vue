@@ -9,6 +9,7 @@ import { reactive, ref, onMounted, watch, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { VForm } from 'vuetify/components'
+import { useDisplay } from 'vuetify/lib/framework.mjs'
 
 const props = defineProps<{
   guid: string
@@ -19,6 +20,7 @@ const props = defineProps<{
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const contentStore = useContentStore()
+const inMobile = useDisplay().mobile
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -32,11 +34,16 @@ const running = ref(false)
 
 const rules = [(v: string) => !!v]
 
-const headers = [
-  { title: '', sortable: false, key: 'selected', width: '50px' },
-  { title: t('dialogs.bulkRenameFiles.col_origin_name'), sortable: false, key: 'name' },
-  { title: t('dialogs.bulkRenameFiles.col_result_name'), sortable: false, key: 'targetName' }
-]
+const headers = computed(() => {
+  const headers = [
+    { fixed: true, sortable: false, key: 'selected', width: '50px' },
+    { sortable: false, key: 'name' },
+  ]
+  if (!inMobile.value) {
+    headers.push({ sortable: false, key: 'targetName' })
+  }
+  return headers
+})
 
 type ItemRow<T extends TreeNode = TreeNode> = Pick<T, 'name' | 'fullName'> & {
   indent: number
@@ -238,14 +245,16 @@ onMounted(() => {
 <template>
   <v-dialog v-model="isOpened" persistent>
     <v-card density="compact">
-      <v-toolbar color="transparent">
-        <v-toolbar-title>{{ $t('dialogs.bulkRenameFiles.title') }}</v-toolbar-title>
-        <v-btn icon="mdi-close" @click="close()" />
-      </v-toolbar>
+      <v-card-title>
+        <v-toolbar density="compact" color="transparent">
+          <v-toolbar-title>{{ $t('dialogs.bulkRenameFiles.title') }}</v-toolbar-title>
+          <v-btn icon="mdi-close" @click="close()" />
+        </v-toolbar>
+      </v-card-title>
       <v-card-text class="d-flex flex-column">
         <v-form v-model="isFormValid" ref="form">
           <v-row no-gutters align="center" justify="center">
-            <v-col :cols="$vuetify.display.mobile ? 9 : undefined">
+            <v-col :cols="inMobile ? 9 : undefined">
               <HistoryField
                 :historyKey="HistoryKey.BULK_RENAME_REGEXP"
                 ref="regexpEl"
@@ -253,10 +262,9 @@ onMounted(() => {
                 density="compact"
                 v-model="regexpInput"
                 :rules="rules"
-                :label="$t('dialogs.bulkRenameFiles.regexp')">
-              </HistoryField>
+                :label="$t('dialogs.bulkRenameFiles.regexp')" />
             </v-col>
-            <v-col :cols="$vuetify.display.mobile ? 3 : 'auto'">
+            <v-col :cols="inMobile ? 3 : 'auto'">
               <v-select
                 class="ml-2"
                 v-model="regexpFlagsInput"
@@ -265,12 +273,12 @@ onMounted(() => {
                 label="Flags"
                 density="compact"
                 multiple
-                hide-details></v-select>
+                hide-details />
             </v-col>
             <v-col cols="auto">
-              <v-icon class="mx-2" :icon="`mdi-arrow-${$vuetify.display.mobile ? 'down' : 'right'}`" />
+              <v-icon class="mx-2" :icon="`mdi-arrow-${inMobile ? 'down' : 'right'}`" />
             </v-col>
-            <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
+            <v-col :cols="inMobile ? 12 : undefined">
               <HistoryField
                 :historyKey="HistoryKey.BULK_RENAME_TARGET"
                 ref="targetEl"
@@ -278,17 +286,28 @@ onMounted(() => {
                 density="compact"
                 v-model="targetInput"
                 :rules="rules"
-                :label="$t('dialogs.bulkRenameFiles.target')">
-              </HistoryField>
+                :label="$t('dialogs.bulkRenameFiles.target')" />
             </v-col>
             <v-col cols="auto">
-              <v-badge :class="$vuetify.display.mobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
+              <v-badge :class="inMobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
                 <v-btn :loading="running" :disabled="!isFormValid || hasDuplicated" color="primary" @click="run()">{{ $t('dialogs.bulkRenameFiles.run') }}</v-btn>
               </v-badge>
             </v-col>
           </v-row>
         </v-form>
         <v-data-table-virtual :headers="headers" :items="items" density="compact" fixed-header>
+          <template v-slot:header.name>
+            {{ $t('dialogs.bulkRenameFiles.col_origin_name') }}
+            <template v-if="inMobile">
+              <br/>
+              {{ $t('dialogs.bulkRenameFiles.col_result_name') }}
+            </template>
+          </template>
+          <template v-slot:header.targetName>
+            <template v-if="!inMobile">
+              {{ $t('dialogs.bulkRenameFiles.col_result_name') }}
+            </template>
+          </template>
           <template v-slot:item="{ index, item }">
             <v-data-table-row v-show="item.show" :index="index" :item="item as any">
               <template v-slot:item.selected>
@@ -309,12 +328,19 @@ onMounted(() => {
                   <v-icon v-else-if="item.type === 'file'" :icon="getFileIcon(item.name)" />
                   <v-icon v-else-if="!item.folded" icon="mdi-folder-open" color="#ffe476" />
                   <v-icon v-else icon="mdi-folder" color="#ffe476" />
-                  {{ item.name }}
+                  <div class="d-inline-flex flex-column">
+                    <span>
+                      {{ item.name }}
+                    </span>
+                    <span v-if="inMobile" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }">
+                      {{ item.targetName }}
+                    </span>
+                  </div>
                 </span>
               </template>
               <template v-slot:item.targetName>
-                <span v-if="item.type === 'file'" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }"
-                  >{{ item.targetName }}
+                <span v-if="item.type === 'file'" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }">
+                  {{ item.targetName }}
                   <v-tooltip v-if="item.duplicated || item.notChanged" activator="parent">
                     {{ t(`dialogs.bulkRenameFiles.${item.duplicated ? 'duplicated' : 'not_changed'}`) }}
                   </v-tooltip>
@@ -337,7 +363,7 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .v-card-text {
-  height: calc(100vh - 112px);
+  height: calc(100vh - 115px);
 }
 .v-table {
   overflow: auto;
