@@ -37,7 +37,7 @@ const rules = [(v: string) => !!v]
 const headers = computed(() => {
   const headers = [
     { fixed: true, sortable: false, key: 'selected', width: '50px' },
-    { sortable: false, key: 'name' },
+    { sortable: false, key: 'name' }
   ]
   if (!inMobile.value) {
     headers.push({ sortable: false, key: 'targetName' })
@@ -86,7 +86,7 @@ const parseNode = (node: TreeNode, parentItem: ItemRow | undefined = undefined, 
 const toggleFolderFolded = (item: ItemRow, folded: boolean) => {
   item.folded = folded
   ;(item as ItemRow<TreeFolder>).node.children.forEach(node => {
-    const correspondence = items.find(item => item.node === node)!
+    const correspondence = items.find(item => item.node.id === node.id)!
     correspondence.show = !folded
     if (correspondence.type === 'folder') {
       if (folded) {
@@ -103,7 +103,7 @@ const toggleFolderFolded = (item: ItemRow, folded: boolean) => {
  *  * 1: selected
  */
 const detectIndeterminate = (node: TreeNode): -1 | 0 | 1 => {
-  const correspondence = items.find(item => item.node === node)!
+  const correspondence = items.find(item => item.node.id === node.id)!
   if (node.type === 'folder') {
     let selectedLength = 0
     let indeterminateLength = 0
@@ -136,26 +136,29 @@ const detectIndeterminate = (node: TreeNode): -1 | 0 | 1 => {
 }
 
 const folderCheckChange = (item: ItemRow) => {
-  ;(item as ItemRow<TreeFolder>).node.children.forEach(child => {
-    const foundRow = items.find(row => row.node === child)
-    if (foundRow) {
-      foundRow.selected = item.selected
-      if (foundRow.selected) {
-        // unfold all children when selected
-        foundRow.show = true
-        foundRow.folded = false
+  const fn = (item: ItemRow) => {
+    ;(item as ItemRow<TreeFolder>).node.children.forEach(child => {
+      const foundRow = items.find(row => row.node.id === child.id)
+      if (foundRow) {
+        foundRow.selected = item.selected
+        if (foundRow.selected) {
+          // unfold all children when selected
+          foundRow.show = true
+          foundRow.folded = false
+        }
+        if (foundRow.type === 'folder') {
+          fn(foundRow as ItemRow<TreeFolder>)
+        }
       }
-      if (foundRow.type === 'folder') {
-        folderCheckChange(foundRow as ItemRow<TreeFolder>)
-      }
+    })
+    // unfold when selected
+    if (item.selected) {
+      item.show = true
+      item.folded = false
     }
-  })
-  detectIndeterminate(props.node)
-  // unfold when selected
-  if (item.selected) {
-    item.show = true
-    item.folded = false
   }
+  fn(item)
+  detectIndeterminate(props.node)
   dryRunRename()
 }
 
@@ -299,7 +302,7 @@ onMounted(() => {
           <template v-slot:header.name>
             {{ $t('dialogs.bulkRenameFiles.col_origin_name') }}
             <template v-if="inMobile">
-              <br/>
+              <br />
               {{ $t('dialogs.bulkRenameFiles.col_result_name') }}
             </template>
           </template>
@@ -309,7 +312,7 @@ onMounted(() => {
             </template>
           </template>
           <template v-slot:item="{ index, item }">
-            <v-data-table-row v-show="item.show" :index="index" :item="item as any">
+            <v-data-table-row v-if="item.show" :index="index" :item="item as any">
               <template v-slot:item.selected>
                 <v-checkbox-btn v-if="item.type === 'file'" v-model="item.selected" :color="item.targetName && 'indigo'" @change="fileCheckChange(item)" />
                 <v-checkbox-btn v-else v-model="item.selected" :indeterminate="item.indeterminate" @change="folderCheckChange(item)" />
