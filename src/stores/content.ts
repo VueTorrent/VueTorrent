@@ -5,10 +5,10 @@ import { useDialogStore } from '@/stores/dialog'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeNode } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, ref, watch } from 'vue'
+import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -67,8 +67,8 @@ export const useContentStore = defineStore('content', () => {
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
-      hidden: true, // internalSelection.value.size <= 1
-      action: bulkRename
+      hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
+      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
@@ -120,8 +120,12 @@ export const useContentStore = defineStore('content', () => {
     renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
   }
 
-  async function bulkRename() {
-    //TODO
+  async function bulkRename(node: TreeFolder) {
+    const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
+    renameDialog.value = dialogStore.createDialog(BulkRenameFilesDialog, {
+      hash: hash.value,
+      node
+    })
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
