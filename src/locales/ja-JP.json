@@ -306,7 +306,7 @@
     },
     "delete": {
       "deleteWithFiles": "Torrentと一緒にファイルも削除する",
-      "title": "{n}個のTorrentを削除する | {n}個のTorrentを削除する",
+      "title": "{n, plural, other {{n}個のTorrentを削除する | {n}個のTorrentを削除する}}",
       "warnDelete": "このチェックボックスをオンにすると、Torrentに含まれるすべてのコンテンツが削除されます。"
     },
     "importSettings": {

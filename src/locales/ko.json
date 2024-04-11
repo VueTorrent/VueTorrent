@@ -284,7 +284,7 @@
     },
     "delete": {
       "deleteWithFiles": "토렌트와 함께 파일 삭제",
-      "title": "{n}개의 토렌트 삭제 | {n}개의 토렌트 삭제",
+      "title": "{n, plural, other {{n}개의 토렌트 삭제 | {n}개의 토렌트 삭제}}",
       "warnDelete": "이 확인란을 선택하면 해당 토렌트에 포함된 모든 내용이 삭제됩니다."
     },
     "importSettings": {

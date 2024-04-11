@@ -298,7 +298,7 @@
         "create": "Create Category",
         "edit": "Edit Category"
       },
-      "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
+      "warnEdit": "Editing the category name will migrate torrents to the new category. Errors may happen, use with caution."
     },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
@@ -313,7 +313,7 @@
     },
     "delete": {
       "deleteWithFiles": "Delete files with torrent",
-      "title": "Delete {n} torrent | Delete {n} torrents",
+      "title": "{n, plural, one {Delete {n} torrent} other {Delete {n} torrents}}",
       "warnDelete": "Ticking this checkbox will delete everything contained in those torrents"
     },
     "importSettings": {
@@ -359,6 +359,22 @@
       "required": "New name is required",
       "sameName": "New name must be different from old name",
       "title": "Rename Torrent"
+    },
+    "bulkRenameFiles": {
+      "title": "Bulk Rename",
+      "regexp": "Regular Expression",
+      "target": "Replacement Input",
+      "col_origin_name": "Original",
+      "col_result_name": "Result",
+      "run": "Run",
+      "success": "Rename Successful",
+      "duplicated": "Duplicate Filename",
+      "not_changed": "Filename Not Changed",
+      "fold": "Collapse",
+      "unfold": "Expand",
+      "notForFolder": "Folder Renaming Not Supported",
+      "select_regex_flags": "Select Regular Expression Flags",
+      "nothing_to_do": "No tasks to do"
     },
     "rss": {
       "feed": {
@@ -926,6 +942,7 @@
         "dateFormat": "Date Format",
         "download": "Export settings",
         "enableHashColors": "Enable generated chip colors",
+        "enableRatioColors": "Enable ratio colors",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
         "historySize": "History size on eligible fields",

@@ -306,7 +306,7 @@
     },
     "delete": {
       "deleteWithFiles": "Usuń pliki razem z torrentem",
-      "title": "Usuń {n} torrent | Usuń {n} torrentów",
+      "title": "{n, plural, other {Usuń {n} torrent | Usuń {n} torrentów}}",
       "warnDelete": "Zaznaczenie tego pola spowoduje usunięcie wszystkiego, co znajduje się w tych torrentach"
     },
     "importSettings": {

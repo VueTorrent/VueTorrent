@@ -306,7 +306,7 @@
     },
     "delete": {
       "deleteWithFiles": "Eliminar archivos con torrent",
-      "title": "Eliminar {n} torrente | Eliminar {n} torrents",
+      "title": "{n, plural, other {Eliminar {n} torrente | Eliminar {n} torrents}}",
       "warnDelete": "Marcar esta casilla eliminará todo lo contenido en esos torrents"
     },
     "importSettings": {

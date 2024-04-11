@@ -2,6 +2,8 @@ import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
+import {useVueTorrentStore} from "@/stores";
+import {storeToRefs} from "pinia";
 
 type pptData = { active: boolean; order: number }
 
@@ -297,6 +299,9 @@ export const propsMetadata: PropertyMetadata = {
       titleKey: 'torrent.properties.ratio',
       value: t => t.ratio.toString(),
       color: (v: number) => {
+        const { enableRatioColors } = storeToRefs(useVueTorrentStore())
+
+        if (!enableRatioColors.value) return ''
         if (v < 0.5) return 'text-ratio-bad'
         if (v < 1) return 'text-ratio-almost'
         if (v < 5) return 'text-ratio-good'
@@ -330,7 +335,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.SEEDS]: {
-    props: { titleKey: 'torrent.properties.seeds', value: t => t.num_seeds, total: t => t.available_peers },
+    props: { titleKey: 'torrent.properties.seeds', value: t => t.num_seeds, total: t => t.available_seeds },
     type: DashboardPropertyType.AMOUNT
   },
   [DashboardProperty.SEEN_COMPLETE]: {

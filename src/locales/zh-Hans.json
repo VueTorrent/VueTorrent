@@ -307,7 +307,7 @@
     },
     "delete": {
       "deleteWithFiles": "删除种子及其文件",
-      "title": "删除 {n} 个种子 | 删除 {n} 个种子",
+      "title": "{n, plural, other {删除 {n} 个种子 | 删除 {n} 个种子}}",
       "warnDelete": "勾选此复选框将删除这些种子中包含的所有内容"
     },
     "importSettings": {
@@ -353,6 +353,22 @@
       "required": "新名称不能为空",
       "sameName": "新名称必须与旧名称不同",
       "title": "重命名种子"
+    },
+    "bulkRenameFiles": {
+      "title": "批量重命名",
+      "regexp": "正则表达式",
+      "target": "替换输入",
+      "col_origin_name": "原始",
+      "col_result_name": "结果",
+      "run": "执行",
+      "success": "重命名成功",
+      "duplicated": "文件名重复",
+      "not_changed": "文件名未修改",
+      "fold": "收起",
+      "unfold": "展开",
+      "notForFolder": "不支持修改文件夹名",
+      "select_regex_flags": "选择正则表达式Flags",
+      "nothing_to_do": "无任务可做"
     },
     "rss": {
       "feed": {

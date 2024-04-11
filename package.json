@@ -1,7 +1,7 @@
 {
   "name": "vuetorrent",
   "private": true,
-  "version": "2.7.2",
+  "version": "2.7.3",
   "type": "module",
   "scripts": {
     "start": "vite",
@@ -15,7 +15,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^4.0.3",
+    "@ctrl/tinycolor": "^4.0.4",
     "@faker-js/faker": "^8.4.1",
     "@flatten-js/interval-tree": "^1.1.3",
     "@fontsource/roboto": "^5.0.12",
@@ -29,37 +29,37 @@
     "lodash.debounce": "^4.0.8",
     "pinia": "^2.1.6",
     "pinia-persistence-plugin": "^0.0.5",
-    "pixi.js": "^8.0.4",
+    "pixi.js": "^8.1.0",
     "uuid": "^9.0.1",
     "vite-plugin-vuetify": "^2.0.3",
     "vue": "^3.4.21",
-    "vue-i18n": "^9.10.2",
+    "vue-i18n": "^9.11.0",
     "vue-router": "^4.3.0",
     "vue3-apexcharts": "^1.5.2",
     "vue3-toastify": "^0.2.1",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.5.11"
+    "vuetify": "^3.5.15"
   },
   "devDependencies": {
     "@pinia/testing": "^0.1.3",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/node": "^20.11.30",
+    "@types/node": "^20.12.6",
     "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^7.4.0",
-    "@typescript-eslint/parser": "^7.4.0",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitest/coverage-v8": "^1.4.0",
     "@vue/test-utils": "^2.4.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.24.0",
+    "eslint-plugin-vue": "^9.24.1",
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
-    "sass": "^1.72.0",
-    "typescript": "^5.4.3",
-    "vite": "^5.2.6",
+    "sass": "^1.74.1",
+    "typescript": "^5.4.4",
+    "vite": "^5.2.8",
     "vite-plugin-top-level-await": "^1.4.1",
     "vitest": "^1.2.2",
-    "vue-tsc": "^2.0.7"
+    "vue-tsc": "^2.0.11"
   }
 }
