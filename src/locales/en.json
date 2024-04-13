@@ -954,6 +954,7 @@
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
+        "darkVariants": "Dark theme variant",
         "dateFormat": "Date Format",
         "download": "Export settings",
         "enableHashColors": "Enable generated chip colors",
@@ -966,6 +967,7 @@
         "isPaginationOnTop": "Top Pagination",
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
+        "lightVariants": "Light theme variant",
         "openSideBarOnStart": "Open Side Bar on launch",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
@@ -1072,9 +1074,12 @@
       "not_supported": "Current context isn't secure. Unable to register handler.",
       "registered": "Magnet handler registered."
     },
-    "new_version": "New version available!",
     "qbit": {
       "not_supported": "Only available for qbit >= {version}"
+    },
+    "version": {
+      "latest": "You're on the latest and greatest!",
+      "new": "New version available!"
     }
   },
   "topbar": {

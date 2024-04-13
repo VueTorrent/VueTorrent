@@ -333,19 +333,19 @@ export default class MockProvider implements IProvider {
           id: 1,
           message: 'Using config directory: /config/qBittorrent',
           timestamp,
-          type: LogType.NORMAL
+          type: LogType.INFO
         },
         {
           id: 2,
           message: 'Trying to listen on the following list of IP addresses: "0.0.0.0:6881,[::]:6881"',
           timestamp,
-          type: LogType.NORMAL
+          type: LogType.WARNING
         },
         {
           id: 3,
           message: 'Peer ID: "-qB4620-"',
           timestamp,
-          type: LogType.INFO
+          type: LogType.CRITICAL
         },
         {
           id: 4,

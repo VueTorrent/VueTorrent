@@ -2,9 +2,10 @@
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
+import { Theme } from '@/plugins/vuetify.ts'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, ref } from 'vue'
+import { computed, onBeforeMount, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -16,12 +17,22 @@ const dialogStore = useDialogStore()
 
 const github = new Github()
 
-const titleOptionsList = [
+const titleOptionsList = readonly([
   { title: t('constants.titleOptions.default'), value: TitleOptions.DEFAULT },
   { title: t('constants.titleOptions.global_speed'), value: TitleOptions.GLOBAL_SPEED },
   { title: t('constants.titleOptions.first_torrent_speed'), value: TitleOptions.FIRST_TORRENT_STATUS },
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
-]
+])
+
+const lightVariants = readonly([
+  { title: 'Default', value: Theme.LIGHT },
+  { title: 'Alternative', value: Theme.ALT_LIGHT }
+])
+
+const darkVariants = readonly([
+  { title: 'Default', value: Theme.DARK },
+  { title: 'Alternative', value: Theme.ALT_DARK }
+])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
@@ -96,9 +107,12 @@ const checkNewVersion = async () => {
   if (vueTorrentVersion.value === 'DEV') return
 
   const latest = await github.getVersion()
-  if (`v${vueTorrentVersion.value}` === latest) return
+  if (`v${vueTorrentVersion.value}` === latest) {
+    toast.success(t('toast.version.latest'))
+    return
+  }
 
-  toast.info(t('toast.new_version'))
+  toast.info(t('toast.version.new'))
 }
 
 function openBackendHelp() {
@@ -117,57 +131,57 @@ onBeforeMount(() => {
     <v-list-item>
       <v-row>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showCurrentSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.showCurrentSpeed')" />
+          <v-checkbox v-model="vueTorrentStore.showCurrentSpeed" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showCurrentSpeed')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showSpeedGraph" hide-details density="compact" :label="t('settings.vuetorrent.general.showSpeedGraph')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showAlltimeStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showAlltimeStat')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showSessionStat" hide-details density="compact" :label="t('settings.vuetorrent.general.showSessionStat')" />
+          <v-checkbox v-model="vueTorrentStore.showSpeedGraph" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showSpeedGraph')" />
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showFreeSpace" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
+          <v-checkbox v-model="vueTorrentStore.showAlltimeStat" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showAlltimeStat')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showTrackerFilter" hide-details density="compact" :label="t('settings.vuetorrent.general.showTrackerFilter')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.isDrawerRight" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.isPaginationOnTop" hide-details density="compact" :label="t('settings.vuetorrent.general.isPaginationOnTop')" />
+          <v-checkbox v-model="vueTorrentStore.showSessionStat" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showSessionStat')" />
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.enableRatioColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRatioColors')" />
+          <v-checkbox v-model="vueTorrentStore.showFreeSpace" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.enableHashColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableHashColors')" />
+          <v-checkbox v-model="vueTorrentStore.showTrackerFilter" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.showTrackerFilter')" />
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.hideChipIfUnset" hide-details density="compact" :label="t('settings.vuetorrent.general.hideChipIfUnset')" />
+          <v-checkbox v-model="vueTorrentStore.isDrawerRight" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.isPaginationOnTop" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.isPaginationOnTop')" />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.enableRatioColors" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRatioColors')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.enableHashColors" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.enableHashColors')" />
+        </v-col>
+
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.hideChipIfUnset" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.hideChipIfUnset')" />
         </v-col>
         <v-col cols="12" sm="6" />
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
+          <v-checkbox v-model="vueTorrentStore.openSideBarOnStart" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.openSideBarOnStart')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
+          <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.useBinarySize" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />
+          <v-checkbox v-model="vueTorrentStore.useBinarySize" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
+          <v-checkbox v-model="vueTorrentStore.useBitSpeed" color="accent" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -207,6 +221,13 @@ onBeforeMount(() => {
             v-model="vueTorrentStore.uiTitleCustom"
             hide-details
             :label="t('settings.vuetorrent.general.customTitle')" />
+        </v-col>
+
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.vuetorrentTheme.light" flat hide-details :items="lightVariants" :label="$t('settings.vuetorrent.general.lightVariants')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.vuetorrentTheme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
         </v-col>
       </v-row>
 

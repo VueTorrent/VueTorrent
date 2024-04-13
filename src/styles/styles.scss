@@ -1,4 +1,4 @@
-@import 'colors';
+@import './colors.scss';
 
 ul.no-bullet {
   list-style-type: none;
@@ -41,6 +41,10 @@ ul.no-bullet {
   -moz-user-select: text;
   -ms-user-select: text;
   user-select: text;
+}
+
+.inherit-bg {
+  background-color: inherit !important;
 }
 
 $sideborder-margin: 6px;
@@ -106,7 +110,7 @@ $sideborder-margin: 6px;
     border-left-color: #{$torrent-moving};
   }
   &.unknown {
-    &.v-theme--darkTheme {
+    &.v-theme--darkTheme, &.v-theme--altDarkTheme {
       border-left-color: #{$torrent-unknown-dark};
     }
     &.v-theme-lightTheme {

@@ -5,11 +5,14 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import colors from 'vuetify/lib/util/colors'
 
+const statusColors = {
+  enabled: '#4F738D',
+  disabled: '#35495E'
+}
+
 const variables = {
   // Main colors
-  primary: '#35495E',
-  secondary: '#3E556D',
-  download: '#5BB974',
+  accent: '#64CEAA',
   upload: '#00B3FA',
   ratio: '#00B2F8',
   category: '#04669A',
@@ -21,12 +24,12 @@ const variables = {
   'ratio-best': '#2e78d8',
 
   // Active filters chip colors
-  'active-global': '#4f738d',
-  'active-global-disabled': '#35495E',
-  'active-text': '#4f738d',
-  'active-text-disabled': '#35495E',
-  'active-status': '#4f738d',
-  'active-status-disabled': '#35495E',
+  'active-global': statusColors.enabled,
+  'active-global-disabled': statusColors.disabled,
+  'active-text': statusColors.enabled,
+  'active-text-disabled': statusColors.disabled,
+  'active-status': statusColors.enabled,
+  'active-status-disabled': statusColors.disabled,
   'active-category': '#04669A',
   'active-category-disabled': '#02334d',
   'active-tag': '#048B9A',
@@ -60,7 +63,22 @@ const variables = {
 const lightTheme: ThemeDefinition = {
   dark: false,
   colors: {
-    accent: '#64CEAA',
+    primary: '#35495E',
+    secondary: '#3E556D',
+    download: '#5BB974',
+    background: colors.grey.lighten4,
+    selected: colors.grey.lighten2,
+    red: colors.red.accent2,
+    ...variables
+  }
+}
+
+const altLightTheme: ThemeDefinition = {
+  dark: false,
+  colors: {
+    primary: '#306052',
+    secondary: '#28483E',
+    download: '#7ACA47',
     background: colors.grey.lighten4,
     selected: colors.grey.lighten2,
     red: colors.red.accent2,
@@ -71,7 +89,22 @@ const lightTheme: ThemeDefinition = {
 const darkTheme: ThemeDefinition = {
   dark: true,
   colors: {
-    accent: '#64CEAA',
+    primary: '#35495E',
+    secondary: '#415c75',
+    download: '#5BB974',
+    background: '#121212',
+    selected: colors.grey.darken1,
+    red: colors.red.accent3,
+    ...variables
+  }
+}
+
+const altDarkTheme: ThemeDefinition = {
+  dark: true,
+  colors: {
+    primary: '#28483E',
+    secondary: '#306052',
+    download: '#7ACA47',
     background: '#121212',
     selected: colors.grey.darken1,
     red: colors.red.accent3,
@@ -81,7 +114,9 @@ const darkTheme: ThemeDefinition = {
 
 export enum Theme {
   LIGHT = 'lightTheme',
-  DARK = 'darkTheme'
+  ALT_LIGHT = 'altLightTheme',
+  DARK = 'darkTheme',
+  ALT_DARK = 'altDarkTheme'
 }
 
 export default createVuetify({
@@ -94,7 +129,7 @@ export default createVuetify({
     defaultSet: 'mdi'
   },
   theme: {
-    defaultTheme: Theme.LIGHT,
+    defaultTheme: Theme.ALT_DARK,
     variations: {
       colors: [
         'torrent-error',
@@ -123,7 +158,9 @@ export default createVuetify({
     },
     themes: {
       lightTheme,
-      darkTheme
+      altLightTheme,
+      darkTheme,
+      altDarkTheme
     }
   }
 })

@@ -8,12 +8,12 @@ const maindataStore = useMaindataStore()
 </script>
 
 <template>
-  <v-card flat color="primary">
-    <v-card-title class="px-0 text-uppercase white--text ml-1 font-weight-normal text-caption">
+  <v-card flat class="inherit-bg">
+    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-normal text-caption">
       {{ t('navbar.side.current_speed.title') }}
     </v-card-title>
     <v-card-text class="px-0">
-      <v-sheet color="primary" class="mx-2">
+      <v-sheet class="mx-2 inherit-bg">
         <v-row class="pt-0">
           <v-col class="px-1 pt-1">
             <SpeedCard icon="mdi-chevron-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />

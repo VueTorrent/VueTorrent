@@ -115,7 +115,7 @@ onUnmounted(() => {
 
 #rss-articles {
   .rss-read {
-    &.v-theme--darkTheme {
+    &.v-theme--darkTheme, &.v-theme--altDarkTheme {
       color: lighten(darkgrey, 5%) !important;
     }
 
