@@ -307,7 +307,7 @@
     },
     "delete": {
       "deleteWithFiles": "移除種子與其檔案",
-      "title": "{n, plural, other {移除 {n} 個種子 | 移除 {n} 個種子}}",
+      "title": "移除 {n} 個種子 | 移除 {n} 個種子",
       "warnDelete": "打勾此方格將移除種子包含的所有內容。"
     },
     "importSettings": {

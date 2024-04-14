@@ -306,7 +306,7 @@
     },
     "delete": {
       "deleteWithFiles": "Eliminar archivos con torrent",
-      "title": "{n, plural, other {Eliminar {n} torrente | Eliminar {n} torrents}}",
+      "title": "Eliminar {n} torrente | Eliminar {n} torrents",
       "warnDelete": "Marcar esta casilla eliminará todo lo contenido en esos torrents"
     },
     "importSettings": {
@@ -1221,7 +1221,7 @@
       "downloading": "Descargando",
       "error": "Error",
       "forcedDL": "[F] Descargando",
-      "forcedUP": "[F] Cargando",
+      "forcedUP": "[F] Subiendo",
       "metaDL": "Metadatos",
       "missingFiles": "Archivos faltantes",
       "moving": "Moviendo",
@@ -1232,7 +1232,7 @@
       "stalledDL": "Detenido",
       "stalledUP": "Sembrando",
       "unknown": "Desconocido",
-      "uploading": "Cargando"
+      "uploading": "Subiendo"
     }
   },
   "units": {

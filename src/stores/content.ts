@@ -1,4 +1,4 @@
-import {useSearchQuery, useTreeBuilder} from '@/composables'
+import { useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { qbit } from '@/services'
 import { useDialogStore } from '@/stores/dialog'
