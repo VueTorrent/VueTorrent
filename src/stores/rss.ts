@@ -99,6 +99,7 @@ export const useRssStore = defineStore(
           } else {
             keyMap.value[article.id] = [feed.name]
             _articles.value.push({
+              feedId: feed.uid,
               parsedDate: new Date(article.date),
               ...article
             })

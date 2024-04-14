@@ -1,6 +1,7 @@
 import 'vuetify/styles'
 import { createVuetify, ThemeDefinition } from 'vuetify'
 import * as components from 'vuetify/components'
+import { VEmptyState } from 'vuetify/labs/VEmptyState'
 import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import colors from 'vuetify/lib/util/colors'
@@ -85,7 +86,10 @@ export enum Theme {
 }
 
 export default createVuetify({
-  components,
+  components: {
+    VEmptyState,
+    ...components
+  },
   directives,
   display: {
     mobileBreakpoint: 'sm'
