@@ -312,7 +312,7 @@
     },
     "delete": {
       "deleteWithFiles": "Supprimer le torrent et son contenu",
-      "title": "{n, plural, many {Supprimer {n} torrents} other {Supprimer {n} torrent} }",
+      "title": "Supprimer {n} torrent | Supprimer {n} torrents",
       "warnDelete": "En cochant cette case, tout ce qui est contenu dans ces torrents sera supprimé."
     },
     "importSettings": {

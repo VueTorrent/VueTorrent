@@ -2,8 +2,8 @@ import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
-import {useVueTorrentStore} from "@/stores";
-import {storeToRefs} from "pinia";
+import { useVueTorrentStore } from '@/stores'
+import { storeToRefs } from 'pinia'
 
 type pptData = { active: boolean; order: number }
 
