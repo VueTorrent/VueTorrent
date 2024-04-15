@@ -99,6 +99,10 @@ const checkNewVersion = async () => {
   toast.info(t('toast.new_version'))
 }
 
+function openBackendHelp() {
+  window.open('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation', '_blank', 'noreferrer')
+}
+
 onBeforeMount(() => {
   appStore.fetchQbitVersion()
 })
@@ -166,7 +170,7 @@ onBeforeMount(() => {
       </v-row>
     </v-list-item>
 
-    <v-list-item>
+    <v-list-item class="mt-3">
       <v-row>
         <v-col cols="12" md="4">
           <v-text-field v-model.number="vueTorrentStore.refreshInterval" type="number" hide-details suffix="ms" :label="t('settings.vuetorrent.general.refreshInterval')" />
@@ -177,9 +181,7 @@ onBeforeMount(() => {
         <v-col cols="12" md="4">
           <v-text-field v-model.number="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
-      </v-row>
 
-      <v-row>
         <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
@@ -188,13 +190,12 @@ onBeforeMount(() => {
             v-model="paginationSize"
             :messages="paginationSizeMessages"
             flat
+            hide-details
             :items="paginationSizes"
             :return-object="false"
             :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
-      </v-row>
 
-      <v-row>
         <v-col cols="12" md="4">
           <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
         </v-col>
@@ -213,7 +214,11 @@ onBeforeMount(() => {
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.backendUrl" :label="t('settings.vuetorrent.general.backendUrl')" placeholder="https://YOUR-HOST:PORT/" />
+          <v-text-field v-model="vueTorrentStore.backendUrl"
+                        :label="t('settings.vuetorrent.general.backendUrl')"
+                        placeholder="https://YOUR-HOST:PORT/"
+                        append-inner-icon="mdi-help-circle"
+                        @click:appendInner="openBackendHelp" />
         </v-col>
       </v-row>
     </v-list-item>
