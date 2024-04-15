@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { usePreferenceStore } from '@/stores'
-import { ref, watch } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
@@ -18,15 +18,17 @@ const dynDnsProviderOptions = [
     value: 'https://www.no-ip.com/services/managed_dns/free_dynamic_dns.html'
   }
 ]
-const webUiPassword = ref('')
+
+const webUiPassword = computed({
+  get: () => preferenceStore.preferences!.web_ui_password || '',
+  set: val => {
+    preferenceStore.preferences!.web_ui_password = val === '' ? undefined : val
+  }
+})
 
 function registerDynDNS() {
   window.open(dynDnsProvider.value)
 }
-
-watch(webUiPassword, newValue => {
-  preferenceStore.preferences!.web_ui_password = newValue === '' ? undefined : newValue
-})
 </script>
 
 <template>
@@ -87,9 +89,8 @@ watch(webUiPassword, newValue => {
         <v-col cols="12" class="pt-0">
           <v-checkbox v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled" hide-details :label="t('settings.webUI.authentication.bypassWhitelist')" />
           <v-textarea
-            v-model.number="preferenceStore.preferences!.bypass_auth_subnet_whitelist"
+            v-model="preferenceStore.preferences!.bypass_auth_subnet_whitelist"
             :disabled="!preferenceStore.preferences!.bypass_auth_subnet_whitelist_enabled"
-            type="number"
             hide-details
             :placeholder="$t('settings.webUI.authentication.whitelistExamples')" />
         </v-col>
