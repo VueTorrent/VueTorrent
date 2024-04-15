@@ -1,7 +1,15 @@
 import { createPinia } from 'pinia'
-import piniaPersist from 'pinia-plugin-persist'
+import { persistencePlugin } from 'pinia-persistence-plugin'
 
 const pinia = createPinia()
-pinia.use(piniaPersist)
+pinia.use(
+  persistencePlugin({
+    assertStorage: () => {},
+    storeKeysPrefix: 'vuetorrent',
+    persistenceDefault: false,
+    ensureAsyncStorageUpdateOrder: true,
+    debug: import.meta.env.DEV
+  })
+)
 
 export default pinia

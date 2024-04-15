@@ -87,14 +87,9 @@ export const useAddTorrentStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_addTorrents'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )

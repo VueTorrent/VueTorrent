@@ -14,7 +14,8 @@ import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.
 import VTorrentCardGrid from '@/components/Settings/VueTorrent/TorrentCard/Grid.vue'
 import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Table.vue'
 import WebUI from '@/components/Settings/WebUI.vue'
-import { useDialogStore, usePreferenceStore } from '@/stores'
+import { backend } from '@/services/backend'
+import { useDialogStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -24,6 +25,7 @@ const router = useRouter()
 const { t } = useI18n()
 const dialogStore = useDialogStore()
 const preferenceStore = usePreferenceStore()
+const vuetorrentStore = useVueTorrentStore()
 
 const tabs = [
   { text: t('settings.tabs.vuetorrent.title'), value: 'vuetorrent' },
@@ -60,6 +62,10 @@ const saveSettings = async () => {
   toast.success(t('settings.saveSuccess'))
   await preferenceStore.fetchPreferences()
 
+  const oldInit = backend.isInitialized
+  backend.init(vuetorrentStore.backendUrl)
+  const newInit = backend.isInitialized
+
   if (!preferenceStore.preferences!.alternative_webui_enabled) {
     if ('serviceWorker' in navigator) {
       const registrations = await navigator.serviceWorker.getRegistrations()
@@ -70,7 +76,11 @@ const saveSettings = async () => {
     location.hash = ''
     location.reload()
   } else {
-    goHome()
+    if (!oldInit && newInit) {
+      location.reload()
+    } else {
+      await backend.ping()
+    }
   }
 }
 

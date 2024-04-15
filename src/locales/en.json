@@ -917,6 +917,7 @@
     "title": "Settings",
     "vuetorrent": {
       "general": {
+        "backendUrl": "Backend URL",
         "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
         "canvasRenderThreshold": "Piece count to disable canvas rendering",
         "check_new": "Check for new version",

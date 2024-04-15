@@ -164,14 +164,9 @@ export const useRssStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_rss'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )
