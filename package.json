@@ -15,7 +15,7 @@
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^4.0.4",
+    "@ctrl/tinycolor": "^4.1.0",
     "@faker-js/faker": "^8.4.1",
     "@flatten-js/interval-tree": "^1.1.3",
     "@fontsource/roboto": "^5.0.12",
@@ -32,8 +32,8 @@
     "pixi.js": "^8.1.0",
     "uuid": "^9.0.1",
     "vite-plugin-vuetify": "^2.0.3",
-    "vue": "^3.4.21",
-    "vue-i18n": "^9.11.0",
+    "vue": "^3.4.22",
+    "vue-i18n": "^9.12.1",
     "vue-router": "^4.3.0",
     "vue3-apexcharts": "^1.5.2",
     "vue3-toastify": "^0.2.1",
@@ -43,23 +43,23 @@
   "devDependencies": {
     "@pinia/testing": "^0.1.3",
     "@types/lodash.debounce": "^4.0.9",
-    "@types/node": "^20.12.6",
+    "@types/node": "^20.12.7",
     "@types/uuid": "^9.0.8",
-    "@typescript-eslint/eslint-plugin": "^7.6.0",
-    "@typescript-eslint/parser": "^7.6.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vitest/coverage-v8": "^1.4.0",
+    "@vitest/coverage-v8": "^1.5.0",
     "@vue/test-utils": "^2.4.5",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-vue": "^9.24.1",
+    "eslint-plugin-vue": "^9.25.0",
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
-    "sass": "^1.74.1",
-    "typescript": "^5.4.4",
+    "sass": "^1.75.0",
+    "typescript": "^5.4.5",
     "vite": "^5.2.8",
     "vite-plugin-top-level-await": "^1.4.1",
     "vitest": "^1.2.2",
-    "vue-tsc": "^2.0.11"
+    "vue-tsc": "^2.0.13"
   }
 }
