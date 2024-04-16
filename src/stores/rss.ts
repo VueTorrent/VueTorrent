@@ -125,6 +125,10 @@ export const useRssStore = defineStore(
       })
     }
 
+    async function markFeedAsRead(feed: Feed) {
+      return await qbit.markAsRead(feed.name)
+    }
+
     async function markAllAsRead() {
       const unreadArticlesCount = unreadArticles.value.length
       await toast.promise(
@@ -167,6 +171,7 @@ export const useRssStore = defineStore(
       fetchFeeds,
       getFeedNames,
       markArticleAsRead,
+      markFeedAsRead,
       markAllAsRead,
       fetchRules,
       fetchMatchingArticles,

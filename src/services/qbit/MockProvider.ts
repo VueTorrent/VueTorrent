@@ -508,7 +508,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async markAsRead(_0: string, _1: string): Promise<void> {
+  async markAsRead(_0: string, _1?: string): Promise<void> {
     return this.generateResponse()
   }
 
