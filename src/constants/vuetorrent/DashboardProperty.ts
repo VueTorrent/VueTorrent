@@ -16,6 +16,7 @@ export enum DashboardProperty {
   GLOBAL_SPEED = 'global_speed',
   GLOBAL_VOLUME = 'global_volume',
   HASH = 'hash',
+  INACTIVE_SEEDING_TIME_LIMIT = 'inactive_seeding_time_limit',
   INFOHASH_V1 = 'infohash_v1',
   INFOHASH_V2 = 'infohash_v2',
   LAST_ACTIVITY = 'last_activity',

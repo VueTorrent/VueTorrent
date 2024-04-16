@@ -29,5 +29,5 @@ const formattedDuration = computed(() => {
   <td v-if="val > 0">
     {{ formattedDuration }}
   </td>
-  <td v-else>{{ $t('dashboard.not_complete') }}</td>
+  <td v-else>{{ $t('common.NA') }}</td>
 </template>

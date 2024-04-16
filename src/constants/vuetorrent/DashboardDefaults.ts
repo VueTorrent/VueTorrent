@@ -98,6 +98,10 @@ export const propsData: PropertyData = {
     active: false,
     order: 25
   },
+  [DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT]: {
+    active: false,
+    order: 42
+  },
   [DashboardProperty.INFOHASH_V1]: {
     active: false,
     order: 26
@@ -269,6 +273,10 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.HASH]: {
     props: { titleKey: 'torrent.properties.hash', value: t => t.hash },
     type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT]: {
+    props: { titleKey: 'torrent.properties.inactive_seeding_time_limit', value: t => t.inactive_seeding_time_limit },
+    type: DashboardPropertyType.DURATION
   },
   [DashboardProperty.INFOHASH_V1]: {
     props: { titleKey: 'torrent.properties.infohash_v1', value: t => t.infohash_v1 },

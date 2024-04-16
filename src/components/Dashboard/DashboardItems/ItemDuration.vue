@@ -34,7 +34,7 @@ const formattedDuration = computed(() => {
       <span v-if="val > 0">
         {{ formattedDuration }}
       </span>
-      <span v-else>{{ $t('dashboard.not_complete') }}</span>
+      <span v-else>{{ $t('common.NA') }}</span>
     </div>
   </div>
 </template>

@@ -1207,6 +1207,7 @@
       "save_path": "Save Path",
       "seeding_time": "Seeding time",
       "seeding_time_limit": "Seeding time limit",
+      "inactive_seeding_time_limit": "Inactive seeding time limit",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete",
       "seq_dl": "Sequential Download",

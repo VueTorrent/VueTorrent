@@ -12,6 +12,7 @@ const { properties } = storeToRefs(useTorrentDetailStore())
 const torrentValues = [
   { title: 'seeding_time', getter: () => props.torrent.seeding_time },
   { title: 'seeding_time_limit', getter: () => props.torrent.seeding_time_limit },
+  { title: 'inactive_seeding_time_limit', getter: () => props.torrent.inactive_seeding_time_limit },
   { title: 'time_active', getter: () => props.torrent.time_active },
   { title: 'reannounce', getter: () => properties.value?.reannounce ?? 0 }
 ]
@@ -23,7 +24,10 @@ const torrentValues = [
       <v-row>
         <InfoBase v-for="ppt in torrentValues">
           <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
-          <template v-slot:text>{{ dayjs.duration(ppt.getter(), 's').humanize() }}</template>
+          <template v-if="ppt.getter() > 0" v-slot:text>
+            {{ dayjs.duration(ppt.getter(), 's').humanize() }}
+          </template>
+          <template v-else v-slot:text>{{ $t('common.NA') }}</template>
         </InfoBase>
       </v-row>
     </v-expansion-panel-text>
