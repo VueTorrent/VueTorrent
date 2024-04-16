@@ -4,7 +4,6 @@ import { storeToRefs } from 'pinia'
 import InfoBase from './InfoBase.vue'
 import dayjs from '@/plugins/dayjs'
 import { Torrent } from '@/types/vuetorrent'
-import { formatTimeSec } from '@/helpers'
 
 const props = defineProps<{ torrent: Torrent }>()
 
