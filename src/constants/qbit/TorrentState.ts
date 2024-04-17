@@ -1,6 +1,8 @@
 export enum TorrentState {
   /** Torrent has just started downloading and is fetching metadata */
   META_DL = 'metaDL',
+  /** Torrent is forced to fetch metadata */
+  FORCED_META_DL = 'forcedMetaDL',
   /** Torrent is forced to downloading to ignore queue limit */
   FORCED_DL = 'forcedDL',
   /** Torrent is being downloaded and data is being transferred */
@@ -27,7 +29,9 @@ export enum TorrentState {
   CHECKING_UP = 'checkingUP',
   /** Checking resume data on qBt startup */
   CHECKING_RESUME_DATA = 'checkingResumeData',
-  /** Torrent is allocating disk space for download */
+  /** Torrent is allocating disk space for download
+   * @deprecated
+   */
   ALLOCATING = 'allocating',
   /** Torrent is moving to another location */
   MOVING = 'moving',
