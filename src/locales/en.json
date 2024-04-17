@@ -1233,6 +1233,7 @@
       "downloading": "Downloading",
       "error": "Error",
       "forcedDL": "[F] Downloading",
+      "forcedMetaDL": "[F] Metadata",
       "forcedUP": "[F] Uploading",
       "metaDL": "Metadata",
       "missingFiles": "Missing Files",

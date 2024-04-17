@@ -33,7 +33,7 @@ const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
 const torrentStateColor = computed(() => `torrent-${props.torrent.state}`)
 const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
-const isFetchingMetadata = computed(() => props.torrent.state === TorrentState.META_DL)
+const isFetchingMetadata = computed(() => [TorrentState.META_DL, TorrentState.FORCED_META_DL].includes(props.torrent.state))
 
 async function copyHash() {
   try {

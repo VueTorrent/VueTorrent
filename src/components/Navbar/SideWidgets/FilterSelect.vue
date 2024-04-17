@@ -27,6 +27,7 @@ function selectActive() {
     TorrentState.ALLOCATING,
     TorrentState.DOWNLOADING,
     TorrentState.META_DL,
+    TorrentState.FORCED_META_DL,
     TorrentState.CHECKING_DL,
     TorrentState.FORCED_DL,
     TorrentState.CHECKING_RESUME_DATA,
