@@ -84,27 +84,13 @@ const ratioLimit = computed({
 })
 
 const seedingTimeLimit = computed({
-  get: () => {
-    const val = form.value.seeding_time_limit ?? -2
-    if (val <= 0) return val
-    else return val / 60
-  },
-  set: val => {
-    if (val > 0) val *= 60
-    return (form.value.seeding_time_limit = val || undefined)
-  }
+  get: () => form.value.seeding_time_limit,
+  set: val => (form.value.seeding_time_limit = val || undefined)
 })
 
 const inactiveSeedingTimeLimit = computed({
-  get: () => {
-    const val = form.value.inactive_seeding_time_limit ?? -2
-    if (val <= 0) return val
-    else return val / 60
-  },
-  set: val => {
-    if (val > 0) val *= 60
-    return (form.value.inactive_seeding_time_limit = val || undefined)
-  }
+  get: () => form.value.inactive_seeding_time_limit,
+  set: val => (form.value.inactive_seeding_time_limit = val || undefined)
 })
 
 const onCategoryChanged = () => {

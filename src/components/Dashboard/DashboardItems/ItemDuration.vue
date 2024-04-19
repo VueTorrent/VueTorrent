@@ -2,12 +2,13 @@
 import dayjs from '@/plugins/dayjs'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
+import { DurationUnitType } from 'dayjs/plugin/duration'
 
-const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number }>()
+const props = defineProps<{ torrent: Torrent; titleKey?: string; unit: DurationUnitType; value: (t: Torrent) => number }>()
 
 const val = computed(() => props.value(props.torrent))
 const formattedDuration = computed(() => {
-  const duration = dayjs.duration(val.value, 'seconds')
+  const duration = dayjs.duration(val.value, props.unit)
 
   const durationValues = [duration.years(), duration.months(), duration.days(), duration.hours(), duration.minutes(), duration.seconds()]
   const durationLabels = ['Y', 'M', 'd', 'h', 'm', 's']
