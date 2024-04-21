@@ -1176,6 +1176,7 @@
       "global_speed": "Velocidad global",
       "global_volume": "Volumen Global",
       "hash": "Hash",
+      "inactive_seeding_time_limit": "Límite de tiempo de siembra inactiva",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
       "is_private": "Torrent privado",
