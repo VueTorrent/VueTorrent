@@ -111,7 +111,7 @@ watchEffect(() => {
     <v-main>
       <router-view />
     </v-main>
-    <AddPanel />
+    <AddPanel v-if="authStore.isAuthenticated" />
     <DnDZone />
   </v-app>
 </template>
