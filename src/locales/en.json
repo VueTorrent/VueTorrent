@@ -289,6 +289,22 @@
       "submit": "Add torrents",
       "title": "Add Torrents"
     },
+    "bulkRenameFiles": {
+      "col_origin_name": "Original",
+      "col_result_name": "Result",
+      "duplicated": "Duplicate Filename",
+      "fold": "Collapse",
+      "not_changed": "Filename Not Changed",
+      "notForFolder": "Folder Renaming Not Supported",
+      "nothing_to_do": "No tasks to do",
+      "regexp": "Regular Expression",
+      "run": "Run",
+      "select_regex_flags": "Select Regular Expression Flags",
+      "success": "Rename Successful",
+      "target": "Replacement Input",
+      "title": "Bulk Rename",
+      "unfold": "Expand"
+    },
     "category": {
       "name": "Category Name",
       "nameRequired": "Category name is required",
@@ -1187,6 +1203,7 @@
       "global_speed": "Global Speed",
       "global_volume": "Global Volume",
       "hash": "Hash",
+      "inactive_seeding_time_limit": "Inactive seeding time limit",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
       "is_private": "Private torrent",
@@ -1207,7 +1224,6 @@
       "save_path": "Save Path",
       "seeding_time": "Seeding time",
       "seeding_time_limit": "Seeding time limit",
-      "inactive_seeding_time_limit": "Inactive seeding time limit",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete",
       "seq_dl": "Sequential Download",

@@ -1176,6 +1176,7 @@
       "global_speed": "全体速度",
       "global_volume": "グローバルサイズ",
       "hash": "ハッシュ",
+      "inactive_seeding_time_limit": "非アクティブシード時間制限",
       "infohash_v1": "Infoハッシュ v1",
       "infohash_v2": "Infoハッシュ v2",
       "is_private": "プライベートTorrent",

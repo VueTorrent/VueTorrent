@@ -1172,6 +1172,7 @@
       "global_speed": "Prędkość globalna",
       "global_volume": "Globalny wolumen",
       "hash": "Suma kontrolna",
+      "inactive_seeding_time_limit": "Limit czasu nieaktywnego seedowania",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
       "last_activity": "Ostatnia aktywność",

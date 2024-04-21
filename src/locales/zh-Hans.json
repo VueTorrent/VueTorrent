@@ -7,6 +7,7 @@
     "disable": "禁用",
     "disabled": "已禁用",
     "emptyList": "当前无内容显示",
+    "global_value": "全局设置",
     "NA": "不适用",
     "no": "否",
     "none": "(无)",
@@ -287,6 +288,22 @@
       "submit": "添加种子",
       "title": "添加种子"
     },
+    "bulkRenameFiles": {
+      "col_origin_name": "原名称",
+      "col_result_name": "结果",
+      "duplicated": "重复的文件名",
+      "fold": "折叠",
+      "not_changed": "文件名未变更",
+      "notForFolder": "不支持文件夹重命名",
+      "nothing_to_do": "无待执行任务",
+      "regexp": "正则表达式",
+      "run": "执行",
+      "select_regex_flags": "选择正则表达式标识",
+      "success": "成功重命名",
+      "target": "替换成",
+      "title": "批量重命名",
+      "unfold": "展开"
+    },
     "category": {
       "name": "分类名称",
       "nameRequired": "分类名称不能为空",
@@ -301,6 +318,10 @@
     "connectionStatus": {
       "dht_nodes": "DHT 节点",
       "externalIp": "外部 IP 地址",
+      "fetch_geo_failed": "无法获取地理位置信息",
+      "fetch_isp_failed": "无法获取ISP信息",
+      "geo_details": "地理位置信息",
+      "isp_details": "ISP信息",
       "noExternalIp": "无法从日志中删除",
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
@@ -911,6 +932,7 @@
     "title": "设置",
     "vuetorrent": {
       "general": {
+        "backendUrl": "后端URL",
         "canvasRefreshThreshold": "禁用Canvas自动刷新的种子块数阈值",
         "canvasRenderThreshold": "禁用Canvas渲染的种子块数阈值",
         "check_new": "检查新版本",
@@ -918,6 +940,8 @@
         "customTitle": "自定义标题",
         "dateFormat": "日期格式",
         "download": "导出设置",
+        "enableHashColors": "启用自动生成的卡片颜色",
+        "enableRatioColors": "启用彩色的分享率",
         "fileContentInterval": "种子文件内容刷新间隔",
         "hideChipIfUnset": "未设置时隐藏卡片",
         "historySize": "符合条件字段的历史大小",
@@ -1178,6 +1202,7 @@
       "global_speed": "全局速度",
       "global_volume": "全局容量",
       "hash": "哈希值",
+      "inactive_seeding_time_limit": "非活跃做种时长限制",
       "infohash_v1": "哈希值 v1",
       "infohash_v2": "哈希值 v2",
       "is_private": "私有种子",
@@ -1223,6 +1248,7 @@
       "downloading": "下载中",
       "error": "错误",
       "forcedDL": "[F] 下载中",
+      "forcedMetaDL": "[F]元数据",
       "forcedUP": "[F] 上传中",
       "metaDL": "元数据",
       "missingFiles": "缺失文件",
