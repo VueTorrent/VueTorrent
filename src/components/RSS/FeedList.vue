@@ -3,6 +3,8 @@ import { Feed } from '@/types/qbit/models'
 import { useRssStore } from '@/stores'
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
+import FeedIcon from '@/components/RSS/FeedIcon.vue'
+import { FeedState } from '@/constants/vuetorrent'
 
 defineProps<{
   height?: number
@@ -10,6 +12,9 @@ defineProps<{
 
 const emit = defineEmits<{
   update: [feedId: string | undefined]
+  editFeed: [feed: Feed]
+  deleteFeed: [feed: Feed]
+  refreshFeed: [feed: Feed]
 }>()
 
 const router = useRouter()
@@ -45,16 +50,31 @@ function getFeedTitle(feed?: Feed) {
   const unreadCount = getUnreadCount(feed)
   return (unreadCount ? `${ unreadCount } | ` : '') + `${ feed ? feed.name : 'All' }`
 }
+
+const allState = computed(() => {
+  return rssStore.feeds.reduce((state, feed) => Math.min(state, getFeedState(feed)), FeedState.READ)
+})
+
+function getFeedState(feed: Feed) {
+  if (feed.isLoading) return FeedState.LOADING
+  else if (feed.hasError) return FeedState.ERROR
+  else if (feed.articles?.some(article => !article.isRead)) return FeedState.UNREAD
+  else return FeedState.READ
+}
 </script>
 
 <template>
   <v-list :height="height">
     <v-list-item :active="!currentFeed"
                  color="accent"
-                 :title="getFeedTitle()"
                  variant="text"
-                 @click="currentFeed = undefined"/>
-    <v-divider/>
+                 @click="currentFeed = undefined">
+      <div class="d-flex align-center">
+        <FeedIcon :state="allState" />
+        <v-list-item-title>{{ getFeedTitle() }}</v-list-item-title>
+      </div>
+    </v-list-item>
+    <v-divider thickness="3" />
     <template v-for="feed in rssStore.feeds">
       <v-list-item v-if="!rssStore.filters.unread || rssStore.filters.unread && getUnreadCount(feed) > 0"
                    :active="currentFeed === feed.uid"
@@ -63,9 +83,13 @@ function getFeedTitle(feed?: Feed) {
                    variant="text"
                    @click="toggleFeedSelected(feed)">
         <div class="d-flex align-center">
-          <v-list-item-title>{{ getFeedTitle(feed)}}</v-list-item-title>
+          <FeedIcon :state="getFeedState(feed)" />
+          <v-list-item-title>{{ getFeedTitle(feed) }}</v-list-item-title>
           <v-spacer />
-          <v-btn v-if="getUnreadCount(feed) > 0" density="compact" variant="plain" icon="mdi-email-open" @click.stop="readFeed(feed)" />
+          <v-btn v-if="getUnreadCount(feed) > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click.stop="readFeed(feed)" />
+          <v-btn v-else-if="!feed.isLoading" icon="mdi-sync" density="comfortable" variant="plain" @click.stop="$emit('refreshFeed', feed)" />
+          <v-btn icon="mdi-pencil" density="comfortable" variant="plain" @click.stop="$emit('editFeed', feed)" />
+          <v-btn icon="mdi-delete" color="error" density="comfortable" variant="plain" @click.stop="$emit('deleteFeed', feed)" />
         </div>
       </v-list-item>
     </template>

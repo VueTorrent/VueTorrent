@@ -8,7 +8,7 @@ import { RssArticle } from '@/types/vuetorrent'
 import ArticleList from '@/components/RSS/ArticleList.vue'
 import { useDisplay } from 'vuetify'
 
-const { height: deviceHeight } = useDisplay()
+const { height: deviceHeight, mobile } = useDisplay({ mobileBreakpoint: 'md' })
 const router = useRouter()
 const dialogStore = useDialogStore()
 const rssStore = useRssStore()
@@ -20,20 +20,20 @@ const rssDescription = reactive({
   content: ''
 })
 
-const height = computed(() =>
+const height = computed(() => {
   // 64px for the toolbar
   // 12px for the padding (top and bottom)
   // 48px for the title
-  deviceHeight.value - 64 - 12 * 2 - 48
-)
+  return deviceHeight.value - 64 - 12 * 2 - 48
+})
 
-const rowHeight = computed(() =>
+const rowHeight = computed(() => {
   // 56px for the filter
   // 16px for the margin
   // 56px for the row
   // 12px for the padding (top and bottom)
-  height.value - 56 - 16 - 56 - 12*2
-)
+  return height.value - 56 - 16 - 56 - 12 * 2
+})
 
 const titleFilter = computed({
   get: () => rssStore.filters.title,
@@ -51,10 +51,6 @@ function openRssArticle(article: RssArticle) {
 
 function goHome() {
   router.push({ name: 'dashboard' })
-}
-
-function goToRssFeeds() {
-  router.push({ name: 'settings', params: { tab: 'rss', subtab: 'feeds' } })
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
@@ -94,25 +90,25 @@ onUnmounted(() => {
     </v-row>
 
     <v-card v-if="!rssStore.feeds" :height="height">
-      <v-empty-state title="No RSS feeds registered" icon="mdi-rss-off">
-        <template #text>
-          <v-btn text="Go to settings" color="primary" @click="goToRssFeeds" />
-        </template>
-      </v-empty-state>
+      <v-empty-state title="No RSS feeds registered" icon="mdi-rss-off" />
     </v-card>
 
-    <v-card v-else id="rss-articles" class="pa-3" :max-height="height">
+    <v-card v-else id="rss-articles" class="pa-3" :height="height">
       <v-text-field v-model="titleFilter" :label="$t('rssArticles.filters.title')" clearable hide-details />
 
       <div class="d-flex flex-row align-center justify-center mt-4">
         <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
         <v-spacer />
-        <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary"
-               @click="rssStore.markAllAsRead()" />
+        <div class="d-flex gap">
+          <!-- TODO: RENAME I18N KEY -->
+          <v-btn :text="$t('settings.rss.feeds.refreshAll')" color="primary" />
+          <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary"
+                 @click="rssStore.markAllAsRead()" />
+        </div>
       </div>
 
       <!-- Mobile layout -->
-      <template v-if="$vuetify.display.mobile">
+      <template v-if="mobile">
         <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
 
         <v-bottom-sheet v-model="bottomSheetVisible" max-height="550">
@@ -153,6 +149,9 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
+.gap {
+  gap: 8px;
+}
 .fab {
   position: fixed;
   right: 24px;

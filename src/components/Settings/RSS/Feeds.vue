@@ -65,9 +65,7 @@ watch(
             <v-icon v-else-if="feed.isLoading">mdi-cloud-sync</v-icon>
             <v-icon v-else>mdi-sync</v-icon>
           </v-btn>
-          <v-btn icon variant="plain" density="compact" @click="openFeedDialog(feed)">
-            <v-icon>mdi-pencil</v-icon>
-          </v-btn>
+          <v-btn icon="mdi-pencil" variant="plain" density="compact" @click="openFeedDialog(feed)" />
           <v-btn icon="mdi-delete" color="red" variant="plain" @click="deleteFeed(feed)" />
         </div>
       </v-sheet>

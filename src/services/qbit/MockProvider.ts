@@ -479,7 +479,7 @@ export default class MockProvider implements IProvider {
           ]
         },
         {
-          hasError: false,
+          hasError: true,
           isLoading: false,
           lastBuildDate: '02 Aug 2023 16:00:46 +0000',
           name: 'feed2',
@@ -501,7 +501,7 @@ export default class MockProvider implements IProvider {
         },
         {
           hasError: false,
-          isLoading: false,
+          isLoading: true,
           lastBuildDate: '02 Aug 2023 16:00:46 +0000',
           name: 'feed3',
           title: 'RSS Feed 3',
