@@ -1,4 +1,11 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -28,7 +35,8 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {}
+  private constructor() {
+  }
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -426,32 +434,367 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async getFeeds(withData: boolean): Promise<Feed[]> {
-    const feed: Feed = {
-      hasError: false,
-      isLoading: false,
-      lastBuildDate: '02 Aug 2023 16:00:46 +0000',
-      name: 'feed1',
-      title: 'RSS Feed',
-      uid: '{7a458bee-856a-4c0e-b751-11fd2183dfe4}',
-      url: 'https://www.example.com/feed'
-    }
-    if (withData) {
-      feed.articles = [
+  async getFeeds(_: boolean): Promise<Feed[]> {
+    return this.generateResponse({
+      result: [
         {
-          author: 'John Doe',
-          date: '02 Aug 2023 16:00:46 +0000',
-          description: 'This is a <strong>sample</strong> <i>description</i>',
-          id: 'SDb4v2op8wm',
-          isRead: false,
-          link: 'https://www.example.com/article/SDb4v2op8wm',
-          title: 'Sample title 1',
-          torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed1',
+          title: 'RSS Feed 1',
+          uid: '{7a458bee-856a-4c0e-b751-11fd2183dfe4}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm1',
+              isRead: false,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 1',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            },
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:47 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm1a',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 1a',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            },
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:48 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm1b',
+              isRead: false,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 1b',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed2',
+          title: 'RSS Feed 2',
+          uid: '{1ae133e7-ee5f-41c5-a11d-e59fcad3be52}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm2',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 2',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed3',
+          title: 'RSS Feed 3',
+          uid: '{4d2082fb-064e-4085-a1e4-ec5fd4d7651a}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm3',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 3',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed4',
+          title: 'RSS Feed 4',
+          uid: '{554d2a88-b3ab-41b4-82c1-7cd06931dd97}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm4',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 4',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed5',
+          title: 'RSS Feed 5',
+          uid: '{c22bc325-9874-481c-8b54-c8135fef5798}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm5',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 5',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed6',
+          title: 'RSS Feed 6',
+          uid: '{b4ecdc88-c192-464e-a616-2844cbc69007}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm6',
+              isRead: false,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 6',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed7',
+          title: 'RSS Feed 7',
+          uid: '{64e501a3-58c1-4397-8e90-5650e9dafe3f}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm7',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 7',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed8',
+          title: 'RSS Feed 8',
+          uid: '{52489995-2ac8-47f3-89da-714199693ec7}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm8',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 8',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed9',
+          title: 'RSS Feed 9',
+          uid: '{63e6d3eb-1fc7-4c78-a1dd-422c10631a65}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm9',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 9',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed10',
+          title: 'RSS Feed 10',
+          uid: '{41ca2a58-aec4-48c0-91c7-4f08e5e8318a}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm10',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 10',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed11',
+          title: 'RSS Feed 11',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179c}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm11',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 11',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed12',
+          title: 'RSS Feed 12',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179d}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm12',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 12',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed13',
+          title: 'RSS Feed 13',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179e}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm13',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 13',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed14',
+          title: 'RSS Feed 14',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179f}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm14',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 14',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed15',
+          title: 'RSS Feed 15',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179g}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm15',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 15',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed16',
+          title: 'RSS Feed 16',
+          uid: '{fafb2e55-979c-4188-a0a4-dc3375cc179h}',
+          url: 'https://www.example.com/feed',
+          articles: [
+            {
+              author: 'John Doe',
+              date: '02 Aug 2023 16:00:46 +0000',
+              description: 'This is a <strong>sample</strong> <i>description</i>',
+              id: 'SDb4v2op8wm16',
+              isRead: true,
+              link: 'https://www.example.com/article/SDb4v2op8wm',
+              title: 'Sample title 16',
+              torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
+            }
+          ]
         }
       ]
-    }
-
-    return this.generateResponse({ result: [feed] })
+    })
   }
 
   async getRules(): Promise<FeedRule[]> {
@@ -697,7 +1040,7 @@ export default class MockProvider implements IProvider {
         infohash_v1: hash,
         infohash_v2: '',
         last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
         max_inactive_seeding_time: -1,
         max_ratio: -1,
         max_seeding_time: -1,

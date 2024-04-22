@@ -1,21 +1,39 @@
 <script lang="ts" setup>
-import Desktop from '@/components/RSS/Desktop.vue'
-import Mobile from '@/components/RSS/Mobile.vue'
+import FeedList from '@/components/RSS/FeedList.vue'
 import { useRouter } from 'vue-router'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
 import debounce from 'lodash.debounce'
 import { useDialogStore, useRssStore } from '@/stores'
+import { RssArticle } from '@/types/vuetorrent'
+import ArticleList from '@/components/RSS/ArticleList.vue'
+import { useDisplay } from 'vuetify'
 
+const { height: deviceHeight } = useDisplay()
 const router = useRouter()
 const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
-const selectedFeed = ref<string>()
+const bottomSheetVisible = ref(false)
 const descriptionDialogVisible = ref(false)
 const rssDescription = reactive({
   title: '',
   content: ''
 })
+
+const height = computed(() =>
+  // 64px for the toolbar
+  // 12px for the padding (top and bottom)
+  // 48px for the title
+  deviceHeight.value - 64 - 12 * 2 - 48
+)
+
+const rowHeight = computed(() =>
+  // 56px for the filter
+  // 16px for the margin
+  // 56px for the row
+  // 12px for the padding (top and bottom)
+  height.value - 56 - 16 - 56 - 12*2
+)
 
 const titleFilter = computed({
   get: () => rssStore.filters.title,
@@ -23,6 +41,13 @@ const titleFilter = computed({
     rssStore.filters.title = value ?? ''
   }, 300)
 })
+
+function openRssArticle(article: RssArticle) {
+  if (!article.description) return
+  rssDescription.title = article.title.trim()
+  rssDescription.content = article.description.trim()
+  descriptionDialogVisible.value = true
+}
 
 function goHome() {
   router.push({ name: 'dashboard' })
@@ -68,7 +93,7 @@ onUnmounted(() => {
       </v-col>
     </v-row>
 
-    <v-card v-if="!rssStore.feeds">
+    <v-card v-if="!rssStore.feeds" :height="height">
       <v-empty-state title="No RSS feeds registered" icon="mdi-rss-off">
         <template #text>
           <v-btn text="Go to settings" color="primary" @click="goToRssFeeds" />
@@ -76,7 +101,7 @@ onUnmounted(() => {
       </v-empty-state>
     </v-card>
 
-    <v-card v-else id="rss-articles" class="pa-3">
+    <v-card v-else id="rss-articles" class="pa-3" :max-height="height">
       <v-text-field v-model="titleFilter" :label="$t('rssArticles.filters.title')" clearable hide-details />
 
       <div class="d-flex flex-row align-center justify-center mt-4">
@@ -86,14 +111,28 @@ onUnmounted(() => {
                @click="rssStore.markAllAsRead()" />
       </div>
 
-      <Mobile v-if="$vuetify.display.mobile"
-              v-model:selected-feed="selectedFeed"
-              v-model:description-dialog-visible="descriptionDialogVisible"
-              v-model:rss-description="rssDescription" />
-      <Desktop v-else
-               v-model:selected-feed="selectedFeed"
-               v-model:description-dialog-visible="descriptionDialogVisible"
-               v-model:rss-description="rssDescription" />
+      <!-- Mobile layout -->
+      <template v-if="$vuetify.display.mobile">
+        <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
+
+        <v-bottom-sheet v-model="bottomSheetVisible" max-height="550">
+          <template v-slot:activator="{ props }">
+            <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
+          </template>
+          <FeedList @update="bottomSheetVisible = false" />
+        </v-bottom-sheet>
+      </template>
+
+      <!-- Desktop Layout -->
+      <v-row v-else>
+        <v-col cols="4">
+          <FeedList :height="rowHeight" />
+        </v-col>
+
+        <v-col cols="8">
+          <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
+        </v-col>
+      </v-row>
     </v-card>
   </div>
 
@@ -114,6 +153,12 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
+.fab {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+}
+
 #rss-articles {
   .rss-read {
     &.v-theme--darkTheme {

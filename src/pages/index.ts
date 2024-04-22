@@ -13,7 +13,7 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     name: 'rssArticles',
-    path: '/rss',
+    path: '/rss/:feedId?',
     component: () => import('./RssArticles.vue')
   },
   {

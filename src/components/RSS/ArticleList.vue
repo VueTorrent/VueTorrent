@@ -4,21 +4,22 @@ import { RssArticle } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import debounce from 'lodash.debounce'
 import { useAddTorrentStore, useRssStore, useVueTorrentStore } from '@/stores'
+import { useRoute } from 'vue-router'
 
-const props = defineProps<{
-  selectedFeed: string | undefined
+defineProps<{
+  height?: number
 }>()
 
-const rssDescription = defineModel<{
-  title: string
-  content: string
-}>('rssDescription', { required: true })
-const descriptionDialogVisible = defineModel<boolean>('descriptionDialogVisible', { required: true })
+const emit = defineEmits<{
+  articleClicked: [article: RssArticle]
+}>()
 
+const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const rssStore = useRssStore()
 const vuetorrentStore = useVueTorrentStore()
 
+const selectedFeed = computed(() => route.params.feedId)
 const titleFilter = computed({
   get: () => rssStore.filters.title,
   set: debounce((value: string) => {
@@ -26,7 +27,7 @@ const titleFilter = computed({
   }, 300)
 })
 
-const articles = computed(() => rssStore.articles.filter(article => !props.selectedFeed || props.selectedFeed === article.feedId).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)))
+const articles = computed(() => rssStore.articles.filter(article => !selectedFeed.value || selectedFeed.value === article.feedId).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)))
 
 const searchQuery = useSearchQuery(
   () => articles.value,
@@ -41,13 +42,6 @@ function openLink(article: RssArticle) {
   window.open(url, '_blank', 'noreferrer')
 }
 
-function showDescription(article: RssArticle) {
-  if (!article.description) return
-  rssDescription.value.title = article.title.trim()
-  rssDescription.value.content = article.description.trim()
-  descriptionDialogVisible.value = true
-}
-
 function downloadArticle(item: RssArticle) {
   addTorrentStore.pushTorrentToQueue(item.torrentURL)
 }
@@ -58,7 +52,7 @@ async function markAsRead(item: RssArticle) {
 </script>
 
 <template>
-  <v-list>
+  <v-list :height="height">
     <v-list-item v-if="searchQuery.results.value.length">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </v-list-item>
@@ -66,12 +60,10 @@ async function markAsRead(item: RssArticle) {
     <template v-for="(article, index) in paginatedResults">
       <v-divider v-if="index > 0" color="white" />
 
-      <v-list-item :class="{ 'rss-read': article.isRead }" @click="showDescription(article)"
-                   @contextmenu="markAsRead(article)">
+      <v-list-item :class="{ 'rss-read': article.isRead }" @click="$emit('articleClicked', article)" @contextmenu="markAsRead(article)">
         <div class="d-flex">
           <div>
-            <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }}
-            </v-list-item-title>
+            <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }}</v-list-item-title>
 
             <v-list-item-subtitle class="d-block">
               <div>{{ article.parsedDate.toLocaleString() }}</div>
@@ -102,7 +94,3 @@ async function markAsRead(item: RssArticle) {
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped>
-
-</style>

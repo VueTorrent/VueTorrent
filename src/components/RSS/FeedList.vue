@@ -1,13 +1,29 @@
 <script setup lang="ts">
 import { Feed } from '@/types/qbit/models'
 import { useRssStore } from '@/stores'
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 
-const selectedFeed = defineModel<string | undefined>('selectedFeed', { required: true })
-const emit = defineEmits<{
-  feedClicked: []
+defineProps<{
+  height?: number
 }>()
 
+const emit = defineEmits<{
+  update: [feedId: string | undefined]
+}>()
+
+const router = useRouter()
 const rssStore = useRssStore()
+
+const currentFeed = computed({
+  get() {
+    return router.currentRoute.value.params.feedId as string | undefined
+  },
+  set(feedId) {
+    router.replace({ name: 'rssArticles', params: { feedId } })
+    emit('update', feedId)
+  }
+})
 
 function getUnreadCount(feed?: Feed) {
   if (!feed) {
@@ -18,8 +34,7 @@ function getUnreadCount(feed?: Feed) {
 }
 
 function toggleFeedSelected(feed: Feed) {
-  emit('feedClicked')
-  selectedFeed.value = selectedFeed.value !== feed.uid ? feed.uid : undefined
+  currentFeed.value = currentFeed.value !== feed.uid ? feed.uid : undefined
 }
 
 async function readFeed(feed: Feed) {
@@ -33,16 +48,16 @@ function getFeedTitle(feed?: Feed) {
 </script>
 
 <template>
-  <v-list>
-    <v-list-item :active="!selectedFeed"
+  <v-list :height="height">
+    <v-list-item :active="!currentFeed"
                  color="accent"
                  :title="getFeedTitle()"
                  variant="text"
-                 @click="selectedFeed = undefined"/>
+                 @click="currentFeed = undefined"/>
     <v-divider/>
     <template v-for="feed in rssStore.feeds">
       <v-list-item v-if="!rssStore.filters.unread || rssStore.filters.unread && getUnreadCount(feed) > 0"
-                   :active="selectedFeed === feed.uid"
+                   :active="currentFeed === feed.uid"
                    :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
                    color="accent"
                    variant="text"
@@ -56,7 +71,3 @@ function getFeedTitle(feed?: Feed) {
     </template>
   </v-list>
 </template>
-
-<style scoped>
-
-</style>
