@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.8.0](https://github.com/VueTorrent/VueTorrent/compare/v2.7.3...v2.8.0) (2024-04-23)
+
+
+### Features
+
+* Add optional backend handling ([#1547](https://github.com/VueTorrent/VueTorrent/issues/1547)) ([d513e09](https://github.com/VueTorrent/VueTorrent/commit/d513e097bf325088b434fbf9529dab4609a7ede7))
+* **TorrentDetail:** add bulk renaming ([#1624](https://github.com/VueTorrent/VueTorrent/issues/1624)) ([a7ebcb5](https://github.com/VueTorrent/VueTorrent/commit/a7ebcb59d95e03029f68ecee3632fdbe73eafa79))
+
+
+### Bug Fixes
+
+* Add missing forcedMetaDL state ([#1652](https://github.com/VueTorrent/VueTorrent/issues/1652)) ([1013151](https://github.com/VueTorrent/VueTorrent/commit/1013151e718bde6bb41365bc249e01ba9a422e95))
+* **AddTorrentParams:** Convert seeding time to minutes manually ([#1649](https://github.com/VueTorrent/VueTorrent/issues/1649)) ([3d05859](https://github.com/VueTorrent/VueTorrent/commit/3d0585928da85e5d97c2e2d8f804afde477f372e))
+* **MagnetHandler:** Don't show add dialog if not authenticated ([#1657](https://github.com/VueTorrent/VueTorrent/issues/1657)) ([a0cdffd](https://github.com/VueTorrent/VueTorrent/commit/a0cdffd380634ef0c866657201b7af98e5f78f2c))
+* seeds and peers shows same value ([#1632](https://github.com/VueTorrent/VueTorrent/issues/1632)) ([bd09a8a](https://github.com/VueTorrent/VueTorrent/commit/bd09a8a4250ac6f1a0999c985f5afc3aee300eb8))
+* **share limits:** Revert and fix display ([#1654](https://github.com/VueTorrent/VueTorrent/issues/1654)) ([2eca39e](https://github.com/VueTorrent/VueTorrent/commit/2eca39e899956280a682c1c53a6d145020435599))
+* **WebUI:** Bypass auth subnet whitelist not working ([#1645](https://github.com/VueTorrent/VueTorrent/issues/1645)) ([4cbb456](https://github.com/VueTorrent/VueTorrent/commit/4cbb45679c0e4f39314c51937ebaa2593a86e994))
+
+
+### Improvements
+
+* **Content:** Better handle tree filtering ([#1631](https://github.com/VueTorrent/VueTorrent/issues/1631)) ([f4e73aa](https://github.com/VueTorrent/VueTorrent/commit/f4e73aa7fcda207ef38873db4452fd84d931f0f3))
+* **ratio colors:** Add feature toggle ([#1633](https://github.com/VueTorrent/VueTorrent/issues/1633)) ([6874944](https://github.com/VueTorrent/VueTorrent/commit/68749446f6cb772b1d04970172b2c2bd160b13f3))
+
 ## [2.7.3](https://github.com/VueTorrent/VueTorrent/compare/v2.7.2...v2.7.3) (2024-04-02)
 
 ### Bug Fixes
