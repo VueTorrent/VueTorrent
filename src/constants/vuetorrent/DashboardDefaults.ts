@@ -5,6 +5,7 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 import { useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { DurationUnitType } from 'dayjs/plugin/duration'
+import { getRatioColor } from '@/helpers/colors.ts'
 
 type pptData = { active: boolean; order: number }
 
@@ -311,10 +312,7 @@ export const propsMetadata: PropertyMetadata = {
         const { enableRatioColors } = storeToRefs(useVueTorrentStore())
 
         if (!enableRatioColors.value) return ''
-        if (v < 0.5) return 'text-ratio-bad'
-        if (v < 1) return 'text-ratio-almost'
-        if (v < 5) return 'text-ratio-good'
-        return 'text-ratio-best'
+        return getRatioColor(v)
       }
     },
     type: DashboardPropertyType.TEXT
