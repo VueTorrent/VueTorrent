@@ -15,3 +15,10 @@ export function getColorFromName(name: string) {
 
   return color.toHexString()
 }
+
+export function getRatioColor(ratio: number) {
+  if (ratio < 0.5) return 'text-ratio-bad'
+  if (ratio < 1) return 'text-ratio-almost'
+  if (ratio < 5) return 'text-ratio-good'
+  return 'text-ratio-best'
+}

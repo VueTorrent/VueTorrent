@@ -1,28 +1,22 @@
-import { describe, beforeEach, it, expect, vi } from 'vitest'
-import { VueWrapper, mount } from '@vue/test-utils'
-import { createTestingPinia } from '@pinia/testing'
-
-import DataCard from './DataCard.vue'
 import i18n from '@/plugins/i18n'
 import vuetify from '@/plugins/vuetify'
+import { createTestingPinia } from '@pinia/testing'
+import { mount, VueWrapper } from '@vue/test-utils'
+import { beforeEach, describe, expect, it } from 'vitest'
+
+import DataCard from './DataCard.vue'
 
 const title = 'Downloaded'
 const value = 10000
 const color = 'download'
 
 let wrapper: VueWrapper
-describe('StorageCard.vue', () => {
+describe('DataCard.vue', () => {
   beforeEach(() => {
     wrapper = mount(DataCard, {
       propsData: { title, value, color },
       global: {
-        plugins: [
-          createTestingPinia({
-            createSpy: vi.fn()
-          }),
-          i18n,
-          vuetify
-        ]
+        plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
   })

@@ -2,6 +2,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
+import { getRatioColor } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { DurationUnitType } from 'dayjs/plugin/duration'
@@ -311,10 +312,7 @@ export const propsMetadata: PropertyMetadata = {
         const { enableRatioColors } = storeToRefs(useVueTorrentStore())
 
         if (!enableRatioColors.value) return ''
-        if (v < 0.5) return 'text-ratio-bad'
-        if (v < 1) return 'text-ratio-almost'
-        if (v < 5) return 'text-ratio-good'
-        return 'text-ratio-best'
+        return getRatioColor(v)
       }
     },
     type: DashboardPropertyType.TEXT

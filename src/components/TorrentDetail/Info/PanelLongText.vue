@@ -2,6 +2,7 @@
 import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
+import ColoredChip from '@/components/Core/ColoredChip.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
 
@@ -17,8 +18,8 @@ const values = [
   { title: 'name', getter: () => props.torrent.name },
   { title: 'save_path', getter: () => props.torrent.savePath },
   { title: 'tracker', getter: () => props.torrent.tracker },
-  { title: 'comment', getter: () => properties.value?.comment ?? '' },
-  { title: 'created_by', getter: () => properties.value?.created_by ?? '' }
+  { title: 'comment', getter: () => properties.value?.comment },
+  { title: 'created_by', getter: () => properties.value?.created_by }
 ]
 </script>
 
@@ -27,14 +28,12 @@ const values = [
     <v-expansion-panel-text>
       <v-list>
         <v-list-item v-for="ppt in values" :title="$t(`torrent.properties.${ppt.title}`)">
-          <v-list-item-subtitle>{{ ppt.getter() }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ ppt.getter() || $t('common.none') }}</v-list-item-subtitle>
         </v-list-item>
 
         <v-list-item :title="$t('torrent.properties.tags')">
           <div v-if="torrent.tags?.length" class="d-flex gap">
-            <v-chip v-for="tag in torrent.tags" variant="flat" color="tag">
-              {{ tag }}
-            </v-chip>
+            <ColoredChip v-for="tag in torrent.tags" defaultColor="tag" :value="tag" />
           </div>
           <v-list-item-subtitle v-else>{{ $t('torrent.properties.empty_tags') }}</v-list-item-subtitle>
         </v-list-item>
