@@ -1,4 +1,4 @@
-import { getColorFromName } from './colors'
+import { getColorFromName, getRatioColor } from './colors'
 import { formatDataValue, formatDataUnit, formatData } from './data'
 import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
 import { toPrecision, formatPercent } from './number'
@@ -8,6 +8,7 @@ import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, stri
 
 export {
   getColorFromName,
+  getRatioColor,
   formatDataValue,
   formatDataUnit,
   formatData,

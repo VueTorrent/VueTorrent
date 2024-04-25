@@ -2,10 +2,10 @@ import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
+import { getRatioColor } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { DurationUnitType } from 'dayjs/plugin/duration'
-import { getRatioColor } from '@/helpers/colors.ts'
 
 type pptData = { active: boolean; order: number }
 

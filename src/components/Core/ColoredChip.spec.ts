@@ -12,8 +12,8 @@ const fooRgb = 'rgb(123, 47, 222)'
 
 describe('ColoredChip.vue', () => {
   it('should render chip with random color and value', () => {
-    const wrapper = mount(ColoredChip, {
-      props: { defaultColor: 'default', value },
+    const chip = mount(ColoredChip, {
+      props: { defaultColor, value },
       global: {
         plugins: [
           createTestingPinia({
@@ -29,13 +29,12 @@ describe('ColoredChip.vue', () => {
       }
     })
 
-    const chip = wrapper.find('[data-testid="chip"]')
     expect(chip.attributes().style).toContain(`background-color: ${fooRgb}`)
     expect(chip.text()).toBe(value)
   })
 
   it('should render chip with default color and value', () => {
-    const wrapper = mount(ColoredChip, {
+    const chip = mount(ColoredChip, {
       props: { defaultColor, value },
       global: {
         plugins: [
@@ -52,13 +51,12 @@ describe('ColoredChip.vue', () => {
       }
     })
 
-    const chip = wrapper.find('[data-testid="chip"]')
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
     expect(chip.text()).toBe(value)
   })
 
   it('should render chip with default color and default value', () => {
-    const wrapper = mount(ColoredChip, {
+    const chip = mount(ColoredChip, {
       props: { defaultColor, disabled: true, disabledValue, value },
       global: {
         plugins: [
@@ -75,7 +73,6 @@ describe('ColoredChip.vue', () => {
       }
     })
 
-    const chip = wrapper.find('[data-testid="chip"]')
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
     expect(chip.text()).toBe(disabledValue)
   })

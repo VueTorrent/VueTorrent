@@ -25,7 +25,7 @@ const chipValue = computed(() => (props.disabled ? props.disabledValue || t('com
 </script>
 
 <template>
-  <v-chip data-testid="chip" :color="chipColor" variant="flat">
+  <v-chip :color="chipColor" variant="flat">
     {{ chipValue }}
   </v-chip>
 </template>
