@@ -142,7 +142,7 @@
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
         "download_path": "Set Download Path",
-        "f_l_prio": "First / Last Priority",
+        "f_l_prio": "First / Last Piece Priority",
         "reannounce": "Force Reannounce",
         "recheck": "Force Recheck",
         "rename": "Rename Torrent",
@@ -164,11 +164,11 @@
       "export": "Export torrent | Export torrents",
       "info": "Show Info",
       "priority": {
-        "bottom": "Bottom Priority",
-        "decrease": "Decrease Priority",
-        "increase": "Increase Priority",
-        "title": "Set Priority",
-        "top": "Top Prio"
+        "bottom": "To bottom",
+        "decrease": "Decrease",
+        "increase": "Increase",
+        "title": "Set queue position",
+        "top": "To top"
       },
       "speed_limit": {
         "download": "Set download limit",
@@ -224,7 +224,7 @@
       "num_incomplete": "Peers (swarm)",
       "num_leechs": "Peers (connected)",
       "num_seeds": "Seeds (connected)",
-      "priority": "Priority",
+      "priority": "Queue position",
       "progress": "Progress",
       "ratio": "Ratio",
       "ratio_limit": "Ratio Limit",
@@ -1215,7 +1215,7 @@
       "num_leechs": "Peers (connected)",
       "num_seeds": "Seeds (connected)",
       "peers": "Peers",
-      "priority": "Priority",
+      "priority": "Queue position",
       "progress": "Progress",
       "progress_bar": "Progress Bar",
       "ratio": "Ratio",
