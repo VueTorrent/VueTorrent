@@ -477,5 +477,10 @@
       "pending": "Inviando torrent...",
       "success": "{n} Torrent aggiunto | {n} Torrent aggiunti"
     }
+  },
+  "torrent": {
+    "properties": {
+      "priority": "Priorità"
+    }
   }
 }

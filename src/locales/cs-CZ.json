@@ -226,5 +226,10 @@
       "ratio": "Poměr",
       "ratio_limit": "Poměrový limit"
     }
+  },
+  "torrent": {
+    "properties": {
+      "priority": "Priorita"
+    }
   }
 }
