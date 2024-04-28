@@ -318,8 +318,8 @@
     "connectionStatus": {
       "dht_nodes": "Узлы DHT",
       "externalIp": "Внешний IP-адрес",
-      "fetch_geo_failed": "Не удалось получить информацию о геолокации",
-      "fetch_isp_failed": "Не удалось получить информацию о провайдере",
+      "fetch_geo_failed": "Не удалось получить",
+      "fetch_isp_failed": "Не удалось получить",
       "geo_details": "Информация о геолокации",
       "isp_details": "Информация о провайдере",
       "noExternalIp": "Не удалось обнаружить в логах",
