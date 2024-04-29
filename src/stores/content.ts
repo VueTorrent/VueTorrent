@@ -1,14 +1,14 @@
-import { useTreeBuilder } from '@/composables'
+import { useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { qbit } from '@/services'
 import { useDialogStore } from '@/stores/dialog'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeNode } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, ref, watch } from 'vue'
+import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -26,9 +26,11 @@ export const useContentStore = defineStore('content', () => {
     offset: [0, 0]
   })
   const _lock = ref(false)
+  const filenameFilter = ref('')
   const cachedFiles = ref<TorrentFile[]>([])
-  const openedItems = ref(['(root)'])
-  const { tree } = useTreeBuilder(cachedFiles)
+  const openedItems = ref([''])
+  const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
+  const { tree } = useTreeBuilder(filteredFiles)
 
   const flatTree = computed(() => {
     const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
@@ -65,13 +67,13 @@ export const useContentStore = defineStore('content', () => {
     {
       text: t(`torrentDetail.content.rename.bulk`),
       icon: 'mdi-rename',
-      hidden: true, // internalSelection.value.size <= 1
-      action: bulkRename
+      hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
+      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
-      hidden: internalSelection.value.size > 1 || selectedNode.value?.name === '(root)',
+      hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)
     },
     {
@@ -118,8 +120,12 @@ export const useContentStore = defineStore('content', () => {
     renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
   }
 
-  async function bulkRename() {
-    //TODO
+  async function bulkRename(node: TreeFolder) {
+    const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
+    renameDialog.value = dialogStore.createDialog(BulkRenameFilesDialog, {
+      hash: hash.value,
+      node
+    })
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
@@ -148,8 +154,10 @@ export const useContentStore = defineStore('content', () => {
     rightClickProperties,
     internalSelection,
     menuData,
+    filenameFilter,
     cachedFiles,
     openedItems,
+    filteredFiles,
     tree,
     flatTree,
     updateFileTree,
@@ -161,8 +169,9 @@ export const useContentStore = defineStore('content', () => {
     $reset: () => {
       while (_lock.value) {}
       internalSelection.value.clear()
+      filenameFilter.value = ''
       cachedFiles.value = []
-      openedItems.value = ['(root)']
+      openedItems.value = ['']
       pauseTimer()
     }
   }

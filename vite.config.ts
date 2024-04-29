@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             // apexcharts: ['apexcharts', 'vue3-apexcharts'],
-            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-plugin-persist'],
+            vue: ['vue', 'vue-router', 'vue-i18n', 'vue3-toastify', 'vuedraggable', 'pinia', 'pinia-persistence-plugin'],
             vuetify: ['vuetify']
           }
         }
@@ -57,6 +57,7 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       environment: 'jsdom',
+      globals: true,
       setupFiles: [resolve(__dirname, 'tests/setup.ts')],
       coverage: {
         reportsDirectory: './tests/unit/coverage'

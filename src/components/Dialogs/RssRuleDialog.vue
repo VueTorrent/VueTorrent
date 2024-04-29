@@ -32,7 +32,7 @@ const lastMatch = computed(() => {
   if (formData.lastMatch === '') return t('dialogs.rss.rule.lastMatch.unknownValue').toString()
 
   const delta = new Date().getTime() - new Date(formData.lastMatch).getTime()
-  return t('dialogs.rss.rule.lastMatch.knownValue', Math.floor(delta / (1000 * 60 * 60 * 24)).toString())
+  return t('dialogs.rss.rule.lastMatch.knownValue', Math.floor(delta / (1000 * 60 * 60 * 24)))
 })
 
 function getEmptyRule(): FeedRule {

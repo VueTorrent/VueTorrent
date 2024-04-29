@@ -1,19 +1,20 @@
 <script setup lang="ts">
 import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number; color: (T: Torrent) => string }>()
+
+const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
   <div class="d-flex flex-column">
-    <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${title}`) }}
+    <div v-if="titleKey" class="text-caption text-grey">
+      {{ $t(titleKey) }}
     </div>
-    <v-progress-linear :model-value="torrent[value]" :max="1" :height="20" :color="`torrent-${torrent.state}`" rounded="sm" style="width: 10em">
-      {{ formatPercent(torrent[value]) }}
+    <v-progress-linear :model-value="val" :max="1" :height="20" :color="color(torrent)" rounded="sm" style="width: 10em">
+      {{ formatPercent(val) }}
     </v-progress-linear>
   </div>
 </template>
-
-<style scoped></style>

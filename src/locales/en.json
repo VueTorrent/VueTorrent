@@ -6,7 +6,9 @@
     "close": "Close",
     "delete": "Delete",
     "disable": "Disable",
+    "disabled": "Disabled",
     "emptyList": "Nothing to see here!",
+    "global_value": "Global Value",
     "NA": "N/A",
     "no": "No",
     "none": "(None)",
@@ -140,7 +142,7 @@
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
         "download_path": "Set Download Path",
-        "f_l_prio": "First / Last Priority",
+        "f_l_prio": "First / Last Piece Priority",
         "reannounce": "Force Reannounce",
         "recheck": "Force Recheck",
         "rename": "Rename Torrent",
@@ -162,11 +164,11 @@
       "export": "Export torrent | Export torrents",
       "info": "Show Info",
       "priority": {
-        "bottom": "Bottom Priority",
-        "decrease": "Decrease Priority",
-        "increase": "Increase Priority",
-        "title": "Set Priority",
-        "top": "Top Prio"
+        "bottom": "To bottom",
+        "decrease": "Decrease",
+        "increase": "Increase",
+        "title": "Set queue position",
+        "top": "To top"
       },
       "speed_limit": {
         "download": "Set download limit",
@@ -222,7 +224,7 @@
       "num_incomplete": "Peers (swarm)",
       "num_leechs": "Peers (connected)",
       "num_seeds": "Seeds (connected)",
-      "priority": "Priority",
+      "priority": "Queue position",
       "progress": "Progress",
       "ratio": "Ratio",
       "ratio_limit": "Ratio Limit",
@@ -287,6 +289,22 @@
       "submit": "Add torrents",
       "title": "Add Torrents"
     },
+    "bulkRenameFiles": {
+      "col_origin_name": "Original",
+      "col_result_name": "Result",
+      "duplicated": "Duplicate Filename",
+      "fold": "Collapse",
+      "not_changed": "Filename Not Changed",
+      "notForFolder": "Folder Renaming Not Supported",
+      "nothing_to_do": "No tasks to do",
+      "regexp": "Regular Expression",
+      "run": "Run",
+      "select_regex_flags": "Select Regular Expression Flags",
+      "success": "Rename Successful",
+      "target": "Replacement Input",
+      "title": "Bulk Rename",
+      "unfold": "Expand"
+    },
     "category": {
       "name": "Category Name",
       "nameRequired": "Category name is required",
@@ -296,11 +314,16 @@
         "create": "Create Category",
         "edit": "Edit Category"
       },
-      "warnEdit": "Editing the category name will migrate torrents to the new category.\nErrors may happen, use with caution."
+      "warnEdit": "Editing the category name will migrate torrents to the new category. Errors may happen, use with caution."
     },
     "connectionStatus": {
       "dht_nodes": "DHT nodes",
       "externalIp": "External IP Address",
+      "fetch_geo_failed": "Unable to fetch geolocation details",
+      "fetch_isp_failed": "Unable to fetch ISP details",
+      "geo_details": "Geolocation details",
+      "isp_details": "ISP details",
+      "noExternalIp": "Unable to detect from logs",
       "status": "Connection Status",
       "total_peer_connections": "Active peer connections"
     },
@@ -910,11 +933,16 @@
     "title": "Settings",
     "vuetorrent": {
       "general": {
+        "backendUrl": "Backend URL",
+        "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
+        "canvasRenderThreshold": "Piece count to disable canvas rendering",
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
         "dateFormat": "Date Format",
         "download": "Export settings",
+        "enableHashColors": "Enable generated chip colors",
+        "enableRatioColors": "Enable ratio colors",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
         "historySize": "History size on eligible fields",
@@ -1020,6 +1048,7 @@
       "pending": "Sending torrents...",
       "success": "{n} torrent added | {n} torrents added"
     },
+    "backend_unreachable": "Backend is unreachable",
     "copy": {
       "error": "Unable to copy, context isn't secured!",
       "success": "Copied to clipboard!"
@@ -1078,6 +1107,8 @@
       "text_values": "Text values"
     },
     "overview": {
+      "canvasRefreshDisabled": "Canvas auto-refresh is disabled",
+      "canvasRenderDisabled": "Canvas rendering is disabled",
       "copy_hash": "Copy Hash",
       "dlSpeedAverage": "Download Speed Average",
       "downloaded": "Downloaded",
@@ -1172,6 +1203,7 @@
       "global_speed": "Global Speed",
       "global_volume": "Global Volume",
       "hash": "Hash",
+      "inactive_seeding_time_limit": "Inactive seeding time limit",
       "infohash_v1": "Infohash v1",
       "infohash_v2": "Infohash v2",
       "is_private": "Private torrent",
@@ -1183,15 +1215,15 @@
       "num_leechs": "Peers (connected)",
       "num_seeds": "Seeds (connected)",
       "peers": "Peers",
-      "priority": "Priority",
+      "priority": "Queue position",
       "progress": "Progress",
       "progress_bar": "Progress Bar",
       "ratio": "Ratio",
       "ratio_limit": "Ratio limit",
-      "ratio_time_limit": "Ratio time limit",
       "reannounce": "Next reannounce in",
       "save_path": "Save Path",
       "seeding_time": "Seeding time",
+      "seeding_time_limit": "Seeding time limit",
       "seeds": "Seeds",
       "seen_complete": "Seen Complete",
       "seq_dl": "Sequential Download",
@@ -1217,6 +1249,7 @@
       "downloading": "Downloading",
       "error": "Error",
       "forcedDL": "[F] Downloading",
+      "forcedMetaDL": "[F] Metadata",
       "forcedUP": "[F] Uploading",
       "metaDL": "Metadata",
       "missingFiles": "Missing Files",

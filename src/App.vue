@@ -4,9 +4,9 @@ import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { formatPercent, formatSpeed } from '@/helpers'
+import { backend } from '@/services/backend'
 import { useAddTorrentStore, useAppStore, useAuthStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-
 import { onBeforeMount, watch, watchEffect } from 'vue'
 
 const addTorrentStore = useAddTorrentStore()
@@ -42,6 +42,8 @@ const blockContextMenu = () => {
 }
 
 onBeforeMount(() => {
+  backend.init(vuetorrentStore.backendUrl)
+  backend.ping()
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
@@ -109,7 +111,7 @@ watchEffect(() => {
     <v-main>
       <router-view />
     </v-main>
-    <AddPanel />
+    <AddPanel v-if="authStore.isAuthenticated" />
     <DnDZone />
   </v-app>
 </template>

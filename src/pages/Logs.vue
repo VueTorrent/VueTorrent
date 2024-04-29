@@ -26,10 +26,10 @@ const query = ref('')
 
 const logs = computed<Log[]>(() => logStore.logs)
 const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
-const { results: filteredLogs } = useSearchQuery(filteredLogsByType, query, (log: Log) => log.message)
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)
 const allTypesSelected = computed(() => logTypeFilter.value.length === logTypeOptions.value.length)
 
+const { results: filteredLogs } = useSearchQuery(filteredLogsByType, query, (log: Log) => log.message)
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(filteredLogs, 30)
 
 const goHome = () => {
@@ -115,17 +115,18 @@ onUnmounted(() => {
       <template v-for="(log, index) in paginatedResults">
         <v-divider v-if="index > 0" />
 
-        <v-list-item :class="getLogTypeClassName(log)" class="pa-0">
+        <v-list-item class="pa-0">
           <v-expansion-panels class="p-0">
-            <v-expansion-panel class="pa-0">
-              <v-expansion-panel-title>
-                <template v-slot:default>
-                  <v-list-item-title>[{{ log.id }}] {{ log.message }}</v-list-item-title>
-                  <v-spacer />
-                  <v-list-item-subtitle>{{ getLogTypeName(log) }} | {{ formatLogTimestamp(log) }}</v-list-item-subtitle>
-                </template>
+            <v-expansion-panel :class="getLogTypeClassName(log)" class="pa-0">
+              <v-expansion-panel-title class="text-no-wrap">
+                <div class="d-flex mr-8 overflow-hidden">[{{ log.id }}] {{ log.message }}</div>
+                <v-spacer />
+                <div class="d-flex">{{ formatLogTimestamp(log) }}</div>
               </v-expansion-panel-title>
-              <v-expansion-panel-text class="wrap-word text-select">{{ log.message }}</v-expansion-panel-text>
+              <v-expansion-panel-text class="wrap-word text-select">
+                [{{ getLogTypeName(log) }}]
+                {{ log.message }}
+              </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
         </v-list-item>
@@ -151,11 +152,11 @@ onUnmounted(() => {
   }
 
   .logtype-info {
-    color: grey !important;
+    color: deepskyblue !important;
   }
 
   .logtype-warning {
-    color: darkgoldenrod !important;
+    color: darkorange !important;
   }
 
   .logtype-critical {
@@ -169,11 +170,11 @@ onUnmounted(() => {
   }
 
   .logtype-info {
-    color: grey !important;
+    color: blue !important;
   }
 
   .logtype-warning {
-    color: goldenrod !important;
+    color: orange !important;
   }
 
   .logtype-critical {

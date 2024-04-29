@@ -1,5 +1,6 @@
-import { DashboardProperty, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, VuetorrentTheme } from '@/constants/vuetorrent'
+import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, VuetorrentTheme } from '@/constants/vuetorrent'
 import { Theme } from '@/plugins/vuetify'
+import { backendStorage } from '@/services/backend'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
@@ -10,6 +11,8 @@ import { useTheme } from 'vuetify'
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
+    const backendUrl = ref('')
+
     const language = ref('en')
     const vuetorrentTheme = ref<VuetorrentTheme>(VuetorrentTheme.SYSTEM)
     const showFreeSpace = ref(true)
@@ -25,8 +28,10 @@ export const useVueTorrentStore = defineStore(
     const isDrawerRight = ref(false)
     const isPaginationOnTop = ref(false)
     const hideChipIfUnset = ref(false)
+    const enableRatioColors = ref(true)
+    const enableHashColors = ref(true)
     const paginationSize = ref(15)
-    const dateFormat = ref('YYYY-MM-DD HH:mm:ss')
+    const dateFormat = ref(defaultDateFormat)
     const openSideBarOnStart = ref(true)
     const isShutdownButtonVisible = ref(false)
     const useBitSpeed = ref(false)
@@ -213,6 +218,7 @@ export const useVueTorrentStore = defineStore(
     }
 
     return {
+      backendUrl,
       vuetorrentTheme,
       dateFormat,
       deleteWithFiles,
@@ -220,6 +226,8 @@ export const useVueTorrentStore = defineStore(
       isDrawerRight,
       isPaginationOnTop,
       hideChipIfUnset,
+      enableRatioColors,
+      enableHashColors,
       isShutdownButtonVisible,
       language,
       openSideBarOnStart,
@@ -263,6 +271,7 @@ export const useVueTorrentStore = defineStore(
       toggleDoneGridProperty,
       toggleTableProperty,
       $reset: () => {
+        backendUrl.value = ''
         language.value = 'en'
         vuetorrentTheme.value = VuetorrentTheme.SYSTEM
         showFreeSpace.value = true
@@ -278,8 +287,10 @@ export const useVueTorrentStore = defineStore(
         isDrawerRight.value = false
         isPaginationOnTop.value = false
         hideChipIfUnset.value = false
+        enableRatioColors.value = true
+        enableHashColors.value = true
         paginationSize.value = 15
-        dateFormat.value = 'YYYY-MM-DD HH:mm:ss'
+        dateFormat.value = defaultDateFormat
         openSideBarOnStart.value = true
         isShutdownButtonVisible.value = false
         useBitSpeed.value = false
@@ -299,13 +310,11 @@ export const useVueTorrentStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_webuiSettings'
-        }
+      storageItems: [
+        { storage: localStorage, key: 'webuiSettings' },
+        { storage: backendStorage, key: 'webuiSettings', excludePaths: ['backendUrl'] }
       ]
     }
   }

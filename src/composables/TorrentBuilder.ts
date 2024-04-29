@@ -3,7 +3,7 @@ import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 
-type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume'>
+type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume' | 'stateString'>
 
 export function useTorrentBuilder() {
   const { t } = useI18n()
@@ -49,7 +49,6 @@ export function useTorrentBuilder() {
       seq_dl: data.seq_dl,
       size: data.size,
       state: data.state,
-      stateString: t(`torrent.state.${data.state}`),
       super_seeding: data.super_seeding,
       tags: data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : [],
       time_active: data.time_active,
@@ -65,16 +64,26 @@ export function useTorrentBuilder() {
   }
 
   function buildTorrent(data: StaticTorrent): Torrent {
-    const dlDuration = data.time_active - data.seeding_time
-    const ulDuration = data.time_active
-
     // @ts-expect-error: Type is missing the following properties from type 'Torrent': ...
     return Object.freeze({
       ...data,
-      avgDownloadSpeed: data.downloaded / (dlDuration == 0 ? -1 : dlDuration),
-      avgUploadSpeed: data.uploaded / (ulDuration == 0 ? -1 : ulDuration),
-      globalSpeed: data.dlspeed + data.upspeed,
-      globalVolume: data.downloaded + data.uploaded
+      get avgDownloadSpeed() {
+        const dlDuration = data.time_active - data.seeding_time
+        return data.downloaded / (dlDuration === 0 ? -1 : dlDuration)
+      },
+      get avgUploadSpeed() {
+        const ulDuration = data.time_active
+        return data.uploaded / (ulDuration === 0 ? -1 : ulDuration)
+      },
+      get globalSpeed() {
+        return data.dlspeed + data.upspeed
+      },
+      get globalVolume() {
+        return data.downloaded + data.uploaded
+      },
+      get stateString() {
+        return t(`torrent.state.${data.state}`)
+      }
     })
   }
 

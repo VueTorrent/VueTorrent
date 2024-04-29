@@ -56,7 +56,7 @@ export const useAddTorrentStore = defineStore(
       addTorrentParams.category = undefined
       addTorrentParams.content_layout = preferenceStore.preferences!.torrent_content_layout
       addTorrentParams.download_limit = preferenceStore.preferences!.dl_limit
-      addTorrentParams.download_path = preferenceStore.preferences!.temp_path
+      addTorrentParams.download_path = preferenceStore.preferences!.temp_path_enabled ? preferenceStore.preferences!.temp_path : undefined
       addTorrentParams.inactive_seeding_time_limit = undefined
       addTorrentParams.ratio_limit = undefined
       addTorrentParams.save_path = preferenceStore.preferences!.save_path
@@ -87,14 +87,9 @@ export const useAddTorrentStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_addTorrents'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )

@@ -90,14 +90,9 @@ export const useSearchEngineStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: sessionStorage,
-          key: 'vuetorrent_searchEngine'
-        }
-      ]
+      storageItems: [{ storage: sessionStorage }]
     }
   }
 )

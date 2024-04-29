@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
+import { computed } from 'vue'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => string; color?: (v: any) => string }>()
+
+const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
   <div class="d-flex flex-column">
-    <div class="text-caption text-grey">
-      {{ $t(`torrent.properties.${title}`) }}
+    <div v-if="titleKey" class="text-caption text-grey">
+      {{ $t(titleKey) }}
     </div>
-    <div>{{ torrent[value] }}</div>
+    <div :class="color ? color(val) : ''">{{ val }}</div>
   </div>
 </template>
-
-<style scoped></style>

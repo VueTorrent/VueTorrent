@@ -15,6 +15,10 @@ const variables = {
   category: '#04669A',
   tag: '#048B9A',
   tracker: '#C97D09',
+  'ratio-bad': '#eb2a2a',
+  'ratio-almost': '#e78310',
+  'ratio-good': '#36bd58',
+  'ratio-best': '#2e78d8',
 
   // Active filters chip colors
   'active-global': '#4f738d',
@@ -43,6 +47,7 @@ const variables = {
   'torrent-downloading': '#5BB974',
   'torrent-forcedDL': '#5BB974',
   'torrent-metaDL': '#7E57C2',
+  'torrent-forcedMetaDL': '#7E57C2',
   'torrent-pausedDL': '#9CA3AF',
   'torrent-queuedDL': '#2E5EAA',
   'torrent-stalledDL': '#4ADE80',
@@ -104,6 +109,7 @@ export default createVuetify({
         'torrent-downloading',
         'torrent-forcedDL',
         'torrent-metaDL',
+        'torrent-forcedMetaDL',
         'torrent-pausedDL',
         'torrent-queuedDL',
         'torrent-stalledDL',

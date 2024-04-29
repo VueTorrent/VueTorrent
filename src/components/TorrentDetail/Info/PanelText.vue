@@ -3,9 +3,11 @@ import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import InfoBase from './InfoBase.vue'
+import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ torrent: Torrent }>()
 
+const { t } = useI18n()
 const { properties } = storeToRefs(useTorrentDetailStore())
 
 const torrentValues = [
@@ -17,7 +19,7 @@ const torrentValues = [
   { title: 'num_seeds', getter: () => props.torrent.num_seeds },
   { title: 'availability', getter: () => props.torrent.availability },
   { title: 'eta', getter: () => props.torrent.eta },
-  { title: 'category', getter: () => props.torrent.category },
+  { title: 'category', getter: () => props.torrent.category || t('common.NA') },
   { title: 'state', getter: () => props.torrent.stateString },
   { title: 'trackers_count', getter: () => props.torrent.trackers_count },
   { title: 'priority', getter: () => props.torrent.priority },

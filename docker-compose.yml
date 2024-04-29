@@ -16,3 +16,12 @@ services:
     ports:
       - '8080:8080'
     restart: unless-stopped
+
+  backend:
+    image: ghcr.io/vuetorrent/vuetorrent-backend:latest
+    container_name: vuetorrent-backend
+    restart: unless-stopped
+    ports:
+      - '8081:3000'
+    volumes:
+      - ./docker/backend:/app/data

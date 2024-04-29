@@ -2,14 +2,13 @@
 import { formatData } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
+import { storeToRefs } from 'pinia'
 
-defineProps<{ torrent: Torrent; title: string; value: string }>()
+defineProps<{ torrent: Torrent; value: (t: Torrent) => number }>()
 
-const vuetorrentStore = useVueTorrentStore()
+const { useBinarySize } = storeToRefs(useVueTorrentStore())
 </script>
 
 <template>
-  <td>{{ formatData(torrent[value], vuetorrentStore.useBinarySize) }}</td>
+  <td>{{ formatData(value(torrent), useBinarySize) }}</td>
 </template>
-
-<style scoped></style>

@@ -1,0 +1,1270 @@
+{
+  "common": {
+    "active": "Aktif",
+    "cancel": "İptal",
+    "close": "Kapat",
+    "delete": "Sil",
+    "disable": "Devre Dışı Bırak",
+    "disabled": "Devre Dışı",
+    "emptyList": "Burada görülecek bir şey yok.",
+    "global_value": "Genel Değer",
+    "NA": "Yok",
+    "no": "Hayır",
+    "none": "(Yok)",
+    "ok": "Tamam",
+    "save": "Kaydet",
+    "selectAll": "Tümünü Seç",
+    "selectNone": "Hiçbirini Seçme",
+    "useGlobalSettings": "Genel Ayarları Kullan",
+    "yes": "Evet"
+  },
+  "constants": {
+    "addPaused": {
+      "always": "Her Zaman",
+      "never": "Asla",
+      "title": "Duraklatılmış olarak ekle"
+    },
+    "bittorrentProtocols": {
+      "tcp": "TCP",
+      "tcp_utp": "TCP ve μTP",
+      "utp": "μTP"
+    },
+    "connectionStatus": {
+      "connected": "Bağlı",
+      "disconnected": "Bağlantı Kesildi",
+      "firewalled": "Güvenlik Duvarlı",
+      "unknown": "Bilinmeyen"
+    },
+    "contentLayout": {
+      "nosubfolder": "Alt Klasörü Kaldır",
+      "original": "Orijinal",
+      "subfolder": "Alt Klasör Oluştur",
+      "title": "Torrent içerik düzeni"
+    },
+    "diskIoMode": {
+      "disableOsCache": "İşletim sistemi önbelliğini devre dışı bırak",
+      "enableOsCache": "İşletim sistemi önbelliğini etkinleştir",
+      "writeThrough": "Doğrudan yazma (libtorrent >= 2.0.6)"
+    },
+    "diskIoType": {
+      "default": "Varsayılan",
+      "memoryMappedFiles": "Bellek eşlemeli dosyalar",
+      "posixCompliant": "POSIX uyumlu"
+    },
+    "encryption": {
+      "forceOff": "Şifrelemeyi Kapat",
+      "forceOn": "Şifreleme Gerektir",
+      "preferEncryption": "Şifrelemeye İzin Ver"
+    },
+    "file_log_age_type": {
+      "days": "Gün | Gün | Günler",
+      "months": "Ay | Ay | Aylar",
+      "years": "Yıl | Yıl | Yıllar"
+    },
+    "file_priority": {
+      "high": "Yüksek",
+      "max": "Maksimum",
+      "mixed": "Karışık",
+      "normal": "Normal",
+      "unwanted": "İstenmeyen"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Torrenti duraklat",
+      "removeTorrent": "Torrenti kaldır",
+      "removeTorrentAndFiles": "Torrenti ve dosyalarını kaldır",
+      "torrentSuperseeding": "Torrent için süper seedingi etkinleştir"
+    },
+    "monitoredFolderSaveLocation": {
+      "defaultSavePath": "Varsayılan Kaydetme Yolu",
+      "monitoredFolder": "İzlenen Klasör Konumu",
+      "other": "Diğer"
+    },
+    "proxy_type": {
+      "http": "HTTP",
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
+    },
+    "scheduler": {
+      "everyDay": "Her gün",
+      "everyFriday": "Her cuma",
+      "everyMonday": "Her pazartesi",
+      "everySaturday": "Her cumartesi",
+      "everySunday": "Her pazar",
+      "everyThursday": "Her perşembe",
+      "everyTuesday": "Her salı",
+      "everyWednesday": "Her çarşamba",
+      "everyWeekday": "Her hafta içi",
+      "everyWeekend": "Her hafta sonu"
+    },
+    "stopCondition": {
+      "filesChecked": "Dosyalar Kontrol Edildi",
+      "metadataReceived": "Meta Veri Alındı",
+      "none": "Hiçbiri",
+      "title": "Torrent durdurma koşulu"
+    },
+    "titleOptions": {
+      "custom": "Özel",
+      "default": "Varsayılan",
+      "first_torrent_speed": "İlk Torrent Hızı",
+      "global_speed": "Genel Hız"
+    },
+    "trackerStatus": {
+      "disabled": "Devre Dışı",
+      "not_working": "Çalışmıyor",
+      "not_yet_contacted": "Henüz bağlantı kurulmadı",
+      "updating": "Güncelleniyor",
+      "working": "Çalışıyor"
+    },
+    "uploadChokingAlgorithm": {
+      "antiLeech": "Anti-leech",
+      "fastestUpload": "En hızlı yükleme",
+      "roundRobin": "Döngüsel dağıtım"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Sabit yuvalar",
+      "uploadRateBased": "Yükleme hızına dayalı"
+    },
+    "utpTcpMixedMode": {
+      "peerProportional": "Eş orantılı (TCP'yi kısıtlar)",
+      "preferTcp": "TCP'yi Tercih Et"
+    }
+  },
+  "dashboard": {
+    "displayMode": {
+      "grid": "Izgara",
+      "list": "Liste",
+      "table": "Tablo",
+      "title": "Görüntü modu"
+    },
+    "not_complete": "Tamamlanmış görülmedi",
+    "right_click": {
+      "advanced": {
+        "auto_tmm": "Otomatik Torrent Yönetimi",
+        "download_path": "İndirme Yolunu Ayarla",
+        "f_l_prio": "İlk / Son Parça Önceliği",
+        "reannounce": "Yeniden Duyurmaya Zorla",
+        "recheck": "Yeniden Kontrol Etmeye Zorla",
+        "rename": "Torrent'i Yeniden Adlandır",
+        "save_path": "Kaydetme Yolunu Ayarla",
+        "seq_dl": "Sıralı İndirme",
+        "title": "Gelişmiş"
+      },
+      "category": {
+        "clear": "(Kategoriyi temizle)",
+        "disabled_title": "Kategori yok",
+        "title": "Kategoriyi ayarla"
+      },
+      "copy": {
+        "hash": "Hash",
+        "magnet": "Magnet",
+        "name": "İsim",
+        "title": "Kopyala"
+      },
+      "export": "Torrenti dışa aktar | Torrentleri dışa aktar",
+      "info": "Bilgi göster",
+      "priority": {
+        "bottom": "En alta",
+        "decrease": "Azalt",
+        "increase": "Artır",
+        "title": "Kuyruk konumunu ayarla",
+        "top": "En üste"
+      },
+      "speed_limit": {
+        "download": "İndirme sınırını ayarla",
+        "share": "Paylaşım sınırını ayarla",
+        "title": "Hız sınırını ayarla",
+        "upload": "Yükleme sınırını ayarla"
+      },
+      "tags": {
+        "disabled_title": "Etiket yok",
+        "title": "Etiketleri Ayarla"
+      },
+      "top": {
+        "delete": "Sil",
+        "force_resume": "Devam Etmeye Zorla",
+        "pause": "Duraklat",
+        "resume": "Devam Et"
+      }
+    },
+    "searchInputLabel": "Ara",
+    "selectAll": "Tümünü Seç / Seçimi Kaldır (Ctrl + A)",
+    "selectedTorrentsCount": "Torrent yok | {count} / {total} torrent ({size}) | {count} / {total} torrent ({size})",
+    "sortBy": {
+      "added_on": "Eklendiği Tarih",
+      "amount_left": "Kalan Miktar",
+      "auto_tmm": "Otomatik TMM",
+      "availability": "Ulaşılabilirlik",
+      "avg_download_speed": "Ort. İndirme Hızı",
+      "avg_upload_speed": "Ort. Yükleme Hızı",
+      "category": "Kategori",
+      "completed": "Tamamlandı",
+      "completion_on": "Tamamlanma Tarihi",
+      "content_path": "İçerik Yolu",
+      "default": "Varsayılan",
+      "dl_limit": "İndirme Sınırı",
+      "dlspeed": "İndirme Hızı",
+      "downloaded": "İndirilen (Genel)",
+      "downloaded_session": "İndirilen (Oturum)",
+      "download_path": "İndirme Yolu",
+      "eta": "TBS",
+      "f_l_piece_prio": "İlk / Son Parça Önceliği",
+      "force_start": "Zorla Başlat",
+      "globalSpeed": "Genel Hız",
+      "globalVolume": "Genel Hacim",
+      "hash": "Hash",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "last_activity": "Son Etkinlik",
+      "magnet_uri": "Magnet Bağlantısı",
+      "max_ratio": "Maksimum Oran",
+      "max_seeding_time": "Maksimum Seeding Süresi",
+      "name": "İsim",
+      "num_complete": "Seeds (swarm)",
+      "num_incomplete": "Eşler (sürü)",
+      "num_leechs": "Eşler (bağlı)",
+      "num_seeds": "Seeds (bağlı)",
+      "priority": "Kuyruk konumu",
+      "progress": "İlerleme",
+      "ratio": "Oran",
+      "ratio_limit": "Oran Sınırı",
+      "save_path": "Kaydetme Yolu",
+      "seeding_time": "Seeding Süresi",
+      "seeding_time_limit": "Seeding Süre Sınırı",
+      "seen_complete": "Tamamlanmış Görüldü",
+      "seq_dl": "Sıralı İndirme",
+      "size": "Boyut",
+      "state": "Durum",
+      "super_seeding": "Süper Seeding",
+      "tags": "Etiketler",
+      "time_active": "Aktif Zaman",
+      "total_size": "Toplam Boyut",
+      "tracker": "İzleyici",
+      "trackers_count": "İzleyici Sayısı",
+      "up_limit": "Yükleme Sınırı",
+      "uploaded": "Yüklenen (Genel)",
+      "uploaded_session": "Yüklenen (Oturum)",
+      "upspeed": "Yükleme Hızı"
+    },
+    "sortLabel": "Sıralama ölçütü",
+    "toggleSearchFilter": "Arama filtresini aç/kapat",
+    "toggleSelectMode": "Seçim modunu aç/kapat",
+    "toggleSortOrder": "Sıralama düzenini tersine çevir",
+    "torrentsCount": "Torrent yok | {n} torrent | {n} torrent"
+  },
+  "dialogs": {
+    "add": {
+      "cookie": "Çerezler",
+      "cookie_placeholder": "isim1=değer1; isim2=değer2; ...",
+      "drop_label": "Torrent dosyalarını ve bağlantılarını buraya bırakın",
+      "file_overflow": "+{n} tane daha",
+      "files": "Dosyaları seç",
+      "first_last_piece_prio": "İlk ve son parçaları önceliklendir",
+      "links": "Bağlantılar (magnet, http, dosya, ...)",
+      "params": {
+        "add_to_top_of_queue": "Kuyruğun en üstüne ekle",
+        "category": "Kategori",
+        "download_limit": "İndirme Sınırı",
+        "download_path": "İndirme Yolu (tamamlanmadığında)",
+        "inactive_seeding_time_limit": "Etkin olmayan seeding süresi sınırı",
+        "limit_collapse": "Sınırları yapılandır",
+        "limit_hint": "Devre dışı bırakmak için -1, genel değeri kullanmak için -2 veya boş bırakın",
+        "no_categories": "Henüz kategori yok. Oluşturmak için bir isim yazın.",
+        "no_categories_match": "\"{query}\" ile eşleşen kategori yok. Otomatik olarak oluşturulacak.",
+        "no_tags": "Henüz etiket yok. Oluşturmak için bir isim yazın.",
+        "no_tags_match": "\"{query}\" ile eşleşen etiket yok. Oluşturmak için Enter tuşuna basın.",
+        "ratio_limit": "Oran sınırı",
+        "save_path": "Kaydetme yolu (tamamlandığında)",
+        "seeding_time_limit": "Seeding süre sınırı",
+        "skip_checking": "Hash kontrolünü atla",
+        "stopped": "İndirmeyi başlatma",
+        "tags": "Etiketler",
+        "title": "Torrent parametreleri",
+        "upload_limit": "Yükleme sınırı",
+        "use_auto_tmm": "Otomatik Torrent Yönetimi"
+      },
+      "rename": "Torrenti yeniden adlandır",
+      "reset_form": "Formu sıfırla",
+      "sequential_download": "Sıralı indirme",
+      "submit": "Torrent ekle",
+      "title": "Torrent Ekle"
+    },
+    "bulkRenameFiles": {
+      "col_origin_name": "Orijinal",
+      "col_result_name": "Sonuç",
+      "duplicated": "Yinelenen Dosya Adı",
+      "fold": "Daralt",
+      "not_changed": "Dosya Adı Değiştirilmedi",
+      "notForFolder": "Klasör Yeniden Adlandırma Desteklenmiyor",
+      "nothing_to_do": "Yapılacak görev yok",
+      "regexp": "Düzenli İfade",
+      "run": "Çalıştır",
+      "select_regex_flags": "Düzenli İfade Bayraklarını Seçin",
+      "success": "Yeniden Adlandırma Başarılı",
+      "target": "Değiştirme Girdisi",
+      "title": "Toplu Yeniden Adlandırma",
+      "unfold": "Genişlet"
+    },
+    "category": {
+      "name": "Kategori Adı",
+      "nameRequired": "Kategori adı gereklidir",
+      "oldName": "Eski kategori adı",
+      "savePath": "Kaydetme Yolu",
+      "title": {
+        "create": "Kategori Oluştur",
+        "edit": "Kategoriyi Düzenle"
+      },
+      "warnEdit": "Kategori adını düzenlemek, torrentleri yeni kategoriye taşıyacaktır. Hatalar oluşabilir, dikkatli kullanın."
+    },
+    "connectionStatus": {
+      "dht_nodes": "DHT düğümleri",
+      "externalIp": "Harici IP Adresi",
+      "fetch_geo_failed": "Coğrafi konum bilgileri alınamıyor",
+      "fetch_isp_failed": "İSS ayrıntıları alınamıyor",
+      "geo_details": "Coğrafi konum bilgileri",
+      "isp_details": "İSS ayrıntıları",
+      "noExternalIp": "Günlüklerden tespit edilemiyor",
+      "status": "Bağlantı Durumu",
+      "total_peer_connections": "Aktif eş bağlantıları"
+    },
+    "delete": {
+      "deleteWithFiles": "Torrent ile birlikte dosyaları sil",
+      "title": "{n} torrenti sil | {n} torrenti silin",
+      "warnDelete": "Bu onay kutusunu işaretlemek, bu torrentlerde bulunan her şeyi silecektir"
+    },
+    "importSettings": {
+      "required": "Ayarların sağlanması gerekiyor",
+      "title": "Ayarları İçe Aktar",
+      "valid": "Lütfen geçerli ayarlar sağlayın"
+    },
+    "moveTorrent": {
+      "dl": {
+        "title": "İndirme Yolunu Değiştir"
+      },
+      "newPath": "Yeni yol",
+      "oldPath": "Eski yol",
+      "required": "Yeni yol gereklidir",
+      "samePath": "Yeni yol, eski yoldan farklı olmalıdır",
+      "save": {
+        "title": "Kaydetme Yolunu Değiştir"
+      }
+    },
+    "moveTorrentFile": {
+      "oldName": "Eski isim",
+      "title": "Torrent Dosyasını Taşı | Torrent Klasörünü Taşı"
+    },
+    "pluginManager": {
+      "headers": {
+        "actions": "Eylemler",
+        "enabled": "Etkin",
+        "name": "İsim",
+        "url": "Motor URL'si",
+        "version": "Sürüm"
+      },
+      "install": {
+        "activator": "Yeni eklenti yükle",
+        "label": "Eklenti URL'si",
+        "title": "Eklenti Yükle"
+      },
+      "title": "Eklenti Yöneticisi",
+      "update": "Eklentileri güncelle"
+    },
+    "renameTorrent": {
+      "newName": "Yeni isim",
+      "oldName": "Eski isim",
+      "required": "Yeni isim gereklidir",
+      "sameName": "Yeni isim eski isimden farklı olmalıdır",
+      "title": "Torrent'i Yeniden Adlandır"
+    },
+    "rss": {
+      "feed": {
+        "name": "İsim",
+        "rules": {
+          "name_required": "Besleme adı gereklidir",
+          "url_required": "Besleme URL'si gereklidir"
+        },
+        "title": {
+          "create": "RSS Beslemesi Oluştur",
+          "edit": "RSS Beslemesini Düzenle"
+        },
+        "url": "URL"
+      },
+      "rule": {
+        "addPaused": "Duraklatılmış olarak ekle",
+        "affectedFeedsSubheader": "Etkilenen Beslemeler",
+        "assignedCategory": "Atanan Kategori",
+        "enabled": "Kuralı etkinleştir",
+        "episodeFilter": "Bölüm Filtresi",
+        "episodeFilterPlaceholder": "örn. S01E02-S01E05",
+        "ignoreDays": "Son {days} gün içinde yayınlanan öğeleri yoksay",
+        "ignoreDaysHint": "Devre dışı bırakmak için 0",
+        "lastMatch": {
+          "knownValue": "bugün | {n} gün önce | {n} gün önce",
+          "label": "Son eşleşme",
+          "unknownValue": "Bilinmeyen"
+        },
+        "matchingArticles": {
+          "noMatch": "Eşleşen makale yok",
+          "title": "Eşleşen Makaleler"
+        },
+        "mustContain": "İçermelidir",
+        "mustNotContain": "İçermemelidir",
+        "name": "İsim",
+        "savePath": "Kaydetme Yolu",
+        "savePathPlaceholder": "Varsayılan kaydetme yolunu kullanmak için boş bırakın",
+        "smartFilter": "Akıllı Bölüm filtresini kullan",
+        "title": {
+          "create": "RSS Kuralı Oluştur",
+          "edit": "RSS Kuralını Düzenle"
+        },
+        "useRegex": "Düzenli İfade Kullan"
+      }
+    },
+    "share_limit": {
+      "disabled": "Paylaşım sınırı yok",
+      "enabled": "Paylaşım sınırını şuna ayarla",
+      "global": "Genel paylaşım sınırını kullan",
+      "inactive_seeding_time_limit": "Etkin olmayan dakikalar",
+      "ratio_limit": "Oran",
+      "seeding_time_limit": "Toplam dakika",
+      "title": "Paylaşım oranı sınırını ayarla"
+    },
+    "shutdown": {
+      "content": "Gerçekten qBittorrent'i kapatmak istiyor musunuz?",
+      "error": "Uygulama kapatılamıyor. qBittorrent'in çalıştığından emin olun!",
+      "success": "qBittorrent başarıyla kapatıldı!",
+      "title": "qBittorrent'i kapat"
+    },
+    "speed_limit": {
+      "download": "İndirme Hız Sınırını Ayarla",
+      "label": "Hız Sınırı",
+      "upload": "Yükleme Hız Sınırını Ayarla"
+    },
+    "tag": {
+      "comma": "Etiket yeniden adlandırılırken isim virgül içeremez",
+      "hint": "İpucu: Birden fazla etiket virgülle ayrılarak oluşturulabilir",
+      "name": "Etiket adı",
+      "oldName": "Eski etiket adı",
+      "required": "Etiket adı gerekli",
+      "title": {
+        "create": "Etiket Oluştur",
+        "rename": "Etiketi Yeniden Adlandır"
+      },
+      "warnEdit": "Etiket adını düzenlemek, torrentleri yeni etikete taşıyacaktır.\nHatalar oluşabilir, dikkatli kullanın."
+    }
+  },
+  "login": {
+    "error": "Giriş başarısız oldu!",
+    "password": "Parola",
+    "rules": {
+      "password_required": "Parola gereklidir",
+      "username_required": "Kullanıcı adı gereklidir"
+    },
+    "submit": "Giriş",
+    "subtitle": "Kimlik bilgilerinizi girin",
+    "success": "Giriş başarılı!",
+    "title": "Giriş",
+    "username": "Kullanıcı Adı"
+  },
+  "logs": {
+    "emptyLogList": "Günlük bulunamadı",
+    "filters": {
+      "query": "Günlük mesajında ara",
+      "type": "Günlük Düzeyi"
+    },
+    "title": "qBittorrent Günlükleri"
+  },
+  "navbar": {
+    "addPanel": {
+      "torrentsPendingCount": "{n} torrent yüklenmeyi bekliyor | {n} torrent yüklenmeyi bekliyor"
+    },
+    "side": {
+      "bottom_actions": {
+        "alt_speed": "Alternatif hızı aç/kapat",
+        "conn_status": "Bağlantı durumu: {status}",
+        "dark_mode": "Aydınlık mod | Koyu mod | Sistem ayarlarını takip et",
+        "logout": "Çıkış Yap",
+        "shutdown": "qBittorrent'i kapat"
+      },
+      "current_speed": {
+        "title": "Mevcut Hız"
+      },
+      "filters": {
+        "activeFilter": "{n} filtre etkin",
+        "category": "Kategori Filtresi",
+        "disabled": "(Devre Dışı)",
+        "state": "Torrent Durum Filtresi",
+        "tag": "Etiket Filtresi",
+        "tracker": "İzleyici Filtresi",
+        "uncategorized": "(Kategorize Edilmemiş)",
+        "untagged": "(Etiketsiz)",
+        "untracked": "(İzlenmeyen)"
+      },
+      "speed_graph": {
+        "download_label": "İndirme",
+        "upload_label": "Yükleme"
+      },
+      "stats": {
+        "alltime": {
+          "title": "Tüm Zaman İstatistikleri"
+        },
+        "downloaded": "İndirilen",
+        "free_space": "Boş Alan",
+        "ratio": "Oran",
+        "session": {
+          "title": "Oturum İstatistikleri"
+        },
+        "uploaded": "Yüklenen"
+      }
+    },
+    "top": {
+      "active_filters": {
+        "category": "Kategori filtresi: {value}",
+        "menu_label": "Etkin filtre: {n} | Etkin filtreler: {n}",
+        "multiple_category": "Kategori filtresi: {n} kategori",
+        "multiple_state": "Durum filtresi: {n} durum",
+        "multiple_tag": "Etiket filtresi: {n} etiket",
+        "multiple_tracker": "İzleyici filtresi: {n} izleyici",
+        "state": "Durum filtresi: {value}",
+        "tag": "Etiket filtresi: {value}",
+        "text": "Metin filtresi: {value}",
+        "tracker": "İzleyici filtresi: {value}"
+      }
+    }
+  },
+  "rssArticles": {
+    "filters": {
+      "title": "Başlık filtresi",
+      "unread": "Sadece okunmamış makaleleri göster"
+    },
+    "item": {
+      "author": "Yazar: {author}",
+      "category": "Kategori: {category}",
+      "feedName": "Besleme adı: {name}"
+    },
+    "markAllAsRead": "Tümünü okundu olarak işaretle",
+    "promise": {
+      "error": "Makaleleri işaretlerken bir hata oluştu",
+      "pending": "İşaretleniyor...",
+      "success": "{n} makale okundu olarak işaretlendi"
+    },
+    "title": "RSS Makaleleri"
+  },
+  "searchEngine": {
+    "filters": {
+      "category": {
+        "all": "Tümü",
+        "anime": "Anime",
+        "books": "Kitaplar",
+        "games": "Oyunlar",
+        "label": "Arama kategorisi",
+        "movies": "Filmler",
+        "music": "Müzik",
+        "pictures": "Resimler",
+        "software": "Yazılım",
+        "tv": "TV"
+      },
+      "plugins": {
+        "all": "Tümü",
+        "enabled": "Etkin",
+        "label": "Arama eklentisi"
+      },
+      "title": {
+        "label": "Başlığa göre filtrele"
+      }
+    },
+    "headers": {
+      "fileName": "Dosya Adı",
+      "fileSize": "Dosya Boyutu",
+      "nbLeechers": "Leechers",
+      "nbSeeders": "Seeders",
+      "siteUrl": "Site URL'si"
+    },
+    "query": "Arama sorgusu",
+    "runSearch": "Ara",
+    "stopSearch": "Durdur",
+    "tabHeaderEmpty": "(Boş sorgu)",
+    "title": "Arama motoru"
+  },
+  "settings": {
+    "advanced": {
+      "libtorrent": {
+        "announceAllTiers": "Her zaman tüm seviyelere duyuru yap",
+        "announceAllTrackers": "Her zaman bir seviyedeki tüm izleyicilere duyuru yap",
+        "announceIP": "İzleyicilere bildirilen IP adresi (yeniden başlatma gerektirir)",
+        "coalesceReadsWrites": "Okumaları ve yazmaları birleştir (libtorrent < 2.0) ",
+        "disk": {
+          "diskCache": "Disk önbelleği (libtorrent < 2.0) ",
+          "diskCacheExpiry": "Disk önbelleği sona erme aralığı (libtorrent < 2.0)",
+          "diskIoReadMode": "Disk G/Ç okuma modu",
+          "diskIoType": "Disk G/Ç Türü (libtorrent >= 2.0; yeniden başlatma gerektirir)",
+          "diskIoWriteMode": "Disk G/Ç yazma modu",
+          "diskQueueSize": "Disk kuyruğu boyutu",
+          "subheader": "Disk"
+        },
+        "maxConcurrentHTTPAnnounces": "Maksimum eşzamanlı HTTP duyurusu",
+        "networking": {
+          "outgoingPortsMax": "Giden bağlantı noktaları (Maks) [0: Devre dışı] ",
+          "outgoingPortsMin": "Giden bağlantı noktaları (Min) [0: Devre dışı] ",
+          "peerTos": "Eşlere yapılan bağlantılar için DSCP değeri",
+          "subheader": "Ağ Oluşturma",
+          "upnpLeaseDuration": "UPnP kiralama süresi [0: Kalıcı kiralama] ",
+          "utpTcpMixedModeAlgorithm": "μTP-TCP karışık mod algoritması"
+        },
+        "outgoingConnectionsPerSecond": "Saniye başına giden bağlantılar",
+        "peerTurnover": "Eş dönüşümü kopma yüzdesi",
+        "peerTurnoverCutoff": "Eş dönüşümü eşik yüzdesi",
+        "peerTurnoverInterval": "Eş dönüşümü kopma aralığı",
+        "pieceExtentAffinity": "Parça kapsamı yakınlığını kullan",
+        "requestQueueSize": "Tek bir eşe gönderilebilecek maksimum istek sayısı",
+        "security": {
+          "allowMultipleConnectionsFromTheSameIPAddress": "Aynı IP adresinden birden fazla bağlantıya izin ver",
+          "blockPeersOnPrivilegedPorts": "Ayrıcalıklı bağlantı noktalarındaki eşlere bağlantıyı engelle",
+          "idnSupport": "Uluslararası Alan Adı (IDN) desteğini etkinleştir",
+          "mitigateSSRF": "Sunucu taraflı istek sahteciliği (SSRF) önleme",
+          "subheader": "Güvenlik",
+          "validateHTTPSTrackerCertificate": "HTTPS izleyici sertifikasını doğrula"
+        },
+        "sendBufferLowWatermark": "Arabellek düşük filigranı gönder",
+        "sendBufferWatermark": "Arabellek filigranı gönder",
+        "sendBufferWatermarkFactor": "Arabellek filigran faktörü gönder",
+        "sendUploadPieceSuggestions": "Yükleme parçası önerilerini gönder",
+        "socketBacklogSize": "Soket biriktirme boyutu",
+        "socketReceiveBufferSize": "Soket alma arabelleği boyutu",
+        "socketReceiveBufferSizeHint": "0: sistem varsayılanı",
+        "socketSendBufferSize": "Soket gönderme arabelleği boyutu",
+        "socketSendBufferSizeHint": "0: sistem varsayılanı",
+        "stopTrackerTimeout": "İzleyici zaman aşımını durdur",
+        "subheader": "libtorrent Bölümü",
+        "threads": {
+          "asyncIoThreads": "Eşzamansız G/Ç iş parçacıkları",
+          "bdecodeDepthLimit": "Bdecode derinlik sınırı",
+          "bdecodeTokenLimit": "Bdecode token sınırı",
+          "filePoolSize": "Dosya havuzu boyutu",
+          "hashingThreads": "Hash iş parçacıkları (libtorrent >= 2.0)",
+          "outstandingMemory": "Torrentleri kontrol ederken kullanılan en fazla bellek miktarı",
+          "subheader": "İş Parçacıkları"
+        },
+        "uploadChokingAlgorithm": "Yükleme boğulma algoritması",
+        "uploadSlotsBehavior": "Yükleme yuvaları davranışı"
+      },
+      "openDoc": "Belgeleri aç",
+      "qbittorrent": {
+        "allocatedRam": "Fiziksel bellek (RAM) kullanım sınırı (libtorrent >= 2.0)",
+        "embeddedTracker": {
+          "enable": "Yerleşik izleyiciyi etkinleştir",
+          "port": "Yerleşik izleyici bağlantı noktası",
+          "portForward": "Yerleşik izleyici için bağlantı noktası yönlendirmesini etkinleştir",
+          "title": "Yerleşik İzleyici"
+        },
+        "networking": {
+          "ipAddress": {
+            "all": "Tüm adresler",
+            "allIPv4": "Tüm IPv4 adresleri",
+            "allIPv6": "Tüm IPv6 adresleri",
+            "label": "Bağlanmak için isteğe bağlı IP adresi"
+          },
+          "networkInterfaces": {
+            "any": "Herhangi bir arayüz",
+            "label": "Ağ arayüzü"
+          },
+          "title": "Ağ Oluşturma"
+        },
+        "reannounceOnIpPortChanged": "IP veya port değiştiğinde tüm izleyicilere yeniden duyuru yap",
+        "recheckOnCompletion": "Tamamlanınca torrentleri yeniden kontrol et",
+        "refreshInterval": "Arayüz Yenileme Aralığı",
+        "resolveCountries": "Eş ülke çözümleme",
+        "resumeDataStorageType": {
+          "label": "Devam etme verisi depolama türü (yeniden başlatma gerektirir)",
+          "legacy": "Hızlı devam dosyaları",
+          "sqlite": "SQLite veritabanı (deneysel)"
+        },
+        "saveInterval": "Devam etme verisi kaydetme aralığı",
+        "subheader": "qBittorrent Bölümü",
+        "torrentFileSizeLimit": ".torrent dosya boyutu sınırı"
+      }
+    },
+    "behavior": {
+      "logs": {
+        "file_log_age": "Şu tarihten eski yedekleme günlüklerini sil",
+        "file_log_backup_enabled": "Günlük dosyası yedeklemesini etkinleştir",
+        "file_log_delete_old": "Eski yedekleme günlüklerini sil",
+        "file_log_enabled": "Günlük dosyalarını etkinleştir",
+        "file_log_max_size": "Günlük dosyasını şu boyuttan sonra yedekle",
+        "file_log_path": "Kaydetme yolu",
+        "subheader": "Günlük yönetimi"
+      },
+      "performance_warning": "Günlük performansı uyarısı"
+    },
+    "bittorrent": {
+      "autoAddTrackers": "Yeni indirmelere otomatik olarak bu izleyicileri ekle",
+      "autoAddTrackersHint": "Satır başına bir izleyici",
+      "maxActiveCheckingTorrents": "Maksimum etkin kontrol edilen torrent sayısı",
+      "privacy": {
+        "enableAnonymous": "Anonim modu etkinleştir",
+        "enableDHT": "Daha fazla eş bulmak için DHT'yi (merkezi olmayan ağ) etkinleştirin",
+        "enableLPD": "Daha fazla eş bulmak için Yerel Eş Bulma özelliğini etkinleştirin",
+        "enablePeX": "Daha fazla eş bulmak için Eş Değişimi (PeX) özelliğini etkinleştirin",
+        "encryptionMode": "Şifreleme Modu",
+        "moreInfo": "Daha Fazla Bilgi",
+        "subheader": "Gizlilik"
+      },
+      "seedLimits": {
+        "subheader": "Seed Sınırı",
+        "then": "Yapılacak",
+        "whenInactiveSeedingTimeReaches": "Etkin olmayan seeding süresine ulaştığında",
+        "whenRatioReaches": "Orana ulaştığında",
+        "whenSeedingTimeReaches": "Seeding süresine ulaştığında"
+      },
+      "torrentQueueing": {
+        "downloadRateLimit": "İndirme hızı eşiği",
+        "excludeSlowTorrent": "Yavaş torrentleri bu sınırlamalara dahil etme",
+        "maxActiveDownload": "Maksimum aktif indirmeler",
+        "maxActiveTorrent": "Maksimum aktif torrentler",
+        "maxActiveUpload": "Maksimum aktif yüklemeler",
+        "subheader": "Torrent Sıralama",
+        "torrentInactivityTimer": "Torrent hareketsizlik zamanlayıcısı",
+        "uploadRateLimit": "Yükleme hızı eşiği"
+      }
+    },
+    "connection": {
+      "connectionLimits": {
+        "globalMaxConnection": "Genel maksimum bağlantı sayısı",
+        "globalMaxUploadSlots": "Genel maksimum yükleme alanı sayısı",
+        "perTorrentMaxConnection": "Torrent başına maksimum bağlantı sayısı",
+        "perTorrentMaxUploadSlots": "Torrent başına maksimum yükleme alanı sayısı",
+        "subheader": "Bağlantı Sınırları"
+      },
+      "ipFiltering": {
+        "applyToTrackers": "İzleyicilere uygula",
+        "bannedIps": "Elle yasaklanan IP adresleri",
+        "bannedIpsHint": "Her satırda bir tane",
+        "filterPath": "Filtre yolu (.dat, .p2p, .p2b)",
+        "subheader": "IP Filtreleme"
+      },
+      "listeningPort": {
+        "incomingConnectionPort": "Gelen bağlantılar için kullanılan bağlantı noktası",
+        "randomPort": "Rastgele Bağlantı Noktası",
+        "subheader": "Dinleme Bağlantı Noktası",
+        "useUPnP": "Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"
+      },
+      "protocol": "Eş bağlantı protokolü",
+      "proxy": {
+        "auth": {
+          "password": "Parola",
+          "subtitle": "Kimlik Doğrulama",
+          "tip": "Bilgi: Parola şifrelenmemiş olarak kaydedilir",
+          "username": "Kullanıcı Adı"
+        },
+        "bittorrent": "BitTorrent amaçları için proxy kullan",
+        "host": "Sunucu",
+        "hostNameLookup": "Ana bilgisayar adı çözümlemesi için proxy kullan",
+        "misc": "Genel amaçlar için proxy kullan",
+        "peerConnections": "Eş bağlantıları için proxy kullan",
+        "port": "Bağlantı Noktası",
+        "rss": "RSS amaçları için proxy kullan",
+        "subheader": "Proxy Sunucusu"
+      }
+    },
+    "downloads": {
+      "excludedFileNames": {
+        "hint": "Satır başına bir filtre",
+        "label": "Hariç tutulan dosya adları"
+      },
+      "mailNotification": {
+        "authEnabled": "Kimlik Doğrulama",
+        "enabled": "İndirme tamamlandığında e-posta bildirimi",
+        "from": "Kimden",
+        "password": "Parola",
+        "smtpServer": "SMTP sunucusu",
+        "sslEnabled": "Bu sunucu güvenli bir bağlantı (SSL) gerektirir",
+        "to": "Kime",
+        "username": "Kullanıcı Adı"
+      },
+      "monitoredFolders": {
+        "actions": "Eylemler",
+        "confirmDelete": "Bu öğeyi silmek istediğinizden emin misiniz?",
+        "editItem": "Düzenle",
+        "monitoredFolderPath": "İzlenen Klasör",
+        "newItem": "Yeni",
+        "noData": "Henüz izlenen klasör yok",
+        "otherPath": "Diğer Yol",
+        "saveType": "Kaydetme Konumunu Geçersiz Kıl",
+        "subheader": "İzlenen Klasörler"
+      },
+      "publicSettings": {
+        "appendQBExtension": "Tamamlanmamış dosyalara .!qB uzantısını ekle",
+        "preAllocateDisk": "Tüm dosyalar için disk alanını önceden ayırın"
+      },
+      "runExternalProgram": {
+        "onAddedEnabled": "Torrent eklendiğinde harici programı çalıştır",
+        "onAddedLabel": "Komut",
+        "onFinishedEnabled": "Torrent tamamlandığında harici programı çalıştır",
+        "onFinishedLabel": "Komut",
+        "subheader": "Harici programı çalıştır",
+        "supportParamC": "%C: Dosya sayısı",
+        "supportParamD": "%D: Kaydetme yolu",
+        "supportParamF": "%F: İçerik yolu (çok dosyalı torrent için kök yolla aynı)",
+        "supportParamG": "%G: Etiketler (virgülle ayrılmış)",
+        "supportParamI": "%I: Info hash v1",
+        "supportParamJ": "%J: Info hash v2",
+        "supportParamK": "%K: Torrent ID",
+        "supportParamL": "%L: Kategori",
+        "supportParamN": "%N: Torrent ismi",
+        "supportParamR": "%R: Kök dizin (ilk torrent alt dizin yolu) ",
+        "supportParamT": "%T: Mevcut izleyici",
+        "supportParamTitle": "Desteklenen parametreler (büyük/küçük harf duyarlıdır):",
+        "supportParamZ": "%Z: Torrent boyutu (bayt)",
+        "tip": "İpucu: Metnin boşluklardan kesilmesini önlemek için parametreyi tırnak işaretleri içine alın (ör. \"%N\")"
+      },
+      "saveManagement": {
+        "autoTMMEnabled": "Varsayılan Torrent Yönetim Modu",
+        "categoryChangedTMM": "Kategori Kayıt Yolu değiştirildiğinde",
+        "defaultSavePath": "Varsayılan Kaydetme Yolu (tamamlanan)",
+        "defaultTMMOptions": {
+          "automatic": "Otomatik",
+          "manual": "El ile"
+        },
+        "exportDir": ".torrent dosyalarını şuraya kopyala",
+        "exportDirFinished": "Tamamlanan indirmeler için .torrent dosyalarını şuraya kopyala:",
+        "keepIncomplete": "Varsayılan İndirme Yolu (tamamlanmamış torrentler)",
+        "paramChangedTMMOptions": {
+          "relocateTorrent": "Torrent'in yerini değiştir",
+          "switchToManual": "Torrent'i Manuel Moda geçir"
+        },
+        "savePathChangedTMM": "Varsayılan Kaydetme Yolu değiştirildiğinde",
+        "subheader": "Kaydetme Yönetimi",
+        "torrentChangedTMM": "Torrent Kategorisi değiştirildiğinde"
+      },
+      "whenAddTorrent": {
+        "addToTopOfQueue": "Kuyruğun en üstüne ekle",
+        "autoDeleteMode": ".torrent dosyalarını sonradan sil",
+        "doNotAutoStart": "İndirmeyi otomatik olarak başlatma",
+        "mergeTrackers": "Torrent zaten mevcutsa izleyicileri birleştir",
+        "subheader": "Torrent eklerken"
+      }
+    },
+    "rss": {
+      "feeds": {
+        "createNew": "Besleme ekle",
+        "noFeeds": "Henüz besleme yok",
+        "refreshAll": "Tümünü Yenile"
+      },
+      "general": {
+        "autoDownloader": {
+          "enable": "RSS kurallarının işlenmesini etkinleştirin",
+          "subheader": "RSS Torrent Otomatik İndirici"
+        },
+        "reader": {
+          "enableProcessing": "RSS beslemelerini almayı etkinleştirin",
+          "feedsRefreshInterval": "Besleme yenileme aralığı",
+          "maximumArticlesPerFeed": "Besleme başına maksimum makale sayısı",
+          "subheader": "RSS Okuyucu"
+        },
+        "smartEpisodeFilter": {
+          "downloadEpisodes": "REPACK/PROPER bölümlerini indirin",
+          "filters": "Filtreler",
+          "filtersHint": "Satır başına bir tane",
+          "subheader": "RSS Akıllı Bölüm Filtresi"
+        },
+        "useIdForRssLinks": "RSS makale bağlantısı için ID kullan"
+      },
+      "rules": {
+        "createNew": "Kural Oluştur",
+        "noRules": "Henüz kural yok"
+      }
+    },
+    "saveSuccess": "Ayarlar kaydedildi!",
+    "speed": {
+      "download": "İndirme",
+      "scheduler": {
+        "from": "Başlangıç",
+        "selectButtonLabel": "Zamanı seçin",
+        "subheader": "Alternatif hız sınırlarının kullanımını zamanlayın",
+        "to": "Bitiş",
+        "when": "Ne zaman"
+      },
+      "settings": {
+        "applyToPeersOnLan": "LAN'daki eşlere hız sınırı uygula",
+        "applyToTransportOverhead": "Taşıma yüküne oran sınırı uygula",
+        "applyToUtp": "µTP protokolüne oran sınırı uygula"
+      },
+      "subheader": {
+        "alternative": "Alternatif Oran Sınırları",
+        "global": "Genel Oran Sınırları",
+        "settings": "Oran Sınırları Ayarları"
+      },
+      "tip": "0 sınırsız anlamına gelir",
+      "upload": "Yükleme"
+    },
+    "tabs": {
+      "advanced": "Gelişmiş",
+      "behavior": "Davranış",
+      "bittorrent": "BitTorrent",
+      "connection": "Bağlantı",
+      "downloads": "İndirilenler",
+      "rss": {
+        "feeds": "Beslemeler",
+        "general": "Genel",
+        "rules": "Kurallar",
+        "title": "RSS"
+      },
+      "speed": "Hız",
+      "tagsAndCategories": "Etiketler & Kategoriler",
+      "vuetorrent": {
+        "general": "Genel",
+        "title": "VueTorrent",
+        "torrent_card": {
+          "grid": "Izgara Görünümü",
+          "list": "Liste Görünümü",
+          "table": "Tablo Görünümü"
+        }
+      },
+      "webui": "WebUI"
+    },
+    "tagsAndCategories": {
+      "categoriesSubheader": "Mevcut Kategoriler:",
+      "createNewCategory": "Yeni kategori oluştur",
+      "createNewTag": "Yeni etiket oluştur",
+      "noCategories": "Henüz kategori yok",
+      "noTags": "Henüz etiket yok",
+      "tagsSubheader": "Mevcut Etiketler:"
+    },
+    "title": "Ayarlar",
+    "vuetorrent": {
+      "general": {
+        "backendUrl": "Backend URL'si",
+        "canvasRefreshThreshold": "Kanvas otomatik yenilemesini devre dışı bırakmak için parça sayısı",
+        "canvasRenderThreshold": "Kanvas oluşturmayı devre dışı bırakmak için parça sayısı",
+        "check_new": "Yeni sürümü kontrol et",
+        "currentVersion": "Mevcut Sürüm",
+        "customTitle": "Özel başlık",
+        "dateFormat": "Tarih formatı",
+        "download": "Ayarları Dışa Aktar",
+        "enableHashColors": "Oluşturulmuş çip renklerini etkinleştir",
+        "enableRatioColors": "Oran renklerini etkinleştir",
+        "fileContentInterval": "Torrent dosyası içerik yenileme aralığı",
+        "hideChipIfUnset": "Ayarlanmamışsa çipleri gizle",
+        "historySize": "Uygun alanlarda geçmiş boyutu",
+        "import": "Ayarları İçe Aktar",
+        "isDrawerRight": "Sağ Çekmece",
+        "isPaginationOnTop": "Üst Sayfalandırma",
+        "isShutdownButtonVisible": "Kapatma düğmesini göster",
+        "language": "Dil",
+        "openSideBarOnStart": "Başlangıçta Yan Menüyü Aç",
+        "paginationSize": {
+          "infinite_scroll": "Sonsuz kaydırma",
+          "label": "Sayfalama Boyutu",
+          "warning": "Yüksek değerler kullanmak performansı etkileyebilir"
+        },
+        "qbittorrentVersion": "qBittorrent Sürümü",
+        "refreshInterval": "qBittorrent API yenileme aralığı",
+        "registerMagnet": "Magnet bağlantılarını kaydet",
+        "resetSettings": "Ayarları Sıfırla",
+        "showAlltimeStat": "Tüm Zaman İstatistiklerini Göster",
+        "showCurrentSpeed": "Mevcut Hızı Göster",
+        "showFreeSpace": "Boş Alanı Göster",
+        "showSessionStat": "Oturum İstatistiklerini Göster",
+        "showSpeedGraph": "Hız Grafiğini Göster",
+        "showTrackerFilter": "Takipçi Filtresini Göster",
+        "tip": "Bu ayarlar özel WebUI'nin kendisi içindir",
+        "useBinarySize": "Veri boyutlarını ikili birimlerle değiştir (kB -> KiB) ",
+        "useBitSpeed": "Hız değerlerini bit cinsinden değiştir (kB/s -> kbps)",
+        "vueTorrentTitle": "Sekme başlığı"
+      },
+      "torrentCard": {
+        "grid": {
+          "busyTip": "Tamamlanmamış torrentler için ızgara görünümünde gösterilecek özellikler",
+          "doneTip": "Tamamlanan torrentler için ızgara görünümünde gösterilecek özellikler"
+        },
+        "list": {
+          "busyTip": "Tamamlanmamış torrentler için liste görünümünde gösterilecek özellikler",
+          "doneTip": "Tamamlanan torrentler için liste görünümünde gösterilecek özellikler"
+        },
+        "table": {
+          "tip": "Tablo görünümünde gösterilecek torrent özellikleri"
+        }
+      }
+    },
+    "webUI": {
+      "authentication": {
+        "banDuration": "Yasaklama Süresi",
+        "banDurationHint": "Saniye cinsinden",
+        "bypassLocalhost": "Localhost'taki istemciler için kimlik doğrulamasını atla",
+        "bypassWhitelist": "Beyaz listedeki IP alt ağlarındaki istemciler için kimlik doğrulamayı atlayın",
+        "maxAttempts": "Maksimum deneme sayısı",
+        "password": "Parola",
+        "passwordPlaceholder": "(değişmedi)",
+        "sessionTimeout": "Oturum zaman aşımı",
+        "sessionTimeoutHint": "Saniye cinsinden",
+        "subheader": "Kimlik Doğrulama",
+        "username": "Kullanıcı Adı",
+        "whitelistExamples": "Örnek: 192.168.1.0/24, fdff:ffff:c8::/40"
+      },
+      "customHeaders": "Özel HTTP başlıkları ekle",
+      "customHeadersHint": "Satır başına bir tane",
+      "customHeadersPlaceholder": "Başlık1: değer1\nBaşlık2: değer2\n...",
+      "dynDns": {
+        "domainName": "Alan adı",
+        "password": "Parola",
+        "providers": {
+          "dynDns": "DynDNS",
+          "noIp": "NO-IP"
+        },
+        "registerBtn": "Kayıt Ol",
+        "subheader": "Dinamik alan adımı güncelle",
+        "username": "Kullanıcı Adı"
+      },
+      "https": {
+        "certificate": "Sertifika",
+        "key": "Anahtar",
+        "subheader": "HTTPS kullan",
+        "tip": "Sertifikalar hakkında bilgi"
+      },
+      "interface": {
+        "ipAddress": "IP Adresi",
+        "port": "Bağlantı Noktası",
+        "subheader": "Web Kullanıcı Arayüzü",
+        "useAlternativeWebUI": "Alternatif Web Arayüzünü Kullan",
+        "useUPnP": "Yönlendiricimden UPnP / NAT-PMP bağlantı noktası yönlendirmeyi kullan"
+      },
+      "proxiesList": "Güvenilir proxy listesi",
+      "proxiesListHint": "IP'leri noktalı virgülle ( ; ) ayırın",
+      "reverseProxySupport": "Ters proxy desteğini etkinleştirin",
+      "security": {
+        "clickjacking": "Tıklama korsanlığına karşı korumayı etkinleştir",
+        "csrf": "Çapraz Site İstek Sahtekarlığı (CSRF) korumasını etkinleştirin",
+        "hostHeaderValidation": "Ana bilgisayar başlığı doğrulamasını etkinleştir",
+        "hostHeaderValidationHint": "Noktalı virgülle ayrılmış ( ; )",
+        "secureCookie": "Çerez \"güvenli\" bayrağını etkinleştir (HTTPS gerektirir) ",
+        "serverDomains": "Sunucu Alan Adları",
+        "subheader": "Güvenlik"
+      }
+    }
+  },
+  "toast": {
+    "add": {
+      "error": "Torrentler eklenirken hata oluştu",
+      "pending": "Torrentler gönderiliyor...",
+      "success": "{n} torrent eklendi | {n} torrent eklendi"
+    },
+    "backend_unreachable": "Backende erişilemiyor",
+    "copy": {
+      "error": "Kopyalanamıyor, içerik güvenli değil!",
+      "success": "Panoya kopyalandı!"
+    },
+    "magnet_handler": {
+      "not_supported": "Geçerli içerik güvenli değil. İşleyici kaydedilemiyor.",
+      "registered": "Magnet işleyicisi kaydedildi."
+    },
+    "new_version": "Yeni sürüm mevcut!",
+    "qbit": {
+      "not_supported": "Sadece qbit >= {version} için kullanılabilir"
+    }
+  },
+  "topbar": {
+    "actions": {
+      "delete": "Torrentleri Sil",
+      "logs": "Günlükleri Aç",
+      "pause": "Torrentleri Duraklat",
+      "resume": "Torrentleri Devam Ettir",
+      "rssArticles": "RSS Makalelerini Aç",
+      "searchEngine": "Arama Motorunu Aç",
+      "settings": "Ayarları Aç"
+    },
+    "addTorrents": "Torrent Ekle",
+    "overflow": {
+      "delete": "Sil",
+      "logs": "qBittorrent Günlükleri",
+      "pause": "Duraklat",
+      "resume": "Devam Et",
+      "rssArticles": "RSS Makaleleri",
+      "searchEngine": "Arama Motoru",
+      "settings": "Ayarlar"
+    },
+    "searchTorrents": "Torrentleri ara"
+  },
+  "torrentDetail": {
+    "content": {
+      "fileInfo": "{n} dosya | {n} dosya",
+      "filter_placeholder": "Dosya ağacında ara",
+      "folderInfo": "{n} klasör | {n} klasör",
+      "priority": "Önceliği ayarla",
+      "rename": {
+        "bulk": "Toplu yeniden adlandırma",
+        "file": "Yeniden Adlandır",
+        "folder": "Klasörü Yeniden Adlandır"
+      },
+      "rootNode": "(Kök)"
+    },
+    "info": {
+      "boolean_values": "İkili değer",
+      "data_values": "Veri değerleri",
+      "datetime_values": "Tarih/Saat Değerleri",
+      "duration_values": "Süre Değerleri",
+      "long_text_values": "Uzun metin değerleri",
+      "speed_values": "Hız değerleri",
+      "text_values": "Metin değerleri"
+    },
+    "overview": {
+      "canvasRefreshDisabled": "Kanvas otomatik yenileme devre dışı bırakıldı",
+      "canvasRenderDisabled": "Kanvas oluşturma devre dışı bırakıldı",
+      "copy_hash": "Hash'ı Kopyala",
+      "dlSpeedAverage": "İndirme Hızı Ortalaması",
+      "downloaded": "İndirilen",
+      "fetchingMetadata": "Alınıyor...",
+      "fileCount": "Seçili Dosyalar",
+      "pieceCount": "{owned} / {total} ({pieceSize})",
+      "ratio": "Oran",
+      "selectedFileSize": "Seçili Dosyaların Boyutu",
+      "uploaded": "Yüklenen",
+      "upSpeedAverage": "Yükleme Hızı Ortalaması",
+      "waitingForMetadata": "Meta veri bekleniyor... "
+    },
+    "peers": {
+      "addPeers": {
+        "newPeers": "Eklenecek eş hostları",
+        "newPeersHint": "Satır başına bir tane",
+        "newPeersPlaceholder": "sunucu:port",
+        "title": "Eşleri Ekle"
+      },
+      "emptyList": "Şu anda bağlı eş yok",
+      "table": {
+        "client": "İstemci",
+        "connection": "Bağlantı",
+        "downloaded": "İndirilen",
+        "downloadSpeed": "İnd",
+        "files": "Dosyalar",
+        "flags": "Bayraklar",
+        "host": "Sunucu",
+        "progress": "İlerleme",
+        "relevance": "Alaka düzeyi",
+        "uploaded": "Yüklenen",
+        "upSpeed": "Yük"
+      }
+    },
+    "tabs": {
+      "content": "İçerik",
+      "info": "Bilgi",
+      "overview": "Genel Bakış",
+      "peers": "Eşler",
+      "tagsAndCategories": "Etiketler & Kategoriler",
+      "trackers": "İzleyiciler"
+    },
+    "tagsAndCategories": {
+      "categories": "Kategoriler",
+      "tags": "Etiketler"
+    },
+    "title": "Torrent Detayı",
+    "trackers": {
+      "addTrackers": {
+        "newTrackers": "Eklenecek İzleyici URL'leri",
+        "newTrackersHint": "Her satırda bir tane, katmanları boş bir satır ile ayırın",
+        "title": "İzleyicileri Ekle"
+      },
+      "editTracker": {
+        "newUrl": "Yeni URL",
+        "newUrlRequired": "Yeni URL gereklidir",
+        "oldUrl": "Eski URL",
+        "title": "İzleyiciyi Düzenle"
+      },
+      "peersValue": "{peers} eş ({seeds} S / {leeches} L)",
+      "reannounce": "Tümünü yeniden duyur",
+      "tier": "Seviye: {n} "
+    }
+  },
+  "torrent": {
+    "properties": {
+      "added_on": "Eklendiği Tarih",
+      "amount_left": "Kalan Miktar",
+      "auto_tmm": "Otomatik Torrent Yönetimi",
+      "availability": "Ulaşılabilirlik",
+      "available_peers": "Eşler (sürü)",
+      "available_seeds": "Seeds (swarm)",
+      "avg_download_speed": "Ortalama İndirme Hızı",
+      "avg_upload_speed": "Ortalama Yükleme Hızı",
+      "category": "Kategori",
+      "comment": "Yorum",
+      "completed_on": "Tamamlanma Tarihi",
+      "content_path": "İçerik Yolu",
+      "created_by": "Oluşturan",
+      "creation_date": "Oluşturulma tarihi",
+      "downloaded": "İndirilen (genel)",
+      "downloaded_session": "İndirilen (oturum)",
+      "download_limit": "İndirme Sınırı",
+      "download_path": "İndirme Yolu",
+      "download_speed": "İndirme Hızı",
+      "empty_category": "(kategori yok)",
+      "empty_tags": "(etiketsiz)",
+      "empty_tracker_domain": "(izleyici yok)",
+      "eta": "TBS",
+      "f_l_piece_prio": "İlk / Son Parça Önceliği",
+      "forced": "Zorlanmış durum",
+      "global_speed": "Genel Hız",
+      "global_volume": "Genel Hacim",
+      "hash": "Hash",
+      "inactive_seeding_time_limit": "Etkin olmayan seeding süresi sınırı",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "is_private": "Özel torrent",
+      "last_activity": "Son Etkinlik",
+      "magnet": "Magnet Linki",
+      "name": "Torrent Başlığı",
+      "nb_connections": "Toplam bağlantılar",
+      "nb_connections_limit": "Bağlantı sınırı",
+      "num_leechs": "Eşler (bağlı)",
+      "num_seeds": "Seeds (bağlı)",
+      "peers": "Eşler",
+      "priority": "Kuyruk pozisyonu",
+      "progress": "İlerleme",
+      "progress_bar": "İlerleme Çubuğu",
+      "ratio": "Oran",
+      "ratio_limit": "Oran sınırı",
+      "reannounce": "Sonraki yeniden duyuru",
+      "save_path": "Kaydetme Yolu",
+      "seeding_time": "Seeding süresi",
+      "seeding_time_limit": "Seeding süre sınırı",
+      "seeds": "Seedler",
+      "seen_complete": "Tamamlanmış Görüldü",
+      "seq_dl": "Sıralı İndirme",
+      "size": "Boyut",
+      "state": "Durum",
+      "super_seeding": "Süper Seeding Modu",
+      "tags": "Etiketler",
+      "time_active": "Aktif Zaman",
+      "total_size": "Toplam Boyut",
+      "total_wasted": "Harcanan Veri",
+      "tracker": "İzleyici",
+      "trackers_count": "İzleyici Sayısı",
+      "uploaded": "Yüklenen (genel)",
+      "uploaded_session": "Yüklenen (oturum)",
+      "upload_limit": "Yükleme Sınırı",
+      "upload_speed": "Yükleme Hızı"
+    },
+    "state": {
+      "allocating": "Ayrılıyor",
+      "checkingDL": "Kontrol ediliyor (tamamlanmamış)",
+      "checkingResumeData": "Devam verisi kontrol ediliyor",
+      "checkingUP": "Kontrol ediliyor (tamamlanan)",
+      "downloading": "İndiriliyor",
+      "error": "Hata",
+      "forcedDL": "[F] İndiriliyor",
+      "forcedMetaDL": "[F] Meta veri",
+      "forcedUP": "[F] Yükleniyor",
+      "metaDL": "Meta veri",
+      "missingFiles": "Eksik Dosyalar",
+      "moving": "Taşınıyor",
+      "pausedDL": "Duraklatıldı",
+      "pausedUP": "Tamamlandı",
+      "queuedDL": "Sıraya Alındı (İndirme)",
+      "queuedUP": "Sıraya Alındı (Yükleme)",
+      "stalledDL": "Durdu",
+      "stalledUP": "Seeding",
+      "unknown": "Bilinmeyen",
+      "uploading": "Yükleniyor"
+    }
+  },
+  "units": {
+    "minutes": "dakika | dakika | dakika",
+    "seconds": "saniye | saniye | saniye"
+  }
+}

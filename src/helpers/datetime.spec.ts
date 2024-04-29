@@ -1,4 +1,4 @@
-import { formatEta } from './datetime'
+import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
 import { expect, test } from 'vitest'
 
 test('helpers/datetime/formatEta', () => {
@@ -27,4 +27,12 @@ test('helpers/datetime/formatEta', () => {
   expect(formatEta(90000)).toBe('1d 1h')
   expect(formatEta(90001)).toBe('1d 1h')
   expect(formatEta(90060)).toBe('1d 1h')
+})
+
+test('helpers/datetime/formatTimeMs', () => {
+  expect(formatTimeMs(1626739200000, 'YYYY-MM-DD')).toBe('2021-07-20')
+})
+
+test('helpers/datetime/formatTimeSec', () => {
+  expect(formatTimeSec(1626739200, 'YYYY-MM-DD')).toBe('2021-07-20')
 })

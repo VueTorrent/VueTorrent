@@ -235,14 +235,14 @@ defineExpose({ saveFields })
           <v-expansion-panel-text>
             <v-row>
               <v-col cols="12" md="6">
-                <v-text-field v-model="downloadLimit" :label="$t('dialogs.add.params.download_limit')" hide-details suffix="KiB/s">
+                <v-text-field v-model.number="downloadLimit" :label="$t('dialogs.add.params.download_limit')" hide-details suffix="KiB/s" type="number">
                   <template v-slot:prepend>
                     <v-icon color="accent">mdi-download</v-icon>
                   </template>
                 </v-text-field>
               </v-col>
               <v-col cols="12" md="6">
-                <v-text-field v-model="uploadLimit" :label="$t('dialogs.add.params.upload_limit')" hide-details suffix="KiB/s">
+                <v-text-field v-model.number="uploadLimit" :label="$t('dialogs.add.params.upload_limit')" hide-details suffix="KiB/s" type="number">
                   <template v-slot:prepend>
                     <v-icon color="accent">mdi-upload</v-icon>
                   </template>
@@ -250,11 +250,11 @@ defineExpose({ saveFields })
               </v-col>
 
               <v-col cols="12" md="4">
-                <v-text-field v-model="ratioLimit" :hint="$t('dialogs.add.params.limit_hint')" :label="$t('dialogs.add.params.ratio_limit')" type="number" />
+                <v-text-field v-model.number="ratioLimit" :hint="$t('dialogs.add.params.limit_hint')" :label="$t('dialogs.add.params.ratio_limit')" type="number" />
               </v-col>
               <v-col cols="12" md="4">
                 <v-text-field
-                  v-model="seedingTimeLimit"
+                  v-model.number="seedingTimeLimit"
                   :label="$t('dialogs.add.params.seeding_time_limit')"
                   :hint="$t('dialogs.add.params.limit_hint')"
                   :suffix="$t('units.minutes')"
@@ -262,7 +262,7 @@ defineExpose({ saveFields })
               </v-col>
               <v-col cols="12" md="4">
                 <v-text-field
-                  v-model="inactiveSeedingTimeLimit"
+                  v-model.number="inactiveSeedingTimeLimit"
                   :label="$t('dialogs.add.params.inactive_seeding_time_limit')"
                   :hint="$t('dialogs.add.params.limit_hint')"
                   :suffix="$t('units.minutes')"

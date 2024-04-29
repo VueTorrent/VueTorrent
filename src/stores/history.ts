@@ -45,14 +45,9 @@ export const useHistoryStore = defineStore(
     }
   },
   {
-    persist: {
+    persistence: {
       enabled: true,
-      strategies: [
-        {
-          storage: localStorage,
-          key: 'vuetorrent_history'
-        }
-      ]
+      storageItems: [{ storage: localStorage }]
     }
   }
 )

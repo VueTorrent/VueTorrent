@@ -3,7 +3,7 @@ import { TreeFile, TreeFolder } from '@/types/vuetorrent'
 import { MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
 
 function getEmptyRoot() {
-  return new TreeFolder('(root)', '(root)')
+  return new TreeFolder('(root)', '') // Only the 'fullName' of the '(root)' node can be an empty string.
 }
 
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {

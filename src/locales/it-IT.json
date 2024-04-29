@@ -4,6 +4,7 @@
     "close": "Chiudi",
     "delete": "Elimina",
     "disable": "Disabilita",
+    "disabled": "Disabilitato",
     "emptyList": "Niente da vedere qui!",
     "NA": "N/D",
     "no": "No",
@@ -475,6 +476,11 @@
       "error": "Errore durante l'aggiunta dei torrent",
       "pending": "Inviando torrent...",
       "success": "{n} Torrent aggiunto | {n} Torrent aggiunti"
+    }
+  },
+  "torrent": {
+    "properties": {
+      "priority": "Priorità"
     }
   }
 }

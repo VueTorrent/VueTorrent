@@ -76,6 +76,9 @@ $sideborder-margin: 6px;
   &.metaDL {
     border-left-color: #{$torrent-metaDL};
   }
+  &.forcedMetaDL {
+    border-left-color: #{$torrent-forcedMetaDL};
+  }
   &.pausedDL {
     border-left-color: #{$torrent-pausedDL};
   }

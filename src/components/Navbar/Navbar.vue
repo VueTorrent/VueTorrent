@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useDashboardStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
+import { useRouter } from 'vue-router'
 import BottomActions from './SideWidgets/BottomActions.vue'
 import CurrentSpeed from './SideWidgets/CurrentSpeed.vue'
 import FilterSelect from './SideWidgets/FilterSelect.vue'
@@ -10,12 +11,17 @@ import TransferStats from './SideWidgets/TransferStats.vue'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
 
+const router = useRouter()
 const dashboardStore = useDashboardStore()
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const { isDrawerRight, showCurrentSpeed, showSpeedGraph, showAlltimeStat, showSessionStat, showFreeSpace } = storeToRefs(useVueTorrentStore())
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !isDrawerOpen.value
+}
+
+const goHome = () => {
+  router.push({ name: 'dashboard' })
 }
 </script>
 
@@ -59,9 +65,11 @@ const toggleDrawer = () => {
 
   <v-app-bar class="ios-padding">
     <v-app-bar-nav-icon @click="toggleDrawer" />
-    <v-app-bar-title>
-      <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
-      <span v-if="$vuetify.display.smAndUp">Torrent</span>
+    <v-app-bar-title class="title">
+      <div class="title-wrapper pointer" @click="goHome">
+        <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
+        <span v-if="$vuetify.display.smAndUp">Torrent</span>
+      </div>
 
       <ActiveFilters />
     </v-app-bar-title>
@@ -74,5 +82,13 @@ const toggleDrawer = () => {
 .clean-px > * {
   padding-inline-start: 0 !important;
   padding-inline-end: 0 !important;
+}
+.title {
+  margin-inline-start: calc(16px - 0.4em);
+}
+.title-wrapper {
+  display: inline-flex;
+  width: min-content;
+  padding: 0.4em;
 }
 </style>

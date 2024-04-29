@@ -5,7 +5,9 @@
     "close": "關閉",
     "delete": "移除",
     "disable": "停用",
+    "disabled": "已停用",
     "emptyList": "這裡沒東西可看！",
+    "global_value": "全局設定",
     "NA": "不適用",
     "no": "否",
     "none": "(無)",
@@ -286,6 +288,22 @@
       "submit": "新增種子",
       "title": "新增種子"
     },
+    "bulkRenameFiles": {
+      "col_origin_name": "原名稱",
+      "col_result_name": "結果",
+      "duplicated": "重複的檔案名稱",
+      "fold": "收起",
+      "not_changed": "檔案名稱未變更",
+      "notForFolder": "不支持目錄更名",
+      "nothing_to_do": "無待執行任務",
+      "regexp": "正規表示式",
+      "run": "執行",
+      "select_regex_flags": "選擇正規表示式旗標",
+      "success": "成功改名",
+      "target": "變更為",
+      "title": "批量改名",
+      "unfold": "展開"
+    },
     "category": {
       "name": "分類名稱",
       "nameRequired": "必須填寫分類名稱",
@@ -300,6 +318,11 @@
     "connectionStatus": {
       "dht_nodes": "DHT 節點",
       "externalIp": "外部 IP 位置",
+      "fetch_geo_failed": "無法取得地理位置資訊",
+      "fetch_isp_failed": "無法取得ISP資訊",
+      "geo_details": "地理位置資訊",
+      "isp_details": "ISP資訊",
+      "noExternalIp": "無法從日誌中移除",
       "status": "連線狀態",
       "total_peer_connections": "活躍的用戶連接數"
     },
@@ -909,6 +932,7 @@
     "title": "設定",
     "vuetorrent": {
       "general": {
+        "backendUrl": "後端URL",
         "canvasRefreshThreshold": "種子分塊閾值以禁用 Canvas 自動更新",
         "canvasRenderThreshold": "種子分塊閾值以禁用 Canvas 渲染",
         "check_new": "檢查新版本",
@@ -916,6 +940,8 @@
         "customTitle": "自訂標題",
         "dateFormat": "日期格式",
         "download": "匯出設定",
+        "enableHashColors": "啟用自動生成的卡片顏色",
+        "enableRatioColors": "啟用彩色的分享率",
         "fileContentInterval": "種子檔案內容更新區間",
         "hideChipIfUnset": "未設置時隱藏塊",
         "historySize": "符合條件欄位的歷史大小",
@@ -1021,6 +1047,7 @@
       "pending": "正在傳送種子...",
       "success": "已添加 {n} 個種子 | 已添加 {n} 個種子"
     },
+    "backend_unreachable": "後端無法訪問",
     "copy": {
       "error": "無法複製，當前環境不安全!",
       "success": "已複製到剪貼簿!"
@@ -1107,7 +1134,7 @@
         "downloaded": "已下載",
         "downloadSpeed": "下載速率",
         "files": "檔案",
-        "flags": "旗",
+        "flags": "旗標",
         "host": "主機",
         "progress": "進度",
         "relevance": "關聯",
@@ -1175,6 +1202,7 @@
       "global_speed": "全域速率",
       "global_volume": "全域大小",
       "hash": "雜湊值",
+      "inactive_seeding_time_limit": "閒置做種時間限制",
       "infohash_v1": "資訊雜湊值 v1",
       "infohash_v2": "資訊雜湊值 v2",
       "is_private": "私有种子",
@@ -1191,10 +1219,10 @@
       "progress_bar": "進度列",
       "ratio": "分享率",
       "ratio_limit": "分享率限制",
-      "ratio_time_limit": "分享時間限制",
       "reannounce": "下次重新發佈时间",
       "save_path": "儲存路徑",
       "seeding_time": "做種時間",
+      "seeding_time_limit": "做種時間限制",
       "seeds": "種子",
       "seen_complete": "最後完整可見",
       "seq_dl": "順序下載",
@@ -1220,6 +1248,7 @@
       "downloading": "下載中",
       "error": "錯誤",
       "forcedDL": "[F] 下載中",
+      "forcedMetaDL": "[F]元數據",
       "forcedUP": "[F] 上傳中",
       "metaDL": "元資料",
       "missingFiles": "缺失檔案",
@@ -1228,7 +1257,7 @@
       "pausedUP": "已完成",
       "queuedDL": "排隊中 (下載)",
       "queuedUP": "排隊中 (上傳)",
-      "stalledDL": "停止",
+      "stalledDL": "停滞中",
       "stalledUP": "做種中",
       "unknown": "未知",
       "uploading": "上傳中"
