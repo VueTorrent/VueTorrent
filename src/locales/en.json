@@ -1129,18 +1129,10 @@
         "title": "Add Peers"
       },
       "emptyList": "No peers connected at the moment",
-      "table": {
-        "client": "Client",
-        "connection": "Connection",
-        "downloaded": "Downloaded",
-        "downloadSpeed": "DL",
-        "files": "Files",
-        "flags": "Flags",
-        "host": "Host",
-        "progress": "Progress",
-        "relevance": "Relevance",
-        "uploaded": "Uploaded",
-        "upSpeed": "UL"
+      "fields": {
+        "client": "Client: {name} ({id})",
+        "flags": "Flags: {value}",
+        "relevance": "Relevance: {value}"
       }
     },
     "tabs": {
