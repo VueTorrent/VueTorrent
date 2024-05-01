@@ -91,8 +91,11 @@ watch(() => props.isActive, setupTimer)
             </v-list-item-title>
 
             <v-list-item-subtitle class="d-block">
-              <div v-show="peer.flags" class="cursor-help" :title="peer.flags_desc">
+              <div v-if="peer.flags" class="cursor-help" :title="peer.flags_desc">
                 {{ $t('torrentDetail.peers.fields.flags', {value: peer.flags}) }}
+              </div>
+              <div v-else>
+                {{ $t('torrentDetail.peers.fields.flags', {value: $t('common.none')}) }}
               </div>
 
               <div v-show="peer.client || peer.peer_id_client">{{ $t('torrentDetail.peers.fields.client', { name: peer.client, id: peer.peer_id_client }) }}</div>
