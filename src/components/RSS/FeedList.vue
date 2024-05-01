@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { Feed } from '@/types/qbit/models'
-import { useRssStore } from '@/stores'
-import { useRouter } from 'vue-router'
-import { computed } from 'vue'
 import FeedIcon from '@/components/RSS/FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
+import { useRssStore } from '@/stores'
+import { Feed as FeedType } from '@/types/qbit/models'
+import { computed } from 'vue'
+import { useRouter } from 'vue-router'
+import Feed from './Feed.vue'
 
 defineProps<{
   height?: number
@@ -12,9 +13,9 @@ defineProps<{
 
 const emit = defineEmits<{
   update: [feedId: string | undefined]
-  editFeed: [feed: Feed]
-  deleteFeed: [feed: Feed]
-  refreshFeed: [feed: Feed]
+  editFeed: [feed: FeedType]
+  deleteFeed: [feed: FeedType]
+  refreshFeed: [feed: FeedType]
 }>()
 
 const router = useRouter()
@@ -30,7 +31,7 @@ const currentFeed = computed({
   }
 })
 
-function getUnreadCount(feed?: Feed) {
+function getUnreadCount(feed?: FeedType) {
   if (!feed) {
     return rssStore.unreadArticles.length
   }
@@ -38,15 +39,15 @@ function getUnreadCount(feed?: Feed) {
   return (feed.articles ?? []).reduce((cnt, article) => cnt + +!article.isRead, 0)
 }
 
-function toggleFeedSelected(feed: Feed) {
+function toggleFeedSelected(feed: FeedType) {
   currentFeed.value = currentFeed.value !== feed.uid ? feed.uid : undefined
 }
 
-async function readFeed(feed: Feed) {
+async function readFeed(feed: FeedType) {
   await rssStore.markFeedAsRead(feed)
 }
 
-function getFeedTitle(feed?: Feed) {
+function getFeedTitle(feed?: FeedType) {
   const unreadCount = getUnreadCount(feed)
   return (unreadCount ? `${ unreadCount } | ` : '') + `${ feed ? feed.name : 'All' }`
 }
@@ -55,7 +56,7 @@ const allState = computed(() => {
   return rssStore.feeds.reduce((state, feed) => Math.min(state, getFeedState(feed)), FeedState.READ)
 })
 
-function getFeedState(feed: Feed) {
+function getFeedState(feed: FeedType) {
   if (feed.isLoading) return FeedState.LOADING
   else if (feed.hasError) return FeedState.ERROR
   else if (feed.articles?.some(article => !article.isRead)) return FeedState.UNREAD
@@ -82,15 +83,13 @@ function getFeedState(feed: Feed) {
                    color="accent"
                    variant="text"
                    @click="toggleFeedSelected(feed)">
-        <div class="d-flex align-center">
-          <FeedIcon :state="getFeedState(feed)" />
-          <v-list-item-title>{{ getFeedTitle(feed) }}</v-list-item-title>
-          <v-spacer />
-          <v-btn v-if="getUnreadCount(feed) > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click.stop="readFeed(feed)" />
-          <v-btn v-else-if="!feed.isLoading" icon="mdi-sync" density="comfortable" variant="plain" @click.stop="$emit('refreshFeed', feed)" />
-          <v-btn icon="mdi-pencil" density="comfortable" variant="plain" @click.stop="$emit('editFeed', feed)" />
-          <v-btn icon="mdi-delete" color="error" density="comfortable" variant="plain" @click.stop="$emit('deleteFeed', feed)" />
-        </div>
+        <Feed :title="getFeedTitle(feed)"
+              :state="getFeedState(feed)"
+              :unread-count="getUnreadCount(feed)"
+              @readFeed="readFeed(feed)"
+              @refreshFeed="$emit('refreshFeed', feed)"
+              @editFeed="$emit('editFeed', feed)"
+              @deleteFeed="$emit('deleteFeed', feed)" />
       </v-list-item>
     </template>
   </v-list>

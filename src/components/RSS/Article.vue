@@ -1,0 +1,47 @@
+<script setup lang="ts">
+import { useRssStore } from '@/stores'
+import { RssArticle } from '@/types/vuetorrent'
+
+defineProps<{
+  value: RssArticle
+}>()
+
+defineEmits<{
+  click: []
+  markAsRead: []
+  open: []
+  download: []
+}>()
+
+const rssStore = useRssStore()
+</script>
+
+<template>
+  <v-list-item :class="{ 'rss-read': value.isRead }" @click="$emit('click')" @contextmenu="$emit('markAsRead')">
+    <div class="d-flex">
+      <div>
+        <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ value.title }}</v-list-item-title>
+
+        <v-list-item-subtitle class="d-block">
+          <div>{{ value.parsedDate.toLocaleString() }}</div>
+          <div>{{ $t('rssArticles.item.feedName', { name: rssStore.getFeedNames(value.id).join(' | ') }) }}
+          </div>
+          <div v-if="value.author">{{ $t('rssArticles.item.author', { author: value.author }) }}</div>
+          <div v-if="value.category">{{ $t('rssArticles.item.category', { category: value.category }) }}</div>
+        </v-list-item-subtitle>
+      </div>
+
+      <v-spacer />
+
+      <div class="d-flex flex-column">
+        <v-btn icon="mdi-open-in-new" variant="text" @click.stop="$emit('open')" />
+        <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="$emit('markAsRead')" />
+        <v-btn icon="mdi-download" variant="text" @click.stop="$emit('download')" />
+      </div>
+    </div>
+  </v-list-item>
+</template>
+
+<style scoped>
+
+</style>

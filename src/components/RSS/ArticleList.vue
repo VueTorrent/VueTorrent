@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useArrayPagination, useSearchQuery } from '@/composables'
-import { RssArticle } from '@/types/vuetorrent'
-import { computed } from 'vue'
-import debounce from 'lodash.debounce'
 import { useAddTorrentStore, useRssStore, useVueTorrentStore } from '@/stores'
+import { RssArticle } from '@/types/vuetorrent'
+import debounce from 'lodash.debounce'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import Article from './Article.vue'
 
 defineProps<{
   height?: number
@@ -60,29 +61,11 @@ async function markAsRead(item: RssArticle) {
     <template v-for="(article, index) in paginatedResults">
       <v-divider v-if="index > 0" color="white" />
 
-      <v-list-item :class="{ 'rss-read': article.isRead }" @click="$emit('articleClicked', article)" @contextmenu="markAsRead(article)">
-        <div class="d-flex">
-          <div>
-            <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ article.title }}</v-list-item-title>
-
-            <v-list-item-subtitle class="d-block">
-              <div>{{ article.parsedDate.toLocaleString() }}</div>
-              <div>{{ $t('rssArticles.item.feedName', { name: rssStore.getFeedNames(article.id).join(' | ') }) }}
-              </div>
-              <div v-if="article.author">{{ $t('rssArticles.item.author', { author: article.author }) }}</div>
-              <div v-if="article.category">{{ $t('rssArticles.item.category', { category: article.category }) }}</div>
-            </v-list-item-subtitle>
-          </div>
-
-          <v-spacer />
-
-          <div class="d-flex flex-column">
-            <v-btn icon="mdi-open-in-new" variant="text" @click.stop="openLink(article)" />
-            <v-btn color="accent" icon="mdi-check" variant="text" @click.stop="markAsRead(article)" />
-            <v-btn icon="mdi-download" variant="text" @click.stop="downloadArticle(article)" />
-          </div>
-        </div>
-      </v-list-item>
+      <Article :value="article"
+               @click="$emit('articleClicked', article)"
+               @markAsRead="markAsRead(article)"
+               @open="openLink(article)"
+               @download="downloadArticle(article)" />
     </template>
 
     <v-list-item v-if="searchQuery.results.value.length === 0">
