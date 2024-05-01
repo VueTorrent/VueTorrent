@@ -72,21 +72,33 @@ watch(() => props.isActive, setupTimer)
       <v-list-item>
         <div class="d-flex">
           <div>
-            <v-list-item-title class="wrap-anywhere" style="white-space: unset">
+            <v-list-item-title class="mb-3 wrap-anywhere" style="white-space: unset">
               <span v-if="peer.country_code">
                 <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url" :title="peer.country" style="max-width: 32px" />
                 <span v-else :title="peer.country">{{ codeToFlag(peer.country_code).char }}</span>
               </span>
               <span>{{ peer.ip }}</span>
               <span class="text-subtitle-2 text-grey"> :{{ peer.port }}</span>
+
+              <v-progress-linear :model-value="peer.progress"
+                                 :max="1"
+                                 :height="20"
+                                 :color="(peer.progress === 1) ? 'torrent-stalledUP' : 'torrent-downloading'"
+                                 rounded="sm"
+                                 style="width: 10em">
+                {{ formatPercent(peer.progress) }}
+              </v-progress-linear>
             </v-list-item-title>
 
             <v-list-item-subtitle class="d-block">
-              <div>
-                Flags: <span class="cursor-help" :title="peer.flags_desc">{{ peer.flags }}</span>
+              <div v-if="peer.flags" class="cursor-help" :title="peer.flags_desc">
+                {{ $t('torrentDetail.peers.fields.flags', {value: peer.flags}) }}
+              </div>
+              <div v-else>
+                {{ $t('torrentDetail.peers.fields.flags', {value: $t('common.none')}) }}
               </div>
 
-              <div>Progress: {{ formatPercent(peer.progress) }}</div>
+              <div v-show="peer.client || peer.peer_id_client">{{ $t('torrentDetail.peers.fields.client', { name: peer.client, id: peer.peer_id_client }) }}</div>
 
               <div>
                 <v-icon icon="mdi-arrow-down" color="download" />
@@ -97,12 +109,14 @@ watch(() => props.isActive, setupTimer)
               </div>
 
               <div>
+                <v-icon icon="mdi-download" color="download" />
                 {{ formatData(peer.downloaded, vuetorrentStore.useBinarySize) }}
-                |
+
+                <v-icon icon="mdi-upload" color="upload" />
                 {{ formatData(peer.uploaded, vuetorrentStore.useBinarySize) }}
               </div>
 
-              <div>Relevance: {{ formatPercent(peer.relevance) }}</div>
+              <div>{{ $t('torrentDetail.peers.fields.relevance', { value: formatPercent(peer.relevance) }) }}</div>
             </v-list-item-subtitle>
           </div>
 
