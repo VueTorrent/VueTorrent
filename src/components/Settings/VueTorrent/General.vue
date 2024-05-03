@@ -55,15 +55,17 @@ const paginationSize = computed({
 const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize > 1000 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
 
 const resetSettings = () => {
-  window.localStorage.clear()
-  window.sessionStorage.clear()
+  localStorage.clear()
+  sessionStorage.clear()
   location.reload()
 }
 
 const downloadSettings = () => {
-  const settings = window.localStorage.getItem('vuetorrent_webuiSettings')
+  const settings = localStorage.getItem('vuetorrent_webuiSettings')
   if (!settings) return
-  const blob = new Blob([settings], { type: 'application/json' })
+
+  const jsonString = JSON.stringify(JSON.parse(settings), null, 2)
+  const blob = new Blob([jsonString], { type: 'application/json' })
   const blobUrl = URL.createObjectURL(blob)
 
   const a = document.createElement('a')
