@@ -314,7 +314,7 @@ export const useVueTorrentStore = defineStore(
       enabled: true,
       storageItems: [
         { storage: localStorage, key: 'webuiSettings' },
-        { storage: backendStorage, key: 'webuiSettings', excludePaths: ['backendUrl'] }
+        { storage: backendStorage, key: 'webuiSettings', excludePaths: ['backendUrl', 'uiTitleCustom'] }
       ]
     }
   }
