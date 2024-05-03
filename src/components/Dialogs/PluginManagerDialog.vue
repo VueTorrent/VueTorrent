@@ -83,11 +83,15 @@ function closeInstallDialog() {
 
         <v-spacer />
 
-        <v-btn :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
+        <v-btn :icon="$vuetify.display.mobile" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins">
+          <v-icon v-if="$vuetify.display.mobile">mdi-update</v-icon>
+          <span v-else>{{ $t('dialogs.pluginManager.update') }}</span>
+        </v-btn>
         <v-dialog v-model="installisOpened">
           <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" color="primary">
-              {{ $t('dialogs.pluginManager.install.activator') }}
+            <v-btn v-bind="props" :icon="$vuetify.display.mobile" color="primary">
+              <v-icon v-if="$vuetify.display.mobile">mdi-toy-brick-plus</v-icon>
+              <span v-else>{{ $t('dialogs.pluginManager.install.activator') }}</span>
             </v-btn>
           </template>
 
@@ -107,16 +111,15 @@ function closeInstallDialog() {
       </v-card-title>
       <v-card-text>
         <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
-          <template v-slot:item.enabled="{ item }">
+          <template v-slot:[`item.enabled`]="{ item }">
             <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>
-          <template v-slot:item.url="{ item }">
+          <template v-slot:[`item.url`]="{ item }">
             <a :href="item.url" :title="item.name">{{ item.url }}</a>
           </template>
-          <template v-slot:item.actions="{ item }">
+          <template v-slot:[`item.actions`]="{ item }">
             <v-icon color="red" icon="mdi-delete" @click="uninstallPlugin(item)" />
           </template>
-          <template v-slot:tfoot></template>
         </v-data-table>
       </v-card-text>
       <v-card-actions>

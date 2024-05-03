@@ -810,7 +810,48 @@ export default class MockProvider implements IProvider {
           priority: FilePriority.NORMAL,
           progress: 0,
           size: 5173995520
-        }
+        },
+        {
+          availability: 1,
+          index: 1,
+          is_seed: false,
+          name: 'ubuntu-24.10.1-desktop-amd64.iso',
+          piece_range: [0, 63],
+          priority: FilePriority.NORMAL,
+          progress: 0,
+          size: 5173995520
+        },
+        {
+          availability: 1,
+          index: 2,
+          is_seed: false,
+          name: 'ubuntu/ubuntu-23.10.1-desktop-amd64.iso',
+          piece_range: [0, 63],
+          priority: FilePriority.NORMAL,
+          progress: 0,
+          size: 5173995520
+        },
+        {
+          availability: 1,
+          index: 3,
+          is_seed: false,
+          name: 'ubuntu/ubuntu-24.10.1-desktop-amd64.iso',
+          piece_range: [0, 63],
+          priority: FilePriority.NORMAL,
+          progress: 0,
+          size: 5173995520
+        },
+        {
+          availability: 1,
+          index: 5,
+          is_seed: false,
+          name: 'ubuntu2/ubuntu-23.10.1-desktop-amd64.iso',
+          piece_range: [0, 63],
+          priority: FilePriority.NORMAL,
+          progress: 0,
+          size: 5173995520
+        },
+
       ]
     })
   }
