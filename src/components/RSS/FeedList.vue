@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import FeedIcon from '@/components/RSS/FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
-import { useDialogStore, useRssStore } from '@/stores'
+import { useRssStore } from '@/stores'
 import { Feed as FeedType } from '@/types/qbit/models'
+import { useArrayUnique } from '@vueuse/core'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 import Feed from './Feed.vue'
@@ -14,13 +14,13 @@ defineProps<{
 
 const emit = defineEmits<{
   update: [feedId: string | undefined]
+  createFeed: []
   editFeed: [feed: FeedType]
   deleteFeed: [feed: FeedType]
   refreshFeed: [feed: FeedType]
 }>()
 
 const router = useRouter()
-const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 const currentFeed = computed({
@@ -32,6 +32,7 @@ const currentFeed = computed({
     emit('update', feedId)
   }
 })
+const filteredFeedIds = useArrayUnique(() => rssStore.filteredArticles.map(art => art.feedId))
 
 function getUnreadCount(feed?: FeedType) {
   if (!feed) {
@@ -64,10 +65,6 @@ function getFeedState(feed: FeedType) {
   else if (feed.articles?.some(article => !article.isRead)) return FeedState.UNREAD
   else return FeedState.READ
 }
-
-function openFeedDialog(initialFeed?: FeedType) {
-  dialogStore.createDialog(RssFeedDialog, { initialFeed })
-}
 </script>
 
 <template>
@@ -82,12 +79,12 @@ function openFeedDialog(initialFeed?: FeedType) {
         <v-spacer />
         <v-btn v-if="getUnreadCount() > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
         <v-btn v-if="allState !== FeedState.LOADING" icon="mdi-sync" density="comfortable" variant="plain" @click="rssStore.refreshAllFeeds()" />
-        <v-btn icon="mdi-plus" density="comfortable" variant="plain" @click="openFeedDialog()" />
+        <v-btn icon="mdi-plus" density="comfortable" variant="plain" @click="$emit('createFeed')" />
       </div>
     </v-list-item>
     <v-divider thickness="3" />
     <template v-for="feed in rssStore.feeds">
-      <v-list-item v-if="!rssStore.filters.unread || rssStore.filters.unread && getUnreadCount(feed) > 0"
+      <v-list-item v-if="(!rssStore.filters.unread || rssStore.filters.unread && getUnreadCount(feed) > 0) && filteredFeedIds.includes(feed.uid)"
                    :active="currentFeed === feed.uid"
                    :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
                    color="accent"

@@ -1,3 +1,4 @@
+import { useSearchQuery } from '@/composables'
 import qbit from '@/services/qbit'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
@@ -23,6 +24,11 @@ export const useRssStore = defineStore(
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
     const articles = computed(() => (filters.unread ? unreadArticles.value : _articles.value))
+    const { results: filteredArticles } = useSearchQuery(
+      articles,
+      () => filters.title,
+      item => item.title
+    )
 
     const { t } = useI18n()
 
@@ -158,6 +164,7 @@ export const useRssStore = defineStore(
       rules,
       filters,
       articles,
+      filteredArticles,
       unreadArticles,
       refreshFeed,
       refreshAllFeeds,

@@ -24,8 +24,7 @@ const rssStore = useRssStore()
 
         <v-list-item-subtitle class="d-block">
           <div>{{ value.parsedDate.toLocaleString() }}</div>
-          <div>{{ $t('rssArticles.item.feedName', { name: rssStore.getFeedNames(value.id).join(' | ') }) }}
-          </div>
+          <div>{{ $t('rssArticles.item.feedName', { name: rssStore.getFeedNames(value.id).join(' | ') }) }}</div>
           <div v-if="value.author">{{ $t('rssArticles.item.author', { author: value.author }) }}</div>
           <div v-if="value.category">{{ $t('rssArticles.item.category', { category: value.category }) }}</div>
         </v-list-item-subtitle>

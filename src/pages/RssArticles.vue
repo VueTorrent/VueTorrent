@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import FeedList from '@/components/RSS/FeedList.vue'
+import { Feed } from '@/types/qbit/models'
 import { useRouter } from 'vue-router'
 import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
 import debounce from 'lodash.debounce'
@@ -49,6 +51,20 @@ function openRssArticle(article: RssArticle) {
   descriptionDialogVisible.value = true
 }
 
+function openFeedDialog(initialFeed?: Feed) {
+  dialogStore.createDialog(RssFeedDialog, { initialFeed })
+}
+
+async function refreshFeed(item: Feed) {
+  await rssStore.refreshFeed(item.name)
+  await rssStore.fetchFeeds()
+}
+
+async function deleteFeed(item: Feed) {
+  await rssStore.deleteFeed(item.name)
+  await rssStore.fetchFeeds()
+}
+
 function openRulesDialog() {
   // TODO: Create rules dialog
   // dialogStore.createDialog()
@@ -89,14 +105,18 @@ onUnmounted(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-auto-fix" variant="plain" @click="openRulesDialog()" />
+          <v-btn icon="mdi-auto-download" variant="plain" @click="openRulesDialog()" />
           <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
         </div>
       </v-col>
     </v-row>
 
     <v-card v-if="!rssStore.feeds" :height="height">
-      <v-empty-state title="No RSS feeds registered" icon="mdi-rss-off" />
+      <v-empty-state :title="$t('rssArticles.empty.value')" icon="mdi-rss-off" >
+        <template #actions>
+          <v-btn :text="$t('rssArticles.empty.action')" color="accent" @click="openFeedDialog()" />
+        </template>
+      </v-empty-state>
     </v-card>
 
     <v-card v-else id="rss-articles" class="pa-3" :height="height">
@@ -112,14 +132,22 @@ onUnmounted(() => {
           <template v-slot:activator="{ props }">
             <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
           </template>
-          <FeedList @update="bottomSheetVisible = false" />
+          <FeedList @update="bottomSheetVisible = false"
+                    @createFeed="() => openFeedDialog()"
+                    @editFeed="feed => openFeedDialog(feed)"
+                    @deleteFeed="feed => deleteFeed(feed)"
+                    @refreshFeed="feed => refreshFeed(feed)" />
         </v-bottom-sheet>
       </template>
 
       <!-- Desktop Layout -->
       <v-row v-else>
         <v-col cols="4">
-          <FeedList :height="rowHeight" />
+          <FeedList :height="rowHeight"
+                    @createFeed="() => openFeedDialog()"
+                    @editFeed="feed => openFeedDialog(feed)"
+                    @deleteFeed="feed => deleteFeed(feed)"
+                    @refreshFeed="feed => refreshFeed(feed)" />
         </v-col>
 
         <v-col cols="8">

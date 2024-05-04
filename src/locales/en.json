@@ -534,6 +534,10 @@
     }
   },
   "rssArticles": {
+    "empty": {
+      "value": "No RSS feeds registered",
+      "action": "Create RSS Feed"
+    },
     "filters": {
       "title": "Title filter",
       "unread": "Show unread articles only"
