@@ -240,10 +240,10 @@ onBeforeUnmount(() => {
               </v-col>
             </v-row>
           </template>
-          <template v-slot:item.fileSize="{ item }">
+          <template v-slot:[`item.fileSize`]="{ item }">
             {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
           </template>
-          <template v-slot:item.actions="{ item }">
+          <template v-slot:[`item.actions`]="{ item }">
             <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
             <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"></v-btn>
           </template>

@@ -293,6 +293,7 @@
       "col_origin_name": "Original",
       "col_result_name": "Result",
       "duplicated": "Duplicate Filename",
+      "flags": "Flags",
       "fold": "Collapse",
       "not_changed": "Filename Not Changed",
       "notForFolder": "Folder Renaming Not Supported",

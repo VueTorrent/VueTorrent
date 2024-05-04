@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
 import HistoryField from '@/components/Core/HistoryField.vue'
-import { getFileIcon } from '@/constants/vuetorrent'
+import { useDialog } from '@/composables'
+import { getFileIcon, HistoryKey } from '@/constants/vuetorrent'
 import { useContentStore } from '@/stores'
 import { TreeFolder, TreeNode } from '@/types/vuetorrent'
-import { HistoryKey } from '@/constants/vuetorrent'
-import { reactive, ref, onMounted, watch, computed } from 'vue'
+import { computed, onMounted, reactive, readonly, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { VForm } from 'vuetify/components'
-import { useDisplay } from 'vuetify/lib/framework.mjs'
 
 const props = defineProps<{
   guid: string
@@ -20,7 +18,6 @@ const props = defineProps<{
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const contentStore = useContentStore()
-const inMobile = useDisplay().mobile
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -33,19 +30,13 @@ const targetEl = ref<typeof HistoryField>()
 const running = ref(false)
 
 const rules = [(v: string) => !!v]
+const headers = readonly([
+  { fixed: true, sortable: false, key: 'selected', width: '50px' },
+  { title: t('dialogs.bulkRenameFiles.col_origin_name'), sortable: false, key: 'name' },
+  { title: t('dialogs.bulkRenameFiles.col_result_name'), sortable: false, key: 'targetName' }
+])
 
-const headers = computed(() => {
-  const headers = [
-    { fixed: true, sortable: false, key: 'selected', width: '50px' },
-    { sortable: false, key: 'name' }
-  ]
-  if (!inMobile.value) {
-    headers.push({ sortable: false, key: 'targetName' })
-  }
-  return headers
-})
-
-type ItemRow<T extends TreeNode = TreeNode> = Pick<T, 'name' | 'fullName'> & {
+type ItemRow<T extends TreeNode = TreeNode> = Pick<T, 'name' | 'fullName' | 'type'> & {
   indent: number
   selected: boolean
   show: boolean
@@ -57,12 +48,12 @@ type ItemRow<T extends TreeNode = TreeNode> = Pick<T, 'name' | 'fullName'> & {
   targetName?: string
   targetFullName?: string
   node: T
-} & (T extends TreeFolder ? { type: 'folder' } : { type: 'file' })
+}
 const items = reactive<ItemRow[]>([])
 const candidateItems = computed(() => items.filter(item => item.type === 'file' && item.selected && item.targetName && item.name !== item.targetName))
 
 /** parse TreeNode to plain list */
-const parseNode = (node: TreeNode, parentItem: ItemRow | undefined = undefined, indent: number = 0) => {
+const parseNode = (node: TreeNode, parentItem?: ItemRow, indent: number = 0) => {
   const item: ItemRow = {
     indent,
     name: node.name,
@@ -246,7 +237,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-dialog v-model="isOpened" persistent>
+  <v-dialog v-model="isOpened" persistent fullscreen>
     <v-card density="compact">
       <v-card-title>
         <v-toolbar density="compact" color="transparent">
@@ -257,96 +248,87 @@ onMounted(() => {
       <v-card-text class="d-flex flex-column">
         <v-form v-model="isFormValid" ref="form">
           <v-row no-gutters align="center" justify="center">
-            <v-col :cols="inMobile ? 9 : undefined">
+            <v-col :cols="$vuetify.display.mobile ? 9 : undefined">
               <HistoryField
-                :historyKey="HistoryKey.BULK_RENAME_REGEXP"
-                ref="regexpEl"
-                hide-details
-                density="compact"
-                v-model="regexpInput"
-                :rules="rules"
-                :label="$t('dialogs.bulkRenameFiles.regexp')" />
+                  :historyKey="HistoryKey.BULK_RENAME_REGEXP"
+                  ref="regexpEl"
+                  hide-details
+                  density="compact"
+                  v-model="regexpInput"
+                  :rules="rules"
+                  :label="$t('dialogs.bulkRenameFiles.regexp')" />
             </v-col>
-            <v-col :cols="inMobile ? 3 : 'auto'">
+            <v-col :cols="$vuetify.display.mobile ? 3 : 'auto'">
               <v-select
-                class="ml-2"
-                v-model="regexpFlagsInput"
-                :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
-                :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
-                label="Flags"
-                density="compact"
-                multiple
-                hide-details />
+                  class="ml-2"
+                  v-model="regexpFlagsInput"
+                  :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
+                  :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
+                  :label="$t('dialogs.bulkRenameFiles.flags')"
+                  density="compact"
+                  multiple
+                  hide-details />
             </v-col>
             <v-col cols="auto">
-              <v-icon class="mx-2" :icon="`mdi-arrow-${inMobile ? 'down' : 'right'}`" />
+              <v-icon class="mx-2" :icon="`mdi-arrow-${$vuetify.display.mobile ? 'down' : 'right'}`" />
             </v-col>
-            <v-col :cols="inMobile ? 12 : undefined">
+            <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
               <HistoryField
-                :historyKey="HistoryKey.BULK_RENAME_TARGET"
-                ref="targetEl"
-                hide-details
-                density="compact"
-                v-model="targetInput"
-                :rules="rules"
-                :label="$t('dialogs.bulkRenameFiles.target')" />
+                  :historyKey="HistoryKey.BULK_RENAME_TARGET"
+                  ref="targetEl"
+                  hide-details
+                  density="compact"
+                  v-model="targetInput"
+                  :rules="rules"
+                  :label="$t('dialogs.bulkRenameFiles.target')" />
             </v-col>
             <v-col cols="auto">
-              <v-badge :class="inMobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
-                <v-btn :loading="running" :disabled="!isFormValid || hasDuplicated" color="primary" @click="run()">{{ $t('dialogs.bulkRenameFiles.run') }}</v-btn>
+              <v-badge :class="$vuetify.display.mobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
+                <v-btn :loading="running" :disabled="!isFormValid || hasDuplicated" color="primary" @click="run()">
+                  {{ $t('dialogs.bulkRenameFiles.run') }}
+                </v-btn>
               </v-badge>
             </v-col>
           </v-row>
         </v-form>
-        <v-data-table-virtual :headers="headers" :items="items" density="compact" fixed-header>
-          <template v-slot:header.name>
-            {{ $t('dialogs.bulkRenameFiles.col_origin_name') }}
-            <template v-if="inMobile">
-              <br />
-              {{ $t('dialogs.bulkRenameFiles.col_result_name') }}
-            </template>
-          </template>
-          <template v-slot:header.targetName>
-            <template v-if="!inMobile">
-              {{ $t('dialogs.bulkRenameFiles.col_result_name') }}
-            </template>
-          </template>
-          <template v-slot:item="{ index, item }">
-            <v-data-table-row v-if="item.show" :index="index" :item="item as any">
-              <template v-slot:item.selected>
-                <v-checkbox-btn v-if="item.type === 'file'" v-model="item.selected" :color="item.targetName && 'indigo'" @change="fileCheckChange(item)" />
-                <v-checkbox-btn v-else v-model="item.selected" :indeterminate="item.indeterminate" @change="folderCheckChange(item)" />
+
+        <v-data-table-virtual v-if="!$vuetify.display.mobile" :headers="headers" :items="items" density="compact" fixed-header>
+          <template v-slot:item="{ internalItem }">
+            <v-data-table-row v-if="internalItem.raw.show" :item="internalItem">
+              <template v-slot:[`item.selected`]="{ item }">
+                <v-checkbox-btn v-model="item.selected"
+                                :color="item.targetName && 'accent'"
+                                :indeterminate="item.type === 'folder' && item.indeterminate"
+                                @change="(item.type === 'file') ? fileCheckChange(item): folderCheckChange(item)" />
               </template>
-              <template v-slot:item.name>
-                <span
-                  class="fold-toggle"
-                  :class="{ clickable: item.type === 'folder' }"
-                  :style="{ 'padding-left': `${item.indent * 20}px` }"
-                  @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
+              <template v-slot:[`item.name`]="{ item }">
+                <span class="fold-toggle"
+                      :class="{ pointer: item.type === 'folder' }"
+                      :style="{ 'padding-left': `${item.indent * 16}px` }"
+                      @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
                   <v-tooltip v-if="item.type === 'folder'" location="top" activator="parent">
-                    {{ t(`dialogs.bulkRenameFiles.${item.folded ? 'unfold' : 'fold'}`) }}
+                    {{ t(`dialogs.bulkRenameFiles.${ item.folded ? 'unfold' : 'fold' }`) }}
                   </v-tooltip>
-                  <v-icon v-if="item.type === 'folder'">{{ item.folded ? 'mdi-chevron-down' : 'mdi-chevron-up' }}</v-icon>
+
+                  <v-icon v-if="item.type === 'folder'">{{ `mdi-chevron-${ item.folded ? 'down' : 'up' }` }}</v-icon>
+                  <v-icon v-else />
+
                   <v-icon v-if="item.fullName === ''" icon="mdi-file-tree" />
                   <v-icon v-else-if="item.type === 'file'" :icon="getFileIcon(item.name)" />
                   <v-icon v-else-if="!item.folded" icon="mdi-folder-open" color="#ffe476" />
                   <v-icon v-else icon="mdi-folder" color="#ffe476" />
-                  <div class="d-inline-flex flex-column">
-                    <span>
-                      {{ item.name }}
-                    </span>
-                    <span v-if="inMobile" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }">
-                      {{ item.targetName }}
-                    </span>
-                  </div>
+
+                  {{ item.name }}
                 </span>
               </template>
-              <template v-slot:item.targetName>
+              <template v-slot:[`item.targetName`]="{ item }">
                 <span v-if="item.type === 'file'" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }">
-                  {{ item.targetName }}
                   <v-tooltip v-if="item.duplicated || item.notChanged" activator="parent">
-                    {{ t(`dialogs.bulkRenameFiles.${item.duplicated ? 'duplicated' : 'not_changed'}`) }}
+                    {{ t(`dialogs.bulkRenameFiles.${ item.duplicated ? 'duplicated' : 'not_changed' }`) }}
                   </v-tooltip>
+                  <span v-else>
+                    {{ item.targetName }}
+                  </span>
                 </span>
                 <span v-else>
                   <v-icon icon="mdi-cancel" color="grey-lighten-1" />
@@ -357,31 +339,54 @@ onMounted(() => {
               </template>
             </v-data-table-row>
           </template>
-          <template v-slot:bottom></template>
         </v-data-table-virtual>
+
+        <v-list v-else>
+          <template v-for="(item, index) in items">
+            <v-list-item v-if="item.show">
+              <v-divider v-if="index > 0" class="my-2" />
+              <div class="d-flex align-center" :style="{ 'padding-left': `${item.indent * 16}px` }">
+                <v-checkbox-btn v-model="item.selected"
+                                inline
+                                :color="item.targetName && 'accent'"
+                                :indeterminate="item.type === 'folder' && item.indeterminate"
+                                @change="(item.type === 'file') ? fileCheckChange(item): folderCheckChange(item)" />
+
+                <v-icon v-if="item.type === 'folder'" @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">{{ `mdi-chevron-${ item.folded ? 'down' : 'up' }` }}</v-icon>
+
+                <v-icon v-if="item.fullName === ''" icon="mdi-file-tree" />
+                <v-icon v-else-if="item.type === 'file'" :icon="getFileIcon(item.name)" />
+                <v-icon v-else-if="!item.folded" icon="mdi-folder-open" color="#ffe476" />
+                <v-icon v-else icon="mdi-folder" color="#ffe476" />
+
+                <div class="d-flex flex-column pl-3">
+                  <span :class="{ 'text-grey strikethrough': item.targetName }">{{ item.name }}</span>
+                  <span>{{ item.targetName }}</span>
+                </div>
+              </div>
+            </v-list-item>
+          </template>
+        </v-list>
       </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
-<style lang="scss" scoped>
-.v-card-text {
-  height: calc(100vh - 115px);
+<style lang="scss">
+.strikethrough {
+  text-decoration: line-through;
 }
-.v-table {
-  overflow: auto;
-}
+
 .target-name {
   &.duplicated {
     color: red;
   }
+
   &.not-changed {
-    color: rgb(255, 149, 149);
+    color: #FF9595;
   }
 }
-.fold-toggle.clickable {
-  cursor: pointer;
-}
+
 .fold-toggle,
 .target-name {
   word-break: keep-all;
