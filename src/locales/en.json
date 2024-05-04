@@ -852,11 +852,6 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Add feed",
-        "noFeeds": "No feeds yet",
-        "refreshAll": "Refresh All"
-      },
       "general": {
         "autoDownloader": {
           "enable": "Enable RSS rules processing",
@@ -911,7 +906,6 @@
       "connection": "Connection",
       "downloads": "Downloads",
       "rss": {
-        "feeds": "Feeds",
         "general": "General",
         "rules": "Rules",
         "title": "RSS"

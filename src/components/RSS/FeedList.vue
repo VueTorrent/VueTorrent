@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
 import FeedIcon from '@/components/RSS/FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
-import { useRssStore } from '@/stores'
+import { useDialogStore, useRssStore } from '@/stores'
 import { Feed as FeedType } from '@/types/qbit/models'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
@@ -19,6 +20,7 @@ const emit = defineEmits<{
 }>()
 
 const router = useRouter()
+const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
 const currentFeed = computed({
@@ -62,6 +64,10 @@ function getFeedState(feed: FeedType) {
   else if (feed.articles?.some(article => !article.isRead)) return FeedState.UNREAD
   else return FeedState.READ
 }
+
+function openFeedDialog(initialFeed?: FeedType) {
+  dialogStore.createDialog(RssFeedDialog, { initialFeed })
+}
 </script>
 
 <template>
@@ -73,6 +79,10 @@ function getFeedState(feed: FeedType) {
       <div class="d-flex align-center">
         <FeedIcon :state="allState" />
         <v-list-item-title>{{ getFeedTitle() }}</v-list-item-title>
+        <v-spacer />
+        <v-btn v-if="getUnreadCount() > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
+        <v-btn v-if="allState !== FeedState.LOADING" icon="mdi-sync" density="comfortable" variant="plain" @click="rssStore.refreshAllFeeds()" />
+        <v-btn icon="mdi-plus" density="comfortable" variant="plain" @click="openFeedDialog()" />
       </div>
     </v-list-item>
     <v-divider thickness="3" />

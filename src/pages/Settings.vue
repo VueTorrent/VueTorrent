@@ -4,7 +4,6 @@ import Behavior from '@/components/Settings/Behavior.vue'
 import BitTorrent from '@/components/Settings/BitTorrent.vue'
 import Connection from '@/components/Settings/Connection.vue'
 import Downloads from '@/components/Settings/Downloads.vue'
-import RFeeds from '@/components/Settings/RSS/Feeds.vue'
 import RGeneral from '@/components/Settings/RSS/General.vue'
 import RRules from '@/components/Settings/RSS/Rules.vue'
 import Speed from '@/components/Settings/Speed.vue'
@@ -49,7 +48,6 @@ const tabsV = [
 
 const tabsR = [
   { text: t('settings.tabs.rss.general'), value: 'general' },
-  { text: t('settings.tabs.rss.feeds'), value: 'feeds' },
   { text: t('settings.tabs.rss.rules'), value: 'rules' }
 ]
 
@@ -198,9 +196,6 @@ onBeforeUnmount(() => {
         <v-window v-model="innerTabR" :touch="false">
           <v-window-item value="general">
             <RGeneral />
-          </v-window-item>
-          <v-window-item value="feeds">
-            <RFeeds />
           </v-window-item>
           <v-window-item value="rules">
             <RRules />

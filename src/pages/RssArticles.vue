@@ -49,6 +49,11 @@ function openRssArticle(article: RssArticle) {
   descriptionDialogVisible.value = true
 }
 
+function openRulesDialog() {
+  // TODO: Create rules dialog
+  // dialogStore.createDialog()
+}
+
 function goHome() {
   router.push({ name: 'dashboard' })
 }
@@ -84,7 +89,8 @@ onUnmounted(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+          <v-btn icon="mdi-auto-fix" variant="plain" @click="openRulesDialog()" />
+          <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
         </div>
       </v-col>
     </v-row>
@@ -96,16 +102,7 @@ onUnmounted(() => {
     <v-card v-else id="rss-articles" class="pa-3" :height="height">
       <v-text-field v-model="titleFilter" :label="$t('rssArticles.filters.title')" clearable hide-details />
 
-      <div class="d-flex flex-row align-center justify-center mt-4">
-        <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
-        <v-spacer />
-        <div class="d-flex gap">
-          <!-- TODO: RENAME I18N KEY -->
-          <v-btn :text="$t('settings.rss.feeds.refreshAll')" color="primary" />
-          <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary"
-                 @click="rssStore.markAllAsRead()" />
-        </div>
-      </div>
+      <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
 
       <!-- Mobile layout -->
       <template v-if="mobile">

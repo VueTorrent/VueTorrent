@@ -45,10 +45,15 @@ export default class MockProvider implements IProvider {
     return MockProvider.instance
   }
 
-  private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean }): Promise<T> {
+  private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean, delay?: number }): Promise<T> {
     const result = options?.result === undefined ? undefined : options.result
     const shouldResolve = options?.shouldResolve === undefined ? true : options.shouldResolve
-    return new Promise<T>((resolve, reject) => (shouldResolve ? resolve(result!) : reject(result)))
+    const delay = options?.delay === undefined ? 0 : options.delay
+
+    if (delay > 0) {
+      return new Promise<T>((resolve, reject) => setTimeout(() => shouldResolve ? resolve(result!) : reject(result), delay))
+    }
+    return new Promise<T>((resolve, reject) => shouldResolve ? resolve(result!) : reject(result))
   }
 
   /// AppController ///
@@ -856,7 +861,7 @@ export default class MockProvider implements IProvider {
   }
 
   async refreshFeed(_: string): Promise<void> {
-    return this.generateResponse()
+    return this.generateResponse({ delay: 1000 })
   }
 
   async getMatchingArticles(ruleName: string): Promise<Record<string, string[]>> {
