@@ -1102,18 +1102,10 @@
         "title": "ピアを追加する"
       },
       "emptyList": "現在ピアが接続されていません",
-      "table": {
+      "fields": {
         "client": "クライアント",
-        "connection": "接続",
-        "downloaded": "DL済み",
-        "downloadSpeed": "DL",
-        "files": "ファイル",
         "flags": "フラグ",
-        "host": "ホスト",
-        "progress": "進捗状況",
-        "relevance": "関連性",
-        "uploaded": "UP済み",
-        "upSpeed": "UP"
+        "relevance": "関連性"
       }
     },
     "tabs": {

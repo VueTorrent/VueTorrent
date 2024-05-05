@@ -1128,18 +1128,10 @@
         "title": "新增用戶"
       },
       "emptyList": "當前無已連接的用戶",
-      "table": {
+      "fields": {
         "client": "客戶端",
-        "connection": "連線",
-        "downloaded": "已下載",
-        "downloadSpeed": "下載速率",
-        "files": "檔案",
         "flags": "旗標",
-        "host": "主機",
-        "progress": "進度",
-        "relevance": "關聯",
-        "uploaded": "已上傳",
-        "upSpeed": "上傳速率"
+        "relevance": "關聯"
       }
     },
     "tabs": {

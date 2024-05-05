@@ -1102,18 +1102,10 @@
         "title": "Peerek hozzáadása"
       },
       "emptyList": "Jelenleg nincsenek csatlakoztatott peerek",
-      "table": {
+      "fields": {
         "client": "Ügyfél",
-        "connection": "Kapcsolat",
-        "downloaded": "Letöltve",
-        "downloadSpeed": "DL",
-        "files": "Fájlok",
         "flags": "Jelzők",
-        "host": "Hoszt",
-        "progress": "Haladás",
-        "relevance": "Relevancia",
-        "uploaded": "Feltöltve",
-        "upSpeed": "UL"
+        "relevance": "Relevancia"
       }
     },
     "tabs": {

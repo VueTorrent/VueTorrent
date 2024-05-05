@@ -1110,18 +1110,10 @@
         "title": "Ajouter des pairs"
       },
       "emptyList": "Aucun pair n'est connecté actuellement",
-      "table": {
+      "fields": {
         "client": "Client",
-        "connection": "Connexion",
-        "downloaded": "Téléchargé",
-        "downloadSpeed": "DL",
-        "files": "Dossiers",
         "flags": "Drapeaux",
-        "host": "Hôte",
-        "progress": "Progression",
-        "relevance": "Pertinence",
-        "uploaded": "Partagé",
-        "upSpeed": "UL"
+        "relevance": "Pertinence"
       }
     },
     "tabs": {

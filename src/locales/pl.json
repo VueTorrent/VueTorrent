@@ -1101,18 +1101,10 @@
         "title": "Dodaj peer'ów"
       },
       "emptyList": "Obecnie brak połączonych peer'ów",
-      "table": {
+      "fields": {
         "client": "Klient",
-        "connection": "Połączenie",
-        "downloaded": "Pobrano",
-        "downloadSpeed": "Pobieranie",
-        "files": "Pliki",
         "flags": "Flagi",
-        "host": "Host",
-        "progress": "Postęp",
-        "relevance": "Trafność",
-        "uploaded": "Przesłane",
-        "upSpeed": "Przesyłanie"
+        "relevance": "Trafność"
       }
     },
     "tabs": {

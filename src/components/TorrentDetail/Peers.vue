@@ -80,22 +80,23 @@ watch(() => props.isActive, setupTimer)
               <span>{{ peer.ip }}</span>
               <span class="text-subtitle-2 text-grey"> :{{ peer.port }}</span>
 
-              <v-progress-linear :model-value="peer.progress"
-                                 :max="1"
-                                 :height="20"
-                                 :color="(peer.progress === 1) ? 'torrent-stalledUP' : 'torrent-downloading'"
-                                 rounded="sm"
-                                 style="width: 10em">
+              <v-progress-linear
+                :model-value="peer.progress"
+                :max="1"
+                :height="20"
+                :color="peer.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'"
+                rounded="sm"
+                style="width: 10em">
                 {{ formatPercent(peer.progress) }}
               </v-progress-linear>
             </v-list-item-title>
 
             <v-list-item-subtitle class="d-block">
               <div v-if="peer.flags" class="cursor-help" :title="peer.flags_desc">
-                {{ $t('torrentDetail.peers.fields.flags', {value: peer.flags}) }}
+                {{ $t('torrentDetail.peers.fields.flags', { value: peer.flags }) }}
               </div>
               <div v-else>
-                {{ $t('torrentDetail.peers.fields.flags', {value: $t('common.none')}) }}
+                {{ $t('torrentDetail.peers.fields.flags', { value: $t('common.none') }) }}
               </div>
 
               <div v-show="peer.client || peer.peer_id_client">{{ $t('torrentDetail.peers.fields.client', { name: peer.client, id: peer.peer_id_client }) }}</div>
