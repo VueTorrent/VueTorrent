@@ -1102,18 +1102,10 @@
         "title": "Agregar pares"
       },
       "emptyList": "No hay pares conectados en este momento",
-      "table": {
+      "fields": {
         "client": "Cliente",
-        "connection": "Conexión",
-        "downloaded": "Descargado",
-        "downloadSpeed": "DL",
-        "files": "Archivos",
         "flags": "Banderas",
-        "host": "Anfitrión",
-        "progress": "Progreso",
-        "relevance": "Relevancia",
-        "uploaded": "Subido",
-        "upSpeed": "Velocidad de subida"
+        "relevance": "Relevancia"
       }
     },
     "tabs": {

@@ -1128,18 +1128,10 @@
         "title": "Eşleri Ekle"
       },
       "emptyList": "Şu anda bağlı eş yok",
-      "table": {
+      "fields": {
         "client": "İstemci",
-        "connection": "Bağlantı",
-        "downloaded": "İndirilen",
-        "downloadSpeed": "İnd",
-        "files": "Dosyalar",
         "flags": "Bayraklar",
-        "host": "Sunucu",
-        "progress": "İlerleme",
-        "relevance": "Alaka düzeyi",
-        "uploaded": "Yüklenen",
-        "upSpeed": "Yük"
+        "relevance": "Alaka düzeyi"
       }
     },
     "tabs": {

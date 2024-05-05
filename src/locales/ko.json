@@ -1079,18 +1079,10 @@
         "title": "피어 추가"
       },
       "emptyList": "현재 연결된 피어가 없습니다",
-      "table": {
+      "fields": {
         "client": "클라이언트",
-        "connection": "연결",
-        "downloaded": "다운로드됨",
-        "downloadSpeed": "다운로드 속도",
-        "files": "파일",
         "flags": "플래그",
-        "host": "호스트",
-        "progress": "진행 상황",
-        "relevance": "관련성",
-        "uploaded": "업로드됨",
-        "upSpeed": "업로드 속도"
+        "relevance": "관련성"
       }
     },
     "tabs": {

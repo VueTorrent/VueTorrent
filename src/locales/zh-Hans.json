@@ -1128,18 +1128,10 @@
         "title": "添加用户"
       },
       "emptyList": "当前没有用户连接",
-      "table": {
+      "fields": {
         "client": "客户端",
-        "connection": "连接",
-        "downloaded": "已下载",
-        "downloadSpeed": "下载速度",
-        "files": "文件",
         "flags": "标志",
-        "host": "主机",
-        "progress": "进度",
-        "relevance": "相关性",
-        "uploaded": "已上传",
-        "upSpeed": "上传速度"
+        "relevance": "相关性"
       }
     },
     "tabs": {

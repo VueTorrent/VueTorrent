@@ -850,8 +850,7 @@ export default class MockProvider implements IProvider {
           priority: FilePriority.NORMAL,
           progress: 0,
           size: 5173995520
-        },
-
+        }
       ]
     })
   }

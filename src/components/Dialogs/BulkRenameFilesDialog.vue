@@ -250,37 +250,37 @@ onMounted(() => {
           <v-row no-gutters align="center" justify="center">
             <v-col :cols="$vuetify.display.mobile ? 9 : undefined">
               <HistoryField
-                  :historyKey="HistoryKey.BULK_RENAME_REGEXP"
-                  ref="regexpEl"
-                  hide-details
-                  density="compact"
-                  v-model="regexpInput"
-                  :rules="rules"
-                  :label="$t('dialogs.bulkRenameFiles.regexp')" />
+                :historyKey="HistoryKey.BULK_RENAME_REGEXP"
+                ref="regexpEl"
+                hide-details
+                density="compact"
+                v-model="regexpInput"
+                :rules="rules"
+                :label="$t('dialogs.bulkRenameFiles.regexp')" />
             </v-col>
             <v-col :cols="$vuetify.display.mobile ? 3 : 'auto'">
               <v-select
-                  class="ml-2"
-                  v-model="regexpFlagsInput"
-                  :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
-                  :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
-                  :label="$t('dialogs.bulkRenameFiles.flags')"
-                  density="compact"
-                  multiple
-                  hide-details />
+                class="ml-2"
+                v-model="regexpFlagsInput"
+                :items="['d', 'g', 'i', 'm', 's', 'u', 'v', 'y']"
+                :placeholder="t('dialogs.bulkRenameFiles.select_regex_flags')"
+                :label="$t('dialogs.bulkRenameFiles.flags')"
+                density="compact"
+                multiple
+                hide-details />
             </v-col>
             <v-col cols="auto">
               <v-icon class="mx-2" :icon="`mdi-arrow-${$vuetify.display.mobile ? 'down' : 'right'}`" />
             </v-col>
             <v-col :cols="$vuetify.display.mobile ? 12 : undefined">
               <HistoryField
-                  :historyKey="HistoryKey.BULK_RENAME_TARGET"
-                  ref="targetEl"
-                  hide-details
-                  density="compact"
-                  v-model="targetInput"
-                  :rules="rules"
-                  :label="$t('dialogs.bulkRenameFiles.target')" />
+                :historyKey="HistoryKey.BULK_RENAME_TARGET"
+                ref="targetEl"
+                hide-details
+                density="compact"
+                v-model="targetInput"
+                :rules="rules"
+                :label="$t('dialogs.bulkRenameFiles.target')" />
             </v-col>
             <v-col cols="auto">
               <v-badge :class="$vuetify.display.mobile ? 'mt-2' : 'ml-5'" color="success" location="top left" :content="candidateItems.length">
@@ -296,21 +296,23 @@ onMounted(() => {
           <template v-slot:item="{ internalItem }">
             <v-data-table-row v-if="internalItem.raw.show" :item="internalItem">
               <template v-slot:[`item.selected`]="{ item }">
-                <v-checkbox-btn v-model="item.selected"
-                                :color="item.targetName && 'accent'"
-                                :indeterminate="item.type === 'folder' && item.indeterminate"
-                                @change="(item.type === 'file') ? fileCheckChange(item): folderCheckChange(item)" />
+                <v-checkbox-btn
+                  v-model="item.selected"
+                  :color="item.targetName && 'accent'"
+                  :indeterminate="item.type === 'folder' && item.indeterminate"
+                  @change="item.type === 'file' ? fileCheckChange(item) : folderCheckChange(item)" />
               </template>
               <template v-slot:[`item.name`]="{ item }">
-                <span class="fold-toggle"
-                      :class="{ pointer: item.type === 'folder' }"
-                      :style="{ 'padding-left': `${item.indent * 16}px` }"
-                      @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
+                <span
+                  class="fold-toggle"
+                  :class="{ pointer: item.type === 'folder' }"
+                  :style="{ 'padding-left': `${item.indent * 16}px` }"
+                  @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
                   <v-tooltip v-if="item.type === 'folder'" location="top" activator="parent">
-                    {{ t(`dialogs.bulkRenameFiles.${ item.folded ? 'unfold' : 'fold' }`) }}
+                    {{ t(`dialogs.bulkRenameFiles.${item.folded ? 'unfold' : 'fold'}`) }}
                   </v-tooltip>
 
-                  <v-icon v-if="item.type === 'folder'">{{ `mdi-chevron-${ item.folded ? 'down' : 'up' }` }}</v-icon>
+                  <v-icon v-if="item.type === 'folder'">{{ `mdi-chevron-${item.folded ? 'down' : 'up'}` }}</v-icon>
                   <v-icon v-else />
 
                   <v-icon v-if="item.fullName === ''" icon="mdi-file-tree" />
@@ -324,7 +326,7 @@ onMounted(() => {
               <template v-slot:[`item.targetName`]="{ item }">
                 <span v-if="item.type === 'file'" class="target-name" :class="{ duplicated: item.duplicated, 'not-changed': item.notChanged }">
                   <v-tooltip v-if="item.duplicated || item.notChanged" activator="parent">
-                    {{ t(`dialogs.bulkRenameFiles.${ item.duplicated ? 'duplicated' : 'not_changed' }`) }}
+                    {{ t(`dialogs.bulkRenameFiles.${item.duplicated ? 'duplicated' : 'not_changed'}`) }}
                   </v-tooltip>
                   <span v-else>
                     {{ item.targetName }}
@@ -346,13 +348,16 @@ onMounted(() => {
             <v-list-item v-if="item.show">
               <v-divider v-if="index > 0" class="my-2" />
               <div class="d-flex align-center" :style="{ 'padding-left': `${item.indent * 16}px` }">
-                <v-checkbox-btn v-model="item.selected"
-                                inline
-                                :color="item.targetName && 'accent'"
-                                :indeterminate="item.type === 'folder' && item.indeterminate"
-                                @change="(item.type === 'file') ? fileCheckChange(item): folderCheckChange(item)" />
+                <v-checkbox-btn
+                  v-model="item.selected"
+                  inline
+                  :color="item.targetName && 'accent'"
+                  :indeterminate="item.type === 'folder' && item.indeterminate"
+                  @change="item.type === 'file' ? fileCheckChange(item) : folderCheckChange(item)" />
 
-                <v-icon v-if="item.type === 'folder'" @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">{{ `mdi-chevron-${ item.folded ? 'down' : 'up' }` }}</v-icon>
+                <v-icon v-if="item.type === 'folder'" @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">{{
+                  `mdi-chevron-${item.folded ? 'down' : 'up'}`
+                }}</v-icon>
 
                 <v-icon v-if="item.fullName === ''" icon="mdi-file-tree" />
                 <v-icon v-else-if="item.type === 'file'" :icon="getFileIcon(item.name)" />
@@ -383,7 +388,7 @@ onMounted(() => {
   }
 
   &.not-changed {
-    color: #FF9595;
+    color: #ff9595;
   }
 }
 
