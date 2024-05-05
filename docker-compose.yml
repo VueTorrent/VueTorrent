@@ -17,11 +17,14 @@ services:
       - '8080:8080'
     restart: unless-stopped
 
-  backend:
-    image: ghcr.io/vuetorrent/vuetorrent-backend:latest
-    container_name: vuetorrent-backend
-    restart: unless-stopped
-    ports:
-      - '8081:3000'
-    volumes:
-      - ./docker/backend:/app/data
+#  Backend is optional, see the repo for more information
+#  backend:
+#    image: ghcr.io/vuetorrent/vuetorrent-backend:latest
+#    container_name: vuetorrent-backend
+#    restart: unless-stopped
+#    environment:
+#      - "QBIT_BASE=http://internal.host.docker:8080/"
+#    ports:
+#      - '8081:3000'
+#    volumes:
+#      - ./docker/backend:/app/data
