@@ -110,7 +110,7 @@ function closeInstallDialog() {
         </v-dialog>
       </v-card-title>
       <v-card-text>
-        <v-data-table :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
+        <v-data-table :mobile="null" :headers="headers" items-per-page="-1" :items="searchEngineStore.searchPlugins" :sort-by="[{ key: 'fullName', order: 'asc' }]" :loading="loading">
           <template v-slot:[`item.enabled`]="{ item }">
             <v-checkbox-btn :model-value="item.enabled" @click="onTogglePlugin(item)" />
           </template>

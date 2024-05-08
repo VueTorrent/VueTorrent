@@ -244,7 +244,7 @@ const closeDeleteDialog = async () => {
 
     <v-divider />
 
-    <v-data-table class="my-4" :headers="monitoredFoldersHeaders" :items="monitoredFoldersData">
+    <v-data-table :mobile="null" class="my-4" :headers="monitoredFoldersHeaders" :items="monitoredFoldersData">
       <template v-slot:top>
         <v-toolbar flat>
           <v-toolbar-title>{{ t('settings.downloads.monitoredFolders.subheader') }}</v-toolbar-title>
