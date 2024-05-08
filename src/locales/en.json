@@ -549,6 +549,12 @@
       "pending": "Marking...",
       "success": "{n} articles marked as read"
     },
+    "refreshAllFeeds": "Refresh All Feeds",
+    "refreshPromise": {
+      "error": "An error occured while refreshing feeds",
+      "pending": "Refreshing...",
+      "success": "{n} feeds refreshed"
+    },
     "title": "RSS Articles"
   },
   "searchEngine": {

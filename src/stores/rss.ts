@@ -30,6 +30,22 @@ export const useRssStore = defineStore(
       await qbit.refreshFeed(feedName)
     }
 
+    async function refreshAllFeeds() {
+      await toast.promise(
+        Promise.all(feeds.value.map(feed => refreshFeed(feed.name))),
+        {
+          pending: t('rssArticles.refreshPromise.pending'),
+          error: t('rssArticles.refreshPromise.error'),
+          success: t('rssArticles.refreshPromise.success', feeds.value.length)
+        },
+        {
+          autoClose: 1500
+        }
+      )
+
+      await fetchFeeds()
+    }
+
     async function createFeed(feedName: string, feedUrl: string) {
       await qbit.createFeed({ name: feedName, url: feedUrl })
     }
@@ -140,6 +156,7 @@ export const useRssStore = defineStore(
       articles,
       unreadArticles,
       refreshFeed,
+      refreshAllFeeds,
       createFeed,
       setRule,
       renameFeed,

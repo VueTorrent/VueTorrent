@@ -107,6 +107,8 @@ onUnmounted(() => {
               <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
               <v-spacer />
               <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary" @click="rssStore.markAllAsRead()" />
+              &nbsp;
+              <v-btn :disabled="rssStore.feeds.length === 0" :text="$t('rssArticles.refreshAllFeeds')" color="primary" @click="rssStore.refreshAllFeeds()" />
             </div>
           </v-col>
         </v-row>
