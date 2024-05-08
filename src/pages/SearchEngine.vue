@@ -232,7 +232,7 @@ onBeforeUnmount(() => {
       <v-divider class="my-3" />
 
       <v-list-item class="text-select">
-        <v-data-table :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage">
+        <v-data-table :mobile="null" :headers="headers" :items="filteredResults" :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }" :items-per-page.sync="selectedTab.itemsPerPage">
           <template v-slot:top>
             <v-row>
               <v-col cols="12">
