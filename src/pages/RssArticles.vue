@@ -106,7 +106,10 @@ onUnmounted(() => {
             <div class="d-flex flex-row align-center justify-center">
               <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
               <v-spacer />
-              <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary" @click="rssStore.markAllAsRead()" />
+              <div :class="{'d-flex button-group': true, 'flex-column': $vuetify.display.mobile}">
+                <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary" @click="rssStore.markAllAsRead()" />
+                <v-btn :disabled="rssStore.feeds.length === 0" :text="$t('rssArticles.refreshAllFeeds')" color="primary" @click="rssStore.refreshAllFeeds()" />
+              </div>
             </div>
           </v-col>
         </v-row>
@@ -186,6 +189,10 @@ onUnmounted(() => {
 
 .description-container {
   border: solid red 5px;
+}
+
+.button-group {
+  gap: 8px;
 }
 </style>
 
