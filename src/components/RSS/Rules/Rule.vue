@@ -1,0 +1,46 @@
+<script setup lang="ts">
+import { useRssStore } from '@/stores'
+import { FeedRule } from '@/types/qbit/models'
+
+defineProps<{
+  value: FeedRule
+}>()
+
+defineEmits<{
+  openRule: [rule: FeedRule]
+}>()
+
+const rssStore = useRssStore()
+
+async function toggleRule(rule: FeedRule) {
+  await rssStore.setRule(rule.name, { ...rule, enabled: !rule.enabled })
+  rssStore.resumeRuleTimer()
+}
+
+async function deleteRule(rule: FeedRule) {
+  await rssStore.deleteRule(rule.name!)
+  rssStore.resumeRuleTimer()
+}
+</script>
+
+<template>
+  <v-sheet rounded="xl" class="d-flex align-center">
+    <div class="pl-4">{{ value.name }}</div>
+    <v-spacer />
+    <div>
+      <v-btn
+          class="my-2 mr-2"
+          :icon="value.enabled ? 'mdi-check' : 'mdi-cancel'"
+          :color="value.enabled ? 'accent' : 'red'"
+          variant="plain"
+          density="compact"
+          @click="toggleRule(value)" />
+      <v-btn class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="$emit('openRule', value)" />
+      <v-btn class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(value)" />
+    </div>
+  </v-sheet>
+</template>
+
+<style scoped>
+
+</style>

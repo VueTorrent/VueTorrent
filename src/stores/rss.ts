@@ -32,7 +32,11 @@ export const useRssStore = defineStore(
     )
 
     const { t } = useI18n()
-    const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(fetchFeeds, 5000, {
+    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(fetchFeeds, 5000, {
+      immediate: false,
+      immediateCallback: true
+    })
+    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(fetchRules, 5000, {
       immediate: false,
       immediateCallback: true
     })
@@ -159,8 +163,10 @@ export const useRssStore = defineStore(
       articles,
       filteredArticles,
       unreadArticles,
-      pauseTimer,
-      resumeTimer,
+      pauseFeedTimer,
+      resumeFeedTimer,
+      pauseRuleTimer,
+      resumeRuleTimer,
       refreshFeed,
       refreshAllFeeds,
       createFeed,
@@ -184,7 +190,8 @@ export const useRssStore = defineStore(
         keyMap.value = {}
         filters.title = ''
         filters.unread = false
-        pauseTimer()
+        pauseFeedTimer()
+        pauseRuleTimer()
       }
     }
   },

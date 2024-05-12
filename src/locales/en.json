@@ -865,29 +865,23 @@
       }
     },
     "rss": {
-      "general": {
-        "autoDownloader": {
-          "enable": "Enable RSS rules processing",
-          "subheader": "RSS Torrent Auto Downloader"
-        },
-        "reader": {
-          "enableProcessing": "Enable fetching RSS feeds",
-          "feedsRefreshInterval": "Feeds refresh interval",
-          "maximumArticlesPerFeed": "Maximum number of articles per feed",
-          "subheader": "RSS Reader"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "Download REPACK/PROPER episodes",
-          "filters": "Filters",
-          "filtersHint": "One per line",
-          "subheader": "RSS Smart Episode Filter"
-        },
-        "useIdForRssLinks": "Use ID for RSS article link"
+      "autoDownloader": {
+        "enable": "Enable RSS rules processing",
+        "subheader": "RSS Torrent Auto Downloader"
       },
-      "rules": {
-        "createNew": "Create Rule",
-        "noRules": "No rules yet"
-      }
+      "reader": {
+        "enableProcessing": "Enable fetching RSS feeds",
+        "feedsRefreshInterval": "Feeds refresh interval",
+        "maximumArticlesPerFeed": "Maximum number of articles per feed",
+        "subheader": "RSS Reader"
+      },
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "Download REPACK/PROPER episodes",
+        "filters": "Filters",
+        "filtersHint": "One per line",
+        "subheader": "RSS Smart Episode Filter"
+      },
+      "useIdForRssLinks": "Use ID for RSS article link"
     },
     "saveSuccess": "Settings saved!",
     "speed": {

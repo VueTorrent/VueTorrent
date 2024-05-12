@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FeedIcon from '@/components/RSS/FeedIcon.vue'
+import FeedIcon from './FeedIcon.vue'
 import { FeedState } from '@/constants/vuetorrent'
 import { useRssStore } from '@/stores'
 import { Feed as FeedType } from '@/types/qbit/models'
@@ -52,7 +52,7 @@ async function readFeed(feed: FeedType) {
 
 async function refreshAllFeeds() {
   await rssStore.refreshAllFeeds()
-  rssStore.resumeTimer()
+  rssStore.resumeFeedTimer()
 }
 
 function getFeedTitle(feed?: FeedType) {

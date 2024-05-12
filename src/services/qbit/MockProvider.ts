@@ -440,7 +440,6 @@ export default class MockProvider implements IProvider {
   }
 
   async getFeeds(_: boolean): Promise<Feed[]> {
-    console.log('getFeeds')
     return this.generateResponse({
       result: [
         {
