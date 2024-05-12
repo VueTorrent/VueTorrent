@@ -14,7 +14,7 @@ onBeforeMount(async () => {
   if (magnetLink.startsWith('magnet:')) {
     addTorrentStore.isFirstInit = false
     addTorrentStore.pushTorrentToQueue(magnetLink)
-    dialogStore.createDialog(AddTorrentDialog, {})
+    dialogStore.createDialog(AddTorrentDialog)
   }
   await router.push({ name: 'dashboard' })
 })

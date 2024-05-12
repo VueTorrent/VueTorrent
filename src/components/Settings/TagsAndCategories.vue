@@ -3,13 +3,10 @@ import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
 import { useDialogStore, useMaindataStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
-import { onBeforeMount, ref, watch } from 'vue'
+import { onBeforeMount } from 'vue'
 
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
-
-const tagDialog = ref('')
-const categoryDialog = ref('')
 
 async function deleteTag(tagName: string) {
   await maindataStore.deleteTags([tagName])
@@ -22,35 +19,17 @@ async function deleteCategory(category: Category) {
 }
 
 function openTagFormDialog(initialTag?: string) {
-  tagDialog.value = dialogStore.createDialog(TagFormDialog, { initialTag })
+  dialogStore.createDialog(TagFormDialog, { initialTag }, maindataStore.fetchTags)
 }
 
 function openCategoryFormDialog(initialCategory?: Category) {
-  categoryDialog.value = dialogStore.createDialog(CategoryFormDialog, { initialCategory })
+  dialogStore.createDialog(CategoryFormDialog, { initialCategory }, maindataStore.fetchCategories)
 }
 
 onBeforeMount(async () => {
   await maindataStore.fetchCategories()
   await maindataStore.fetchTags()
 })
-
-watch(
-  () => dialogStore.isDialogOpened(tagDialog.value),
-  value => {
-    if (!value) {
-      maindataStore.fetchTags()
-    }
-  }
-)
-
-watch(
-  () => dialogStore.isDialogOpened(categoryDialog.value),
-  value => {
-    if (!value) {
-      maindataStore.fetchCategories()
-    }
-  }
-)
 </script>
 
 <template>
