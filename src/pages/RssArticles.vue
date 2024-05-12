@@ -106,7 +106,7 @@ onUnmounted(() => {
             <div class="d-flex flex-row align-center justify-center">
               <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
               <v-spacer />
-              <div :class="{'d-flex button-group': true, 'flex-column': $vuetify.display.mobile}">
+              <div :class="{ 'd-flex button-group': true, 'flex-column': $vuetify.display.mobile }">
                 <v-btn :disabled="rssStore.unreadArticles.length === 0" :text="$t('rssArticles.markAllAsRead')" color="primary" @click="rssStore.markAllAsRead()" />
                 <v-btn :disabled="rssStore.feeds.length === 0" :text="$t('rssArticles.refreshAllFeeds')" color="primary" @click="rssStore.refreshAllFeeds()" />
               </div>
