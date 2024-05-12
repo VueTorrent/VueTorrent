@@ -87,12 +87,6 @@ const registerMagnetHandler = () => {
     return
   }
 
-  // Delete old handler
-  if (typeof navigator.unregisterProtocolHandler !== 'function') {
-    const templateUrlOld = location.href.replace('/settings', '/download=%s')
-    navigator.unregisterProtocolHandler('magnet', templateUrlOld)
-  }
-
   const templateUrl = location.href.replace('/settings', '/magnet/%s')
   navigator.registerProtocolHandler('magnet', templateUrl)
   toast.success(t('toast.magnet_handler.registered'))
