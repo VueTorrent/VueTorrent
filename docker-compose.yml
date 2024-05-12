@@ -15,7 +15,6 @@ services:
     ports:
       - '8080:8080'
     restart: unless-stopped
-
 #  Backend is optional, see the repo for more information
 #  backend:
 #    image: ghcr.io/vuetorrent/vuetorrent-backend:latest
