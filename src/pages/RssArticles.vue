@@ -1,13 +1,14 @@
 <script lang="ts" setup>
 import RssFeedDialog from '@/components/Dialogs/RssFeedDialog.vue'
-import FeedList from '@/components/RSS/FeedList.vue'
-import { Feed } from '@/types/qbit/models'
-import { useRouter } from 'vue-router'
-import { computed, onBeforeMount, onMounted, onUnmounted, reactive, ref } from 'vue'
-import debounce from 'lodash.debounce'
-import { useDialogStore, useRssStore } from '@/stores'
-import { RssArticle } from '@/types/vuetorrent'
+import RssRuleDialog from '@/components/Dialogs/RssRuleDialog.vue'
 import ArticleList from '@/components/RSS/ArticleList.vue'
+import FeedList from '@/components/RSS/FeedList.vue'
+import { useDialogStore, useRssStore } from '@/stores'
+import { Feed, FeedRule } from '@/types/qbit/models'
+import { RssArticle } from '@/types/vuetorrent'
+import debounce from 'lodash.debounce'
+import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 
 const { height: deviceHeight, mobile } = useDisplay({ mobileBreakpoint: 'md' })
@@ -15,6 +16,7 @@ const router = useRouter()
 const dialogStore = useDialogStore()
 const rssStore = useRssStore()
 
+const feedsView = ref(false)
 const bottomSheetVisible = ref(false)
 const descriptionDialogVisible = ref(false)
 const rssDescription = reactive({
@@ -55,19 +57,22 @@ function openFeedDialog(initialFeed?: Feed) {
   dialogStore.createDialog(RssFeedDialog, { initialFeed })
 }
 
+function openRuleDialog(initialRule?: FeedRule) {
+  dialogStore.createDialog(RssRuleDialog, { initialRule })
+}
+
 async function refreshFeed(item: Feed) {
   await rssStore.refreshFeed(item.name)
-  await rssStore.fetchFeeds()
+  rssStore.resumeTimer()
 }
 
 async function deleteFeed(item: Feed) {
   await rssStore.deleteFeed(item.name)
-  await rssStore.fetchFeeds()
+  rssStore.resumeTimer()
 }
 
-function openRulesDialog() {
-  // TODO: Create rules dialog
-  // dialogStore.createDialog()
+function toggleFeedsView() {
+  feedsView.value = !feedsView.value
 }
 
 function goHome() {
@@ -84,14 +89,13 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
-onBeforeMount(async () => {
-  await rssStore.fetchFeeds()
-})
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
+  rssStore.resumeTimer()
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcuts)
+  rssStore.pauseTimer()
 })
 </script>
 
@@ -100,61 +104,81 @@ onUnmounted(() => {
     <v-row align="center" justify="center" no-gutters>
       <v-col>
         <h1 class="subtitle-1 ml-2" style="font-size: 1.6em !important">
-          {{ $t('rssArticles.title') }}
+          {{ feedsView ? $t('rssArticles.feeds.title') : $t('rssArticles.rules.title') }}
         </h1>
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-auto-download" variant="plain" @click="openRulesDialog()" />
+          <v-btn icon="mdi-auto-download" variant="plain" @click="toggleFeedsView()" />
           <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
         </div>
       </v-col>
     </v-row>
 
-    <v-card v-if="!rssStore.feeds" :height="height">
-      <v-empty-state :title="$t('rssArticles.empty.value')" icon="mdi-rss-off" >
-        <template #actions>
-          <v-btn :text="$t('rssArticles.empty.action')" color="accent" @click="openFeedDialog()" />
-        </template>
-      </v-empty-state>
-    </v-card>
-
-    <v-card v-else id="rss-articles" class="pa-3" :height="height">
-      <v-text-field v-model="titleFilter" :label="$t('rssArticles.filters.title')" clearable hide-details />
-
-      <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.filters.unread')" hide-details />
-
-      <!-- Mobile layout -->
-      <template v-if="mobile">
-        <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
-
-        <v-bottom-sheet v-model="bottomSheetVisible" max-height="550">
-          <template v-slot:activator="{ props }">
-            <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
+    <template v-if="feedsView">
+      <v-card v-if="!rssStore.feeds.length" :height="height">
+        <v-empty-state :title="$t('rssArticles.feeds.empty.value')" icon="mdi-rss-off">
+          <template #actions>
+            <v-btn :text="$t('rssArticles.feeds.empty.action')" color="accent" @click="openFeedDialog()" />
           </template>
-          <FeedList @update="bottomSheetVisible = false"
-                    @createFeed="() => openFeedDialog()"
-                    @editFeed="feed => openFeedDialog(feed)"
-                    @deleteFeed="feed => deleteFeed(feed)"
-                    @refreshFeed="feed => refreshFeed(feed)" />
-        </v-bottom-sheet>
-      </template>
+        </v-empty-state>
+      </v-card>
 
-      <!-- Desktop Layout -->
-      <v-row v-else>
-        <v-col cols="4">
-          <FeedList :height="rowHeight"
-                    @createFeed="() => openFeedDialog()"
-                    @editFeed="feed => openFeedDialog(feed)"
-                    @deleteFeed="feed => deleteFeed(feed)"
-                    @refreshFeed="feed => refreshFeed(feed)" />
-        </v-col>
+      <v-card v-else id="rss-articles" class="pa-3" :height="height">
+        <v-text-field v-model="titleFilter" :label="$t('rssArticles.feeds.filters.title')" clearable hide-details />
 
-        <v-col cols="8">
+        <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.feeds.filters.unread')" hide-details />
+
+        <!-- Mobile layout -->
+        <template v-if="mobile">
           <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
-        </v-col>
-      </v-row>
-    </v-card>
+
+          <v-bottom-sheet v-model="bottomSheetVisible" max-height="550">
+            <template v-slot:activator="{ props }">
+              <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
+            </template>
+            <FeedList @update="bottomSheetVisible = false"
+                      @createFeed="() => openFeedDialog()"
+                      @editFeed="feed => openFeedDialog(feed)"
+                      @deleteFeed="feed => deleteFeed(feed)"
+                      @refreshFeed="feed => refreshFeed(feed)" />
+          </v-bottom-sheet>
+        </template>
+
+        <!-- Desktop Layout -->
+        <v-row v-else>
+          <v-col cols="4">
+            <FeedList :height="rowHeight"
+                      @createFeed="() => openFeedDialog()"
+                      @editFeed="feed => openFeedDialog(feed)"
+                      @deleteFeed="feed => deleteFeed(feed)"
+                      @refreshFeed="feed => refreshFeed(feed)" />
+          </v-col>
+
+          <v-col cols="8">
+            <ArticleList :height="rowHeight" @articleClicked="openRssArticle" />
+          </v-col>
+        </v-row>
+      </v-card>
+    </template>
+
+    <template v-else>
+      <v-card v-if="!rssStore.rules.length" :height="height">
+        <v-empty-state :title="$t('rssArticles.rules.empty.value')" icon="mdi-rss-off">
+          <template #actions>
+            <v-btn :text="$t('rssArticles.rules.empty.action')" color="accent" @click="openRuleDialog()" />
+          </template>
+        </v-empty-state>
+      </v-card>
+
+      <v-card v-else id="rss-rules" class="pa-3" :height="height">
+        <v-list>
+          <v-list-item v-for="rule in rssStore.rules">
+            {{ rule.name }}
+          </v-list-item>
+        </v-list>
+      </v-card>
+    </template>
   </div>
 
   <v-dialog v-model="descriptionDialogVisible">
@@ -177,6 +201,7 @@ onUnmounted(() => {
 .gap {
   gap: 8px;
 }
+
 .fab {
   position: fixed;
   right: 24px;

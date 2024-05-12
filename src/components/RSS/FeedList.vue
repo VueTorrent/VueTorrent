@@ -50,6 +50,11 @@ async function readFeed(feed: FeedType) {
   await rssStore.markFeedAsRead(feed)
 }
 
+async function refreshAllFeeds() {
+  await rssStore.refreshAllFeeds()
+  rssStore.resumeTimer()
+}
+
 function getFeedTitle(feed?: FeedType) {
   const unreadCount = getUnreadCount(feed)
   return (unreadCount ? `${ unreadCount } | ` : '') + `${ feed ? feed.name : 'All' }`
@@ -78,7 +83,7 @@ function getFeedState(feed: FeedType) {
         <v-list-item-title>{{ getFeedTitle() }}</v-list-item-title>
         <v-spacer />
         <v-btn v-if="getUnreadCount() > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
-        <v-btn v-if="allState !== FeedState.LOADING" icon="mdi-sync" density="comfortable" variant="plain" @click="rssStore.refreshAllFeeds()" />
+        <v-btn v-if="allState !== FeedState.LOADING" icon="mdi-sync" density="comfortable" variant="plain" @click="refreshAllFeeds()" />
         <v-btn icon="mdi-plus" density="comfortable" variant="plain" @click="$emit('createFeed')" />
       </div>
     </v-list-item>

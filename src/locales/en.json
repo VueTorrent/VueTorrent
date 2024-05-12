@@ -534,32 +534,41 @@
     }
   },
   "rssArticles": {
-    "empty": {
-      "value": "No RSS feeds registered",
-      "action": "Create RSS Feed"
+    "feeds": {
+      "empty": {
+        "value": "No RSS feeds registered",
+        "action": "Create RSS Feed"
+      },
+      "filters": {
+        "title": "Title filter",
+        "unread": "Show unread articles only"
+      },
+      "item": {
+        "author": "Author: {author}",
+        "category": "Category: {category}",
+        "feedName": "Feed name: {name}"
+      },
+      "markAllAsRead": "Mark all as read",
+      "promise": {
+        "error": "An error occured while marking articles",
+        "pending": "Marking...",
+        "success": "{n} articles marked as read"
+      },
+      "refreshAllFeeds": "Refresh All Feeds",
+      "refreshPromise": {
+        "error": "An error occured while refreshing feeds",
+        "pending": "Refreshing...",
+        "success": "{n} feeds refreshed"
+      },
+      "title": "RSS Articles"
     },
-    "filters": {
-      "title": "Title filter",
-      "unread": "Show unread articles only"
-    },
-    "item": {
-      "author": "Author: {author}",
-      "category": "Category: {category}",
-      "feedName": "Feed name: {name}"
-    },
-    "markAllAsRead": "Mark all as read",
-    "promise": {
-      "error": "An error occured while marking articles",
-      "pending": "Marking...",
-      "success": "{n} articles marked as read"
-    },
-    "refreshAllFeeds": "Refresh All Feeds",
-    "refreshPromise": {
-      "error": "An error occured while refreshing feeds",
-      "pending": "Refreshing...",
-      "success": "{n} feeds refreshed"
-    },
-    "title": "RSS Articles"
+    "rules": {
+      "empty": {
+        "value": "No RSS rules registered",
+        "action": "Create RSS Rule"
+      },
+      "title": "RSS Rules"
+    }
   },
   "searchEngine": {
     "filters": {

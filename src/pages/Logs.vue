@@ -99,7 +99,7 @@ onUnmounted(() => {
           </v-col>
 
           <v-col cols="6">
-            <v-text-field v-model="query" :label="$t('logs.filters.query')" hide-details />
+            <v-text-field v-model="query" :label="$t('logs.filters.query')" hide-details clearable />
           </v-col>
         </v-row>
       </v-list-item>
