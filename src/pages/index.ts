@@ -34,6 +34,7 @@ export const routes: RouteRecordRaw[] = [
   {
     name: 'magnetHandler',
     path: '/magnet/:url',
+    alias: '/download=:url',
     component: () => import('./MagnetHandler.vue')
   },
   {
