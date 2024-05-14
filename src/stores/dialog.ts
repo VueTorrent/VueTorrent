@@ -8,33 +8,38 @@ type DialogTemplate<C extends Component> = {
   component: C
   props: ComponentProps<C>
   guid: string
+  onClose?: () => any | Promise<any>
 }
 
 export const useDialogStore = defineStore('dialogs', () => {
-  const dialogs = shallowRef<DialogTemplate<any>[]>([])
+  const dialogs = shallowRef<Map<string, DialogTemplate<any>>>(new Map())
 
-  const hasActiveDialog = computed(() => dialogs.value.length > 0)
+  const hasActiveDialog = computed(() => dialogs.value.size > 0)
 
   function isDialogOpened(guid: string) {
-    return !!dialogs.value.find(dialog => dialog.guid === guid)
+    return dialogs.value.has(guid)
   }
 
-  function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>) {
+  function createDialog<C extends Component>(component: C, props?: Omit<ComponentProps<C>, 'guid'>, onClose?: () => any | Promise<any>) {
     const guid = uuidv4()
-    const template = {
+    dialogs.value.set(guid, {
       component,
       props: props || {},
-      guid
-    }
-
-    dialogs.value.push(template)
+      guid,
+      onClose
+    })
     triggerRef(dialogs)
 
     return guid
   }
 
   function deleteDialog(guid: string) {
-    dialogs.value = dialogs.value.filter(dialog => dialog.guid !== guid)
+    const template = dialogs.value.get(guid)
+    if (template && template.onClose) {
+      template.onClose()
+    }
+    dialogs.value.delete(guid)
+    triggerRef(dialogs)
   }
 
   return {
@@ -44,7 +49,8 @@ export const useDialogStore = defineStore('dialogs', () => {
     createDialog,
     deleteDialog,
     $reset: () => {
-      dialogs.value = []
+      dialogs.value.clear()
+      triggerRef(dialogs)
     }
   }
 })

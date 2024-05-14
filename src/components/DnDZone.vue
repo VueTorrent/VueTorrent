@@ -36,7 +36,7 @@ function onDrop(files: File[] | null, event: DragEvent) {
   links.forEach(addTorrentStore.pushTorrentToQueue)
 
   if (!dialogStore.hasActiveDialog) {
-    dialogStore.createDialog(AddTorrentDialog, {})
+    dialogStore.createDialog(AddTorrentDialog)
   }
 }
 

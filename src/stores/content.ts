@@ -8,7 +8,7 @@ import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, ref, toRaw, watch } from 'vue'
+import { computed, nextTick, reactive, ref, toRaw } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -104,28 +104,20 @@ export const useContentStore = defineStore('content', () => {
     await nextTick()
   }
 
-  const renameDialog = ref('')
-
-  const renamePayload = reactive({
-    hash: '',
-    isFolder: false,
-    oldName: ''
-  })
-
   async function renameNode(node: TreeNode) {
     const { default: MoveTorrentFileDialog } = await import('@/components/Dialogs/MoveTorrentFileDialog.vue')
-    renamePayload.hash = hash.value
-    renamePayload.isFolder = node.type === 'folder'
-    renamePayload.oldName = node.fullName
-    renameDialog.value = dialogStore.createDialog(MoveTorrentFileDialog, renamePayload)
+    const payload = {
+      hash: hash.value,
+      isFolder: node.type === 'folder',
+      oldName: node.fullName
+    }
+    dialogStore.createDialog(MoveTorrentFileDialog, payload, updateFileTree)
   }
 
   async function bulkRename(node: TreeFolder) {
     const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
-    renameDialog.value = dialogStore.createDialog(BulkRenameFilesDialog, {
-      hash: hash.value,
-      node
-    })
+    const payload = { hash: hash.value, node }
+    dialogStore.createDialog(BulkRenameFilesDialog, payload, updateFileTree)
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
@@ -140,15 +132,6 @@ export const useContentStore = defineStore('content', () => {
     await qbit.setTorrentFilePriority(hash.value, fileIdx, priority)
     await updateFileTree()
   }
-
-  watch(
-    () => dialogStore.isDialogOpened(renameDialog.value),
-    async v => {
-      if (!v) {
-        await updateFileTree()
-      }
-    }
-  )
 
   return {
     rightClickProperties,
