@@ -36,7 +36,6 @@ export const useDialogStore = defineStore('dialogs', () => {
   function deleteDialog(guid: string) {
     const template = dialogs.value.get(guid)
     if (template && template.onClose) {
-      console.log('Running onClose callback')
       template.onClose()
     }
     dialogs.value.delete(guid)

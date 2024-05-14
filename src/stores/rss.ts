@@ -66,7 +66,6 @@ export const useRssStore = defineStore(
 
     async function setFeedUrl(feedName: string, feedUrl: string) {
       await qbit.setFeedUrl(feedName, feedUrl).catch((error: AxiosError) => {
-        console.log(error)
         if (error.response?.status === 404) {
           toast.error(t('toast.qbit.not_supported', { version: '4.6.0' }))
         }
