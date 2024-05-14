@@ -31,10 +31,12 @@ body:
     attributes:
       label: Relevant debug informations
       description: |
-        Include here as much information as possible related to the bug, such as requests, errors, or screenshots.
-        THIS FIELD IS HIGHLY RECOMMENDED, as it will help us to better understand the issue.
-        Related network requests MUST be included for any issue with the qBittorrent API.
+        Include here as much information as possible related to the bug to help us better understand the issue.
+        Some relevant data can be network requests, console errors or screenshots.
+        NETWORK REQUESTS ARE MANDATORY. See [wiki page](https://github.com/VueTorrent/VueTorrent/wiki/Support) for help
       render: shell
+    validations:
+      required: true
 
   - type: textarea
     id: reproduction-steps
