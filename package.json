@@ -6,11 +6,12 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build-demo": "vue-tsc && vite build --mode demo",
     "build": "vue-tsc && vite build",
     "postbuild": "node write-version.cjs",
+    "build-demo": "vue-tsc && vite build -m demo",
     "check-build": "vue-tsc",
     "preview": "vite preview",
+    "preview-demo": "vite preview -m demo",
     "lint": "eslint --fix && prettier . -w -u",
     "test": "vitest run",
     "coverage": "vitest run --coverage"
