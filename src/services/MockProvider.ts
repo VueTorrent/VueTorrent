@@ -666,7 +666,7 @@ export default class MockProvider implements IProvider {
 
   async getTorrents(_?: GetTorrentPayload): Promise<Torrent[]> {
     const result = MockProvider.hashes.map(hash => {
-      const added_on = faker.date.past().getTime()
+      const added_on = faker.date.past().getTime() / 1000
       const name = faker.system.fileName()
       const num_complete = faker.number.int({ min: 0, max: 250 })
       const num_incomplete = faker.number.int({ min: 0, max: 250 })
@@ -682,7 +682,7 @@ export default class MockProvider implements IProvider {
         availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
         category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
         completed,
-        completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime(),
+        completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime() / 1000,
         content_path: faker.system.filePath(),
         dl_limit: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
         dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
