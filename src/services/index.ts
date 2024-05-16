@@ -2,7 +2,7 @@ import IProvider from './IProvider'
 import QBitProvider from './QbitProvider'
 
 async function getProvider(): Promise<IProvider> {
-  if (import.meta.env.DEV && import.meta.env.VITE_USE_MOCK_PROVIDER === 'true') {
+  if (import.meta.env.MODE === 'demo' || import.meta.env.DEV && import.meta.env.VITE_USE_MOCK_PROVIDER === 'true') {
     try {
       const { default: MockProvider } = await import('./MockProvider')
       return MockProvider.getInstance()

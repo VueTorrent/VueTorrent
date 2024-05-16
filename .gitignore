@@ -27,6 +27,7 @@ coverage
 
 # Custom
 vuetorrent/**
+vuetorrent-demo/**
 docker/**
 coverage/
 config/

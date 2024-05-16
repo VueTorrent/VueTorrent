@@ -6,6 +6,8 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
+    "build-demo": "vue-tsc && vite build --mode demo",
+    "postbuild-demo": "node write-version.cjs --demo",
     "build": "vue-tsc && vite build",
     "postbuild": "node write-version.cjs",
     "check-build": "vue-tsc",
