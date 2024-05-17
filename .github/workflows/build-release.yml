@@ -9,8 +9,7 @@ jobs:
     name: Update demo Pages
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pages: write
+      contents: write
       id-token: write
     steps:
       - name: Checkout
@@ -48,11 +47,8 @@ jobs:
       - name: Build VueTorrent
         run: npm run build-demo
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Push to demo repo
+        uses: JamesIves/github-pages-deploy-action
         with:
-          path: './vuetorrent-demo'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          folder: './vuetorrent-demo'
+          repository-name: 'demo'
