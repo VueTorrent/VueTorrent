@@ -48,7 +48,7 @@ jobs:
         run: npm run build-demo
 
       - name: Push to demo repo
-        uses: JamesIves/github-pages-deploy-action
+        uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           folder: './vuetorrent-demo'
           repository-name: 'demo'
