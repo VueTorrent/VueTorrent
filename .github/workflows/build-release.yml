@@ -49,3 +49,4 @@ jobs:
         with:
           folder: './vuetorrent-demo'
           repository-name: 'Larsluph/demo'
+          token: ${{ secrets.GH_PAT }}
