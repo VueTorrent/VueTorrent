@@ -5,11 +5,42 @@ on:
       - master
 
 jobs:
-  update-demo:
-    name: Update demo Pages
+  setup-release:
+    name: Run Release Please action
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      upload_url: ${{ steps.release.outputs.upload_url }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Checkout
+      - name: Run release please
+        uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  build-release:
+    name: Build VueTorrent
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    strategy:
+      matrix:
+        npm-step: [ 'build', 'build-demo' ]
+        include:
+          - npm-step: build
+            artifect-name: vuetorrent-build
+            artifact-path: ./vuetorrent
+          - npm-step: build-demo
+            artifect-name: vuetorrent-demo
+            artifact-path: ./vuetorrent-demo
+
+    steps:
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -39,11 +70,99 @@ jobs:
           tolgee_secret: ${{ secrets.TOLGEE_TOKEN }}
 
       - name: Build VueTorrent
-        run: npm run build-demo
+        run: npm run ${{ matrix.npm-step }}
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact-name }}
+          path: ${{ matrix.artifact-path }}
+          retention-days: 1
+
+  push-nightly:
+    name: Push to nightly branch
+    runs-on: ubuntu-latest
+    needs: build-release
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+
+      - name: Push to nightly-release
+        uses: JamesIves/github-pages-deploy-action@v4.6.0
+        with:
+          branch: nightly-release
+          folder: ./vuetorrent
+
+  push-demo:
+    name: Push to demo repo
+    runs-on: ubuntu-latest
+    needs: build-release
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent-demo
+          path: ./vuetorrent-demo
 
       - name: Push to demo repo
         uses: JamesIves/github-pages-deploy-action@v4.6.0
         with:
           folder: './vuetorrent-demo'
-          repository-name: 'Larsluph/demo'
+          repository-name: 'VueTorrent/demo'
           token: ${{ secrets.GH_PAT }}
+
+  upload-release:
+    name: Upload release to GitHub
+    needs: [ setup-release, build-release ]
+    if: needs.setup-release.outputs.release_created
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+
+      - name: Zip VueTorrent
+        run: zip -qq -r ./vuetorrent.zip ./vuetorrent
+
+      - name: Upload VueTorrent release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.setup-release.outputs.upload_url }}
+          asset_path: ./vuetorrent.zip
+          asset_name: vuetorrent.zip
+          asset_content_type: application/zip
+
+  push-release:
+    name: Push to latest branch
+    needs: [ setup-release, build-release ]
+    if: needs.setup-release.outputs.release_created
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+
+      - name: Push to latest-release
+        uses: JamesIves/github-pages-deploy-action@v4.6.0
+        with:
+          branch: latest-release
+          folder: ./vuetorrent
