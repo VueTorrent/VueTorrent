@@ -1,5 +1,5 @@
 import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
-import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences.ts'
+import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -15,12 +15,12 @@ import type {
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
-import { NetworkInterface } from '@/types/qbit/models/AppPreferences.ts'
+import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { faker } from '@faker-js/faker/locale/en'
-import IProvider from './IProvider.ts'
+import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider

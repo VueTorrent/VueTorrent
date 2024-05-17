@@ -15,12 +15,12 @@ import type {
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
-import { NetworkInterface } from '@/types/qbit/models/AppPreferences.ts'
+import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance } from 'axios'
 import axios from 'axios'
-import type IProvider from './IProvider.ts'
+import type IProvider from './IProvider'
 
 type Parameters = Record<string, any>
 
