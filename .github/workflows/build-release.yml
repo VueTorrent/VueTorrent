@@ -25,18 +25,15 @@ jobs:
   build-release:
     name: Build VueTorrent
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     strategy:
       matrix:
         npm-step: [ 'build', 'build-demo' ]
         include:
           - npm-step: build
-            artifect-name: vuetorrent-build
+            artifact-name: vuetorrent-build
             artifact-path: ./vuetorrent
           - npm-step: build-demo
-            artifect-name: vuetorrent-demo
+            artifact-name: vuetorrent-demo
             artifact-path: ./vuetorrent-demo
 
     steps:
@@ -105,8 +102,6 @@ jobs:
     name: Push to demo repo
     runs-on: ubuntu-latest
     needs: build-release
-    permissions:
-      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
