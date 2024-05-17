@@ -1,7 +1,7 @@
 import { useTorrentBuilder } from '@/composables'
 import { SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { Category, ServerState } from '@/types/qbit/models'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'

@@ -1,4 +1,4 @@
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
 import { AxiosError } from 'axios'

@@ -1,4 +1,4 @@
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'

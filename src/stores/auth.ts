@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 
 export const useAuthStore = defineStore('auth', () => {
   const isAuthenticated = ref(false)

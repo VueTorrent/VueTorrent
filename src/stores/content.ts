@@ -1,6 +1,6 @@
 import { useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { useDialogStore } from '@/stores/dialog'
 import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'

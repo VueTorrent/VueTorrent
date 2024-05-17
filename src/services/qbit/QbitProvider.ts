@@ -15,24 +15,32 @@ import type {
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
-import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
+import { NetworkInterface } from '@/types/qbit/models/AppPreferences.ts'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance } from 'axios'
 import axios from 'axios'
-import type IProvider from './IProvider'
+import type IProvider from './IProvider.ts'
 
 type Parameters = Record<string, any>
 
 export default class QBitProvider implements IProvider {
+  private static _instance: QBitProvider
   private axios: AxiosInstance
 
-  constructor() {
+  private constructor() {
     this.axios = axios.create({
       baseURL: 'api/v2'
     })
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+  }
+
+  public static getInstance() {
+    if (!this._instance) {
+      this._instance = new QBitProvider()
+    }
+    return this._instance
   }
 
   /// Misc ///

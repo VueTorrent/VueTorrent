@@ -1,7 +1,7 @@
 import { useSearchQuery } from '@/composables'
 import { SortOptions, TorrentState } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { defineStore } from 'pinia'
