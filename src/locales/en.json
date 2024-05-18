@@ -919,11 +919,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Connection",
       "downloads": "Downloads",
-      "rss": {
-        "general": "General",
-        "rules": "Rules",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Speed",
       "tagsAndCategories": "Tags & Categories",
       "vuetorrent": {

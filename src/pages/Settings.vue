@@ -32,7 +32,7 @@ const tabs = [
   { text: t('settings.tabs.connection'), value: 'connection' },
   { text: t('settings.tabs.speed'), value: 'speed' },
   { text: t('settings.tabs.bittorrent'), value: 'bittorrent' },
-  { text: t('settings.tabs.rss.title'), value: 'rss' },
+  { text: t('settings.tabs.rss'), value: 'rss' },
   { text: t('settings.tabs.webui'), value: 'webui' },
   { text: t('settings.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
   { text: t('settings.tabs.advanced'), value: 'advanced' }
