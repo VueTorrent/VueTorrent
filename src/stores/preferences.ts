@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import AppPreferences from '@/types/qbit/models/AppPreferences'
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 
 export const usePreferenceStore = defineStore(
   'preferences',

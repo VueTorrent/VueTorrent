@@ -37,6 +37,15 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
   <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" /> 
 </p>
 
+## Demo
+
+A live demo **with mocked data** is available here: https://vuetorrent.github.io/demo
+
+> [!NOTE]
+> This version isn't connected to a qBittorrent instance.
+> 
+> Don't try to download torrents or change preferences, it won't work 😉
+
 ## Installation
 
 Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
@@ -50,9 +59,9 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - `docker-compose up -d` (starts a qbittorrent docker, optional)
 - Open the WebUI on localhost with the default credentials
   - Default username is always `admin`
-  - Default password is `adminadmin` **on 4.6.0 and below**, and is generated on 4.6.1 and above
-- Make sure "CSRF protection" and "Host header verification" is disabled on the target server!
-- Edit `env.development` to tweak your dev environment (e.g. fake torrents)
+  - Default password is `adminadmin` **on 4.6.0 and below**, and is generated in logs on 4.6.1 and above
+- Make sure "CSRF protection" and "Host header verification" is disabled in the qBittorrent preferences
+- Edit `env.development` to tweak your dev environment (e.g. mocked data)
 
 ## Features
 
@@ -89,7 +98,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 
 VueTorrent is a **WebUI** (think of it as a "visual skin") that uses qBittorrent's API, enabling compatibility with automation solutions like the Servarr stack.
 
-Everything that is compatible with qBittorrent will work regardless of the WebUI you chose to use.
+Everything that is compatible with the classic qBittorrent WebUI will work regardless of the WebUI you chose to use, whether its VueTorrent or another one.
 
 ## Contributing
 
@@ -101,16 +110,13 @@ See the [Contributing Guidelines](https://github.com/VueTorrent/VueTorrent/blob/
 
 ## Support
 
-[![Discord](https://img.shields.io/discord/1170618192956243998?logo=discord)](https://discord.gg/KDQP7fR467)
-[![Wiki](https://img.shields.io/badge/Wiki-blue)](https://github.com/VueTorrent/VueTorrent/wiki)
-[![FAQ](https://img.shields.io/badge/FAQ-orange)](https://github.com/VueTorrent/VueTorrent/wiki/FAQ)
+- [![Discord](https://img.shields.io/discord/1170618192956243998?logo=discord)](https://discord.gg/KDQP7fR467)
+- [![Wiki](https://img.shields.io/badge/Wiki-blue)](https://github.com/VueTorrent/VueTorrent/wiki)
+- [![FAQ](https://img.shields.io/badge/FAQ-orange)](https://github.com/VueTorrent/VueTorrent/wiki/FAQ)
 
-Open up an issue 😛
+If any of the above didn't help, feel free to open an issue!
 
-but before you do that:
-
-- confirm you're on the latest version of VueTorrent
-- confirm there is no other issue mentioning the same problem
+See the [Contributing Guidelines](https://github.com/VueTorrent/VueTorrent/blob/master/.github/CONTRIBUTING.md) for more information.
 
 ## Funding
 

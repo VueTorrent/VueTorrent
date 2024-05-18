@@ -16,7 +16,7 @@ export default defineConfig(({ mode }) => {
     base: './',
     build: {
       target: 'esnext',
-      outDir: './vuetorrent/public',
+      outDir: mode === 'demo' ? './vuetorrent-demo' : './vuetorrent/public',
       rollupOptions: {
         output: {
           manualChunks: {

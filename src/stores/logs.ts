@@ -1,4 +1,4 @@
-import { qbit } from '@/services'
+import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'

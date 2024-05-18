@@ -1,4 +1,4 @@
-import { ContentLayout } from '@/constants/qbit/AppPreferences.ts'
+import { ContentLayout } from '@/constants/qbit/AppPreferences'
 import { AddTorrentParams } from '@/types/qbit/models'
 
 export interface LegacyFeedRule {

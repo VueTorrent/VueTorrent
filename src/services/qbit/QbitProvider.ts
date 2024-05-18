@@ -25,14 +25,22 @@ import type IProvider from './IProvider'
 type Parameters = Record<string, any>
 
 export default class QBitProvider implements IProvider {
+  private static _instance: QBitProvider
   private axios: AxiosInstance
 
-  constructor() {
+  private constructor() {
     this.axios = axios.create({
       baseURL: 'api/v2'
     })
 
     this.axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+  }
+
+  public static getInstance() {
+    if (!this._instance) {
+      this._instance = new QBitProvider()
+    }
+    return this._instance
   }
 
   /// Misc ///
