@@ -538,8 +538,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "value": "No RSS feeds registered",
-        "action": "Create RSS Feed"
+        "action": "Create RSS Feed",
+        "value": "No RSS feeds registered"
       },
       "filters": {
         "title": "Title filter",
@@ -550,8 +550,8 @@
         "category": "Category: {category}",
         "feedName": "Feed name: {name}"
       },
-      "markAsRead": "Mark as read",
       "markAllAsRead": "Mark all as read",
+      "markAsRead": "Mark as read",
       "promise": {
         "error": "An error occured while marking articles",
         "pending": "Marking...",
@@ -567,8 +567,8 @@
     },
     "rules": {
       "empty": {
-        "value": "No RSS rules registered",
-        "action": "Create RSS Rule"
+        "action": "Create RSS Rule",
+        "value": "No RSS rules registered"
       },
       "title": "RSS Rules"
     },
