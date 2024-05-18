@@ -35,8 +35,18 @@ async function deleteRule(rule: FeedRule) {
           variant="plain"
           density="compact"
           @click="toggleRule(value)" />
-      <v-btn class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="$emit('openRule', value)" />
-      <v-btn class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(value)" />
+
+      <v-tooltip :text="$t('common.edit')" location="top">
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props" class="my-2 mr-2" icon="mdi-pencil" variant="plain" density="compact" @click="$emit('openRule', value)" />
+        </template>
+      </v-tooltip>
+
+      <v-tooltip :text="$t('common.delete')" location="top">
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props" class="my-2 mr-2" icon="mdi-delete" color="red" variant="plain" density="compact" @click="deleteRule(value)" />
+        </template>
+      </v-tooltip>
     </div>
   </v-sheet>
 </template>

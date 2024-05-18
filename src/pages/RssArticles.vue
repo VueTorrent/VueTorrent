@@ -72,7 +72,11 @@ onUnmounted(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-auto-download" variant="plain" @click="toggleFeedsView()" />
+          <v-tooltip :text="$t(feedsView ? 'rssArticles.toggle.rules' : 'rssArticles.toggle.feeds')" location="top">
+            <template #activator="{ props }">
+              <v-btn v-bind="props" icon="mdi-auto-download" variant="plain" @click="toggleFeedsView()" />
+            </template>
+          </v-tooltip>
           <v-btn icon="mdi-close" variant="plain" @click="goHome()" />
         </div>
       </v-col>

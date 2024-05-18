@@ -7,12 +7,14 @@
     "delete": "Delete",
     "disable": "Disable",
     "disabled": "Disabled",
+    "edit": "Edit",
     "emptyList": "Nothing to see here!",
     "global_value": "Global Value",
     "NA": "N/A",
     "no": "No",
     "none": "(None)",
     "ok": "OK",
+    "refresh": "Refresh",
     "save": "Save",
     "selectAll": "Select All",
     "selectNone": "Select None",
@@ -548,13 +550,14 @@
         "category": "Category: {category}",
         "feedName": "Feed name: {name}"
       },
+      "markAsRead": "Mark as read",
       "markAllAsRead": "Mark all as read",
       "promise": {
         "error": "An error occured while marking articles",
         "pending": "Marking...",
         "success": "{n} articles marked as read"
       },
-      "refreshAllFeeds": "Refresh All Feeds",
+      "refreshAllFeeds": "Refresh all feeds",
       "refreshPromise": {
         "error": "An error occured while refreshing feeds",
         "pending": "Refreshing...",
@@ -568,6 +571,10 @@
         "action": "Create RSS Rule"
       },
       "title": "RSS Rules"
+    },
+    "toggle": {
+      "feeds": "Show feeds",
+      "rules": "Show rules"
     }
   },
   "searchEngine": {

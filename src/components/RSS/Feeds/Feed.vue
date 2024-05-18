@@ -24,10 +24,30 @@ const loading = computed(() => props.state === FeedState.LOADING)
     <FeedIcon :state="state" />
     <v-list-item-title>{{ title }}</v-list-item-title>
     <v-spacer />
-    <v-btn v-if="unreadCount > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click.stop="$emit('readFeed')" />
-    <v-btn v-if="!loading" icon="mdi-sync" density="comfortable" variant="plain" @click.stop="$emit('refreshFeed')" />
-    <v-btn icon="mdi-pencil" density="comfortable" variant="plain" @click.stop="$emit('editFeed')" />
-    <v-btn icon="mdi-delete" color="error" density="comfortable" variant="plain" @click.stop="$emit('deleteFeed')" />
+
+    <v-tooltip :text="$t('rssArticles.feeds.markAsRead')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn v-if="unreadCount > 0" v-bind="props" icon="mdi-email-open" density="comfortable" variant="plain" @click.stop="$emit('readFeed')" />
+      </template>
+    </v-tooltip>
+
+    <v-tooltip :text="$t('common.refresh')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn v-if="!loading" v-bind="props" icon="mdi-sync" density="comfortable" variant="plain" @click.stop="$emit('refreshFeed')" />
+      </template>
+    </v-tooltip>
+
+    <v-tooltip :text="$t('common.edit')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn v-bind="props" icon="mdi-pencil" density="comfortable" variant="plain" @click.stop="$emit('editFeed')" />
+      </template>
+    </v-tooltip>
+
+    <v-tooltip :text="$t('common.delete')" location="top">
+      <template v-slot:activator="{ props }">
+        <v-btn v-bind="props" icon="mdi-delete" color="red" density="comfortable" variant="plain" @click.stop="$emit('deleteFeed')" />
+      </template>
+    </v-tooltip>
   </div>
 </template>
 

@@ -44,7 +44,7 @@ onUnmounted(() => {
     <v-row>
       <v-col cols="12" class="d-flex align-center justify-center">
         <v-btn color="accent" @click="openRuleDialog()">
-          {{ $t('settings.rss.rules.createNew') }}
+          {{ $t('rssArticles.rules.empty.action') }}
         </v-btn>
       </v-col>
     </v-row>

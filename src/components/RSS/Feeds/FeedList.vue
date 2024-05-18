@@ -82,9 +82,24 @@ function getFeedState(feed: FeedType) {
         <FeedIcon :state="allState" />
         <v-list-item-title>{{ getFeedTitle() }}</v-list-item-title>
         <v-spacer />
-        <v-btn v-if="getUnreadCount() > 0" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
-        <v-btn v-if="allState !== FeedState.LOADING" icon="mdi-sync" density="comfortable" variant="plain" @click="refreshAllFeeds()" />
-        <v-btn icon="mdi-plus" density="comfortable" variant="plain" @click="$emit('createFeed')" />
+
+        <v-tooltip :text="$t('rssArticles.feeds.markAllAsRead')" location="top">
+          <template v-slot:activator="{ props }">
+            <v-btn v-if="getUnreadCount() > 0" v-bind="props" icon="mdi-email-open" density="comfortable" variant="plain" @click="rssStore.markAllAsRead()" />
+          </template>
+        </v-tooltip>
+
+        <v-tooltip :text="$t('rssArticles.feeds.refreshAllFeeds')" location="top">
+          <template v-slot:activator="{ props }">
+            <v-btn v-if="allState !== FeedState.LOADING" v-bind="props" icon="mdi-sync" density="comfortable" variant="plain" @click="refreshAllFeeds()" />
+          </template>
+        </v-tooltip>
+
+        <v-tooltip :text="$t('rssArticles.feeds.empty.action')" location="top">
+          <template v-slot:activator="{ props }">
+            <v-btn v-bind="props" icon="mdi-plus" density="comfortable" variant="plain" @click="$emit('createFeed')" />
+          </template>
+        </v-tooltip>
       </div>
     </v-list-item>
     <v-divider thickness="3" />
