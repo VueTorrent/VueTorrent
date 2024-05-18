@@ -18,6 +18,8 @@ export const useRssStore = defineStore(
     const _articles = ref<RssArticle[]>([])
     const keyMap = ref<Record<string, string[]>>({})
 
+    const lastView = ref('feeds')
+
     const filters = reactive({
       title: '',
       unread: false
@@ -159,6 +161,7 @@ export const useRssStore = defineStore(
     return {
       feeds,
       rules,
+      lastView,
       filters,
       articles,
       filteredArticles,
@@ -188,6 +191,7 @@ export const useRssStore = defineStore(
         rules.value = []
         _articles.value = []
         keyMap.value = {}
+        lastView.value = 'feeds'
         filters.title = ''
         filters.unread = false
         pauseFeedTimer()

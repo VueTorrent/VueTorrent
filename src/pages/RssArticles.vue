@@ -1,23 +1,25 @@
 <script lang="ts" setup>
 import Feeds from '@/components/RSS/Feeds/Feeds.vue'
 import Rules from '@/components/RSS/Rules/Rules.vue'
-import { useDialogStore } from '@/stores'
+import { useDialogStore, useRssStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import { computed, onMounted, onUnmounted, reactive, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useDisplay } from 'vuetify'
 
 const { height: deviceHeight, mobile } = useDisplay({ mobileBreakpoint: 'md' })
+const route = useRoute()
 const router = useRouter()
 const dialogStore = useDialogStore()
+const rssStore = useRssStore()
 
-const feedsView = ref(true)
 const descriptionDialogVisible = ref(false)
 const rssDescription = reactive({
   title: '',
   content: ''
 })
 
+const feedsView = computed(() => route.params.tab !== 'rules')
 const height = computed(() => {
   // 64px for the toolbar
   // 12px for the padding (top and bottom)
@@ -33,7 +35,9 @@ function openRssArticle(article: RssArticle) {
 }
 
 function toggleFeedsView() {
-  feedsView.value = !feedsView.value
+  const tab = route.params.tab === 'rules' ? 'feeds' : 'rules'
+  router.replace({ name: 'rssArticles', params: { tab } })
+  rssStore.lastView = tab
 }
 
 function goHome() {

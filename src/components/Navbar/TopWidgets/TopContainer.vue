@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useDashboardStore, useDialogStore, useTorrentStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useRssStore, useTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import TopActions from './TopActions.vue'
@@ -11,6 +11,7 @@ const route = useRoute()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
+const rssStore = useRssStore()
 const torrentStore = useTorrentStore()
 
 const isOnTorrentDetail = computed(() => route.name === 'torrentDetail')
@@ -39,7 +40,7 @@ function openSearchEngine() {
 }
 
 function openrssArticles() {
-  router.push({ name: 'rssArticles' })
+  router.push({ name: 'rssArticles', params: { tab: rssStore.lastView } })
 }
 
 function openLogs() {

@@ -28,7 +28,7 @@ const currentFeed = computed({
     return router.currentRoute.value.params.feedId as string | undefined
   },
   set(feedId) {
-    router.replace({ name: 'rssArticles', params: { feedId } })
+    router.replace({ name: 'rssArticles', params: { tab: 'feeds', feedId } })
     emit('update', feedId)
   }
 })
