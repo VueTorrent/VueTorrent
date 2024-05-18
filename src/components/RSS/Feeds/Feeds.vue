@@ -10,7 +10,7 @@ import FeedList from './FeedList.vue'
 
 const props = defineProps<{
   height: number
-  mobile: boolean // TODO: check dependency
+  mobile: boolean
 }>()
 
 const emit = defineEmits<{
