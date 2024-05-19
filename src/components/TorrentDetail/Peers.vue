@@ -128,7 +128,7 @@ const filter = ref('')
 <template>
   <v-card>
     <v-empty-state v-if="!torrentPeers.size" :title="$t('torrentDetail.peers.empty')" icon="mdi-account-sync" color="accent" />
-    <v-data-table v-else :headers="headers" :items="items" multi-sort :sort-by="sortBy" :search="filter" :filter-keys="['host', 'ip', 'port']" :mobile="null">
+    <v-data-table v-else :headers="headers" :items="items" multi-sort :sort-by="sortBy" :search="filter" :filter-keys="['host']" :mobile="null">
       <template #top>
         <v-text-field v-model="filter" class="ma-3" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line />
       </template>
