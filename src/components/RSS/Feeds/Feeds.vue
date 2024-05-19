@@ -81,22 +81,24 @@ onUnmounted(() => {
         <template v-slot:activator="{ props }">
           <v-btn class="fab" v-bind="props" color="accent" icon="mdi-format-list-bulleted" size="large" />
         </template>
-        <FeedList @update="bottomSheetVisible = false"
-                  @createFeed="() => openFeedDialog()"
-                  @editFeed="feed => openFeedDialog(feed)"
-                  @deleteFeed="feed => deleteFeed(feed)"
-                  @refreshFeed="feed => refreshFeed(feed)" />
+        <FeedList
+          @update="bottomSheetVisible = false"
+          @createFeed="() => openFeedDialog()"
+          @editFeed="feed => openFeedDialog(feed)"
+          @deleteFeed="feed => deleteFeed(feed)"
+          @refreshFeed="feed => refreshFeed(feed)" />
       </v-bottom-sheet>
     </template>
 
     <!-- Desktop Layout -->
     <v-row v-else>
       <v-col cols="4">
-        <FeedList :height="rowHeight"
-                  @createFeed="() => openFeedDialog()"
-                  @editFeed="feed => openFeedDialog(feed)"
-                  @deleteFeed="feed => deleteFeed(feed)"
-                  @refreshFeed="feed => refreshFeed(feed)" />
+        <FeedList
+          :height="rowHeight"
+          @createFeed="() => openFeedDialog()"
+          @editFeed="feed => openFeedDialog(feed)"
+          @deleteFeed="feed => deleteFeed(feed)"
+          @refreshFeed="feed => refreshFeed(feed)" />
       </v-col>
 
       <v-col cols="8">

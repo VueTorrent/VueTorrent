@@ -6,6 +6,7 @@
     "delete": "Удалить",
     "disable": "Отключить",
     "disabled": "Отключен",
+    "edit": "Редактировать",
     "emptyList": "Тут ничего нет!",
     "global_value": "Глобальное значение",
     "NA": "Н/Д",
@@ -533,22 +534,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "Фильтр по заголовку",
-      "unread": "Только непрочитанные записи"
+    "feeds": {
+      "empty": {
+        "action": "Создать RSS ленту"
+      },
+      "filters": {
+        "title": "Фильтр по заголовку",
+        "unread": "Только непрочитанные записи"
+      },
+      "item": {
+        "author": "Автор: {author}",
+        "category": "Категория: {category}",
+        "feedName": "Имя ленты: {name}"
+      },
+      "markAllAsRead": "Отметить всё как прочитанное",
+      "promise": {
+        "error": "Произошла ошибка при отметке статей",
+        "pending": "Отмечаю...",
+        "success": "{n} статей отмечены как прочитанные"
+      },
+      "title": "Менеджер RSS"
     },
-    "item": {
-      "author": "Автор: {author}",
-      "category": "Категория: {category}",
-      "feedName": "Имя ленты: {name}"
-    },
-    "markAllAsRead": "Отметить всё как прочитанное",
-    "promise": {
-      "error": "Произошла ошибка при отметке статей",
-      "pending": "Отмечаю...",
-      "success": "{n} статей отмечены как прочитанные"
-    },
-    "title": "Менеджер RSS"
+    "rules": {
+      "empty": {
+        "action": "Создать новое правило"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -845,34 +856,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Добавить ленту",
-        "noFeeds": "Лент пока нет",
-        "refreshAll": "Обновить все"
+      "autoDownloader": {
+        "enable": "Включить автозагрузку торрентов из RSS",
+        "subheader": "Автозагрузчик торрентов из RSS"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "Включить автозагрузку торрентов из RSS",
-          "subheader": "Автозагрузчик торрентов из RSS"
-        },
-        "reader": {
-          "enableProcessing": "Включить получение RSS-лент",
-          "feedsRefreshInterval": "Интервал обновления лент",
-          "maximumArticlesPerFeed": "Максимум статей для ленты",
-          "subheader": "Менеджер RSS"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "Загружать эпизоды REPACK/PROPER",
-          "filters": "Фильтры",
-          "filtersHint": "По одному на строку",
-          "subheader": "Умный фильтр эпизодов RSS"
-        },
-        "useIdForRssLinks": "Использовать ID для ссылки на статью RSS"
+      "reader": {
+        "enableProcessing": "Включить получение RSS-лент",
+        "feedsRefreshInterval": "Интервал обновления лент",
+        "maximumArticlesPerFeed": "Максимум статей для ленты",
+        "subheader": "Менеджер RSS"
       },
-      "rules": {
-        "createNew": "Создать правило",
-        "noRules": "Правил пока нет"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "Загружать эпизоды REPACK/PROPER",
+        "filters": "Фильтры",
+        "filtersHint": "По одному на строку",
+        "subheader": "Умный фильтр эпизодов RSS"
+      },
+      "useIdForRssLinks": "Использовать ID для ссылки на статью RSS"
     },
     "saveSuccess": "Настройки сохранены!",
     "speed": {
@@ -903,12 +903,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Соединение",
       "downloads": "Загрузки",
-      "rss": {
-        "feeds": "Ленты",
-        "general": "Общее",
-        "rules": "Правила",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Скорость",
       "tagsAndCategories": "Теги и категории",
       "vuetorrent": {

@@ -21,7 +21,9 @@ const vuetorrentStore = useVueTorrentStore()
 
 const selectedFeed = computed(() => route.params.feedId)
 
-const articles = computed(() => rssStore.filteredArticles.filter(article => !selectedFeed.value || selectedFeed.value === article.feedId).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate)))
+const articles = computed(() =>
+  rssStore.filteredArticles.filter(article => !selectedFeed.value || selectedFeed.value === article.feedId).sort((a, b) => Number(b.parsedDate) - Number(a.parsedDate))
+)
 
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(articles, 15)
 
@@ -48,11 +50,7 @@ async function markAsRead(item: RssArticle) {
     <template v-for="(article, index) in paginatedResults">
       <v-divider v-if="index > 0" color="white" />
 
-      <Article :value="article"
-               @click="$emit('articleClicked', article)"
-               @markAsRead="markAsRead(article)"
-               @open="openLink(article)"
-               @download="downloadArticle(article)" />
+      <Article :value="article" @click="$emit('articleClicked', article)" @markAsRead="markAsRead(article)" @open="openLink(article)" @download="downloadArticle(article)" />
     </template>
 
     <v-list-item v-if="articles.length === 0">

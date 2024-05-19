@@ -6,6 +6,7 @@
     "delete": "Eliminar",
     "disable": "Desactivar",
     "disabled": "Desactivado",
+    "edit": "Editar",
     "emptyList": "¡Nada que ver aqui!",
     "NA": "N/D",
     "no": "No",
@@ -510,22 +511,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "Filtro de título",
-      "unread": "Mostrar solo artículos no leídos"
+    "feeds": {
+      "empty": {
+        "action": "Crear fuente RSS"
+      },
+      "filters": {
+        "title": "Filtro de título",
+        "unread": "Mostrar solo artículos no leídos"
+      },
+      "item": {
+        "author": "Autor: {author}",
+        "category": "Categoría: {category}",
+        "feedName": "Nombre del feed: {name}"
+      },
+      "markAllAsRead": "Marcar todo como leído",
+      "promise": {
+        "error": "Se produjo un error al marcar los artículos",
+        "pending": "Marcando...",
+        "success": "{n} artículos marcados como leídos"
+      },
+      "title": "Artículos RSS"
     },
-    "item": {
-      "author": "Autor: {author}",
-      "category": "Categoría: {category}",
-      "feedName": "Nombre del feed: {name}"
-    },
-    "markAllAsRead": "Marcar todo como leído",
-    "promise": {
-      "error": "Se produjo un error al marcar los artículos",
-      "pending": "Marcando...",
-      "success": "{n} artículos marcados como leídos"
-    },
-    "title": "Artículos RSS"
+    "rules": {
+      "empty": {
+        "action": "Crear regla RSS"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -822,34 +833,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Agregar fuente",
-        "noFeeds": "Aún no hay feeds",
-        "refreshAll": "Actualizar todo"
+      "autoDownloader": {
+        "enable": "Habilitar el procesamiento de reglas RSS",
+        "subheader": "Descargador Automático de Torrents RSS"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "Habilitar el procesamiento de reglas RSS",
-          "subheader": "Descargador Automático de Torrents RSS"
-        },
-        "reader": {
-          "enableProcessing": "Habilitar la obtención de feeds RSS",
-          "feedsRefreshInterval": "Intervalo de actualización de feeds",
-          "maximumArticlesPerFeed": "Número máximo de artículos por fuente",
-          "subheader": "Lector de RSS"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "Descargar episodios REPACK/PROPER",
-          "filters": "Filtros",
-          "filtersHint": "Uno por línea",
-          "subheader": "Filtro inteligente de episodios RSS"
-        },
-        "useIdForRssLinks": "Usar ID para enlace de artículo RSS"
+      "reader": {
+        "enableProcessing": "Habilitar la obtención de feeds RSS",
+        "feedsRefreshInterval": "Intervalo de actualización de feeds",
+        "maximumArticlesPerFeed": "Número máximo de artículos por fuente",
+        "subheader": "Lector de RSS"
       },
-      "rules": {
-        "createNew": "Crear regla",
-        "noRules": "Aún no hay reglas"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "Descargar episodios REPACK/PROPER",
+        "filters": "Filtros",
+        "filtersHint": "Uno por línea",
+        "subheader": "Filtro inteligente de episodios RSS"
+      },
+      "useIdForRssLinks": "Usar ID para enlace de artículo RSS"
     },
     "saveSuccess": "¡Ajustes guardados!",
     "speed": {
@@ -880,12 +880,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Conexión",
       "downloads": "Descargas",
-      "rss": {
-        "feeds": "Fuentes",
-        "general": "General",
-        "rules": "Reglas",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Velocidad",
       "tagsAndCategories": "Etiquetas y Categorías",
       "vuetorrent": {

@@ -14,7 +14,7 @@ const getTextElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-text"
 
 const mobile = ref(true)
 
-vi.mock('vuetify', async (importOriginal) => {
+vi.mock('vuetify', async importOriginal => {
   const mod = await importOriginal<typeof import('vuetify')>()
   return {
     ...mod,
@@ -32,17 +32,13 @@ describe('MixedButton.vue', () => {
     const btn = mount(MixedButton, {
       props: { icon, text },
       global: {
-        plugins: [
-          createTestingPinia(),
-          i18n,
-          vuetify
-        ]
+        plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
 
     const iconElement = getIconElement(btn)
     const textElement = getTextElement(btn)
-    expect(iconElement.exists(), "icon element should be rendered").true
+    expect(iconElement.exists(), 'icon element should be rendered').true
     expect(iconElement.classes()).include(icon)
     expect(textElement.exists(), "text element shouldn't be rendered").false
   })
@@ -52,18 +48,14 @@ describe('MixedButton.vue', () => {
     const btn = mount(MixedButton, {
       props: { icon, text },
       global: {
-        plugins: [
-          createTestingPinia(),
-          i18n,
-          vuetify
-        ]
+        plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
 
     const iconElement = getIconElement(btn)
     const textElement = getTextElement(btn)
     expect(iconElement.exists(), "icon element shouldn't be rendered").false
-    expect(textElement.exists(), "text element should be rendered").true
+    expect(textElement.exists(), 'text element should be rendered').true
     expect(textElement.text()).eq(text)
   })
 
@@ -71,17 +63,13 @@ describe('MixedButton.vue', () => {
     const btn = mount(MixedButton, {
       props: { icon, text, mobileOverride: true, mobileValue: true },
       global: {
-        plugins: [
-          createTestingPinia(),
-          i18n,
-          vuetify
-        ]
+        plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
 
     const iconElement = getIconElement(btn)
     const textElement = getTextElement(btn)
-    expect(iconElement.exists(), "icon element should be rendered").true
+    expect(iconElement.exists(), 'icon element should be rendered').true
     expect(iconElement.classes()).include(icon)
     expect(textElement.exists(), "text element shouldn't be rendered").false
   })
@@ -90,18 +78,14 @@ describe('MixedButton.vue', () => {
     const btn = mount(MixedButton, {
       props: { icon, text, mobileOverride: true, mobileValue: false },
       global: {
-        plugins: [
-          createTestingPinia(),
-          i18n,
-          vuetify
-        ]
+        plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
 
     const iconElement = getIconElement(btn)
     const textElement = getTextElement(btn)
     expect(iconElement.exists(), "icon element shouldn't be rendered").false
-    expect(textElement.exists(), "text element should be rendered").true
+    expect(textElement.exists(), 'text element should be rendered').true
     expect(textElement.text()).eq(text)
   })
 })

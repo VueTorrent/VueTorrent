@@ -6,6 +6,7 @@
     "delete": "Sil",
     "disable": "Devre Dışı Bırak",
     "disabled": "Devre Dışı",
+    "edit": "Düzenle",
     "emptyList": "Burada görülecek bir şey yok.",
     "global_value": "Genel Değer",
     "NA": "Yok",
@@ -532,22 +533,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "Başlık filtresi",
-      "unread": "Sadece okunmamış makaleleri göster"
+    "feeds": {
+      "empty": {
+        "action": "RSS Beslemesi Oluştur"
+      },
+      "filters": {
+        "title": "Başlık filtresi",
+        "unread": "Sadece okunmamış makaleleri göster"
+      },
+      "item": {
+        "author": "Yazar: {author}",
+        "category": "Kategori: {category}",
+        "feedName": "Besleme adı: {name}"
+      },
+      "markAllAsRead": "Tümünü okundu olarak işaretle",
+      "promise": {
+        "error": "Makaleleri işaretlerken bir hata oluştu",
+        "pending": "İşaretleniyor...",
+        "success": "{n} makale okundu olarak işaretlendi"
+      },
+      "title": "RSS Makaleleri"
     },
-    "item": {
-      "author": "Yazar: {author}",
-      "category": "Kategori: {category}",
-      "feedName": "Besleme adı: {name}"
-    },
-    "markAllAsRead": "Tümünü okundu olarak işaretle",
-    "promise": {
-      "error": "Makaleleri işaretlerken bir hata oluştu",
-      "pending": "İşaretleniyor...",
-      "success": "{n} makale okundu olarak işaretlendi"
-    },
-    "title": "RSS Makaleleri"
+    "rules": {
+      "empty": {
+        "action": "RSS Kuralı Oluştur"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -844,34 +855,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Besleme ekle",
-        "noFeeds": "Henüz besleme yok",
-        "refreshAll": "Tümünü Yenile"
+      "autoDownloader": {
+        "enable": "RSS kurallarının işlenmesini etkinleştirin",
+        "subheader": "RSS Torrent Otomatik İndirici"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "RSS kurallarının işlenmesini etkinleştirin",
-          "subheader": "RSS Torrent Otomatik İndirici"
-        },
-        "reader": {
-          "enableProcessing": "RSS beslemelerini almayı etkinleştirin",
-          "feedsRefreshInterval": "Besleme yenileme aralığı",
-          "maximumArticlesPerFeed": "Besleme başına maksimum makale sayısı",
-          "subheader": "RSS Okuyucu"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "REPACK/PROPER bölümlerini indirin",
-          "filters": "Filtreler",
-          "filtersHint": "Satır başına bir tane",
-          "subheader": "RSS Akıllı Bölüm Filtresi"
-        },
-        "useIdForRssLinks": "RSS makale bağlantısı için ID kullan"
+      "reader": {
+        "enableProcessing": "RSS beslemelerini almayı etkinleştirin",
+        "feedsRefreshInterval": "Besleme yenileme aralığı",
+        "maximumArticlesPerFeed": "Besleme başına maksimum makale sayısı",
+        "subheader": "RSS Okuyucu"
       },
-      "rules": {
-        "createNew": "Kural Oluştur",
-        "noRules": "Henüz kural yok"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "REPACK/PROPER bölümlerini indirin",
+        "filters": "Filtreler",
+        "filtersHint": "Satır başına bir tane",
+        "subheader": "RSS Akıllı Bölüm Filtresi"
+      },
+      "useIdForRssLinks": "RSS makale bağlantısı için ID kullan"
     },
     "saveSuccess": "Ayarlar kaydedildi!",
     "speed": {
@@ -902,12 +902,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Bağlantı",
       "downloads": "İndirilenler",
-      "rss": {
-        "feeds": "Beslemeler",
-        "general": "Genel",
-        "rules": "Kurallar",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Hız",
       "tagsAndCategories": "Etiketler & Kategoriler",
       "vuetorrent": {

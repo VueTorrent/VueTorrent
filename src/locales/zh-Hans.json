@@ -6,6 +6,7 @@
     "delete": "删除",
     "disable": "禁用",
     "disabled": "已禁用",
+    "edit": "编辑",
     "emptyList": "当前无内容显示",
     "global_value": "全局设置",
     "NA": "不适用",
@@ -532,22 +533,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "标题过滤器",
-      "unread": "仅显示未读文章"
+    "feeds": {
+      "empty": {
+        "action": "创建 RSS 订阅源"
+      },
+      "filters": {
+        "title": "标题过滤器",
+        "unread": "仅显示未读文章"
+      },
+      "item": {
+        "author": "作者：{author}",
+        "category": "分类：{category}",
+        "feedName": "订阅源名称：{name}"
+      },
+      "markAllAsRead": "全部标记为已读",
+      "promise": {
+        "error": "标记文章时出错",
+        "pending": "标记中... ",
+        "success": "{n}篇文章已标记为已读"
+      },
+      "title": "RSS 资讯"
     },
-    "item": {
-      "author": "作者：{author}",
-      "category": "分类：{category}",
-      "feedName": "订阅源名称：{name}"
-    },
-    "markAllAsRead": "全部标记为已读",
-    "promise": {
-      "error": "标记文章时出错",
-      "pending": "标记中... ",
-      "success": "{n}篇文章已标记为已读"
-    },
-    "title": "RSS 资讯"
+    "rules": {
+      "empty": {
+        "action": "创建 RSS 规则"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -844,34 +855,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "添加订阅源",
-        "noFeeds": "暂无订阅源",
-        "refreshAll": "全部刷新"
+      "autoDownloader": {
+        "enable": "启用 RSS 规则处理",
+        "subheader": "RSS 种子自动下载器"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "启用 RSS 规则处理",
-          "subheader": "RSS 种子自动下载器"
-        },
-        "reader": {
-          "enableProcessing": "启用获取 RSS 订阅",
-          "feedsRefreshInterval": "订阅源刷新间隔",
-          "maximumArticlesPerFeed": "每个订阅源的最大文章数",
-          "subheader": "RSS 阅读器"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "下载 REPACK/PROPER 剧集",
-          "filters": "过滤器",
-          "filtersHint": "每行一个",
-          "subheader": "RSS 智能剧集过滤器"
-        },
-        "useIdForRssLinks": "在 RSS 文章链接中使用 ID"
+      "reader": {
+        "enableProcessing": "启用获取 RSS 订阅",
+        "feedsRefreshInterval": "订阅源刷新间隔",
+        "maximumArticlesPerFeed": "每个订阅源的最大文章数",
+        "subheader": "RSS 阅读器"
       },
-      "rules": {
-        "createNew": "创建规则",
-        "noRules": "暂无规则"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "下载 REPACK/PROPER 剧集",
+        "filters": "过滤器",
+        "filtersHint": "每行一个",
+        "subheader": "RSS 智能剧集过滤器"
+      },
+      "useIdForRssLinks": "在 RSS 文章链接中使用 ID"
     },
     "saveSuccess": "设置已成功保存！",
     "speed": {
@@ -902,12 +902,7 @@
       "bittorrent": "BitTorrent",
       "connection": "连接",
       "downloads": "下载",
-      "rss": {
-        "feeds": "订阅源",
-        "general": "常规设置",
-        "rules": "规则",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "速度",
       "tagsAndCategories": "标签和分类",
       "vuetorrent": {

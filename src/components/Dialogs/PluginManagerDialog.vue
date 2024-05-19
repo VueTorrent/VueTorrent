@@ -84,12 +84,10 @@ function closeInstallDialog() {
 
         <v-spacer />
 
-        <MixedButton icon="mdi-update" :text="$t('dialogs.pluginManager.update')"
-                     color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
+        <MixedButton icon="mdi-update" :text="$t('dialogs.pluginManager.update')" color="accent" class="mr-2" :loading="updateLoading" @click="updatePlugins" />
         <v-dialog v-model="installisOpened">
           <template v-slot:activator="{ props }">
-            <MixedButton icon="mdi-toy-brick-plus" :text="$t('dialogs.pluginManager.install.activator')"
-                         v-bind="props" color="primary" />
+            <MixedButton icon="mdi-toy-brick-plus" :text="$t('dialogs.pluginManager.install.activator')" v-bind="props" color="primary" />
           </template>
 
           <v-card :title="$t('dialogs.pluginManager.install.title')">

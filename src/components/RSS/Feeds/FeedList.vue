@@ -57,7 +57,7 @@ async function refreshAllFeeds() {
 
 function getFeedTitle(feed?: FeedType) {
   const unreadCount = getUnreadCount(feed)
-  return (unreadCount ? `${ unreadCount } | ` : '') + `${ feed ? feed.name : 'All' }`
+  return (unreadCount ? `${unreadCount} | ` : '') + `${feed ? feed.name : 'All'}`
 }
 
 const allState = computed(() => {
@@ -74,10 +74,7 @@ function getFeedState(feed: FeedType) {
 
 <template>
   <v-list :height="height">
-    <v-list-item :active="!currentFeed"
-                 color="accent"
-                 variant="text"
-                 @click="currentFeed = undefined">
+    <v-list-item :active="!currentFeed" color="accent" variant="text" @click="currentFeed = undefined">
       <div class="d-flex align-center">
         <FeedIcon :state="allState" />
         <v-list-item-title>{{ getFeedTitle() }}</v-list-item-title>
@@ -104,19 +101,21 @@ function getFeedState(feed: FeedType) {
     </v-list-item>
     <v-divider thickness="3" />
     <template v-for="feed in rssStore.feeds">
-      <v-list-item v-if="(!rssStore.filters.unread || rssStore.filters.unread && getUnreadCount(feed) > 0) && filteredFeedIds.includes(feed.uid)"
-                   :active="currentFeed === feed.uid"
-                   :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
-                   color="accent"
-                   variant="text"
-                   @click="toggleFeedSelected(feed)">
-        <Feed :title="getFeedTitle(feed)"
-              :state="getFeedState(feed)"
-              :unread-count="getUnreadCount(feed)"
-              @readFeed="readFeed(feed)"
-              @refreshFeed="$emit('refreshFeed', feed)"
-              @editFeed="$emit('editFeed', feed)"
-              @deleteFeed="$emit('deleteFeed', feed)" />
+      <v-list-item
+        v-if="(!rssStore.filters.unread || (rssStore.filters.unread && getUnreadCount(feed) > 0)) && filteredFeedIds.includes(feed.uid)"
+        :active="currentFeed === feed.uid"
+        :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
+        color="accent"
+        variant="text"
+        @click="toggleFeedSelected(feed)">
+        <Feed
+          :title="getFeedTitle(feed)"
+          :state="getFeedState(feed)"
+          :unread-count="getUnreadCount(feed)"
+          @readFeed="readFeed(feed)"
+          @refreshFeed="$emit('refreshFeed', feed)"
+          @editFeed="$emit('editFeed', feed)"
+          @deleteFeed="$emit('deleteFeed', feed)" />
       </v-list-item>
     </template>
   </v-list>

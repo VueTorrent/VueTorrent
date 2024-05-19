@@ -29,12 +29,12 @@ async function deleteRule(rule: FeedRule) {
     <v-spacer />
     <div>
       <v-btn
-          class="my-2 mr-2"
-          :icon="value.enabled ? 'mdi-check' : 'mdi-cancel'"
-          :color="value.enabled ? 'accent' : 'red'"
-          variant="plain"
-          density="compact"
-          @click="toggleRule(value)" />
+        class="my-2 mr-2"
+        :icon="value.enabled ? 'mdi-check' : 'mdi-cancel'"
+        :color="value.enabled ? 'accent' : 'red'"
+        variant="plain"
+        density="compact"
+        @click="toggleRule(value)" />
 
       <v-tooltip :text="$t('common.edit')" location="top">
         <template v-slot:activator="{ props }">
@@ -51,6 +51,4 @@ async function deleteRule(rule: FeedRule) {
   </v-sheet>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

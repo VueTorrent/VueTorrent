@@ -6,6 +6,7 @@
     "delete": "移除",
     "disable": "停用",
     "disabled": "已停用",
+    "edit": "編輯",
     "emptyList": "這裡沒東西可看！",
     "global_value": "全局設定",
     "NA": "不適用",
@@ -532,22 +533,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "標題過濾器",
-      "unread": "僅顯示未讀文章"
+    "feeds": {
+      "empty": {
+        "action": "新增 RSS 訂閱源"
+      },
+      "filters": {
+        "title": "標題過濾器",
+        "unread": "僅顯示未讀文章"
+      },
+      "item": {
+        "author": "作者: {author}",
+        "category": "分類: {category}",
+        "feedName": "訂閱源名稱: {name}"
+      },
+      "markAllAsRead": "標記全部項目為已讀",
+      "promise": {
+        "error": "標記文章時發生錯誤",
+        "pending": "標記中...",
+        "success": "已標記 {n} 篇文章為已讀"
+      },
+      "title": "RSS 文章"
     },
-    "item": {
-      "author": "作者: {author}",
-      "category": "分類: {category}",
-      "feedName": "訂閱源名稱: {name}"
-    },
-    "markAllAsRead": "標記全部項目為已讀",
-    "promise": {
-      "error": "標記文章時發生錯誤",
-      "pending": "標記中...",
-      "success": "已標記 {n} 篇文章為已讀"
-    },
-    "title": "RSS 文章"
+    "rules": {
+      "empty": {
+        "action": "新增 RSS 規則"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -844,34 +855,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "新增訂閱",
-        "noFeeds": "尚無訂閱",
-        "refreshAll": "重新整理全部"
+      "autoDownloader": {
+        "enable": "啟用 RSS 規則處理",
+        "subheader": "RSS 種子自動下載器"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "啟用 RSS 規則處理",
-          "subheader": "RSS 種子自動下載器"
-        },
-        "reader": {
-          "enableProcessing": "啟用抓取 RSS 訂閱",
-          "feedsRefreshInterval": "訂閱源更新區間",
-          "maximumArticlesPerFeed": "每個訂閱源的最大文章數",
-          "subheader": "RSS 閱讀器"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "下載 REPACK/PROPER 章節",
-          "filters": "過濾器",
-          "filtersHint": "每行一個",
-          "subheader": "RSS 智慧型章節過濾器"
-        },
-        "useIdForRssLinks": "在 RSS 文章連結中使用 ID"
+      "reader": {
+        "enableProcessing": "啟用抓取 RSS 訂閱",
+        "feedsRefreshInterval": "訂閱源更新區間",
+        "maximumArticlesPerFeed": "每個訂閱源的最大文章數",
+        "subheader": "RSS 閱讀器"
       },
-      "rules": {
-        "createNew": "新增規則",
-        "noRules": "尚無規則"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "下載 REPACK/PROPER 章節",
+        "filters": "過濾器",
+        "filtersHint": "每行一個",
+        "subheader": "RSS 智慧型章節過濾器"
+      },
+      "useIdForRssLinks": "在 RSS 文章連結中使用 ID"
     },
     "saveSuccess": "設定儲存成功！",
     "speed": {
@@ -902,12 +902,7 @@
       "bittorrent": "BitTorrent",
       "connection": "連線",
       "downloads": "下載",
-      "rss": {
-        "feeds": "訂閱源",
-        "general": "一般",
-        "rules": "規則",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "速率",
       "tagsAndCategories": "標籤和分類",
       "vuetorrent": {
