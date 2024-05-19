@@ -972,20 +972,21 @@ export default class MockProvider implements IProvider {
     })
   }
 
-  async getTorrentPeers(_: string, rid?: number): Promise<TorrentPeersResponse> {
+  async syncTorrentPeers(_: string, rid?: number): Promise<TorrentPeersResponse> {
+    rid = rid ?? 0
     return this.generateResponse({
       result: {
-        full_update: true,
-        rid: rid ?? 1,
+        full_update: !(rid > 0),
+        rid: rid + 1,
         peers: {
           '1.1.1.1:6889': {
             client: 'qBittorrent v4.6.2',
-            connection: 'L',
+            connection: 'BT',
             country: 'United States',
             country_code: 'US',
             dl_speed: 0,
             downloaded: 0,
-            files: '1',
+            files: 'ubuntu-23.10.1-desktop-amd64.iso',
             flags: 'D',
             flags_desc: 'dht',
             ip: '1.1.1.1',
@@ -995,9 +996,45 @@ export default class MockProvider implements IProvider {
             relevance: 1,
             up_speed: 0,
             uploaded: 0
+          },
+          '85.85.85.85:53724': {
+            client: 'Tixati 2.84',
+            connection: 'μTP',
+            country: 'Spain',
+            country_code: 'ES',
+            dl_speed: 0,
+            downloaded: 0,
+            files: 'ubuntu/ubuntu-23.10.1-desktop-amd64.iso',
+            flags: 'D ? S H P',
+            flags_desc: 'D = Interested (local) and unchoked (peer)\n? = Not interested (peer) and unchoked (local)\nS = Peer snubbed\nH = Peer from DHT\nP = μTP',
+            ip: '85.85.85.85',
+            peer_id_client: 'TIX0284-',
+            port: 53724,
+            progress: .30,
+            relevance: .45,
+            up_speed: 0,
+            uploaded: 0
+          },
+          '111.222.123.123:8346': {
+            client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
+            connection: 'WEB',
+            country: 'China',
+            country_code: 'CN',
+            dl_speed: 0,
+            downloaded: 0,
+            files: 'ubuntu2/ubuntu-23.10.1-desktop-amd64.iso',
+            flags: 'U H X P',
+            flags_desc: 'U = Interested (peer) and unchoked (local)\nH = Peer from DHT\nX = Peer from PEX\nP = μTP',
+            ip: '111.222.123.123',
+            peer_id_client: '-DE211s-',
+            port: 8346,
+            progress: .70,
+            relevance: .66,
+            up_speed: 0,
+            uploaded: 0
           }
         },
-        show_flags: true
+        show_flags: (rid <= 0) || undefined
       }
     })
   }

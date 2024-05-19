@@ -11,7 +11,7 @@ function openAddTorrentDialog() {
 </script>
 
 <template>
-  <v-bottom-navigation :active="addTorrentStore.pendingTorrentsCount > 0" class="pointer" v-touch="{ up: openAddTorrentDialog }" @click="openAddTorrentDialog">
+  <v-bottom-navigation :active="addTorrentStore.pendingTorrentsCount > 0" class="cursor-pointer" v-touch="{ up: openAddTorrentDialog }" @click="openAddTorrentDialog">
     <v-list-item :title="$t('navbar.addPanel.torrentsPendingCount', addTorrentStore.pendingTorrentsCount)" />
     <v-spacer />
     <v-list-item>

@@ -16,6 +16,7 @@
     "ok": "OK",
     "refresh": "Refresh",
     "save": "Save",
+    "search": "Search",
     "selectAll": "Select All",
     "selectNone": "Select None",
     "useGlobalSettings": "Use Global Settings",
@@ -1136,14 +1137,20 @@
       "addPeers": {
         "newPeers": "Peer hosts to add",
         "newPeersHint": "One per line",
-        "newPeersPlaceholder": "host:port",
+        "newPeersPlaceholder": "IP:port",
         "title": "Add Peers"
       },
-      "emptyList": "No peers connected at the moment",
+      "empty": "No peers connected at the moment",
       "fields": {
-        "client": "Client: {name} ({id})",
-        "flags": "Flags: {value}",
-        "relevance": "Relevance: {value}"
+        "client": "Client",
+        "country": "Country",
+        "download": "Download",
+        "files": "Files",
+        "flags": "Flags",
+        "host": "Host",
+        "progress": "Progress",
+        "relevance": "Relevance",
+        "upload": "Upload"
       }
     },
     "tabs": {

@@ -236,7 +236,7 @@ export default interface IProvider {
    * @param hash Torrent hash
    * @param rid Request ID
    */
-  getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse>
+  syncTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse>
 
   /// TorrentsController ///
 

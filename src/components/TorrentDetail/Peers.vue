@@ -3,7 +3,8 @@ import { codeToFlag, formatData, formatPercent, formatSpeed, isWindows } from '@
 import { useMaindataStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { onBeforeMount, onUnmounted, ref, watch } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
@@ -15,18 +16,80 @@ const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 
-const loading = ref(false)
-const torrentPeers = ref<PeerType[]>([])
-const newPeers = ref('')
-const timer = ref<NodeJS.Timeout | null>(null)
-const addPeersDialog = ref(false)
+function sortHost(a: PeerType, b: PeerType) {
+  const ipA = a.ip.split('.').map(Number)
+  const ipB = b.ip.split('.').map(Number)
 
-async function updatePeers() {
+  for (let i = 0; i < 4; i++) {
+    if (ipA[i] !== ipB[i]) {
+      return ipA[i] - ipB[i]
+    }
+  }
+
+  return a.port - b.port
+}
+
+function sortCountry(a: PeerType, b: PeerType) {
+  if (a.country && !b.country) return -1
+  if (!a.country && b.country) return 1
+  if (!a.country && !b.country) return 0
+  if (a.country === b.country) return sortHost(a, b)
+  return a.country!.localeCompare(b.country!)
+}
+
+const headers = readonly([
+  { nowrap: true, key: 'actions', sortable: false },
+  { nowrap: true, title: t('torrentDetail.peers.fields.country'), key: 'country', sortRaw: sortCountry },
+  { nowrap: true, title: t('torrentDetail.peers.fields.host'), key: 'host', sortRaw: sortHost },
+  { nowrap: true, title: t('torrentDetail.peers.fields.progress'), key: 'progress' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.download'), key: 'dl_speed' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.upload'), key: 'up_speed' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.flags'), key: 'flags' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.client'), key: 'client' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.relevance'), key: 'relevance' },
+  { nowrap: true, title: t('torrentDetail.peers.fields.files'), key: 'files' }
+])
+const sortBy = shallowReadonly<{ key: string, order?: boolean | 'asc' | 'desc' }[]>([
+  { key: 'client', order: 'desc' },
+  { key: 'dl_speed', order: 'desc' },
+  { key: 'up_speed', order: 'desc' }
+])
+
+const loading = ref(false)
+const rid = ref<number>()
+const torrentPeers = ref<Map<string, Peer>>(new Map())
+const showCountryFlags = ref(false)
+
+const addPeersDialog = ref(false)
+const newPeers = ref('')
+
+const items = computed(() => Array.from(torrentPeers.value.entries()).map(([host, peer]) => ({ ...peer, host })))
+
+function updatePeers(peers: Record<string, Peer>) {
+  Object.entries(peers).forEach(([k, v]) => {
+    const currentPeer = torrentPeers.value.get(k)
+    torrentPeers.value.set(k, { ...currentPeer, ...v })
+  })
+}
+
+function cleanPeers(peers: string[]) {
+  peers.forEach(peer => torrentPeers.value.delete(peer))
+}
+
+async function syncPeers() {
   loading.value = true
-  torrentPeers.value = Object.entries((await maindataStore.getTorrentPeers(props.torrent.hash)).peers).map(([host, peer]) => ({
-    ...peer,
-    host
-  }))
+
+  const response = await maindataStore.syncTorrentPeers(props.torrent.hash, rid.value)
+  rid.value = response.rid
+  showCountryFlags.value = response.show_flags ?? showCountryFlags.value
+
+  if (response.full_update) {
+    torrentPeers.value = new Map(Object.entries(response.peers!))
+  } else {
+    response.peers_removed && cleanPeers(response.peers_removed)
+    response.peers && updatePeers(response.peers)
+  }
+
   loading.value = false
 }
 
@@ -34,7 +97,7 @@ async function addPeers() {
   if (!newPeers.value.length) return
 
   await maindataStore.addTorrentPeers(props.torrent.hash, newPeers.value.split('\n'))
-  await updatePeers()
+  resume()
   closeAddDialog()
 }
 
@@ -46,137 +109,109 @@ function closeAddDialog() {
 async function banPeer(peer: PeerType) {
   await maindataStore.banPeers([peer.host])
   await preferenceStore.fetchPreferences()
-  await updatePeers()
+  resume()
 }
 
-async function setupTimer(forceState?: boolean) {
-  if (forceState ?? props.isActive) {
-    await updatePeers()
-    timer.value = setInterval(updatePeers, 5000)
-  } else {
-    clearInterval(timer.value!)
-    timer.value = null
-  }
-}
+const { isActive, pause, resume } = useIntervalFn(syncPeers, 2000, {
+  immediate: true,
+  immediateCallback: true
+})
 
-onBeforeMount(setupTimer)
-onUnmounted(() => setupTimer(false))
-watch(() => props.isActive, setupTimer)
+watch(() => props.isActive, value => {
+  if (value) resume()
+  else pause()
+})
+
+const filter = ref('')
 </script>
 
 <template>
-  <v-list>
-    <template v-for="(peer, index) in torrentPeers">
-      <v-divider v-if="index > 0" color="white" />
+  <v-card>
+    <v-empty-state v-if="!torrentPeers.size" :title="$t('torrentDetail.peers.empty')" icon="mdi-account-sync" color="accent" />
+    <v-data-table v-else :headers="headers" :items="items" multi-sort :sort-by="sortBy" :search="filter" :filter-keys="['host', 'ip', 'port']" :mobile="null">
+      <template #top>
+        <v-text-field v-model="filter" class="ma-3" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line />
+      </template>
 
-      <v-list-item>
-        <div class="d-flex">
-          <div>
-            <v-list-item-title class="mb-3 wrap-anywhere" style="white-space: unset">
-              <span v-if="peer.country_code">
-                <img v-if="isWindows" :alt="codeToFlag(peer.country_code).char" :src="codeToFlag(peer.country_code).url" :title="peer.country" style="max-width: 32px" />
-                <span v-else :title="peer.country">{{ codeToFlag(peer.country_code).char }}</span>
-              </span>
-              <span>{{ peer.ip }}</span>
-              <span class="text-subtitle-2 text-grey"> :{{ peer.port }}</span>
+      <template #[`item.host`]="{ item }">
+        {{ item.ip }}<span class="text-grey">:{{ item.port }}</span>
+      </template>
 
-              <v-progress-linear
-                :model-value="peer.progress"
-                :max="1"
-                :height="20"
-                :color="peer.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'"
-                rounded="sm"
-                style="width: 10em">
-                {{ formatPercent(peer.progress) }}
-              </v-progress-linear>
-            </v-list-item-title>
+      <template #[`item.client`]="{ item }">
+        <span v-if="item.connection">[{{ item.connection }}]&nbsp;</span>
+        <span v-if="item.client">
+          {{ item.client }}
+          <span v-if="item.peer_id_client">({{ item.peer_id_client }})</span>
+        </span>
+        <span v-else class="text-grey">?????</span>
+      </template>
 
-            <v-list-item-subtitle class="d-block">
-              <div v-if="peer.flags" class="cursor-help" :title="peer.flags_desc">
-                {{ $t('torrentDetail.peers.fields.flags', { value: peer.flags }) }}
-              </div>
-              <div v-else>
-                {{ $t('torrentDetail.peers.fields.flags', { value: $t('common.none') }) }}
-              </div>
+      <template #[`item.actions`]="{ item }">
+        <v-btn color="red" icon="mdi-cancel" variant="text" @click="banPeer(item)" />
+      </template>
 
-              <div v-show="peer.client || peer.peer_id_client">{{ $t('torrentDetail.peers.fields.client', { name: peer.client, id: peer.peer_id_client }) }}</div>
-
-              <div>
-                <v-icon icon="mdi-arrow-down" color="download" />
-                {{ formatSpeed(peer.dl_speed, vuetorrentStore.useBitSpeed) }}
-
-                <v-icon icon="mdi-arrow-up" color="upload" />
-                {{ formatSpeed(peer.up_speed, vuetorrentStore.useBitSpeed) }}
-              </div>
-
-              <div>
-                <v-icon icon="mdi-download" color="download" />
-                {{ formatData(peer.downloaded, vuetorrentStore.useBinarySize) }}
-
-                <v-icon icon="mdi-upload" color="upload" />
-                {{ formatData(peer.uploaded, vuetorrentStore.useBinarySize) }}
-              </div>
-
-              <div>{{ $t('torrentDetail.peers.fields.relevance', { value: formatPercent(peer.relevance) }) }}</div>
-            </v-list-item-subtitle>
-          </div>
-
-          <v-spacer />
-
-          <div class="d-flex flex-column">
-            <v-btn color="red" icon="mdi-cancel" variant="text" @click="banPeer(peer)" />
-          </div>
+      <template #[`item.country`]="{ item }">
+        <div v-if="showCountryFlags" class="cursor-help" :title="item.country">
+          <img v-if="isWindows" :alt="codeToFlag(item.country_code!).char" :src="codeToFlag(item.country_code!).url" :title="item.country" style="max-width: 32px" />
+          <span v-else :title="item.country">{{ codeToFlag(item.country_code!).char }}</span>
         </div>
-      </v-list-item>
-    </template>
+      </template>
 
-    <v-list-item v-if="torrentPeers.length === 0">
-      {{ $t('torrentDetail.peers.emptyList') }}
-    </v-list-item>
+      <template #[`item.flags`]="{ item }">
+        <div v-if="item.flags" class="cursor-help" :title="item.flags_desc">
+          {{ item.flags }}
+        </div>
+        <div v-else>{{ $t('common.none') }}</div>
+      </template>
 
-    <v-list-item>
-      <div :class="['d-flex gap py-5', $vuetify.display.mobile ? 'flex-column' : 'justify-space-evenly']">
-        <v-dialog v-model="addPeersDialog" max-width="750px">
-          <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.peers.addPeers.title')" color="accent" />
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ t('torrentDetail.peers.addPeers.title') }}</span>
-            </v-card-title>
+      <template #[`item.dl_speed`]="{ item }">
+        <span class="text-download">
+          {{ formatSpeed(item.dl_speed, vuetorrentStore.useBitSpeed) }}
+          ({{ formatData(item.downloaded, vuetorrentStore.useBinarySize) }})
+        </span>
+      </template>
+      <template #[`item.up_speed`]="{ item }">
+        <span class="text-upload">
+          {{ formatSpeed(item.up_speed, vuetorrentStore.useBitSpeed) }}
+          ({{ formatData(item.uploaded, vuetorrentStore.useBinarySize) }})
+        </span>
+      </template>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12">
-                    <v-textarea
-                      v-model="newPeers"
-                      :label="t('torrentDetail.peers.addPeers.newPeers')"
-                      :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
-                      :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+      <template #[`item.progress`]="{ item }">
+        <v-progress-linear :model-value="item.progress" :max="1" :height="20" rounded="sm" style="width: 8em"
+                           :color="item.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'">
+          {{ formatPercent(item.progress) }}
+        </v-progress-linear>
+      </template>
+      <template #[`item.relevance`]="{ item }">
+        {{ formatPercent(item.relevance) }}
+      </template>
+    </v-data-table>
 
-            <v-card-actions>
-              <v-spacer />
-              <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
-              <v-btn color="accent" @click="addPeers">{{ t('common.ok') }}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
-      </div>
-    </v-list-item>
-  </v-list>
+    <div class="d-flex my-3 flex-gap align-center justify-center">
+      <v-btn v-if="isActive" prepend-icon="mdi-pause" color="primary" text="Pause" @click="pause()" />
+      <v-btn v-else prepend-icon="mdi-play" color="primary" text="Play" @click="resume()" />
+
+      <v-dialog v-model="addPeersDialog" max-width="750px">
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.peers.addPeers.title')" color="accent" />
+        </template>
+        <v-card :title="$t('torrentDetail.peers.addPeers.title')">
+          <v-card-text>
+            <v-textarea
+                v-model="newPeers"
+                :label="t('torrentDetail.peers.addPeers.newPeers')"
+                :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
+                :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
+            <v-btn color="accent" @click="addPeers">{{ t('common.ok') }}</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </div>
+  </v-card>
 </template>
-
-<style scoped>
-.gap {
-  gap: 8px;
-}
-
-.cursor-help {
-  cursor: help;
-}
-</style>

@@ -4,8 +4,16 @@ ul.no-bullet {
   list-style-type: none;
 }
 
-.pointer {
+.cursor-pointer {
   cursor: pointer;
+}
+
+.cursor-help {
+  cursor: help;
+}
+
+.flex-gap {
+  gap: 8px 16px;
 }
 
 .wrap-word {

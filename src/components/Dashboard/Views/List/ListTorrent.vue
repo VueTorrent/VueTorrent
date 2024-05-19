@@ -56,13 +56,13 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
 
 <template>
   <v-card
-    :class="`sideborder ${torrent.state} pointer`"
+    :class="`sideborder ${torrent.state} cursor-pointer`"
     width="100%"
     :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap pt-1 pb-0 px-2 text-truncate" style="font-size: 0.97em">{{ torrent.name }}</v-card-title>
     <v-card-text class="pa-2 pt-0">
-      <div class="d-flex gap flex-wrap">
+      <div class="d-flex flex-gap flex-wrap">
         <template v-for="ppt in torrentProperties">
           <component v-if="ppt.props" :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" />
         </template>
@@ -70,9 +70,3 @@ const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(pro
     </v-card-text>
   </v-card>
 </template>
-
-<style scoped>
-.gap {
-  gap: 8px 16px;
-}
-</style>

@@ -32,7 +32,7 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
     <div v-if="titleKey" class="text-caption text-grey">
       {{ $t(titleKey) }}
     </div>
-    <div class="d-flex flex-row gap">
+    <div class="d-flex flex-row flex-gap">
       <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat" size="small">
         {{ $t(emptyValueKey) }}
       </v-chip>
@@ -42,9 +42,3 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
     </div>
   </div>
 </template>
-
-<style scoped>
-.gap {
-  gap: 8px;
-}
-</style>

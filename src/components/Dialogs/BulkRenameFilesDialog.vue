@@ -305,7 +305,7 @@ onMounted(() => {
               <template v-slot:[`item.name`]="{ item }">
                 <span
                   class="fold-toggle"
-                  :class="{ pointer: item.type === 'folder' }"
+                  :class="{ 'cursor-pointer': item.type === 'folder' }"
                   :style="{ 'padding-left': `${item.indent * 16}px` }"
                   @click="item.type === 'folder' && toggleFolderFolded(item, !item.folded)">
                   <v-tooltip v-if="item.type === 'folder'" location="top" activator="parent">
