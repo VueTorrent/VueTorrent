@@ -6,6 +6,7 @@
     "delete": "Törlés",
     "disable": "Letilt",
     "disabled": "Letiltva",
+    "edit": "Szerkesztés",
     "emptyList": "Itt nincs mit látni!",
     "NA": "N/A",
     "no": "Nem",
@@ -510,22 +511,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "Cím szűrő",
-      "unread": "Csak olvasatlan cikkek megjelenítése"
+    "feeds": {
+      "empty": {
+        "action": "RSS hírcsatorna létrehozása"
+      },
+      "filters": {
+        "title": "Cím szűrő",
+        "unread": "Csak olvasatlan cikkek megjelenítése"
+      },
+      "item": {
+        "author": "Szerző: {author}",
+        "category": "Kategória: {category}",
+        "feedName": "Hírcsatorna neve: {name}"
+      },
+      "markAllAsRead": "Összes megjelölése olvasottként",
+      "promise": {
+        "error": "Hiba történt a cikkek megjelölése közben",
+        "pending": "Megjelölés...",
+        "success": "{n} cikk megjelölve olvasottként"
+      },
+      "title": "RSS cikkek"
     },
-    "item": {
-      "author": "Szerző: {author}",
-      "category": "Kategória: {category}",
-      "feedName": "Hírcsatorna neve: {name}"
-    },
-    "markAllAsRead": "Összes megjelölése olvasottként",
-    "promise": {
-      "error": "Hiba történt a cikkek megjelölése közben",
-      "pending": "Megjelölés...",
-      "success": "{n} cikk megjelölve olvasottként"
-    },
-    "title": "RSS cikkek"
+    "rules": {
+      "empty": {
+        "action": "RSS szabály létrehozása"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -822,34 +833,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Hírcsatorna hozzáadása",
-        "noFeeds": "Még nincsenek hírcsatornák",
-        "refreshAll": "Összes frissítése"
+      "autoDownloader": {
+        "enable": "RSS szabályok feldolgozásának engedélyezése",
+        "subheader": "RSS Torrent Automatikus Letöltő"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "RSS szabályok feldolgozásának engedélyezése",
-          "subheader": "RSS Torrent Automatikus Letöltő"
-        },
-        "reader": {
-          "enableProcessing": "RSS hírcsatornák lekérdezésének engedélyezése",
-          "feedsRefreshInterval": "Hírcsatornák frissítési intervalluma",
-          "maximumArticlesPerFeed": "Cikkek maximális száma hírcsatornánként",
-          "subheader": "RSS Olvasó"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "REPACK/PROPER epizódok letöltése",
-          "filters": "Szűrők",
-          "filtersHint": "Soronként egy",
-          "subheader": "RSS Okos Epizód Szűrő"
-        },
-        "useIdForRssLinks": "Azonosító használata az RSS cikk hivatkozásokhoz"
+      "reader": {
+        "enableProcessing": "RSS hírcsatornák lekérdezésének engedélyezése",
+        "feedsRefreshInterval": "Hírcsatornák frissítési intervalluma",
+        "maximumArticlesPerFeed": "Cikkek maximális száma hírcsatornánként",
+        "subheader": "RSS Olvasó"
       },
-      "rules": {
-        "createNew": "Szabály létrehozása",
-        "noRules": "Még nincsenek szabályok"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "REPACK/PROPER epizódok letöltése",
+        "filters": "Szűrők",
+        "filtersHint": "Soronként egy",
+        "subheader": "RSS Okos Epizód Szűrő"
+      },
+      "useIdForRssLinks": "Azonosító használata az RSS cikk hivatkozásokhoz"
     },
     "saveSuccess": "Beállítások mentve!",
     "speed": {
@@ -880,12 +880,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Kapcsolat",
       "downloads": "Letöltések",
-      "rss": {
-        "feeds": "Hírcsatornák",
-        "general": "Általános",
-        "rules": "Szabályok",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Sebesség",
       "tagsAndCategories": "Címkék & Kategóriák",
       "vuetorrent": {

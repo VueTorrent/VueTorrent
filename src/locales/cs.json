@@ -1,0 +1,235 @@
+{
+  "common": {
+    "active": "Aktivní",
+    "cancel": "Zrušit",
+    "close": "Zavřít",
+    "delete": "Smazat",
+    "disable": "Zakázat",
+    "disabled": "Vypnuto",
+    "emptyList": "Není tu nic k vidění!",
+    "NA": "Není k dispozici",
+    "no": "Ne",
+    "none": "(Žádné)",
+    "ok": "OK",
+    "save": "Uložit",
+    "selectAll": "Vybrat vše",
+    "selectNone": "Nic nevybrat",
+    "useGlobalSettings": "Použít globální nastavení",
+    "yes": "Ano"
+  },
+  "constants": {
+    "addPaused": {
+      "always": "Vždy",
+      "never": "Nikdy",
+      "title": "Přidat pozastavené"
+    },
+    "bittorrentProtocols": {
+      "tcp": "TCP",
+      "tcp_utp": "TCP a μTP",
+      "utp": "μTP"
+    },
+    "connectionStatus": {
+      "connected": "Připojeno",
+      "disconnected": "Odpojeno",
+      "firewalled": "Blokováno firewallem",
+      "unknown": "Neznámý"
+    },
+    "contentLayout": {
+      "nosubfolder": "Odebrat podsložku",
+      "original": "Původní",
+      "subfolder": "Vytvořit podsložku",
+      "title": "Rozvržení obsahu torrentu"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Zakázání mezipaměti operačního systému",
+      "enableOsCache": "Povolení mezipaměti operačního systému",
+      "writeThrough": "Zápis (libtorrent >= 2.0.6)"
+    },
+    "diskIoType": {
+      "default": "Výchozí",
+      "memoryMappedFiles": "Soubory mapované v paměti",
+      "posixCompliant": "Kompatibilní s POSIX"
+    },
+    "encryption": {
+      "forceOff": "Zakázat šifrování",
+      "forceOn": "Vyžadovat šifrování",
+      "preferEncryption": "Povolit šifrování"
+    },
+    "file_log_age_type": {
+      "days": "Dny",
+      "months": "Měsíce",
+      "years": "Roky"
+    },
+    "file_priority": {
+      "high": "Vysoká",
+      "max": "Max",
+      "normal": "Normální",
+      "unwanted": "Nechtěný"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Pozastavit torrent",
+      "removeTorrent": "Odebrat torrent",
+      "removeTorrentAndFiles": "Odstraňte torrent a jeho soubory",
+      "torrentSuperseeding": "Povolit super seeding pro torrent"
+    },
+    "monitoredFolderSaveLocation": {
+      "defaultSavePath": "Výchozí cesta k uložení",
+      "monitoredFolder": "Umístění sledované složky",
+      "other": "Jiné"
+    },
+    "proxy_type": {
+      "http": "HTTP",
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
+    },
+    "scheduler": {
+      "everyDay": "Každý den",
+      "everyFriday": "Každý pátek",
+      "everyMonday": "Každé pondělí",
+      "everySaturday": "Každou sobotu",
+      "everySunday": "Každou neděli",
+      "everyThursday": "Každý čtvrtek",
+      "everyTuesday": "Každé úterý",
+      "everyWednesday": "Každou středu",
+      "everyWeekday": "Každý všední den",
+      "everyWeekend": "Každý víkend"
+    },
+    "stopCondition": {
+      "filesChecked": "Soubory zkontrolovány",
+      "metadataReceived": "Metadata přijata",
+      "none": "Žádné",
+      "title": "Podmínka zastavení torrentu"
+    },
+    "titleOptions": {
+      "custom": "Vlastní",
+      "default": "Výchozí",
+      "first_torrent_speed": "Rychlost prvního torrentu",
+      "global_speed": "Globální rychlost"
+    },
+    "trackerStatus": {
+      "disabled": "Vypnuto",
+      "not_working": "Nefunguje",
+      "not_yet_contacted": "Dosud nekontaktováno",
+      "updating": "Aktualizuji",
+      "working": "Zaneprázdněn"
+    },
+    "uploadChokingAlgorithm": {
+      "antiLeech": "Ochrana proti pijavicím (Anti-leech)",
+      "fastestUpload": "Nejrychlejší nahrávání",
+      "roundRobin": "Round-robin"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Pevné sloty",
+      "uploadRateBased": "Na základě rychlosti nahrávání"
+    },
+    "utpTcpMixedMode": {
+      "peerProportional": "Rovnoměrné rozdělení (omezení TCP)",
+      "preferTcp": "Upřednostňovat TCP"
+    }
+  },
+  "dashboard": {
+    "displayMode": {
+      "grid": "Mřížka",
+      "list": "Seznam",
+      "table": "Tabulka",
+      "title": "Režim zobrazení"
+    },
+    "not_complete": "Nikdy nebylo dokončeno",
+    "right_click": {
+      "advanced": {
+        "auto_tmm": "Automatická správa torrentů",
+        "download_path": "Nastavení cesty ke stažení",
+        "f_l_prio": "První / poslední priorita",
+        "reannounce": "Vynutit opětovné ohlášení",
+        "recheck": "Vynutit opakovanou kontrolu",
+        "rename": "Přejmenování torrentu",
+        "save_path": "Nastavení cesty k uložení",
+        "seq_dl": "Sekvenční stahování",
+        "title": "Pokročilé"
+      },
+      "category": {
+        "clear": "(Vymazat kategorii)",
+        "disabled_title": "Žádné kategorie",
+        "title": "Nastavit kategorii"
+      },
+      "copy": {
+        "hash": "Hash",
+        "magnet": "Magnet",
+        "name": "Název",
+        "title": "Kopírovat"
+      },
+      "export": "Exportovat torrent | Exportovat torrenty",
+      "info": "Zobrazit informace",
+      "priority": {
+        "bottom": "Nejnižší priorita",
+        "decrease": "Snížit prioritu",
+        "increase": "Zvýšit prioritu",
+        "title": "Nastavení priority",
+        "top": "Nejvyšší priorita"
+      },
+      "speed_limit": {
+        "download": "Nastavit limit rychlosti stahování",
+        "share": "Nastavit limit sdílení",
+        "title": "Nastavit omezení rychlosti",
+        "upload": "Nastavit limit rychlosti odesílání"
+      },
+      "tags": {
+        "disabled_title": "Žádné značky",
+        "title": "Nastavení značek"
+      },
+      "top": {
+        "delete": "Smazat",
+        "force_resume": "Vynutit obnovení",
+        "pause": "Pozastavit",
+        "resume": "Obnovit"
+      }
+    },
+    "searchInputLabel": "Hledat",
+    "selectAll": "(Od)vybrat vše (Ctrl + A)",
+    "selectedTorrentsCount": "Žádný torrent | {count} z {total} torrentů ({size}) | {count} z {total} torrentů ({size})",
+    "sortBy": {
+      "added_on": "Přidáno dne",
+      "amount_left": "Zbývá množství",
+      "auto_tmm": "Automatické TMM",
+      "availability": "Dostupnost",
+      "avg_download_speed": "Průměrná rychlost stahování",
+      "avg_upload_speed": "Průměrná rychlost nahrávání",
+      "category": "Kategorie",
+      "completed": "Dokončeno",
+      "completion_on": "Dokončeno dne",
+      "content_path": "Cesta k obsahu",
+      "default": "Výchozí",
+      "dl_limit": "Limit stahování",
+      "dlspeed": "Rychlost stahování",
+      "downloaded": "Staženo (Celkově)",
+      "downloaded_session": "Staženo (Relace)",
+      "download_path": "Cesta ke stažení",
+      "eta": "ETA",
+      "f_l_piece_prio": "Priorita prvního/posledního kusu",
+      "force_start": "Vynucený start",
+      "globalSpeed": "Celková rychlost",
+      "globalVolume": "Celkový objem",
+      "hash": "Hash",
+      "infohash_v1": "Infohash v1",
+      "infohash_v2": "Infohash v2",
+      "last_activity": "Poslední aktivita",
+      "magnet_uri": "Magnet URI",
+      "max_ratio": "Maximální poměr",
+      "max_seeding_time": "Maximální doba odesílání",
+      "name": "Název",
+      "num_complete": "Odesílající (swarm)",
+      "num_incomplete": "Stahující (swarm)",
+      "num_leechs": "Stahující (připojení)",
+      "num_seeds": "Odesílající (připojení)",
+      "priority": "Priorita",
+      "progress": "Postup",
+      "ratio": "Poměr",
+      "ratio_limit": "Poměrový limit"
+    }
+  },
+  "torrent": {
+    "properties": {
+      "priority": "Priorita"
+    }
+  }
+}

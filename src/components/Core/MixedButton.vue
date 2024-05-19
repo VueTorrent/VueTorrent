@@ -2,18 +2,21 @@
 import { computed } from 'vue'
 import { useDisplay } from 'vuetify'
 
-const props = withDefaults(defineProps<{
-  mobileOverride?: boolean
-  mobileValue?: boolean
-  icon: string
-  text: string
-}>(), {
-  mobileOverride: false
-})
+const props = withDefaults(
+  defineProps<{
+    mobileOverride?: boolean
+    mobileValue?: boolean
+    icon: string
+    text: string
+  }>(),
+  {
+    mobileOverride: false
+  }
+)
 
 const { mobile: mobileRef } = useDisplay()
 
-const mobile = computed(() => props.mobileOverride ? props.mobileValue : mobileRef.value)
+const mobile = computed(() => (props.mobileOverride ? props.mobileValue : mobileRef.value))
 </script>
 
 <template>

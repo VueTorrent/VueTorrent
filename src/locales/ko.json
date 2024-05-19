@@ -6,6 +6,7 @@
     "delete": "삭제",
     "disable": "비활성",
     "disabled": "비활성화",
+    "edit": "편집",
     "emptyList": "이 곳은 비어있습니다!",
     "NA": "N/A",
     "no": "아니요",
@@ -488,22 +489,32 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "제목 필터",
-      "unread": "읽지 않은 피드만 표시"
+    "feeds": {
+      "empty": {
+        "action": "RSS 피드 생성"
+      },
+      "filters": {
+        "title": "제목 필터",
+        "unread": "읽지 않은 피드만 표시"
+      },
+      "item": {
+        "author": "작성자: {author}",
+        "category": "카테고리: {category}",
+        "feedName": "피드 이름: {name}"
+      },
+      "markAllAsRead": "모두 읽음으로 표시",
+      "promise": {
+        "error": "피드를 표시하는 동안 오류가 발생했습니다.",
+        "pending": "표시 중...",
+        "success": "{n}개의 기사를 읽음으로 표시함"
+      },
+      "title": "RSS 피드"
     },
-    "item": {
-      "author": "작성자: {author}",
-      "category": "카테고리: {category}",
-      "feedName": "피드 이름: {name}"
-    },
-    "markAllAsRead": "모두 읽음으로 표시",
-    "promise": {
-      "error": "피드를 표시하는 동안 오류가 발생했습니다.",
-      "pending": "표시 중...",
-      "success": "{n}개의 기사를 읽음으로 표시함"
-    },
-    "title": "RSS 피드"
+    "rules": {
+      "empty": {
+        "action": "RSS 규칙 생성"
+      }
+    }
   },
   "searchEngine": {
     "filters": {
@@ -800,34 +811,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "피드 추가",
-        "noFeeds": "아직 피드가 없습니다",
-        "refreshAll": "모두 새로고침"
+      "autoDownloader": {
+        "enable": "RSS 규칙 처리 활성화",
+        "subheader": "RSS 토렌트 자동 다운로더"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "RSS 규칙 처리 활성화",
-          "subheader": "RSS 토렌트 자동 다운로더"
-        },
-        "reader": {
-          "enableProcessing": "RSS 피드 가져오기 활성화",
-          "feedsRefreshInterval": "피드 새로고침 간격",
-          "maximumArticlesPerFeed": "피드 당 수집할 최대 기사 수",
-          "subheader": "RSS 리더"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "REPACK/PROPER 에피소드 다운로드",
-          "filters": "필터",
-          "filtersHint": "한 줄에 하나씩",
-          "subheader": "RSS Smart episode 필터"
-        },
-        "useIdForRssLinks": "RSS 피드에 ID사용"
+      "reader": {
+        "enableProcessing": "RSS 피드 가져오기 활성화",
+        "feedsRefreshInterval": "피드 새로고침 간격",
+        "maximumArticlesPerFeed": "피드 당 수집할 최대 기사 수",
+        "subheader": "RSS 리더"
       },
-      "rules": {
-        "createNew": "규칙 생성",
-        "noRules": "아직 규칙이 없습니다"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "REPACK/PROPER 에피소드 다운로드",
+        "filters": "필터",
+        "filtersHint": "한 줄에 하나씩",
+        "subheader": "RSS Smart episode 필터"
+      },
+      "useIdForRssLinks": "RSS 피드에 ID사용"
     },
     "saveSuccess": "설정이 저장되었습니다!",
     "speed": {
@@ -858,12 +858,7 @@
       "bittorrent": "BitTorrent",
       "connection": "연결수",
       "downloads": "다운로드",
-      "rss": {
-        "feeds": "피드",
-        "general": "일반",
-        "rules": "규칙",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "속도",
       "tagsAndCategories": "태그 및 카테고리",
       "vuetorrent": {

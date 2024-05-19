@@ -41,6 +41,4 @@ const rssStore = useRssStore()
   </v-list-item>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

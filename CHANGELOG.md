@@ -2,20 +2,25 @@
 
 ## [2.8.1](https://github.com/VueTorrent/VueTorrent/compare/v2.8.0...v2.8.1) (2024-05-14)
 
-
 ### Bug Fixes
 
-* **backend:** Exclude custom title from backend sync ([#1673](https://github.com/VueTorrent/VueTorrent/issues/1673)) ([e9f78d4](https://github.com/VueTorrent/VueTorrent/commit/e9f78d4ebd96e4e4c38cf63e63e5a707b2792972))
-
+- **backend:** Exclude custom title from backend sync ([#1673](https://github.com/VueTorrent/VueTorrent/issues/1673))
+  ([e9f78d4](https://github.com/VueTorrent/VueTorrent/commit/e9f78d4ebd96e4e4c38cf63e63e5a707b2792972))
 
 ### Improvements
 
-* **MagnetHandler:** Add alias to old link for better compatibility ([#1682](https://github.com/VueTorrent/VueTorrent/issues/1682)) ([3b1f5a3](https://github.com/VueTorrent/VueTorrent/commit/3b1f5a3cd909c54787a67e11cafb0c00f51b56db))
-* **Peers:** Show client, peer_id, and i18n strings ([#1579](https://github.com/VueTorrent/VueTorrent/issues/1579)) ([cbfe2c9](https://github.com/VueTorrent/VueTorrent/commit/cbfe2c92a71ebe626584e50f46e7868c9bf6f655))
-* Reword torrent priority to queue position ([#1667](https://github.com/VueTorrent/VueTorrent/issues/1667)) ([719a29d](https://github.com/VueTorrent/VueTorrent/commit/719a29d778040fa73228cbf3937a23ab08c7ae9d))
-* **RSS:** add refresh all rss feeds button to rss articles ([#1679](https://github.com/VueTorrent/VueTorrent/issues/1679)) ([4ddf5f3](https://github.com/VueTorrent/VueTorrent/commit/4ddf5f3469861f9dbc396ea18d9e9ae0de37a449))
-* **settings:** Prettify exported JSON ([#1672](https://github.com/VueTorrent/VueTorrent/issues/1672)) ([84b9c12](https://github.com/VueTorrent/VueTorrent/commit/84b9c12881ef81cac360e98af600fae9c69b255a))
-* **TorrentDetail:** Use colors for ratio and chips ([#1662](https://github.com/VueTorrent/VueTorrent/issues/1662)) ([c902d62](https://github.com/VueTorrent/VueTorrent/commit/c902d622b9684112108aab038db75d13ae474976))
+- **MagnetHandler:** Add alias to old link for better compatibility ([#1682](https://github.com/VueTorrent/VueTorrent/issues/1682))
+  ([3b1f5a3](https://github.com/VueTorrent/VueTorrent/commit/3b1f5a3cd909c54787a67e11cafb0c00f51b56db))
+- **Peers:** Show client, peer_id, and i18n strings ([#1579](https://github.com/VueTorrent/VueTorrent/issues/1579))
+  ([cbfe2c9](https://github.com/VueTorrent/VueTorrent/commit/cbfe2c92a71ebe626584e50f46e7868c9bf6f655))
+- Reword torrent priority to queue position ([#1667](https://github.com/VueTorrent/VueTorrent/issues/1667))
+  ([719a29d](https://github.com/VueTorrent/VueTorrent/commit/719a29d778040fa73228cbf3937a23ab08c7ae9d))
+- **RSS:** add refresh all rss feeds button to rss articles ([#1679](https://github.com/VueTorrent/VueTorrent/issues/1679))
+  ([4ddf5f3](https://github.com/VueTorrent/VueTorrent/commit/4ddf5f3469861f9dbc396ea18d9e9ae0de37a449))
+- **settings:** Prettify exported JSON ([#1672](https://github.com/VueTorrent/VueTorrent/issues/1672))
+  ([84b9c12](https://github.com/VueTorrent/VueTorrent/commit/84b9c12881ef81cac360e98af600fae9c69b255a))
+- **TorrentDetail:** Use colors for ratio and chips ([#1662](https://github.com/VueTorrent/VueTorrent/issues/1662))
+  ([c902d62](https://github.com/VueTorrent/VueTorrent/commit/c902d622b9684112108aab038db75d13ae474976))
 
 ## [2.8.0](https://github.com/VueTorrent/VueTorrent/compare/v2.7.3...v2.8.0) (2024-04-23)
 

@@ -51,6 +51,4 @@ const loading = computed(() => props.state === FeedState.LOADING)
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
