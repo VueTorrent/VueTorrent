@@ -1,6 +1,8 @@
+import { useSearchQuery } from '@/composables'
 import qbit from '@/services/qbit'
 import { Feed, FeedRule } from '@/types/qbit/models'
 import { RssArticle } from '@/types/vuetorrent'
+import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
@@ -16,6 +18,8 @@ export const useRssStore = defineStore(
     const _articles = ref<RssArticle[]>([])
     const keyMap = ref<Record<string, string[]>>({})
 
+    const lastView = ref('feeds')
+
     const filters = reactive({
       title: '',
       unread: false
@@ -23,27 +27,28 @@ export const useRssStore = defineStore(
 
     const unreadArticles = computed(() => _articles.value.filter(article => !article.isRead))
     const articles = computed(() => (filters.unread ? unreadArticles.value : _articles.value))
+    const { results: filteredArticles } = useSearchQuery(
+      articles,
+      () => filters.title,
+      item => item.title
+    )
 
     const { t } = useI18n()
+    const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(fetchFeeds, 5000, {
+      immediate: false,
+      immediateCallback: true
+    })
+    const { pause: pauseRuleTimer, resume: resumeRuleTimer } = useIntervalFn(fetchRules, 5000, {
+      immediate: false,
+      immediateCallback: true
+    })
 
     async function refreshFeed(feedName: string) {
       await qbit.refreshFeed(feedName)
     }
 
     async function refreshAllFeeds() {
-      await toast.promise(
-        Promise.all(feeds.value.map(feed => refreshFeed(feed.name))),
-        {
-          pending: t('rssArticles.refreshPromise.pending'),
-          error: t('rssArticles.refreshPromise.error'),
-          success: t('rssArticles.refreshPromise.success', feeds.value.length)
-        },
-        {
-          autoClose: 1500
-        }
-      )
-
-      await fetchFeeds()
+      await Promise.all(feeds.value.map(feed => refreshFeed(feed.name)))
     }
 
     async function createFeed(feedName: string, feedUrl: string) {
@@ -99,6 +104,7 @@ export const useRssStore = defineStore(
           } else {
             keyMap.value[article.id] = [feed.name]
             _articles.value.push({
+              feedId: feed.uid,
               parsedDate: new Date(article.date),
               ...article
             })
@@ -124,14 +130,18 @@ export const useRssStore = defineStore(
       })
     }
 
+    async function markFeedAsRead(feed: Feed) {
+      return await qbit.markAsRead(feed.name)
+    }
+
     async function markAllAsRead() {
       const unreadArticlesCount = unreadArticles.value.length
       await toast.promise(
         Promise.all(unreadArticles.value.map(article => article.id).map(markArticleAsRead)),
         {
-          pending: t('rssArticles.promise.pending'),
-          error: t('rssArticles.promise.error'),
-          success: t('rssArticles.promise.success', unreadArticlesCount)
+          pending: t('rssArticles.feeds.promise.pending'),
+          error: t('rssArticles.feeds.promise.error'),
+          success: t('rssArticles.feeds.promise.success', unreadArticlesCount)
         },
         {
           autoClose: 1500
@@ -151,9 +161,15 @@ export const useRssStore = defineStore(
     return {
       feeds,
       rules,
+      lastView,
       filters,
       articles,
+      filteredArticles,
       unreadArticles,
+      pauseFeedTimer,
+      resumeFeedTimer,
+      pauseRuleTimer,
+      resumeRuleTimer,
       refreshFeed,
       refreshAllFeeds,
       createFeed,
@@ -166,6 +182,7 @@ export const useRssStore = defineStore(
       fetchFeeds,
       getFeedNames,
       markArticleAsRead,
+      markFeedAsRead,
       markAllAsRead,
       fetchRules,
       fetchMatchingArticles,
@@ -174,8 +191,11 @@ export const useRssStore = defineStore(
         rules.value = []
         _articles.value = []
         keyMap.value = {}
+        lastView.value = 'feeds'
         filters.title = ''
         filters.unread = false
+        pauseFeedTimer()
+        pauseRuleTimer()
       }
     }
   },

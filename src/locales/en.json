@@ -7,12 +7,14 @@
     "delete": "Delete",
     "disable": "Disable",
     "disabled": "Disabled",
+    "edit": "Edit",
     "emptyList": "Nothing to see here!",
     "global_value": "Global Value",
     "NA": "N/A",
     "no": "No",
     "none": "(None)",
     "ok": "OK",
+    "refresh": "Refresh",
     "save": "Save",
     "selectAll": "Select All",
     "selectNone": "Select None",
@@ -534,28 +536,46 @@
     }
   },
   "rssArticles": {
-    "filters": {
-      "title": "Title filter",
-      "unread": "Show unread articles only"
+    "feeds": {
+      "empty": {
+        "action": "Create RSS Feed",
+        "value": "No RSS feeds registered"
+      },
+      "filters": {
+        "title": "Title filter",
+        "unread": "Show unread articles only"
+      },
+      "item": {
+        "author": "Author: {author}",
+        "category": "Category: {category}",
+        "feedName": "Feed name: {name}"
+      },
+      "markAllAsRead": "Mark all as read",
+      "markAsRead": "Mark as read",
+      "promise": {
+        "error": "An error occured while marking articles",
+        "pending": "Marking...",
+        "success": "{n} articles marked as read"
+      },
+      "refreshAllFeeds": "Refresh all feeds",
+      "refreshPromise": {
+        "error": "An error occured while refreshing feeds",
+        "pending": "Refreshing...",
+        "success": "{n} feeds refreshed"
+      },
+      "title": "RSS Articles"
     },
-    "item": {
-      "author": "Author: {author}",
-      "category": "Category: {category}",
-      "feedName": "Feed name: {name}"
+    "rules": {
+      "empty": {
+        "action": "Create RSS Rule",
+        "value": "No RSS rules registered"
+      },
+      "title": "RSS Rules"
     },
-    "markAllAsRead": "Mark all as read",
-    "promise": {
-      "error": "An error occured while marking articles",
-      "pending": "Marking...",
-      "success": "{n} articles marked as read"
-    },
-    "refreshAllFeeds": "Refresh All Feeds",
-    "refreshPromise": {
-      "error": "An error occured while refreshing feeds",
-      "pending": "Refreshing...",
-      "success": "{n} feeds refreshed"
-    },
-    "title": "RSS Articles"
+    "toggle": {
+      "feeds": "Show feeds",
+      "rules": "Show rules"
+    }
   },
   "searchEngine": {
     "filters": {
@@ -852,34 +872,23 @@
       }
     },
     "rss": {
-      "feeds": {
-        "createNew": "Add feed",
-        "noFeeds": "No feeds yet",
-        "refreshAll": "Refresh All"
+      "autoDownloader": {
+        "enable": "Enable RSS rules processing",
+        "subheader": "RSS Torrent Auto Downloader"
       },
-      "general": {
-        "autoDownloader": {
-          "enable": "Enable RSS rules processing",
-          "subheader": "RSS Torrent Auto Downloader"
-        },
-        "reader": {
-          "enableProcessing": "Enable fetching RSS feeds",
-          "feedsRefreshInterval": "Feeds refresh interval",
-          "maximumArticlesPerFeed": "Maximum number of articles per feed",
-          "subheader": "RSS Reader"
-        },
-        "smartEpisodeFilter": {
-          "downloadEpisodes": "Download REPACK/PROPER episodes",
-          "filters": "Filters",
-          "filtersHint": "One per line",
-          "subheader": "RSS Smart Episode Filter"
-        },
-        "useIdForRssLinks": "Use ID for RSS article link"
+      "reader": {
+        "enableProcessing": "Enable fetching RSS feeds",
+        "feedsRefreshInterval": "Feeds refresh interval",
+        "maximumArticlesPerFeed": "Maximum number of articles per feed",
+        "subheader": "RSS Reader"
       },
-      "rules": {
-        "createNew": "Create Rule",
-        "noRules": "No rules yet"
-      }
+      "smartEpisodeFilter": {
+        "downloadEpisodes": "Download REPACK/PROPER episodes",
+        "filters": "Filters",
+        "filtersHint": "One per line",
+        "subheader": "RSS Smart Episode Filter"
+      },
+      "useIdForRssLinks": "Use ID for RSS article link"
     },
     "saveSuccess": "Settings saved!",
     "speed": {
@@ -910,12 +919,7 @@
       "bittorrent": "BitTorrent",
       "connection": "Connection",
       "downloads": "Downloads",
-      "rss": {
-        "feeds": "Feeds",
-        "general": "General",
-        "rules": "Rules",
-        "title": "RSS"
-      },
+      "rss": "RSS",
       "speed": "Speed",
       "tagsAndCategories": "Tags & Categories",
       "vuetorrent": {

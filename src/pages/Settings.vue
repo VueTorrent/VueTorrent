@@ -4,14 +4,12 @@ import Behavior from '@/components/Settings/Behavior.vue'
 import BitTorrent from '@/components/Settings/BitTorrent.vue'
 import Connection from '@/components/Settings/Connection.vue'
 import Downloads from '@/components/Settings/Downloads.vue'
-import RFeeds from '@/components/Settings/RSS/Feeds.vue'
-import RGeneral from '@/components/Settings/RSS/General.vue'
-import RRules from '@/components/Settings/RSS/Rules.vue'
+import RSS from '@/components/Settings/RSS.vue'
 import Speed from '@/components/Settings/Speed.vue'
 import TagsAndCategories from '@/components/Settings/TagsAndCategories.vue'
 import VGeneral from '@/components/Settings/VueTorrent/General.vue'
-import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.vue'
 import VTorrentCardGrid from '@/components/Settings/VueTorrent/TorrentCard/Grid.vue'
+import VTorrentCardList from '@/components/Settings/VueTorrent/TorrentCard/List.vue'
 import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Table.vue'
 import WebUI from '@/components/Settings/WebUI.vue'
 import { backend } from '@/services/backend'
@@ -34,7 +32,7 @@ const tabs = [
   { text: t('settings.tabs.connection'), value: 'connection' },
   { text: t('settings.tabs.speed'), value: 'speed' },
   { text: t('settings.tabs.bittorrent'), value: 'bittorrent' },
-  { text: t('settings.tabs.rss.title'), value: 'rss' },
+  { text: t('settings.tabs.rss'), value: 'rss' },
   { text: t('settings.tabs.webui'), value: 'webui' },
   { text: t('settings.tabs.tagsAndCategories'), value: 'tagsAndCategories' },
   { text: t('settings.tabs.advanced'), value: 'advanced' }
@@ -47,15 +45,8 @@ const tabsV = [
   { text: t('settings.tabs.vuetorrent.torrent_card.table'), value: 'torrentCardTable' }
 ]
 
-const tabsR = [
-  { text: t('settings.tabs.rss.general'), value: 'general' },
-  { text: t('settings.tabs.rss.feeds'), value: 'feeds' },
-  { text: t('settings.tabs.rss.rules'), value: 'rules' }
-]
-
 const tab = ref('vuetorrent')
 const innerTabV = ref('general')
-const innerTabR = ref('general')
 
 const saveSettings = async () => {
   await preferenceStore.setPreferences()
@@ -104,8 +95,6 @@ function updateTabHandle() {
   if (tabRouteParam) {
     if (tabRouteParam === 'vuetorrent' && subtabRouteParam) {
       innerTabV.value = subtabRouteParam
-    } else if (tabRouteParam === 'rss' && subtabRouteParam) {
-      innerTabR.value = subtabRouteParam
     }
     tab.value = tabRouteParam
   }
@@ -191,21 +180,7 @@ onBeforeUnmount(() => {
       </v-window-item>
 
       <v-window-item value="rss">
-        <v-tabs v-model="innerTabR" grow color="accent" bg-color="transparent">
-          <v-tab v-for="{ text, value } in tabsR" :key="value" :value="value" :text="text" :href="`#/settings/rss/${value}`" :class="{ 'text-accent': innerTabR === value }" />
-          <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
-        </v-tabs>
-        <v-window v-model="innerTabR" :touch="false">
-          <v-window-item value="general">
-            <RGeneral />
-          </v-window-item>
-          <v-window-item value="feeds">
-            <RFeeds />
-          </v-window-item>
-          <v-window-item value="rules">
-            <RRules />
-          </v-window-item>
-        </v-window>
+        <RSS />
       </v-window-item>
 
       <v-window-item value="webui">

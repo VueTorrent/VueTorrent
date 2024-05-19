@@ -10,7 +10,7 @@ export default interface FeedArticle {
   /** Article ID */
   id: string
   /** Whether the article has already been read */
-  isRead: boolean
+  isRead?: boolean
   /** Article link */
   link: string
   /** Article title */

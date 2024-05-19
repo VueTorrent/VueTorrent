@@ -1,15 +1,12 @@
-<script setup lang="ts">
-import { useMaindataStore, useTorrentStore } from '@/stores'
-import { Torrent } from '@/types/vuetorrent'
-import { computed, onBeforeMount } from 'vue'
+<script lang="ts" setup>
+import {useMaindataStore, useTorrentStore} from '@/stores'
+import {Torrent} from '@/types/vuetorrent'
+import {onBeforeMount} from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
-
-const activeCategory = computed(() => maindataStore.categories.map(cat => cat.name).indexOf(props.torrent.category))
-const activeTags = computed(() => maindataStore.tags.filter(tag => props.torrent.tags?.includes(tag)))
 
 async function setCategory(category: string) {
   if (props.torrent.category === category) {
@@ -38,33 +35,31 @@ onBeforeMount(async () => {
     <v-card-text>
       <v-row>
         <v-col cols="12" md="6">
-          <v-item-group :model-value="activeTags" multiple>
-            <v-list>
-              <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.tags') }}</v-list-subheader>
+          <v-list>
+            <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.tags') }}</v-list-subheader>
 
-              <v-list-item
+            <v-list-item
                 v-for="tag in maindataStore.tags"
+                variant="text"
+                color="accent"
                 :title="tag"
-                :variant="torrent.tags?.includes(tag) ? 'tonal' : undefined"
-                :base-color="torrent.tags?.includes(tag) ? 'accent' : undefined"
-                @click="toggleTag(tag)" />
-            </v-list>
-          </v-item-group>
+                :active="torrent.tags?.includes(tag)"
+                @click="toggleTag(tag)"/>
+          </v-list>
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-item-group :model-value="activeCategory">
-            <v-list>
-              <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.categories') }}</v-list-subheader>
+          <v-list>
+            <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.categories') }}</v-list-subheader>
 
-              <v-list-item
+            <v-list-item
                 v-for="category in maindataStore.categories"
+                variant="text"
+                color="accent"
                 :title="category.name"
-                :variant="category.name === props.torrent.category ? 'tonal' : undefined"
-                :base-color="category.name === props.torrent.category ? 'accent' : undefined"
-                @click="setCategory(category.name)" />
-            </v-list>
-          </v-item-group>
+                :active="category.name === props.torrent.category"
+                @click="setCategory(category.name)"/>
+          </v-list>
         </v-col>
       </v-row>
     </v-card-text>
