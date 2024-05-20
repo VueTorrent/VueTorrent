@@ -1,8 +1,8 @@
 export default interface Peer {
   client: string
   connection: string
-  country: string
-  country_code: string
+  country?: string
+  country_code?: string
   dl_speed: number
   downloaded: number
   files: string

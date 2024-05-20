@@ -324,7 +324,7 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/sync/maindata', { params: { rid } }).then(res => res.data)
   }
 
-  async getTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
+  async syncTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse> {
     return this.axios
       .get('/sync/torrentPeers', {
         params: { hash, rid }
@@ -332,7 +332,7 @@ export default class QBitProvider implements IProvider {
       .then(r => r.data)
   }
 
-  /// TorentsController ///
+  /// TorrentsController ///
 
   async getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]> {
     return this.axios.get('/torrents/info', { params: payload }).then(r => r.data)

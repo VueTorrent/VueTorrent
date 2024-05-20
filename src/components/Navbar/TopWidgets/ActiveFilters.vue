@@ -137,7 +137,7 @@ function resetTrackerFilter() {
       </v-slide-x-transition>
     </template>
 
-    <div class="d-flex flex-column gap mt-3">
+    <div class="d-flex flex-column flex-gap mt-3">
       <v-chip v-if="isTextFilterPresent" :color="textFilterColor" variant="elevated" closable @click:close="resetTextFilter()">
         <template v-slot:prepend>
           <v-icon class="mr-1" @click="toggleTextFilter()">{{ isTextFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
@@ -215,9 +215,3 @@ function resetTrackerFilter() {
     </div>
   </v-menu>
 </template>
-
-<style scoped>
-.gap {
-  gap: 8px;
-}
-</style>
