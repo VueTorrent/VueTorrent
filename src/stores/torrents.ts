@@ -4,6 +4,7 @@ import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
+import { useArrayFilter } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
 
@@ -24,18 +25,16 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
-    const torrentsWithFilters = computed(() => {
-      return torrents.value.filter(torrent => {
-        if (statusFilter.value.length > 0 && isStatusFilterActive.value && !statusFilter.value.includes(torrent.state)) return false
-        if (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !categoryFilter.value.includes(torrent.category)) return false
-        if (tagFilter.value.length > 0 && isTagFilterActive.value) {
-          if (torrent.tags.length === 0 && tagFilter.value.includes(null)) return true
-          if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
-        }
-        if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
+    const torrentsWithFilters = useArrayFilter(torrents, torrent => {
+      if (statusFilter.value.length > 0 && isStatusFilterActive.value && !statusFilter.value.includes(torrent.state)) return false
+      if (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !categoryFilter.value.includes(torrent.category)) return false
+      if (tagFilter.value.length > 0 && isTagFilterActive.value) {
+        if (torrent.tags.length === 0 && !tagFilter.value.includes(null)) return false
+        if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
+      }
+      if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
 
-        return true
-      })
+      return true
     })
     const filteredTorrents = computed(() => searchQuery.results.value)
 
