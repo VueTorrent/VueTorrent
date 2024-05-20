@@ -37,7 +37,7 @@ export const useContentStore = defineStore('content', () => {
   const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
   const selectedIds = computed<number[]>(() =>
     selectedNodes.value
-      .map(node => node.getChildrenIds())
+      .map(node => node.childrenIds)
       .flat()
       .filter((v, i, a) => a.indexOf(v) === i)
   )
@@ -67,7 +67,8 @@ export const useContentStore = defineStore('content', () => {
     }
   ])
 
-  const { pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval, {
+  const timerForcedPause = ref(false)
+  const { isActive: isTimerActive, pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -122,6 +123,8 @@ export const useContentStore = defineStore('content', () => {
     tree,
     flatTree,
     updateFileTree,
+    timerForcedPause,
+    isTimerActive,
     pauseTimer,
     resumeTimer,
     renameTorrentFile,
