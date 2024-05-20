@@ -32,7 +32,6 @@ function sortHost(a: PeerType, b: PeerType) {
 function sortCountry(a: PeerType, b: PeerType) {
   if (a.country && !b.country) return -1
   if (!a.country && b.country) return 1
-  if (!a.country && !b.country) return 0
   if (a.country === b.country) return sortHost(a, b)
   return a.country!.localeCompare(b.country!)
 }
@@ -50,7 +49,6 @@ const headers = readonly([
   { nowrap: true, title: t('torrentDetail.peers.fields.files'), key: 'files' }
 ])
 const sortBy = shallowReadonly<{ key: string, order?: boolean | 'asc' | 'desc' }[]>([
-  { key: 'client', order: 'desc' },
   { key: 'dl_speed', order: 'desc' },
   { key: 'up_speed', order: 'desc' }
 ])
