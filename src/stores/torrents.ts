@@ -30,7 +30,7 @@ export const useTorrentStore = defineStore(
       if (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !categoryFilter.value.includes(torrent.category)) return false
       if (tagFilter.value.length > 0 && isTagFilterActive.value) {
         if (torrent.tags.length === 0 && !tagFilter.value.includes(null)) return false
-        if (!torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
+        if (torrent.tags.length > 0 && !torrent.tags.some(tag => tagFilter.value.includes(tag))) return false
       }
       if (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !trackerFilter.value.includes(extractHostname(torrent.tracker))) return false
 
