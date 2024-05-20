@@ -74,7 +74,15 @@ export class TreeFolder {
   }
 
   buildCache() {
-    if (this.children.length === 0) return
+    if (this.children.length === 0) {
+      this.priority = FilePriority.DO_NOT_DOWNLOAD
+      this.childrenIds = []
+      this.wanted = null
+      this.progress = 0
+      this.deepCount = [1, 0]
+      this.size = 0
+      return
+    }
 
     this.children.forEach(child => {
       child.buildCache()
@@ -96,7 +104,7 @@ export class TreeFolder {
         return null
       })
 
-    const values = this.children.map(child => child.progress!)
+    const values = this.children.map(child => child.progress!).filter(prio => prio !== FilePriority.DO_NOT_DOWNLOAD)
     if (values.length === 0) {
       this.progress = 0
     } else {
