@@ -1,11 +1,4 @@
-import {
-  ConnectionStatus,
-  FilePriority,
-  LogType,
-  PieceState,
-  TorrentOperatingMode,
-  TorrentState
-} from '@/constants/qbit'
+import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -35,8 +28,7 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {
-  }
+  private constructor() {}
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -1002,7 +994,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ ip1 }:${ port1 }`]: {
+          [`${ip1}:${port1}`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1020,7 +1012,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ ip2 }:${ port2 }`]: {
+          [`${ip2}:${port2}`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1038,7 +1030,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ ip3 }:${ port3 }`]: {
+          [`${ip3}:${port3}`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1057,7 +1049,7 @@ export default class MockProvider implements IProvider {
             uploaded: rndmData()
           }
         },
-        show_flags: (rid <= 0) || undefined
+        show_flags: rid <= 0 || undefined
       }
     })
   }
@@ -1097,7 +1089,7 @@ export default class MockProvider implements IProvider {
         infohash_v1: hash,
         infohash_v2: '',
         last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
+        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
         max_inactive_seeding_time: -1,
         max_ratio: -1,
         max_seeding_time: -1,

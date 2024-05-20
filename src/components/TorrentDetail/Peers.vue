@@ -49,7 +49,7 @@ const headers = readonly([
   { nowrap: true, title: t('torrentDetail.peers.fields.relevance'), key: 'relevance' },
   { nowrap: true, title: t('torrentDetail.peers.fields.files'), key: 'files' }
 ])
-const sortBy = shallowReadonly<{ key: string, order?: boolean | 'asc' | 'desc' }[]>([
+const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }[]>([
   { key: 'dl_speed', order: 'desc' },
   { key: 'up_speed', order: 'desc' }
 ])
@@ -117,10 +117,13 @@ const { isActive, pause, resume } = useIntervalFn(syncPeers, 2000, {
   immediateCallback: true
 })
 
-watch(() => props.isActive, value => {
-  if (value) resume()
-  else pause()
-})
+watch(
+  () => props.isActive,
+  value => {
+    if (value) resume()
+    else pause()
+  }
+)
 
 onBeforeRouteLeave(() => !addPeersDialog.value)
 </script>
@@ -178,8 +181,13 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
       </template>
 
       <template #[`item.progress`]="{ item }">
-        <v-progress-linear :model-value="item.progress" :max="1" :height="20" rounded="sm" style="width: 8em"
-                           :color="item.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'">
+        <v-progress-linear
+          :model-value="item.progress"
+          :max="1"
+          :height="20"
+          rounded="sm"
+          style="width: 8em"
+          :color="item.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'">
           {{ formatPercent(item.progress) }}
         </v-progress-linear>
       </template>
@@ -198,11 +206,10 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
         </template>
         <v-card :title="$t('torrentDetail.peers.addPeers.title')">
           <v-card-text>
-            <v-textarea
-                v-model="newPeers"
-                :label="t('torrentDetail.peers.addPeers.newPeers')"
-                :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
-                :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
+            <v-textarea v-model="newPeers"
+                        :label="t('torrentDetail.peers.addPeers.newPeers')"
+                        :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
+                        :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
           </v-card-text>
 
           <v-card-actions>
