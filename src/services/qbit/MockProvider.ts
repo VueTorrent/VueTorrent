@@ -1196,54 +1196,220 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({
       result: [
         {
-          availability: 1,
-          index: 0,
-          is_seed: false,
-          name: 'ubuntu-23.10.1-desktop-amd64.iso',
-          piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
-          progress: 0,
-          size: 5173995520
+          "availability": 0,
+          "index": 17253,
+          "name": "nemurenatta ads/Dragon Ball - Commercial - Cartoon Network - They're So Cute at That Age (Vidcap) (700kbps) (DivX).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 3436544
         },
         {
-          availability: 1,
-          index: 1,
-          is_seed: false,
-          name: 'ubuntu-24.10.1-desktop-amd64.iso',
-          piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
-          progress: 0,
-          size: 5173995520
+          "availability": 0,
+          "index": 17254,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - Cartoon Network - New Episodes 200109 - You've Been Very Patient (Vidcap) (700kbps) (DivX).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 1857536
         },
         {
-          availability: 1,
-          index: 2,
-          is_seed: false,
-          name: 'ubuntu/ubuntu-23.10.1-desktop-amd64.iso',
-          piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
-          progress: 0,
-          size: 5173995520
+          "availability": 0,
+          "index": 17255,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - Toys - Action Figures - Burger King - Toys in Every Big Kid's Meal (Vidcap) (DivX).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 626688
         },
         {
-          availability: 1,
-          index: 3,
-          is_seed: false,
-          name: 'ubuntu/ubuntu-24.10.1-desktop-amd64.iso',
-          piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
-          progress: 0,
-          size: 5173995520
+          "availability": 0,
+          "index": 17256,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - Toys - Action Figures - Now With Exclusive Collectible Game Cards - Goku, Vegeta, etc (Vidcap) (DivX).AVI",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 2285568
         },
         {
-          availability: 1,
-          index: 5,
-          is_seed: false,
-          name: 'ubuntu2/ubuntu-23.10.1-desktop-amd64.iso',
-          piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
-          progress: 0,
-          size: 5173995520
+          "availability": 0,
+          "index": 17257,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - Toys - Action Figures - Vegeta, Trunks, Time Capsule, etc (Vidcap) (DivX) (High-Pitched Buzz).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 4689920
+        },
+        {
+          "availability": 0,
+          "index": 17258,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - Toys - Burger King - 5 Promo Action Figures Each With Extra Toy (Vidcap) (DivX) (High-Pitched Buzz).AVI",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 1896448
+        },
+        {
+          "availability": 0,
+          "index": 17259,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - WB - Be Sure to Catch the Non-Stop Action (VHS) (DivX) (High-Pitched Buzz).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 3411968
+        },
+        {
+          "availability": 0,
+          "index": 17260,
+          "name": "nemurenatta ads/Dragon Ball Z - Commercial - WB - Did We Mention Vegeta is Back! (VHS) (DivX).avi",
+          "piece_range": [
+            153143,
+            153143
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 3395584
+        },
+        {
+          "availability": 0,
+          "index": 17261,
+          "name": "nemurenatta ads/Dragon Ball Z - Episodes (Freeza Saga, Ocean Dub) and Movie 3 (TV Edit, Ocean Dub).mp4",
+          "piece_range": [
+            153143,
+            153181
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 2507976748
+        },
+        {
+          "availability": 0,
+          "index": 17262,
+          "name": "nemurenatta ads/Dragon Ball Z - Movie 2 - The World's Strongest (Ocean Dub), Superman, PowerPuff Girls, Johnny Bravo.m4v",
+          "piece_range": [
+            153181,
+            153213
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 2176226744
+        },
+        {
+          "availability": 0,
+          "index": 17263,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 5 - Cooler's Revenge {C_P}.avi/Dragonball Z - Movie 5 - Cooler's Revenge {C_P}.avi",
+          "piece_range": [
+            153213,
+            153219
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 394702848
+        },
+        {
+          "availability": 0,
+          "index": 17264,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 5 - Cooler's Revenge {C_P}.avi/Torrent downloaded from Demonoid.me.txt",
+          "piece_range": [
+            153219,
+            153219
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 46
+        },
+        {
+          "availability": 0,
+          "index": 17265,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 7 - Super Android 13! {C_P}.avi/Dragonball Z - Movie 7 - Super Android 13! {C_P}.avi",
+          "piece_range": [
+            153219,
+            153225
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 381136896
+        },
+        {
+          "availability": 0,
+          "index": 17266,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 7 - Super Android 13! {C_P}.avi/Torrent downloaded from Demonoid.me.txt",
+          "piece_range": [
+            153225,
+            153225
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 46
+        },
+        {
+          "availability": 0,
+          "index": 17267,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 10 - Broly's Second Coming {C_P}.avi/Dragonball Z - Movie 10 - Broly's Second Coming {C_P}.avi",
+          "piece_range": [
+            153225,
+            153231
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 391872512
+        },
+        {
+          "availability": 0,
+          "index": 17268,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 10 - Broly's Second Coming {C_P}.avi/Torrent downloaded from Demonoid.me.txt",
+          "piece_range": [
+            153231,
+            153231
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 46
+        },
+        {
+          "availability": 0,
+          "index": 17269,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 13 - Wrath Of The Dragon {C_P}.avi/Dragonball Z - Movie 13 - Wrath Of The Dragon {C_P}.avi",
+          "piece_range": [
+            153231,
+            153237
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 395898880
+        },
+        {
+          "availability": 0,
+          "index": 17270,
+          "name": "Nicktoons/Movies/Dragonball Z - Movie 13 - Wrath Of The Dragon {C_P}.avi/Torrent downloaded from Demonoid.me.txt",
+          "piece_range": [
+            153237,
+            153237
+          ],
+          "priority": 1,
+          "progress": 0,
+          "size": 46
         }
       ]
     })

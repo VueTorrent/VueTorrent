@@ -2,7 +2,7 @@
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
@@ -51,6 +51,21 @@ function endPress() {
   clearTimeout(timer.value)
 }
 // END mobile long press
+
+watch(
+  () => props.isActive,
+  isActive => {
+    if (isActive) contentStore.resumeTimer()
+    else contentStore.pauseTimer()
+  }
+)
+
+onMounted(() => {
+  props.isActive && contentStore.resumeTimer()
+})
+onBeforeUnmount(() => {
+  contentStore.$reset()
+})
 </script>
 
 <template>

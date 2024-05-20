@@ -30,28 +30,7 @@ export const useContentStore = defineStore('content', () => {
   const cachedFiles = ref<TorrentFile[]>([])
   const openedItems = ref([''])
   const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
-  const { tree } = useTreeBuilder(filteredFiles)
-
-  const flatTree = computed(() => {
-    const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
-      const path = parentPath === '' ? node.name : parentPath + '/' + node.name
-
-      if (node.type === 'folder' && openedItems.value.includes(node.fullName)) {
-        const children = node.children
-          .toSorted((a: TreeNode, b: TreeNode) => {
-            if (a.type === 'folder' && b.type === 'file') return -1
-            if (a.type === 'file' && b.type === 'folder') return 1
-            return a.name.localeCompare(b.name)
-          })
-          .flatMap(el => flatten(el, path))
-        return [node, ...children]
-      } else {
-        return [node]
-      }
-    }
-
-    return flatten(tree.value, '')
-  })
+  const { tree, flatTree } = useTreeBuilder(filteredFiles, openedItems)
 
   const internalSelection = ref<Set<string>>(new Set())
   const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
@@ -96,12 +75,11 @@ export const useContentStore = defineStore('content', () => {
   async function updateFileTree() {
     if (_lock.value) return
     _lock.value = true
-    await nextTick()
-
+    const start = performance.now()
     cachedFiles.value = await maindataStore.fetchFiles(hash.value)
-
-    _lock.value = false
+      .finally(() => _lock.value = false)
     await nextTick()
+    console.log(`updateFileTree: ${performance.now() - start}ms`)
   }
 
   async function renameNode(node: TreeNode) {

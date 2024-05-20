@@ -1,13 +1,33 @@
 import { TorrentFile } from '@/types/qbit/models'
-import { TreeFile, TreeFolder } from '@/types/vuetorrent'
-import { MaybeRefOrGetter, ref, toValue, watch } from 'vue'
+import { TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import { computed, MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
 
 function getEmptyRoot() {
   return new TreeFolder('(root)', '') // Only the 'fullName' of the '(root)' node can be an empty string.
 }
 
-export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
+export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<string[]>) {
   const tree = ref(getEmptyRoot())
+  const flatTree = computed(() => {
+    const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
+      const path = parentPath === '' ? node.name : parentPath + '/' + node.name
+
+      if (node.type === 'folder' && toValue(openedItems).includes(node.fullName)) {
+        const children = node.children
+          .toSorted((a: TreeNode, b: TreeNode) => {
+            if (a.type === 'folder' && b.type === 'file') return -1
+            if (a.type === 'file' && b.type === 'folder') return 1
+            return a.name.localeCompare(b.name)
+          })
+          .flatMap(el => flatten(el, path))
+        return [node, ...children]
+      } else {
+        return [node]
+      }
+    }
+
+    return flatten(tree.value, '')
+  })
 
   function buildTree() {
     const rootNode = getEmptyRoot()
@@ -39,9 +59,13 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
     }
 
     tree.value = rootNode
+
+    const start = performance.now()
+    rootNode.buildCache()
+    console.log('Flat tree computed in', performance.now() - start, 'ms')
   }
 
-  watch(items, buildTree)
+  watchEffect(() => buildTree())
 
-  return { tree }
+  return { tree, flatTree }
 }
