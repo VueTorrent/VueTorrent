@@ -6,6 +6,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { onBeforeRouteLeave } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -57,11 +58,12 @@ const loading = ref(false)
 const rid = ref<number>()
 const torrentPeers = ref<Map<string, Peer>>(new Map())
 const showCountryFlags = ref(false)
+const filter = ref('')
 
 const addPeersDialog = ref(false)
 const newPeers = ref('')
 
-const items = computed(() => Array.from(torrentPeers.value.entries()).map(([host, peer]) => ({ ...peer, host })))
+const items = computed<PeerType[]>(() => Array.from(torrentPeers.value.entries()).map(([host, peer]) => ({ ...peer, host })))
 
 function updatePeers(peers: Record<string, Peer>) {
   Object.entries(peers).forEach(([k, v]) => {
@@ -120,7 +122,7 @@ watch(() => props.isActive, value => {
   else pause()
 })
 
-const filter = ref('')
+onBeforeRouteLeave(() => !addPeersDialog.value)
 </script>
 
 <template>
