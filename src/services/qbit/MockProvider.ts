@@ -1413,10 +1413,12 @@ export default class MockProvider implements IProvider {
 
   async getCategories(): Promise<Category[]> {
     return this.generateResponse({
-      result: this.categories.filter(x => x).map(cat => ({
-        name: cat,
-        savePath: `/downloads/${cat.toLowerCase()}`
-      }))
+      result: this.categories
+        .filter(x => x)
+        .map(cat => ({
+          name: cat,
+          savePath: `/downloads/${cat.toLowerCase()}`
+        }))
     })
   }
 
