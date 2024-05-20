@@ -14,8 +14,6 @@ export class TreeFile {
   fullName: string
   /** File pieces currently available (percentage/100) */
   availability: number
-  /** True if file is seeding/complete */
-  is_seed: boolean
   /** File priority */
   priority: FilePriority
   /** File progress */
@@ -30,7 +28,6 @@ export class TreeFile {
     this.id = file.index
     this.fullName = file.name
     this.availability = file.availability
-    this.is_seed = file.is_seed
     this.priority = file.priority
     this.progress = file.progress
     this.size = file.size

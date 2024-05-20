@@ -5,8 +5,10 @@ export default interface TorrentFile {
   availability: number
   /** File index (starting at 0) */
   index: number
-  /** True if file is seeding/complete */
-  is_seed: boolean
+  /** True if torrent is seeding/complete
+   * @description This property is only found on the first file of the torrent
+   */
+  is_seed?: boolean
   /** File name (including relative path) */
   name: string
   /** The first number is the starting piece index and the second number is the ending piece index (inclusive) */

@@ -1,6 +1,6 @@
 import { TorrentFile } from '@/types/qbit/models'
 import { TreeFile, TreeFolder } from '@/types/vuetorrent'
-import { MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
+import { MaybeRefOrGetter, ref, toValue, watch } from 'vue'
 
 function getEmptyRoot() {
   return new TreeFolder('(root)', '') // Only the 'fullName' of the '(root)' node can be an empty string.
@@ -9,8 +9,7 @@ function getEmptyRoot() {
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
   const tree = ref(getEmptyRoot())
 
-  /// start watchEffect ///
-  watchEffect(() => {
+  function buildTree() {
     const rootNode = getEmptyRoot()
     const files = toValue(items) ?? []
 
@@ -22,7 +21,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
         .reduce((parentPath, nodeName) => {
           const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
 
-          if (file.name.replace('\\', '/').split('/').pop() === nodeName) {
+          if (parentPath === file.name.substring(0, file.name.lastIndexOf('/'))) {
             cursor.children.push(new TreeFile(file, nodeName))
           } else {
             const folder = cursor.children.find(el => el.name === nodeName) as TreeFolder | undefined
@@ -40,8 +39,9 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>) {
     }
 
     tree.value = rootNode
-  })
-  /// end watchEffect ///
+  }
+
+  watch(items, buildTree)
 
   return { tree }
 }
