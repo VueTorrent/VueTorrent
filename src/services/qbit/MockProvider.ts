@@ -1,4 +1,11 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -28,7 +35,8 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {}
+  private constructor() {
+  }
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -973,65 +981,80 @@ export default class MockProvider implements IProvider {
   }
 
   async syncTorrentPeers(_: string, rid?: number): Promise<TorrentPeersResponse> {
+    const rndmConnType = () => faker.helpers.arrayElement(['BT', 'μTP', 'WEB'])
+    const rndmCountry = () => faker.location.country()
+    const rndmCountryCode = () => faker.location.countryCode()
+    const rndmSpeed = () => faker.number.int({ min: 0, max: 50_000_000 }) // [0; 50 Mo/s]
+    const rndmData = () => faker.number.int({ min: 0, max: 5_000_000_000 }) // [0; 5 Go]
+
+    const ip1 = faker.internet.ipv4()
+    const port1 = faker.internet.port()
+
+    const ip2 = faker.internet.ipv4()
+    const port2 = faker.internet.port()
+
+    const ip3 = faker.internet.ipv4()
+    const port3 = faker.internet.port()
+
     rid = rid ?? 0
     return this.generateResponse({
       result: {
-        full_update: !(rid > 0),
+        full_update: true,
         rid: rid + 1,
         peers: {
-          '1.1.1.1:6889': {
+          [`${ ip1 }:${ port1 }`]: {
             client: 'qBittorrent v4.6.2',
-            connection: 'BT',
-            country: 'United States',
-            country_code: 'US',
-            dl_speed: 0,
-            downloaded: 0,
+            connection: rndmConnType(),
+            country: rndmCountry(),
+            country_code: rndmCountryCode(),
+            dl_speed: rndmSpeed(),
+            downloaded: rndmData(),
             files: 'ubuntu-23.10.1-desktop-amd64.iso',
             flags: 'D',
             flags_desc: 'dht',
-            ip: '1.1.1.1',
+            ip: ip1,
             peer_id_client: '-qB4620-',
-            port: 6889,
-            progress: 1,
-            relevance: 1,
-            up_speed: 0,
-            uploaded: 0
+            port: port1,
+            progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            up_speed: rndmSpeed(),
+            uploaded: rndmData()
           },
-          '85.85.85.85:53724': {
+          [`${ ip2 }:${ port2 }`]: {
             client: 'Tixati 2.84',
-            connection: 'μTP',
-            country: 'Spain',
-            country_code: 'ES',
-            dl_speed: 0,
-            downloaded: 0,
+            connection: rndmConnType(),
+            country: rndmCountry(),
+            country_code: rndmCountryCode(),
+            dl_speed: rndmSpeed(),
+            downloaded: rndmData(),
             files: 'ubuntu/ubuntu-23.10.1-desktop-amd64.iso',
             flags: 'D ? S H P',
             flags_desc: 'D = Interested (local) and unchoked (peer)\n? = Not interested (peer) and unchoked (local)\nS = Peer snubbed\nH = Peer from DHT\nP = μTP',
-            ip: '85.85.85.85',
+            ip: ip2,
             peer_id_client: 'TIX0284-',
-            port: 53724,
-            progress: .30,
-            relevance: .45,
-            up_speed: 0,
-            uploaded: 0
+            port: port2,
+            progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
+            uploaded: rndmData()
           },
-          '111.222.123.123:8346': {
+          [`${ ip3 }:${ port3 }`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
-            connection: 'WEB',
-            country: 'China',
-            country_code: 'CN',
-            dl_speed: 0,
-            downloaded: 0,
+            connection: rndmConnType(),
+            country: rndmCountry(),
+            country_code: rndmCountryCode(),
+            dl_speed: rndmSpeed(),
+            downloaded: rndmData(),
             files: 'ubuntu2/ubuntu-23.10.1-desktop-amd64.iso',
             flags: 'U H X P',
             flags_desc: 'U = Interested (peer) and unchoked (local)\nH = Peer from DHT\nX = Peer from PEX\nP = μTP',
-            ip: '111.222.123.123',
+            ip: ip3,
             peer_id_client: '-DE211s-',
-            port: 8346,
-            progress: .70,
-            relevance: .66,
-            up_speed: 0,
-            uploaded: 0
+            port: port3,
+            progress: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            relevance: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+            up_speed: rndmSpeed(),
+            uploaded: rndmData()
           }
         },
         show_flags: (rid <= 0) || undefined
@@ -1074,7 +1097,7 @@ export default class MockProvider implements IProvider {
         infohash_v1: hash,
         infohash_v2: '',
         last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
         max_inactive_seeding_time: -1,
         max_ratio: -1,
         max_seeding_time: -1,
