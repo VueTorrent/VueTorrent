@@ -20,7 +20,6 @@ const file_normal = new TreeFile(
   {
     availability: 1,
     index: 1,
-    is_seed: true,
     name: 'test/test2.txt',
     piece_range: [0, 0],
     priority: FilePriority.NORMAL,
@@ -34,7 +33,6 @@ const file_high = new TreeFile(
   {
     availability: 1,
     index: 2,
-    is_seed: true,
     name: 'test/test3.txt',
     piece_range: [0, 0],
     priority: FilePriority.HIGH,
@@ -48,7 +46,6 @@ const file_maximal = new TreeFile(
   {
     availability: 1,
     index: 3,
-    is_seed: true,
     name: 'test/test4.txt',
     piece_range: [0, 0],
     priority: FilePriority.MAXIMAL,
