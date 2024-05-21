@@ -206,10 +206,11 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
         </template>
         <v-card :title="$t('torrentDetail.peers.addPeers.title')">
           <v-card-text>
-            <v-textarea v-model="newPeers"
-                        :label="t('torrentDetail.peers.addPeers.newPeers')"
-                        :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
-                        :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
+            <v-textarea
+              v-model="newPeers"
+              :label="t('torrentDetail.peers.addPeers.newPeers')"
+              :placeholder="t('torrentDetail.peers.addPeers.newPeersPlaceholder')"
+              :hint="t('torrentDetail.peers.addPeers.newPeersHint')" />
           </v-card-text>
 
           <v-card-actions>

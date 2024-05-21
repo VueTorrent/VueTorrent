@@ -24,6 +24,8 @@ import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
+  private readonly categories = ['', 'ISO', 'Other', 'Movie', 'Music', 'TV']
+  private readonly trackers = ['', ...faker.helpers.multiple(() => faker.internet.url(), { count: 5 })]
   private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
@@ -1065,14 +1067,14 @@ export default class MockProvider implements IProvider {
       const state = faker.helpers.enumValue(TorrentState)
       const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
       const completed = faker.number.int({ min: 0, max: total_size })
-      const tracker = faker.internet.url()
+      const tracker = faker.helpers.arrayElement(this.trackers)
 
       return {
         added_on,
         amount_left: faker.number.int({ min: 0, max: total_size }),
         auto_tmm: faker.datatype.boolean(),
         availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
-        category: faker.helpers.arrayElement(['ISO', 'Other', 'Movie', 'Music', 'TV']),
+        category: faker.helpers.arrayElement(this.categories),
         completed,
         completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime() / 1000,
         content_path: faker.system.filePath(),
@@ -1411,10 +1413,12 @@ export default class MockProvider implements IProvider {
 
   async getCategories(): Promise<Category[]> {
     return this.generateResponse({
-      result: [
-        { name: 'Movies', savePath: '/downloads/movies' },
-        { name: 'Series', savePath: '/downloads/series' }
-      ]
+      result: this.categories
+        .filter(x => x)
+        .map(cat => ({
+          name: cat,
+          savePath: `/downloads/${cat.toLowerCase()}`
+        }))
     })
   }
 
