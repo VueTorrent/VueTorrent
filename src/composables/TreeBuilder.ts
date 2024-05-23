@@ -1,13 +1,14 @@
 import { TorrentFile } from '@/types/qbit/models'
 import { TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
-import { computed, MaybeRefOrGetter, ref, toValue, watchEffect } from 'vue'
+import { computed, MaybeRefOrGetter, shallowRef, toValue, watchEffect } from 'vue'
 
 function getEmptyRoot() {
   return new TreeFolder('(root)', '') // Only the 'fullName' of the '(root)' node can be an empty string.
 }
 
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<string[]>) {
-  const tree = ref(getEmptyRoot())
+  const tree = shallowRef(getEmptyRoot())
+
   const flatTree = computed(() => {
     const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
       const path = parentPath === '' ? node.name : parentPath + '/' + node.name
