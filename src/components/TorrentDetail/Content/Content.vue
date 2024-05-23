@@ -84,7 +84,7 @@ function resume() {
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
 
       <MixedButton v-if="isTimerActive" icon="mdi-timer-pause" position="left" color="primary" :text="$t('common.pause')" @click="pause()" />
-      <MixedButton v-else icon="mdi-timer-play" color="primary" :text="$t('common.resume')" @click="resume()" />
+      <MixedButton v-else icon="mdi-timer-play" position="left" color="primary" :text="$t('common.resume')" @click="resume()" />
     </div>
 
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">

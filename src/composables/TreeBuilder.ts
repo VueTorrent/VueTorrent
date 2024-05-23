@@ -60,12 +60,18 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedIte
 
     tree.value = rootNode
 
-    const start = performance.now()
+    performance.mark('TreeBuilder::buildCache::start')
     rootNode.buildCache()
-    console.log('Flat tree computed in', performance.now() - start, 'ms')
+    performance.mark('TreeBuilder::buildCache::end')
+    performance.measure('TreeBuilder::buildCache', 'TreeBuilder::buildCache::start', 'TreeBuilder::buildCache::end')
   }
 
-  watchEffect(() => buildTree())
+  watchEffect(() => {
+    performance.mark('TreeBuilder::buildTree::start')
+    buildTree()
+    performance.mark('TreeBuilder::buildTree::end')
+    performance.measure('TreeBuilder::buildTree', 'TreeBuilder::buildTree::start', 'TreeBuilder::buildTree::end')
+  })
 
   return { tree, flatTree }
 }
