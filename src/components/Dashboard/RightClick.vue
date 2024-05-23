@@ -83,6 +83,10 @@ function hasTag(tag: string) {
   return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
 }
 
+async function removeTags(tags: string[]) {
+  await torrentStore.removeTorrentTags(hashes.value, tags)
+}
+
 async function toggleTag(tag: string) {
   if (hasTag(tag)) await torrentStore.removeTorrentTags(hashes.value, [tag])
   else await torrentStore.addTorrentTags(hashes.value, [tag])
@@ -207,11 +211,22 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabled: maindataStore.tags.length === 0,
     disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
-    children: maindataStore.tags.map(tag => ({
-      text: tag,
-      icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-      action: async () => await toggleTag(tag)
-    }))
+    children: [
+      ...(torrent.value?.tags.length
+        ? [
+            {
+              text: t('dashboard.right_click.tags.removeall'),
+              action: async () => await removeTags(maindataStore.tags),
+              icon: 'mdi-playlist-remove'
+            }
+          ]
+        : []),
+      ...maindataStore.tags.map(tag => ({
+        text: tag,
+        icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
+        action: async () => await toggleTag(tag)
+      }))
+    ]
   },
   {
     text: t('dashboard.right_click.category.title'),

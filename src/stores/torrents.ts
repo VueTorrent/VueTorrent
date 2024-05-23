@@ -28,15 +28,15 @@ export const useTorrentStore = defineStore(
     type matchFn = (t: Torrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
-    const matchTag: matchFn = t => t.tags.length === 0 && tagFilter.value.includes(null) || t.tags.some(tag => tagFilter.value.includes(tag))
+    const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
     const matchTracker: matchFn = t => trackerFilter.value.includes(extractHostname(t.tracker))
 
     const torrentsWithFilters = useArrayFilter(torrents, torrent => {
       return !(
-        (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent))
-        || (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent))
-        || (tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent))
-        || (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
+        (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent)) ||
+        (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent)) ||
+        (tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent)) ||
+        (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
       )
     })
 

@@ -181,7 +181,8 @@
       },
       "tags": {
         "disabled_title": "No tags",
-        "title": "Set tags"
+        "title": "Set tags",
+        "removeall": "Remove all"
       },
       "top": {
         "delete": "Delete",
