@@ -59,59 +59,70 @@ const folder = new TreeFolder('test', 'test')
 
 beforeEach(() => {
   folder.children = []
+  folder.buildCache()
 })
 
-test('getPriority', () => {
-  expect(folder.getPriority()).toBe(FilePriority.DO_NOT_DOWNLOAD)
+describe('TreeObjects', () => {
+  test('getPriority', () => {
+    expect(folder.priority).toBe(FilePriority.DO_NOT_DOWNLOAD)
 
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.getPriority()).toBe(FilePriority.MIXED)
-})
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.priority).toBe(FilePriority.MIXED)
+  })
 
-test('getChildrenIds', () => {
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.getChildrenIds()).toEqual([0, 1, 2, 3])
-})
+  test('getChildrenIds', () => {
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.childrenIds).toEqual([0, 1, 2, 3])
+  })
 
-test('isSelected', () => {
-  const selection = new Set<string>(['test', 'test/test1.txt'])
-  expect(folder.isSelected(selection)).toBe(true)
-  expect(file_unwanted.isSelected(selection)).toBe(true)
-  expect(file_normal.isSelected(selection)).toBe(false)
-  expect(file_high.isSelected(selection)).toBe(false)
-  expect(file_maximal.isSelected(selection)).toBe(false)
-})
+  test('isSelected', () => {
+    const selection = new Set<string>(['test', 'test/test1.txt'])
+    expect(folder.isSelected(selection)).toBe(true)
+    expect(file_unwanted.isSelected(selection)).toBe(true)
+    expect(file_normal.isSelected(selection)).toBe(false)
+    expect(file_high.isSelected(selection)).toBe(false)
+    expect(file_maximal.isSelected(selection)).toBe(false)
+  })
 
-test('isWanted', () => {
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.isWanted()).toBe(null)
+  test('isWanted', () => {
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.wanted).toBe(null)
 
-  folder.children = [file_normal, file_high, file_maximal]
-  expect(folder.isWanted()).toBe(true)
+    folder.children = [file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.wanted).toBe(true)
 
-  folder.children = [file_unwanted]
-  expect(folder.isWanted()).toBe(false)
-})
+    folder.children = [file_unwanted]
+    folder.buildCache()
+    expect(folder.wanted).toBe(false)
+  })
 
-test('getProgress', () => {
-  expect(folder.getProgress()).toBe(0)
+  test('getProgress', () => {
+    expect(folder.progress).toBe(0)
 
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.getProgress()).toBe(1)
-})
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.progress).toBe(1)
+  })
 
-test('getDeepCount', () => {
-  expect(file_unwanted.getDeepCount()).toEqual([0, 1])
+  test('getDeepCount', () => {
+    expect(file_unwanted.deepCount).toEqual([0, 1])
 
-  expect(folder.getDeepCount()).toEqual([1, 0])
+    expect(folder.deepCount).toEqual([1, 0])
 
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.getDeepCount()).toEqual([1, 4])
-})
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.deepCount).toEqual([1, 4])
+  })
 
-test('getSize', () => {
-  expect(folder.getSize()).toBe(0)
+  test('getSize', () => {
+    expect(folder.size).toBe(0)
 
-  folder.children = [file_unwanted, file_normal, file_high, file_maximal]
-  expect(folder.getSize()).toBe(4000)
+    folder.children = [file_unwanted, file_normal, file_high, file_maximal]
+    folder.buildCache()
+    expect(folder.size).toBe(4000)
+  })
 })

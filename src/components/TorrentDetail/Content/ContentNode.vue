@@ -46,10 +46,10 @@ function openNode(e: Event, node: TreeNode) {
 }
 
 async function toggleFileSelection(node: TreeNode) {
-  if (node.getPriority() === FilePriority.DO_NOT_DOWNLOAD) {
-    emit('setFilePrio', node.getChildrenIds(), FilePriority.NORMAL)
+  if (node.priority === FilePriority.DO_NOT_DOWNLOAD) {
+    emit('setFilePrio', node.childrenIds, FilePriority.NORMAL)
   } else {
-    emit('setFilePrio', node.getChildrenIds(), FilePriority.DO_NOT_DOWNLOAD)
+    emit('setFilePrio', node.childrenIds, FilePriority.DO_NOT_DOWNLOAD)
   }
 }
 
@@ -66,16 +66,16 @@ function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node
 }
 
 function getNodeColor(node: TreeNode) {
-  if (node.getPriority() === FilePriority.DO_NOT_DOWNLOAD) {
+  if (node.priority === FilePriority.DO_NOT_DOWNLOAD) {
     return 'grey'
   }
 
-  const progress = node.getProgress()
+  const progress = node.progress
   return progress === 1 ? 'green' : ''
 }
 
 function getNodeDeepCount(node: TreeNode) {
-  const [folderCount, fileCount] = node.getDeepCount()
+  const [folderCount, fileCount] = node.deepCount
 
   const res = []
   if (folderCount > 1) {
@@ -89,7 +89,7 @@ function getNodeDeepCount(node: TreeNode) {
 }
 
 function getNodeSubtitle(node: TreeNode) {
-  const values = [formatData(node.getSize(), vuetorrentStore.useBinarySize)]
+  const values = [formatData(node.size, vuetorrentStore.useBinarySize)]
 
   if (node.type === 'folder') {
     values.push(getNodeDeepCount(node))
@@ -108,8 +108,8 @@ function getNodeSubtitle(node: TreeNode) {
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
-        <v-icon v-if="node.isWanted() === null" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
-        <v-icon v-else-if="node.isWanted()" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
+        <v-icon v-if="node.wanted === null" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
+        <v-icon v-else-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
 
@@ -135,14 +135,14 @@ function getNodeSubtitle(node: TreeNode) {
 
       <!-- Priority icon -->
       <div class="d-flex align-center">
-        <v-icon v-if="node.getPriority() === FilePriority.MAXIMAL" color="error">mdi-arrow-up</v-icon>
-        <v-icon v-else-if="node.getPriority() === FilePriority.HIGH" color="warning">mdi-arrow-top-right</v-icon>
-        <v-icon v-else-if="node.getPriority() === FilePriority.NORMAL">mdi-minus</v-icon>
-        <v-icon v-else-if="node.getPriority() === FilePriority.MIXED">mdi-tilde</v-icon>
-        <v-icon v-else-if="node.getPriority() === FilePriority.DO_NOT_DOWNLOAD" color="grey">mdi-cancel</v-icon>
+        <v-icon v-if="node.priority === FilePriority.MAXIMAL" color="error">mdi-arrow-up</v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.HIGH" color="warning">mdi-arrow-top-right</v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.NORMAL">mdi-minus</v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.MIXED">mdi-tilde</v-icon>
+        <v-icon v-else-if="node.priority === FilePriority.DO_NOT_DOWNLOAD" color="grey">mdi-cancel</v-icon>
       </div>
     </div>
-    <v-progress-linear :model-value="node.getProgress()" :max="1" :color="getNodeColor(node)" rounded="sm" />
+    <v-progress-linear :model-value="node.progress" :max="1" :color="getNodeColor(node)" rounded="sm" />
   </div>
 </template>
 
