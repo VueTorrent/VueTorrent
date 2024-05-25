@@ -65,6 +65,7 @@ const lightTheme: ThemeDefinition = {
   colors: {
     primary: '#35495E',
     secondary: '#3E556D',
+    navbar: '#273845',
     download: '#5BB974',
     background: colors.grey.lighten4,
     selected: colors.grey.lighten2,
@@ -76,8 +77,9 @@ const lightTheme: ThemeDefinition = {
 const altLightTheme: ThemeDefinition = {
   dark: false,
   colors: {
-    primary: '#306052',
-    secondary: '#28483E',
+    primary: '#28483E',
+    secondary: '#306052',
+    navbar: '#28483E',
     download: '#7ACA47',
     background: colors.grey.lighten4,
     selected: colors.grey.lighten2,
@@ -91,6 +93,7 @@ const darkTheme: ThemeDefinition = {
   colors: {
     primary: '#35495E',
     secondary: '#415c75',
+    navbar: '#273845',
     download: '#5BB974',
     background: '#121212',
     selected: colors.grey.darken1,
@@ -104,6 +107,7 @@ const altDarkTheme: ThemeDefinition = {
   colors: {
     primary: '#28483E',
     secondary: '#306052',
+    navbar: '#28483E',
     download: '#7ACA47',
     background: '#121212',
     selected: colors.grey.darken1,
