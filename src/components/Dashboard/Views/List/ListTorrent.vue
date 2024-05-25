@@ -12,12 +12,15 @@ import { DashboardPropertyType } from '@/constants/vuetorrent'
 import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
+import { useTheme } from 'vuetify'
 
 const props = defineProps<{ torrent: Torrent }>()
 
 defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: Torrent]
 }>()
+
+const { current } = useTheme()
 
 const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -52,11 +55,13 @@ const getComponent = (type: DashboardPropertyType) => {
   }
 }
 const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
+const stateColor = computed(() => current.value.colors[`torrent-${props.torrent.state}`])
 </script>
 
 <template>
   <v-card
-    :class="`sideborder ${torrent.state} cursor-pointer`"
+    class="cursor-pointer"
+    :style="`border-left: 6px solid ${stateColor}`"
     width="100%"
     :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">

@@ -13,12 +13,15 @@ import ItemPercent from '@/components/Dashboard/DashboardItems/ItemPercent.vue'
 import ItemRelativeTime from '@/components/Dashboard/DashboardItems/ItemRelativeTime.vue'
 import ItemSpeed from '@/components/Dashboard/DashboardItems/ItemSpeed.vue'
 import ItemText from '@/components/Dashboard/DashboardItems/ItemText.vue'
+import { useTheme } from 'vuetify'
 
 const props = defineProps<{ torrent: Torrent }>()
 
 defineEmits<{
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: Torrent]
 }>()
+
+const { current } = useTheme()
 
 const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
@@ -54,11 +57,13 @@ const getComponent = (type: DashboardPropertyType) => {
 }
 
 const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
+const stateColor = computed(() => current.value.colors[`torrent-${props.torrent.state}`])
 </script>
 
 <template>
   <v-card
-    :class="`sideborder ${torrent.state} cursor-pointer`"
+    class="cursor-pointer"
+    :style="`border-left: 6px solid ${stateColor}`"
     height="100%"
     :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">

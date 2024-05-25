@@ -167,10 +167,7 @@ export const useVueTorrentStore = defineStore(
           vuetorrentTheme.variant = VuetorrentTheme.LIGHT
       }
     }
-    watch(vuetorrentTheme, v => {
-      console.log('vuetorrentTheme changed', v)
-      updateTheme()
-    })
+    watch(vuetorrentTheme, updateTheme)
 
     async function redirectToLogin() {
       await router.push({ name: 'login', query: { redirect: router.currentRoute.value.path } })

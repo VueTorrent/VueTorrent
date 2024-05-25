@@ -1,5 +1,3 @@
-@import './colors.scss';
-
 ul.no-bullet {
   list-style-type: none;
 }
@@ -45,78 +43,6 @@ ul.no-bullet {
 
 .inherit-bg {
   background-color: inherit !important;
-}
-
-$sideborder-margin: 6px;
-
-.sideborder {
-  border-left: #{$sideborder-margin} solid grey;
-
-  &.error {
-    border-left-color: #{$torrent-error};
-  }
-  &.missingFiles {
-    border-left-color: #{$torrent-missingFiles};
-  }
-  &.uploading {
-    border-left-color: #{$torrent-uploading};
-  }
-  &.forcedUP {
-    border-left-color: #{$torrent-forcedUP};
-  }
-  &.pausedUP {
-    border-left-color: #{$torrent-pausedUP};
-  }
-  &.queuedUP {
-    border-left-color: #{$torrent-queuedUP};
-  }
-  &.stalledUP {
-    border-left-color: #{$torrent-stalledUP};
-  }
-  &.checkingUP {
-    border-left-color: #{$torrent-checkingUP};
-  }
-  &.allocating {
-    border-left-color: #{$torrent-allocating};
-  }
-  &.downloading {
-    border-left-color: #{$torrent-downloading};
-  }
-  &.forcedDL {
-    border-left-color: #{$torrent-forcedDL};
-  }
-  &.metaDL {
-    border-left-color: #{$torrent-metaDL};
-  }
-  &.forcedMetaDL {
-    border-left-color: #{$torrent-forcedMetaDL};
-  }
-  &.pausedDL {
-    border-left-color: #{$torrent-pausedDL};
-  }
-  &.queuedDL {
-    border-left-color: #{$torrent-queuedDL};
-  }
-  &.stalledDL {
-    border-left-color: #{$torrent-stalledDL};
-  }
-  &.checkingDL {
-    border-left-color: #{$torrent-checkingDL};
-  }
-  &.checkingResumeData {
-    border-left-color: #{$torrent-checkingResumeData};
-  }
-  &.moving {
-    border-left-color: #{$torrent-moving};
-  }
-  &.unknown {
-    &.v-theme--darkTheme, &.v-theme--altDarkTheme {
-      border-left-color: #{$torrent-unknown-dark};
-    }
-    &.v-theme-lightTheme {
-      border-left-color: #{$torrent-unknown-light};
-    }
-  }
 }
 
 /* scrollbar */
