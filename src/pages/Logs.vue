@@ -27,7 +27,7 @@ const colors = computed(() => ({
   },
   dark: {
     normal: 'white',
-    info: new TinyColor(current.value.colors.primary).lighten(15).toString(),
+    info: 'deepskyblue',
     warning: 'darkorange',
     critical: new TinyColor('darkred').lighten(12).toString()
   }
