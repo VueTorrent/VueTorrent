@@ -110,12 +110,12 @@
     },
     "themes": {
       "dark": {
-        "redesigned": "Redesigned",
-        "legacy": "Legacy"
+        "legacy": "Legacy",
+        "redesigned": "Redesigned"
       },
       "light": {
-        "redesigned": "Redesigned",
-        "legacy": "Legacy"
+        "legacy": "Legacy",
+        "redesigned": "Redesigned"
       }
     },
     "titleOptions": {

@@ -1,3 +1,5 @@
+import colors from 'vuetify/util/colors'
+
 export const statusColors = {
   enabled: '#4F738D',
   disabled: '#35495E'
@@ -50,5 +52,5 @@ export const variables = {
   'torrent-checkingDL': '#FF7043',
   'torrent-checkingResumeData': '#FF7043',
   'torrent-moving': '#FFAA2C',
-  'torrent-unknown': '#000000'
+  'torrent-unknown': colors.grey.base
 }

@@ -7,7 +7,7 @@ import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
 import { TitleOptions } from './TitleOptions'
-import { ThemeMode } from './ThemeMode.ts'
+import { ThemeMode } from './ThemeMode'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 

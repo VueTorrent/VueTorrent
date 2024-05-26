@@ -1,4 +1,4 @@
-import colors from 'vuetify/lib/util/colors'
+import colors from 'vuetify/util/colors'
 import { variables } from '../global'
 
 export default {
