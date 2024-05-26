@@ -51,7 +51,7 @@ function selectAllTrackers() {
 <template>
   <v-list class="pb-0 inherit-fg">
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-normal text-caption">
+      <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.state') }}
       </v-list-item-title>
       <v-select
@@ -77,7 +77,7 @@ function selectAllTrackers() {
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
+      <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.category') }}
       </v-list-item-title>
       <v-select
@@ -106,7 +106,7 @@ function selectAllTrackers() {
     </v-list-item>
 
     <v-list-item class="px-0 pb-3">
-      <v-list-item-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
+      <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tag') }}
       </v-list-item-title>
       <v-select
@@ -135,7 +135,7 @@ function selectAllTrackers() {
     </v-list-item>
 
     <v-list-item v-if="vueTorrentStore.showTrackerFilter" class="px-0 pb-3">
-      <v-list-item-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
+      <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
       <v-select

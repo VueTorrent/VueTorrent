@@ -9,7 +9,7 @@ const maindataStore = useMaindataStore()
 
 <template>
   <v-card flat class="inherit-bg">
-    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-normal text-caption">
+    <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">
       {{ t('navbar.side.current_speed.title') }}
     </v-card-title>
     <v-card-text class="px-0">
