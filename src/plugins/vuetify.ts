@@ -1,6 +1,5 @@
 import 'vuetify/styles'
-import { DarkTheme, LightTheme } from '@/constants/vuetorrent'
-import { DarkAlternative, DarkDefault, LightAlternative, LightDefault } from '@/themes'
+import themes, { DarkRedesigned } from '@/themes'
 import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
@@ -16,7 +15,7 @@ export default createVuetify({
     defaultSet: 'mdi'
   },
   theme: {
-    defaultTheme: DarkTheme.ALT,
+    defaultTheme: DarkRedesigned.id,
     variations: {
       colors: [
         'torrent-error',
@@ -43,11 +42,6 @@ export default createVuetify({
       lighten: 3,
       darken: 3
     },
-    themes: {
-      [LightTheme.DEFAULT]: LightDefault,
-      [LightTheme.ALT]: LightAlternative,
-      [DarkTheme.DEFAULT]: DarkDefault,
-      [DarkTheme.ALT]: DarkAlternative
-    }
+    themes
   }
 })

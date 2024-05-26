@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { DarkTheme, defaultDateFormat, LightTheme, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
+import { DarkRedesigned, DarkLegacy, LightRedesigned, LightLegacy } from '@/themes'
 import { computed, onBeforeMount, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -23,14 +24,14 @@ const titleOptionsList = readonly([
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
 ])
 
-const lightVariants = readonly<{title: string; value: LightTheme}[]>([
-  { title: t('constants.themes.light.default'), value: LightTheme.DEFAULT },
-  { title: t('constants.themes.light.alternative'), value: LightTheme.ALT }
+const lightVariants = readonly([
+  { title: t('constants.themes.light.legacy'), value: LightLegacy.id },
+  { title: t('constants.themes.light.redesigned'), value: LightRedesigned.id }
 ])
 
-const darkVariants = readonly<{title: string; value: DarkTheme}[]>([
-  { title: t('constants.themes.dark.default'), value: DarkTheme.DEFAULT },
-  { title: t('constants.themes.dark.alternative'), value: DarkTheme.ALT }
+const darkVariants = readonly([
+  { title: t('constants.themes.dark.legacy'), value: DarkLegacy.id },
+  { title: t('constants.themes.dark.redesigned'), value: DarkRedesigned.id }
 ])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])

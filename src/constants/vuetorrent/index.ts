@@ -6,8 +6,6 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
-import { LightTheme, DarkTheme } from './Theme'
-import type { Theme } from './Theme'
 import { TitleOptions } from './TitleOptions'
 import { ThemeMode } from './ThemeMode.ts'
 
@@ -25,9 +23,6 @@ export {
   FeedState,
   getFileIcon,
   typesMap,
-  LightTheme,
-  DarkTheme,
-  Theme,
   HistoryKey,
   TitleOptions,
   ThemeMode,

@@ -1,8 +1,6 @@
 import {
-  DarkTheme,
   DashboardProperty,
   defaultDateFormat,
-  LightTheme,
   PropertyData,
   propsData,
   propsMetadata,
@@ -11,6 +9,7 @@ import {
   ThemeMode
 } from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
+import { DarkRedesigned, LightRedesigned } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
@@ -24,10 +23,10 @@ export const useVueTorrentStore = defineStore(
     const backendUrl = ref('')
 
     const language = ref('en')
-    const theme = reactive<{ mode: ThemeMode; light: LightTheme; dark: DarkTheme }>({
+    const theme = reactive({
       mode: ThemeMode.SYSTEM,
-      light: LightTheme.ALT,
-      dark: DarkTheme.ALT
+      light: LightRedesigned.id,
+      dark: DarkRedesigned.id
     })
     const showFreeSpace = ref(true)
     const showSpeedGraph = ref(true)
@@ -286,8 +285,8 @@ export const useVueTorrentStore = defineStore(
         backendUrl.value = ''
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
-        theme.light = LightTheme.ALT
-        theme.dark = DarkTheme.ALT
+        theme.light = LightRedesigned.id
+        theme.dark = DarkRedesigned.id
         showFreeSpace.value = true
         showSpeedGraph.value = true
         showSessionStat.value = true
