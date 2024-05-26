@@ -28,7 +28,7 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
 
 <template>
   <td>
-    <div class="d-flex flex-row flex-gap" v-if="shouldShowChip">
+    <div class="d-flex flex-row flex-gap-column-small" v-if="shouldShowChip">
       <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat" size="small">
         {{ $t(emptyValueKey) }}
       </v-chip>

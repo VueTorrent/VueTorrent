@@ -20,7 +20,7 @@ const ratio = computed(() => (props.session ? undefined : maindataStore.serverSt
   <v-card variant="flat" class="inherit-bg">
     <v-card-title class="px-0 text-uppercase text-white ml-1 font-weight-light text-subtitle-2">{{ title }}</v-card-title>
     <v-card-text class="px-0 pb-0">
-      <div class="d-flex flex-column flex-gap">
+      <div class="d-flex flex-column flex-gap-row">
         <DataCard :title="$t('navbar.side.stats.downloaded')" :value="download" color="download" icon="mdi-arrow-down" />
         <DataCard :title="$t('navbar.side.stats.uploaded')" :value="upload" color="upload" icon="mdi-arrow-up" />
         <StringCard v-if="!session" :title="$t('navbar.side.stats.ratio')" :value="ratio" color="ratio" />

@@ -11,7 +11,15 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
-const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
+const {
+  rightClickProperties,
+  filenameFilter,
+  openedItems,
+  flatTree,
+  internalSelection,
+  timerForcedPause,
+  isTimerActive
+} = storeToRefs(contentStore)
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -51,6 +59,7 @@ function startPress(e: Touch, node: TreeNode) {
 function endPress() {
   clearTimeout(timer.value)
 }
+
 // END mobile long press
 
 watch(
@@ -72,6 +81,7 @@ function pause() {
   timerForcedPause.value = true
   contentStore.pauseTimer()
 }
+
 function resume() {
   timerForcedPause.value = false
   contentStore.resumeTimer()
@@ -83,21 +93,25 @@ function resume() {
     <div class="mt-2 mx-3 d-flex flex-gap align-center">
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
 
-      <MixedButton v-if="isTimerActive" icon="mdi-timer-pause" position="left" color="primary" :text="$t('common.pause')" @click="pause()" />
-      <MixedButton v-else icon="mdi-timer-play" position="left" color="primary" :text="$t('common.resume')" @click="resume()" />
+      <MixedButton
+          :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
+          position="left"
+          color="primary"
+          :text="isTimerActive ? $t('common.pause') : $t('common.resume')"
+          @click="isTimerActive ? pause() : resume()" />
     </div>
 
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
         <ContentNode
-          :opened-items="openedItems"
-          :node="item"
-          @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
-          @touchcancel="endPress"
-          @touchend="endPress"
-          @touchmove="endPress"
-          @touchstart="startPress($event.touches.item(0)!, item)"
-          @onRightClick="(e, node) => onRightClick(e, node)" />
+            :opened-items="openedItems"
+            :node="item"
+            @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
+            @touchcancel="endPress"
+            @touchend="endPress"
+            @touchmove="endPress"
+            @touchstart="startPress($event.touches.item(0)!, item)"
+            @onRightClick="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>
