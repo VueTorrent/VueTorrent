@@ -5,7 +5,7 @@ export const statusColors = {
   disabled: '#35495E'
 }
 
-export const variables = {
+export const getVariables = (dark: boolean)  => ({
   // Main colors
   accent: '#64CEAA',
   upload: '#00B3FA',
@@ -52,5 +52,5 @@ export const variables = {
   'torrent-checkingDL': '#FF7043',
   'torrent-checkingResumeData': '#FF7043',
   'torrent-moving': '#FFAA2C',
-  'torrent-unknown': colors.grey.base
-}
+  'torrent-unknown': dark ? colors.shades.black : colors.shades.white
+})

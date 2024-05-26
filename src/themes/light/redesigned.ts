@@ -1,5 +1,5 @@
 import colors from 'vuetify/util/colors'
-import { variables } from '../global'
+import { getVariables } from '../global'
 
 export default {
   id: 'light-redesigned',
@@ -13,7 +13,7 @@ export default {
       background: colors.grey.lighten4,
       selected: colors.grey.lighten2,
       red: colors.red.accent2,
-      ...variables
+      ...getVariables(false)
     }
   }
 }

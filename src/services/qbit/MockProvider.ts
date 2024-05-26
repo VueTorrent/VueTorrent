@@ -1064,7 +1064,6 @@ export default class MockProvider implements IProvider {
       const name = faker.system.fileName()
       const num_complete = faker.number.int({ min: 0, max: 250 })
       const num_incomplete = faker.number.int({ min: 0, max: 250 })
-      const state = faker.helpers.enumValue(TorrentState)
       const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
       const completed = faker.number.int({ min: 0, max: total_size })
       const tracker = faker.helpers.arrayElement(this.trackers)
@@ -1110,7 +1109,7 @@ export default class MockProvider implements IProvider {
         seen_complete: -3600,
         seq_dl: faker.datatype.boolean(),
         size: total_size,
-        state,
+        state: faker.helpers.enumValue(TorrentState),
         super_seeding: faker.datatype.boolean(),
         tags: '',
         time_active: 0,

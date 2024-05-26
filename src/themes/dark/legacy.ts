@@ -1,5 +1,5 @@
 import colors from 'vuetify/util/colors'
-import { variables } from '../global'
+import { getVariables } from '../global'
 
 export default {
   id: 'dark-legacy',
@@ -13,7 +13,7 @@ export default {
       background: '#121212',
       selected: colors.grey.darken1,
       red: colors.red.accent3,
-      ...variables
+      ...getVariables(true)
     }
   }
 }
