@@ -225,7 +225,7 @@ watch(() => props.isActive, setupTimer)
 </template>
 
 <style lang="scss" scoped>
-.v-theme--darkTheme, .v-theme--altDarkTheme {
+[class*=v-theme--dark-] {
   .tracker-disabled {
     color: darken(lightgrey, 5%);
   }
@@ -247,7 +247,7 @@ watch(() => props.isActive, setupTimer)
   }
 }
 
-.v-theme--lightTheme, .v-theme--altLightTheme {
+[class*=v-theme--light-] {
   .tracker-disabled {
     color: grey;
   }
