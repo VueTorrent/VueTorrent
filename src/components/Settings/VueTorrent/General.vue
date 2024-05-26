@@ -2,7 +2,7 @@
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
 import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
-import { Theme } from '@/plugins/vuetify.ts'
+import { Theme } from '@/plugins/vuetify'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, readonly, ref } from 'vue'
@@ -25,13 +25,13 @@ const titleOptionsList = readonly([
 ])
 
 const lightVariants = readonly([
-  { title: 'Default', value: Theme.LIGHT },
-  { title: 'Alternative', value: Theme.ALT_LIGHT }
+  { title: t('constants.themes.light.default'), value: Theme.LIGHT },
+  { title: t('constants.themes.light.alternative'), value: Theme.ALT_LIGHT }
 ])
 
 const darkVariants = readonly([
-  { title: 'Default', value: Theme.DARK },
-  { title: 'Alternative', value: Theme.ALT_DARK }
+  { title: t('constants.themes.dark.default'), value: Theme.DARK },
+  { title: t('constants.themes.dark.alternative'), value: Theme.ALT_DARK }
 ])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])

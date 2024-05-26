@@ -108,6 +108,16 @@
       "none": "None",
       "title": "Torrent stop condition"
     },
+    "themes": {
+      "dark": {
+        "alternative": "Alternative",
+        "default": "Default"
+      },
+      "light": {
+        "alternative": "Alternative",
+        "default": "Default"
+      }
+    },
     "titleOptions": {
       "custom": "Custom",
       "default": "Default",
