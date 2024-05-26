@@ -6,8 +6,10 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
+import { LightTheme, DarkTheme } from './Theme'
+import type { Theme } from './Theme'
 import { TitleOptions } from './TitleOptions'
-import { VuetorrentTheme } from './VuetorrentTheme'
+import { ThemeMode } from './ThemeMode.ts'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 
@@ -23,8 +25,11 @@ export {
   FeedState,
   getFileIcon,
   typesMap,
+  LightTheme,
+  DarkTheme,
+  Theme,
   HistoryKey,
   TitleOptions,
-  VuetorrentTheme,
+  ThemeMode,
   defaultDateFormat
 }

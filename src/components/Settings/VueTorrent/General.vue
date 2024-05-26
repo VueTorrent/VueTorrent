@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
+import { DarkTheme, defaultDateFormat, LightTheme, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
-import { Theme } from '@/plugins/vuetify'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, readonly, ref } from 'vue'
@@ -24,14 +23,14 @@ const titleOptionsList = readonly([
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
 ])
 
-const lightVariants = readonly([
-  { title: t('constants.themes.light.default'), value: Theme.LIGHT },
-  { title: t('constants.themes.light.alternative'), value: Theme.ALT_LIGHT }
+const lightVariants = readonly<{title: string; value: LightTheme}[]>([
+  { title: t('constants.themes.light.default'), value: LightTheme.DEFAULT },
+  { title: t('constants.themes.light.alternative'), value: LightTheme.ALT }
 ])
 
-const darkVariants = readonly([
-  { title: t('constants.themes.dark.default'), value: Theme.DARK },
-  { title: t('constants.themes.dark.alternative'), value: Theme.ALT_DARK }
+const darkVariants = readonly<{title: string; value: DarkTheme}[]>([
+  { title: t('constants.themes.dark.default'), value: DarkTheme.DEFAULT },
+  { title: t('constants.themes.dark.alternative'), value: DarkTheme.ALT }
 ])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
@@ -224,10 +223,10 @@ onBeforeMount(() => {
         </v-col>
 
         <v-col cols="12" md="6">
-          <v-select v-model="vueTorrentStore.vuetorrentTheme.light" flat hide-details :items="lightVariants" :label="$t('settings.vuetorrent.general.lightVariants')" />
+          <v-select v-model="vueTorrentStore.theme.light" flat hide-details :items="lightVariants" :label="$t('settings.vuetorrent.general.lightVariants')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-select v-model="vueTorrentStore.vuetorrentTheme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
+          <v-select v-model="vueTorrentStore.theme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
         </v-col>
       </v-row>
 
