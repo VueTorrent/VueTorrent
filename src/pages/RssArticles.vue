@@ -119,7 +119,7 @@ onUnmounted(() => {
       color: lighten(darkgrey, 5%) !important;
     }
 
-    &.v-theme--lightTheme {
+    &.v-theme--lightTheme, &.v-theme--altLightTheme {
       color: grey !important;
     }
   }

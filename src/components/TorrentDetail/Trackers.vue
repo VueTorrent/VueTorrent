@@ -247,7 +247,7 @@ watch(() => props.isActive, setupTimer)
   }
 }
 
-.v-theme--lightTheme {
+.v-theme--lightTheme, .v-theme--altLightTheme {
   .tracker-disabled {
     color: grey;
   }

@@ -157,7 +157,7 @@ function getNodeSubtitle(node: TreeNode) {
   filter: brightness(135%);
 }
 
-.v-theme--lightTheme .selected {
+.v-theme--lightTheme .selected, .v-theme--altLightTheme .selected {
   background-color: rgb(var(--v-theme-surface));
   filter: brightness(75%);
 }
