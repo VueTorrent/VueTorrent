@@ -82,7 +82,7 @@ export const useTorrentStore = defineStore(
       await qbit.addTorrentTag(hashes, tags)
     }
 
-    async function removeTorrentTags(hashes: string[], tags: string[]) {
+    async function removeTorrentTags(hashes: string[], tags?: string[]) {
       await qbit.removeTorrentTag(hashes, tags)
     }
 
