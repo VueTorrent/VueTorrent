@@ -173,7 +173,7 @@
       "tags": {
         "disabled_title": "Nessuna Etichetta",
         "title": "Imposta Etichetta",
-        "removeall": "Rimuovi tutte"
+        "remove_all": "Rimuovi tutte"
       }
     },
     "searchInputLabel": "Cerca",

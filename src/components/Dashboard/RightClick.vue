@@ -83,8 +83,8 @@ function hasTag(tag: string) {
   return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
 }
 
-async function removeTags(tags: string[]) {
-  await torrentStore.removeTorrentTags(hashes.value, tags)
+async function removeAllTags() {
+  await torrentStore.removeTorrentTags(hashes.value, [])
 }
 
 async function toggleTag(tag: string) {
@@ -215,8 +215,8 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       ...(torrent.value?.tags.length
         ? [
             {
-              text: t('dashboard.right_click.tags.removeall'),
-              action: async () => await removeTags(maindataStore.tags),
+              text: t('dashboard.right_click.tags.remove_all'),
+              action: async () => await removeAllTags(),
               icon: 'mdi-playlist-remove'
             }
           ]
