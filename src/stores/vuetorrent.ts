@@ -9,7 +9,7 @@ import {
   ThemeMode
 } from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
-import { DarkRedesigned, LightRedesigned } from '@/themes'
+import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
@@ -25,8 +25,8 @@ export const useVueTorrentStore = defineStore(
     const language = ref('en')
     const theme = reactive({
       mode: ThemeMode.SYSTEM,
-      light: LightRedesigned.id,
-      dark: DarkRedesigned.id
+      light: LightLegacy.id,
+      dark: DarkLegacy.id
     })
     const showFreeSpace = ref(true)
     const showSpeedGraph = ref(true)
@@ -285,8 +285,8 @@ export const useVueTorrentStore = defineStore(
         backendUrl.value = ''
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
-        theme.light = LightRedesigned.id
-        theme.dark = DarkRedesigned.id
+        theme.light = LightLegacy.id
+        theme.dark = DarkLegacy.id
         showFreeSpace.value = true
         showSpeedGraph.value = true
         showSessionStat.value = true
