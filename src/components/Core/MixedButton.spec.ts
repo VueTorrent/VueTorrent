@@ -9,83 +9,82 @@ import MixedButton from './MixedButton.vue'
 const icon = 'mdi-home'
 const text = 'test value'
 
-const getIconElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-icon"]')
+const getLeftIconElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-icon-left"]')
+const getRightIconElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-icon-right"]')
 const getTextElement = (el: VueWrapper) => el.find('[data-testid="mixedbtn-text"]')
 
-const mobile = ref(true)
+const mobileRef = ref(true)
 
 vi.mock('vuetify', async importOriginal => {
   const mod = await importOriginal<typeof import('vuetify')>()
   return {
     ...mod,
-    useDisplay: vi.fn(() => ({ mobile }))
+    useDisplay: vi.fn(() => ({ mobile: mobileRef }))
   }
 })
 
 describe('MixedButton.vue', () => {
   afterEach(() => {
     vi.restoreAllMocks()
+    mobileRef.value = false
   })
 
-  it('should render icon in mobile view', () => {
-    mobile.value = true
+  it.each([
+    // Default desktop mode
+    /// no position => only text
+    { mobile: false, mobileOverride: undefined, mobileValue: undefined, position: undefined, render: { left: false, text: true, right: false } },
+    /// left position => left icon and text
+    { mobile: false, mobileOverride: undefined, mobileValue: undefined, position: 'left', render: { left: true, text: true, right: false } },
+    /// right position => text and right icon
+    { mobile: false, mobileOverride: undefined, mobileValue: undefined, position: 'right', render: { left: false, text: true, right: true } },
+
+    // Override desktop mode
+    /// no position => only text
+    { mobile: false, mobileOverride: true, mobileValue: false, position: undefined, render: { left: false, text: true, right: false } },
+    /// left position => left icon and text
+    { mobile: false, mobileOverride: true, mobileValue: false, position: 'left', render: { left: true, text: true, right: false } },
+    /// right position => text and right icon
+    { mobile: false, mobileOverride: true, mobileValue: false, position: 'right', render: { left: false, text: true, right: true } },
+
+    // Default mobile mode
+    /// only left icon regardless of position
+    { mobile: true, mobileOverride: undefined, mobileValue: undefined, position: undefined, render: { left: true, text: false, right: false } },
+    { mobile: true, mobileOverride: undefined, mobileValue: undefined, position: 'left', render: { left: true, text: false, right: false } },
+    { mobile: true, mobileOverride: undefined, mobileValue: undefined, position: 'right', render: { left: true, text: false, right: false } },
+
+    // Override mobile mode
+    /// only left icon regardless of position
+    { mobile: false, mobileOverride: true, mobileValue: true, position: undefined, render: { left: true, text: false, right: false } },
+    { mobile: false, mobileOverride: true, mobileValue: true, position: 'left', render: { left: true, text: false, right: false } },
+    { mobile: false, mobileOverride: true, mobileValue: true, position: 'right', render: { left: true, text: false, right: false } },
+  ])(
+    'left: $render.left, text: $render.text, right: $render.right | mobile: $mobile, mobileOverride: $mobileOverride, mobileValue: $mobileValue, position: $position',
+    ({ mobile, mobileOverride, mobileValue, position, render }) => {
+    mobileRef.value = mobile
     const btn = mount(MixedButton, {
-      props: { icon, text },
+      // @ts-expect-error Vue: Type string | undefined is not assignable to type 'left' | 'right' | undefined
+      props: { icon, text, mobileOverride, mobileValue, position },
       global: {
         plugins: [createTestingPinia(), i18n, vuetify]
       }
     })
 
-    const iconElement = getIconElement(btn)
+    const leftIconElement = getLeftIconElement(btn)
+    expect(leftIconElement.exists(), `left icon element should${render.left ? '' : " NOT"} be rendered`).eq(render.left)
+    if (render.left) {
+      expect(leftIconElement.classes()).include(icon)
+    }
+
     const textElement = getTextElement(btn)
-    expect(iconElement.exists(), 'icon element should be rendered').true
-    expect(iconElement.classes()).include(icon)
-    expect(textElement.exists(), "text element shouldn't be rendered").false
-  })
+    expect(textElement.exists(), `text element shouldn${render.text ? '' : ' NOT'} be rendered`).eq(render.text)
+    if (render.text) {
+      expect(textElement.text()).eq(text)
+    }
 
-  it('should render text in desktop view', () => {
-    mobile.value = false
-    const btn = mount(MixedButton, {
-      props: { icon, text },
-      global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
-    })
-
-    const iconElement = getIconElement(btn)
-    const textElement = getTextElement(btn)
-    expect(iconElement.exists(), "icon element shouldn't be rendered").false
-    expect(textElement.exists(), 'text element should be rendered').true
-    expect(textElement.text()).eq(text)
-  })
-
-  it('should render icon in override mobile view', () => {
-    const btn = mount(MixedButton, {
-      props: { icon, text, mobileOverride: true, mobileValue: true },
-      global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
-    })
-
-    const iconElement = getIconElement(btn)
-    const textElement = getTextElement(btn)
-    expect(iconElement.exists(), 'icon element should be rendered').true
-    expect(iconElement.classes()).include(icon)
-    expect(textElement.exists(), "text element shouldn't be rendered").false
-  })
-
-  it('should render text in override desktop view', () => {
-    const btn = mount(MixedButton, {
-      props: { icon, text, mobileOverride: true, mobileValue: false },
-      global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
-      }
-    })
-
-    const iconElement = getIconElement(btn)
-    const textElement = getTextElement(btn)
-    expect(iconElement.exists(), "icon element shouldn't be rendered").false
-    expect(textElement.exists(), 'text element should be rendered').true
-    expect(textElement.text()).eq(text)
+    const rightIconElement = getRightIconElement(btn)
+    expect(rightIconElement.exists(), `right icon element should${render.right ? '' : " NOT"} be rendered`).eq(render.right)
+    if (render.right) {
+      expect(rightIconElement.classes()).include(icon)
+    }
   })
 })

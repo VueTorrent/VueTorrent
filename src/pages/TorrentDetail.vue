@@ -65,12 +65,11 @@ onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   updateTabHandle()
   torrentDetailStore.fetchProperties(hash.value)
-  contentStore.resumeTimer()
+  contentStore.updateFileTree()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
   torrentDetailStore.$reset()
-  contentStore.$reset()
 })
 </script>
 

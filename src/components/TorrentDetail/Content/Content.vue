@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import MixedButton from '@/components/Core/MixedButton.vue'
 import { useContentStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import ContentNode from './ContentNode.vue'
 
@@ -10,7 +11,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
-const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection } = storeToRefs(contentStore)
+const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -51,11 +52,40 @@ function endPress() {
   clearTimeout(timer.value)
 }
 // END mobile long press
+
+watch(
+  () => props.isActive,
+  isActive => {
+    if (isActive && !timerForcedPause.value) contentStore.resumeTimer()
+    else contentStore.pauseTimer()
+  }
+)
+
+onMounted(() => {
+  props.isActive && contentStore.resumeTimer()
+})
+onBeforeUnmount(() => {
+  contentStore.$reset()
+})
+
+function pause() {
+  timerForcedPause.value = true
+  contentStore.pauseTimer()
+}
+function resume() {
+  timerForcedPause.value = false
+  contentStore.resumeTimer()
+}
 </script>
 
 <template>
   <v-card>
-    <v-text-field v-model="filenameFilter" class="mt-2 mx-3" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+    <div class="mt-2 mx-3 d-flex flex-gap align-center">
+      <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+
+      <MixedButton v-if="isTimerActive" icon="mdi-timer-pause" position="left" color="primary" :text="$t('common.pause')" @click="pause()" />
+      <MixedButton v-else icon="mdi-timer-play" position="left" color="primary" :text="$t('common.resume')" @click="resume()" />
+    </div>
 
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">

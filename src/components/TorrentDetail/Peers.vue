@@ -197,8 +197,8 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
     </v-data-table>
 
     <div class="d-flex my-3 flex-gap align-center justify-center">
-      <v-btn v-if="isActive" prepend-icon="mdi-pause" color="primary" text="Pause" @click="pause()" />
-      <v-btn v-else prepend-icon="mdi-play" color="primary" text="Play" @click="resume()" />
+      <v-btn v-if="isActive" prepend-icon="mdi-pause" color="primary" :text="$t('common.pause')" @click="pause()" />
+      <v-btn v-else prepend-icon="mdi-play" color="primary" :text="$t('common.resume')" @click="resume()" />
 
       <v-dialog v-model="addPeersDialog" max-width="750px">
         <template v-slot:activator="{ props }">
