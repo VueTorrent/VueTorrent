@@ -183,7 +183,8 @@
       },
       "tags": {
         "disabled_title": "No tags",
-        "title": "Set tags"
+        "title": "Set tags",
+        "remove_all": "Remove all"
       },
       "top": {
         "delete": "Delete",

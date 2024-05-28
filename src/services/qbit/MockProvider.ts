@@ -1399,7 +1399,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async removeTorrentTag(_0: string[], _1: string[]): Promise<void> {
+  async removeTorrentTag(_0: string[], _1?: string[]): Promise<void> {
     return this.generateResponse()
   }
 

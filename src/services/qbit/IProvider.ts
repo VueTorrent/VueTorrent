@@ -463,9 +463,9 @@ export default interface IProvider {
   /**
    * Remove tags to torrents
    * @param hashes Torrent hashes
-   * @param tags Tags to remove
+   * @param tags Tags to remove. If not provided, all tags will be removed
    */
-  removeTorrentTag(hashes: string[], tags: string[]): Promise<void>
+  removeTorrentTag(hashes: string[], tags?: string[]): Promise<void>
 
   /**
    * Create a new tag
