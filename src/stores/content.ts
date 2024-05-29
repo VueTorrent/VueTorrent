@@ -68,7 +68,11 @@ export const useContentStore = defineStore('content', () => {
   ])
 
   const timerForcedPause = ref(false)
-  const { isActive: isTimerActive, pause: pauseTimer, resume: resumeTimer } = useIntervalFn(updateFileTree, fileContentInterval, {
+  const {
+    isActive: isTimerActive,
+    pause: pauseTimer,
+    resume: resumeTimer
+  } = useIntervalFn(updateFileTree, fileContentInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -77,8 +81,7 @@ export const useContentStore = defineStore('content', () => {
     if (_lock.value) return
     _lock.value = true
     performance.mark('ContentStore::updateFileTree::start')
-    cachedFiles.value = await maindataStore.fetchFiles(hash.value)
-      .finally(() => _lock.value = false)
+    cachedFiles.value = await maindataStore.fetchFiles(hash.value).finally(() => (_lock.value = false))
     await nextTick()
     performance.mark('ContentStore::updateFileTree::end')
     performance.measure('ContentStore::updateFileTree', 'ContentStore::updateFileTree::start', 'ContentStore::updateFileTree::end')

@@ -12,7 +12,10 @@
     "no": "いいえ",
     "none": "(なし)",
     "ok": "OK",
+    "pause": "一時停止",
+    "resume": "再開",
     "save": "保存",
+    "search": "検索",
     "selectAll": "すべて選択",
     "selectNone": "選択解除",
     "useGlobalSettings": "グローバル設定を使用する",
@@ -1025,9 +1028,11 @@
       "not_supported": "現在のコンテキストは安全ではありません。ハンドラーを登録できません。",
       "registered": "マグネットハンドラーが登録されました。"
     },
-    "new_version": "新しいバージョンが利用可能です!",
     "qbit": {
       "not_supported": "qBittorrent >= {version}でのみ利用可能です"
+    },
+    "version": {
+      "new": "新しいバージョンが利用可能です!"
     }
   },
   "topbar": {
@@ -1096,11 +1101,15 @@
         "newPeersPlaceholder": "ホスト:ポート",
         "title": "ピアを追加する"
       },
-      "emptyList": "現在ピアが接続されていません",
+      "empty": "現在ピアが接続されていません",
       "fields": {
         "client": "クライアント",
+        "download": "ダウンロード",
         "flags": "フラグ",
-        "relevance": "関連性"
+        "host": "ホスト",
+        "progress": "進捗状況",
+        "relevance": "関連性",
+        "upload": "アップロード"
       }
     },
     "tabs": {

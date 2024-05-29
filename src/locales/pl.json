@@ -12,7 +12,10 @@
     "no": "Nie",
     "none": "(Brak)",
     "ok": "OK",
+    "pause": "Pauza",
+    "resume": "Wznów",
     "save": "Zapisz",
+    "search": "Szukaj",
     "selectAll": "Zaznacz wszystko",
     "selectNone": "Wybierz Brak",
     "useGlobalSettings": "Użyj ustawień globalnych",
@@ -1025,9 +1028,11 @@
       "not_supported": "Bieżący kontekst nie jest zabezpieczony. Nie można zarejestrować obsługi.",
       "registered": "Zarejestrowano obsługę magnet'ów."
     },
-    "new_version": "Nowa wersja dostępna!",
     "qbit": {
       "not_supported": "Dostępne tylko dla qbit >= {version}"
+    },
+    "version": {
+      "new": "Nowa wersja dostępna!"
     }
   },
   "topbar": {
@@ -1095,11 +1100,15 @@
         "newPeersPlaceholder": "adres_hosta:port",
         "title": "Dodaj peer'ów"
       },
-      "emptyList": "Obecnie brak połączonych peer'ów",
+      "empty": "Obecnie brak połączonych peer'ów",
       "fields": {
         "client": "Klient",
+        "download": "Pobieranie",
         "flags": "Flagi",
-        "relevance": "Trafność"
+        "host": "Host",
+        "progress": "Postęp",
+        "relevance": "Trafność",
+        "upload": "Wysyłanie"
       }
     },
     "tabs": {

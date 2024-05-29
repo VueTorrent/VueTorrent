@@ -11,7 +11,8 @@ ul.no-bullet {
 }
 
 @each $type in row, column {
-  .flex-gap, .flex-gap-#{$type} {
+  .flex-gap,
+  .flex-gap-#{$type} {
     &-small {
       #{$type}-gap: 4px;
     }

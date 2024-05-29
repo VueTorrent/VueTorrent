@@ -193,8 +193,8 @@
       },
       "tags": {
         "disabled_title": "No tags",
-        "title": "Set tags",
-        "remove_all": "Remove all"
+        "remove_all": "Remove all",
+        "title": "Set tags"
       },
       "top": {
         "delete": "Delete",
@@ -997,6 +997,7 @@
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
+        "useTextForChips": "Use text variant for chips",
         "vueTorrentTitle": "Tab title"
       },
       "torrentCard": {

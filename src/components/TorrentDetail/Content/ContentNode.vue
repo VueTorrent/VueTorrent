@@ -152,12 +152,12 @@ function getNodeSubtitle(node: TreeNode) {
   margin-right: 16px;
 }
 
-[class*=v-theme--dark-] .selected {
+[class*='v-theme--dark-'] .selected {
   background-color: rgb(var(--v-theme-surface));
   filter: brightness(135%);
 }
 
-[class*=v-theme--light-] .selected {
+[class*='v-theme--light-'] .selected {
   background-color: rgb(var(--v-theme-surface));
   filter: brightness(75%);
 }

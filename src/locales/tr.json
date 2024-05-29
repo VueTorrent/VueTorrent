@@ -13,7 +13,10 @@
     "no": "Hayır",
     "none": "(Yok)",
     "ok": "Tamam",
+    "pause": "Duraklat",
+    "resume": "Devam Et",
     "save": "Kaydet",
+    "search": "Ara",
     "selectAll": "Tümünü Seç",
     "selectNone": "Hiçbirini Seçme",
     "useGlobalSettings": "Genel Ayarları Kullan",
@@ -1051,9 +1054,11 @@
       "not_supported": "Geçerli içerik güvenli değil. İşleyici kaydedilemiyor.",
       "registered": "Magnet işleyicisi kaydedildi."
     },
-    "new_version": "Yeni sürüm mevcut!",
     "qbit": {
       "not_supported": "Sadece qbit >= {version} için kullanılabilir"
+    },
+    "version": {
+      "new": "Yeni sürüm mevcut!"
     }
   },
   "topbar": {
@@ -1122,11 +1127,15 @@
         "newPeersPlaceholder": "sunucu:port",
         "title": "Eşleri Ekle"
       },
-      "emptyList": "Şu anda bağlı eş yok",
+      "empty": "Şu anda bağlı eş yok",
       "fields": {
         "client": "İstemci",
+        "download": "İndirme",
         "flags": "Bayraklar",
-        "relevance": "Alaka düzeyi"
+        "host": "Sunucu",
+        "progress": "İlerleme",
+        "relevance": "Alaka düzeyi",
+        "upload": "Yükleme"
       }
     },
     "tabs": {
