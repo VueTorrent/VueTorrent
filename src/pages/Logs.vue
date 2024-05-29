@@ -8,12 +8,30 @@ import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+import { useTheme } from 'vuetify'
+import { TinyColor } from '@ctrl/tinycolor'
 
 const router = useRouter()
 const { t } = useI18n()
+const { current } = useTheme()
 
 const logStore = useLogStore()
 const vueTorrentStore = useVueTorrentStore()
+
+const colors = computed(() => ({
+  light: {
+    normal: 'black',
+    info: 'blue',
+    warning: 'orange',
+    critical: 'red'
+  },
+  dark: {
+    normal: 'white',
+    info: 'deepskyblue',
+    warning: 'darkorange',
+    critical: new TinyColor('darkred').lighten(12).toString()
+  }
+}))
 
 const logTypeOptions = ref([
   { title: LogType[LogType.NORMAL], value: LogType.NORMAL },
@@ -35,8 +53,9 @@ const { paginatedResults, currentPage, pageCount } = useArrayPagination(filtered
 const goHome = () => {
   router.push({ name: 'dashboard' })
 }
-const getLogTypeClassName = (log: Log) => {
-  return `logtype-${LogType[log?.type]?.toLowerCase()}`
+const getLogTypeColor = (log: Log) => {
+  // @ts-expect-error: Element implicitly has an any type because expression of type string can't be used to index type
+  return `color: ${colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()]}` as string
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]
@@ -117,13 +136,13 @@ onUnmounted(() => {
 
         <v-list-item class="pa-0">
           <v-expansion-panels class="p-0">
-            <v-expansion-panel :class="getLogTypeClassName(log)" class="pa-0">
-              <v-expansion-panel-title class="text-no-wrap">
+            <v-expansion-panel class="pa-0">
+              <v-expansion-panel-title class="text-no-wrap" :style="getLogTypeColor(log)">
                 <div class="d-flex mr-8 overflow-hidden">[{{ log.id }}] {{ log.message }}</div>
                 <v-spacer />
                 <div class="d-flex">{{ formatLogTimestamp(log) }}</div>
               </v-expansion-panel-title>
-              <v-expansion-panel-text class="wrap-word text-select">
+              <v-expansion-panel-text class="wrap-word text-select" :style="getLogTypeColor(log)">
                 [{{ getLogTypeName(log) }}]
                 {{ log.message }}
               </v-expansion-panel-text>
@@ -144,41 +163,3 @@ onUnmounted(() => {
     </v-list>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.v-theme--darkTheme {
-  .logtype-normal {
-    color: white !important;
-  }
-
-  .logtype-info {
-    color: deepskyblue !important;
-  }
-
-  .logtype-warning {
-    color: darkorange !important;
-  }
-
-  .logtype-critical {
-    color: lighten(darkred, 12) !important;
-  }
-}
-
-.v-theme--lightTheme {
-  .logtype-normal {
-    color: black !important;
-  }
-
-  .logtype-info {
-    color: blue !important;
-  }
-
-  .logtype-warning {
-    color: orange !important;
-  }
-
-  .logtype-critical {
-    color: red !important;
-  }
-}
-</style>

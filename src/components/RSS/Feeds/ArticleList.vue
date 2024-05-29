@@ -48,7 +48,7 @@ async function markAsRead(item: RssArticle) {
     </v-list-item>
 
     <template v-for="(article, index) in paginatedResults">
-      <v-divider v-if="index > 0" color="white" />
+      <v-divider v-if="index > 0" />
 
       <Article :value="article" @click="$emit('articleClicked', article)" @markAsRead="markAsRead(article)" @open="openLink(article)" @download="downloadArticle(article)" />
     </template>

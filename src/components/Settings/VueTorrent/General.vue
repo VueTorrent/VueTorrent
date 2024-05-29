@@ -4,7 +4,8 @@ import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
-import { computed, onBeforeMount, ref } from 'vue'
+import { DarkRedesigned, DarkLegacy, LightRedesigned, LightLegacy } from '@/themes'
+import { computed, onBeforeMount, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -16,12 +17,22 @@ const dialogStore = useDialogStore()
 
 const github = new Github()
 
-const titleOptionsList = [
+const titleOptionsList = readonly([
   { title: t('constants.titleOptions.default'), value: TitleOptions.DEFAULT },
   { title: t('constants.titleOptions.global_speed'), value: TitleOptions.GLOBAL_SPEED },
   { title: t('constants.titleOptions.first_torrent_speed'), value: TitleOptions.FIRST_TORRENT_STATUS },
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
-]
+])
+
+const lightVariants = readonly([
+  { title: t('constants.themes.light.legacy'), value: LightLegacy.id },
+  { title: t('constants.themes.light.redesigned'), value: LightRedesigned.id }
+])
+
+const darkVariants = readonly([
+  { title: t('constants.themes.dark.legacy'), value: DarkLegacy.id },
+  { title: t('constants.themes.dark.redesigned'), value: DarkRedesigned.id }
+])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
@@ -96,9 +107,12 @@ const checkNewVersion = async () => {
   if (vueTorrentVersion.value === 'DEV') return
 
   const latest = await github.getVersion()
-  if (`v${vueTorrentVersion.value}` === latest) return
+  if (`v${vueTorrentVersion.value}` === latest) {
+    toast.success(t('toast.version.latest'))
+    return
+  }
 
-  toast.info(t('toast.new_version'))
+  toast.info(t('toast.version.new'))
 }
 
 function openBackendHelp() {
@@ -207,6 +221,13 @@ onBeforeMount(() => {
             v-model="vueTorrentStore.uiTitleCustom"
             hide-details
             :label="t('settings.vuetorrent.general.customTitle')" />
+        </v-col>
+
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.theme.light" flat hide-details :items="lightVariants" :label="$t('settings.vuetorrent.general.lightVariants')" />
+        </v-col>
+        <v-col cols="12" md="6">
+          <v-select v-model="vueTorrentStore.theme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
         </v-col>
       </v-row>
 

@@ -103,10 +103,6 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-.gap {
-  gap: 8px;
-}
-
 .fab {
   position: fixed;
   right: 24px;
@@ -115,11 +111,11 @@ onUnmounted(() => {
 
 #rss-articles {
   .rss-read {
-    &.v-theme--darkTheme {
+    &[class*=v-theme--dark-] {
       color: lighten(darkgrey, 5%) !important;
     }
 
-    &.v-theme--lightTheme {
+    &[class*=v-theme--light-] {
       color: grey !important;
     }
   }

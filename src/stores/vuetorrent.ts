@@ -1,9 +1,18 @@
-import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, VuetorrentTheme } from '@/constants/vuetorrent'
-import { Theme } from '@/plugins/vuetify'
+import {
+  DashboardProperty,
+  defaultDateFormat,
+  PropertyData,
+  propsData,
+  propsMetadata,
+  TitleOptions,
+  TorrentProperty,
+  ThemeMode
+} from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
+import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, ref, watch } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
@@ -14,7 +23,11 @@ export const useVueTorrentStore = defineStore(
     const backendUrl = ref('')
 
     const language = ref('en')
-    const vuetorrentTheme = ref<VuetorrentTheme>(VuetorrentTheme.SYSTEM)
+    const theme = reactive({
+      mode: ThemeMode.SYSTEM,
+      light: LightLegacy.id,
+      dark: DarkLegacy.id
+    })
     const showFreeSpace = ref(true)
     const showSpeedGraph = ref(true)
     const showSessionStat = ref(true)
@@ -115,7 +128,7 @@ export const useVueTorrentStore = defineStore(
 
     const i18n = useI18n()
     const router = useRouter()
-    const theme = useTheme()
+    const { global } = useTheme()
 
     watch(language, setLanguage)
 
@@ -127,36 +140,34 @@ export const useVueTorrentStore = defineStore(
     }
 
     function updateTheme() {
-      switch (vuetorrentTheme.value) {
-        case VuetorrentTheme.LIGHT:
-          theme.global.name.value = Theme.LIGHT
+      switch (theme.mode) {
+        case ThemeMode.LIGHT:
+          global.name.value = theme.light
           break
-        case VuetorrentTheme.DARK:
-          theme.global.name.value = Theme.DARK
+        case ThemeMode.DARK:
+          global.name.value = theme.dark
           break
-        case VuetorrentTheme.SYSTEM:
-          theme.global.name.value = mediaQueryPreferDark.value ? Theme.DARK : Theme.LIGHT
+        case ThemeMode.SYSTEM:
+          global.name.value = mediaQueryPreferDark.value ? theme.dark : theme.light
       }
     }
 
     function toggleTheme() {
-      switch (vuetorrentTheme.value) {
+      switch (theme.mode) {
         // if light, switch to dark
-        case VuetorrentTheme.LIGHT:
-          vuetorrentTheme.value = VuetorrentTheme.DARK
-          updateTheme()
+        case ThemeMode.LIGHT:
+          theme.mode = ThemeMode.DARK
           break
         // if dark, switch to system
-        case VuetorrentTheme.DARK:
-          vuetorrentTheme.value = VuetorrentTheme.SYSTEM
-          updateTheme()
+        case ThemeMode.DARK:
+          theme.mode = ThemeMode.SYSTEM
           break
         // if system, switch to light
-        case VuetorrentTheme.SYSTEM:
-          vuetorrentTheme.value = VuetorrentTheme.LIGHT
-          updateTheme()
+        case ThemeMode.SYSTEM:
+          theme.mode = ThemeMode.LIGHT
       }
     }
+    watch(theme, updateTheme)
 
     async function redirectToLogin() {
       await router.push({ name: 'login', query: { redirect: router.currentRoute.value.path } })
@@ -219,7 +230,7 @@ export const useVueTorrentStore = defineStore(
 
     return {
       backendUrl,
-      vuetorrentTheme,
+      theme,
       dateFormat,
       deleteWithFiles,
       fileContentInterval,
@@ -273,7 +284,9 @@ export const useVueTorrentStore = defineStore(
       $reset: () => {
         backendUrl.value = ''
         language.value = 'en'
-        vuetorrentTheme.value = VuetorrentTheme.SYSTEM
+        theme.mode = ThemeMode.SYSTEM
+        theme.light = LightLegacy.id
+        theme.dark = DarkLegacy.id
         showFreeSpace.value = true
         showSpeedGraph.value = true
         showSessionStat.value = true

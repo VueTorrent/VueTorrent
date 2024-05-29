@@ -68,7 +68,7 @@ onUnmounted(() => {
       <v-card-title>{{ t('dialogs.delete.title', selection.length) }}</v-card-title>
       <v-card-text>
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
-          <div class="d-flex flex-wrap flex-gap">
+          <div class="d-flex flex-wrap flex-gap-small">
             <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
           <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />

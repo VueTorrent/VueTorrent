@@ -7,7 +7,7 @@ import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
 import { TitleOptions } from './TitleOptions'
-import { VuetorrentTheme } from './VuetorrentTheme'
+import { ThemeMode } from './ThemeMode'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 
@@ -25,6 +25,6 @@ export {
   typesMap,
   HistoryKey,
   TitleOptions,
-  VuetorrentTheme,
+  ThemeMode,
   defaultDateFormat
 }

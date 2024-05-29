@@ -32,7 +32,7 @@ const values = [
         </v-list-item>
 
         <v-list-item :title="$t('torrent.properties.tags')">
-          <div v-if="torrent.tags?.length" class="d-flex gap">
+          <div v-if="torrent.tags?.length" class="d-flex flex-gap-row-small flex-gap-column">
             <ColoredChip v-for="tag in torrent.tags" defaultColor="tag" :value="tag" />
           </div>
           <v-list-item-subtitle v-else>{{ $t('torrent.properties.empty_tags') }}</v-list-item-subtitle>
@@ -41,9 +41,3 @@ const values = [
     </v-expansion-panel-text>
   </v-expansion-panel>
 </template>
-
-<style scoped>
-.gap {
-  gap: 8px;
-}
-</style>

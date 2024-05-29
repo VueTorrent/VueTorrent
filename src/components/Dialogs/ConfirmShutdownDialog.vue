@@ -35,10 +35,10 @@ const shutdown = async () => {
     <v-card :title="$t('dialogs.shutdown.title')" :text="$t('dialogs.shutdown.content')">
       <v-card-actions class="justify-end">
         <v-spacer />
-        <v-btn class="accent white--text elevation-0 px-4" variant="elevated" color="error" @click="shutdown">
+        <v-btn class="accent elevation-0 px-4" variant="elevated" color="error" @click="shutdown">
           {{ $t('common.yes') }}
         </v-btn>
-        <v-btn class="error white--text elevation-0 px-4" @click="close">
+        <v-btn class="error elevation-0 px-4" @click="close">
           {{ $t('common.no') }}
         </v-btn>
       </v-card-actions>

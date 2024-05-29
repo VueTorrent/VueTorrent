@@ -187,7 +187,7 @@ watch(() => props.isActive, setupTimer)
     </template>
 
     <v-list-item>
-      <div :class="['d-flex flex-gap py-5', $vuetify.display.mobile ? 'flex-column' : 'justify-space-evenly']">
+      <div :class="['d-flex py-5', $vuetify.display.mobile ? 'flex-column flex-gap-row' : 'justify-space-evenly']">
         <v-dialog v-model="addTrackersDialog" max-width="750px">
           <template v-slot:activator="{ props }">
             <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
@@ -225,7 +225,7 @@ watch(() => props.isActive, setupTimer)
 </template>
 
 <style lang="scss" scoped>
-.v-theme--darkTheme {
+[class*=v-theme--dark-] {
   .tracker-disabled {
     color: darken(lightgrey, 5%);
   }
@@ -247,7 +247,7 @@ watch(() => props.isActive, setupTimer)
   }
 }
 
-.v-theme--lightTheme {
+[class*=v-theme--light-] {
   .tracker-disabled {
     color: grey;
   }

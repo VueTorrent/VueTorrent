@@ -204,7 +204,7 @@ onUnmounted(async () => {
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tags') }}:</div>
-              <div v-if="torrent.tags.length" class="d-flex flex-wrap chipgap">
+              <div v-if="torrent.tags.length" class="d-flex flex-wrap flex-gap-row-small flex-gap-column">
                 <ColoredChip v-for="tag in torrent.tags" default-color="tag" :value="tag" />
               </div>
               <v-chip v-else variant="flat" color="tag">
@@ -253,9 +253,3 @@ onUnmounted(async () => {
     </v-card-text>
   </v-card>
 </template>
-
-<style scoped>
-.chipgap {
-  gap: 4px;
-}
-</style>
