@@ -13,7 +13,10 @@
     "no": "Non",
     "none": "(Aucun)",
     "ok": "OK",
+    "pause": "Pause",
+    "resume": "Reprendre",
     "save": "Enregistrer",
+    "search": "Rechercher",
     "selectAll": "Tout sélectionner",
     "selectNone": "Tout désélectionner",
     "useGlobalSettings": "Utiliser les paramètres globaux",
@@ -1033,9 +1036,11 @@
       "not_supported": "Le contexte actuel n'est pas sécurisé. Impossible d'enregistrer le handler.",
       "registered": "Handler des liens magnets enregistré."
     },
-    "new_version": "Nouvelle version disponible !",
     "qbit": {
       "not_supported": "Disponible uniquement pour qbit >= {version}"
+    },
+    "version": {
+      "new": "Nouvelle version disponible !"
     }
   },
   "topbar": {
@@ -1104,11 +1109,15 @@
         "newPeersPlaceholder": "hôte:port",
         "title": "Ajouter des pairs"
       },
-      "emptyList": "Aucun pair n'est connecté actuellement",
+      "empty": "Aucun pair n'est connecté actuellement",
       "fields": {
         "client": "Client",
+        "download": "Téléchargement",
         "flags": "Drapeaux",
-        "relevance": "Pertinence"
+        "host": "Hôte",
+        "progress": "Progression",
+        "relevance": "Pertinence",
+        "upload": "Partage"
       }
     },
     "tabs": {

@@ -10,6 +10,7 @@
     "no": "No",
     "ok": "OK",
     "save": "Salva",
+    "search": "Cerca",
     "selectAll": "Seleziona Tutto",
     "useGlobalSettings": "Usa Impostazioni Globali",
     "yes": "Sì"
@@ -172,8 +173,8 @@
       },
       "tags": {
         "disabled_title": "Nessuna Etichetta",
-        "title": "Imposta Etichetta",
-        "remove_all": "Rimuovi tutte"
+        "remove_all": "Rimuovi tutte",
+        "title": "Imposta Etichetta"
       }
     },
     "searchInputLabel": "Cerca",
@@ -487,6 +488,15 @@
       "error": "Errore durante l'aggiunta dei torrent",
       "pending": "Inviando torrent...",
       "success": "{n} Torrent aggiunto | {n} Torrent aggiunti"
+    }
+  },
+  "torrentDetail": {
+    "peers": {
+      "fields": {
+        "download": "Download",
+        "progress": "Avanzamento",
+        "upload": "Upload"
+      }
     }
   },
   "torrent": {

@@ -5,7 +5,7 @@
     "close": "Закрыть",
     "delete": "Удалить",
     "disable": "Отключить",
-    "disabled": "Отключен",
+    "disabled": "Отключён",
     "edit": "Редактировать",
     "emptyList": "Тут ничего нет!",
     "global_value": "Глобальное значение",
@@ -13,7 +13,11 @@
     "no": "Нет",
     "none": "Отсутствует",
     "ok": "OK",
+    "pause": "Пауза",
+    "refresh": "Обновить",
+    "resume": "Возобновить",
     "save": "Сохранить",
+    "search": "Поиск",
     "selectAll": "Выделить все",
     "selectNone": "Снять выбор",
     "useGlobalSettings": "Использовать глобальные настройки",
@@ -103,6 +107,16 @@
       "none": "Отсутствует",
       "title": "Условие остановки торрента"
     },
+    "themes": {
+      "dark": {
+        "legacy": "Классическая",
+        "redesigned": "Обновлённая"
+      },
+      "light": {
+        "legacy": "Классическая",
+        "redesigned": "Обновлённая"
+      }
+    },
     "titleOptions": {
       "custom": "Настроить",
       "default": "По умолчанию",
@@ -110,7 +124,7 @@
       "global_speed": "Общая скорость"
     },
     "trackerStatus": {
-      "disabled": "Отключен",
+      "disabled": "Отключён",
       "not_working": "Не работает",
       "not_yet_contacted": "Пока не подключен",
       "updating": "Обновляется",
@@ -536,7 +550,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "action": "Создать RSS ленту"
+        "action": "Создать RSS ленту",
+        "value": "RSS ленты отсутствуют"
       },
       "filters": {
         "title": "Фильтр по заголовку",
@@ -548,17 +563,30 @@
         "feedName": "Имя ленты: {name}"
       },
       "markAllAsRead": "Отметить всё как прочитанное",
+      "markAsRead": "Отметить прочитанным",
       "promise": {
         "error": "Произошла ошибка при отметке статей",
         "pending": "Отмечаю...",
         "success": "{n} статей отмечены как прочитанные"
       },
+      "refreshAllFeeds": "Обновить все ленты",
+      "refreshPromise": {
+        "error": "При обновлении лент произошла ошибка",
+        "pending": "Обновление...",
+        "success": "{n} лент обновлено"
+      },
       "title": "Менеджер RSS"
     },
     "rules": {
       "empty": {
-        "action": "Создать новое правило"
-      }
+        "action": "Создать новое правило",
+        "value": "RSS правила отсутствуют"
+      },
+      "title": "Правила RSS"
+    },
+    "toggle": {
+      "feeds": "Показать ленты",
+      "rules": "Показать правила"
     }
   },
   "searchEngine": {
@@ -934,6 +962,7 @@
         "check_new": "Проверить обновление",
         "currentVersion": "Текущая версия",
         "customTitle": "Настраиваемый заголовок",
+        "darkVariants": "Тёмная тема",
         "dateFormat": "Формат даты",
         "download": "Экспортировать настройки",
         "enableHashColors": "Разрешить генерируемые цвета хэша",
@@ -946,6 +975,7 @@
         "isPaginationOnTop": "Расположить навигационную панель сверху",
         "isShutdownButtonVisible": "Показать кнопку выключения",
         "language": "Язык",
+        "lightVariants": "Светлая тема",
         "openSideBarOnStart": "Открывать боковую панель при запуске",
         "paginationSize": {
           "infinite_scroll": "Бесконечная прокрутка",
@@ -1052,9 +1082,12 @@
       "not_supported": "Текущий контекст небезопасен. Не удалось зарегистрировать обработчик.",
       "registered": "Обработчик магнитных ссылок зарегистрирован."
     },
-    "new_version": "Доступна новая версия!",
     "qbit": {
       "not_supported": "Доступно только в qbit >= {version}"
+    },
+    "version": {
+      "latest": "Самая свежая и лучшая!",
+      "new": "Доступна новая версия!"
     }
   },
   "topbar": {
@@ -1120,14 +1153,20 @@
       "addPeers": {
         "newPeers": "Хосты пиров для добавления",
         "newPeersHint": "Один на строку",
-        "newPeersPlaceholder": "host:port",
+        "newPeersPlaceholder": "IP:порт",
         "title": "Добавить пиры"
       },
-      "emptyList": "Нет подключенных пиров на данный момент",
+      "empty": "Нет подключенных пиров на данный момент",
       "fields": {
-        "client": "Клиент: {name} ({id})",
-        "flags": "Флаги: {value}",
-        "relevance": "Актуальность: {value}"
+        "client": "Клиент",
+        "country": "Страна",
+        "download": "Загрузка",
+        "files": "Файлы",
+        "flags": "Флаги",
+        "host": "Хост",
+        "progress": "Прогрессу",
+        "relevance": "Актуальность",
+        "upload": "Раздача"
       }
     },
     "tabs": {

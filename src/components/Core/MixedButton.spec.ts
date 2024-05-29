@@ -56,35 +56,36 @@ describe('MixedButton.vue', () => {
     /// only left icon regardless of position
     { mobile: false, mobileOverride: true, mobileValue: true, position: undefined, render: { left: true, text: false, right: false } },
     { mobile: false, mobileOverride: true, mobileValue: true, position: 'left', render: { left: true, text: false, right: false } },
-    { mobile: false, mobileOverride: true, mobileValue: true, position: 'right', render: { left: true, text: false, right: false } },
+    { mobile: false, mobileOverride: true, mobileValue: true, position: 'right', render: { left: true, text: false, right: false } }
   ])(
     'left: $render.left, text: $render.text, right: $render.right | mobile: $mobile, mobileOverride: $mobileOverride, mobileValue: $mobileValue, position: $position',
     ({ mobile, mobileOverride, mobileValue, position, render }) => {
-    mobileRef.value = mobile
-    const btn = mount(MixedButton, {
-      // @ts-expect-error Vue: Type string | undefined is not assignable to type 'left' | 'right' | undefined
-      props: { icon, text, mobileOverride, mobileValue, position },
-      global: {
-        plugins: [createTestingPinia(), i18n, vuetify]
+      mobileRef.value = mobile
+      const btn = mount(MixedButton, {
+        // @ts-expect-error Vue: Type string | undefined is not assignable to type 'left' | 'right' | undefined
+        props: { icon, text, mobileOverride, mobileValue, position },
+        global: {
+          plugins: [createTestingPinia(), i18n, vuetify]
+        }
+      })
+
+      const leftIconElement = getLeftIconElement(btn)
+      expect(leftIconElement.exists(), `left icon element should${render.left ? '' : ' NOT'} be rendered`).eq(render.left)
+      if (render.left) {
+        expect(leftIconElement.classes()).include(icon)
       }
-    })
 
-    const leftIconElement = getLeftIconElement(btn)
-    expect(leftIconElement.exists(), `left icon element should${render.left ? '' : " NOT"} be rendered`).eq(render.left)
-    if (render.left) {
-      expect(leftIconElement.classes()).include(icon)
-    }
+      const textElement = getTextElement(btn)
+      expect(textElement.exists(), `text element shouldn${render.text ? '' : ' NOT'} be rendered`).eq(render.text)
+      if (render.text) {
+        expect(textElement.text()).eq(text)
+      }
 
-    const textElement = getTextElement(btn)
-    expect(textElement.exists(), `text element shouldn${render.text ? '' : ' NOT'} be rendered`).eq(render.text)
-    if (render.text) {
-      expect(textElement.text()).eq(text)
+      const rightIconElement = getRightIconElement(btn)
+      expect(rightIconElement.exists(), `right icon element should${render.right ? '' : ' NOT'} be rendered`).eq(render.right)
+      if (render.right) {
+        expect(rightIconElement.classes()).include(icon)
+      }
     }
-
-    const rightIconElement = getRightIconElement(btn)
-    expect(rightIconElement.exists(), `right icon element should${render.right ? '' : " NOT"} be rendered`).eq(render.right)
-    if (render.right) {
-      expect(rightIconElement.classes()).include(icon)
-    }
-  })
+  )
 })

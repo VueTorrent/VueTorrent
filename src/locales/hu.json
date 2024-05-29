@@ -12,7 +12,10 @@
     "no": "Nem",
     "none": "(Egyik sem)",
     "ok": "OK",
+    "pause": "Szüneteltetés",
+    "resume": "Folytatás",
     "save": "Mentés",
+    "search": "Keresés",
     "selectAll": "Összes kiválasztása",
     "selectNone": "Egyik sem",
     "useGlobalSettings": "Globális beállítások használata",
@@ -1025,9 +1028,11 @@
       "not_supported": "Az aktuális kontextus nem biztonságos. Nem lehet regisztrálni a kezelőt.",
       "registered": "Mágnes kezelő regisztrálva."
     },
-    "new_version": "Új verzió elérhető!",
     "qbit": {
       "not_supported": "Csak qbit >= {version} verzió esetén érhető el"
+    },
+    "version": {
+      "new": "Új verzió elérhető!"
     }
   },
   "topbar": {
@@ -1096,11 +1101,15 @@
         "newPeersPlaceholder": "hoszt:port",
         "title": "Peerek hozzáadása"
       },
-      "emptyList": "Jelenleg nincsenek csatlakoztatott peerek",
+      "empty": "Jelenleg nincsenek csatlakoztatott peerek",
       "fields": {
         "client": "Ügyfél",
+        "download": "Letöltés",
         "flags": "Jelzők",
-        "relevance": "Relevancia"
+        "host": "Hoszt",
+        "progress": "Haladás",
+        "relevance": "Relevancia",
+        "upload": "Feltöltés"
       }
     },
     "tabs": {

@@ -11,7 +11,10 @@
     "no": "Ne",
     "none": "(Žádné)",
     "ok": "OK",
+    "pause": "Pozastavit",
+    "resume": "Obnovit",
     "save": "Uložit",
+    "search": "Hledat",
     "selectAll": "Vybrat vše",
     "selectNone": "Nic nevybrat",
     "useGlobalSettings": "Použít globální nastavení",
@@ -225,6 +228,13 @@
       "progress": "Postup",
       "ratio": "Poměr",
       "ratio_limit": "Poměrový limit"
+    }
+  },
+  "torrentDetail": {
+    "peers": {
+      "fields": {
+        "progress": "Postup"
+      }
     }
   },
   "torrent": {

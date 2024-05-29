@@ -13,7 +13,10 @@
     "no": "否",
     "none": "(無)",
     "ok": "確認",
+    "pause": "暫停",
+    "resume": "繼續",
     "save": "儲存",
+    "search": "搜尋",
     "selectAll": "選擇全部",
     "selectNone": "取消選擇全部",
     "useGlobalSettings": "使用全域設定",
@@ -1051,9 +1054,11 @@
       "not_supported": "當前環境不安全，無法註冊處理器。",
       "registered": "磁力連結處理器已註冊。"
     },
-    "new_version": "新版本已發佈!",
     "qbit": {
       "not_supported": "僅適用於 qbit >= {version}"
+    },
+    "version": {
+      "new": "新版本已發佈!"
     }
   },
   "topbar": {
@@ -1122,11 +1127,15 @@
         "newPeersPlaceholder": "主機:埠",
         "title": "新增用戶"
       },
-      "emptyList": "當前無已連接的用戶",
+      "empty": "當前無已連接的用戶",
       "fields": {
         "client": "客戶端",
+        "download": "下載",
         "flags": "旗標",
-        "relevance": "關聯"
+        "host": "主機",
+        "progress": "進度",
+        "relevance": "關聯",
+        "upload": "上傳"
       }
     },
     "tabs": {

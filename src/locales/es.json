@@ -12,7 +12,10 @@
     "no": "No",
     "none": "(Ninguno)",
     "ok": "Aceptar",
+    "pause": "Pausar",
+    "resume": "Reanudar",
     "save": "Guardar",
+    "search": "Buscar",
     "selectAll": "Seleccionar todo",
     "selectNone": "Ninguno seleccionado",
     "useGlobalSettings": "Usar configuración global",
@@ -1025,9 +1028,11 @@
       "not_supported": "El contexto actual no está seguro. No se puede registrar el controlador.",
       "registered": "Manejador de imanes registrado."
     },
-    "new_version": "¡Nueva versión disponible!",
     "qbit": {
       "not_supported": "Solo disponible para qbit >= {version}"
+    },
+    "version": {
+      "new": "¡Nueva versión disponible!"
     }
   },
   "topbar": {
@@ -1096,11 +1101,15 @@
         "newPeersPlaceholder": "host:puerto",
         "title": "Agregar pares"
       },
-      "emptyList": "No hay pares conectados en este momento",
+      "empty": "No hay pares conectados en este momento",
       "fields": {
         "client": "Cliente",
+        "download": "Descargar",
         "flags": "Banderas",
-        "relevance": "Relevancia"
+        "host": "Anfitrión",
+        "progress": "Progreso",
+        "relevance": "Relevancia",
+        "upload": "Cargar"
       }
     },
     "tabs": {

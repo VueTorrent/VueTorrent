@@ -6,15 +6,12 @@ import LightLegacy from './light/legacy'
 
 const themes = [DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned]
 
-export default themes.reduce((obj, theme) => {
-  obj[theme.id] = theme.theme
-  return obj
-}, {} as Record<string, ThemeDefinition>)
+export default themes.reduce(
+  (obj, theme) => {
+    obj[theme.id] = theme.theme
+    return obj
+  },
+  {} as Record<string, ThemeDefinition>
+)
 
-export {
-  themes,
-  DarkLegacy,
-  DarkRedesigned,
-  LightLegacy,
-  LightRedesigned,
-}
+export { themes, DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned }

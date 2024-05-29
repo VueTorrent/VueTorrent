@@ -13,7 +13,10 @@
     "no": "否",
     "none": "(无)",
     "ok": "确定",
+    "pause": "暂停",
+    "resume": "恢复",
     "save": "保存",
+    "search": "搜索",
     "selectAll": "全选",
     "selectNone": "取消选择",
     "useGlobalSettings": "使用全局设置",
@@ -1051,9 +1054,11 @@
       "not_supported": "当前环境不安全，无法注册处理程序。",
       "registered": "磁力链处理程序已注册。"
     },
-    "new_version": "新版本可用！",
     "qbit": {
       "not_supported": "仅适用于 qbit >= {version}"
+    },
+    "version": {
+      "new": "新版本可用！"
     }
   },
   "topbar": {
@@ -1122,11 +1127,15 @@
         "newPeersPlaceholder": "主机:端口",
         "title": "添加用户"
       },
-      "emptyList": "当前没有用户连接",
+      "empty": "当前没有用户连接",
       "fields": {
         "client": "客户端",
+        "download": "下载",
         "flags": "标志",
-        "relevance": "相关性"
+        "host": "主机",
+        "progress": "进度",
+        "relevance": "相关性",
+        "upload": "上传"
       }
     },
     "tabs": {

@@ -1,13 +1,4 @@
-import {
-  DashboardProperty,
-  defaultDateFormat,
-  PropertyData,
-  propsData,
-  propsMetadata,
-  TitleOptions,
-  TorrentProperty,
-  ThemeMode
-} from '@/constants/vuetorrent'
+import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, ThemeMode } from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'

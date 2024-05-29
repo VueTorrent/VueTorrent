@@ -5,7 +5,7 @@ export const statusColors = {
   disabled: '#35495E'
 }
 
-export const getVariables = (dark: boolean)  => ({
+export const getVariables = (dark: boolean) => ({
   // Main colors
   accent: '#64CEAA',
   upload: '#00B3FA',

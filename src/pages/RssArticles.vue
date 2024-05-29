@@ -111,11 +111,11 @@ onUnmounted(() => {
 
 #rss-articles {
   .rss-read {
-    &[class*=v-theme--dark-] {
+    &[class*='v-theme--dark-'] {
       color: lighten(darkgrey, 5%) !important;
     }
 
-    &[class*=v-theme--light-] {
+    &[class*='v-theme--light-'] {
       color: grey !important;
     }
   }
