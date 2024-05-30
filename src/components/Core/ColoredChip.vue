@@ -18,14 +18,15 @@ const props = withDefaults(
 )
 
 const { t } = useI18n()
-const { enableHashColors } = storeToRefs(useVueTorrentStore())
+const { enableHashColors, hideColoredChip } = storeToRefs(useVueTorrentStore())
 
 const chipColor = computed(() => (props.disabled || !enableHashColors.value ? props.defaultColor : getColorFromName(props.value)))
 const chipValue = computed(() => (props.disabled ? props.disabledValue || t('common.none') : props.value))
+const shouldShowColoredChips = computed(() => !hideColoredChip.value)
 </script>
 
 <template>
-  <v-chip :color="chipColor" variant="flat">
+  <v-chip :color="chipColor" :variant="shouldShowColoredChips ? 'flat' : 'text'">
     {{ chipValue }}
   </v-chip>
 </template>

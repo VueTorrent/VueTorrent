@@ -971,6 +971,7 @@
         "enableRatioColors": "Enable ratio colors",
         "fileContentInterval": "Torrent file content refresh interval",
         "hideChipIfUnset": "Hide chips if unset",
+        "hideColoredChip": "Use text variant for chips",
         "historySize": "History size on eligible fields",
         "import": "Import Settings",
         "isDrawerRight": "Right Drawer",
