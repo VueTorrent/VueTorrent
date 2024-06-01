@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.9.0](https://github.com/VueTorrent/VueTorrent/compare/v2.8.1...v2.9.0) (2024-06-01)
+
+
+### Features
+
+* Add theme variants ([#1641](https://github.com/VueTorrent/VueTorrent/issues/1641)) ([6a20007](https://github.com/VueTorrent/VueTorrent/commit/6a20007290b3f1846583dc6fd3330bc0b8a7a6e0))
+* **pages:** Deploy mocked demo version ([#1690](https://github.com/VueTorrent/VueTorrent/issues/1690)) ([f8695bf](https://github.com/VueTorrent/VueTorrent/commit/f8695bf9a6d16f8f073381c6ab0750b770c0de1c))
+* **tags:** added remove all button for tags in rightClick menu ([#1701](https://github.com/VueTorrent/VueTorrent/issues/1701)) ([2a4aedc](https://github.com/VueTorrent/VueTorrent/commit/2a4aedc86dacbb53e64031cb56cbb6fd4dc86a89))
+* **tags:** option to have tags/categories without the “pill” shape ([#1492](https://github.com/VueTorrent/VueTorrent/issues/1492)) ([#1708](https://github.com/VueTorrent/VueTorrent/issues/1708)) ([c3fc963](https://github.com/VueTorrent/VueTorrent/commit/c3fc9634652468a2f4edd537505b263754ca9d7d))
+
+
+### Bug Fixes
+
+* **content:** files not rendering under certain conditions ([#1696](https://github.com/VueTorrent/VueTorrent/issues/1696)) ([b85e403](https://github.com/VueTorrent/VueTorrent/commit/b85e403829e5ca8b99703a09da7be3b4b4c5123d))
+* **content:** Selected files stays at 0/0 ([#1702](https://github.com/VueTorrent/VueTorrent/issues/1702)) ([ac9031d](https://github.com/VueTorrent/VueTorrent/commit/ac9031d2ad0a031822a90cc8c06a0005c478ce68))
+* **filters:** "Untagged" value not using tracker filter when matched ([#1695](https://github.com/VueTorrent/VueTorrent/issues/1695)) ([251472e](https://github.com/VueTorrent/VueTorrent/commit/251472e921d77da6665dffca0bf98ed8f877a709))
+
+
+### Improvements
+
+* **content:** Improve performance ([#1697](https://github.com/VueTorrent/VueTorrent/issues/1697)) ([58341c6](https://github.com/VueTorrent/VueTorrent/commit/58341c63b7b405e5a38976c2871d98fc9a1ab267))
+* **Peers:** Bring back sorting and filtering ([#1694](https://github.com/VueTorrent/VueTorrent/issues/1694)) ([d6ed8dd](https://github.com/VueTorrent/VueTorrent/commit/d6ed8dd51a9d1760098a08849fa2ba573f26d10e))
+* **RSS:** Rework RSS views ([#1685](https://github.com/VueTorrent/VueTorrent/issues/1685)) ([baed303](https://github.com/VueTorrent/VueTorrent/commit/baed3032a21e9ac7ff3b80f5f0afc893d173b7d3))
+
 ## [2.8.1](https://github.com/VueTorrent/VueTorrent/compare/v2.8.0...v2.8.1) (2024-05-14)
 
 ### Bug Fixes
