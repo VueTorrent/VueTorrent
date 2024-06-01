@@ -40,6 +40,8 @@ const ratioColor = computed(() => {
   return getRatioColor(props.torrent.ratio)
 })
 
+const shouldShowColoredChips = computed(() => !vuetorrentStore.hideColoredChip)
+
 async function copyHash() {
   try {
     await navigator.clipboard.writeText(props.torrent.hash)
@@ -189,7 +191,7 @@ onUnmounted(async () => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.state') }}:</div>
-              <v-chip variant="flat" :color="torrentStateColor">{{ $t(`torrent.state.${torrent.state}`) }}</v-chip>
+              <v-chip :variant="shouldShowColoredChips ? 'flat' : 'text'" :color="torrentStateColor">{{ $t(`torrent.state.${torrent.state}`) }}</v-chip>
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>
@@ -207,7 +209,7 @@ onUnmounted(async () => {
               <div v-if="torrent.tags.length" class="d-flex flex-wrap flex-gap-row-small flex-gap-column">
                 <ColoredChip v-for="tag in torrent.tags" default-color="tag" :value="tag" />
               </div>
-              <v-chip v-else variant="flat" color="tag">
+              <v-chip v-else :variant="shouldShowColoredChips ? 'flat' : 'text'" color="tag">
                 {{ $t('navbar.side.filters.untagged') }}
               </v-chip>
             </v-col>

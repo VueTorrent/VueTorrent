@@ -19,11 +19,12 @@ const props = withDefaults(
   }
 )
 
-const { hideChipIfUnset, enableHashColors } = storeToRefs(useVueTorrentStore())
+const { hideChipIfUnset, enableHashColors, hideColoredChip } = storeToRefs(useVueTorrentStore())
 
 const val = computed(() => props.value(props.torrent))
 const emptyValue = computed(() => val.value.length < 1 || val.value[0] === '')
 const shouldShowChip = computed(() => !(hideChipIfUnset.value && emptyValue.value))
+const shouldShowColoredChips = computed(() => !hideColoredChip.value)
 const useRandomColor = computed(() => enableHashColors.value && props.enableHashColor)
 </script>
 
@@ -33,10 +34,10 @@ const useRandomColor = computed(() => enableHashColors.value && props.enableHash
       {{ $t(titleKey) }}
     </div>
     <div class="d-flex flex-row flex-gap-column-small">
-      <v-chip v-if="emptyValue" :color="color(torrent)" variant="flat" size="small">
+      <v-chip v-if="emptyValue" :color="color(torrent)" :variant="shouldShowColoredChips ? 'flat' : 'text'" size="small">
         {{ $t(emptyValueKey) }}
       </v-chip>
-      <v-chip v-else v-for="v in val" :color="useRandomColor ? getColorFromName(v) : color(torrent)" variant="flat" size="small">
+      <v-chip v-else v-for="v in val" :color="useRandomColor ? getColorFromName(v) : color(torrent)" :variant="shouldShowColoredChips ? 'flat' : 'text'" size="small">
         {{ v }}
       </v-chip>
     </div>
