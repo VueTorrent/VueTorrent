@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
-import vuetify from 'vite-plugin-vuetify'
-import { resolve } from 'node:path'
 import topLevelAwait from 'vite-plugin-top-level-await'
+import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
       vuetify(),
       topLevelAwait({
         promiseExportName: '__tla',
-        promiseImportName: i => `__tla_${i}`
+        promiseImportName: i => `__tla_${ i }`
       })
     ],
     publicDir: './public',
@@ -50,8 +50,9 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       proxy: {
         '/api': {
-          target: `${proxyTarget}:${qBittorrentPort}`,
-          secure: false
+          changeOrigin: true,
+          secure: false,
+          target: `${ proxyTarget }:${ qBittorrentPort }`
         }
       }
     },
