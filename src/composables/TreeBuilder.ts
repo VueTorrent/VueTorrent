@@ -37,7 +37,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedIte
     for (const file of files) {
       let cursor = rootNode
       file.name
-        .replace('\\', '/')
+        .replace(/\\/g, '/')
         .split('/')
         .reduce((parentPath, nodeName) => {
           const nextPath = parentPath === '' ? nodeName : parentPath + '/' + nodeName
