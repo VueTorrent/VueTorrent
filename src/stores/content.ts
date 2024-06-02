@@ -134,12 +134,14 @@ export const useContentStore = defineStore('content', () => {
     renameTorrentFolder,
     setFilePriority,
     $reset: () => {
-      while (_lock.value) {}
-      internalSelection.value.clear()
-      filenameFilter.value = ''
-      cachedFiles.value = []
-      openedItems.value = ['']
       pauseTimer()
+      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 10000 : 0))
+        .finally(() => {
+          internalSelection.value.clear()
+          filenameFilter.value = ''
+          cachedFiles.value = []
+          openedItems.value = ['']
+        })
     }
   }
 })

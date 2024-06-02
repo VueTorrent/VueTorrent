@@ -69,10 +69,12 @@ export const useLogStore = defineStore('logs', () => {
     fetchGeoAndIspDetails,
     fetchLogs,
     cleanAndFetchLogs,
-    $reset: async () => {
-      while (_lock.value) {}
-      logs.value = []
-      externalIp.value = undefined
+    $reset: () => {
+      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 1500 : 0))
+        .then(() => {
+          logs.value = []
+          externalIp.value = undefined
+        })
     }
   }
 })
