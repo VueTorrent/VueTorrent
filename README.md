@@ -92,6 +92,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - Additional backend for improved experience, [see the repo for more info](https://github.com/VueTorrent/vuetorrent-backend)
   - This is a work in progress, and is not required to use VueTorrent
   - Stores server-side settings
+- Supports [qBittorrent Enhanced Edition](https://github.com/c0re100/qBittorrent-Enhanced-Edition) preferences
 
 ## Important Information
 

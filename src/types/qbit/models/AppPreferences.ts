@@ -419,3 +419,12 @@ export default interface AppPreferences {
   /** WebUI username */
   web_ui_username: string
 }
+
+/** Preferences extension from Enhanced qBittorrent edition */
+export interface EnhancedAppPreferences extends AppPreferences {
+  auto_ban_bt_player_peer: boolean
+  auto_ban_unknown_peer: boolean
+  auto_update_trackers_enabled: boolean
+  customize_trackers_list_url: string
+  readonly public_trackers: string
+}
