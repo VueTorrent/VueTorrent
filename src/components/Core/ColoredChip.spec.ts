@@ -76,4 +76,96 @@ describe('ColoredChip.vue', () => {
     expect(chip.classes()).toContain(`bg-${defaultColor}`)
     expect(chip.text()).toBe(disabledValue)
   })
+
+  it('should fallback to value with disabled and no disabled-value', () => {
+    const chip = mount(ColoredChip, {
+      props: { defaultColor, disabled: true, value },
+      global: {
+        plugins: [
+          createTestingPinia({
+            initialState: {
+              vuetorrent: {
+                enableHashColors: true
+              }
+            }
+          }),
+          i18n,
+          vuetify
+        ]
+      }
+    })
+
+    expect(chip.classes()).toContain(`bg-${defaultColor}`)
+    expect(chip.text()).toBe(value)
+  })
+
+  it('should render chip without hideColoredChip', () => {
+    const chip = mount(ColoredChip, {
+      props: { defaultColor, value },
+      global: {
+        plugins: [
+          createTestingPinia({
+            initialState: {
+              vuetorrent: {
+                hideColoredChip: false
+              }
+            }
+          }),
+          i18n,
+          vuetify
+        ]
+      }
+    })
+
+    const el: HTMLSpanElement = chip.element
+    expect(el.nodeName).eq('SPAN')
+    expect(chip.classes()).contain('v-chip')
+  })
+
+  it('should render only text with hideColoredChip', () => {
+    const chip = mount(ColoredChip, {
+      props: { defaultColor, value },
+      global: {
+        plugins: [
+          createTestingPinia({
+            initialState: {
+              vuetorrent: {
+                hideColoredChip: true
+              }
+            }
+          }),
+          i18n,
+          vuetify
+        ]
+      }
+    })
+
+    const el: HTMLSpanElement = chip.element
+    expect(el.nodeName).eq('DIV')
+    expect(chip.classes()).not.contain('v-chip')
+  })
+
+  it('should convert named color', () => {
+    const chip = mount(ColoredChip, {
+      props: { defaultColor, value },
+      global: {
+        plugins: [
+          createTestingPinia({
+            initialState: {
+              vuetorrent: {
+                enableHashColors: true,
+                hideColoredChip: true
+              }
+            }
+          }),
+          i18n,
+          vuetify
+        ]
+      }
+    })
+
+    const el: HTMLSpanElement = chip.element
+    expect(el.nodeName).eq('DIV')
+    expect(chip.attributes().style).toContain(`color: ${fooRgb}`)
+  })
 })
