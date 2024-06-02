@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { FilePriority, PieceState } from '@/constants/qbit'
-import { useContentStore, useMaindataStore } from '@/stores'
+import { useContentStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import IntervalTree from '@flatten-js/interval-tree'
+import { useIntervalFn } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import { Application, Graphics } from 'pixi.js'
-import { onMounted, onUnmounted, ref, shallowRef, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useTheme } from 'vuetify'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
@@ -13,22 +14,17 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 const theme = useTheme()
 const { cachedFiles } = storeToRefs(useContentStore())
 const maindataStore = useMaindataStore()
+const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
 const canvas = ref<HTMLCanvasElement>()
-
-// Application/Graphics will throw exception if ref is used, use shallowRef
-const appPromise = shallowRef<Promise<Application>>()
+const renderCanvasRunning = ref<boolean>(false)
+const app = shallowRef<Application>()
 const lastGraphics = shallowRef<Graphics>()
 
-// Rudimentary guard to prevent renderCanvas from running concurrently,
-// can happen if watch() and onMounted() trigger at the same time
-const renderCanvasRunning = ref<boolean>(false)
-
 async function renderCanvas() {
-  if (renderCanvasRunning.value || !canvas.value || !appPromise.value) return
+  if (renderCanvasRunning.value || !canvas.value || !app.value) return
 
   renderCanvasRunning.value = true
-  const app = await appPromise.value
 
   const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
 
@@ -69,36 +65,38 @@ async function renderCanvas() {
     graphics.fill(color)
   }
 
-  app.stage.addChild(graphics)
+  app.value.stage.addChild(graphics)
   if (lastGraphics.value) lastGraphics.value.destroy()
   lastGraphics.value = graphics
   renderCanvasRunning.value = false
 }
 
-watch(cachedFiles, () => {
-  if (props.isActive) {
-    renderCanvas()
-  }
+function renderWrapper() {
+  renderCanvas().catch(() => {
+  })
+}
+
+const { pause, resume } = useIntervalFn(renderWrapper, fileContentInterval, {
+  immediate: false,
+  immediateCallback: true
+})
+
+watch(() => props.isActive, isActive => {
+  if (isActive) resume()
+  else pause()
 })
 
 onMounted(() => {
   if (!canvas.value) return
 
-  appPromise.value = new Promise<Application>(async resolve => {
-    const app = new Application()
-    await app.init({ antialias: true, width: canvas.value?.width, height: canvas.value?.height, canvas: canvas.value })
-    resolve(app)
-  })
-  if (cachedFiles.value) {
-    renderCanvas()
-  }
+  const application = new Application()
+  application.init({ antialias: true, width: canvas.value?.width, height: canvas.value?.height, canvas: canvas.value })
+    .then(() => app.value = application)
+    .then(() => props.isActive && resume())
 })
 
-onUnmounted(async () => {
-  if (!appPromise.value) return
-
-  const app = await appPromise.value
-  app.destroy({ removeView: false }, { children: true })
+onBeforeUnmount(() => {
+  app.value?.destroy({ removeView: false }, { children: true })
 })
 </script>
 
