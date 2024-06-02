@@ -9,7 +9,7 @@ on:
       - master
   pull_request:
     branches:
-      - main
+      - master
     paths:
       - src
 
