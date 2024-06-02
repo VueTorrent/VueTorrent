@@ -7,6 +7,11 @@ on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - main
+    paths:
+      - src
 
 jobs:
   analyze:
