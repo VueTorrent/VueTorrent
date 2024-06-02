@@ -10,5 +10,5 @@ const { useBinarySize } = storeToRefs(useVueTorrentStore())
 </script>
 
 <template>
-  <td>{{ formatData(value(torrent), useBinarySize) }}</td>
+  <td class="text-no-wrap">{{ formatData(value(torrent), useBinarySize) }}</td>
 </template>

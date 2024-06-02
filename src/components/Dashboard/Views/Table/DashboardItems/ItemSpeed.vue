@@ -10,5 +10,5 @@ const { useBitSpeed } = storeToRefs(useVueTorrentStore())
 </script>
 
 <template>
-  <td>{{ formatSpeed(value(torrent), useBitSpeed) }}</td>
+  <td class="text-no-wrap">{{ formatSpeed(value(torrent), useBitSpeed) }}</td>
 </template>
