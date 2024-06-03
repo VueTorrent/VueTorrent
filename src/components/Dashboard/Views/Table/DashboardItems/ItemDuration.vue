@@ -27,8 +27,8 @@ const formattedDuration = computed(() => {
 </script>
 
 <template>
-  <td v-if="val > 0">
+  <td v-if="val > 0" class="text-no-wrap">
     {{ formattedDuration }}
   </td>
-  <td v-else>{{ $t('common.NA') }}</td>
+  <td v-else class="text-no-wrap">{{ $t('common.NA') }}</td>
 </template>

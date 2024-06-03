@@ -8,5 +8,5 @@ const val = computed(() => props.value(props.torrent))
 </script>
 
 <template>
-  <td :class="color ? color(val) : ''">{{ val }}</td>
+  <td :class="color ? color(val) : ''" class="text-no-wrap">{{ val }}</td>
 </template>
