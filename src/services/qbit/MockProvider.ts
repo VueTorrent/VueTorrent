@@ -59,12 +59,19 @@ export default class MockProvider implements IProvider {
   async getPreferences(): Promise<AppPreferences> {
     return this.generateResponse({
       result: {
+        // Enhanced edition
+        // auto_ban_bt_player_peer: true,
+        // auto_ban_unknown_peer: true,
+        // auto_update_trackers_enabled: true,
+        // customize_trackers_list_url: 'http://example.com/',
+        // public_trackers: 'http://example.com/\nhttp://example.com/',
+
         add_to_top_of_queue: false,
         add_trackers: '',
         add_trackers_enabled: false,
         alt_dl_limit: 10240,
         alt_up_limit: 10240,
-        alternative_webui_enabled: false,
+        alternative_webui_enabled: true,
         alternative_webui_path: '/vuetorrent',
         announce_ip: '',
         announce_to_all_tiers: true,
@@ -266,6 +273,7 @@ export default class MockProvider implements IProvider {
   }
 
   async setPreferences(_: AppPreferencesPayload): Promise<void> {
+    console.log(_)
     return this.generateResponse({ shouldResolve: true })
   }
 

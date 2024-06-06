@@ -628,6 +628,15 @@
     "title": "Search engine"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "Auto ban BT player peer",
+        "auto_ban_unknown_peer": "Auto ban unknown peer",
+        "auto_update_trackers": "Automatically update public trackers list",
+        "trackers_list_url": "Customize Trackers URL List",
+        "public_trackers": "Public trackers"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "Always announce to all tiers",
@@ -928,6 +937,9 @@
       "upload": "Upload"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "Enhanced edition"
+      },
       "advanced": "Advanced",
       "behavior": "Behavior",
       "bittorrent": "BitTorrent",

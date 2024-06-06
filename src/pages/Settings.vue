@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import EnhancedEdition from '@/components/Settings/addons/EnhancedEdition.vue'
 import Advanced from '@/components/Settings/Advanced.vue'
 import Behavior from '@/components/Settings/Behavior.vue'
 import BitTorrent from '@/components/Settings/BitTorrent.vue'
@@ -14,7 +15,7 @@ import VTorrentCardTable from '@/components/Settings/VueTorrent/TorrentCard/Tabl
 import WebUI from '@/components/Settings/WebUI.vue'
 import { backend } from '@/services/backend'
 import { useDialogStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
-import { onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
@@ -47,6 +48,8 @@ const tabsV = [
 
 const tab = ref('vuetorrent')
 const innerTabV = ref('general')
+
+const isEnhancedEdition = computed(() => preferenceStore.preferences && Object.keys(preferenceStore.preferences).includes('public_trackers'))
 
 const saveSettings = async () => {
   await preferenceStore.setPreferences()
@@ -132,11 +135,16 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
+        <v-tab v-if="isEnhancedEdition" value="enhancedEdition" href="#/settings/enhancedEdition" :text="$t('settings.tabs.addons.enhanced_edition')" />
         <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :href="`#/settings/${value}`" :text="text" />
       </v-tabs>
     </v-row>
 
     <v-window v-model="tab" :touch="false">
+      <v-window-item value="enhancedEdition">
+        <EnhancedEdition />
+      </v-window-item>
+
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
           <v-tab v-for="{ text, value } in tabsV" :value="value" :text="text" :href="`#/settings/vuetorrent/${value}`" :class="{ 'text-accent': innerTabV === value }" />
