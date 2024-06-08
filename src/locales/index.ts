@@ -65,7 +65,7 @@ export const messages: Record<Locales, any> = {
   [Locales.PL]: pl,
   [Locales.RU]: ru,
   [Locales.TR]: tr,
-  [Locales.UA]: ua,
+  [Locales.UA]: uk,
   [Locales.ZH_HANS]: zh_hans,
   [Locales.ZH_HANT]: zh_hant
 }
