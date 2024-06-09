@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { useMaindataStore } from '@/stores'
+import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const { serverState } = storeToRefs(useMaindataStore())
 </script>
 
 <template>
@@ -16,10 +17,10 @@ const maindataStore = useMaindataStore()
       <v-sheet class="mx-2 inherit-bg">
         <v-row class="pt-0">
           <v-col class="px-1 pt-1">
-            <SpeedCard icon="mdi-chevron-down" color="download" :value="maindataStore.serverState?.dl_info_speed ?? 0" />
+            <SpeedCard icon="mdi-chevron-down" color="download" :value="serverState?.dl_info_speed ?? 0" :limit-value="serverState.dl_rate_limit" />
           </v-col>
           <v-col class="px-1 pt-1">
-            <SpeedCard icon="mdi-chevron-up" color="upload" :value="maindataStore.serverState?.up_info_speed ?? 0" />
+            <SpeedCard icon="mdi-chevron-up" color="upload" :value="serverState?.up_info_speed ?? 0" :limit-value="serverState.up_rate_limit" />
           </v-col>
         </v-row>
       </v-sheet>
