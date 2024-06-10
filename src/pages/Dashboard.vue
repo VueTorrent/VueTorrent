@@ -265,9 +265,3 @@ onBeforeUnmount(() => {
 
   <TRC :right-click-properties="rightClickProperties" />
 </template>
-
-<style>
-.v-autocomplete .v-field:not(.v-field--focused) input {
-  display: none;
-}
-</style>
