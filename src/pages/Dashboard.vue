@@ -154,8 +154,11 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   if (e.key === 'Delete') {
     if (selectedTorrents.value.length === 0) return
 
-    dialogStore.createDialog(ConfirmDeleteDialog, { hashes: selectedTorrents.value })
-    e.preventDefault()
+    const searchInput = document.getElementById('searchInput')
+    if (document.activeElement !== searchInput) {
+      dialogStore.createDialog(ConfirmDeleteDialog, { hashes: selectedTorrents.value })
+      e.preventDefault()
+    }
     return true
   }
 
