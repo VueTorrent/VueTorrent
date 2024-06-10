@@ -192,6 +192,7 @@
       },
       "tags": {
         "disabled_title": "Теги отсутствуют",
+        "remove_all": "Удалить все",
         "title": "Задать теги"
       },
       "top": {
@@ -626,6 +627,15 @@
     "title": "Поиск торрентов"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "Автоматический бан торрент-проигрывателей",
+        "auto_ban_unknown_peer": "Автоматический бан неизвестных пиров",
+        "auto_update_trackers": "Автоматическое обновление списка общедоступных трекеров",
+        "public_trackers": "Общедоступные трекеры",
+        "trackers_list_url": "Настройка списка URL трекеров"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "Всегда объявляйте всем рангам",
@@ -926,6 +936,9 @@
       "upload": "Раздача"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "Расширенная версия"
+      },
       "advanced": "Дополнительно",
       "behavior": "Поведение",
       "bittorrent": "BitTorrent",
@@ -969,6 +982,7 @@
         "enableRatioColors": "Разрешить цвета рейтинга",
         "fileContentInterval": "Интервал обновления содержимого торрент-файла",
         "hideChipIfUnset": "Скрыть фишки, если не настроено",
+        "hideColoredChip": "Использовать текстовый вариант для фишек",
         "historySize": "Размер истории в подходящих полях",
         "import": "Импортировать настройки",
         "isDrawerRight": "Расположить боковую панель справа",
@@ -1164,7 +1178,7 @@
         "files": "Файлы",
         "flags": "Флаги",
         "host": "Хост",
-        "progress": "Прогрессу",
+        "progress": "Прогресс",
         "relevance": "Актуальность",
         "upload": "Раздача"
       }

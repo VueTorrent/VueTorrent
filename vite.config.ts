@@ -36,7 +36,7 @@ export default defineConfig(({ mode }) => {
       vuetify(),
       topLevelAwait({
         promiseExportName: '__tla',
-        promiseImportName: i => `__tla_${ i }`
+        promiseImportName: i => `__tla_${i}`
       })
     ],
     publicDir: './public',
@@ -52,7 +52,7 @@ export default defineConfig(({ mode }) => {
         '/api': {
           changeOrigin: true,
           secure: false,
-          target: `${ proxyTarget }:${ qBittorrentPort }`
+          target: `${proxyTarget}:${qBittorrentPort}`
         }
       }
     },

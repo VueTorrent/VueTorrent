@@ -14,6 +14,7 @@
     "none": "(無)",
     "ok": "確認",
     "pause": "暫停",
+    "refresh": "更新",
     "resume": "繼續",
     "save": "儲存",
     "search": "搜尋",
@@ -106,6 +107,16 @@
       "none": "無",
       "title": "種子停止條件"
     },
+    "themes": {
+      "dark": {
+        "legacy": "傳統",
+        "redesigned": "重制版"
+      },
+      "light": {
+        "legacy": "傳統",
+        "redesigned": "重制版"
+      }
+    },
     "titleOptions": {
       "custom": "自訂",
       "default": "預設",
@@ -181,6 +192,7 @@
       },
       "tags": {
         "disabled_title": "無標籤",
+        "remove_all": "全部刪除",
         "title": "設定標籤"
       },
       "top": {
@@ -296,6 +308,7 @@
       "col_origin_name": "原名稱",
       "col_result_name": "結果",
       "duplicated": "重複的檔案名稱",
+      "flags": "旗標",
       "fold": "收起",
       "not_changed": "檔案名稱未變更",
       "notForFolder": "不支持目錄更名",
@@ -538,7 +551,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "action": "新增 RSS 訂閱源"
+        "action": "新增 RSS 訂閱源",
+        "value": "未有註冊的RSS訂閱"
       },
       "filters": {
         "title": "標題過濾器",
@@ -550,17 +564,30 @@
         "feedName": "訂閱源名稱: {name}"
       },
       "markAllAsRead": "標記全部項目為已讀",
+      "markAsRead": "標註為已讀",
       "promise": {
         "error": "標記文章時發生錯誤",
         "pending": "標記中...",
         "success": "已標記 {n} 篇文章為已讀"
       },
+      "refreshAllFeeds": "更新所有訂閱",
+      "refreshPromise": {
+        "error": "更新訂閱資訊時發生錯誤",
+        "pending": "正在更新…",
+        "success": "{n}條訂閱資訊已更新"
+      },
       "title": "RSS 文章"
     },
     "rules": {
       "empty": {
-        "action": "新增 RSS 規則"
-      }
+        "action": "新增 RSS 規則",
+        "value": "未有配置的RSS規則"
+      },
+      "title": "RSS規則"
+    },
+    "toggle": {
+      "feeds": "顯示訂閱資訊",
+      "rules": "顯示訂閱規則"
     }
   },
   "searchEngine": {
@@ -942,12 +969,14 @@
         "enableRatioColors": "啟用彩色的分享率",
         "fileContentInterval": "種子檔案內容更新區間",
         "hideChipIfUnset": "未設置時隱藏塊",
+        "hideColoredChip": "為卡片使用文本模式",
         "historySize": "符合條件欄位的歷史大小",
         "import": "匯入設定",
         "isDrawerRight": "側邊欄居右顯示",
         "isPaginationOnTop": "分頁欄於頂部顯示",
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
+        "lightVariants": "淺色模式樣式",
         "openSideBarOnStart": "啟動時顯示側邊欄",
         "paginationSize": {
           "infinite_scroll": "無限滾動",
@@ -1058,6 +1087,7 @@
       "not_supported": "僅適用於 qbit >= {version}"
     },
     "version": {
+      "latest": "你已經在使用最新版本了!",
       "new": "新版本已發佈!"
     }
   },
@@ -1130,7 +1160,9 @@
       "empty": "當前無已連接的用戶",
       "fields": {
         "client": "客戶端",
+        "country": "國家和地區",
         "download": "下載",
+        "files": "檔案",
         "flags": "旗標",
         "host": "主機",
         "progress": "進度",

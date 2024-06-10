@@ -135,13 +135,12 @@ export const useContentStore = defineStore('content', () => {
     setFilePriority,
     $reset: () => {
       pauseTimer()
-      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 10000 : 0))
-        .finally(() => {
-          internalSelection.value.clear()
-          filenameFilter.value = ''
-          cachedFiles.value = []
-          openedItems.value = ['']
-        })
+      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 10000 : 0)).finally(() => {
+        internalSelection.value.clear()
+        filenameFilter.value = ''
+        cachedFiles.value = []
+        openedItems.value = ['']
+      })
     }
   }
 })

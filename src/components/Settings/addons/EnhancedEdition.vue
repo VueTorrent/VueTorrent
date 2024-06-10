@@ -7,7 +7,7 @@ const preferenceStore = usePreferenceStore()
 
 const preferences = computed({
   get: () => preferenceStore.preferences as EnhancedAppPreferences,
-  set: v => preferenceStore.preferences = v
+  set: v => (preferenceStore.preferences = v)
 })
 </script>
 
@@ -27,25 +27,22 @@ const preferences = computed({
 
     <v-list-item>
       <v-text-field
-          v-model="preferences.customize_trackers_list_url"
-          :disabled="!preferences.auto_update_trackers_enabled"
-          hide-details
-          :label="$t('settings.addons.enhanced_edition.trackers_list_url')"
-      />
+        v-model="preferences.customize_trackers_list_url"
+        :disabled="!preferences.auto_update_trackers_enabled"
+        hide-details
+        :label="$t('settings.addons.enhanced_edition.trackers_list_url')" />
     </v-list-item>
 
     <v-list-item>
       <v-textarea
-          v-model="preferences.public_trackers"
-          disabled
-          auto-grow
-          persistent-hint
-          :hint="$t('settings.bittorrent.autoAddTrackersHint')"
-          :label="$t('settings.addons.enhanced_edition.public_trackers')" />
+        v-model="preferences.public_trackers"
+        disabled
+        auto-grow
+        persistent-hint
+        :hint="$t('settings.bittorrent.autoAddTrackersHint')"
+        :label="$t('settings.addons.enhanced_edition.public_trackers')" />
     </v-list-item>
   </v-list>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
