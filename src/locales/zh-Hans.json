@@ -14,6 +14,7 @@
     "none": "(无)",
     "ok": "确定",
     "pause": "暂停",
+    "refresh": "刷新",
     "resume": "恢复",
     "save": "保存",
     "search": "搜索",
@@ -106,6 +107,16 @@
       "none": "无",
       "title": "种子停止条件"
     },
+    "themes": {
+      "dark": {
+        "legacy": "旧版",
+        "redesigned": "重绘版"
+      },
+      "light": {
+        "legacy": "旧版",
+        "redesigned": "重绘版"
+      }
+    },
     "titleOptions": {
       "custom": "自定义",
       "default": "默认",
@@ -181,6 +192,7 @@
       },
       "tags": {
         "disabled_title": "无标签",
+        "remove_all": "移除全部",
         "title": "设置标签"
       },
       "top": {
@@ -296,6 +308,7 @@
       "col_origin_name": "原名称",
       "col_result_name": "结果",
       "duplicated": "重复的文件名",
+      "flags": "标签",
       "fold": "折叠",
       "not_changed": "文件名未变更",
       "notForFolder": "不支持文件夹重命名",
@@ -538,7 +551,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "action": "创建 RSS 订阅源"
+        "action": "创建 RSS 订阅源",
+        "value": "未注册RSS订阅"
       },
       "filters": {
         "title": "标题过滤器",
@@ -550,17 +564,30 @@
         "feedName": "订阅源名称：{name}"
       },
       "markAllAsRead": "全部标记为已读",
+      "markAsRead": "标记为已读",
       "promise": {
         "error": "标记文章时出错",
         "pending": "标记中... ",
         "success": "{n}篇文章已标记为已读"
       },
+      "refreshAllFeeds": "刷新所有订阅",
+      "refreshPromise": {
+        "error": "刷新订阅信息时出现错误",
+        "pending": "刷新中...",
+        "success": "{n} 条订阅信息已刷新"
+      },
       "title": "RSS 资讯"
     },
     "rules": {
       "empty": {
-        "action": "创建 RSS 规则"
-      }
+        "action": "创建 RSS 规则",
+        "value": "未设置RSS规则"
+      },
+      "title": "RSS规则"
+    },
+    "toggle": {
+      "feeds": "展示订阅消息",
+      "rules": "展示订阅规则"
     }
   },
   "searchEngine": {
@@ -936,18 +963,21 @@
         "check_new": "检查新版本",
         "currentVersion": "当前版本",
         "customTitle": "自定义标题",
+        "darkVariants": "深色模式样式",
         "dateFormat": "日期格式",
         "download": "导出设置",
         "enableHashColors": "启用自动生成的卡片颜色",
         "enableRatioColors": "启用彩色的分享率",
         "fileContentInterval": "种子文件内容刷新间隔",
         "hideChipIfUnset": "未设置时隐藏卡片",
+        "hideColoredChip": "为卡片使用文本模式",
         "historySize": "符合条件字段的历史大小",
         "import": "导入设置",
         "isDrawerRight": "侧边栏居右显示",
         "isPaginationOnTop": "分页按钮置顶",
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
+        "lightVariants": "浅色模式样式",
         "openSideBarOnStart": "启动时打开侧边栏",
         "paginationSize": {
           "infinite_scroll": "无限滚动",
@@ -1058,6 +1088,7 @@
       "not_supported": "仅适用于 qbit >= {version}"
     },
     "version": {
+      "latest": "你已在使用最新版了!",
       "new": "新版本可用！"
     }
   },
@@ -1130,7 +1161,9 @@
       "empty": "当前没有用户连接",
       "fields": {
         "client": "客户端",
+        "country": "国家和地区",
         "download": "下载",
+        "files": "文件",
         "flags": "标志",
         "host": "主机",
         "progress": "进度",

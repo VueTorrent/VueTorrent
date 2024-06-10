@@ -633,8 +633,8 @@
         "auto_ban_bt_player_peer": "Auto ban BT player peer",
         "auto_ban_unknown_peer": "Auto ban unknown peer",
         "auto_update_trackers": "Automatically update public trackers list",
-        "trackers_list_url": "Customize Trackers URL List",
-        "public_trackers": "Public trackers"
+        "public_trackers": "Public trackers",
+        "trackers_list_url": "Customize Trackers URL List"
       }
     },
     "advanced": {

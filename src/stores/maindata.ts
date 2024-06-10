@@ -248,14 +248,13 @@ export const useMaindataStore = defineStore('maindata', () => {
     setUploadLimit,
     setShareLimit,
     $reset: () => {
-      new Promise<void>(resolve => setTimeout(() => resolve(), isUpdatingMaindata.value ? 1500 : 0))
-        .then(() => {
-          categories.value = []
-          rid.value = undefined
-          serverState.value = {} as ServerState
-          tags.value = []
-          trackers.value = []
-        })
+      new Promise<void>(resolve => setTimeout(() => resolve(), isUpdatingMaindata.value ? 1500 : 0)).then(() => {
+        categories.value = []
+        rid.value = undefined
+        serverState.value = {} as ServerState
+        tags.value = []
+        trackers.value = []
+      })
     }
   }
 })

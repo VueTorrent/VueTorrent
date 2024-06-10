@@ -72,8 +72,7 @@ async function renderCanvas() {
 }
 
 function renderWrapper() {
-  renderCanvas().catch(() => {
-  })
+  renderCanvas().catch(() => {})
 }
 
 const { pause, resume } = useIntervalFn(renderWrapper, fileContentInterval, {
@@ -81,17 +80,21 @@ const { pause, resume } = useIntervalFn(renderWrapper, fileContentInterval, {
   immediateCallback: true
 })
 
-watch(() => props.isActive, isActive => {
-  if (isActive) resume()
-  else pause()
-})
+watch(
+  () => props.isActive,
+  isActive => {
+    if (isActive) resume()
+    else pause()
+  }
+)
 
 onMounted(() => {
   if (!canvas.value) return
 
   const application = new Application()
-  application.init({ antialias: true, width: canvas.value?.width, height: canvas.value?.height, canvas: canvas.value })
-    .then(() => app.value = application)
+  application
+    .init({ antialias: true, width: canvas.value?.width, height: canvas.value?.height, canvas: canvas.value })
+    .then(() => (app.value = application))
     .then(() => props.isActive && resume())
 })
 
