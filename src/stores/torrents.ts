@@ -1,12 +1,68 @@
 import { useSearchQuery } from '@/composables'
 import { SortOptions, TorrentState } from '@/constants/qbit'
-import { extractHostname } from '@/helpers'
+import { Comparator, comparators, extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
-import { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
+import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { useArrayFilter } from '@vueuse/core'
+import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
+
+const comparatorMap: { [k: string]: Comparator<any> } = {
+  [SortOptions.ADDED_ON]: comparators.numeric,
+  // [SortOptions.AMOUNT_LEFT]: comparators.numeric,
+  // [SortOptions.AUTO_TMM]: comparators.boolean,
+  // [SortOptions.AVAILABILITY]: comparators.numeric,
+  // [SortOptions.AVG_DOWNLOAD_SPEED]: comparators.numeric,
+  // [SortOptions.AVG_UPLOAD_SPEED]: comparators.numeric,
+  // [SortOptions.CATEGORY]: comparators.string,
+  // [SortOptions.COMPLETED]: comparators.numeric,
+  // [SortOptions.COMPLETION_ON]: comparators.numeric,
+  // [SortOptions.CONTENT_PATH]: comparators.numeric,
+  // [SortOptions.DL_LIMIT]: comparators.numeric,
+  [SortOptions.DLSPEED]: comparators.numeric,
+  // [SortOptions.DOWNLOAD_PATH]: comparators.numeric,
+  [SortOptions.DOWNLOADED]: comparators.numeric,
+  [SortOptions.DOWNLOADED_SESSION]: comparators.numeric,
+  [SortOptions.ETA]: comparators.numeric,
+  // [SortOptions.F_L_PIECE_PRIO]: comparators.numeric,
+  // [SortOptions.FORCE_START]: comparators.numeric,
+  [SortOptions.GLOBALSPEED]: comparators.numeric,
+  [SortOptions.GLOBALVOLUME]: comparators.numeric,
+  [SortOptions.HASH]: comparators.numeric,
+  // [SortOptions.INFOHASH_V1]: comparators.numeric,
+  // [SortOptions.INFOHASH_V2]: comparators.numeric,
+  [SortOptions.LAST_ACTIVITY]: comparators.numeric,
+  // [SortOptions.MAGNET_URI]: comparators.numeric,
+  // [SortOptions.MAX_RATIO]: comparators.numeric,
+  // [SortOptions.MAX_SEEDING_TIME]: comparators.numeric,
+  [SortOptions.NAME]: comparators.numeric,
+  // [SortOptions.NUM_COMPLETE]: comparators.numeric,
+  // [SortOptions.NUM_INCOMPLETE]: comparators.numeric,
+  // [SortOptions.NUM_LEECHS]: comparators.numeric,
+  // [SortOptions.NUM_SEEDS]: comparators.numeric,
+  // [SortOptions.PRIORITY]: comparators.numeric,
+  // [SortOptions.PROGRESS]: comparators.numeric,
+  // [SortOptions.RATIO]: comparators.numeric,
+  // [SortOptions.RATIO_LIMIT]: comparators.numeric,
+  // [SortOptions.SAVE_PATH]: comparators.numeric,
+  // [SortOptions.SEEDING_TIME]: comparators.numeric,
+  // [SortOptions.SEEDING_TIME_LIMIT]: comparators.numeric,
+  // [SortOptions.SEEN_COMPLETE]: comparators.numeric,
+  // [SortOptions.SEQ_DL]: comparators.numeric,
+  [SortOptions.SIZE]: comparators.numeric,
+  // [SortOptions.STATE]: comparators.numeric,
+  // [SortOptions.SUPER_SEEDING]: comparators.numeric,
+  // [SortOptions.TAGS]: comparators.numeric,
+  // [SortOptions.TIME_ACTIVE]: comparators.numeric,
+  [SortOptions.TOTAL_SIZE]: comparators.numeric,
+  // [SortOptions.TRACKER]: comparators.numeric,
+  // [SortOptions.TRACKERS_COUNT]: comparators.numeric,
+  // [SortOptions.UP_LIMIT]: comparators.numeric,
+  [SortOptions.UPLOADED]: comparators.numeric,
+  [SortOptions.UPLOADED_SESSION]: comparators.numeric,
+  [SortOptions.UPSPEED]: comparators.numeric,
+}
 
 export const useTorrentStore = defineStore(
   'torrents',
@@ -25,6 +81,10 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
+    const sortCriterias = ref<{ value: SortOptions, reverse: boolean }[]>([
+      { value: SortOptions.ADDED_ON, reverse: false }
+    ])
+
     type matchFn = (t: Torrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
@@ -40,38 +100,24 @@ export const useTorrentStore = defineStore(
       )
     })
 
-    const sortOptions = reactive({
-      isCustomSortEnabled: false,
-      sortBy: SortOptions.DEFAULT,
-      reverseOrder: false
-    })
-    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
-      return {
-        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
-        reverse: sortOptions.reverseOrder
+    const sortedTorrents = useSorted(torrentsWithFilters, (a, b) => {
+      let i = 0
+      let compareResult = 0
+      while (i < sortCriterias.value.length && compareResult === 0) {
+        const { value, reverse } = sortCriterias.value.at(i++)!
+        const av = a[value]
+        const bv = b[value]
+        const comparator = comparatorMap[value]
+        const compareFn = reverse ? comparator.desc : comparator.asc
+        compareResult = compareFn(av, bv)
       }
+      return compareResult
     })
 
     const { results: filteredTorrents } = useSearchQuery(
       torrentsWithFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
-      torrent => torrent.name,
-      results => {
-        if (sortOptions.isCustomSortEnabled) {
-          if (sortOptions.sortBy === 'priority') {
-            results.sort((a, b) => {
-              if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
-              else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
-              else if (a.priority <= 0) return 1
-              else return -1
-            })
-          } else {
-            results.sort((a, b) => a[sortOptions.sortBy] - b[sortOptions.sortBy] || a.added_on - b.added_on)
-          }
-          if (sortOptions.reverseOrder) results.reverse()
-        }
-        return results
-      }
+      torrent => torrent.name
     )
 
     async function setTorrentCategory(hashes: string[], category: string) {
@@ -151,10 +197,10 @@ export const useTorrentStore = defineStore(
       categoryFilter,
       tagFilter,
       trackerFilter,
+      sortCriterias,
       torrentsWithFilters,
       filteredTorrents,
-      sortOptions,
-      getTorrentsPayload,
+      sortedTorrents,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,

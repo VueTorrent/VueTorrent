@@ -8,8 +8,6 @@ type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'glob
 export function useTorrentBuilder() {
   const { t } = useI18n()
 
-  const computedValues = ['avgDownloadSpeed', 'avgUploadSpeed', 'globalSpeed', 'globalVolume', 'priority']
-
   function buildFromQbit(data: QbitTorrent): Torrent {
     return buildTorrent({
       added_on: data.added_on,
@@ -87,5 +85,5 @@ export function useTorrentBuilder() {
     })
   }
 
-  return { computedValues, buildFromQbit }
+  return { buildFromQbit }
 }

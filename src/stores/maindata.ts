@@ -48,7 +48,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       await qbit.editCategory({ name: oldCategory, savePath: category.savePath })
 
       // Get list of torrents in old category and move them to new category
-      const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, category: oldCategory })
+      const torrents = await qbit.getTorrents({ category: oldCategory })
       if (torrents.length > 0) {
         await qbit.setCategory(
           torrents.map(torrent => torrent.hash),
@@ -83,7 +83,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.createTag([newTag])
 
     // Get list of torrents in old tag and move them to new tag
-    const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, tag: oldTag })
+    const torrents = await qbit.getTorrents({ tag: oldTag })
     if (torrents.length > 0) {
       await qbit.addTorrentTag(
         torrents.map(torrent => torrent.hash),
