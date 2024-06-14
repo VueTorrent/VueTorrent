@@ -2,6 +2,8 @@ import { useTorrentBuilder } from '@/composables'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { Category, ServerState } from '@/types/qbit/models'
+import { FullUpdate, MaindataResponse } from '@/types/qbit/responses'
+import { Torrent } from '@/types/vuetorrent'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useAuthStore } from './auth'
@@ -11,27 +13,31 @@ import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
-  const categories = ref<Category[]>([])
   const isUpdatingMaindata = ref(false)
   const rid = ref<number>()
-  const serverState = ref<ServerState>({} as ServerState)
+  const serverState = ref<Partial<ServerState>>()
+  const categories = ref<Map<string, Category>>(new Map())
   const tags = ref<string[]>([])
-  const trackers = ref<string[]>([])
+  const trackers = ref<Map<string, string[]>>(new Map())
 
   const authStore = useAuthStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const torrentStore = useTorrentStore()
-  const { torrents } = storeToRefs(torrentStore)
+  const { _torrents, torrents } = storeToRefs(torrentStore)
   const vueTorrentStore = useVueTorrentStore()
   const torrentBuilder = useTorrentBuilder()
 
   async function fetchCategories() {
-    categories.value = await qbit.getCategories()
+    categories.value = (await qbit.getCategories()).reduce((acc, cat) => {
+      acc.set(cat.name, cat)
+      return acc
+    }, new Map<string, Category>())
   }
 
   function getCategoryFromName(categoryName?: string) {
-    return categories.value.find(c => c.name === categoryName)
+    if (!categoryName) return
+    return categories.value.get(categoryName)
   }
 
   async function createCategory(category: Category) {
@@ -98,38 +104,80 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.deleteTags(tags)
   }
 
+  function isFullUpdate(response: MaindataResponse): response is FullUpdate {
+    return 'full_update' in response && response.full_update
+  }
+
   async function updateMaindata() {
     if (isUpdatingMaindata.value) return
     isUpdatingMaindata.value = true
 
     try {
       const response = await qbit.getMaindata(rid.value)
-      rid.value = response.rid || undefined
+      rid.value = response.rid
 
+      if (isFullUpdate(response)) {
+        serverState.value = response.server_state
+        categories.value = new Map(Object.entries(response.categories))
+        tags.value = response.tags
+        _torrents.value = new Map(Object.entries(response.torrents))
+        trackers.value = new Map(Object.entries(response.trackers))
+        return
+      }
+
+      // Server State
       if (response.server_state) {
-        serverState.value = { ...serverState.value, ...response.server_state }
+        const state = response.server_state
         navbarStore.pushTimeData()
-        navbarStore.pushDownloadData(serverState.value.dl_info_speed)
-        navbarStore.pushUploadData(serverState.value.up_info_speed)
+        navbarStore.pushDownloadData(state.dl_info_speed ?? serverState.value?.dl_info_speed ?? null)
+        navbarStore.pushUploadData(state.up_info_speed ?? serverState.value?.up_info_speed ?? null)
+        serverState.value = { ...serverState.value, ...state }
       }
 
-      // fetch torrent data
-      const data = await qbit.getTorrents()
-
-      if (vueTorrentStore.showTrackerFilter) {
-        trackers.value = data
-          .map(t => t.tracker)
-          .map(url => extractHostname(url))
-          .filter((domain, index, self) => index === self.indexOf(domain) && domain)
-          .sort()
+      // Categories
+      for (const [catName, qbitCat] of Object.entries(response.categories ?? {})) {
+        const oldCat = categories.value.get(catName)
+        if (oldCat) {
+          const newCat = {
+            name: qbitCat.name ?? oldCat.name,
+            savePath: qbitCat.savePath ?? oldCat.savePath,
+          }
+          categories.value.set(catName, newCat)
+        } else {
+          categories.value.set(catName, {
+            name: qbitCat.name ?? catName,
+            savePath: qbitCat.savePath ?? ''
+          })
+        }
       }
+      response.categories_removed?.forEach(categories.value.delete)
 
-      // update torrents
-      torrents.value = data.map(t => torrentBuilder.buildFromQbit(t))
+      // Tags
+      if (response.tags) {
+        tags.value = [...tags.value, ...response.tags]
+      }
+      tags.value = tags.value.filter(tag => !response.tags_removed || !response.tags_removed.includes(tag))
+
+      // Torrents
+      for (const [hash, qbitTorrent] of Object.entries(response.torrents ?? {})) {
+        const torrent = _torrents.value.get(hash)
+        if (torrent) {
+          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
+        } else {
+          _torrents.value.set(hash, qbitTorrent)
+        }
+      }
+      response.torrents_removed?.forEach(_torrents.value.delete)
+
+      // Trackers
+      for (const [trackerUrl, linkedTorrents] of Object.entries(response.trackers ?? {})) {
+        const oldLinkedTorrents = trackers.value.get(trackerUrl) ?? []
+        trackers.value.set(trackerUrl, [...oldLinkedTorrents, ...linkedTorrents])
+      }
+      response.trackers_removed?.forEach(trackers.value.delete)
 
       // filter out deleted torrents from selection
-      const hash_index = torrents.value.map(torrent => torrent.hash)
-      dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => hash_index.includes(hash))
+      dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => response.torrents_removed?.includes(hash))
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
@@ -247,11 +295,11 @@ export const useMaindataStore = defineStore('maindata', () => {
     setShareLimit,
     $reset: () => {
       new Promise<void>(resolve => setTimeout(() => resolve(), isUpdatingMaindata.value ? 1500 : 0)).then(() => {
-        categories.value = []
         rid.value = undefined
         serverState.value = {} as ServerState
+        categories.value.clear()
         tags.value = []
-        trackers.value = []
+        trackers.value.clear()
       })
     }
   }

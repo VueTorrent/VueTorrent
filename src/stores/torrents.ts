@@ -15,7 +15,11 @@ export const useTorrentStore = defineStore(
   () => {
     const { t } = useI18n()
 
-    const torrents = ref<Torrent[]>([])
+    const _torrents = ref<Map<string, Omit<Torrent, 'hash'>>>(new Map())
+    const torrents = computed(() => Array.from(_torrents.value.entries()).map(([hash, v]) => ({
+      ...v,
+      hash
+    })) as Torrent[])
 
     const isTextFilterActive = ref(true)
     const isStatusFilterActive = ref(true)
@@ -148,6 +152,7 @@ export const useTorrentStore = defineStore(
     }
 
     return {
+      _torrents,
       torrents,
       isTextFilterActive,
       isStatusFilterActive,
@@ -177,7 +182,7 @@ export const useTorrentStore = defineStore(
       setTorrentPriority,
       exportTorrent,
       $reset: () => {
-        torrents.value = []
+        _torrents.value.clear()
         sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
         isTextFilterActive.value = true
