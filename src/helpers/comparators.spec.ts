@@ -13,15 +13,27 @@ describe('helpers/comparators', () => {
     expect(data).toEqual([3, 2, 1])
   })
 
-  test('string/asc', () => {
+  test('invertedNumeric/asc', () => {
+    const data = [3, 1, 2]
+    data.sort(comparators.invertedNumeric.asc)
+    expect(data).toEqual([3, 2, 1])
+  })
+
+  test('invertedNumeric/desc', () => {
+    const data = [3, 1, 2]
+    data.sort(comparators.invertedNumeric.desc)
+    expect(data).toEqual([1, 2, 3])
+  })
+
+  test('text/asc', () => {
     const data = ['c', 'a', 'b']
-    data.sort(comparators.string.asc)
+    data.sort(comparators.text.asc)
     expect(data).toEqual(['a', 'b', 'c'])
   })
 
-  test('string/desc', () => {
+  test('text/desc', () => {
     const data = ['c', 'a', 'b']
-    data.sort(comparators.string.desc)
+    data.sort(comparators.text.desc)
     expect(data).toEqual(['c', 'b', 'a'])
   })
 

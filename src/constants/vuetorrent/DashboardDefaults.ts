@@ -2,7 +2,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
-import { getRatioColor } from '@/helpers'
+import { formatEta, getRatioColor } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { DurationUnitType } from 'dayjs/plugin/duration'
@@ -261,7 +261,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.ETA]: {
-    props: { titleKey: 'torrent.properties.eta', value: t => t.eta },
+    props: { titleKey: 'torrent.properties.eta', value: t => formatEta(t.eta) },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.GLOBAL_SPEED]: {

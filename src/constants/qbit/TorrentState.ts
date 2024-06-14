@@ -1,4 +1,4 @@
-export enum TorrentState {
+export enum TorrentState { // TODO: Switch to int for easier precedance ?
   /** Torrent has just started downloading and is fetching metadata */
   META_DL = 'metaDL',
   /** Torrent is forced to fetch metadata */

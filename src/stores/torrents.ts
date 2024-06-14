@@ -1,68 +1,12 @@
 import { useSearchQuery } from '@/composables'
-import { SortOptions, TorrentState } from '@/constants/qbit'
+import { TorrentState } from '@/constants/qbit'
 import { Comparator, comparators, extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
-
-const comparatorMap: { [k: string]: Comparator<any> } = {
-  [SortOptions.ADDED_ON]: comparators.numeric,
-  // [SortOptions.AMOUNT_LEFT]: comparators.numeric,
-  // [SortOptions.AUTO_TMM]: comparators.boolean,
-  // [SortOptions.AVAILABILITY]: comparators.numeric,
-  // [SortOptions.AVG_DOWNLOAD_SPEED]: comparators.numeric,
-  // [SortOptions.AVG_UPLOAD_SPEED]: comparators.numeric,
-  // [SortOptions.CATEGORY]: comparators.string,
-  // [SortOptions.COMPLETED]: comparators.numeric,
-  // [SortOptions.COMPLETION_ON]: comparators.numeric,
-  // [SortOptions.CONTENT_PATH]: comparators.numeric,
-  // [SortOptions.DL_LIMIT]: comparators.numeric,
-  [SortOptions.DLSPEED]: comparators.numeric,
-  // [SortOptions.DOWNLOAD_PATH]: comparators.numeric,
-  [SortOptions.DOWNLOADED]: comparators.numeric,
-  [SortOptions.DOWNLOADED_SESSION]: comparators.numeric,
-  [SortOptions.ETA]: comparators.numeric,
-  // [SortOptions.F_L_PIECE_PRIO]: comparators.numeric,
-  // [SortOptions.FORCE_START]: comparators.numeric,
-  [SortOptions.GLOBALSPEED]: comparators.numeric,
-  [SortOptions.GLOBALVOLUME]: comparators.numeric,
-  [SortOptions.HASH]: comparators.numeric,
-  // [SortOptions.INFOHASH_V1]: comparators.numeric,
-  // [SortOptions.INFOHASH_V2]: comparators.numeric,
-  [SortOptions.LAST_ACTIVITY]: comparators.numeric,
-  // [SortOptions.MAGNET_URI]: comparators.numeric,
-  // [SortOptions.MAX_RATIO]: comparators.numeric,
-  // [SortOptions.MAX_SEEDING_TIME]: comparators.numeric,
-  [SortOptions.NAME]: comparators.numeric,
-  // [SortOptions.NUM_COMPLETE]: comparators.numeric,
-  // [SortOptions.NUM_INCOMPLETE]: comparators.numeric,
-  // [SortOptions.NUM_LEECHS]: comparators.numeric,
-  // [SortOptions.NUM_SEEDS]: comparators.numeric,
-  // [SortOptions.PRIORITY]: comparators.numeric,
-  // [SortOptions.PROGRESS]: comparators.numeric,
-  // [SortOptions.RATIO]: comparators.numeric,
-  // [SortOptions.RATIO_LIMIT]: comparators.numeric,
-  // [SortOptions.SAVE_PATH]: comparators.numeric,
-  // [SortOptions.SEEDING_TIME]: comparators.numeric,
-  // [SortOptions.SEEDING_TIME_LIMIT]: comparators.numeric,
-  // [SortOptions.SEEN_COMPLETE]: comparators.numeric,
-  // [SortOptions.SEQ_DL]: comparators.numeric,
-  [SortOptions.SIZE]: comparators.numeric,
-  // [SortOptions.STATE]: comparators.numeric,
-  // [SortOptions.SUPER_SEEDING]: comparators.numeric,
-  // [SortOptions.TAGS]: comparators.numeric,
-  // [SortOptions.TIME_ACTIVE]: comparators.numeric,
-  [SortOptions.TOTAL_SIZE]: comparators.numeric,
-  // [SortOptions.TRACKER]: comparators.numeric,
-  // [SortOptions.TRACKERS_COUNT]: comparators.numeric,
-  // [SortOptions.UP_LIMIT]: comparators.numeric,
-  [SortOptions.UPLOADED]: comparators.numeric,
-  [SortOptions.UPLOADED_SESSION]: comparators.numeric,
-  [SortOptions.UPSPEED]: comparators.numeric,
-}
+import { MaybeRefOrGetter, ref, toValue } from 'vue'
 
 export const useTorrentStore = defineStore(
   'torrents',
@@ -81,8 +25,8 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
-    const sortCriterias = ref<{ value: SortOptions, reverse: boolean }[]>([
-      { value: SortOptions.ADDED_ON, reverse: false }
+    const sortCriterias = ref<{ value: keyof Torrent, reverse: boolean }[]>([
+      { value: "added_on", reverse: false }
     ])
 
     type matchFn = (t: Torrent) => boolean
@@ -100,7 +44,13 @@ export const useTorrentStore = defineStore(
       )
     })
 
-    const sortedTorrents = useSorted(torrentsWithFilters, (a, b) => {
+    const { results: filteredTorrents } = useSearchQuery(
+      torrentsWithFilters,
+      () => (isTextFilterActive.value ? textFilter.value : null),
+      torrent => torrent.name
+    )
+
+    const filteredAndSortedTorrents = useSorted(filteredTorrents, (a, b) => {
       let i = 0
       let compareResult = 0
       while (i < sortCriterias.value.length && compareResult === 0) {
@@ -111,14 +61,11 @@ export const useTorrentStore = defineStore(
         const compareFn = reverse ? comparator.desc : comparator.asc
         compareResult = compareFn(av, bv)
       }
+      if (compareResult === 0) {
+        compareResult = comparatorMap["hash"].asc(a.hash, b.hash)
+      }
       return compareResult
     })
-
-    const { results: filteredTorrents } = useSearchQuery(
-      torrentsWithFilters,
-      () => (isTextFilterActive.value ? textFilter.value : null),
-      torrent => torrent.name
-    )
 
     async function setTorrentCategory(hashes: string[], category: string) {
       await qbit.setCategory(hashes, category)
@@ -200,7 +147,7 @@ export const useTorrentStore = defineStore(
       sortCriterias,
       torrentsWithFilters,
       filteredTorrents,
-      sortedTorrents,
+      filteredAndSortedTorrents,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,
@@ -239,3 +186,56 @@ export const useTorrentStore = defineStore(
     }
   }
 )
+
+const comparatorMap: Record<keyof Torrent, Comparator<any>> = {
+  added_on: comparators.numeric,
+  amount_left: comparators.numeric,
+  auto_tmm: comparators.boolean,
+  availability: comparators.numeric,
+  avgDownloadSpeed: comparators.numeric,
+  avgUploadSpeed: comparators.numeric,
+  available_peers: comparators.numeric,
+  available_seeds: comparators.numeric,
+  category: comparators.text,
+  completed_on: comparators.numeric,
+  content_path: comparators.text,
+  dl_limit: comparators.numeric,
+  dlspeed: comparators.numeric,
+  download_path: comparators.text,
+  downloaded: comparators.numeric,
+  downloaded_session: comparators.numeric,
+  eta: comparators.numeric,
+  f_l_piece_prio: comparators.boolean,
+  forced: comparators.boolean,
+  globalSpeed: comparators.numeric,
+  globalVolume: comparators.numeric,
+  hash: comparators.text,
+  inactive_seeding_time_limit: comparators.numeric,
+  infohash_v1: comparators.text,
+  infohash_v2: comparators.text,
+  last_activity: comparators.invertedNumeric,
+  name: comparators.numeric,
+  num_leechs: comparators.numeric,
+  num_seeds: comparators.numeric,
+  priority: comparators.numeric,
+  progress: comparators.numeric,
+  ratio: comparators.numeric,
+  ratio_limit: comparators.numeric,
+  savePath: comparators.text,
+  seeding_time: comparators.numeric,
+  seeding_time_limit: comparators.numeric,
+  seen_complete: comparators.numeric,
+  seq_dl: comparators.boolean,
+  size: comparators.numeric,
+  state: comparators.text,
+  super_seeding: comparators.boolean,
+  tags: comparators.text, // FIXME: string array
+  time_active: comparators.numeric,
+  total_size: comparators.numeric,
+  tracker_domain: comparators.numeric,
+  trackers_count: comparators.numeric,
+  up_limit: comparators.numeric,
+  uploaded: comparators.numeric,
+  uploaded_session: comparators.numeric,
+  upspeed: comparators.numeric
+}

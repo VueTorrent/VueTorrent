@@ -15,7 +15,7 @@ export default interface Torrent {
   download_path: string
   downloaded: number
   downloaded_session: number
-  eta: string
+  eta: number
   f_l_piece_prio: boolean
   forced: boolean
   hash: string

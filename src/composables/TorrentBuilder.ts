@@ -1,4 +1,4 @@
-import { formatEta, getDomainBody } from '@/helpers'
+import { getDomainBody } from '@/helpers'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useI18n } from 'vue-i18n'
@@ -24,7 +24,7 @@ export function useTorrentBuilder() {
       download_path: data.download_path,
       downloaded: data.downloaded,
       downloaded_session: data.downloaded_session,
-      eta: formatEta(data.eta),
+      eta: data.eta,
       f_l_piece_prio: data.f_l_piece_prio,
       forced: data.force_start,
       hash: data.hash,

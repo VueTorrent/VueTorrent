@@ -22,16 +22,16 @@ const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displ
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
-const { filteredTorrents } = storeToRefs(torrentStore)
+const { filteredAndSortedTorrents: torrents } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
 
-const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(filteredTorrents, vuetorrentStore.paginationSize, dashboardPage)
+const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(torrents, vuetorrentStore.paginationSize, dashboardPage)
 
-const isAllTorrentsSelected = computed(() => filteredTorrents.value.length <= selectedTorrents.value.length)
+const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = reactive<RightClickProperties>({
   isVisible: false,
   offset: [0, 0]
@@ -58,7 +58,7 @@ function toggleSelectAll() {
   if (isAllTorrentsSelected.value) {
     dashboardStore.unselectAllTorrents()
   } else {
-    dashboardStore.selectTorrents(...filteredTorrents.value.map(t => t.hash))
+    dashboardStore.selectTorrents(...torrents.value.map(t => t.hash))
   }
 }
 
@@ -122,7 +122,7 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   // 'ctrl + A' => select torrents
   if (doesCommand(e) && e.key === 'a' && targetNode.tagName !== 'INPUT') {
     dashboardStore.unselectAllTorrents()
-    dashboardStore.selectTorrents(...filteredTorrents.value.map(torrent => torrent.hash))
+    dashboardStore.selectTorrents(...torrents.value.map(torrent => torrent.hash))
     e.preventDefault()
     return true
   }
@@ -221,7 +221,7 @@ onBeforeUnmount(() => {
       </v-expand-transition>
     </v-row>
 
-    <div v-if="filteredTorrents.length === 0" class="mt-5 text-xs-center">
+    <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
 

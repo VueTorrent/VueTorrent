@@ -1,10 +1,11 @@
-import { FilterState, SortOptions } from '@/constants/qbit'
+import { FilterState } from '@/constants/qbit'
+import { Torrent } from '@/types/qbit/models'
 
 export default interface GetTorrentPayload {
   filter?: FilterState
   category?: string
   tag?: string
-  sort?: SortOptions
+  sort?: keyof Torrent
   reverse?: boolean
   limit?: number
   offset?: number
