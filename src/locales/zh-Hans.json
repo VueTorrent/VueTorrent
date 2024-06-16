@@ -627,6 +627,15 @@
     "title": "搜索种子"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "自动屏蔽BT用户",
+        "auto_ban_unknown_peer": "自动屏蔽未知用户",
+        "auto_update_trackers": "自动更新公共Trackers列表",
+        "public_trackers": "公共Trackers",
+        "trackers_list_url": "自定义Trackers链接列表"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "总是向所有等级的 Tracker 汇报",
@@ -927,6 +936,9 @@
       "upload": "上传"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "增强版"
+      },
       "advanced": "高级",
       "behavior": "行为",
       "bittorrent": "BitTorrent",

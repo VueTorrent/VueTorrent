@@ -147,7 +147,7 @@
   "dashboard": {
     "displayMode": {
       "grid": "網格",
-      "list": "列表",
+      "list": "清單",
       "table": "表格",
       "title": "顯示模式"
     },
@@ -627,6 +627,15 @@
     "title": "搜尋種子"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "自動禁止BT用戶",
+        "auto_ban_unknown_peer": "自動禁止未知用戶",
+        "auto_update_trackers": "自動更新公開跟蹤器清單",
+        "public_trackers": "公開跟蹤器",
+        "trackers_list_url": "自定義跟蹤器連結清單"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "總是發佈到所有追蹤者群組",
@@ -927,6 +936,9 @@
       "upload": "上傳"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "加強版"
+      },
       "advanced": "進階",
       "behavior": "行為",
       "bittorrent": "BitTorrent",
