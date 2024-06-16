@@ -1,6 +1,7 @@
 import { useSearchQuery } from '@/composables'
 import { TorrentState } from '@/constants/qbit'
-import { Comparator, comparators, extractHostname } from '@/helpers'
+import { comparatorMap } from '@/constants/vuetorrent'
+import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
@@ -186,56 +187,3 @@ export const useTorrentStore = defineStore(
     }
   }
 )
-
-const comparatorMap: Record<keyof Torrent, Comparator<any>> = {
-  added_on: comparators.numeric,
-  amount_left: comparators.numeric,
-  auto_tmm: comparators.boolean,
-  availability: comparators.numeric,
-  avgDownloadSpeed: comparators.numeric,
-  avgUploadSpeed: comparators.numeric,
-  available_peers: comparators.numeric,
-  available_seeds: comparators.numeric,
-  category: comparators.text,
-  completed_on: comparators.numeric,
-  content_path: comparators.text,
-  dl_limit: comparators.numeric,
-  dlspeed: comparators.numeric,
-  download_path: comparators.text,
-  downloaded: comparators.numeric,
-  downloaded_session: comparators.numeric,
-  eta: comparators.numeric,
-  f_l_piece_prio: comparators.boolean,
-  forced: comparators.boolean,
-  globalSpeed: comparators.numeric,
-  globalVolume: comparators.numeric,
-  hash: comparators.text,
-  inactive_seeding_time_limit: comparators.numeric,
-  infohash_v1: comparators.text,
-  infohash_v2: comparators.text,
-  last_activity: comparators.invertedNumeric,
-  name: comparators.numeric,
-  num_leechs: comparators.numeric,
-  num_seeds: comparators.numeric,
-  priority: comparators.numeric,
-  progress: comparators.numeric,
-  ratio: comparators.numeric,
-  ratio_limit: comparators.numeric,
-  savePath: comparators.text,
-  seeding_time: comparators.numeric,
-  seeding_time_limit: comparators.numeric,
-  seen_complete: comparators.numeric,
-  seq_dl: comparators.boolean,
-  size: comparators.numeric,
-  state: comparators.text,
-  super_seeding: comparators.boolean,
-  tags: comparators.text, // FIXME: string array
-  time_active: comparators.numeric,
-  total_size: comparators.numeric,
-  tracker_domain: comparators.numeric,
-  trackers_count: comparators.numeric,
-  up_limit: comparators.numeric,
-  uploaded: comparators.numeric,
-  uploaded_session: comparators.numeric,
-  upspeed: comparators.numeric
-}

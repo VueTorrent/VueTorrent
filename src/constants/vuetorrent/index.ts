@@ -1,3 +1,4 @@
+import comparatorMap from './Comparators'
 import type { PropertyData, PropertyMetadata, TorrentProperty } from './DashboardDefaults'
 import { propsData, propsMetadata } from './DashboardDefaults'
 import { DashboardDisplayMode } from './DashboardDisplayMode'
@@ -6,12 +7,13 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
-import { TitleOptions } from './TitleOptions'
 import { ThemeMode } from './ThemeMode'
+import { TitleOptions } from './TitleOptions'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 
 export {
+  comparatorMap,
   TorrentProperty,
   PropertyData,
   PropertyMetadata,
