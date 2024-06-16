@@ -1,4 +1,11 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -25,6 +32,7 @@ import IProvider from './IProvider'
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
   private readonly categories = ['', 'ISO', 'Other', 'Movie', 'Music', 'TV']
+  private readonly tags = ['', 'sorted', 'pending_sort']
   private readonly trackers = ['', ...faker.helpers.multiple(() => faker.internet.url(), { count: 5 })]
   private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
     .fill('')
@@ -1004,7 +1012,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ip1}:${port1}`]: {
+          [`${ ip1 }:${ port1 }`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1022,7 +1030,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ip2}:${port2}`]: {
+          [`${ ip2 }:${ port2 }`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1040,7 +1048,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ip3}:${port3}`]: {
+          [`${ ip3 }:${ port3 }`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1098,7 +1106,7 @@ export default class MockProvider implements IProvider {
         infohash_v1: hash,
         infohash_v2: '',
         last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+        magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
         max_inactive_seeding_time: -1,
         max_ratio: -1,
         max_seeding_time: -1,
@@ -1119,7 +1127,7 @@ export default class MockProvider implements IProvider {
         size: total_size,
         state: faker.helpers.enumValue(TorrentState),
         super_seeding: faker.datatype.boolean(),
-        tags: '',
+        tags: faker.helpers.arrayElements(this.tags).filter(x => x.length).join(', '),
         time_active: 0,
         total_size,
         tracker,
@@ -1257,7 +1265,7 @@ export default class MockProvider implements IProvider {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.generateResponse({ result: [] })
+    return this.generateResponse({ result: this.tags.filter(x => x.length) })
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
@@ -1424,7 +1432,7 @@ export default class MockProvider implements IProvider {
         .filter(x => x)
         .map(cat => ({
           name: cat,
-          savePath: `/downloads/${cat.toLowerCase()}`
+          savePath: `/downloads/${ cat.toLowerCase() }`
         }))
     })
   }

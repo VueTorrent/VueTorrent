@@ -372,7 +372,7 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.TRACKER]: {
     props: {
       titleKey: 'torrent.properties.tracker',
-      emptyValueKey: 'torrent.properties.empty_category',
+      emptyValueKey: 'torrent.properties.empty_tracker',
       value: t => [t.tracker_domain],
       color: () => 'tracker',
       enableHashColor: true

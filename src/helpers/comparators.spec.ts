@@ -48,4 +48,28 @@ describe('helpers/comparators', () => {
     data.sort(comparators.boolean.desc)
     expect(data).toEqual([true, true, false])
   })
+
+  test('arrayNumeric/asc', () => {
+    const data = [[3], [1, 2], [2]]
+    data.sort(comparators.arrayNumeric.asc)
+    expect(data).toEqual([[1, 2], [2], [3]])
+  })
+
+  test('arrayNumeric/desc', () => {
+    const data = [[3], [1, 2], [2]]
+    data.sort(comparators.arrayNumeric.desc)
+    expect(data).toEqual([[3], [2], [1, 2]])
+  })
+
+  test('arrayText/asc', () => {
+    const data = [['a'], ['a', 'b'], []]
+    data.sort(comparators.arrayText.asc)
+    expect(data).toEqual([[], ['a'], ['a', 'b']])
+  })
+
+  test('arrayText/desc', () => {
+    const data = [['a'], ['a', 'b'], []]
+    data.sort(comparators.arrayText.desc)
+    expect(data).toEqual([['a', 'b'], ['a'], []])
+  })
 })
