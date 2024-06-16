@@ -1,5 +1,5 @@
-import { Comparator, comparators } from '@/helpers'
-import { Torrent } from '@/types/vuetorrent'
+import comparators, { Comparator } from '@/helpers/comparators'
+import Torrent from '@/types/vuetorrent/Torrent'
 
 const comparatorMap: Record<keyof Torrent, Comparator> = {
   added_on: comparators.numeric,
