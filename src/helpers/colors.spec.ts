@@ -1,6 +1,6 @@
 import { TorrentState } from '@/constants/vuetorrent'
 import { expect, test } from 'vitest'
-import { getColorFromName, getRatioColor, getTorrentStateColor } from './colors'
+import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
 
 test('helpers/colors/getColorFromName', () => {
   expect(getColorFromName('foo')).toBe('#7b2fde')
@@ -38,4 +38,25 @@ test('helpers/colors/getTorrentStateColor', () => {
   expect(getTorrentStateColor(TorrentState.CHECKING_DISK)).toBe('torrent-checking_disk')
   expect(getTorrentStateColor(TorrentState.CHECKING_RESUME_DATA)).toBe('torrent-checking_resume_data')
   expect(getTorrentStateColor(TorrentState.MOVING)).toBe('torrent-moving')
+})
+
+test('helpers/colors/getTorrentStateValue', () => {
+  expect(getTorrentStateValue(TorrentState.UNKNOWN)).toBe('unknown')
+  expect(getTorrentStateValue(TorrentState.ERROR)).toBe('error')
+  expect(getTorrentStateValue(TorrentState.MISSING_FILES)).toBe('missing_files')
+  expect(getTorrentStateValue(TorrentState.META_DOWNLOAD)).toBe('meta_download')
+  expect(getTorrentStateValue(TorrentState.FORCED_META_DOWNLOAD)).toBe('forced_meta_download')
+  expect(getTorrentStateValue(TorrentState.UL_PAUSED)).toBe('ul_paused')
+  expect(getTorrentStateValue(TorrentState.UL_QUEUED)).toBe('ul_queued')
+  expect(getTorrentStateValue(TorrentState.UL_STALLED)).toBe('ul_stalled')
+  expect(getTorrentStateValue(TorrentState.UPLOADING)).toBe('uploading')
+  expect(getTorrentStateValue(TorrentState.UL_FORCED)).toBe('ul_forced')
+  expect(getTorrentStateValue(TorrentState.DL_PAUSED)).toBe('dl_paused')
+  expect(getTorrentStateValue(TorrentState.DL_QUEUED)).toBe('dl_queued')
+  expect(getTorrentStateValue(TorrentState.DL_STALLED)).toBe('dl_stalled')
+  expect(getTorrentStateValue(TorrentState.DOWNLOADING)).toBe('downloading')
+  expect(getTorrentStateValue(TorrentState.DL_FORCED)).toBe('dl_forced')
+  expect(getTorrentStateValue(TorrentState.CHECKING_DISK)).toBe('checking_disk')
+  expect(getTorrentStateValue(TorrentState.CHECKING_RESUME_DATA)).toBe('checking_resume_data')
+  expect(getTorrentStateValue(TorrentState.MOVING)).toBe('moving')
 })

@@ -13,6 +13,7 @@ import {
   formatSpeed,
   getRatioColor,
   getTorrentStateColor,
+  getTorrentStateValue,
   splitByUrl,
   stringContainsUrl
 } from '@/helpers'
@@ -43,7 +44,7 @@ const torrentPieceOwned = computed(() => properties.value?.pieces_have ?? 0)
 const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
 const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
-const torrentStateColor = computed(() => `torrent-${getTorrentStateColor(props.torrent.state)}`)
+const torrentStateColor = computed(() => getTorrentStateColor(props.torrent.state))
 const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
 const isFetchingMetadata = computed(() => [TorrentState.META_DOWNLOAD, TorrentState.FORCED_META_DOWNLOAD].includes(props.torrent.state))
 const ratioColor = computed(() => {
@@ -200,7 +201,7 @@ onUnmounted(async () => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.state') }}:</div>
-              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="$t(`torrent.state.${getTorrentStateColor(torrent.state)}`)" />
+              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="$t(`torrent.state.${getTorrentStateValue(torrent.state)}`)" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>

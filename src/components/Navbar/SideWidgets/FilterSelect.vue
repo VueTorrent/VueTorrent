@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
+import { getTorrentStateValue } from '@/helpers'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -11,7 +11,7 @@ const { categories: _categories, tags: _tags, trackers: _trackers } = storeToRef
 const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
 
-const statuses = computed(() => Object.values(TorrentState).filter(state => typeof state === 'number').map(state => ({ title: t(`torrent.state.${getTorrentStateColor(state as TorrentState)}`), value: state })))
+const statuses = computed(() => Object.values(TorrentState).filter(state => typeof state === 'number').map(state => ({ title: t(`torrent.state.${getTorrentStateValue(state as TorrentState)}`), value: state })))
 const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ..._categories.value.map(c => ({ title: c.name, value: c.name }))])
 const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ..._tags.value.map(tag => ({ title: tag, value: tag }))])
 const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: '' }, ..._trackers.value.map(tracker => ({ title: tracker, value: tracker }))])

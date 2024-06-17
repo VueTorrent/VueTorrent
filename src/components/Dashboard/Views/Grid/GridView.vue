@@ -43,7 +43,7 @@ const dashboardStore = useDashboardStore()
         <v-expand-x-transition>
           <v-btn
             v-if="dashboardStore.isSelectionMultiple"
-            :color="`torrent-${getTorrentStateColor(torrent.state)}`"
+            :color="getTorrentStateColor(torrent.state)"
             :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
             class="mr-2"
             variant="text"

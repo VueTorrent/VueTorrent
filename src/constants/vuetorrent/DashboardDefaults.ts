@@ -1,4 +1,4 @@
-import { formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
+import { formatEta, getRatioColor, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { DurationUnitType } from 'dayjs/plugin/duration'
@@ -301,7 +301,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.PROGRESS]: {
-    props: { titleKey: 'torrent.properties.progress', value: t => t.progress, color: t => `torrent-${getTorrentStateColor(t.state)}` },
+    props: { titleKey: 'torrent.properties.progress', value: t => t.progress, color: t => getTorrentStateColor(t.state) },
     type: DashboardPropertyType.PERCENT
   },
   [DashboardProperty.RATIO]: {
@@ -359,9 +359,9 @@ export const propsMetadata: PropertyMetadata = {
       emptyValueKey: 'torrent.state.unknown',
       value: t => {
         const i18n = useI18n()
-        return [i18n.t(`torrent.state.${getTorrentStateColor(t.state)}`)]
+        return [i18n.t(`torrent.state.${getTorrentStateValue(t.state)}`)]
       },
-      color: t => `torrent-${getTorrentStateColor(t.state)}`
+      color: t => getTorrentStateColor(t.state)
     },
     type: DashboardPropertyType.CHIP
   },

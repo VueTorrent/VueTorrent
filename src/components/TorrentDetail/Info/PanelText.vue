@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTorrentStateColor } from '@/helpers'
+import { getTorrentStateValue } from '@/helpers'
 import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -21,7 +21,7 @@ const torrentValues = [
   { title: 'availability', getter: () => props.torrent.availability },
   { title: 'eta', getter: () => props.torrent.eta },
   { title: 'category', getter: () => props.torrent.category || t('common.NA') },
-  { title: 'state', getter: () => t(`torrent.state.${getTorrentStateColor(props.torrent.state)}`) },
+  { title: 'state', getter: () => t(`torrent.state.${getTorrentStateValue(props.torrent.state)}`) },
   { title: 'trackers_count', getter: () => props.torrent.trackers_count },
   { title: 'priority', getter: () => props.torrent.priority },
   { title: 'nb_connections', getter: () => properties.value?.nb_connections ?? 0 },

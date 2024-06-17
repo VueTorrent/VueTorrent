@@ -24,6 +24,10 @@ export function getRatioColor(ratio: number) {
   return 'text-ratio-best'
 }
 
+export function getTorrentStateValue(state: TorrentState) {
+  return TorrentState[state].toLowerCase()
+}
+
 export function getTorrentStateColor(state: TorrentState) {
-  return `torrent-${TorrentState[state].toLowerCase()}`
+  return `torrent-${getTorrentStateValue(state)}`
 }

@@ -56,7 +56,7 @@ const getComponent = (type: DashboardPropertyType) => {
   }
 }
 const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
-const stateColor = computed(() => current.value.colors[`torrent-${getTorrentStateColor(props.torrent.state)}`])
+const stateColor = computed(() => current.value.colors[getTorrentStateColor(props.torrent.state)])
 </script>
 
 <template>
@@ -64,7 +64,7 @@ const stateColor = computed(() => current.value.colors[`torrent-${getTorrentStat
     class="cursor-pointer"
     :style="`border-left: 6px solid ${stateColor}`"
     width="100%"
-    :color="isTorrentSelected ? `torrent-${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
+    :color="isTorrentSelected ? `${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap pt-1 pb-0 px-2 text-truncate" style="font-size: 0.97em">{{ torrent.name }}</v-card-title>
     <v-card-text class="pa-2 pt-0">

@@ -7,39 +7,34 @@ export enum TorrentState {
   ERROR,
   /** Torrent data files is missing */
   MISSING_FILES,
-
+  /** Torrent is paused and has NOT finished downloading */
+  DL_PAUSED,
+  /** Torrent is paused and has finished downloading */
+  UL_PAUSED,
   /** Torrent has just started downloading and is fetching metadata */
   META_DOWNLOAD,
   /** Torrent is forced to fetch metadata */
   FORCED_META_DOWNLOAD,
-
-  /** Torrent is paused and has finished downloading */
-  UL_PAUSED,
   /** Queuing is enabled and torrent is queued for upload */
   UL_QUEUED,
+  /** Queuing is enabled and torrent is queued for download */
+  DL_QUEUED,
   /** Torrent is being seeded, but no connection were made */
   UL_STALLED,
+  /** Torrent is being downloaded, but no connection were made */
+  DL_STALLED,
   /** Torrent is being seeded and data is being transferred */
   UPLOADING,
   /** Torrent is forced to uploading and ignore queue limit */
   UL_FORCED,
-
-  /** Torrent is paused and has NOT finished downloading */
-  DL_PAUSED,
-  /** Queuing is enabled and torrent is queued for download */
-  DL_QUEUED,
-  /** Torrent is being downloaded, but no connection were made */
-  DL_STALLED,
   /** Torrent is being downloaded and data is being transferred */
   DOWNLOADING,
   /** Torrent is forced to downloading to ignore queue limit */
   DL_FORCED,
-
   /** Torrent pieces are being checked against data on disk */
   CHECKING_DISK,
   /** Checking resume data on qBt startup */
   CHECKING_RESUME_DATA,
-
   /** Torrent is moving to another location */
   MOVING
 }

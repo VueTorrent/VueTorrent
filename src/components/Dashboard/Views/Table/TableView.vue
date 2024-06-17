@@ -28,7 +28,7 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isTorrentSelected(torrent) ? `bg-torrent-${getTorrentStateColor(torrent.state)}-darken-3 selected` : '']
+const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3 selected` : '']
 </script>
 
 <template>
