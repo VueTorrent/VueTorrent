@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { TorrentState } from '@/constants/qbit'
+import { TorrentState } from '@/constants/vuetorrent'
+import { getTorrentStateColor } from '@/helpers'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -10,7 +11,7 @@ const { categories: _categories, tags: _tags, trackers: _trackers } = storeToRef
 const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
 
-const statuses = computed(() => Object.values(TorrentState).map(state => ({ title: t(`torrent.state.${state}`), value: state })))
+const statuses = computed(() => Object.values(TorrentState).filter(state => typeof state === 'number').map(state => ({ title: t(`torrent.state.${getTorrentStateColor(state as TorrentState)}`), value: state })))
 const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ..._categories.value.map(c => ({ title: c.name, value: c.name }))])
 const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ..._tags.value.map(tag => ({ title: tag, value: tag }))])
 const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: '' }, ..._trackers.value.map(tracker => ({ title: tracker, value: tracker }))])
@@ -22,14 +23,13 @@ function selectAllStatuses() {
 function selectActive() {
   statusFilter.value = [
     TorrentState.UPLOADING,
-    TorrentState.CHECKING_UP,
-    TorrentState.FORCED_UP,
-    TorrentState.ALLOCATING,
+    TorrentState.CHECKING_DISK,
+    TorrentState.UL_FORCED,
     TorrentState.DOWNLOADING,
-    TorrentState.META_DL,
-    TorrentState.FORCED_META_DL,
-    TorrentState.CHECKING_DL,
-    TorrentState.FORCED_DL,
+    TorrentState.META_DOWNLOAD,
+    TorrentState.FORCED_META_DOWNLOAD,
+    TorrentState.CHECKING_DISK,
+    TorrentState.DL_FORCED,
     TorrentState.CHECKING_RESUME_DATA,
     TorrentState.MOVING
   ]
@@ -70,7 +70,7 @@ function selectAllTrackers() {
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
-          <span v-if="index === 0 && statusFilter.length === 1" class="text-accent">{{ t(`torrent.state.${item.props.value}`) }}</span>
+          <span v-if="index === 0 && statusFilter.length === 1" class="text-accent">{{ item.title }}</span>
           <span v-else-if="index === 0" class="text-accent">{{ t('navbar.side.filters.activeFilter', statusFilter.length) }}</span>
         </template>
       </v-select>

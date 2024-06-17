@@ -1,5 +1,6 @@
+import { TorrentState } from '@/constants/vuetorrent'
 import { expect, test } from 'vitest'
-import { getColorFromName, getRatioColor } from './colors'
+import { getColorFromName, getRatioColor, getTorrentStateColor } from './colors'
 
 test('helpers/colors/getColorFromName', () => {
   expect(getColorFromName('foo')).toBe('#7b2fde')
@@ -16,4 +17,25 @@ test('helpers/colors/getRatioColor', () => {
   expect(getRatioColor(4.9)).toBe('text-ratio-good')
   expect(getRatioColor(5)).toBe('text-ratio-best')
   expect(getRatioColor(10)).toBe('text-ratio-best')
+})
+
+test('helpers/colors/getTorrentStateColor', () => {
+  expect(getTorrentStateColor(TorrentState.UNKNOWN)).toBe('torrent-unknown')
+  expect(getTorrentStateColor(TorrentState.ERROR)).toBe('torrent-error')
+  expect(getTorrentStateColor(TorrentState.MISSING_FILES)).toBe('torrent-missing_files')
+  expect(getTorrentStateColor(TorrentState.META_DOWNLOAD)).toBe('torrent-meta_download')
+  expect(getTorrentStateColor(TorrentState.FORCED_META_DOWNLOAD)).toBe('torrent-forced_meta_download')
+  expect(getTorrentStateColor(TorrentState.UL_PAUSED)).toBe('torrent-ul_paused')
+  expect(getTorrentStateColor(TorrentState.UL_QUEUED)).toBe('torrent-ul_queued')
+  expect(getTorrentStateColor(TorrentState.UL_STALLED)).toBe('torrent-ul_stalled')
+  expect(getTorrentStateColor(TorrentState.UPLOADING)).toBe('torrent-uploading')
+  expect(getTorrentStateColor(TorrentState.UL_FORCED)).toBe('torrent-ul_forced')
+  expect(getTorrentStateColor(TorrentState.DL_PAUSED)).toBe('torrent-dl_paused')
+  expect(getTorrentStateColor(TorrentState.DL_QUEUED)).toBe('torrent-dl_queued')
+  expect(getTorrentStateColor(TorrentState.DL_STALLED)).toBe('torrent-dl_stalled')
+  expect(getTorrentStateColor(TorrentState.DOWNLOADING)).toBe('torrent-downloading')
+  expect(getTorrentStateColor(TorrentState.DL_FORCED)).toBe('torrent-dl_forced')
+  expect(getTorrentStateColor(TorrentState.CHECKING_DISK)).toBe('torrent-checking_disk')
+  expect(getTorrentStateColor(TorrentState.CHECKING_RESUME_DATA)).toBe('torrent-checking_resume_data')
+  expect(getTorrentStateColor(TorrentState.MOVING)).toBe('torrent-moving')
 })

@@ -1,6 +1,5 @@
 import { useSearchQuery } from '@/composables'
-import { TorrentState } from '@/constants/qbit'
-import { comparatorMap } from '@/constants/vuetorrent'
+import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { AddTorrentPayload } from '@/types/qbit/payloads'

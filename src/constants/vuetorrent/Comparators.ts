@@ -37,7 +37,7 @@ const comparatorMap: Record<keyof Torrent, Comparator> = {
   seeding_time_limit: comparators.numeric,
   seen_complete: comparators.numeric,
   size: comparators.numeric,
-  state: comparators.text,
+  state: comparators.numeric,
   tags: comparators.arrayText,
   time_active: comparators.numeric,
   total_size: comparators.numeric,

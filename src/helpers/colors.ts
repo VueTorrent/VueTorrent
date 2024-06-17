@@ -1,3 +1,4 @@
+import { TorrentState } from '@/constants/vuetorrent'
 import { random } from '@ctrl/tinycolor'
 
 function djb2Hash(str: string): number {
@@ -21,4 +22,8 @@ export function getRatioColor(ratio: number) {
   if (ratio < 1) return 'text-ratio-almost'
   if (ratio < 5) return 'text-ratio-good'
   return 'text-ratio-best'
+}
+
+export function getTorrentStateColor(state: TorrentState) {
+  return `torrent-${TorrentState[state].toLowerCase()}`
 }

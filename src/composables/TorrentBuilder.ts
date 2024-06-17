@@ -1,13 +1,11 @@
+import { stateQbitToVt } from '@/constants/vuetorrent'
 import { getDomainBody } from '@/helpers'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { useI18n } from 'vue-i18n'
 
-type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume' | 'stateString'>
+type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume'>
 
 export function useTorrentBuilder() {
-  const { t } = useI18n()
-
   function buildFromQbit(data: QbitTorrent): Torrent {
     return buildTorrent({
       added_on: data.added_on,
@@ -46,7 +44,7 @@ export function useTorrentBuilder() {
       seen_complete: data.seen_complete,
       seq_dl: data.seq_dl,
       size: data.size,
-      state: data.state,
+      state: stateQbitToVt(data.state),
       super_seeding: data.super_seeding,
       tags: data.tags.length > 0 ? data.tags.split(', ').map(t => t.trim()) : [],
       time_active: data.time_active,
@@ -78,9 +76,6 @@ export function useTorrentBuilder() {
       },
       get globalVolume() {
         return data.downloaded + data.uploaded
-      },
-      get stateString() {
-        return t(`torrent.state.${data.state}`)
       }
     })
   }

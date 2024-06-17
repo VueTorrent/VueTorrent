@@ -3,8 +3,19 @@ import ColoredChip from '@/components/Core/ColoredChip.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
-import { FilePriority, TorrentState } from '@/constants/qbit'
-import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, splitByUrl, stringContainsUrl } from '@/helpers'
+import { FilePriority } from '@/constants/qbit'
+import { TorrentState } from '@/constants/vuetorrent'
+import {
+  formatData,
+  formatDataUnit,
+  formatDataValue,
+  formatPercent,
+  formatSpeed,
+  getRatioColor,
+  getTorrentStateColor,
+  splitByUrl,
+  stringContainsUrl
+} from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -32,9 +43,9 @@ const torrentPieceOwned = computed(() => properties.value?.pieces_have ?? 0)
 const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
 const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
-const torrentStateColor = computed(() => `torrent-${props.torrent.state}`)
+const torrentStateColor = computed(() => `torrent-${getTorrentStateColor(props.torrent.state)}`)
 const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
-const isFetchingMetadata = computed(() => [TorrentState.META_DL, TorrentState.FORCED_META_DL].includes(props.torrent.state))
+const isFetchingMetadata = computed(() => [TorrentState.META_DOWNLOAD, TorrentState.FORCED_META_DOWNLOAD].includes(props.torrent.state))
 const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
   return getRatioColor(props.torrent.ratio)
@@ -189,7 +200,7 @@ onUnmounted(async () => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.state') }}:</div>
-              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="$t(`torrent.state.${torrent.state}`)" />
+              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="$t(`torrent.state.${getTorrentStateColor(torrent.state)}`)" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>

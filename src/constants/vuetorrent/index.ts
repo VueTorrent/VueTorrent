@@ -9,6 +9,7 @@ import { getFileIcon, typesMap } from './FileIcon'
 import { HistoryKey } from './HistoryKey'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
+import { TorrentState, stateQbitToVt, stateVtToQbit } from './TorrentState'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 
@@ -26,7 +27,10 @@ export {
   getFileIcon,
   typesMap,
   HistoryKey,
-  TitleOptions,
   ThemeMode,
+  TitleOptions,
+  TorrentState,
+  stateQbitToVt,
+  stateVtToQbit,
   defaultDateFormat
 }
