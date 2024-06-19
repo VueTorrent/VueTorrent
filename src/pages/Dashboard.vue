@@ -22,7 +22,7 @@ const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displ
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
-const { filteredAndSortedTorrents: torrents } = storeToRefs(torrentStore)
+const { processedTorrents: torrents } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)

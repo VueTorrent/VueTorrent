@@ -84,7 +84,7 @@ export const useTorrentStore = defineStore(
     }
 
     function getTorrentIndexByHash(hash: string) {
-      return filteredTorrents.value.findIndex(t => t.hash === hash)
+      return filteredAndSortedTorrents.value.findIndex(t => t.hash === hash)
     }
 
     async function deleteTorrents(hashes: string[], deleteWithFiles: boolean) {
@@ -145,9 +145,7 @@ export const useTorrentStore = defineStore(
       tagFilter,
       trackerFilter,
       sortCriterias,
-      torrentsWithFilters,
-      filteredTorrents,
-      filteredAndSortedTorrents,
+      processedTorrents: filteredAndSortedTorrents,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,
