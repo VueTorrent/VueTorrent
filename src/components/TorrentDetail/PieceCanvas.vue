@@ -42,8 +42,8 @@ async function renderCanvas() {
     let newColor = ''
 
     if (state === PieceState.DOWNLOADING) newColor = theme.current.value.colors['torrent-downloading']
-    else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-pausedUP']
-    else if (state === PieceState.MISSING && selectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-pausedDL']
+    else if (state === PieceState.DOWNLOADED) newColor = theme.current.value.colors['torrent-ul_paused']
+    else if (state === PieceState.MISSING && selectedRanges.intersect_any([i, i])) newColor = theme.current.value.colors['torrent-dl_paused']
 
     if (newColor === color) {
       ++rectWidth
