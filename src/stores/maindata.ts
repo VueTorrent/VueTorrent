@@ -1,5 +1,4 @@
 import { useTorrentBuilder } from '@/composables'
-import { SortOptions } from '@/constants/qbit'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { Category, ServerState } from '@/types/qbit/models'
@@ -48,7 +47,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       await qbit.editCategory({ name: oldCategory, savePath: category.savePath })
 
       // Get list of torrents in old category and move them to new category
-      const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, category: oldCategory })
+      const torrents = await qbit.getTorrents({ category: oldCategory })
       if (torrents.length > 0) {
         await qbit.setCategory(
           torrents.map(torrent => torrent.hash),
@@ -83,7 +82,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.createTag([newTag])
 
     // Get list of torrents in old tag and move them to new tag
-    const torrents = await qbit.getTorrents({ sort: SortOptions.DEFAULT, tag: oldTag })
+    const torrents = await qbit.getTorrents({ tag: oldTag })
     if (torrents.length > 0) {
       await qbit.addTorrentTag(
         torrents.map(torrent => torrent.hash),
@@ -115,8 +114,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
 
       // fetch torrent data
-      torrentStore.sortOptions.isCustomSortEnabled = torrentBuilder.computedValues.indexOf(torrentStore.sortOptions.sortBy) !== -1
-      const data = await qbit.getTorrents(torrentStore.getTorrentsPayload)
+      const data = await qbit.getTorrents()
 
       if (vueTorrentStore.showTrackerFilter) {
         trackers.value = data

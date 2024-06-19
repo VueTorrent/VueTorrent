@@ -1,11 +1,11 @@
+import { formatEta, getRatioColor, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
+import { DurationUnitType } from 'dayjs/plugin/duration'
+import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
-import { getRatioColor } from '@/helpers'
-import { useVueTorrentStore } from '@/stores'
-import { storeToRefs } from 'pinia'
-import { DurationUnitType } from 'dayjs/plugin/duration'
 
 type pptData = { active: boolean; order: number }
 
@@ -261,7 +261,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.ETA]: {
-    props: { titleKey: 'torrent.properties.eta', value: t => t.eta },
+    props: { titleKey: 'torrent.properties.eta', value: t => formatEta(t.eta) },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.GLOBAL_SPEED]: {
@@ -301,7 +301,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.PROGRESS]: {
-    props: { titleKey: 'torrent.properties.progress', value: t => t.progress, color: t => `torrent-${t.state}` },
+    props: { titleKey: 'torrent.properties.progress', value: t => t.progress, color: t => getTorrentStateColor(t.state) },
     type: DashboardPropertyType.PERCENT
   },
   [DashboardProperty.RATIO]: {
@@ -354,7 +354,15 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.STATE]: {
-    props: { titleKey: 'torrent.properties.state', emptyValueKey: 'torrent.state.unknown', value: t => [t.stateString], color: t => `torrent-${t.state}` },
+    props: {
+      titleKey: 'torrent.properties.state',
+      emptyValueKey: 'torrent.state.unknown',
+      value: t => {
+        const i18n = useI18n()
+        return [i18n.t(`torrent.state.${getTorrentStateValue(t.state)}`)]
+      },
+      color: t => getTorrentStateColor(t.state)
+    },
     type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.TAGS]: {
@@ -372,7 +380,7 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.TRACKER]: {
     props: {
       titleKey: 'torrent.properties.tracker',
-      emptyValueKey: 'torrent.properties.empty_category',
+      emptyValueKey: 'torrent.properties.empty_tracker',
       value: t => [t.tracker_domain],
       color: () => 'tracker',
       enableHashColor: true

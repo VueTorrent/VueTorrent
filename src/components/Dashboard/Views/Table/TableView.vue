@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import TableTorrent from '@/components/Dashboard/Views/Table/TableTorrent.vue'
+import { TorrentState } from '@/constants/vuetorrent'
+import { getTorrentStateColor } from '@/helpers'
 import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { computed } from 'vue'
@@ -26,7 +28,7 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isTorrentSelected(torrent) ? `bg-torrent-${torrent.state}-darken-3 selected` : '']
+const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3 selected` : '']
 </script>
 
 <template>
@@ -54,9 +56,9 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isT
         @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
-        <td :class="`pa-0 bg-torrent-${torrent.state}`" />
+        <td :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
         <td v-if="dashboardStore.isSelectionMultiple">
-          <v-checkbox-btn :model-value="isTorrentSelected(torrent)" :color="`torrent-${torrent.state}`" variant="text" @click.stop="$emit('onCheckboxClick', torrent)" />
+          <v-checkbox-btn :model-value="isTorrentSelected(torrent)" :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`" variant="text" @click.stop="$emit('onCheckboxClick', torrent)" />
         </td>
         <td>{{ torrent.name }}</td>
         <TableTorrent :torrent="torrent" />

@@ -1,12 +1,12 @@
 import { useSearchQuery } from '@/composables'
-import { SortOptions, TorrentState } from '@/constants/qbit'
+import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
-import { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads'
+import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent } from '@/types/vuetorrent'
-import { useArrayFilter } from '@vueuse/core'
+import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, reactive, ref, toValue } from 'vue'
+import { MaybeRefOrGetter, ref, toValue } from 'vue'
 
 export const useTorrentStore = defineStore(
   'torrents',
@@ -25,6 +25,10 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
+    const sortCriterias = ref<{ value: keyof Torrent, reverse: boolean }[]>([
+      { value: "added_on", reverse: false }
+    ])
+
     type matchFn = (t: Torrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
@@ -40,39 +44,28 @@ export const useTorrentStore = defineStore(
       )
     })
 
-    const sortOptions = reactive({
-      isCustomSortEnabled: false,
-      sortBy: SortOptions.DEFAULT,
-      reverseOrder: false
-    })
-    const getTorrentsPayload = computed<GetTorrentPayload>(() => {
-      return {
-        sort: sortOptions.isCustomSortEnabled ? SortOptions.DEFAULT : sortOptions.sortBy,
-        reverse: sortOptions.reverseOrder
-      }
-    })
-
     const { results: filteredTorrents } = useSearchQuery(
       torrentsWithFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
-      torrent => torrent.name,
-      results => {
-        if (sortOptions.isCustomSortEnabled) {
-          if (sortOptions.sortBy === 'priority') {
-            results.sort((a, b) => {
-              if (a.priority > 0 && b.priority > 0) return a.priority - b.priority
-              else if (a.priority <= 0 && b.priority <= 0) return a.added_on - b.added_on
-              else if (a.priority <= 0) return 1
-              else return -1
-            })
-          } else {
-            results.sort((a, b) => a[sortOptions.sortBy] - b[sortOptions.sortBy] || a.added_on - b.added_on)
-          }
-          if (sortOptions.reverseOrder) results.reverse()
-        }
-        return results
-      }
+      torrent => torrent.name
     )
+
+    const filteredAndSortedTorrents = useSorted(filteredTorrents, (a, b) => {
+      let i = 0
+      let compareResult = 0
+      while (i < sortCriterias.value.length && compareResult === 0) {
+        const { value, reverse } = sortCriterias.value.at(i++)!
+        const av = a[value]
+        const bv = b[value]
+        const comparator = comparatorMap[value]
+        const compareFn = reverse ? comparator.desc : comparator.asc
+        compareResult = compareFn(av, bv)
+      }
+      if (compareResult === 0) {
+        compareResult = comparatorMap["hash"].asc(a.hash, b.hash)
+      }
+      return compareResult
+    })
 
     async function setTorrentCategory(hashes: string[], category: string) {
       await qbit.setCategory(hashes, category)
@@ -151,10 +144,10 @@ export const useTorrentStore = defineStore(
       categoryFilter,
       tagFilter,
       trackerFilter,
+      sortCriterias,
       torrentsWithFilters,
       filteredTorrents,
-      sortOptions,
-      getTorrentsPayload,
+      filteredAndSortedTorrents,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,

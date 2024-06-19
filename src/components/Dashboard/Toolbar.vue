@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { SortOptions } from '@/constants/qbit'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
+import { comparators } from '@/helpers'
 import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
+import { Torrent } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
@@ -15,64 +16,63 @@ const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(das
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
 
 const torrentStore = useTorrentStore()
-const { sortOptions } = storeToRefs(torrentStore)
+const { sortCriterias } = storeToRefs(torrentStore)
 
-const torrentSortOptions = [
-  { value: SortOptions.ADDED_ON, title: t('dashboard.sortBy.added_on') },
-  { value: SortOptions.AMOUNT_LEFT, title: t('dashboard.sortBy.amount_left') },
-  { value: SortOptions.AUTO_TMM, title: t('dashboard.sortBy.auto_tmm') },
-  { value: SortOptions.AVAILABILITY, title: t('dashboard.sortBy.availability') },
-  { value: SortOptions.AVG_DOWNLOAD_SPEED, title: t('dashboard.sortBy.avg_download_speed') },
-  { value: SortOptions.AVG_UPLOAD_SPEED, title: t('dashboard.sortBy.avg_upload_speed') },
-  { value: SortOptions.CATEGORY, title: t('dashboard.sortBy.category') },
-  { value: SortOptions.COMPLETED, title: t('dashboard.sortBy.completed') },
-  { value: SortOptions.COMPLETION_ON, title: t('dashboard.sortBy.completion_on') },
-  { value: SortOptions.CONTENT_PATH, title: t('dashboard.sortBy.content_path') },
-  { value: SortOptions.DL_LIMIT, title: t('dashboard.sortBy.dl_limit') },
-  { value: SortOptions.DLSPEED, title: t('dashboard.sortBy.dlspeed') },
-  { value: SortOptions.DOWNLOAD_PATH, title: t('dashboard.sortBy.download_path') },
-  { value: SortOptions.DOWNLOADED, title: t('dashboard.sortBy.downloaded') },
-  { value: SortOptions.DOWNLOADED_SESSION, title: t('dashboard.sortBy.downloaded_session') },
-  { value: SortOptions.ETA, title: t('dashboard.sortBy.eta') },
-  { value: SortOptions.F_L_PIECE_PRIO, title: t('dashboard.sortBy.f_l_piece_prio') },
-  { value: SortOptions.FORCE_START, title: t('dashboard.sortBy.force_start') },
-  { value: SortOptions.GLOBALSPEED, title: t('dashboard.sortBy.globalSpeed') },
-  { value: SortOptions.GLOBALVOLUME, title: t('dashboard.sortBy.globalVolume') },
-  { value: SortOptions.HASH, title: t('dashboard.sortBy.hash') },
-  { value: SortOptions.INFOHASH_V1, title: t('dashboard.sortBy.infohash_v1') },
-  { value: SortOptions.INFOHASH_V2, title: t('dashboard.sortBy.infohash_v2') },
-  { value: SortOptions.LAST_ACTIVITY, title: t('dashboard.sortBy.last_activity') },
-  { value: SortOptions.MAGNET_URI, title: t('dashboard.sortBy.magnet_uri') },
-  { value: SortOptions.MAX_RATIO, title: t('dashboard.sortBy.max_ratio') },
-  { value: SortOptions.MAX_SEEDING_TIME, title: t('dashboard.sortBy.max_seeding_time') },
-  { value: SortOptions.NAME, title: t('dashboard.sortBy.name') },
-  { value: SortOptions.NUM_COMPLETE, title: t('dashboard.sortBy.num_complete') },
-  { value: SortOptions.NUM_INCOMPLETE, title: t('dashboard.sortBy.num_incomplete') },
-  { value: SortOptions.NUM_LEECHS, title: t('dashboard.sortBy.num_leechs') },
-  { value: SortOptions.NUM_SEEDS, title: t('dashboard.sortBy.num_seeds') },
-  { value: SortOptions.PRIORITY, title: t('dashboard.sortBy.priority') },
-  { value: SortOptions.PROGRESS, title: t('dashboard.sortBy.progress') },
-  { value: SortOptions.RATIO, title: t('dashboard.sortBy.ratio') },
-  { value: SortOptions.RATIO_LIMIT, title: t('dashboard.sortBy.ratio_limit') },
-  { value: SortOptions.SAVE_PATH, title: t('dashboard.sortBy.save_path') },
-  { value: SortOptions.SEEDING_TIME, title: t('dashboard.sortBy.seeding_time') },
-  { value: SortOptions.SEEDING_TIME_LIMIT, title: t('dashboard.sortBy.seeding_time_limit') },
-  { value: SortOptions.SEEN_COMPLETE, title: t('dashboard.sortBy.seen_complete') },
-  { value: SortOptions.SEQ_DL, title: t('dashboard.sortBy.seq_dl') },
-  { value: SortOptions.SIZE, title: t('dashboard.sortBy.size') },
-  { value: SortOptions.STATE, title: t('dashboard.sortBy.state') },
-  { value: SortOptions.SUPER_SEEDING, title: t('dashboard.sortBy.super_seeding') },
-  { value: SortOptions.TAGS, title: t('dashboard.sortBy.tags') },
-  { value: SortOptions.TIME_ACTIVE, title: t('dashboard.sortBy.time_active') },
-  { value: SortOptions.TOTAL_SIZE, title: t('dashboard.sortBy.total_size') },
-  { value: SortOptions.TRACKER, title: t('dashboard.sortBy.tracker') },
-  { value: SortOptions.TRACKERS_COUNT, title: t('dashboard.sortBy.trackers_count') },
-  { value: SortOptions.UP_LIMIT, title: t('dashboard.sortBy.up_limit') },
-  { value: SortOptions.UPLOADED, title: t('dashboard.sortBy.uploaded') },
-  { value: SortOptions.UPLOADED_SESSION, title: t('dashboard.sortBy.uploaded_session') },
-  { value: SortOptions.UPSPEED, title: t('dashboard.sortBy.upspeed') }
-].sort((a, b) => a.title.localeCompare(b.title))
-torrentSortOptions.splice(0, 0, { value: SortOptions.DEFAULT, title: t('dashboard.sortBy.default') })
+const torrentSortOptions: {title: string, value: keyof Torrent}[] = [
+  { value: "added_on", title: t('dashboard.sortBy.added_on') },
+  { value: "amount_left", title: t('dashboard.sortBy.amount_left') },
+  { value: "availability", title: t('dashboard.sortBy.availability') },
+  { value: "avgDownloadSpeed", title: t('dashboard.sortBy.avg_download_speed') },
+  { value: "avgUploadSpeed", title: t('dashboard.sortBy.avg_upload_speed') },
+  { value: "available_peers", title: t('dashboard.sortBy.available_peers') },
+  { value: "available_seeds", title: t('dashboard.sortBy.available_seeds') },
+  { value: "category", title: t('dashboard.sortBy.category') },
+  { value: "completed", title: t('dashboard.sortBy.completed') },
+  { value: "completed_on", title: t('dashboard.sortBy.completion_on') },
+  { value: "content_path", title: t('dashboard.sortBy.content_path') },
+  { value: "dl_limit", title: t('dashboard.sortBy.dl_limit') },
+  { value: "dlspeed", title: t('dashboard.sortBy.dlspeed') },
+  { value: "download_path", title: t('dashboard.sortBy.download_path') },
+  { value: "downloaded", title: t('dashboard.sortBy.downloaded') },
+  { value: "downloaded_session", title: t('dashboard.sortBy.downloaded_session') },
+  { value: "eta", title: t('dashboard.sortBy.eta') },
+  { value: "globalSpeed", title: t('dashboard.sortBy.globalSpeed') },
+  { value: "globalVolume", title: t('dashboard.sortBy.globalVolume') },
+  { value: "hash", title: t('dashboard.sortBy.hash') },
+  { value: "inactive_seeding_time_limit", title: t('dashboard.sortBy.inactive_seeding_time_limit') },
+  { value: "infohash_v1", title: t('dashboard.sortBy.infohash_v1') },
+  { value: "infohash_v2", title: t('dashboard.sortBy.infohash_v2') },
+  { value: "last_activity", title: t('dashboard.sortBy.last_activity') },
+  { value: "name", title: t('dashboard.sortBy.name') },
+  { value: "num_leechs", title: t('dashboard.sortBy.num_leechs') },
+  { value: "num_seeds", title: t('dashboard.sortBy.num_seeds') },
+  { value: "priority", title: t('dashboard.sortBy.priority') },
+  { value: "progress", title: t('dashboard.sortBy.progress') },
+  { value: "ratio", title: t('dashboard.sortBy.ratio') },
+  { value: "ratio_limit", title: t('dashboard.sortBy.ratio_limit') },
+  { value: "savePath", title: t('dashboard.sortBy.save_path') },
+  { value: "seeding_time", title: t('dashboard.sortBy.seeding_time') },
+  { value: "seeding_time_limit", title: t('dashboard.sortBy.seeding_time_limit') },
+  { value: "seen_complete", title: t('dashboard.sortBy.seen_complete') },
+  { value: "size", title: t('dashboard.sortBy.size') },
+  { value: "state", title: t('dashboard.sortBy.state') },
+  { value: "tags", title: t('dashboard.sortBy.tags') },
+  { value: "time_active", title: t('dashboard.sortBy.time_active') },
+  { value: "total_size", title: t('dashboard.sortBy.total_size') },
+  { value: "tracker_domain", title: t('dashboard.sortBy.tracker') },
+  { value: "trackers_count", title: t('dashboard.sortBy.trackers_count') },
+  { value: "up_limit", title: t('dashboard.sortBy.up_limit') },
+  { value: "uploaded", title: t('dashboard.sortBy.uploaded') },
+  { value: "uploaded_session", title: t('dashboard.sortBy.uploaded_session') },
+  { value: "upspeed", title: t('dashboard.sortBy.upspeed') }
+].sort((a, b) => comparators.text.asc(a.title, b.title))
+
+const sortOption = computed({
+  get: () => sortCriterias.value[0],
+  set: v => {
+    sortCriterias.value = [{ value: v.value, reverse: v.reverse }]
+  }
+})
 
 function resetInput() {
   torrentStore.textFilter = ''
@@ -135,15 +135,15 @@ function toggleSelectMode() {
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
       <template v-slot:activator="{ props }">
         <v-btn
-          :icon="sortOptions.reverseOrder ? 'mdi-arrow-up-thin' : 'mdi-arrow-down-thin'"
+          :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'"
           v-bind="props"
           variant="plain"
-          @click="sortOptions.reverseOrder = !sortOptions.reverseOrder" />
+          @click="sortOption.reverse = !sortOption.reverse" />
       </template>
     </v-tooltip>
     <div class="pa-0">
       <v-autocomplete
-        v-model="sortOptions.sortBy"
+        v-model="sortOption.value"
         :items="torrentSortOptions"
         :label="t('dashboard.sortLabel')"
         auto-select-first

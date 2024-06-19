@@ -1,4 +1,5 @@
-import { getColorFromName, getRatioColor } from './colors'
+import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
+import comparators, { Comparator } from './comparators'
 import { formatDataValue, formatDataUnit, formatData } from './data'
 import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
 import { toPrecision, formatPercent } from './number'
@@ -9,6 +10,9 @@ import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, stri
 export {
   getColorFromName,
   getRatioColor,
+  getTorrentStateColor,
+  getTorrentStateValue,
+  comparators,
   formatDataValue,
   formatDataUnit,
   formatData,
@@ -30,4 +34,8 @@ export {
   splitByUrl,
   stringContainsUrl,
   codeToFlag
+}
+
+export type {
+  Comparator
 }

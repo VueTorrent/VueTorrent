@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import GridTorrent from '@/components/Dashboard/Views/Grid/GridTorrent.vue'
+import { getTorrentStateColor } from '@/helpers'
 import { useDashboardStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { useDisplay } from 'vuetify'
@@ -42,7 +43,7 @@ const dashboardStore = useDashboardStore()
         <v-expand-x-transition>
           <v-btn
             v-if="dashboardStore.isSelectionMultiple"
-            :color="`torrent-${torrent.state}`"
+            :color="getTorrentStateColor(torrent.state)"
             :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
             class="mr-2"
             variant="text"

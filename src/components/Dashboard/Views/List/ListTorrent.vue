@@ -9,6 +9,7 @@ import ItemRelativeTime from '@/components/Dashboard/DashboardItems/ItemRelative
 import ItemSpeed from '@/components/Dashboard/DashboardItems/ItemSpeed.vue'
 import ItemText from '@/components/Dashboard/DashboardItems/ItemText.vue'
 import { DashboardPropertyType } from '@/constants/vuetorrent'
+import { getTorrentStateColor } from '@/helpers'
 import { useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
@@ -55,7 +56,7 @@ const getComponent = (type: DashboardPropertyType) => {
   }
 }
 const isTorrentSelected = computed(() => dashboardStore.isTorrentInSelection(props.torrent.hash))
-const stateColor = computed(() => current.value.colors[`torrent-${props.torrent.state}`])
+const stateColor = computed(() => current.value.colors[getTorrentStateColor(props.torrent.state)])
 </script>
 
 <template>
@@ -63,7 +64,7 @@ const stateColor = computed(() => current.value.colors[`torrent-${props.torrent.
     class="cursor-pointer"
     :style="`border-left: 6px solid ${stateColor}`"
     width="100%"
-    :color="isTorrentSelected ? `torrent-${torrent.state}-darken-3` : undefined"
+    :color="isTorrentSelected ? `${getTorrentStateColor(torrent.state)}-darken-3` : undefined"
     @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap pt-1 pb-0 px-2 text-truncate" style="font-size: 0.97em">{{ torrent.name }}</v-card-title>
     <v-card-text class="pa-2 pt-0">

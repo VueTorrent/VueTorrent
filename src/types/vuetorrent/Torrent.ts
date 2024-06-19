@@ -1,4 +1,4 @@
-import { TorrentState } from '@/constants/qbit'
+import { TorrentState } from '@/constants/vuetorrent'
 
 export default interface Torrent {
   added_on: number
@@ -15,7 +15,7 @@ export default interface Torrent {
   download_path: string
   downloaded: number
   downloaded_session: number
-  eta: string
+  eta: number
   f_l_piece_prio: boolean
   forced: boolean
   hash: string
