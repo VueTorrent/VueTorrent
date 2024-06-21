@@ -18,16 +18,20 @@ const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
 
-const torrentSortOptions: { title: string; value: keyof Torrent }[] = [
+type SortOption = { title: string; value: keyof Torrent }
+
+const torrentSortOptions = [
   { value: 'added_on', title: t('dashboard.sortBy.added_on') },
   { value: 'amount_left', title: t('dashboard.sortBy.amount_left') },
   { value: 'availability', title: t('dashboard.sortBy.availability') },
-  { value: 'avgDownloadSpeed', title: t('dashboard.sortBy.avg_download_speed') },
-  { value: 'avgUploadSpeed', title: t('dashboard.sortBy.avg_upload_speed') },
   { value: 'available_peers', title: t('dashboard.sortBy.available_peers') },
   { value: 'available_seeds', title: t('dashboard.sortBy.available_seeds') },
+  { value: 'avgDownloadSpeed', title: t('dashboard.sortBy.avg_download_speed') },
+  { value: 'avgUploadSpeed', title: t('dashboard.sortBy.avg_upload_speed') },
+  { value: 'basename_content_path', title: t('dashboard.sortBy.basename_content_path') },
+  { value: 'basename_download_path', title: t('dashboard.sortBy.basename_download_path') },
+  { value: 'basename_save_path', title: t('dashboard.sortBy.basename_save_path') },
   { value: 'category', title: t('dashboard.sortBy.category') },
-  { value: 'completed', title: t('dashboard.sortBy.completed') },
   { value: 'completed_on', title: t('dashboard.sortBy.completion_on') },
   { value: 'content_path', title: t('dashboard.sortBy.content_path') },
   { value: 'dl_limit', title: t('dashboard.sortBy.dl_limit') },
@@ -59,13 +63,13 @@ const torrentSortOptions: { title: string; value: keyof Torrent }[] = [
   { value: 'tags', title: t('dashboard.sortBy.tags') },
   { value: 'time_active', title: t('dashboard.sortBy.time_active') },
   { value: 'total_size', title: t('dashboard.sortBy.total_size') },
-  { value: 'tracker_domain', title: t('dashboard.sortBy.tracker') },
+  { value: 'trackerDomain', title: t('dashboard.sortBy.tracker') },
   { value: 'trackers_count', title: t('dashboard.sortBy.trackers_count') },
   { value: 'up_limit', title: t('dashboard.sortBy.up_limit') },
   { value: 'uploaded', title: t('dashboard.sortBy.uploaded') },
   { value: 'uploaded_session', title: t('dashboard.sortBy.uploaded_session') },
   { value: 'upspeed', title: t('dashboard.sortBy.upspeed') }
-].sort((a, b) => comparators.text.asc(a.title, b.title))
+].sort((a, b) => comparators.text.asc(a.title, b.title)) as SortOption[]
 
 const sortOption = computed({
   get: () => sortCriterias.value[0],
@@ -96,16 +100,16 @@ function toggleSelectMode() {
 <template>
   <div>
     <v-text-field
-      id="searchInput"
-      v-model="torrentTitleFilter"
-      :label="t('dashboard.searchInputLabel')"
-      clearable
-      density="compact"
-      single-line
-      hide-details
-      prepend-inner-icon="mdi-magnify"
-      variant="solo"
-      @click:clear="resetInput()" />
+        id="searchInput"
+        v-model="torrentTitleFilter"
+        :label="t('dashboard.searchInputLabel')"
+        clearable
+        density="compact"
+        single-line
+        hide-details
+        prepend-inner-icon="mdi-magnify"
+        variant="solo"
+        @click:clear="resetInput()" />
   </div>
 
   <div class="d-flex my-3">
@@ -139,14 +143,14 @@ function toggleSelectMode() {
     </v-tooltip>
     <div class="pa-0">
       <v-autocomplete
-        v-model="sortOption.value"
-        :items="torrentSortOptions"
-        :label="t('dashboard.sortLabel')"
-        auto-select-first
-        density="compact"
-        hide-details
-        variant="solo-filled"
-        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
+          v-model="sortOption.value"
+          :items="torrentSortOptions"
+          :label="t('dashboard.sortLabel')"
+          auto-select-first
+          density="compact"
+          hide-details
+          variant="solo-filled"
+          :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
 
     <v-spacer />

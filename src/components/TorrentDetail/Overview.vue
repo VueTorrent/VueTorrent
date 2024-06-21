@@ -213,10 +213,10 @@ onUnmounted(async () => {
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tracker') }}:</div>
               <ColoredChip
-                :disabled="!torrent.tracker_domain.length"
+                :disabled="!torrent.trackerDomain.length"
                 default-color="tracker"
                 :disabled-value="$t('navbar.side.filters.untracked')"
-                :value="torrent.tracker_domain" />
+                :value="torrent.trackerDomain" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tags') }}:</div>
