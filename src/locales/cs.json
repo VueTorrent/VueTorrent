@@ -193,7 +193,6 @@
     "sortBy": {
       "added_on": "Přidáno dne",
       "amount_left": "Zbývá množství",
-      "auto_tmm": "Automatické TMM",
       "availability": "Dostupnost",
       "avg_download_speed": "Průměrná rychlost stahování",
       "avg_upload_speed": "Průměrná rychlost nahrávání",
@@ -208,8 +207,6 @@
       "downloaded_session": "Staženo (Relace)",
       "download_path": "Cesta ke stažení",
       "eta": "ETA",
-      "f_l_piece_prio": "Priorita prvního/posledního kusu",
-      "force_start": "Vynucený start",
       "globalSpeed": "Celková rychlost",
       "globalVolume": "Celkový objem",
       "hash": "Hash",

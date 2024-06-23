@@ -18,53 +18,53 @@ const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
 
-const torrentSortOptions: {title: string, value: keyof Torrent}[] = [
-  { value: "added_on", title: t('dashboard.sortBy.added_on') },
-  { value: "amount_left", title: t('dashboard.sortBy.amount_left') },
-  { value: "availability", title: t('dashboard.sortBy.availability') },
-  { value: "avgDownloadSpeed", title: t('dashboard.sortBy.avg_download_speed') },
-  { value: "avgUploadSpeed", title: t('dashboard.sortBy.avg_upload_speed') },
-  { value: "available_peers", title: t('dashboard.sortBy.available_peers') },
-  { value: "available_seeds", title: t('dashboard.sortBy.available_seeds') },
-  { value: "category", title: t('dashboard.sortBy.category') },
-  { value: "completed", title: t('dashboard.sortBy.completed') },
-  { value: "completed_on", title: t('dashboard.sortBy.completion_on') },
-  { value: "content_path", title: t('dashboard.sortBy.content_path') },
-  { value: "dl_limit", title: t('dashboard.sortBy.dl_limit') },
-  { value: "dlspeed", title: t('dashboard.sortBy.dlspeed') },
-  { value: "download_path", title: t('dashboard.sortBy.download_path') },
-  { value: "downloaded", title: t('dashboard.sortBy.downloaded') },
-  { value: "downloaded_session", title: t('dashboard.sortBy.downloaded_session') },
-  { value: "eta", title: t('dashboard.sortBy.eta') },
-  { value: "globalSpeed", title: t('dashboard.sortBy.globalSpeed') },
-  { value: "globalVolume", title: t('dashboard.sortBy.globalVolume') },
-  { value: "hash", title: t('dashboard.sortBy.hash') },
-  { value: "inactive_seeding_time_limit", title: t('dashboard.sortBy.inactive_seeding_time_limit') },
-  { value: "infohash_v1", title: t('dashboard.sortBy.infohash_v1') },
-  { value: "infohash_v2", title: t('dashboard.sortBy.infohash_v2') },
-  { value: "last_activity", title: t('dashboard.sortBy.last_activity') },
-  { value: "name", title: t('dashboard.sortBy.name') },
-  { value: "num_leechs", title: t('dashboard.sortBy.num_leechs') },
-  { value: "num_seeds", title: t('dashboard.sortBy.num_seeds') },
-  { value: "priority", title: t('dashboard.sortBy.priority') },
-  { value: "progress", title: t('dashboard.sortBy.progress') },
-  { value: "ratio", title: t('dashboard.sortBy.ratio') },
-  { value: "ratio_limit", title: t('dashboard.sortBy.ratio_limit') },
-  { value: "savePath", title: t('dashboard.sortBy.save_path') },
-  { value: "seeding_time", title: t('dashboard.sortBy.seeding_time') },
-  { value: "seeding_time_limit", title: t('dashboard.sortBy.seeding_time_limit') },
-  { value: "seen_complete", title: t('dashboard.sortBy.seen_complete') },
-  { value: "size", title: t('dashboard.sortBy.size') },
-  { value: "state", title: t('dashboard.sortBy.state') },
-  { value: "tags", title: t('dashboard.sortBy.tags') },
-  { value: "time_active", title: t('dashboard.sortBy.time_active') },
-  { value: "total_size", title: t('dashboard.sortBy.total_size') },
-  { value: "tracker_domain", title: t('dashboard.sortBy.tracker') },
-  { value: "trackers_count", title: t('dashboard.sortBy.trackers_count') },
-  { value: "up_limit", title: t('dashboard.sortBy.up_limit') },
-  { value: "uploaded", title: t('dashboard.sortBy.uploaded') },
-  { value: "uploaded_session", title: t('dashboard.sortBy.uploaded_session') },
-  { value: "upspeed", title: t('dashboard.sortBy.upspeed') }
+const torrentSortOptions: { title: string; value: keyof Torrent }[] = [
+  { value: 'added_on', title: t('dashboard.sortBy.added_on') },
+  { value: 'amount_left', title: t('dashboard.sortBy.amount_left') },
+  { value: 'availability', title: t('dashboard.sortBy.availability') },
+  { value: 'avgDownloadSpeed', title: t('dashboard.sortBy.avg_download_speed') },
+  { value: 'avgUploadSpeed', title: t('dashboard.sortBy.avg_upload_speed') },
+  { value: 'available_peers', title: t('dashboard.sortBy.available_peers') },
+  { value: 'available_seeds', title: t('dashboard.sortBy.available_seeds') },
+  { value: 'category', title: t('dashboard.sortBy.category') },
+  { value: 'completed', title: t('dashboard.sortBy.completed') },
+  { value: 'completed_on', title: t('dashboard.sortBy.completion_on') },
+  { value: 'content_path', title: t('dashboard.sortBy.content_path') },
+  { value: 'dl_limit', title: t('dashboard.sortBy.dl_limit') },
+  { value: 'dlspeed', title: t('dashboard.sortBy.dlspeed') },
+  { value: 'download_path', title: t('dashboard.sortBy.download_path') },
+  { value: 'downloaded', title: t('dashboard.sortBy.downloaded') },
+  { value: 'downloaded_session', title: t('dashboard.sortBy.downloaded_session') },
+  { value: 'eta', title: t('dashboard.sortBy.eta') },
+  { value: 'globalSpeed', title: t('dashboard.sortBy.globalSpeed') },
+  { value: 'globalVolume', title: t('dashboard.sortBy.globalVolume') },
+  { value: 'hash', title: t('dashboard.sortBy.hash') },
+  { value: 'inactive_seeding_time_limit', title: t('dashboard.sortBy.inactive_seeding_time_limit') },
+  { value: 'infohash_v1', title: t('dashboard.sortBy.infohash_v1') },
+  { value: 'infohash_v2', title: t('dashboard.sortBy.infohash_v2') },
+  { value: 'last_activity', title: t('dashboard.sortBy.last_activity') },
+  { value: 'name', title: t('dashboard.sortBy.name') },
+  { value: 'num_leechs', title: t('dashboard.sortBy.num_leechs') },
+  { value: 'num_seeds', title: t('dashboard.sortBy.num_seeds') },
+  { value: 'priority', title: t('dashboard.sortBy.priority') },
+  { value: 'progress', title: t('dashboard.sortBy.progress') },
+  { value: 'ratio', title: t('dashboard.sortBy.ratio') },
+  { value: 'ratio_limit', title: t('dashboard.sortBy.ratio_limit') },
+  { value: 'savePath', title: t('dashboard.sortBy.save_path') },
+  { value: 'seeding_time', title: t('dashboard.sortBy.seeding_time') },
+  { value: 'seeding_time_limit', title: t('dashboard.sortBy.seeding_time_limit') },
+  { value: 'seen_complete', title: t('dashboard.sortBy.seen_complete') },
+  { value: 'size', title: t('dashboard.sortBy.size') },
+  { value: 'state', title: t('dashboard.sortBy.state') },
+  { value: 'tags', title: t('dashboard.sortBy.tags') },
+  { value: 'time_active', title: t('dashboard.sortBy.time_active') },
+  { value: 'total_size', title: t('dashboard.sortBy.total_size') },
+  { value: 'tracker_domain', title: t('dashboard.sortBy.tracker') },
+  { value: 'trackers_count', title: t('dashboard.sortBy.trackers_count') },
+  { value: 'up_limit', title: t('dashboard.sortBy.up_limit') },
+  { value: 'uploaded', title: t('dashboard.sortBy.uploaded') },
+  { value: 'uploaded_session', title: t('dashboard.sortBy.uploaded_session') },
+  { value: 'upspeed', title: t('dashboard.sortBy.upspeed') }
 ].sort((a, b) => comparators.text.asc(a.title, b.title))
 
 const sortOption = computed({
@@ -134,11 +134,7 @@ function toggleSelectMode() {
     </v-menu>
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
       <template v-slot:activator="{ props }">
-        <v-btn
-          :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'"
-          v-bind="props"
-          variant="plain"
-          @click="sortOption.reverse = !sortOption.reverse" />
+        <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="sortOption.reverse = !sortOption.reverse" />
       </template>
     </v-tooltip>
     <div class="pa-0">

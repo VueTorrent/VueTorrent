@@ -36,7 +36,9 @@ const isTrackerFilterPresent = computed(() => trackerFilter.value.length > 0)
 
 const globalFilterColor = computed(() => (globalFilterActive.value ? 'active-global' : 'active-global-disabled'))
 const textFilterColor = computed(() => (isTextFilterActive.value ? 'active-text' : 'active-text-disabled'))
-const singleStatusFilterColor = computed(() => (isStatusFilterActive.value ? getTorrentStateColor(statusFilter.value[0]) : `${getTorrentStateColor(statusFilter.value[0])}-darken-2`))
+const singleStatusFilterColor = computed(() =>
+  isStatusFilterActive.value ? getTorrentStateColor(statusFilter.value[0]) : `${getTorrentStateColor(statusFilter.value[0])}-darken-2`
+)
 const statusFilterColor = computed(() => (isStatusFilterActive.value ? 'active-status' : 'active-status-disabled'))
 const categoryFilterColor = computed(() => (isCategoryFilterActive.value ? 'active-category' : 'active-category-disabled'))
 const tagFilterColor = computed(() => (isTagFilterActive.value ? 'active-tag' : 'active-tag-disabled'))
