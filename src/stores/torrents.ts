@@ -25,9 +25,7 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
-    const sortCriterias = ref<{ value: keyof Torrent, reverse: boolean }[]>([
-      { value: "added_on", reverse: false }
-    ])
+    const sortCriterias = ref<{ value: keyof Torrent; reverse: boolean }[]>([{ value: 'added_on', reverse: false }])
 
     type matchFn = (t: Torrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
@@ -62,7 +60,7 @@ export const useTorrentStore = defineStore(
         compareResult = compareFn(av, bv)
       }
       if (compareResult === 0) {
-        compareResult = comparatorMap["hash"].asc(a.hash, b.hash)
+        compareResult = comparatorMap['hash'].asc(a.hash, b.hash)
       }
       return compareResult
     })

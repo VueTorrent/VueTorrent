@@ -14,6 +14,7 @@
     "none": "(Yok)",
     "ok": "Tamam",
     "pause": "Duraklat",
+    "refresh": "Yenile",
     "resume": "Devam Et",
     "save": "Kaydet",
     "search": "Ara",
@@ -106,6 +107,16 @@
       "none": "Hiçbiri",
       "title": "Torrent durdurma koşulu"
     },
+    "themes": {
+      "dark": {
+        "legacy": "Eski",
+        "redesigned": "Yeniden Tasarlandı"
+      },
+      "light": {
+        "legacy": "Eski",
+        "redesigned": "Yeniden Tasarlandı"
+      }
+    },
     "titleOptions": {
       "custom": "Özel",
       "default": "Varsayılan",
@@ -181,6 +192,7 @@
       },
       "tags": {
         "disabled_title": "Etiket yok",
+        "remove_all": "Tümünü kaldır",
         "title": "Etiketleri Ayarla"
       },
       "top": {
@@ -196,7 +208,6 @@
     "sortBy": {
       "added_on": "Eklendiği Tarih",
       "amount_left": "Kalan Miktar",
-      "auto_tmm": "Otomatik TMM",
       "availability": "Ulaşılabilirlik",
       "avg_download_speed": "Ort. İndirme Hızı",
       "avg_upload_speed": "Ort. Yükleme Hızı",
@@ -211,8 +222,6 @@
       "downloaded_session": "İndirilen (Oturum)",
       "download_path": "İndirme Yolu",
       "eta": "TBS",
-      "f_l_piece_prio": "İlk / Son Parça Önceliği",
-      "force_start": "Zorla Başlat",
       "globalSpeed": "Genel Hız",
       "globalVolume": "Genel Hacim",
       "hash": "Hash",
@@ -235,10 +244,8 @@
       "seeding_time": "Seeding Süresi",
       "seeding_time_limit": "Seeding Süre Sınırı",
       "seen_complete": "Tamamlanmış Görüldü",
-      "seq_dl": "Sıralı İndirme",
       "size": "Boyut",
       "state": "Durum",
-      "super_seeding": "Süper Seeding",
       "tags": "Etiketler",
       "time_active": "Aktif Zaman",
       "total_size": "Toplam Boyut",
@@ -296,6 +303,7 @@
       "col_origin_name": "Orijinal",
       "col_result_name": "Sonuç",
       "duplicated": "Yinelenen Dosya Adı",
+      "flags": "Bayraklar",
       "fold": "Daralt",
       "not_changed": "Dosya Adı Değiştirilmedi",
       "notForFolder": "Klasör Yeniden Adlandırma Desteklenmiyor",
@@ -538,7 +546,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "action": "RSS Beslemesi Oluştur"
+        "action": "RSS Beslemesi Oluştur",
+        "value": "Kayıtlı RSS beslemesi yok"
       },
       "filters": {
         "title": "Başlık filtresi",
@@ -550,17 +559,30 @@
         "feedName": "Besleme adı: {name}"
       },
       "markAllAsRead": "Tümünü okundu olarak işaretle",
+      "markAsRead": "Okundu olarak işaretle",
       "promise": {
         "error": "Makaleleri işaretlerken bir hata oluştu",
         "pending": "İşaretleniyor...",
         "success": "{n} makale okundu olarak işaretlendi"
       },
+      "refreshAllFeeds": "Tüm beslemeleri yenile",
+      "refreshPromise": {
+        "error": "Beslemeleri yenilerken bir hata oluştu",
+        "pending": "Yenileniyor...",
+        "success": "{n} besleme yenilendi"
+      },
       "title": "RSS Makaleleri"
     },
     "rules": {
       "empty": {
-        "action": "RSS Kuralı Oluştur"
-      }
+        "action": "RSS Kuralı Oluştur",
+        "value": "Kayıtlı RSS kuralı yok"
+      },
+      "title": "RSS Kuralları"
+    },
+    "toggle": {
+      "feeds": "Beslemeleri göster",
+      "rules": "Kuralları göster"
     }
   },
   "searchEngine": {
@@ -600,6 +622,15 @@
     "title": "Arama motoru"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "BT oynatıcı eşini otomatik yasakla",
+        "auto_ban_unknown_peer": "Bilinmeyen eşleri otomatik yasakla",
+        "auto_update_trackers": "Genel izleyici listesini otomatik olarak güncelle",
+        "public_trackers": "Genel izleyiciler",
+        "trackers_list_url": "İzleyici URL Listesini Özelleştir"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "Her zaman tüm seviyelere duyuru yap",
@@ -900,6 +931,9 @@
       "upload": "Yükleme"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "Gelişmiş sürüm"
+      },
       "advanced": "Gelişmiş",
       "behavior": "Davranış",
       "bittorrent": "BitTorrent",
@@ -936,18 +970,21 @@
         "check_new": "Yeni sürümü kontrol et",
         "currentVersion": "Mevcut Sürüm",
         "customTitle": "Özel başlık",
+        "darkVariants": "Koyu tema varyantı",
         "dateFormat": "Tarih formatı",
         "download": "Ayarları Dışa Aktar",
         "enableHashColors": "Oluşturulmuş çip renklerini etkinleştir",
         "enableRatioColors": "Oran renklerini etkinleştir",
         "fileContentInterval": "Torrent dosyası içerik yenileme aralığı",
         "hideChipIfUnset": "Ayarlanmamışsa çipleri gizle",
+        "hideColoredChip": "Çipler için metin varyantını kullan",
         "historySize": "Uygun alanlarda geçmiş boyutu",
         "import": "Ayarları İçe Aktar",
         "isDrawerRight": "Sağ Çekmece",
         "isPaginationOnTop": "Üst Sayfalandırma",
         "isShutdownButtonVisible": "Kapatma düğmesini göster",
         "language": "Dil",
+        "lightVariants": "Açık tema varyantı",
         "openSideBarOnStart": "Başlangıçta Yan Menüyü Aç",
         "paginationSize": {
           "infinite_scroll": "Sonsuz kaydırma",
@@ -1058,6 +1095,7 @@
       "not_supported": "Sadece qbit >= {version} için kullanılabilir"
     },
     "version": {
+      "latest": "En son ve en iyi sürümü kullanıyorsunuz!",
       "new": "Yeni sürüm mevcut!"
     }
   },
@@ -1124,17 +1162,19 @@
       "addPeers": {
         "newPeers": "Eklenecek eş hostları",
         "newPeersHint": "Satır başına bir tane",
-        "newPeersPlaceholder": "sunucu:port",
+        "newPeersPlaceholder": "IP:port",
         "title": "Eşleri Ekle"
       },
       "empty": "Şu anda bağlı eş yok",
       "fields": {
         "client": "İstemci",
+        "country": "Ülke",
         "download": "İndirme",
+        "files": "Dosyalar",
         "flags": "Bayraklar",
         "host": "Sunucu",
         "progress": "İlerleme",
-        "relevance": "Alaka düzeyi",
+        "relevance": "Alaka Düzeyi",
         "upload": "Yükleme"
       }
     },
@@ -1191,7 +1231,7 @@
       "download_speed": "İndirme Hızı",
       "empty_category": "(kategori yok)",
       "empty_tags": "(etiketsiz)",
-      "empty_tracker_domain": "(izleyici yok)",
+      "empty_tracker": "(çalışan izleyici yok)",
       "eta": "TBS",
       "f_l_piece_prio": "İlk / Son Parça Önceliği",
       "forced": "Zorlanmış durum",
@@ -1237,24 +1277,22 @@
       "upload_speed": "Yükleme Hızı"
     },
     "state": {
-      "allocating": "Ayrılıyor",
-      "checkingDL": "Kontrol ediliyor (tamamlanmamış)",
-      "checkingResumeData": "Devam verisi kontrol ediliyor",
-      "checkingUP": "Kontrol ediliyor (tamamlanan)",
+      "checking_disk": "Disk dosyaları kontrol ediliyor",
+      "checking_resume_data": "Devam verisi kontrol ediliyor",
+      "dl_forced": "[F] İndiriliyor",
+      "dl_paused": "Duraklatıldı",
+      "dl_queued": "Sıraya Alındı (İndirme)",
+      "dl_stalled": "Durdu",
       "downloading": "İndiriliyor",
       "error": "Hata",
-      "forcedDL": "[F] İndiriliyor",
-      "forcedMetaDL": "[F] Meta veri",
-      "forcedUP": "[F] Yükleniyor",
-      "metaDL": "Meta veri",
-      "missingFiles": "Eksik Dosyalar",
+      "forced_meta_download": "[F] Meta veri",
+      "meta_download": "Meta veri",
+      "missing_files": "Eksik Dosyalar",
       "moving": "Taşınıyor",
-      "pausedDL": "Duraklatıldı",
-      "pausedUP": "Tamamlandı",
-      "queuedDL": "Sıraya Alındı (İndirme)",
-      "queuedUP": "Sıraya Alındı (Yükleme)",
-      "stalledDL": "Durdu",
-      "stalledUP": "Seeding",
+      "ul_forced": "[F] Yükleniyor",
+      "ul_paused": "Tamamlandı",
+      "ul_queued": "Sıraya Alındı (Yükleme)",
+      "ul_stalled": "Seeding",
       "unknown": "Bilinmeyen",
       "uploading": "Yükleniyor"
     }

@@ -51,5 +51,5 @@ export const getVariables = (dark: boolean) => ({
   'torrent-ul_queued': dark ? colors.blueGrey.darken1 : colors.blueGrey.lighten3,
   'torrent-ul_stalled': dark ? colors.blue.lighten1 : colors.lightBlue.lighten3,
   'torrent-unknown': dark ? colors.grey.darken3 : colors.grey.lighten2,
-  'torrent-uploading': dark ? colors.indigo.darken2 : colors.lightBlue.lighten1,
+  'torrent-uploading': dark ? colors.indigo.darken2 : colors.lightBlue.lighten1
 })

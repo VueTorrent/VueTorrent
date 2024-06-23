@@ -58,7 +58,11 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isT
         @dblclick="$emit('onTorrentDblClick', torrent)">
         <td :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
         <td v-if="dashboardStore.isSelectionMultiple">
-          <v-checkbox-btn :model-value="isTorrentSelected(torrent)" :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`" variant="text" @click.stop="$emit('onCheckboxClick', torrent)" />
+          <v-checkbox-btn
+            :model-value="isTorrentSelected(torrent)"
+            :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`"
+            variant="text"
+            @click.stop="$emit('onCheckboxClick', torrent)" />
         </td>
         <td>{{ torrent.name }}</td>
         <TableTorrent :torrent="torrent" />

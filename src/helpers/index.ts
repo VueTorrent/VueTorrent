@@ -36,6 +36,4 @@ export {
   codeToFlag
 }
 
-export type {
-  Comparator
-}
+export type { Comparator }
