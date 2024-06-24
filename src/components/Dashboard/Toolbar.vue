@@ -100,16 +100,16 @@ function toggleSelectMode() {
 <template>
   <div>
     <v-text-field
-        id="searchInput"
-        v-model="torrentTitleFilter"
-        :label="t('dashboard.searchInputLabel')"
-        clearable
-        density="compact"
-        single-line
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        variant="solo"
-        @click:clear="resetInput()" />
+      id="searchInput"
+      v-model="torrentTitleFilter"
+      :label="t('dashboard.searchInputLabel')"
+      clearable
+      density="compact"
+      single-line
+      hide-details
+      prepend-inner-icon="mdi-magnify"
+      variant="solo"
+      @click:clear="resetInput()" />
   </div>
 
   <div class="d-flex my-3">
@@ -143,14 +143,14 @@ function toggleSelectMode() {
     </v-tooltip>
     <div class="pa-0">
       <v-autocomplete
-          v-model="sortOption.value"
-          :items="torrentSortOptions"
-          :label="t('dashboard.sortLabel')"
-          auto-select-first
-          density="compact"
-          hide-details
-          variant="solo-filled"
-          :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
+        v-model="sortOption.value"
+        :items="torrentSortOptions"
+        :label="t('dashboard.sortLabel')"
+        auto-select-first
+        density="compact"
+        hide-details
+        variant="solo-filled"
+        :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
 
     <v-spacer />

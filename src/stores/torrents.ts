@@ -161,7 +161,7 @@ export const useTorrentStore = defineStore(
       exportTorrent,
       $reset: () => {
         torrents.value = []
-        sortCriterias.value = [{ value: "added_on", reverse: true }]
+        sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
         isTextFilterActive.value = true
         textFilter.value = ''
