@@ -39,7 +39,7 @@ Don't hesitate to create your PR in draft mode if you need some feedback
 VueTorrent welcomes localization contributions!
 
 We no longer accept PRs for translations as all locale data in this repo is there only for reference and building from source.
-Instead head to our [Discord server](https://discord.gg/KDQP7fR467) to get your invitation link to the [Tolgee](https://tolgee.io) project.
+Instead head to the [issue creation page](https://github.com/VueTorrent/VueTorrent/issues/new/choose) to contact us and get your invitation link to the [Tolgee](https://tolgee.io) project.
 
 ## Wiki changes
 

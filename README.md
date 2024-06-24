@@ -39,7 +39,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 ## Demo
 
-A live demo **with mocked data** is available here: https://vuetorrent.github.io/demo
+A live demo **with mocked data** is available here: <https://vuetorrent.github.io/demo>
 
 > [!NOTE] This version isn't connected to a qBittorrent instance.
 >
@@ -57,8 +57,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - `npm run lint` (to format the code)
 - `docker-compose up -d` (starts a qbittorrent docker, optional)
 - Open the WebUI on localhost with the default credentials
-  - Default username is always `admin`
-  - Default password is `adminadmin` **on 4.6.0 and below**, and is generated in logs on 4.6.1 and above
+  - See #1720 for more details
 - Make sure "CSRF protection" and "Host header verification" is disabled in the qBittorrent preferences
 - Edit `env.development` to tweak your dev environment (e.g. mocked data)
 
