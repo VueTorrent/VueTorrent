@@ -7,10 +7,14 @@ import { Torrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
+    const { t } = useI18n()
+
     const torrents = ref<Torrent[]>([])
 
     const isTextFilterActive = ref(true)
@@ -100,7 +104,19 @@ export const useTorrentStore = defineStore(
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
       const links = Array.isArray(urls) ? urls.join('\n') : urls
-      return await qbit.addTorrents(torrents, links, payload)
+      const torrentsCount = torrents.length + links.split('\n').filter(url => url.trim().length).length
+
+      return await toast.promise(
+          qbit.addTorrents(torrents, links, payload),
+          {
+            pending: t('toast.add.pending'),
+            error: t('toast.add.error', torrentsCount),
+            success: t('toast.add.success', torrentsCount)
+          },
+          {
+            autoClose: 1500
+          }
+        )
     }
 
     async function renameTorrent(hash: string, newName: string) {
