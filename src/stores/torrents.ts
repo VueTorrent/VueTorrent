@@ -98,8 +98,9 @@ export const useTorrentStore = defineStore(
       }
     }
 
-    async function addTorrents(torrents: File[], urls: string, payload: AddTorrentPayload) {
-      return await qbit.addTorrents(torrents, urls, payload)
+    async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
+      const links = Array.isArray(urls) ? urls.join('\n') : urls
+      return await qbit.addTorrents(torrents, links, payload)
     }
 
     async function renameTorrent(hash: string, newName: string) {
