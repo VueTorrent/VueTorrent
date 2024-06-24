@@ -1,4 +1,4 @@
-import { TorrentState } from '@/constants/vuetorrent'
+import { TorrentState } from '@/constants/vuetorrent/TorrentState'
 
 export default interface Torrent {
   added_on: number
@@ -7,6 +7,11 @@ export default interface Torrent {
   availability: number
   available_peers: number
   available_seeds: number
+  get avgDownloadSpeed(): number
+  get avgUploadSpeed(): number
+  get basename_content_path(): string
+  get basename_download_path(): string
+  get basename_save_path(): string
   category: string
   completed_on: number
   content_path: string
@@ -18,6 +23,8 @@ export default interface Torrent {
   eta: number
   f_l_piece_prio: boolean
   forced: boolean
+  get globalSpeed(): number
+  get globalVolume(): number
   hash: string
   inactive_seeding_time_limit: number
   infohash_v1: string
@@ -38,24 +45,16 @@ export default interface Torrent {
   seq_dl: boolean
   size: number
   state: TorrentState
-  stateString: string
   super_seeding: boolean
   tags: string[]
   time_active: number
   total_size: number
   tracker: string
-  tracker_domain: string
+  get trackerDomain(): string
   trackers_count: number
+  get truncated_hash(): string
   up_limit: number
   uploaded: number
   uploaded_session: number
   upspeed: number
-
-  // computed
-  avgDownloadSpeed: number
-  avgUploadSpeed: number
-  globalSpeed: number
-  globalVolume: number
-
-  [k: string]: any
 }

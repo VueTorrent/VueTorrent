@@ -1,13 +1,11 @@
 import { stateQbitToVt } from '@/constants/vuetorrent'
-import { getDomainBody } from '@/helpers'
+import { basename, getDomainBody } from '@/helpers'
 import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 
-type StaticTorrent = Omit<Torrent, 'avgDownloadSpeed' | 'avgUploadSpeed' | 'globalSpeed' | 'globalVolume'>
-
 export function useTorrentBuilder() {
   function buildFromQbit(data: QbitTorrent): Torrent {
-    return buildTorrent({
+    return {
       added_on: data.added_on,
       amount_left: data.amount_left,
       auto_tmm: data.auto_tmm,
@@ -50,34 +48,42 @@ export function useTorrentBuilder() {
       time_active: data.time_active,
       total_size: data.total_size,
       tracker: data.tracker,
-      tracker_domain: getDomainBody(data.tracker),
       trackers_count: data.trackers_count,
       up_limit: data.up_limit,
       uploaded: data.uploaded,
       uploaded_session: data.uploaded_session,
-      upspeed: data.upspeed
-    })
-  }
+      upspeed: data.upspeed,
 
-  function buildTorrent(data: StaticTorrent): Torrent {
-    // @ts-expect-error: Type is missing the following properties from type 'Torrent': ...
-    return Object.freeze({
-      ...data,
+      get trackerDomain() {
+        return getDomainBody(this.tracker)
+      },
       get avgDownloadSpeed() {
-        const dlDuration = data.time_active - data.seeding_time
-        return data.downloaded / (dlDuration === 0 ? -1 : dlDuration)
+        const dlDuration = this.time_active - this.seeding_time
+        return this.downloaded / (dlDuration === 0 ? -1 : dlDuration)
       },
       get avgUploadSpeed() {
-        const ulDuration = data.time_active
-        return data.uploaded / (ulDuration === 0 ? -1 : ulDuration)
+        const ulDuration = this.time_active
+        return this.uploaded / (ulDuration === 0 ? -1 : ulDuration)
       },
       get globalSpeed() {
-        return data.dlspeed + data.upspeed
+        return this.dlspeed + this.upspeed
       },
       get globalVolume() {
-        return data.downloaded + data.uploaded
+        return this.downloaded + this.uploaded
+      },
+      get truncated_hash() {
+        return this.hash.slice(0, 8)
+      },
+      get basename_content_path() {
+        return basename(this.content_path)
+      },
+      get basename_download_path() {
+        return basename(this.download_path)
+      },
+      get basename_save_path() {
+        return basename(this.savePath)
       }
-    })
+    }
   }
 
   return { buildFromQbit }

@@ -52,6 +52,18 @@ export const propsData: PropertyData = {
     active: false,
     order: 41
   },
+  [DashboardProperty.BASENAME_CONTENT_PATH]: {
+    active: false,
+    order: 43
+  },
+  [DashboardProperty.BASENAME_DOWNLOAD_PATH]: {
+    active: false,
+    order: 44
+  },
+  [DashboardProperty.BASENAME_SAVE_PATH]: {
+    active: false,
+    order: 45
+  },
   [DashboardProperty.CATEGORY]: {
     active: true,
     order: 14
@@ -184,6 +196,10 @@ export const propsData: PropertyData = {
     active: false,
     order: 31
   },
+  [DashboardProperty.TRUNCATED_HASH]: {
+    active: false,
+    order: 46
+  },
   [DashboardProperty.UPLOAD_LIMIT]: {
     active: false,
     order: 33
@@ -221,6 +237,30 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.AVG_UPLOAD_SPEED]: {
     props: { titleKey: 'torrent.properties.avg_upload_speed', value: t => t.avgUploadSpeed },
     type: DashboardPropertyType.SPEED
+  },
+  [DashboardProperty.BASENAME_CONTENT_PATH]: {
+    props: { titleKey: 'torrent.properties.basename_content_path', value: t => t.basename_content_path },
+    type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.BASENAME_DOWNLOAD_PATH]: {
+    props: {
+      titleKey: 'torrent.properties.basename_download_path',
+      emptyValueKey: 'common.NA',
+      value: t => [t.basename_download_path],
+      color: () => 'primary',
+      enableHashColor: true
+    },
+    type: DashboardPropertyType.CHIP
+  },
+  [DashboardProperty.BASENAME_SAVE_PATH]: {
+    props: {
+      titleKey: 'torrent.properties.basename_save_path',
+      emptyValueKey: 'common.NA',
+      value: t => [t.basename_save_path],
+      color: () => 'primary',
+      enableHashColor: true
+    },
+    type: DashboardPropertyType.CHIP
   },
   [DashboardProperty.CATEGORY]: {
     props: {
@@ -381,7 +421,7 @@ export const propsMetadata: PropertyMetadata = {
     props: {
       titleKey: 'torrent.properties.tracker',
       emptyValueKey: 'torrent.properties.empty_tracker',
-      value: t => [t.tracker_domain],
+      value: t => [t.trackerDomain],
       color: () => 'tracker',
       enableHashColor: true
     },
@@ -389,6 +429,10 @@ export const propsMetadata: PropertyMetadata = {
   },
   [DashboardProperty.TRACKERS_COUNT]: {
     props: { titleKey: 'torrent.properties.trackers_count', value: t => t.trackers_count.toString() },
+    type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.TRUNCATED_HASH]: {
+    props: { titleKey: 'torrent.properties.truncated_hash', value: t => t.truncated_hash },
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.UPLOAD_LIMIT]: {
