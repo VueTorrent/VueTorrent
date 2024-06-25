@@ -187,7 +187,7 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
           :height="20"
           rounded="sm"
           style="width: 8em"
-          :color="item.progress === 1 ? 'torrent-stalledUP' : 'torrent-downloading'">
+          :color="item.progress === 1 ? 'torrent-ul_stalled' : 'torrent-downloading'">
           {{ formatPercent(item.progress) }}
         </v-progress-linear>
       </template>
