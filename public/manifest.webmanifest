@@ -1,12 +1,17 @@
 {
   "name": "VueTorrent",
   "short_name": "VueTorrent",
+  "description": "The sleekest looking WEBUI for qBittorrent made with Vuejs!",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#000",
   "lang": "en",
   "scope": "./",
   "theme_color": "#597566",
+  "categories": ["utilities"],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
   "icons": [
     {
       "src": "./icon-192.png",
