@@ -18,5 +18,18 @@
       "type": "image/png",
       "sizes": "512x512"
     }
+  ],
+  "file_handlers": [
+    {
+      "action": "./file",
+      "accept": {
+        "application/x-bittorrent": [
+          ".torrent"
+        ],
+        "text/magnet": [
+          ".magnet"
+        ]
+      }
+    }
   ]
 }
