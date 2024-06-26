@@ -38,6 +38,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('./MagnetHandler.vue')
   },
   {
+    name: 'fileHandler',
+    path: '/file',
+    component: () => import('./FileHandler.vue')
+  },
+  {
     name: 'login',
     path: '/login',
     component: () => import('./Login.vue'),
