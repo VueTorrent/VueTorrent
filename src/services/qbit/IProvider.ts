@@ -289,7 +289,7 @@ export default interface IProvider {
    * @param urls Torrent URLs
    * @param params Torrent add parameters
    */
-  addTorrents(torrents: File[], urls: string, params: AddTorrentPayload): Promise<void>
+  addTorrents(torrents: File[], urls: string, params?: AddTorrentPayload): Promise<void>
 
   /**
    * Set the torrent file priority

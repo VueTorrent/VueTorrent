@@ -1310,7 +1310,7 @@ export default class MockProvider implements IProvider {
     })
   }
 
-  async addTorrents(_0: File[], _1: string, _2: AddTorrentPayload): Promise<void> {
+  async addTorrents(_0: File[], _1: string, _2?: AddTorrentPayload): Promise<void> {
     return this.generateResponse()
   }
 

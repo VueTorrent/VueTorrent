@@ -272,10 +272,11 @@
     "add": {
       "cookie": "Cookies",
       "cookie_placeholder": "name1=value1; name2=value2; ...",
-      "drop_label": "Drop torrent files and links here",
+      "drop_label": "Add torrent files and/or links to torrent queue",
       "file_overflow": "+{n} more",
       "files": "Select files",
       "first_last_piece_prio": "Prioritize first and last pieces",
+      "instant_drop_label": "Download instantly torrent files and/or links",
       "links": "Links (magnet, http, file, ...)",
       "params": {
         "add_to_top_of_queue": "Add to top of queue",

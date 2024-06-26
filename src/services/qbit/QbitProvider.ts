@@ -391,7 +391,7 @@ export default class QBitProvider implements IProvider {
       .then(res => res.data)
   }
 
-  async addTorrents(torrents: File[], urls: string, params: AddTorrentPayload): Promise<void> {
+  async addTorrents(torrents: File[], urls: string, params?: AddTorrentPayload): Promise<void> {
     let data
     if (torrents) {
       // torrent files
@@ -409,7 +409,7 @@ export default class QBitProvider implements IProvider {
       data = formData
     } else {
       // magnet links
-      data = new URLSearchParams(params as Parameters)
+      data = new URLSearchParams((params || {}) as Parameters)
     }
     !!urls && data.set('urls', urls)
     return this.axios.post('/torrents/add', data)

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { useAddTorrentStore, useAuthStore, useDialogStore } from '@/stores'
+import { useAddTorrentStore, useAuthStore, useDialogStore, useTorrentStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
@@ -9,28 +9,43 @@ const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const authStore = useAuthStore()
 const dialogStore = useDialogStore()
+const torrentStore = useTorrentStore()
 
 const dndZoneRef = ref<HTMLDivElement>()
+const queueZoneRef = ref<HTMLDivElement>()
+const downloadZoneRef = ref<HTMLDivElement>()
+const { isOverDropZone: isOverDndZone } = useDropZone(dndZoneRef)
+const { isOverDropZone: isOverQueueZone } = useDropZone(queueZoneRef, { onDrop: onQueueDrop })
+const { isOverDropZone: isOverDownloadZone } = useDropZone(downloadZoneRef, { onDrop: onDownloadDrop })
 
 function onDragEnter() {
   const routeName = route.name as string
   const tabParam = route.params.tab as string
   const subtabParam = route.params.subtab as string
   if (routeName === 'login' || (routeName === 'settings' && tabParam === 'vuetorrent' && subtabParam.startsWith('torrentCard')) || !authStore.isAuthenticated) return
-  isOverDropZone.value = true
+  isOverDndZone.value = true
 }
 
-function onDrop(files: File[] | null, event: DragEvent) {
+function checkDropEvent(event: DragEvent) {
   event.preventDefault()
-  event.stopPropagation()
-  if (!event.dataTransfer) return
+  return !!event.dataTransfer
+}
 
+function extractDropData(files: File[] | null, dataTransfer: DataTransfer): [File[], string[]] {
   const torrentFiles = (files || []).filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
 
-  const links = event.dataTransfer
+  const links = dataTransfer
     .getData('text/plain')
     .split('\n')
     .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
+
+  return [torrentFiles, links]
+}
+
+function onQueueDrop(files: File[] | null, event: DragEvent) {
+  if (!checkDropEvent(event)) return
+
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
 
   torrentFiles.forEach(addTorrentStore.pushTorrentToQueue)
   links.forEach(addTorrentStore.pushTorrentToQueue)
@@ -40,7 +55,13 @@ function onDrop(files: File[] | null, event: DragEvent) {
   }
 }
 
-const { isOverDropZone } = useDropZone(dndZoneRef, { onDrop })
+function onDownloadDrop(files: File[] | null, event: DragEvent) {
+  if (!checkDropEvent(event)) return
+
+  const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
+
+  torrentStore.addTorrents(torrentFiles, links)
+}
 
 onMounted(() => {
   document.addEventListener('dragenter', onDragEnter)
@@ -51,13 +72,24 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div v-show="isOverDropZone" ref="dndZoneRef" class="dnd-zone-outer">
+  <div v-show="isOverDndZone" ref="dndZoneRef" class="position-fixed w-100 h-100" style="z-index: 9999">
     <v-scale-transition>
-      <div v-show="isOverDropZone" class="dnd-zone">
-        <div class="dnd-zone-inner">
-          <div class="dnd-zone-content text-accent">
+      <div v-show="isOverDndZone" ref="queueZoneRef" :class="['h-50', isOverQueueZone ? 'dnd-bg-active' : 'dnd-bg']">
+        <div class="d-flex align-center justify-center h-100">
+          <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
             <v-icon size="75">mdi-cloud-upload</v-icon>
             <span>{{ $t('dialogs.add.drop_label') }}</span>
+          </div>
+        </div>
+      </div>
+    </v-scale-transition>
+
+    <v-scale-transition>
+      <div v-show="isOverDndZone" ref="downloadZoneRef" :class="['h-50', isOverDownloadZone ? 'dnd-bg-active' : 'dnd-bg']">
+        <div class="d-flex align-center justify-center h-100">
+          <div class="d-flex flex-column align-center justify-center dnd-zone-border text-accent">
+            <v-icon size="75">mdi-download</v-icon>
+            <span>{{ $t('dialogs.add.instant_drop_label') }}</span>
           </div>
         </div>
       </div>
@@ -66,35 +98,17 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.dnd-zone,
-.dnd-zone-outer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.dnd-bg {
+  &-active {
+    background-color: #404040A8;
+  }
+
+  background-color: #000000A8;
 }
 
-.dnd-zone-outer {
-  background-color: rgba(0, 0, 0, 0.66);
-  z-index: 9999;
-}
-
-.dnd-zone-inner {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dnd-zone-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: calc(100% - 48px);
-  height: calc(100% - 48px);
+.dnd-zone-border {
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
   border: 2px solid rgb(var(--v-theme-accent));
   border-radius: 48px;
 }
