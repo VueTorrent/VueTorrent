@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AddPanel from '@/components/AddPanel.vue'
+import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import DnDZone from '@/components/DnDZone.vue'
 import Navbar from '@/components/Navbar/Navbar.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
@@ -40,6 +41,16 @@ const blockContextMenu = () => {
   })
 }
 
+function addLaunchQueueConsumer() {
+  window.launchQueue?.setConsumer((launchParams) => {
+    if (launchParams.files && launchParams.files.length) {
+      addTorrentStore.isFirstInit = false
+      launchParams.files.forEach(addTorrentStore.pushTorrentToQueue);
+      dialogStore.createDialog(AddTorrentDialog)
+    }
+  });
+}
+
 onBeforeMount(() => {
   backend.init(vuetorrentStore.backendUrl)
   backend.ping()
@@ -47,6 +58,7 @@ onBeforeMount(() => {
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
   blockContextMenu()
+  addLaunchQueueConsumer()
 })
 
 watch(
