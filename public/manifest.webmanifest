@@ -21,7 +21,7 @@
   ],
   "file_handlers": [
     {
-      "action": "./file",
+      "action": "#/file",
       "accept": {
         "application/x-bittorrent": [
           ".torrent"
