@@ -1,4 +1,4 @@
-import type { Category, Torrent, ServerState } from '@/types/qbit/models'
+import type { Category, RawQbitTorrent, ServerState } from '@/types/qbit/models'
 
 export type MaindataResponse = FullUpdate | PartialUpdate
 
@@ -21,7 +21,7 @@ interface FullUpdate {
   /** Tags list of the server */
   tags: string[]
   /** Torrents data of the server */
-  torrents: Record<string, Omit<Torrent, "hash">>
+  torrents: Record<string, RawQbitTorrent>
   /**
    * Trackers data of the server
    *
@@ -49,7 +49,7 @@ interface PartialUpdate {
   /** Removed tags since last snapshot */
   tags_removed?: string[]
   /** Added or updated torrents since last snapshot */
-  torrents?: Record<string, Partial<Omit<Torrent, "hash">>>
+  torrents?: Record<string, Partial<RawQbitTorrent>>
   /** Removed torrents' hash since last snapshot */
   torrents_removed?: string[]
   /**

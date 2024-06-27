@@ -6,16 +6,22 @@ import {
   Feed,
   FeedRule,
   Log,
+  QbitTorrent,
   SearchJob,
   SearchPlugin,
   SearchStatus,
-  Torrent,
   TorrentFile,
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
+import {
+  AddTorrentPayload,
+  AppPreferencesPayload,
+  CreateFeedPayload,
+  GetTorrentPayload,
+  LoginPayload
+} from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 
 export default interface IProvider {
@@ -244,7 +250,7 @@ export default interface IProvider {
    * Get torrents
    * @param payload Response modifiers
    */
-  getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]>
+  getTorrents(payload?: GetTorrentPayload): Promise<QbitTorrent[]>
 
   /**
    * Get the torrent trackers

@@ -2,8 +2,8 @@ import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
+import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent as QbitTorrent } from '@/types/qbit/models'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
@@ -17,7 +17,7 @@ export const useTorrentStore = defineStore(
     const { t } = useI18n()
     const { buildFromQbit } = useTorrentBuilder()
 
-    const _torrents = ref<Map<string, Omit<QbitTorrent, 'hash'>>>(new Map())
+    const _torrents = ref<Map<string, RawQbitTorrent>>(new Map())
     const torrents = computed(() => Array.from(_torrents.value.entries()).map(([hash, v]) => buildFromQbit({
       ...v,
       hash

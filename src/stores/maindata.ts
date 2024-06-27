@@ -1,5 +1,5 @@
 import qbit from '@/services/qbit'
-import { Category, ServerState, type Torrent as QbitTorrent } from '@/types/qbit/models'
+import { Category, RawQbitTorrent, ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
@@ -158,8 +158,7 @@ export const useMaindataStore = defineStore('maindata', () => {
         if (torrent) {
           _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
         } else {
-          //TODO: Create type TorrentWithoutHash ?
-          _torrents.value.set(hash, qbitTorrent as Omit<QbitTorrent, "hash">)
+          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
         }
       }
       response.torrents_removed?.forEach(_torrents.value.delete)

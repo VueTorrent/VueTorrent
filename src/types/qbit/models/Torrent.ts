@@ -1,6 +1,6 @@
 import type { TorrentState } from '@/constants/qbit'
 
-export default interface Torrent {
+export interface RawTorrent {
   /** Time (Unix Epoch) when the torrent was added to the client */
   added_on: number
   /** Amount of data left to download (bytes) */
@@ -33,8 +33,6 @@ export default interface Torrent {
   f_l_piece_prio: boolean
   /** True if force start is enabled for this torrent */
   force_start: boolean
-  /** Torrent hash */
-  hash: string
   inactive_seeding_time_limit: number
   /** Torrent SHA1 Hash */
   infohash_v1: string
@@ -101,4 +99,9 @@ export default interface Torrent {
   uploaded_session: number
   /** Torrent upload speed (bytes/s) */
   upspeed: number
+}
+
+export interface Torrent extends RawTorrent {
+  /** Torrent hash */
+  hash: string
 }
