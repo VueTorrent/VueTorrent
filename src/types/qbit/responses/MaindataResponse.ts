@@ -2,7 +2,11 @@ import type { Category, Torrent, ServerState } from '@/types/qbit/models'
 
 export type MaindataResponse = FullUpdate | PartialUpdate
 
-export interface FullUpdate {
+export function isFullUpdate(response: MaindataResponse): response is FullUpdate {
+  return 'full_update' in response && response.full_update
+}
+
+interface FullUpdate {
   /** Whether the response contains all or partial data */
   full_update: true
   /**
@@ -28,7 +32,7 @@ export interface FullUpdate {
   trackers: Record<string, string[]>
 }
 
-export interface PartialUpdate {
+interface PartialUpdate {
   /**
    * Response ID
    * Will cycle between 1 and 1,000,000

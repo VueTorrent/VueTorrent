@@ -1,9 +1,6 @@
-import { useTorrentBuilder } from '@/composables'
-import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
-import { Category, ServerState } from '@/types/qbit/models'
-import { FullUpdate, MaindataResponse } from '@/types/qbit/responses'
-import { Torrent } from '@/types/vuetorrent'
+import { Category, ServerState, type Torrent as QbitTorrent } from '@/types/qbit/models'
+import { isFullUpdate } from '@/types/qbit/responses'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useAuthStore } from './auth'
@@ -16,17 +13,18 @@ export const useMaindataStore = defineStore('maindata', () => {
   const isUpdatingMaindata = ref(false)
   const rid = ref<number>()
   const serverState = ref<Partial<ServerState>>()
+  /** Key: Category name */
   const categories = ref<Map<string, Category>>(new Map())
   const tags = ref<string[]>([])
+  /** Key: tracker domain, values: torrent hashes */
   const trackers = ref<Map<string, string[]>>(new Map())
 
   const authStore = useAuthStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const torrentStore = useTorrentStore()
-  const { _torrents, torrents } = storeToRefs(torrentStore)
+  const { _torrents } = storeToRefs(torrentStore)
   const vueTorrentStore = useVueTorrentStore()
-  const torrentBuilder = useTorrentBuilder()
 
   async function fetchCategories() {
     categories.value = (await qbit.getCategories()).reduce((acc, cat) => {
@@ -104,10 +102,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.deleteTags(tags)
   }
 
-  function isFullUpdate(response: MaindataResponse): response is FullUpdate {
-    return 'full_update' in response && response.full_update
-  }
-
   async function updateMaindata() {
     if (isUpdatingMaindata.value) return
     isUpdatingMaindata.value = true
@@ -140,7 +134,7 @@ export const useMaindataStore = defineStore('maindata', () => {
         if (oldCat) {
           const newCat = {
             name: qbitCat.name ?? oldCat.name,
-            savePath: qbitCat.savePath ?? oldCat.savePath,
+            savePath: qbitCat.savePath ?? oldCat.savePath
           }
           categories.value.set(catName, newCat)
         } else {
@@ -164,7 +158,8 @@ export const useMaindataStore = defineStore('maindata', () => {
         if (torrent) {
           _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
         } else {
-          _torrents.value.set(hash, qbitTorrent)
+          //TODO: Create type TorrentWithoutHash ?
+          _torrents.value.set(hash, qbitTorrent as Omit<QbitTorrent, "hash">)
         }
       }
       response.torrents_removed?.forEach(_torrents.value.delete)

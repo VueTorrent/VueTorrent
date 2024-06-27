@@ -60,7 +60,7 @@ onBeforeMount(async () => {
     <v-col cols="12" sm="6">
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
 
-      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in maindataStore.categories">
+      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in maindataStore.categories.values()">
         <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
         <v-spacer />
         <div class="d-flex">
@@ -69,7 +69,7 @@ onBeforeMount(async () => {
         </div>
       </v-sheet>
 
-      <v-card v-if="maindataStore.categories.length === 0">
+      <v-card v-if="maindataStore.categories.size === 0">
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 

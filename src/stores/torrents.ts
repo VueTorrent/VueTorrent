@@ -1,12 +1,13 @@
-import { useSearchQuery } from '@/composables'
+import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
 import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent } from '@/types/vuetorrent'
+import { Torrent as QbitTorrent } from '@/types/qbit/models'
+import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -14,12 +15,13 @@ export const useTorrentStore = defineStore(
   'torrents',
   () => {
     const { t } = useI18n()
+    const { buildFromQbit } = useTorrentBuilder()
 
-    const _torrents = ref<Map<string, Omit<Torrent, 'hash'>>>(new Map())
-    const torrents = computed(() => Array.from(_torrents.value.entries()).map(([hash, v]) => ({
+    const _torrents = ref<Map<string, Omit<QbitTorrent, 'hash'>>>(new Map())
+    const torrents = computed(() => Array.from(_torrents.value.entries()).map(([hash, v]) => buildFromQbit({
       ...v,
       hash
-    })) as Torrent[])
+    })))
 
     const isTextFilterActive = ref(true)
     const isStatusFilterActive = ref(true)
@@ -33,9 +35,9 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
-    const sortCriterias = ref<{ value: keyof Torrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
+    const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
-    type matchFn = (t: Torrent) => boolean
+    type matchFn = (t: VtTorrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
@@ -201,7 +203,7 @@ export const useTorrentStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, excludePaths: ['torrents'] }]
+      storageItems: [{ storage: localStorage, excludePaths: ['_torrents'] }]
     }
   }
 )

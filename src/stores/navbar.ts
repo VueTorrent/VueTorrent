@@ -23,11 +23,13 @@ export const useNavbarStore = defineStore(
       _timeData.value.push(new Date().getTime())
     }
 
+    //TODO: check graph with null values
     function pushDownloadData(data: number | null) {
       _downloadData.value.shift()
       _downloadData.value.push(data)
     }
 
+    //TODO: check graph with null values
     function pushUploadData(data: number | null) {
       _uploadData.value.shift()
       _uploadData.value.push(data)
