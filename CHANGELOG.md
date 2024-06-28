@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.2](https://github.com/VueTorrent/VueTorrent/compare/v2.10.1...v2.10.2) (2024-06-28)
+
+
+### Bug Fixes
+
+* **CI:** Add missing output ([#1759](https://github.com/VueTorrent/VueTorrent/issues/1759)) ([acbf51b](https://github.com/VueTorrent/VueTorrent/commit/acbf51b48c9548b1093ffbd6dba09e95847a7c03))
+
 ## [2.10.1](https://github.com/VueTorrent/VueTorrent/compare/v2.10.0...v2.10.1) (2024-06-28)
 
 
