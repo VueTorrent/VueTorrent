@@ -177,7 +177,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       response.trackers_removed?.forEach(trackers.value.delete)
 
       // filter out deleted torrents from selection
-      dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => response.torrents_removed?.includes(hash))
+      dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => !response.torrents_removed?.includes(hash))
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
