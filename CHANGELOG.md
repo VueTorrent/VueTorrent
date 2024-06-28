@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.10.0](https://github.com/VueTorrent/VueTorrent/compare/v2.9.0...v2.10.0) (2024-06-28)
+
+
+### Features
+
+* **addons:** Add qbit Enhanced edition support ([#1718](https://github.com/VueTorrent/VueTorrent/issues/1718)) ([d273ab8](https://github.com/VueTorrent/VueTorrent/commit/d273ab810fe52df882065b66ff51b1e7a0f0ff05))
+* **Dashboard:** Add truncated hash and basename paths properties ([#1747](https://github.com/VueTorrent/VueTorrent/issues/1747)) ([69f949a](https://github.com/VueTorrent/VueTorrent/commit/69f949a7ad400843eee406e4e0a61436b8fabd2a))
+* **dashboard:** Use local sort system on all properties ([#1740](https://github.com/VueTorrent/VueTorrent/issues/1740)) ([63dd06f](https://github.com/VueTorrent/VueTorrent/commit/63dd06fab1ea0190a9984e0984b1ab4d14e0e72c))
+* **docker:** Build official LSIO mod docker image ([#1756](https://github.com/VueTorrent/VueTorrent/issues/1756)) ([f4d460b](https://github.com/VueTorrent/VueTorrent/commit/f4d460b3dcecead4273242264c0fa09c6c7478fb))
+* **Drag-and-Drop:** Add instant download zone ([#1750](https://github.com/VueTorrent/VueTorrent/issues/1750)) ([feec23d](https://github.com/VueTorrent/VueTorrent/commit/feec23d93289a7034e240d7fe6016a523a199734))
+
+
+### Bug Fixes
+
+* **chips:** Use text instead of invisible pill ([#1712](https://github.com/VueTorrent/VueTorrent/issues/1712)) ([c2beb03](https://github.com/VueTorrent/VueTorrent/commit/c2beb03c2a2566d38161e43f4a3ee2919bd40cbd))
+* **colors:** Rework torrent state colors for better readability ([#1738](https://github.com/VueTorrent/VueTorrent/issues/1738)) ([550570b](https://github.com/VueTorrent/VueTorrent/commit/550570b1aa0be43f6bc0f12a71317e0be64c14dd))
+* **content:** Improve Windows path support ([#1714](https://github.com/VueTorrent/VueTorrent/issues/1714)) ([27f37a4](https://github.com/VueTorrent/VueTorrent/commit/27f37a4fadb14787a94af87fcf2e664858036c1f))
+* **content:** Prevent app from freezing when exiting too quickly ([38a33c4](https://github.com/VueTorrent/VueTorrent/commit/38a33c41c0117ebb62f391e2336f6f41960aa07a))
+* **Dashboard:** Fix span selection after [#1740](https://github.com/VueTorrent/VueTorrent/issues/1740) ([#1746](https://github.com/VueTorrent/VueTorrent/issues/1746)) ([24e8313](https://github.com/VueTorrent/VueTorrent/commit/24e831359bea8bac5f9105d11b5e9c6568885aba))
+* **dashboard:** Prevent "Delete" action when search input is focused ([#1729](https://github.com/VueTorrent/VueTorrent/issues/1729)) ([7589ebe](https://github.com/VueTorrent/VueTorrent/commit/7589ebe4abc6e0bc1ba2b6193ce91ea7fa785cb4))
+* Do not wrap items to 2 or more lines in table view closes [#1538](https://github.com/VueTorrent/VueTorrent/issues/1538) ([#1716](https://github.com/VueTorrent/VueTorrent/issues/1716)) ([fa86db5](https://github.com/VueTorrent/VueTorrent/commit/fa86db59d5a5d7a4bd5f7416f4518fb8a8bd58eb))
+* **peers:** Update 100% peer color after [#1740](https://github.com/VueTorrent/VueTorrent/issues/1740) ([#1753](https://github.com/VueTorrent/VueTorrent/issues/1753)) ([0c1a65f](https://github.com/VueTorrent/VueTorrent/commit/0c1a65fc6c6522dd5c2f45d8ed7c3651833fb6dd))
+* **pieceCanvas:** Fix color names after [#1740](https://github.com/VueTorrent/VueTorrent/issues/1740) ([#1745](https://github.com/VueTorrent/VueTorrent/issues/1745)) ([60beb8a](https://github.com/VueTorrent/VueTorrent/commit/60beb8a387254cad36d3548f993c51bd11107e48))
+
 ## [2.9.0](https://github.com/VueTorrent/VueTorrent/compare/v2.8.1...v2.9.0) (2024-06-01)
 
 ### Features
