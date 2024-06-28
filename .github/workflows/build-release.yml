@@ -179,7 +179,7 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: vuetorrent
+          name: vuetorrent-build
           path: ./vuetorrent
 
       - name: Log in to the Container registry
