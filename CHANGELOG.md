@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.10.1](https://github.com/VueTorrent/VueTorrent/compare/v2.10.0...v2.10.1) (2024-06-28)
+
+
+### Bug Fixes
+
+* **CI:** Fix LSIO mod build ([#1757](https://github.com/VueTorrent/VueTorrent/issues/1757)) ([766957c](https://github.com/VueTorrent/VueTorrent/commit/766957ce2f50b56631a499c169baf703226f4ced))
+
 ## [2.10.0](https://github.com/VueTorrent/VueTorrent/compare/v2.9.0...v2.10.0) (2024-06-28)
 
 
