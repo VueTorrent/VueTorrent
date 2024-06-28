@@ -1,11 +1,4 @@
-import {
-  ConnectionStatus,
-  FilePriority,
-  LogType,
-  PieceState,
-  TorrentOperatingMode,
-  TorrentState
-} from '@/constants/qbit'
+import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -33,23 +26,27 @@ import IProvider from './IProvider'
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
   private readonly categories: Record<string, Category> = {
-    'ISO': { name: 'ISO', savePath: faker.system.directoryPath() },
-    'Other': { name: 'Other', savePath: faker.system.directoryPath() },
-    'Movie': { name: 'Movie', savePath: faker.system.directoryPath() },
-    'Music': { name: 'Music', savePath: faker.system.directoryPath() },
-    'TV': { name: 'TV', savePath: faker.system.directoryPath() }
+    ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
+    Other: { name: 'Other', savePath: faker.system.directoryPath() },
+    Movie: { name: 'Movie', savePath: faker.system.directoryPath() },
+    Music: { name: 'Music', savePath: faker.system.directoryPath() },
+    TV: { name: 'TV', savePath: faker.system.directoryPath() }
   }
   private readonly tags: string[] = ['sorted', 'pending_sort']
-  private readonly trackers: Record<string, string[]> = faker.helpers.multiple(() => faker.internet.url(), { count: 5 }).reduce((obj, url) => {
-    obj[url] = faker.helpers.arrayElements(MockProvider.hashes)
-    return obj
-  }, {} as Record<string, string[]>)
+  private readonly trackers: Record<string, string[]> = faker.helpers
+    .multiple(() => faker.internet.url(), { count: 5 })
+    .reduce(
+      (obj, url) => {
+        obj[url] = faker.helpers.arrayElements(MockProvider.hashes)
+        return obj
+      },
+      {} as Record<string, string[]>
+    )
   private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {
-  }
+  private constructor() {}
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -89,7 +86,7 @@ export default class MockProvider implements IProvider {
       infohash_v1: hash,
       infohash_v2: '',
       last_activity: last_activity.getTime() / 1000,
-      magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
+      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
       max_inactive_seeding_time: -1,
       max_ratio: -1,
       max_seeding_time: -1,
@@ -1027,10 +1024,13 @@ export default class MockProvider implements IProvider {
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
-    const torrents = MockProvider.hashes.reduce((obj, hash) => {
-      obj[hash] = this.generateMockedTorrent(hash)
-      return obj
-    }, {} as Record<string, RawQbitTorrent>)
+    const torrents = MockProvider.hashes.reduce(
+      (obj, hash) => {
+        obj[hash] = this.generateMockedTorrent(hash)
+        return obj
+      },
+      {} as Record<string, RawQbitTorrent>
+    )
 
     return this.generateResponse<MaindataResponse>({
       result: {
@@ -1093,7 +1093,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ ip1 }:${ port1 }`]: {
+          [`${ip1}:${port1}`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1111,7 +1111,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ ip2 }:${ port2 }`]: {
+          [`${ip2}:${port2}`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1129,7 +1129,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ ip3 }:${ port3 }`]: {
+          [`${ip3}:${port3}`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),

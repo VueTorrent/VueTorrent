@@ -14,7 +14,7 @@ export const useAppStore = defineStore('app', () => {
   async function setAuthStatus(val: boolean, ver?: string) {
     if (val) {
       isAuthenticated.value = val
-      version.value = ver || await qbit.getVersion()
+      version.value = ver || (await qbit.getVersion())
       return
     }
 

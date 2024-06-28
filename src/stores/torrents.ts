@@ -18,10 +18,14 @@ export const useTorrentStore = defineStore(
     const { buildFromQbit } = useTorrentBuilder()
 
     const _torrents = ref<Map<string, RawQbitTorrent>>(new Map())
-    const torrents = computed(() => Array.from(_torrents.value.entries()).map(([hash, v]) => buildFromQbit({
-      ...v,
-      hash
-    })))
+    const torrents = computed(() =>
+      Array.from(_torrents.value.entries()).map(([hash, v]) =>
+        buildFromQbit({
+          ...v,
+          hash
+        })
+      )
+    )
 
     const isTextFilterActive = ref(true)
     const isStatusFilterActive = ref(true)
