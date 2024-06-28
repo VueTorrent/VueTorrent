@@ -3,7 +3,8 @@ import { TrackerStatus } from '@/constants/qbit'
 import { useMaindataStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
-import { nextTick, onBeforeMount, onUnmounted, reactive, ref, watch } from 'vue'
+import { useIntervalFn } from '@vueuse/core'
+import { nextTick, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm, VTextField } from 'vuetify/components'
 
@@ -44,7 +45,6 @@ function formatTrackerValue(tracker: Tracker | number) {
 const loading = ref(false)
 const torrentTrackers = ref<(Tracker & { isSelectable: boolean })[]>([])
 const newTrackers = ref('')
-const timer = ref<NodeJS.Timeout | null>(null)
 const addTrackersDialog = ref(false)
 
 const editTrackerRules = [(v: string) => !!v || t('torrentDetail.trackers.editTracker.newUrlRequired')]
@@ -79,7 +79,7 @@ async function addTrackers() {
   if (!newTrackers.value.length) return
 
   await maindataStore.addTorrentTrackers(props.torrent.hash, newTrackers.value)
-  await updateTrackers()
+  resume()
   closeAddDialog()
 }
 
@@ -93,31 +93,27 @@ async function editTracker() {
 
   await maindataStore.editTorrentTracker(props.torrent.hash, editTrackerDialog.oldUrl, editTrackerDialog.newUrl)
   editTrackerDialog.isVisible = false
-  await updateTrackers()
+  resume()
 }
 
 async function removeTracker(tracker: Tracker) {
   await maindataStore.removeTorrentTrackers(props.torrent.hash, [tracker.url])
-  await updateTrackers()
+  resume()
 }
 
 async function reannounceTrackers() {
   await maindataStore.reannounceTorrents([props.torrent.hash])
 }
 
-async function setupTimer(forceState?: boolean) {
-  if (forceState ?? props.isActive) {
-    await updateTrackers()
-    timer.value = setInterval(updateTrackers, 5000)
-  } else {
-    clearInterval(timer.value!)
-    timer.value = null
-  }
-}
+const { resume, pause } = useIntervalFn(updateTrackers, 5000, {
+  immediate: true,
+  immediateCallback: true
+})
 
-onBeforeMount(setupTimer)
-onUnmounted(() => setupTimer(false))
-watch(() => props.isActive, setupTimer)
+watch(() => props.isActive, v => {
+  if (v) resume()
+  else pause()
+})
 </script>
 
 <template>
