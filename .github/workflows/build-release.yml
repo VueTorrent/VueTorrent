@@ -4,6 +4,9 @@ on:
     branches:
       - master
 
+env:
+  REGISTRY: ghcr.io
+
 jobs:
   setup-release:
     name: Run Release Please action
@@ -161,3 +164,42 @@ jobs:
         with:
           branch: latest-release
           folder: ./vuetorrent
+
+  push-mod:
+    name: Push docker mod to GHCR
+    runs-on: ubuntu-latest
+    needs: [ setup-release, build-release ]
+    if: needs.setup-release.outputs.release_created
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent
+          path: ./vuetorrent
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/VueTorrent/vuetorrent-lsio-mod
+          tags: type=match,pattern=v(.*),group=1,value=${{ needs.setup-release.outputs.tag_name }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
