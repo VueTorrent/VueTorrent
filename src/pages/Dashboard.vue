@@ -188,8 +188,6 @@ watch(
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  isSelectionMultiple.value = false  // FIXME: adapt to prevent losing selection between views
-  scrollToTop()
 })
 
 onBeforeUnmount(() => {
