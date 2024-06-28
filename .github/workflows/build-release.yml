@@ -13,6 +13,7 @@ jobs:
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
       upload_url: ${{ steps.release.outputs.upload_url }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
