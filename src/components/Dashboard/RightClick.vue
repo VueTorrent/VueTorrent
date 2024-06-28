@@ -216,7 +216,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         ? [
             {
               text: t('dashboard.right_click.tags.remove_all'),
-              action: removeAllTags,
+              action: () => removeAllTags().then(maindataStore.forceMaindataSync),
               icon: 'mdi-playlist-remove'
             }
           ]
@@ -224,7 +224,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       ...maindataStore.tags.map(tag => ({
         text: tag,
         icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: async () => await toggleTag(tag)
+        action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
       }))
     ]
   },
@@ -236,7 +236,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabledIcon: 'mdi-label-off',
     children: availableCategories.value.map(category => ({
       text: category === '' ? t('dashboard.right_click.category.clear') : category,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category)
+      action: async () => await torrentStore.setTorrentCategory(hashes.value, category).then(maindataStore.forceMaindataSync)
     }))
   },
   {

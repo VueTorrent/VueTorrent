@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AddTorrentParamsDialog from '@/components/Dialogs/AddTorrentParamsDialog.vue'
 import { useDialog } from '@/composables'
-import { useMaindataStore, usePreferenceStore, useRssStore } from '@/stores'
+import { usePreferenceStore, useRssStore } from '@/stores'
 import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -18,7 +18,6 @@ const hasInitialRule = computed(() => {
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const rssStore = useRssStore()
 
@@ -99,7 +98,6 @@ const close = () => {
 }
 
 onBeforeMount(async () => {
-  await maindataStore.fetchCategories()
   await rssStore.fetchFeeds()
   if (hasInitialRule.value) {
     lastSavedName.value = props.initialRule!.name!

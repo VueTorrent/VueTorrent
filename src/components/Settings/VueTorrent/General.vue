@@ -118,10 +118,6 @@ const checkNewVersion = async () => {
 function openBackendHelp() {
   window.open('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation', '_blank', 'noreferrer')
 }
-
-onBeforeMount(() => {
-  appStore.fetchQbitVersion()
-})
 </script>
 
 <template>

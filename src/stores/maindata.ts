@@ -32,13 +32,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     immediateCallback: true
   })
 
-  async function fetchCategories() {
-    categories.value = (await qbit.getCategories()).reduce((acc, cat) => {
-      acc.set(cat.name, cat)
-      return acc
-    }, new Map<string, Category>())
-  }
-
   function getCategoryFromName(categoryName?: string) {
     if (!categoryName) return
     return categories.value.get(categoryName)
@@ -75,10 +68,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   async function deleteCategories(categoryNames: string[]) {
     await qbit.deleteCategory(categoryNames)
-  }
-
-  async function fetchTags() {
-    tags.value = await qbit.getAvailableTags()
   }
 
   async function createTags(tags: string[]) {
@@ -266,12 +255,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     serverState,
     tags,
     trackers,
-    fetchCategories,
     getCategoryFromName,
     createCategory,
     editCategory,
     deleteCategories,
-    fetchTags,
     createTags,
     editTag,
     deleteTags,

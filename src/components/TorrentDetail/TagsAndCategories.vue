@@ -23,11 +23,6 @@ async function toggleTag(tag: string) {
     await torrentStore.addTorrentTags([props.torrent.hash], [tag])
   }
 }
-
-onBeforeMount(async () => {
-  await maindataStore.fetchCategories()
-  await maindataStore.fetchTags()
-})
 </script>
 
 <template>

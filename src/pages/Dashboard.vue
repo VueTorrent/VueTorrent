@@ -8,10 +8,10 @@ import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -20,7 +20,6 @@ const router = useRouter()
 const dashboardStore = useDashboardStore()
 const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
-const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
@@ -187,14 +186,9 @@ watch(
   }
 )
 
-onBeforeMount(async () => {
-  await maindataStore.fetchCategories()
-  await maindataStore.fetchTags()
-})
-
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  isSelectionMultiple.value = false
+  isSelectionMultiple.value = false  // FIXME: adapt to prevent losing selection between views
   scrollToTop()
 })
 
