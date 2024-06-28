@@ -404,10 +404,6 @@ export default class MockProvider implements IProvider {
     return this.generateResponse({ shouldResolve: true })
   }
 
-  async getAuthenticationStatus(): Promise<boolean> {
-    return this.generateResponse({ result: true })
-  }
-
   /// LogController ///
 
   async getLogs(_0?: number, _1?: LogType): Promise<Log[]> {

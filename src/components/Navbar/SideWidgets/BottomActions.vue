@@ -3,12 +3,11 @@ import ConfirmShutdownDialog from '@/components/Dialogs/ConfirmShutdownDialog.vu
 import ConnectionStatusDialog from '@/components/Dialogs/ConnectionStatusDialog.vue'
 import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
-import { useAppStore, useAuthStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const authStore = useAuthStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
@@ -56,7 +55,7 @@ const themeIcon = computed(() => {
 })
 
 const logout = async () => {
-  await authStore.logout()
+  await appStore.logout()
   await vueTorrentStore.redirectToLogin()
 }
 const toggleAltSpeed = () => {

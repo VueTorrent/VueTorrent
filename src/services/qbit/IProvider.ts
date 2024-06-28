@@ -71,11 +71,6 @@ export default interface IProvider {
    */
   logout(): Promise<void>
 
-  /**
-   * Get whether the user is authenticated
-   */
-  getAuthenticationStatus(): Promise<boolean>
-
   /// LogController ///
 
   /**

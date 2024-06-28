@@ -125,13 +125,6 @@ export default class QBitProvider implements IProvider {
     return this.axios.post('/auth/logout')
   }
 
-  async getAuthenticationStatus(): Promise<boolean> {
-    return this.axios.get('/app/buildInfo').then(
-      () => true,
-      () => false
-    )
-  }
-
   /// LogController ///
 
   async getLogs(afterId?: number, logsToInclude?: LogType): Promise<Log[]> {

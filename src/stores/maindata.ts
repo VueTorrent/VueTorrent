@@ -1,9 +1,10 @@
 import qbit from '@/services/qbit'
 import { Category, RawQbitTorrent, ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
+import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
-import { useAuthStore } from './auth'
+import { useAppStore } from './app'
 import { useDashboardStore } from './dashboard'
 import { useNavbarStore } from './navbar'
 import { useTorrentStore } from './torrents'
@@ -19,12 +20,17 @@ export const useMaindataStore = defineStore('maindata', () => {
   /** Key: tracker domain, values: torrent hashes */
   const trackers = ref<Map<string, string[]>>(new Map())
 
-  const authStore = useAuthStore()
+  const appStore = useAppStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const torrentStore = useTorrentStore()
   const { _torrents } = storeToRefs(torrentStore)
   const vueTorrentStore = useVueTorrentStore()
+
+  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(updateMaindata, vueTorrentStore.refreshInterval, {
+    immediate: false,
+    immediateCallback: true
+  })
 
   async function fetchCategories() {
     categories.value = (await qbit.getCategories()).reduce((acc, cat) => {
@@ -175,7 +181,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         console.error('No longer authenticated, logging out...')
-        authStore.isAuthenticated = false
+        await appStore.setAuthStatus(false)
         await vueTorrentStore.redirectToLogin()
       } else {
         console.error(error)
@@ -287,7 +293,10 @@ export const useMaindataStore = defineStore('maindata', () => {
     setDownloadLimit,
     setUploadLimit,
     setShareLimit,
+    forceMaindataSync,
+    stopMaindataSync,
     $reset: () => {
+      stopMaindataSync()
       new Promise<void>(resolve => setTimeout(() => resolve(), isUpdatingMaindata.value ? 1500 : 0)).then(() => {
         rid.value = undefined
         serverState.value = {} as ServerState

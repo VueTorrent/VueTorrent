@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
-import { useAddTorrentStore, useAuthStore, useDialogStore, useTorrentStore } from '@/stores'
+import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
-const authStore = useAuthStore()
+const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 
@@ -22,7 +22,7 @@ function onDragEnter() {
   const routeName = route.name as string
   const tabParam = route.params.tab as string
   const subtabParam = route.params.subtab as string
-  if (routeName === 'login' || (routeName === 'settings' && tabParam === 'vuetorrent' && subtabParam.startsWith('torrentCard')) || !authStore.isAuthenticated) return
+  if (!appStore.isAuthenticated || routeName === 'login' || (routeName === 'settings' && tabParam === 'vuetorrent' && subtabParam.startsWith('torrentCard'))) return
   isOverDndZone.value = true
 }
 
