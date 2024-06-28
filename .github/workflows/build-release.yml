@@ -6,8 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
-  
+
 jobs:
   setup-release:
     name: Run Release Please action
@@ -194,7 +193,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/VueTorrent/vuetorrent-lsio-mod
           tags: type=match,pattern=v(.*),group=1,value=${{ needs.setup-release.outputs.tag_name }}
 
       - name: Build and push Docker image
