@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { useMaindataStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { onBeforeMount } from 'vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
