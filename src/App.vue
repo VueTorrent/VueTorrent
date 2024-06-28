@@ -53,7 +53,7 @@ watch(
   () => appStore.isAuthenticated,
   async isAuthenticated => {
     if (isAuthenticated) {
-      await maindataStore.updateMaindata()
+      maindataStore.forceMaindataSync()
       await preferencesStore.fetchPreferences()
       await logStore.cleanAndFetchLogs()
       addTorrentStore.initForm()
