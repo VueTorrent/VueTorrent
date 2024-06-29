@@ -1,6 +1,6 @@
 import { computed, MaybeRefOrGetter, toValue } from 'vue'
 
-export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: MaybeRefOrGetter<string | null>, getter: (item: T) => string, postProcess?: (items: T[]) => T[]) {
+export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: MaybeRefOrGetter<string | null>, getter: (item: T) => string | string[], postProcess?: (items: T[]) => T[]) {
   const results = computed(() => {
     const searchItems = toValue(items) ?? []
     const tokens = (toValue(searchQuery) ?? '').trim().toLowerCase().split(/[ ,]/i).filter(Boolean)
@@ -11,11 +11,19 @@ export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: May
   })
 
   function handleIncludeTokens(item: T, tokens: string[]) {
-    return tokens.every(token => getter(item).toLowerCase().indexOf(token) !== -1)
+    return tokens.every(token => {
+      let value = getter(item)
+      if (!Array.isArray(value)) value = [value]
+      return value.some(v => v.toLowerCase().indexOf(token) !== -1)
+    })
   }
 
   function handleExcludeTokens(item: T, tokens: string[]) {
-    return !tokens.some(token => getter(item).toLowerCase().indexOf(token) !== -1)
+    return !tokens.some(token => {
+      let value = getter(item)
+      if (!Array.isArray(value)) value = [value]
+      return value.some(v => v.toLowerCase().indexOf(token) !== -1)
+    })
   }
 
   return { results }
