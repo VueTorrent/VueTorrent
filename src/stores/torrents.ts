@@ -49,7 +49,7 @@ export const useTorrentStore = defineStore(
     const { results: filteredTorrents } = useSearchQuery(
       torrentsWithFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
-      torrent => torrent.name
+      torrent => [torrent.name, torrent.hash]
     )
 
     const filteredAndSortedTorrents = useSorted(filteredTorrents, (a, b) => {
