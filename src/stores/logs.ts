@@ -2,18 +2,20 @@ import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
+import { useTask } from 'vue-concurrency'
 
 export const useLogStore = defineStore('logs', () => {
-  const _lock = ref(false)
   const logs = ref<Log[]>([])
   const externalIp = ref<string>()
   const lastFetchedIp = ref<string>()
   const geoDetails = ref<string | null>(null)
   const ispDetails = ref<string | null>(null)
 
+  const logTask = useTask(function* (_: AbortSignal, lastId?: number) {
+    yield fetchLogs(lastId)
+  }).drop()
+
   async function fetchLogs(lastId?: number) {
-    if (_lock.value) return
-    _lock.value = true
     let afterId
     if (lastId) {
       afterId = lastId
@@ -24,7 +26,6 @@ export const useLogStore = defineStore('logs', () => {
     const newLogs = await qbit.getLogs(afterId)
     logs.value.push(...newLogs)
     await extractExternalIpFromLogs(newLogs)
-    _lock.value = false
   }
 
   async function cleanAndFetchLogs() {
@@ -44,9 +45,9 @@ export const useLogStore = defineStore('logs', () => {
     if (externalIp.value !== lastFetchedIp.value) {
       try {
         // 1K requests per day
-        const response = await fetch(`https://ipinfo.io/${externalIp.value}/json`)
+        const response = await fetch(`https://ipinfo.io/${ externalIp.value }/json`)
         const data = await response.json()
-        geoDetails.value = `${data.city}, ${data.region}, ${data.country}`
+        geoDetails.value = `${ data.city }, ${ data.region }, ${ data.country }`
         ispDetails.value = data.org
         // Update the last fetched IP in the logStore
         lastFetchedIp.value = externalIp.value
@@ -57,23 +58,20 @@ export const useLogStore = defineStore('logs', () => {
   }
 
   // Watch for changes in externalIp and fetch Geo/ISP details accordingly
-  watch(externalIp, () => {
-    fetchGeoAndIspDetails()
-  })
+  watch(externalIp, fetchGeoAndIspDetails)
 
   return {
     logs,
     externalIp,
     geoDetails,
     ispDetails,
+    logTask,
     fetchGeoAndIspDetails,
-    fetchLogs,
     cleanAndFetchLogs,
     $reset: () => {
-      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 1500 : 0)).then(() => {
-        logs.value = []
-        externalIp.value = undefined
-      })
+      logTask.clear()
+      logs.value = []
+      externalIp.value = undefined
     }
   }
 })

@@ -3,13 +3,13 @@ import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
+import { TinyColor } from '@ctrl/tinycolor'
 import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
-import { TinyColor } from '@ctrl/tinycolor'
 
 const router = useRouter()
 const { t } = useI18n()
@@ -55,7 +55,7 @@ const goHome = () => {
 }
 const getLogTypeColor = (log: Log) => {
   // @ts-expect-error: Element implicitly has an any type because expression of type string can't be used to index type
-  return `color: ${colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()]}` as string
+  return `color: ${ colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()] }` as string
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]
@@ -79,7 +79,7 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
 onBeforeMount(async () => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   await logStore.cleanAndFetchLogs()
-  useIntervalFn(logStore.fetchLogs, 15000)
+  useIntervalFn(logStore.logTask.perform, 15000)
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)

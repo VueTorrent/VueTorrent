@@ -4,6 +4,7 @@ import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
 import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
 import { useDashboardStore } from './dashboard'
 import { useNavbarStore } from './navbar'
@@ -11,7 +12,6 @@ import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
-  const isUpdatingMaindata = ref(false)
   const rid = ref<number>()
   const serverState = ref<Partial<ServerState>>()
   /** Key: Category name */
@@ -27,7 +27,14 @@ export const useMaindataStore = defineStore('maindata', () => {
   const { _torrents } = storeToRefs(torrentStore)
   const vueTorrentStore = useVueTorrentStore()
 
-  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(updateMaindata, vueTorrentStore.refreshInterval, {
+  const maindataTask = useTask(function* () {
+    yield updateMaindata()
+  }).drop()
+
+  const {
+    resume: forceMaindataSync,
+    pause: stopMaindataSync
+  } = useIntervalFn(maindataTask.perform, vueTorrentStore.refreshInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -98,9 +105,6 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   async function updateMaindata() {
-    if (isUpdatingMaindata.value) return
-    isUpdatingMaindata.value = true
-
     try {
       const response = await qbit.getMaindata(rid.value)
       rid.value = response.rid
@@ -175,8 +179,6 @@ export const useMaindataStore = defineStore('maindata', () => {
       } else {
         console.error(error)
       }
-    } finally {
-      isUpdatingMaindata.value = false
     }
   }
 
@@ -250,7 +252,6 @@ export const useMaindataStore = defineStore('maindata', () => {
 
   return {
     categories,
-    isUpdatingMaindata,
     rid,
     serverState,
     tags,
@@ -284,13 +285,12 @@ export const useMaindataStore = defineStore('maindata', () => {
     stopMaindataSync,
     $reset: () => {
       stopMaindataSync()
-      new Promise<void>(resolve => setTimeout(() => resolve(), isUpdatingMaindata.value ? 1500 : 0)).then(() => {
-        rid.value = undefined
-        serverState.value = {} as ServerState
-        categories.value.clear()
-        tags.value = []
-        trackers.value.clear()
-      })
+      maindataTask.clear()
+      rid.value = undefined
+      serverState.value = {} as ServerState
+      categories.value.clear()
+      tags.value = []
+      trackers.value.clear()
     }
   }
 })
