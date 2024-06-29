@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { FilePriority, PieceState } from '@/constants/qbit'
-import { useContentStore, useMaindataStore, useVueTorrentStore } from '@/stores'
+import { useContentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import IntervalTree from '@flatten-js/interval-tree'
 import { useIntervalFn } from '@vueuse/core'
@@ -12,8 +12,8 @@ import { useTheme } from 'vuetify'
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const theme = useTheme()
-const { cachedFiles } = storeToRefs(useContentStore())
-const maindataStore = useMaindataStore()
+const contentStore = useContentStore()
+const { cachedFiles } = storeToRefs(contentStore)
 const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
 const canvas = ref<HTMLCanvasElement>()
@@ -26,7 +26,7 @@ async function renderCanvas() {
 
   renderCanvasRunning.value = true
 
-  const pieces = await maindataStore.fetchPieceState(props.torrent.hash)
+  const pieces = await contentStore.fetchPieceState(props.torrent.hash)
 
   const selectedRanges = new IntervalTree()
   cachedFiles.value.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).forEach(file => selectedRanges.insert(file.piece_range, file.name))

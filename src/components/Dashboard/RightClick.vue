@@ -5,7 +5,14 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import { useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTorrentStore } from '@/stores'
+import {
+  useCategoryStore,
+  useDashboardStore,
+  useDialogStore,
+  useMaindataStore,
+  usePreferenceStore, useTagStore,
+  useTorrentStore
+} from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -18,10 +25,12 @@ defineProps<{
 
 const { t } = useI18n()
 const router = useRouter()
+const categoryStore = useCategoryStore()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
+const tagStore = useTagStore()
 const torrentStore = useTorrentStore()
 
 const isMultiple = computed(() => dashboardStore.selectedTorrents.length > 1)
@@ -29,7 +38,7 @@ const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
-const availableCategories = computed(() => ['', ...maindataStore.categories.keys()])
+const availableCategories = computed(() => ['', ...categoryStore.categories.keys()])
 
 async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
@@ -64,19 +73,19 @@ async function forceRecheck() {
 }
 
 async function forceReannounce() {
-  await maindataStore.reannounceTorrents(hashes)
+  await torrentStore.reannounceTorrents(hashes)
 }
 
 async function toggleSeqDl() {
-  await maindataStore.toggleSeqDl(hashes)
+  await torrentStore.toggleSeqDl(hashes)
 }
 
 async function toggleFLPiecePrio() {
-  await maindataStore.toggleFLPiecePrio(hashes)
+  await torrentStore.toggleFLPiecePrio(hashes)
 }
 
 async function toggleAutoTMM() {
-  await maindataStore.toggleAutoTmm(hashes, !torrent.value?.auto_tmm)
+  await torrentStore.toggleAutoTmm(hashes, !torrent.value?.auto_tmm)
 }
 
 function hasTag(tag: string) {
@@ -208,7 +217,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.tags.title'),
     icon: 'mdi-tag',
-    disabled: maindataStore.tags.length === 0,
+    disabled: tagStore.tags.length === 0,
     disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
     children: [
@@ -221,7 +230,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
             }
           ]
         : []),
-      ...maindataStore.tags.map(tag => ({
+      ...tagStore.tags.map(tag => ({
         text: tag,
         icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
@@ -231,7 +240,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',
-    disabled: maindataStore.categories.size === 0,
+    disabled: categoryStore.categories.size === 0,
     disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
     children: availableCategories.value.map(category => ({

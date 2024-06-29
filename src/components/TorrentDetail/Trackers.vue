@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TrackerStatus } from '@/constants/qbit'
-import { useMaindataStore } from '@/stores'
+import { useTorrentStore, useTrackerStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
@@ -11,7 +11,8 @@ import { VForm, VTextField } from 'vuetify/components'
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const torrentStore = useTorrentStore()
+const trackerStore = useTrackerStore()
 
 function translateTrackerStatus(status: TrackerStatus): string {
   switch (status) {
@@ -68,7 +69,7 @@ function openEditTrackerDialog(tracker: Tracker) {
 
 async function updateTrackers() {
   loading.value = true
-  torrentTrackers.value = (await maindataStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({
+  torrentTrackers.value = (await trackerStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({
     ...tracker,
     isSelectable: tracker.tier !== -1
   }))
@@ -78,7 +79,7 @@ async function updateTrackers() {
 async function addTrackers() {
   if (!newTrackers.value.length) return
 
-  await maindataStore.addTorrentTrackers(props.torrent.hash, newTrackers.value)
+  await trackerStore.addTorrentTrackers(props.torrent.hash, newTrackers.value)
   resume()
   closeAddDialog()
 }
@@ -91,18 +92,18 @@ function closeAddDialog() {
 async function editTracker() {
   if (!editTrackerDialog.isFormValid) return
 
-  await maindataStore.editTorrentTracker(props.torrent.hash, editTrackerDialog.oldUrl, editTrackerDialog.newUrl)
+  await trackerStore.editTorrentTracker(props.torrent.hash, editTrackerDialog.oldUrl, editTrackerDialog.newUrl)
   editTrackerDialog.isVisible = false
   resume()
 }
 
 async function removeTracker(tracker: Tracker) {
-  await maindataStore.removeTorrentTrackers(props.torrent.hash, [tracker.url])
+  await trackerStore.removeTorrentTrackers(props.torrent.hash, [tracker.url])
   resume()
 }
 
 async function reannounceTrackers() {
-  await maindataStore.reannounceTorrents([props.torrent.hash])
+  await torrentStore.reannounceTorrents([props.torrent.hash])
 }
 
 const { resume, pause } = useIntervalFn(updateTrackers, 5000, {

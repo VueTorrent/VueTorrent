@@ -1,26 +1,27 @@
 <script lang="ts" setup>
 import { TorrentState } from '@/constants/vuetorrent'
 import { getTorrentStateValue } from '@/helpers'
-import { useMaindataStore, useTorrentStore, useTrackerStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const { categories: _categories, tags: _tags } = storeToRefs(useMaindataStore())
+const categoryStore = useCategoryStore()
+const tagStore = useTagStore()
 const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
-const { trackers: _trackers } = storeToRefs(useTrackerStore())
+const trackerStore = useTrackerStore()
 
 const statuses = computed(() =>
   Object.values(TorrentState)
     .filter(state => typeof state === 'number')
     .map(state => ({ title: t(`torrent.state.${getTorrentStateValue(state as TorrentState)}`), value: state }))
 )
-const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...Array.from(_categories.value.keys()).map(c => ({ title: c, value: c }))])
-const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ..._tags.value.map(tag => ({ title: tag, value: tag }))])
+const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...Array.from(categoryStore.categories.keys()).map(c => ({ title: c, value: c }))])
+const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags.map(tag => ({ title: tag, value: tag }))])
 const trackers = computed(() => [
   { title: t('navbar.side.filters.untracked'), value: '' },
-  ...Array.from(_trackers.value.keys()).map(tracker => ({ title: tracker, value: tracker }))
+  ...Array.from(trackerStore.trackers.keys()).map(tracker => ({ title: tracker, value: tracker }))
 ])
 
 function selectAllStatuses() {

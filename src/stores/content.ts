@@ -2,7 +2,6 @@ import { useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
@@ -17,7 +16,6 @@ export const useContentStore = defineStore('content', () => {
   const { t } = useI18n()
   const route = useRoute()
   const dialogStore = useDialogStore()
-  const maindataStore = useMaindataStore()
   const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
   const hash = computed(() => route.params.hash as string)
@@ -50,7 +48,7 @@ export const useContentStore = defineStore('content', () => {
       action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
-      text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
+      text: t(`torrentDetail.content.rename.${ selectedNode.value?.type || 'file' }`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)
@@ -59,15 +57,31 @@ export const useContentStore = defineStore('content', () => {
       text: t('torrentDetail.content.priority'),
       icon: 'mdi-trending-up',
       children: [
-        { text: t('constants.file_priority.max'), icon: 'mdi-arrow-up', action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL) },
-        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-top-right', action: () => setFilePriority(selectedIds.value, FilePriority.HIGH) },
-        { text: t('constants.file_priority.normal'), icon: 'mdi-minus', action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL) },
-        { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD) }
+        {
+          text: t('constants.file_priority.max'),
+          icon: 'mdi-arrow-up',
+          action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL)
+        },
+        {
+          text: t('constants.file_priority.high'),
+          icon: 'mdi-arrow-top-right',
+          action: () => setFilePriority(selectedIds.value, FilePriority.HIGH)
+        },
+        {
+          text: t('constants.file_priority.normal'),
+          icon: 'mdi-minus',
+          action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL)
+        },
+        {
+          text: t('constants.file_priority.unwanted'),
+          icon: 'mdi-cancel',
+          action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
+        }
       ]
     }
   ])
 
-  const updateFileTreeTask = useTask(function*() {
+  const updateFileTreeTask = useTask(function* () {
     yield updateFileTree()
   }).drop()
 
@@ -83,7 +97,7 @@ export const useContentStore = defineStore('content', () => {
 
   async function updateFileTree() {
     performance.mark('ContentStore::updateFileTree::start')
-    cachedFiles.value = await maindataStore.fetchFiles(hash.value)
+    cachedFiles.value = await fetchFiles(hash.value)
     await nextTick()
     performance.mark('ContentStore::updateFileTree::end')
     performance.measure('ContentStore::updateFileTree', 'ContentStore::updateFileTree::start', 'ContentStore::updateFileTree::end')
@@ -118,6 +132,14 @@ export const useContentStore = defineStore('content', () => {
     await updateFileTree()
   }
 
+  async function fetchFiles(hash: string, indexes?: number[]) {
+    return await qbit.getTorrentFiles(hash, indexes)
+  }
+
+  async function fetchPieceState(hash: string) {
+    return await qbit.getTorrentPieceStates(hash)
+  }
+
   return {
     rightClickProperties,
     internalSelection,
@@ -135,6 +157,8 @@ export const useContentStore = defineStore('content', () => {
     renameTorrentFile,
     renameTorrentFolder,
     setFilePriority,
+    fetchFiles,
+    fetchPieceState,
     $reset: () => {
       pauseTimer()
       updateFileTreeTask.clear()

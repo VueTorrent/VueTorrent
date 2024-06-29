@@ -1,13 +1,15 @@
 import qbit from '@/services/qbit'
-import { Category, RawQbitTorrent, ServerState } from '@/types/qbit/models'
+import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
-import { defineStore, storeToRefs } from 'pinia'
-import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
+import { useCategoryStore } from './categories'
 import { useDashboardStore } from './dashboard'
 import { useNavbarStore } from './navbar'
+import { useTagStore } from './tags'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
@@ -15,15 +17,13 @@ import { useVueTorrentStore } from './vuetorrent'
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
   const serverState = ref<Partial<ServerState>>()
-  /** Key: Category name */
-  const categories = ref<Map<string, Category>>(new Map())
-  const tags = ref<string[]>([])
 
   const appStore = useAppStore()
+  const categoryStore = useCategoryStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
+  const tagStore = useTagStore()
   const torrentStore = useTorrentStore()
-  const { _torrents } = storeToRefs(torrentStore)
   const trackerStore = useTrackerStore()
   const vueTorrentStore = useVueTorrentStore()
 
@@ -39,71 +39,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     immediateCallback: true
   })
 
-  function getCategoryFromName(categoryName?: string) {
-    if (!categoryName) return
-    return categories.value.get(categoryName)
-  }
-
-  async function createCategory(category: Category) {
-    await qbit.createCategory(category)
-  }
-
-  async function editCategory(category: Category, oldCategory?: string) {
-    if (oldCategory) {
-      // Create new category
-      await qbit.createCategory(category)
-
-      // Move old category torrent to new location
-      await qbit.editCategory({ name: oldCategory, savePath: category.savePath })
-
-      // Get list of torrents in old category and move them to new category
-      const torrents = await qbit.getTorrents({ category: oldCategory })
-      if (torrents.length > 0) {
-        await qbit.setCategory(
-          torrents.map(torrent => torrent.hash),
-          category.name
-        )
-      }
-
-      // Delete old category
-      await qbit.deleteCategory([oldCategory])
-      return torrents.length
-    } else {
-      await qbit.editCategory(category)
-    }
-  }
-
-  async function deleteCategories(categoryNames: string[]) {
-    await qbit.deleteCategory(categoryNames)
-  }
-
-  async function createTags(tags: string[]) {
-    await qbit.createTag(tags)
-  }
-
-  async function editTag(oldTag: string, newTag: string) {
-    if (oldTag === newTag) return
-
-    // Create new tag
-    await qbit.createTag([newTag])
-
-    // Get list of torrents in old tag and move them to new tag
-    const torrents = await qbit.getTorrents({ tag: oldTag })
-    if (torrents.length > 0) {
-      await qbit.addTorrentTag(
-        torrents.map(torrent => torrent.hash),
-        [newTag]
-      )
-    }
-
-    // Delete old tag
-    await qbit.deleteTags([oldTag])
-  }
-
-  async function deleteTags(tags: string[]) {
-    await qbit.deleteTags(tags)
-  }
-
   async function updateMaindata() {
     try {
       const response = await qbit.getMaindata(rid.value)
@@ -111,10 +46,10 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (isFullUpdate(response)) {
         serverState.value = response.server_state
-        categories.value = new Map(Object.entries(response.categories))
-        tags.value = response.tags
-        _torrents.value = new Map(Object.entries(response.torrents))
-        trackers.value = new Map(Object.entries(response.trackers))
+        categoryStore.syncFromMaindata(true, Object.entries(response.categories))
+        tagStore.syncFromMaindata(true, response.tags)
+        torrentStore.syncFromMaindata(true, Object.entries(response.torrents))
+        trackerStore.syncFromMaindata(true, Object.entries(response.trackers))
         return
       }
 
@@ -127,42 +62,9 @@ export const useMaindataStore = defineStore('maindata', () => {
         serverState.value = { ...serverState.value, ...state }
       }
 
-      // Categories
-      for (const [catName, qbitCat] of Object.entries(response.categories ?? {})) {
-        const oldCat = categories.value.get(catName)
-        if (oldCat) {
-          const newCat = {
-            name: qbitCat.name ?? oldCat.name,
-            savePath: qbitCat.savePath ?? oldCat.savePath
-          }
-          categories.value.set(catName, newCat)
-        } else {
-          categories.value.set(catName, {
-            name: qbitCat.name ?? catName,
-            savePath: qbitCat.savePath ?? ''
-          })
-        }
-      }
-      response.categories_removed?.forEach(categories.value.delete)
-
-      // Tags
-      if (response.tags) {
-        tags.value = [...tags.value, ...response.tags]
-      }
-      tags.value = tags.value.filter(tag => !response.tags_removed || !response.tags_removed.includes(tag))
-
-      // Torrents
-      for (const [hash, qbitTorrent] of Object.entries(response.torrents ?? {})) {
-        const torrent = _torrents.value.get(hash)
-        if (torrent) {
-          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
-        } else {
-          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
-        }
-      }
-      response.torrents_removed?.forEach(_torrents.value.delete)
-
-      // Trackers
+      categoryStore.syncFromMaindata(false, Object.entries(response.categories ?? {}), response.categories_removed)
+      tagStore.syncFromMaindata(false, response.tags, response.tags_removed)
+      torrentStore.syncFromMaindata(false, Object.entries(response.torrents ?? {}))
       trackerStore.syncFromMaindata(false, Object.entries(response.trackers ?? {}), response.trackers_removed)
 
       // filter out deleted torrents from selection
@@ -176,34 +78,6 @@ export const useMaindataStore = defineStore('maindata', () => {
         console.error(error)
       }
     }
-  }
-
-  async function fetchFiles(hash: string, indexes?: number[]) {
-    return await qbit.getTorrentFiles(hash, indexes)
-  }
-
-  async function fetchPieceState(hash: string) {
-    return await qbit.getTorrentPieceStates(hash)
-  }
-
-  async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.reannounceTorrents(toValue(hashes))
-  }
-
-  async function toggleSeqDl(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.toggleSequentialDownload(toValue(hashes))
-  }
-
-  async function toggleFLPiecePrio(hashes: MaybeRefOrGetter<string[]>) {
-    await qbit.toggleFirstLastPiecePriority(toValue(hashes))
-  }
-
-  async function toggleAutoTmm(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
-    await qbit.setAutoTMM(toValue(hashes), toValue(enable))
-  }
-
-  async function setSuperSeeding(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
-    await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
   }
 
   async function syncTorrentPeers(hash: string, rid?: number) {
@@ -231,25 +105,9 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   return {
-    categories,
     rid,
     serverState,
-    tags,
-    getCategoryFromName,
-    createCategory,
-    editCategory,
-    deleteCategories,
-    createTags,
-    editTag,
-    deleteTags,
     updateMaindata,
-    fetchFiles,
-    fetchPieceState,
-    reannounceTorrents,
-    toggleSeqDl,
-    toggleFLPiecePrio,
-    toggleAutoTmm,
-    setSuperSeeding,
     syncTorrentPeers,
     addTorrentPeers,
     banPeers,
@@ -263,8 +121,6 @@ export const useMaindataStore = defineStore('maindata', () => {
       maindataTask.clear()
       rid.value = undefined
       serverState.value = {} as ServerState
-      categories.value.clear()
-      tags.value = []
     }
   }
 })

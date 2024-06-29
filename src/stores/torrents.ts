@@ -87,6 +87,23 @@ export const useTorrentStore = defineStore(
       return compareResult
     })
 
+    function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]) {
+      if (fullUpdate) {
+        _torrents.value = new Map(entries as [string, RawQbitTorrent][])
+        return
+      }
+
+      for (const [hash, qbitTorrent] of entries) {
+        const torrent = _torrents.value.get(hash)
+        if (torrent) {
+          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
+        } else {
+          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
+        }
+      }
+      removed?.forEach(_torrents.value.delete)
+    }
+
     async function setTorrentCategory(hashes: string[], category: string) {
       await qbit.setCategory(hashes, category)
     }
@@ -137,6 +154,26 @@ export const useTorrentStore = defineStore(
       )
     }
 
+    async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.reannounceTorrents(toValue(hashes))
+    }
+
+    async function toggleSeqDl(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.toggleSequentialDownload(toValue(hashes))
+    }
+
+    async function toggleFLPiecePrio(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.toggleFirstLastPiecePriority(toValue(hashes))
+    }
+
+    async function toggleAutoTmm(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+      await qbit.setAutoTMM(toValue(hashes), toValue(enable))
+    }
+
+    async function setSuperSeeding(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+      await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
+    }
+
     async function renameTorrent(hash: string, newName: string) {
       await qbit.setTorrentName(hash, newName)
     }
@@ -180,6 +217,7 @@ export const useTorrentStore = defineStore(
       trackerFilter,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,
+      syncFromMaindata,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,
@@ -188,6 +226,11 @@ export const useTorrentStore = defineStore(
       deleteTorrents,
       moveTorrents,
       addTorrents,
+      reannounceTorrents,
+      toggleSeqDl,
+      toggleFLPiecePrio,
+      toggleAutoTmm,
+      setSuperSeeding,
       renameTorrent,
       resumeTorrents,
       forceResumeTorrents,

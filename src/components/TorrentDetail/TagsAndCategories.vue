@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import { useMaindataStore, useTorrentStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
-const maindataStore = useMaindataStore()
+const categoryStore = useCategoryStore()
+const tagStore= useTagStore()
 const torrentStore = useTorrentStore()
 
 async function setCategory(category: string) {
@@ -32,7 +33,7 @@ async function toggleTag(tag: string) {
           <v-list>
             <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.tags') }}</v-list-subheader>
 
-            <v-list-item v-for="tag in maindataStore.tags" variant="text" color="accent" :title="tag" :active="torrent.tags?.includes(tag)" @click="toggleTag(tag)" />
+            <v-list-item v-for="tag in tagStore.tags" variant="text" color="accent" :title="tag" :active="torrent.tags?.includes(tag)" @click="toggleTag(tag)" />
           </v-list>
         </v-col>
 
@@ -41,7 +42,7 @@ async function toggleTag(tag: string) {
             <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.categories') }}</v-list-subheader>
 
             <v-list-item
-              v-for="category in maindataStore.categories.values()"
+              v-for="category in categoryStore.categories.values()"
               variant="text"
               color="accent"
               :title="category.name"

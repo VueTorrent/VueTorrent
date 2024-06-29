@@ -2,7 +2,7 @@
 import HistoryField from '@/components/Core/HistoryField.vue'
 import { useDialog } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { useMaindataStore, useTorrentStore } from '@/stores'
+import { useTorrentStore } from '@/stores'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -15,7 +15,6 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 
 const form = ref<VForm>()
@@ -41,7 +40,7 @@ async function submit() {
   await form.value?.validate()
   if (!isFormValid.value) return
 
-  await maindataStore.toggleAutoTmm(props.hashes, false)
+  await torrentStore.toggleAutoTmm(props.hashes, false)
   await torrentStore.moveTorrents(props.mode, props.hashes, formData.newPath)
 
   field.value?.saveValueToHistory()

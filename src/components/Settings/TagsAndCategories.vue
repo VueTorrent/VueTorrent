@@ -1,19 +1,21 @@
 <script setup lang="ts">
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
-import { useDialogStore, useMaindataStore } from '@/stores'
+import { useCategoryStore, useDialogStore, useMaindataStore, useTagStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 
+const categoryStore = useCategoryStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()
+const tagStore = useTagStore()
 
 async function deleteTag(tagName: string) {
-  await maindataStore.deleteTags([tagName])
+  await tagStore.deleteTags([tagName])
   maindataStore.forceMaindataSync()
 }
 
 async function deleteCategory(category: Category) {
-  await maindataStore.deleteCategories([category.name])
+  await categoryStore.deleteCategories([category.name])
   maindataStore.forceMaindataSync()
 }
 
@@ -32,7 +34,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
     <v-col cols="12" sm="6">
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.tagsSubheader') }}</v-list-subheader>
 
-      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in maindataStore.tags">
+      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in tagStore.tags">
         <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
         <v-spacer />
         <div class="d-flex">
@@ -41,7 +43,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
         </div>
       </v-sheet>
 
-      <v-card v-if="maindataStore.tags.length === 0">
+      <v-card v-if="tagStore.tags.length === 0">
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
 
@@ -54,7 +56,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
     <v-col cols="12" sm="6">
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
 
-      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in maindataStore.categories.values()">
+      <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in categoryStore.categories.values()">
         <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
         <v-spacer />
         <div class="d-flex">
@@ -63,7 +65,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
         </div>
       </v-sheet>
 
-      <v-card v-if="maindataStore.categories.size === 0">
+      <v-card v-if="categoryStore.categories.size === 0">
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 
