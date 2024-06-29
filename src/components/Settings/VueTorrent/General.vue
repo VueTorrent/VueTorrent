@@ -144,10 +144,6 @@ function openBackendHelp() {
           <v-checkbox v-model="vueTorrentStore.showFreeSpace" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showTrackerFilter" hide-details density="compact" :label="t('settings.vuetorrent.general.showTrackerFilter')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isDrawerRight" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
         </v-col>
 

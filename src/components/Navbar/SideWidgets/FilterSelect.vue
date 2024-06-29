@@ -141,7 +141,7 @@ function selectAllTrackers() {
       </v-select>
     </v-list-item>
 
-    <v-list-item v-if="vueTorrentStore.showTrackerFilter" class="px-0 pb-3">
+    <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
