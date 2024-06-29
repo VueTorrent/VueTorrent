@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getTorrentStateColor, getTorrentStateValue } from '@/helpers'
+import { extractHostname, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
 import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -204,7 +204,7 @@ function resetTrackerFilter() {
               {{ isTrackerFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>
           </template>
-          {{ t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : trackerFilter[0] }) }}
+          {{ t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : extractHostname(trackerFilter[0] ?? '') }) }}
         </v-chip>
         <v-chip v-else :color="trackerFilterColor" variant="elevated" closable @click:close="resetTrackerFilter()">
           <template v-slot:prepend>

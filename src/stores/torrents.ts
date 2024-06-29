@@ -1,6 +1,5 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
-import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -10,12 +9,14 @@ import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
+import { useTrackerStore } from './trackers'
 
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
     const { t } = useI18n()
     const { buildFromQbit } = useTorrentBuilder()
+    const trackerStore = useTrackerStore()
 
     const _torrents = ref<Map<string, RawQbitTorrent>>(new Map())
     const torrents = computed(() =>
@@ -45,9 +46,16 @@ export const useTorrentStore = defineStore(
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
-    const matchTracker: matchFn = t => trackerFilter.value.includes(extractHostname(t.tracker))
+    const matchTracker: matchFn = t => {
+      // FIXME: untracked filter not working
+      const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? [];
+      if (torrentTrackers.length) {
+        return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
+      }
+      return trackerFilter.value.includes(null)
+    }
 
-    const torrentsWithFilters = useArrayFilter(torrents, torrent => {
+    const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
       return !(
         (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent)) ||
         (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent)) ||
@@ -57,7 +65,7 @@ export const useTorrentStore = defineStore(
     })
 
     const { results: filteredTorrents } = useSearchQuery(
-      torrentsWithFilters,
+      torrentsWithNavbarFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
       torrent => [torrent.name, torrent.hash]
     )

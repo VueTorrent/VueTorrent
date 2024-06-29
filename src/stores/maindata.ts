@@ -9,6 +9,7 @@ import { useAppStore } from './app'
 import { useDashboardStore } from './dashboard'
 import { useNavbarStore } from './navbar'
 import { useTorrentStore } from './torrents'
+import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
@@ -17,14 +18,13 @@ export const useMaindataStore = defineStore('maindata', () => {
   /** Key: Category name */
   const categories = ref<Map<string, Category>>(new Map())
   const tags = ref<string[]>([])
-  /** Key: tracker domain, values: torrent hashes */
-  const trackers = ref<Map<string, string[]>>(new Map())
 
   const appStore = useAppStore()
   const dashboardStore = useDashboardStore()
   const navbarStore = useNavbarStore()
   const torrentStore = useTorrentStore()
   const { _torrents } = storeToRefs(torrentStore)
+  const trackerStore = useTrackerStore()
   const vueTorrentStore = useVueTorrentStore()
 
   const maindataTask = useTask(function* () {
@@ -163,11 +163,7 @@ export const useMaindataStore = defineStore('maindata', () => {
       response.torrents_removed?.forEach(_torrents.value.delete)
 
       // Trackers
-      for (const [trackerUrl, linkedTorrents] of Object.entries(response.trackers ?? {})) {
-        const oldLinkedTorrents = trackers.value.get(trackerUrl) ?? []
-        trackers.value.set(trackerUrl, [...oldLinkedTorrents, ...linkedTorrents])
-      }
-      response.trackers_removed?.forEach(trackers.value.delete)
+      trackerStore.syncFromMaindata(false, Object.entries(response.trackers ?? {}), response.trackers_removed)
 
       // filter out deleted torrents from selection
       dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => !response.torrents_removed?.includes(hash))
@@ -210,22 +206,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
   }
 
-  async function getTorrentTrackers(hash: string) {
-    return await qbit.getTorrentTrackers(hash)
-  }
-
-  async function addTorrentTrackers(hash: string, trackers: string) {
-    await qbit.addTorrentTrackers(hash, trackers)
-  }
-
-  async function editTorrentTracker(hash: string, oldUrl: string, newUrl: string) {
-    await qbit.editTorrentTracker(hash, oldUrl, newUrl)
-  }
-
-  async function removeTorrentTrackers(hash: string, urls: string[]) {
-    await qbit.removeTorrentTrackers(hash, urls)
-  }
-
   async function syncTorrentPeers(hash: string, rid?: number) {
     return await qbit.syncTorrentPeers(hash, rid)
   }
@@ -255,7 +235,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     rid,
     serverState,
     tags,
-    trackers,
     getCategoryFromName,
     createCategory,
     editCategory,
@@ -271,10 +250,6 @@ export const useMaindataStore = defineStore('maindata', () => {
     toggleFLPiecePrio,
     toggleAutoTmm,
     setSuperSeeding,
-    getTorrentTrackers,
-    addTorrentTrackers,
-    editTorrentTracker,
-    removeTorrentTrackers,
     syncTorrentPeers,
     addTorrentPeers,
     banPeers,
@@ -290,7 +265,6 @@ export const useMaindataStore = defineStore('maindata', () => {
       serverState.value = {} as ServerState
       categories.value.clear()
       tags.value = []
-      trackers.value.clear()
     }
   }
 })

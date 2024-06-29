@@ -1,15 +1,15 @@
 <script lang="ts" setup>
 import { TorrentState } from '@/constants/vuetorrent'
 import { getTorrentStateValue } from '@/helpers'
-import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useMaindataStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const { categories: _categories, tags: _tags, trackers: _trackers } = storeToRefs(useMaindataStore())
+const { categories: _categories, tags: _tags } = storeToRefs(useMaindataStore())
 const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
-const vueTorrentStore = useVueTorrentStore()
+const { trackers: _trackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)

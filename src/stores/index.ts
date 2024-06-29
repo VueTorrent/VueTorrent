@@ -12,6 +12,7 @@ import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTorrentStore } from './torrents'
+import { useTrackerStore } from './trackers'
 import { useVueTorrentStore } from './vuetorrent'
 
 export {
@@ -29,5 +30,6 @@ export {
   useSearchEngineStore,
   useTorrentDetailStore,
   useTorrentStore,
+  useTrackerStore,
   useVueTorrentStore
 }
