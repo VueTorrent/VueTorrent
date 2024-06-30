@@ -28,7 +28,8 @@ import PieceCanvas from './PieceCanvas.vue'
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
-const { cachedFiles } = storeToRefs(useContentStore())
+const contentStore = useContentStore()
+const { cachedFiles } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const vuetorrentStore = useVueTorrentStore()
@@ -72,7 +73,7 @@ function openMoveTorrentFileDialog() {
     hash: props.torrent.hash,
     isFolder: false,
     oldName: torrentFileName.value
-  })
+  }, contentStore.updateFileTreeTask.perform)
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {

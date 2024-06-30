@@ -149,7 +149,7 @@ export const useContentStore = defineStore('content', () => {
     openedItems,
     filteredFiles,
     flatTree,
-    updateFileTree,
+    updateFileTreeTask,
     timerForcedPause,
     isTimerActive,
     pauseTimer,
