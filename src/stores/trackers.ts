@@ -29,10 +29,10 @@ export const useTrackerStore = defineStore(
       }
 
       for (const [trackerUrl, linkedTorrents] of entries) {
-        const oldLinkedTorrents = trackers.value.get(trackerUrl) ?? []
-        trackers.value.set(trackerUrl, [...oldLinkedTorrents, ...linkedTorrents])
+        trackers.value.set(trackerUrl, linkedTorrents)
       }
-      removed?.forEach(trackers.value.delete)
+
+      removed?.forEach(t => trackers.value.delete(t))
     }
 
     async function getTorrentTrackers(hash: string) {

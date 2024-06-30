@@ -47,8 +47,7 @@ export const useTorrentStore = defineStore(
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
     const matchTracker: matchFn = t => {
-      // FIXME: untracked filter not working
-      const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? [];
+      const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
       if (torrentTrackers.length) {
         return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
       }

@@ -20,7 +20,7 @@ const statuses = computed(() =>
 const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...Array.from(categoryStore.categories.keys()).map(c => ({ title: c, value: c }))])
 const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags.map(tag => ({ title: tag, value: tag }))])
 const trackers = computed(() => [
-  { title: t('navbar.side.filters.untracked'), value: '' },
+  { title: t('navbar.side.filters.untracked'), value: null },
   ...Array.from(trackerStore.trackers.keys()).map(tracker => ({ title: tracker, value: tracker }))
 ])
 
