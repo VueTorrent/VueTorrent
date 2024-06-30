@@ -53,8 +53,8 @@ describe('composables/SearchQuery', () => {
   })
 
   test('should return items when using multiple values in getter', () => {
-    const item1 = { title: 'abcdef', hash: '01234'}
-    const item2 = { title: 'abcdef', hash: '56789'}
+    const item1 = { title: 'abcdef', hash: '01234' }
+    const item2 = { title: 'abcdef', hash: '56789' }
     const { results: res1 } = useSearchQuery([item1, item2], 'abc', item => [item.title, item.hash])
     const { results: res2 } = useSearchQuery([item1, item2], '567', item => [item.title, item.hash])
     expect(res1.value).toEqual([item1, item2])

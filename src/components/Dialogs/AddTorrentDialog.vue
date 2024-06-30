@@ -84,11 +84,11 @@ function close() {
 
 <template>
   <v-dialog
-      v-model="isOpened"
-      :class="$vuetify.display.mobile ? '' : 'w-75'"
-      :fullscreen="$vuetify.display.mobile"
-      scrollable
-      :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'">
+    v-model="isOpened"
+    :class="$vuetify.display.mobile ? '' : 'w-75'"
+    :fullscreen="$vuetify.display.mobile"
+    scrollable
+    :transition="openSuddenly ? 'none' : 'dialog-bottom-transition'">
     <v-card>
       <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
@@ -101,16 +101,16 @@ function close() {
         <v-row>
           <v-col cols="12">
             <v-file-input
-                v-model="files"
-                :label="t('dialogs.add.files')"
-                :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
-                accept=".torrent"
-                counter
-                multiple
-                persistent-clear
-                persistent-hint
-                prepend-icon=""
-                variant="outlined">
+              v-model="files"
+              :label="t('dialogs.add.files')"
+              :show-size="vueTorrentStore.useBinarySize ? 1024 : 1000"
+              accept=".torrent"
+              counter
+              multiple
+              persistent-clear
+              persistent-hint
+              prepend-icon=""
+              variant="outlined">
               <template v-slot:prepend>
                 <v-icon color="accent">mdi-paperclip</v-icon>
               </template>
@@ -134,13 +134,13 @@ function close() {
 
             <v-slide-y-transition>
               <HistoryField
-                  v-if="!!urls"
-                  v-model="cookie"
-                  :historyKey="HistoryKey.COOKIE"
-                  ref="cookieField"
-                  clearable
-                  :label="$t('dialogs.add.cookie')"
-                  :placeholder="$t('dialogs.add.cookie_placeholder')">
+                v-if="!!urls"
+                v-model="cookie"
+                :historyKey="HistoryKey.COOKIE"
+                ref="cookieField"
+                clearable
+                :label="$t('dialogs.add.cookie')"
+                :placeholder="$t('dialogs.add.cookie_placeholder')">
                 <template v-slot:prepend>
                   <v-icon color="accent">mdi-cookie</v-icon>
                 </template>

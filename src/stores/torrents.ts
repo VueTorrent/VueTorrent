@@ -107,16 +107,16 @@ export const useTorrentStore = defineStore(
       const torrentsCount = torrents.length + links.split('\n').filter(url => url.trim().length).length
 
       return await toast.promise(
-          qbit.addTorrents(torrents, links, payload),
-          {
-            pending: t('toast.add.pending'),
-            error: t('toast.add.error', torrentsCount),
-            success: t('toast.add.success', torrentsCount)
-          },
-          {
-            autoClose: 1500
-          }
-        )
+        qbit.addTorrents(torrents, links, payload),
+        {
+          pending: t('toast.add.pending'),
+          error: t('toast.add.error', torrentsCount),
+          success: t('toast.add.success', torrentsCount)
+        },
+        {
+          autoClose: 1500
+        }
+      )
     }
 
     async function renameTorrent(hash: string, newName: string) {
