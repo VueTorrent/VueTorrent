@@ -32,7 +32,7 @@ const comparatorMap: Record<keyof Torrent, Comparator> = {
   infohash_v2: comparators.text,
   last_activity: comparators.invertedNumeric,
   magnet: comparators.text,
-  name: comparators.numeric,
+  name: comparators.text,
   num_leechs: comparators.numeric,
   num_seeds: comparators.numeric,
   priority: comparators.numeric,
