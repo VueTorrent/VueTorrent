@@ -1,6 +1,11 @@
 import { computed, MaybeRefOrGetter, toValue } from 'vue'
 
-export function useSearchQuery<T>(items: MaybeRefOrGetter<T[]>, searchQuery: MaybeRefOrGetter<string | null>, getter: (item: T) => string | string[], postProcess?: (items: T[]) => T[]) {
+export function useSearchQuery<T>(
+  items: MaybeRefOrGetter<T[]>,
+  searchQuery: MaybeRefOrGetter<string | null>,
+  getter: (item: T) => string | string[],
+  postProcess?: (items: T[]) => T[]
+) {
   const results = computed(() => {
     const searchItems = toValue(items) ?? []
     const tokens = (toValue(searchQuery) ?? '').trim().toLowerCase().split(/[ ,]/i).filter(Boolean)

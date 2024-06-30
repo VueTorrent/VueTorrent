@@ -100,10 +100,10 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .dnd-bg {
   &-active {
-    background-color: #404040A8;
+    background-color: #404040a8;
   }
 
-  background-color: #000000A8;
+  background-color: #000000a8;
 }
 
 .dnd-zone-border {

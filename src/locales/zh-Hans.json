@@ -1,4 +1,5 @@
 {
+  "_comments": "由Tolgee生成。切勿手动修改否则将被覆盖",
   "common": {
     "active": "活跃",
     "cancel": "取消",
@@ -209,10 +210,11 @@
       "added_on": "添加时间",
       "amount_left": "剩余大小",
       "availability": "可用性",
+      "available_peers": "用户 (群组)",
+      "available_seeds": "做种者 (群组)",
       "avg_download_speed": "平均下载速度",
       "avg_upload_speed": "平均上传速度",
       "category": "分类",
-      "completed": "完成度",
       "completion_on": "完成时间",
       "content_path": "内容路径",
       "default": "默认",
