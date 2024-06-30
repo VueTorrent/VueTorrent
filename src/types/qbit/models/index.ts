@@ -3,7 +3,7 @@ import { getEmptyParams } from './AddTorrentParams'
 import type AppPreferences from './AppPreferences'
 import type Category from './Category'
 import type ServerState from './ServerState'
-import type Torrent from './Torrent'
+import type { RawTorrent as RawQbitTorrent, Torrent as QbitTorrent } from './Torrent'
 import type Tracker from './Tracker'
 import type Peer from './Peer'
 import type TorrentFile from './TorrentFile'
@@ -28,7 +28,8 @@ export type {
   Category,
   ServerState,
   Tracker,
-  Torrent,
+  RawQbitTorrent,
+  QbitTorrent,
   Peer,
   TorrentFile,
   TorrentProperties,

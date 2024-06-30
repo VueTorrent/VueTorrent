@@ -2,13 +2,13 @@ import { useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { useDialogStore } from '@/stores/dialog'
-import { useMaindataStore } from '@/stores/maindata'
 import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, ref, toRaw } from 'vue'
+import { useTask } from 'vue-concurrency'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -16,7 +16,6 @@ export const useContentStore = defineStore('content', () => {
   const { t } = useI18n()
   const route = useRoute()
   const dialogStore = useDialogStore()
-  const maindataStore = useMaindataStore()
   const { fileContentInterval } = storeToRefs(useVueTorrentStore())
 
   const hash = computed(() => route.params.hash as string)
@@ -25,7 +24,6 @@ export const useContentStore = defineStore('content', () => {
     isVisible: false,
     offset: [0, 0]
   })
-  const _lock = ref(false)
   const filenameFilter = ref('')
   const cachedFiles = ref<TorrentFile[]>([])
   const openedItems = ref([''])
@@ -50,7 +48,7 @@ export const useContentStore = defineStore('content', () => {
       action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
-      text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
+      text: t(`torrentDetail.content.rename.${ selectedNode.value?.type || 'file' }`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)
@@ -59,29 +57,47 @@ export const useContentStore = defineStore('content', () => {
       text: t('torrentDetail.content.priority'),
       icon: 'mdi-trending-up',
       children: [
-        { text: t('constants.file_priority.max'), icon: 'mdi-arrow-up', action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL) },
-        { text: t('constants.file_priority.high'), icon: 'mdi-arrow-top-right', action: () => setFilePriority(selectedIds.value, FilePriority.HIGH) },
-        { text: t('constants.file_priority.normal'), icon: 'mdi-minus', action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL) },
-        { text: t('constants.file_priority.unwanted'), icon: 'mdi-cancel', action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD) }
+        {
+          text: t('constants.file_priority.max'),
+          icon: 'mdi-arrow-up',
+          action: () => setFilePriority(selectedIds.value, FilePriority.MAXIMAL)
+        },
+        {
+          text: t('constants.file_priority.high'),
+          icon: 'mdi-arrow-top-right',
+          action: () => setFilePriority(selectedIds.value, FilePriority.HIGH)
+        },
+        {
+          text: t('constants.file_priority.normal'),
+          icon: 'mdi-minus',
+          action: () => setFilePriority(selectedIds.value, FilePriority.NORMAL)
+        },
+        {
+          text: t('constants.file_priority.unwanted'),
+          icon: 'mdi-cancel',
+          action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
+        }
       ]
     }
   ])
+
+  const updateFileTreeTask = useTask(function* () {
+    yield updateFileTree()
+  }).drop()
 
   const timerForcedPause = ref(false)
   const {
     isActive: isTimerActive,
     pause: pauseTimer,
     resume: resumeTimer
-  } = useIntervalFn(updateFileTree, fileContentInterval, {
+  } = useIntervalFn(updateFileTreeTask.perform, fileContentInterval, {
     immediate: false,
     immediateCallback: true
   })
 
   async function updateFileTree() {
-    if (_lock.value) return
-    _lock.value = true
     performance.mark('ContentStore::updateFileTree::start')
-    cachedFiles.value = await maindataStore.fetchFiles(hash.value).finally(() => (_lock.value = false))
+    cachedFiles.value = await fetchFiles(hash.value)
     await nextTick()
     performance.mark('ContentStore::updateFileTree::end')
     performance.measure('ContentStore::updateFileTree', 'ContentStore::updateFileTree::start', 'ContentStore::updateFileTree::end')
@@ -116,6 +132,14 @@ export const useContentStore = defineStore('content', () => {
     await updateFileTree()
   }
 
+  async function fetchFiles(hash: string, indexes?: number[]) {
+    return await qbit.getTorrentFiles(hash, indexes)
+  }
+
+  async function fetchPieceState(hash: string) {
+    return await qbit.getTorrentPieceStates(hash)
+  }
+
   return {
     rightClickProperties,
     internalSelection,
@@ -133,14 +157,15 @@ export const useContentStore = defineStore('content', () => {
     renameTorrentFile,
     renameTorrentFolder,
     setFilePriority,
+    fetchFiles,
+    fetchPieceState,
     $reset: () => {
       pauseTimer()
-      new Promise<void>(resolve => setTimeout(() => resolve(), _lock.value ? 10000 : 0)).finally(() => {
-        internalSelection.value.clear()
-        filenameFilter.value = ''
-        cachedFiles.value = []
-        openedItems.value = ['']
-      })
+      updateFileTreeTask.clear()
+      internalSelection.value.clear()
+      filenameFilter.value = ''
+      cachedFiles.value = []
+      openedItems.value = ['']
     }
   }
 })

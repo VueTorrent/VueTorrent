@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
-import { useAuthStore } from '@/stores'
-
+import { useAppStore } from '@/stores'
 import { LoginPayload } from '@/types/qbit/payloads'
 import { onMounted, reactive, ref, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -12,7 +11,7 @@ const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 
-const authStore = useAuthStore()
+const appStore = useAppStore()
 
 const loginForm = reactive<LoginPayload>({
   username: '',
@@ -27,9 +26,9 @@ const rules = {
 
 const login = async () => {
   if (!rulesOk.value) return
-  await authStore.login(loginForm.username, loginForm.password)
+  await appStore.login(loginForm.username, loginForm.password)
 
-  if (authStore.isAuthenticated) {
+  if (appStore.isAuthenticated) {
     toast.success(t('login.success'))
     redirectOnSuccess()
   } else {
@@ -47,12 +46,12 @@ const redirectOnSuccess = () => {
 
 onMounted(async () => {
   if (route.query.username && route.query.password) {
-    await authStore.login(route.query.username as string, route.query.password as string)
+    await appStore.login(route.query.username as string, route.query.password as string)
   }
 })
 
 watchEffect(() => {
-  if (authStore.isAuthenticated) {
+  if (appStore.isAuthenticated) {
     redirectOnSuccess()
   }
 })

@@ -3,20 +3,33 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
-  const intervals = ref<number[]>([])
-  const version = ref('unknown')
+  const isAuthenticated = ref(false)
+  const version = ref('0.0.0')
 
-  function pushInterval(callback: TimerHandler, interval?: number, ...params: any) {
-    intervals.value.push(setInterval(callback, interval, ...params))
+  async function fetchAuthStatus() {
+    const ver: string | false = await qbit.getVersion().catch(() => false)
+    await setAuthStatus(ver !== false, ver || undefined)
   }
 
-  function clearIntervals() {
-    intervals.value.forEach(clearInterval)
-    intervals.value = []
+  async function setAuthStatus(val: boolean, ver?: string) {
+    if (val) {
+      isAuthenticated.value = val
+      version.value = ver || (await qbit.getVersion())
+      return
+    }
+
+    isAuthenticated.value = val
+    version.value = '0.0.0'
   }
 
-  async function fetchQbitVersion() {
-    version.value = await qbit.getVersion()
+  async function login(username: string, password: string) {
+    const response = await qbit.login({ username, password })
+    await setAuthStatus(response === 'Ok.')
+  }
+
+  async function logout() {
+    await qbit.logout()
+    await setAuthStatus(false)
   }
 
   async function toggleAlternativeMode() {
@@ -28,16 +41,17 @@ export const useAppStore = defineStore('app', () => {
   }
 
   return {
-    intervals,
+    isAuthenticated,
     version,
-    fetchQbitVersion,
-    pushInterval,
-    clearIntervals,
+    fetchAuthStatus,
+    setAuthStatus,
     shutdownQbit,
+    login,
+    logout,
     toggleAlternativeMode,
-    $reset: () => {
-      clearIntervals()
-      version.value = 'unknown'
+    $reset: async () => {
+      version.value = '0.0.0'
+      await logout()
     }
   }
 })

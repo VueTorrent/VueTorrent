@@ -2,7 +2,7 @@
 import HistoryField from '@/components/Core/HistoryField.vue'
 import { AppPreferences } from '@/constants/qbit'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { useMaindataStore, usePreferenceStore } from '@/stores'
+import { useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
 import { AddTorrentParams } from '@/types/qbit/models'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -10,8 +10,9 @@ import { useI18n } from 'vue-i18n'
 const form = defineModel<AddTorrentParams>({ required: true })
 
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const categoryStore = useCategoryStore()
 const preferenceStore = usePreferenceStore()
+const tagStore = useTagStore()
 
 const contentLayoutOptions = [
   { title: t('common.useGlobalSettings'), value: null },
@@ -32,7 +33,7 @@ const savePathField = ref<typeof HistoryField>()
 const tagSearch = ref('')
 
 const categorySearch = ref('')
-const categoryNames = computed(() => maindataStore.categories.map(c => c.name))
+const categoryNames = computed(() => Array.from(categoryStore.categories.keys()))
 const category = computed<string | undefined>({
   get: () => form.value.category || categorySearch.value || undefined,
   set: value => (form.value.category = value || undefined)
@@ -94,7 +95,7 @@ const inactiveSeedingTimeLimit = computed({
 })
 
 const onCategoryChanged = () => {
-  form.value.save_path = maindataStore.getCategoryFromName(form.value.category)?.savePath ?? preferenceStore.preferences!.save_path
+  form.value.save_path = categoryStore.getCategoryFromName(form.value.category)?.savePath ?? preferenceStore.preferences!.save_path
 }
 
 function saveFields() {
@@ -112,7 +113,7 @@ defineExpose({ saveFields })
         v-model="form.tags"
         v-model:search="tagSearch"
         :hide-no-data="false"
-        :items="maindataStore.tags"
+        :items="tagStore.tags"
         :label="t('dialogs.add.params.tags')"
         chips
         clearable

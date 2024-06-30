@@ -6,10 +6,10 @@ import {
   Feed,
   FeedRule,
   Log,
+  QbitTorrent,
   SearchJob,
   SearchPlugin,
   SearchStatus,
-  Torrent,
   TorrentFile,
   TorrentProperties,
   Tracker
@@ -64,11 +64,6 @@ export default interface IProvider {
    * Logout from the application
    */
   logout(): Promise<void>
-
-  /**
-   * Get whether the user is authenticated
-   */
-  getAuthenticationStatus(): Promise<boolean>
 
   /// LogController ///
 
@@ -244,7 +239,7 @@ export default interface IProvider {
    * Get torrents
    * @param payload Response modifiers
    */
-  getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]>
+  getTorrents(payload?: GetTorrentPayload): Promise<QbitTorrent[]>
 
   /**
    * Get the torrent trackers

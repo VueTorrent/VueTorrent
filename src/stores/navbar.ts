@@ -23,14 +23,14 @@ export const useNavbarStore = defineStore(
       _timeData.value.push(new Date().getTime())
     }
 
-    function pushDownloadData(data: number) {
+    function pushDownloadData(data?: number) {
       _downloadData.value.shift()
-      _downloadData.value.push(data)
+      _downloadData.value.push(data ?? 0)
     }
 
-    function pushUploadData(data: number) {
+    function pushUploadData(data?: number) {
       _uploadData.value.shift()
-      _uploadData.value.push(data)
+      _uploadData.value.push(data ?? 0)
     }
 
     return {

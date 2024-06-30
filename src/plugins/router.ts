@@ -1,5 +1,6 @@
 import { routes } from '@/pages'
-import { useAuthStore } from '@/stores'
+import { useAppStore } from '@/stores'
+import { storeToRefs } from 'pinia'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
@@ -8,10 +9,10 @@ const router = createRouter({
 })
 
 router.beforeResolve((to, _, next) => {
-  const { isAuthenticated } = useAuthStore()
+  const { isAuthenticated } = storeToRefs(useAppStore())
   const isPublic = to.meta.public === true
 
-  if (!isPublic && !isAuthenticated) {
+  if (!isPublic && !isAuthenticated.value) {
     return next({ name: 'login', query: { redirect: location.hash.slice(1) } })
   }
 

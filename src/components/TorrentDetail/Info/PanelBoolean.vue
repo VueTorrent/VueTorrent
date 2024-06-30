@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useMaindataStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
+import { useTorrentDetailStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -7,18 +7,17 @@ import InfoBase from './InfoBase.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
 
-const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
 
 const auto_tmm = computed({
   get: () => props.torrent.auto_tmm,
-  set: value => maindataStore.toggleAutoTmm([props.torrent.hash], value)
+  set: value => torrentStore.toggleAutoTmm([props.torrent.hash], value)
 })
 
 const f_l_piece_prio = computed({
   get: () => props.torrent.f_l_piece_prio,
-  set: () => maindataStore.toggleFLPiecePrio([props.torrent.hash])
+  set: () => torrentStore.toggleFLPiecePrio([props.torrent.hash])
 })
 
 const forced = computed({
@@ -34,12 +33,12 @@ const forced = computed({
 
 const seq_dl = computed({
   get: () => props.torrent.seq_dl,
-  set: () => maindataStore.toggleSeqDl([props.torrent.hash])
+  set: () => torrentStore.toggleSeqDl([props.torrent.hash])
 })
 
 const super_seeding = computed({
   get: () => props.torrent.super_seeding,
-  set: value => maindataStore.setSuperSeeding([props.torrent.hash], value)
+  set: value => torrentStore.setSuperSeeding([props.torrent.hash], value)
 })
 </script>
 

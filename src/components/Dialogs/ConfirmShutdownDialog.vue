@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useAppStore, useAuthStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useVueTorrentStore } from '@/stores'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -11,7 +11,6 @@ const props = defineProps<{
 const { t } = useI18n()
 const { isOpened } = useDialog(props.guid)
 const appStore = useAppStore()
-const authStore = useAuthStore()
 const vueTorrentStore = useVueTorrentStore()
 
 const close = () => {
@@ -19,7 +18,7 @@ const close = () => {
 }
 const shutdown = async () => {
   if (await appStore.shutdownQbit()) {
-    authStore.isAuthenticated = false
+    await appStore.setAuthStatus(false)
     await vueTorrentStore.redirectToLogin()
     toast.success(t('dialogs.shutdown.success'))
   } else {

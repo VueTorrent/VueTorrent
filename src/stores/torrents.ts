@@ -1,21 +1,32 @@
-import { useSearchQuery } from '@/composables'
+import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
-import { extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
+import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
-import { Torrent } from '@/types/vuetorrent'
+import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { MaybeRefOrGetter, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
+import { useTrackerStore } from './trackers'
 
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
     const { t } = useI18n()
+    const { buildFromQbit } = useTorrentBuilder()
+    const trackerStore = useTrackerStore()
 
-    const torrents = ref<Torrent[]>([])
+    const _torrents = ref<Map<string, RawQbitTorrent>>(new Map())
+    const torrents = computed(() =>
+      Array.from(_torrents.value.entries()).map(([hash, v]) =>
+        buildFromQbit({
+          ...v,
+          hash
+        })
+      )
+    )
 
     const isTextFilterActive = ref(true)
     const isStatusFilterActive = ref(true)
@@ -29,15 +40,21 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
-    const sortCriterias = ref<{ value: keyof Torrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
+    const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
-    type matchFn = (t: Torrent) => boolean
+    type matchFn = (t: VtTorrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
-    const matchTracker: matchFn = t => trackerFilter.value.includes(extractHostname(t.tracker))
+    const matchTracker: matchFn = t => {
+      const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
+      if (torrentTrackers.length) {
+        return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
+      }
+      return trackerFilter.value.includes(null)
+    }
 
-    const torrentsWithFilters = useArrayFilter(torrents, torrent => {
+    const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
       return !(
         (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent)) ||
         (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent)) ||
@@ -47,7 +64,7 @@ export const useTorrentStore = defineStore(
     })
 
     const { results: filteredTorrents } = useSearchQuery(
-      torrentsWithFilters,
+      torrentsWithNavbarFilters,
       () => (isTextFilterActive.value ? textFilter.value : null),
       torrent => [torrent.name, torrent.hash]
     )
@@ -68,6 +85,23 @@ export const useTorrentStore = defineStore(
       }
       return compareResult
     })
+
+    function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<RawQbitTorrent>][], removed?: string[]) {
+      if (fullUpdate) {
+        _torrents.value = new Map(entries as [string, RawQbitTorrent][])
+        return
+      }
+
+      for (const [hash, qbitTorrent] of entries) {
+        const torrent = _torrents.value.get(hash)
+        if (torrent) {
+          _torrents.value.set(hash, { ...torrent, ...qbitTorrent })
+        } else {
+          _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
+        }
+      }
+      removed?.forEach(_torrents.value.delete)
+    }
 
     async function setTorrentCategory(hashes: string[], category: string) {
       await qbit.setCategory(hashes, category)
@@ -119,6 +153,26 @@ export const useTorrentStore = defineStore(
       )
     }
 
+    async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.reannounceTorrents(toValue(hashes))
+    }
+
+    async function toggleSeqDl(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.toggleSequentialDownload(toValue(hashes))
+    }
+
+    async function toggleFLPiecePrio(hashes: MaybeRefOrGetter<string[]>) {
+      await qbit.toggleFirstLastPiecePriority(toValue(hashes))
+    }
+
+    async function toggleAutoTmm(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+      await qbit.setAutoTMM(toValue(hashes), toValue(enable))
+    }
+
+    async function setSuperSeeding(hashes: MaybeRefOrGetter<string[]>, enable: MaybeRefOrGetter<boolean>) {
+      await qbit.setSuperSeeding(toValue(hashes), toValue(enable))
+    }
+
     async function renameTorrent(hash: string, newName: string) {
       await qbit.setTorrentName(hash, newName)
     }
@@ -148,6 +202,7 @@ export const useTorrentStore = defineStore(
     }
 
     return {
+      _torrents,
       torrents,
       isTextFilterActive,
       isStatusFilterActive,
@@ -161,6 +216,7 @@ export const useTorrentStore = defineStore(
       trackerFilter,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,
+      syncFromMaindata,
       setTorrentCategory,
       addTorrentTags,
       removeTorrentTags,
@@ -169,6 +225,11 @@ export const useTorrentStore = defineStore(
       deleteTorrents,
       moveTorrents,
       addTorrents,
+      reannounceTorrents,
+      toggleSeqDl,
+      toggleFLPiecePrio,
+      toggleAutoTmm,
+      setSuperSeeding,
       renameTorrent,
       resumeTorrents,
       forceResumeTorrents,
@@ -177,7 +238,7 @@ export const useTorrentStore = defineStore(
       setTorrentPriority,
       exportTorrent,
       $reset: () => {
-        torrents.value = []
+        _torrents.value.clear()
         sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
         isTextFilterActive.value = true
@@ -196,7 +257,7 @@ export const useTorrentStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, excludePaths: ['torrents'] }]
+      storageItems: [{ storage: localStorage, excludePaths: ['_torrents'] }]
     }
   }
 )

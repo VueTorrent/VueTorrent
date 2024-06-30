@@ -1,24 +1,28 @@
 <script lang="ts" setup>
 import { TorrentState } from '@/constants/vuetorrent'
 import { getTorrentStateValue } from '@/helpers'
-import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
-const { categories: _categories, tags: _tags, trackers: _trackers } = storeToRefs(useMaindataStore())
+const categoryStore = useCategoryStore()
+const tagStore = useTagStore()
 const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
-const vueTorrentStore = useVueTorrentStore()
+const trackerStore = useTrackerStore()
 
 const statuses = computed(() =>
   Object.values(TorrentState)
     .filter(state => typeof state === 'number')
     .map(state => ({ title: t(`torrent.state.${getTorrentStateValue(state as TorrentState)}`), value: state }))
 )
-const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ..._categories.value.map(c => ({ title: c.name, value: c.name }))])
-const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ..._tags.value.map(tag => ({ title: tag, value: tag }))])
-const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: '' }, ..._trackers.value.map(tracker => ({ title: tracker, value: tracker }))])
+const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...Array.from(categoryStore.categories.keys()).map(c => ({ title: c, value: c }))])
+const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags.map(tag => ({ title: tag, value: tag }))])
+const trackers = computed(() => [
+  { title: t('navbar.side.filters.untracked'), value: null },
+  ...Array.from(trackerStore.trackers.keys()).map(tracker => ({ title: tracker, value: tracker }))
+])
 
 function selectAllStatuses() {
   statusFilter.value = []
@@ -138,7 +142,7 @@ function selectAllTrackers() {
       </v-select>
     </v-list-item>
 
-    <v-list-item v-if="vueTorrentStore.showTrackerFilter" class="px-0 pb-3">
+    <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>

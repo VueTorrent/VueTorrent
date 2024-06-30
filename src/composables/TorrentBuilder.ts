@@ -1,6 +1,6 @@
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
-import { Torrent as QbitTorrent } from '@/types/qbit/models'
+import { QbitTorrent } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 
 export function useTorrentBuilder() {

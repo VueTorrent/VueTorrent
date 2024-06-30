@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Toolbar from '@/components/Dashboard/Toolbar.vue'
 import TRC from '@/components/Dashboard/RightClick.vue'
+import Toolbar from '@/components/Dashboard/Toolbar.vue'
 import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
@@ -8,10 +8,10 @@ import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
-import { useDashboardStore, useDialogStore, useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeMount, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -20,7 +20,6 @@ const router = useRouter()
 const dashboardStore = useDashboardStore()
 const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
-const maindataStore = useMaindataStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
@@ -110,6 +109,7 @@ function startPress(e: Touch, torrent: TorrentType) {
 function endPress() {
   clearTimeout(timer.value)
 }
+
 // END mobile long press
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {
@@ -182,15 +182,8 @@ watch(
   }
 )
 
-onBeforeMount(async () => {
-  await maindataStore.fetchCategories()
-  await maindataStore.fetchTags()
-})
-
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcuts)
-  isSelectionMultiple.value = false
-  scrollToTop()
 })
 
 onBeforeUnmount(() => {
@@ -225,7 +218,7 @@ onBeforeUnmount(() => {
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
 
-    <div v-if="vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="!vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
 
@@ -258,7 +251,7 @@ onBeforeUnmount(() => {
       @startPress="startPress"
       @endPress="endPress" />
 
-    <div v-if="!vuetorrentStore.isPaginationOnTop && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="!vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>

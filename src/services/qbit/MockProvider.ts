@@ -7,10 +7,11 @@ import type {
   Feed,
   FeedRule,
   Log,
+  QbitTorrent,
+  RawQbitTorrent,
   SearchJob,
   SearchPlugin,
   SearchStatus,
-  Torrent,
   TorrentFile,
   TorrentProperties,
   Tracker
@@ -24,9 +25,23 @@ import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
-  private readonly categories = ['', 'ISO', 'Other', 'Movie', 'Music', 'TV']
-  private readonly tags = ['', 'sorted', 'pending_sort']
-  private readonly trackers = ['', ...faker.helpers.multiple(() => faker.internet.url(), { count: 5 })]
+  private readonly categories: Record<string, Category> = {
+    ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
+    Other: { name: 'Other', savePath: faker.system.directoryPath() },
+    Movie: { name: 'Movie', savePath: faker.system.directoryPath() },
+    Music: { name: 'Music', savePath: faker.system.directoryPath() },
+    TV: { name: 'TV', savePath: faker.system.directoryPath() }
+  }
+  private readonly tags: string[] = ['sorted', 'pending_sort']
+  private readonly trackers: Record<string, string[]> = faker.helpers
+    .multiple(() => faker.internet.url(), { count: 5 })
+    .reduce(
+      (obj, url) => {
+        obj[url] = faker.helpers.arrayElements(MockProvider.hashes)
+        return obj
+      },
+      {} as Record<string, string[]>
+    )
   private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
@@ -38,6 +53,70 @@ export default class MockProvider implements IProvider {
       MockProvider.instance = new MockProvider()
     }
     return MockProvider.instance
+  }
+
+  private generateMockedTorrent(hash: string): RawQbitTorrent {
+    const added_on = faker.date.past()
+    const last_activity = faker.date.between({ from: added_on, to: Date.now() })
+    const name = faker.system.fileName()
+    const num_complete = faker.number.int({ min: 0, max: 250 })
+    const num_incomplete = faker.number.int({ min: 0, max: 250 })
+    const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
+    const completed = faker.number.int({ min: 0, max: total_size })
+    const tracker = faker.helpers.arrayElement(Object.keys(this.trackers))
+
+    return {
+      added_on: added_on.getTime() / 1000,
+      amount_left: faker.number.int({ min: 0, max: total_size }),
+      auto_tmm: faker.datatype.boolean(),
+      availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
+      category: faker.helpers.arrayElement(['', ...Object.keys(this.categories)]),
+      completed,
+      completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime() / 1000,
+      content_path: faker.system.filePath(),
+      dl_limit: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
+      dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
+      download_path: faker.system.directoryPath(),
+      downloaded: completed,
+      downloaded_session: completed,
+      eta: faker.number.int({ min: 0, max: 900000 }),
+      f_l_piece_prio: faker.datatype.boolean(),
+      force_start: faker.datatype.boolean(),
+      inactive_seeding_time_limit: -2,
+      infohash_v1: hash,
+      infohash_v2: '',
+      last_activity: last_activity.getTime() / 1000,
+      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+      max_inactive_seeding_time: -1,
+      max_ratio: -1,
+      max_seeding_time: -1,
+      name,
+      num_complete,
+      num_incomplete,
+      num_leechs: faker.number.int({ min: 0, max: num_incomplete }),
+      num_seeds: faker.number.int({ min: 0, max: num_complete }),
+      priority: 1,
+      progress: completed / total_size,
+      ratio: 0,
+      ratio_limit: -2,
+      save_path: faker.system.directoryPath(),
+      seeding_time: 0,
+      seeding_time_limit: -2,
+      seen_complete: faker.date.between({ from: added_on, to: last_activity }).getTime() / 1000,
+      seq_dl: faker.datatype.boolean(),
+      size: total_size,
+      state: faker.helpers.enumValue(TorrentState),
+      super_seeding: faker.datatype.boolean(),
+      tags: faker.helpers.arrayElements(this.tags, { min: 0, max: this.tags.length }).join(', '),
+      time_active: 0,
+      total_size,
+      tracker,
+      trackers_count: 1,
+      up_limit: 0,
+      uploaded: 0,
+      uploaded_session: 0,
+      upspeed: 0
+    }
   }
 
   private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean; delay?: number }): Promise<T> {
@@ -320,10 +399,6 @@ export default class MockProvider implements IProvider {
 
   async logout(): Promise<void> {
     return this.generateResponse({ shouldResolve: true })
-  }
-
-  async getAuthenticationStatus(): Promise<boolean> {
-    return this.generateResponse({ result: true })
   }
 
   /// LogController ///
@@ -949,8 +1024,17 @@ export default class MockProvider implements IProvider {
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
-    return this.generateResponse({
+    const torrents = MockProvider.hashes.reduce(
+      (obj, hash) => {
+        obj[hash] = this.generateMockedTorrent(hash)
+        return obj
+      },
+      {} as Record<string, RawQbitTorrent>
+    )
+
+    return this.generateResponse<MaindataResponse>({
       result: {
+        full_update: true,
         rid: rid ?? 1,
         server_state: {
           alltime_dl: 0,
@@ -978,7 +1062,11 @@ export default class MockProvider implements IProvider {
           use_alt_speed_limits: false,
           use_subcategories: false,
           write_cache_overload: '0'
-        }
+        },
+        torrents,
+        categories: this.categories,
+        tags: this.tags,
+        trackers: this.trackers
       }
     })
   }
@@ -1067,75 +1155,10 @@ export default class MockProvider implements IProvider {
 
   /// TorrentsController ///
 
-  async getTorrents(_?: GetTorrentPayload): Promise<Torrent[]> {
-    const result = MockProvider.hashes.map(hash => {
-      const added_on = faker.date.past().getTime() / 1000
-      const name = faker.system.fileName()
-      const num_complete = faker.number.int({ min: 0, max: 250 })
-      const num_incomplete = faker.number.int({ min: 0, max: 250 })
-      const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
-      const completed = faker.number.int({ min: 0, max: total_size })
-      const tracker = faker.helpers.arrayElement(this.trackers)
-
-      return {
-        added_on,
-        amount_left: faker.number.int({ min: 0, max: total_size }),
-        auto_tmm: faker.datatype.boolean(),
-        availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
-        category: faker.helpers.arrayElement(this.categories),
-        completed,
-        completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime() / 1000,
-        content_path: faker.system.filePath(),
-        dl_limit: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
-        dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
-        download_path: faker.system.directoryPath(),
-        downloaded: completed,
-        downloaded_session: completed,
-        eta: faker.number.int({ min: 0, max: 900000 }),
-        f_l_piece_prio: faker.datatype.boolean(),
-        force_start: faker.datatype.boolean(),
-        hash,
-        inactive_seeding_time_limit: -2,
-        infohash_v1: hash,
-        infohash_v2: '',
-        last_activity: faker.number.int({ min: 0, max: 50 }),
-        magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
-        max_inactive_seeding_time: -1,
-        max_ratio: -1,
-        max_seeding_time: -1,
-        name,
-        num_complete,
-        num_incomplete,
-        num_leechs: faker.number.int({ min: 0, max: num_incomplete }),
-        num_seeds: faker.number.int({ min: 0, max: num_complete }),
-        priority: 1,
-        progress: completed / total_size,
-        ratio: 0,
-        ratio_limit: -2,
-        save_path: faker.system.directoryPath(),
-        seeding_time: 0,
-        seeding_time_limit: -2,
-        seen_complete: -3600,
-        seq_dl: faker.datatype.boolean(),
-        size: total_size,
-        state: faker.helpers.enumValue(TorrentState),
-        super_seeding: faker.datatype.boolean(),
-        tags: faker.helpers
-          .arrayElements(this.tags)
-          .filter(x => x.length)
-          .join(', '),
-        time_active: 0,
-        total_size,
-        tracker,
-        trackers_count: 1,
-        up_limit: 0,
-        uploaded: 0,
-        uploaded_session: 0,
-        upspeed: 0
-      }
+  async getTorrents(_?: GetTorrentPayload): Promise<QbitTorrent[]> {
+    return this.generateResponse({
+      result: MockProvider.hashes.map(hash => ({ ...this.generateMockedTorrent(hash), hash }))
     })
-
-    return this.generateResponse({ result })
   }
 
   async getTorrentTrackers(_: string): Promise<Tracker[]> {
@@ -1261,7 +1284,7 @@ export default class MockProvider implements IProvider {
   }
 
   async getAvailableTags(): Promise<string[]> {
-    return this.generateResponse({ result: this.tags.filter(x => x.length) })
+    return this.generateResponse({ result: this.tags })
   }
 
   async getTorrentProperties(hash: string): Promise<TorrentProperties> {
@@ -1423,14 +1446,7 @@ export default class MockProvider implements IProvider {
   }
 
   async getCategories(): Promise<Category[]> {
-    return this.generateResponse({
-      result: this.categories
-        .filter(x => x)
-        .map(cat => ({
-          name: cat,
-          savePath: `/downloads/${cat.toLowerCase()}`
-        }))
-    })
+    return this.generateResponse({ result: Object.values(this.categories) })
   }
 
   async deleteCategory(_: string[]): Promise<void> {

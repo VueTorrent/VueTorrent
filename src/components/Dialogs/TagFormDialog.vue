@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores'
+import { useTagStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { VForm } from 'vuetify/components'
@@ -12,7 +12,7 @@ const props = defineProps<{
 
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const tagStore = useTagStore()
 
 const form = ref<VForm>()
 const isFormValid = ref(false)
@@ -24,9 +24,9 @@ async function submit() {
   if (!isFormValid.value) return
 
   if (!!props.initialTag) {
-    await maindataStore.editTag(props.initialTag, tagName.value)
+    await tagStore.editTag(props.initialTag, tagName.value)
   } else {
-    await maindataStore.createTags(tagName.value.split(','))
+    await tagStore.createTags(tagName.value.split(','))
   }
 
   close()

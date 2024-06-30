@@ -4,8 +4,8 @@ import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
-import { DarkRedesigned, DarkLegacy, LightRedesigned, LightLegacy } from '@/themes'
-import { computed, onBeforeMount, readonly, ref } from 'vue'
+import { DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
+import { computed, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -118,10 +118,6 @@ const checkNewVersion = async () => {
 function openBackendHelp() {
   window.open('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation', '_blank', 'noreferrer')
 }
-
-onBeforeMount(() => {
-  appStore.fetchQbitVersion()
-})
 </script>
 
 <template>
@@ -148,14 +144,7 @@ onBeforeMount(() => {
           <v-checkbox v-model="vueTorrentStore.showFreeSpace" hide-details density="compact" :label="t('settings.vuetorrent.general.showFreeSpace')" />
         </v-col>
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showTrackerFilter" hide-details density="compact" :label="t('settings.vuetorrent.general.showTrackerFilter')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isDrawerRight" hide-details density="compact" :label="t('settings.vuetorrent.general.isDrawerRight')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.isPaginationOnTop" hide-details density="compact" :label="t('settings.vuetorrent.general.isPaginationOnTop')" />
         </v-col>
 
         <v-col cols="12" sm="6">

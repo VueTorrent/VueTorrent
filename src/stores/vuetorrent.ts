@@ -24,13 +24,11 @@ export const useVueTorrentStore = defineStore(
     const showSessionStat = ref(true)
     const showAlltimeStat = ref(true)
     const showCurrentSpeed = ref(true)
-    const showTrackerFilter = ref(false)
     const showSpeedInTitle = ref(false)
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
     const isDrawerRight = ref(false)
-    const isPaginationOnTop = ref(false)
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -227,7 +225,6 @@ export const useVueTorrentStore = defineStore(
       deleteWithFiles,
       fileContentInterval,
       isDrawerRight,
-      isPaginationOnTop,
       hideChipIfUnset,
       enableRatioColors,
       enableHashColors,
@@ -242,7 +239,6 @@ export const useVueTorrentStore = defineStore(
       showSessionStat,
       showSpeedGraph,
       showSpeedInTitle,
-      showTrackerFilter,
       uiTitleType,
       uiTitleCustom,
       useBinarySize,
@@ -285,13 +281,11 @@ export const useVueTorrentStore = defineStore(
         showSessionStat.value = true
         showAlltimeStat.value = true
         showCurrentSpeed.value = true
-        showTrackerFilter.value = false
         showSpeedInTitle.value = false
         deleteWithFiles.value = false
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
         isDrawerRight.value = false
-        isPaginationOnTop.value = false
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true

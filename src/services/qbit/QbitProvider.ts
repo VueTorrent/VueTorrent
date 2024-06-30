@@ -7,10 +7,10 @@ import type {
   Feed,
   FeedRule,
   Log,
+  QbitTorrent,
   SearchJob,
   SearchPlugin,
   SearchStatus,
-  Torrent,
   TorrentFile,
   TorrentProperties,
   Tracker
@@ -123,13 +123,6 @@ export default class QBitProvider implements IProvider {
 
   async logout(): Promise<void> {
     return this.axios.post('/auth/logout')
-  }
-
-  async getAuthenticationStatus(): Promise<boolean> {
-    return this.axios.get('/app/buildInfo').then(
-      () => true,
-      () => false
-    )
   }
 
   /// LogController ///
@@ -334,7 +327,7 @@ export default class QBitProvider implements IProvider {
 
   /// TorrentsController ///
 
-  async getTorrents(payload?: GetTorrentPayload): Promise<Torrent[]> {
+  async getTorrents(payload?: GetTorrentPayload): Promise<QbitTorrent[]> {
     return this.axios.get('/torrents/info', { params: payload }).then(r => r.data)
   }
 

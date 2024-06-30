@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useMaindataStore } from '@/stores'
+import { useCategoryStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const maindataStore = useMaindataStore()
+const categoryStore = useCategoryStore()
 const { isOpened } = useDialog(props.guid)
 
 const form = ref<VForm>()
@@ -28,9 +28,9 @@ async function submit() {
   if (!isFormValid.value) return
 
   if (!!props.initialCategory) {
-    await maindataStore.editCategory(formData, props.initialCategory.name === formData.name ? undefined : props.initialCategory.name)
+    await categoryStore.editCategory(formData, props.initialCategory.name === formData.name ? undefined : props.initialCategory.name)
   } else {
-    await maindataStore.createCategory(formData)
+    await categoryStore.createCategory(formData)
   }
 
   close()
