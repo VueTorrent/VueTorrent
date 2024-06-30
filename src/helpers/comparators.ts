@@ -1,12 +1,9 @@
 export class Comparator<T = any> {
   asc: (a: T, b: T) => number
+  desc = (a: T, b: T) => -this.asc(a, b)
 
   constructor(asc: (a: T, b: T) => number) {
     this.asc = asc
-  }
-
-  desc(a: T, b: T) {
-    return -this.asc(a, b)
   }
 }
 
