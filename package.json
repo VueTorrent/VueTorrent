@@ -25,6 +25,7 @@
     "@mdi/font": "^7.4.47",
     "@mdi/js": "^7.4.47",
     "@vueuse/core": "^10.11.0",
+    "@zip.js/zip.js": "^2.7.45",
     "apexcharts": "^3.50.0",
     "axios": "^1.7.2",
     "dayjs": "^1.11.11",
