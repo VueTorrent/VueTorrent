@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { formatSpeed } from '@/helpers'
-import { useNavbarStore, useVueTorrentStore } from '@/stores'
-import { ApexOptions } from 'apexcharts'
 import dayjs from '@/plugins/dayjs'
+import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { ApexOptions } from 'apexcharts'
+import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import VueApexCharts from 'vue3-apexcharts'
@@ -10,6 +11,7 @@ import { useTheme } from 'vuetify'
 
 const { t } = useI18n()
 const theme = useTheme()
+const { serverState } = storeToRefs(useMaindataStore())
 const navbarStore = useNavbarStore()
 const vuetorrentStore = useVueTorrentStore()
 const chart = ref<ApexCharts>()
@@ -23,12 +25,14 @@ const chartOptions: ApexOptions = {
       enabled: false
     }
   },
-  colors: [theme.current.value.colors.upload, theme.current.value.colors.download],
+  colors: [theme.current.value.colors.upload, theme.current.value.colors.download, '#f38a09', '#f38a09'],
   stroke: {
     show: true,
     curve: 'smooth',
     lineCap: 'round',
-    width: 4
+    // FIXME: array error
+    // width: [4, 4, 2, 2],
+    // dashArray: [0, 0, 10, 10]
   },
   fill: {
     type: 'gradient',
@@ -56,6 +60,9 @@ const chartOptions: ApexOptions = {
   }
 }
 
+const downloadLimitSerie = computed(() => new Array(15).fill(serverState.value.dl_rate_limit))
+const uploadLimitSerie = computed(() => new Array(15).fill(serverState.value.up_rate_limit))
+
 const series = computed(() => [
   {
     name: t('navbar.side.speed_graph.upload_label'),
@@ -64,6 +71,14 @@ const series = computed(() => [
   {
     name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
+  },
+  {
+    name: t('navbar.side.speed_graph.upload_limit_label'),
+    data: uploadLimitSerie.value
+  },
+  {
+    name: t('navbar.side.speed_graph.download_limit_label'),
+    data: downloadLimitSerie.value
   }
 ])
 </script>

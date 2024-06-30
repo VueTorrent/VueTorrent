@@ -520,7 +520,9 @@
       },
       "speed_graph": {
         "download_label": "Download",
-        "upload_label": "Upload"
+        "download_limit_label": "Download limit",
+        "upload_label": "Upload",
+        "upload_limit_label": "Upload limit"
       },
       "stats": {
         "alltime": {
