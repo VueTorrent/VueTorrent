@@ -1,9 +1,10 @@
+import { comparators } from '@/helpers'
 import { TorrentFile } from '@/types/qbit/models'
 import { TreeFile, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { computed, MaybeRefOrGetter, shallowRef, toValue, watchEffect } from 'vue'
 
 function getEmptyRoot() {
-  return new TreeFolder('(root)', '') // Only the 'fullName' of the '(root)' node can be an empty string.
+  return new TreeFolder('(root)', '')
 }
 
 export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<string[]>) {
@@ -18,7 +19,7 @@ export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedIte
           .toSorted((a: TreeNode, b: TreeNode) => {
             if (a.type === 'folder' && b.type === 'file') return -1
             if (a.type === 'file' && b.type === 'folder') return 1
-            return a.name.localeCompare(b.name)
+            return comparators.textWithNumbers.asc(a.name, b.name)
           })
           .flatMap(el => flatten(el, path))
         return [node, ...children]
