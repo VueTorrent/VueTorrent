@@ -1,22 +1,115 @@
 {
-  "name": "VueTorrent",
-  "short_name": "VueTorrent",
-  "start_url": ".",
-  "display": "standalone",
   "background_color": "#000",
-  "lang": "en",
-  "scope": "./",
-  "theme_color": "#597566",
+  "categories": [
+    "utilities"
+  ],
+  "description": "The sleekest looking WEBUI for qBittorrent made with Vuejs!",
+  "display": "standalone",
+  "file_handlers": [
+    {
+      "action": ".",
+      "accept": {
+        "application/x-bittorrent": [
+          ".torrent"
+        ],
+        "text/magnet": [
+          ".magnet"
+        ]
+      }
+    }
+  ],
   "icons": [
     {
-      "src": "./icon-192.png",
+      "src": "icon-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./icon-512.png",
+      "src": "icon-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
-  ]
+  ],
+  "lang": "en",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "name": "VueTorrent",
+  "orientation": "any",
+  "protocol_handlers": [
+    {
+      "protocol": "magnet",
+      "url": "#/magnet/%s"
+    }
+  ],
+  "scope": "./",
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-desktop.jpeg",
+      "sizes": "1788x909",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Screenshot Desktop (Light Mode)"
+    },
+    {
+      "src": "screenshots/screenshot-desktop-dark-mode.jpeg",
+      "sizes": "1788x909",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Screenshot Desktop (Dark Mode)"
+    },
+    {
+      "src": "screenshots/screenshot-mobile.jpeg",
+      "sizes": "425x885",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Screenshot Mobile Dashboard (Light Mode)"
+    },
+    {
+      "src": "screenshots/screenshot-mobile-navbar.jpeg",
+      "sizes": "425x885",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Screenshot Mobile Navbar (Light Mode)"
+    },
+    {
+      "src": "screenshots/screenshot-mobile-dark-mode.jpeg",
+      "sizes": "425x885",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Screenshot Mobile Dashboard (Dark Mode)"
+    },
+    {
+      "src": "screenshots/screenshot-mobile-navbar-dark-mode.jpeg",
+      "sizes": "425x885",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Screenshot Mobile Navbar (Dark Mode)"
+    }
+  ],
+  "short_name": "VueTorrent",
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "url": "#/"
+    },
+    {
+      "name": "Settings",
+      "url": "#/settings"
+    },
+    {
+      "name": "RSS Feeds",
+      "url": "#/rss"
+    },
+    {
+      "name": "Search Engine",
+      "url": "#/search"
+    },
+    {
+      "name": "Logs",
+      "url": "#/logs"
+    }
+  ],
+  "start_url": ".",
+  "theme_color": "#64CEAA"
 }

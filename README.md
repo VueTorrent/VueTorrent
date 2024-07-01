@@ -21,20 +21,27 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 - Desktop
 
 <p>
-  <img src="readme_assets/screenshot-desktop.png" width="800" alt="Screenshot Desktop (Light Mode)" />
+  <img src="public/screenshots/screenshot-desktop.jpeg" width="800" alt="Screenshot Desktop (Light Mode)" />
 </p>
 
 - Desktop Dark Mode
 
 <p>
-  <img src="readme_assets/screenshot-desktop-dark-mode.png" width="800" alt="Screenshot Desktop (Dark Mode)" />
+  <img src="public/screenshots/screenshot-desktop-dark-mode.jpeg" width="800" alt="Screenshot Desktop (Dark Mode)" />
 </p>
 
-- Mobile
+- Mobile Light Mode
 
 <p>
-  <img src="readme_assets/screenshot-mobile-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Dark Mode)" />
-  <img src="readme_assets/screenshot-mobile-navbar-dark-mode.png" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" /> 
+  <img src="public/screenshots/screenshot-mobile.jpeg" width="400" alt="Screenshot Mobile Dashboard (Light Mode)" />
+  <img src="public/screenshots/screenshot-mobile-navbar.jpeg" width="400" alt="Screenshot Mobile Navbar (Light Mode)" /> 
+</p>
+
+- Mobile Dark Mode
+
+<p>
+  <img src="public/screenshots/screenshot-mobile-dark-mode.jpeg" width="400" alt="Screenshot Mobile Dashboard (Dark Mode)" />
+  <img src="public/screenshots/screenshot-mobile-navbar-dark-mode.jpeg" width="400" alt="Screenshot Mobile Navbar (Dark Mode)" /> 
 </p>
 
 ## Demo
