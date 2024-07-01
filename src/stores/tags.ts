@@ -16,6 +16,7 @@ export const useTagStore = defineStore(
       if (values) {
         tags.value = [...tags.value, ...values]
       }
+
       tags.value = tags.value.filter(tag => !removed || !removed.includes(tag))
     }
 

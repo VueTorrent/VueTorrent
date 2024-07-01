@@ -100,7 +100,8 @@ export const useTorrentStore = defineStore(
           _torrents.value.set(hash, qbitTorrent as RawQbitTorrent)
         }
       }
-      removed?.forEach(_torrents.value.delete)
+
+      removed?.forEach(t => _torrents.value.delete(t))
     }
 
     async function setTorrentCategory(hashes: string[], category: string) {
