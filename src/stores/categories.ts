@@ -30,7 +30,7 @@ export const useCategoryStore = defineStore(
           })
         }
       }
-      removed?.forEach(categories.value.delete)
+      removed?.forEach(c => categories.value.delete(c))
     }
 
     function getCategoryFromName(categoryName?: string) {
