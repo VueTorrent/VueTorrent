@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.10.3](https://github.com/VueTorrent/VueTorrent/compare/v2.10.2...v2.10.3) (2024-07-02)
+
+
+### Bug Fixes
+
+* **Dashboard:** Clean removed data from local cache ([#1773](https://github.com/VueTorrent/VueTorrent/issues/1773)) ([e3e6549](https://github.com/VueTorrent/VueTorrent/commit/e3e65492d181602f47fbd3b46c940e7575c93c25))
+* **Dashboard:** Name sort not working ([#1769](https://github.com/VueTorrent/VueTorrent/issues/1769)) ([394b86d](https://github.com/VueTorrent/VueTorrent/commit/394b86d6dc02c21909d5a84ddc962fb8cdfd739a))
+* **Dashboard:** torrents not removed from local cache ([#1772](https://github.com/VueTorrent/VueTorrent/issues/1772)) ([2f967ff](https://github.com/VueTorrent/VueTorrent/commit/2f967ff883a2d1350dc372da65f63805459368a9))
+* **graph:** weird gradient ([#1761](https://github.com/VueTorrent/VueTorrent/issues/1761)) ([57d6cdc](https://github.com/VueTorrent/VueTorrent/commit/57d6cdcc334bf7c187f8610a3253bb4cc42c76ff))
+* **Overview:** Filename not refreshing after rename ([#1765](https://github.com/VueTorrent/VueTorrent/issues/1765)) ([fe1157a](https://github.com/VueTorrent/VueTorrent/commit/fe1157a5b95677ad9cc26a8d81d03e53aaffed82))
+
+
+### Improvements
+
+* **Dashboard:** Allow to filter torrents by hash ([#1766](https://github.com/VueTorrent/VueTorrent/issues/1766)) ([2300fce](https://github.com/VueTorrent/VueTorrent/commit/2300fce373681489a03a140400e3c1e43764882c))
+* **network:** Reduce API calls by using the maindata sync throughout the app ([#1762](https://github.com/VueTorrent/VueTorrent/issues/1762)) ([7f01112](https://github.com/VueTorrent/VueTorrent/commit/7f01112af8b414ccca842da5685cde2643d33460))
+* **sort system:** Group numbers when sorting names and paths ([#1771](https://github.com/VueTorrent/VueTorrent/issues/1771)) ([c2d6e5c](https://github.com/VueTorrent/VueTorrent/commit/c2d6e5cdbcb1696b5d19b6f061c52f4a024b7966))
+
 ## [2.10.2](https://github.com/VueTorrent/VueTorrent/compare/v2.10.1...v2.10.2) (2024-06-28)
 
 ### Bug Fixes
