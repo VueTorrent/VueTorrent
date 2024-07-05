@@ -56,19 +56,31 @@ export const useMaindataStore = defineStore('maindata', () => {
       rid.value = response.rid
 
       if (isFullUpdate(response)) {
+        performance.mark('maindata::serverState')
         syncFromMaindata(true, response.server_state)
+        performance.mark('maindata::categories')
         categoryStore.syncFromMaindata(true, Object.entries(response.categories ?? {}))
+        performance.mark('maindata::tags')
         tagStore.syncFromMaindata(true, response.tags ?? [])
+        performance.mark('maindata::torrents')
         torrentStore.syncFromMaindata(true, Object.entries(response.torrents ?? {}))
+        performance.mark('maindata::trackers')
         trackerStore.syncFromMaindata(true, Object.entries(response.trackers ?? {}))
+        performance.mark('maindata::endProcess')
         return
       }
 
+      performance.mark('maindata::serverState')
       syncFromMaindata(false, response.server_state)
+      performance.mark('maindata::categories')
       categoryStore.syncFromMaindata(false, Object.entries(response.categories ?? {}), response.categories_removed)
+      performance.mark('maindata::tags')
       tagStore.syncFromMaindata(false, response.tags ?? [], response.tags_removed)
+      performance.mark('maindata::torrents')
       torrentStore.syncFromMaindata(false, Object.entries(response.torrents ?? {}), response.torrents_removed)
+      performance.mark('maindata::trackers')
       trackerStore.syncFromMaindata(false, Object.entries(response.trackers ?? {}), response.trackers_removed)
+      performance.mark('maindata::endProcess')
 
       // filter out deleted torrents from selection
       dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => !response.torrents_removed?.includes(hash))
