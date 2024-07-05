@@ -1,10 +1,10 @@
 import qbit from '@/services/qbit'
 import { defineStore } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, shallowRef } from 'vue'
 
 export const useTrackerStore = defineStore('trackers', () => {
   /** Key: tracker domain, values: torrent hashes */
-  const trackers = ref<Map<string, string[]>>(new Map())
+  const trackers = shallowRef<Map<string, string[]>>(new Map())
   /** Key: torrent hash, values: tracker domains */
   const torrentTrackers = computed(() =>
     Array.from(trackers.value.entries()).reduce((tot, val) => {

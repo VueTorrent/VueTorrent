@@ -2,8 +2,8 @@ import qbit from '@/services/qbit'
 import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { defineStore, storeToRefs } from 'pinia'
+import { ref, shallowRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
 import { useCategoryStore } from './categories'
@@ -16,7 +16,7 @@ import { useVueTorrentStore } from './vuetorrent'
 
 export const useMaindataStore = defineStore('maindata', () => {
   const rid = ref<number>()
-  const serverState = ref<Partial<ServerState>>()
+  const serverState = shallowRef<Partial<ServerState>>()
 
   const appStore = useAppStore()
   const categoryStore = useCategoryStore()
@@ -26,12 +26,13 @@ export const useMaindataStore = defineStore('maindata', () => {
   const torrentStore = useTorrentStore()
   const trackerStore = useTrackerStore()
   const vueTorrentStore = useVueTorrentStore()
+  const { refreshInterval } = storeToRefs(vueTorrentStore)
 
   const maindataTask = useTask(function* () {
     yield updateMaindata()
   }).drop()
 
-  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(maindataTask.perform, vueTorrentStore.refreshInterval, {
+  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(maindataTask.perform, refreshInterval, {
     immediate: false,
     immediateCallback: true
   })
@@ -49,6 +50,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   async function updateMaindata() {
+    performance.mark('startMaindata')
     try {
       const response = await qbit.getMaindata(rid.value)
       rid.value = response.rid
@@ -78,6 +80,10 @@ export const useMaindataStore = defineStore('maindata', () => {
       } else {
         console.error(error)
       }
+    } finally {
+      performance.mark('endMaindata')
+      const measure = performance.measure('maindata', 'startMaindata', 'endMaindata')
+      console.log('maindata measure:', measure.duration)
     }
   }
 

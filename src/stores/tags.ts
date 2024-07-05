@@ -1,9 +1,11 @@
 import qbit from '@/services/qbit'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 
-export const useTagStore = defineStore('tags', () => {
-  const tags = ref<string[]>([])
+export const useTagStore = defineStore(
+  'tags',
+  () => {
+    const tags = shallowRef<string[]>([])
 
   function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {
