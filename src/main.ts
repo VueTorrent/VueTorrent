@@ -21,4 +21,8 @@ import pinia from '@/plugins/pinia'
 // Font
 import '@fontsource/roboto'
 
-createApp(App).use(router).use(vuetify).use(i18n).use(Vue3Toastify, options).use(pinia).mount('#app')
+const app = createApp(App)
+
+app.config.performance = true
+
+app.use(router).use(vuetify).use(i18n).use(Vue3Toastify, options).use(pinia).mount('#app')

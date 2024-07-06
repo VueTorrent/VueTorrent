@@ -94,6 +94,12 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
     } finally {
       performance.mark('endMaindata')
+      performance.measure('maindata::init', 'startMaindata', 'maindata::serverState')
+      performance.measure('maindata::serverState', 'maindata::serverState', 'maindata::categories')
+      performance.measure('maindata::categories', 'maindata::categories', 'maindata::tags')
+      performance.measure('maindata::tags', 'maindata::tags', 'maindata::torrents')
+      performance.measure('maindata::torrents', 'maindata::torrents', 'maindata::trackers')
+      performance.measure('maindata::trackers', 'maindata::trackers', 'maindata::endProcess')
       const measure = performance.measure('maindata', 'startMaindata', 'endMaindata')
       console.log('maindata measure:', measure.duration)
     }
