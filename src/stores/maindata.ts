@@ -39,13 +39,25 @@ export const useMaindataStore = defineStore('maindata', () => {
     immediateCallback: true
   })
 
+  function syncFromMaindata(fullUpdate: boolean, obj?: Partial<ServerState>) {
+    if (fullUpdate) {
+      serverState.value = obj
+    } else if (obj) {
+      serverState.value = { ...serverState.value, ...obj }
+    }
+
+    navbarStore.pushTimeData()
+    navbarStore.pushDownloadData(obj?.dl_info_speed ?? serverState.value?.dl_info_speed)
+    navbarStore.pushUploadData(obj?.up_info_speed ?? serverState.value?.up_info_speed)
+  }
+
   async function updateMaindata() {
     try {
       const response = await qbit.getMaindata(rid.value)
       rid.value = response.rid
 
       if (isFullUpdate(response)) {
-        serverState.value = response.server_state
+        syncFromMaindata(true, response.server_state)
         categoryStore.syncFromMaindata(true, Object.entries(response.categories))
         tagStore.syncFromMaindata(true, response.tags)
         torrentStore.syncFromMaindata(true, Object.entries(response.torrents))
@@ -53,15 +65,7 @@ export const useMaindataStore = defineStore('maindata', () => {
         return
       }
 
-      // Server State
-      if (response.server_state) {
-        const state = response.server_state
-        navbarStore.pushTimeData()
-        navbarStore.pushDownloadData(state.dl_info_speed ?? serverState.value?.dl_info_speed)
-        navbarStore.pushUploadData(state.up_info_speed ?? serverState.value?.up_info_speed)
-        serverState.value = { ...serverState.value, ...state }
-      }
-
+      syncFromMaindata(false, response.server_state)
       categoryStore.syncFromMaindata(false, Object.entries(response.categories ?? {}), response.categories_removed)
       tagStore.syncFromMaindata(false, response.tags, response.tags_removed)
       torrentStore.syncFromMaindata(false, Object.entries(response.torrents ?? {}), response.torrents_removed)
