@@ -8,11 +8,13 @@
     "disabled": "無効",
     "edit": "編集",
     "emptyList": "何も見つかりませんでした。",
+    "global_value": "グローバル値",
     "NA": "N/A",
     "no": "いいえ",
     "none": "(なし)",
     "ok": "OK",
     "pause": "一時停止",
+    "refresh": "更新",
     "resume": "再開",
     "save": "保存",
     "search": "検索",
@@ -105,6 +107,16 @@
       "none": "なし",
       "title": "Torrentの停止条件"
     },
+    "themes": {
+      "dark": {
+        "legacy": "レガシー",
+        "redesigned": "リデザイン"
+      },
+      "light": {
+        "legacy": "レガシー",
+        "redesigned": "リデザイン"
+      }
+    },
     "titleOptions": {
       "custom": "カスタム",
       "default": "デフォルト",
@@ -180,6 +192,7 @@
       },
       "tags": {
         "disabled_title": "タグなし",
+        "remove_all": "すべて削除",
         "title": "タグを設定"
       },
       "top": {
@@ -200,6 +213,9 @@
       "available_seeds": "シード (スウォーム)",
       "avg_download_speed": "平均DL速度",
       "avg_upload_speed": "平均UP速度",
+      "basename_content_path": "コンテンツパス (ベース名)",
+      "basename_download_path": "ダウンロードパス (ベース名)",
+      "basename_save_path": "保存先パス (ベース名)",
       "category": "カテゴリー",
       "completion_on": "完了日時",
       "content_path": "コンテンツパス",
@@ -213,6 +229,7 @@
       "globalSpeed": "全体速度",
       "globalVolume": "グローバルサイズ",
       "hash": "ハッシュ",
+      "inactive_seeding_time_limit": "非アクティブシード時間制限",
       "infohash_v1": "Infoハッシュ v1",
       "infohash_v2": "Infoハッシュ v2",
       "last_activity": "最終アクティビティ",
@@ -258,6 +275,7 @@
       "file_overflow": "+{n}個をもっと見る",
       "files": "ファイルを選択",
       "first_last_piece_prio": "最初と最後のピースを優先",
+      "instant_drop_label": "Torrentファイルやリンクを即座にダウンロード",
       "links": "リンク (Magnet、HTTP、ファイル、...)",
       "params": {
         "add_to_top_of_queue": "キューの先頭に追加",
@@ -287,6 +305,23 @@
       "submit": "Torrentを追加",
       "title": "Torrentを追加"
     },
+    "bulkRenameFiles": {
+      "col_origin_name": "オリジナル",
+      "col_result_name": "結果",
+      "duplicated": "重複したファイル名",
+      "flags": "フラグ",
+      "fold": "折りたたむ",
+      "not_changed": "ファイル名は変更されていません",
+      "notForFolder": "フォルダ名の変更はサポートされていません",
+      "nothing_to_do": "実行するタスクはありません",
+      "regexp": "正規表現",
+      "run": "実行",
+      "select_regex_flags": "正規表現フラグを選択",
+      "success": "名前の変更に成功しました",
+      "target": "置換入力",
+      "title": "名前の一括変更",
+      "unfold": "展開"
+    },
     "category": {
       "name": "カテゴリー名",
       "nameRequired": "カテゴリー名は必須です",
@@ -301,6 +336,11 @@
     "connectionStatus": {
       "dht_nodes": "DHTノード",
       "externalIp": "外部IPアドレス",
+      "fetch_geo_failed": "位置情報の詳細を取得できません",
+      "fetch_isp_failed": "ISPの詳細を取得できません",
+      "geo_details": "位置情報の詳細",
+      "isp_details": "ISPの詳細",
+      "noExternalIp": "ログから検出できません",
       "status": "接続状況",
       "total_peer_connections": "アクティブなピア接続"
     },
@@ -512,7 +552,8 @@
   "rssArticles": {
     "feeds": {
       "empty": {
-        "action": "RSSフィードを作成"
+        "action": "RSSフィードを作成",
+        "value": "RSSフィードが登録されていません"
       },
       "filters": {
         "title": "タイトルフィルター",
@@ -524,17 +565,30 @@
         "feedName": "フィード名: {name}"
       },
       "markAllAsRead": "すべて既読にする",
+      "markAsRead": "既読にする",
       "promise": {
         "error": "フィードをマークする際にエラーが発生しました",
         "pending": "マーク中...",
         "success": "{n}件のフィードが既読としてマークされました"
       },
+      "refreshAllFeeds": "すべてのフィードを更新",
+      "refreshPromise": {
+        "error": "フィードの更新中にエラーが発生しました",
+        "pending": "更新中...",
+        "success": "{n}フィードが更新されました"
+      },
       "title": "RSSフィード"
     },
     "rules": {
       "empty": {
-        "action": "RSSルールを作成"
-      }
+        "action": "RSSルールを作成",
+        "value": "RSSルールが登録されていません"
+      },
+      "title": "RSSルール"
+    },
+    "toggle": {
+      "feeds": "フィードを表示",
+      "rules": "ルールを表示"
     }
   },
   "searchEngine": {
@@ -574,6 +628,15 @@
     "title": "検索エンジン"
   },
   "settings": {
+    "addons": {
+      "enhanced_edition": {
+        "auto_ban_bt_player_peer": "BTプレイヤーピアを自動的にアクセス禁止",
+        "auto_ban_unknown_peer": "不明なピアの自動アクセス禁止",
+        "auto_update_trackers": "公開トラッカーリストを自動的に更新する",
+        "public_trackers": "公開トラッカー",
+        "trackers_list_url": "トラッカーURLリストをカスタマイズ"
+      }
+    },
     "advanced": {
       "libtorrent": {
         "announceAllTiers": "常にすべてのティアにアナウンスする",
@@ -874,6 +937,9 @@
       "upload": "アップロード"
     },
     "tabs": {
+      "addons": {
+        "enhanced_edition": "強化版"
+      },
       "advanced": "高度な設定",
       "behavior": "動作",
       "bittorrent": "BitTorrent",
@@ -904,21 +970,26 @@
     "title": "設定",
     "vuetorrent": {
       "general": {
+        "backendUrl": "バックエンドURL",
         "canvasRefreshThreshold": "キャンバスの自動更新を無効にするピース数",
         "canvasRenderThreshold": "キャンバスのレンダリングを無効にするピース数",
         "check_new": "新しいバージョンを確認する",
         "currentVersion": "現在のバージョン",
         "customTitle": "カスタムタイトル",
+        "darkVariants": "ダークモード",
         "dateFormat": "日付フォーマット",
         "download": "設定のエクスポート",
+        "enableHashColors": "生成されたチップの色を有効にする",
+        "enableRatioColors": "共有比の色を有効にする",
         "fileContentInterval": "Torrentファイルのコンテンツの更新間隔",
         "hideChipIfUnset": "未設定の場合はチップを非表示にする",
+        "hideColoredChip": "チップのテキストバリアントを使用する",
         "historySize": "対象フィールドの履歴サイズ",
         "import": "設定のインポート",
         "isDrawerRight": "右側のドロワー",
-        "isPaginationOnTop": "ページネーションを上部に表示",
         "isShutdownButtonVisible": "シャットダウンボタンを表示",
         "language": "言語",
+        "lightVariants": "ライトモード",
         "openSideBarOnStart": "起動時にサイドバーを開く",
         "paginationSize": {
           "infinite_scroll": "無限スクロール",
@@ -934,7 +1005,6 @@
         "showFreeSpace": "空き容量を表示する",
         "showSessionStat": "セッション統計を表示する",
         "showSpeedGraph": "速度グラフを表示する",
-        "showTrackerFilter": "トラッカーフィルターを表示する",
         "tip": "これらの設定はカスタムWebUI自体のためのものです",
         "useBinarySize": "データサイズの単位をバイナリ単位に置き換える (kB -> KiB)",
         "useBitSpeed": "速度の値をビットに置き換える (kB/s -> kbps)",
@@ -1016,6 +1086,7 @@
       "pending": "Torrentを送信中...",
       "success": "{n}個のTorrentが追加されました | {n}個のTorrentが追加されました"
     },
+    "backend_unreachable": "バックエンドにアクセスできません",
     "copy": {
       "error": "コピーできません。コンテキストがセキュリティで保護されていません。",
       "success": "クリップボードにコピーしました!"
@@ -1028,6 +1099,7 @@
       "not_supported": "qBittorrent >= {version}でのみ利用可能です"
     },
     "version": {
+      "latest": "あなたは最新かつ最高のものをお使いです!",
       "new": "新しいバージョンが利用可能です!"
     }
   },
@@ -1100,7 +1172,9 @@
       "empty": "現在ピアが接続されていません",
       "fields": {
         "client": "クライアント",
+        "country": "国",
         "download": "ダウンロード",
+        "files": "ファイル",
         "flags": "フラグ",
         "host": "ホスト",
         "progress": "進捗状況",
@@ -1148,6 +1222,9 @@
       "available_seeds": "シード (スウォーム)",
       "avg_download_speed": "DL速度平均",
       "avg_upload_speed": "UP速度平均",
+      "basename_content_path": "コンテンツパス (ベース名)",
+      "basename_download_path": "ダウンロードパス (ベース名)",
+      "basename_save_path": "保存先パス (ベース名)",
       "category": "カテゴリー",
       "comment": "コメント",
       "completed_on": "完了日時",
@@ -1201,12 +1278,14 @@
       "total_wasted": "破棄されたデータ",
       "tracker": "トラッカー",
       "trackers_count": "トラッカー数",
+      "truncated_hash": "切り捨てられたハッシュ",
       "uploaded": "UP済み (グローバル)",
       "uploaded_session": "UP済み (セッション)",
       "upload_limit": "UP速度制限",
       "upload_speed": "UP速度"
     },
     "state": {
+      "checking_disk": "ファイルチェック中",
       "checking_resume_data": "再開データを確認中",
       "dl_forced": "[F] ダウンロード中",
       "dl_paused": "一時停止",
@@ -1214,6 +1293,7 @@
       "dl_stalled": "停滞",
       "downloading": "ダウンロード中",
       "error": "エラー",
+      "forced_meta_download": "[F] メタデータ取得中",
       "meta_download": "メタデータ",
       "missing_files": "ファイル不足",
       "moving": "移動中",

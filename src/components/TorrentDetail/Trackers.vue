@@ -111,10 +111,13 @@ const { resume, pause } = useIntervalFn(updateTrackers, 5000, {
   immediateCallback: true
 })
 
-watch(() => props.isActive, v => {
-  if (v) resume()
-  else pause()
-})
+watch(
+  () => props.isActive,
+  v => {
+    if (v) resume()
+    else pause()
+  }
+)
 </script>
 
 <template>

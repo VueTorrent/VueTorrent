@@ -45,9 +45,9 @@ export const useLogStore = defineStore('logs', () => {
     if (externalIp.value !== lastFetchedIp.value) {
       try {
         // 1K requests per day
-        const response = await fetch(`https://ipinfo.io/${ externalIp.value }/json`)
+        const response = await fetch(`https://ipinfo.io/${externalIp.value}/json`)
         const data = await response.json()
-        geoDetails.value = `${ data.city }, ${ data.region }, ${ data.country }`
+        geoDetails.value = `${data.city}, ${data.region}, ${data.country}`
         ispDetails.value = data.org
         // Update the last fetched IP in the logStore
         lastFetchedIp.value = externalIp.value

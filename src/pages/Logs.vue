@@ -55,7 +55,7 @@ const goHome = () => {
 }
 const getLogTypeColor = (log: Log) => {
   // @ts-expect-error: Element implicitly has an any type because expression of type string can't be used to index type
-  return `color: ${ colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()] }` as string
+  return `color: ${colors.value[current.value.dark ? 'dark' : 'light'][LogType[log.type].toLowerCase()]}` as string
 }
 const getLogTypeName = (log: Log) => {
   return LogType[log.type]

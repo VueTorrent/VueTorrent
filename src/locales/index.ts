@@ -8,6 +8,7 @@ import ja from './ja.json'
 import ko from './ko.json'
 import nl from './nl.json'
 import pl from './pl.json'
+import pt_br from './pt-BR.json'
 import ru from './ru.json'
 import tr from './tr.json'
 import uk from './uk.json'
@@ -27,6 +28,7 @@ export enum Locales {
   KO = 'ko',
   NL = 'nl',
   PL = 'pl',
+  PT_BR = 'pt-BR',
   RU = 'ru',
   TR = 'tr',
   UK = 'uk',
@@ -45,6 +47,7 @@ export const LOCALES: LocaleDef[] = [
   { title: '한국어', value: Locales.KO },
   { title: 'Nederlands', value: Locales.NL },
   { title: 'polski', value: Locales.PL },
+  { title: 'português (Brasil)', value: Locales.PT_BR },
   { title: 'Русский', value: Locales.RU },
   { title: 'Türkçe', value: Locales.TR },
   { title: 'українська', value: Locales.UK },
@@ -63,6 +66,7 @@ export const messages: Record<Locales, any> = {
   [Locales.KO]: ko,
   [Locales.NL]: nl,
   [Locales.PL]: pl,
+  [Locales.PT_BR]: pt_br,
   [Locales.RU]: ru,
   [Locales.TR]: tr,
   [Locales.UK]: uk,

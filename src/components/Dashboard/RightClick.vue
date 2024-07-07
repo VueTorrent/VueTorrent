@@ -5,14 +5,7 @@ import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import {
-  useCategoryStore,
-  useDashboardStore,
-  useDialogStore,
-  useMaindataStore,
-  usePreferenceStore, useTagStore,
-  useTorrentStore
-} from '@/stores'
+import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'

@@ -5,7 +5,7 @@ import { Torrent } from '@/types/vuetorrent'
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const categoryStore = useCategoryStore()
-const tagStore= useTagStore()
+const tagStore = useTagStore()
 const torrentStore = useTorrentStore()
 
 async function setCategory(category: string) {
