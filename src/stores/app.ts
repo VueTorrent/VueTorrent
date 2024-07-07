@@ -8,7 +8,9 @@ export const useAppStore = defineStore('app', () => {
 
   async function fetchAuthStatus() {
     const ver: string | false = await qbit.getVersion().catch(() => false)
-    await setAuthStatus(ver !== false, ver || undefined)
+    const auth_status = ver !== false
+    await setAuthStatus(auth_status, ver || undefined)
+    return auth_status
   }
 
   async function setAuthStatus(val: boolean, ver?: string) {
