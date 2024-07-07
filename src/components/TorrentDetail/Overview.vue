@@ -69,11 +69,15 @@ function openMoveTorrentDialog(mode: 'dl' | 'save') {
 }
 
 function openMoveTorrentFileDialog() {
-  dialogStore.createDialog(MoveTorrentFileDialog, {
-    hash: props.torrent.hash,
-    isFolder: false,
-    oldName: torrentFileName.value
-  }, contentStore.updateFileTreeTask.perform)
+  dialogStore.createDialog(
+    MoveTorrentFileDialog,
+    {
+      hash: props.torrent.hash,
+      isFolder: false,
+      oldName: torrentFileName.value
+    },
+    contentStore.updateFileTreeTask.perform
+  )
 }
 
 function handleKeyboardShortcuts(e: KeyboardEvent) {

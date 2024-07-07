@@ -31,10 +31,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     yield updateMaindata()
   }).drop()
 
-  const {
-    resume: forceMaindataSync,
-    pause: stopMaindataSync
-  } = useIntervalFn(maindataTask.perform, vueTorrentStore.refreshInterval, {
+  const { resume: forceMaindataSync, pause: stopMaindataSync } = useIntervalFn(maindataTask.perform, vueTorrentStore.refreshInterval, {
     immediate: false,
     immediateCallback: true
   })

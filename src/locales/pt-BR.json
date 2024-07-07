@@ -1,0 +1,164 @@
+{
+  "_comments": "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO",
+  "common": {
+    "active": "Ativar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "delete": "Excluir",
+    "disable": "Desativar",
+    "disabled": "Desativado",
+    "edit": "Editar",
+    "emptyList": "Não há nada aqui!",
+    "global_value": "Valor global",
+    "NA": "Não disponível",
+    "no": "Não",
+    "none": "(Nenhum)",
+    "ok": "OK",
+    "pause": "Pausar",
+    "refresh": "Atualizar",
+    "resume": "Retomar",
+    "save": "Salvar",
+    "search": "Buscar",
+    "selectAll": "Selecionar tudo",
+    "selectNone": "Selecionar nenhum",
+    "useGlobalSettings": "Usar configurações globais",
+    "yes": "Sim"
+  },
+  "constants": {
+    "addPaused": {
+      "always": "Sempre",
+      "never": "Nunca",
+      "title": "Adicionar pausado"
+    },
+    "bittorrentProtocols": {
+      "tcp": "TCP",
+      "tcp_utp": "TCP e μTP",
+      "utp": "µTP"
+    },
+    "connectionStatus": {
+      "connected": "Conectado",
+      "disconnected": "Desconectado",
+      "unknown": "Desconhecido"
+    },
+    "contentLayout": {
+      "nosubfolder": "Remover subpasta",
+      "original": "Original",
+      "subfolder": "Criar subpasta",
+      "title": "Layout de conteúdo do torrent"
+    },
+    "diskIoMode": {
+      "disableOsCache": "Desativar cache do sistema operacional",
+      "enableOsCache": "Habilitar cache do sistema operacional"
+    },
+    "diskIoType": {
+      "default": "Padrão",
+      "memoryMappedFiles": "Arquivos mapeados na memória",
+      "posixCompliant": "Compatível com POSIX"
+    },
+    "encryption": {
+      "forceOff": "Desativar criptografia",
+      "forceOn": "Exigir criptografia",
+      "preferEncryption": "Permitir criptografia"
+    },
+    "file_log_age_type": {
+      "days": "Dia | Dia | Dias",
+      "months": "Mês | Mês | Meses",
+      "years": "Ano | Ano | Anos"
+    },
+    "file_priority": {
+      "high": "Alta",
+      "max": "Máxima",
+      "mixed": "Mista",
+      "normal": "Normal",
+      "unwanted": "Indesejado"
+    },
+    "maxRatioAction": {
+      "pauseTorrent": "Pausar torrent",
+      "removeTorrent": "Remover torrent",
+      "removeTorrentAndFiles": "Remova o torrent e seus arquivos",
+      "torrentSuperseeding": "Ativar super seeding para torrent"
+    },
+    "monitoredFolderSaveLocation": {
+      "defaultSavePath": "Caminho de salvamento padrão",
+      "monitoredFolder": "Localização da pasta monitorada",
+      "other": "Outra"
+    },
+    "proxy_type": {
+      "http": "HTTP",
+      "socks4": "SOCKS4",
+      "socks5": "SOCKS5"
+    },
+    "scheduler": {
+      "everyDay": "Diariamente",
+      "everyFriday": "Toda sexta-feira",
+      "everyMonday": "Toda segunda-feira",
+      "everySaturday": "Todo sábado",
+      "everySunday": "Todo domingo",
+      "everyThursday": "Toda quinta-feira",
+      "everyTuesday": "Toda terça-feira",
+      "everyWednesday": "Toda quarta-feira",
+      "everyWeekday": "Todos os dias da semana",
+      "everyWeekend": "Todos os finais de semana"
+    },
+    "stopCondition": {
+      "filesChecked": "Arquivos verificados",
+      "metadataReceived": "Metadados recebidos",
+      "none": "Nenhuma",
+      "title": "Condição de parada do torrent"
+    },
+    "themes": {
+      "dark": {
+        "legacy": "Legado",
+        "redesigned": "Redesenhado"
+      },
+      "light": {
+        "legacy": "Legado",
+        "redesigned": "Redesenhado"
+      }
+    },
+    "titleOptions": {
+      "custom": "Personalizado",
+      "default": "Padrão",
+      "global_speed": "Velocidade global"
+    },
+    "trackerStatus": {
+      "disabled": "Desativado",
+      "not_working": "Não está funcionando",
+      "not_yet_contacted": "Ainda não foi contatado",
+      "updating": "Atualizando",
+      "working": "Funcionando"
+    },
+    "uploadChokingAlgorithm": {
+      "antiLeech": "Anti-sanguessuga",
+      "fastestUpload": "Upload mais rápido"
+    },
+    "uploadSlotsBehavior": {
+      "fixedSlots": "Slots fixos",
+      "uploadRateBased": "Baseado na taxa de upload"
+    },
+    "utpTcpMixedMode": {
+      "peerProportional": "Proporcional ao peer (limita TCP)",
+      "preferTcp": "Preferir TCP"
+    }
+  },
+  "dashboard": {
+    "displayMode": {
+      "grid": "Grade",
+      "list": "Lista",
+      "table": "Tabela",
+      "title": "Modo de exibição"
+    },
+    "right_click": {
+      "advanced": {
+        "auto_tmm": "Gerenciamento automático de torrents",
+        "download_path": "Definir o caminho para download",
+        "reannounce": "Forçar um novo anúncio",
+        "recheck": "Forçar nova verificação",
+        "rename": "Renomear torrent",
+        "save_path": "Definir caminho de salvamento",
+        "seq_dl": "Download sequencial",
+        "title": "Avançado"
+      }
+    }
+  }
+}

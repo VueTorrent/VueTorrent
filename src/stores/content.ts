@@ -48,7 +48,7 @@ export const useContentStore = defineStore('content', () => {
       action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
-      text: t(`torrentDetail.content.rename.${ selectedNode.value?.type || 'file' }`),
+      text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)

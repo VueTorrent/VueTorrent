@@ -2,59 +2,57 @@ import qbit from '@/services/qbit'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-export const useTagStore = defineStore(
-  'tags',
-  () => {
-    const tags = ref<string[]>([])
+export const useTagStore = defineStore('tags', () => {
+  const tags = ref<string[]>([])
 
-    function syncFromMaindata(fullUpdate: boolean, values?: string[], removed?: string[]) {
-      if (fullUpdate) {
-        tags.value = values!
-        return
-      }
-
-      if (values) {
-        tags.value = [...tags.value, ...values]
-      }
-
-      tags.value = tags.value.filter(tag => !removed || !removed.includes(tag))
+  function syncFromMaindata(fullUpdate: boolean, values?: string[], removed?: string[]) {
+    if (fullUpdate) {
+      tags.value = values!
+      return
     }
 
-    async function createTags(tags: string[]) {
-      await qbit.createTag(tags)
+    if (values) {
+      tags.value = [...tags.value, ...values]
     }
 
-    async function editTag(oldTag: string, newTag: string) {
-      if (oldTag === newTag) return
+    tags.value = tags.value.filter(tag => !removed || !removed.includes(tag))
+  }
 
-      // Create new tag
-      await qbit.createTag([newTag])
+  async function createTags(tags: string[]) {
+    await qbit.createTag(tags)
+  }
 
-      // Get list of torrents in old tag and move them to new tag
-      const torrents = await qbit.getTorrents({ tag: oldTag })
-      if (torrents.length > 0) {
-        await qbit.addTorrentTag(
-          torrents.map(torrent => torrent.hash),
-          [newTag]
-        )
-      }
+  async function editTag(oldTag: string, newTag: string) {
+    if (oldTag === newTag) return
 
-      // Delete old tag
-      await qbit.deleteTags([oldTag])
+    // Create new tag
+    await qbit.createTag([newTag])
+
+    // Get list of torrents in old tag and move them to new tag
+    const torrents = await qbit.getTorrents({ tag: oldTag })
+    if (torrents.length > 0) {
+      await qbit.addTorrentTag(
+        torrents.map(torrent => torrent.hash),
+        [newTag]
+      )
     }
 
-    async function deleteTags(tags: string[]) {
-      await qbit.deleteTags(tags)
-    }
+    // Delete old tag
+    await qbit.deleteTags([oldTag])
+  }
 
-    return {
-      tags,
-      syncFromMaindata,
-      createTags,
-      editTag,
-      deleteTags,
-      $reset: () => {
-        tags.value = []
-      }
+  async function deleteTags(tags: string[]) {
+    await qbit.deleteTags(tags)
+  }
+
+  return {
+    tags,
+    syncFromMaindata,
+    createTags,
+    editTag,
+    deleteTags,
+    $reset: () => {
+      tags.value = []
     }
-  })
+  }
+})
