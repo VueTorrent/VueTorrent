@@ -21,6 +21,9 @@ export class TreeFile {
   /** File size in bytes */
   size: number
 
+  get selectedSize(): number {
+    return this.wanted ? this.size : 0
+  }
   get childrenIds(): number[] {
     return [this.id]
   }
@@ -64,6 +67,7 @@ export class TreeFolder {
   progress: number = 0
   deepCount: [number, number] = [1, 0]
   size: number = 0
+  selectedSize: number = 0
 
   constructor(name: string, fullName: string) {
     this.type = 'folder'
@@ -81,6 +85,7 @@ export class TreeFolder {
       this.progress = 0
       this.deepCount = [1, 0]
       this.size = 0
+      this.selectedSize = 0
       return
     }
 
@@ -89,7 +94,7 @@ export class TreeFolder {
     })
 
     this.priority = this.children
-      .map(child => child.priority!)
+      .map(child => child.priority)
       .reduce((prev, curr) => {
         if (prev === FilePriority.MIXED || prev === curr) return prev
         return FilePriority.MIXED
@@ -104,15 +109,18 @@ export class TreeFolder {
         return null
       })
 
-    const values = this.children.map(child => child.progress!).filter(prio => prio !== FilePriority.DO_NOT_DOWNLOAD)
+    const values = this.children.filter(child => child.wanted)
     if (values.length === 0) {
       this.progress = 0
     } else {
-      this.progress = values.reduce((prev, curr) => prev + curr, 0) / values.length
+      // Downloaded / total
+      const result = values.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
+      this.progress = result[0] / result[1]
+      console.log(values.length, result, this.progress)
     }
 
     this.deepCount = this.children
-      .map(child => child.deepCount!)
+      .map(child => child.deepCount)
       .reduce(
         (prev, curr) => {
           return [prev[0] + curr[0], prev[1] + curr[1]]
@@ -121,6 +129,7 @@ export class TreeFolder {
       )
 
     this.size = this.children.map(child => child.size!).reduce((prev, curr) => prev + curr, 0)
+    this.selectedSize = this.children.filter(child => child.wanted).map(child => child.selectedSize!).reduce((prev, curr) => prev + curr, 0)
   }
 
   isSelected(selection: Set<string>): boolean {
