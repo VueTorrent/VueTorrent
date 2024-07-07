@@ -32,7 +32,7 @@ const chartOptions: ApexOptions = {
     lineCap: 'round',
     // FIXME: array error
     // width: [4, 4, 2, 2],
-    // dashArray: [0, 0, 10, 10]
+    dashArray: [0, 0, 10, 10]
   },
   fill: {
     type: 'gradient',
@@ -60,8 +60,8 @@ const chartOptions: ApexOptions = {
   }
 }
 
-const downloadLimitSerie = computed(() => new Array(15).fill(serverState.value?.dl_rate_limit))
-const uploadLimitSerie = computed(() => new Array(15).fill(serverState.value?.up_rate_limit))
+const downloadLimitSerie = computed(() => navbarStore.downloadData.map(([x]) => [x, serverState.value?.dl_rate_limit]))
+const uploadLimitSerie = computed(() => navbarStore.uploadData.map(([x]) => [x, serverState.value?.up_rate_limit]))
 
 const series = computed(() => [
   {
@@ -72,14 +72,14 @@ const series = computed(() => [
     name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
   },
-  // {
-  //   name: t('navbar.side.speed_graph.upload_limit_label'),
-  //   data: uploadLimitSerie.value
-  // },
-  // {
-  //   name: t('navbar.side.speed_graph.download_limit_label'),
-  //   data: downloadLimitSerie.value
-  // }
+  {
+    name: t('navbar.side.speed_graph.upload_limit_label'),
+    data: serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
+  },
+  {
+    name: t('navbar.side.speed_graph.download_limit_label'),
+    data: serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
+  }
 ])
 </script>
 
