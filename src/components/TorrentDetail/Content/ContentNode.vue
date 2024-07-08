@@ -46,7 +46,7 @@ function openNode(e: Event, node: TreeNode) {
 }
 
 async function toggleFileSelection(node: TreeNode) {
-  if (node.priority === FilePriority.DO_NOT_DOWNLOAD) {
+  if (!node.wanted) {
     emit('setFilePrio', node.childrenIds, FilePriority.NORMAL)
   } else {
     emit('setFilePrio', node.childrenIds, FilePriority.DO_NOT_DOWNLOAD)
@@ -66,7 +66,7 @@ function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node
 }
 
 function getNodeColor(node: TreeNode) {
-  if (node.priority === FilePriority.DO_NOT_DOWNLOAD) {
+  if (!node.wanted) {
     return 'grey'
   }
 
@@ -89,7 +89,10 @@ function getNodeDeepCount(node: TreeNode) {
 }
 
 function getNodeSubtitle(node: TreeNode) {
-  const values = [formatData(node.size, vuetorrentStore.useBinarySize)]
+  const size = formatData(node.size, vuetorrentStore.useBinarySize)
+  const selectedSize = formatData(node.selectedSize, vuetorrentStore.useBinarySize)
+
+  const values = [size + (node.selectedSize > 0 ? ` (${selectedSize})` : '')]
 
   if (node.type === 'folder') {
     values.push(getNodeDeepCount(node))
