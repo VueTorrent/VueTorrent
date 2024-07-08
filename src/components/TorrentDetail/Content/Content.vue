@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import MixedButton from '@/components/Core/MixedButton.vue'
-import { useContentStore } from '@/stores'
+import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
+import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
@@ -12,6 +13,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
 const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
+const dialogStore = useDialogStore()
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -78,12 +80,23 @@ function resume() {
   timerForcedPause.value = false
   contentStore.resumeTimer()
 }
+
+function openFilterDialog() {
+  dialogStore.createDialog(ContentFilterDialog)
+}
 </script>
 
 <template>
   <v-card>
     <div class="mt-2 mx-3 d-flex flex-gap align-center">
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+
+      <MixedButton
+        icon="mdi-select-multiple"
+        position="left"
+        color="primary"
+        :text="$t('torrentDetail.content.filter.activator')"
+        @click="openFilterDialog" />
 
       <MixedButton
         :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"

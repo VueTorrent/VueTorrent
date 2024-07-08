@@ -353,7 +353,6 @@ export default class MockProvider implements IProvider {
   }
 
   async setPreferences(_: AppPreferencesPayload): Promise<void> {
-    console.log(_)
     return this.generateResponse({ shouldResolve: true })
   }
 

@@ -1129,6 +1129,14 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} file | {n} files",
+      "filter": {
+        "activator": "Bulk Select",
+        "extensions": "File extension",
+        "priority": "File priority",
+        "size": "File size",
+        "title": "Advanced filters",
+        "preview": "Filter matches {count}/{total} files ({size})"
+      },
       "filter_placeholder": "Search in file tree",
       "folderInfo": "{n} folder | {n} folders",
       "invert_priority": "Invert priority",
