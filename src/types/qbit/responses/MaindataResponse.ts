@@ -17,11 +17,11 @@ interface FullUpdate {
   /** Current state of the server */
   server_state: ServerState
   /** Categories data of the server */
-  categories: Record<string, Category>
+  categories?: Record<string, Category>
   /** Tags list of the server */
-  tags: string[]
+  tags?: string[]
   /** Torrents data of the server */
-  torrents: Record<string, RawQbitTorrent>
+  torrents?: Record<string, RawQbitTorrent>
   /**
    * Trackers data of the server
    *
@@ -29,10 +29,11 @@ interface FullUpdate {
    *
    * Value: Torrents hash array
    */
-  trackers: Record<string, string[]>
+  trackers?: Record<string, string[]>
 }
 
 interface PartialUpdate {
+  full_update: never
   /**
    * Response ID
    * Will cycle between 1 and 1,000,000

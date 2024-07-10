@@ -55,16 +55,16 @@ export const useMaindataStore = defineStore('maindata', () => {
 
       if (isFullUpdate(response)) {
         syncFromMaindata(true, response.server_state)
-        categoryStore.syncFromMaindata(true, Object.entries(response.categories))
-        tagStore.syncFromMaindata(true, response.tags)
-        torrentStore.syncFromMaindata(true, Object.entries(response.torrents))
-        trackerStore.syncFromMaindata(true, Object.entries(response.trackers))
+        categoryStore.syncFromMaindata(true, Object.entries(response.categories ?? {}))
+        tagStore.syncFromMaindata(true, response.tags ?? [])
+        torrentStore.syncFromMaindata(true, Object.entries(response.torrents ?? {}))
+        trackerStore.syncFromMaindata(true, Object.entries(response.trackers ?? {}))
         return
       }
 
       syncFromMaindata(false, response.server_state)
       categoryStore.syncFromMaindata(false, Object.entries(response.categories ?? {}), response.categories_removed)
-      tagStore.syncFromMaindata(false, response.tags, response.tags_removed)
+      tagStore.syncFromMaindata(false, response.tags ?? [], response.tags_removed)
       torrentStore.syncFromMaindata(false, Object.entries(response.torrents ?? {}), response.torrents_removed)
       trackerStore.syncFromMaindata(false, Object.entries(response.trackers ?? {}), response.trackers_removed)
 
