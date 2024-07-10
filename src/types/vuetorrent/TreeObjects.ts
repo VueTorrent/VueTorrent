@@ -102,21 +102,15 @@ export class TreeFolder {
 
     this.childrenIds = this.children.map(child => child.childrenIds ?? []).flat()
 
-    this.wanted = this.children
-      .map(child => child.wanted)
-      .reduce((prev, curr) => {
-        if (prev === null || prev === curr) return prev
-        return null
-      })
+    this.wanted = this.children.map(child => child.wanted).some(Boolean)
 
-    const values = this.children.filter(child => child.wanted)
-    if (values.length === 0) {
+    const wantedChildren = this.children.filter(child => child.wanted)
+    if (wantedChildren.length === 0) {
       this.progress = 0
     } else {
       // Downloaded / total
-      const result = values.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
+      const result = wantedChildren.reduce((prev, child) => [prev[0] + child.selectedSize * child.progress, prev[1] + child.selectedSize], [0, 0])
       this.progress = result[0] / result[1]
-      console.log(values.length, result, this.progress)
     }
 
     this.deepCount = this.children
