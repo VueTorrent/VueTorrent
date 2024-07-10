@@ -5,9 +5,9 @@ import { ref } from 'vue'
 export const useTagStore = defineStore('tags', () => {
   const tags = ref<string[]>([])
 
-  function syncFromMaindata(fullUpdate: boolean, values?: string[], removed?: string[]) {
+  function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {
-      tags.value = values!
+      tags.value = values
       return
     }
 
