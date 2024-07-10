@@ -1234,9 +1234,9 @@ export default class MockProvider implements IProvider {
           is_seed: false,
           name: 'ubuntu-23.10.1-desktop-amd64.iso',
           piece_range: [0, 63],
-          priority: FilePriority.NORMAL,
+          priority: FilePriority.MAXIMAL,
           progress: 0,
-          size: 5173995520
+          size: 173995520
         },
         {
           availability: 1,
@@ -1246,7 +1246,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 5173995520
+          size: 1173995520
         },
         {
           availability: 1,
@@ -1256,7 +1256,7 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 5173995520
+          size: 2173995520
         },
         {
           availability: 1,
@@ -1266,17 +1266,17 @@ export default class MockProvider implements IProvider {
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 5173995520
+          size: 3173995520
         },
         {
           availability: 1,
-          index: 5,
+          index: 4,
           is_seed: false,
           name: 'ubuntu2/ubuntu-23.10.1-desktop-amd64.iso',
           piece_range: [0, 63],
           priority: FilePriority.NORMAL,
           progress: 0,
-          size: 5173995520
+          size: 4173995520
         }
       ]
     })
