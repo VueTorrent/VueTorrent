@@ -87,14 +87,17 @@ describe('TreeObjects', () => {
   })
 
   test('isWanted', () => {
+    // Mixed
     folder.children = [file_unwanted, file_normal, file_high, file_maximal]
     folder.buildCache()
-    expect(folder.wanted).toBe(null)
+    expect(folder.wanted).toBe(true)
 
+    // Selected
     folder.children = [file_normal, file_high, file_maximal]
     folder.buildCache()
     expect(folder.wanted).toBe(true)
 
+    // Skipped
     folder.children = [file_unwanted]
     folder.buildCache()
     expect(folder.wanted).toBe(false)

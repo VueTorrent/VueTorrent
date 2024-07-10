@@ -110,13 +110,13 @@ export const useContentStore = defineStore('content', () => {
       isFolder: node.type === 'folder',
       oldName: node.fullName
     }
-    dialogStore.createDialog(MoveTorrentFileDialog, payload, updateFileTree)
+    dialogStore.createDialog(MoveTorrentFileDialog, payload, updateFileTreeTask.perform)
   }
 
   async function bulkRename(node: TreeFolder) {
     const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
     const payload = { hash: hash.value, node }
-    dialogStore.createDialog(BulkRenameFilesDialog, payload, updateFileTree)
+    dialogStore.createDialog(BulkRenameFilesDialog, payload, updateFileTreeTask.perform)
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {
@@ -129,7 +129,7 @@ export const useContentStore = defineStore('content', () => {
 
   async function setFilePriority(fileIdx: number[], priority: FilePriority) {
     await qbit.setTorrentFilePriority(hash.value, fileIdx, priority)
-    await updateFileTree()
+    updateFileTreeTask.perform()
   }
 
   async function fetchFiles(hash: string, indexes?: number[]) {

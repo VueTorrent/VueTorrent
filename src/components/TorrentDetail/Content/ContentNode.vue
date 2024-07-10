@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { getFileIcon } from '@/constants/vuetorrent'
-import { useI18n } from 'vue-i18n'
 import { FilePriority } from '@/constants/qbit'
+import { getFileIcon } from '@/constants/vuetorrent'
 import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
@@ -92,10 +92,18 @@ function getNodeSubtitle(node: TreeNode) {
   const size = formatData(node.size, vuetorrentStore.useBinarySize)
   const selectedSize = formatData(node.selectedSize, vuetorrentStore.useBinarySize)
 
-  const values = [size + (node.selectedSize > 0 ? ` (${selectedSize})` : '')]
-
+  let values: string[]
   if (node.type === 'folder') {
-    values.push(getNodeDeepCount(node))
+    let displayedSize = size
+    if (node.selectedSize > 0) {
+      displayedSize += ` (${selectedSize})`
+    }
+    values = [
+      displayedSize,
+      getNodeDeepCount(node)
+    ]
+  } else {
+    values = [size]
   }
 
   return values.join(' | ')
@@ -111,7 +119,7 @@ function getNodeSubtitle(node: TreeNode) {
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
-        <v-icon v-if="node.wanted === null" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
+        <v-icon v-if="node.priority === FilePriority.MIXED" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
         <v-icon v-else-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
