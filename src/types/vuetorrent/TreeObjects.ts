@@ -123,7 +123,10 @@ export class TreeFolder {
       )
 
     this.size = this.children.map(child => child.size!).reduce((prev, curr) => prev + curr, 0)
-    this.selectedSize = this.children.filter(child => child.wanted).map(child => child.selectedSize!).reduce((prev, curr) => prev + curr, 0)
+    this.selectedSize = this.children
+      .filter(child => child.wanted)
+      .map(child => child.selectedSize!)
+      .reduce((prev, curr) => prev + curr, 0)
   }
 
   isSelected(selection: Set<string>): boolean {

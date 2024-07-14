@@ -42,14 +42,14 @@ const blockContextMenu = () => {
 }
 
 function addLaunchQueueConsumer() {
-  const win = window as { launchQueue?: { setConsumer: (callback: (launchParams: { files: Readonly<FileSystemFileHandle[]>, targetURL: string }) => void) => void } }
-  win.launchQueue?.setConsumer(async (launchParams) => {
+  const win = window as { launchQueue?: { setConsumer: (callback: (launchParams: { files: Readonly<FileSystemFileHandle[]>; targetURL: string }) => void) => void } }
+  win.launchQueue?.setConsumer(async launchParams => {
     if (launchParams.files && launchParams.files.length) {
       addTorrentStore.isFirstInit = false
       await Promise.all(launchParams.files.map(async file => addTorrentStore.pushTorrentToQueue(await file.getFile())))
       dialogStore.createDialog(AddTorrentDialog)
     }
-  });
+  })
 }
 
 onBeforeMount(() => {
