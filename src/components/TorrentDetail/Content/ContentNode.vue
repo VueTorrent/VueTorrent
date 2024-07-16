@@ -98,10 +98,7 @@ function getNodeSubtitle(node: TreeNode) {
     if (node.selectedSize > 0) {
       displayedSize += ` (${selectedSize})`
     }
-    values = [
-      displayedSize,
-      getNodeDeepCount(node)
-    ]
+    values = [displayedSize, getNodeDeepCount(node)]
   } else {
     values = [size]
   }
