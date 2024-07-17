@@ -54,6 +54,11 @@ export const useContentStore = defineStore('content', () => {
       action: () => renameNode(selectedNode.value!)
     },
     {
+      text: t('torrentDetail.content.invert_priority'),
+      icon: 'mdi-checkbox-intermediate-variant',
+      action: invertPrioritySelection
+    },
+    {
       text: t('torrentDetail.content.priority'),
       icon: 'mdi-trending-up',
       children: [
@@ -117,6 +122,19 @@ export const useContentStore = defineStore('content', () => {
     const { default: BulkRenameFilesDialog } = await import('@/components/Dialogs/BulkRenameFilesDialog.vue')
     const payload = { hash: hash.value, node }
     dialogStore.createDialog(BulkRenameFilesDialog, payload, updateFileTreeTask.perform)
+  }
+
+  async function invertPrioritySelection() {
+    const selection = selectedNodes.value.flatMap(n => n.childrenIds)
+    const files = cachedFiles.value.filter(file => selection.includes(file.index))
+
+    const selectedFileIds = files.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
+    const unwantedFileIds = files.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
+
+    await Promise.all([
+      setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD),
+      setFilePriority(unwantedFileIds, FilePriority.NORMAL)
+    ])
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {

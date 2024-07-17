@@ -1131,6 +1131,7 @@
       "fileInfo": "{n} file | {n} files",
       "filter_placeholder": "Search in file tree",
       "folderInfo": "{n} folder | {n} folders",
+      "invert_priority": "Invert priority",
       "priority": "Set priority",
       "rename": {
         "bulk": "Bulk rename",
