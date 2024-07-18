@@ -132,8 +132,8 @@ export const useContentStore = defineStore('content', () => {
     const unwantedFileIds = files.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
 
     await Promise.all([
-      setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD),
-      setFilePriority(unwantedFileIds, FilePriority.NORMAL)
+      setFilePriority(unwantedFileIds, FilePriority.NORMAL),
+      setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD)
     ])
   }
 
