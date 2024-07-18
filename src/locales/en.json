@@ -474,6 +474,7 @@
   "login": {
     "error": "Login failed!",
     "password": "Password",
+    "pending": "Checking current auth status...",
     "rules": {
       "password_required": "Password is required",
       "username_required": "Username is required"

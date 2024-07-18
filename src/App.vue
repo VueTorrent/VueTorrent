@@ -9,8 +9,10 @@ import { backend } from '@/services/backend'
 import { useAddTorrentStore, useAppStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { onBeforeMount, watch, watchEffect } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
+const { t } = useI18n()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
@@ -23,11 +25,9 @@ const vuetorrentStore = useVueTorrentStore()
 const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
 
 const checkAuthentication = async () => {
-  await toast.promise(appStore.fetchAuthStatus(), {
-    pending: 'Checking current auth status...'
-  }, {
-    delay: 1  // FIXME: Only display toast after a second without resolve
-  })
+  const promise = appStore.fetchAuthStatus()
+  const timer = setTimeout(() => toast.promise(promise, { pending: t('login.pending')}), 1000)
+  promise.then(() => clearTimeout(timer))
 }
 
 const blockContextMenu = () => {
