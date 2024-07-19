@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MixedButton from '@/components/Core/MixedButton.vue'
 import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
 import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
@@ -91,19 +90,23 @@ function openFilterDialog() {
     <div class="mt-2 mx-3 d-flex flex-gap align-center">
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
 
-      <MixedButton
-        icon="mdi-select-multiple"
-        position="left"
-        color="primary"
-        :text="$t('torrentDetail.content.filter.activator')"
-        @click="openFilterDialog" />
+      <v-tooltip :text="$t('torrentDetail.content.filter.activator')" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props"
+                 icon="mdi-select-multiple"
+                 color="primary"
+                 @click="openFilterDialog" />
+        </template>
+      </v-tooltip>
 
-      <MixedButton
-        :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
-        position="left"
-        color="primary"
-        :text="isTimerActive ? $t('common.pause') : $t('common.resume')"
-        @click="isTimerActive ? pause() : resume()" />
+      <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props"
+                 :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
+                 color="primary"
+                 @click="isTimerActive ? pause() : resume()" />
+        </template>
+      </v-tooltip>
     </div>
 
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">

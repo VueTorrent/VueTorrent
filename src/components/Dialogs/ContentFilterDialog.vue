@@ -4,7 +4,7 @@ import { FilePriority } from '@/constants/qbit'
 import { formatData } from '@/helpers'
 import { splitExt } from '@/helpers/path.ts'
 import { useContentStore, useVueTorrentStore } from '@/stores'
-import { computed, reactive, shallowReactive } from 'vue'
+import { computed, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
@@ -47,21 +47,23 @@ const filters = reactive<{ extensions: string[], priority: FilePriority[], size:
   size: sizeBoundaries.value
 })
 
-// const regex = computed(() => {
-//   try {
-//     return new RegExp(filters.name, 'giu')
-//   } catch {
-//     return filters.name
-//   }
-// })
 const filterPreview = computed(() => contentStore.cachedFiles
   .filter(file => (
-    // ((regex.value instanceof RegExp) ? regex.value.test(file.name) : file.name.includes(regex.value))
     (!filters.extensions.length || filters.extensions.includes(splitExt(file.name)[1]))
     && (!filters.priority.length || filters.priority.includes(file.priority))
     && (file.size >= filters.size[0] && file.size <= filters.size[1]))
   ))
 const filterPreviewSize = computed(() => filterPreview.value.reduce((prev, curr) => prev + curr.size, 0))
+
+function exclude() {
+  contentStore.setFilePriority(filterPreview.value.map(value => value.index), FilePriority.DO_NOT_DOWNLOAD)
+}
+
+function include() {
+  // Don't change already selected files' priority
+  const fileIdx = filterPreview.value.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
+  contentStore.setFilePriority(fileIdx, FilePriority.NORMAL)
+}
 
 function close() {
   isOpened.value = false
@@ -115,7 +117,7 @@ function close() {
                             :disabled="sizeBoundaries[0] === sizeBoundaries[1]"
                             :min="sizeBoundaries[0]"
                             :max="sizeBoundaries[1]"
-                            :step="1"
+                            :step="1000"
                             density="compact"
                             thumb-label="always"
                             hide-details>
@@ -156,8 +158,8 @@ function close() {
         </v-row>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="error">Exclude</v-btn>
-        <v-btn color="success">Include</v-btn>
+        <v-btn color="error" @click="exclude">Exclude</v-btn>
+        <v-btn color="success" @click="include">Include</v-btn>
         <v-spacer />
         <v-btn @click="close">Apply</v-btn>
       </v-card-actions>
