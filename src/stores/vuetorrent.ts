@@ -34,7 +34,6 @@ export const useVueTorrentStore = defineStore(
     const enableHashColors = ref(true)
     const paginationSize = ref(15)
     const dateFormat = ref(defaultDateFormat)
-    const openSideBarOnStart = ref(true)
     const isShutdownButtonVisible = ref(false)
     const useBitSpeed = ref(false)
     const useBinarySize = ref(false)
@@ -230,7 +229,6 @@ export const useVueTorrentStore = defineStore(
       enableHashColors,
       isShutdownButtonVisible,
       language,
-      openSideBarOnStart,
       paginationSize,
       refreshInterval,
       showAlltimeStat,
@@ -291,7 +289,6 @@ export const useVueTorrentStore = defineStore(
         enableHashColors.value = true
         paginationSize.value = 15
         dateFormat.value = defaultDateFormat
-        openSideBarOnStart.value = true
         isShutdownButtonVisible.value = false
         useBitSpeed.value = false
         useBinarySize.value = false

@@ -992,7 +992,6 @@
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
         "lightVariants": "Light theme variant",
-        "openSideBarOnStart": "Open Side Bar on launch",
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
           "label": "Pagination Size",
