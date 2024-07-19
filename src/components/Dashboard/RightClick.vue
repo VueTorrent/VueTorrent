@@ -7,6 +7,7 @@ import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
+import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -117,19 +118,26 @@ function setShareLimit() {
   dialogStore.createDialog(ShareLimitDialog, { hashes: hashes.value })
 }
 
+function downloadFile(filename: string, blob: Blob) {
+  const href = window.URL.createObjectURL(blob)
+  const el = Object.assign(document.createElement('a'), { href, download: filename, style: { opacity: '0' } })
+  document.body.appendChild(el)
+  el.click()
+  el.remove()
+}
+
 async function exportTorrents() {
-  hashes.value.forEach(hash => {
-    torrentStore.exportTorrent(hash).then(blob => {
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement('a')
-      link.href = url
-      link.style.opacity = '0'
-      link.setAttribute('download', `${hash}.torrent`)
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    })
-  })
+  const ts = [...torrents.value]
+  if (ts.length === 1) {
+    const t = ts[0]!
+    const blob = await torrentStore.exportTorrent(t.hash)
+    downloadFile(`${t.name}.torrent`, blob)
+    return
+  }
+
+  const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
+  await Promise.all(hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob)))))
+  downloadFile('torrents.zip', await zipWriter.close())
 }
 
 const menuData = computed<RightClickMenuEntryType[]>(() => [
@@ -216,12 +224,12 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: [
       ...(torrent.value?.tags.length
         ? [
-            {
-              text: t('dashboard.right_click.tags.remove_all'),
-              action: () => removeAllTags().then(maindataStore.forceMaindataSync),
-              icon: 'mdi-playlist-remove'
-            }
-          ]
+          {
+            text: t('dashboard.right_click.tags.remove_all'),
+            action: () => removeAllTags().then(maindataStore.forceMaindataSync),
+            icon: 'mdi-playlist-remove'
+          }
+        ]
         : []),
       ...tagStore.tags.map(tag => ({
         text: tag,
