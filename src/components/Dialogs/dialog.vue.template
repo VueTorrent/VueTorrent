@@ -1,0 +1,38 @@
+<script setup lang="ts">
+import { useDialog } from '@/composables'
+
+const props = defineProps<{
+  guid: string
+}>()
+const emit = defineEmits<{
+  submit: []
+}>()
+
+const { isOpened } = useDialog(props.guid)
+
+function close() {
+  emit('submit')
+  isOpened.value = false
+}
+</script>
+
+<template>
+  <v-dialog v-model="isOpened">
+    <v-card>
+      <v-card-title class="ios-margin">
+        <v-toolbar color="transparent">
+          <v-toolbar-title>{{ $t('CHANGEME') }}</v-toolbar-title>
+          <v-btn icon="mdi-close" @click="close" />
+        </v-toolbar>
+      </v-card-title>
+      <v-card-text>
+        CHANGEME
+      </v-card-text>
+      <v-card-actions>
+        <v-btn @click="close">Close</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>
+
+<style scoped></style>

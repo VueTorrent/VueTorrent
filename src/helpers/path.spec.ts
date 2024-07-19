@@ -1,4 +1,4 @@
-import { basename } from './path'
+import { basename, splitExt } from './path'
 
 describe('helpers/path/basename', () => {
   test('*NIX :: should return basename on files', () => {
@@ -30,4 +30,46 @@ describe('helpers/path/basename', () => {
     expect(basename(null)).toEqual('')
     expect(basename(undefined)).toEqual('')
   })
+})
+
+describe('helpers/path/splitExt', () => {
+  it('should return filename and extension for a simple file', () => {
+    expect(splitExt('file.txt')).toEqual(['file', 'txt']);
+  });
+
+  it('should return filename and empty string for file without extension', () => {
+    expect(splitExt('file')).toEqual(['file', '']);
+  });
+
+  it('should handle files with multiple dots correctly', () => {
+    expect(splitExt('my.file.name.txt')).toEqual(['my.file.name', 'txt']);
+  });
+
+  it('should return empty strings for empty input', () => {
+    expect(splitExt('')).toEqual(['', '']);
+  });
+
+  it('should return empty strings for null input', () => {
+    expect(splitExt(null)).toEqual(['', '']);
+  });
+
+  it('should return empty strings for undefined input', () => {
+    expect(splitExt(undefined)).toEqual(['', '']);
+  });
+
+  it('should handle paths with directories correctly', () => {
+    expect(splitExt('/path/to/file.txt')).toEqual(['/path/to/file', 'txt']);
+  });
+
+  it('should handle Windows-style paths correctly', () => {
+    expect(splitExt('C:\\path\\to\\file.txt')).toEqual(['C:/path/to/file', 'txt']);
+  });
+
+  it('should handle files starting with a dot', () => {
+    expect(splitExt('.hiddenfile')).toEqual(['.hiddenfile', '']);
+  });
+
+  it('should treat files with only extension as hidden', () => {
+    expect(splitExt('.txt')).toEqual(['.txt', '']);
+  });
 })

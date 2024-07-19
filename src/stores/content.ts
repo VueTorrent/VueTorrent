@@ -42,16 +42,16 @@ export const useContentStore = defineStore('content', () => {
 
   const menuData = computed<RightClickMenuEntryType[]>(() => [
     {
-      text: t(`torrentDetail.content.rename.bulk`),
-      icon: 'mdi-rename',
-      hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
-      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
-    },
-    {
       text: t(`torrentDetail.content.rename.${selectedNode.value?.type || 'file'}`),
       icon: 'mdi-rename',
       hidden: internalSelection.value.size > 1 || selectedNode.value?.fullName === '',
       action: () => renameNode(selectedNode.value!)
+    },
+    {
+      text: t(`torrentDetail.content.rename.bulk`),
+      icon: 'mdi-rename',
+      hidden: internalSelection.value.size !== 1 || (selectedNode.value?.type || 'file') === 'file',
+      action: () => bulkRename(toRaw(selectedNode.value!) as TreeFolder)
     },
     {
       text: t('torrentDetail.content.invert_priority'),

@@ -1,0 +1,166 @@
+<script setup lang="ts">
+import { useDialog } from '@/composables'
+import { FilePriority } from '@/constants/qbit'
+import { formatData } from '@/helpers'
+import { splitExt } from '@/helpers/path.ts'
+import { useContentStore, useVueTorrentStore } from '@/stores'
+import { computed, reactive } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const props = defineProps<{
+  guid: string
+}>()
+
+const { t } = useI18n()
+const { isOpened } = useDialog(props.guid)
+const contentStore = useContentStore()
+const vuetorrentStore = useVueTorrentStore()
+
+const sizeBoundaries = computed<[number, number]>(() => contentStore.cachedFiles.map(file => file.size).reduce((prev, curr) => [prev[0] === -1 || curr < prev[0] ? curr : prev[0], prev[1] === -1 || curr > prev[1] ? curr : prev[1]], [-1, -1]))
+const fileExtensions = computed(() => Array.from(contentStore.cachedFiles.map(file => file.name).reduce((prev, curr) => prev.add(splitExt(curr)[1]), new Set<string>()).values()))
+const extensionItems = computed(() => fileExtensions.value.map(ext => {
+  if (ext === '') return { title: t('common.none'), value: '' }
+  else return { title: `.${ext}`, value: ext }
+}))
+const priorityOptions = [
+  {
+    title: t('constants.file_priority.unwanted'),
+    value: FilePriority.DO_NOT_DOWNLOAD
+  },
+  {
+    title: t('constants.file_priority.normal'),
+    value: FilePriority.NORMAL
+  },
+  {
+    title: t('constants.file_priority.high'),
+    value: FilePriority.HIGH
+  },
+  {
+    title: t('constants.file_priority.max'),
+    value: FilePriority.MAXIMAL
+  },
+]
+
+const filters = reactive<{ extensions: string[], priority: FilePriority[], size: [number, number] }>({
+  extensions: [],
+  priority: [],
+  size: sizeBoundaries.value
+})
+
+const filterPreview = computed(() => contentStore.cachedFiles
+  .filter(file => (
+    (!filters.extensions.length || filters.extensions.includes(splitExt(file.name)[1]))
+    && (!filters.priority.length || filters.priority.includes(file.priority))
+    && (file.size >= filters.size[0] && file.size <= filters.size[1]))
+  ))
+const filterPreviewSize = computed(() => filterPreview.value.reduce((prev, curr) => prev + curr.size, 0))
+
+function exclude() {
+  contentStore.setFilePriority(filterPreview.value.map(value => value.index), FilePriority.DO_NOT_DOWNLOAD)
+}
+
+function include() {
+  // Don't change already selected files' priority
+  const fileIdx = filterPreview.value.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
+  contentStore.setFilePriority(fileIdx, FilePriority.NORMAL)
+}
+
+function close() {
+  isOpened.value = false
+}
+</script>
+
+<template>
+  <v-dialog v-model="isOpened" :fullscreen="$vuetify.display.mobile">
+    <v-card>
+      <v-card-title class="ios-margin">
+        <v-toolbar color="transparent">
+          <v-toolbar-title>{{ $t('torrentDetail.content.filter.title') }}</v-toolbar-title>
+          <v-btn icon="mdi-close" @click="close" />
+        </v-toolbar>
+      </v-card-title>
+      <v-card-text>
+        <v-row>
+          <v-col cols="4" class="d-flex align-center">
+            {{ $t('torrentDetail.content.filter.extensions') }}
+          </v-col>
+          <v-col cols="8">
+            <v-select v-model="filters.extensions"
+                      :items="extensionItems"
+                      :placeholder="$t('common.disabled')"
+                      persistent-placeholder
+                      multiple
+                      hide-details />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="4" class="d-flex align-center">
+            {{ $t('torrentDetail.content.filter.priority') }}
+          </v-col>
+          <v-col cols="8">
+            <v-select v-model="filters.priority"
+                      :items="priorityOptions"
+                      :placeholder="$t('common.disabled')"
+                      persistent-placeholder
+                      multiple
+                      hide-details />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="4" class="d-flex align-center">
+            {{ $t('torrentDetail.content.filter.size') }}
+          </v-col>
+          <v-col cols="8">
+            <v-range-slider v-model="filters.size"
+                            :direction="$vuetify.display.mobile ? 'vertical': 'horizontal'"
+                            color="primary"
+                            :disabled="sizeBoundaries[0] === sizeBoundaries[1]"
+                            :min="sizeBoundaries[0]"
+                            :max="sizeBoundaries[1]"
+                            :step="1"
+                            density="compact"
+                            thumb-label="always"
+                            hide-details>
+              <template v-slot:thumb-label="{ modelValue }">
+                <div style="white-space: nowrap">
+                  {{ formatData(modelValue, vuetorrentStore.useBinarySize) }}
+                </div>
+              </template>
+              <template v-slot:prepend>
+                <v-text-field
+                    v-model="filters.size[0]"
+                    hide-spin-buttons
+                    density="compact"
+                    style="width: 130px"
+                    type="number"
+                    variant="outlined"
+                    hide-details
+                    single-line />
+              </template>
+              <template v-slot:append>
+                <v-text-field
+                    v-model="filters.size[1]"
+                    hide-spin-buttons
+                    density="compact"
+                    style="width: 130px"
+                    type="number"
+                    variant="outlined"
+                    hide-details
+                    single-line />
+              </template>
+            </v-range-slider>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            {{ $t('torrentDetail.content.filter.preview', { count: filterPreview.length, total: contentStore.cachedFiles.length, size: formatData(filterPreviewSize, vuetorrentStore.useBinarySize) }) }}
+          </v-col>
+        </v-row>
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="error" @click="exclude">{{ $t('torrentDetail.content.filter.exclude') }}</v-btn>
+        <v-btn color="success" @click="include">{{ $t('torrentDetail.content.filter.include') }}</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</template>

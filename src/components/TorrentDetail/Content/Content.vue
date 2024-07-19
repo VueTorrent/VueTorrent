@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import MixedButton from '@/components/Core/MixedButton.vue'
-import { useContentStore } from '@/stores'
+import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
+import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
@@ -12,6 +12,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
 const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
+const dialogStore = useDialogStore()
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -78,6 +79,10 @@ function resume() {
   timerForcedPause.value = false
   contentStore.resumeTimer()
 }
+
+function openFilterDialog() {
+  dialogStore.createDialog(ContentFilterDialog)
+}
 </script>
 
 <template>
@@ -85,12 +90,23 @@ function resume() {
     <div class="mt-2 mx-3 d-flex flex-gap align-center">
       <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
 
-      <MixedButton
-        :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
-        position="left"
-        color="primary"
-        :text="isTimerActive ? $t('common.pause') : $t('common.resume')"
-        @click="isTimerActive ? pause() : resume()" />
+      <v-tooltip :text="$t('torrentDetail.content.filter.activator')" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props"
+                 icon="mdi-select-multiple"
+                 color="primary"
+                 @click="openFilterDialog" />
+        </template>
+      </v-tooltip>
+
+      <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
+        <template #activator="{ props }">
+          <v-btn v-bind="props"
+                 :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
+                 color="primary"
+                 @click="isTimerActive ? pause() : resume()" />
+        </template>
+      </v-tooltip>
     </div>
 
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
