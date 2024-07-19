@@ -1131,7 +1131,9 @@
       "fileInfo": "{n} file | {n} files",
       "filter": {
         "activator": "Bulk Select",
+        "exclude": "Exclude",
         "extensions": "File extension",
+        "include": "Include",
         "priority": "File priority",
         "size": "File size",
         "title": "Advanced filters",

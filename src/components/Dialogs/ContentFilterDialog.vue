@@ -117,7 +117,7 @@ function close() {
                             :disabled="sizeBoundaries[0] === sizeBoundaries[1]"
                             :min="sizeBoundaries[0]"
                             :max="sizeBoundaries[1]"
-                            :step="1000"
+                            :step="1"
                             density="compact"
                             thumb-label="always"
                             hide-details>
@@ -158,13 +158,9 @@ function close() {
         </v-row>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="error" @click="exclude">Exclude</v-btn>
-        <v-btn color="success" @click="include">Include</v-btn>
-        <v-spacer />
-        <v-btn @click="close">Apply</v-btn>
+        <v-btn color="error" @click="exclude">{{ $t('torrentDetail.content.filter.exclude') }}</v-btn>
+        <v-btn color="success" @click="include">{{ $t('torrentDetail.content.filter.include') }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
-
-<style scoped></style>
