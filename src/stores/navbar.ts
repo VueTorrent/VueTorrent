@@ -1,15 +1,15 @@
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
-import { useVueTorrentStore } from './vuetorrent'
+import { useDisplay } from 'vuetify'
 
 const GRAPH_SIZE = 15
 
 export const useNavbarStore = defineStore(
   'navbar',
   () => {
-    const vueTorrentStore = useVueTorrentStore()
+    const { mobile } = useDisplay()
 
-    const isDrawerOpen = ref(vueTorrentStore.openSideBarOnStart)
+    const isDrawerOpen = ref(!mobile.value)
 
     const _timeData = ref<number[]>(new Array(GRAPH_SIZE).fill(new Date().getTime()))
     const _downloadData = ref<number[]>(new Array(GRAPH_SIZE).fill(0))
