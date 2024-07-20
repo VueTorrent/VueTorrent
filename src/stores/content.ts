@@ -7,7 +7,7 @@ import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, ref, toRaw } from 'vue'
+import { computed, nextTick, reactive, shallowRef, toRaw } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
@@ -24,13 +24,13 @@ export const useContentStore = defineStore('content', () => {
     isVisible: false,
     offset: [0, 0]
   })
-  const filenameFilter = ref('')
-  const cachedFiles = ref<TorrentFile[]>([])
-  const openedItems = ref([''])
+  const filenameFilter = shallowRef('')
+  const cachedFiles = shallowRef<TorrentFile[]>([])
+  const openedItems = shallowRef([''])
   const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
   const { flatTree } = useTreeBuilder(filteredFiles, openedItems)
 
-  const internalSelection = ref<Set<string>>(new Set())
+  const internalSelection = shallowRef<Set<string>>(new Set())
   const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
   const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
   const selectedIds = computed<number[]>(() =>
@@ -90,7 +90,7 @@ export const useContentStore = defineStore('content', () => {
     yield updateFileTree()
   }).drop()
 
-  const timerForcedPause = ref(false)
+  const timerForcedPause = shallowRef(false)
   const {
     isActive: isTimerActive,
     pause: pauseTimer,
@@ -101,11 +101,8 @@ export const useContentStore = defineStore('content', () => {
   })
 
   async function updateFileTree() {
-    performance.mark('ContentStore::updateFileTree::start')
     cachedFiles.value = await fetchFiles(hash.value)
     await nextTick()
-    performance.mark('ContentStore::updateFileTree::end')
-    performance.measure('ContentStore::updateFileTree', 'ContentStore::updateFileTree::start', 'ContentStore::updateFileTree::end')
   }
 
   async function renameNode(node: TreeNode) {

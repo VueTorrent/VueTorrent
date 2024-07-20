@@ -4,13 +4,13 @@ import { getFileIcon } from '@/constants/vuetorrent'
 import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
-import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { computed, triggerRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
   node: TreeNode
-  openedItems: string[]
 }>()
 
 const emit = defineEmits<{
@@ -22,7 +22,7 @@ const folderColor = '#ffe476'
 
 const { t } = useI18n()
 const { mobile } = useDisplay()
-const contentStore = useContentStore()
+const { internalSelection, openedItems } = storeToRefs(useContentStore())
 const vuetorrentStore = useVueTorrentStore()
 
 const depth = computed(() => {
@@ -37,12 +37,13 @@ function openNode(e: Event, node: TreeNode) {
   if (node.type === 'file') return
   e.stopPropagation()
 
-  const index = props.openedItems.indexOf(node.fullName)
+  const index = openedItems.value.indexOf(node.fullName)
   if (index === -1) {
-    props.openedItems.push(node.fullName)
+    openedItems.value.push(node.fullName)
   } else {
-    props.openedItems.splice(index, 1)
+    openedItems.value.splice(index, 1)
   }
+  triggerRef(openedItems)
 }
 
 async function toggleFileSelection(node: TreeNode) {
@@ -55,13 +56,14 @@ async function toggleFileSelection(node: TreeNode) {
 
 function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node: TreeNode) {
   if (doesCommand(e)) {
-    if (contentStore.internalSelection.has(node.fullName)) {
-      contentStore.internalSelection.delete(node.fullName)
+    if (internalSelection.value.has(node.fullName)) {
+      internalSelection.value.delete(node.fullName)
     } else {
-      contentStore.internalSelection.add(node.fullName)
+      internalSelection.value.add(node.fullName)
     }
+    triggerRef(internalSelection)
   } else {
-    contentStore.internalSelection = new Set([node.fullName])
+    internalSelection.value = new Set([node.fullName])
   }
 }
 
@@ -109,7 +111,7 @@ function getNodeSubtitle(node: TreeNode) {
 
 <template>
   <div
-    :class="['d-flex flex-column py-2 pr-3', node.isSelected(contentStore.internalSelection) ? 'selected' : '']"
+    :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
     @click.stop="toggleInternalSelection($event, node)"
     @contextmenu="$emit('onRightClick', $event, node)">

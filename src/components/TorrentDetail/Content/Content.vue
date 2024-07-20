@@ -11,7 +11,7 @@ const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
-const { rightClickProperties, filenameFilter, openedItems, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
+const { rightClickProperties, filenameFilter, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
 
 const height = computed(() => {
@@ -112,7 +112,6 @@ function openFilterDialog() {
     <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
         <ContentNode
-          :opened-items="openedItems"
           :node="item"
           @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
           @touchcancel="endPress"
