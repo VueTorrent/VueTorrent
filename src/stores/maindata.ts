@@ -50,37 +50,24 @@ export const useMaindataStore = defineStore('maindata', () => {
   }
 
   async function updateMaindata() {
-    performance.mark('startMaindata')
     try {
       const response = await qbit.getMaindata(rid.value)
       rid.value = response.rid
 
       if (isFullUpdate(response)) {
-        performance.mark('maindata::serverState')
         syncFromMaindata(true, response.server_state)
-        performance.mark('maindata::categories')
         categoryStore.syncFromMaindata(true, Object.entries(response.categories ?? {}))
-        performance.mark('maindata::tags')
         tagStore.syncFromMaindata(true, response.tags ?? [])
-        performance.mark('maindata::torrents')
         torrentStore.syncFromMaindata(true, Object.entries(response.torrents ?? {}))
-        performance.mark('maindata::trackers')
         trackerStore.syncFromMaindata(true, Object.entries(response.trackers ?? {}))
-        performance.mark('maindata::endProcess')
         return
       }
 
-      performance.mark('maindata::serverState')
       syncFromMaindata(false, response.server_state)
-      performance.mark('maindata::categories')
       categoryStore.syncFromMaindata(false, Object.entries(response.categories ?? {}), response.categories_removed)
-      performance.mark('maindata::tags')
       tagStore.syncFromMaindata(false, response.tags ?? [], response.tags_removed)
-      performance.mark('maindata::torrents')
       torrentStore.syncFromMaindata(false, Object.entries(response.torrents ?? {}), response.torrents_removed)
-      performance.mark('maindata::trackers')
       trackerStore.syncFromMaindata(false, Object.entries(response.trackers ?? {}), response.trackers_removed)
-      performance.mark('maindata::endProcess')
 
       // filter out deleted torrents from selection
       dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => !response.torrents_removed?.includes(hash))
@@ -92,16 +79,6 @@ export const useMaindataStore = defineStore('maindata', () => {
       } else {
         console.error(error)
       }
-    } finally {
-      performance.mark('endMaindata')
-      performance.measure('maindata::init', 'startMaindata', 'maindata::serverState')
-      performance.measure('maindata::serverState', 'maindata::serverState', 'maindata::categories')
-      performance.measure('maindata::categories', 'maindata::categories', 'maindata::tags')
-      performance.measure('maindata::tags', 'maindata::tags', 'maindata::torrents')
-      performance.measure('maindata::torrents', 'maindata::torrents', 'maindata::trackers')
-      performance.measure('maindata::trackers', 'maindata::trackers', 'maindata::endProcess')
-      const measure = performance.measure('maindata', 'startMaindata', 'endMaindata')
-      console.log('maindata measure:', measure.duration)
     }
   }
 
