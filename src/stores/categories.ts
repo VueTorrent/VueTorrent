@@ -1,11 +1,11 @@
 import qbit from '@/services/qbit'
 import { Category } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
-  const categories = ref<Map<string, Category>>(new Map())
+  const categories = shallowRef<Map<string, Category>>(new Map())
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {

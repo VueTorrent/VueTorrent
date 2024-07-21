@@ -6,7 +6,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, shallowRef, toValue } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { useTrackerStore } from './trackers'
@@ -18,7 +18,7 @@ export const useTorrentStore = defineStore(
     const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
-    const _torrents = ref<Map<string, RawQbitTorrent>>(new Map())
+    const _torrents = shallowRef<Map<string, RawQbitTorrent>>(new Map())
     const torrents = computed(() =>
       Array.from(_torrents.value.entries()).map(([hash, v]) =>
         buildFromQbit({
@@ -28,11 +28,11 @@ export const useTorrentStore = defineStore(
       )
     )
 
-    const isTextFilterActive = ref(true)
-    const isStatusFilterActive = ref(true)
-    const isCategoryFilterActive = ref(true)
-    const isTagFilterActive = ref(true)
-    const isTrackerFilterActive = ref(true)
+    const isTextFilterActive = shallowRef(true)
+    const isStatusFilterActive = shallowRef(true)
+    const isCategoryFilterActive = shallowRef(true)
+    const isTagFilterActive = shallowRef(true)
+    const isTrackerFilterActive = shallowRef(true)
 
     const textFilter = ref('')
     const statusFilter = ref<TorrentState[]>([])
