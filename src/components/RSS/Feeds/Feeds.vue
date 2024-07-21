@@ -70,7 +70,6 @@ onUnmounted(() => {
 
   <v-card v-else id="rss-articles" class="pa-3" :height="height">
     <v-text-field v-model="titleFilter" :label="$t('rssArticles.feeds.filters.title')" clearable hide-details />
-
     <v-checkbox v-model="rssStore.filters.unread" :label="$t('rssArticles.feeds.filters.unread')" hide-details />
 
     <!-- Mobile layout -->

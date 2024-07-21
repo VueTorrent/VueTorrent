@@ -6,7 +6,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed, MaybeRefOrGetter, ref, shallowRef, toValue } from 'vue'
+import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import { useTrackerStore } from './trackers'
@@ -102,6 +102,7 @@ export const useTorrentStore = defineStore(
       }
 
       removed?.forEach(t => _torrents.value.delete(t))
+      triggerRef(_torrents)
     }
 
     async function setTorrentCategory(hashes: string[], category: string) {
@@ -240,6 +241,7 @@ export const useTorrentStore = defineStore(
       exportTorrent,
       $reset: () => {
         _torrents.value.clear()
+        triggerRef(_torrents)
         sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
         isTextFilterActive.value = true

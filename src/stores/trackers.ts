@@ -1,6 +1,6 @@
 import qbit from '@/services/qbit'
 import { defineStore } from 'pinia'
-import { computed, shallowRef } from 'vue'
+import { computed, shallowRef, triggerRef } from 'vue'
 
 export const useTrackerStore = defineStore('trackers', () => {
   /** Key: tracker domain, values: torrent hashes */
@@ -32,6 +32,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     }
 
     removed?.forEach(t => trackers.value.delete(t))
+    triggerRef(trackers)
   }
 
   async function getTorrentTrackers(hash: string) {
@@ -60,6 +61,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     removeTorrentTrackers,
     $reset: () => {
       trackers.value.clear()
+      triggerRef(trackers)
     }
   }
 })

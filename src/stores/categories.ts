@@ -1,7 +1,7 @@
 import qbit from '@/services/qbit'
 import { Category } from '@/types/qbit/models'
 import { defineStore } from 'pinia'
-import { shallowRef } from 'vue'
+import { shallowRef, triggerRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
@@ -29,6 +29,7 @@ export const useCategoryStore = defineStore('categories', () => {
       }
     }
     removed?.forEach(c => categories.value.delete(c))
+    triggerRef(categories)
   }
 
   function getCategoryFromName(categoryName?: string) {
@@ -78,6 +79,7 @@ export const useCategoryStore = defineStore('categories', () => {
     deleteCategories,
     $reset: () => {
       categories.value.clear()
+      triggerRef(categories)
     }
   }
 })

@@ -33,7 +33,6 @@ interface FullUpdate {
 }
 
 interface PartialUpdate {
-  full_update: never
   /**
    * Response ID
    * Will cycle between 1 and 1,000,000
