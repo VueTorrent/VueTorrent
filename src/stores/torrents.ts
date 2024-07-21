@@ -5,7 +5,7 @@ import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -264,3 +264,7 @@ export const useTorrentStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTorrentStore, import.meta.hot))
+}

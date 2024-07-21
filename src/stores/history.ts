@@ -1,5 +1,5 @@
 import { HistoryKey } from '@/constants/vuetorrent'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { reactive, ref } from 'vue'
 
 type History = Partial<Record<HistoryKey, string[]>>
@@ -51,3 +51,7 @@ export const useHistoryStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useHistoryStore, import.meta.hot))
+}

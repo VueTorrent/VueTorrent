@@ -6,7 +6,7 @@ import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
-import { defineStore, storeToRefs } from 'pinia'
+import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useI18n } from 'vue-i18n'
@@ -181,3 +181,7 @@ export const useContentStore = defineStore('content', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useContentStore, import.meta.hot))
+}

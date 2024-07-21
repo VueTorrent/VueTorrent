@@ -1,5 +1,5 @@
 import qbit from '@/services/qbit'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
 
 export const useTrackerStore = defineStore('trackers', () => {
@@ -65,3 +65,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTrackerStore, import.meta.hot))
+}

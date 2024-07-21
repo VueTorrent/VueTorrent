@@ -1,6 +1,6 @@
 import qbit from '@/services/qbit'
 import { TorrentProperties } from '@/types/qbit/models'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useTorrentDetailStore = defineStore('torrentDetail', () => {
@@ -18,3 +18,7 @@ export const useTorrentDetailStore = defineStore('torrentDetail', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTorrentDetailStore, import.meta.hot))
+}

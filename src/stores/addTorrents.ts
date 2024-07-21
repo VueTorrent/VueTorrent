@@ -1,5 +1,5 @@
 import { AddTorrentParams } from '@/types/qbit/models'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
 import { usePreferenceStore } from './preferences'
 
@@ -93,3 +93,7 @@ export const useAddTorrentStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useAddTorrentStore, import.meta.hot))
+}

@@ -1,6 +1,6 @@
 import qbit from '@/services/qbit'
 import { Category } from '@/types/qbit/models'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { shallowRef, triggerRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
@@ -83,3 +83,7 @@ export const useCategoryStore = defineStore('categories', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useCategoryStore, import.meta.hot))
+}

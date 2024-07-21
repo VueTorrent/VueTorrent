@@ -2,7 +2,7 @@ import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMet
 import { backendStorage } from '@/services/backend'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -317,3 +317,7 @@ export const useVueTorrentStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useVueTorrentStore, import.meta.hot))
+}

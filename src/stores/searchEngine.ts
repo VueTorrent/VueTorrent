@@ -1,7 +1,7 @@
 import qbit from '@/services/qbit'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { ref } from 'vue'
 
@@ -96,3 +96,7 @@ export const useSearchEngineStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useSearchEngineStore, import.meta.hot))
+}
