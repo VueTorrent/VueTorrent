@@ -985,7 +985,6 @@
         "isShutdownButtonVisible": "Показать кнопку выключения",
         "language": "Язык",
         "lightVariants": "Светлая тема",
-        "openSideBarOnStart": "Открывать боковую панель при запуске",
         "paginationSize": {
           "infinite_scroll": "Бесконечная прокрутка",
           "label": "Количество торрентов на странице",

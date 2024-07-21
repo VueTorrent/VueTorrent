@@ -990,7 +990,6 @@
         "isShutdownButtonVisible": "シャットダウンボタンを表示",
         "language": "言語",
         "lightVariants": "ライトモード",
-        "openSideBarOnStart": "起動時にサイドバーを開く",
         "paginationSize": {
           "infinite_scroll": "無限スクロール",
           "label": "ページネーションのサイズ",

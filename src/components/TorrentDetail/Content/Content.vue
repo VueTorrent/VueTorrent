@@ -92,19 +92,13 @@ function openFilterDialog() {
 
       <v-tooltip :text="$t('torrentDetail.content.filter.activator')" location="bottom">
         <template #activator="{ props }">
-          <v-btn v-bind="props"
-                 icon="mdi-select-multiple"
-                 color="primary"
-                 @click="openFilterDialog" />
+          <v-btn v-bind="props" icon="mdi-select-multiple" color="primary" @click="openFilterDialog" />
         </template>
       </v-tooltip>
 
       <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
         <template #activator="{ props }">
-          <v-btn v-bind="props"
-                 :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
-                 color="primary"
-                 @click="isTimerActive ? pause() : resume()" />
+          <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
         </template>
       </v-tooltip>
     </div>

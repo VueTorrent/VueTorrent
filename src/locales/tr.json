@@ -985,7 +985,6 @@
         "isShutdownButtonVisible": "Kapatma düğmesini göster",
         "language": "Dil",
         "lightVariants": "Açık tema varyantı",
-        "openSideBarOnStart": "Başlangıçta Yan Menüyü Aç",
         "paginationSize": {
           "infinite_scroll": "Sonsuz kaydırma",
           "label": "Sayfalama Boyutu",

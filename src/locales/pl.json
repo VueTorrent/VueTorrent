@@ -918,7 +918,6 @@
         "isDrawerRight": "Prawy panel boczny",
         "isShutdownButtonVisible": "Pokaż przycisk wyłączenia",
         "language": "Język",
-        "openSideBarOnStart": "Otwórz pasek boczny przy uruchomieniu",
         "paginationSize": {
           "infinite_scroll": "Nieskończone przewijanie",
           "label": "Rozmiar paginacji",
