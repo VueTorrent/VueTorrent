@@ -991,7 +991,6 @@
         "isShutdownButtonVisible": "Afficher le bouton d'arrêt",
         "language": "Langue",
         "lightVariants": "Variante du thème clair",
-        "openSideBarOnStart": "Ouvrir le menu latéral au lancement",
         "paginationSize": {
           "infinite_scroll": "Défilement infini",
           "label": "Taille de la pagination",

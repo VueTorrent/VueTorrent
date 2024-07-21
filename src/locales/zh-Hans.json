@@ -986,7 +986,6 @@
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
         "lightVariants": "浅色模式样式",
-        "openSideBarOnStart": "启动时打开侧边栏",
         "paginationSize": {
           "infinite_scroll": "无限滚动",
           "label": "分页大小",

@@ -918,7 +918,6 @@
         "isDrawerRight": "Jobb oldali fiók",
         "isShutdownButtonVisible": "Leállítás gomb megjelenítése",
         "language": "Nyelv",
-        "openSideBarOnStart": "Oldalsáv megnyitása indításkor",
         "paginationSize": {
           "infinite_scroll": "Végtelen görgetés",
           "label": "Lapozási méret",

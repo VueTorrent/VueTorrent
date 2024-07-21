@@ -896,7 +896,6 @@
         "isDrawerRight": "오른쪽 탭",
         "isShutdownButtonVisible": "종료 버튼 표시",
         "language": "표시 언어",
-        "openSideBarOnStart": "시작 시 사이드바 열기",
         "paginationSize": {
           "infinite_scroll": "무한 스크롤",
           "label": "Pagination 크기",

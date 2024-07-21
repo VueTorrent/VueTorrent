@@ -918,7 +918,6 @@
         "isDrawerRight": "Cajón derecho",
         "isShutdownButtonVisible": "Mostrar botón de apagado",
         "language": "Idioma",
-        "openSideBarOnStart": "Abrir barra lateral al inicio",
         "paginationSize": {
           "infinite_scroll": "Desplazamiento infinito",
           "label": "Tamaño de paginación",

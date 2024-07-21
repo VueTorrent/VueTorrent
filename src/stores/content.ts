@@ -131,10 +131,7 @@ export const useContentStore = defineStore('content', () => {
     const selectedFileIds = files.filter(file => file.priority !== FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
     const unwantedFileIds = files.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
 
-    await Promise.all([
-      setFilePriority(unwantedFileIds, FilePriority.NORMAL),
-      setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD)
-    ])
+    await Promise.all([setFilePriority(unwantedFileIds, FilePriority.NORMAL), setFilePriority(selectedFileIds, FilePriority.DO_NOT_DOWNLOAD)])
   }
 
   async function renameTorrentFile(hash: string, oldPath: string, newPath: string) {

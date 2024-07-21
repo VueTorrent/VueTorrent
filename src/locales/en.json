@@ -1134,10 +1134,10 @@
         "exclude": "Exclude",
         "extensions": "File extension",
         "include": "Include",
+        "preview": "Filter matches {count}/{total} files ({size})",
         "priority": "File priority",
         "size": "File size",
-        "title": "Advanced filters",
-        "preview": "Filter matches {count}/{total} files ({size})"
+        "title": "Bulk select files"
       },
       "filter_placeholder": "Search in file tree",
       "folderInfo": "{n} folder | {n} folders",

@@ -136,7 +136,9 @@ async function exportTorrents() {
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
-  await Promise.all(hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob)))))
+  await Promise.all(
+    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob))))
+  )
   downloadFile('torrents.zip', await zipWriter.close())
 }
 
@@ -224,12 +226,12 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: [
       ...(torrent.value?.tags.length
         ? [
-          {
-            text: t('dashboard.right_click.tags.remove_all'),
-            action: () => removeAllTags().then(maindataStore.forceMaindataSync),
-            icon: 'mdi-playlist-remove'
-          }
-        ]
+            {
+              text: t('dashboard.right_click.tags.remove_all'),
+              action: () => removeAllTags().then(maindataStore.forceMaindataSync),
+              icon: 'mdi-playlist-remove'
+            }
+          ]
         : []),
       ...tagStore.tags.map(tag => ({
         text: tag,

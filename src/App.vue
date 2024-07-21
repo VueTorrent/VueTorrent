@@ -26,7 +26,7 @@ const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetor
 
 const checkAuthentication = async () => {
   const promise = appStore.fetchAuthStatus()
-  const timer = setTimeout(() => toast.promise(promise, { pending: t('login.pending')}), 1000)
+  const timer = setTimeout(() => toast.promise(promise, { pending: t('login.pending') }), 1000)
   promise.then(() => clearTimeout(timer))
 }
 
