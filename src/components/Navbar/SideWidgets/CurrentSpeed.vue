@@ -25,10 +25,10 @@ const { serverState } = storeToRefs(useMaindataStore())
 
           <template v-if="true">
             <v-col cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-down" color="download-limit" :value="serverState?.dl_rate_limit ?? 0" />
+              <SpeedCard icon="mdi-arrow-collapse-down" color="download" :value="serverState?.dl_rate_limit ?? 0" />
             </v-col>
             <v-col cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-up" color="upload-limit" :value="serverState?.up_rate_limit ?? 0" />
+              <SpeedCard icon="mdi-arrow-collapse-up" color="upload" :value="serverState?.up_rate_limit ?? 0" />
             </v-col>
           </template>
         </v-row>

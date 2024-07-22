@@ -8,8 +8,6 @@ export const statusColors = {
 export const getVariables = (dark: boolean) => ({
   // Main colors
   accent: '#64CEAA',
-  'download-limit': '#f38a09',
-  'upload-limit': '#f38a09',
   upload: '#00B3FA',
   ratio: '#00B2F8',
   category: '#04669A',
