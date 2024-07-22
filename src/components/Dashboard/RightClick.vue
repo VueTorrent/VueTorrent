@@ -275,6 +275,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.copy.title'),
     icon: 'mdi-content-copy',
+    disabled: !window.isSecureContext,
     hidden: isMultiple.value,
     children: [
       {

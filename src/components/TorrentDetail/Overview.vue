@@ -34,6 +34,8 @@ const dialogStore = useDialogStore()
 const { properties } = storeToRefs(useTorrentDetailStore())
 const vuetorrentStore = useVueTorrentStore()
 
+const isContextSecured = computed(() => window.isSecureContext)
+
 const selectedFiles = computed(() => cachedFiles.value.filter(f => f.priority !== FilePriority.DO_NOT_DOWNLOAD))
 const torrentFileCount = computed(() => cachedFiles.value.length)
 const torrentFileName = computed(() => (selectedFiles.value.length === 1 ? selectedFiles.value[0].name : ''))
@@ -129,7 +131,7 @@ onUnmounted(async () => {
       </div>
       <div class="my-1">
         <span class="mr-2">{{ torrent.hash }}</span>
-        <v-btn variant="outlined" rounded @click="copyHash">{{ $t('torrentDetail.overview.copy_hash') }}</v-btn>
+        <v-btn v-if="isContextSecured" variant="outlined" rounded @click="copyHash">{{ $t('torrentDetail.overview.copy_hash') }}</v-btn>
       </div>
     </v-card-subtitle>
     <v-card-text>
