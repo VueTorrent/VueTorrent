@@ -41,6 +41,7 @@ export const useVueTorrentStore = defineStore(
     const fileContentInterval = ref(5000)
     const useIdForRssLinks = ref(false)
     const hideColoredChip = ref(false)
+    const displayGraphLimits = ref(true)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -254,6 +255,7 @@ export const useVueTorrentStore = defineStore(
       _tableProperties,
       tableProperties,
       isInfiniteScrollActive,
+      displayGraphLimits,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -296,6 +298,7 @@ export const useVueTorrentStore = defineStore(
         fileContentInterval.value = 5000
         useIdForRssLinks.value = false
         hideColoredChip.value = false
+        displayGraphLimits.value = true
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

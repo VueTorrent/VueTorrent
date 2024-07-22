@@ -162,9 +162,11 @@ function openBackendHelp() {
         </v-col>
 
         <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.displayGraphLimits" hide-details density="compact" :label="t('settings.vuetorrent.general.displayGraphLimits')" />
+        </v-col>
+        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
-        <v-col cols="12" sm="6"></v-col>
 
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBinarySize" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-import { useMaindataStore } from '@/stores'
+import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const { serverState } = storeToRefs(useMaindataStore())
+const { displayGraphLimits } = storeToRefs(useVueTorrentStore())
 </script>
 
 <template>
@@ -23,13 +24,16 @@ const { serverState } = storeToRefs(useMaindataStore())
             <SpeedCard icon="mdi-arrow-up" color="upload" :value="serverState?.up_info_speed ?? 0" />
           </v-col>
 
-          <template v-if="true">
-            <v-col cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-down" color="download" :value="serverState?.dl_rate_limit ?? 0" />
+          <template v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)">
+            <v-col cols="6" v-if="serverState.dl_rate_limit" class="px-1 pt-0">
+              <SpeedCard icon="mdi-arrow-collapse-down" color="download" :value="serverState.dl_rate_limit" />
             </v-col>
-            <v-col cols="6" class="px-1 pt-0">
-              <SpeedCard icon="mdi-arrow-collapse-up" color="upload" :value="serverState?.up_rate_limit ?? 0" />
+            <v-col cols="6" v-else />
+
+            <v-col cols="6" v-if="serverState.up_rate_limit" class="px-1 pt-0">
+              <SpeedCard icon="mdi-arrow-collapse-up" color="upload" :value="serverState.up_rate_limit" />
             </v-col>
+            <v-col cols="6" v-else />
           </template>
         </v-row>
       </v-sheet>

@@ -1031,20 +1031,20 @@ export default class MockProvider implements IProvider {
       {} as Record<string, RawQbitTorrent>
     )
 
-    const alltime_dl = faker.number.int({ min: 0, max: 50_000_000_000_000 })  // [0 b; 50 Tb]
-    const alltime_ul = faker.number.int({ min: 0, max: 50_000_000_000_000 })  // [0 b; 50 Tb]
-    const dl_rate_limit = 500_000
-    const up_rate_limit = 1_000_000
+    const alltime_dl = faker.number.int({ min: 0, max: 50_000_000_000_000 })  // [0 B; 50 TB]
+    const alltime_ul = faker.number.int({ min: 0, max: 50_000_000_000_000 })  // [0 B; 50 TB]
+    const dl_rate_limit = 0
+    const up_rate_limit = 5_000_000
     const server_state = {
       alltime_dl,
       alltime_ul,
       average_time_queue: 0,
       connection_status: faker.helpers.enumValue(ConnectionStatus),
       dht_nodes: faker.number.int({ min: 0, max: 1000 }),
-      dl_info_data: faker.number.int({ min: 0, max: 100_000_000_000 } ),  // [0 b; 100 Gb]
-      dl_info_speed: faker.number.int({ min: 0, max: dl_rate_limit || 1_000_000_000 } ),  // [0 b/s; 1 Gb/s]
+      dl_info_data: faker.number.int({ min: 0, max: 100_000_000_000 } ),  // [0 B; 100 GB]
+      dl_info_speed: faker.number.int({ min: 0, max: dl_rate_limit || 125_000_000 } ),  // [0 b/s; 1 Gb/s]
       dl_rate_limit,
-      free_space_on_disk: faker.number.int({ min: 0, max: 500_000_000_000 } ),  // [0 b; 500 Gb]
+      free_space_on_disk: faker.number.int({ min: 0, max: 500_000_000_000 } ),  // [0 B; 500 GB]
       global_ratio: (alltime_ul / alltime_dl).toFixed(2),
       queued_io_jobs: 0,
       queueing: false,
@@ -1055,8 +1055,8 @@ export default class MockProvider implements IProvider {
       total_peer_connections: 0,
       total_queued_size: 0,
       total_wasted_session: 0,
-      up_info_data: faker.number.int({ min: 0, max: 100_000_000_000 } ),  // [0 b; 100 Gb]
-      up_info_speed: faker.number.int({ min: 0, max: up_rate_limit || 1_000_000_000 } ),  // [0 b/s; 1 Gb/s]
+      up_info_data: faker.number.int({ min: 0, max: 100_000_000_000 } ),  // [0 B; 100 GB]
+      up_info_speed: faker.number.int({ min: 0, max: up_rate_limit || 125_000_000 } ),  // [0 b/s; 1 Gb/s]
       up_rate_limit,
       use_alt_speed_limits: false,
       use_subcategories: false,

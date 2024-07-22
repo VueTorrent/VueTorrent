@@ -65,11 +65,11 @@ const uploadLimitSerie = computed(() => navbarStore.uploadData.map(([x]) => [x, 
 const series = computed(() => [
   {
     name: t('navbar.side.speed_graph.upload_limit_label'),
-    data: serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
+    data: vuetorrentStore.displayGraphLimits && serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
   },
   {
     name: t('navbar.side.speed_graph.download_limit_label'),
-    data: serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
+    data: vuetorrentStore.displayGraphLimits && serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
   },
   {
     name: t('navbar.side.speed_graph.upload_label'),
