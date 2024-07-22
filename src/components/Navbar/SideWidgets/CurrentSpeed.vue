@@ -16,12 +16,21 @@ const { serverState } = storeToRefs(useMaindataStore())
     <v-card-text class="px-0">
       <v-sheet class="mx-2 inherit-bg">
         <v-row class="pt-0">
-          <v-col class="px-1 pt-1">
-            <SpeedCard icon="mdi-chevron-down" color="download" :value="serverState?.dl_info_speed ?? 0" :limit-value="serverState?.dl_rate_limit ?? 0" />
+          <v-col cols="6" class="px-1 pt-1">
+            <SpeedCard icon="mdi-arrow-down" color="download" :value="serverState?.dl_info_speed ?? 0" />
           </v-col>
-          <v-col class="px-1 pt-1">
-            <SpeedCard icon="mdi-chevron-up" color="upload" :value="serverState?.up_info_speed ?? 0" :limit-value="serverState?.up_rate_limit ?? 0" />
+          <v-col cols="6" class="px-1 pt-1">
+            <SpeedCard icon="mdi-arrow-up" color="upload" :value="serverState?.up_info_speed ?? 0" />
           </v-col>
+
+          <template v-if="true">
+            <v-col cols="6" class="px-1 pt-0">
+              <SpeedCard icon="mdi-arrow-collapse-down" color="download-limit" :value="serverState?.dl_rate_limit ?? 0" />
+            </v-col>
+            <v-col cols="6" class="px-1 pt-0">
+              <SpeedCard icon="mdi-arrow-collapse-up" color="upload-limit" :value="serverState?.up_rate_limit ?? 0" />
+            </v-col>
+          </template>
         </v-row>
       </v-sheet>
     </v-card-text>

@@ -25,14 +25,13 @@ const chartOptions: ApexOptions = {
       enabled: false
     }
   },
-  colors: [theme.current.value.colors.upload, theme.current.value.colors.download, '#f38a09', '#f38a09'],
+  colors: ['#f38a09', '#f38a09', theme.current.value.colors.upload, theme.current.value.colors.download],
   stroke: {
     show: true,
     curve: 'smooth',
     lineCap: 'round',
-    // FIXME: array error
-    // width: [4, 4, 2, 2],
-    dashArray: [0, 0, 10, 10]
+    width: 3,
+    dashArray: [20, 20, 0, 0]
   },
   fill: {
     type: 'gradient',
@@ -40,8 +39,8 @@ const chartOptions: ApexOptions = {
       shade: 'dark',
       type: 'vertical',
       shadeIntensity: 0.5,
-      opacityFrom: 0.6,
-      opacityTo: 0.5,
+      opacityFrom: [0, 0, 0.6, 0.6],
+      opacityTo: [0, 0, 0.5, 0.5],
       stops: [0, 50, 100]
     }
   },
@@ -65,6 +64,14 @@ const uploadLimitSerie = computed(() => navbarStore.uploadData.map(([x]) => [x, 
 
 const series = computed(() => [
   {
+    name: t('navbar.side.speed_graph.upload_limit_label'),
+    data: serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
+  },
+  {
+    name: t('navbar.side.speed_graph.download_limit_label'),
+    data: serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
+  },
+  {
     name: t('navbar.side.speed_graph.upload_label'),
     data: navbarStore.uploadData
   },
@@ -72,14 +79,6 @@ const series = computed(() => [
     name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
   },
-  {
-    name: t('navbar.side.speed_graph.upload_limit_label'),
-    data: serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
-  },
-  {
-    name: t('navbar.side.speed_graph.download_limit_label'),
-    data: serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
-  }
 ])
 </script>
 
