@@ -5,7 +5,6 @@ import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
@@ -18,7 +17,7 @@ import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
-const { currentPage: dashboardPage, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)
+const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
@@ -27,8 +26,6 @@ const vuetorrentStore = useVueTorrentStore()
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
-
-const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(torrents, vuetorrentStore.paginationSize, dashboardPage)
 
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = reactive<RightClickProperties>({
@@ -214,12 +211,12 @@ onBeforeUnmount(() => {
       </v-expand-transition>
     </v-row>
 
-    <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
-      <p class="text-grey">{{ t('common.emptyList') }}</p>
+    <div v-if="$vuetify.display.mobile && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </div>
 
-    <div v-if="!vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
+    <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
+      <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
 
     <ListView

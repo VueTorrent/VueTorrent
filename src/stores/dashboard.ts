@@ -1,6 +1,7 @@
+import { useArrayPagination } from '@/composables'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTorrentStore } from './torrents'
@@ -9,7 +10,7 @@ import { useVueTorrentStore } from './vuetorrent'
 export const useDashboardStore = defineStore(
   'dashboard',
   () => {
-    const currentPage = ref(1)
+    const _page = ref(1)
     const isSelectionMultiple = ref(false)
     const selectedTorrents = ref<string[]>([])
     const latestSelectedTorrent = ref<string>()
@@ -17,7 +18,10 @@ export const useDashboardStore = defineStore(
 
     const { t } = useI18n()
     const torrentStore = useTorrentStore()
-    const vuetorrentStore = useVueTorrentStore()
+    const { processedTorrents, torrents } = storeToRefs(torrentStore)
+    const { paginationSize, useBinarySize } = storeToRefs(useVueTorrentStore())
+
+    const { paginatedResults: paginatedTorrents, currentPage, pageCount } = useArrayPagination(processedTorrents, paginationSize, _page)
 
     const torrentCountString = computed(() => {
       if (selectedTorrents.value.length) {
@@ -29,11 +33,11 @@ export const useDashboardStore = defineStore(
 
         return t('dashboard.selectedTorrentsCount', {
           count: selectedTorrents.value.length,
-          total: torrentStore.processedTorrents.length,
-          size: formatData(selectedSize, vuetorrentStore.useBinarySize)
+          total: processedTorrents.value.length,
+          size: formatData(selectedSize, useBinarySize.value)
         })
       } else {
-        return t('dashboard.torrentsCount', torrentStore.processedTorrents.length)
+        return t('dashboard.torrentsCount', processedTorrents.value.length)
       }
     })
 
@@ -77,14 +81,14 @@ export const useDashboardStore = defineStore(
 
       const start = Math.min(endIndex, latestIndex)
       const end = Math.max(endIndex, latestIndex)
-      const hashes = torrentStore.processedTorrents.slice(start, end + 1).map(t => t.hash)
+      const hashes = processedTorrents.value.slice(start, end + 1).map(t => t.hash)
       selectTorrents(...hashes)
     }
 
     function selectAllTorrents() {
       isSelectionMultiple.value = true
-      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...torrentStore.torrents.map(t => t.hash))
-      latestSelectedTorrent.value = torrentStore.torrents[0]?.hash
+      selectedTorrents.value.splice(0, selectedTorrents.value.length, ...torrents.value.map(t => t.hash))
+      latestSelectedTorrent.value = torrents.value[0]?.hash
     }
 
     function unselectAllTorrents() {
@@ -100,15 +104,17 @@ export const useDashboardStore = defineStore(
     watch(
       () => torrentStore.processedTorrents,
       newValue => {
-        const pageCount = Math.ceil(newValue.length / vuetorrentStore.paginationSize)
-        if (pageCount < currentPage.value) {
-          currentPage.value = Math.max(1, pageCount)
+        const pageCount = Math.ceil(newValue.length / paginationSize.value)
+        if (pageCount < _page.value) {
+          _page.value = Math.max(1, pageCount)
         }
       }
     )
 
     return {
+      paginatedTorrents,
       currentPage,
+      pageCount,
       isSelectionMultiple,
       selectedTorrents,
       latestSelectedTorrent,
@@ -123,7 +129,7 @@ export const useDashboardStore = defineStore(
       unselectAllTorrents,
       toggleSelect,
       $reset: () => {
-        currentPage.value = 1
+        _page.value = 1
         isSelectionMultiple.value = false
         selectedTorrents.value = []
         latestSelectedTorrent.value = undefined

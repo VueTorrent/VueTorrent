@@ -11,10 +11,8 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const dashboardStore = useDashboardStore()
-const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
-
+const { currentPage, pageCount, torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
-
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
 
@@ -141,7 +139,7 @@ function toggleSelectMode() {
         <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="sortOption.reverse = !sortOption.reverse" />
       </template>
     </v-tooltip>
-    <div class="pa-0">
+    <div class="d-flex align-center pa-0">
       <v-autocomplete
         v-model="sortOption.value"
         :items="torrentSortOptions"
@@ -153,7 +151,8 @@ function toggleSelectMode() {
         :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
 
-    <v-spacer />
+    <v-spacer v-if="$vuetify.display.mobile" />
+    <v-pagination v-else class="flex-grow-1 overflow-hidden" v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
 
     <div class="d-flex align-center text-uppercase text-select" style="font-size: 0.8em">
       {{ torrentCountString }}
