@@ -1,6 +1,6 @@
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useTorrentStore } from './torrents'
@@ -138,3 +138,7 @@ export const useDashboardStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useDashboardStore, import.meta.hot))
+}

@@ -2,7 +2,7 @@ import qbit from '@/services/qbit'
 import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
-import { defineStore, storeToRefs } from 'pinia'
+import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { ref, shallowRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
@@ -126,3 +126,7 @@ export const useMaindataStore = defineStore('maindata', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useMaindataStore, import.meta.hot))
+}

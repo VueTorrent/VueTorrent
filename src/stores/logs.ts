@@ -1,6 +1,6 @@
 import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 import { useTask } from 'vue-concurrency'
 
@@ -75,3 +75,7 @@ export const useLogStore = defineStore('logs', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useLogStore, import.meta.hot))
+}

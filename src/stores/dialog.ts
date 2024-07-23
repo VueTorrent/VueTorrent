@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { v4 as uuidv4 } from 'uuid'
 import { AllowedComponentProps, Component, computed, shallowRef, triggerRef, VNodeProps } from 'vue'
 
@@ -54,3 +54,7 @@ export const useDialogStore = defineStore('dialogs', () => {
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useDialogStore, import.meta.hot))
+}

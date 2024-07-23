@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import AppPreferences from '@/types/qbit/models/AppPreferences'
 import qbit from '@/services/qbit'
 
@@ -32,3 +32,7 @@ export const usePreferenceStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(usePreferenceStore, import.meta.hot))
+}

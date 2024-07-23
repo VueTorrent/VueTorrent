@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { useDisplay } from 'vuetify'
 
@@ -54,3 +54,7 @@ export const useNavbarStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useNavbarStore, import.meta.hot))
+}

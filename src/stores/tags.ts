@@ -1,5 +1,5 @@
 import qbit from '@/services/qbit'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { shallowRef } from 'vue'
 
 export const useTagStore = defineStore(
@@ -58,3 +58,7 @@ export const useTagStore = defineStore(
     }
   }
 })
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTagStore, import.meta.hot))
+}
