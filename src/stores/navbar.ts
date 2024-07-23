@@ -7,7 +7,7 @@ const GRAPH_SIZE = 15
 export const useNavbarStore = defineStore(
   'navbar',
   () => {
-    const { mobile } = useDisplay()
+    const { mobile } = useDisplay({ mobileBreakpoint: 'md' })
 
     const isDrawerOpen = ref(!mobile.value)
 
@@ -49,7 +49,7 @@ export const useNavbarStore = defineStore(
   },
   {
     persistence: {
-      enabled: true,
+      enabled: false,
       storageItems: [{ storage: sessionStorage }]
     }
   }
