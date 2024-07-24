@@ -18,8 +18,16 @@ const vueTorrentStore = useVueTorrentStore()
         <v-icon class="" :icon="icon" :color="color" />
       </v-col>
       <v-col cols="8" class="d-flex flex-column align-center justify-center">
-        <span :class="`text-subtitle-1 roboto text-select text-${color}`">{{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}</span>
-        <span :class="`text-caption text-${color}`">{{ formatSpeedUnit(value, vueTorrentStore.useBitSpeed) }}</span>
+        <div>
+          <span :class="`text-subtitle-1 roboto text-select text-${color}`">
+            {{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}
+          </span>
+        </div>
+        <div>
+          <span :class="`text-caption text-${color}`">
+            {{ formatSpeedUnit(value, vueTorrentStore.useBitSpeed) }}
+          </span>
+        </div>
       </v-col>
     </v-row>
   </v-sheet>

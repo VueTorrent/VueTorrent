@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { formatSpeed } from '@/helpers'
-import { useNavbarStore, useVueTorrentStore } from '@/stores'
-import { ApexOptions } from 'apexcharts'
 import dayjs from '@/plugins/dayjs'
+import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
+import { ApexOptions } from 'apexcharts'
+import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import VueApexCharts from 'vue3-apexcharts'
@@ -10,6 +11,7 @@ import { useTheme } from 'vuetify'
 
 const { t } = useI18n()
 const theme = useTheme()
+const { serverState } = storeToRefs(useMaindataStore())
 const navbarStore = useNavbarStore()
 const vuetorrentStore = useVueTorrentStore()
 const chart = ref<ApexCharts>()
@@ -23,12 +25,13 @@ const chartOptions: ApexOptions = {
       enabled: false
     }
   },
-  colors: [theme.current.value.colors.upload, theme.current.value.colors.download],
+  colors: [theme.current.value.colors.upload, theme.current.value.colors.download, theme.current.value.colors.upload, theme.current.value.colors.download],
   stroke: {
     show: true,
     curve: 'smooth',
     lineCap: 'round',
-    width: 4
+    width: 3,
+    dashArray: [20, 20, 0, 0]
   },
   fill: {
     type: 'gradient',
@@ -36,8 +39,8 @@ const chartOptions: ApexOptions = {
       shade: 'dark',
       type: 'vertical',
       shadeIntensity: 0.5,
-      opacityFrom: 0.6,
-      opacityTo: 0.5,
+      opacityFrom: [0, 0, 0.6, 0.6],
+      opacityTo: [0, 0, 0.5, 0.5],
       stops: [0, 50, 100]
     }
   },
@@ -56,7 +59,18 @@ const chartOptions: ApexOptions = {
   }
 }
 
+const downloadLimitSerie = computed(() => navbarStore.downloadData.map(([x]) => [x, serverState.value?.dl_rate_limit]))
+const uploadLimitSerie = computed(() => navbarStore.uploadData.map(([x]) => [x, serverState.value?.up_rate_limit]))
+
 const series = computed(() => [
+  {
+    name: t('navbar.side.speed_graph.upload_limit_label'),
+    data: vuetorrentStore.displayGraphLimits && serverState.value?.up_rate_limit ? uploadLimitSerie.value : []
+  },
+  {
+    name: t('navbar.side.speed_graph.download_limit_label'),
+    data: vuetorrentStore.displayGraphLimits && serverState.value?.dl_rate_limit ? downloadLimitSerie.value : []
+  },
   {
     name: t('navbar.side.speed_graph.upload_label'),
     data: navbarStore.uploadData
@@ -64,7 +78,7 @@ const series = computed(() => [
   {
     name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
-  }
+  },
 ])
 </script>
 
