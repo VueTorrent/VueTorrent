@@ -17,12 +17,9 @@ const statuses = computed(() =>
     .filter(state => typeof state === 'number')
     .map(state => ({ title: t(`torrent.state.${getTorrentStateValue(state as TorrentState)}`), value: state }))
 )
-const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...Array.from(categoryStore.categories.keys()).map(c => ({ title: c, value: c }))])
-const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags.map(tag => ({ title: tag, value: tag }))])
-const trackers = computed(() => [
-  { title: t('navbar.side.filters.untracked'), value: null },
-  ...Array.from(trackerStore.trackers.keys()).map(tracker => ({ title: tracker, value: tracker }))
-])
+const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...categoryStore.categories.map(c => c.name)])
+const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags])
+const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: null }, ...trackerStore.trackers])
 
 function selectAllStatuses() {
   statusFilter.value = []

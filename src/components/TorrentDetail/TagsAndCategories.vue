@@ -42,7 +42,7 @@ async function toggleTag(tag: string) {
             <v-list-subheader>{{ $t('torrentDetail.tagsAndCategories.categories') }}</v-list-subheader>
 
             <v-list-item
-              v-for="category in categoryStore.categories.values()"
+              v-for="category in categoryStore.categories"
               variant="text"
               color="accent"
               :title="category.name"

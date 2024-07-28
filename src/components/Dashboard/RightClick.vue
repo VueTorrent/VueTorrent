@@ -32,7 +32,7 @@ const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
-const availableCategories = computed(() => ['', ...categoryStore.categories.keys()])
+const availableCategories = computed(() => ['', ...categoryStore.categories.map(cat => cat.name)])
 
 async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
@@ -243,7 +243,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
   {
     text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',
-    disabled: categoryStore.categories.size === 0,
+    disabled: categoryStore.categories.length === 0,
     disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
     children: availableCategories.value.map(category => ({

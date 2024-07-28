@@ -1,21 +1,24 @@
+import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
+import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { shallowRef } from 'vue'
+import { shallowRef, triggerRef } from 'vue'
 
 export const useTagStore = defineStore('tags', () => {
-  const tags = shallowRef<string[]>([])
+  const _tags = shallowRef<Set<string>>(new Set())
+  const tags = useSorted(() => Array.from(_tags.value.values()), (a, b) => comparators.text.asc(a, b))
 
   function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {
-      tags.value = values
+      _tags.value = new Set(values)
       return
     }
 
     if (values) {
-      tags.value = [...tags.value, ...values]
+      _tags.value = _tags.value.union(new Set(values))
     }
 
-    tags.value = tags.value.filter(tag => !removed || !removed.includes(tag))
+    _tags.value = _tags.value.difference(new Set(removed))
   }
 
   async function createTags(tags: string[]) {
@@ -52,7 +55,8 @@ export const useTagStore = defineStore('tags', () => {
     editTag,
     deleteTags,
     $reset: () => {
-      tags.value = []
+      _tags.value.clear()
+      triggerRef(_tags)
     }
   }
 })

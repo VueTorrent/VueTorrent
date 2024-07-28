@@ -1,40 +1,43 @@
+import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
 import { Category } from '@/types/qbit/models'
+import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { shallowRef, triggerRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
-  const categories = shallowRef<Map<string, Category>>(new Map())
+  const _categoryMap = shallowRef<Map<string, Category>>(new Map())
+  const categories = useSorted(() => Array.from(_categoryMap.value.values()), (a, b) => comparators.text.asc(a.name, b.name))
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {
-      categories.value = new Map(entries as [string, Category][])
+      _categoryMap.value = new Map(entries as [string, Category][])
       return
     }
 
     for (const [catName, qbitCat] of entries) {
-      const oldCat = categories.value.get(catName)
+      const oldCat = _categoryMap.value.get(catName)
       if (oldCat) {
         const newCat = {
           name: qbitCat.name ?? oldCat.name,
           savePath: qbitCat.savePath ?? oldCat.savePath
         }
-        categories.value.set(catName, newCat)
+        _categoryMap.value.set(catName, newCat)
       } else {
-        categories.value.set(catName, {
+        _categoryMap.value.set(catName, {
           name: qbitCat.name ?? catName,
           savePath: qbitCat.savePath ?? ''
         })
       }
     }
-    removed?.forEach(c => categories.value.delete(c))
-    triggerRef(categories)
+    removed?.forEach(c => _categoryMap.value.delete(c))
+    triggerRef(_categoryMap)
   }
 
   function getCategoryFromName(categoryName?: string) {
     if (!categoryName) return
-    return categories.value.get(categoryName)
+    return _categoryMap.value.get(categoryName)
   }
 
   async function createCategory(category: Category) {
@@ -78,8 +81,8 @@ export const useCategoryStore = defineStore('categories', () => {
     editCategory,
     deleteCategories,
     $reset: () => {
-      categories.value.clear()
-      triggerRef(categories)
+      _categoryMap.value.clear()
+      triggerRef(_categoryMap)
     }
   }
 })
