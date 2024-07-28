@@ -2,37 +2,54 @@
 
 ## [2.11.0](https://github.com/VueTorrent/VueTorrent/compare/v2.10.2...v2.11.0) (2024-07-21)
 
-
 ### Features
 
-* **export:** Zip files when exporting several torrents ([#1794](https://github.com/VueTorrent/VueTorrent/issues/1794)) ([7236b23](https://github.com/VueTorrent/VueTorrent/commit/7236b232813b399dd18186425558808aa26033e9))
-* **PWA:** Add *.torrent file handler ([#1754](https://github.com/VueTorrent/VueTorrent/issues/1754)) ([440a700](https://github.com/VueTorrent/VueTorrent/commit/440a700284fd2606158230bf1d29eb0d9f45bac3))
-
+- **export:** Zip files when exporting several torrents ([#1794](https://github.com/VueTorrent/VueTorrent/issues/1794))
+  ([7236b23](https://github.com/VueTorrent/VueTorrent/commit/7236b232813b399dd18186425558808aa26033e9))
+- **PWA:** Add \*.torrent file handler ([#1754](https://github.com/VueTorrent/VueTorrent/issues/1754))
+  ([440a700](https://github.com/VueTorrent/VueTorrent/commit/440a700284fd2606158230bf1d29eb0d9f45bac3))
 
 ### Bug Fixes
 
-* add missing triggers on shallow refs after [#1797](https://github.com/VueTorrent/VueTorrent/issues/1797) ([2d49f2a](https://github.com/VueTorrent/VueTorrent/commit/2d49f2ae6ebe7539e27723fea12871556bfbd0fe))
-* **content:** Fix regressions after [#1779](https://github.com/VueTorrent/VueTorrent/issues/1779) ([#1785](https://github.com/VueTorrent/VueTorrent/issues/1785)) ([b977713](https://github.com/VueTorrent/VueTorrent/commit/b977713b09fee8a9353e1a2f97f2bd2e38637acb))
-* **Dashboard:** Clean removed data from local cache ([#1773](https://github.com/VueTorrent/VueTorrent/issues/1773)) ([e3e6549](https://github.com/VueTorrent/VueTorrent/commit/e3e65492d181602f47fbd3b46c940e7575c93c25))
-* **Dashboard:** Name sort not working ([#1769](https://github.com/VueTorrent/VueTorrent/issues/1769)) ([394b86d](https://github.com/VueTorrent/VueTorrent/commit/394b86d6dc02c21909d5a84ddc962fb8cdfd739a))
-* **Dashboard:** torrents not removed from local cache ([#1772](https://github.com/VueTorrent/VueTorrent/issues/1772)) ([2f967ff](https://github.com/VueTorrent/VueTorrent/commit/2f967ff883a2d1350dc372da65f63805459368a9))
-* **graph:** weird gradient ([#1761](https://github.com/VueTorrent/VueTorrent/issues/1761)) ([57d6cdc](https://github.com/VueTorrent/VueTorrent/commit/57d6cdcc334bf7c187f8610a3253bb4cc42c76ff))
-* **maindata:** Handle partial data with full_update after [#1762](https://github.com/VueTorrent/VueTorrent/issues/1762) ([#1784](https://github.com/VueTorrent/VueTorrent/issues/1784)) ([1eb0a93](https://github.com/VueTorrent/VueTorrent/commit/1eb0a93a1ca9eeb463a05221d001be5b8a384e94))
-* **Navbar:** Graph values not pushed on full update ([#1777](https://github.com/VueTorrent/VueTorrent/issues/1777)) ([89113dc](https://github.com/VueTorrent/VueTorrent/commit/89113dc5bab5a7bde2ff707be9af3a21dda18361))
-* **Overview:** Filename not refreshing after rename ([#1765](https://github.com/VueTorrent/VueTorrent/issues/1765)) ([fe1157a](https://github.com/VueTorrent/VueTorrent/commit/fe1157a5b95677ad9cc26a8d81d03e53aaffed82))
-
+- add missing triggers on shallow refs after [#1797](https://github.com/VueTorrent/VueTorrent/issues/1797)
+  ([2d49f2a](https://github.com/VueTorrent/VueTorrent/commit/2d49f2ae6ebe7539e27723fea12871556bfbd0fe))
+- **content:** Fix regressions after [#1779](https://github.com/VueTorrent/VueTorrent/issues/1779) ([#1785](https://github.com/VueTorrent/VueTorrent/issues/1785))
+  ([b977713](https://github.com/VueTorrent/VueTorrent/commit/b977713b09fee8a9353e1a2f97f2bd2e38637acb))
+- **Dashboard:** Clean removed data from local cache ([#1773](https://github.com/VueTorrent/VueTorrent/issues/1773))
+  ([e3e6549](https://github.com/VueTorrent/VueTorrent/commit/e3e65492d181602f47fbd3b46c940e7575c93c25))
+- **Dashboard:** Name sort not working ([#1769](https://github.com/VueTorrent/VueTorrent/issues/1769))
+  ([394b86d](https://github.com/VueTorrent/VueTorrent/commit/394b86d6dc02c21909d5a84ddc962fb8cdfd739a))
+- **Dashboard:** torrents not removed from local cache ([#1772](https://github.com/VueTorrent/VueTorrent/issues/1772))
+  ([2f967ff](https://github.com/VueTorrent/VueTorrent/commit/2f967ff883a2d1350dc372da65f63805459368a9))
+- **graph:** weird gradient ([#1761](https://github.com/VueTorrent/VueTorrent/issues/1761))
+  ([57d6cdc](https://github.com/VueTorrent/VueTorrent/commit/57d6cdcc334bf7c187f8610a3253bb4cc42c76ff))
+- **maindata:** Handle partial data with full_update after [#1762](https://github.com/VueTorrent/VueTorrent/issues/1762)
+  ([#1784](https://github.com/VueTorrent/VueTorrent/issues/1784)) ([1eb0a93](https://github.com/VueTorrent/VueTorrent/commit/1eb0a93a1ca9eeb463a05221d001be5b8a384e94))
+- **Navbar:** Graph values not pushed on full update ([#1777](https://github.com/VueTorrent/VueTorrent/issues/1777))
+  ([89113dc](https://github.com/VueTorrent/VueTorrent/commit/89113dc5bab5a7bde2ff707be9af3a21dda18361))
+- **Overview:** Filename not refreshing after rename ([#1765](https://github.com/VueTorrent/VueTorrent/issues/1765))
+  ([fe1157a](https://github.com/VueTorrent/VueTorrent/commit/fe1157a5b95677ad9cc26a8d81d03e53aaffed82))
 
 ### Improvements
 
-* **App:** Display loading when fetching initial login status ([#1793](https://github.com/VueTorrent/VueTorrent/issues/1793)) ([1599b0f](https://github.com/VueTorrent/VueTorrent/commit/1599b0f5e776038e3943f2a29633be30fb8b37c0))
-* **content:** Add bulk selection using filters ([#1795](https://github.com/VueTorrent/VueTorrent/issues/1795)) ([7ccfc55](https://github.com/VueTorrent/VueTorrent/commit/7ccfc557595e4a74cc64ec8690974393aa45f43e))
-* **content:** Add invert priority right click action ([#1791](https://github.com/VueTorrent/VueTorrent/issues/1791)) ([bbd58ff](https://github.com/VueTorrent/VueTorrent/commit/bbd58ffaf72eaa0a868a1fcfa35d3df6af3255c0))
-* **content:** Improve progress accuracy ([#1779](https://github.com/VueTorrent/VueTorrent/issues/1779)) ([d04cbf3](https://github.com/VueTorrent/VueTorrent/commit/d04cbf3bd71f83aafb25bb005d62215b20deda4b))
-* **Dashboard:** Allow to filter torrents by hash ([#1766](https://github.com/VueTorrent/VueTorrent/issues/1766)) ([2300fce](https://github.com/VueTorrent/VueTorrent/commit/2300fce373681489a03a140400e3c1e43764882c))
-* Drastically increase performance on dashboard and content view ([#1797](https://github.com/VueTorrent/VueTorrent/issues/1797)) ([9d8982e](https://github.com/VueTorrent/VueTorrent/commit/9d8982ef56582b78c8b12b1bb835741720cb3f8a))
-* **network:** Reduce API calls by using the maindata sync throughout the app ([#1762](https://github.com/VueTorrent/VueTorrent/issues/1762)) ([7f01112](https://github.com/VueTorrent/VueTorrent/commit/7f01112af8b414ccca842da5685cde2643d33460))
-* Remove openSideBarOnStart setting in favor of screen type ([#1796](https://github.com/VueTorrent/VueTorrent/issues/1796)) ([2df6196](https://github.com/VueTorrent/VueTorrent/commit/2df6196a5cc289f660572b567a8fbe905b480e98))
-* **sort system:** Group numbers when sorting names and paths ([#1771](https://github.com/VueTorrent/VueTorrent/issues/1771)) ([c2d6e5c](https://github.com/VueTorrent/VueTorrent/commit/c2d6e5cdbcb1696b5d19b6f061c52f4a024b7966))
+- **App:** Display loading when fetching initial login status ([#1793](https://github.com/VueTorrent/VueTorrent/issues/1793))
+  ([1599b0f](https://github.com/VueTorrent/VueTorrent/commit/1599b0f5e776038e3943f2a29633be30fb8b37c0))
+- **content:** Add bulk selection using filters ([#1795](https://github.com/VueTorrent/VueTorrent/issues/1795))
+  ([7ccfc55](https://github.com/VueTorrent/VueTorrent/commit/7ccfc557595e4a74cc64ec8690974393aa45f43e))
+- **content:** Add invert priority right click action ([#1791](https://github.com/VueTorrent/VueTorrent/issues/1791))
+  ([bbd58ff](https://github.com/VueTorrent/VueTorrent/commit/bbd58ffaf72eaa0a868a1fcfa35d3df6af3255c0))
+- **content:** Improve progress accuracy ([#1779](https://github.com/VueTorrent/VueTorrent/issues/1779))
+  ([d04cbf3](https://github.com/VueTorrent/VueTorrent/commit/d04cbf3bd71f83aafb25bb005d62215b20deda4b))
+- **Dashboard:** Allow to filter torrents by hash ([#1766](https://github.com/VueTorrent/VueTorrent/issues/1766))
+  ([2300fce](https://github.com/VueTorrent/VueTorrent/commit/2300fce373681489a03a140400e3c1e43764882c))
+- Drastically increase performance on dashboard and content view ([#1797](https://github.com/VueTorrent/VueTorrent/issues/1797))
+  ([9d8982e](https://github.com/VueTorrent/VueTorrent/commit/9d8982ef56582b78c8b12b1bb835741720cb3f8a))
+- **network:** Reduce API calls by using the maindata sync throughout the app ([#1762](https://github.com/VueTorrent/VueTorrent/issues/1762))
+  ([7f01112](https://github.com/VueTorrent/VueTorrent/commit/7f01112af8b414ccca842da5685cde2643d33460))
+- Remove openSideBarOnStart setting in favor of screen type ([#1796](https://github.com/VueTorrent/VueTorrent/issues/1796))
+  ([2df6196](https://github.com/VueTorrent/VueTorrent/commit/2df6196a5cc289f660572b567a8fbe905b480e98))
+- **sort system:** Group numbers when sorting names and paths ([#1771](https://github.com/VueTorrent/VueTorrent/issues/1771))
+  ([c2d6e5c](https://github.com/VueTorrent/VueTorrent/commit/c2d6e5cdbcb1696b5d19b6f061c52f4a024b7966))
 
 ## [2.10.2](https://github.com/VueTorrent/VueTorrent/compare/v2.10.1...v2.10.2) (2024-06-28)
 

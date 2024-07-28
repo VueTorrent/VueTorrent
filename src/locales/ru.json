@@ -213,6 +213,9 @@
       "available_seeds": "Сидам (рой)",
       "avg_download_speed": "Средней скорости загрузки",
       "avg_upload_speed": "Средней скорости раздачи",
+      "basename_content_path": "Пути содержимого (базовое имя)",
+      "basename_download_path": "Пути загрузки (базовое имя)",
+      "basename_save_path": "Пути сохранения (базовое имя)",
       "category": "Категориям",
       "completion_on": "Завершённости",
       "content_path": "Пути содержимого",
@@ -226,6 +229,7 @@
       "globalSpeed": "Общей скорости",
       "globalVolume": "Отдано/загружено всего",
       "hash": "Хэшу",
+      "inactive_seeding_time_limit": "Ограничению по времени неактивного сидирования",
       "infohash_v1": "Хеш-сумме v1",
       "infohash_v2": "Хеш-сумме v2",
       "last_activity": "Последней активности",
@@ -271,6 +275,7 @@
       "file_overflow": "на +{n} больше",
       "files": "Выберите файлы",
       "first_last_piece_prio": "Расставьте приоритеты в первой и последней частях",
+      "instant_drop_label": "Мгновенно загружать торрент-файлы и/или ссылки",
       "links": "Ссылки (magnet, http, file, ...)",
       "params": {
         "add_to_top_of_queue": "Добавить в начало очереди",
@@ -468,6 +473,7 @@
   "login": {
     "error": "Ошибка входа!",
     "password": "Пароль",
+    "pending": "Проверка статуса авторизации...",
     "rules": {
       "password_required": "Необходим пароль",
       "username_required": "Необходим логин"
@@ -514,7 +520,9 @@
       },
       "speed_graph": {
         "download_label": "Загрузка",
-        "upload_label": "Раздача"
+        "download_limit_label": "Ограничение загрузки",
+        "upload_label": "Раздача",
+        "upload_limit_label": "Ограничение раздачи"
       },
       "stats": {
         "alltime": {
@@ -973,6 +981,7 @@
         "customTitle": "Настраиваемый заголовок",
         "darkVariants": "Тёмная тема",
         "dateFormat": "Формат даты",
+        "displayGraphLimits": "Отобразить ограничения на графике",
         "download": "Экспортировать настройки",
         "enableHashColors": "Разрешить генерируемые цвета хэша",
         "enableRatioColors": "Разрешить цвета рейтинга",
@@ -1122,8 +1131,19 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} файлов | {n} файл | {n} файла | {n} файлов",
+      "filter": {
+        "activator": "Массовый выбор",
+        "exclude": "Исключить",
+        "extensions": "Расширение файла",
+        "include": "Включить",
+        "preview": "Фильтр по файлам: {count}/{total} ({size})",
+        "priority": "Приоритет файла",
+        "size": "Размер файла",
+        "title": "Массовый выбор файлов"
+      },
       "filter_placeholder": "Поиск по древу файлов",
       "folderInfo": "{n} папок | {n} папка | {n} папки | {n} папок",
+      "invert_priority": "Изменить приоритет",
       "priority": "Установить приоритет",
       "rename": {
         "bulk": "Массовое переименование",
@@ -1216,6 +1236,9 @@
       "available_seeds": "Сиды (рой)",
       "avg_download_speed": "Средняя скорость загрузки",
       "avg_upload_speed": "Средняя скорость раздачи",
+      "basename_content_path": "Путь содержимого (базовое имя)",
+      "basename_download_path": "Путь загрузки (базовое имя)",
+      "basename_save_path": "Путь сохранения (базовое имя)",
       "category": "Категория",
       "comment": "Комментарий",
       "completed_on": "Завершено",
@@ -1269,12 +1292,14 @@
       "total_wasted": "Потерянные данные",
       "tracker": "Трекер",
       "trackers_count": "Количество трекеров",
+      "truncated_hash": "Усечённый хэш",
       "uploaded": "Отдано (всего)",
       "uploaded_session": "Отдано (за сессию)",
       "upload_limit": "Ограничение раздачи",
       "upload_speed": "Скорость раздачи"
     },
     "state": {
+      "checking_disk": "Проверка файлов на диске",
       "checking_resume_data": "Возобновление",
       "dl_forced": "[П] Загрузка",
       "dl_paused": "На паузе",

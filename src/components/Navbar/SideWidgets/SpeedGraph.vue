@@ -78,7 +78,7 @@ const series = computed(() => [
   {
     name: t('navbar.side.speed_graph.download_label'),
     data: navbarStore.downloadData
-  },
+  }
 ])
 </script>
 

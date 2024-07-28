@@ -479,7 +479,9 @@
       },
       "speed_graph": {
         "download_label": "Letöltés",
-        "upload_label": "Feltöltés"
+        "download_limit_label": "Letöltési korlát",
+        "upload_label": "Feltöltés",
+        "upload_limit_label": "Feltöltési korlát"
       },
       "stats": {
         "alltime": {

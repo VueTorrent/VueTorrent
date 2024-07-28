@@ -514,7 +514,9 @@
       },
       "speed_graph": {
         "download_label": "İndirme",
-        "upload_label": "Yükleme"
+        "download_limit_label": "İndirme Sınırı",
+        "upload_label": "Yükleme",
+        "upload_limit_label": "Yükleme sınırı"
       },
       "stats": {
         "alltime": {
