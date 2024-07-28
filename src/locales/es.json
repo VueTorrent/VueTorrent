@@ -479,7 +479,9 @@
       },
       "speed_graph": {
         "download_label": "Descargar",
-        "upload_label": "Cargar"
+        "download_limit_label": "Límite de descarga",
+        "upload_label": "Cargar",
+        "upload_limit_label": "Límite de subida"
       },
       "stats": {
         "alltime": {

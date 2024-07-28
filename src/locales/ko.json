@@ -457,7 +457,8 @@
       },
       "speed_graph": {
         "download_label": "다운로드",
-        "upload_label": "업로드"
+        "upload_label": "업로드",
+        "upload_limit_label": "업로드 제한"
       },
       "stats": {
         "alltime": {

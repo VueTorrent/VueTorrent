@@ -271,6 +271,13 @@
       "file_overflow": "+ {n} більше"
     }
   },
+  "navbar": {
+    "side": {
+      "speed_graph": {
+        "upload_limit_label": "Ліміт роздачі"
+      }
+    }
+  },
   "torrent": {
     "state": {
       "checking_resume_data": "Перевірка для відновлення",

@@ -519,7 +519,9 @@
       },
       "speed_graph": {
         "download_label": "DL",
-        "upload_label": "UP"
+        "download_limit_label": "DL速度制限",
+        "upload_label": "UP",
+        "upload_limit_label": "UP速度制限"
       },
       "stats": {
         "alltime": {

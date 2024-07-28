@@ -515,7 +515,9 @@
       },
       "speed_graph": {
         "download_label": "下载",
-        "upload_label": "上传"
+        "download_limit_label": "下载速度限制",
+        "upload_label": "上传",
+        "upload_limit_label": "上传速度限制"
       },
       "stats": {
         "alltime": {

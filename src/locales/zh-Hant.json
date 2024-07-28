@@ -515,7 +515,9 @@
       },
       "speed_graph": {
         "download_label": "下載",
-        "upload_label": "上傳"
+        "download_limit_label": "下載限制",
+        "upload_label": "上傳",
+        "upload_limit_label": "上傳限制"
       },
       "stats": {
         "alltime": {
