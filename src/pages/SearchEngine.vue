@@ -186,36 +186,36 @@ onBeforeUnmount(() => {
         <v-row class="mt-1">
           <v-col cols="12" md="6">
             <HistoryField
-                v-model="selectedTab.query"
-                :history-key="HistoryKey.SEARCH_ENGINE_QUERY"
-                ref="queryInput"
-                autofocus
-                density="compact"
-                hide-details
-                clearable
-                :label="$t('searchEngine.query')"
-                @keydown.enter.prevent="runNewSearch" />
+              v-model="selectedTab.query"
+              :history-key="HistoryKey.SEARCH_ENGINE_QUERY"
+              ref="queryInput"
+              autofocus
+              density="compact"
+              hide-details
+              clearable
+              :label="$t('searchEngine.query')"
+              @keydown.enter.prevent="runNewSearch" />
           </v-col>
 
           <v-col cols="6" sm="5" md="2">
             <v-select
-                v-model="selectedTab.filters.category"
-                height="1"
-                variant="outlined"
-                density="compact"
-                hide-details
-                :items="categories"
-                :label="$t('searchEngine.filters.category.label')" />
+              v-model="selectedTab.filters.category"
+              height="1"
+              variant="outlined"
+              density="compact"
+              hide-details
+              :items="categories"
+              :label="$t('searchEngine.filters.category.label')" />
           </v-col>
           <v-col cols="6" sm="5" md="2">
             <v-select
-                v-model="selectedTab.filters.plugin"
-                flat
-                density="compact"
-                hide-details
-                variant="outlined"
-                :items="plugins"
-                :label="$t('searchEngine.filters.plugins.label')" />
+              v-model="selectedTab.filters.plugin"
+              flat
+              density="compact"
+              hide-details
+              variant="outlined"
+              :items="plugins"
+              :label="$t('searchEngine.filters.plugins.label')" />
           </v-col>
 
           <v-col cols="12" sm="2" class="d-flex align-center justify-center">
@@ -233,11 +233,11 @@ onBeforeUnmount(() => {
 
       <v-list-item class="text-select">
         <v-data-table
-            :mobile="null"
-            :headers="headers"
-            :items="filteredResults"
-            :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
-            :items-per-page.sync="selectedTab.itemsPerPage">
+          :mobile="null"
+          :headers="headers"
+          :items="filteredResults"
+          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
+          :items-per-page.sync="selectedTab.itemsPerPage">
           <template v-slot:top>
             <v-row>
               <v-col cols="12">

@@ -6,7 +6,10 @@ import { shallowRef, triggerRef } from 'vue'
 
 export const useTagStore = defineStore('tags', () => {
   const _tags = shallowRef<Set<string>>(new Set())
-  const tags = useSorted(() => Array.from(_tags.value.values()), (a, b) => comparators.text.asc(a, b))
+  const tags = useSorted(
+    () => Array.from(_tags.value.values()),
+    comparators.text.asc
+  )
 
   function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {

@@ -8,7 +8,10 @@ import { shallowRef, triggerRef } from 'vue'
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
   const _categoryMap = shallowRef<Map<string, Category>>(new Map())
-  const categories = useSorted(() => Array.from(_categoryMap.value.values()), (a, b) => comparators.text.asc(a.name, b.name))
+  const categories = useSorted(
+    () => Array.from(_categoryMap.value.values()),
+    (a, b) => comparators.text.asc(a.name, b.name)
+  )
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {

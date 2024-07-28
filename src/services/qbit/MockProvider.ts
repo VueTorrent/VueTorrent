@@ -30,7 +30,7 @@ export default class MockProvider implements IProvider {
     TV: { name: 'TV', savePath: faker.system.directoryPath() },
     Other: { name: 'Other', savePath: faker.system.directoryPath() },
     ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
-    Music: { name: 'Music', savePath: faker.system.directoryPath() },
+    Music: { name: 'Music', savePath: faker.system.directoryPath() }
   }
   private readonly tags: string[] = ['pending', 'sorted', 'pending_sort']
   private readonly trackers: Record<string, string[]> = faker.helpers
