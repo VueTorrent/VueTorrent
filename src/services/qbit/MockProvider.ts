@@ -26,13 +26,13 @@ import IProvider from './IProvider'
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
   private readonly categories: Record<string, Category> = {
-    ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
-    Other: { name: 'Other', savePath: faker.system.directoryPath() },
     Movie: { name: 'Movie', savePath: faker.system.directoryPath() },
-    Music: { name: 'Music', savePath: faker.system.directoryPath() },
-    TV: { name: 'TV', savePath: faker.system.directoryPath() }
+    TV: { name: 'TV', savePath: faker.system.directoryPath() },
+    Other: { name: 'Other', savePath: faker.system.directoryPath() },
+    ISO: { name: 'ISO', savePath: faker.system.directoryPath() },
+    Music: { name: 'Music', savePath: faker.system.directoryPath() }
   }
-  private readonly tags: string[] = ['sorted', 'pending_sort']
+  private readonly tags: string[] = ['pending', 'sorted', 'pending_sort']
   private readonly trackers: Record<string, string[]> = faker.helpers
     .multiple(() => faker.internet.url(), { count: 5 })
     .reduce(

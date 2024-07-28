@@ -1,13 +1,16 @@
+import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
+import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
 
 export const useTrackerStore = defineStore('trackers', () => {
   /** Key: tracker domain, values: torrent hashes */
-  const trackers = shallowRef<Map<string, string[]>>(new Map())
+  const _trackerMap = shallowRef<Map<string, string[]>>(new Map())
+  const trackers = useSorted(() => Array.from(_trackerMap.value.keys()), comparators.text.asc)
   /** Key: torrent hash, values: tracker domains */
   const torrentTrackers = computed(() =>
-    Array.from(trackers.value.entries()).reduce((tot, val) => {
+    Array.from(_trackerMap.value.entries()).reduce((tot, val) => {
       const [domain, hashes] = val
       hashes.forEach(hash => {
         const domains = tot.get(hash)
@@ -23,16 +26,16 @@ export const useTrackerStore = defineStore('trackers', () => {
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, string[]][], removed?: string[]) {
     if (fullUpdate) {
-      trackers.value = new Map(entries)
+      _trackerMap.value = new Map(entries)
       return
     }
 
     for (const [trackerUrl, linkedTorrents] of entries) {
-      trackers.value.set(trackerUrl, linkedTorrents)
+      _trackerMap.value.set(trackerUrl, linkedTorrents)
     }
 
-    removed?.forEach(t => trackers.value.delete(t))
-    triggerRef(trackers)
+    removed?.forEach(t => _trackerMap.value.delete(t))
+    triggerRef(_trackerMap)
   }
 
   async function getTorrentTrackers(hash: string) {
@@ -60,8 +63,8 @@ export const useTrackerStore = defineStore('trackers', () => {
     editTorrentTracker,
     removeTorrentTrackers,
     $reset: () => {
-      trackers.value.clear()
-      triggerRef(trackers)
+      _trackerMap.value.clear()
+      triggerRef(_trackerMap)
     }
   }
 })

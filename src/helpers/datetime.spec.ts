@@ -1,5 +1,14 @@
-import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
+import timezoneMock from 'timezone-mock'
 import { expect, test } from 'vitest'
+import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
+
+beforeAll(() => {
+  timezoneMock.register('UTC')
+})
+
+afterAll(() => {
+  timezoneMock.unregister()
+})
 
 test('helpers/datetime/formatEta', () => {
   // seconds

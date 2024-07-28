@@ -33,7 +33,7 @@ const headers = [
   { title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' },
   { title: '', key: 'actions', sortable: false }
 ]
-const cats = [
+const categories = [
   { title: t('searchEngine.filters.category.movies'), value: 'movies' },
   { title: t('searchEngine.filters.category.tv'), value: 'tv' },
   { title: t('searchEngine.filters.category.music'), value: 'music' },
@@ -43,8 +43,8 @@ const cats = [
   { title: t('searchEngine.filters.category.pictures'), value: 'pictures' },
   { title: t('searchEngine.filters.category.books'), value: 'books' }
 ]
-cats.sort((a, b) => a.title.localeCompare(b.title))
-const categories = [{ title: t('searchEngine.filters.category.all'), value: 'all' }, ...cats]
+  .sort((a, b) => a.title.localeCompare(b.title))
+  .splice(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
 
 const plugins = computed(() => {
   const plugins = [

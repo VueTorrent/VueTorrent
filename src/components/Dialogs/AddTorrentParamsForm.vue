@@ -33,7 +33,7 @@ const savePathField = ref<typeof HistoryField>()
 const tagSearch = ref('')
 
 const categorySearch = ref('')
-const categoryNames = computed(() => Array.from(categoryStore.categories.keys()))
+const categoryNames = computed(() => categoryStore.categories.map(cat => cat.name))
 const category = computed<string | undefined>({
   get: () => form.value.category || categorySearch.value || undefined,
   set: value => (form.value.category = value || undefined)
