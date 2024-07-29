@@ -4,15 +4,33 @@ import { useTorrentStore, useTrackerStore } from '@/stores'
 import { Tracker } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
-import { nextTick, reactive, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowReadonly, watch } from 'vue'
+import { useTask } from 'vue-concurrency'
 import { useI18n } from 'vue-i18n'
-import { VForm, VTextField } from 'vuetify/components'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { t } = useI18n()
 const torrentStore = useTorrentStore()
 const trackerStore = useTrackerStore()
+
+const headers = [
+  { nowrap: true, title: t('torrentDetail.trackers.fields.tier'), key: 'tier' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.url'), key: 'url' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.status'), key: 'status' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.num_seeds'), key: 'num_seeds' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.num_peers'), key: 'num_peers' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.num_downloaded'), key: 'num_downloaded' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.num_leeches'), key: 'num_leeches' },
+  { nowrap: true, title: t('torrentDetail.trackers.fields.msg'), key: 'msg' },
+  { nowrap: true, key: 'actions', sortable: false },
+]
+const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }[]>([
+  { key: 'tier', order: 'asc' },
+  { key: 'url', order: 'asc' }
+])
+const filter = ref('')
 
 function translateTrackerStatus(status: TrackerStatus): string {
   switch (status) {
@@ -31,20 +49,9 @@ function translateTrackerStatus(status: TrackerStatus): string {
   }
 }
 
-function formatTrackerValue(tracker: Tracker | number) {
-  if (typeof tracker === 'number') return tracker === -1 ? 'N/A' : tracker.valueOf()
-  else if (!tracker || tracker.num_peers === -1 || tracker?.num_seeds === -1 || tracker?.num_leeches === -1) return 'N/A'
-  else {
-    return t('torrentDetail.trackers.peersValue', {
-      peers: tracker.num_peers,
-      seeds: tracker.num_seeds,
-      leeches: tracker.num_leeches
-    })
-  }
-}
-
 const loading = ref(false)
-const torrentTrackers = ref<(Tracker & { isSelectable: boolean })[]>([])
+const isError = ref(false)
+const torrentTrackers = ref<Tracker[]>([])
 const newTrackers = ref('')
 const addTrackersDialog = ref(false)
 
@@ -69,12 +76,20 @@ function openEditTrackerDialog(tracker: Tracker) {
 
 async function updateTrackers() {
   loading.value = true
-  torrentTrackers.value = (await trackerStore.getTorrentTrackers(props.torrent.hash)).map(tracker => ({
-    ...tracker,
-    isSelectable: tracker.tier !== -1
-  }))
-  loading.value = false
+  isError.value = false
+
+  try {
+    torrentTrackers.value = await trackerStore.getTorrentTrackers(props.torrent.hash)
+  } catch {
+    isError.value = true
+  } finally {
+    loading.value = false
+  }
 }
+
+const trackerTask = useTask(function* () {
+  yield updateTrackers()
+}).drop()
 
 async function addTrackers() {
   if (!newTrackers.value.length) return
@@ -106,122 +121,129 @@ async function reannounceTrackers() {
   await torrentStore.reannounceTorrents([props.torrent.hash])
 }
 
-const { resume, pause } = useIntervalFn(updateTrackers, 5000, {
+const timerForcedPause = ref(false)
+const { isActive: isTimerActive, resume: resumeTimer, pause: pauseTimer } = useIntervalFn(trackerTask.perform, 5000, {
   immediate: true,
   immediateCallback: true
 })
 
+function pause() {
+  timerForcedPause.value = true
+  pauseTimer()
+}
+
+function resume() {
+  timerForcedPause.value = false
+  resumeTimer()
+}
+
 watch(
   () => props.isActive,
   v => {
-    if (v) resume()
+    if (v && !timerForcedPause.value) resume()
     else pause()
   }
 )
+
+onMounted(() => {
+  props.isActive && resume()
+})
+onBeforeUnmount(() => {
+  pause()
+})
+
+onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisible)
 </script>
 
 <template>
-  <v-list>
-    <template v-for="(tracker, index) in torrentTrackers">
-      <v-divider v-if="index === 3" color="white" thickness="5" />
-      <v-divider v-else-if="index > 0" class="mx-5" color="white" />
+  <v-card>
+    <v-empty-state v-if="!torrentTrackers.length && loading" :title="$t('torrentDetail.trackers.loading')" icon="mdi-web-sync" color="accent" />
+    <v-empty-state v-else-if="!torrentTrackers.length && isError" :title="$t('torrentDetail.trackers.error')" icon="mdi-web-remove" color="error" />
+    <v-data-table v-else :headers="headers" :items="torrentTrackers" multi-sort :sort-by="sortBy" :search="filter" :filter-keys="['url', 'msg']" :mobile="null">
+      <template #top>
+        <div class="mt-2 mx-3 d-flex flex-gap align-center">
+          <v-text-field v-model="filter" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line clearable />
 
-      <v-list-item>
-        <div class="d-flex">
-          <div :class="`tracker-${TrackerStatus[tracker.status].toLowerCase()}`">
-            <v-list-item-title class="text-break text-wrap">
-              {{ tracker.url }}
-            </v-list-item-title>
-            <v-list-item-subtitle class="d-block">
-              <div v-if="tracker.msg">{{ tracker.msg }}</div>
-              <div v-else>{{ translateTrackerStatus(tracker.status) }}</div>
-
-              <div v-if="tracker.tier >= 0">
-                {{ t('torrentDetail.trackers.tier', tracker.tier) }}
-              </div>
-
-              <div v-if="tracker.status !== TrackerStatus.NOT_WORKING">
-                <div>{{ formatTrackerValue(tracker) }}</div>
-                <div>Downloads: {{ formatTrackerValue(tracker.num_downloaded) }}</div>
-              </div>
-            </v-list-item-subtitle>
-          </div>
-
-          <v-spacer />
-
-          <div class="d-flex flex-column" v-if="tracker.tier >= 0">
-            <v-dialog v-model="editTrackerDialog.isVisible" max-width="750px">
-              <template v-slot:activator="{ props }">
-                <v-btn v-bind="props" icon="mdi-pencil" variant="text" @click="openEditTrackerDialog(tracker)" />
-              </template>
-
-              <v-card>
-                <v-card-title>
-                  <span class="text-h5">{{ t('torrentDetail.trackers.editTracker.title') }}</span>
-                </v-card-title>
-
-                <v-card-text>
-                  <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
-                    <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
-                    <v-text-field
-                      v-model="editTrackerDialog.newUrl"
-                      id="input"
-                      :rules="editTrackerRules"
-                      :label="$t('torrentDetail.trackers.editTracker.newUrl')"
-                      autofocus
-                      @keydown.enter="editTracker" />
-                  </v-form>
-                </v-card-text>
-
-                <v-card-actions>
-                  <v-spacer />
-                  <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }} </v-btn>
-                  <v-btn color="accent" @click="editTracker">{{ t('common.ok') }}</v-btn>
-                </v-card-actions>
-              </v-card>
-            </v-dialog>
-            <v-btn color="red" icon="mdi-delete" variant="text" @click="removeTracker(tracker)" />
-          </div>
+          <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
+            <template #activator="{ props }">
+              <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
+            </template>
+          </v-tooltip>
         </div>
-      </v-list-item>
-    </template>
+      </template>
 
-    <v-list-item>
-      <div :class="['d-flex py-5', $vuetify.display.mobile ? 'flex-column flex-gap-row' : 'justify-space-evenly']">
-        <v-dialog v-model="addTrackersDialog" max-width="750px">
-          <template v-slot:activator="{ props }">
-            <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
-          </template>
-          <v-card>
-            <v-card-title>
-              <span class="text-h5">{{ t('torrentDetail.trackers.addTrackers.title') }}</span>
-            </v-card-title>
+      <template #[`item.tier`]="{ value }">
+        <span v-if="value >= 0">{{ value }}</span>
+      </template>
 
-            <v-card-text>
-              <v-container>
-                <v-row>
-                  <v-col cols="12">
-                    <v-textarea
-                      v-model="newTrackers"
-                      :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
-                      :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
-                  </v-col>
-                </v-row>
-              </v-container>
-            </v-card-text>
+      <template #[`item.status`]="{ value }">
+        <span :class="`tracker-${TrackerStatus[value].toLowerCase()}`">{{ translateTrackerStatus(value) }}</span>
+      </template>
 
-            <v-card-actions>
-              <v-spacer />
-              <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
-              <v-btn color="accent" @click="addTrackers">{{ t('common.ok') }}</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
+      <template #[`item.msg`]="{ value }">
+        <span v-if="!value">{{ $t('common.NA') }}</span>
+        <span v-else>{{ value }}</span>
+      </template>
 
-        <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
-      </div>
-    </v-list-item>
-  </v-list>
+      <template #[`item.actions`]="{ item }">
+        <template v-if="item.tier !== -1">
+          <v-btn icon="mdi-pencil" variant="text" @click="openEditTrackerDialog(item)" />
+          <v-btn color="red" icon="mdi-delete" variant="text" @click="removeTracker(item)" />
+        </template>
+      </template>
+    </v-data-table>
+
+    <div class="d-flex my-3 flex-gap align-center justify-center">
+      <v-dialog v-model="addTrackersDialog" max-width="750px">
+        <template v-slot:activator="{ props }">
+          <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.trackers.addTrackers.title')" color="accent" />
+        </template>
+        <v-card :title="$t('torrentDetail.trackers.addTrackers.title')">
+          <v-card-text>
+            <v-textarea
+                v-model="newTrackers"
+                :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
+                :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
+          </v-card-text>
+
+          <v-card-actions>
+            <v-spacer />
+            <v-btn color="error" @click="closeAddDialog">{{ t('common.cancel') }}</v-btn>
+            <v-btn color="accent" @click="addTrackers">{{ t('common.ok') }}</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+
+      <v-btn variant="flat" :disabled="torrentTrackers.length === 3" :text="t('torrentDetail.trackers.reannounce')" color="primary" @click="reannounceTrackers" />
+    </div>
+  </v-card>
+
+  <v-dialog v-model="editTrackerDialog.isVisible" max-width="750px">
+    <v-card>
+      <v-card-title>
+        <span class="text-h5">{{ t('torrentDetail.trackers.editTracker.title') }}</span>
+      </v-card-title>
+
+      <v-card-text>
+        <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
+          <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
+          <v-text-field
+              v-model="editTrackerDialog.newUrl"
+              id="input"
+              :rules="editTrackerRules"
+              :label="$t('torrentDetail.trackers.editTracker.newUrl')"
+              autofocus
+              @keydown.enter="editTracker" />
+        </v-form>
+      </v-card-text>
+
+      <v-card-actions>
+        <v-spacer />
+        <v-btn color="error" :disabled="!editTrackerDialog.isFormValid" @click="editTrackerDialog.isVisible = false">{{ t('common.cancel') }} </v-btn>
+        <v-btn color="accent" @click="editTracker">{{ t('common.ok') }}</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <style lang="scss" scoped>

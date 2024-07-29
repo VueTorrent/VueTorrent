@@ -1167,34 +1167,36 @@ export default class MockProvider implements IProvider {
   }
 
   async getTorrentTrackers(_: string): Promise<Tracker[]> {
+    const getRndmValue = () => faker.number.int({ min: 0, max: 1000 })
+
     return this.generateResponse({
       result: [
         {
           msg: '',
-          num_downloaded: 0,
-          num_leeches: 0,
-          num_peers: 0,
-          num_seeds: 0,
+          num_downloaded: getRndmValue(),
+          num_leeches: getRndmValue(),
+          num_peers: getRndmValue(),
+          num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
           url: '** [DHT] **'
         },
         {
           msg: '',
-          num_downloaded: 0,
-          num_leeches: 0,
-          num_peers: 0,
-          num_seeds: 0,
+          num_downloaded: getRndmValue(),
+          num_leeches: getRndmValue(),
+          num_peers: getRndmValue(),
+          num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
           url: '** [PeX] **'
         },
         {
           msg: '',
-          num_downloaded: 0,
-          num_leeches: 0,
-          num_peers: 0,
-          num_seeds: 0,
+          num_downloaded: getRndmValue(),
+          num_leeches: getRndmValue(),
+          num_peers: getRndmValue(),
+          num_seeds: getRndmValue(),
           status: 2,
           tier: -1,
           url: '** [LSD] **'
