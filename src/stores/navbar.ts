@@ -35,6 +35,9 @@ export const useNavbarStore = defineStore(
 
     return {
       isDrawerOpen,
+      _timeData,
+      _downloadData,
+      _uploadData,
       downloadData,
       uploadData,
       pushTimeData,
@@ -49,8 +52,11 @@ export const useNavbarStore = defineStore(
   },
   {
     persistence: {
-      enabled: false,
-      storageItems: [{ storage: sessionStorage }]
+      enabled: true,
+      storageItems: [
+        { storage: sessionStorage, excludePaths: ['isDrawerOpen'] },
+        { storage: localStorage, includePaths: ['isDrawerOpen'] }
+      ],
     }
   }
 )
