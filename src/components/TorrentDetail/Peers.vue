@@ -6,7 +6,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { onBeforeRouteLeave } from 'vue-router'
+import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
@@ -54,7 +54,6 @@ const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }
   { key: 'up_speed', order: 'desc' }
 ])
 
-const loading = ref(false)
 const rid = ref<number>()
 const torrentPeers = ref<Map<string, Peer>>(new Map())
 const showCountryFlags = ref(false)
@@ -77,8 +76,6 @@ function cleanPeers(peers: string[]) {
 }
 
 async function syncPeers() {
-  loading.value = true
-
   const response = await maindataStore.syncTorrentPeers(props.torrent.hash, rid.value)
   rid.value = response.rid
   showCountryFlags.value = response.show_flags ?? showCountryFlags.value
@@ -89,8 +86,6 @@ async function syncPeers() {
     response.peers_removed && cleanPeers(response.peers_removed)
     response.peers && updatePeers(response.peers)
   }
-
-  loading.value = false
 }
 
 async function addPeers() {
@@ -112,7 +107,7 @@ async function banPeer(peer: PeerType) {
   resume()
 }
 
-const { isActive, pause, resume } = useIntervalFn(syncPeers, 2000, {
+const { isActive: isTimerActive, pause, resume } = useIntervalFn(syncPeers, 2000, {
   immediate: true,
   immediateCallback: true
 })
@@ -125,7 +120,7 @@ watch(
   }
 )
 
-onBeforeRouteLeave(() => !addPeersDialog.value)
+onBeforeRouteUpdate(() => !addPeersDialog.value)
 </script>
 
 <template>
@@ -133,7 +128,15 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
     <v-empty-state v-if="!torrentPeers.size" :title="$t('torrentDetail.peers.empty')" icon="mdi-account-sync" color="accent" />
     <v-data-table v-else :headers="headers" :items="items" multi-sort :sort-by="sortBy" :search="filter" :filter-keys="['host', 'client', 'files']" :mobile="null">
       <template #top>
-        <v-text-field v-model="filter" class="ma-3" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line clearable />
+        <div class="mt-2 mx-3 d-flex flex-gap align-center">
+          <v-text-field v-model="filter" density="compact" :label="$t('common.search')" prepend-inner-icon="mdi-magnify" flat hide-details single-line clearable />
+
+          <v-tooltip :text="isTimerActive ? $t('common.pause') : $t('common.resume')" location="bottom">
+            <template #activator="{ props }">
+              <v-btn v-bind="props" :icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'" color="primary" @click="isTimerActive ? pause() : resume()" />
+            </template>
+          </v-tooltip>
+        </div>
       </template>
 
       <template #[`item.host`]="{ item }">
@@ -197,9 +200,6 @@ onBeforeRouteLeave(() => !addPeersDialog.value)
     </v-data-table>
 
     <div class="d-flex my-3 flex-gap align-center justify-center">
-      <v-btn v-if="isActive" prepend-icon="mdi-pause" color="primary" :text="$t('common.pause')" @click="pause()" />
-      <v-btn v-else prepend-icon="mdi-play" color="primary" :text="$t('common.resume')" @click="resume()" />
-
       <v-dialog v-model="addPeersDialog" max-width="750px">
         <template v-slot:activator="{ props }">
           <v-btn v-bind="props" variant="flat" :text="t('torrentDetail.peers.addPeers.title')" color="accent" />

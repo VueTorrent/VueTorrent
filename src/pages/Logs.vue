@@ -79,7 +79,7 @@ const handleKeyboardShortcut = (e: KeyboardEvent) => {
 onBeforeMount(async () => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   await logStore.cleanAndFetchLogs()
-  useIntervalFn(logStore.logTask.perform, 15000)
+  useIntervalFn(logStore.updateLogs, 15000)
 })
 onUnmounted(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)

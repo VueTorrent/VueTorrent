@@ -65,7 +65,7 @@ export const useLogStore = defineStore('logs', () => {
     externalIp,
     geoDetails,
     ispDetails,
-    logTask,
+    updateLogs: logTask.perform,
     fetchGeoAndIspDetails,
     cleanAndFetchLogs,
     $reset: () => {
