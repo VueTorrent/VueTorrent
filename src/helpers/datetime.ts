@@ -1,8 +1,14 @@
-import { defaultDateFormat } from '@/constants/vuetorrent'
 import dayjs from '@/plugins/dayjs'
+import { DurationUnitType } from 'dayjs/plugin/duration'
 
 export function formatEta(value: number): string {
-  const options = { dayLimit: 100 }
+  const QBIT_MAX_ETA = 864_000 // 100 days
+  const MAX_UNITS = 2 // Will display 2 units max, from highest to lowest
+
+  if (value >= QBIT_MAX_ETA) {
+    return '∞'
+  }
+
   const minute = 60
   const hour = minute * 60
   const day = hour * 24
@@ -15,25 +21,11 @@ export function formatEta(value: number): string {
   let unitSize = 0
   const parts = []
 
-  const defaultOptions = {
-    maxUnitSize: 2,
-    dayLimit: 0,
-    minUnit: 0
-  }
-
-  const opt = options ? Object.assign(defaultOptions, options) : defaultOptions
-
-  if (opt.dayLimit && value >= opt.dayLimit * day) {
-    return '∞'
-  }
-
-  while ((!opt.maxUnitSize || unitSize !== opt.maxUnitSize) && index !== durations.length) {
+  while (unitSize < MAX_UNITS && index !== durations.length) {
     const duration = durations[index]
     if (value < duration) {
       index++
       continue
-    } else if (opt.minUnit && durations.length - index <= opt.minUnit) {
-      break
     }
 
     const result = Math.floor(value / duration)
@@ -45,16 +37,20 @@ export function formatEta(value: number): string {
   }
 
   if (!parts.length) {
-    return '0' + units[durations.length - 1 - opt.minUnit]
+    return '0' + units[durations.length - 1]
   }
 
   return parts.join(' ')
 }
 
 export function formatTimeMs(value: number, format: string): string {
-  return dayjs(value).format(format ?? defaultDateFormat)
+  return dayjs(value).format(format)
 }
 
 export function formatTimeSec(value: number, format: string): string {
   return formatTimeMs(value * 1000, format)
+}
+
+export function formatDuration(value: number, unit: DurationUnitType, format: string): string {
+  return dayjs.duration(value, unit).format(format)
 }

@@ -1,4 +1,14 @@
-import { DashboardProperty, defaultDateFormat, PropertyData, propsData, propsMetadata, TitleOptions, TorrentProperty, ThemeMode } from '@/constants/vuetorrent'
+import {
+  DashboardProperty,
+  defaultDateFormat,
+  PropertyData,
+  propsData,
+  propsMetadata,
+  TitleOptions,
+  TorrentProperty,
+  ThemeMode,
+  defaultDurationFormat
+} from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
@@ -34,6 +44,7 @@ export const useVueTorrentStore = defineStore(
     const enableHashColors = ref(true)
     const paginationSize = ref(15)
     const dateFormat = ref(defaultDateFormat)
+    const durationFormat = ref(defaultDurationFormat)
     const isShutdownButtonVisible = ref(false)
     const useBitSpeed = ref(false)
     const useBinarySize = ref(false)
@@ -222,6 +233,7 @@ export const useVueTorrentStore = defineStore(
       backendUrl,
       theme,
       dateFormat,
+      durationFormat,
       deleteWithFiles,
       fileContentInterval,
       isDrawerRight,
@@ -291,6 +303,7 @@ export const useVueTorrentStore = defineStore(
         enableHashColors.value = true
         paginationSize.value = 15
         dateFormat.value = defaultDateFormat
+        durationFormat.value = defaultDurationFormat
         isShutdownButtonVisible.value = false
         useBitSpeed.value = false
         useBinarySize.value = false

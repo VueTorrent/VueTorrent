@@ -1,29 +1,21 @@
 <script setup lang="ts">
-import dayjs from '@/plugins/dayjs'
+import { formatDuration } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import { computed } from 'vue'
 import { DurationUnitType } from 'dayjs/plugin/duration'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; titleKey?: string; unit: DurationUnitType; value: (t: Torrent) => number }>()
+const props = defineProps<{
+  torrent: Torrent;
+  titleKey?: string;
+  unit: DurationUnitType;
+  value: (t: Torrent) => number
+}>()
+
+const { durationFormat } = storeToRefs(useVueTorrentStore())
 
 const val = computed(() => props.value(props.torrent))
-const formattedDuration = computed(() => {
-  const duration = dayjs.duration(val.value, props.unit)
-
-  const durationValues = [duration.years(), duration.months(), duration.days(), duration.hours(), duration.minutes(), duration.seconds()]
-  const durationLabels = ['Y', 'M', 'd', 'h', 'm', 's']
-
-  let flag = false
-  return durationValues
-    .map((value, index) => {
-      if (flag || value) {
-        flag = true
-        return `${value}${durationLabels[index]}`
-      }
-    })
-    .filter(value => value)
-    .join(' ')
-})
 </script>
 
 <template>
@@ -33,7 +25,7 @@ const formattedDuration = computed(() => {
     </div>
     <div>
       <span v-if="val > 0">
-        {{ formattedDuration }}
+        {{ formatDuration(val, props.unit, durationFormat) }}
       </span>
       <span v-else>{{ $t('common.NA') }}</span>
     </div>

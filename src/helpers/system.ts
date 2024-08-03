@@ -14,3 +14,7 @@ export const isMac = window.navigator.userAgent.toLowerCase().includes('mac')
 export function doesCommand(e: { metaKey: boolean; ctrlKey: boolean }): boolean {
   return isMac ? e.metaKey : e.ctrlKey
 }
+
+export function openLink(link: string) {
+  window.open(link, '_blank', 'noreferrer')
+}

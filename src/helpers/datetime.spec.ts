@@ -1,6 +1,6 @@
 import timezoneMock from 'timezone-mock'
 import { expect, test } from 'vitest'
-import { formatEta, formatTimeMs, formatTimeSec } from './datetime'
+import { formatDuration, formatEta, formatTimeMs, formatTimeSec } from './datetime'
 
 beforeAll(() => {
   timezoneMock.register('UTC')
@@ -44,4 +44,13 @@ test('helpers/datetime/formatTimeMs', () => {
 
 test('helpers/datetime/formatTimeSec', () => {
   expect(formatTimeSec(1626739200, 'YYYY-MM-DD')).toBe('2021-07-20')
+})
+
+test('helpers/datetime/formatDuration', () => {
+  expect(formatDuration(60, 's', 'HH:mm:ss')).toBe('00:01:00')
+  expect(formatDuration(1, 'm', 'HH:mm:ss')).toBe('00:01:00')
+  expect(formatDuration(1, 'h', 'HH:mm:ss')).toBe('01:00:00')
+  expect(formatDuration(1, 'd', 'D [days], HH:mm:ss')).toBe('1 days, 00:00:00')
+  expect(formatDuration(0, 's', 'HH:mm:ss')).toBe('00:00:00')
+  expect(formatDuration(1000000, 's', 'D [days], HH:mm:ss')).toBe('11 days, 13:46:40')
 })

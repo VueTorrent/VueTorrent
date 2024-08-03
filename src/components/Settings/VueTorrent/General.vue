@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { defaultDateFormat, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, defaultDurationFormat, TitleOptions } from '@/constants/vuetorrent'
+import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
@@ -115,8 +116,16 @@ const checkNewVersion = async () => {
   toast.info(t('toast.version.new'))
 }
 
+function openDateFormatHelp() {
+  openLink('https://day.js.org/docs/en/display/format#list-of-all-available-formats')
+}
+
+function openDurationFormatHelp() {
+  openLink('https://day.js.org/docs/en/durations/format#list-of-all-available-formats')
+}
+
 function openBackendHelp() {
-  window.open('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation', '_blank', 'noreferrer')
+  openLink('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation')
 }
 </script>
 
@@ -223,8 +232,24 @@ function openBackendHelp() {
       </v-row>
 
       <v-row>
-        <v-col cols="12" md="6">
-          <v-text-field v-model="vueTorrentStore.dateFormat" :placeholder="defaultDateFormat" hint="using Dayjs" :label="t('settings.vuetorrent.general.dateFormat')" />
+        <v-col cols="12" md="3">
+          <v-text-field v-model="vueTorrentStore.dateFormat"
+                        flat
+                        hide-details
+                        :label="t('settings.vuetorrent.general.dateFormat')"
+                        :placeholder="defaultDateFormat"
+                        append-inner-icon="mdi-help-circle"
+                        @click:appendInner="openDateFormatHelp" />
+        </v-col>
+
+        <v-col cols="12" md="3">
+          <v-text-field v-model="vueTorrentStore.durationFormat"
+                        flat
+                        hide-details
+                        :label="t('settings.vuetorrent.general.durationFormat')"
+                        :placeholder="defaultDurationFormat"
+                        append-inner-icon="mdi-help-circle"
+                        @click:appendInner="openDurationFormatHelp" />
         </v-col>
 
         <v-col cols="12" md="6">
