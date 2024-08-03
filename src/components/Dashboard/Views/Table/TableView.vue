@@ -1,9 +1,10 @@
 <script lang="ts" setup>
 import TableTorrent from '@/components/Dashboard/Views/Table/TableTorrent.vue'
-import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
-import { useDashboardStore, useVueTorrentStore } from '@/stores'
+import { TorrentProperty, TorrentState } from '@/constants/vuetorrent'
+import { comparators, getTorrentStateColor } from '@/helpers'
+import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
 defineProps<{
@@ -20,9 +21,19 @@ defineEmits<{
 }>()
 
 const dashboardStore = useDashboardStore()
+const { sortCriterias } = storeToRefs(useTorrentStore())
 const vuetorrentStore = useVueTorrentStore()
 
-const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => a.order - b.order))
+const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
+const sortCriteria = computed(() => sortCriterias.value[0])
+
+function onHeaderClick(ppt: TorrentProperty) {
+  if (sortCriteria.value.value === ppt.sortKey) {
+    sortCriteria.value.reverse = !sortCriteria.value.reverse
+  } else {
+    sortCriteria.value.value = ppt.sortKey
+  }
+}
 
 function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
@@ -39,8 +50,13 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isT
         <th v-if="dashboardStore.isSelectionMultiple" />
         <th class="text-left">{{ $t('torrent.properties.name') }}</th>
 
-        <th v-for="ppt in torrentProperties" class="text-left">
-          {{ $t(ppt.props.titleKey) }}
+        <th v-for="ppt in torrentProperties" class="text-left cursor-pointer" @click="onHeaderClick(ppt)">
+          <div class="d-flex align-center">
+            <span>{{ $t(ppt.props.titleKey) }}</span>
+            <v-icon v-if="sortCriteria.value === ppt.sortKey"
+                    class="ml-2"
+                    :icon="sortCriteria.reverse ? 'mdi-arrow-up' : 'mdi-arrow-down'" />
+          </div>
         </th>
       </tr>
     </thead>

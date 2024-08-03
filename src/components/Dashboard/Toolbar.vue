@@ -18,7 +18,7 @@ const { sortCriterias } = storeToRefs(torrentStore)
 
 type SortOption = { title: string; value: keyof Torrent }
 
-const torrentSortOptions = [
+const torrentSortOptions: SortOption[] = [
   { value: 'added_on', title: t('dashboard.sortBy.added_on') },
   { value: 'amount_left', title: t('dashboard.sortBy.amount_left') },
   { value: 'availability', title: t('dashboard.sortBy.availability') },
@@ -67,7 +67,8 @@ const torrentSortOptions = [
   { value: 'uploaded', title: t('dashboard.sortBy.uploaded') },
   { value: 'uploaded_session', title: t('dashboard.sortBy.uploaded_session') },
   { value: 'upspeed', title: t('dashboard.sortBy.upspeed') }
-].sort((a, b) => comparators.text.asc(a.title, b.title)) as SortOption[]
+]
+torrentSortOptions.sort((a, b) => comparators.text.asc(a.title, b.title))
 
 const sortOption = computed({
   get: () => sortCriterias.value[0],
