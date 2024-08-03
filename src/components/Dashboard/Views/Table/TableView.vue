@@ -1,9 +1,10 @@
 <script lang="ts" setup>
-import TableTorrent from '@/components/Dashboard/Views/Table/TableTorrent.vue'
-import { TorrentProperty, TorrentState } from '@/constants/vuetorrent'
+import Header from './Header.vue'
+import TableTorrent from './TableTorrent.vue'
+import { TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateColor } from '@/helpers'
 import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { Torrent as TorrentType } from '@/types/vuetorrent'
+import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
@@ -27,11 +28,11 @@ const vuetorrentStore = useVueTorrentStore()
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
 const sortCriteria = computed(() => sortCriterias.value[0])
 
-function onHeaderClick(ppt: TorrentProperty) {
-  if (sortCriteria.value.value === ppt.sortKey) {
+function onHeaderClick(sortKey: keyof Torrent) {
+  if (sortCriteria.value.value === sortKey) {
     sortCriteria.value.reverse = !sortCriteria.value.reverse
   } else {
-    sortCriteria.value.value = ppt.sortKey
+    sortCriteria.value.value = sortKey
   }
 }
 
@@ -48,16 +49,8 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isT
       <tr>
         <th class="px-1" />
         <th v-if="dashboardStore.isSelectionMultiple" />
-        <th class="text-left">{{ $t('torrent.properties.name') }}</th>
-
-        <th v-for="ppt in torrentProperties" class="text-left cursor-pointer" @click="onHeaderClick(ppt)">
-          <div class="d-flex align-center">
-            <span>{{ $t(ppt.props.titleKey) }}</span>
-            <v-icon v-if="sortCriteria.value === ppt.sortKey"
-                    class="ml-2"
-                    :icon="sortCriteria.reverse ? 'mdi-arrow-up' : 'mdi-arrow-down'" />
-          </div>
-        </th>
+        <Header :title="$t('torrent.properties.name')" sort-key="name" @onHeaderClick="onHeaderClick('name')" />
+        <Header v-for="ppt in torrentProperties" :title="$t(ppt.props.titleKey)" :sort-key="ppt.sortKey" @onHeaderClick="onHeaderClick(ppt.sortKey)" />
       </tr>
     </thead>
     <tbody>
