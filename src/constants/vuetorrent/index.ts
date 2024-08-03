@@ -12,6 +12,7 @@ import { TitleOptions } from './TitleOptions'
 import { TorrentState, stateQbitToVt, stateVtToQbit } from './TorrentState'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
+const defaultDurationFormat = 'Y[Y] M[M] D[d] H[h] m[m] s[s]'
 
 export {
   comparatorMap,
@@ -32,5 +33,6 @@ export {
   TorrentState,
   stateQbitToVt,
   stateVtToQbit,
-  defaultDateFormat
+  defaultDateFormat,
+  defaultDurationFormat
 }
