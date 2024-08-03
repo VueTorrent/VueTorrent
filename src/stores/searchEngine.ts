@@ -15,6 +15,7 @@ export const useSearchEngineStore = defineStore(
       searchData.value.push({
         uniqueId: uuidv4(),
         id: 0,
+        lastQuery: '',
         query: '',
         itemsPerPage: 10,
         filters: {
@@ -35,6 +36,7 @@ export const useSearchEngineStore = defineStore(
       const searchJob = await qbit.startSearch(tab.query, tab.filters.category, [tab.filters.plugin])
       tab.id = searchJob.id
       tab.results = []
+      tab.lastQuery = tab.query
     }
 
     async function refreshResults(tab: SearchData) {

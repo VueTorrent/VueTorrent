@@ -170,7 +170,7 @@ onBeforeUnmount(() => {
       <v-container class="d-flex align-center justify-center ma-0 pa-0 bg-primary" fluid>
         <v-tabs v-model="tabIndex" class="overflow-auto" bg-color="primary" show-arrows>
           <v-tab v-for="tab in searchData" :key="tab.uniqueId">
-            <h4>{{ !tab.query || tab.query.length === 0 ? $t('searchEngine.tabHeaderEmpty') : tab.query }}</h4>
+            <h4>{{ !tab.lastQuery || tab.lastQuery.length === 0 ? $t('searchEngine.tabHeaderEmpty') : tab.lastQuery }}</h4>
           </v-tab>
         </v-tabs>
 
