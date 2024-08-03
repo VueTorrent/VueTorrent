@@ -90,7 +90,7 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-for="{ text, value } in tabs" :value="value" :href="`#/torrent/${hash}/${value}`" :text="text" />
+        <v-tab v-for="{ text, value } in tabs" :value="value" :text="text" replace :to="{ name: 'torrentDetail', params: { hash, tab: value } }" />
       </v-tabs>
     </v-row>
 
