@@ -135,8 +135,8 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-if="isEnhancedEdition" value="enhancedEdition" href="#/settings/enhancedEdition" :text="$t('settings.tabs.addons.enhanced_edition')" />
-        <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :href="`#/settings/${value}`" :text="text" />
+        <v-tab v-if="isEnhancedEdition" value="enhancedEdition" :text="$t('settings.tabs.addons.enhanced_edition')" replace :to="{ name: 'settings', params: { tab: 'enhancedEdition' } }" />
+        <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: value } }" />
       </v-tabs>
     </v-row>
 
@@ -147,8 +147,7 @@ onBeforeUnmount(() => {
 
       <v-window-item value="vuetorrent">
         <v-tabs v-model="innerTabV" grow color="accent" show-arrows>
-          <v-tab v-for="{ text, value } in tabsV" :value="value" :text="text" :href="`#/settings/vuetorrent/${value}`" :class="{ 'text-accent': innerTabV === value }" />
-          <!-- the class attribute is a workaround for https://github.com/vuetifyjs/vuetify/issues/18756 -->
+          <v-tab v-for="{ text, value } in tabsV" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: 'vuetorrent', subtab: value } }" />
         </v-tabs>
 
         <v-window v-model="innerTabV" :touch="false">
