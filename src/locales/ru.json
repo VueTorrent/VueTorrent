@@ -1221,7 +1221,11 @@
         "oldUrl": "Старая ссылка",
         "title": "Редактировать трекер"
       },
-      "peersValue": "{peers} пиров ({seeds} С / {leeches} Л)",
+      "fields": {
+        "num_downloaded": "Загружено",
+        "num_peers": "Пиры",
+        "num_seeds": "Сиды"
+      },
       "reannounce": "Переанонсировать всё",
       "tier": "Ранг: {n}"
     }

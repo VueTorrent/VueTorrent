@@ -1132,7 +1132,11 @@
         "oldUrl": "Régi URL",
         "title": "Követő szerkesztése"
       },
-      "peersValue": "{peers} peerek ({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "Letöltve",
+        "num_peers": "Peerek",
+        "num_seeds": "Seedek"
+      },
       "reannounce": "Összes újrahirdetése",
       "tier": "Szint: {n}"
     }

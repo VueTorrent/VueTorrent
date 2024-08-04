@@ -1131,7 +1131,11 @@
         "oldUrl": "Stary adres URL",
         "title": "Edytuj tracker"
       },
-      "peersValue": "{peers} użytkowników ({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "Pobrano",
+        "num_peers": "Peery",
+        "num_seeds": "Seedy"
+      },
       "reannounce": "Ogłoś ponownie wszystko",
       "tier": "Poziom: {n}"
     }

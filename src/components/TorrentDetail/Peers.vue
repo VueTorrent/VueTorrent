@@ -107,7 +107,11 @@ async function banPeer(peer: PeerType) {
   resume()
 }
 
-const { isActive: isTimerActive, pause, resume } = useIntervalFn(syncPeers, 2000, {
+const {
+  isActive: isTimerActive,
+  pause,
+  resume
+} = useIntervalFn(syncPeers, 2000, {
   immediate: true,
   immediateCallback: true
 })

@@ -2,20 +2,25 @@
 
 ## [2.11.1](https://github.com/VueTorrent/VueTorrent/compare/v2.11.0...v2.11.1) (2024-08-01)
 
-
 ### Bug Fixes
 
-* Sort values correctly ([#1811](https://github.com/VueTorrent/VueTorrent/issues/1811)) ([17700db](https://github.com/VueTorrent/VueTorrent/commit/17700db5985521787a139fb25db369b39708dac3))
-
+- Sort values correctly ([#1811](https://github.com/VueTorrent/VueTorrent/issues/1811))
+  ([17700db](https://github.com/VueTorrent/VueTorrent/commit/17700db5985521787a139fb25db369b39708dac3))
 
 ### Improvements
 
-* **Dashboard:** Merge pagination in toolbar on desktop ([#1808](https://github.com/VueTorrent/VueTorrent/issues/1808)) ([6f80c7d](https://github.com/VueTorrent/VueTorrent/commit/6f80c7d8c458eb67906cbc2a67c15ed916e34691))
-* Disable copy action if context not secure ([#1802](https://github.com/VueTorrent/VueTorrent/issues/1802)) ([c8faa6a](https://github.com/VueTorrent/VueTorrent/commit/c8faa6adb9f2fe2fcbd1c6bef6c68c293c5bcdc6))
-* Display speed limits in graph and navbar ([#1800](https://github.com/VueTorrent/VueTorrent/issues/1800)) ([381953a](https://github.com/VueTorrent/VueTorrent/commit/381953ad4ec72a47a423546bc5c164ec316a357c))
-* Increase mobile threshold for initial navbar open status ([#1807](https://github.com/VueTorrent/VueTorrent/issues/1807)) ([8a9673e](https://github.com/VueTorrent/VueTorrent/commit/8a9673eacc32fee5cb143cae9c6c3a36f0f79f54))
-* **navbar:** Persist opened state between sessions ([#1815](https://github.com/VueTorrent/VueTorrent/issues/1815)) ([17f9759](https://github.com/VueTorrent/VueTorrent/commit/17f9759bbf9d4fea6f9989f01cdbd45f533ca4b9))
-* **trackers:** Switch to table view ([#1813](https://github.com/VueTorrent/VueTorrent/issues/1813)) ([3fd85a1](https://github.com/VueTorrent/VueTorrent/commit/3fd85a1e567c6bdc34f36139486b9c6dfe86ebbd))
+- **Dashboard:** Merge pagination in toolbar on desktop ([#1808](https://github.com/VueTorrent/VueTorrent/issues/1808))
+  ([6f80c7d](https://github.com/VueTorrent/VueTorrent/commit/6f80c7d8c458eb67906cbc2a67c15ed916e34691))
+- Disable copy action if context not secure ([#1802](https://github.com/VueTorrent/VueTorrent/issues/1802))
+  ([c8faa6a](https://github.com/VueTorrent/VueTorrent/commit/c8faa6adb9f2fe2fcbd1c6bef6c68c293c5bcdc6))
+- Display speed limits in graph and navbar ([#1800](https://github.com/VueTorrent/VueTorrent/issues/1800))
+  ([381953a](https://github.com/VueTorrent/VueTorrent/commit/381953ad4ec72a47a423546bc5c164ec316a357c))
+- Increase mobile threshold for initial navbar open status ([#1807](https://github.com/VueTorrent/VueTorrent/issues/1807))
+  ([8a9673e](https://github.com/VueTorrent/VueTorrent/commit/8a9673eacc32fee5cb143cae9c6c3a36f0f79f54))
+- **navbar:** Persist opened state between sessions ([#1815](https://github.com/VueTorrent/VueTorrent/issues/1815))
+  ([17f9759](https://github.com/VueTorrent/VueTorrent/commit/17f9759bbf9d4fea6f9989f01cdbd45f533ca4b9))
+- **trackers:** Switch to table view ([#1813](https://github.com/VueTorrent/VueTorrent/issues/1813))
+  ([3fd85a1](https://github.com/VueTorrent/VueTorrent/commit/3fd85a1e567c6bdc34f36139486b9c6dfe86ebbd))
 
 ## [2.11.0](https://github.com/VueTorrent/VueTorrent/compare/v2.10.2...v2.11.0) (2024-07-21)
 

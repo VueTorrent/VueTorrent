@@ -1132,7 +1132,11 @@
         "oldUrl": "URL antigua",
         "title": "Editar rastreador"
       },
-      "peersValue": "{peers} pares ({seeds} S / {leeches} L) ",
+      "fields": {
+        "num_downloaded": "Descargado",
+        "num_peers": "Pares",
+        "num_seeds": "Semillas"
+      },
       "reannounce": "Reanunciar todo",
       "tier": "Nivel: {n}"
     }

@@ -1108,7 +1108,11 @@
         "oldUrl": "이전 URL",
         "title": "트래커 편집"
       },
-      "peersValue": "{peers} 피어({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "다운로드됨",
+        "num_peers": "피어",
+        "num_seeds": "시드"
+      },
       "reannounce": "모든 트래커에 다시 요청",
       "tier": "Tier: {n}"
     }

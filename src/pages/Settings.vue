@@ -135,7 +135,12 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-if="isEnhancedEdition" value="enhancedEdition" :text="$t('settings.tabs.addons.enhanced_edition')" replace :to="{ name: 'settings', params: { tab: 'enhancedEdition' } }" />
+        <v-tab
+          v-if="isEnhancedEdition"
+          value="enhancedEdition"
+          :text="$t('settings.tabs.addons.enhanced_edition')"
+          replace
+          :to="{ name: 'settings', params: { tab: 'enhancedEdition' } }" />
         <v-tab v-for="{ text, value } in tabs" :key="value" :value="value" :text="text" replace :to="{ name: 'settings', params: { tab: value } }" />
       </v-tabs>
     </v-row>
