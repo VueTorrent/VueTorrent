@@ -1,4 +1,4 @@
-import { comparators } from '@/helpers'
+import { comparators, extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
@@ -26,15 +26,15 @@ export const useTrackerStore = defineStore('trackers', () => {
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, string[]][], removed?: string[]) {
     if (fullUpdate) {
-      _trackerMap.value = new Map(entries)
+      _trackerMap.value = new Map(entries.map(([k, v]) => [extractHostname(k), v]))
       return
     }
 
     for (const [trackerUrl, linkedTorrents] of entries) {
-      _trackerMap.value.set(trackerUrl, linkedTorrents)
+      _trackerMap.value.set(extractHostname(trackerUrl), linkedTorrents)
     }
 
-    removed?.forEach(t => _trackerMap.value.delete(t))
+    removed?.forEach(t => _trackerMap.value.delete(extractHostname(t)))
     triggerRef(_trackerMap)
   }
 
