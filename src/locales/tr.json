@@ -1203,7 +1203,11 @@
         "oldUrl": "Eski URL",
         "title": "İzleyiciyi Düzenle"
       },
-      "peersValue": "{peers} eş ({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "İndirilen",
+        "num_peers": "Eşler",
+        "num_seeds": "Seedler"
+      },
       "reannounce": "Tümünü yeniden duyur",
       "tier": "Seviye: {n} "
     }

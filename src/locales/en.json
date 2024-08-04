@@ -1226,11 +1226,11 @@
       "error": "Error while fetching tracker data",
       "fields": {
         "msg": "Message",
-        "num_downloaded": "Download",
-        "num_leeches":  "Leeches",
-        "num_peers":  "Peers",
+        "num_downloaded": "Downloaded",
+        "num_leeches": "Leeches",
+        "num_peers": "Peers",
         "num_seeds": "Seeds",
-        "status":  "Status",
+        "status": "Status",
         "tier": "#",
         "url": "Tracker URL"
       },

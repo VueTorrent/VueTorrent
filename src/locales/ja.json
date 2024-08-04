@@ -1208,7 +1208,11 @@
         "oldUrl": "古いURL",
         "title": "トラッカーを編集する"
       },
-      "peersValue": "{peers} ピア ({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "DL済み",
+        "num_peers": "ピア",
+        "num_seeds": "シード"
+      },
       "reannounce": "すべて再アナウンス",
       "tier": "Tier: {n}"
     }

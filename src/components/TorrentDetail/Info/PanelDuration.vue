@@ -25,7 +25,7 @@ const torrentValues: { title: string; unit: DurationUnitType; getter: () => numb
     <v-expansion-panel-text>
       <v-row>
         <InfoBase v-for="ppt in torrentValues">
-          <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
+          <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
           <template v-if="ppt.getter() > 0" v-slot:text>
             {{ formatDuration(ppt.getter(), ppt.unit, durationFormat) }}
           </template>

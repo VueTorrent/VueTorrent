@@ -1209,7 +1209,11 @@
         "oldUrl": "Ancienne URL",
         "title": "Modifier le tracker"
       },
-      "peersValue": "{peers} pairs ({seeds} S / {leeches} L)",
+      "fields": {
+        "num_downloaded": "Téléchargé",
+        "num_peers": "Pairs",
+        "num_seeds": "Seeders"
+      },
       "reannounce": "Tout réannoncer",
       "tier": "Tier : {n}"
     }

@@ -24,7 +24,7 @@ const headers = [
   { nowrap: true, title: t('torrentDetail.trackers.fields.num_downloaded'), key: 'num_downloaded' },
   { nowrap: true, title: t('torrentDetail.trackers.fields.num_leeches'), key: 'num_leeches' },
   { nowrap: true, title: t('torrentDetail.trackers.fields.msg'), key: 'msg' },
-  { nowrap: true, key: 'actions', sortable: false },
+  { nowrap: true, key: 'actions', sortable: false }
 ]
 const sortBy = shallowReadonly<{ key: string; order?: boolean | 'asc' | 'desc' }[]>([
   { key: 'tier', order: 'asc' },
@@ -122,7 +122,11 @@ async function reannounceTrackers() {
 }
 
 const timerForcedPause = ref(false)
-const { isActive: isTimerActive, resume: resumeTimer, pause: pauseTimer } = useIntervalFn(trackerTask.perform, 5000, {
+const {
+  isActive: isTimerActive,
+  resume: resumeTimer,
+  pause: pauseTimer
+} = useIntervalFn(trackerTask.perform, 5000, {
   immediate: true,
   immediateCallback: true
 })
@@ -200,10 +204,7 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
         </template>
         <v-card :title="$t('torrentDetail.trackers.addTrackers.title')">
           <v-card-text>
-            <v-textarea
-                v-model="newTrackers"
-                :label="t('torrentDetail.trackers.addTrackers.newTrackers')"
-                :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
+            <v-textarea v-model="newTrackers" :label="t('torrentDetail.trackers.addTrackers.newTrackers')" :hint="t('torrentDetail.trackers.addTrackers.newTrackersHint')" />
           </v-card-text>
 
           <v-card-actions>
@@ -228,12 +229,12 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
         <v-form v-model="editTrackerDialog.isFormValid" @submit.prevent>
           <v-text-field :model-value="editTrackerDialog.oldUrl" disabled :label="$t('torrentDetail.trackers.editTracker.oldUrl')" />
           <v-text-field
-              v-model="editTrackerDialog.newUrl"
-              id="input"
-              :rules="editTrackerRules"
-              :label="$t('torrentDetail.trackers.editTracker.newUrl')"
-              autofocus
-              @keydown.enter="editTracker" />
+            v-model="editTrackerDialog.newUrl"
+            id="input"
+            :rules="editTrackerRules"
+            :label="$t('torrentDetail.trackers.editTracker.newUrl')"
+            autofocus
+            @keydown.enter="editTracker" />
         </v-form>
       </v-card-text>
 

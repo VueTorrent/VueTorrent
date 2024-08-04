@@ -494,6 +494,11 @@
         "progress": "Avanzamento",
         "upload": "Upload"
       }
+    },
+    "trackers": {
+      "fields": {
+        "num_downloaded": "Scaricati"
+      }
     }
   },
   "torrent": {

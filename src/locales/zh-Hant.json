@@ -1204,7 +1204,11 @@
         "oldUrl": "舊連結",
         "title": "編輯追蹤者"
       },
-      "peersValue": "{peers} 个用户 ({seeds} 種子 /{leeches} 下载)",
+      "fields": {
+        "num_downloaded": "已下載",
+        "num_peers": "下載者",
+        "num_seeds": "種子"
+      },
       "reannounce": "全部重新發佈",
       "tier": "層: {n}"
     }

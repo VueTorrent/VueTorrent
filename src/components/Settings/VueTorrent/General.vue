@@ -233,23 +233,25 @@ function openBackendHelp() {
 
       <v-row>
         <v-col cols="12" md="3">
-          <v-text-field v-model="vueTorrentStore.dateFormat"
-                        flat
-                        hide-details
-                        :label="t('settings.vuetorrent.general.dateFormat')"
-                        :placeholder="defaultDateFormat"
-                        append-inner-icon="mdi-help-circle"
-                        @click:appendInner="openDateFormatHelp" />
+          <v-text-field
+            v-model="vueTorrentStore.dateFormat"
+            flat
+            hide-details
+            :label="t('settings.vuetorrent.general.dateFormat')"
+            :placeholder="defaultDateFormat"
+            append-inner-icon="mdi-help-circle"
+            @click:appendInner="openDateFormatHelp" />
         </v-col>
 
         <v-col cols="12" md="3">
-          <v-text-field v-model="vueTorrentStore.durationFormat"
-                        flat
-                        hide-details
-                        :label="t('settings.vuetorrent.general.durationFormat')"
-                        :placeholder="defaultDurationFormat"
-                        append-inner-icon="mdi-help-circle"
-                        @click:appendInner="openDurationFormatHelp" />
+          <v-text-field
+            v-model="vueTorrentStore.durationFormat"
+            flat
+            hide-details
+            :label="t('settings.vuetorrent.general.durationFormat')"
+            :placeholder="defaultDurationFormat"
+            append-inner-icon="mdi-help-circle"
+            @click:appendInner="openDurationFormatHelp" />
         </v-col>
 
         <v-col cols="12" md="6">

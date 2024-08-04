@@ -1204,7 +1204,11 @@
         "oldUrl": "旧 URL",
         "title": "编辑 Tracker"
       },
-      "peersValue": "{peers} 个用户 ({seeds} 做种 / {leeches} 下载)",
+      "fields": {
+        "num_downloaded": "已下载",
+        "num_peers": "用户",
+        "num_seeds": "做种者"
+      },
       "reannounce": "全部重新汇报",
       "tier": "层级：{n}"
     }
