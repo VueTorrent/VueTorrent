@@ -78,7 +78,7 @@ function selectAllTrackers() {
   <v-list class="pb-0 inherit-fg">
     <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
-        {{ t('navbar.side.filters.state') }}
+        {{ t('navbar.side.filters.state.title') }}
       </v-list-item-title>
       <v-select
         v-model="statusFilter"
@@ -92,9 +92,9 @@ function selectAllTrackers() {
         variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
-          <v-list-item :title="$t('common.active')" @click="selectActive" />
-          <v-list-item :title="$t('common.error')" @click="selectError" />
-          <v-list-item :title="$t('common.offline')" @click="selectOffline" />
+          <v-list-item :title="$t('navbar.side.filters.state.active')" @click="selectActive" />
+          <v-list-item :title="$t('navbar.side.filters.state.error')" @click="selectError" />
+          <v-list-item :title="$t('navbar.side.filters.state.offline')" @click="selectOffline" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
