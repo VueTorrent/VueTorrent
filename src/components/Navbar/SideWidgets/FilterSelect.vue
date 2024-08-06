@@ -40,6 +40,27 @@ function selectActive() {
   ]
 }
 
+function selectError() {
+  statusFilter.value = [
+    TorrentState.ERROR,
+    TorrentState.MISSING_FILES,
+    TorrentState.UNKNOWN
+  ]
+}
+
+function selectOffline() {
+  statusFilter.value = [
+    TorrentState.ERROR,
+    TorrentState.MISSING_FILES,
+    TorrentState.UNKNOWN,
+    TorrentState.MOVING,
+    TorrentState.DL_PAUSED,
+    TorrentState.UL_PAUSED,
+    TorrentState.CHECKING_DISK,
+    TorrentState.CHECKING_RESUME_DATA
+  ]
+}
+
 function selectAllCategories() {
   categoryFilter.value = []
 }
@@ -72,6 +93,8 @@ function selectAllTrackers() {
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
           <v-list-item :title="$t('common.active')" @click="selectActive" />
+          <v-list-item :title="$t('common.error')" @click="selectError" />
+          <v-list-item :title="$t('common.offline')" @click="selectOffline" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
