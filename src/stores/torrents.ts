@@ -1,5 +1,5 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
+import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -40,13 +40,32 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
+    const filterType = ref(FilterType.CONJUNCTIVE)
+    const statusFilterType = ref(FilterType.DISJUNCTIVE)
+    const categoryFilterType = ref(FilterType.DISJUNCTIVE)
+    const tagFilterType = ref(FilterType.DISJUNCTIVE)
+    const trackerFilterType = ref(FilterType.DISJUNCTIVE)
+
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
     type matchFn = (t: VtTorrent) => boolean
+    // TODO: unable to handle conjunctive ???
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
+    // TODO: Same here as torrents can only have one
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
-    const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
+    const matchTag: matchFn = t => {
+      // TODO: check logic
+      const matchUntagged = t.tags.length === 0 && tagFilter.value.includes(null)
+
+      switch (tagFilterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return matchUntagged || t.tags.every(tag => tagFilter.value.includes(tag))
+        case FilterType.DISJUNCTIVE:
+          return matchUntagged || t.tags.some(tag => tagFilter.value.includes(tag))
+      }
+    }
     const matchTracker: matchFn = t => {
+      //TODO
       const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
       if (torrentTrackers.length) {
         return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
@@ -55,12 +74,17 @@ export const useTorrentStore = defineStore(
     }
 
     const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
-      return !(
-        (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent)) ||
-        (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent)) ||
-        (tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent)) ||
-        (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
-      )
+      const isStatusMatched = statusFilter.value.length > 0 && isStatusFilterActive.value && matchStatus(torrent)
+      const isCategoryMatched = categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchCategory(torrent)
+      const isTagMatched = tagFilter.value.length > 0 && isTagFilterActive.value && matchTag(torrent)
+      const isTrackerMatched = trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent)
+
+      switch (filterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return isStatusMatched && isCategoryMatched && isTagMatched && isTrackerMatched
+        case FilterType.DISJUNCTIVE:
+          return isStatusMatched || isCategoryMatched || isTagMatched || isTrackerMatched
+      }
     })
 
     const { results: filteredTorrents } = useSearchQuery(
@@ -216,6 +240,11 @@ export const useTorrentStore = defineStore(
       categoryFilter,
       tagFilter,
       trackerFilter,
+      filterType,
+      statusFilterType,
+      categoryFilterType,
+      tagFilterType,
+      trackerFilterType,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,
       syncFromMaindata,
@@ -246,14 +275,19 @@ export const useTorrentStore = defineStore(
 
         isTextFilterActive.value = true
         textFilter.value = ''
+        filterType.value = FilterType.CONJUNCTIVE
         isStatusFilterActive.value = true
         statusFilter.value = []
+        statusFilterType.value = FilterType.DISJUNCTIVE
         isCategoryFilterActive.value = true
         categoryFilter.value = []
+        categoryFilterType.value = FilterType.DISJUNCTIVE
         isTagFilterActive.value = true
         tagFilter.value = []
+        tagFilterType.value = FilterType.DISJUNCTIVE
         isTrackerFilterActive.value = true
         trackerFilter.value = []
+        trackerFilterType.value = FilterType.DISJUNCTIVE
       }
     }
   },

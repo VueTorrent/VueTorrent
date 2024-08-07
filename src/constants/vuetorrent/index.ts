@@ -6,6 +6,7 @@ import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
 import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
+import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
@@ -27,6 +28,7 @@ export {
   FeedState,
   getFileIcon,
   typesMap,
+  FilterType,
   HistoryKey,
   ThemeMode,
   TitleOptions,

@@ -1,13 +1,13 @@
 import {
   DashboardProperty,
   defaultDateFormat,
+  defaultDurationFormat,
   PropertyData,
   propsData,
   propsMetadata,
-  TitleOptions,
-  TorrentProperty,
   ThemeMode,
-  defaultDurationFormat
+  TitleOptions,
+  TorrentProperty
 } from '@/constants/vuetorrent'
 import { backendStorage } from '@/services/backend'
 import { DarkLegacy, LightLegacy } from '@/themes'

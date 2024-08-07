@@ -1,20 +1,22 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { defaultDateFormat, defaultDurationFormat, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
 import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
-import { useAppStore, useDialogStore, useHistoryStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
+import { storeToRefs } from 'pinia'
 import { computed, readonly, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
 const { t } = useI18n()
 const appStore = useAppStore()
-const historyStore = useHistoryStore()
-const vueTorrentStore = useVueTorrentStore()
 const dialogStore = useDialogStore()
+const historyStore = useHistoryStore()
+const { filterType } = storeToRefs(useTorrentStore())
+const vueTorrentStore = useVueTorrentStore()
 
 const github = new Github()
 
@@ -24,6 +26,12 @@ const titleOptionsList = readonly([
   { title: t('constants.titleOptions.first_torrent_speed'), value: TitleOptions.FIRST_TORRENT_STATUS },
   { title: t('constants.titleOptions.custom'), value: TitleOptions.CUSTOM }
 ])
+
+const filterInclusionOptions = [
+  // FIXME: prepend-icon doesn't work for some reason
+  { title: 'Conjunctive filtering (AND)', value: FilterType.CONJUNCTIVE, props: { 'append-icon': 'mdi-set-center' } },
+  { title: 'Disjunctive filtering (OR)', value: FilterType.DISJUNCTIVE, props: { 'append-icon': 'mdi-set-all' } }
+]
 
 const lightVariants = readonly([
   { title: t('constants.themes.light.legacy'), value: LightLegacy.id },
@@ -198,10 +206,13 @@ function openBackendHelp() {
           <v-text-field v-model.number="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
 
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="4">
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
-        <v-col cols="12" md="6">
+        <v-col cols="12" md="4">
+          <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" label="Filters inclusion type" />
+        </v-col>
+        <v-col cols="12" md="4">
           <v-combobox
             v-model="paginationSize"
             :messages="paginationSizeMessages"

@@ -1,15 +1,20 @@
 <script lang="ts" setup>
-import { TorrentState } from '@/constants/vuetorrent'
-import { getTorrentStateValue } from '@/helpers'
+import { FilterType, TorrentState } from '@/constants/vuetorrent'
+import { comparators, getTorrentStateValue } from '@/helpers'
 import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 const categoryStore = useCategoryStore()
 const tagStore = useTagStore()
-const { statusFilter, categoryFilter, tagFilter, trackerFilter } = storeToRefs(useTorrentStore())
+const {
+  statusFilter, statusFilterType,
+  categoryFilter, categoryFilterType,
+  tagFilter, tagFilterType,
+  trackerFilter, trackerFilterType
+} = storeToRefs(useTorrentStore())
 const trackerStore = useTrackerStore()
 
 const statuses = computed(() =>
@@ -20,6 +25,21 @@ const statuses = computed(() =>
 const categories = computed(() => [{ title: t('navbar.side.filters.uncategorized'), value: '' }, ...categoryStore.categories.map(c => c.name)])
 const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags])
 const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: null }, ...trackerStore.trackers])
+
+function toggleFilterType(ref: Ref<FilterType>) {
+  switch (ref.value) {
+    case FilterType.CONJUNCTIVE:
+      ref.value = FilterType.DISJUNCTIVE
+      break
+    case FilterType.DISJUNCTIVE:
+      ref.value = FilterType.CONJUNCTIVE
+      break
+  }
+}
+const toggleStatusFilterType = () => toggleFilterType(statusFilterType)
+const toggleCategoryFilterType = () => toggleFilterType(categoryFilterType)
+const toggleTagFilterType = () => toggleFilterType(tagFilterType)
+const toggleTrackerFilterType = () => toggleFilterType(trackerFilterType)
 
 function selectAllStatuses() {
   statusFilter.value = []
@@ -78,14 +98,16 @@ function selectAllTrackers() {
       </v-list-item-title>
       <v-select
         v-model="statusFilter"
-        :items="statuses.sort((a, b) => a.title.localeCompare(b.title))"
+        :items="statuses.sort((a, b) => comparators.text.asc(a.title, b.title))"
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
+        :prepend-inner-icon="statusFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo">
+        variant="solo"
+        @click:prepend-inner.stop="toggleStatusFilterType()"> <!-- FIXME: Select list opens when clicking on inner icon -->
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
           <v-list-item :title="$t('navbar.side.filters.state.active')" @click="selectActive" />
@@ -110,10 +132,12 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
+        :prepend-inner-icon="categoryFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo">
+        variant="solo"
+        @click:prepend-inner.stop="toggleCategoryFilterType()">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
           <v-divider />
@@ -139,10 +163,12 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
+        :prepend-inner-icon="tagFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo">
+        variant="solo"
+        @click:prepend-inner.stop="toggleTagFilterType()">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTags" />
           <v-divider />
@@ -168,10 +194,12 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
+        :prepend-inner-icon="trackerFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo">
+        variant="solo"
+        @click:prepend-inner.stop="toggleTrackerFilterType()">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTrackers" />
           <v-divider />
