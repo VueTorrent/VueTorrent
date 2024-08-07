@@ -220,7 +220,7 @@ onBeforeUnmount(() => {
     </div>
 
     <ListView
-      v-if="isListView"
+      v-else-if="isListView"
       :paginated-torrents="paginatedTorrents"
       @onTorrentClick="onTorrentClick"
       @onTorrentDblClick="goToInfo"
