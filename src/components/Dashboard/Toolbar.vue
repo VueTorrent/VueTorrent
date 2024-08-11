@@ -141,11 +141,10 @@ function toggleSelectMode() {
       </template>
     </v-tooltip>
     <div class="d-flex align-center pa-0">
-      <v-autocomplete
+      <v-select
         v-model="sortOption.value"
         :items="torrentSortOptions"
         :label="t('dashboard.sortLabel')"
-        auto-select-first
         density="compact"
         hide-details
         variant="solo-filled"
