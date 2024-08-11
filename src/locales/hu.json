@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "Aktív",
     "cancel": "Mégse",
     "close": "Bezár",
     "delete": "Törlés",
@@ -470,7 +469,11 @@
         "activeFilter": "{n} aktív szűrő",
         "category": "Kategória szűrő",
         "disabled": "(Letiltva)",
-        "state": "Torrent állapot szűrő",
+        "state": {
+          "active": "Aktív",
+          "error": "Hiba",
+          "title": "Torrent állapot szűrő"
+        },
         "tag": "Címke szűrő",
         "tracker": "Követő szűrő",
         "uncategorized": "(Kategorizálatlan)",

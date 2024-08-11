@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "Aktivní",
     "cancel": "Zrušit",
     "close": "Zavřít",
     "delete": "Smazat",
@@ -226,6 +225,15 @@
       "progress": "Postup",
       "ratio": "Poměr",
       "ratio_limit": "Poměrový limit"
+    }
+  },
+  "navbar": {
+    "side": {
+      "filters": {
+        "state": {
+          "active": "Aktivní"
+        }
+      }
     }
   },
   "torrentDetail": {

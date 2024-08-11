@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "Activo",
     "cancel": "Cancelar",
     "close": "Cerrar",
     "delete": "Eliminar",
@@ -470,7 +469,11 @@
         "activeFilter": "{n} filtros activos",
         "category": "Filtro de Categoría",
         "disabled": "(Desactivado)",
-        "state": "Filtro de estado de torrentes",
+        "state": {
+          "active": "Activo",
+          "error": "Error",
+          "title": "Filtro de estado de torrentes"
+        },
         "tag": "Filtro de etiquetas",
         "tracker": "Filtro de rastreadores",
         "uncategorized": "(Sin categoría)",

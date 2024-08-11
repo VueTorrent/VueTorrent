@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "활성",
     "cancel": "취소",
     "close": "닫기",
     "delete": "삭제",
@@ -448,7 +447,11 @@
         "activeFilter": "{n} 필터가 활성화되었습니다.",
         "category": "카테고리 필터",
         "disabled": "(비활성화)",
-        "state": "토렌트 상태 필터",
+        "state": {
+          "active": "활성",
+          "error": "오류",
+          "title": "토렌트 상태 필터"
+        },
         "tag": "태그 필터",
         "tracker": "트래커 필터",
         "uncategorized": "(분류되지 않음)",

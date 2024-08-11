@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "Aktif",
     "cancel": "İptal",
     "close": "Kapat",
     "delete": "Sil",
@@ -505,7 +504,11 @@
         "activeFilter": "{n} filtre etkin",
         "category": "Kategori Filtresi",
         "disabled": "(Devre Dışı)",
-        "state": "Torrent Durum Filtresi",
+        "state": {
+          "active": "Aktif",
+          "error": "Hata",
+          "title": "Torrent Durum Filtresi"
+        },
         "tag": "Etiket Filtresi",
         "tracker": "İzleyici Filtresi",
         "uncategorized": "(Kategorize Edilmemiş)",

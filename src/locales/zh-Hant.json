@@ -1,7 +1,6 @@
 {
   "_comments": "僅從Tolgee生成，請不要手動修改不然會被推翻",
   "common": {
-    "active": "活躍",
     "cancel": "取消",
     "close": "關閉",
     "delete": "移除",
@@ -210,10 +209,13 @@
       "added_on": "新增於",
       "amount_left": "剩餘大小",
       "availability": "可得性",
-      "available_peers": "下載者 (群)",
+      "available_peers": "用戶 (群)",
       "available_seeds": "種子數 (群)",
       "avg_download_speed": "平均下載速率",
       "avg_upload_speed": "平均上傳速率",
+      "basename_content_path": "內容路徑（基底）",
+      "basename_download_path": "下載路徑（基底）",
+      "basename_save_path": "儲存路徑（基底）",
       "category": "分類",
       "completion_on": "完成於",
       "content_path": "內容路徑",
@@ -227,6 +229,7 @@
       "globalSpeed": "全域速率",
       "globalVolume": "全域大小",
       "hash": "雜湊值",
+      "inactive_seeding_time_limit": "閒置做種時間限制",
       "infohash_v1": "資訊雜湊值 v1",
       "infohash_v2": "資訊雜湊值 v2",
       "last_activity": "最後活躍",
@@ -235,8 +238,8 @@
       "max_seeding_time": "最大做種時間",
       "name": "名稱",
       "num_complete": "種子數 (群)",
-      "num_incomplete": "下載者 (群)",
-      "num_leechs": "下載者 (已連線)",
+      "num_incomplete": "用戶 (群)",
+      "num_leechs": "用戶 (已連線)",
       "num_seeds": "種子數 (已連線)",
       "priority": "優先級",
       "progress": "進度",
@@ -272,6 +275,7 @@
       "file_overflow": "+{n} 個",
       "files": "選擇檔案",
       "first_last_piece_prio": "優先下載首末塊",
+      "instant_drop_label": "立即開始",
       "links": "連結 (磁力, http, 檔案, ...)",
       "params": {
         "add_to_top_of_queue": "新增至佇列頂部",
@@ -469,6 +473,7 @@
   "login": {
     "error": "登入失敗！",
     "password": "密碼",
+    "pending": "正在檢測驗證狀態...",
     "rules": {
       "password_required": "必須填寫密碼",
       "username_required": "必須填寫使用者名稱"
@@ -506,7 +511,11 @@
         "activeFilter": "{n} 個過濾器啟用中",
         "category": "分類過濾器",
         "disabled": "(已停用)",
-        "state": "種子狀態過濾器",
+        "state": {
+          "active": "活躍",
+          "error": "錯誤",
+          "title": "種子狀態過濾器"
+        },
         "tag": "標籤過濾器",
         "tracker": "追蹤者過濾器",
         "uncategorized": "(未分類)",
@@ -752,7 +761,7 @@
         "enableAnonymous": "啟用匿名模式",
         "enableDHT": "啟用 DHT (分散式網絡) 以尋找更多用戶",
         "enableLPD": "啟用本地用戶搜尋以尋找更多用戶",
-        "enablePeX": "啟用節點交換 (PeX) 以尋找更多用戶",
+        "enablePeX": "啟用用戶交換 (PeX) 以尋找更多用戶",
         "encryptionMode": "加密模式",
         "moreInfo": "更多資訊",
         "subheader": "隱私"
@@ -976,7 +985,9 @@
         "customTitle": "自訂標題",
         "darkVariants": "深色界面式樣",
         "dateFormat": "日期格式",
+        "displayGraphLimits": "在圖表裡顯示速度限制",
         "download": "匯出設定",
+        "durationFormat": "持續時間顯示格式",
         "enableHashColors": "啟用自動生成的卡片顏色",
         "enableRatioColors": "啟用彩色的分享率",
         "fileContentInterval": "種子檔案內容更新區間",
@@ -1125,8 +1136,19 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} 個檔案 | {n} 個檔案",
+      "filter": {
+        "activator": "批量選擇",
+        "exclude": "剔除",
+        "extensions": "檔案副檔名",
+        "include": "包含",
+        "preview": "過濾器配對 {count}/{total} 檔案 ({size})",
+        "priority": "檔案優先級",
+        "size": "檔案大小",
+        "title": "批量選擇檔案"
+      },
       "filter_placeholder": "在檔案樹中搜尋",
       "folderInfo": "{n} 個資料夾 | {n} 個資料夾",
+      "invert_priority": "顛倒優先級",
       "priority": "設定優先級",
       "rename": {
         "bulk": "批量重命名",
@@ -1204,11 +1226,18 @@
         "oldUrl": "舊連結",
         "title": "編輯追蹤者"
       },
+      "error": "從追蹤者獲取數據時出錯",
       "fields": {
+        "msg": "訊息",
         "num_downloaded": "已下載",
-        "num_peers": "下載者",
-        "num_seeds": "種子"
+        "num_leeches": "下載者",
+        "num_peers": "用戶",
+        "num_seeds": "種子",
+        "status": "狀態",
+        "tier": "#",
+        "url": "追蹤者URL"
       },
+      "loading": "加載追蹤者數據...",
       "reannounce": "全部重新發佈",
       "tier": "層: {n}"
     }
@@ -1219,10 +1248,13 @@
       "amount_left": "剩餘大小",
       "auto_tmm": "自動種子管理（ATM）",
       "availability": "可得性",
-      "available_peers": "下載者 (群)",
+      "available_peers": "用戶 (群)",
       "available_seeds": "種子 (群)",
       "avg_download_speed": "平均下載速率",
       "avg_upload_speed": "平均上傳速率",
+      "basename_content_path": "內容路徑（基底）",
+      "basename_download_path": "下載路徑（基底）",
+      "basename_save_path": "儲存路徑（基底）",
       "category": "分類",
       "comment": "註釋",
       "completed_on": "完成於",
@@ -1252,9 +1284,9 @@
       "name": "種子標題",
       "nb_connections": "總連線數",
       "nb_connections_limit": "連線限制",
-      "num_leechs": "下載者 (已連線)",
+      "num_leechs": "用戶 (已連線)",
       "num_seeds": "種子 (已連線)",
-      "peers": "下載者",
+      "peers": "用戶",
       "priority": "優先級",
       "progress": "進度",
       "progress_bar": "進度列",
@@ -1276,6 +1308,7 @@
       "total_wasted": "無用的資料",
       "tracker": "追蹤者",
       "trackers_count": "追蹤者數",
+      "truncated_hash": "截短的雜湊值",
       "uploaded": "已上傳 (全域)",
       "uploaded_session": "已上傳 (會話)",
       "upload_limit": "上傳限制",

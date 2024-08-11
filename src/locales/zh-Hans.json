@@ -1,7 +1,6 @@
 {
   "_comments": "由Tolgee生成。切勿手动修改否则将被覆盖",
   "common": {
-    "active": "活跃",
     "cancel": "取消",
     "close": "关闭",
     "delete": "删除",
@@ -214,6 +213,9 @@
       "available_seeds": "做种者 (群组)",
       "avg_download_speed": "平均下载速度",
       "avg_upload_speed": "平均上传速度",
+      "basename_content_path": "内容路径（基底）",
+      "basename_download_path": "下载路径（基底）",
+      "basename_save_path": "保存路径（基底）",
       "category": "分类",
       "completion_on": "完成时间",
       "content_path": "内容路径",
@@ -227,6 +229,7 @@
       "globalSpeed": "全局速度",
       "globalVolume": "全局容量",
       "hash": "哈希值",
+      "inactive_seeding_time_limit": "非活跃做种时长限制",
       "infohash_v1": "哈希值 v1",
       "infohash_v2": "哈希值 v2",
       "last_activity": "最后活跃时间",
@@ -272,6 +275,7 @@
       "file_overflow": "+{n} 个",
       "files": "选择(多个)文件",
       "first_last_piece_prio": "优先下载首尾块",
+      "instant_drop_label": "立即开始下载",
       "links": "链接 (磁力, http, 文件链接等)",
       "params": {
         "add_to_top_of_queue": "添加到队列首位",
@@ -469,6 +473,7 @@
   "login": {
     "error": "登录失败！",
     "password": "密码",
+    "pending": "正在检测身份验证状态...",
     "rules": {
       "password_required": "密码不能为空",
       "username_required": "用户名不能为空"
@@ -506,7 +511,11 @@
         "activeFilter": "已激活 {n} 个过滤器",
         "category": "分类过滤器",
         "disabled": "(已禁用)",
-        "state": "种子状态过滤器",
+        "state": {
+          "active": "活跃",
+          "error": "错误",
+          "title": "种子状态过滤器"
+        },
         "tag": "标签过滤器",
         "tracker": "Tracker 过滤器",
         "uncategorized": "(未分类)",
@@ -654,7 +663,7 @@
         "networking": {
           "outgoingPortsMax": "传出端口 (上限) [0：禁用]",
           "outgoingPortsMin": "传出端口 (下限) [0：禁用]",
-          "peerTos": "与 peers 连接的服务类型 (ToS)",
+          "peerTos": "与 Peers 连接的服务类型 (ToS)",
           "subheader": "网络",
           "upnpLeaseDuration": "UPnP 租期 [0：永久]",
           "utpTcpMixedModeAlgorithm": "μTP-TCP 混合模式策略"
@@ -976,7 +985,9 @@
         "customTitle": "自定义标题",
         "darkVariants": "深色模式样式",
         "dateFormat": "日期格式",
+        "displayGraphLimits": "在图表中显示速度限制",
         "download": "导出设置",
+        "durationFormat": "持续时间显示格式",
         "enableHashColors": "启用自动生成的卡片颜色",
         "enableRatioColors": "启用彩色的分享率",
         "fileContentInterval": "种子文件内容刷新间隔",
@@ -1125,8 +1136,19 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} 个文件 | {n} 个文件",
+      "filter": {
+        "activator": "批量选择",
+        "exclude": "排除",
+        "extensions": "文件名后缀",
+        "include": "包含",
+        "preview": "过滤器匹配 {count}/{total} 文件 ({size})",
+        "priority": "文件优先级",
+        "size": "文件大小",
+        "title": "批量选择文件"
+      },
       "filter_placeholder": "在文件树中搜索",
       "folderInfo": "{n} 个文件夹 | {n} 文件夹",
+      "invert_priority": "颠倒优先级",
       "priority": "设置优先级",
       "rename": {
         "bulk": "批量重命名",
@@ -1204,11 +1226,18 @@
         "oldUrl": "旧 URL",
         "title": "编辑 Tracker"
       },
+      "error": "从Tracker获取数据时出错",
       "fields": {
+        "msg": "信息",
         "num_downloaded": "已下载",
+        "num_leeches": "下载数",
         "num_peers": "用户",
-        "num_seeds": "做种者"
+        "num_seeds": "做种者",
+        "status": "状态",
+        "tier": "#",
+        "url": "Tracker URL"
       },
+      "loading": "加载Tracker数据...",
       "reannounce": "全部重新汇报",
       "tier": "层级：{n}"
     }
@@ -1223,6 +1252,9 @@
       "available_seeds": "可用的做种者数（群）",
       "avg_download_speed": "平均下载速度",
       "avg_upload_speed": "平均上传速度",
+      "basename_content_path": "内容路径（基底）",
+      "basename_download_path": "下载路径（基底）",
+      "basename_save_path": "保存路径（基底）",
       "category": "分类",
       "comment": "注释",
       "completed_on": "完成时间",
@@ -1276,6 +1308,7 @@
       "total_wasted": "无用的数据",
       "tracker": "Tracker",
       "trackers_count": "Tracker 数量",
+      "truncated_hash": "截短的哈希值",
       "uploaded": "已上传 (全局)",
       "uploaded_session": "已上传 (本次会话)",
       "upload_limit": "上传限速",
