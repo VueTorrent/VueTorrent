@@ -14,11 +14,8 @@ export const useTagStore = defineStore('tags', () => {
       return
     }
 
-    if (values) {
-      _tags.value = _tags.value.union(new Set(values))
-    }
-
-    _tags.value = _tags.value.difference(new Set(removed))
+    values.forEach(tag => _tags.value.add(tag))
+    removed?.forEach(tag => _tags.value.delete(tag))
   }
 
   async function createTags(tags: string[]) {
