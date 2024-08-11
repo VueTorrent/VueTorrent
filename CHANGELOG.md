@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.11.2](https://github.com/VueTorrent/VueTorrent/compare/v2.11.1...v2.11.2) (2024-08-11)
+
+
+### Bug Fixes
+
+* **TableView:** Hide table with no torrents ([#1837](https://github.com/VueTorrent/VueTorrent/issues/1837)) ([422cee2](https://github.com/VueTorrent/VueTorrent/commit/422cee264191e55eb98d84c0706ab84da6f6afde))
+
+
+### Improvements
+
+* Add configurable format for duration values ([#1826](https://github.com/VueTorrent/VueTorrent/issues/1826)) ([831ac9b](https://github.com/VueTorrent/VueTorrent/commit/831ac9b52560b4d50a391ef2694ca1c385b38e62))
+* **Dashboard:** Improve "sort by" keyboard interaction ([#1843](https://github.com/VueTorrent/VueTorrent/issues/1843)) ([9b521af](https://github.com/VueTorrent/VueTorrent/commit/9b521afea7bb94d4a2027c33ffb682b782b204fc))
+* **filters:** add additional presets to state filter ([#1836](https://github.com/VueTorrent/VueTorrent/issues/1836)) ([32b104f](https://github.com/VueTorrent/VueTorrent/commit/32b104fc968c7e5618a1b6398b09f2302ac3446a))
+* **SearchEngine:** Use last query as tab title ([#1822](https://github.com/VueTorrent/VueTorrent/issues/1822)) ([fdab225](https://github.com/VueTorrent/VueTorrent/commit/fdab2250891f76bc34bbb81bc3d3e7809e07cd12))
+* **TableView:** Allow click on headers for quick sort ([#1824](https://github.com/VueTorrent/VueTorrent/issues/1824)) ([ed1209a](https://github.com/VueTorrent/VueTorrent/commit/ed1209ad20a703cca243f3649bb570b8ee92dab2))
+* **trackers:** Use hostname instead of full URL ([#1833](https://github.com/VueTorrent/VueTorrent/issues/1833)) ([a33ca1f](https://github.com/VueTorrent/VueTorrent/commit/a33ca1ff3c735571daed63271a596fb99cb88b3b))
+
 ## [2.11.1](https://github.com/VueTorrent/VueTorrent/compare/v2.11.0...v2.11.1) (2024-08-01)
 
 ### Bug Fixes
