@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "アクティブ",
     "cancel": "キャンセル",
     "close": "閉じる",
     "delete": "削除",
@@ -510,7 +509,11 @@
         "activeFilter": "{n}個のフィルターがアクティブです",
         "category": "カテゴリーフィルター",
         "disabled": "(無効)",
-        "state": "Torrent状態フィルター",
+        "state": {
+          "active": "アクティブ",
+          "error": "エラー",
+          "title": "Torrent状態フィルター"
+        },
         "tag": "タグフィルター",
         "tracker": "トラッカーフィルター",
         "uncategorized": "(未分類)",

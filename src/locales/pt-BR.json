@@ -1,7 +1,6 @@
 {
   "_comments": "Conteúdo gerado pelo aplicativo Tolgee. NUNCA EDITE MANUALMENTE, POIS SERÁ SOBRESCRITO",
   "common": {
-    "active": "Ativar",
     "cancel": "Cancelar",
     "close": "Fechar",
     "delete": "Excluir",
@@ -158,6 +157,15 @@
         "save_path": "Definir caminho de salvamento",
         "seq_dl": "Download sequencial",
         "title": "Avançado"
+      }
+    }
+  },
+  "navbar": {
+    "side": {
+      "filters": {
+        "state": {
+          "active": "Ativar"
+        }
       }
     }
   }

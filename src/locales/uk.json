@@ -1,6 +1,5 @@
 {
   "common": {
-    "active": "Активні",
     "cancel": "Скасувати",
     "close": "Закрити",
     "delete": "Видалити",
@@ -273,6 +272,12 @@
   },
   "navbar": {
     "side": {
+      "filters": {
+        "state": {
+          "active": "Активні",
+          "error": "Збій"
+        }
+      },
       "speed_graph": {
         "upload_limit_label": "Ліміт роздачі"
       }

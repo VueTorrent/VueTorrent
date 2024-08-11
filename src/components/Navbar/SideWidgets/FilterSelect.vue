@@ -41,11 +41,7 @@ function selectActive() {
 }
 
 function selectError() {
-  statusFilter.value = [
-    TorrentState.ERROR,
-    TorrentState.MISSING_FILES,
-    TorrentState.UNKNOWN
-  ]
+  statusFilter.value = [TorrentState.ERROR, TorrentState.MISSING_FILES, TorrentState.UNKNOWN]
 }
 
 function selectOffline() {

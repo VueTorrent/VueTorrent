@@ -1,7 +1,6 @@
 {
   "_comments": "Contenu généré par l'application Tolgee. NE JAMAIS MODIFIER MANUELLEMENT CAR CE SERA ÉCRASÉ",
   "common": {
-    "active": "Activer",
     "cancel": "Annuler",
     "close": "Fermer",
     "delete": "Supprimer",
@@ -511,7 +510,11 @@
         "activeFilter": "{n} filtres actifs",
         "category": "Filtrer par catégorie",
         "disabled": "(Désactivé)",
-        "state": "Filtrer par statut du torrent",
+        "state": {
+          "active": "Activer",
+          "error": "Erreur",
+          "title": "Filtrer par statut du torrent"
+        },
         "tag": "Filtrer par tags",
         "tracker": "Filtrer par tracker",
         "uncategorized": "(Non catégorisé)",
