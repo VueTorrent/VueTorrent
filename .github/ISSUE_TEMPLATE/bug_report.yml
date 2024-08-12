@@ -32,9 +32,8 @@ body:
       label: Relevant debug informations
       description: |
         Include here as much information as possible related to the bug to help us better understand the issue.
-        Some relevant data can be network requests, console errors or screenshots.
-        NETWORK REQUESTS ARE MANDATORY. See [wiki page](https://github.com/VueTorrent/VueTorrent/wiki/Support) for help
-      render: shell
+        Send any errors you see in the DevTools `Console` and `Network` tab.
+        See [wiki page](https://github.com/VueTorrent/VueTorrent/wiki/Support) for help
     validations:
       required: true
 
@@ -106,4 +105,6 @@ body:
         - label: The bug still occurs on the latest version of qBittorrent
           required: true
         - label: A similar issue doesn't already exist
+          required: true
+        - label: I checked the DevTools and included any errors that may show up
           required: true
