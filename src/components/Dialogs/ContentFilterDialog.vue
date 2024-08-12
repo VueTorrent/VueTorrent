@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { formatData } from '@/helpers'
+import { comparators, formatData } from '@/helpers'
 import { splitExt } from '@/helpers/path.ts'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { computed, reactive } from 'vue'
@@ -21,19 +21,14 @@ const sizeBoundaries = computed<[number, number]>(() =>
     .map(file => file.size)
     .reduce((prev, curr) => [prev[0] === -1 || curr < prev[0] ? curr : prev[0], prev[1] === -1 || curr > prev[1] ? curr : prev[1]], [-1, -1])
 )
-const fileExtensions = computed(() =>
-  Array.from(
-    contentStore.cachedFiles
-      .map(file => file.name)
-      .reduce((prev, curr) => prev.add(splitExt(curr)[1]), new Set<string>())
-      .values()
-  )
-)
+const fileExtensions = computed(() => Array.from(new Set<string>(contentStore.cachedFiles.map(file => splitExt(file.name)[1])).values()))
 const extensionItems = computed(() =>
-  fileExtensions.value.map(ext => {
-    if (ext === '') return { title: t('common.none'), value: '' }
-    else return { title: `.${ext}`, value: ext }
-  })
+  fileExtensions.value
+    .map(ext => {
+      if (ext === '') return { title: t('common.none'), value: '' }
+      else return { title: `.${ext}`, value: ext }
+    })
+    .sort((a, b) => comparators.text.asc(a.title, b.title))
 )
 const priorityOptions = [
   {
@@ -76,12 +71,14 @@ function exclude() {
     filterPreview.value.map(value => value.index),
     FilePriority.DO_NOT_DOWNLOAD
   )
+  close()
 }
 
 function include() {
   // Don't change already selected files' priority
   const fileIdx = filterPreview.value.filter(file => file.priority === FilePriority.DO_NOT_DOWNLOAD).map(file => file.index)
   contentStore.setFilePriority(fileIdx, FilePriority.NORMAL)
+  close()
 }
 
 function close() {
