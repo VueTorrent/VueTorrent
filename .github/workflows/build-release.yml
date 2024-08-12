@@ -137,7 +137,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         env:
-          DOCKER_BUILD_NO_SUMMARY: true
+          DOCKER_BUILD_SUMMARY: false
         with:
           context: .
           push: true
@@ -244,7 +244,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         env:
-          DOCKER_BUILD_NO_SUMMARY: true
+          DOCKER_BUILD_SUMMARY: false
         with:
           context: .
           push: true
