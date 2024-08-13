@@ -67,8 +67,9 @@ body:
     attributes:
       label: Environment description
       value: |-
-        Device type and name: 
-        OS: 
+        Device type: (Desktop / Laptop / Tablet / Phone)
+        OS: (Windows / Android / iOS / macOS / ...)
+        Browser (name and version): 
 
         PWA: Yes / No
         Running inside a container: Yes / No
