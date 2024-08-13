@@ -16,6 +16,7 @@ export const useTagStore = defineStore('tags', () => {
 
     values.forEach(tag => _tags.value.add(tag))
     removed?.forEach(tag => _tags.value.delete(tag))
+    triggerRef(_tags)
   }
 
   async function createTags(tags: string[]) {
