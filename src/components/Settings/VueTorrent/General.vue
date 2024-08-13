@@ -28,9 +28,8 @@ const titleOptionsList = readonly([
 ])
 
 const filterInclusionOptions = [
-  // FIXME: prepend-icon doesn't work for some reason
-  { title: 'Conjunctive filtering (AND)', value: FilterType.CONJUNCTIVE, props: { 'append-icon': 'mdi-set-center' } },
-  { title: 'Disjunctive filtering (OR)', value: FilterType.DISJUNCTIVE, props: { 'append-icon': 'mdi-set-all' } }
+  { title: 'Conjunctive filtering (AND)', value: FilterType.CONJUNCTIVE, props: { prependIcon: 'mdi-set-center' } },
+  { title: 'Disjunctive filtering (OR)', value: FilterType.DISJUNCTIVE, props: { prependIcon: 'mdi-set-all' } }
 ]
 
 const lightVariants = readonly([

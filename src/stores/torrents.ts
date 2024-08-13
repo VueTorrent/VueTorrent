@@ -5,7 +5,7 @@ import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -14,7 +14,6 @@ import { useTrackerStore } from './trackers'
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
-    const { t } = useI18n()
     const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
@@ -41,43 +40,41 @@ export const useTorrentStore = defineStore(
     const trackerFilter = ref<(string | null)[]>([])
 
     const filterType = ref(FilterType.CONJUNCTIVE)
-    const statusFilterType = ref(FilterType.DISJUNCTIVE)
-    const categoryFilterType = ref(FilterType.DISJUNCTIVE)
     const tagFilterType = ref(FilterType.DISJUNCTIVE)
     const trackerFilterType = ref(FilterType.DISJUNCTIVE)
 
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
     type matchFn = (t: VtTorrent) => boolean
-    // TODO: unable to handle conjunctive ???
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
-    // TODO: Same here as torrents can only have one
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => {
-      // TODO: check logic
-      const matchUntagged = t.tags.length === 0 && tagFilter.value.includes(null)
+      const matchUntagged = (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.length > 0
 
       switch (tagFilterType.value) {
         case FilterType.CONJUNCTIVE:
-          return matchUntagged || t.tags.every(tag => tagFilter.value.includes(tag))
+          return matchUntagged && tagFilter.value.every(tag => t.tags.includes(tag!))
         case FilterType.DISJUNCTIVE:
-          return matchUntagged || t.tags.some(tag => tagFilter.value.includes(tag))
+          return matchUntagged || tagFilter.value.some(tag => t.tags.includes(tag!))
       }
     }
     const matchTracker: matchFn = t => {
-      //TODO
       const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
-      if (torrentTrackers.length) {
-        return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
+      const matchUntracked = (torrentTrackers.length === 0 && trackerFilter.value.includes(null)) || torrentTrackers.length > 0
+
+      switch (trackerFilterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return matchUntracked && trackerFilter.value.every(tracker => torrentTrackers.includes(tracker!))
+        case FilterType.DISJUNCTIVE:
+          return matchUntracked || trackerFilter.value.some(tracker => torrentTrackers.includes(tracker!))
       }
-      return trackerFilter.value.includes(null)
     }
 
     const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
-      const isStatusMatched = statusFilter.value.length > 0 && isStatusFilterActive.value && matchStatus(torrent)
-      const isCategoryMatched = categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchCategory(torrent)
-      const isTagMatched = tagFilter.value.length > 0 && isTagFilterActive.value && matchTag(torrent)
-      const isTrackerMatched = trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent)
+      const isStatusMatched = !(statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent))
+      const isCategoryMatched = !(categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent))
+      const isTagMatched = !(tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent))
+      const isTrackerMatched = !(trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
 
       switch (filterType.value) {
         case FilterType.CONJUNCTIVE:
@@ -163,6 +160,7 @@ export const useTorrentStore = defineStore(
     }
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
+      const { t } = useI18n()
       const links = Array.isArray(urls) ? urls.join('\n') : urls
       const torrentsCount = torrents.length + links.split('\n').filter(url => url.trim().length).length
 
@@ -241,8 +239,6 @@ export const useTorrentStore = defineStore(
       tagFilter,
       trackerFilter,
       filterType,
-      statusFilterType,
-      categoryFilterType,
       tagFilterType,
       trackerFilterType,
       sortCriterias,
@@ -273,18 +269,21 @@ export const useTorrentStore = defineStore(
         triggerRef(_torrents)
         sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
+        filterType.value = FilterType.CONJUNCTIVE
+
         isTextFilterActive.value = true
         textFilter.value = ''
-        filterType.value = FilterType.CONJUNCTIVE
+
         isStatusFilterActive.value = true
         statusFilter.value = []
-        statusFilterType.value = FilterType.DISJUNCTIVE
+
         isCategoryFilterActive.value = true
         categoryFilter.value = []
-        categoryFilterType.value = FilterType.DISJUNCTIVE
+
         isTagFilterActive.value = true
         tagFilter.value = []
         tagFilterType.value = FilterType.DISJUNCTIVE
+
         isTrackerFilterActive.value = true
         trackerFilter.value = []
         trackerFilterType.value = FilterType.DISJUNCTIVE
@@ -298,7 +297,3 @@ export const useTorrentStore = defineStore(
     }
   }
 )
-
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useTorrentStore, import.meta.hot))
-}

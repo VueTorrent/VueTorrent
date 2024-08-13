@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { FilterType, TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateValue } from '@/helpers'
-import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -10,12 +10,13 @@ const { t } = useI18n()
 const categoryStore = useCategoryStore()
 const tagStore = useTagStore()
 const {
-  statusFilter, statusFilterType,
-  categoryFilter, categoryFilterType,
+  statusFilter,
+  categoryFilter,
   tagFilter, tagFilterType,
   trackerFilter, trackerFilterType
 } = storeToRefs(useTorrentStore())
 const trackerStore = useTrackerStore()
+const { isDrawerRight } = storeToRefs(useVueTorrentStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
@@ -36,8 +37,6 @@ function toggleFilterType(ref: Ref<FilterType>) {
       break
   }
 }
-const toggleStatusFilterType = () => toggleFilterType(statusFilterType)
-const toggleCategoryFilterType = () => toggleFilterType(categoryFilterType)
 const toggleTagFilterType = () => toggleFilterType(tagFilterType)
 const toggleTrackerFilterType = () => toggleFilterType(trackerFilterType)
 
@@ -102,12 +101,10 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
-        :prepend-inner-icon="statusFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo"
-        @click:prepend-inner.stop="toggleStatusFilterType()"> <!-- FIXME: Select list opens when clicking on inner icon -->
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
           <v-list-item :title="$t('navbar.side.filters.state.active')" @click="selectActive" />
@@ -132,12 +129,10 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
-        :prepend-inner-icon="categoryFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo"
-        @click:prepend-inner.stop="toggleCategoryFilterType()">
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
           <v-divider />
@@ -163,12 +158,19 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
-        :prepend-inner-icon="tagFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo"
-        @click:prepend-inner.stop="toggleTagFilterType()">
+        variant="solo">
+        <template #prepend>
+          <v-tooltip location="right" text="Conjunctive matching (AND)">
+            <template #activator="{ props }">
+              <v-icon v-bind="props"
+                      :icon="tagFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
+                      @click="toggleTagFilterType()" />
+            </template>
+          </v-tooltip>
+        </template>
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTags" />
           <v-divider />
@@ -194,12 +196,19 @@ function selectAllTrackers() {
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
-        :prepend-inner-icon="trackerFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
         density="compact"
         hide-details
         multiple
-        variant="solo"
-        @click:prepend-inner.stop="toggleTrackerFilterType()">
+        variant="solo">
+        <template #prepend>
+          <v-tooltip location="right" text="Conjunctive matching (AND)">
+            <template #activator="{ props }">
+              <v-icon v-bind="props"
+                      :icon="trackerFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
+                      @click="toggleTrackerFilterType()" />
+            </template>
+          </v-tooltip>
+        </template>
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllTrackers" />
           <v-divider />
@@ -216,5 +225,3 @@ function selectAllTrackers() {
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped></style>
