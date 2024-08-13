@@ -2,7 +2,7 @@ import dayjs from '@/plugins/dayjs'
 import { DurationUnitType } from 'dayjs/plugin/duration'
 
 export function formatEta(value: number): string {
-  const QBIT_MAX_ETA = 864_000 // 100 days
+  const QBIT_MAX_ETA = 8_640_000 // 100 days
   const MAX_UNITS = 2 // Will display 2 units max, from highest to lowest
 
   if (value >= QBIT_MAX_ETA) {
