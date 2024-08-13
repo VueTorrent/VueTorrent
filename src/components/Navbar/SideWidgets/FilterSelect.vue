@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { FilterType, TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateValue } from '@/helpers'
-import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore, useVueTorrentStore } from '@/stores'
+import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -16,7 +16,6 @@ const {
   trackerFilter, trackerFilterType
 } = storeToRefs(useTorrentStore())
 const trackerStore = useTrackerStore()
-const { isDrawerRight } = storeToRefs(useVueTorrentStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
