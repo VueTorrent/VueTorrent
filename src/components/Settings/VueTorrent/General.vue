@@ -28,8 +28,8 @@ const titleOptionsList = readonly([
 ])
 
 const filterInclusionOptions = [
-  { title: 'Conjunctive filtering (AND)', value: FilterType.CONJUNCTIVE, props: { prependIcon: 'mdi-set-center' } },
-  { title: 'Disjunctive filtering (OR)', value: FilterType.DISJUNCTIVE, props: { prependIcon: 'mdi-set-all' } }
+  { title: t('constants.filter_type.conjunctive'), value: FilterType.CONJUNCTIVE, props: { prependIcon: 'mdi-set-center' } },
+  { title: t('constants.filter_type.disjunctive'), value: FilterType.DISJUNCTIVE, props: { prependIcon: 'mdi-set-all' } }
 ]
 
 const lightVariants = readonly([
@@ -209,7 +209,7 @@ function openBackendHelp() {
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
         <v-col cols="12" md="4">
-          <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" label="Filters inclusion type" />
+          <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />
         </v-col>
         <v-col cols="12" md="4">
           <v-combobox
