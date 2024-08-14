@@ -3,8 +3,11 @@ import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
+import { toast } from 'vue3-toastify'
 
+const { t } = useI18n()
 const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
@@ -60,7 +63,18 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
 
   const [torrentFiles, links] = extractDropData(files, event.dataTransfer!)
 
-  torrentStore.addTorrents(torrentFiles, links)
+  const torrentsCount = torrentFiles.length + links.filter(url => url.trim().length).length
+  return toast.promise(
+    torrentStore.addTorrents(torrentFiles, links),
+    {
+      pending: t('toast.add.pending'),
+      error: t('toast.add.error', torrentsCount),
+      success: t('toast.add.success', torrentsCount)
+    },
+    {
+      autoClose: 1500
+    }
+  )
 }
 
 onMounted(() => {

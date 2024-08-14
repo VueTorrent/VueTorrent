@@ -1,14 +1,13 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
+import { useTorrentDetailStore } from '@/stores/torrentDetail.ts'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
-import { defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
-import { useI18n } from 'vue-i18n'
-import { toast } from 'vue3-toastify'
 import { useTrackerStore } from './trackers'
 
 export const useTorrentStore = defineStore(
@@ -176,21 +175,8 @@ export const useTorrentStore = defineStore(
     }
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
-      const { t } = useI18n()
       const links = Array.isArray(urls) ? urls.join('\n') : urls
-      const torrentsCount = torrents.length + links.split('\n').filter(url => url.trim().length).length
-
-      return await toast.promise(
-        qbit.addTorrents(torrents, links, payload),
-        {
-          pending: t('toast.add.pending'),
-          error: t('toast.add.error', torrentsCount),
-          success: t('toast.add.success', torrentsCount)
-        },
-        {
-          autoClose: 1500
-        }
-      )
+      return qbit.addTorrents(torrents, links, payload)
     }
 
     async function reannounceTorrents(hashes: MaybeRefOrGetter<string[]>) {
@@ -313,3 +299,7 @@ export const useTorrentStore = defineStore(
     }
   }
 )
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useTorrentDetailStore, import.meta.hot))
+}
