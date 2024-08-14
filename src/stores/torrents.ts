@@ -1,11 +1,11 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { comparatorMap, TorrentState } from '@/constants/vuetorrent'
+import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted } from '@vueuse/core'
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
@@ -14,7 +14,6 @@ import { useTrackerStore } from './trackers'
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
-    const { t } = useI18n()
     const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
@@ -40,27 +39,65 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const trackerFilter = ref<(string | null)[]>([])
 
+    const filterType = ref(FilterType.CONJUNCTIVE)
+    const tagFilterType = ref(FilterType.DISJUNCTIVE)
+    const trackerFilterType = ref(FilterType.DISJUNCTIVE)
+
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
     type matchFn = (t: VtTorrent) => boolean
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
-    const matchTag: matchFn = t => (t.tags.length === 0 && tagFilter.value.includes(null)) || t.tags.some(tag => tagFilter.value.includes(tag))
+    const matchTag: matchFn = t => {
+      const matcher = (tag: string | null) => {
+        if (tag === null) {
+          return t.tags.length === 0
+        }
+        return t.tags.includes(tag)
+      }
+
+      switch (tagFilterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return tagFilter.value.every(matcher)
+        case FilterType.DISJUNCTIVE:
+          return tagFilter.value.some(matcher)
+      }
+    }
     const matchTracker: matchFn = t => {
       const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
-      if (torrentTrackers.length) {
-        return torrentTrackers.some(tracker => trackerFilter.value.includes(tracker))
+
+      const matcher = (tracker: string | null) => {
+        if (tracker === null) {
+          return torrentTrackers.length === 0
+        }
+        return torrentTrackers.includes(tracker)
       }
-      return trackerFilter.value.includes(null)
+
+      switch (trackerFilterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return trackerFilter.value.every(matcher)
+        case FilterType.DISJUNCTIVE:
+          return trackerFilter.value.some(matcher)
+      }
     }
 
     const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
-      return !(
-        (statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent)) ||
-        (categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent)) ||
-        (tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent)) ||
-        (trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
-      )
+      const matchResults = []
+      statusFilter.value.length > 0 && isStatusFilterActive.value && matchResults.push(matchStatus(torrent))
+      categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchResults.push(matchCategory(torrent))
+      tagFilter.value.length > 0 && isTagFilterActive.value && matchResults.push(matchTag(torrent))
+      trackerFilter.value.length > 0 && isTrackerFilterActive.value && matchResults.push(matchTracker(torrent))
+
+      if (matchResults.length === 0) {
+        return true
+      }
+
+      switch (filterType.value) {
+        case FilterType.CONJUNCTIVE:
+          return matchResults.every(Boolean)
+        case FilterType.DISJUNCTIVE:
+          return matchResults.some(Boolean)
+      }
     })
 
     const { results: filteredTorrents } = useSearchQuery(
@@ -139,6 +176,7 @@ export const useTorrentStore = defineStore(
     }
 
     async function addTorrents(torrents: File[], urls: string | string[], payload?: AddTorrentPayload) {
+      const { t } = useI18n()
       const links = Array.isArray(urls) ? urls.join('\n') : urls
       const torrentsCount = torrents.length + links.split('\n').filter(url => url.trim().length).length
 
@@ -216,6 +254,9 @@ export const useTorrentStore = defineStore(
       categoryFilter,
       tagFilter,
       trackerFilter,
+      filterType,
+      tagFilterType,
+      trackerFilterType,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,
       syncFromMaindata,
@@ -244,16 +285,24 @@ export const useTorrentStore = defineStore(
         triggerRef(_torrents)
         sortCriterias.value = [{ value: 'added_on', reverse: true }]
 
+        filterType.value = FilterType.CONJUNCTIVE
+
         isTextFilterActive.value = true
         textFilter.value = ''
+
         isStatusFilterActive.value = true
         statusFilter.value = []
+
         isCategoryFilterActive.value = true
         categoryFilter.value = []
+
         isTagFilterActive.value = true
         tagFilter.value = []
+        tagFilterType.value = FilterType.DISJUNCTIVE
+
         isTrackerFilterActive.value = true
         trackerFilter.value = []
+        trackerFilterType.value = FilterType.DISJUNCTIVE
       }
     }
   },
@@ -264,7 +313,3 @@ export const useTorrentStore = defineStore(
     }
   }
 )
-
-if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useTorrentStore, import.meta.hot))
-}
