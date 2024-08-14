@@ -82,16 +82,21 @@ export const useTorrentStore = defineStore(
     }
 
     const torrentsWithNavbarFilters = useArrayFilter(torrents, torrent => {
-      const isStatusMatched = !(statusFilter.value.length > 0 && isStatusFilterActive.value && !matchStatus(torrent))
-      const isCategoryMatched = !(categoryFilter.value.length > 0 && isCategoryFilterActive.value && !matchCategory(torrent))
-      const isTagMatched = !(tagFilter.value.length > 0 && isTagFilterActive.value && !matchTag(torrent))
-      const isTrackerMatched = !(trackerFilter.value.length > 0 && isTrackerFilterActive.value && !matchTracker(torrent))
+      const matchResults = []
+      statusFilter.value.length > 0 && isStatusFilterActive.value && matchResults.push(matchStatus(torrent))
+      categoryFilter.value.length > 0 && isCategoryFilterActive.value && matchResults.push(matchCategory(torrent))
+      tagFilter.value.length > 0 && isTagFilterActive.value && matchResults.push(matchTag(torrent))
+      trackerFilter.value.length > 0 && isTrackerFilterActive.value && matchResults.push(matchTracker(torrent))
+
+      if (matchResults.length === 0) {
+        return true
+      }
 
       switch (filterType.value) {
         case FilterType.CONJUNCTIVE:
-          return isStatusMatched && isCategoryMatched && isTagMatched && isTrackerMatched
+          return matchResults.every(Boolean)
         case FilterType.DISJUNCTIVE:
-          return isStatusMatched || isCategoryMatched || isTagMatched || isTrackerMatched
+          return matchResults.some(Boolean)
       }
     })
 
