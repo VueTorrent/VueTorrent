@@ -8,6 +8,7 @@ import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 
 const props = withDefaults(
   defineProps<{
@@ -69,7 +70,19 @@ function submit() {
     useDownloadPath: addTorrentParams.value.use_download_path
   }
 
-  torrentStore.addTorrents(files.value, urls.value, payload).then(() => {
+  const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
+  toast.promise(
+    torrentStore.addTorrents(files.value, urls.value, payload),
+    {
+      pending: t('toast.add.pending'),
+      error: t('toast.add.error', torrentsCount),
+      success: t('toast.add.success', torrentsCount)
+    },
+    {
+      autoClose: 1500
+    }
+  )
+  .then(() => {
     cookieField.value?.saveValueToHistory()
     addTorrentParamsForm.value?.saveFields()
     addTorrentStore.resetForm()
