@@ -194,13 +194,13 @@ onBeforeUnmount(() => {
 
     <v-row class="ma-0 pa-0">
       <v-expand-transition>
-        <v-card v-show="isSelectionMultiple" color="transparent" variant="flat">
+        <v-card v-show="isSelectionMultiple" color="transparent" flat>
           <v-tooltip :text="t('common.selectAll')" location="bottom">
             <template v-slot:activator="{ props }">
               <v-btn
                 :icon="isAllTorrentsSelected ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
                 class="text-grey"
-                variant="flat"
+                flat
                 color="transparent"
                 style="left: -8px"
                 v-bind="props"
