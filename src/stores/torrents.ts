@@ -49,28 +49,35 @@ export const useTorrentStore = defineStore(
     const matchStatus: matchFn = t => statusFilter.value.includes(t.state)
     const matchCategory: matchFn = t => categoryFilter.value.includes(t.category)
     const matchTag: matchFn = t => {
-      const untaggedPresent = tagFilter.value.includes(null) && t.tags.length === 0
-      const untaggedAbsent = !tagFilter.value.includes(null) && t.tags.length > 0
-      const matchUntagged = untaggedPresent || untaggedAbsent
-      const namedTagFilter = tagFilter.value.filter(v => v !== null)
+      const matcher = (tag: string | null) => {
+        if (tag === null) {
+          return t.tags.length === 0
+        }
+        return t.tags.includes(tag)
+      }
 
       switch (tagFilterType.value) {
         case FilterType.CONJUNCTIVE:
-          return matchUntagged && namedTagFilter.every(tag => t.tags.includes(tag))
+          return tagFilter.value.every(matcher)
         case FilterType.DISJUNCTIVE:
-          return matchUntagged || namedTagFilter.some(tag => t.tags.includes(tag))
+          return tagFilter.value.some(matcher)
       }
     }
     const matchTracker: matchFn = t => {
       const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
-      const matchUntracked = trackerFilter.value.includes(null) && torrentTrackers.length === 0 || !trackerFilter.value.includes(null) && torrentTrackers.length > 0
-      const namedTrackerFilter = trackerFilter.value.filter(v => v !== null)
+
+      const matcher = (tracker: string | null) => {
+        if (tracker === null) {
+          return torrentTrackers.length === 0
+        }
+        return torrentTrackers.includes(tracker)
+      }
 
       switch (trackerFilterType.value) {
         case FilterType.CONJUNCTIVE:
-          return matchUntracked && namedTrackerFilter.every(tracker => torrentTrackers.includes(tracker))
+          return trackerFilter.value.every(matcher)
         case FilterType.DISJUNCTIVE:
-          return matchUntracked || namedTrackerFilter.some(tracker => torrentTrackers.includes(tracker))
+          return trackerFilter.value.some(matcher)
       }
     }
 
