@@ -68,6 +68,12 @@ ul.no-bullet {
   background: #6b7280;
 }
 
+/* Fix for ripple effect on Safari */
+tr.ripple-fix {
+  transform: translate(0);
+  clip-path: inset(0);
+}
+
 /* iOS PWA */
 .ios-padding {
   padding-top: calc(env(safe-area-inset-top) * 0.5);
