@@ -40,7 +40,7 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3 selected` : '']
+const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3` : '']
 </script>
 
 <template>
@@ -56,7 +56,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => ['cursor-pointer', isT
     <tbody>
       <tr
         v-for="torrent in paginatedTorrents"
-        :class="getTorrentRowColorClass(torrent)"
+        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')"
