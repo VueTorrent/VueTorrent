@@ -15,6 +15,7 @@ export const useDashboardStore = defineStore(
     const selectedTorrents = ref<string[]>([])
     const latestSelectedTorrent = ref<string>()
     const displayMode = ref(DashboardDisplayMode.LIST)
+    const highlightedTorrent = ref<string>()
 
     const { t } = useI18n()
     const torrentStore = useTorrentStore()
@@ -95,6 +96,14 @@ export const useDashboardStore = defineStore(
       selectedTorrents.value = []
     }
 
+    function setHighlightedTorrent(hash: string) {
+      highlightedTorrent.value = hash
+    }
+
+    function isTorrentHighlighted(hash: string) {
+      return highlightedTorrent.value === hash
+    }
+
     watch(selectedTorrents, newValue => {
       if (newValue.length === 0) {
         latestSelectedTorrent.value = undefined
@@ -127,6 +136,9 @@ export const useDashboardStore = defineStore(
       spanTorrentSelection,
       selectAllTorrents,
       unselectAllTorrents,
+      setHighlightedTorrent,
+      isTorrentHighlighted,
+      highlightedTorrent,
       toggleSelect,
       $reset: () => {
         _page.value = 1
@@ -134,6 +146,7 @@ export const useDashboardStore = defineStore(
         selectedTorrents.value = []
         latestSelectedTorrent.value = undefined
         displayMode.value = DashboardDisplayMode.LIST
+        highlightedTorrent.value = undefined
       }
     }
   },
