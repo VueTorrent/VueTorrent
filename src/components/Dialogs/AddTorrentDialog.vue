@@ -71,23 +71,24 @@ function submit() {
   }
 
   const torrentsCount = files.value.length + urls.value.split('\n').filter(url => url.trim().length).length
-  toast.promise(
-    torrentStore.addTorrents(files.value, urls.value, payload),
-    {
-      pending: t('toast.add.pending'),
-      error: t('toast.add.error', torrentsCount),
-      success: t('toast.add.success', torrentsCount)
-    },
-    {
-      autoClose: 1500
-    }
-  )
-  .then(() => {
-    cookieField.value?.saveValueToHistory()
-    addTorrentParamsForm.value?.saveFields()
-    addTorrentStore.resetForm()
-    close()
-  })
+  toast
+    .promise(
+      torrentStore.addTorrents(files.value, urls.value, payload),
+      {
+        pending: t('toast.add.pending'),
+        error: t('toast.add.error', torrentsCount),
+        success: t('toast.add.success', torrentsCount)
+      },
+      {
+        autoClose: 1500
+      }
+    )
+    .then(() => {
+      cookieField.value?.saveValueToHistory()
+      addTorrentParamsForm.value?.saveFields()
+      addTorrentStore.resetForm()
+      close()
+    })
 }
 
 function close() {
