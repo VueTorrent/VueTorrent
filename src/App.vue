@@ -8,7 +8,7 @@ import { formatPercent, formatSpeed } from '@/helpers'
 import { backend } from '@/services/backend'
 import { useAddTorrentStore, useAppStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-import { onBeforeMount, watch, watchEffect } from 'vue'
+import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 
@@ -65,6 +65,11 @@ onBeforeMount(() => {
   checkAuthentication()
   blockContextMenu()
   addLaunchQueueConsumer()
+})
+
+onMounted(() => {
+  // Global error handler flag
+  sessionStorage.setItem('vuetorrent_mounted', 'true')
 })
 
 watch(
