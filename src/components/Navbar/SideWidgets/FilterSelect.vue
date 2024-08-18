@@ -9,23 +9,21 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const categoryStore = useCategoryStore()
 const tagStore = useTagStore()
-const {
-  statusFilter,
-  categoryFilter,
-  tagFilter, tagFilterType,
-  trackerFilter, trackerFilterType
-} = storeToRefs(useTorrentStore())
+const { statusFilter, categoryFilter, tagFilter, tagFilterType, trackerFilter, trackerFilterType } = storeToRefs(useTorrentStore())
 const trackerStore = useTrackerStore()
 
 const statuses = computed(() =>
   Object.values(TorrentState)
     .filter(state => typeof state === 'number')
-    .map(state => ({ title: t(`torrent.state.${ getTorrentStateValue(state as TorrentState) }`), value: state }))
+    .map(state => ({ title: t(`torrent.state.${getTorrentStateValue(state as TorrentState)}`), value: state }))
 )
-const categories = computed(() => [{
-  title: t('navbar.side.filters.uncategorized'),
-  value: ''
-}, ...categoryStore.categories.map(c => c.name)])
+const categories = computed(() => [
+  {
+    title: t('navbar.side.filters.uncategorized'),
+    value: ''
+  },
+  ...categoryStore.categories.map(c => c.name)
+])
 const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags])
 const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: null }, ...trackerStore.trackers])
 
@@ -99,15 +97,15 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.state.title') }}
       </v-list-item-title>
       <v-select
-          v-model="statusFilter"
-          :items="statuses.sort((a, b) => comparators.text.asc(a.title, b.title))"
-          :placeholder="t('navbar.side.filters.disabled')"
-          bg-color="secondary"
-          class="text-accent pt-1"
-          density="compact"
-          hide-details
-          multiple
-          variant="solo">
+        v-model="statusFilter"
+        :items="statuses.sort((a, b) => comparators.text.asc(a.title, b.title))"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
           <v-list-item :title="$t('navbar.side.filters.state.active')" @click="selectActive" />
@@ -117,9 +115,7 @@ function selectAllTrackers() {
         </template>
         <template v-slot:selection="{ item, index }">
           <span v-if="index === 0 && statusFilter.length === 1" class="text-accent">{{ item.title }}</span>
-          <span v-else-if="index === 0" class="text-accent">{{
-              t('navbar.side.filters.activeFilter', statusFilter.length)
-            }}</span>
+          <span v-else-if="index === 0" class="text-accent">{{ t('navbar.side.filters.activeFilter', statusFilter.length) }}</span>
         </template>
       </v-select>
     </v-list-item>
@@ -129,15 +125,15 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.category') }}
       </v-list-item-title>
       <v-select
-          v-model="categoryFilter"
-          :items="categories"
-          :placeholder="t('navbar.side.filters.disabled')"
-          bg-color="secondary"
-          class="text-accent pt-1"
-          density="compact"
-          hide-details
-          multiple
-          variant="solo">
+        v-model="categoryFilter"
+        :items="categories"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllCategories" />
           <v-divider />
@@ -158,23 +154,19 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.tag') }}
       </v-list-item-title>
       <v-select
-          v-model="tagFilter"
-          :items="tags"
-          :placeholder="t('navbar.side.filters.disabled')"
-          bg-color="secondary"
-          class="text-accent pt-1"
-          density="compact"
-          hide-details
-          multiple
-          variant="solo">
+        v-model="tagFilter"
+        :items="tags"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template #prepend>
-          <v-tooltip
-              location="right"
-              :text="$t(tagFilterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
+          <v-tooltip location="right" :text="$t(tagFilterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
             <template #activator="{ props }">
-              <v-icon v-bind="props"
-                      :icon="tagFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
-                      @click="toggleTagFilterType()" />
+              <v-icon v-bind="props" :icon="tagFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" @click="toggleTagFilterType()" />
             </template>
           </v-tooltip>
         </template>
@@ -198,23 +190,19 @@ function selectAllTrackers() {
         {{ t('navbar.side.filters.tracker') }}
       </v-list-item-title>
       <v-select
-          v-model="trackerFilter"
-          :items="trackers"
-          :placeholder="t('navbar.side.filters.disabled')"
-          bg-color="secondary"
-          class="text-accent pt-1"
-          density="compact"
-          hide-details
-          multiple
-          variant="solo">
+        v-model="trackerFilter"
+        :items="trackers"
+        :placeholder="t('navbar.side.filters.disabled')"
+        bg-color="secondary"
+        class="text-accent pt-1"
+        density="compact"
+        hide-details
+        multiple
+        variant="solo">
         <template #prepend>
-          <v-tooltip
-              location="right"
-              :text="$t(trackerFilterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
+          <v-tooltip location="right" :text="$t(trackerFilterType === FilterType.CONJUNCTIVE ? 'constants.filter_type.conjunctive' : 'constants.filter_type.disjunctive')">
             <template #activator="{ props }">
-              <v-icon v-bind="props"
-                      :icon="trackerFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'"
-                      @click="toggleTrackerFilterType()" />
+              <v-icon v-bind="props" :icon="trackerFilterType === FilterType.CONJUNCTIVE ? 'mdi-set-center' : 'mdi-set-all'" @click="toggleTrackerFilterType()" />
             </template>
           </v-tooltip>
         </template>
