@@ -1,13 +1,15 @@
 window.onerror = function (msg, url, line, col, error) {
-  // Note that col & error are new to the HTML 5 spec and may not be
-  // supported in every browser.  It worked for me in Chrome.
-  let extra = !col ? '' : '\ncolumn: ' + col
-  extra += !error ? '' : '\nerror: ' + error
+  let extra = ''
 
-  // You can view the information in an alert to see things working like this:
-  alert('Error: ' + msg + '\nurl: ' + url + '\nline: ' + line + extra)
+  // only add 'col' and 'error' if they are available
+  col && (extra += '\ncolumn: ' + col)
+  error && (extra += '\nerror: ' + error)
 
-  // If you return true, then error alerts (like in older versions of
-  // Internet Explorer) will be suppressed.
-  return true
+  const final_message = 'Error: ' + msg + '\nurl: ' + url + '\nline: ' + line + extra
+
+  if (sessionStorage.getItem('vuetorrent_mounted') === 'true') {
+    console.error(final_message)
+  } else {
+    alert(final_message)
+  }
 }
