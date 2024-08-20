@@ -74,6 +74,8 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
   } else if (doesCommand(e) || dashboardStore.isSelectionMultiple) {
     dashboardStore.isSelectionMultiple = true
     dashboardStore.toggleSelect(torrent.hash)
+  } else {
+    dashboardStore.setHighlightedTorrent(torrent.hash)
   }
 }
 
