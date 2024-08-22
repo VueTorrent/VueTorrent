@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
-import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
@@ -15,6 +15,7 @@ const { currentPage, pageCount, torrentCountString, isSelectionMultiple, display
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
+const { showTopPagination } = storeToRefs(useVueTorrentStore())
 
 type SortOption = { title: string; value: keyof Torrent }
 
@@ -152,9 +153,10 @@ function toggleSelectMode() {
     </div>
 
     <v-spacer v-if="$vuetify.display.mobile" />
-    <v-pagination v-else class="flex-grow-1 overflow-hidden" v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
+    <v-pagination v-if="showTopPagination && !$vuetify.display.mobile" class="flex-grow-1 overflow-hidden" v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
 
-    <div class="d-flex align-center text-uppercase text-select" style="font-size: 0.8em">
+    <div class="flex-grow-1" v-if="!showTopPagination"></div>
+    <div class="d-flex justify-end align-center text-uppercase text-select mr-2" style="font-size: 0.8em">
       {{ torrentCountString }}
     </div>
   </div>

@@ -39,6 +39,8 @@ export const useVueTorrentStore = defineStore(
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')
     const isDrawerRight = ref(false)
+    const showBottomPagination = ref(true)
+    const showTopPagination = ref(true)
     const hideChipIfUnset = ref(false)
     const enableRatioColors = ref(true)
     const enableHashColors = ref(true)
@@ -252,6 +254,8 @@ export const useVueTorrentStore = defineStore(
       showSpeedInTitle,
       uiTitleType,
       uiTitleCustom,
+      showBottomPagination,
+      showTopPagination,
       useBinarySize,
       useBitSpeed,
       useIdForRssLinks,
@@ -298,6 +302,8 @@ export const useVueTorrentStore = defineStore(
         uiTitleType.value = TitleOptions.DEFAULT
         uiTitleCustom.value = ''
         isDrawerRight.value = false
+        showBottomPagination.value = true
+        showTopPagination.value = true
         hideChipIfUnset.value = false
         enableRatioColors.value = true
         enableHashColors.value = true

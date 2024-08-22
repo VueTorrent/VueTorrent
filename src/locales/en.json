@@ -1019,6 +1019,8 @@
         "showFreeSpace": "Show Free Space",
         "showSessionStat": "Show Session Stats",
         "showSpeedGraph": "Show Speed Graph",
+        "showBottomPagination": "Show Bottom Pagination",
+        "showTopPagination": "Show Top Pagination",
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",

@@ -164,6 +164,13 @@ function openBackendHelp() {
         </v-col>
 
         <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.showTopPagination" :disabled="!vueTorrentStore.showBottomPagination" hide-details density="compact" :label="t('settings.vuetorrent.general.showTopPagination')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.showBottomPagination" :disabled="!vueTorrentStore.showTopPagination" hide-details density="compact" :label="t('settings.vuetorrent.general.showBottomPagination')" />
+        </v-col>
+
+        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.enableRatioColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRatioColors')" />
         </v-col>
         <v-col cols="12" sm="6">

@@ -22,6 +22,7 @@ const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
 const vuetorrentStore = useVueTorrentStore()
+const { showBottomPagination, showTopPagination } = storeToRefs(useVueTorrentStore())
 
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
@@ -212,7 +213,7 @@ onBeforeUnmount(() => {
       </v-expand-transition>
     </v-row>
 
-    <div v-if="$vuetify.display.mobile && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="showTopPagination && $vuetify.display.mobile && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </div>
 
@@ -249,7 +250,7 @@ onBeforeUnmount(() => {
       @startPress="startPress"
       @endPress="endPress" />
 
-    <div v-if="!vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="showBottomPagination && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
