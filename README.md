@@ -65,7 +65,7 @@ Checkout the [wiki](https://github.com/VueTorrent/VueTorrent/wiki/Installation)!
 - `docker-compose up -d` (starts a qbittorrent docker, optional)
 - Open the WebUI on localhost with the default credentials
   - See #1720 for more details
-- Make sure "CSRF protection" and "Host header verification" is disabled in the qBittorrent preferences
+- Make sure WebUI > "Host header validation" is disabled in the qBittorrent preferences
 - Edit `env.development` to tweak your dev environment (e.g. mocked data)
 
 ## Features

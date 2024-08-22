@@ -50,7 +50,6 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       proxy: {
         '/api': {
-          changeOrigin: true,
           secure: false,
           target: `${proxyTarget}:${qBittorrentPort}`
         }
