@@ -40,6 +40,9 @@ jobs:
             artifact-name: vuetorrent-demo
             artifact-path: ./vuetorrent-demo
 
+    outputs:
+      nightly_version: ${{ steps.version.outputs.nightly_version }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,6 +82,38 @@ jobs:
           name: ${{ matrix.artifact-name }}
           path: ${{ matrix.artifact-path }}
           retention-days: 1
+
+      - name: Generate nightly version
+        id: version
+        run: |
+          echo "nightly_version=$(git describe --tags --exclude latest_nightly)" >> $GITHUB_OUTPUT
+
+      - name: Update nightly tag
+        run: |
+          git tag -f latest_nightly
+          git push -f --tags
+
+  release-nightly:
+    name: Create nightly pre-release to GitHub
+    needs: build-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: vuetorrent-build
+          path: ./vuetorrent
+
+      - name: Zip VueTorrent
+        run: zip -qq -r ./vuetorrent.zip ./vuetorrent
+
+      - name: Create nightly release
+        uses: marvinpinto/action-automatic-releases@v1.1.2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: true
+          title: "${{ needs.build-release.outputs.nightly_version }}: Latest nightly"
+          files: |
+            vuetorrent.zip
 
   push-nightly:
     name: Push to nightly branch
@@ -143,7 +178,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
 
   push-demo:
     name: Push to demo repo
