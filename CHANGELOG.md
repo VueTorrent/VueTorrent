@@ -2,26 +2,32 @@
 
 ## [2.12.0](https://github.com/VueTorrent/VueTorrent/compare/v2.11.2...v2.12.0) (2024-08-18)
 
-
 ### Features
 
-* Add global error handler ([#1834](https://github.com/VueTorrent/VueTorrent/issues/1834)) ([b241617](https://github.com/VueTorrent/VueTorrent/commit/b241617e6f62a1e5e76e5c3a2ea2ffbc60044332))
-* **filters:** Add conjunctive / disjunctive filter type ([#1855](https://github.com/VueTorrent/VueTorrent/issues/1855)) ([31378e0](https://github.com/VueTorrent/VueTorrent/commit/31378e07bf5ca8cb54c0c837d60305f0f3fc4d93))
-
+- Add global error handler ([#1834](https://github.com/VueTorrent/VueTorrent/issues/1834))
+  ([b241617](https://github.com/VueTorrent/VueTorrent/commit/b241617e6f62a1e5e76e5c3a2ea2ffbc60044332))
+- **filters:** Add conjunctive / disjunctive filter type ([#1855](https://github.com/VueTorrent/VueTorrent/issues/1855))
+  ([31378e0](https://github.com/VueTorrent/VueTorrent/commit/31378e07bf5ca8cb54c0c837d60305f0f3fc4d93))
 
 ### Bug Fixes
 
-* Can't add torrents after [#1855](https://github.com/VueTorrent/VueTorrent/issues/1855) ([#1860](https://github.com/VueTorrent/VueTorrent/issues/1860)) ([8f89594](https://github.com/VueTorrent/VueTorrent/commit/8f895940cfa177d4d994794668c4d6a7dc74d3da))
-* **Dashboard:** Remove shadow of "Select All" row ([#1858](https://github.com/VueTorrent/VueTorrent/issues/1858)) ([fee292f](https://github.com/VueTorrent/VueTorrent/commit/fee292f007d3853d2b7ace923dbbc7044f8f1db4))
-* **ETA:** Update incorrect max value ([#1853](https://github.com/VueTorrent/VueTorrent/issues/1853)) ([2176bab](https://github.com/VueTorrent/VueTorrent/commit/2176babd5c17d3efa28702fb7a70a7448f596e1b))
-* Remove latest Set methods usage ([#1844](https://github.com/VueTorrent/VueTorrent/issues/1844)) ([483e8c4](https://github.com/VueTorrent/VueTorrent/commit/483e8c449f1596d0ae785f05749d0277c359e8fa))
-* **TableView:** Ripple effect on safari ([#1864](https://github.com/VueTorrent/VueTorrent/issues/1864)) ([5a25b7e](https://github.com/VueTorrent/VueTorrent/commit/5a25b7e4ae9582720c9e66ddb0eb1f4cb1e16753))
-* Tags not updating after [#1844](https://github.com/VueTorrent/VueTorrent/issues/1844) ([#1859](https://github.com/VueTorrent/VueTorrent/issues/1859)) ([0009e28](https://github.com/VueTorrent/VueTorrent/commit/0009e287601740ec478be7fb7686227fbe6d2619))
-
+- Can't add torrents after [#1855](https://github.com/VueTorrent/VueTorrent/issues/1855) ([#1860](https://github.com/VueTorrent/VueTorrent/issues/1860))
+  ([8f89594](https://github.com/VueTorrent/VueTorrent/commit/8f895940cfa177d4d994794668c4d6a7dc74d3da))
+- **Dashboard:** Remove shadow of "Select All" row ([#1858](https://github.com/VueTorrent/VueTorrent/issues/1858))
+  ([fee292f](https://github.com/VueTorrent/VueTorrent/commit/fee292f007d3853d2b7ace923dbbc7044f8f1db4))
+- **ETA:** Update incorrect max value ([#1853](https://github.com/VueTorrent/VueTorrent/issues/1853))
+  ([2176bab](https://github.com/VueTorrent/VueTorrent/commit/2176babd5c17d3efa28702fb7a70a7448f596e1b))
+- Remove latest Set methods usage ([#1844](https://github.com/VueTorrent/VueTorrent/issues/1844))
+  ([483e8c4](https://github.com/VueTorrent/VueTorrent/commit/483e8c449f1596d0ae785f05749d0277c359e8fa))
+- **TableView:** Ripple effect on safari ([#1864](https://github.com/VueTorrent/VueTorrent/issues/1864))
+  ([5a25b7e](https://github.com/VueTorrent/VueTorrent/commit/5a25b7e4ae9582720c9e66ddb0eb1f4cb1e16753))
+- Tags not updating after [#1844](https://github.com/VueTorrent/VueTorrent/issues/1844) ([#1859](https://github.com/VueTorrent/VueTorrent/issues/1859))
+  ([0009e28](https://github.com/VueTorrent/VueTorrent/commit/0009e287601740ec478be7fb7686227fbe6d2619))
 
 ### Improvements
 
-* **Content/bulk select:** Improve UX ([#1845](https://github.com/VueTorrent/VueTorrent/issues/1845)) ([09f17b9](https://github.com/VueTorrent/VueTorrent/commit/09f17b97d6128cb2ed60ce5f265dcae5d2c70a9d))
+- **Content/bulk select:** Improve UX ([#1845](https://github.com/VueTorrent/VueTorrent/issues/1845))
+  ([09f17b9](https://github.com/VueTorrent/VueTorrent/commit/09f17b97d6128cb2ed60ce5f265dcae5d2c70a9d))
 
 ## [2.11.2](https://github.com/VueTorrent/VueTorrent/compare/v2.11.1...v2.11.2) (2024-08-11)
 
