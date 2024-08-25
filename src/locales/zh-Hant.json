@@ -73,6 +73,10 @@
       "normal": "一般",
       "unwanted": "不要下載"
     },
+    "filter_type": {
+      "conjunctive": "結合過濾器（與）",
+      "disjunctive": "選擇過濾器（或）"
+    },
     "maxRatioAction": {
       "pauseTorrent": "暫停種子",
       "removeTorrent": "移除種子",
@@ -514,6 +518,7 @@
         "state": {
           "active": "活躍",
           "error": "錯誤",
+          "offline": "離線",
           "title": "種子狀態過濾器"
         },
         "tag": "標籤過濾器",
@@ -991,6 +996,7 @@
         "enableHashColors": "啟用自動生成的卡片顏色",
         "enableRatioColors": "啟用彩色的分享率",
         "fileContentInterval": "種子檔案內容更新區間",
+        "filterType": "過濾器組合類別",
         "hideChipIfUnset": "未設置時隱藏塊",
         "hideColoredChip": "為卡片使用文本模式",
         "historySize": "符合條件欄位的歷史大小",

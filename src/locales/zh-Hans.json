@@ -73,6 +73,10 @@
       "normal": "正常",
       "unwanted": "不需要"
     },
+    "filter_type": {
+      "conjunctive": "结合过滤器（与）",
+      "disjunctive": "选择过滤器（或）"
+    },
     "maxRatioAction": {
       "pauseTorrent": "暂停种子",
       "removeTorrent": "移除种子",
@@ -514,6 +518,7 @@
         "state": {
           "active": "活跃",
           "error": "错误",
+          "offline": "离线",
           "title": "种子状态过滤器"
         },
         "tag": "标签过滤器",
@@ -991,6 +996,7 @@
         "enableHashColors": "启用自动生成的卡片颜色",
         "enableRatioColors": "启用彩色的分享率",
         "fileContentInterval": "种子文件内容刷新间隔",
+        "filterType": "过滤器组合类型",
         "hideChipIfUnset": "未设置时隐藏卡片",
         "hideColoredChip": "为卡片使用文本模式",
         "historySize": "符合条件字段的历史大小",

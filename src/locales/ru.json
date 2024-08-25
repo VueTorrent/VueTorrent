@@ -72,6 +72,10 @@
       "normal": "Нормальный",
       "unwanted": "Ненужный"
     },
+    "filter_type": {
+      "conjunctive": "Конъюнктивная фильтрация (И)",
+      "disjunctive": "Дизъюнктивная фильтрация (ИЛИ)"
+    },
     "maxRatioAction": {
       "pauseTorrent": "Приостановить торрент",
       "removeTorrent": "Удалить торрент",
@@ -646,9 +650,9 @@
     },
     "advanced": {
       "libtorrent": {
-        "announceAllTiers": "Всегда объявляйте всем рангам",
-        "announceAllTrackers": "Всегда объявляйте всем трекерам на уровне",
-        "announceIP": "IP-адрес, сообщенный трекерам (требуется перезагрузка)",
+        "announceAllTiers": "Всегда объявлять всем уровням",
+        "announceAllTrackers": "Всегда объявлять всем трекерам на уровне",
+        "announceIP": "IP-адрес, переданный трекерам (требуется перезагрузка)",
         "coalesceReadsWrites": "Объединение операций чтения и записи (libtorrent < 2.0)",
         "disk": {
           "diskCache": "Кэш диска (libtorrent < 2.0)",
@@ -991,6 +995,7 @@
         "enableHashColors": "Разрешить генерируемые цвета хэша",
         "enableRatioColors": "Разрешить цвета рейтинга",
         "fileContentInterval": "Интервал обновления содержимого торрент-файла",
+        "filterType": "Фильтры «включительно»",
         "hideChipIfUnset": "Скрыть фишки, если не настроено",
         "hideColoredChip": "Использовать текстовый вариант для фишек",
         "historySize": "Размер истории в подходящих полях",
