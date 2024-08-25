@@ -87,10 +87,12 @@ jobs:
 
       - name: Generate nightly version
         id: version
+        if: ${{ matrix.npm-step == 'build' }}
         run: |
           echo "nightly_version=$(git describe --tags --exclude latest_nightly)" >> $GITHUB_OUTPUT
 
       - name: Update nightly tag
+        if: ${{ matrix.npm-step == 'build' }}
         run: |
           git tag -f latest_nightly
           git push -f --tags
