@@ -111,7 +111,7 @@ jobs:
         run: zip -qq -r ./vuetorrent.zip ./vuetorrent
 
       - name: Create nightly release
-        uses: marvinpinto/action-automatic-releases@v1.1.2
+        uses: marvinpinto/action-automatic-releases@v1.2.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           prerelease: true
