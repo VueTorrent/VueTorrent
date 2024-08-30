@@ -44,6 +44,18 @@ const darkVariants = readonly([
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
+const paginationBarOptions = [
+  { title: t('settings.vuetorrent.general.showBothPaginationBars'), value: 'both' },
+  { title: t('settings.vuetorrent.general.showTopPaginationBar'), value: 'top' },
+  { title: t('settings.vuetorrent.general.showBottomPaginationBar'), value: 'bottom' },
+]
+
+const paginationBarSelection = computed({
+  get: () => vueTorrentStore.showTopPagination ? (vueTorrentStore.showBottomPagination ? 'both' : 'top') : vueTorrentStore.showBottomPagination ? 'bottom' : null,
+  set: v => [vueTorrentStore.showTopPagination, vueTorrentStore.showBottomPagination] = [v !== 'bottom', v !== 'top']
+});
+
+
 const vueTorrentVersion = computed(() => {
   if (import.meta.env.PROD) {
     return import.meta.env.VITE_PACKAGE_VERSION
@@ -164,13 +176,6 @@ function openBackendHelp() {
         </v-col>
 
         <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showTopPagination" :disabled="!vueTorrentStore.showBottomPagination" hide-details density="compact" :label="t('settings.vuetorrent.general.showTopPagination')" />
-        </v-col>
-        <v-col cols="12" sm="6">
-          <v-checkbox v-model="vueTorrentStore.showBottomPagination" :disabled="!vueTorrentStore.showTopPagination" hide-details density="compact" :label="t('settings.vuetorrent.general.showBottomPagination')" />
-        </v-col>
-
-        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.enableRatioColors" hide-details density="compact" :label="t('settings.vuetorrent.general.enableRatioColors')" />
         </v-col>
         <v-col cols="12" sm="6">
@@ -212,13 +217,13 @@ function openBackendHelp() {
           <v-text-field v-model.number="historyStore.historySize" type="number" hide-details :label="t('settings.vuetorrent.general.historySize')" />
         </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.language" flat hide-details :items="LOCALES" :label="t('settings.vuetorrent.general.language')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-combobox
             v-model="paginationSize"
             :messages="paginationSizeMessages"
@@ -228,11 +233,14 @@ function openBackendHelp() {
             :return-object="false"
             :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
+        <v-col cols="12" md="6">
+          <v-select v-model="paginationBarSelection" flat hide-details :items="paginationBarOptions" :label="t('settings.vuetorrent.general.paginationBarVariants')" />
+        </v-col>
 
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
         </v-col>
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="6">
           <v-text-field
             :disabled="vueTorrentStore.uiTitleType !== TitleOptions.CUSTOM"
             v-model="vueTorrentStore.uiTitleCustom"

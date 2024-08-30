@@ -153,9 +153,8 @@ function toggleSelectMode() {
     </div>
 
     <v-spacer v-if="$vuetify.display.mobile" />
-    <v-pagination v-if="showTopPagination && !$vuetify.display.mobile" class="flex-grow-1 overflow-hidden" v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
-
-    <div class="flex-grow-1" v-if="!showTopPagination"></div>
+    <v-pagination v-if="showTopPagination && !$vuetify.display.mobile && pageCount > 1" class="flex-grow-1 overflow-hidden" v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
+    <v-spacer v-else />
     <div class="d-flex justify-end align-center text-uppercase text-select mr-2" style="font-size: 0.8em">
       {{ torrentCountString }}
     </div>
