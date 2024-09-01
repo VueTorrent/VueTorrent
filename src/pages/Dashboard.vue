@@ -36,12 +36,9 @@ const rightClickProperties = reactive<RightClickProperties>({
 
 const singleClickTimeoutId = ref<NodeJS.Timeout>()
 const shouldPeekTorrent = ref(!!highlightedTorrent.value)
-watch(
-  highlightedTorrent,
-  newValue => {
-    shouldPeekTorrent.value = !!newValue
-  }
-)
+watch(highlightedTorrent, newValue => {
+  shouldPeekTorrent.value = !!newValue
+})
 watch(
   shouldPeekTorrent,
   shouldPeekTorrentNow => {
@@ -288,11 +285,7 @@ onBeforeUnmount(() => {
   <TRC :right-click-properties="rightClickProperties" />
   <v-bottom-sheet v-model="shouldPeekTorrent">
     <v-sheet>
-      <TorrentDetail
-        v-if="highlightedTorrent"
-        :is-peeking="true"
-        @onClose="handleClosingTorrentDetail"
-      />
+      <TorrentDetail v-if="highlightedTorrent" :is-peeking="true" @onClose="handleClosingTorrentDetail" />
     </v-sheet>
   </v-bottom-sheet>
 </template>

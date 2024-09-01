@@ -43,10 +43,7 @@ const tabs = [
 
 const tab = ref('overview')
 
-const hash = computed(() => props.isPeeking
-  ? dashboardStore.highlightedTorrent as string
-  : router.currentRoute.value.params.hash as string
-)
+const hash = computed(() => (props.isPeeking ? (dashboardStore.highlightedTorrent as string) : (router.currentRoute.value.params.hash as string)))
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 
 const goHome = () => {

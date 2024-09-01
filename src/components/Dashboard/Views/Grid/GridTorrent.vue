@@ -71,12 +71,7 @@ function getTorrentColor(torrent: Torrent) {
 </script>
 
 <template>
-  <v-card
-    class="cursor-pointer"
-    :style="`border-left: 6px solid ${stateColor}`"
-    height="100%"
-    :color="getTorrentColor(torrent)"
-    @click="$emit('onTorrentClick', $event, torrent)">
+  <v-card class="cursor-pointer" :style="`border-left: 6px solid ${stateColor}`" height="100%" :color="getTorrentColor(torrent)" @click="$emit('onTorrentClick', $event, torrent)">
     <v-card-title class="text-wrap text-subtitle-1 pt-1 pb-0">{{ torrent.name }}</v-card-title>
     <v-card-text>
       <div class="d-flex flex-gap flex-wrap">
