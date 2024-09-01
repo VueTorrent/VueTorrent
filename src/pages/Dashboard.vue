@@ -5,6 +5,7 @@ import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
+import TorrentDetail from '@/pages/TorrentDetail.vue'
 import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
@@ -17,7 +18,7 @@ import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
-const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)
+const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selectedTorrents, displayMode, highlightedTorrent } = storeToRefs(dashboardStore)
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
@@ -32,6 +33,24 @@ const rightClickProperties = reactive<RightClickProperties>({
   isVisible: false,
   offset: [0, 0]
 })
+
+const singleClickTimeoutId = ref<NodeJS.Timeout>()
+const shouldPeekTorrent = ref(!!highlightedTorrent.value)
+watch(
+  highlightedTorrent,
+  newValue => {
+    shouldPeekTorrent.value = !!newValue
+  }
+)
+watch(
+  shouldPeekTorrent,
+  shouldPeekTorrentNow => {
+    if (!shouldPeekTorrentNow && highlightedTorrent) {
+      dashboardStore.setHighlightedTorrent('')
+    }
+  },
+  { immediate: true }
+)
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -59,6 +78,7 @@ function toggleSelectAll() {
 }
 
 function goToInfo(torrent: TorrentType) {
+  clearTimeout(singleClickTimeoutId.value)
   if (!isSelectionMultiple.value) {
     router.push({ name: 'torrentDetail', params: { hash: torrent.hash } })
   }
@@ -75,7 +95,12 @@ function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boole
     dashboardStore.isSelectionMultiple = true
     dashboardStore.toggleSelect(torrent.hash)
   } else {
-    dashboardStore.setHighlightedTorrent(torrent.hash)
+    if (!singleClickTimeoutId.value) {
+      singleClickTimeoutId.value = setTimeout(() => {
+        dashboardStore.setHighlightedTorrent(torrent.hash)
+        singleClickTimeoutId.value = undefined
+      }, 200)
+    }
   }
 }
 
@@ -172,6 +197,10 @@ function handleKeyboardShortcuts(e: KeyboardEvent) {
   }
 }
 
+const handleClosingTorrentDetail = () => {
+  dashboardStore.setHighlightedTorrent('')
+}
+
 watch(
   () => rightClickProperties.isVisible,
   newValue => {
@@ -257,4 +286,13 @@ onBeforeUnmount(() => {
   </div>
 
   <TRC :right-click-properties="rightClickProperties" />
+  <v-bottom-sheet v-model="shouldPeekTorrent">
+    <v-sheet>
+      <TorrentDetail
+        v-if="highlightedTorrent"
+        :is-peeking="true"
+        @onClose="handleClosingTorrentDetail"
+      />
+    </v-sheet>
+  </v-bottom-sheet>
 </template>
