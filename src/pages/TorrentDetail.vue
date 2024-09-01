@@ -6,10 +6,23 @@ import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
+import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore, useDashboardStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+
+const props = withDefaults(
+  defineProps<{
+    isPeeking?: boolean
+  }>(),
+  {
+    isPeeking: false
+  }
+)
+
+const emit = defineEmits<{
+  onClose: []
+}>()
 
 const router = useRouter()
 const { t } = useI18n()
@@ -17,6 +30,7 @@ const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const torrentDetailStore = useTorrentDetailStore()
+const dashboardStore = useDashboardStore()
 
 const tabs = [
   { text: t('torrentDetail.tabs.overview'), value: 'overview' },
@@ -29,11 +43,27 @@ const tabs = [
 
 const tab = ref('overview')
 
-const hash = computed(() => router.currentRoute.value.params.hash as string)
+const hash = computed(() => props.isPeeking
+  ? dashboardStore.highlightedTorrent as string
+  : router.currentRoute.value.params.hash as string
+)
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
+}
+
+const handleClosing = () => {
+  if (props.isPeeking) {
+    emit('onClose')
+  } else {
+    goHome()
+  }
+}
+
+const handleTabClicked = () => {
+  if (props.isPeeking) return
+  router.replace({ name: 'torrentDetail', params: { hash: hash.value, tab: tab.value } })
 }
 
 function handleKeyboardShortcut(e: KeyboardEvent) {
@@ -42,7 +72,7 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 
   if (e.key === 'Escape') {
-    goHome()
+    handleClosing()
   }
 }
 
@@ -83,14 +113,14 @@ onBeforeUnmount(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
-          <v-btn icon="mdi-close" variant="plain" @click="goHome" />
+          <v-btn icon="mdi-close" variant="plain" @click="handleClosing" />
         </div>
       </v-col>
     </v-row>
 
     <v-row class="ma-0 pa-0">
       <v-tabs v-model="tab" bg-color="primary" grow show-arrows>
-        <v-tab v-for="{ text, value } in tabs" :value="value" :text="text" replace :to="{ name: 'torrentDetail', params: { hash, tab: value } }" />
+        <v-tab v-for="{ text, value } in tabs" :value="value" :text="text" @click="handleTabClicked" />
       </v-tabs>
     </v-row>
 
