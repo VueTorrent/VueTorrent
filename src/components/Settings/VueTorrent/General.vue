@@ -45,9 +45,9 @@ const darkVariants = readonly([
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
 const paginationBarOptions = [
-  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: 'top' },
-  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: 'bottom' },
-  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: 'both' },
+  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: 'top', props: { 'prependIcon': 'mdi-arrow-up' } },
+  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: 'bottom', props: { 'prependIcon': 'mdi-arrow-down' } },
+  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: 'both', props: { 'prependIcon': 'mdi-arrow-up-down' } },
 ]
 
 const paginationBarSelection = computed({
