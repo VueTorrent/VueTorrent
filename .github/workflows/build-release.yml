@@ -137,7 +137,7 @@ jobs:
           path: ./vuetorrent
 
       - name: Push to nightly-release
-        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           branch: nightly-release
           folder: ./vuetorrent
@@ -198,7 +198,7 @@ jobs:
           path: ./vuetorrent-demo
 
       - name: Push to demo repo
-        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           folder: './vuetorrent-demo'
           repository-name: 'VueTorrent/demo'
@@ -243,7 +243,7 @@ jobs:
           path: ./vuetorrent
 
       - name: Push to latest-release
-        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        uses: JamesIves/github-pages-deploy-action@v4.6.4
         with:
           branch: latest-release
           folder: ./vuetorrent
