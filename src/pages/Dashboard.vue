@@ -5,7 +5,7 @@ import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { DashboardDisplayMode } from '@/constants/vuetorrent'
+import { DashboardDisplayMode, PaginationPosition } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
@@ -21,11 +21,14 @@ const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selected
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
-const vuetorrentStore = useVueTorrentStore()
+const { isInfiniteScrollActive, paginationPosition } = storeToRefs(useVueTorrentStore())
 
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
+
+const isPaginationTop = computed(() => !!(paginationPosition.value & PaginationPosition.TOP))
+const isPaginationBottom = computed(() => !!(paginationPosition.value & PaginationPosition.BOTTOM))
 
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = reactive<RightClickProperties>({
@@ -212,7 +215,7 @@ onBeforeUnmount(() => {
       </v-expand-transition>
     </v-row>
 
-    <div v-if="$vuetify.display.mobile && !vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="isPaginationTop && $vuetify.display.mobile && !isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
     </div>
 
@@ -249,7 +252,7 @@ onBeforeUnmount(() => {
       @startPress="startPress"
       @endPress="endPress" />
 
-    <div v-if="!vuetorrentStore.isInfiniteScrollActive && pageCount > 1">
+    <div v-if="isPaginationBottom && !isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
