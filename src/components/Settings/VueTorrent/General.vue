@@ -45,9 +45,9 @@ const darkVariants = readonly([
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
 const paginationBarOptions = [
-  { title: t('settings.vuetorrent.general.showBothPaginationBars'), value: 'both' },
-  { title: t('settings.vuetorrent.general.showTopPaginationBar'), value: 'top' },
-  { title: t('settings.vuetorrent.general.showBottomPaginationBar'), value: 'bottom' },
+  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: 'top' },
+  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: 'bottom' },
+  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: 'both' },
 ]
 
 const paginationBarSelection = computed({
@@ -234,7 +234,7 @@ function openBackendHelp() {
             :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-select v-model="paginationBarSelection" flat hide-details :items="paginationBarOptions" :label="t('settings.vuetorrent.general.paginationBarVariants')" />
+          <v-select v-model="paginationBarSelection" flat hide-details :items="paginationBarOptions" :label="t('settings.vuetorrent.general.paginationPosition.title')" />
         </v-col>
 
         <v-col cols="12" md="6">
