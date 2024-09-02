@@ -8,6 +8,7 @@ import { FeedState } from './FeedState'
 import { getFileIcon, typesMap } from './FileIcon'
 import { FilterType } from './FilterType'
 import { HistoryKey } from './HistoryKey'
+import { PaginationPosition } from './PaginationPosition'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { TorrentState, stateQbitToVt, stateVtToQbit } from './TorrentState'
@@ -30,6 +31,7 @@ export {
   typesMap,
   FilterType,
   HistoryKey,
+  PaginationPosition,
   ThemeMode,
   TitleOptions,
   TorrentState,

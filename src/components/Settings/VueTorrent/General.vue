@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, defaultDurationFormat, FilterType, PaginationPosition, TitleOptions } from '@/constants/vuetorrent'
 import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
@@ -45,16 +45,10 @@ const darkVariants = readonly([
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
 
 const paginationBarOptions = [
-  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: 'top', props: { 'prependIcon': 'mdi-arrow-up' } },
-  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: 'bottom', props: { 'prependIcon': 'mdi-arrow-down' } },
-  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: 'both', props: { 'prependIcon': 'mdi-arrow-up-down' } },
+  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: PaginationPosition.TOP, props: { prependIcon: 'mdi-arrow-up' } },
+  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: PaginationPosition.BOTTOM, props: { prependIcon: 'mdi-arrow-down' } },
+  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: PaginationPosition.BOTH, props: { prependIcon: 'mdi-arrow-up-down' } }
 ]
-
-const paginationBarSelection = computed({
-  get: () => vueTorrentStore.showTopPagination ? (vueTorrentStore.showBottomPagination ? 'both' : 'top') : vueTorrentStore.showBottomPagination ? 'bottom' : null,
-  set: v => [vueTorrentStore.showTopPagination, vueTorrentStore.showBottomPagination] = [v !== 'bottom', v !== 'top']
-});
-
 
 const vueTorrentVersion = computed(() => {
   if (import.meta.env.PROD) {
@@ -234,7 +228,12 @@ function openBackendHelp() {
             :label="t('settings.vuetorrent.general.paginationSize.label')" />
         </v-col>
         <v-col cols="12" md="6">
-          <v-select v-model="paginationBarSelection" flat hide-details :items="paginationBarOptions" :label="t('settings.vuetorrent.general.paginationPosition.title')" />
+          <v-select
+            v-model="vueTorrentStore.paginationPosition"
+            flat
+            hide-details
+            :items="paginationBarOptions"
+            :label="t('settings.vuetorrent.general.paginationPosition.title')" />
         </v-col>
 
         <v-col cols="12" md="6">
