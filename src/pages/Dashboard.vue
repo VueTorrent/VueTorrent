@@ -192,7 +192,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div class="pt-4 px-1 px-sm-5">
+  <div class="pt-2 px-1 px-sm-4">
     <Toolbar />
 
     <v-row class="ma-0 pa-0">

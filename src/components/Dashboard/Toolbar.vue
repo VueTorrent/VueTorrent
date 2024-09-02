@@ -3,10 +3,10 @@ import { DashboardDisplayMode, PaginationPosition } from '@/constants/vuetorrent
 import { comparators } from '@/helpers'
 import { useDashboardStore, useNavbarStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
-import debounce from 'lodash.debounce'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
 import { useI18n } from 'vue-i18n'
+import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 
 const { t } = useI18n()
 
@@ -80,17 +80,6 @@ const sortOption = computed({
 
 const isPaginationTop = computed(() => !!(paginationPosition.value & PaginationPosition.TOP))
 
-function resetInput() {
-  torrentStore.textFilter = ''
-}
-
-const torrentTitleFilter = computed({
-  get: () => torrentStore.textFilter,
-  set: debounce((newValue: string | null) => {
-    torrentStore.textFilter = newValue ?? ''
-  }, 300)
-})
-
 function toggleSelectMode() {
   if (isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()
@@ -100,21 +89,8 @@ function toggleSelectMode() {
 </script>
 
 <template>
-  <div>
-    <v-text-field
-      id="searchInput"
-      v-model="torrentTitleFilter"
-      :label="t('dashboard.searchInputLabel')"
-      clearable
-      density="compact"
-      single-line
-      hide-details
-      prepend-inner-icon="mdi-magnify"
-      variant="solo"
-      @click:clear="resetInput()" />
-  </div>
-
-  <div class="d-flex my-3">
+  <TorrentSearchbar v-if="$vuetify.display.mdAndDown" class="my-2"/>
+  <div class="d-flex mb-2 align-center">
     <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
       <template v-slot:activator="{ props }">
         <v-btn :icon="isSelectionMultiple ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" v-bind="props" variant="plain" @click="toggleSelectMode" />
@@ -143,7 +119,7 @@ function toggleSelectMode() {
         <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="sortOption.reverse = !sortOption.reverse" />
       </template>
     </v-tooltip>
-    <div class="d-flex align-center pa-0">
+    <div class="d-flex align-center pl-2">
       <v-select
         v-model="sortOption.value"
         :items="torrentSortOptions"

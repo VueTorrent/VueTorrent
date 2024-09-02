@@ -10,6 +10,7 @@ import SpeedGraph from './SideWidgets/SpeedGraph.vue'
 import TransferStats from './SideWidgets/TransferStats.vue'
 import ActiveFilters from './TopWidgets/ActiveFilters.vue'
 import TopContainer from './TopWidgets/TopContainer.vue'
+import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 
 const router = useRouter()
 const dashboardStore = useDashboardStore()
@@ -65,14 +66,14 @@ const goHome = () => {
 
   <v-app-bar class="ios-padding">
     <v-app-bar-nav-icon @click="toggleDrawer" />
-    <v-app-bar-title class="title">
       <div class="title-wrapper cursor-pointer" @click="goHome">
         <span v-if="$vuetify.display.smAndUp" class="text-accent">Vue</span>
         <span v-if="$vuetify.display.smAndUp">Torrent</span>
       </div>
 
-      <ActiveFilters />
-    </v-app-bar-title>
+    <ActiveFilters />
+    <TorrentSearchbar v-if="$vuetify.display.lgAndUp" bg-color="#121212" class="px-6" />
+    <v-spacer v-else />
 
     <TopContainer />
   </v-app-bar>
@@ -83,12 +84,11 @@ const goHome = () => {
   padding-inline-start: 0 !important;
   padding-inline-end: 0 !important;
 }
-.title {
-  margin-inline-start: calc(16px - 0.4em);
-}
 .title-wrapper {
   display: inline-flex;
   width: min-content;
   padding: 0.4em;
+  align-items: center;
+  font-size: larger;
 }
 </style>
