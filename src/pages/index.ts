@@ -44,5 +44,9 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       public: true // Allow access even if not logged in
     }
+  },
+  {
+    path: '/:any+', // Catch all, prevent empty page if URL is invalid
+    redirect: '/'
   }
 ]
