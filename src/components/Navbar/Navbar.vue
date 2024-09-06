@@ -72,6 +72,7 @@ const goHome = () => {
       </div>
 
     <ActiveFilters />
+
     <TorrentSearchbar v-if="$vuetify.display.lgAndUp" bg-color="#121212" class="px-6" />
     <v-spacer v-else />
 
