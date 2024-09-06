@@ -62,7 +62,7 @@ function openSettings() {
   <v-divider inset vertical />
 
   <TopOverflow
-    v-if="$vuetify.display.mobile"
+    v-if="$vuetify.display.smAndDown"
     @deleteTorrents="deleteTorrents"
     @openLogs="openLogs"
     @openSearchEngine="openSearchEngine"
