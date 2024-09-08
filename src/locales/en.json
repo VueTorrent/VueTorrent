@@ -1006,9 +1006,9 @@
         "language": "Language",
         "lightVariants": "Light theme variant",
         "paginationPosition": {
-          "title": "Pagination position",
           "both": "Both",
           "bottom": "Only bottom",
+          "title": "Pagination position",
           "top": "Only top"
         },
         "paginationSize": {
