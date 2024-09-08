@@ -89,7 +89,7 @@ function toggleSelectMode() {
 </script>
 
 <template>
-  <TorrentSearchbar v-if="$vuetify.display.mdAndDown" class="my-2"/>
+  <TorrentSearchbar v-if="$vuetify.display.mdAndDown" class="my-2" />
   <div class="d-flex mb-2 align-center">
     <v-tooltip :text="t('dashboard.toggleSelectMode')" location="top">
       <template v-slot:activator="{ props }">
