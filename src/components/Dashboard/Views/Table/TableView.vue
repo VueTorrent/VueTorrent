@@ -2,7 +2,7 @@
 import Header from './Header.vue'
 import TableTorrent from './TableTorrent.vue'
 import { TorrentState } from '@/constants/vuetorrent'
-import { comparators, getTorrentStateColor } from '@/helpers'
+import { comparators, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
 import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -65,7 +65,17 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
         @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
-        <td :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
+
+        <v-tooltip top>
+          <template v-slot:activator="{ props }">
+            <td
+              v-bind="props"
+              :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`"
+            />
+          </template>
+          {{$t(`torrent.state.${getTorrentStateValue(torrent.state)}`)}}
+        </v-tooltip>
+
         <td v-if="dashboardStore.isSelectionMultiple">
           <v-checkbox-btn
             :model-value="isTorrentSelected(torrent)"
