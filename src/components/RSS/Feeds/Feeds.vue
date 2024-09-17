@@ -13,7 +13,7 @@ const props = defineProps<{
   mobile: boolean
 }>()
 
-const emit = defineEmits<{
+defineEmits<{
   openArticle: [article: RssArticle]
 }>()
 
