@@ -19,7 +19,7 @@ import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance } from 'axios'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
 import type IProvider from './IProvider'
 
 type Parameters = Record<string, any>
@@ -113,12 +113,9 @@ export default class QBitProvider implements IProvider {
 
   /// AuthController ///
 
-  async login(params: LoginPayload): Promise<string> {
+  async login(params: LoginPayload): Promise<AxiosResponse<string, string>> {
     const payload = new URLSearchParams(params as Parameters)
-    return this.axios.post('/auth/login', payload, { validateStatus: (status: number) => status === 200 || status === 403 }).then(
-      res => res.data,
-      err => console.log(err)
-    )
+    return this.axios.post('/auth/login', payload, { validateStatus: () => true })
   }
 
   async logout(): Promise<void> {

@@ -1,4 +1,11 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -21,6 +28,7 @@ import type { AddTorrentPayload, GetTorrentPayload } from '@/types/qbit/payloads
 import { AppPreferencesPayload, CreateFeedPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { faker } from '@faker-js/faker/locale/en'
+import { AxiosResponse } from 'axios'
 import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
@@ -46,7 +54,8 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {}
+  private constructor() {
+  }
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -86,7 +95,7 @@ export default class MockProvider implements IProvider {
       infohash_v1: hash,
       infohash_v2: '',
       last_activity: last_activity.getTime() / 1000,
-      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+      magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
       max_inactive_seeding_time: -1,
       max_ratio: -1,
       max_seeding_time: -1,
@@ -392,8 +401,14 @@ export default class MockProvider implements IProvider {
 
   /// AuthController ///
 
-  async login(_: LoginPayload): Promise<string> {
-    return this.generateResponse({ result: 'Ok.' })
+  async login(_: LoginPayload): Promise<AxiosResponse<string, string>> {
+    return this.generateResponse({
+      result: {
+        data: 'Ok.',
+        status: 200,
+        statusText: 'OK',
+      } as AxiosResponse<string, string>
+    })
   }
 
   async logout(): Promise<void> {
