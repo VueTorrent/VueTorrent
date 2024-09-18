@@ -1,7 +1,5 @@
-import i18n from '@/plugins/i18n'
 import { StorageLikeAsync } from '@vueuse/core'
 import axios, { AxiosInstance } from 'axios'
-import { toast } from 'vue3-toastify'
 
 class BackendProvider {
   private axios: AxiosInstance
@@ -46,11 +44,6 @@ class BackendProvider {
       .then(ok => {
         this.up = ok
         this.pingPromise = null
-
-        if (!ok) {
-          // @ts-expect-error: TS2589: Type instantiation is excessively deep and possibly infinite.
-          toast.error(i18n.global.t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
-        }
 
         return ok
       })

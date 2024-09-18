@@ -73,7 +73,10 @@ const saveSettings = async () => {
     if (!oldInit && newInit) {
       location.reload()
     } else {
-      await backend.ping()
+      const ok = await backend.ping()
+      if (!ok) {
+        toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
+      }
     }
   }
 }

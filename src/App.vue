@@ -58,8 +58,11 @@ function addLaunchQueueConsumer() {
 }
 
 onBeforeMount(() => {
-  backend.init(vuetorrentStore.backendUrl)
-  backend.ping()
+  backend.init(vuetorrentStore.backendUrl || `${location.origin}${location.pathname}`)
+  const ok = backend.ping()
+  if (!ok) {
+    toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
+  }
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
