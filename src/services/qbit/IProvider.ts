@@ -17,6 +17,7 @@ import {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
+import { AxiosResponse } from 'axios'
 
 export default interface IProvider {
   /// AppController ///
@@ -58,7 +59,7 @@ export default interface IProvider {
   /**
    * Login to the application
    */
-  login(params: LoginPayload): Promise<string>
+  login(params: LoginPayload): Promise<AxiosResponse<string, string>>
 
   /**
    * Logout from the application

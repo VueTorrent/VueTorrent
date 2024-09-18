@@ -26,13 +26,20 @@ const rules = {
 
 const login = async () => {
   if (!rulesOk.value) return
-  await appStore.login(loginForm.username, loginForm.password)
+  const response = await appStore.login(loginForm.username, loginForm.password)
 
   if (appStore.isAuthenticated) {
     toast.success(t('login.success'))
     redirectOnSuccess()
   } else {
-    toast.error(t('login.error'))
+    let message = t('login.error')
+
+    if (response.status !== 200) {
+      message += `
+Error code: ${response.status} (${response.data})`
+    }
+
+    toast.error(message)
   }
 }
 

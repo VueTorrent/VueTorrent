@@ -26,7 +26,8 @@ export const useAppStore = defineStore('app', () => {
 
   async function login(username: string, password: string) {
     const response = await qbit.login({ username, password })
-    await setAuthStatus(response === 'Ok.')
+    await setAuthStatus(response.data === 'Ok.')
+    return response
   }
 
   async function logout() {
