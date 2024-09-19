@@ -9,8 +9,10 @@ import vuetify from 'vite-plugin-vuetify'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
+  const qBittorrentHost = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
   const qBittorrentPort = env.VITE_QBITTORRENT_PORT ?? '8080'
-  const proxyTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://127.0.0.1'
+  const backendHost = env.VITE_BACKEND_HOST ?? 'http://127.0.0.1'
+  const backendPort = env.VITE_BACKEND_PORT ?? '3000'
 
   return {
     base: './',
@@ -51,7 +53,11 @@ export default defineConfig(({ mode }) => {
       proxy: {
         '/api': {
           secure: false,
-          target: `${proxyTarget}:${qBittorrentPort}`
+          target: `${qBittorrentHost}:${qBittorrentPort}`
+        },
+        '/backend': {
+          secure: false,
+          target: `${backendHost}:${backendPort}`
         }
       }
     },

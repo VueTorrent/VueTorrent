@@ -58,11 +58,22 @@ function addLaunchQueueConsumer() {
 }
 
 onBeforeMount(() => {
-  backend.init(vuetorrentStore.backendUrl || `${location.origin}${location.pathname}`)
-  const ok = backend.ping()
-  if (!ok) {
-    toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
+  let backendUrl
+  if (vuetorrentStore.backendUrl) {
+    backendUrl = vuetorrentStore.backendUrl
+  } else {
+    backendUrl = `${location.origin}${location.pathname}`
+    if (backendUrl.endsWith('/')) {
+      backendUrl = backendUrl.slice(0, -1)
+    }
+    backendUrl += '/backend'
   }
+  backend.init(backendUrl)
+  backend.ping().then(ok => {
+    if (vuetorrentStore.backendUrl && !ok) {
+      toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
+    }
+  })
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
