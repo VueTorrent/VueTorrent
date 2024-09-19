@@ -296,8 +296,8 @@ function openBackendHelp() {
           <h3>
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
-            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent/">{{ vueTorrentVersion }}</a>
-            <a v-else target="_blank" :href="`https://github.com/VueTorrent/VueTorrent/releases/tag/v${vueTorrentVersion}`">{{ vueTorrentVersion }}</a>
+            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
+            <a v-else target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>
 
