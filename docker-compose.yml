@@ -2,27 +2,16 @@ services:
   qbit:
     image: linuxserver/qbittorrent:latest
     container_name: qbit
+    restart: unless-stopped
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Europe/London
       - UMASK_SET=022
+      - TZ=Europe/London
       - WEBUI_PORT=8080
+      - DOCKER_MODS=ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
     volumes:
       - ./docker/config:/config
       - ./docker/downloads:/downloads
-      - ./vuetorrent:/vuetorrent
     ports:
       - '8080:8080'
-    restart: unless-stopped
-#  Backend is optional, see the repo for more information
-#  backend:
-#    image: ghcr.io/vuetorrent/vuetorrent-backend:latest
-#    container_name: vuetorrent-backend
-#    restart: unless-stopped
-#    environment:
-#      - "QBIT_BASE=http://internal.host.docker:8080/"
-#    ports:
-#      - '8081:3000'
-#    volumes:
-#      - ./docker/backend:/app/data
