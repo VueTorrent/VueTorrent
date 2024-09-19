@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.13.0](https://github.com/VueTorrent/VueTorrent/compare/v2.12.0...v2.13.0) (2024-09-19)
+
+
+### Features
+
+* **backend:** Auto-configure on load ([#1904](https://github.com/VueTorrent/VueTorrent/issues/1904)) ([909d26a](https://github.com/VueTorrent/VueTorrent/commit/909d26a568de7d5d2d0bac5701a8cb3acb77316f))
+* responsive search bar placement ([#1883](https://github.com/VueTorrent/VueTorrent/issues/1883)) ([8b9a3a3](https://github.com/VueTorrent/VueTorrent/commit/8b9a3a36ce9197392c84757363d3340444e565fd))
+* **settings:** Add pagination position configuration ([#1870](https://github.com/VueTorrent/VueTorrent/issues/1870)) ([b82c124](https://github.com/VueTorrent/VueTorrent/commit/b82c1245f14c220c6a58812390c9016eff4e116f))
+* tooltip on torrent state indicator for table view ([#1890](https://github.com/VueTorrent/VueTorrent/issues/1890)) ([c6722b1](https://github.com/VueTorrent/VueTorrent/commit/c6722b17b54808e081d407ed411d1b546f3c195d))
+
+
+### Bug Fixes
+
+* Increase menu overflow threshold ([#1887](https://github.com/VueTorrent/VueTorrent/issues/1887)) ([d02a29b](https://github.com/VueTorrent/VueTorrent/commit/d02a29b409611ced6201506e5fcea1453aad24a3))
+* **RSS:** "mark as read" on feed not working ([#1897](https://github.com/VueTorrent/VueTorrent/issues/1897)) ([c290202](https://github.com/VueTorrent/VueTorrent/commit/c290202e21e5609be207564daee27ea93431a9bb))
+
+
+### Improvements
+
+* Disallow robots indexing of the WebUI to reduce exposure ([#1903](https://github.com/VueTorrent/VueTorrent/issues/1903)) ([b829924](https://github.com/VueTorrent/VueTorrent/commit/b8299245817b77f1c0826ed3cd33f7d9c7e25132))
+* **Login:** Improve error message ([#1901](https://github.com/VueTorrent/VueTorrent/issues/1901)) ([7c3fb61](https://github.com/VueTorrent/VueTorrent/commit/7c3fb619f92c7726974f0fe0ed37f80138793afa))
+* **router:** Add catch-all route ([#1886](https://github.com/VueTorrent/VueTorrent/issues/1886)) ([e7abdb2](https://github.com/VueTorrent/VueTorrent/commit/e7abdb2ab382604f3b69672abf57f42ce9a58346))
+
 ## [2.12.0](https://github.com/VueTorrent/VueTorrent/compare/v2.11.2...v2.12.0) (2024-08-18)
 
 ### Features
