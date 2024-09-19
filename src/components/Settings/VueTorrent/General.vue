@@ -282,6 +282,7 @@ function openBackendHelp() {
           <v-text-field
             v-model="vueTorrentStore.backendUrl"
             :label="t('settings.vuetorrent.general.backendUrl')"
+            :hint="t('settings.vuetorrent.general.backendUrlHint')"
             placeholder="https://YOUR-HOST:PORT/"
             append-inner-icon="mdi-help-circle"
             @click:appendInner="openBackendHelp" />
