@@ -56,9 +56,9 @@ const saveSettings = async () => {
   toast.success(t('settings.saveSuccess'))
   await preferenceStore.fetchPreferences()
 
-  const oldInit = backend.isInitialized
+  const oldInit = backend.isInitialized && !backend.isAutoConfig
   backend.init(vuetorrentStore.backendUrl)
-  const newInit = backend.isInitialized
+  const newInit = backend.isInitialized && !backend.isAutoConfig
 
   if (!preferenceStore.preferences!.alternative_webui_enabled) {
     if ('serviceWorker' in navigator) {
@@ -74,7 +74,7 @@ const saveSettings = async () => {
       location.reload()
     } else {
       const ok = await backend.ping()
-      if (!ok) {
+      if (!backend.isAutoConfig && !ok) {
         toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
       }
     }

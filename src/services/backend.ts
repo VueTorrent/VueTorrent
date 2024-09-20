@@ -4,6 +4,7 @@ import axios, { AxiosInstance } from 'axios'
 class BackendProvider {
   private axios: AxiosInstance
   private _isInitialized: boolean = false
+  private _isAutoConfig: boolean = false
   private up: boolean = true
   private pingPromise: Promise<boolean> | null = null
 
@@ -20,7 +21,22 @@ class BackendProvider {
     return this._isInitialized
   }
 
-  init(baseURL: string) {
+  get isAutoConfig() {
+    return this._isAutoConfig
+  }
+
+  init(baseURL?: string) {
+    if (!baseURL) {
+      baseURL = `${location.origin}${location.pathname}`
+      if (baseURL.endsWith('/')) {
+        baseURL = baseURL.slice(0, -1)
+      }
+      baseURL += '/backend'
+      this._isAutoConfig = true
+    } else {
+      this._isAutoConfig = false
+    }
+
     this.axios.defaults.baseURL = baseURL
     this._isInitialized = !!baseURL
   }
