@@ -58,19 +58,9 @@ function addLaunchQueueConsumer() {
 }
 
 onBeforeMount(() => {
-  let backendUrl
-  if (vuetorrentStore.backendUrl) {
-    backendUrl = vuetorrentStore.backendUrl
-  } else {
-    backendUrl = `${location.origin}${location.pathname}`
-    if (backendUrl.endsWith('/')) {
-      backendUrl = backendUrl.slice(0, -1)
-    }
-    backendUrl += '/backend'
-  }
-  backend.init(backendUrl)
+  backend.init(vuetorrentStore.backendUrl)
   backend.ping().then(ok => {
-    if (vuetorrentStore.backendUrl && !ok) {
+    if (!backend.isAutoConfig && !ok) {
       toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
     }
   })
