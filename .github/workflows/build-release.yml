@@ -100,7 +100,8 @@ jobs:
   release-nightly:
     name: Create nightly pre-release to GitHub
     needs: [ setup-release, build-release ]
-    if: ${{ !needs.setup-release.outputs.release_created }}
+    # if: ${{ !needs.setup-release.outputs.release_created }}
+    if: false
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4

@@ -2,7 +2,7 @@ name: Notify Discord webhook of stable releases
 on:
   release:
     types:
-    - released
+    - published
 
 jobs:
   github-releases-to-discord:
