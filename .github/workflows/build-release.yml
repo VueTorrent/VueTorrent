@@ -17,6 +17,12 @@ jobs:
       contents: write
       pull-requests: write
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Needed for git describe to work
+          fetch-depth: 0
+
       - name: Run release please
         uses: googleapis/release-please-action@v4
         id: release
@@ -52,8 +58,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
