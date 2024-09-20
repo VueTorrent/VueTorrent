@@ -50,6 +50,7 @@ const paginationBarOptions = [
   { title: t('settings.vuetorrent.general.paginationPosition.both'), value: PaginationPosition.BOTH, props: { prependIcon: 'mdi-arrow-up-down' } }
 ]
 
+const VERSION_PATTERN = /^v?(?<version>[0-9.]+)(-(?<commits>\d+)-g(?<sha>[0-9a-f]+))?$/
 const vueTorrentVersion = computed(() => {
   if (import.meta.env.PROD) {
     return import.meta.env.VITE_PACKAGE_VERSION
@@ -58,6 +59,13 @@ const vueTorrentVersion = computed(() => {
   }
 
   return null
+})
+const isStableVersion = computed(() => {
+  const matches = vueTorrentVersion.value.match(VERSION_PATTERN)
+  if (!matches) return false
+
+  const groups = matches.groups
+  return !groups.commits && !groups.sha
 })
 
 const paginationSize = computed({
@@ -296,8 +304,9 @@ function openBackendHelp() {
           <h3>
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
-            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent/">{{ vueTorrentVersion }}</a>
-            <a v-else target="_blank" :href="`https://github.com/VueTorrent/VueTorrent/releases/tag/v${vueTorrentVersion}`">{{ vueTorrentVersion }}</a>
+            <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
+            <a v-else-if="!isStableVersion" target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
+            <a v-else target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>
 
