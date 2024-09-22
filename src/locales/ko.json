@@ -1162,6 +1162,7 @@
       "ratio_limit": "비율 제한",
       "save_path": "저장 경로",
       "seeding_time": "시딩 시간",
+      "seeding_time_limit": "시딩 시간 제한",
       "seeds": "시드",
       "seen_complete": "완료됨",
       "seq_dl": "순차 다운로드",

@@ -65,15 +65,11 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
         @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
-
         <v-tooltip top>
           <template v-slot:activator="{ props }">
-            <td
-              v-bind="props"
-              :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`"
-            />
+            <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
           </template>
-          {{$t(`torrent.state.${getTorrentStateValue(torrent.state)}`)}}
+          {{ $t(`torrent.state.${getTorrentStateValue(torrent.state)}`) }}
         </v-tooltip>
 
         <td v-if="dashboardStore.isSelectionMultiple">

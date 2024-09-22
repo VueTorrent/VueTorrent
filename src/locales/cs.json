@@ -245,6 +245,8 @@
   },
   "torrent": {
     "properties": {
+      "avg_download_speed": "Průměrná rychlost stahování",
+      "avg_upload_speed": "Průměrná rychlost nahrávání",
       "priority": "Priorita"
     }
   }
