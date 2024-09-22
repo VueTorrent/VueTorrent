@@ -157,7 +157,36 @@
         "save_path": "Definir caminho de salvamento",
         "seq_dl": "Download sequencial",
         "title": "Avançado"
+      },
+      "copy": {
+        "magnet": "Magnético",
+        "name": "Nome",
+        "title": "Copiar"
+      },
+      "info": "Exibir informações",
+      "priority": {
+        "decrease": "Diminuir",
+        "increase": "Aumentar",
+        "title": "Definir posição da fila"
+      },
+      "speed_limit": {
+        "download": "Definir limite do download"
+      },
+      "tags": {
+        "disabled_title": "Sem tags",
+        "remove_all": "Remover todos"
+      },
+      "top": {
+        "delete": "Excluir",
+        "force_resume": "Forçar início",
+        "pause": "Pausar",
+        "resume": "Iniciar"
       }
+    },
+    "searchInputLabel": "Buscar",
+    "sortBy": {
+      "availability": "Disponibilidade",
+      "category": "Categoria"
     }
   },
   "navbar": {

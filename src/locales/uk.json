@@ -284,6 +284,12 @@
     }
   },
   "torrent": {
+    "properties": {
+      "avg_download_speed": "Середня швидкість завантаження",
+      "avg_upload_speed": "Середня швидкість роздачі",
+      "seeding_time": "Час сідування",
+      "seeding_time_limit": "Обмеження часу сідування"
+    },
     "state": {
       "checking_resume_data": "Перевірка для відновлення",
       "dl_forced": "[Ф] Завантаження",

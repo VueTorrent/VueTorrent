@@ -505,7 +505,11 @@
   },
   "torrent": {
     "properties": {
-      "priority": "Priorità"
+      "avg_download_speed": "Velocità DL Media",
+      "avg_upload_speed": "Velocità UL Media",
+      "priority": "Priorità",
+      "seeding_time": "Tempo di Seeding",
+      "seeding_time_limit": "Limite Tempo di Seeding"
     }
   }
 }
