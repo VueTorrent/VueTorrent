@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.13.1](https://github.com/VueTorrent/VueTorrent/compare/v2.13.0...v2.13.1) (2024-09-22)
+
+
+### Bug Fixes
+
+* **backend:** Update toast condition when backend unreachable ([#1911](https://github.com/VueTorrent/VueTorrent/issues/1911)) ([79e3dce](https://github.com/VueTorrent/VueTorrent/commit/79e3dce190d5e0d4ea7f4a3e0c44fbe082ae96a1))
+* **Light theme:** Use theme color for TorrentSearchbar ([#1905](https://github.com/VueTorrent/VueTorrent/issues/1905)) ([e117f72](https://github.com/VueTorrent/VueTorrent/commit/e117f7237c2949ecfd83d253891828699d615ce7))
+* **RSS:** Display all feeds even if empty ([#1913](https://github.com/VueTorrent/VueTorrent/issues/1913)) ([d8969e0](https://github.com/VueTorrent/VueTorrent/commit/d8969e071eb1c2348e8f06cc52aa7929d57d8aef))
+
 ## [2.13.0](https://github.com/VueTorrent/VueTorrent/compare/v2.12.0...v2.13.0) (2024-09-19)
 
 ### Features
