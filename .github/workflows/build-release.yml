@@ -17,18 +17,18 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          # Needed for git describe to work
-          fetch-depth: 0
-
       - name: Run release please
         uses: googleapis/release-please-action@v4
         id: release
         with:
           config-file: release-please-config.json
           manifest-file: .release-please-manifest.json
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # Needed for git describe to work
+          fetch-depth: 0
 
       - name: Generate nightly version
         id: version
