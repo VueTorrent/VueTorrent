@@ -226,7 +226,7 @@ export default class QBitProvider implements IProvider {
   async markAsRead(itemPath: string, articleId?: string): Promise<void> {
     const params: Record<string, string> = { itemPath }
     if (articleId) {
-      params[articleId] = articleId
+      params['articleId'] = articleId
     }
     return this.post('rss/markAsRead', params)
   }
