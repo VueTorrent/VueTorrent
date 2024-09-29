@@ -11,6 +11,10 @@ const props = defineProps<{
   initialCategory?: Category
 }>()
 
+const emit = defineEmits<{
+  'submit': [Category]
+}>()
+
 const { t } = useI18n()
 const categoryStore = useCategoryStore()
 const { isOpened } = useDialog(props.guid)
@@ -32,6 +36,8 @@ async function submit() {
   } else {
     await categoryStore.createCategory(formData)
   }
+
+  emit('submit', formData)
 
   close()
 }

@@ -10,6 +10,10 @@ const props = defineProps<{
   initialTag?: string
 }>()
 
+const emit = defineEmits<{
+  'submit': [string]
+}>()
+
 const { isOpened } = useDialog(props.guid)
 const { t } = useI18n()
 const tagStore = useTagStore()
@@ -28,6 +32,8 @@ async function submit() {
   } else {
     await tagStore.createTags(tagName.value.split(','))
   }
+
+  emit('submit', tagName.value)
 
   close()
 }
