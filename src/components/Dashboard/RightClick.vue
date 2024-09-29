@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import RightClickMenu from '@/components/Core/RightClickMenu'
+import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
+import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
+import {
+  useCategoryStore,
+  useDashboardStore,
+  useDialogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useTagStore,
+  useTorrentStore
+} from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
@@ -32,7 +42,6 @@ const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
-const availableCategories = computed(() => ['', ...categoryStore.categories.map(cat => cat.name)])
 
 async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
@@ -86,8 +95,20 @@ function hasTag(tag: string) {
   return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
 }
 
-async function removeAllTags() {
+function openNewTagFormDialog() {
+  dialogStore.createDialog(TagFormDialog, { onSubmit: tag => torrentStore.addTorrentTags(hashes.value, [tag]) }, maindataStore.forceMaindataSync)
+}
+
+async function clearAllTags() {
   await torrentStore.removeTorrentTags(hashes.value)
+}
+
+function openNewCategoryFormDialog() {
+  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(hashes.value, cat.name) }, maindataStore.forceMaindataSync)
+}
+
+async function clearCategory() {
+  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.forceMaindataSync)
 }
 
 async function toggleTag(tag: string) {
@@ -224,14 +245,19 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
     children: [
+      {
+        text: t('settings.tagsAndCategories.createNewTag'),
+        action: openNewTagFormDialog,
+        icon: 'mdi-plus'
+      },
       ...(torrent.value?.tags.length
         ? [
-            {
-              text: t('dashboard.right_click.tags.remove_all'),
-              action: () => removeAllTags().then(maindataStore.forceMaindataSync),
-              icon: 'mdi-playlist-remove'
-            }
-          ]
+          {
+            text: t('dashboard.right_click.tags.clear_all'),
+            action: () => clearAllTags().then(maindataStore.forceMaindataSync),
+            icon: 'mdi-playlist-remove'
+          }
+        ]
         : []),
       { type: 'divider' },
       ...tagStore.tags.map(tag => ({
@@ -247,10 +273,25 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabled: categoryStore.categories.length === 0,
     disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
-    children: availableCategories.value.map(category => ({
-      text: category === '' ? t('dashboard.right_click.category.clear') : category,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category).then(maindataStore.forceMaindataSync)
-    }))
+    children: [
+      {
+        text: t('settings.tagsAndCategories.createNewCategory'),
+        action: openNewCategoryFormDialog,
+        icon: 'mdi-plus'
+      },
+      {
+        text: t('dashboard.right_click.category.clear'),
+        hidden: torrent.value?.category.length === 0,
+        action: () => clearCategory().then(maindataStore.forceMaindataSync),
+        icon: 'mdi-backspace-reverse'
+      },
+      { type: 'divider' },
+      ...categoryStore.categories.map(category => ({
+        text: category.name,
+        icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
+        action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync)
+      }))
+    ]
   },
   {
     text: t('dashboard.right_click.speed_limit.title'),
