@@ -233,6 +233,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
             }
           ]
         : []),
+      { type: 'divider' },
       ...tagStore.tags.map(tag => ({
         text: tag,
         icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',

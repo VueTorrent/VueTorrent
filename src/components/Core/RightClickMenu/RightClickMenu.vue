@@ -17,5 +17,3 @@ const rightClickMenuVisible = defineModel<boolean>({ required: true })
     </v-list>
   </v-menu>
 </template>
-
-<style lang="scss"></style>
