@@ -4,7 +4,7 @@ import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
