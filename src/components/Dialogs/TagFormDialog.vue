@@ -11,7 +11,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  'submit': [string]
+  'submit': [string[]]
 }>()
 
 const { isOpened } = useDialog(props.guid)
@@ -27,13 +27,16 @@ const tagName = ref('')
 async function submit() {
   if (!isFormValid.value) return
 
+  let tagSent
   if (!!props.initialTag) {
+    tagSent = [tagName.value]
     await tagStore.editTag(props.initialTag, tagName.value)
   } else {
-    await tagStore.createTags(tagName.value.split(','))
+    tagSent = tagName.value.split(',')
+    await tagStore.createTags(tagSent)
   }
 
-  emit('submit', tagName.value)
+  emit('submit', tagSent)
 
   close()
 }

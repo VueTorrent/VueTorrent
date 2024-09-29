@@ -1,24 +1,31 @@
-type ClassicRightClickMenuEntry = {
+type ClassicEntry = {
   text: string
   icon?: string
-  action?: () => void
   hidden?: boolean
   disabled?: boolean
   disabledText?: string
   disabledIcon?: string
+  action?: () => void
   children?: RightClickMenuEntryType[]
 }
 
-type SpecialRightClickMenuEntry = {
+type DividerEntry = {
   type: 'divider'
+  props?: Record<string, any>
 }
 
-export type RightClickMenuEntryType = ClassicRightClickMenuEntry | SpecialRightClickMenuEntry
+type SpecialEntry = DividerEntry
 
-export function isClassicEntry(entry: RightClickMenuEntryType): entry is ClassicRightClickMenuEntry {
+export type RightClickMenuEntryType = ClassicEntry | SpecialEntry
+
+export function isClassicEntry(entry: RightClickMenuEntryType): entry is ClassicEntry {
   return !isSpecialEntry(entry)
 }
 
-export function isSpecialEntry(entry: RightClickMenuEntryType): entry is SpecialRightClickMenuEntry {
-  return "type" in entry
+export function isSpecialEntry(entry: RightClickMenuEntryType): entry is SpecialEntry {
+  return 'type' in entry
+}
+
+export function isDividerEntry(entry: RightClickMenuEntryType): entry is DividerEntry {
+  return isSpecialEntry(entry) && entry.type === 'divider'
 }

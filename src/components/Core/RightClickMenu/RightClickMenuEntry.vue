@@ -1,32 +1,35 @@
 <script setup lang="ts">
-import { RightClickMenuEntryType, isClassicEntry, isSpecialEntry } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, isClassicEntry, isSpecialEntry, isDividerEntry } from '@/types/vuetorrent'
 
-const props = defineProps<RightClickMenuEntryType>()
+const props = defineProps<{
+  entryData: RightClickMenuEntryType
+}>()
 
 const onClick = () => {
-  if (isClassicEntry(props) && props.action) {
-    props.action()
+  if (isClassicEntry(props.entryData) && props.entryData.action) {
+    props.entryData.action()
   }
 }
 </script>
 
 <template>
-  <v-list-item v-if="isClassicEntry(props) && !props.hidden" class="px-3" :disabled="props.disabled" @click="onClick">
+  <v-list-item v-if="isClassicEntry(entryData) && !entryData.hidden" class="px-3" :disabled="entryData.disabled" @click="onClick">
     <div class="d-flex">
-      <v-icon class="mr-2" v-if="props.disabled && props.disabledIcon">{{ props.disabledIcon }}</v-icon>
-      <v-icon class="mr-2" v-else-if="props.icon">{{ props.icon }}</v-icon>
-      <span v-if="props.disabled && props.disabledText">{{ props.disabledText }}</span>
-      <span v-else>{{ props.text }}</span>
+      <v-icon class="mr-2" v-if="entryData.disabled && entryData.disabledIcon">{{ entryData.disabledIcon }}</v-icon>
+      <v-icon class="mr-2" v-else-if="entryData.icon">{{ entryData.icon }}</v-icon>
+      <span v-if="entryData.disabled && entryData.disabledText">{{ entryData.disabledText }}</span>
+      <span v-else>{{ entryData.text }}</span>
       <v-spacer />
-      <v-icon v-if="!props.disabled && props.children">mdi-chevron-right</v-icon>
+      <v-icon v-if="!entryData.disabled && entryData.children">mdi-chevron-right</v-icon>
     </div>
-    <v-menu v-if="props.children" activator="parent" open-on-hover open-on-click close-delay="10" open-delay="0" location="right">
+    <v-menu v-if="entryData.children" activator="parent" open-on-hover open-on-click close-delay="10" open-delay="0" location="right">
       <v-list>
-        <RightClickMenuEntry v-for="child in props.children" v-bind="child" />
+        <RightClickMenuEntry v-for="child in entryData.children" :entryData="child" />
       </v-list>
     </v-menu>
   </v-list-item>
-  <template v-if="isSpecialEntry(props)">
-    <v-divider v-if="props.type === 'divider'" />
+
+  <template v-else-if="isSpecialEntry(entryData)">
+    <v-divider v-if="isDividerEntry(entryData)" v-bind="entryData.props" />
   </template>
 </template>

@@ -96,7 +96,8 @@ function hasTag(tag: string) {
 }
 
 function openNewTagFormDialog() {
-  dialogStore.createDialog(TagFormDialog, { onSubmit: tag => torrentStore.addTorrentTags(hashes.value, [tag]) }, maindataStore.forceMaindataSync)
+  const selectedHashes = hashes.value
+  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.forceMaindataSync)
 }
 
 async function clearAllTags() {
@@ -104,7 +105,8 @@ async function clearAllTags() {
 }
 
 function openNewCategoryFormDialog() {
-  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(hashes.value, cat.name) }, maindataStore.forceMaindataSync)
+  const selectedHashes = hashes.value
+  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.forceMaindataSync)
 }
 
 async function clearCategory() {
@@ -152,13 +154,13 @@ async function exportTorrents() {
   if (ts.length === 1) {
     const t = ts[0]!
     const blob = await torrentStore.exportTorrent(t.hash)
-    downloadFile(`${t.name}.torrent`, blob)
+    downloadFile(`${ t.name }.torrent`, blob)
     return
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
   await Promise.all(
-    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob))))
+    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${ torrentStore.getTorrentByHash(hash)!.name }.torrent`, new BlobReader(blob))))
   )
   downloadFile('torrents.zip', await zipWriter.close())
 }
@@ -247,26 +249,23 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     children: [
       {
         text: t('settings.tagsAndCategories.createNewTag'),
-        action: openNewTagFormDialog,
-        icon: 'mdi-plus'
+        icon: 'mdi-plus',
+        action: openNewTagFormDialog
       },
-      ...(torrent.value?.tags.length
-        ? [
-          {
-            text: t('dashboard.right_click.tags.clear_all'),
-            action: () => clearAllTags().then(maindataStore.forceMaindataSync),
-            icon: 'mdi-playlist-remove'
-          }
-        ]
-        : []),
-      { type: 'divider' },
+      {
+        text: t('dashboard.right_click.tags.clear_all'),
+        icon: 'mdi-playlist-remove',
+        hidden: torrent.value?.tags.length === 0,
+        action: () => clearAllTags().then(maindataStore.forceMaindataSync)
+      },
+      { type: 'divider', props: { thickness: 3 } },
       ...tagStore.tags.map(tag => ({
         text: tag,
         icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
       }))
     ]
-  },
+},
   {
     text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',
@@ -285,7 +284,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         action: () => clearCategory().then(maindataStore.forceMaindataSync),
         icon: 'mdi-backspace-reverse'
       },
-      { type: 'divider' },
+      { type: 'divider', props: { thickness: 3 } },
       ...categoryStore.categories.map(category => ({
         text: category.name,
         icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
@@ -337,6 +336,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       }
     ]
   },
+  { type: 'divider' },
   {
     text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
