@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.13.3](https://github.com/VueTorrent/VueTorrent/compare/v2.13.2...v2.13.3) (2024-09-30)
+
+
+### Bug Fixes
+
+* **CI:** Prevent error while bumping version ([bd37cdb](https://github.com/VueTorrent/VueTorrent/commit/bd37cdb6bf33abd30c8036181ec7cf630fcea65c))
+
 ## [2.13.2](https://github.com/VueTorrent/VueTorrent/compare/v2.13.1...v2.13.2) (2024-09-30)
 
 
