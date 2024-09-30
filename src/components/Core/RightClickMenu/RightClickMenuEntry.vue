@@ -1,31 +1,35 @@
 <script setup lang="ts">
-import { RightClickMenuEntryType } from '@/types/vuetorrent'
+import { RightClickMenuEntryType, isClassicEntry, isSpecialEntry, isDividerEntry } from '@/types/vuetorrent'
 
-const props = defineProps<RightClickMenuEntryType>()
+const props = defineProps<{
+  entryData: RightClickMenuEntryType
+}>()
 
 const onClick = () => {
-  if (props.action) {
-    props.action()
+  if (isClassicEntry(props.entryData) && props.entryData.action) {
+    props.entryData.action()
   }
 }
 </script>
 
 <template>
-  <v-list-item class="px-3" :disabled="disabled" v-if="!hidden" @click="onClick">
+  <v-list-item v-if="isClassicEntry(entryData) && !entryData.hidden" class="px-3" :disabled="entryData.disabled" @click="onClick">
     <div class="d-flex">
-      <v-icon class="mr-2" v-if="disabled && disabledIcon">{{ disabledIcon }}</v-icon>
-      <v-icon class="mr-2" v-else-if="icon">{{ icon }}</v-icon>
-      <span v-if="disabled && disabledText">{{ disabledText }}</span>
-      <span v-else>{{ text }}</span>
+      <v-icon class="mr-2" v-if="entryData.disabled && entryData.disabledIcon">{{ entryData.disabledIcon }}</v-icon>
+      <v-icon class="mr-2" v-else-if="entryData.icon">{{ entryData.icon }}</v-icon>
+      <span v-if="entryData.disabled && entryData.disabledText">{{ entryData.disabledText }}</span>
+      <span v-else>{{ entryData.text }}</span>
       <v-spacer />
-      <v-icon v-if="!disabled && children">mdi-chevron-right</v-icon>
+      <v-icon v-if="!entryData.disabled && entryData.children">mdi-chevron-right</v-icon>
     </div>
-    <v-menu v-if="children" activator="parent" open-on-hover open-on-click close-delay="10" open-delay="0" location="right">
+    <v-menu v-if="entryData.children" activator="parent" open-on-hover open-on-click close-delay="10" open-delay="0" location="right">
       <v-list>
-        <RightClickMenuEntry v-for="child in children" v-bind="child" />
+        <RightClickMenuEntry v-for="child in entryData.children" :entryData="child" />
       </v-list>
     </v-menu>
   </v-list-item>
-</template>
 
-<style scoped></style>
+  <template v-else-if="isSpecialEntry(entryData)">
+    <v-divider v-if="isDividerEntry(entryData)" v-bind="entryData.props" />
+  </template>
+</template>

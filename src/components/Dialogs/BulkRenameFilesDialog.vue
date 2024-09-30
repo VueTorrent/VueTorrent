@@ -7,7 +7,7 @@ import { TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { computed, onMounted, reactive, readonly, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string

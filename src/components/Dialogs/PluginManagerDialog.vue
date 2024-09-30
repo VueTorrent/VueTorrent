@@ -5,7 +5,7 @@ import { useSearchEngineStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string

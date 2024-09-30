@@ -4,7 +4,7 @@ import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string

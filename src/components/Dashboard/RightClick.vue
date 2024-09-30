@@ -1,11 +1,21 @@
 <script setup lang="ts">
 import RightClickMenu from '@/components/Core/RightClickMenu'
+import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
-import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
+import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
+import {
+  useCategoryStore,
+  useDashboardStore,
+  useDialogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useTagStore,
+  useTorrentStore
+} from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
@@ -32,7 +42,6 @@ const hashes = computed(() => dashboardStore.selectedTorrents)
 const hash = computed(() => hashes.value[0])
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const torrents = computed(() => dashboardStore.selectedTorrents.map(torrentStore.getTorrentByHash).filter(torrent => !!torrent))
-const availableCategories = computed(() => ['', ...categoryStore.categories.map(cat => cat.name)])
 
 async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
@@ -86,8 +95,22 @@ function hasTag(tag: string) {
   return torrents.value.every(torrent => torrent && torrent.tags && torrent.tags.includes(tag))
 }
 
-async function removeAllTags() {
+function openNewTagFormDialog() {
+  const selectedHashes = hashes.value
+  dialogStore.createDialog(TagFormDialog, { onSubmit: tags => torrentStore.addTorrentTags(selectedHashes, tags) }, maindataStore.forceMaindataSync)
+}
+
+async function clearAllTags() {
   await torrentStore.removeTorrentTags(hashes.value)
+}
+
+function openNewCategoryFormDialog() {
+  const selectedHashes = hashes.value
+  dialogStore.createDialog(CategoryFormDialog, { onSubmit: cat => torrentStore.setTorrentCategory(selectedHashes, cat.name) }, maindataStore.forceMaindataSync)
+}
+
+async function clearCategory() {
+  await torrentStore.setTorrentCategory(hashes.value, '').then(maindataStore.forceMaindataSync)
 }
 
 async function toggleTag(tag: string) {
@@ -131,13 +154,13 @@ async function exportTorrents() {
   if (ts.length === 1) {
     const t = ts[0]!
     const blob = await torrentStore.exportTorrent(t.hash)
-    downloadFile(`${t.name}.torrent`, blob)
+    downloadFile(`${ t.name }.torrent`, blob)
     return
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
   await Promise.all(
-    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob))))
+    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${ torrentStore.getTorrentByHash(hash)!.name }.torrent`, new BlobReader(blob))))
   )
   downloadFile('torrents.zip', await zipWriter.close())
 }
@@ -224,32 +247,50 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
     children: [
-      ...(torrent.value?.tags.length
-        ? [
-            {
-              text: t('dashboard.right_click.tags.remove_all'),
-              action: () => removeAllTags().then(maindataStore.forceMaindataSync),
-              icon: 'mdi-playlist-remove'
-            }
-          ]
-        : []),
+      {
+        text: t('settings.tagsAndCategories.createNewTag'),
+        icon: 'mdi-plus',
+        action: openNewTagFormDialog
+      },
+      {
+        text: t('dashboard.right_click.tags.clear_all'),
+        icon: 'mdi-playlist-remove',
+        hidden: torrent.value?.tags.length === 0,
+        action: () => clearAllTags().then(maindataStore.forceMaindataSync)
+      },
+      { type: 'divider', props: { thickness: 3 } },
       ...tagStore.tags.map(tag => ({
         text: tag,
         icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
         action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
       }))
     ]
-  },
+},
   {
     text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',
     disabled: categoryStore.categories.length === 0,
     disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
-    children: availableCategories.value.map(category => ({
-      text: category === '' ? t('dashboard.right_click.category.clear') : category,
-      action: async () => await torrentStore.setTorrentCategory(hashes.value, category).then(maindataStore.forceMaindataSync)
-    }))
+    children: [
+      {
+        text: t('settings.tagsAndCategories.createNewCategory'),
+        action: openNewCategoryFormDialog,
+        icon: 'mdi-plus'
+      },
+      {
+        text: t('dashboard.right_click.category.clear'),
+        hidden: torrent.value?.category.length === 0,
+        action: () => clearCategory().then(maindataStore.forceMaindataSync),
+        icon: 'mdi-backspace-reverse'
+      },
+      { type: 'divider', props: { thickness: 3 } },
+      ...categoryStore.categories.map(category => ({
+        text: category.name,
+        icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
+        action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync)
+      }))
+    ]
   },
   {
     text: t('dashboard.right_click.speed_limit.title'),
@@ -295,6 +336,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       }
     ]
   },
+  { type: 'divider' },
   {
     text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',

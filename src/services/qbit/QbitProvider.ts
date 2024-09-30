@@ -551,7 +551,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async addTorrentTag(hashes: string[], tags: string[]): Promise<void> {
-    return this.torrentAction('addTags', hashes, { tags: tags.join('|') })
+    return this.torrentAction('addTags', hashes, { tags: tags.join(',') })
   }
 
   async removeTorrentTag(hashes: string[], tags?: string[]): Promise<void> {

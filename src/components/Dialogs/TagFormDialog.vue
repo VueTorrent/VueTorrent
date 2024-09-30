@@ -3,11 +3,15 @@ import { useDialog } from '@/composables'
 import { useTagStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
   initialTag?: string
+}>()
+
+const emit = defineEmits<{
+  'submit': [string[]]
 }>()
 
 const { isOpened } = useDialog(props.guid)
@@ -23,11 +27,16 @@ const tagName = ref('')
 async function submit() {
   if (!isFormValid.value) return
 
+  let tagSent
   if (!!props.initialTag) {
+    tagSent = [tagName.value]
     await tagStore.editTag(props.initialTag, tagName.value)
   } else {
-    await tagStore.createTags(tagName.value.split(','))
+    tagSent = tagName.value.split(',')
+    await tagStore.createTags(tagSent)
   }
+
+  emit('submit', tagSent)
 
   close()
 }

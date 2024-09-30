@@ -4,11 +4,15 @@ import { useCategoryStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
   initialCategory?: Category
+}>()
+
+const emit = defineEmits<{
+  'submit': [Category]
 }>()
 
 const { t } = useI18n()
@@ -32,6 +36,8 @@ async function submit() {
   } else {
     await categoryStore.createCategory(formData)
   }
+
+  emit('submit', formData)
 
   close()
 }

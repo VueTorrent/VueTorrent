@@ -169,7 +169,7 @@
         "title": "Advanced"
       },
       "category": {
-        "clear": "(Clear category)",
+        "clear": "Clear",
         "disabled_title": "No categories",
         "title": "Set category"
       },
@@ -196,7 +196,7 @@
       },
       "tags": {
         "disabled_title": "No tags",
-        "remove_all": "Remove all",
+        "clear_all": "Clear all",
         "title": "Set tags"
       },
       "top": {

@@ -3,7 +3,7 @@ import { useDialog } from '@/composables'
 import { useContentStore } from '@/stores'
 import { nextTick, onBeforeMount, reactive, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { VForm } from 'vuetify/components'
+import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
