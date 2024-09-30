@@ -13,4 +13,8 @@ export default interface SearchResult {
   nbSeeders: number
   /** URL of the torrent site */
   siteUrl: string
+  /** TODO: Engine name */
+  engineName: string
+  /** TODO: Publication date, as SecsSinceEpoch */
+  pubDate: number
 }

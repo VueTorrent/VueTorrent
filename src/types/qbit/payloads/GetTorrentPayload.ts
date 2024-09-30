@@ -5,9 +5,10 @@ export default interface GetTorrentPayload {
   filter?: FilterState
   category?: string
   tag?: string
+  hashes?: string
+  private?: boolean
   sort?: keyof QbitTorrent
   reverse?: boolean
   limit?: number
   offset?: number
-  hashes?: string
 }

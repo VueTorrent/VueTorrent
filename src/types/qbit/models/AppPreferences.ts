@@ -1,4 +1,4 @@
-import { FileLogAgeType, ResumeDataStorageType } from '@/constants/qbit/AppPreferences'
+import { FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import type {
   BitTorrentProtocol,
   ContentLayout,
@@ -344,7 +344,10 @@ export default interface AppPreferences {
   socket_send_buffer_size: number
   /** Server-side request forgery (SSRF) mitigation **/
   ssrf_mitigation: boolean
-  /** True if torrents should be added in a Paused state */
+  /**
+   * True if torrents should be added in a Paused state
+   * @deprecated since 5.X, replaced by `add_stopped_enabled`
+   */
   start_paused_enabled: boolean
   /** Timeout in seconds for a stopped announce request to trackers */
   stop_tracker_timeout: number
@@ -418,6 +421,29 @@ export default interface AppPreferences {
   web_ui_use_custom_http_headers_enabled: boolean
   /** WebUI username */
   web_ui_username: string
+
+  /** TODO: Should qBittorrent listen on ssl ports */
+  ssl_enabled: boolean
+  /** TODO: SSL port to use when `ssl_enabled` is enabled */
+  ssl_listen_port: number
+  /** TODO: Which action will be taken when removing torrent content */
+  torrent_content_remove_option: TorrentContentRemoveOption
+  /** TODO: Whether to move unwanted files to a separate folder */
+  use_unwanted_folder: boolean
+  /** TODO: Self-explanatory, in seconds */
+  rss_fetch_delay: number
+  /** TODO: Delete torrent contents files on torrent removal, for WebUI */
+  delete_torrent_content_files: boolean
+  /** TODO: True if torrents should be added in a Stopped state */
+  add_stopped_enabled: boolean
+  /** TODO: qBittorrent instance name */
+  app_instance_name: string
+  /** TODO: Should the MotW be enabled and handled by qBittorrent */
+  mark_of_the_web: boolean
+  /** TODO: Custom Python executable path, for search engines */
+  python_executable_path: string
+  /** TODO: Backup nodes to use if unknown */
+  dht_bootstrap_nodes: string
 }
 
 /** Preferences extension from Enhanced qBittorrent edition */

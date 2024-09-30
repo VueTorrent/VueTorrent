@@ -23,8 +23,9 @@ export enum TorrentState {
   UPLOADING = 'uploading',
   /** Torrent is being seeded, but no connection were made */
   STALLED_UP = 'stalledUP',
-  /** Torrent is paused and has finished downloading
-   * @deprecated since 5.X, use STOPPED_UP instead
+  /**
+   * Torrent is paused and has finished downloading
+   * @deprecated since 5.X, use `STOPPED_UP` instead
    */
   PAUSED_UP = 'pausedUP',
   /** Torrent is paused and has finished downloading */

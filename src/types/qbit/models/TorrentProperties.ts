@@ -19,13 +19,19 @@ export default interface TorrentProperties {
   download_path: string
   /** Torrent ETA (seconds), similar to `eta` */
   eta: number
+  /**
+   * TODO: Whether torrent metadata has been downloaded, only use ful for magnet links
+   */
+  has_metadata: boolean
   /** Torrent hash, similar to `hash` */
   hash: string
   /** Torrent Infohash V1, similar to `infohash_v1` */
   infohash_v1: string
   /** Torrent Infohash V2, similar to `infohash_v2` */
   infohash_v2: string
-  /** Whether torrent is private or not */
+  /**
+   * Whether torrent is private or not
+   * @deprecated since 5.X, use private instead */
   is_private: boolean
   /** Last seen complete date (unix timestamp), similar to `seen_complete` */
   last_seen: number
@@ -45,6 +51,12 @@ export default interface TorrentProperties {
   pieces_have: number
   /** Number of pieces of the torrent */
   pieces_num: number
+  /**
+   * TODO: Torrent popularity
+   */
+  popularity: number
+  /** Whether torrent is private or not */
+  private: boolean
   /** Number of seconds until the next announce */
   reannounce: number
   /** Torrent save path, similar to `save_path` */

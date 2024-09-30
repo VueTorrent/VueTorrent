@@ -10,14 +10,25 @@ import {
   SearchJob,
   SearchPlugin,
   SearchStatus,
+  SSLParameters,
+  TorrentCreatorParams,
+  TorrentCreatorTask,
   TorrentFile,
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
+import {
+  AddTorrentPayload,
+  AppPreferencesPayload,
+  CreateFeedPayload,
+  GetTorrentPayload,
+  LoginPayload
+} from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { AxiosResponse } from 'axios'
+
+// TODO: git diff release-4.6.7..release-5.0.0 -- src\webui\api
 
 export default interface IProvider {
   /// AppController ///
@@ -53,6 +64,22 @@ export default interface IProvider {
    * @param iface Network interface name
    */
   getAddresses(iface: string): Promise<string[]>
+
+  /**
+   * TODO: Sends a test email with the current configuration
+   */
+  sendTestEmail(): Promise<void>
+
+  /**
+   * TODO: Returns a list of absolute paths on the server at the designed path
+   * @param dirPath Absolute path to list from
+   * @param mode Applies path type filter on the returned list
+   * @throws 400 on empty path
+   * @throws 400 if it starts with a colon (:)
+   * @throws 400 if the path isn't absolute
+   * @throws 404 if directory doesn't exists
+   */
+  getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[]>
 
   /// AuthController ///
 
@@ -219,6 +246,13 @@ export default interface IProvider {
    */
   updateSearchPlugins(): Promise<void>
 
+  /**
+   * TODO: Downloads a torrent using the corresponding search plugin
+   * @param torrentUrl URL of torrent to download, can be a magnet link
+   * @param pluginName name of the plugin which will be in charge of downloading the torrent
+   */
+  downloadTorrent(torrentUrl: string, pluginName: string): Promise<void>
+
   /// SyncController ///
 
   /**
@@ -233,6 +267,35 @@ export default interface IProvider {
    * @param rid Request ID
    */
   syncTorrentPeers(hash: string, rid?: number): Promise<TorrentPeersResponse>
+
+  /// TorrentCreatorController //
+
+  /**
+   * TODO: Creates a torrent creator task
+   * @param taskParams Task parameters
+   */
+  addTask(taskParams: TorrentCreatorParams): Promise<string>
+
+  /**
+   * TODO: Returns torrent creator task
+   * If taskID is specified, returns a single task
+   * If not specified, will return all registered tasks
+   * @param taskID
+   */
+  status(taskID?: string): Promise<TorrentCreatorTask[]>
+
+  /**
+   * TODO: Retrieves the generated torrent file
+   * Available only when task is finished
+   * @param taskID
+   */
+  torrentFile(taskID: string): Promise<Blob>
+
+  /**
+   * TODO: Deletes a registered torrent creator task
+   * @param taskID
+   */
+  deleteTask(taskID: string): Promise<boolean>
 
   /// TorrentsController ///
 
@@ -305,12 +368,14 @@ export default interface IProvider {
   /**
    * Pause all torrents
    * @param hashes Torrent hashes
+   * TODO: changed from '/pause' to '/stop' in 5.X
    */
   pauseTorrents(hashes: string[]): Promise<void>
 
   /**
    * Resume all torrents
    * @param hashes Torrent hashes
+   * TODO: changed from '/resume' to '/start' in 5.X
    */
   resumeTorrents(hashes: string[]): Promise<void>
 
@@ -359,6 +424,11 @@ export default interface IProvider {
    * @param limit Upload limit
    */
   setUploadLimit(hashes: string[], limit: number): Promise<void>
+
+  /**
+   * TODO: Returns the current torrent count registered in the libtorrent session
+   */
+  count(): Promise<number>
 
   /// TransferController ///
 
@@ -510,6 +580,12 @@ export default interface IProvider {
    * @param hash Torrent hash
    */
   exportTorrent(hash: string): Promise<Blob>
+
+  /** TODO */
+  SSLParameters(hash: string): Promise<SSLParameters>
+
+  /** TODO */
+  setSSLParameters(hash: string, params: SSLParameters): Promise<boolean>
 
   /// TransferController ///
 

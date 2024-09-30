@@ -3,8 +3,12 @@ export enum FilterState {
   DOWNLOADING = 'downloading',
   SEEDING = 'seeding',
   COMPLETED = 'completed',
-  RESUMED = 'resumed',
+  /** @deprecated since 5.X, use stopped instead */
   PAUSED = 'paused',
+  STOPPED = 'stopped',
+  /** @deprecated since 5.X, use running instead */
+  RESUMED = 'resumed',
+  RUNNING = 'running',
   ACTIVE = 'active',
   INACTIVE = 'inactive',
   STALLED = 'stalled',
