@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.13.2](https://github.com/VueTorrent/VueTorrent/compare/v2.13.1...v2.13.2) (2024-09-30)
+
+
+### Bug Fixes
+
+* **RSS:** Fix mark as read on single article ([#1921](https://github.com/VueTorrent/VueTorrent/issues/1921)) ([9d57671](https://github.com/VueTorrent/VueTorrent/commit/9d57671963470def71fcd74dc2a74a3803458ecd))
+
+
+### Improvements
+
+* **RightClick:** Add "create" entries for tags / category ([#1927](https://github.com/VueTorrent/VueTorrent/issues/1927)) ([1b99541](https://github.com/VueTorrent/VueTorrent/commit/1b9954123ac5170118a114f0b9e8cf95e1411fad))
+
 ## [2.13.1](https://github.com/VueTorrent/VueTorrent/compare/v2.13.0...v2.13.1) (2024-09-22)
 
 ### Bug Fixes
