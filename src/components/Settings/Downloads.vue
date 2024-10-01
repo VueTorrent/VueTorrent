@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
+import { useAppStore, usePreferenceStore } from '@/stores'
 import { nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
 const { t } = useI18n()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const contentLayoutOptions = [
@@ -139,6 +141,12 @@ const closeDeleteDialog = async () => {
   await nextTick()
   monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
   monitoredFoldersEditedIndex.value = -1
+}
+
+async function sendTestEmail() {
+  appStore.sendTestEmail()
+    .then(() => toast.success(t('settings.downloads.mailNotification.test.success')))
+    .catch(err => toast.error(t('settings.downloads.mailNotification.test.error', { message: err.message })))
 }
 </script>
 
@@ -395,6 +403,10 @@ const closeDeleteDialog = async () => {
             @click:append="showPassword = !showPassword" />
         </v-col>
       </v-row>
+    </v-list-item>
+
+    <v-list-item v-if="appStore.version >= '5.0.0'">
+      <v-btn color="primary" @click="sendTestEmail">{{ t('settings.downloads.mailNotification.test.label') }}</v-btn>
     </v-list-item>
 
     <v-divider />

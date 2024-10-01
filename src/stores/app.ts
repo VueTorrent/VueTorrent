@@ -43,12 +43,17 @@ export const useAppStore = defineStore('app', () => {
     return await qbit.shutdownApp()
   }
 
+  async function sendTestEmail() {
+    return await qbit.sendTestEmail()
+  }
+
   return {
     isAuthenticated,
     version,
     fetchAuthStatus,
     setAuthStatus,
     shutdownQbit,
+    sendTestEmail,
     login,
     logout,
     toggleAlternativeMode,

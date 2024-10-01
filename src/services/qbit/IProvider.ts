@@ -28,8 +28,6 @@ import {
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { AxiosResponse } from 'axios'
 
-// TODO: git diff release-4.6.7..release-5.0.0 -- src\webui\api
-
 export default interface IProvider {
   /// AppController ///
 
@@ -66,7 +64,7 @@ export default interface IProvider {
   getAddresses(iface: string): Promise<string[]>
 
   /**
-   * TODO: Sends a test email with the current configuration
+   * Sends a test email with the current configuration
    */
   sendTestEmail(): Promise<void>
 

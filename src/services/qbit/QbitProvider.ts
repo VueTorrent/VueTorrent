@@ -111,6 +111,10 @@ export default class QBitProvider implements IProvider {
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
   }
 
+  async sendTestEmail(): Promise<void> {
+    return this.axios.post('/app/sendTestEmail')
+  }
+
   /// AuthController ///
 
   async login(params: LoginPayload): Promise<AxiosResponse<string, string>> {

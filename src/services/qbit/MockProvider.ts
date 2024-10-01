@@ -391,6 +391,10 @@ export default class MockProvider implements IProvider {
     }
   }
 
+  async sendTestEmail(): Promise<void> {
+    return this.generateResponse()
+  }
+
   /// AuthController ///
 
   async login(_: LoginPayload): Promise<AxiosResponse<string, string>> {

@@ -840,6 +840,11 @@
         "password": "Password",
         "smtpServer": "SMTP server",
         "sslEnabled": "This server requires a secure connection (SSL)",
+        "test": {
+          "error": "Email request failed\n{message}",
+          "label": "Send test email",
+          "success": "Email request sent!\nCheck your inbox to confirm success"
+        },
         "to": "To",
         "username": "Username"
       },
