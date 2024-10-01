@@ -4,7 +4,7 @@ import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
-import { useAddTorrentStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
+import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -15,15 +15,16 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const { t } = useI18n()
 const addTorrentStore = useAddTorrentStore()
+const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
+const { searchData } = storeToRefs(searchEngineStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const queryInput = ref<typeof HistoryField>()
 
 const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
-const { searchData } = storeToRefs(searchEngineStore)
 
 const headers = [
   { title: t('searchEngine.headers.fileName'), key: 'fileName' },
@@ -81,7 +82,11 @@ function deleteTab() {
 }
 
 function downloadTorrent(result: SearchResult) {
-  addTorrentStore.pushTorrentToQueue(result.fileUrl)
+  if (appStore.version >= '5.0.0') {
+    searchEngineStore.downloadTorrent(result.fileUrl, result.engineName)
+  } else {
+    addTorrentStore.pushTorrentToQueue(result.fileUrl)
+  }
 }
 
 function openLink(result: SearchResult) {
@@ -250,7 +255,7 @@ onBeforeUnmount(() => {
           </template>
           <template v-slot:[`item.actions`]="{ item }">
             <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
-            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)"></v-btn>
+            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)" />
           </template>
         </v-data-table>
       </v-list-item>

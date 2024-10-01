@@ -1031,6 +1031,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async downloadTorrentWithSearchPlugin(_0: string, _1: string): Promise<void> {
+    return this.generateResponse()
+  }
+
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {

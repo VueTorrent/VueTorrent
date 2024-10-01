@@ -245,11 +245,11 @@ export default interface IProvider {
   updateSearchPlugins(): Promise<void>
 
   /**
-   * TODO: Downloads a torrent using the corresponding search plugin
+   * Downloads a torrent using the corresponding search plugin
    * @param torrentUrl URL of torrent to download, can be a magnet link
    * @param pluginName name of the plugin which will be in charge of downloading the torrent
    */
-  downloadTorrent(torrentUrl: string, pluginName: string): Promise<void>
+  downloadTorrentWithSearchPlugin(torrentUrl: string, pluginName: string): Promise<void>
 
   /// SyncController ///
 

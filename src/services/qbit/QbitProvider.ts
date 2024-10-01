@@ -313,6 +313,10 @@ export default class QBitProvider implements IProvider {
     return this.post('/search/updatePlugins')
   }
 
+  async downloadTorrentWithSearchPlugin(torrentUrl: string, pluginName: string): Promise<void> {
+    return this.post('/search/downloadTorrent', { torrentUrl, pluginName })
+  }
+
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
