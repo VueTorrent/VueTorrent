@@ -121,9 +121,9 @@ export default class MockProvider implements IProvider {
   }
 
   private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean; delay?: number }): Promise<T> {
-    const result = options?.result === undefined ? undefined : options.result
-    const shouldResolve = options?.shouldResolve === undefined ? true : options.shouldResolve
-    const delay = options?.delay === undefined ? 0 : options.delay
+    const result = options?.result
+    const shouldResolve = options?.shouldResolve ?? true
+    const delay = options?.delay ?? 0
 
     if (delay > 0) {
       return new Promise<T>((resolve, reject) => setTimeout(() => (shouldResolve ? resolve(result!) : reject(result)), delay))
