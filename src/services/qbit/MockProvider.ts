@@ -1371,7 +1371,15 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async stopTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
   async resumeTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async startTorrents(_: string[]): Promise<void> {
     return this.generateResponse()
   }
 

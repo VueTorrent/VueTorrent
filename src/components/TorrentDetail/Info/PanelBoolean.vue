@@ -24,7 +24,7 @@ const forced = computed({
   get: () => props.torrent.forced,
   set: value => {
     if (value) {
-      torrentStore.forceResumeTorrents([props.torrent.hash])
+      torrentStore.forceStartTorrents([props.torrent.hash])
     } else {
       torrentStore.resumeTorrents([props.torrent.hash])
     }

@@ -434,8 +434,16 @@ export default class QBitProvider implements IProvider {
     return this.torrentAction('pause', hashes)
   }
 
+  async stopTorrents(hashes: string[]): Promise<void> {
+    return this.torrentAction('stop', hashes)
+  }
+
   async resumeTorrents(hashes: string[]): Promise<void> {
     return this.torrentAction('resume', hashes)
+  }
+
+  async startTorrents(hashes: string[]): Promise<void> {
+    return this.torrentAction('start', hashes)
   }
 
   async forceStartTorrents(hashes: string[]): Promise<void> {

@@ -47,8 +47,8 @@ async function resumeTorrents() {
   await torrentStore.resumeTorrents(hashes)
 }
 
-async function forceResumeTorrents() {
-  await torrentStore.forceResumeTorrents(hashes)
+async function forceStartTorrents() {
+  await torrentStore.forceStartTorrents(hashes)
 }
 
 async function pauseTorrents() {
@@ -366,7 +366,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
-                <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceResumeTorrents" />
+                <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceStartTorrents" />
               </template>
               <span>{{ $t('dashboard.right_click.top.force_resume') }}</span>
             </v-tooltip>

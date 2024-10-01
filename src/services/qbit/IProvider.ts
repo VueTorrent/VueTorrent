@@ -364,18 +364,30 @@ export default interface IProvider {
   deleteTorrents(hashes: string[], deleteFiles: boolean): Promise<void>
 
   /**
-   * Pause all torrents
+   * Pause torrents
    * @param hashes Torrent hashes
-   * TODO: changed from '/pause' to '/stop' in 5.X
+   * @deprecated since 5.X, use `stopTorrents` instead
    */
   pauseTorrents(hashes: string[]): Promise<void>
 
   /**
-   * Resume all torrents
+   * Stop torrents
    * @param hashes Torrent hashes
-   * TODO: changed from '/resume' to '/start' in 5.X
+   */
+  stopTorrents(hashes: string[]): Promise<void>
+
+  /**
+   * Resume torrents
+   * @param hashes Torrent hashes
+   * @deprecated since 5.X, use `startTorrents` instead
    */
   resumeTorrents(hashes: string[]): Promise<void>
+
+  /**
+   * Start torrents
+   * @param hashes Torrent hashes
+   */
+  startTorrents(hashes: string[]): Promise<void>
 
   /**
    * Force start torrents
