@@ -474,6 +474,10 @@ export default class QBitProvider implements IProvider {
     return this.torrentAction('setUploadLimit', hashes, { limit })
   }
 
+  async getTorrentsCount(): Promise<number> {
+    return this.axios.get('/torrents/count').then(res => res.data)
+  }
+
   async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
     return this.torrentAction('setShareLimits', hashes, {
       ratioLimit,

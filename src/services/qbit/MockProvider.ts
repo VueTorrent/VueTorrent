@@ -1411,6 +1411,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async getTorrentsCount(): Promise<number> {
+    return this.generateResponse({ result: MockProvider.hashes.length })
+  }
+
   async setShareLimit(_0: string[], _1: number, _2: number, _3: number): Promise<void> {
     return this.generateResponse()
   }

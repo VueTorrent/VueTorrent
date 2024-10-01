@@ -436,9 +436,9 @@ export default interface IProvider {
   setUploadLimit(hashes: string[], limit: number): Promise<void>
 
   /**
-   * TODO: Returns the current torrent count registered in the libtorrent session
+   * Returns the current torrent count registered in the libtorrent session
    */
-  count(): Promise<number>
+  getTorrentsCount(): Promise<number>
 
   /// TransferController ///
 
