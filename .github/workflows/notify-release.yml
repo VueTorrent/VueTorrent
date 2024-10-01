@@ -2,16 +2,18 @@ name: Notify Discord webhook of stable releases
 on:
   release:
     types:
-    - published
+    - released
 
 jobs:
-  github-releases-to-discord:
+  release-to-discord:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Github Releases To Discord
-        uses: SethCohen/github-releases-to-discord@v1.15.0
+      - name: Send release to Discord Webhook
+        uses: VueTorrent/release-to-discord@v1
         with:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
