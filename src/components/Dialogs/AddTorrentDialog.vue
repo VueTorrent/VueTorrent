@@ -58,6 +58,7 @@ function submit() {
     firstLastPiecePrio: form.value.firstLastPiecePrio,
     inactiveSeedingTimeLimit: addTorrentParams.value.inactive_seeding_time_limit,
     paused: addTorrentParams.value.stopped,
+    stopped: addTorrentParams.value.stopped,
     ratioLimit: addTorrentParams.value.ratio_limit,
     rename: form.value.rename,
     savepath: addTorrentParams.value.save_path,

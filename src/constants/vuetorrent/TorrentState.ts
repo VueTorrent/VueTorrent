@@ -3,14 +3,14 @@ import { TorrentState as QbitTorrentState } from '../qbit/TorrentState'
 export enum TorrentState {
   /** Unknown status */
   UNKNOWN,
-  /** Some error occurred, applies to paused torrents */
+  /** Some error occurred, applies to stopped torrents */
   ERROR,
   /** Torrent data files is missing */
   MISSING_FILES,
-  /** Torrent is paused and has NOT finished downloading */
-  DL_PAUSED,
-  /** Torrent is paused and has finished downloading */
-  UL_PAUSED,
+  /** Torrent is stopped and has NOT finished downloading */
+  DL_STOPPED,
+  /** Torrent is stopped and has finished downloading */
+  UL_STOPPED,
   /** Torrent has just started downloading and is fetching metadata */
   META_DOWNLOAD,
   /** Torrent is forced to fetch metadata */
@@ -54,7 +54,7 @@ export function stateQbitToVt(state: QbitTorrentState): TorrentState {
       return TorrentState.DL_STALLED
     case QbitTorrentState.PAUSED_DL:
     case QbitTorrentState.STOPPED_DL:
-      return TorrentState.DL_PAUSED
+      return TorrentState.DL_STOPPED
     case QbitTorrentState.QUEUED_DL:
       return TorrentState.DL_QUEUED
     case QbitTorrentState.FORCED_UP:
@@ -65,7 +65,7 @@ export function stateQbitToVt(state: QbitTorrentState): TorrentState {
       return TorrentState.UL_STALLED
     case QbitTorrentState.PAUSED_UP:
     case QbitTorrentState.STOPPED_UP:
-      return TorrentState.UL_PAUSED
+      return TorrentState.UL_STOPPED
     case QbitTorrentState.QUEUED_UP:
       return TorrentState.UL_QUEUED
     case QbitTorrentState.CHECKING_DL:
@@ -97,7 +97,7 @@ export function stateVtToQbit(state: TorrentState): QbitTorrentState {
       return QbitTorrentState.DOWNLOADING
     case TorrentState.DL_STALLED:
       return QbitTorrentState.STALLED_DL
-    case TorrentState.DL_PAUSED:
+    case TorrentState.DL_STOPPED:
       return QbitTorrentState.STOPPED_DL
     case TorrentState.DL_QUEUED:
       return QbitTorrentState.QUEUED_DL
@@ -107,7 +107,7 @@ export function stateVtToQbit(state: TorrentState): QbitTorrentState {
       return QbitTorrentState.UPLOADING
     case TorrentState.UL_STALLED:
       return QbitTorrentState.STALLED_UP
-    case TorrentState.UL_PAUSED:
+    case TorrentState.UL_STOPPED:
       return QbitTorrentState.STOPPED_UP
     case TorrentState.UL_QUEUED:
       return QbitTorrentState.QUEUED_UP

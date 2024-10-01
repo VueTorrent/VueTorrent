@@ -70,8 +70,8 @@ function selectOffline() {
     TorrentState.MISSING_FILES,
     TorrentState.UNKNOWN,
     TorrentState.MOVING,
-    TorrentState.DL_PAUSED,
-    TorrentState.UL_PAUSED,
+    TorrentState.DL_STOPPED,
+    TorrentState.UL_STOPPED,
     TorrentState.CHECKING_DISK,
     TorrentState.CHECKING_RESUME_DATA
   ]

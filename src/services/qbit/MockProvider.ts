@@ -147,6 +147,7 @@ export default class MockProvider implements IProvider {
         // customize_trackers_list_url: 'http://example.com/',
         // public_trackers: 'http://example.com/\nhttp://example.com/',
 
+        add_stopped_enabled: false,
         add_to_top_of_queue: false,
         add_trackers: '',
         add_trackers_enabled: false,

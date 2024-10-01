@@ -27,7 +27,7 @@ export default interface AddTorrentParams {
   skip_checking?: boolean
   /** Overrides the default value of the torrent stop condition */
   stop_condition?: StopCondition
-  /** Whether this torrent should be added in paused state */
+  /** Whether this torrent should be added in stopped state */
   stopped?: boolean
   /** List of torrent tags */
   tags?: string[]
@@ -50,7 +50,7 @@ export function getEmptyParams(prefs?: AppPreferences): AddTorrentParams {
     upload_limit: prefs?.up_limit,
     use_download_path: !!prefs?.temp_path,
     download_path: !!prefs?.temp_path ? prefs?.temp_path : '',
-    stopped: prefs?.start_paused_enabled,
+    stopped: prefs?.add_stopped_enabled ?? prefs?.start_paused_enabled,
     use_auto_tmm: prefs?.auto_tmm_enabled,
     ratio_limit: -2,
     seeding_time_limit: -2,

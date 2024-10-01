@@ -8,7 +8,7 @@ export interface LegacyFeedRule {
   /** Torrent category
    * @deprecated since v4.6.0 */
   assignedCategory?: string
-  /** Torrent paused state
+  /** Torrent stopped state
    * @deprecated since v4.6.0 */
   addPaused?: boolean
   /** Torrent content layout

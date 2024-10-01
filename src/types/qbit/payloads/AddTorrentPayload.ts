@@ -27,7 +27,7 @@ export default interface AddTorrentPayload {
    */
   inactiveSeedingTimeLimit?: number
   /**
-   * Add torrents in the paused state
+   * Add torrents in the stopped state
    * @deprecated since 5.X, use stopped instead
    */
   paused?: boolean

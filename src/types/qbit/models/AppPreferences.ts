@@ -345,7 +345,7 @@ export default interface AppPreferences {
   /** Server-side request forgery (SSRF) mitigation **/
   ssrf_mitigation: boolean
   /**
-   * True if torrents should be added in a Paused state
+   * True if torrents should be added in a stopped state
    * @deprecated since 5.X, replaced by `add_stopped_enabled`
    */
   start_paused_enabled: boolean
