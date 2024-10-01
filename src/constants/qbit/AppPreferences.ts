@@ -28,10 +28,9 @@ export enum FileLogAgeType {
   YEARS
 }
 
-export enum MaxRatioAction {
+export enum ShareLimitAction {
   DEFAULT = -1,
-  // TODO: Rename to STOP
-  PAUSE_TORRENT = 0,
+  STOP_TORRENT = 0,
   REMOVE_TORRENT = 1,
   ENABLE_SUPERSEEDING = 2,
   REMOVE_TORRENT_AND_FILES = 3,

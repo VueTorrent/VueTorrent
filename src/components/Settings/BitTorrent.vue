@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Encryption, MaxRatioAction } from '@/constants/qbit/AppPreferences'
+import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -13,10 +13,10 @@ const encyptionModeOptions = ref([
   { title: t('constants.encryption.forceOff'), value: Encryption.FORCE_OFF }
 ])
 const thenTypes = ref([
-  { title: t('constants.maxRatioAction.pauseTorrent'), value: MaxRatioAction.PAUSE_TORRENT },
-  { title: t('constants.maxRatioAction.removeTorrent'), value: MaxRatioAction.REMOVE_TORRENT },
-  { title: t('constants.maxRatioAction.removeTorrentAndFiles'), value: MaxRatioAction.REMOVE_TORRENT_AND_FILES },
-  { title: t('constants.maxRatioAction.torrentSuperseeding'), value: MaxRatioAction.ENABLE_SUPERSEEDING }
+  { title: t('constants.shareLimitAction.stopTorrent'), value: ShareLimitAction.STOP_TORRENT },
+  { title: t('constants.shareLimitAction.removeTorrent'), value: ShareLimitAction.REMOVE_TORRENT },
+  { title: t('constants.shareLimitAction.removeTorrentAndFiles'), value: ShareLimitAction.REMOVE_TORRENT_AND_FILES },
+  { title: t('constants.shareLimitAction.torrentSuperseeding'), value: ShareLimitAction.ENABLE_SUPERSEEDING }
 ])
 </script>
 

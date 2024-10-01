@@ -77,8 +77,8 @@
       "conjunctive": "Conjunctive filtering (AND)",
       "disjunctive": "Disjunctive filtering (OR)"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pause torrent",
+    "shareLimitAction": {
+      "stopTorrent": "Stop torrent",
       "removeTorrent": "Remove torrent",
       "removeTorrentAndFiles": "Remove torrent and its files",
       "torrentSuperseeding": "Enable super seeding for torrent"

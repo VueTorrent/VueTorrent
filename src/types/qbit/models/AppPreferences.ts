@@ -4,7 +4,7 @@ import type {
   ContentLayout,
   DynDnsService,
   Encryption,
-  MaxRatioAction,
+  ShareLimitAction,
   ProxyType,
   ScanDirs,
   SchedulerDays,
@@ -221,7 +221,7 @@ export default interface AppPreferences {
   /** Get the global share ratio limit */
   max_ratio: number
   /** Action performed when a torrent reaches the maximum share ratio. See list of possible values here below. */
-  max_ratio_act: MaxRatioAction
+  max_ratio_act: ShareLimitAction
   /** True if share ratio limit is enabled */
   max_ratio_enabled: boolean
   /** Number of minutes to seed a torrent */

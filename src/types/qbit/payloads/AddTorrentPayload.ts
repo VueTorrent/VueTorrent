@@ -1,4 +1,4 @@
-import { ContentLayout, MaxRatioAction, StopCondition } from '@/constants/qbit/AppPreferences'
+import { ContentLayout, ShareLimitAction, StopCondition } from '@/constants/qbit/AppPreferences'
 
 export default interface AddTorrentPayload {
   /** Whether to add the torrent at the top of the queue */
@@ -45,7 +45,7 @@ export default interface AddTorrentPayload {
   /** Enable sequential download */
   sequentialDownload?: boolean
   /** TODO */
-  shareLimitAction?: MaxRatioAction
+  shareLimitAction?: ShareLimitAction
   /** Skip hash checking */
   skip_checking?: boolean
   /** TODO */
