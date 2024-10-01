@@ -3,7 +3,7 @@ import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { formatData } from '@/helpers'
+import { formatData, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin, SearchResult } from '@/types/qbit/models'
 import { SearchData } from '@/types/vuetorrent'
@@ -26,14 +26,19 @@ const queryInput = ref<typeof HistoryField>()
 const pluginManagerDialogVisible = ref(false)
 const tabIndex = ref(0)
 
-const headers = [
+const headers = computed(() => [
   { title: t('searchEngine.headers.fileName'), key: 'fileName' },
   { title: t('searchEngine.headers.fileSize'), key: 'fileSize' },
   { title: t('searchEngine.headers.nbSeeders'), key: 'nbSeeders' },
   { title: t('searchEngine.headers.nbLeechers'), key: 'nbLeechers' },
-  { title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' },
+  ...(appStore.version >= '5.0.0'
+    ? [
+      { title: t('searchEngine.headers.engineName'), key: 'engineName' },
+      { title: t('searchEngine.headers.pubDate'), key: 'pubDate' },
+    ]
+    : [{ title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' }]),
   { title: '', key: 'actions', sortable: false }
-]
+])
 const categories = [
   { title: t('searchEngine.filters.category.movies'), value: 'movies' },
   { title: t('searchEngine.filters.category.tv'), value: 'tv' },
@@ -253,6 +258,9 @@ onBeforeUnmount(() => {
           <template v-slot:[`item.fileSize`]="{ item }">
             {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
           </template>
+          <template v-slot:[`item.pubDate`]="{ value }">
+            {{ formatTimeSec(value, vuetorrentStore.dateFormat) }}
+          </template>
           <template v-slot:[`item.actions`]="{ item }">
             <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
             <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)" />
@@ -262,5 +270,3 @@ onBeforeUnmount(() => {
     </v-list>
   </div>
 </template>
-
-<style scoped></style>

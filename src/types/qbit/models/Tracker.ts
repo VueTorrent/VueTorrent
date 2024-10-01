@@ -1,6 +1,5 @@
 import type { TrackerStatus } from '@/constants/qbit'
 
-// TODO: check model
 export default interface Tracker {
   /** Tracker message (there is no way of knowing what this message is - it's up to tracker admins) */
   msg: string

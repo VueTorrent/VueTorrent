@@ -627,10 +627,12 @@
       }
     },
     "headers": {
+      "engineName": "Engine Name",
       "fileName": "Filename",
       "fileSize": "File Size",
       "nbLeechers": "Leechers",
       "nbSeeders": "Seeders",
+      "pubDate": "Publication Date",
       "siteUrl": "Site URL"
     },
     "query": "Search query",

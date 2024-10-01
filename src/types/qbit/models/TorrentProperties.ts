@@ -20,7 +20,7 @@ export default interface TorrentProperties {
   /** Torrent ETA (seconds), similar to `eta` */
   eta: number
   /**
-   * TODO: Whether torrent metadata has been downloaded, only use ful for magnet links
+   * TODO: Whether torrent metadata has been downloaded, only useful for magnet links
    */
   has_metadata: boolean
   /** Torrent hash, similar to `hash` */

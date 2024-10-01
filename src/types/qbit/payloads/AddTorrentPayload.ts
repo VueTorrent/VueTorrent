@@ -56,9 +56,7 @@ export default interface AddTorrentPayload {
   ssl_private_key?: string
   /** Torrent stop condition */
   stopCondition?: StopCondition
-  /**
-   * TODO: Add torrents in the stopped state
-   */
+  /** Add torrents in the stopped state */
   stopped?: boolean
   /** Tags for the torrent, split by ',' */
   tags?: string
