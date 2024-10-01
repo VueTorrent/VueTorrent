@@ -50,5 +50,5 @@ export default interface TorrentCreatorTask {
   /** TODO: Task error message if failed */
   errorMessage?: string
   /** TODO: Task progress, only if status === RUNNING */
-  progress: number
+  progress?: number
 }

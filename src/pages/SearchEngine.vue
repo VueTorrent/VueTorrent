@@ -88,7 +88,7 @@ function deleteTab() {
 
 function downloadTorrent(result: SearchResult) {
   if (appStore.version >= '5.0.0') {
-    searchEngineStore.downloadTorrent(result.fileUrl, result.engineName)
+    searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!)
   } else {
     addTorrentStore.pushTorrentToQueue(result.fileUrl)
   }
