@@ -22,7 +22,7 @@ export default interface TorrentProperties {
   /**
    * TODO: Whether torrent metadata has been downloaded, only useful for magnet links
    */
-  has_metadata: boolean
+  has_metadata?: boolean
   /** Torrent hash, similar to `hash` */
   hash: string
   /** Torrent Infohash V1, similar to `infohash_v1` */
@@ -32,7 +32,7 @@ export default interface TorrentProperties {
   /**
    * Whether torrent is private or not
    * @deprecated since 5.X, use private instead */
-  is_private: boolean
+  is_private?: boolean
   /** Last seen complete date (unix timestamp), similar to `seen_complete` */
   last_seen: number
   /** Torrent name, similar to `name` */
@@ -54,9 +54,9 @@ export default interface TorrentProperties {
   /**
    * TODO: Torrent popularity
    */
-  popularity: number
+  popularity?: number
   /** Whether torrent is private or not */
-  private: boolean
+  private?: boolean
   /** Number of seconds until the next announce */
   reannounce: number
   /** Torrent save path, similar to `save_path` */

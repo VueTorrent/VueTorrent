@@ -76,7 +76,7 @@ export interface RawTorrent {
   /** TODO: Seconds until next tracker reannounce */
   reannounce?: number
   /** TODO */
-  root_path: string
+  root_path?: string
   /** Path where this torrent's data is stored */
   save_path: string
   /** Torrent elapsed time while complete (seconds) */
