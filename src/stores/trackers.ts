@@ -26,7 +26,16 @@ export const useTrackerStore = defineStore('trackers', () => {
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, string[]][], removed?: string[]) {
     if (fullUpdate) {
-      _trackerMap.value = new Map(entries.map(([k, v]) => [extractHostname(k), v]))
+      _trackerMap.value.clear()
+      entries.forEach(([k, v]) => {
+        const hostname = extractHostname(k)
+        const entry = _trackerMap.value.get(hostname)
+        if (entry) {
+          entry.push(...v)
+        } else {
+          _trackerMap.value.set(hostname, v)
+        }
+      })
       return
     }
 
