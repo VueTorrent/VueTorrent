@@ -423,27 +423,44 @@ export default interface AppPreferences {
   web_ui_username: string
 
   /** TODO: Should qBittorrent listen on ssl ports */
-  ssl_enabled: boolean
+  ssl_enabled?: boolean
   /** TODO: SSL port to use when `ssl_enabled` is enabled */
-  ssl_listen_port: number
-  /** TODO: Which action will be taken when removing torrent content */
-  torrent_content_remove_option: TorrentContentRemoveOption
-  /** TODO: Whether to move unwanted files to a separate folder */
-  use_unwanted_folder: boolean
+  ssl_listen_port?: number
+  /** Which action will be taken when removing torrent content */
+  torrent_content_remove_option?: TorrentContentRemoveOption
+  /** Whether to move unwanted files to a separate folder */
+  use_unwanted_folder?: boolean
   /** TODO: Self-explanatory, in seconds */
-  rss_fetch_delay: number
-  /** TODO: Delete torrent contents files on torrent removal, for WebUI */
-  delete_torrent_content_files: boolean
+  rss_fetch_delay?: number
+  /** Delete torrent contents files on torrent removal, for WebUI */
+  delete_torrent_content_files?: boolean
   /** TODO: True if torrents should be added in a Stopped state */
-  add_stopped_enabled: boolean
-  /** TODO: qBittorrent instance name */
-  app_instance_name: string
-  /** TODO: Should the MotW be enabled and handled by qBittorrent */
-  mark_of_the_web: boolean
+  add_stopped_enabled?: boolean
+  /** qBittorrent instance name */
+  app_instance_name?: string
+  /** Should the MotW be enabled and handled by qBittorrent */
+  mark_of_the_web?: boolean
   /** TODO: Custom Python executable path, for search engines */
-  python_executable_path: string
+  python_executable_path?: string
   /** TODO: Backup nodes to use if unknown */
-  dht_bootstrap_nodes: string
+  dht_bootstrap_nodes?: string
+
+  /** TODO */
+  i2p_enabled?: boolean
+  /** TODO */
+  i2p_address?: string
+  /** TODO */
+  i2p_port?: number
+  /** TODO */
+  i2p_mixed_mode?: boolean
+  /** TODO */
+  i2p_inbound_quantity?: number
+  /** TODO */
+  i2p_outbound_quantity?: number
+  /** TODO */
+  i2p_inbound_length?: number
+  /** TODO */
+  i2p_outbound_length?: number
 }
 
 /** Preferences extension from Enhanced qBittorrent edition */

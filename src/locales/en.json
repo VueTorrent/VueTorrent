@@ -24,6 +24,10 @@
     "yes": "Yes"
   },
   "constants": {
+    "torrentContentRemovingMode": {
+      "delete": "Delete files permanently",
+      "moveToTrash": "Move files to trash (if possible)"
+    },
     "addStopped": {
       "always": "Always",
       "never": "Never",
@@ -714,6 +718,10 @@
       },
       "openDoc": "Open documentation",
       "qbittorrent": {
+        "appInstanceName": "App instance name",
+        "enableMarkOfTheWeb": "Enable Mark-of-the-Web (MOTW) for downloaded files",
+        "enableMarkOfTheWebHint": "require macOS or Windows",
+        "torrentContentRemovingMode": "Torrent content removing mode",
         "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
         "embeddedTracker": {
           "enable": "Enable embedded tracker",
@@ -761,7 +769,7 @@
       "performance_warning": "Log performance warning"
     },
     "bittorrent": {
-      "autoAddTrackers": "Automatically add these trackers to new downloads",
+      "autoAddTrackers": "Automatically append these trackers to new downloads",
       "autoAddTrackersHint": "One tracker per line",
       "maxActiveCheckingTorrents": "Max active checking torrents",
       "privacy": {
@@ -798,6 +806,14 @@
         "perTorrentMaxConnection": "Maximum number of connections per torrent",
         "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent",
         "subheader": "Connection Limits"
+      },
+      "i2p": {
+        "subheader": "I2P (experimental)",
+        "enabled": "Enable I2P",
+        "address": "I2P Host",
+        "port": "Port",
+        "mixedMode": "Mixed Mode",
+        "disclaimer": "If \"Mixed Mode\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers."
       },
       "ipFiltering": {
         "applyToTrackers": "Apply to trackers",
@@ -863,7 +879,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "Append .!qB extension to incomplete files",
-        "preAllocateDisk": "Pre-allocate disk space for all files"
+        "preAllocateDisk": "Pre-allocate disk space for all files",
+        "useUnwantedFolder": "Keep unselected files in \".unwanted\" folder"
       },
       "runExternalProgram": {
         "onAddedEnabled": "Run external program on torrent added",
@@ -894,6 +911,8 @@
           "automatic": "Automatic",
           "manual": "Manual"
         },
+        "useCategoryPathInManualMode": "Use Category paths in Manual Mode",
+        "useCategoryPathInManualModeHint": "Resolve relative Save Path against appropriate Category path instead of Default one",
         "exportDir": "Copy .torrent files to",
         "exportDirFinished": "Copy .torrent files for finished downloads to",
         "keepIncomplete": "Default Download Path (incomplete torrents)",

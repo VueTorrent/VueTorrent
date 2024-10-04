@@ -80,13 +80,16 @@ watch(
       <v-row>
         <v-col cols="12" sm="6">
           <v-text-field
-            v-model.number="preferenceStore.preferences!.listen_port"
-            type="number"
-            hide-details
-            :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
+              v-model.number="preferenceStore.preferences!.listen_port"
+              type="number"
+              hide-details
+              :label="t('settings.connection.listeningPort.incomingConnectionPort')" />
         </v-col>
         <v-col cols="12" sm="6" class="d-flex align-center justify-center">
-          <v-btn color="primary" @click="generateRandomPort">{{ t('settings.connection.listeningPort.randomPort') }} </v-btn>
+          <v-btn color="primary" @click="generateRandomPort">{{
+              t('settings.connection.listeningPort.randomPort')
+            }}
+          </v-btn>
         </v-col>
       </v-row>
     </v-list-item>
@@ -104,48 +107,85 @@ watch(
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_conn_enabled" /></span>
             <v-text-field
-              v-model.number="preferenceStore.preferences!.max_connec"
-              :disabled="!max_conn_enabled"
-              type="number"
-              hide-details
-              :label="t('settings.connection.connectionLimits.globalMaxConnection')" />
+                v-model.number="preferenceStore.preferences!.max_connec"
+                :disabled="!max_conn_enabled"
+                type="number"
+                hide-details
+                :label="t('settings.connection.connectionLimits.globalMaxConnection')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_conn_per_torrent_enabled" /></span>
             <v-text-field
-              v-model.number="preferenceStore.preferences!.max_connec_per_torrent"
-              :disabled="!max_conn_per_torrent_enabled"
-              type="number"
-              hide-details
-              :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')" />
+                v-model.number="preferenceStore.preferences!.max_connec_per_torrent"
+                :disabled="!max_conn_per_torrent_enabled"
+                type="number"
+                hide-details
+                :label="t('settings.connection.connectionLimits.perTorrentMaxConnection')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_uploads_enabled" /></span>
             <v-text-field
-              v-model.number="preferenceStore.preferences!.max_uploads"
-              :disabled="!max_uploads_enabled"
-              type="number"
-              hide-details
-              :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')" />
+                v-model.number="preferenceStore.preferences!.max_uploads"
+                :disabled="!max_uploads_enabled"
+                type="number"
+                hide-details
+                :label="t('settings.connection.connectionLimits.globalMaxUploadSlots')" />
           </div>
         </v-col>
         <v-col cols="12" sm="6">
           <div class="d-flex align-center">
             <span><v-checkbox-btn v-model="max_uploads_per_torrent_enabled" /></span>
             <v-text-field
-              v-model.number="preferenceStore.preferences!.max_uploads_per_torrent"
-              :disabled="!max_uploads_per_torrent_enabled"
-              type="number"
-              hide-details
-              :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
+                v-model.number="preferenceStore.preferences!.max_uploads_per_torrent"
+                :disabled="!max_uploads_per_torrent_enabled"
+                type="number"
+                hide-details
+                :label="t('settings.connection.connectionLimits.perTorrentMaxUploadSlots')" />
           </div>
         </v-col>
       </v-row>
     </v-list-item>
+
+    <template v-if="appStore.version >= '5.0.0'">
+      <v-divider class="mt-3" />
+      <v-list-subheader>{{ t('settings.connection.i2p.subheader') }}</v-list-subheader>
+
+      <v-list-item>
+        <v-row>
+          <v-col cols="12">
+            <v-checkbox v-model="preferenceStore.preferences!.i2p_enabled" hide-details :label="t('settings.connection.i2p.enabled')" />
+          </v-col>
+
+          <v-col cols="12" md="6">
+            <v-text-field v-model="preferenceStore.preferences!.i2p_address"
+                          :disabled="preferenceStore.preferences!.i2p_enabled"
+                          hide-details
+                          :label="t('settings.connection.i2p.address')" />
+          </v-col>
+          <v-col cols="12" md="6">
+            <v-text-field v-model="preferenceStore.preferences!.i2p_port"
+                          :disabled="preferenceStore.preferences!.i2p_enabled"
+                          hide-details
+                          :label="t('settings.connection.i2p.port')" />
+          </v-col>
+
+          <v-col cols="12">
+            <v-checkbox v-model="preferenceStore.preferences!.i2p_mixed_mode"
+                        :disabled="preferenceStore.preferences!.i2p_enabled"
+                        hide-details
+                        :label="t('settings.connection.i2p.mixedMode')" />
+          </v-col>
+
+          <v-col cols="12">
+            <h5 class="text-warning font-italic">{{ t('settings.connection.i2p.disclaimer') }}</h5>
+          </v-col>
+        </v-row>
+      </v-list-item>
+    </template>
 
     <v-divider class="mt-3" />
     <v-list-subheader>{{ t('settings.connection.proxy.subheader') }}</v-list-subheader>
@@ -160,11 +200,11 @@ watch(
         </v-col>
         <v-col cols="6" md="4">
           <v-text-field
-            v-model.number="preferenceStore.preferences!.proxy_port"
-            :disabled="isProxyDisabled"
-            type="number"
-            hide-details
-            :label="t('settings.connection.proxy.port')" />
+              v-model.number="preferenceStore.preferences!.proxy_port"
+              :disabled="isProxyDisabled"
+              type="number"
+              hide-details
+              :label="t('settings.connection.proxy.port')" />
         </v-col>
       </v-row>
     </v-list-item>
@@ -176,10 +216,10 @@ watch(
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-checkbox
-            v-model="preferenceStore.preferences!.proxy_peer_connections"
-            :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_bittorrent"
-            hide-details
-            :label="t('settings.connection.proxy.peerConnections')" />
+              v-model="preferenceStore.preferences!.proxy_peer_connections"
+              :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_bittorrent"
+              hide-details
+              :label="t('settings.connection.proxy.peerConnections')" />
         </v-col>
         <v-col cols="12" sm="6" md="3">
           <v-checkbox v-model="preferenceStore.preferences!.proxy_rss" :disabled="isProxyDisabled || isProxySocks4" hide-details :label="t('settings.connection.proxy.rss')" />
@@ -194,33 +234,33 @@ watch(
       <v-row>
         <v-col cols="12">
           <v-checkbox
-            v-model="preferenceStore.preferences!.proxy_hostname_lookup"
-            :disabled="isProxyDisabled || isProxySocks4"
-            hide-details
-            :label="t('settings.connection.proxy.hostNameLookup')" />
+              v-model="preferenceStore.preferences!.proxy_hostname_lookup"
+              :disabled="isProxyDisabled || isProxySocks4"
+              hide-details
+              :label="t('settings.connection.proxy.hostNameLookup')" />
         </v-col>
 
         <v-col cols="12">
           <v-checkbox
-            v-model="preferenceStore.preferences!.proxy_auth_enabled"
-            :disabled="isProxyDisabled || isProxySocks4"
-            hide-details
-            :label="t('settings.connection.proxy.auth.subtitle')" />
+              v-model="preferenceStore.preferences!.proxy_auth_enabled"
+              :disabled="isProxyDisabled || isProxySocks4"
+              hide-details
+              :label="t('settings.connection.proxy.auth.subtitle')" />
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field
-            v-model="preferenceStore.preferences!.proxy_username"
-            :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            dense
-            hide-details
-            :label="t('settings.connection.proxy.auth.username')" />
+              v-model="preferenceStore.preferences!.proxy_username"
+              :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+              dense
+              hide-details
+              :label="t('settings.connection.proxy.auth.username')" />
         </v-col>
         <v-col cols="12" sm="6">
           <PasswordField
-            v-model="preferenceStore.preferences!.proxy_password"
-            :hide-icon="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
-            :label="t('settings.connection.proxy.auth.password')" />
+              v-model="preferenceStore.preferences!.proxy_password"
+              :hide-icon="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+              :disabled="isProxyDisabled || !preferenceStore.preferences!.proxy_auth_enabled"
+              :label="t('settings.connection.proxy.auth.password')" />
         </v-col>
       </v-row>
     </v-list-item>
