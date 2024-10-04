@@ -94,6 +94,9 @@ watch(
 )
 
 watchEffect(() => {
+  const appInstanceName = preferencesStore.preferences!.app_instance_name
+  const baseName = appInstanceName ?? 'VueTorrent'
+
   const mode = uiTitleType.value
   switch (mode) {
     case TitleOptions.GLOBAL_SPEED:
@@ -101,7 +104,7 @@ watchEffect(() => {
         '[' +
         `D: ${formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
         `U: ${formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value)}` +
-        '] VueTorrent'
+        `] ${baseName}`
       break
     case TitleOptions.FIRST_TORRENT_STATUS:
       const torrent = torrents.value.at(0)
@@ -111,9 +114,9 @@ watchEffect(() => {
           `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
           `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
           `${formatPercent(torrent.progress)}` +
-          '] VueTorrent'
+          `] ${baseName}`
       } else {
-        document.title = '[N/A] VueTorrent'
+        document.title = `[N/A] ${baseName}`
       }
       break
     case TitleOptions.CUSTOM:
