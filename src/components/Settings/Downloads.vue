@@ -66,7 +66,7 @@ const monitoredFoldersMonitorTypeOptions = ref([
 const addStoppedEnabled = computed({
   get: () => preferenceStore.preferences!.add_stopped_enabled ?? preferenceStore.preferences!.start_paused_enabled,
   set(v) {
-    if (!preferenceStore.preferences) return;
+    if (!preferenceStore.preferences) return
     preferenceStore.preferences.add_stopped_enabled = v
     preferenceStore.preferences.start_paused_enabled = v
   }
@@ -153,7 +153,8 @@ const closeDeleteDialog = async () => {
 }
 
 async function sendTestEmail() {
-  appStore.sendTestEmail()
+  appStore
+    .sendTestEmail()
     .then(() => toast.success(t('settings.downloads.mailNotification.test.success')))
     .catch(err => toast.error(t('settings.downloads.mailNotification.test.error', { message: err.message })))
 }
@@ -184,10 +185,11 @@ async function sendTestEmail() {
 
       <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext" hide-details :label="t('settings.downloads.publicSettings.appendQBExtension')" />
 
-      <v-checkbox v-if="appStore.version >= '5.0.0'"
-                  v-model="preferenceStore.preferences!.use_unwanted_folder"
-                  hide-details
-                  :label="t('settings.downloads.publicSettings.useUnwantedFolder')" />
+      <v-checkbox
+        v-if="appStore.version >= '5.0.0'"
+        v-model="preferenceStore.preferences!.use_unwanted_folder"
+        hide-details
+        :label="t('settings.downloads.publicSettings.useUnwantedFolder')" />
     </v-list-item>
 
     <v-divider />
@@ -226,10 +228,10 @@ async function sendTestEmail() {
         </v-col>
 
         <v-col cols="12" v-if="appStore.version >= '5.0.0'" class="py-0">
-          <v-checkbox v-model="preferenceStore.preferences!.use_category_paths_in_manual_mode"
-                      hide-details
-                      :label="t('settings.downloads.saveManagement.useCategoryPathInManualMode')"
-          />
+          <v-checkbox
+            v-model="preferenceStore.preferences!.use_category_paths_in_manual_mode"
+            hide-details
+            :label="t('settings.downloads.saveManagement.useCategoryPathInManualMode')" />
         </v-col>
 
         <v-col cols="12">

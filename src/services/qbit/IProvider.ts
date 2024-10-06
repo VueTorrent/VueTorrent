@@ -18,13 +18,7 @@ import {
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import {
-  AddTorrentPayload,
-  AppPreferencesPayload,
-  CreateFeedPayload,
-  GetTorrentPayload,
-  LoginPayload
-} from '@/types/qbit/payloads'
+import { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import { AxiosResponse } from 'axios'
 

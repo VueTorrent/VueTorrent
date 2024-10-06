@@ -29,11 +29,11 @@ const vuetorrentStore = useVueTorrentStore()
 
         <v-col cols="12" md="4" v-if="appStore.version >= '5.0.0'" class="pt-0">
           <v-text-field
-              v-model.number="preferenceStore.preferences!.rss_fetch_delay"
-              type="number"
-              hide-details
-              :suffix="$t('units.seconds', preferenceStore.preferences!.rss_fetch_delay)"
-              :label="$t('settings.rss.reader.sameHostRequestDelay')" />
+            v-model.number="preferenceStore.preferences!.rss_fetch_delay"
+            type="number"
+            hide-details
+            :suffix="$t('units.seconds', preferenceStore.preferences!.rss_fetch_delay!)"
+            :label="$t('settings.rss.reader.sameHostRequestDelay')" />
         </v-col>
       </v-row>
     </v-list-item>

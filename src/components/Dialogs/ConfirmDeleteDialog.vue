@@ -30,7 +30,7 @@ const selection = computed(() => torrentStore.torrents.filter(t => props.hashes?
 const _deleteWithFiles = ref(preferenceStore.preferences!.delete_torrent_content_files ?? vuetorrentStore.deleteWithFiles)
 const deleteWithFiles = computed({
   get: () => _deleteWithFiles.value,
-  set: (v) => (vuetorrentStore.deleteWithFiles = v)
+  set: v => (vuetorrentStore.deleteWithFiles = v)
 })
 
 async function submit() {

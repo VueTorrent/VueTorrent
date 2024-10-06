@@ -19,13 +19,7 @@ import type {
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import type {
-  AddTorrentPayload,
-  AppPreferencesPayload,
-  CreateFeedPayload,
-  GetTorrentPayload,
-  LoginPayload
-} from '@/types/qbit/payloads'
+import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance } from 'axios'
 import axios, { AxiosResponse } from 'axios'
@@ -353,8 +347,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async status(taskID?: string): Promise<TorrentCreatorTask[]> {
-    return this.axios.get('/torrentcreator/status', { params: { taskID } })
-      .then(res => res.data)
+    return this.axios.get('/torrentcreator/status', { params: { taskID } }).then(res => res.data)
   }
 
   async torrentFile(taskID: string): Promise<Blob> {
@@ -681,8 +674,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async SSLParameters(hash: string): Promise<SSLParameters> {
-    return this.axios.get('/torrents/SSLParameters', { params: { hash } })
-      .then(res => res.data)
+    return this.axios.get('/torrents/SSLParameters', { params: { hash } }).then(res => res.data)
   }
 
   async setSSLParameters(hash: string, params: SSLParameters): Promise<boolean> {
@@ -690,7 +682,7 @@ export default class QBitProvider implements IProvider {
       hash,
       ssl_certificate: params.ssl_certificate,
       ssl_private_key: params.ssl_private_key,
-      ssl_dh_params: params.ssl_dh_params,
+      ssl_dh_params: params.ssl_dh_params
     })
       .then(() => true)
       .catch(() => false)

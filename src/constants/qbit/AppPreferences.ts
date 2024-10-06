@@ -33,7 +33,7 @@ export enum ShareLimitAction {
   STOP_TORRENT = 0,
   REMOVE_TORRENT = 1,
   ENABLE_SUPERSEEDING = 2,
-  REMOVE_TORRENT_AND_FILES = 3,
+  REMOVE_TORRENT_AND_FILES = 3
 }
 
 export enum ProxyType {

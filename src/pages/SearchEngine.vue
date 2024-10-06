@@ -33,9 +33,9 @@ const headers = computed(() => [
   { title: t('searchEngine.headers.nbLeechers'), key: 'nbLeechers' },
   ...(appStore.version >= '5.0.0'
     ? [
-      { title: t('searchEngine.headers.engineName'), key: 'engineName' },
-      { title: t('searchEngine.headers.pubDate'), key: 'pubDate' },
-    ]
+        { title: t('searchEngine.headers.engineName'), key: 'engineName' },
+        { title: t('searchEngine.headers.pubDate'), key: 'pubDate' }
+      ]
     : [{ title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' }]),
   { title: '', key: 'actions', sortable: false }
 ])

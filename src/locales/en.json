@@ -660,9 +660,9 @@
         "i2p": {
           "restartNeeded": "Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)",
           "inboundQuantity": "I2P inbound quantity",
-          "outboundQuantity":"I2P outbound quantity",
+          "outboundQuantity": "I2P outbound quantity",
           "inboundLength": "I2P inbound length",
-          "outboundLength":"I2P outbound length",
+          "outboundLength": "I2P outbound length",
           "invalidQuantity": "I2P quantity values must be between 1 and 16",
           "invalidLength": "I2P length values must be between 0 and 7"
         },
