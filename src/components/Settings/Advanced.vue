@@ -199,10 +199,11 @@ onBeforeMount(async () => {
       <v-divider class="mx-10" />
       <v-list-item>
         <v-row>
-          <v-col cols="12" class="pb-0">
+          <v-col cols="12">
             <v-checkbox
               v-model="pref!.mark_of_the_web"
-              hide-details
+              density="compact"
+              persistent-hint
               :label="t('settings.advanced.qbittorrent.enableMarkOfTheWeb')"
               :hint="t('settings.advanced.qbittorrent.enableMarkOfTheWebHint')" />
           </v-col>
