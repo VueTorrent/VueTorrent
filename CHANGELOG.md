@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.14.0](https://github.com/VueTorrent/VueTorrent/compare/v2.13.3...v2.14.0) (2024-10-06)
+
+
+### Features
+
+* Support qBittorrent v5 ([#1928](https://github.com/VueTorrent/VueTorrent/issues/1928)) ([69e29d4](https://github.com/VueTorrent/VueTorrent/commit/69e29d4a91faca77163814456420e410acbc71e2))
+* **V5:** Add new settings ([#1948](https://github.com/VueTorrent/VueTorrent/issues/1948)) ([5ef1f92](https://github.com/VueTorrent/VueTorrent/commit/5ef1f921ee283e91e051b9afdbc9aac0f9a54f60))
+
+
+### Bug Fixes
+
+* **trackers:** Handle conflicts when several URLs resolve to the same entry ([#1939](https://github.com/VueTorrent/VueTorrent/issues/1939)) ([53f75d3](https://github.com/VueTorrent/VueTorrent/commit/53f75d3b66ee901dbf550f233ae39bde8ade943b))
+
 ## [2.13.3](https://github.com/VueTorrent/VueTorrent/compare/v2.13.2...v2.13.3) (2024-09-30)
 
 ### Bug Fixes
