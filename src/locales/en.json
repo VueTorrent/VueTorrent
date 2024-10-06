@@ -24,6 +24,10 @@
     "yes": "Yes"
   },
   "constants": {
+    "torrentContentRemovingMode": {
+      "delete": "Delete files permanently",
+      "moveToTrash": "Move files to trash (if possible)"
+    },
     "addStopped": {
       "always": "Always",
       "never": "Never",
@@ -653,6 +657,24 @@
     },
     "advanced": {
       "libtorrent": {
+        "i2p": {
+          "restartNeeded": "Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)",
+          "inboundQuantity": "I2P inbound quantity",
+          "outboundQuantity": "I2P outbound quantity",
+          "inboundLength": "I2P inbound length",
+          "outboundLength": "I2P outbound length",
+          "invalidQuantity": "I2P quantity values must be between 1 and 16",
+          "invalidLength": "I2P length values must be between 0 and 7"
+        },
+        "ssl": {
+          "disclaimer": "The \"SSL torrent\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\nEnable this feature only when you need it.",
+          "enabled": "Enable SSL torrents",
+          "listenPort": "Port used for SSL connections",
+          "listenPortHint": "Leave empty to auto-select",
+          "rule": "Port must be between 0 and 65535"
+        },
+        "dhtBootstrapNodes": "DHT bootstrap nodes",
+        "dhtBootstrapNodesHint": "Resets to default if empty",
         "announceAllTiers": "Always announce to all tiers",
         "announceAllTrackers": "Always announce to all trackers in a tier",
         "announceIP": "IP address reported to trackers (requires restart)",
@@ -714,6 +736,12 @@
       },
       "openDoc": "Open documentation",
       "qbittorrent": {
+        "pythonExecutablePath": "Python executable path",
+        "pythonExecutablePathHint": "Auto detect if empty, require restart",
+        "appInstanceName": "App instance name",
+        "enableMarkOfTheWeb": "Enable Mark-of-the-Web (MOTW) for downloaded files",
+        "enableMarkOfTheWebHint": "require macOS or Windows",
+        "torrentContentRemovingMode": "Torrent content removing mode",
         "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
         "embeddedTracker": {
           "enable": "Enable embedded tracker",
@@ -761,7 +789,7 @@
       "performance_warning": "Log performance warning"
     },
     "bittorrent": {
-      "autoAddTrackers": "Automatically add these trackers to new downloads",
+      "autoAddTrackers": "Automatically append these trackers to new downloads",
       "autoAddTrackersHint": "One tracker per line",
       "maxActiveCheckingTorrents": "Max active checking torrents",
       "privacy": {
@@ -798,6 +826,15 @@
         "perTorrentMaxConnection": "Maximum number of connections per torrent",
         "perTorrentMaxUploadSlots": "Maximum number of upload slots per torrent",
         "subheader": "Connection Limits"
+      },
+      "i2p": {
+        "subheader": "I2P (experimental)",
+        "enabled": "Enable I2P",
+        "address": "I2P Host",
+        "port": "Port",
+        "mixedMode": "Mixed Mode",
+        "rule": "Port value must be between 0 and 65535",
+        "disclaimer": "If \"Mixed Mode\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers."
       },
       "ipFiltering": {
         "applyToTrackers": "Apply to trackers",
@@ -863,7 +900,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "Append .!qB extension to incomplete files",
-        "preAllocateDisk": "Pre-allocate disk space for all files"
+        "preAllocateDisk": "Pre-allocate disk space for all files",
+        "useUnwantedFolder": "Keep unselected files in \".unwanted\" folder"
       },
       "runExternalProgram": {
         "onAddedEnabled": "Run external program on torrent added",
@@ -894,6 +932,8 @@
           "automatic": "Automatic",
           "manual": "Manual"
         },
+        "useCategoryPathInManualMode": "Use Category paths in Manual Mode",
+        "useCategoryPathInManualModeHint": "Resolve relative Save Path against appropriate Category path instead of Default one",
         "exportDir": "Copy .torrent files to",
         "exportDirFinished": "Copy .torrent files for finished downloads to",
         "keepIncomplete": "Default Download Path (incomplete torrents)",
@@ -922,6 +962,7 @@
         "enableProcessing": "Enable fetching RSS feeds",
         "feedsRefreshInterval": "Feeds refresh interval",
         "maximumArticlesPerFeed": "Maximum number of articles per feed",
+        "sameHostRequestDelay": "Same host request delay",
         "subheader": "RSS Reader"
       },
       "smartEpisodeFilter": {
@@ -1356,7 +1397,7 @@
     }
   },
   "units": {
-    "minutes": "minute | minute | minutes",
-    "seconds": "second | second | seconds"
+    "minutes": "minute | minutes",
+    "seconds": "second | seconds"
   }
 }

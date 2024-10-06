@@ -19,7 +19,7 @@ const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const searchEngineStore = useSearchEngineStore()
 const { searchData } = storeToRefs(searchEngineStore)
-const vuetorrentStore = useVueTorrentStore()
+const { useBinarySize, dateFormat } = storeToRefs(useVueTorrentStore())
 
 const queryInput = ref<typeof HistoryField>()
 
@@ -33,9 +33,9 @@ const headers = computed(() => [
   { title: t('searchEngine.headers.nbLeechers'), key: 'nbLeechers' },
   ...(appStore.version >= '5.0.0'
     ? [
-      { title: t('searchEngine.headers.engineName'), key: 'engineName' },
-      { title: t('searchEngine.headers.pubDate'), key: 'pubDate' },
-    ]
+        { title: t('searchEngine.headers.engineName'), key: 'engineName' },
+        { title: t('searchEngine.headers.pubDate'), key: 'pubDate' }
+      ]
     : [{ title: t('searchEngine.headers.siteUrl'), key: 'siteUrl' }]),
   { title: '', key: 'actions', sortable: false }
 ])
@@ -180,7 +180,7 @@ onBeforeUnmount(() => {
       <v-container class="d-flex align-center justify-center ma-0 pa-0 bg-primary" fluid>
         <v-tabs v-model="tabIndex" class="overflow-auto" bg-color="primary" show-arrows>
           <v-tab v-for="tab in searchData" :key="tab.uniqueId">
-            <h4>{{ !tab.lastQuery || tab.lastQuery.length === 0 ? $t('searchEngine.tabHeaderEmpty') : tab.lastQuery }}</h4>
+            <h4>{{ !tab.lastQuery || tab.lastQuery.length === 0 ? t('searchEngine.tabHeaderEmpty') : tab.lastQuery }}</h4>
           </v-tab>
         </v-tabs>
 
@@ -203,7 +203,7 @@ onBeforeUnmount(() => {
               density="compact"
               hide-details
               clearable
-              :label="$t('searchEngine.query')"
+              :label="t('searchEngine.query')"
               @keydown.enter.prevent="runNewSearch" />
           </v-col>
 
@@ -215,7 +215,7 @@ onBeforeUnmount(() => {
               density="compact"
               hide-details
               :items="categories"
-              :label="$t('searchEngine.filters.category.label')" />
+              :label="t('searchEngine.filters.category.label')" />
           </v-col>
           <v-col cols="6" sm="5" md="2">
             <v-select
@@ -225,15 +225,15 @@ onBeforeUnmount(() => {
               hide-details
               variant="outlined"
               :items="plugins"
-              :label="$t('searchEngine.filters.plugins.label')" />
+              :label="t('searchEngine.filters.plugins.label')" />
           </v-col>
 
           <v-col cols="12" sm="2" class="d-flex align-center justify-center">
             <v-btn v-if="selectedTab.id === 0" color="accent" flat class="mx-auto px-4" @click="runNewSearch">
-              {{ $t('searchEngine.runSearch') }}
+              {{ t('searchEngine.runSearch') }}
             </v-btn>
             <v-btn v-else color="warning" flat class="mx-auto px-4" @click="stopSearch(selectedTab)">
-              {{ $t('searchEngine.stopSearch') }}
+              {{ t('searchEngine.stopSearch') }}
             </v-btn>
           </v-col>
         </v-row>
@@ -251,15 +251,15 @@ onBeforeUnmount(() => {
           <template v-slot:top>
             <v-row>
               <v-col cols="12">
-                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="$t('searchEngine.filters.title.label')" />
+                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
               </v-col>
             </v-row>
           </template>
           <template v-slot:[`item.fileSize`]="{ item }">
-            {{ formatData(item.fileSize, vuetorrentStore.useBinarySize) }}
+            {{ formatData(item.fileSize, useBinarySize) }}
           </template>
           <template v-slot:[`item.pubDate`]="{ value }">
-            {{ formatTimeSec(value, vuetorrentStore.dateFormat) }}
+            {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
           </template>
           <template v-slot:[`item.actions`]="{ item }">
             <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />

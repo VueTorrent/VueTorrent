@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
+import { useAppStore, usePreferenceStore } from '@/stores'
 import { computed, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const proxyTypes = ref([
@@ -26,6 +27,8 @@ const max_conn_enabled = ref(false)
 const max_conn_per_torrent_enabled = ref(false)
 const max_uploads_enabled = ref(false)
 const max_uploads_per_torrent_enabled = ref(false)
+
+const portRule = [(v: number) => (v >= 0 && v <= 65535) || t('settings.connection.i2p.rule')]
 
 const generateRandomPort = () => {
   // source: https://github.com/qbittorrent/qBittorrent/blob/d83b2a61311b0dc3bc31ee52d1b9eaac715c3cdf/src/webui/www/private/views/preferences.html#L1729-L1734
@@ -146,6 +149,49 @@ watch(
         </v-col>
       </v-row>
     </v-list-item>
+
+    <template v-if="appStore.version >= '5.0.0'">
+      <v-divider class="mt-3" />
+      <v-list-subheader>{{ t('settings.connection.i2p.subheader') }}</v-list-subheader>
+
+      <v-list-item>
+        <v-row>
+          <v-col cols="12" class="py-0">
+            <v-checkbox v-model="preferenceStore.preferences!.i2p_enabled" hide-details :label="t('settings.connection.i2p.enabled')" />
+          </v-col>
+
+          <v-col cols="12" md="6" class="py-0">
+            <v-text-field
+              v-model="preferenceStore.preferences!.i2p_address"
+              :disabled="preferenceStore.preferences!.i2p_enabled"
+              hide-details
+              :label="t('settings.connection.i2p.address')" />
+          </v-col>
+          <v-col cols="12" md="6" class="py-0">
+            <v-text-field
+              v-model="preferenceStore.preferences!.i2p_port"
+              :disabled="preferenceStore.preferences!.i2p_enabled"
+              :rules="portRule"
+              type="number"
+              min="0"
+              max="65535"
+              :label="t('settings.connection.i2p.port')" />
+          </v-col>
+
+          <v-col cols="12" class="py-0">
+            <v-checkbox
+              v-model="preferenceStore.preferences!.i2p_mixed_mode"
+              :disabled="preferenceStore.preferences!.i2p_enabled"
+              hide-details
+              :label="t('settings.connection.i2p.mixedMode')" />
+          </v-col>
+
+          <v-col cols="12" class="pt-0">
+            <h5 class="text-warning font-italic">{{ t('settings.connection.i2p.disclaimer') }}</h5>
+          </v-col>
+        </v-row>
+      </v-list-item>
+    </template>
 
     <v-divider class="mt-3" />
     <v-list-subheader>{{ t('settings.connection.proxy.subheader') }}</v-list-subheader>

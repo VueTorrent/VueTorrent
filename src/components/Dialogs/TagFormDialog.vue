@@ -11,7 +11,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  'submit': [string[]]
+  submit: [string[]]
 }>()
 
 const { isOpened } = useDialog(props.guid)

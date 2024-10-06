@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -17,6 +17,7 @@ const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const dashboardStore = useDashboardStore()
+const preferenceStore = usePreferenceStore()
 const torrentStore = useTorrentStore()
 const vuetorrentStore = useVueTorrentStore()
 
@@ -24,6 +25,13 @@ const form = ref<VForm>()
 const isFormValid = ref(false)
 
 const selection = computed(() => torrentStore.torrents.filter(t => props.hashes?.includes(t.hash)))
+
+// TODO: Save state directly from here (qbit 5.X only)
+const _deleteWithFiles = ref(preferenceStore.preferences!.delete_torrent_content_files ?? vuetorrentStore.deleteWithFiles)
+const deleteWithFiles = computed({
+  get: () => _deleteWithFiles.value,
+  set: v => (vuetorrentStore.deleteWithFiles = v)
+})
 
 async function submit() {
   if (!isFormValid.value) return
@@ -71,9 +79,9 @@ onUnmounted(() => {
           <div class="d-flex flex-wrap flex-gap-small">
             <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
-          <v-checkbox v-model="vuetorrentStore.deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
+          <v-checkbox v-model="deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
           <v-scroll-x-transition>
-            <div class="text-red" v-show="vuetorrentStore.deleteWithFiles">
+            <div class="text-red" v-show="deleteWithFiles">
               <v-icon>mdi-alert</v-icon>
               {{ $t('dialogs.delete.warnDelete') }}
             </div>

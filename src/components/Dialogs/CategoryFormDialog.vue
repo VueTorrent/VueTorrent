@@ -12,7 +12,7 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  'submit': [Category]
+  submit: [Category]
 }>()
 
 const { t } = useI18n()
