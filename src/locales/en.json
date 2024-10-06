@@ -657,6 +657,21 @@
     },
     "advanced": {
       "libtorrent": {
+        "i2p": {
+          "restartNeeded": "Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)",
+          "inboundQuantity": "I2P inbound quantity",
+          "outboundQuantity":"I2P outbound quantity",
+          "inboundLength": "I2P inbound length",
+          "outboundLength":"I2P outbound length"
+        },
+        "ssl": {
+          "disclaimer": "The \"SSL torrent\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\nEnable this feature only when you need it.",
+          "enabled": "Enable SSL torrents",
+          "listenPort": "Port used for SSL connections",
+          "listenPortHint": "Leave empty to auto-select"
+        },
+        "dhtBootstrapNodes": "DHT bootstrap nodes",
+        "dhtBootstrapNodesHint": "Resets to default if empty",
         "announceAllTiers": "Always announce to all tiers",
         "announceAllTrackers": "Always announce to all trackers in a tier",
         "announceIP": "IP address reported to trackers (requires restart)",
@@ -718,6 +733,8 @@
       },
       "openDoc": "Open documentation",
       "qbittorrent": {
+        "pythonExecutablePath": "Python executable path",
+        "pythonExecutablePathHint": "Auto detect if empty, require restart",
         "appInstanceName": "App instance name",
         "enableMarkOfTheWeb": "Enable Mark-of-the-Web (MOTW) for downloaded files",
         "enableMarkOfTheWebHint": "require macOS or Windows",
@@ -941,6 +958,7 @@
         "enableProcessing": "Enable fetching RSS feeds",
         "feedsRefreshInterval": "Feeds refresh interval",
         "maximumArticlesPerFeed": "Maximum number of articles per feed",
+        "sameHostRequestDelay": "Same host request delay",
         "subheader": "RSS Reader"
       },
       "smartEpisodeFilter": {
@@ -1375,7 +1393,7 @@
     }
   },
   "units": {
-    "minutes": "minute | minute | minutes",
-    "seconds": "second | second | seconds"
+    "minutes": "minute | minutes",
+    "seconds": "second | seconds"
   }
 }

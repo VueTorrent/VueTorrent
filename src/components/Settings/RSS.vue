@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { usePreferenceStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 </script>
@@ -23,6 +24,15 @@ const vuetorrentStore = useVueTorrentStore()
         </v-col>
         <v-col cols="12" sm="6">
           <v-text-field v-model.number="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.reader.maximumArticlesPerFeed')" />
+        </v-col>
+
+        <v-col cols="12" v-if="appStore.version >= '5.0.0'">
+          <v-text-field
+              v-model.number="preferenceStore.preferences!.rss_fetch_delay"
+              type="number"
+              hide-details
+              :suffix="$t('units.seconds', preferenceStore.preferences!.rss_fetch_delay)"
+              :label="$t('settings.rss.reader.sameHostRequestDelay')" />
         </v-col>
       </v-row>
     </v-list-item>

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
+import { useAppStore, usePreferenceStore } from '@/stores'
 import { computed, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const proxyTypes = ref([
@@ -170,6 +171,9 @@ watch(
             <v-text-field v-model="preferenceStore.preferences!.i2p_port"
                           :disabled="preferenceStore.preferences!.i2p_enabled"
                           hide-details
+                          type="number"
+                          min="0"
+                          max="65535"
                           :label="t('settings.connection.i2p.port')" />
           </v-col>
 
