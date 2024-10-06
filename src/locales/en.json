@@ -24,10 +24,6 @@
     "yes": "Yes"
   },
   "constants": {
-    "torrentContentRemovingMode": {
-      "delete": "Delete files permanently",
-      "moveToTrash": "Move files to trash (if possible)"
-    },
     "addStopped": {
       "always": "Always",
       "never": "Never",
@@ -81,12 +77,6 @@
       "conjunctive": "Conjunctive filtering (AND)",
       "disjunctive": "Disjunctive filtering (OR)"
     },
-    "shareLimitAction": {
-      "stopTorrent": "Stop torrent",
-      "removeTorrent": "Remove torrent",
-      "removeTorrentAndFiles": "Remove torrent and its files",
-      "torrentSuperseeding": "Enable super seeding for torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Default Save Path",
       "monitoredFolder": "Monitored Folder Location",
@@ -109,6 +99,12 @@
       "everyWeekday": "Every weekdays",
       "everyWeekend": "Every weekends"
     },
+    "shareLimitAction": {
+      "removeTorrent": "Remove torrent",
+      "removeTorrentAndFiles": "Remove torrent and its files",
+      "stopTorrent": "Stop torrent",
+      "torrentSuperseeding": "Enable super seeding for torrent"
+    },
     "stopCondition": {
       "filesChecked": "Files Checked",
       "metadataReceived": "Metadata Received",
@@ -130,6 +126,10 @@
       "default": "Default",
       "first_torrent_speed": "First Torrent Speed",
       "global_speed": "Global Speed"
+    },
+    "torrentContentRemovingMode": {
+      "delete": "Delete files permanently",
+      "moveToTrash": "Move files to trash (if possible)"
     },
     "trackerStatus": {
       "disabled": "Disabled",
@@ -199,8 +199,8 @@
         "upload": "Set upload limit"
       },
       "tags": {
-        "disabled_title": "No tags",
         "clear_all": "Clear all",
+        "disabled_title": "No tags",
         "title": "Set tags"
       },
       "top": {
@@ -657,28 +657,12 @@
     },
     "advanced": {
       "libtorrent": {
-        "i2p": {
-          "restartNeeded": "Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)",
-          "inboundQuantity": "I2P inbound quantity",
-          "outboundQuantity": "I2P outbound quantity",
-          "inboundLength": "I2P inbound length",
-          "outboundLength": "I2P outbound length",
-          "invalidQuantity": "I2P quantity values must be between 1 and 16",
-          "invalidLength": "I2P length values must be between 0 and 7"
-        },
-        "ssl": {
-          "disclaimer": "The \"SSL torrent\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\nEnable this feature only when you need it.",
-          "enabled": "Enable SSL torrents",
-          "listenPort": "Port used for SSL connections",
-          "listenPortHint": "Leave empty to auto-select",
-          "rule": "Port must be between 0 and 65535"
-        },
-        "dhtBootstrapNodes": "DHT bootstrap nodes",
-        "dhtBootstrapNodesHint": "Resets to default if empty",
         "announceAllTiers": "Always announce to all tiers",
         "announceAllTrackers": "Always announce to all trackers in a tier",
         "announceIP": "IP address reported to trackers (requires restart)",
         "coalesceReadsWrites": "Coalesce reads & writes (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "DHT bootstrap nodes",
+        "dhtBootstrapNodesHint": "Resets to default if empty",
         "disk": {
           "diskCache": "Disk cache (libtorrent < 2.0)",
           "diskCacheExpiry": "Disk cache expiry interval (libtorrent < 2.0)",
@@ -687,6 +671,15 @@
           "diskIoWriteMode": "Disk IO write mode",
           "diskQueueSize": "Disk queue size",
           "subheader": "Disk"
+        },
+        "i2p": {
+          "inboundLength": "I2P inbound length",
+          "inboundQuantity": "I2P inbound quantity",
+          "invalidLength": "I2P length values must be between 0 and 7",
+          "invalidQuantity": "I2P quantity values must be between 1 and 16",
+          "outboundLength": "I2P outbound length",
+          "outboundQuantity": "I2P outbound quantity",
+          "restartNeeded": "Any changes in these settings will take effect the next time the SAM connection is re-established (by restarting I2P or changing I2P address or port)"
         },
         "maxConcurrentHTTPAnnounces": "Max concurrent HTTP announces",
         "networking": {
@@ -720,6 +713,13 @@
         "socketReceiveBufferSizeHint": "0: system default",
         "socketSendBufferSize": "Socket send buffer size",
         "socketSendBufferSizeHint": "0: system default",
+        "ssl": {
+          "disclaimer": "The \"SSL torrent\" feature is not standardized, there are no BEP (BitTorrent Enhancement Proposals) associated with it.\nEnable this feature only if you need it.",
+          "enabled": "Enable SSL torrents",
+          "listenPort": "Port used for SSL connections",
+          "listenPortHint": "Leave empty to auto-select",
+          "rule": "Port must be between 0 and 65535"
+        },
         "stopTrackerTimeout": "Stop tracker timeout",
         "subheader": "libtorrent Section",
         "threads": {
@@ -736,19 +736,16 @@
       },
       "openDoc": "Open documentation",
       "qbittorrent": {
-        "pythonExecutablePath": "Python executable path",
-        "pythonExecutablePathHint": "Auto detect if empty, require restart",
-        "appInstanceName": "App instance name",
-        "enableMarkOfTheWeb": "Enable Mark-of-the-Web (MOTW) for downloaded files",
-        "enableMarkOfTheWebHint": "require macOS or Windows",
-        "torrentContentRemovingMode": "Torrent content removing mode",
         "allocatedRam": "Physical memory (RAM) usage limit (libtorrent >= 2.0)",
+        "appInstanceName": "App instance name",
         "embeddedTracker": {
           "enable": "Enable embedded tracker",
           "port": "Embedded tracker port",
           "portForward": "Enable port forwarding for embedded tracker",
           "title": "Embedded Tracker"
         },
+        "enableMarkOfTheWeb": "Enable Mark-of-the-Web (MOTW) for downloaded files",
+        "enableMarkOfTheWebHint": "Require macOS or Windows",
         "networking": {
           "ipAddress": {
             "all": "All addresses",
@@ -762,6 +759,8 @@
           },
           "title": "Networking"
         },
+        "pythonExecutablePath": "Python executable path",
+        "pythonExecutablePathHint": "Auto detect if empty, require restart",
         "reannounceOnIpPortChanged": "Reannounce to all trackers when IP or port changed",
         "recheckOnCompletion": "Recheck torrents on completion",
         "refreshInterval": "GUI Refresh interval",
@@ -773,6 +772,7 @@
         },
         "saveInterval": "Save resume data interval",
         "subheader": "qBittorrent Section",
+        "torrentContentRemovingMode": "Torrent content removing mode",
         "torrentFileSizeLimit": ".torrent file size limit"
       }
     },
@@ -828,13 +828,13 @@
         "subheader": "Connection Limits"
       },
       "i2p": {
-        "subheader": "I2P (experimental)",
-        "enabled": "Enable I2P",
         "address": "I2P Host",
-        "port": "Port",
+        "disclaimer": "If \"Mixed Mode\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers.",
+        "enabled": "Enable I2P",
         "mixedMode": "Mixed Mode",
+        "port": "Port",
         "rule": "Port value must be between 0 and 65535",
-        "disclaimer": "If \"Mixed Mode\" is enabled, I2P torrents are allowed to also get peers from other sources than the tracker, and connect to regular IPs, not providing any anonymization. This may be useful if the user is not interested in the anonymization of I2P, but still wants to be able to connect to I2P peers."
+        "subheader": "I2P (experimental)"
       },
       "ipFiltering": {
         "applyToTrackers": "Apply to trackers",
@@ -932,8 +932,6 @@
           "automatic": "Automatic",
           "manual": "Manual"
         },
-        "useCategoryPathInManualMode": "Use Category paths in Manual Mode",
-        "useCategoryPathInManualModeHint": "Resolve relative Save Path against appropriate Category path instead of Default one",
         "exportDir": "Copy .torrent files to",
         "exportDirFinished": "Copy .torrent files for finished downloads to",
         "keepIncomplete": "Default Download Path (incomplete torrents)",
@@ -943,7 +941,9 @@
         },
         "savePathChangedTMM": "When Default Save Path changed",
         "subheader": "Saving Management",
-        "torrentChangedTMM": "When Torrent Category changed"
+        "torrentChangedTMM": "When Torrent Category changed",
+        "useCategoryPathInManualMode": "Use Category paths in Manual Mode",
+        "useCategoryPathInManualModeHint": "Resolve relative Save Path against appropriate Category path instead of Default one"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "Add to top of queue",
@@ -1379,9 +1379,9 @@
       "checking_disk": "\uD83D\uDD0D Checking Disk Files",
       "checking_resume_data": "\uD83D\uDD0D Checking Resume Data",
       "dl_forced": "\uD83D\uDCE5 Downloading [F]",
-      "dl_stopped": "⏹️ Stopped",
       "dl_queued": "⏳ Queued (DL)",
       "dl_stalled": "\uD83D\uDD54 Stalled",
+      "dl_stopped": "⏹️ Stopped",
       "downloading": "\uD83D\uDCE5 Downloading",
       "error": "❌ Error",
       "forced_meta_download": "\uD83D\uDCDD Metadata [F]",
@@ -1389,9 +1389,9 @@
       "missing_files": "⚠️ Missing Files",
       "moving": "\uD83D\uDE9A Moving",
       "ul_forced": "\uD83D\uDCE4 Uploading [F]",
-      "ul_stopped": "✅ Done",
       "ul_queued": "⏳ Queued (UP)",
       "ul_stalled": "\uD83C\uDF31 Seeding",
+      "ul_stopped": "✅ Done",
       "unknown": "❓ Unknown",
       "uploading": "\uD83D\uDCE4 Uploading"
     }

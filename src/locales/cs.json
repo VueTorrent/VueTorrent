@@ -20,7 +20,7 @@
     "yes": "Ano"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Vždy",
       "never": "Nikdy",
       "title": "Přidat pozastavené"
@@ -68,12 +68,6 @@
       "normal": "Normální",
       "unwanted": "Nechtěný"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pozastavit torrent",
-      "removeTorrent": "Odebrat torrent",
-      "removeTorrentAndFiles": "Odstraňte torrent a jeho soubory",
-      "torrentSuperseeding": "Povolit super seeding pro torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Výchozí cesta k uložení",
       "monitoredFolder": "Umístění sledované složky",
@@ -95,6 +89,12 @@
       "everyWednesday": "Každou středu",
       "everyWeekday": "Každý všední den",
       "everyWeekend": "Každý víkend"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Odebrat torrent",
+      "removeTorrentAndFiles": "Odstraňte torrent a jeho soubory",
+      "stopTorrent": "Pozastavit torrent",
+      "torrentSuperseeding": "Povolit super seeding pro torrent"
     },
     "stopCondition": {
       "filesChecked": "Soubory zkontrolovány",

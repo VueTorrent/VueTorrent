@@ -24,7 +24,7 @@
     "yes": "是"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "总是",
       "never": "从不",
       "title": "添加时暂停"
@@ -77,12 +77,6 @@
       "conjunctive": "结合过滤器（与）",
       "disjunctive": "选择过滤器（或）"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "暂停种子",
-      "removeTorrent": "移除种子",
-      "removeTorrentAndFiles": "移除种子及其文件",
-      "torrentSuperseeding": "启用超级做种模式"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "默认保存路径",
       "monitoredFolder": "监控文件夹位置",
@@ -104,6 +98,12 @@
       "everyWednesday": "周三",
       "everyWeekday": "工作日",
       "everyWeekend": "周末"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "移除种子",
+      "removeTorrentAndFiles": "移除种子及其文件",
+      "stopTorrent": "暂停种子",
+      "torrentSuperseeding": "启用超级做种模式"
     },
     "stopCondition": {
       "filesChecked": "文件校验完成",
@@ -195,8 +195,8 @@
         "upload": "上传限速"
       },
       "tags": {
+        "clear_all": "移除全部",
         "disabled_title": "无标签",
-        "remove_all": "移除全部",
         "title": "设置标签"
       },
       "top": {
@@ -411,7 +411,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "添加时暂停",
         "affectedFeedsSubheader": "受影响的订阅源",
         "assignedCategory": "分配的分类",
         "enabled": "启用规则",
@@ -1324,7 +1323,6 @@
       "checking_disk": "正在检验磁盘文件",
       "checking_resume_data": "校验恢复数据",
       "dl_forced": "[F] 下载中",
-      "dl_paused": "已暂停",
       "dl_queued": "排队中 (下载)",
       "dl_stalled": "停滞中",
       "downloading": "下载中",
@@ -1334,7 +1332,6 @@
       "missing_files": "缺失文件",
       "moving": "移动中",
       "ul_forced": "[F] 上传中",
-      "ul_paused": "已完成",
       "ul_queued": "排队中 (上传)",
       "ul_stalled": "做种中",
       "unknown": "未知",

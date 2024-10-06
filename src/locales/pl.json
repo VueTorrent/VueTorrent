@@ -21,7 +21,7 @@
     "yes": "Tak"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Zawsze",
       "never": "Nigdy",
       "title": "Dodaj wstrzymane"
@@ -70,12 +70,6 @@
       "normal": "Normalny",
       "unwanted": "Niechciane"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Wstrzymaj torrent",
-      "removeTorrent": "Usuń torrent",
-      "removeTorrentAndFiles": "Usuń torrent i jego pliki",
-      "torrentSuperseeding": "Włącz super-seeding dla torrenta"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Domyślna ścieżka zapisu",
       "monitoredFolder": "Lokalizacja folderu monitorowanego",
@@ -97,6 +91,12 @@
       "everyWednesday": "W każdą środę",
       "everyWeekday": "Codziennie w dni robocze",
       "everyWeekend": "W każdy weekend"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Usuń torrent",
+      "removeTorrentAndFiles": "Usuń torrent i jego pliki",
+      "stopTorrent": "Wstrzymaj torrent",
+      "torrentSuperseeding": "Włącz super-seeding dla torrenta"
     },
     "stopCondition": {
       "filesChecked": "Sprawdzone pliki",
@@ -366,7 +366,6 @@
         "url": "Adres URL"
       },
       "rule": {
-        "addPaused": "Dodaj wstrzymane",
         "affectedFeedsSubheader": "Kanały, których to dotyczy",
         "assignedCategory": "Przypisana kategoria",
         "enabled": "Włącz regułę",
@@ -1206,7 +1205,6 @@
     "state": {
       "checking_resume_data": "Sprawdzanie danych do wznowienia",
       "dl_forced": "[W] Pobieranie",
-      "dl_paused": "Wstrzymano",
       "dl_queued": "W kolejce (pobieranie)",
       "dl_stalled": "Zatrzymany",
       "downloading": "Pobieranie",
@@ -1215,7 +1213,6 @@
       "missing_files": "Brakujące pliki",
       "moving": "Przenoszenie",
       "ul_forced": "[W] Wysyłanie",
-      "ul_paused": "Zakończono",
       "ul_queued": "W kolejce (wysyłanie)",
       "ul_stalled": "Seedowanie",
       "unknown": "Nieznany",
