@@ -24,7 +24,7 @@
     "yes": "Sim"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Sempre",
       "never": "Nunca",
       "title": "Adicionar pausado"
@@ -71,12 +71,6 @@
       "normal": "Normal",
       "unwanted": "Indesejado"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pausar torrent",
-      "removeTorrent": "Remover torrent",
-      "removeTorrentAndFiles": "Remova o torrent e seus arquivos",
-      "torrentSuperseeding": "Ativar super seeding para torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Caminho de salvamento padrão",
       "monitoredFolder": "Localização da pasta monitorada",
@@ -98,6 +92,12 @@
       "everyWednesday": "Toda quarta-feira",
       "everyWeekday": "Todos os dias da semana",
       "everyWeekend": "Todos os finais de semana"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Remover torrent",
+      "removeTorrentAndFiles": "Remova o torrent e seus arquivos",
+      "stopTorrent": "Pausar torrent",
+      "torrentSuperseeding": "Ativar super seeding para torrent"
     },
     "stopCondition": {
       "filesChecked": "Arquivos verificados",
@@ -173,8 +173,8 @@
         "download": "Definir limite do download"
       },
       "tags": {
-        "disabled_title": "Sem tags",
-        "remove_all": "Remover todos"
+        "clear_all": "Remover todos",
+        "disabled_title": "Sem tags"
       },
       "top": {
         "delete": "Excluir",

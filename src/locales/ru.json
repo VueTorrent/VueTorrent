@@ -23,10 +23,10 @@
     "yes": "Да"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Всегда",
       "never": "Никогда",
-      "title": "Приостанавливать"
+      "title": "Добавить приостановленным"
     },
     "bittorrentProtocols": {
       "tcp": "TCP",
@@ -76,12 +76,6 @@
       "conjunctive": "Конъюнктивная фильтрация (И)",
       "disjunctive": "Дизъюнктивная фильтрация (ИЛИ)"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Приостановить торрент",
-      "removeTorrent": "Удалить торрент",
-      "removeTorrentAndFiles": "Удалить торрент и его файлы",
-      "torrentSuperseeding": "Включить режим Супер Сида для торрента"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Путь сохранения по умолчанию",
       "monitoredFolder": "Путь на отслеживаемую папку",
@@ -103,6 +97,12 @@
       "everyWednesday": "Среда",
       "everyWeekday": "Будни",
       "everyWeekend": "Выходные"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Удалить торрент",
+      "removeTorrentAndFiles": "Удалить торрент и его файлы",
+      "stopTorrent": "Остановить торрент",
+      "torrentSuperseeding": "Включить режим Супер Сида для торрента"
     },
     "stopCondition": {
       "filesChecked": "Файлы проверены",
@@ -168,7 +168,7 @@
         "title": "Дополнительно"
       },
       "category": {
-        "clear": "(Очистить категории)",
+        "clear": "Нет категории",
         "disabled_title": "Категории отсутствуют",
         "title": "Задать категории"
       },
@@ -194,8 +194,8 @@
         "upload": "Ограничение скорости раздачи"
       },
       "tags": {
+        "clear_all": "Нет тегов",
         "disabled_title": "Теги отсутствуют",
-        "remove_all": "Удалить все",
         "title": "Задать теги"
       },
       "top": {
@@ -410,7 +410,7 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Добавить приостановленным",
+        "addStopped": "Добавить приостановленным",
         "affectedFeedsSubheader": "Затронутые ленты",
         "assignedCategory": "Присвоенные категории",
         "enabled": "Включить правило",
@@ -626,10 +626,12 @@
       }
     },
     "headers": {
+      "engineName": "Название движка",
       "fileName": "Имя файла",
       "fileSize": "Размер файла",
       "nbLeechers": "Личеры",
       "nbSeeders": "Сидеры",
+      "pubDate": "Дата публикации",
       "siteUrl": "URL сайта"
     },
     "query": "Очередь поиска",
@@ -839,6 +841,11 @@
         "password": "Пароль",
         "smtpServer": "SMTP сервер",
         "sslEnabled": "Этот сервер требует защищённое соединение (SSL)",
+        "test": {
+          "error": "Не удалось отправить запрос по электронной почте\n{message}",
+          "label": "Отправить тестовое электронное письмо",
+          "success": "Запрос отправлен по электронной почте!\nПроверьте свой почтовый ящик, чтобы подтвердить"
+        },
         "to": "Кому",
         "username": "Логин"
       },
@@ -1330,9 +1337,9 @@
       "checking_disk": "Проверка файлов на диске",
       "checking_resume_data": "Возобновление",
       "dl_forced": "\uD83D\uDCE5 Загрузка [П]",
-      "dl_paused": "⏸️ Пауза",
-      "dl_queued": "⏳ Очередь (Загр)",
+      "dl_queued": "⏳ Очередь \uD83E\uDC47",
       "dl_stalled": "\uD83D\uDD54 Простаивает",
+      "dl_stopped": "⏹️ Остановлено",
       "downloading": "\uD83D\uDCE5 Загрузка",
       "error": "❌ Ошибка",
       "forced_meta_download": "\uD83D\uDCDD Метадата [П]",
@@ -1340,9 +1347,9 @@
       "missing_files": "⚠️ Нет файлов",
       "moving": "\uD83D\uDE9A Перемещение",
       "ul_forced": "\uD83D\uDCE4 Раздача [П]",
-      "ul_paused": "✅ Завершено",
-      "ul_queued": "⏳ Очередь (Разд)",
+      "ul_queued": "⏳ Очередь \uD83E\uDC45",
       "ul_stalled": "\uD83C\uDF31 Сидирование",
+      "ul_stopped": "✅ Завершено",
       "unknown": "❓ Неизвестно",
       "uploading": "\uD83D\uDCE4 Раздача"
     }

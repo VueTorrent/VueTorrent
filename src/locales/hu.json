@@ -21,7 +21,7 @@
     "yes": "Igen"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Mindig",
       "never": "Soha",
       "title": "Szüneteltetve hozzáad"
@@ -70,12 +70,6 @@
       "normal": "Normál",
       "unwanted": "Nem kívánt"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Torrent szüneteltetése",
-      "removeTorrent": "Torrent eltávolítása",
-      "removeTorrentAndFiles": "Torrent és fájljainak eltávolítása",
-      "torrentSuperseeding": "Super seeding engedélyezése a torrent számára"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Alapértelmezett mentési útvonal",
       "monitoredFolder": "Megfigyelt mappa helye",
@@ -97,6 +91,12 @@
       "everyWednesday": "Minden szerdán",
       "everyWeekday": "Minden hétköznap",
       "everyWeekend": "Minden hétvégén"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Torrent eltávolítása",
+      "removeTorrentAndFiles": "Torrent és fájljainak eltávolítása",
+      "stopTorrent": "Torrent szüneteltetése",
+      "torrentSuperseeding": "Super seeding engedélyezése a torrent számára"
     },
     "stopCondition": {
       "filesChecked": "Fájlok ellenőrizve",
@@ -366,7 +366,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Szüneteltetve hozzáad",
         "affectedFeedsSubheader": "Érintett hírcsatornák",
         "assignedCategory": "Hozzárendelt kategória",
         "enabled": "Szabály engedélyezése",
@@ -1215,7 +1214,6 @@
     "state": {
       "checking_resume_data": "Folytatási adatok ellenőrzése",
       "dl_forced": "[F] Letöltés",
-      "dl_paused": "Szüneteltetve",
       "dl_queued": "Sorbaállítva (DL)",
       "dl_stalled": "Megakadt",
       "downloading": "Letöltés",
@@ -1224,7 +1222,6 @@
       "missing_files": "Hiányzó Fájlok",
       "moving": "Áthelyezés",
       "ul_forced": "[F] Feltöltés",
-      "ul_paused": "Kész",
       "ul_queued": "Sorbaállítva (UP)",
       "ul_stalled": "Seedelés",
       "unknown": "Ismeretlen",
