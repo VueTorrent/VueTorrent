@@ -94,8 +94,8 @@ watch(
 )
 
 watchEffect(() => {
-  const appInstanceName = preferencesStore.preferences!.app_instance_name
-  const baseName = appInstanceName ?? 'VueTorrent'
+  const appInstanceName = preferencesStore.preferences?.app_instance_name
+  const baseName = (appInstanceName && appInstanceName.length) ? appInstanceName : 'VueTorrent'
 
   const mode = uiTitleType.value
   switch (mode) {
@@ -124,7 +124,7 @@ watchEffect(() => {
       break
     case TitleOptions.DEFAULT:
     default:
-      document.title = 'VueTorrent'
+      document.title = baseName
       break
   }
 })

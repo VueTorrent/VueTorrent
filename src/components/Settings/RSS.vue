@@ -11,10 +11,11 @@ const vuetorrentStore = useVueTorrentStore()
     <v-list-subheader>{{ $t('settings.rss.reader.subheader') }}</v-list-subheader>
 
     <v-list-item>
-      <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details :label="$t('settings.rss.reader.enableProcessing')" />
-
       <v-row>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" class="py-0">
+          <v-checkbox v-model="preferenceStore.preferences!.rss_processing_enabled" hide-details :label="$t('settings.rss.reader.enableProcessing')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4" class="py-0">
           <v-text-field
             v-model.number="preferenceStore.preferences!.rss_refresh_interval"
             type="number"
@@ -22,11 +23,11 @@ const vuetorrentStore = useVueTorrentStore()
             :suffix="$t('units.minutes', preferenceStore.preferences!.rss_refresh_interval)"
             :label="$t('settings.rss.reader.feedsRefreshInterval')" />
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" md="4" class="py-0">
           <v-text-field v-model.number="preferenceStore.preferences!.rss_max_articles_per_feed" type="number" :label="$t('settings.rss.reader.maximumArticlesPerFeed')" />
         </v-col>
 
-        <v-col cols="12" v-if="appStore.version >= '5.0.0'">
+        <v-col cols="12" md="4" v-if="appStore.version >= '5.0.0'" class="pt-0">
           <v-text-field
               v-model.number="preferenceStore.preferences!.rss_fetch_delay"
               type="number"
@@ -37,7 +38,7 @@ const vuetorrentStore = useVueTorrentStore()
       </v-row>
     </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-3" />
     <v-list-subheader>{{ $t('settings.rss.autoDownloader.subheader') }}</v-list-subheader>
 
     <v-list-item>
@@ -70,5 +71,3 @@ const vuetorrentStore = useVueTorrentStore()
     </v-list-item>
   </v-list>
 </template>
-
-<style scoped lang="scss"></style>

@@ -65,6 +65,18 @@ const uploadChokingAlgorithmOptions = [
   { title: t('constants.uploadChokingAlgorithm.antiLeech'), value: UploadChokingAlgorithm.ANTI_LEECH }
 ]
 
+const i2pQuantityRules = [
+  (v: number) => v >= 1 && v <= 16 || t('settings.advanced.libtorrent.i2p.invalidQuantity')
+]
+
+const i2pLengthRules = [
+  (v: number) => v >= 0 && v <= 7 || t('settings.advanced.libtorrent.i2p.invalidLength')
+]
+
+const sslRules = [
+  (v: number) => v >= 0 && v <= 65535 || t('settings.advanced.libtorrent.ssl.rule')
+]
+
 const torrentFileSizeLimit = computed({
   get: () => pref.value!.torrent_file_size_limit / 1024 / 1024,
   set: (value: number) => {
@@ -124,7 +136,7 @@ onBeforeMount(async () => {
           <v-col cols="12">
             <v-text-field v-model="pref!.app_instance_name"
                           hide-details
-                          :label="t('settings.Advanced.qbittorrent.appInstanceName')" />
+                          :label="t('settings.advanced.qbittorrent.appInstanceName')" />
           </v-col>
         </template>
 
@@ -209,17 +221,17 @@ onBeforeMount(async () => {
     </v-list-item>
 
     <template v-if="appStore.version >= '5.0.0'">
-      <v-divider class="mx-10 mt-3" />
+      <v-divider class="mx-10" />
       <v-list-item>
         <v-row>
-          <v-col cols="12">
+          <v-col cols="12" class="pb-0">
             <v-checkbox v-model="pref!.mark_of_the_web"
                         hide-details
                         :label="t('settings.advanced.qbittorrent.enableMarkOfTheWeb')"
                         :hint="t('settings.advanced.qbittorrent.enableMarkOfTheWebHint')" />
           </v-col>
 
-          <v-col cols="12">
+          <v-col cols="12" class="pt-0">
             <v-text-field v-model="pref!.python_executable_path"
                           hide-details
                           :label="t('settings.advanced.qbittorrent.pythonExecutablePath')"
@@ -229,7 +241,7 @@ onBeforeMount(async () => {
       </v-list-item>
     </template>
 
-    <v-divider />
+    <v-divider class="mt-3" />
 
     <v-list-subheader>
       {{ t('settings.advanced.libtorrent.subheader') }} (
@@ -558,7 +570,9 @@ onBeforeMount(async () => {
       </v-row>
     </v-list-item>
 
-    <template  v-if="appStore.version >= '5.0.0'">
+    <template v-if="appStore.version >= '5.0.0'">
+      <v-divider class="mb-3" />
+
       <v-list-item>
         <v-row>
           <v-col cols="12">
@@ -566,25 +580,27 @@ onBeforeMount(async () => {
           </v-col>
 
           <v-col cols="12">
-            <v-text-field v-model="pref!.i2p_inbound_quantity" type="number" min="1" max="16" hide-details :label="t('settings.advanced.libtorrent.i2p.inboundQuantity')" />
+            <v-text-field v-model="pref!.i2p_inbound_quantity" :rules="i2pQuantityRules" type="number" min="1" max="16" :label="t('settings.advanced.libtorrent.i2p.inboundQuantity')" />
           </v-col>
           <v-col cols="12">
-            <v-text-field v-model="pref!.i2p_outbound_quantity" type="number" min="1" max="16" hide-details :label="t('settings.advanced.libtorrent.i2p.outboundQuantity')" />
+            <v-text-field v-model="pref!.i2p_outbound_quantity" :rules="i2pQuantityRules" type="number" min="1" max="16" :label="t('settings.advanced.libtorrent.i2p.outboundQuantity')" />
           </v-col>
           <v-col cols="12">
-            <v-text-field v-model="pref!.i2p_inbound_length" type="number" min="0" max="7" hide-details :label="t('settings.advanced.libtorrent.i2p.inboundLength')" />
+            <v-text-field v-model="pref!.i2p_inbound_length" :rules="i2pLengthRules" type="number" min="0" max="7" :label="t('settings.advanced.libtorrent.i2p.inboundLength')" />
           </v-col>
           <v-col cols="12">
-            <v-text-field v-model="pref!.i2p_outbound_length" type="number" min="0" max="7" hide-details :label="t('settings.advanced.libtorrent.i2p.outboundLength')" />
+            <v-text-field v-model="pref!.i2p_outbound_length" :rules="i2pLengthRules" type="number" min="0" max="7" :label="t('settings.advanced.libtorrent.i2p.outboundLength')" />
           </v-col>
         </v-row>
 
+        <v-divider class="mt-5" thickness="3" />
+
         <v-row>
-          <v-col cols="12">
+          <v-col cols="12" class="pb-0">
             <v-checkbox v-model="pref!.ssl_enabled" hide-details :label="t('settings.advanced.libtorrent.ssl.enabled')" />
           </v-col>
-          <v-col cols="12">
-            <v-text-field v-model="pref!.ssl_listen_port" type="number" min="0" max="65535" hide-details :label="t('settings.advanced.libtorrent.ssl.listenPort')" :hint="t('settings.advanced.libtorrent.ssl.listenPortHint')" />
+          <v-col cols="12" class="pt-0">
+            <v-text-field v-model="pref!.ssl_listen_port" :rules="sslRules" type="number" min="0" max="65535" :label="t('settings.advanced.libtorrent.ssl.listenPort')" :hint="t('settings.advanced.libtorrent.ssl.listenPortHint')" />
           </v-col>
         </v-row>
       </v-list-item>

@@ -225,7 +225,7 @@ async function sendTestEmail() {
             :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
         </v-col>
 
-        <v-col cols="12" v-if="appStore.version >= '5.0.0'">
+        <v-col cols="12" v-if="appStore.version >= '5.0.0'" class="py-0">
           <v-checkbox v-model="preferenceStore.preferences!.use_category_paths_in_manual_mode"
                       hide-details
                       :label="t('settings.downloads.saveManagement.useCategoryPathInManualMode')"
@@ -430,7 +430,7 @@ async function sendTestEmail() {
       <v-btn color="primary" @click="sendTestEmail">{{ t('settings.downloads.mailNotification.test.label') }}</v-btn>
     </v-list-item>
 
-    <v-divider />
+    <v-divider class="mt-3" />
 
     <v-list-subheader>{{ t('settings.downloads.runExternalProgram.subheader') }}</v-list-subheader>
     <v-list-item>
