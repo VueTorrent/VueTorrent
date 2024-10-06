@@ -24,7 +24,7 @@
     "yes": "是"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "總是",
       "never": "永不",
       "title": "加入時暫停"
@@ -77,12 +77,6 @@
       "conjunctive": "結合過濾器（與）",
       "disjunctive": "選擇過濾器（或）"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "暫停種子",
-      "removeTorrent": "移除種子",
-      "removeTorrentAndFiles": "移除種子與其檔案",
-      "torrentSuperseeding": "為種子啟用超級做種"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "預設儲存路徑",
       "monitoredFolder": "已監視的資料夾",
@@ -104,6 +98,12 @@
       "everyWednesday": "星期三",
       "everyWeekday": "平日",
       "everyWeekend": "週末"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "移除種子",
+      "removeTorrentAndFiles": "移除種子與其檔案",
+      "stopTorrent": "暫停種子",
+      "torrentSuperseeding": "為種子啟用超級做種"
     },
     "stopCondition": {
       "filesChecked": "檢查檔案後",
@@ -195,8 +195,8 @@
         "upload": "設定上傳限制"
       },
       "tags": {
+        "clear_all": "全部刪除",
         "disabled_title": "無標籤",
-        "remove_all": "全部刪除",
         "title": "設定標籤"
       },
       "top": {
@@ -411,7 +411,6 @@
         "url": "連結"
       },
       "rule": {
-        "addPaused": "加入時暫停",
         "affectedFeedsSubheader": "受影響的訂閱源",
         "assignedCategory": "指派分類",
         "enabled": "啟用規則",
@@ -1324,7 +1323,6 @@
       "checking_disk": "正在檢查硬碟中的檔案",
       "checking_resume_data": "正在檢查復原資料",
       "dl_forced": "[F] 下載中",
-      "dl_paused": "暫停",
       "dl_queued": "排隊中 (下載)",
       "dl_stalled": "停滞中",
       "downloading": "下載中",
@@ -1334,7 +1332,6 @@
       "missing_files": "缺失檔案",
       "moving": "正在移動",
       "ul_forced": "[F] 上傳中",
-      "ul_paused": "已完成",
       "ul_queued": "排隊中 (上傳)",
       "ul_stalled": "做種中",
       "unknown": "未知",

@@ -23,7 +23,7 @@
     "yes": "Evet"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Her Zaman",
       "never": "Asla",
       "title": "Duraklatılmış olarak ekle"
@@ -72,12 +72,6 @@
       "normal": "Normal",
       "unwanted": "İstenmeyen"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Torrenti duraklat",
-      "removeTorrent": "Torrenti kaldır",
-      "removeTorrentAndFiles": "Torrenti ve dosyalarını kaldır",
-      "torrentSuperseeding": "Torrent için süper seedingi etkinleştir"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Varsayılan Kaydetme Yolu",
       "monitoredFolder": "İzlenen Klasör Konumu",
@@ -99,6 +93,12 @@
       "everyWednesday": "Her çarşamba",
       "everyWeekday": "Her hafta içi",
       "everyWeekend": "Her hafta sonu"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Torrenti kaldır",
+      "removeTorrentAndFiles": "Torrenti ve dosyalarını kaldır",
+      "stopTorrent": "Torrenti duraklat",
+      "torrentSuperseeding": "Torrent için süper seedingi etkinleştir"
     },
     "stopCondition": {
       "filesChecked": "Dosyalar Kontrol Edildi",
@@ -190,8 +190,8 @@
         "upload": "Yükleme sınırını ayarla"
       },
       "tags": {
+        "clear_all": "Tümünü kaldır",
         "disabled_title": "Etiket yok",
-        "remove_all": "Tümünü kaldır",
         "title": "Etiketleri Ayarla"
       },
       "top": {
@@ -401,7 +401,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Duraklatılmış olarak ekle",
         "affectedFeedsSubheader": "Etkilenen Beslemeler",
         "assignedCategory": "Atanan Kategori",
         "enabled": "Kuralı etkinleştir",
@@ -1287,7 +1286,6 @@
       "checking_disk": "Disk dosyaları kontrol ediliyor",
       "checking_resume_data": "Devam verisi kontrol ediliyor",
       "dl_forced": "[F] İndiriliyor",
-      "dl_paused": "Duraklatıldı",
       "dl_queued": "Sıraya Alındı (İndirme)",
       "dl_stalled": "Durdu",
       "downloading": "İndiriliyor",
@@ -1297,7 +1295,6 @@
       "missing_files": "Eksik Dosyalar",
       "moving": "Taşınıyor",
       "ul_forced": "[F] Yükleniyor",
-      "ul_paused": "Tamamlandı",
       "ul_queued": "Sıraya Alındı (Yükleme)",
       "ul_stalled": "Seeding",
       "unknown": "Bilinmeyen",

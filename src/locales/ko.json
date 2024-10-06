@@ -21,7 +21,7 @@
     "yes": "예"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "항상",
       "never": "절대 안함",
       "title": "일시 중지 추가"
@@ -70,12 +70,6 @@
       "normal": "일반",
       "unwanted": "받지 않음"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "토렌트 일시중지",
-      "removeTorrent": "토렌트 제거",
-      "removeTorrentAndFiles": "토렌트 및 해당 파일 제거",
-      "torrentSuperseeding": "수퍼 시딩 활성화"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "기본 저장 경로",
       "monitoredFolder": "모니터링(Watch) 디렉토리 위치",
@@ -97,6 +91,12 @@
       "everyWednesday": "매주 수요일",
       "everyWeekday": "매주 평일",
       "everyWeekend": "매주 주말"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "토렌트 제거",
+      "removeTorrentAndFiles": "토렌트 및 해당 파일 제거",
+      "stopTorrent": "토렌트 일시중지",
+      "torrentSuperseeding": "수퍼 시딩 활성화"
     },
     "stopCondition": {
       "filesChecked": "확인된 파일",
@@ -344,7 +344,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "일시 중지 추가",
         "affectedFeedsSubheader": "영향을 받는 피드",
         "assignedCategory": "할당된 카테고리",
         "enabled": "규칙 사용",
@@ -1182,7 +1181,6 @@
     "state": {
       "checking_resume_data": "재개 데이터 확인 중",
       "dl_forced": "[강제] 다운로드 중",
-      "dl_paused": "일시 중지됨",
       "dl_queued": "대기 중 (다운로드)",
       "dl_stalled": "정지됨",
       "downloading": "다운로드 중",
@@ -1191,7 +1189,6 @@
       "missing_files": "누락된 파일",
       "moving": "이동",
       "ul_forced": "[강제] 업로드 중",
-      "ul_paused": "완료됨",
       "ul_queued": "대기 중 (업로드)",
       "ul_stalled": "시딩 중",
       "unknown": "알 수 없음",

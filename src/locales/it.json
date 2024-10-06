@@ -16,7 +16,7 @@
     "yes": "Sì"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Sempre",
       "never": "Mai",
       "title": "Aggiungi in Pausa"
@@ -64,12 +64,6 @@
       "normal": "Normale",
       "unwanted": "Indesiderato"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pausa il Torrent",
-      "removeTorrent": "Rimuovi il Torrent",
-      "removeTorrentAndFiles": "Rimuovi il Torrent e rispettivi File",
-      "torrentSuperseeding": "Abilita il Super Seeding per il Torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Percorso di Salvataggio Predefinito",
       "monitoredFolder": "Posizione Cartella Monitorata",
@@ -91,6 +85,12 @@
       "everyWednesday": "Ogni Mercoledì",
       "everyWeekday": "Ogni giorno feriale",
       "everyWeekend": "Ogni fine settimana"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Rimuovi il Torrent",
+      "removeTorrentAndFiles": "Rimuovi il Torrent e rispettivi File",
+      "stopTorrent": "Pausa il Torrent",
+      "torrentSuperseeding": "Abilita il Super Seeding per il Torrent"
     },
     "stopCondition": {
       "filesChecked": "File Controllati",
@@ -172,8 +172,8 @@
         "upload": "Imposta Limite di Upload"
       },
       "tags": {
+        "clear_all": "Rimuovi tutte",
         "disabled_title": "Nessuna Etichetta",
-        "remove_all": "Rimuovi tutte",
         "title": "Imposta Etichetta"
       }
     },
@@ -322,7 +322,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Aggiungi in Pausa",
         "affectedFeedsSubheader": "Feed Interessati",
         "assignedCategory": "Categoria Assegnata",
         "episodeFilter": "Filtro Episodio",

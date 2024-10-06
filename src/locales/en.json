@@ -24,10 +24,10 @@
     "yes": "Yes"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Always",
       "never": "Never",
-      "title": "Add paused"
+      "title": "Add stopped"
     },
     "bittorrentProtocols": {
       "tcp": "TCP",
@@ -77,12 +77,6 @@
       "conjunctive": "Conjunctive filtering (AND)",
       "disjunctive": "Disjunctive filtering (OR)"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pause torrent",
-      "removeTorrent": "Remove torrent",
-      "removeTorrentAndFiles": "Remove torrent and its files",
-      "torrentSuperseeding": "Enable super seeding for torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Default Save Path",
       "monitoredFolder": "Monitored Folder Location",
@@ -104,6 +98,12 @@
       "everyWednesday": "Every wednesday",
       "everyWeekday": "Every weekdays",
       "everyWeekend": "Every weekends"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Remove torrent",
+      "removeTorrentAndFiles": "Remove torrent and its files",
+      "stopTorrent": "Stop torrent",
+      "torrentSuperseeding": "Enable super seeding for torrent"
     },
     "stopCondition": {
       "filesChecked": "Files Checked",
@@ -195,8 +195,8 @@
         "upload": "Set upload limit"
       },
       "tags": {
-        "disabled_title": "No tags",
         "clear_all": "Clear all",
+        "disabled_title": "No tags",
         "title": "Set tags"
       },
       "top": {
@@ -411,7 +411,7 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Add paused",
+        "addStopped": "Add stopped",
         "affectedFeedsSubheader": "Affected Feeds",
         "assignedCategory": "Assigned Category",
         "enabled": "Enable rule",
@@ -627,10 +627,12 @@
       }
     },
     "headers": {
+      "engineName": "Engine Name",
       "fileName": "Filename",
       "fileSize": "File Size",
       "nbLeechers": "Leechers",
       "nbSeeders": "Seeders",
+      "pubDate": "Publication Date",
       "siteUrl": "Site URL"
     },
     "query": "Search query",
@@ -840,6 +842,11 @@
         "password": "Password",
         "smtpServer": "SMTP server",
         "sslEnabled": "This server requires a secure connection (SSL)",
+        "test": {
+          "error": "Email request failed\n{message}",
+          "label": "Send test email",
+          "success": "Email request sent!\nCheck your inbox to confirm success"
+        },
         "to": "To",
         "username": "Username"
       },
@@ -1331,9 +1338,9 @@
       "checking_disk": "\uD83D\uDD0D Checking Disk Files",
       "checking_resume_data": "\uD83D\uDD0D Checking Resume Data",
       "dl_forced": "\uD83D\uDCE5 Downloading [F]",
-      "dl_paused": "⏸️ Paused",
       "dl_queued": "⏳ Queued (DL)",
       "dl_stalled": "\uD83D\uDD54 Stalled",
+      "dl_stopped": "⏹️ Stopped",
       "downloading": "\uD83D\uDCE5 Downloading",
       "error": "❌ Error",
       "forced_meta_download": "\uD83D\uDCDD Metadata [F]",
@@ -1341,9 +1348,9 @@
       "missing_files": "⚠️ Missing Files",
       "moving": "\uD83D\uDE9A Moving",
       "ul_forced": "\uD83D\uDCE4 Uploading [F]",
-      "ul_paused": "✅ Done",
       "ul_queued": "⏳ Queued (UP)",
       "ul_stalled": "\uD83C\uDF31 Seeding",
+      "ul_stopped": "✅ Done",
       "unknown": "❓ Unknown",
       "uploading": "\uD83D\uDCE4 Uploading"
     }

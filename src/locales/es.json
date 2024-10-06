@@ -21,7 +21,7 @@
     "yes": "Sí"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Siempre",
       "never": "Nunca",
       "title": "Añadir pausa"
@@ -70,12 +70,6 @@
       "normal": "Normal",
       "unwanted": "No deseado"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Pausar torrente",
-      "removeTorrent": "Eliminar torrent",
-      "removeTorrentAndFiles": "Eliminar torrent y sus archivos",
-      "torrentSuperseeding": "Habilitar super siembra para el torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Ruta de Guardado Predeterminada",
       "monitoredFolder": "Ubicación de la carpeta monitoreada",
@@ -97,6 +91,12 @@
       "everyWednesday": "Cada miércoles",
       "everyWeekday": "Todos los días laborables",
       "everyWeekend": "Todos los fines de semana"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Eliminar torrent",
+      "removeTorrentAndFiles": "Eliminar torrent y sus archivos",
+      "stopTorrent": "Pausar torrente",
+      "torrentSuperseeding": "Habilitar super siembra para el torrent"
     },
     "stopCondition": {
       "filesChecked": "Archivos comprobados",
@@ -366,7 +366,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Añadir pausa",
         "affectedFeedsSubheader": "Fuentes afectadas",
         "assignedCategory": "Categoría asignada",
         "enabled": "Habilitar regla",
@@ -1215,7 +1214,6 @@
     "state": {
       "checking_resume_data": "Comprobando datos de reanudación",
       "dl_forced": "[F] Descargando",
-      "dl_paused": "Pausado",
       "dl_queued": "En cola (descarga)",
       "dl_stalled": "Detenido",
       "downloading": "Descargando",
@@ -1224,7 +1222,6 @@
       "missing_files": "Archivos faltantes",
       "moving": "Moviendo",
       "ul_forced": "[F] Subiendo",
-      "ul_paused": "Completado",
       "ul_queued": "En cola (Subiendo)",
       "ul_stalled": "Sembrando",
       "unknown": "Desconocido",

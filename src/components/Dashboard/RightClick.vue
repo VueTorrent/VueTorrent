@@ -7,15 +7,7 @@ import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
-import {
-  useCategoryStore,
-  useDashboardStore,
-  useDialogStore,
-  useMaindataStore,
-  usePreferenceStore,
-  useTagStore,
-  useTorrentStore
-} from '@/stores'
+import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
@@ -154,13 +146,13 @@ async function exportTorrents() {
   if (ts.length === 1) {
     const t = ts[0]!
     const blob = await torrentStore.exportTorrent(t.hash)
-    downloadFile(`${ t.name }.torrent`, blob)
+    downloadFile(`${t.name}.torrent`, blob)
     return
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
   await Promise.all(
-    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${ torrentStore.getTorrentByHash(hash)!.name }.torrent`, new BlobReader(blob))))
+    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob))))
   )
   downloadFile('torrents.zip', await zipWriter.close())
 }
@@ -265,7 +257,7 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
       }))
     ]
-},
+  },
   {
     text: t('dashboard.right_click.category.title'),
     icon: 'mdi-label',

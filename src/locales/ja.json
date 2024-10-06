@@ -23,7 +23,7 @@
     "yes": "はい"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "常に",
       "never": "一度もない",
       "title": "一時停止を追加"
@@ -72,12 +72,6 @@
       "normal": "通常",
       "unwanted": "不要"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Torrentを一時停止する",
-      "removeTorrent": "Torrentを削除する",
-      "removeTorrentAndFiles": "Torrentとそのファイルを削除する",
-      "torrentSuperseeding": "Torrentのスーパーシードモードを有効にする"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "デフォルトの保存先パス",
       "monitoredFolder": "監視対象フォルダーの場所",
@@ -99,6 +93,12 @@
       "everyWednesday": "毎週水曜日",
       "everyWeekday": "毎週平日",
       "everyWeekend": "毎週末"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Torrentを削除する",
+      "removeTorrentAndFiles": "Torrentとそのファイルを削除する",
+      "stopTorrent": "Torrentを一時停止する",
+      "torrentSuperseeding": "Torrentのスーパーシードモードを有効にする"
     },
     "stopCondition": {
       "filesChecked": "ファイルのチェック後",
@@ -190,8 +190,8 @@
         "upload": "UP速度制限を設定"
       },
       "tags": {
+        "clear_all": "すべて削除",
         "disabled_title": "タグなし",
-        "remove_all": "すべて削除",
         "title": "タグを設定"
       },
       "top": {
@@ -406,7 +406,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "一時停止を追加",
         "affectedFeedsSubheader": "影響を受けるフィード",
         "assignedCategory": "割り当てられたカテゴリー",
         "enabled": "ルールを有効にする",
@@ -1296,7 +1295,6 @@
       "checking_disk": "ファイルチェック中",
       "checking_resume_data": "再開データを確認中",
       "dl_forced": "[F] ダウンロード中",
-      "dl_paused": "一時停止",
       "dl_queued": "待機中 (DL)",
       "dl_stalled": "停滞",
       "downloading": "ダウンロード中",
@@ -1306,7 +1304,6 @@
       "missing_files": "ファイル不足",
       "moving": "移動中",
       "ul_forced": "[F] アップロード中",
-      "ul_paused": "完了",
       "ul_queued": "待機中 (UP)",
       "ul_stalled": "シード中",
       "unknown": "不明",

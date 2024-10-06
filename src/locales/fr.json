@@ -24,7 +24,7 @@
     "yes": "Oui"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Toujours",
       "never": "Jamais",
       "title": "Ajouter en pause"
@@ -73,12 +73,6 @@
       "normal": "Normale",
       "unwanted": "Ignoré"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Suspendre le torrent",
-      "removeTorrent": "Supprimer le torrent",
-      "removeTorrentAndFiles": "Supprimer le torrent et ses fichiers",
-      "torrentSuperseeding": "Activer le super partage pour ce torrent"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Répertoire de destination par défaut",
       "monitoredFolder": "Emplacement du dossier surveillé",
@@ -100,6 +94,12 @@
       "everyWednesday": "Tous les mercredis",
       "everyWeekday": "Tous les jours de la semaine",
       "everyWeekend": "Tous les week-ends"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Supprimer le torrent",
+      "removeTorrentAndFiles": "Supprimer le torrent et ses fichiers",
+      "stopTorrent": "Suspendre le torrent",
+      "torrentSuperseeding": "Activer le super partage pour ce torrent"
     },
     "stopCondition": {
       "filesChecked": "Fichiers vérifiés",
@@ -191,8 +191,8 @@
         "upload": "Définir la limite d'envoi"
       },
       "tags": {
+        "clear_all": "Enlever tout",
         "disabled_title": "Aucune étiquette",
-        "remove_all": "Enlever tout",
         "title": "Définir les étiquettes"
       },
       "top": {
@@ -407,7 +407,6 @@
         "url": "URL"
       },
       "rule": {
-        "addPaused": "Ajouter en pause",
         "affectedFeedsSubheader": "Flux affectés",
         "assignedCategory": "Catégorie attribuée",
         "enabled": "Activer la règle",
@@ -1297,7 +1296,6 @@
       "checking_disk": "Vérification des fichiers disque",
       "checking_resume_data": "Vérification des données de reprise",
       "dl_forced": "[F] Téléchargement",
-      "dl_paused": "En pause",
       "dl_queued": "En attente (DL)",
       "dl_stalled": "En suspens",
       "downloading": "Téléchargement",
@@ -1307,7 +1305,6 @@
       "missing_files": "Fichiers manquants",
       "moving": "Déplacement",
       "ul_forced": "[F] Envoi",
-      "ul_paused": "Terminé",
       "ul_queued": "En attente (UP)",
       "ul_stalled": "En cours de seed",
       "unknown": "Inconnu",

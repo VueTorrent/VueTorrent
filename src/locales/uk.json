@@ -23,7 +23,7 @@
     "yes": "Так"
   },
   "constants": {
-    "addPaused": {
+    "addStopped": {
       "always": "Завжди",
       "never": "Ніколи",
       "title": "Додати призупинені"
@@ -72,12 +72,6 @@
       "normal": "Нормальний",
       "unwanted": "Низький"
     },
-    "maxRatioAction": {
-      "pauseTorrent": "Зупинити торрент",
-      "removeTorrent": "Видалити торрент",
-      "removeTorrentAndFiles": "Видалити торрент та файли",
-      "torrentSuperseeding": "Увімкнути суперсід для цього торренту"
-    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Шлях збереження за замовчування",
       "monitoredFolder": "Тека, яка відслідковується",
@@ -99,6 +93,12 @@
       "everyWednesday": "Кожну середу",
       "everyWeekday": "По будням",
       "everyWeekend": "По вихідним"
+    },
+    "shareLimitAction": {
+      "removeTorrent": "Видалити торрент",
+      "removeTorrentAndFiles": "Видалити торрент та файли",
+      "stopTorrent": "Зупинити торрент",
+      "torrentSuperseeding": "Увімкнути суперсід для цього торренту"
     },
     "stopCondition": {
       "filesChecked": "Файлів перевірено",
@@ -190,8 +190,8 @@
         "upload": "Встановити ліміт роздачі"
       },
       "tags": {
+        "clear_all": "Видалити все",
         "disabled_title": "Без тегів",
-        "remove_all": "Видалити все",
         "title": "Встановити теги"
       },
       "top": {
@@ -293,7 +293,6 @@
     "state": {
       "checking_resume_data": "Перевірка для відновлення",
       "dl_forced": "[Ф] Завантаження",
-      "dl_paused": "Призупинено",
       "dl_queued": "В черзі (ЗВ)",
       "dl_stalled": "Завис",
       "downloading": "Завантаження",
@@ -303,7 +302,6 @@
       "missing_files": "Файли відсутні",
       "moving": "Переміщаю..",
       "ul_forced": "[Ф] Роздача",
-      "ul_paused": "Готово",
       "ul_queued": "В черзі (РД)",
       "ul_stalled": "Сідування",
       "unknown": "Невідомо",
