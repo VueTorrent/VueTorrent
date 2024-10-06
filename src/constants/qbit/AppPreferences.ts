@@ -28,11 +28,12 @@ export enum FileLogAgeType {
   YEARS
 }
 
-export enum MaxRatioAction {
-  PAUSE_TORRENT = 0,
+export enum ShareLimitAction {
+  DEFAULT = -1,
+  STOP_TORRENT = 0,
   REMOVE_TORRENT = 1,
+  ENABLE_SUPERSEEDING = 2,
   REMOVE_TORRENT_AND_FILES = 3,
-  ENABLE_SUPERSEEDING = 2
 }
 
 export enum ProxyType {
@@ -71,6 +72,11 @@ export enum StopCondition {
   NONE = 'None',
   METADATA_RECEIVED = 'MetadataReceived',
   FILES_CHECKED = 'FilesChecked'
+}
+
+export enum TorrentContentRemoveOption {
+  DELETE = 'Delete',
+  MOVE_TO_TRASH = 'MoveToTrash'
 }
 
 export enum UploadChokingAlgorithm {

@@ -11,12 +11,21 @@ import type {
   SearchJob,
   SearchPlugin,
   SearchStatus,
+  SSLParameters,
+  TorrentCreatorParams,
+  TorrentCreatorTask,
   TorrentFile,
   TorrentProperties,
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
+import type {
+  AddTorrentPayload,
+  AppPreferencesPayload,
+  CreateFeedPayload,
+  GetTorrentPayload,
+  LoginPayload
+} from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance } from 'axios'
 import axios, { AxiosResponse } from 'axios'
@@ -109,6 +118,14 @@ export default class QBitProvider implements IProvider {
     }
 
     return this.axios.get('/app/networkInterfaceAddressList', { params }).then(r => r.data)
+  }
+
+  async sendTestEmail(): Promise<void> {
+    return this.axios.post('/app/sendTestEmail')
+  }
+
+  async getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[]> {
+    return this.post('/app/getDirectoryContent', { dirPath, mode })
   }
 
   /// AuthController ///
@@ -309,6 +326,10 @@ export default class QBitProvider implements IProvider {
     return this.post('/search/updatePlugins')
   }
 
+  async downloadTorrentWithSearchPlugin(torrentUrl: string, pluginName: string): Promise<void> {
+    return this.post('/search/downloadTorrent', { torrentUrl, pluginName })
+  }
+
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
@@ -321,6 +342,37 @@ export default class QBitProvider implements IProvider {
         params: { hash, rid }
       })
       .then(r => r.data)
+  }
+
+  /// TorrentCreatorController //
+
+  async addTask(taskParams: TorrentCreatorParams): Promise<string> {
+    return this.post('/torrentcreator/addTask', taskParams)
+      .then(res => res.data)
+      .then(data => data.taskID)
+  }
+
+  async status(taskID?: string): Promise<TorrentCreatorTask[]> {
+    return this.axios.get('/torrentcreator/status', { params: { taskID } })
+      .then(res => res.data)
+  }
+
+  async torrentFile(taskID: string): Promise<Blob> {
+    return this.axios
+      .get('/torrentcreator/torrentFile', {
+        params: { taskID },
+        responseType: 'arraybuffer',
+        headers: {
+          Accept: 'application/x-bittorrent'
+        }
+      })
+      .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
+  }
+
+  async deleteTask(taskID: string): Promise<boolean> {
+    return this.post('/torrentcreator/deleteTask', { taskID })
+      .then(() => true)
+      .catch(() => false)
   }
 
   /// TorrentsController ///
@@ -426,8 +478,16 @@ export default class QBitProvider implements IProvider {
     return this.torrentAction('pause', hashes)
   }
 
+  async stopTorrents(hashes: string[]): Promise<void> {
+    return this.torrentAction('stop', hashes)
+  }
+
   async resumeTorrents(hashes: string[]): Promise<void> {
     return this.torrentAction('resume', hashes)
+  }
+
+  async startTorrents(hashes: string[]): Promise<void> {
+    return this.torrentAction('start', hashes)
   }
 
   async forceStartTorrents(hashes: string[]): Promise<void> {
@@ -456,6 +516,10 @@ export default class QBitProvider implements IProvider {
 
   async setUploadLimit(hashes: string[], limit: number): Promise<void> {
     return this.torrentAction('setUploadLimit', hashes, { limit })
+  }
+
+  async getTorrentsCount(): Promise<number> {
+    return this.axios.get('/torrents/count').then(res => res.data)
   }
 
   async setShareLimit(hashes: string[], ratioLimit: number, seedingTimeLimit: number, inactiveSeedingTimeLimit: number): Promise<void> {
@@ -614,6 +678,22 @@ export default class QBitProvider implements IProvider {
         }
       })
       .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
+  }
+
+  async SSLParameters(hash: string): Promise<SSLParameters> {
+    return this.axios.get('/torrents/SSLParameters', { params: { hash } })
+      .then(res => res.data)
+  }
+
+  async setSSLParameters(hash: string, params: SSLParameters): Promise<boolean> {
+    return this.post('/torrents/setSSLParameters', {
+      hash,
+      ssl_certificate: params.ssl_certificate,
+      ssl_private_key: params.ssl_private_key,
+      ssl_dh_params: params.ssl_dh_params,
+    })
+      .then(() => true)
+      .catch(() => false)
   }
 
   /// TransferController ///

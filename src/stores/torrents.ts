@@ -1,6 +1,7 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
+import { useAppStore } from '@/stores/app.ts'
 import { useTorrentDetailStore } from '@/stores/torrentDetail.ts'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -13,6 +14,7 @@ import { useTrackerStore } from './trackers'
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
+    const appStore = useAppStore()
     const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
 
@@ -204,15 +206,23 @@ export const useTorrentStore = defineStore(
     }
 
     async function resumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
-      await qbit.resumeTorrents(toValue(hashes))
+      if (appStore.version >= '5.0.0') {
+        await qbit.startTorrents(toValue(hashes))
+      } else {
+        await qbit.resumeTorrents(toValue(hashes))
+      }
     }
 
-    async function forceResumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
+    async function forceStartTorrents(hashes: MaybeRefOrGetter<string[]>) {
       await qbit.forceStartTorrents(toValue(hashes))
     }
 
     async function pauseTorrents(hashes: MaybeRefOrGetter<string[]>) {
-      await qbit.pauseTorrents(toValue(hashes))
+      if (appStore.version >= '5.0.0') {
+        await qbit.stopTorrents(toValue(hashes))
+      } else {
+        await qbit.pauseTorrents(toValue(hashes))
+      }
     }
 
     async function recheckTorrents(hashes: MaybeRefOrGetter<string[]>) {
@@ -261,7 +271,7 @@ export const useTorrentStore = defineStore(
       setSuperSeeding,
       renameTorrent,
       resumeTorrents,
-      forceResumeTorrents,
+      forceStartTorrents,
       pauseTorrents,
       recheckTorrents,
       setTorrentPriority,

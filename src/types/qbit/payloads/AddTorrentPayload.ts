@@ -1,4 +1,4 @@
-import { ContentLayout, StopCondition } from '@/constants/qbit/AppPreferences'
+import { ContentLayout, ShareLimitAction, StopCondition } from '@/constants/qbit/AppPreferences'
 
 export default interface AddTorrentPayload {
   /** Whether to add the torrent at the top of the queue */
@@ -26,7 +26,10 @@ export default interface AddTorrentPayload {
    * - -2 to use global value
    */
   inactiveSeedingTimeLimit?: number
-  /** Add torrents in the paused state */
+  /**
+   * Add torrents in the stopped state
+   * @deprecated since 5.X, use stopped instead
+   */
   paused?: boolean
   /** Set torrent share ratio limit */
   ratioLimit?: number
@@ -41,10 +44,20 @@ export default interface AddTorrentPayload {
   seedingTimeLimit?: number
   /** Enable sequential download */
   sequentialDownload?: boolean
+  /** TODO */
+  shareLimitAction?: ShareLimitAction
   /** Skip hash checking */
   skip_checking?: boolean
+  /** TODO */
+  ssl_certificate?: string
+  /** TODO */
+  ssl_dh_params?: string
+  /** TODO */
+  ssl_private_key?: string
   /** Torrent stop condition */
   stopCondition?: StopCondition
+  /** Add torrents in the stopped state */
+  stopped?: boolean
   /** Tags for the torrent, split by ',' */
   tags?: string
   /** Set torrent upload speed limit. Unit in bytes/second */

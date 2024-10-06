@@ -71,6 +71,10 @@ export const useSearchEngineStore = defineStore(
       await qbit.updateSearchPlugins()
     }
 
+    async function downloadTorrent(torrentUrl: string, pluginName: string) {
+      await qbit.downloadTorrentWithSearchPlugin(torrentUrl, pluginName)
+    }
+
     return {
       searchData,
       searchPlugins,
@@ -84,6 +88,7 @@ export const useSearchEngineStore = defineStore(
       uninstallSearchPlugin,
       toggleSearchPlugin,
       updatePlugins,
+      downloadTorrent,
       $reset: () => {
         searchData.value = []
         searchPlugins.value = []

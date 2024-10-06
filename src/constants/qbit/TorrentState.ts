@@ -9,11 +9,11 @@ export enum TorrentState {
   DOWNLOADING = 'downloading',
   /** Torrent is being downloaded, but no connection were made */
   STALLED_DL = 'stalledDL',
-  /** Torrent is paused and has NOT finished downloading
+  /** Torrent is stopped and has NOT finished downloading
    * @deprecated since 5.X, use STOPPED_DL instead
    */
   PAUSED_DL = 'pausedDL',
-  /** Torrent is paused and has NOT finished downloading */
+  /** Torrent is stopped and has NOT finished downloading */
   STOPPED_DL = 'stoppedDL',
   /** Queuing is enabled and torrent is queued for download */
   QUEUED_DL = 'queuedDL',
@@ -23,11 +23,12 @@ export enum TorrentState {
   UPLOADING = 'uploading',
   /** Torrent is being seeded, but no connection were made */
   STALLED_UP = 'stalledUP',
-  /** Torrent is paused and has finished downloading
-   * @deprecated since 5.X, use STOPPED_UP instead
+  /**
+   * Torrent is stopped and has finished downloading
+   * @deprecated since 5.X, use `STOPPED_UP` instead
    */
   PAUSED_UP = 'pausedUP',
-  /** Torrent is paused and has finished downloading */
+  /** Torrent is stopped and has finished downloading */
   STOPPED_UP = 'stoppedUP',
   /** Queuing is enabled and torrent is queued for upload */
   QUEUED_UP = 'queuedUP',
@@ -45,7 +46,7 @@ export enum TorrentState {
   MOVING = 'moving',
   /** Torrent data files is missing */
   MISSING_FILES = 'missingFiles',
-  /** Some error occurred, applies to paused torrents */
+  /** Some error occurred, applies to stopped torrents */
   ERROR = 'error',
   /** Unknown status */
   UNKNOWN = 'unknown'

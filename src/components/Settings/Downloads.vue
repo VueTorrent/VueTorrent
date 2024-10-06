@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
-import { usePreferenceStore } from '@/stores'
-import { nextTick, onBeforeMount, ref, watch } from 'vue'
+import { useAppStore, usePreferenceStore } from '@/stores'
+import { computed, nextTick, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { toast } from 'vue3-toastify'
 
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
 const { t } = useI18n()
+const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
 const contentLayoutOptions = [
@@ -60,6 +62,15 @@ const monitoredFoldersMonitorTypeOptions = ref([
   { title: t('constants.monitoredFolderSaveLocation.defaultSavePath'), value: ScanDirsEnum.DEFAULT_SAVE_PATH },
   { title: t('constants.monitoredFolderSaveLocation.other'), value: -1 }
 ])
+
+const addStoppedEnabled = computed({
+  get: () => preferenceStore.preferences!.add_stopped_enabled ?? preferenceStore.preferences!.start_paused_enabled,
+  set(v) {
+    if (!preferenceStore.preferences) return;
+    preferenceStore.preferences.add_stopped_enabled = v
+    preferenceStore.preferences.start_paused_enabled = v
+  }
+})
 
 onBeforeMount(async () => {
   isExportDirEnabled.value = preferenceStore.preferences!.export_dir.length > 0
@@ -140,6 +151,12 @@ const closeDeleteDialog = async () => {
   monitoredFoldersEditedItem.value = { ...monitoredFoldersDefaultItem.value }
   monitoredFoldersEditedIndex.value = -1
 }
+
+async function sendTestEmail() {
+  appStore.sendTestEmail()
+    .then(() => toast.success(t('settings.downloads.mailNotification.test.success')))
+    .catch(err => toast.error(t('settings.downloads.mailNotification.test.error', { message: err.message })))
+}
 </script>
 
 <template>
@@ -153,7 +170,7 @@ const closeDeleteDialog = async () => {
 
       <v-checkbox v-model="preferenceStore.preferences!.merge_trackers" hide-details :label="t('settings.downloads.whenAddTorrent.mergeTrackers')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.start_paused_enabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
+      <v-checkbox v-model="addStoppedEnabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
       <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />
 
@@ -395,6 +412,10 @@ const closeDeleteDialog = async () => {
             @click:append="showPassword = !showPassword" />
         </v-col>
       </v-row>
+    </v-list-item>
+
+    <v-list-item v-if="appStore.version >= '5.0.0'">
+      <v-btn color="primary" @click="sendTestEmail">{{ t('settings.downloads.mailNotification.test.label') }}</v-btn>
     </v-list-item>
 
     <v-divider />

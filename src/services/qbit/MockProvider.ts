@@ -1,5 +1,19 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
-import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition } from '@/constants/qbit/AppPreferences'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentCreatorTaskStatus,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
+import {
+  ContentLayout,
+  ProxyType,
+  ResumeDataStorageType,
+  StopCondition,
+  TorrentContentRemoveOption
+} from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -12,6 +26,9 @@ import type {
   SearchJob,
   SearchPlugin,
   SearchStatus,
+  SSLParameters,
+  TorrentCreatorParams,
+  TorrentCreatorTask,
   TorrentFile,
   TorrentProperties,
   Tracker
@@ -47,7 +64,8 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {}
+  private constructor() {
+  }
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -72,22 +90,24 @@ export default class MockProvider implements IProvider {
       auto_tmm: faker.datatype.boolean(),
       availability: faker.number.float({ min: 0, max: 100, multipleOf: 0.01 }),
       category: faker.helpers.arrayElement(['', ...Object.keys(this.categories)]),
+      comment: '',
       completed,
       completion_on: faker.date.between({ from: added_on, to: Date.now() }).getTime() / 1000,
       content_path: faker.system.filePath(),
       dl_limit: faker.number.float({ min: 0, max: 1, multipleOf: 0.01 }),
-      dlspeed: faker.number.int({ min: 0, max: 5_000_000 }), // [0; 5 Mo/s]
+      dlspeed: faker.number.int({ min: 0, max: 5_000_000 }),
       download_path: faker.system.directoryPath(),
       downloaded: completed,
       downloaded_session: completed,
       eta: faker.number.int({ min: 0, max: 900000 }),
-      f_l_piece_prio: faker.datatype.boolean(),
+      f_l_piece_prio: faker.datatype.boolean(), // [0; 5 Mo/s]
       force_start: faker.datatype.boolean(),
+      has_metadata: true,
       inactive_seeding_time_limit: -2,
       infohash_v1: hash,
       infohash_v2: '',
       last_activity: last_activity.getTime() / 1000,
-      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+      magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
       max_inactive_seeding_time: -1,
       max_ratio: -1,
       max_seeding_time: -1,
@@ -96,10 +116,14 @@ export default class MockProvider implements IProvider {
       num_incomplete,
       num_leechs: faker.number.int({ min: 0, max: num_incomplete }),
       num_seeds: faker.number.int({ min: 0, max: num_complete }),
+      popularity: -1,
       priority: 1,
+      private: false,
       progress: completed / total_size,
       ratio: 0,
       ratio_limit: -2,
+      reannounce: 3600,
+      root_path: faker.system.filePath(),
       save_path: faker.system.directoryPath(),
       seeding_time: 0,
       seeding_time_limit: -2,
@@ -121,9 +145,9 @@ export default class MockProvider implements IProvider {
   }
 
   private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean; delay?: number }): Promise<T> {
-    const result = options?.result === undefined ? undefined : options.result
-    const shouldResolve = options?.shouldResolve === undefined ? true : options.shouldResolve
-    const delay = options?.delay === undefined ? 0 : options.delay
+    const result = options?.result
+    const shouldResolve = options?.shouldResolve ?? true
+    const delay = options?.delay ?? 0
 
     if (delay > 0) {
       return new Promise<T>((resolve, reject) => setTimeout(() => (shouldResolve ? resolve(result!) : reject(result)), delay))
@@ -147,6 +171,7 @@ export default class MockProvider implements IProvider {
         // customize_trackers_list_url: 'http://example.com/',
         // public_trackers: 'http://example.com/\nhttp://example.com/',
 
+        add_stopped_enabled: false,
         add_to_top_of_queue: false,
         add_trackers: '',
         add_trackers_enabled: false,
@@ -158,6 +183,7 @@ export default class MockProvider implements IProvider {
         announce_to_all_tiers: true,
         announce_to_all_trackers: false,
         anonymous_mode: false,
+        app_instance_name: 'mock',
         async_io_threads: 10,
         auto_delete_mode: 0,
         auto_tmm_enabled: true,
@@ -179,7 +205,9 @@ export default class MockProvider implements IProvider {
         current_interface_address: '',
         current_interface_name: '',
         current_network_interface: '',
+        delete_torrent_content_files: true,
         dht: true,
+        dht_bootstrap_nodes: '',
         disk_cache: -1,
         disk_cache_ttl: 60,
         disk_io_read_mode: 1,
@@ -241,6 +269,7 @@ export default class MockProvider implements IProvider {
         mail_notification_smtp: 'smtp.changeme.com',
         mail_notification_ssl_enabled: false,
         mail_notification_username: '',
+        mark_of_the_web: true,
         max_active_checking_torrents: 1,
         max_active_downloads: 3,
         max_active_torrents: 5,
@@ -279,6 +308,7 @@ export default class MockProvider implements IProvider {
         proxy_rss: true,
         proxy_type: ProxyType.NONE,
         proxy_username: '',
+        python_executable_path: '',
         queueing_enabled: true,
         random_port: false,
         reannounce_when_address_changed: false,
@@ -289,6 +319,7 @@ export default class MockProvider implements IProvider {
         resume_data_storage_type: ResumeDataStorageType.LEGACY,
         rss_auto_downloading_enabled: false,
         rss_download_repack_proper_episodes: true,
+        rss_fetch_delay: 60,
         rss_max_articles_per_feed: 50,
         rss_processing_enabled: false,
         rss_refresh_interval: 600,
@@ -312,6 +343,8 @@ export default class MockProvider implements IProvider {
         socket_backlog_size: 30,
         socket_receive_buffer_size: 0,
         socket_send_buffer_size: 0,
+        ssl_enabled: false,
+        ssl_listen_port: 443,
         ssrf_mitigation: true,
         start_paused_enabled: false,
         stop_tracker_timeout: 2,
@@ -319,6 +352,7 @@ export default class MockProvider implements IProvider {
         temp_path_enabled: false,
         torrent_changed_tmm_enabled: false,
         torrent_content_layout: ContentLayout.NO_SUBFOLDER,
+        torrent_content_remove_option: TorrentContentRemoveOption.MOVE_TO_TRASH,
         torrent_file_size_limit: 104857600,
         torrent_stop_condition: StopCondition.METADATA_RECEIVED,
         up_limit: 0,
@@ -329,6 +363,7 @@ export default class MockProvider implements IProvider {
         use_category_paths_in_manual_mode: false,
         use_https: false,
         use_subcategories: false,
+        use_unwanted_folder: true,
         utp_tcp_mixed_mode: 0,
         validate_https_tracker_certificate: true,
         web_ui_address: '*',
@@ -389,6 +424,16 @@ export default class MockProvider implements IProvider {
       default:
         return this.generateResponse({ result: [] })
     }
+  }
+
+  async sendTestEmail(): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[]> {
+    return this.generateResponse({
+      result: faker.helpers.multiple(() => `${ dirPath }/${ faker.system.fileName() }`, { count: { min: 0, max: 5 } })
+    })
   }
 
   /// AuthController ///
@@ -1027,6 +1072,10 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async downloadTorrentWithSearchPlugin(_0: string, _1: string): Promise<void> {
+    return this.generateResponse()
+  }
+
   /// SyncController ///
 
   async getMaindata(rid?: number): Promise<MaindataResponse> {
@@ -1105,7 +1154,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ip1}:${port1}`]: {
+          [`${ ip1 }:${ port1 }`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1123,7 +1172,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ip2}:${port2}`]: {
+          [`${ ip2 }:${ port2 }`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1141,7 +1190,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ip3}:${port3}`]: {
+          [`${ ip3 }:${ port3 }`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1163,6 +1212,54 @@ export default class MockProvider implements IProvider {
         show_flags: rid <= 0 || undefined
       }
     })
+  }
+
+  /// TorrentCreatorController //
+
+  async addTask(_: TorrentCreatorParams): Promise<string> {
+    return this.generateResponse({ result: 'id' })
+  }
+
+  async status(taskID?: string): Promise<TorrentCreatorTask[]> {
+    return this.generateResponse({
+      result: [
+        {
+          taskID: taskID!,
+          sourcePath: faker.system.directoryPath(),
+          pieceSize: faker.number.int({ min: 0, max: 16_384_000, multipleOf: 512_000 }),
+          private: faker.datatype.boolean(),
+          timeAdded: faker.date.anytime().toString(),
+          format: 'v1',
+          optimizeAlignment: faker.datatype.boolean(),
+          status: TorrentCreatorTaskStatus.QUEUED,
+          comment: faker.word.words({ count: { min: 0, max: 25 } }),
+          torrentFilePath: faker.system.filePath(),
+          source: faker.system.directoryPath(),
+          trackers: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
+            })
+          }).join('|'),
+          urlSeeds: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
+            })
+          }).join('|'),
+          timeFinished: faker.date.recent().toString(),
+          timeStarted: faker.date.past().toString()
+        }
+      ]
+    })
+  }
+
+  async torrentFile(_: string): Promise<Blob> {
+    return this.generateResponse({ result: new Blob([new ArrayBuffer(1024)], { type: 'application/x-bittorrent' }) })
+  }
+
+  async deleteTask(_: string): Promise<boolean> {
+    return this.generateResponse({ result: true })
   }
 
   /// TorrentsController ///
@@ -1315,6 +1412,7 @@ export default class MockProvider implements IProvider {
         download_path: '',
         eta: 8640000,
         hash,
+        has_metadata: true,
         infohash_v1: '9ecd4676fd0f0474151a4b74a5958f42639cebdf',
         infohash_v2: '',
         is_private: false,
@@ -1327,6 +1425,8 @@ export default class MockProvider implements IProvider {
         piece_size: 262144,
         pieces_have: 0,
         pieces_num: 19738,
+        popularity: -1,
+        private: false,
         reannounce: 0,
         save_path: '/downloads',
         seeding_time: 0,
@@ -1363,7 +1463,15 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
+  async stopTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
   async resumeTorrents(_: string[]): Promise<void> {
+    return this.generateResponse()
+  }
+
+  async startTorrents(_: string[]): Promise<void> {
     return this.generateResponse()
   }
 
@@ -1393,6 +1501,10 @@ export default class MockProvider implements IProvider {
 
   async setUploadLimit(_0: string[], _1: number): Promise<void> {
     return this.generateResponse()
+  }
+
+  async getTorrentsCount(): Promise<number> {
+    return this.generateResponse({ result: MockProvider.hashes.length })
   }
 
   async setShareLimit(_0: string[], _1: number, _2: number, _3: number): Promise<void> {
@@ -1481,6 +1593,20 @@ export default class MockProvider implements IProvider {
 
   async exportTorrent(_: string): Promise<Blob> {
     return this.generateResponse({ result: new Blob([new ArrayBuffer(1024)], { type: 'application/x-bittorrent' }) })
+  }
+
+  async SSLParameters(_: string): Promise<SSLParameters> {
+    return this.generateResponse({
+      result: {
+        ssl_certificate: faker.helpers.replaceSymbols('?????????'),
+        ssl_private_key: faker.helpers.replaceSymbols('?????????'),
+        ssl_dh_params: faker.helpers.replaceSymbols('?????????')
+      }
+    })
+  }
+
+  async setSSLParameters(_0: string, _1: SSLParameters): Promise<boolean> {
+    return this.generateResponse({ result: true })
   }
 
   /// TransferController ///
