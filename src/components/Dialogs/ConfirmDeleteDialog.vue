@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
-import { useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -16,6 +16,7 @@ const { isOpened } = useDialog(props.guid)
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
+const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const preferenceStore = usePreferenceStore()
 const torrentStore = useTorrentStore()
@@ -26,19 +27,18 @@ const isFormValid = ref(false)
 
 const selection = computed(() => torrentStore.torrents.filter(t => props.hashes?.includes(t.hash)))
 
-// TODO: Save state directly from here (qbit 5.X only)
-const _deleteWithFiles = ref(preferenceStore.preferences!.delete_torrent_content_files ?? vuetorrentStore.deleteWithFiles)
-const deleteWithFiles = computed({
-  get: () => _deleteWithFiles.value,
-  set: v => {
-    vuetorrentStore.deleteWithFiles = v
-    _deleteWithFiles.value = v
-  }
-})
+const deletePref = computed(() => preferenceStore.preferences!.delete_torrent_content_files ?? vuetorrentStore.deleteWithFiles)
+const deleteWithFiles = ref(deletePref.value)
 
 async function saveDeleteState() {
-  preferenceStore.setPreferences({ delete_torrent_content_files: deleteWithFiles.value })
-  preferenceStore.fetch()
+  const newValue = deleteWithFiles.value
+
+  if (appStore.version >= '5.0.0') {
+    await preferenceStore.setPreferences({ delete_torrent_content_files: newValue })
+    await preferenceStore.fetchPreferences()
+  } else {
+    vuetorrentStore.deleteWithFiles = newValue
+  }
 }
 
 async function submit() {
@@ -84,8 +84,8 @@ onUnmounted(() => {
           <div class="d-flex flex-wrap flex-gap-small">
             <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
-          <div class="d-flex flex-row">
-            <v-icon :disabled="vuetorrentStore.deleteWithFiles !== deleteWithFiles" @click="saveDeleteState">mdi-lock</v-icon>
+          <div class="d-flex flex-row flex-gap align-center">
+            <v-btn :disabled="deleteWithFiles === deletePref" color="accent" variant="text" icon="mdi-content-save" @click="saveDeleteState" />
             <v-checkbox v-model="deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
           </div>
           <v-scroll-x-transition>
