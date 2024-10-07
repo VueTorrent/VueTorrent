@@ -112,14 +112,10 @@ export const useTorrentStore = defineStore(
       let compareResult = 0
       while (i < sortCriterias.value.length && compareResult === 0) {
         const { value, reverse } = sortCriterias.value.at(i++)!
-        const av = a[value]
-        const bv = b[value]
-        const comparator = comparatorMap[value]
-        const compareFn = reverse ? comparator.desc : comparator.asc
-        compareResult = compareFn(av, bv)
+        compareResult = comparatorMap[value](a, b, !reverse)
       }
       if (compareResult === 0) {
-        compareResult = comparatorMap.hash.asc(a.hash, b.hash)
+        compareResult = comparatorMap.hash(a, b, true)
       }
       return compareResult
     })
@@ -238,7 +234,6 @@ export const useTorrentStore = defineStore(
     }
 
     return {
-      _torrents,
       torrents,
       isTextFilterActive,
       isStatusFilterActive,
@@ -305,7 +300,7 @@ export const useTorrentStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, excludePaths: ['_torrents'] }]
+      storageItems: [{ storage: localStorage }]
     }
   }
 )

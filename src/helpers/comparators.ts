@@ -5,6 +5,14 @@ export class Comparator<T = any> {
   constructor(asc: (a: T, b: T) => number) {
     this.asc = asc
   }
+
+  compare(v1: T, v2: T, isAsc: boolean) {
+    if (isAsc) {
+      return this.asc(v1, v2)
+    } else {
+      return this.desc(v1, v2)
+    }
+  }
 }
 
 type ComparatorMap = {
