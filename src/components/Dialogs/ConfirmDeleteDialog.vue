@@ -30,16 +30,21 @@ const selection = computed(() => torrentStore.torrents.filter(t => props.hashes?
 const _deleteWithFiles = ref(preferenceStore.preferences!.delete_torrent_content_files ?? vuetorrentStore.deleteWithFiles)
 const deleteWithFiles = computed({
   get: () => _deleteWithFiles.value,
-  set: v => (vuetorrentStore.deleteWithFiles = v)
+  set: v => {
+    vuetorrentStore.deleteWithFiles = v
+    _deleteWithFiles.value = v
+  }
 })
+
+async function saveDeleteState() {
+  preferenceStore.setPreferences({ delete_torrent_content_files: deleteWithFiles.value })
+  preferenceStore.fetch()
+}
 
 async function submit() {
   if (!isFormValid.value) return
 
-  await torrentStore.deleteTorrents(
-    selection.value.map(t => t.hash),
-    vuetorrentStore.deleteWithFiles
-  )
+  await torrentStore.deleteTorrents(selection.value.map(t => t.hash), deleteWithFiles.value)
   dashboardStore.unselectAllTorrents()
 
   close()
@@ -79,7 +84,10 @@ onUnmounted(() => {
           <div class="d-flex flex-wrap flex-gap-small">
             <span class="pa-1 border wrap-anywhere" v-for="torrent in selection">{{ torrent.name }}</span>
           </div>
-          <v-checkbox v-model="deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
+          <div class="d-flex flex-row">
+            <v-icon :disabled="vuetorrentStore.deleteWithFiles !== deleteWithFiles" @click="saveDeleteState">mdi-lock</v-icon>
+            <v-checkbox v-model="deleteWithFiles" hide-details :label="$t('dialogs.delete.deleteWithFiles')" />
+          </div>
           <v-scroll-x-transition>
             <div class="text-red" v-show="deleteWithFiles">
               <v-icon>mdi-alert</v-icon>
