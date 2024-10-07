@@ -1,4 +1,4 @@
-import { SearchResult } from '@/types/qbit/models'
+import SearchResult from './SearchResult'
 
 interface SearchFilters {
   title: string
