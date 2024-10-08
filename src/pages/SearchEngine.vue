@@ -5,8 +5,8 @@ import { useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { formatData, formatTimeSec } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchPlugin, SearchResult } from '@/types/qbit/models'
-import { SearchData } from '@/types/vuetorrent'
+import { SearchPlugin } from '@/types/qbit/models'
+import { SearchData, SearchResult } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -92,6 +92,8 @@ function downloadTorrent(result: SearchResult) {
   } else {
     addTorrentStore.pushTorrentToQueue(result.fileUrl)
   }
+
+  result.downloaded = true
 }
 
 function openLink(result: SearchResult) {
@@ -263,7 +265,7 @@ onBeforeUnmount(() => {
           </template>
           <template v-slot:[`item.actions`]="{ item }">
             <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
-            <v-btn icon="mdi-download" variant="flat" density="compact" @click="downloadTorrent(item)" />
+            <v-btn :icon="item.downloaded ? 'mdi-check' : 'mdi-download'" :color="item.downloaded && 'accent'" variant="text" density="compact" @click="downloadTorrent(item)" />
           </template>
         </v-data-table>
       </v-list-item>
