@@ -36,6 +36,7 @@ export const useVueTorrentStore = defineStore(
     const showAlltimeStat = ref(true)
     const showCurrentSpeed = ref(true)
     const showSpeedInTitle = ref(false)
+    /** @deprecated */
     const deleteWithFiles = ref(false)
     const uiTitleType = ref(TitleOptions.DEFAULT)
     const uiTitleCustom = ref('')

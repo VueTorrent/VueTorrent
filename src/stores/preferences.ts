@@ -1,3 +1,4 @@
+import { AppPreferencesPayload } from '@/types/qbit/payloads'
 import { ref } from 'vue'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import AppPreferences from '@/types/qbit/models/AppPreferences'
@@ -12,8 +13,8 @@ export const usePreferenceStore = defineStore(
       preferences.value = await qbit.getPreferences()
     }
 
-    async function setPreferences() {
-      await qbit.setPreferences(preferences.value!)
+    async function setPreferences(newPref?: AppPreferencesPayload) {
+      await qbit.setPreferences(newPref ?? preferences.value!)
     }
 
     return {
