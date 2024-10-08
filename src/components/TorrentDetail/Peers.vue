@@ -162,8 +162,13 @@ onBeforeRouteUpdate(() => !addPeersDialog.value)
 
       <template #[`item.country`]="{ item }">
         <div v-if="showCountryFlags" class="cursor-help" :title="item.country">
-          <img v-if="isWindows" :alt="codeToFlag(item.country_code!).char" :src="codeToFlag(item.country_code!).url" :title="item.country" style="max-width: 32px" />
-          <span v-else :title="item.country">{{ codeToFlag(item.country_code!).char }}</span>
+          <template v-if="item.country_code">
+            <img v-if="isWindows" :alt="codeToFlag(item.country_code!).char" :src="codeToFlag(item.country_code!).url" :title="item.country" style="max-width: 32px" />
+            <span v-else :title="item.country">{{ codeToFlag(item.country_code!).char }}</span>
+          </template>
+          <template v-else>
+            <span></span>
+          </template>
         </div>
       </template>
 
