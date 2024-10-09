@@ -144,16 +144,14 @@ function downloadFile(filename: string, blob: Blob) {
 async function exportTorrents() {
   const ts = [...torrents.value]
   if (ts.length === 1) {
-    const t = ts[0]!
+    const t = ts[0]
     const blob = await torrentStore.exportTorrent(t.hash)
     downloadFile(`${t.name}.torrent`, blob)
     return
   }
 
   const zipWriter = new ZipWriter(new BlobWriter('application/zip'), { bufferedWrite: true })
-  await Promise.all(
-    hashes.value.map(hash => torrentStore.exportTorrent(hash).then(blob => zipWriter.add(`${torrentStore.getTorrentByHash(hash)!.name}.torrent`, new BlobReader(blob))))
-  )
+  await Promise.all(ts.map(t => torrentStore.exportTorrent(t.hash).then(blob => zipWriter.add(`${t.name}-${t.truncated_hash}.torrent`, new BlobReader(blob)))))
   downloadFile('torrents.zip', await zipWriter.close())
 }
 
