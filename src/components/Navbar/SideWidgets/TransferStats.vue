@@ -3,11 +3,11 @@ import DataCard from '@/components/Core/DataCard.vue'
 import StringCard from '@/components/Core/StringCard.vue'
 import { useMaindataStore } from '@/stores'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
 const props = defineProps<{ session: boolean }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const maindataStore = useMaindataStore()
 
 const title = computed(() => (props.session ? t('navbar.side.stats.session.title') : t('navbar.side.stats.alltime.title')))

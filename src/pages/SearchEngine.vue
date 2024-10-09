@@ -9,11 +9,11 @@ import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()

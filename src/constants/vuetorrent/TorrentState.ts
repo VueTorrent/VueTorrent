@@ -39,6 +39,27 @@ export enum TorrentState {
   MOVING
 }
 
+export const emojiStateMap: Record<TorrentState, string> = {
+  [TorrentState.CHECKING_DISK]: '\uD83D\uDD0D',
+  [TorrentState.CHECKING_RESUME_DATA]: '\uD83D\uDD0D',
+  [TorrentState.DL_FORCED]: '\uD83D\uDCE5',
+  [TorrentState.DL_QUEUED]: '⏳',
+  [TorrentState.DL_STALLED]: '\uD83D\uDD54',
+  [TorrentState.DL_STOPPED]: '⏹️',
+  [TorrentState.DOWNLOADING]: '\uD83D\uDCE5',
+  [TorrentState.ERROR]: '❌',
+  [TorrentState.FORCED_META_DOWNLOAD]: '\uD83D\uDCDD',
+  [TorrentState.META_DOWNLOAD]: '\uD83D\uDCDD',
+  [TorrentState.MISSING_FILES]: '⚠️',
+  [TorrentState.MOVING]: '\uD83D\uDE9A',
+  [TorrentState.UL_FORCED]: '\uD83D\uDCE4',
+  [TorrentState.UL_QUEUED]: '⏳',
+  [TorrentState.UL_STALLED]: '\uD83C\uDF31',
+  [TorrentState.UL_STOPPED]: '✅',
+  [TorrentState.UNKNOWN]: '❓',
+  [TorrentState.UPLOADING]: '\uD83D\uDCE4'
+}
+
 export function stateQbitToVt(state: QbitTorrentState): TorrentState {
   switch (state) {
     case QbitTorrentState.META_DL:

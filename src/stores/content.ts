@@ -9,11 +9,11 @@ import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw } from 'vue'
 import { useTask } from 'vue-concurrency'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRoute } from 'vue-router'
 
 export const useContentStore = defineStore('content', () => {
-  const { t } = useI18n()
+  const { t } = useI18nUtils()
   const route = useRoute()
   const dialogStore = useDialogStore()
   const { fileContentInterval } = storeToRefs(useVueTorrentStore())

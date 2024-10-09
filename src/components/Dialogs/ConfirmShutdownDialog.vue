@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { useAppStore, useVueTorrentStore } from '@/stores'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
 const props = defineProps<{
   guid: string
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { isOpened } = useDialog(props.guid)
 const appStore = useAppStore()
 const vueTorrentStore = useVueTorrentStore()

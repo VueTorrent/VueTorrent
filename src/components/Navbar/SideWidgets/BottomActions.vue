@@ -5,9 +5,9 @@ import { ConnectionStatus } from '@/constants/qbit'
 import { ThemeMode } from '@/constants/vuetorrent'
 import { useAppStore, useDialogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const maindataStore = useMaindataStore()

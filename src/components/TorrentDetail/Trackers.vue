@@ -6,12 +6,12 @@ import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowReadonly, watch } from 'vue'
 import { useTask } from 'vue-concurrency'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const torrentStore = useTorrentStore()
 const trackerStore = useTrackerStore()
 

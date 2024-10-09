@@ -9,10 +9,10 @@ import { backend } from '@/services/backend'
 import { useAddTorrentStore, useAppStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()

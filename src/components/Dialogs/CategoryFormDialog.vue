@@ -3,7 +3,7 @@ import { useDialog } from '@/composables'
 import { useCategoryStore } from '@/stores'
 import { Category } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
@@ -15,7 +15,7 @@ const emit = defineEmits<{
   submit: [Category]
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const categoryStore = useCategoryStore()
 const { isOpened } = useDialog(props.guid)
 

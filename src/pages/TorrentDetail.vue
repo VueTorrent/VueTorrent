@@ -8,11 +8,11 @@ import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()

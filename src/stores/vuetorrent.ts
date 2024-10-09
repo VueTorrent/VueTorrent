@@ -15,7 +15,7 @@ import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 
@@ -56,6 +56,7 @@ export const useVueTorrentStore = defineStore(
     const useIdForRssLinks = ref(false)
     const hideColoredChip = ref(false)
     const displayGraphLimits = ref(true)
+    const useEmojiState = ref(true)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -130,7 +131,7 @@ export const useVueTorrentStore = defineStore(
       return formattedPpt
     })
 
-    const i18n = useI18n()
+    const { locale } = useI18nUtils()
     const router = useRouter()
     const { global } = useTheme()
 
@@ -140,7 +141,7 @@ export const useVueTorrentStore = defineStore(
     watch(mediaQueryPreferDark, updateTheme)
 
     function setLanguage(newLang: string) {
-      i18n.locale.value = newLang
+      locale.value = newLang
     }
 
     function updateTheme() {
@@ -272,6 +273,7 @@ export const useVueTorrentStore = defineStore(
       tableProperties,
       isInfiniteScrollActive,
       displayGraphLimits,
+      useEmojiState,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -317,6 +319,7 @@ export const useVueTorrentStore = defineStore(
         useIdForRssLinks.value = false
         hideColoredChip.value = false
         displayGraphLimits.value = true
+        useEmojiState.value = true
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

@@ -2,9 +2,9 @@
 import PasswordField from '@/components/Core/PasswordField.vue'
 import { usePreferenceStore } from '@/stores'
 import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()
 
 const dynDnsProvider = ref('https://www.dyndns.com/account/services/hosts/add.html')

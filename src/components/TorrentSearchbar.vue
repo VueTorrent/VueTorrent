@@ -2,9 +2,9 @@
 import { computed } from 'vue'
 import debounce from 'lodash.debounce'
 import { useTorrentStore } from '@/stores'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const torrentStore = useTorrentStore()
 
 function resetInput() {

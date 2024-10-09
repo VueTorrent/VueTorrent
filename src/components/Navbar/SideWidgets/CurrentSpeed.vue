@@ -2,9 +2,9 @@
 import SpeedCard from '@/components/Core/SpeedCard.vue'
 import { useMaindataStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { serverState } = storeToRefs(useMaindataStore())
 const { displayGraphLimits } = storeToRefs(useVueTorrentStore())
 </script>

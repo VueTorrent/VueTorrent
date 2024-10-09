@@ -2,9 +2,9 @@
 import { Encryption, ShareLimitAction } from '@/constants/qbit/AppPreferences'
 import { usePreferenceStore } from '@/stores'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()
 
 const encyptionModeOptions = ref([

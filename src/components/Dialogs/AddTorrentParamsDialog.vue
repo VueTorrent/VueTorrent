@@ -2,12 +2,12 @@
 import AddTorrentParamsForm from './AddTorrentParamsForm.vue'
 import { AddTorrentParams } from '@/types/qbit/models'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
 const addTorrentParams = defineModel<AddTorrentParams>({ required: true })
 const isOpened = defineModel<boolean>('isOpened')
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 
 const form = ref<typeof AddTorrentParamsForm>()
 

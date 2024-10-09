@@ -7,7 +7,7 @@ import { useAddTorrentStore, useTorrentStore, useVueTorrentStore } from '@/store
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
 const props = withDefaults(
@@ -21,7 +21,7 @@ const props = withDefaults(
 )
 
 const { isOpened } = useDialog(props.guid)
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const addTorrentStore = useAddTorrentStore()
 const { urls, files, form, addTorrentParams } = storeToRefs(addTorrentStore)
 const torrentStore = useTorrentStore()

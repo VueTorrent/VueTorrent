@@ -5,11 +5,11 @@ import { HistoryKey } from '@/constants/vuetorrent'
 import { useCategoryStore, usePreferenceStore, useTagStore } from '@/stores'
 import { AddTorrentParams } from '@/types/qbit/models'
 import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
 const form = defineModel<AddTorrentParams>({ required: true })
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const categoryStore = useCategoryStore()
 const preferenceStore = usePreferenceStore()
 const tagStore = useTagStore()

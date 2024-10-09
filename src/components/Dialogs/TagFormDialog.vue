@@ -2,7 +2,7 @@
 import { useDialog } from '@/composables'
 import { useTagStore } from '@/stores'
 import { onBeforeMount, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
@@ -15,7 +15,7 @@ const emit = defineEmits<{
 }>()
 
 const { isOpened } = useDialog(props.guid)
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const tagStore = useTagStore()
 
 const form = ref<VForm>()
