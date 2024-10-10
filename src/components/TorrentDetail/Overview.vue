@@ -3,6 +3,7 @@ import ColoredChip from '@/components/Core/ColoredChip.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
 import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vue'
+import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
 import {
@@ -13,7 +14,6 @@ import {
   formatSpeed,
   getRatioColor,
   getTorrentStateColor,
-  getTorrentStateValue,
   splitByUrl,
   stringContainsUrl
 } from '@/helpers'
@@ -21,13 +21,12 @@ import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentSt
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, onMounted, onUnmounted } from 'vue'
-import { useI18n } from 'vue-i18n'
 import { toast } from 'vue3-toastify'
 import PieceCanvas from './PieceCanvas.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
-const { t } = useI18n()
+const { t, getTorrentStateString } = useI18nUtils()
 const contentStore = useContentStore()
 const { cachedFiles } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
@@ -48,7 +47,7 @@ const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
 const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
 const torrentStateColor = computed(() => getTorrentStateColor(props.torrent.state))
-const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
+const pieceSize = computed(() => `${ parseInt(formatDataValue(torrentPieceSize.value, true)) } ${ formatDataUnit(torrentPieceSize.value, true) }`)
 const isFetchingMetadata = computed(() => [TorrentState.META_DOWNLOAD, TorrentState.FORCED_META_DOWNLOAD].includes(props.torrent.state))
 const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
@@ -131,7 +130,9 @@ onUnmounted(async () => {
       </div>
       <div class="my-1">
         <span class="mr-2">{{ torrent.hash }}</span>
-        <v-btn v-if="isContextSecured" variant="outlined" rounded @click="copyHash">{{ $t('torrentDetail.overview.copy_hash') }}</v-btn>
+        <v-btn v-if="isContextSecured" variant="outlined" rounded @click="copyHash">
+          {{ $t('torrentDetail.overview.copy_hash') }}
+        </v-btn>
       </div>
     </v-card-subtitle>
     <v-card-text>
@@ -208,7 +209,7 @@ onUnmounted(async () => {
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.state') }}:</div>
-              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="$t(`torrent.state.${getTorrentStateValue(torrent.state)}`)" />
+              <ColoredChip :disabled="true" :default-color="torrentStateColor" :value="getTorrentStateString(torrent.state)" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>

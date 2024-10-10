@@ -6,7 +6,7 @@ import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, triggerRef } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
@@ -20,7 +20,7 @@ const emit = defineEmits<{
 
 const folderColor = '#ffe476'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { mobile } = useDisplay()
 const { internalSelection, openedItems } = storeToRefs(useContentStore())
 const vuetorrentStore = useVueTorrentStore()

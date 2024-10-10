@@ -11,7 +11,7 @@ import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, 
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
@@ -19,7 +19,7 @@ defineProps<{
   rightClickProperties: { isVisible: boolean; offset: [number, number] }
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const router = useRouter()
 const categoryStore = useCategoryStore()
 const dashboardStore = useDashboardStore()

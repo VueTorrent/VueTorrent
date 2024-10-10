@@ -3,7 +3,7 @@ import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { formatData } from '@/helpers'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useTorrentStore } from './torrents'
 import { useVueTorrentStore } from './vuetorrent'
 
@@ -16,7 +16,7 @@ export const useDashboardStore = defineStore(
     const latestSelectedTorrent = ref<string>()
     const displayMode = ref(DashboardDisplayMode.LIST)
 
-    const { t } = useI18n()
+    const { t } = useI18nUtils()
     const torrentStore = useTorrentStore()
     const { processedTorrents, torrents } = storeToRefs(torrentStore)
     const { paginationSize, useBinarySize } = storeToRefs(useVueTorrentStore())

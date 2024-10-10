@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
   guid: string
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { isOpened } = useDialog(props.guid)
 
 const form = ref<VForm>()

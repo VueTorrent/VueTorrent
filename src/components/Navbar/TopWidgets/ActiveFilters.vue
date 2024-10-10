@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { extractHostname, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
+import { useI18nUtils } from '@/composables'
+import { extractHostname, getTorrentStateColor } from '@/helpers'
 import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
-import { useI18n } from 'vue-i18n'
 
-const { t } = useI18n()
+const { t, getTorrentStateString } = useI18nUtils()
 const {
   isTextFilterActive,
   textFilter,
@@ -153,7 +153,7 @@ function resetTrackerFilter() {
           <template v-slot:prepend>
             <v-icon class="mr-1" @click="toggleStatusFilter()">{{ isStatusFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
           </template>
-          {{ t('navbar.top.active_filters.state', { value: t(`torrent.state.${getTorrentStateValue(statusFilter[0])}`) }) }}
+          {{ t('navbar.top.active_filters.state', { value: getTorrentStateString(statusFilter[0]) }) }}
         </v-chip>
         <v-chip v-else :color="statusFilterColor" variant="elevated" closable @click:close="resetStatusFilter()">
           <template v-slot:prepend>

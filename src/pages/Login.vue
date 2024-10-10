@@ -3,11 +3,11 @@ import PasswordField from '@/components/Core/PasswordField.vue'
 import { useAppStore } from '@/stores'
 import { LoginPayload } from '@/types/qbit/payloads'
 import { onMounted, reactive, ref, watchEffect } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRoute, useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const router = useRouter()
 const route = useRoute()
 

@@ -3,9 +3,9 @@ import PasswordField from '@/components/Core/PasswordField.vue'
 import { BitTorrentProtocol, ProxyType } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
 import { computed, onBeforeMount, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 

@@ -5,11 +5,11 @@ import { useMaindataStore, useNavbarStore, useVueTorrentStore } from '@/stores'
 import { ApexOptions } from 'apexcharts'
 import { storeToRefs } from 'pinia'
 import { computed, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import VueApexCharts from 'vue3-apexcharts'
 import { useTheme } from 'vuetify'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const theme = useTheme()
 const { serverState } = storeToRefs(useMaindataStore())
 const navbarStore = useNavbarStore()

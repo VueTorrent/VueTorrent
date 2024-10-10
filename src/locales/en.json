@@ -1077,6 +1077,7 @@
         "tip": "These settings are for the custom WebUI itself",
         "useBinarySize": "Replace data sizes by binary units (kB -> KiB)",
         "useBitSpeed": "Replace speed values by bits (kB/s -> kbps)",
+        "useEmojiState": "Prepend torrent states with emojis",
         "vueTorrentTitle": "Tab title"
       },
       "torrentCard": {
@@ -1376,24 +1377,24 @@
       "upload_speed": "UL Speed"
     },
     "state": {
-      "checking_disk": "\uD83D\uDD0D Checking Disk Files",
-      "checking_resume_data": "\uD83D\uDD0D Checking Resume Data",
-      "dl_forced": "\uD83D\uDCE5 Downloading [F]",
-      "dl_queued": "⏳ Queued (DL)",
-      "dl_stalled": "\uD83D\uDD54 Stalled",
-      "dl_stopped": "⏹️ Stopped",
-      "downloading": "\uD83D\uDCE5 Downloading",
-      "error": "❌ Error",
-      "forced_meta_download": "\uD83D\uDCDD Metadata [F]",
-      "meta_download": "\uD83D\uDCDD Metadata",
-      "missing_files": "⚠️ Missing Files",
-      "moving": "\uD83D\uDE9A Moving",
-      "ul_forced": "\uD83D\uDCE4 Uploading [F]",
-      "ul_queued": "⏳ Queued (UP)",
-      "ul_stalled": "\uD83C\uDF31 Seeding",
-      "ul_stopped": "✅ Done",
-      "unknown": "❓ Unknown",
-      "uploading": "\uD83D\uDCE4 Uploading"
+      "checking_disk": "Checking Disk Files",
+      "checking_resume_data": "Checking Resume Data",
+      "dl_forced": "Downloading [F]",
+      "dl_queued": "Queued (DL)",
+      "dl_stalled": "Stalled",
+      "dl_stopped": "Stopped",
+      "downloading": "Downloading",
+      "error": "Error",
+      "forced_meta_download": "Metadata [F]",
+      "meta_download": "Metadata",
+      "missing_files": "Missing Files",
+      "moving": "Moving",
+      "ul_forced": "Uploading [F]",
+      "ul_queued": "Queued (UP)",
+      "ul_stalled": "Seeding",
+      "ul_stopped": "Done",
+      "unknown": "Unknown",
+      "uploading": "Uploading"
     }
   },
   "units": {

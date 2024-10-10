@@ -8,10 +8,10 @@ import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTo
 import { DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
 import { storeToRefs } from 'pinia'
 import { computed, readonly, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const dialogStore = useDialogStore()
 const historyStore = useHistoryStore()
@@ -198,11 +198,14 @@ function openBackendHelp() {
           <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
 
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" md="4">
           <v-checkbox v-model="vueTorrentStore.useBinarySize" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />
         </v-col>
-        <v-col cols="12" sm="6">
+        <v-col cols="12" sm="6" md="4">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
+        </v-col>
+        <v-col cols="12" sm="6" md="4">
+          <v-checkbox v-model="vueTorrentStore.useEmojiState" hide-details density="compact" :label="t('settings.vuetorrent.general.useEmojiState')" />
         </v-col>
       </v-row>
     </v-list-item>

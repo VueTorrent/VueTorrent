@@ -16,12 +16,12 @@ import WebUI from '@/components/Settings/WebUI.vue'
 import { backend } from '@/services/backend'
 import { useDialogStore, usePreferenceStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
 const router = useRouter()
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const dialogStore = useDialogStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()

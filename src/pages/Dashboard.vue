@@ -11,10 +11,10 @@ import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore 
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
 const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selectedTorrents, displayMode } = storeToRefs(dashboardStore)

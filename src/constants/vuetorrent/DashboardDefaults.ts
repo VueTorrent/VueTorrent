@@ -1,9 +1,9 @@
-import { formatEta, getRatioColor, getTorrentStateColor, getTorrentStateValue } from '@/helpers'
+import { useI18nUtils } from '@/composables'
+import { formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { DurationUnitType } from 'dayjs/plugin/duration'
 import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
 import { DashboardProperty } from './DashboardProperty'
 import { DashboardPropertyType } from './DashboardPropertyType'
 
@@ -390,11 +390,11 @@ export const propsMetadata: PropertyMetadata = {
   [DashboardProperty.RATIO_LIMIT]: {
     props: {
       titleKey: 'torrent.properties.ratio_limit',
-      value: t => {
-        const i18n = useI18n()
-        if (t.ratio_limit === -1) return i18n.t('common.disabled')
-        else if (t.ratio_limit === -2) return i18n.t('common.global_value')
-        else return t.ratio_limit.toString()
+      value: torrent => {
+        const { t } = useI18nUtils()
+        if (torrent.ratio_limit === -1) return t('common.disabled')
+        else if (torrent.ratio_limit === -2) return t('common.global_value')
+        else return torrent.ratio_limit.toString()
       }
     },
     sortKey: 'ratio_limit',
@@ -434,9 +434,9 @@ export const propsMetadata: PropertyMetadata = {
     props: {
       titleKey: 'torrent.properties.state',
       emptyValueKey: 'torrent.state.unknown',
-      value: t => {
-        const i18n = useI18n()
-        return [i18n.t(`torrent.state.${getTorrentStateValue(t.state)}`)]
+      value: torrent => {
+        const { getTorrentStateString } = useI18nUtils()
+        return [getTorrentStateString(torrent.state)]
       },
       color: t => getTorrentStateColor(t.state)
     },

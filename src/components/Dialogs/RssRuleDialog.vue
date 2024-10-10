@@ -4,7 +4,7 @@ import { useDialog } from '@/composables'
 import { usePreferenceStore, useRssStore } from '@/stores'
 import { FeedRule, getEmptyParams } from '@/types/qbit/models'
 import { computed, onBeforeMount, reactive, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
@@ -17,7 +17,7 @@ const hasInitialRule = computed(() => {
 })
 
 const { isOpened } = useDialog(props.guid)
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const preferenceStore = usePreferenceStore()
 const rssStore = useRssStore()
 

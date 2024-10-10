@@ -3,7 +3,7 @@ import { useDialog } from '@/composables'
 import { useRssStore } from '@/stores'
 import { Feed } from '@/types/qbit/models'
 import { onBeforeMount, reactive, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { VForm } from 'vuetify/components/VForm'
 
 const props = defineProps<{
@@ -11,7 +11,7 @@ const props = defineProps<{
   initialFeed?: Feed
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { isOpened } = useDialog(props.guid)
 const rssStore = useRssStore()
 

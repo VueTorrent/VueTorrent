@@ -6,7 +6,7 @@ import { useIntervalFn } from '@vueuse/core'
 import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, reactive, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
 export const useRssStore = defineStore(
@@ -33,7 +33,7 @@ export const useRssStore = defineStore(
       item => item.title
     )
 
-    const { t } = useI18n()
+    const { t } = useI18nUtils()
     const { pause: pauseFeedTimer, resume: resumeFeedTimer } = useIntervalFn(fetchFeeds, 5000, {
       immediate: false,
       immediateCallback: true

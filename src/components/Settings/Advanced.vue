@@ -12,9 +12,9 @@ import qbit from '@/services/qbit'
 import { useAppStore, usePreferenceStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const { preferences: pref } = storeToRefs(usePreferenceStore())
 

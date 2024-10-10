@@ -5,10 +5,10 @@ import { useDashboardStore, useNavbarStore, useTorrentStore, useVueTorrentStore 
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 
 const dashboardStore = useDashboardStore()
 const { currentPage, pageCount, torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)

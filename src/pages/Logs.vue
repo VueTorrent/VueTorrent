@@ -7,12 +7,12 @@ import { TinyColor } from '@ctrl/tinycolor'
 import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 import { useTheme } from 'vuetify'
 
 const router = useRouter()
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { current } = useTheme()
 
 const logStore = useLogStore()

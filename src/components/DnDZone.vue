@@ -3,11 +3,11 @@ import AddTorrentDialog from '@/components/Dialogs/AddTorrentDialog.vue'
 import { useAddTorrentStore, useAppStore, useDialogStore, useTorrentStore } from '@/stores'
 import { useDropZone } from '@vueuse/core'
 import { onMounted, onUnmounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRoute } from 'vue-router'
 import { toast } from 'vue3-toastify'
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const route = useRoute()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()

@@ -5,13 +5,13 @@ import { comparators, formatData } from '@/helpers'
 import { splitExt } from '@/helpers/path.ts'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { computed, reactive } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 
 const props = defineProps<{
   guid: string
 }>()
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const { isOpened } = useDialog(props.guid)
 const contentStore = useContentStore()
 const vuetorrentStore = useVueTorrentStore()

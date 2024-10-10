@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { getTorrentStateValue } from '@/helpers'
+import { useI18nUtils } from '@/composables'
 import { useTorrentDetailStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { useI18n } from 'vue-i18n'
 import InfoBase from './InfoBase.vue'
 
 const props = defineProps<{ torrent: Torrent }>()
 
-const { t } = useI18n()
+const { t, getTorrentStateString } = useI18nUtils()
 const { properties } = storeToRefs(useTorrentDetailStore())
 
 const torrentValues = [
@@ -21,7 +20,7 @@ const torrentValues = [
   { title: 'availability', getter: () => props.torrent.availability },
   { title: 'eta', getter: () => props.torrent.eta },
   { title: 'category', getter: () => props.torrent.category || t('common.NA') },
-  { title: 'state', getter: () => t(`torrent.state.${getTorrentStateValue(props.torrent.state)}`) },
+  { title: 'state', getter: () => getTorrentStateString(props.torrent.state) },
   { title: 'trackers_count', getter: () => props.torrent.trackers_count },
   { title: 'priority', getter: () => props.torrent.priority },
   { title: 'nb_connections', getter: () => properties.value?.nb_connections ?? 0 },
@@ -34,7 +33,7 @@ const torrentValues = [
     <v-expansion-panel-text>
       <v-row>
         <InfoBase v-for="ppt in torrentValues">
-          <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
+          <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
           <template v-slot:text>{{ ppt.getter() }}</template>
         </InfoBase>
       </v-row>

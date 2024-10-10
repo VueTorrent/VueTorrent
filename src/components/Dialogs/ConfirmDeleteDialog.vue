@@ -2,7 +2,7 @@
 import { useDialog } from '@/composables'
 import { useAppStore, useDashboardStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { useRoute, useRouter } from 'vue-router'
 import { VForm } from 'vuetify/components/VForm'
 
@@ -15,7 +15,7 @@ const { isOpened } = useDialog(props.guid)
 
 const route = useRoute()
 const router = useRouter()
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const preferenceStore = usePreferenceStore()

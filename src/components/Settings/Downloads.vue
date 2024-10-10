@@ -3,12 +3,12 @@ import { AppPreferences } from '@/constants/qbit'
 import { ScanDirs, ScanDirsEnum } from '@/constants/qbit/AppPreferences'
 import { useAppStore, usePreferenceStore } from '@/stores'
 import { computed, nextTick, onBeforeMount, ref, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
 type MonitoredFolder = { monitoredFolderPath: string; saveType: ScanDirs | -1; otherPath: string }
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 

@@ -5,14 +5,14 @@ import { Peer } from '@/types/qbit/models'
 import { Torrent } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { computed, readonly, ref, shallowReadonly, watch } from 'vue'
-import { useI18n } from 'vue-i18n'
+import { useI18nUtils } from '@/composables'
 import { onBeforeRouteUpdate } from 'vue-router'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 type PeerType = Peer & { host: string }
 
-const { t } = useI18n()
+const { t } = useI18nUtils()
 const maindataStore = useMaindataStore()
 const preferenceStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
