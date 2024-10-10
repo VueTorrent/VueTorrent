@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.14.1](https://github.com/VueTorrent/VueTorrent/compare/v2.14.0...v2.14.1) (2024-10-10)
+
+
+### Bug Fixes
+
+* **Dashboard:** Update sort algorithm for queue position ([#1956](https://github.com/VueTorrent/VueTorrent/issues/1956)) ([80d4975](https://github.com/VueTorrent/VueTorrent/commit/80d4975dfe17d58561dea70a9aa8934ffc779c7f))
+* **export:** Prevent errors while generating zip ([#1961](https://github.com/VueTorrent/VueTorrent/issues/1961)) ([4ce4beb](https://github.com/VueTorrent/VueTorrent/commit/4ce4beba5d021ce7eb0c64d9421077ad55c9e90c))
+* **Peers:** Fix shifted columns when flag is missing ([#1958](https://github.com/VueTorrent/VueTorrent/issues/1958)) ([1e7b288](https://github.com/VueTorrent/VueTorrent/commit/1e7b288651eff8b7f4a8f81851916d56da72ce68))
+
+
+### Improvements
+
+* **DeleteTorrentDialog:** Remap incorrect binding and persist on-demand ([#1953](https://github.com/VueTorrent/VueTorrent/issues/1953)) ([df5e0a4](https://github.com/VueTorrent/VueTorrent/commit/df5e0a4d520fb209b8b262af569c75ec8cd55671))
+* **SearchEngine:** Improve download feedback ([#1954](https://github.com/VueTorrent/VueTorrent/issues/1954)) ([c237425](https://github.com/VueTorrent/VueTorrent/commit/c2374250ee1e6d3537527de4d15afc62e7b27938))
+* **torrentState:** Add toggle for emojis ([#1962](https://github.com/VueTorrent/VueTorrent/issues/1962)) ([7e24e13](https://github.com/VueTorrent/VueTorrent/commit/7e24e136cf100b7dbd6c955d3b0233ccdb23185f))
+
 ## [2.14.0](https://github.com/VueTorrent/VueTorrent/compare/v2.13.3...v2.14.0) (2024-10-06)
 
 
