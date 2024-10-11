@@ -57,6 +57,7 @@ body:
         - Fetched from latest-release branch
         - Fetched from nightly-release branch
         - Built from source
+        - Using an official docker image (vuetorrent-lsio-mod, vuetorrent-backend)
         - Using a third-party docker image (hotio or others)
         - Other (specify in env description)
     validations:
