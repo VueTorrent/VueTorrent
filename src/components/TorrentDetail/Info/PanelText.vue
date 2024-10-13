@@ -33,7 +33,7 @@ const torrentValues = [
     <v-expansion-panel-text>
       <v-row>
         <InfoBase v-for="ppt in torrentValues">
-          <template v-slot:title>{{ $t(`torrent.properties.${ ppt.title }`) }}</template>
+          <template v-slot:title>{{ $t(`torrent.properties.${ppt.title}`) }}</template>
           <template v-slot:text>{{ ppt.getter() }}</template>
         </InfoBase>
       </v-row>

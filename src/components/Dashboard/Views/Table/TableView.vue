@@ -42,21 +42,21 @@ function isTorrentSelected(torrent: TorrentType) {
   return dashboardStore.isTorrentInSelection(torrent.hash)
 }
 
-const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(torrent) ? `bg-${ getTorrentStateColor(torrent.state) }-darken-3` : '']
+const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(torrent) ? `bg-${getTorrentStateColor(torrent.state)}-darken-3` : '']
 </script>
 
 <template>
   <v-table id="torrentList" class="pa-0" density="compact">
     <thead>
-    <tr>
-      <th class="px-1" />
-      <th v-if="dashboardStore.isSelectionMultiple" />
-      <Header :title="$t('torrent.properties.name')" sort-key="name" @onHeaderClick="onHeaderClick('name')" />
-      <Header v-for="ppt in torrentProperties" :title="$t(ppt.props.titleKey)" :sort-key="ppt.sortKey" @onHeaderClick="onHeaderClick(ppt.sortKey)" />
-    </tr>
+      <tr>
+        <th class="px-1" />
+        <th v-if="dashboardStore.isSelectionMultiple" />
+        <Header :title="$t('torrent.properties.name')" sort-key="name" @onHeaderClick="onHeaderClick('name')" />
+        <Header v-for="ppt in torrentProperties" :title="$t(ppt.props.titleKey)" :sort-key="ppt.sortKey" @onHeaderClick="onHeaderClick(ppt.sortKey)" />
+      </tr>
     </thead>
     <tbody>
-    <tr
+      <tr
         v-for="torrent in paginatedTorrents"
         :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         v-ripple
@@ -67,23 +67,23 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
         @touchstart="$emit('startPress', $event.touches.item(0)!, torrent)"
         @click="$emit('onTorrentClick', $event, torrent)"
         @dblclick="$emit('onTorrentDblClick', torrent)">
-      <v-tooltip top>
-        <template v-slot:activator="{ props }">
-          <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
-        </template>
-        {{ getTorrentStateString(torrent.state) }}
-      </v-tooltip>
+        <v-tooltip top>
+          <template v-slot:activator="{ props }">
+            <td v-bind="props" :class="`pa-0 bg-torrent-${TorrentState[torrent.state].toLowerCase()}`" />
+          </template>
+          {{ getTorrentStateString(torrent.state) }}
+        </v-tooltip>
 
-      <td v-if="dashboardStore.isSelectionMultiple">
-        <v-checkbox-btn
+        <td v-if="dashboardStore.isSelectionMultiple">
+          <v-checkbox-btn
             :model-value="isTorrentSelected(torrent)"
             :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`"
             variant="text"
             @click.stop="$emit('onCheckboxClick', torrent)" />
-      </td>
-      <td>{{ torrent.name }}</td>
-      <TableTorrent :torrent="torrent" />
-    </tr>
+        </td>
+        <td>{{ torrent.name }}</td>
+        <TableTorrent :torrent="torrent" />
+      </tr>
     </tbody>
   </v-table>
 </template>

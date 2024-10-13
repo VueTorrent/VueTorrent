@@ -126,6 +126,10 @@
       "first_torrent_speed": "Скорость первого торрента",
       "global_speed": "Общая скорость"
     },
+    "torrentContentRemovingMode": {
+      "delete": "Удалить файлы",
+      "moveToTrash": "Переместить файлы в корзину (если возможно)"
+    },
     "trackerStatus": {
       "disabled": "Отключён",
       "not_working": "Не работает",
@@ -656,6 +660,8 @@
         "announceAllTrackers": "Всегда объявлять всем трекерам на уровне",
         "announceIP": "IP-адрес, переданный трекерам (требуется перезагрузка)",
         "coalesceReadsWrites": "Объединение операций чтения и записи (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "Узлы начальной загрузки DHT",
+        "dhtBootstrapNodesHint": "Сброс на значение по умолчанию (если пусто)",
         "disk": {
           "diskCache": "Кэш диска (libtorrent < 2.0)",
           "diskCacheExpiry": "Интервал очистки кэша диска (libtorrent < 2.0)",
@@ -664,6 +670,15 @@
           "diskIoWriteMode": "Режим записи ввода-вывода с диска",
           "diskQueueSize": "Размер очереди диска",
           "subheader": "Диск"
+        },
+        "i2p": {
+          "inboundLength": "Длина входящего I2P",
+          "inboundQuantity": "Количество входящих I2P",
+          "invalidLength": "Значение длины I2P должно быть между 0 и 7",
+          "invalidQuantity": "Значение количества I2P должно быть между 1 и 16",
+          "outboundLength": "Длина исходящего I2P",
+          "outboundQuantity": "Количество исходящих I2P",
+          "restartNeeded": "Любые изменения в этих настройках вступят в силу при следующем восстановлении SAM соединения (путём перезапуска I2P или изменения адреса или порта I2P)"
         },
         "maxConcurrentHTTPAnnounces": "Максимальное количество одновременных анонсов HTTP",
         "networking": {
@@ -697,6 +712,13 @@
         "socketReceiveBufferSizeHint": "0: по выбору системы",
         "socketSendBufferSize": "Размер буфера сокета на отправку",
         "socketSendBufferSizeHint": "0: по выбору системы",
+        "ssl": {
+          "disclaimer": "Функция \"SSL торрент\" не стандартизирована, с ней не связаны BEP (BitTorrent Enhancement Proposals).\nВключайте эту функцию только в том случае, если она вам нужна.",
+          "enabled": "Разрешить SSL торренты",
+          "listenPort": "Порт, используемый для SSL-соединений",
+          "listenPortHint": "Оставить пустым для авто выбора",
+          "rule": "Порт должен быть между 0 и 65535"
+        },
         "stopTrackerTimeout": "Тайм-аут остановки трекера",
         "subheader": "Раздел libtorrent",
         "threads": {
@@ -714,12 +736,15 @@
       "openDoc": "Открыть документацию",
       "qbittorrent": {
         "allocatedRam": "Предел использования оперативной памяти (libtorrent >= 2.0)",
+        "appInstanceName": "Имя экземпляра приложения",
         "embeddedTracker": {
           "enable": "Включить встроенный трекер",
           "port": "Порт встроенного трекера",
           "portForward": "Включить переадресацию портов для встроенного трекера",
           "title": "Встроенный трекер"
         },
+        "enableMarkOfTheWeb": "Разрешить Mark-of-the-Web (MOTW) для загруженных файлов",
+        "enableMarkOfTheWebHint": "Требуется macOS или Windows",
         "networking": {
           "ipAddress": {
             "all": "Все адреса",
@@ -733,6 +758,8 @@
           },
           "title": "Связь"
         },
+        "pythonExecutablePath": "Путь к исполняемому файлу Python",
+        "pythonExecutablePathHint": "Авто определение (если не заполнено), требуется перезагрузка",
         "reannounceOnIpPortChanged": "Повторно уведомлять все трекеры об изменении IP-адреса или порта",
         "recheckOnCompletion": "Перепроверка торрентов по завершении",
         "refreshInterval": "Интервал обновления интерфейса",
@@ -744,6 +771,7 @@
         },
         "saveInterval": "Сохранить интервал возобновления данных",
         "subheader": "Раздел qBittorrent",
+        "torrentContentRemovingMode": "Режим удаления контента торрента",
         "torrentFileSizeLimit": "Ограничение размера файла .torrent"
       }
     },
@@ -797,6 +825,15 @@
         "perTorrentMaxConnection": "Максимальное количество соединений на торрент",
         "perTorrentMaxUploadSlots": "Максимальное количество слотов для раздачи на торрент",
         "subheader": "Ограничение соединений"
+      },
+      "i2p": {
+        "address": "Хост I2P",
+        "disclaimer": "Если включён \"Смешанный режим\", торрентам I2P также разрешается получать пиры из других источников, отличных от трекера, и подключаться к обычным IP-адресам, не обеспечивая никакой анонимности. Это может быть полезно, если пользователю не требуется анонимизация I2P, но нужна возможность подключаться к пирам I2P.",
+        "enabled": "Разрешить I2P",
+        "mixedMode": "Смешанный режим",
+        "port": "Порт",
+        "rule": "Значение порта должно быть между 0 и 65535",
+        "subheader": "I2P (экспериментально)"
       },
       "ipFiltering": {
         "applyToTrackers": "Применить к трекерам",
@@ -862,7 +899,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "Добавлять расширение .!qB к незавершённым файлам",
-        "preAllocateDisk": "Резервировать место на диске для всех файлов"
+        "preAllocateDisk": "Резервировать место на диске для всех файлов",
+        "useUnwantedFolder": "Хранить не выбранные файлы в папке \".unwanted\""
       },
       "runExternalProgram": {
         "onAddedEnabled": "Запустить внешнюю программу при добавлении торрента",
@@ -902,7 +940,9 @@
         },
         "savePathChangedTMM": "При изменении пути сохранения по умолчанию",
         "subheader": "Управление сохранением",
-        "torrentChangedTMM": "При изменении категории торрента"
+        "torrentChangedTMM": "При изменении категории торрента",
+        "useCategoryPathInManualMode": "Использовать пути Категорий в ручном режиме",
+        "useCategoryPathInManualModeHint": "Сопоставить относительный путь сохранения с соответствующим путем категории вместо пути по умолчанию"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "Добавить в начало очереди",
@@ -921,6 +961,7 @@
         "enableProcessing": "Включить получение RSS-лент",
         "feedsRefreshInterval": "Интервал обновления лент",
         "maximumArticlesPerFeed": "Максимум статей для ленты",
+        "sameHostRequestDelay": "Задержка запроса того же хоста",
         "subheader": "Менеджер RSS"
       },
       "smartEpisodeFilter": {
@@ -1035,6 +1076,7 @@
         "tip": "Общие настройки пользовательского WebUI",
         "useBinarySize": "Заменить размеры данных двоичными единицами измерения (kB -> KiB)",
         "useBitSpeed": "Заменить значения скорости на биты (kB/s -> kbps)",
+        "useEmojiState": "Добавлять к состоянию торрента эмодзи",
         "vueTorrentTitle": "Заголовок вкладки"
       },
       "torrentCard": {
@@ -1336,22 +1378,22 @@
     "state": {
       "checking_disk": "Проверка файлов на диске",
       "checking_resume_data": "Возобновление",
-      "dl_forced": "\uD83D\uDCE5 Загрузка [П]",
-      "dl_queued": "⏳ Очередь \uD83E\uDC47",
-      "dl_stalled": "\uD83D\uDD54 Простаивает",
-      "dl_stopped": "⏹️ Остановлено",
-      "downloading": "\uD83D\uDCE5 Загрузка",
-      "error": "❌ Ошибка",
-      "forced_meta_download": "\uD83D\uDCDD Метадата [П]",
-      "meta_download": "\uD83D\uDCDD Метадата",
-      "missing_files": "⚠️ Нет файлов",
-      "moving": "\uD83D\uDE9A Перемещение",
-      "ul_forced": "\uD83D\uDCE4 Раздача [П]",
-      "ul_queued": "⏳ Очередь \uD83E\uDC45",
-      "ul_stalled": "\uD83C\uDF31 Сидирование",
-      "ul_stopped": "✅ Завершено",
-      "unknown": "❓ Неизвестно",
-      "uploading": "\uD83D\uDCE4 Раздача"
+      "dl_forced": "Загрузка [П]",
+      "dl_queued": "Очередь \uD83E\uDC47",
+      "dl_stalled": "Простаивает",
+      "dl_stopped": "Остановлено",
+      "downloading": "Загрузка",
+      "error": "Ошибка",
+      "forced_meta_download": "Метадата [П]",
+      "meta_download": "Метадата",
+      "missing_files": "Нет файлов",
+      "moving": "Перемещение",
+      "ul_forced": "Раздача [П]",
+      "ul_queued": "Очередь \uD83E\uDC45",
+      "ul_stalled": "Сидирование",
+      "ul_stopped": "Завершено",
+      "unknown": "Неизвестно",
+      "uploading": "Раздача"
     }
   },
   "units": {

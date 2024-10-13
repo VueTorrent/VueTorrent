@@ -73,6 +73,10 @@
       "normal": "Normale",
       "unwanted": "Ignoré"
     },
+    "filter_type": {
+      "conjunctive": "Filtrage conjonctif (ET)",
+      "disjunctive": "Filtrage disjonctif (OU)"
+    },
     "monitoredFolderSaveLocation": {
       "defaultSavePath": "Répertoire de destination par défaut",
       "monitoredFolder": "Emplacement du dossier surveillé",
@@ -122,6 +126,10 @@
       "default": "Par défaut",
       "first_torrent_speed": "Vitesse du premier torrent",
       "global_speed": "Vitesse globale"
+    },
+    "torrentContentRemovingMode": {
+      "delete": "Supprimer les fichiers définitivement",
+      "moveToTrash": "Déplacer les fichiers vers la corbeille (si possible)"
     },
     "trackerStatus": {
       "disabled": "Désactivé",
@@ -512,6 +520,7 @@
         "state": {
           "active": "Activer",
           "error": "Erreur",
+          "offline": "Hors ligne",
           "title": "Filtrer par statut du torrent"
         },
         "tag": "Filtrer par tags",
@@ -689,6 +698,9 @@
         "socketReceiveBufferSizeHint": "0 : valeur par défaut du système",
         "socketSendBufferSize": "Taille de la mémoire tampon d'envoi du socket",
         "socketSendBufferSizeHint": "0 : valeur par défaut du système",
+        "ssl": {
+          "rule": "Le port doit être compris entre 0 et 65535"
+        },
         "stopTrackerTimeout": "Délai d'attente lors de l’arrêt du tracker",
         "subheader": "Section libtorrent",
         "threads": {
@@ -712,6 +724,7 @@
           "portForward": "Activer la redirection de port pour le tracker embarqué",
           "title": "Tracker embarqué"
         },
+        "enableMarkOfTheWebHint": "Nécessite macOS ou Windows",
         "networking": {
           "ipAddress": {
             "all": "Toutes les adresses",
@@ -790,6 +803,9 @@
         "perTorrentMaxUploadSlots": "Nombre maximum d'emplacements d'envoi par torrent",
         "subheader": "Limites de connexion"
       },
+      "i2p": {
+        "port": "Port"
+      },
       "ipFiltering": {
         "applyToTrackers": "Appliquer aux trackers",
         "bannedIps": "Adresses IP bannies manuellement",
@@ -833,6 +849,9 @@
         "password": "Mot de passe",
         "smtpServer": "Serveur SMTP",
         "sslEnabled": "Ce serveur nécessite une connexion sécurisée (SSL)",
+        "test": {
+          "label": "Envoyer un email de test"
+        },
         "to": "Pour",
         "username": "Nom d'utilisateur"
       },
@@ -1132,6 +1151,9 @@
   "torrentDetail": {
     "content": {
       "fileInfo": "{n} fichier | {n} fichiers",
+      "filter": {
+        "extensions": "Extension de fichier"
+      },
       "filter_placeholder": "Rechercher dans l'arborescence",
       "folderInfo": "{n} dossier | {n} dossiers",
       "priority": "Définir la priorité",
@@ -1212,10 +1234,16 @@
         "title": "Modifier le tracker"
       },
       "fields": {
+        "msg": "Message",
         "num_downloaded": "Téléchargé",
+        "num_leeches": "Téléchargeurs",
         "num_peers": "Pairs",
-        "num_seeds": "Seeders"
+        "num_seeds": "Seeders",
+        "status": "État",
+        "tier": "#",
+        "url": "URL du tracker"
       },
+      "loading": "Chargement des données du tracker...",
       "reannounce": "Tout réannoncer",
       "tier": "Tier : {n}"
     }
@@ -1298,15 +1326,17 @@
       "dl_forced": "[F] Téléchargement",
       "dl_queued": "En attente (DL)",
       "dl_stalled": "En suspens",
+      "dl_stopped": "Arrêté",
       "downloading": "Téléchargement",
       "error": "Erreur",
       "forced_meta_download": "[F] Métadonnées",
       "meta_download": "Métadonnées",
       "missing_files": "Fichiers manquants",
-      "moving": "Déplacement",
+      "moving": "En déplacement",
       "ul_forced": "[F] Envoi",
       "ul_queued": "En attente (UP)",
-      "ul_stalled": "En cours de seed",
+      "ul_stalled": "En partage",
+      "ul_stopped": "Terminé",
       "unknown": "Inconnu",
       "uploading": "Envoi"
     }

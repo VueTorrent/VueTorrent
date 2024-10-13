@@ -6,17 +6,7 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import {
-  formatData,
-  formatDataUnit,
-  formatDataValue,
-  formatPercent,
-  formatSpeed,
-  getRatioColor,
-  getTorrentStateColor,
-  splitByUrl,
-  stringContainsUrl
-} from '@/helpers'
+import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl, stringContainsUrl } from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -47,7 +37,7 @@ const torrentPieceCount = computed(() => properties.value?.pieces_num ?? 0)
 const uploadSpeedAvg = computed(() => properties.value?.up_speed_avg ?? 0)
 
 const torrentStateColor = computed(() => getTorrentStateColor(props.torrent.state))
-const pieceSize = computed(() => `${ parseInt(formatDataValue(torrentPieceSize.value, true)) } ${ formatDataUnit(torrentPieceSize.value, true) }`)
+const pieceSize = computed(() => `${parseInt(formatDataValue(torrentPieceSize.value, true))} ${formatDataUnit(torrentPieceSize.value, true)}`)
 const isFetchingMetadata = computed(() => [TorrentState.META_DOWNLOAD, TorrentState.FORCED_META_DOWNLOAD].includes(props.torrent.state))
 const ratioColor = computed(() => {
   if (!vuetorrentStore.enableRatioColors) return ''
