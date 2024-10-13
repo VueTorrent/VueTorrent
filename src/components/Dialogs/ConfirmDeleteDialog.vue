@@ -44,7 +44,10 @@ async function saveDeleteState() {
 async function submit() {
   if (!isFormValid.value) return
 
-  await torrentStore.deleteTorrents(selection.value.map(t => t.hash), deleteWithFiles.value)
+  await torrentStore.deleteTorrents(
+    selection.value.map(t => t.hash),
+    deleteWithFiles.value
+  )
   dashboardStore.unselectAllTorrents()
 
   close()
