@@ -2,7 +2,8 @@ import type { FilePriority } from '@/constants/qbit'
 import { LogType, PieceState } from '@/constants/qbit'
 import type {
   ApplicationVersion,
-  AppPreferences, BuildInfo,
+  AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -19,13 +20,7 @@ import type {
   Tracker
 } from '@/types/qbit/models'
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
-import type {
-  AddTorrentPayload,
-  AppPreferencesPayload,
-  CreateFeedPayload,
-  GetTorrentPayload,
-  LoginPayload
-} from '@/types/qbit/payloads'
+import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios, { AxiosResponse } from 'axios'
@@ -78,15 +73,13 @@ export default class QBitProvider implements IProvider {
       ...extra
     }
 
-    return this.post(`/torrents/${ action }`, params).then(res => res.data)
+    return this.post(`/torrents/${action}`, params).then(res => res.data)
   }
 
   /// AppController ///
 
   async getBuildInfo(): Promise<BuildInfo> {
-    return this.axios
-      .get('/app/buildInfo')
-      .then(res => res.data)
+    return this.axios.get('/app/buildInfo').then(res => res.data)
   }
 
   async getVersion(): Promise<ApplicationVersion> {
@@ -132,8 +125,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[] | null> {
-    return this.post('/app/getDirectoryContent', { dirPath, mode }, { validateStatus: code => code < 500 })
-      .then(res => res.status === 200 ? res.data : null)
+    return this.post('/app/getDirectoryContent', { dirPath, mode }, { validateStatus: code => code < 500 }).then(res => (res.status === 200 ? res.data : null))
   }
 
   /// AuthController ///
@@ -422,10 +414,13 @@ export default class QBitProvider implements IProvider {
       })
       .then(res => res.data)
       .then(
-        (files: TorrentFile[]) => (files.some(file => file.index === undefined) ? files.map((file: TorrentFile, index: number) => ({
-          ...file,
-          index
-        })) : files)
+        (files: TorrentFile[]) =>
+          files.some(file => file.index === undefined)
+            ? files.map((file: TorrentFile, index: number) => ({
+                ...file,
+                index
+              }))
+            : files
         /**
          * We manually add indexes to the response if they are missing to provide compatibility with older versions of qbittorent (< 4.4.0)
          * https://github.com/qbittorrent/qBittorrent/pull/14795
@@ -626,7 +621,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async setTorrentPriority(hashes: string[], priority: 'increasePrio' | 'decreasePrio' | 'topPrio' | 'bottomPrio'): Promise<void> {
-    return this.post(`/torrents/${ priority }`, {
+    return this.post(`/torrents/${priority}`, {
       hashes: hashes.join('|')
     }).then(res => res.data)
   }

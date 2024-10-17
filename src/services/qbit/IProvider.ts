@@ -1,7 +1,8 @@
 import { FilePriority, LogType, PieceState } from '@/constants/qbit'
 import {
   ApplicationVersion,
-  AppPreferences, BuildInfo,
+  AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,

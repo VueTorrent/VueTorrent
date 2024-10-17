@@ -26,7 +26,11 @@ const torrentCreatorTasksTask = useTask(function* () {
   yield torrentCreatorStore.fetchTasks()
 }).drop()
 
-const { isActive: isTimerActive, pause, resume } = useIntervalFn(torrentCreatorTasksTask.perform, 1000, {
+const {
+  isActive: isTimerActive,
+  pause,
+  resume
+} = useIntervalFn(torrentCreatorTasksTask.perform, 1000, {
   immediate: true,
   immediateCallback: true
 })
@@ -44,9 +48,7 @@ const headers = computed(() => [
   { title: t('torrentCreator.table.sourcePath'), key: 'sourcePath' },
   { title: t('torrentCreator.table.status'), key: 'status' },
   { title: t('torrentCreator.table.progress'), key: 'progress' },
-  (appStore.usesLibtorrent2
-    ? { title: t('torrentCreator.table.format'), key: 'format' }
-    : { title: t('torrentCreator.table.optimizeAlignment'), key: 'optimizeAlignment' }),
+  appStore.usesLibtorrent2 ? { title: t('torrentCreator.table.format'), key: 'format' } : { title: t('torrentCreator.table.optimizeAlignment'), key: 'optimizeAlignment' },
   { title: t('torrentCreator.table.pieceSize'), key: 'pieceSize' },
   { title: t('torrentCreator.table.private'), key: 'private' },
   { title: t('torrentCreator.table.timeAdded'), key: 'timeAdded' },
@@ -55,20 +57,20 @@ const headers = computed(() => [
   { title: t('torrentCreator.table.trackers.header'), key: 'trackers', sortable: false },
   { title: t('torrentCreator.table.urlSeeds.header'), key: 'urlSeeds', sortable: false },
   { title: t('torrentCreator.table.comment'), key: 'comment' },
-  { title: t('torrentCreator.table.errorMessage'), key: 'errorMessage' },
+  { title: t('torrentCreator.table.errorMessage'), key: 'errorMessage' }
 ])
 
 const taskStatusColorMap: Record<TorrentCreatorTaskStatus, string> = {
   [TorrentCreatorTaskStatus.FAILED]: 'error',
   [TorrentCreatorTaskStatus.RUNNING]: 'torrent-ul_stalled',
   [TorrentCreatorTaskStatus.QUEUED]: 'warning',
-  [TorrentCreatorTaskStatus.FINISHED]: 'success',
+  [TorrentCreatorTaskStatus.FINISHED]: 'success'
 }
 
 const torrentFormatMap: Record<TorrentFormat, string> = {
   [TorrentFormat.V1]: 'V1',
   [TorrentFormat.V2]: 'V2',
-  [TorrentFormat.HYBRID]: 'Hybrid',
+  [TorrentFormat.HYBRID]: 'Hybrid'
 }
 
 function openTorrentCreatorFormDialog() {
@@ -146,10 +148,11 @@ onBeforeUnmount(() => {
       <v-list-item>
         <div class="d-flex align-center flex-gap">
           <v-spacer />
-          <v-btn color="accent"
-                 :prepend-icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
-                 :text="isTimerActive ? t('common.pause') : t('common.resume')"
-                 @click="isTimerActive ? pause() : resume()" />
+          <v-btn
+            color="accent"
+            :prepend-icon="isTimerActive ? 'mdi-timer-pause' : 'mdi-timer-play'"
+            :text="isTimerActive ? t('common.pause') : t('common.resume')"
+            @click="isTimerActive ? pause() : resume()" />
           <v-btn color="accent" prepend-icon="mdi-plus" :text="t('torrentCreator.table.create')" @click="openTorrentCreatorFormDialog" />
         </div>
       </v-list-item>
@@ -158,28 +161,26 @@ onBeforeUnmount(() => {
 
       <v-list-item class="text-select">
         <v-data-table
-            :header-props="{ 'class': 'text-no-wrap' }"
-            :mobile="null"
-            :headers="headers"
-            :items="tasks"
-            multi-sort
-            :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
+          :header-props="{ class: 'text-no-wrap' }"
+          :mobile="null"
+          :headers="headers"
+          :items="tasks"
+          multi-sort
+          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }">
           <template #[`item.status`]="{ item, value }">
             <span :class="`text-${taskStatusColorMap[item.status]}`">{{ t(`constants.torrentCreatorTaskStatus.${value.toLowerCase()}`) }}</span>
           </template>
           <template #[`item.progress`]="{ item, value }">
-            <v-progress-linear v-if="item.status === TorrentCreatorTaskStatus.RUNNING"
-                               :model-value="value"
-                               :color="taskStatusColorMap[item.status]"
-                               :height="20"
-                               rounded="sm" style="width: 10em">
+            <v-progress-linear
+              v-if="item.status === TorrentCreatorTaskStatus.RUNNING"
+              :model-value="value"
+              :color="taskStatusColorMap[item.status]"
+              :height="20"
+              rounded="sm"
+              style="width: 10em">
               {{ value }} %
             </v-progress-linear>
-            <v-progress-linear v-else
-                               :model-value="100"
-                               :color="taskStatusColorMap[item.status]"
-                               :height="20"
-                               rounded="sm" style="width: 10em">
+            <v-progress-linear v-else :model-value="100" :color="taskStatusColorMap[item.status]" :height="20" rounded="sm" style="width: 10em">
               {{ formatPercent(1) }}
             </v-progress-linear>
           </template>
@@ -278,7 +279,13 @@ onBeforeUnmount(() => {
             <div class="text-no-wrap" v-html="value?.length ? value.replaceAll('\n', '<br>') : ''" />
           </template>
           <template #[`item.actions`]="{ item }">
-            <v-btn :disabled="item.status !== TorrentCreatorTaskStatus.FINISHED" color="accent" icon="mdi-download" variant="text" density="compact" @click.stop="downloadTorrent(item)" />
+            <v-btn
+              :disabled="item.status !== TorrentCreatorTaskStatus.FINISHED"
+              color="accent"
+              icon="mdi-download"
+              variant="text"
+              density="compact"
+              @click.stop="downloadTorrent(item)" />
             <v-btn color="red" icon="mdi-delete" variant="text" density="compact" @click.stop="deleteTask(item)" />
           </template>
         </v-data-table>

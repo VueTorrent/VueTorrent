@@ -1,22 +1,9 @@
-import {
-  ConnectionStatus,
-  FilePriority,
-  LogType,
-  PieceState,
-  TorrentCreatorTaskStatus, TorrentFormat,
-  TorrentOperatingMode,
-  TorrentState
-} from '@/constants/qbit'
-import {
-  ContentLayout,
-  ProxyType,
-  ResumeDataStorageType,
-  StopCondition,
-  TorrentContentRemoveOption
-} from '@/constants/qbit/AppPreferences'
+import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentCreatorTaskStatus, TorrentFormat, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
-  AppPreferences, BuildInfo,
+  AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -64,8 +51,7 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {
-  }
+  private constructor() {}
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -107,7 +93,7 @@ export default class MockProvider implements IProvider {
       infohash_v1: hash,
       infohash_v2: '',
       last_activity: last_activity.getTime() / 1000,
-      magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
+      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
       max_inactive_seeding_time: -1,
       max_ratio: -1,
       max_seeding_time: -1,
@@ -160,13 +146,13 @@ export default class MockProvider implements IProvider {
   async getBuildInfo(): Promise<BuildInfo> {
     return this.generateResponse({
       result: {
-        'bitness': 64,
-        'boost': '1.86.0',
-        'libtorrent': '2.0.11.0',
-        'openssl': '3.3.2',
-        'platform': 'windows',
-        'qt': '6.7.3',
-        'zlib': '1.3.1'
+        bitness: 64,
+        boost: '1.86.0',
+        libtorrent: '2.0.11.0',
+        openssl: '3.3.2',
+        platform: 'windows',
+        qt: '6.7.3',
+        zlib: '1.3.1'
       }
     })
   }
@@ -446,7 +432,7 @@ export default class MockProvider implements IProvider {
 
   async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[] | null> {
     return this.generateResponse({
-      result: faker.helpers.multiple(() => `${ dirPath }/${ faker.system.fileName() }`, { count: { min: 0, max: 5 } })
+      result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
     })
   }
 
@@ -1168,7 +1154,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ ip1 }:${ port1 }`]: {
+          [`${ip1}:${port1}`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1186,7 +1172,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ ip2 }:${ port2 }`]: {
+          [`${ip2}:${port2}`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1204,7 +1190,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ ip3 }:${ port3 }`]: {
+          [`${ip3}:${port3}`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1249,20 +1235,18 @@ export default class MockProvider implements IProvider {
           comment: faker.word.words({ count: { min: 0, max: 25 } }),
           torrentFilePath: faker.system.filePath(),
           source: faker.system.directoryPath(),
-          trackers: faker.helpers
-            .multiple(() => faker.internet.url(), {
-              count: faker.number.int({
-                min: 0,
-                max: 5
-              })
-            }),
-          urlSeeds: faker.helpers
-            .multiple(() => faker.internet.url(), {
-              count: faker.number.int({
-                min: 0,
-                max: 5
-              })
-            }),
+          trackers: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
+            })
+          }),
+          urlSeeds: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
+            })
+          }),
           timeFinished: faker.date.recent().toString(),
           timeStarted: faker.date.past().toString()
         }

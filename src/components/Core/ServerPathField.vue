@@ -13,7 +13,7 @@ const items = ref<string[]>([])
 
 const appStore = useAppStore()
 
-const updateDirContent = useDebounceFn(async (query) => {
+const updateDirContent = useDebounceFn(async query => {
   if (!query) return
 
   const directoryContent = await qbit.getDirectoryContent(query, 'all')

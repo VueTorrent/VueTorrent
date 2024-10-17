@@ -10,4 +10,16 @@ import { TorrentOperatingMode } from './TorrentOperatingMode'
 import { TorrentState } from './TorrentState'
 import { TrackerStatus } from './TrackerStatus'
 
-export { AppPreferences, ConnectionStatus, FilterState, LogType, PieceState, FilePriority, TrackerStatus, TorrentCreatorTaskStatus, TorrentFormat, TorrentOperatingMode, TorrentState }
+export {
+  AppPreferences,
+  ConnectionStatus,
+  FilterState,
+  LogType,
+  PieceState,
+  FilePriority,
+  TrackerStatus,
+  TorrentCreatorTaskStatus,
+  TorrentFormat,
+  TorrentOperatingMode,
+  TorrentState
+}

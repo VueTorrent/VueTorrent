@@ -30,7 +30,7 @@ const formData = reactive<Required<TorrentCreatorParams>>({
   torrentFilePath: '',
   trackers: '',
   urlSeeds: '',
-  comment: '',
+  comment: ''
 })
 
 const formatOptions = [
@@ -40,9 +40,7 @@ const formatOptions = [
 ]
 
 const pieceSizeOptions = computed(() => {
-  const sizes = [
-    { title: t('common.auto'), value: 0 }
-  ]
+  const sizes = [{ title: t('common.auto'), value: 0 }]
 
   for (let i = 16 * 1024; i < 500_000_000; i *= 2) {
     sizes.push({ title: formatData(i, true, 0), value: i })
@@ -51,9 +49,7 @@ const pieceSizeOptions = computed(() => {
   return sizes
 })
 
-const paddedLimitRules = [
-  (v: number) => !v || v < -1 || t('dialogs.torrentCreator.paddedFileSizeLimitRule')
-]
+const paddedLimitRules = [(v: number) => !v || v < -1 || t('dialogs.torrentCreator.paddedFileSizeLimitRule')]
 
 async function submit() {
   if (!isFormValid.value) return
@@ -81,16 +77,16 @@ const close = () => {
         <v-form v-model="isFormValid" ref="form" @submit.prevent>
           <v-row>
             <v-col cols="12">
-              <ServerPathField v-model="formData.sourcePath"
-                               :title="t('dialogs.torrentCreator.sourcePath')"
-                               :rules="[(v: string) => !!v || t('dialogs.torrentCreator.rules.sourcePathRequired')]"
-              />
+              <ServerPathField
+                v-model="formData.sourcePath"
+                :title="t('dialogs.torrentCreator.sourcePath')"
+                :rules="[(v: string) => !!v || t('dialogs.torrentCreator.rules.sourcePathRequired')]" />
             </v-col>
             <v-col cols="12">
-              <ServerPathField v-model="formData.torrentFilePath"
-                               :title="t('dialogs.torrentCreator.torrentFilePath')"
-                               :rules="[(v: string) => (!v || v.endsWith('.torrent')) || t('dialogs.torrentCreator.rules.outputFileExtension')]"
-              />
+              <ServerPathField
+                v-model="formData.torrentFilePath"
+                :title="t('dialogs.torrentCreator.torrentFilePath')"
+                :rules="[(v: string) => !v || v.endsWith('.torrent') || t('dialogs.torrentCreator.rules.outputFileExtension')]" />
             </v-col>
 
             <v-divider />
@@ -107,12 +103,13 @@ const close = () => {
                 <v-checkbox v-model="formData.optimizeAlignment" hide-details :label="t('dialogs.torrentCreator.optimizeAlignment')" />
               </v-col>
               <v-col cols="12" sm="6" class="py-0">
-                <v-text-field v-model.number="formData.paddedFileSizeLimit"
-                              min="-1"
-                              :rules="paddedLimitRules"
-                              :label="t('dialogs.torrentCreator.paddedFileSizeLimit')"
-                              :hint="t('dialogs.torrentCreator.paddedFileSizeLimitHint')"
-                              suffix="kiB" />
+                <v-text-field
+                  v-model.number="formData.paddedFileSizeLimit"
+                  min="-1"
+                  :rules="paddedLimitRules"
+                  :label="t('dialogs.torrentCreator.paddedFileSizeLimit')"
+                  :hint="t('dialogs.torrentCreator.paddedFileSizeLimitHint')"
+                  suffix="kiB" />
               </v-col>
             </template>
             <v-col cols="12" sm="6" class="py-0">
