@@ -1,10 +1,16 @@
 import qbit from '@/services/qbit'
+import { BuildInfo } from '@/types/qbit/models'
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 export const useAppStore = defineStore('app', () => {
   const isAuthenticated = ref(false)
   const version = ref('0.0.0')
+  const buildInfo = ref<BuildInfo>()
+
+  const usesQbit5 = computed(() => version.value >= '5')
+  const usesLibtorrent1 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '1' && !usesLibtorrent2)
+  const usesLibtorrent2 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '2')
 
   async function fetchAuthStatus() {
     const ver: string | false = await qbit.getVersion().catch(() => false)
@@ -17,11 +23,13 @@ export const useAppStore = defineStore('app', () => {
     if (val) {
       isAuthenticated.value = val
       version.value = ver || (await qbit.getVersion())
+      buildInfo.value = await qbit.getBuildInfo()
       return
     }
 
     isAuthenticated.value = val
     version.value = '0.0.0'
+    buildInfo.value = undefined
   }
 
   async function login(username: string, password: string) {
@@ -50,6 +58,10 @@ export const useAppStore = defineStore('app', () => {
   return {
     isAuthenticated,
     version,
+    buildInfo,
+    usesQbit5,
+    usesLibtorrent1,
+    usesLibtorrent2,
     fetchAuthStatus,
     setAuthStatus,
     shutdownQbit,
@@ -58,6 +70,7 @@ export const useAppStore = defineStore('app', () => {
     logout,
     toggleAlternativeMode,
     $reset: async () => {
+      buildInfo.value = undefined
       version.value = '0.0.0'
       await logout()
     }

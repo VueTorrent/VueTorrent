@@ -150,7 +150,7 @@ watch(
       </v-row>
     </v-list-item>
 
-    <template v-if="appStore.version >= '5.0.0'">
+    <template v-if="appStore.usesQbit5">
       <v-divider class="mt-3" />
       <v-list-subheader>{{ t('settings.connection.i2p.subheader') }}</v-list-subheader>
 

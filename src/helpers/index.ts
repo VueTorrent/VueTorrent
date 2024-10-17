@@ -5,7 +5,7 @@ import { formatEta, formatTimeMs, formatTimeSec, formatDuration } from './dateti
 import { toPrecision, formatPercent } from './number'
 import { basename } from './path'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
-import { isWindows, isMac, doesCommand, openLink } from './system'
+import { isWindows, isMac, doesCommand, openLink, downloadFile } from './system'
 import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, codeToFlag } from './text'
 
 export {
@@ -31,6 +31,7 @@ export {
   isMac,
   doesCommand,
   openLink,
+  downloadFile,
   titleCase,
   capitalize,
   extractHostname,

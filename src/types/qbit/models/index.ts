@@ -1,6 +1,7 @@
 import type AddTorrentParams from './AddTorrentParams'
 import { getEmptyParams } from './AddTorrentParams'
 import type AppPreferences from './AppPreferences'
+import type BuildInfo from './BuildInfo'
 import type Category from './Category'
 import type Feed from './Feed'
 import type FeedArticle from './FeedArticle'
@@ -28,6 +29,7 @@ export type {
   AddTorrentParams,
   ApplicationVersion,
   AppPreferences,
+  BuildInfo,
   Category,
   ServerState,
   Tracker,

@@ -119,7 +119,7 @@ onBeforeMount(async () => {
             :label="t('settings.advanced.qbittorrent.saveInterval')" />
         </v-col>
 
-        <template v-if="appStore.version >= '5.0.0'">
+        <template v-if="appStore.usesQbit5">
           <v-col cols="12">
             <v-select
               v-model="pref!.torrent_content_remove_option"
@@ -195,7 +195,7 @@ onBeforeMount(async () => {
       </v-row>
     </v-list-item>
 
-    <template v-if="appStore.version >= '5.0.0'">
+    <template v-if="appStore.usesQbit5">
       <v-divider class="mx-10" />
       <v-list-item>
         <v-row>
@@ -466,7 +466,7 @@ onBeforeMount(async () => {
       </v-row>
     </v-list-item>
 
-    <template v-if="appStore.version >= '5.0.0'">
+    <template v-if="appStore.usesQbit5">
       <v-divider class="mb-3" />
 
       <v-list-item>

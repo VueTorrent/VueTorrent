@@ -15,6 +15,7 @@ export function toPrecision(value: number, precision: number): string {
   }
 }
 
+/** Formats a percentage value between 0 and 1 */
 export function formatPercent(progress: number): string {
   return `${toPrecision(progress * 100, 3)} %`
 }

@@ -12,6 +12,7 @@ import { usePreferenceStore } from './preferences'
 import { useRssStore } from './rss'
 import { useSearchEngineStore } from './searchEngine'
 import { useTagStore } from './tags'
+import { useTorrentCreatorStore } from './torrentCreator'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTorrentStore } from './torrents'
 import { useTrackerStore } from './trackers'
@@ -32,6 +33,7 @@ export {
   useRssStore,
   useSearchEngineStore,
   useTagStore,
+  useTorrentCreatorStore,
   useTorrentDetailStore,
   useTorrentStore,
   useTrackerStore,

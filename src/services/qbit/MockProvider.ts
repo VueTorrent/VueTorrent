@@ -1,8 +1,19 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentCreatorTaskStatus, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  DirectoryContentMode,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentCreatorTaskStatus,
+  TorrentFormat,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
   AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -142,8 +153,22 @@ export default class MockProvider implements IProvider {
 
   /// AppController ///
 
+  async getBuildInfo(): Promise<BuildInfo> {
+    return this.generateResponse({
+      result: {
+        bitness: 64,
+        boost: '1.86.0',
+        libtorrent: '2.0.11.0',
+        openssl: '3.3.2',
+        platform: 'windows',
+        qt: '6.7.3',
+        zlib: '1.3.1'
+      }
+    })
+  }
+
   async getVersion(): Promise<ApplicationVersion> {
-    return this.generateResponse({ result: '4.6.2' })
+    return this.generateResponse({ result: '5.0.0' })
   }
 
   async getPreferences(): Promise<AppPreferences> {
@@ -415,7 +440,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[]> {
+  async getDirectoryContent(dirPath: string, _?: DirectoryContentMode): Promise<string[] | null> {
     return this.generateResponse({
       result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
     })
@@ -1201,11 +1226,11 @@ export default class MockProvider implements IProvider {
 
   /// TorrentCreatorController //
 
-  async addTask(_: TorrentCreatorParams): Promise<string> {
+  async addTorrentCreatorTask(_: TorrentCreatorParams): Promise<string> {
     return this.generateResponse({ result: 'id' })
   }
 
-  async status(taskID?: string): Promise<TorrentCreatorTask[]> {
+  async getTorrentCreatorStatus(taskID?: string): Promise<TorrentCreatorTask[]> {
     return this.generateResponse({
       result: [
         {
@@ -1214,28 +1239,24 @@ export default class MockProvider implements IProvider {
           pieceSize: faker.number.int({ min: 0, max: 16_384_000, multipleOf: 512_000 }),
           private: faker.datatype.boolean(),
           timeAdded: faker.date.anytime().toString(),
-          format: 'v1',
+          format: faker.helpers.enumValue(TorrentFormat),
           optimizeAlignment: faker.datatype.boolean(),
-          status: TorrentCreatorTaskStatus.QUEUED,
+          status: faker.helpers.enumValue(TorrentCreatorTaskStatus),
           comment: faker.word.words({ count: { min: 0, max: 25 } }),
           torrentFilePath: faker.system.filePath(),
           source: faker.system.directoryPath(),
-          trackers: faker.helpers
-            .multiple(() => faker.internet.url(), {
-              count: faker.number.int({
-                min: 0,
-                max: 5
-              })
+          trackers: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
             })
-            .join('|'),
-          urlSeeds: faker.helpers
-            .multiple(() => faker.internet.url(), {
-              count: faker.number.int({
-                min: 0,
-                max: 5
-              })
+          }),
+          urlSeeds: faker.helpers.multiple(() => faker.internet.url(), {
+            count: faker.number.int({
+              min: 0,
+              max: 5
             })
-            .join('|'),
+          }),
           timeFinished: faker.date.recent().toString(),
           timeStarted: faker.date.past().toString()
         }
@@ -1243,11 +1264,11 @@ export default class MockProvider implements IProvider {
     })
   }
 
-  async torrentFile(_: string): Promise<Blob> {
+  async getTorrentCreatorOutput(_: string): Promise<Blob> {
     return this.generateResponse({ result: new Blob([new ArrayBuffer(1024)], { type: 'application/x-bittorrent' }) })
   }
 
-  async deleteTask(_: string): Promise<boolean> {
+  async deleteTorrentCreatorTask(_: string): Promise<boolean> {
     return this.generateResponse({ result: true })
   }
 

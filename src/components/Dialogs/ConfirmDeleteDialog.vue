@@ -33,7 +33,7 @@ const deleteWithFiles = ref(deletePref.value)
 async function saveDeleteState() {
   const newValue = deleteWithFiles.value
 
-  if (appStore.version >= '5.0.0') {
+  if (appStore.usesQbit5) {
     await preferenceStore.setPreferences({ delete_torrent_content_files: newValue })
     await preferenceStore.fetchPreferences()
   } else {

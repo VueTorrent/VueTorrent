@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import PasswordField from '@/components/Core/PasswordField.vue'
+import { openLink } from '@/helpers'
 import { usePreferenceStore } from '@/stores'
 import { computed, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
@@ -27,7 +28,7 @@ const webUiPassword = computed({
 })
 
 function registerDynDNS() {
-  window.open(dynDnsProvider.value)
+  openLink(dynDnsProvider.value)
 }
 </script>
 

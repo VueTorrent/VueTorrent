@@ -202,7 +202,7 @@ export const useTorrentStore = defineStore(
     }
 
     async function resumeTorrents(hashes: MaybeRefOrGetter<string[]>) {
-      if (appStore.version >= '5.0.0') {
+      if (appStore.usesQbit5) {
         await qbit.startTorrents(toValue(hashes))
       } else {
         await qbit.resumeTorrents(toValue(hashes))
@@ -214,7 +214,7 @@ export const useTorrentStore = defineStore(
     }
 
     async function pauseTorrents(hashes: MaybeRefOrGetter<string[]>) {
-      if (appStore.version >= '5.0.0') {
+      if (appStore.usesQbit5) {
         await qbit.stopTorrents(toValue(hashes))
       } else {
         await qbit.pauseTorrents(toValue(hashes))

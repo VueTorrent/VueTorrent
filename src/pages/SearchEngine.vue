@@ -3,7 +3,7 @@ import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { formatData, formatTimeSec } from '@/helpers'
+import { formatData, formatTimeSec, openLink } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
@@ -31,7 +31,7 @@ const headers = computed(() => [
   { title: t('searchEngine.headers.fileSize'), key: 'fileSize' },
   { title: t('searchEngine.headers.nbSeeders'), key: 'nbSeeders' },
   { title: t('searchEngine.headers.nbLeechers'), key: 'nbLeechers' },
-  ...(appStore.version >= '5.0.0'
+  ...(appStore.usesQbit5
     ? [
         { title: t('searchEngine.headers.engineName'), key: 'engineName' },
         { title: t('searchEngine.headers.pubDate'), key: 'pubDate' }
@@ -87,7 +87,7 @@ function deleteTab() {
 }
 
 function downloadTorrent(result: SearchResult) {
-  if (appStore.version >= '5.0.0') {
+  if (appStore.usesQbit5) {
     searchEngineStore.downloadTorrent(result.fileUrl, result.engineName!)
   } else {
     addTorrentStore.pushTorrentToQueue(result.fileUrl)
@@ -96,8 +96,8 @@ function downloadTorrent(result: SearchResult) {
   result.downloaded = true
 }
 
-function openLink(result: SearchResult) {
-  window.open(result.descrLink, '_blank', 'noreferrer')
+function openResultLink(result: SearchResult) {
+  openLink(result.descrLink)
 }
 
 async function runNewSearch() {
@@ -264,7 +264,7 @@ onBeforeUnmount(() => {
             {{ value === -1 ? t('common.NA') : formatTimeSec(value, dateFormat) }}
           </template>
           <template v-slot:[`item.actions`]="{ item }">
-            <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openLink(item)" />
+            <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
             <v-btn :icon="item.downloaded ? 'mdi-check' : 'mdi-download'" :color="item.downloaded && 'accent'" variant="text" density="compact" @click="downloadTorrent(item)" />
           </template>
         </v-data-table>

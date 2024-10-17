@@ -186,7 +186,7 @@ async function sendTestEmail() {
       <v-checkbox v-model="preferenceStore.preferences!.incomplete_files_ext" hide-details :label="t('settings.downloads.publicSettings.appendQBExtension')" />
 
       <v-checkbox
-        v-if="appStore.version >= '5.0.0'"
+        v-if="appStore.usesQbit5"
         v-model="preferenceStore.preferences!.use_unwanted_folder"
         hide-details
         :label="t('settings.downloads.publicSettings.useUnwantedFolder')" />
@@ -227,7 +227,7 @@ async function sendTestEmail() {
             :label="t('settings.downloads.saveManagement.categoryChangedTMM')" />
         </v-col>
 
-        <v-col cols="12" v-if="appStore.version >= '5.0.0'" class="py-0">
+        <v-col cols="12" v-if="appStore.usesQbit5" class="py-0">
           <v-checkbox
             v-model="preferenceStore.preferences!.use_category_paths_in_manual_mode"
             hide-details
@@ -428,7 +428,7 @@ async function sendTestEmail() {
       </v-row>
     </v-list-item>
 
-    <v-list-item v-if="appStore.version >= '5.0.0'">
+    <v-list-item v-if="appStore.usesQbit5">
       <v-btn color="primary" @click="sendTestEmail">{{ t('settings.downloads.mailNotification.test.label') }}</v-btn>
     </v-list-item>
 

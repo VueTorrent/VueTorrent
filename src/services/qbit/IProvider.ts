@@ -1,7 +1,8 @@
-import { FilePriority, LogType, PieceState } from '@/constants/qbit'
+import { DirectoryContentMode, FilePriority, LogType, PieceState } from '@/constants/qbit'
 import {
   ApplicationVersion,
   AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -24,6 +25,11 @@ import { AxiosResponse } from 'axios'
 
 export default interface IProvider {
   /// AppController ///
+
+  /**
+   * Get environment values
+   */
+  getBuildInfo(): Promise<BuildInfo | undefined>
 
   /**
    * Get the application version
@@ -63,7 +69,7 @@ export default interface IProvider {
   sendTestEmail(): Promise<void>
 
   /**
-   * TODO: Returns a list of absolute paths on the server at the designed path
+   * Returns a list of absolute paths on the server at the designed path
    * @param dirPath Absolute path to list from
    * @param mode Applies path type filter on the returned list
    * @throws 400 on empty path
@@ -71,7 +77,7 @@ export default interface IProvider {
    * @throws 400 if the path isn't absolute
    * @throws 404 if directory doesn't exists
    */
-  getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[]>
+  getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null>
 
   /// AuthController ///
 
@@ -263,31 +269,31 @@ export default interface IProvider {
   /// TorrentCreatorController //
 
   /**
-   * TODO: Creates a torrent creator task
+   * Creates a torrent creator task
    * @param taskParams Task parameters
    */
-  addTask(taskParams: TorrentCreatorParams): Promise<string>
+  addTorrentCreatorTask(taskParams: TorrentCreatorParams): Promise<string>
 
   /**
-   * TODO: Returns torrent creator task
+   * Returns torrent creator task
    * If taskID is specified, returns a single task
    * If not specified, will return all registered tasks
    * @param taskID
    */
-  status(taskID?: string): Promise<TorrentCreatorTask[]>
+  getTorrentCreatorStatus(taskID?: string): Promise<TorrentCreatorTask[]>
 
   /**
-   * TODO: Retrieves the generated torrent file
+   * Retrieves the generated torrent file
    * Available only when task is finished
    * @param taskID
    */
-  torrentFile(taskID: string): Promise<Blob>
+  getTorrentCreatorOutput(taskID: string): Promise<Blob>
 
   /**
-   * TODO: Deletes a registered torrent creator task
+   * Deletes a registered torrent creator task
    * @param taskID
    */
-  deleteTask(taskID: string): Promise<boolean>
+  deleteTorrentCreatorTask(taskID: string): Promise<boolean>
 
   /// TorrentsController ///
 
