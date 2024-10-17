@@ -1,8 +1,22 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentCreatorTaskStatus, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
-import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
+import {
+  ConnectionStatus,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentCreatorTaskStatus, TorrentFormat,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
+import {
+  ContentLayout,
+  ProxyType,
+  ResumeDataStorageType,
+  StopCondition,
+  TorrentContentRemoveOption
+} from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
-  AppPreferences,
+  AppPreferences, BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -50,7 +64,8 @@ export default class MockProvider implements IProvider {
     .fill('')
     .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
-  private constructor() {}
+  private constructor() {
+  }
 
   static getInstance(): MockProvider {
     if (!MockProvider.instance) {
@@ -92,7 +107,7 @@ export default class MockProvider implements IProvider {
       infohash_v1: hash,
       infohash_v2: '',
       last_activity: last_activity.getTime() / 1000,
-      magnet_uri: `magnet:?xt=urn:btih:${hash}&dn=${name}&tr=${tracker}`,
+      magnet_uri: `magnet:?xt=urn:btih:${ hash }&dn=${ name }&tr=${ tracker }`,
       max_inactive_seeding_time: -1,
       max_ratio: -1,
       max_seeding_time: -1,
@@ -142,8 +157,22 @@ export default class MockProvider implements IProvider {
 
   /// AppController ///
 
+  async getBuildInfo(): Promise<BuildInfo> {
+    return this.generateResponse({
+      result: {
+        'bitness': 64,
+        'boost': '1.86.0',
+        'libtorrent': '2.0.11.0',
+        'openssl': '3.3.2',
+        'platform': 'windows',
+        'qt': '6.7.3',
+        'zlib': '1.3.1'
+      }
+    })
+  }
+
   async getVersion(): Promise<ApplicationVersion> {
-    return this.generateResponse({ result: '4.6.2' })
+    return this.generateResponse({ result: '5.0.0' })
   }
 
   async getPreferences(): Promise<AppPreferences> {
@@ -415,9 +444,9 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[]> {
+  async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[] | null> {
     return this.generateResponse({
-      result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
+      result: faker.helpers.multiple(() => `${ dirPath }/${ faker.system.fileName() }`, { count: { min: 0, max: 5 } })
     })
   }
 
@@ -1139,7 +1168,7 @@ export default class MockProvider implements IProvider {
         full_update: true,
         rid: rid + 1,
         peers: {
-          [`${ip1}:${port1}`]: {
+          [`${ ip1 }:${ port1 }`]: {
             client: 'qBittorrent v4.6.2',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1157,7 +1186,7 @@ export default class MockProvider implements IProvider {
             up_speed: rndmSpeed(),
             uploaded: rndmData()
           },
-          [`${ip2}:${port2}`]: {
+          [`${ ip2 }:${ port2 }`]: {
             client: 'Tixati 2.84',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1175,7 +1204,7 @@ export default class MockProvider implements IProvider {
             up_speed: faker.number.int(50_000_000), // [0; 50 Mo/s]
             uploaded: rndmData()
           },
-          [`${ip3}:${port3}`]: {
+          [`${ ip3 }:${ port3 }`]: {
             client: 'Deluge/2.1.1 libtorrent/2.0.5.0',
             connection: rndmConnType(),
             country: rndmCountry(),
@@ -1201,11 +1230,11 @@ export default class MockProvider implements IProvider {
 
   /// TorrentCreatorController //
 
-  async addTask(_: TorrentCreatorParams): Promise<string> {
+  async addTorrentCreatorTask(_: TorrentCreatorParams): Promise<string> {
     return this.generateResponse({ result: 'id' })
   }
 
-  async status(taskID?: string): Promise<TorrentCreatorTask[]> {
+  async getTorrentCreatorStatus(taskID?: string): Promise<TorrentCreatorTask[]> {
     return this.generateResponse({
       result: [
         {
@@ -1214,9 +1243,9 @@ export default class MockProvider implements IProvider {
           pieceSize: faker.number.int({ min: 0, max: 16_384_000, multipleOf: 512_000 }),
           private: faker.datatype.boolean(),
           timeAdded: faker.date.anytime().toString(),
-          format: 'v1',
+          format: faker.helpers.enumValue(TorrentFormat),
           optimizeAlignment: faker.datatype.boolean(),
-          status: TorrentCreatorTaskStatus.QUEUED,
+          status: faker.helpers.enumValue(TorrentCreatorTaskStatus),
           comment: faker.word.words({ count: { min: 0, max: 25 } }),
           torrentFilePath: faker.system.filePath(),
           source: faker.system.directoryPath(),
@@ -1226,16 +1255,14 @@ export default class MockProvider implements IProvider {
                 min: 0,
                 max: 5
               })
-            })
-            .join('|'),
+            }),
           urlSeeds: faker.helpers
             .multiple(() => faker.internet.url(), {
               count: faker.number.int({
                 min: 0,
                 max: 5
               })
-            })
-            .join('|'),
+            }),
           timeFinished: faker.date.recent().toString(),
           timeStarted: faker.date.past().toString()
         }
@@ -1243,11 +1270,11 @@ export default class MockProvider implements IProvider {
     })
   }
 
-  async torrentFile(_: string): Promise<Blob> {
+  async getTorrentCreatorOutput(_: string): Promise<Blob> {
     return this.generateResponse({ result: new Blob([new ArrayBuffer(1024)], { type: 'application/x-bittorrent' }) })
   }
 
-  async deleteTask(_: string): Promise<boolean> {
+  async deleteTorrentCreatorTask(_: string): Promise<boolean> {
     return this.generateResponse({ result: true })
   }
 

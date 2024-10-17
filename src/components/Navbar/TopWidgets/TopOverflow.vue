@@ -1,5 +1,10 @@
 <script setup lang="ts">
-defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openrssArticles', 'openLogs', 'openSettings'])
+import { useAppStore } from '@/stores'
+import { storeToRefs } from 'pinia'
+
+defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEngine', 'openRssArticles', 'openTorrentCreator', 'openLogs', 'openSettings'])
+
+const { usesQbit5 } = storeToRefs(useAppStore())
 </script>
 
 <template>
@@ -34,9 +39,15 @@ defineEmits(['resumeTorrents', 'pauseTorrents', 'deleteTorrents', 'openSearchEng
         </template>
       </v-list-item>
 
-      <v-list-item :title="$t('topbar.overflow.rssArticles')" @click="$emit('openrssArticles')">
+      <v-list-item :title="$t('topbar.overflow.rssArticles')" @click="$emit('openRssArticles')">
         <template v-slot:prepend>
           <v-icon>mdi-rss</v-icon>
+        </template>
+      </v-list-item>
+
+      <v-list-item v-if="usesQbit5" :title="$t('topbar.overflow.torrentCreator')" @click="$emit('openTorrentCreator')">
+        <template v-slot:prepend>
+          <v-icon>mdi-file-plus</v-icon>
         </template>
       </v-list-item>
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useArrayPagination } from '@/composables'
+import { openLink } from '@/helpers'
 import { useAddTorrentStore, useRssStore, useVueTorrentStore } from '@/stores'
 import { RssArticle } from '@/types/vuetorrent'
 import { computed } from 'vue'
@@ -27,9 +28,9 @@ const articles = computed(() =>
 
 const { paginatedResults, currentPage, pageCount } = useArrayPagination(articles, 15)
 
-function openLink(article: RssArticle) {
+function openArticleLink(article: RssArticle) {
   const url = vuetorrentStore.useIdForRssLinks ? article.id : article.link
-  window.open(url, '_blank', 'noreferrer')
+  openLink(url)
 }
 
 function downloadArticle(item: RssArticle) {
@@ -50,7 +51,7 @@ async function markAsRead(item: RssArticle) {
     <template v-for="(article, index) in paginatedResults">
       <v-divider v-if="index > 0" />
 
-      <Article :value="article" @click="$emit('articleClicked', article)" @markAsRead="markAsRead(article)" @open="openLink(article)" @download="downloadArticle(article)" />
+      <Article :value="article" @click="$emit('articleClicked', article)" @markAsRead="markAsRead(article)" @open="openArticleLink(article)" @download="downloadArticle(article)" />
     </template>
 
     <v-list-item v-if="articles.length === 0">
