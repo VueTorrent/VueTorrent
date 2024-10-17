@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TorrentCreatorForm from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
+import TorrentCreatorFormDialog from '@/components/Dialogs/TorrentCreatorFormDialog.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentCreatorTaskStatus, TorrentFormat } from '@/constants/qbit'
 import { useAppStore, useDialogStore, useTorrentCreatorStore, useVueTorrentStore } from '@/stores'
@@ -74,7 +74,7 @@ const torrentFormatMap: Record<TorrentFormat, string> = {
 }
 
 function openTorrentCreatorFormDialog() {
-  dialogStore.createDialog(TorrentCreatorForm, {}, torrentCreatorStore.fetchTasks)
+  dialogStore.createDialog(TorrentCreatorFormDialog, {}, torrentCreatorStore.fetchTasks)
 }
 
 async function downloadTorrent(item: TorrentCreatorTask) {
@@ -107,6 +107,7 @@ function handleKeyboardShortcut(e: KeyboardEvent) {
   }
 
   if (e.key === 'Escape') {
+    e.preventDefault()
     goHome()
   }
 }

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { DirectoryContentMode } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { useAppStore } from '@/stores'
 import { useDebounceFn } from '@vueuse/core'
@@ -16,7 +17,7 @@ const appStore = useAppStore()
 const updateDirContent = useDebounceFn(async query => {
   if (!query) return
 
-  const directoryContent = await qbit.getDirectoryContent(query, 'all')
+  const directoryContent = await qbit.getDirectoryContent(query, DirectoryContentMode.ALL)
   if (!directoryContent) return
 
   items.value = directoryContent
