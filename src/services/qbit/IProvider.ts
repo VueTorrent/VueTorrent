@@ -1,4 +1,4 @@
-import { FilePriority, LogType, PieceState } from '@/constants/qbit'
+import { DirectoryContentMode, FilePriority, LogType, PieceState } from '@/constants/qbit'
 import {
   ApplicationVersion,
   AppPreferences,
@@ -29,7 +29,7 @@ export default interface IProvider {
   /**
    * Get environment values
    */
-  getBuildInfo(): Promise<BuildInfo>
+  getBuildInfo(): Promise<BuildInfo | undefined>
 
   /**
    * Get the application version
@@ -77,7 +77,7 @@ export default interface IProvider {
    * @throws 400 if the path isn't absolute
    * @throws 404 if directory doesn't exists
    */
-  getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[] | null>
+  getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null>
 
   /// AuthController ///
 

@@ -1,5 +1,5 @@
 import type { FilePriority } from '@/constants/qbit'
-import { LogType, PieceState } from '@/constants/qbit'
+import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -78,8 +78,8 @@ export default class QBitProvider implements IProvider {
 
   /// AppController ///
 
-  async getBuildInfo(): Promise<BuildInfo> {
-    return this.axios.get('/app/buildInfo').then(res => res.data)
+  async getBuildInfo(): Promise<BuildInfo | undefined> {
+    return this.axios.get('/app/buildInfo').then(res => res.data).catch(() => undefined)
   }
 
   async getVersion(): Promise<ApplicationVersion> {
@@ -124,7 +124,7 @@ export default class QBitProvider implements IProvider {
     return this.axios.post('/app/sendTestEmail')
   }
 
-  async getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[] | null> {
+  async getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null> {
     return this.post('/app/getDirectoryContent', { dirPath, mode }, { validateStatus: code => code < 500 }).then(res => (res.status === 200 ? res.data : null))
   }
 

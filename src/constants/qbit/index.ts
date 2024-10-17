@@ -1,5 +1,6 @@
 import * as AppPreferences from './AppPreferences'
 import { ConnectionStatus } from './ConnectionStatus'
+import { DirectoryContentMode } from './DirectoryContentMode'
 import { FilePriority } from './FilePriority'
 import { FilterState } from './FilterState'
 import { LogType } from './LogType'
@@ -13,6 +14,7 @@ import { TrackerStatus } from './TrackerStatus'
 export {
   AppPreferences,
   ConnectionStatus,
+  DirectoryContentMode,
   FilterState,
   LogType,
   PieceState,

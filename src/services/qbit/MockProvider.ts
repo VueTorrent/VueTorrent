@@ -1,4 +1,14 @@
-import { ConnectionStatus, FilePriority, LogType, PieceState, TorrentCreatorTaskStatus, TorrentFormat, TorrentOperatingMode, TorrentState } from '@/constants/qbit'
+import {
+  ConnectionStatus,
+  DirectoryContentMode,
+  FilePriority,
+  LogType,
+  PieceState,
+  TorrentCreatorTaskStatus,
+  TorrentFormat,
+  TorrentOperatingMode,
+  TorrentState
+} from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import type {
   ApplicationVersion,
@@ -430,7 +440,7 @@ export default class MockProvider implements IProvider {
     return this.generateResponse()
   }
 
-  async getDirectoryContent(dirPath: string, _?: 'dirs' | 'files' | 'all'): Promise<string[] | null> {
+  async getDirectoryContent(dirPath: string, _?: DirectoryContentMode): Promise<string[] | null> {
     return this.generateResponse({
       result: faker.helpers.multiple(() => `${dirPath}/${faker.system.fileName()}`, { count: { min: 0, max: 5 } })
     })
