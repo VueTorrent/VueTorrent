@@ -29,7 +29,7 @@ function close() {
         CHANGEME
       </v-card-text>
       <v-card-actions>
-        <v-btn @click="close">Close</v-btn>
+        <v-btn @click="close">{{ $t('common.close') }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

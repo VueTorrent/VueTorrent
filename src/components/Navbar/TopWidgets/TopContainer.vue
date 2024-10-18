@@ -39,8 +39,12 @@ function openSearchEngine() {
   router.push({ name: 'searchEngine' })
 }
 
-function openrssArticles() {
+function openRssArticles() {
   router.push({ name: 'rssArticles', params: { tab: rssStore.lastView } })
+}
+
+function openTorrentCreator() {
+  router.push({ name: 'torrentCreator' })
 }
 
 function openLogs() {
@@ -67,7 +71,8 @@ function openSettings() {
     @openLogs="openLogs"
     @openSearchEngine="openSearchEngine"
     @openSettings="openSettings"
-    @openrssArticles="openrssArticles"
+    @openRssArticles="openRssArticles"
+    @openTorrentCreator="openTorrentCreator"
     @pauseTorrents="pauseTorrents"
     @resumeTorrents="resumeTorrents" />
   <TopActions
@@ -76,7 +81,8 @@ function openSettings() {
     @openLogs="openLogs"
     @openSearchEngine="openSearchEngine"
     @openSettings="openSettings"
-    @openrssArticles="openrssArticles"
+    @openRssArticles="openRssArticles"
+    @openTorrentCreator="openTorrentCreator"
     @pauseTorrents="pauseTorrents"
     @resumeTorrents="resumeTorrents" />
 </template>

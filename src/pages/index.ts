@@ -27,6 +27,11 @@ export const routes: RouteRecordRaw[] = [
     component: () => import('./SearchEngine.vue')
   },
   {
+    name: 'torrentCreator',
+    path: '/torrentCreator',
+    component: () => import('./TorrentCreator.vue')
+  },
+  {
     name: 'torrentDetail',
     path: '/torrent/:hash/:tab?',
     component: () => import('./TorrentDetail.vue')

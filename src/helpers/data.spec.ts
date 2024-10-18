@@ -16,6 +16,15 @@ test('helpers/data/formatDataValue', () => {
 
   expect(formatDataValue(1000 ** 9, false)).toBe('1000')
   expect(formatDataValue(1000 ** 9, true)).toBe('827')
+
+  expect(formatDataValue(123_456, false, 0)).toBe('123')
+  expect(formatDataValue(123_678, false, 0)).toBe('123')
+  expect(formatDataValue(123_456, false, 1)).toBe('123')
+  expect(formatDataValue(123_456, false, 2)).toBe('123')
+  expect(formatDataValue(123_456, false, 3)).toBe('123')
+  expect(formatDataValue(123_456, false, 4)).toBe('123.4')
+  expect(formatDataValue(123_456, false, 5)).toBe('123.45')
+  expect(formatDataValue(123_456, false, 6)).toBe('123.456')
 })
 
 test('helpers/data/formatDataUnit', () => {
@@ -71,4 +80,13 @@ test('helpers/data/formatData', () => {
 
   expect(formatData(1052804121, true)).toBe('1004 MiB')
   expect(formatData(1066436574, true)).toBe('1017 MiB')
+
+  expect(formatData(123_456, false, 0)).toBe('123 kB')
+  expect(formatData(123_678, false, 0)).toBe('123 kB')
+  expect(formatData(123_456, false, 1)).toBe('123 kB')
+  expect(formatData(123_456, false, 2)).toBe('123 kB')
+  expect(formatData(123_456, false, 3)).toBe('123 kB')
+  expect(formatData(123_456, false, 4)).toBe('123.4 kB')
+  expect(formatData(123_456, false, 5)).toBe('123.45 kB')
+  expect(formatData(123_456, false, 6)).toBe('123.456 kB')
 })

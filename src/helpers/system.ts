@@ -18,3 +18,11 @@ export function doesCommand(e: { metaKey: boolean; ctrlKey: boolean }): boolean 
 export function openLink(link: string) {
   window.open(link, '_blank', 'noreferrer')
 }
+
+export function downloadFile(filename: string, blob: Blob) {
+  const href = window.URL.createObjectURL(blob)
+  const el = Object.assign(document.createElement('a'), { href, download: filename, style: { opacity: '0' } })
+  document.body.appendChild(el)
+  el.click()
+  el.remove()
+}

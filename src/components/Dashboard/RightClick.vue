@@ -7,6 +7,7 @@ import RenameTorrentDialog from '@/components/Dialogs/RenameTorrentDialog.vue'
 import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
+import { downloadFile } from '@/helpers'
 import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
@@ -131,14 +132,6 @@ function setUploadLimit() {
 
 function setShareLimit() {
   dialogStore.createDialog(ShareLimitDialog, { hashes: hashes.value })
-}
-
-function downloadFile(filename: string, blob: Blob) {
-  const href = window.URL.createObjectURL(blob)
-  const el = Object.assign(document.createElement('a'), { href, download: filename, style: { opacity: '0' } })
-  document.body.appendChild(el)
-  el.click()
-  el.remove()
 }
 
 async function exportTorrents() {

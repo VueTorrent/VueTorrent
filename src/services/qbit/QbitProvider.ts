@@ -1,8 +1,9 @@
 import type { FilePriority } from '@/constants/qbit'
-import { LogType, PieceState } from '@/constants/qbit'
+import { DirectoryContentMode, LogType, PieceState } from '@/constants/qbit'
 import type {
   ApplicationVersion,
   AppPreferences,
+  BuildInfo,
   Category,
   Feed,
   FeedRule,
@@ -21,7 +22,7 @@ import type {
 import { NetworkInterface } from '@/types/qbit/models/AppPreferences'
 import type { AddTorrentPayload, AppPreferencesPayload, CreateFeedPayload, GetTorrentPayload, LoginPayload } from '@/types/qbit/payloads'
 import type { MaindataResponse, SearchResultsResponse, TorrentPeersResponse } from '@/types/qbit/responses'
-import type { AxiosInstance } from 'axios'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios, { AxiosResponse } from 'axios'
 import type IProvider from './IProvider'
 
@@ -52,11 +53,12 @@ export default class QBitProvider implements IProvider {
    * Wrapper that converts a plain JSON object and sends a POST request
    * @param route - API route to send POST request
    * @param params - Plain record to include in the POST request
+   * @param config - Config object to pass to the axios handler
    * @example this.post('/auth/login', { username: 'admin', password: 'adminadmin' })
    */
-  private async post(route: string, params?: Parameters): Promise<any> {
+  private async post(route: string, params?: Parameters, config?: AxiosRequestConfig): Promise<AxiosResponse> {
     const data = new URLSearchParams(params)
-    return this.axios.post(route, data)
+    return this.axios.post(route, data, config)
   }
 
   /**
@@ -75,6 +77,10 @@ export default class QBitProvider implements IProvider {
   }
 
   /// AppController ///
+
+  async getBuildInfo(): Promise<BuildInfo | undefined> {
+    return this.axios.get('/app/buildInfo').then(res => res.data).catch(() => undefined)
+  }
 
   async getVersion(): Promise<ApplicationVersion> {
     return this.axios
@@ -118,8 +124,8 @@ export default class QBitProvider implements IProvider {
     return this.axios.post('/app/sendTestEmail')
   }
 
-  async getDirectoryContent(dirPath: string, mode?: 'dirs' | 'files' | 'all'): Promise<string[]> {
-    return this.post('/app/getDirectoryContent', { dirPath, mode })
+  async getDirectoryContent(dirPath: string, mode?: DirectoryContentMode): Promise<string[] | null> {
+    return this.post('/app/getDirectoryContent', { dirPath, mode }, { validateStatus: code => code < 500 }).then(res => (res.status === 200 ? res.data : null))
   }
 
   /// AuthController ///
@@ -152,14 +158,14 @@ export default class QBitProvider implements IProvider {
   /// RssController ///
 
   async createFeed(payload: CreateFeedPayload): Promise<void> {
-    return this.post('/rss/addFeed', {
+    await this.post('/rss/addFeed', {
       url: payload.url,
       path: payload.name
     })
   }
 
   async setRule(ruleName: string, ruleDef: FeedRule): Promise<void> {
-    return this.post('/rss/setRule', {
+    await this.post('/rss/setRule', {
       ruleName,
       ruleDef: JSON.stringify(ruleDef)
     })
@@ -207,29 +213,29 @@ export default class QBitProvider implements IProvider {
   }
 
   async renameFeed(oldName: string, newName: string): Promise<void> {
-    return this.post('/rss/moveItem', {
+    await this.post('/rss/moveItem', {
       itemPath: oldName,
       destPath: newName
     })
   }
 
   async setFeedUrl(path: string, url: string): Promise<void> {
-    return this.post('/rss/setFeedURL', { path, url })
+    await this.post('/rss/setFeedURL', { path, url })
   }
 
   async renameRule(ruleName: string, newRuleName: string): Promise<void> {
-    return this.post('/rss/renameRule', {
+    await this.post('/rss/renameRule', {
       ruleName,
       newRuleName
     })
   }
 
   async deleteRule(ruleName: string): Promise<void> {
-    return this.post('rss/removeRule', { ruleName })
+    await this.post('rss/removeRule', { ruleName })
   }
 
   async deleteFeed(name: string): Promise<void> {
-    return this.post('rss/removeItem', {
+    await this.post('rss/removeItem', {
       path: name
     })
   }
@@ -239,11 +245,11 @@ export default class QBitProvider implements IProvider {
     if (articleId) {
       params['articleId'] = articleId
     }
-    return this.post('rss/markAsRead', params)
+    await this.post('rss/markAsRead', params)
   }
 
   async refreshFeed(itemPath: string): Promise<void> {
-    return this.post('rss/refreshItem', {
+    await this.post('rss/refreshItem', {
       itemPath
     })
   }
@@ -304,7 +310,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async uninstallSearchPlugin(names: string[]): Promise<void> {
-    return this.post('/search/uninstallPlugin', { names: names.join('|') })
+    await this.post('/search/uninstallPlugin', { names: names.join('|') })
   }
 
   async enableSearchPlugin(names: string[], enable: boolean): Promise<void> {
@@ -313,15 +319,15 @@ export default class QBitProvider implements IProvider {
       enable
     }
 
-    return this.post('/search/enablePlugin', params)
+    await this.post('/search/enablePlugin', params)
   }
 
   async updateSearchPlugins(): Promise<void> {
-    return this.post('/search/updatePlugins')
+    await this.post('/search/updatePlugins')
   }
 
   async downloadTorrentWithSearchPlugin(torrentUrl: string, pluginName: string): Promise<void> {
-    return this.post('/search/downloadTorrent', { torrentUrl, pluginName })
+    await this.post('/search/downloadTorrent', { torrentUrl, pluginName })
   }
 
   /// SyncController ///
@@ -340,17 +346,24 @@ export default class QBitProvider implements IProvider {
 
   /// TorrentCreatorController //
 
-  async addTask(taskParams: TorrentCreatorParams): Promise<string> {
+  async addTorrentCreatorTask(taskParams: TorrentCreatorParams): Promise<string> {
+    if (taskParams.trackers) {
+      taskParams.trackers = taskParams.trackers.trim().replaceAll('\n', '|')
+    }
+    if (taskParams.urlSeeds) {
+      taskParams.urlSeeds = taskParams.urlSeeds.trim().replaceAll('\n', '|')
+    }
+
     return this.post('/torrentcreator/addTask', taskParams)
       .then(res => res.data)
       .then(data => data.taskID)
   }
 
-  async status(taskID?: string): Promise<TorrentCreatorTask[]> {
+  async getTorrentCreatorStatus(taskID?: string): Promise<TorrentCreatorTask[]> {
     return this.axios.get('/torrentcreator/status', { params: { taskID } }).then(res => res.data)
   }
 
-  async torrentFile(taskID: string): Promise<Blob> {
+  async getTorrentCreatorOutput(taskID: string): Promise<Blob> {
     return this.axios
       .get('/torrentcreator/torrentFile', {
         params: { taskID },
@@ -362,7 +375,7 @@ export default class QBitProvider implements IProvider {
       .then(res => new Blob([res.data], { type: 'application/x-bittorrent' }))
   }
 
-  async deleteTask(taskID: string): Promise<boolean> {
+  async deleteTorrentCreatorTask(taskID: string): Promise<boolean> {
     return this.post('/torrentcreator/deleteTask', { taskID })
       .then(() => true)
       .catch(() => false)
@@ -383,7 +396,7 @@ export default class QBitProvider implements IProvider {
   }
 
   async setTorrentName(hash: string, name: string): Promise<void> {
-    return this.post('/torrents/rename', { hash, name })
+    await this.post('/torrents/rename', { hash, name })
   }
 
   async getTorrentPieceStates(hash: string): Promise<PieceState[]> {
@@ -401,7 +414,13 @@ export default class QBitProvider implements IProvider {
       })
       .then(res => res.data)
       .then(
-        (files: TorrentFile[]) => (files.some(file => file.index === undefined) ? files.map((file: TorrentFile, index: number) => ({ ...file, index })) : files)
+        (files: TorrentFile[]) =>
+          files.some(file => file.index === undefined)
+            ? files.map((file: TorrentFile, index: number) => ({
+                ...file,
+                index
+              }))
+            : files
         /**
          * We manually add indexes to the response if they are missing to provide compatibility with older versions of qbittorent (< 4.4.0)
          * https://github.com/qbittorrent/qBittorrent/pull/14795
