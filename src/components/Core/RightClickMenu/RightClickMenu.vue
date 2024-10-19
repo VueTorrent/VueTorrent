@@ -14,7 +14,11 @@ const rightClickMenuVisible = defineModel<boolean>({ required: true })
     <v-list>
       <slot name="top" />
       <v-divider v-if="$slots.top" thickness="3" />
-      <RightClickMenuEntry v-for="entry in menuData" :entryData="entry" />
+      <v-virtual-scroll :items="menuData" item-height="48" renderless>
+        <template #default="{ item }">
+          <RightClickMenuEntry :entryData="item" />
+        </template>
+      </v-virtual-scroll>
     </v-list>
   </v-menu>
 </template>

@@ -24,7 +24,11 @@ const onClick = () => {
     </div>
     <v-menu v-if="entryData.children" activator="parent" open-on-hover open-on-click close-delay="10" open-delay="0" location="right">
       <v-list>
-        <RightClickMenuEntry v-for="child in entryData.children" :entryData="child" />
+        <v-virtual-scroll :items="entryData.children" item-height="48" renderless>
+          <template #default="{ item }">
+            <RightClickMenuEntry :entryData="item" />
+          </template>
+        </v-virtual-scroll>
       </v-list>
     </v-menu>
   </v-list-item>
