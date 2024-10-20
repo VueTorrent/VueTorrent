@@ -79,7 +79,10 @@ export default class QBitProvider implements IProvider {
   /// AppController ///
 
   async getBuildInfo(): Promise<BuildInfo | undefined> {
-    return this.axios.get('/app/buildInfo').then(res => res.data).catch(() => undefined)
+    return this.axios
+      .get('/app/buildInfo')
+      .then(res => res.data)
+      .catch(() => undefined)
   }
 
   async getVersion(): Promise<ApplicationVersion> {

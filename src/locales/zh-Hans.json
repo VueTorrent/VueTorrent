@@ -127,6 +127,10 @@
       "first_torrent_speed": "首个种子速度",
       "global_speed": "全局速度"
     },
+    "torrentContentRemovingMode": {
+      "delete": "永久删除文件",
+      "moveToTrash": "将文件移至回收站（如果可能）"
+    },
     "trackerStatus": {
       "disabled": "已禁用",
       "not_working": "未工作",
@@ -344,7 +348,7 @@
       "fetch_isp_failed": "无法获取ISP信息",
       "geo_details": "地理位置信息",
       "isp_details": "ISP信息",
-      "noExternalIp": "无法从日志中删除",
+      "noExternalIp": "无法从日志中识别",
       "status": "连接状态",
       "total_peer_connections": "活跃的用户连接"
     },
@@ -564,7 +568,7 @@
     "feeds": {
       "empty": {
         "action": "创建 RSS 订阅源",
-        "value": "未注册RSS订阅"
+        "value": "未注册任何 RSS 订阅源"
       },
       "filters": {
         "title": "标题过滤器",
@@ -654,6 +658,8 @@
         "announceAllTrackers": "总是向同级的所有 Tracker 汇报",
         "announceIP": "向 Tracker 报告的 IP 地址 (需要重启)",
         "coalesceReadsWrites": "合并读写 (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "DHT 引导节点",
+        "dhtBootstrapNodesHint": "留空则重置为默认值",
         "disk": {
           "diskCache": "磁盘缓存 (libtorrent < 2.0)",
           "diskCacheExpiry": "磁盘缓存过期时间间隔 (libtorrent < 2.0)",
@@ -662,6 +668,14 @@
           "diskIoWriteMode": "磁盘 IO 写入模式",
           "diskQueueSize": "磁盘队列大小",
           "subheader": "磁盘"
+        },
+        "i2p": {
+          "inboundLength": "I2P 入站长度",
+          "inboundQuantity": "I2P 入站会话数",
+          "invalidLength": "I2P 出入站长度必须介于 0 和 7 之间",
+          "invalidQuantity": "I2P 会话数必须介于 1 和 16 之间",
+          "outboundLength": "I2P 出站长度",
+          "outboundQuantity": "I2P 出站会话数"
         },
         "maxConcurrentHTTPAnnounces": "最大并行 HTTP 发布数",
         "networking": {
@@ -691,10 +705,15 @@
         "sendBufferWatermarkFactor": "发送缓冲区增长系数",
         "sendUploadPieceSuggestions": "发送分块上传建议",
         "socketBacklogSize": "Socket backlog 大小",
-        "socketReceiveBufferSize": "Socket接收缓冲区大小",
+        "socketReceiveBufferSize": "套接字接收缓冲区大小",
         "socketReceiveBufferSizeHint": "0：系统默认",
-        "socketSendBufferSize": "Socket发送缓冲区大小",
+        "socketSendBufferSize": "套接字发送缓冲区大小",
         "socketSendBufferSizeHint": "0：系统默认",
+        "ssl": {
+          "listenPort": "用于 SSL 连接的端口",
+          "listenPortHint": "留空则自动选择",
+          "rule": "端口必须介于 0 和 65535 之间"
+        },
         "stopTrackerTimeout": "Tracker 停止超时",
         "subheader": "libtorrent 部分",
         "threads": {
@@ -718,6 +737,7 @@
           "portForward": "对内置 Tracker 启用端口转发",
           "title": "内置 Tracker"
         },
+        "enableMarkOfTheWebHint": "需要 macOS 或 Windows",
         "networking": {
           "ipAddress": {
             "all": "所有地址",
@@ -731,6 +751,8 @@
           },
           "title": "网络"
         },
+        "pythonExecutablePath": "Python 可执行文件路径",
+        "pythonExecutablePathHint": "留空则自动检测，需要重启",
         "reannounceOnIpPortChanged": "当 IP 或端口变更时重新向所有 Tracker汇报",
         "recheckOnCompletion": "完成后重新校验种子",
         "refreshInterval": "界面刷新间隔",
@@ -796,6 +818,13 @@
         "perTorrentMaxUploadSlots": "单个种子最大上传数",
         "subheader": "连接限制"
       },
+      "i2p": {
+        "enabled": "启用 I2P",
+        "mixedMode": "混合模式",
+        "port": "端口",
+        "rule": "端口必须介于 0 和 65535 之间",
+        "subheader": "I2P（实验性）"
+      },
       "ipFiltering": {
         "applyToTrackers": "应用于 Tracker",
         "bannedIps": "手动禁止的 IP 地址",
@@ -839,6 +868,11 @@
         "password": "密码",
         "smtpServer": "SMTP 服务器",
         "sslEnabled": "此服务器需要安全连接 (SSL)",
+        "test": {
+          "error": "邮件发送失败\n{message}",
+          "label": "发送测试邮件",
+          "success": "测试邮件已发送！\n请检查您的收件箱以确认配置成功"
+        },
         "to": "收件人",
         "username": "用户名"
       },
@@ -855,7 +889,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "为未完成的文件添加 .!qB 后缀名",
-        "preAllocateDisk": "为所有文件预分配磁盘空间"
+        "preAllocateDisk": "为所有文件预分配磁盘空间",
+        "useUnwantedFolder": "将未选择的文件保存在“.unwanted”文件夹中"
       },
       "runExternalProgram": {
         "onAddedEnabled": "添加种子时运行外部程序：",
@@ -981,7 +1016,8 @@
     "title": "设置",
     "vuetorrent": {
       "general": {
-        "backendUrl": "后端URL",
+        "backendUrl": "后端 URL 覆写",
+        "backendUrlHint": "留空则自动检测",
         "canvasRefreshThreshold": "禁用Canvas自动刷新的种子块数阈值",
         "canvasRenderThreshold": "禁用Canvas渲染的种子块数阈值",
         "check_new": "检查新版本",
@@ -1004,6 +1040,12 @@
         "isShutdownButtonVisible": "显示关闭按钮",
         "language": "语言",
         "lightVariants": "浅色模式样式",
+        "paginationPosition": {
+          "both": "顶部和底部",
+          "bottom": "仅在底部",
+          "title": "分页位置",
+          "top": "仅在顶部"
+        },
         "paginationSize": {
           "infinite_scroll": "无限滚动",
           "label": "分页大小",
@@ -1021,6 +1063,7 @@
         "tip": "这些设置适用于自定义WebUI",
         "useBinarySize": "以KiB表示文件大小 (kB -> KiB)",
         "useBitSpeed": "以kbps表示速度 (kB/s -> kbps)",
+        "useEmojiState": "在种子状态前添加表情符号",
         "vueTorrentTitle": "VueTorrent 标题"
       },
       "torrentCard": {
@@ -1325,6 +1368,7 @@
       "dl_forced": "[F] 下载中",
       "dl_queued": "排队中 (下载)",
       "dl_stalled": "停滞中",
+      "dl_stopped": "已停止",
       "downloading": "下载中",
       "error": "错误",
       "forced_meta_download": "[F]元数据",
@@ -1334,6 +1378,7 @@
       "ul_forced": "[F] 上传中",
       "ul_queued": "排队中 (上传)",
       "ul_stalled": "做种中",
+      "ul_stopped": "已完成",
       "unknown": "未知",
       "uploading": "上传中"
     }
