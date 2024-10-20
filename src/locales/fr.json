@@ -265,8 +265,8 @@
       "tracker": "Tracker",
       "trackers_count": "Nombre de trackers",
       "up_limit": "Limite d'envoi",
-      "uploaded": "Téléversé (Global)",
-      "uploaded_session": "Téléversé (Session)",
+      "uploaded": "Envoyé (Global)",
+      "uploaded_session": "Envoyé (Session)",
       "upspeed": "Vitesse de téléversement"
     },
     "sortLabel": "Trier par",
@@ -545,7 +545,7 @@
         "session": {
           "title": "Statistiques de la session"
         },
-        "uploaded": "Téléversé"
+        "uploaded": "Envoyé"
       }
     },
     "top": {

@@ -134,14 +134,14 @@
     },
     "torrentCreatorTaskStatus": {
       "failed": "Failed",
-      "running": "Running",
+      "finished": "Finished",
       "queued": "Queued",
-      "finished": "Finished"
+      "running": "Running"
     },
     "torrentFormat": {
+      "hybrid": "Hybrid",
       "v1": "V1",
-      "v2": "V2",
-      "hybrid": "Hybrid"
+      "v2": "V2"
     },
     "trackerStatus": {
       "disabled": "Disabled",
@@ -493,11 +493,6 @@
       "actions": {
         "submit": "Run creation task"
       },
-      "rules": {
-        "sourcePathRequired": "Source path must be filled",
-        "outputFileExtension": "Output path must end with .torrent"
-      },
-      "torrentFilePath": "Created torrent file destination",
       "comment": "Comments",
       "format": "Torrent format",
       "optimizeAlignment": "Optimize alignment",
@@ -506,9 +501,14 @@
       "paddedFileSizeLimitRule": "Value must be positive",
       "pieceSize": "Piece size",
       "private": "Private torrent (won't distribute on DHT network)",
+      "rules": {
+        "outputFileExtension": "Output path must end with .torrent",
+        "sourcePathRequired": "Source path must be filled"
+      },
       "sourcePath": "Files to include in torrent",
       "startSeeding": "Start seeding immediately",
       "title": "Create new task",
+      "torrentFilePath": "Created torrent file destination",
       "trackers": "Tracker URLs",
       "trackersHint": "You can separate tracker tiers / groups with an empty line",
       "urlSeeds": "Web seed URLs"
