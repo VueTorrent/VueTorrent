@@ -229,25 +229,26 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabled: tagStore.tags.length === 0,
     disabledText: t('dashboard.right_click.tags.disabled_title'),
     disabledIcon: 'mdi-tag-off',
-    children: [
-      {
-        text: t('settings.tagsAndCategories.createNewTag'),
-        icon: 'mdi-plus',
-        action: openNewTagFormDialog
-      },
-      {
-        text: t('dashboard.right_click.tags.clear_all'),
-        icon: 'mdi-playlist-remove',
-        hidden: torrent.value?.tags.length === 0,
-        action: () => clearAllTags().then(maindataStore.forceMaindataSync)
-      },
-      { type: 'divider', props: { thickness: 3 } },
-      ...tagStore.tags.map(tag => ({
-        text: tag,
-        icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
-        action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
-      }))
-    ]
+    children: tagStore.tags.map(tag => ({
+      text: tag,
+      icon: hasTag(tag) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
+      action: async () => await toggleTag(tag).then(maindataStore.forceMaindataSync)
+    })),
+    slots: {
+      top: [
+        {
+          text: t('settings.tagsAndCategories.createNewTag'),
+          icon: 'mdi-plus',
+          action: openNewTagFormDialog
+        },
+        {
+          text: t('dashboard.right_click.tags.clear_all'),
+          icon: 'mdi-playlist-remove',
+          hidden: torrent.value?.tags.length === 0,
+          action: () => clearAllTags().then(maindataStore.forceMaindataSync)
+        }
+      ]
+    }
   },
   {
     text: t('dashboard.right_click.category.title'),
@@ -255,25 +256,26 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
     disabled: categoryStore.categories.length === 0,
     disabledText: t('dashboard.right_click.category.disabled_title'),
     disabledIcon: 'mdi-label-off',
-    children: [
-      {
-        text: t('settings.tagsAndCategories.createNewCategory'),
-        action: openNewCategoryFormDialog,
-        icon: 'mdi-plus'
-      },
-      {
-        text: t('dashboard.right_click.category.clear'),
-        hidden: torrent.value?.category.length === 0,
-        action: () => clearCategory().then(maindataStore.forceMaindataSync),
-        icon: 'mdi-backspace-reverse'
-      },
-      { type: 'divider', props: { thickness: 3 } },
-      ...categoryStore.categories.map(category => ({
-        text: category.name,
-        icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
-        action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync)
-      }))
-    ]
+    children: categoryStore.categories.map(category => ({
+      text: category.name,
+      icon: torrent.value?.category === category.name ? 'mdi-label-variant' : undefined,
+      action: async () => await torrentStore.setTorrentCategory(hashes.value, category.name).then(maindataStore.forceMaindataSync)
+    })),
+    slots: {
+      top: [
+        {
+          text: t('settings.tagsAndCategories.createNewCategory'),
+          action: openNewCategoryFormDialog,
+          icon: 'mdi-plus'
+        },
+        {
+          text: t('dashboard.right_click.category.clear'),
+          hidden: torrent.value?.category.length === 0,
+          action: () => clearCategory().then(maindataStore.forceMaindataSync),
+          icon: 'mdi-backspace-reverse'
+        }
+      ]
+    }
   },
   {
     text: t('dashboard.right_click.speed_limit.title'),
@@ -319,7 +321,6 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       }
     ]
   },
-  { type: 'divider' },
   {
     text: t('dashboard.right_click.export', dashboardStore.selectedTorrents.length),
     icon: isMultiple.value ? 'mdi-download-multiple' : 'mdi-download',
