@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.15.1](https://github.com/VueTorrent/VueTorrent/compare/v2.15.0...v2.15.1) (2024-10-24)
+
+
+### Bug Fixes
+
+* **RightClick:** Handle issue where certain bottom values would not render ([#1985](https://github.com/VueTorrent/VueTorrent/issues/1985)) ([2878286](https://github.com/VueTorrent/VueTorrent/commit/2878286580624442de9713305be7b97c290d0bae))
+
 ## [2.15.0](https://github.com/VueTorrent/VueTorrent/compare/v2.14.1...v2.15.0) (2024-10-20)
 
 
