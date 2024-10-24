@@ -36,8 +36,8 @@ const onClick = () => {
         </v-virtual-scroll>
 
         <template v-if="entryData.slots?.bottom">
-          <RightClickMenuEntry v-for="slotData in entryData.slots.bottom" :entryData="slotData" />
           <v-divider thickness="3" />
+          <RightClickMenuEntry v-for="slotData in entryData.slots.bottom" :entryData="slotData" />
         </template>
       </v-list>
     </v-menu>
