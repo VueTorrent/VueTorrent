@@ -1,6 +1,7 @@
 {
   "_comments": "僅從Tolgee生成，請不要手動修改不然會被推翻",
   "common": {
+    "auto": "自動",
     "cancel": "取消",
     "close": "關閉",
     "delete": "移除",
@@ -126,6 +127,21 @@
       "default": "預設",
       "first_torrent_speed": "首個種子速率",
       "global_speed": "全域速率"
+    },
+    "torrentContentRemovingMode": {
+      "delete": "永久刪除檔案",
+      "moveToTrash": "將檔案移至垃圾桶（如果可能）"
+    },
+    "torrentCreatorTaskStatus": {
+      "failed": "失敗",
+      "finished": "已完成",
+      "queued": "排隊中",
+      "running": "運行中"
+    },
+    "torrentFormat": {
+      "hybrid": "混合",
+      "v1": "V1",
+      "v2": "V2"
     },
     "trackerStatus": {
       "disabled": "已停用",
@@ -411,6 +427,7 @@
         "url": "連結"
       },
       "rule": {
+        "addStopped": "加入時暫停",
         "affectedFeedsSubheader": "受影響的訂閱源",
         "assignedCategory": "指派分類",
         "enabled": "啟用規則",
@@ -471,6 +488,30 @@
         "rename": "重新命名標籤"
       },
       "warnEdit": "編輯標籤名稱會將種子轉移至新標籤。\n有可能會發生錯誤，請謹慎使用。"
+    },
+    "torrentCreator": {
+      "actions": {
+        "submit": "執行創建任務"
+      },
+      "comment": "註釋",
+      "format": "種子格式",
+      "optimizeAlignment": "優化對齊",
+      "paddedFileSizeLimit": "對大於此大小的文件對齊到片段邊界",
+      "paddedFileSizeLimitHint": "-1 以停用",
+      "paddedFileSizeLimitRule": "值必須為正數",
+      "pieceSize": "區塊大小",
+      "private": "私有種子（不會在DHT網絡上分發）",
+      "rules": {
+        "outputFileExtension": "輸出路徑必須以 .torrent 結尾",
+        "sourcePathRequired": "必須填寫來源路徑"
+      },
+      "sourcePath": "要包含在 torrent 中的檔案",
+      "startSeeding": "立即開始做種",
+      "title": "新增新任務",
+      "torrentFilePath": "已建立的種子檔案目的地",
+      "trackers": "追蹤者連結",
+      "trackersHint": "您可以使用空行分隔追蹤器層級/群組",
+      "urlSeeds": "Web 種子 URL"
     }
   },
   "login": {
@@ -626,10 +667,12 @@
       }
     },
     "headers": {
+      "engineName": "引擎名稱",
       "fileName": "檔案名稱",
       "fileSize": "檔案大小",
       "nbLeechers": "下載者",
       "nbSeeders": "種子",
+      "pubDate": "發佈日期",
       "siteUrl": "網站連結"
     },
     "query": "搜尋查詢",
@@ -654,6 +697,8 @@
         "announceAllTrackers": "總是發佈到同一追蹤者群組內的所有追蹤者",
         "announceIP": "向追蹤器回報的 IP 位置 (需要重新啟動)",
         "coalesceReadsWrites": "合併讀寫 (libtorrent < 2.0)",
+        "dhtBootstrapNodes": "DHT 引導節點",
+        "dhtBootstrapNodesHint": "如果為空則重置為預設值",
         "disk": {
           "diskCache": "硬碟快取 (libtorrent < 2.0)",
           "diskCacheExpiry": "硬碟快取過期區間 (libtorrent < 2.0)",
@@ -662,6 +707,15 @@
           "diskIoWriteMode": "硬碟 IO 寫入模式",
           "diskQueueSize": "硬碟佇列大小",
           "subheader": "硬碟"
+        },
+        "i2p": {
+          "inboundLength": "I2P 入站長度",
+          "inboundQuantity": "I2P 入站數量",
+          "invalidLength": "I2P 長度值必須介於 0 到 7 之間",
+          "invalidQuantity": "I2P 數量值必須介於 1 到 16 之間",
+          "outboundLength": "I2P 出站長度",
+          "outboundQuantity": "I2P 出站數量",
+          "restartNeeded": "這些設定的任何變更將在下次重新建立 SAM 連接時生效（通過重新啟動 I2P 或更改 I2P 地址或端口）"
         },
         "maxConcurrentHTTPAnnounces": "最大並行 HTTP 發佈",
         "networking": {
@@ -695,6 +749,13 @@
         "socketReceiveBufferSizeHint": "0: 系統預設值",
         "socketSendBufferSize": "Socket 傳送緩衝大小",
         "socketSendBufferSizeHint": "0: 系統預設值",
+        "ssl": {
+          "disclaimer": "「SSL torrent」功能並非標準化，沒有與之相關的 BEP（BitTorrent 增強提案）。\n僅在需要時啟用此功能。",
+          "enabled": "啟用 SSL 種子",
+          "listenPort": "SSL 連線時使用的埠",
+          "listenPortHint": "留空以自動選擇",
+          "rule": "端口必須介於 0 到 65535 之間"
+        },
         "stopTrackerTimeout": "停止追蹤者逾時",
         "subheader": "libtorrent 部分",
         "threads": {
@@ -712,12 +773,15 @@
       "openDoc": "開啟文檔",
       "qbittorrent": {
         "allocatedRam": "實體記憶體 (RAM) 使用限制 (libtorrent >= 2.0)",
+        "appInstanceName": "應用程式實例名稱",
         "embeddedTracker": {
           "enable": "啟用嵌入追蹤者",
           "port": "嵌入追蹤者埠",
           "portForward": "為嵌入追蹤者啟用連接埠轉發",
           "title": "嵌入追蹤者"
         },
+        "enableMarkOfTheWeb": "啟用下載文件的網頁標記 (MOTW)",
+        "enableMarkOfTheWebHint": "需要 macOS 或 Windows",
         "networking": {
           "ipAddress": {
             "all": "所有位置",
@@ -731,6 +795,8 @@
           },
           "title": "網路"
         },
+        "pythonExecutablePath": "Python 可執行檔路徑",
+        "pythonExecutablePathHint": "如果為空則自動檢測，需要重新啟動",
         "reannounceOnIpPortChanged": "當 IP 或連接埠變更時通知所有追蹤者",
         "recheckOnCompletion": "完成後重新檢查種子",
         "refreshInterval": "介面重新整理區間",
@@ -742,6 +808,7 @@
         },
         "saveInterval": "儲存復原資料區間",
         "subheader": "qBittorrent 部分",
+        "torrentContentRemovingMode": "種子內容移除模式",
         "torrentFileSizeLimit": ".torrent 檔案大小限制"
       }
     },
@@ -796,6 +863,15 @@
         "perTorrentMaxUploadSlots": "單個種子的上傳通道最大數",
         "subheader": "連線限制"
       },
+      "i2p": {
+        "address": "I2P 主機",
+        "disclaimer": "如果啟用了「混合模式」，I2P種子允許從追蹤器以外的其他來源獲取同伴，並連接到常規IP，這不提供任何匿名化。如果用戶對I2P的匿名化不感興趣，但仍希望能夠連接到I2P同伴，這可能會有用。",
+        "enabled": "啟用 I2P",
+        "mixedMode": "混合模式",
+        "port": "埠",
+        "rule": "端口值必須介於 0 到 65535 之間",
+        "subheader": "I2P（實驗性）"
+      },
       "ipFiltering": {
         "applyToTrackers": "套用到追蹤者",
         "bannedIps": "手動封鎖的 IP 位置",
@@ -839,6 +915,11 @@
         "password": "密碼",
         "smtpServer": "SMTP 伺服器",
         "sslEnabled": "這個伺服器需要加密連線 (SSL)",
+        "test": {
+          "error": "電子郵件發送失敗\n{message}",
+          "label": "發送測試電子郵件",
+          "success": "電子郵件請求已發送！\n檢查您的收件箱以確認成功"
+        },
         "to": "到",
         "username": "使用者名稱"
       },
@@ -855,7 +936,8 @@
       },
       "publicSettings": {
         "appendQBExtension": "在未完成檔案加上 .!qB 副檔名",
-        "preAllocateDisk": "為所有檔案事先分配硬碟空間"
+        "preAllocateDisk": "為所有檔案事先分配硬碟空間",
+        "useUnwantedFolder": "將未選擇的文件保存在 \".unwanted\" 文件夾中"
       },
       "runExternalProgram": {
         "onAddedEnabled": "當新增種子時執行外部程式:",
@@ -895,7 +977,9 @@
         },
         "savePathChangedTMM": "當預設儲存路徑變更時",
         "subheader": "存檔管理",
-        "torrentChangedTMM": "當種子分類變更時"
+        "torrentChangedTMM": "當種子分類變更時",
+        "useCategoryPathInManualMode": "在手動模式中使用分類路徑",
+        "useCategoryPathInManualModeHint": "針對適當的類別路徑解析相對儲存路徑，而不是預設路徑"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "新增至佇列頂部",
@@ -914,6 +998,7 @@
         "enableProcessing": "啟用抓取 RSS 訂閱",
         "feedsRefreshInterval": "訂閱源更新區間",
         "maximumArticlesPerFeed": "每個訂閱源的最大文章數",
+        "sameHostRequestDelay": "相同主機請求延遲",
         "subheader": "RSS 閱讀器"
       },
       "smartEpisodeFilter": {
@@ -981,7 +1066,8 @@
     "title": "設定",
     "vuetorrent": {
       "general": {
-        "backendUrl": "後端URL",
+        "backendUrl": "後端 URL 覆蓋",
+        "backendUrlHint": "留空以自動檢測",
         "canvasRefreshThreshold": "種子分塊閾值以禁用 Canvas 自動更新",
         "canvasRenderThreshold": "種子分塊閾值以禁用 Canvas 渲染",
         "check_new": "檢查新版本",
@@ -1004,6 +1090,12 @@
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
         "lightVariants": "淺色界面式樣",
+        "paginationPosition": {
+          "both": "頂部和底部",
+          "bottom": "僅底部",
+          "title": "分頁位置",
+          "top": "僅頂部"
+        },
         "paginationSize": {
           "infinite_scroll": "無限滾動",
           "label": "每頁展示數量",
@@ -1021,6 +1113,7 @@
         "tip": "這些設定適用於自訂WebUI",
         "useBinarySize": "以二進位制取代容量單位 (kB -> KiB)",
         "useBitSpeed": "以位元取代速率單位 (kB/s -> kbps)",
+        "useEmojiState": "在種子狀態前加上表情符號",
         "vueTorrentTitle": "VueTorrent 標題"
       },
       "torrentCard": {
@@ -1124,7 +1217,8 @@
       "resume": "繼續種子",
       "rssArticles": "開啟 RSS 文章",
       "searchEngine": "開啟搜尋引擎",
-      "settings": "開啟設定"
+      "settings": "開啟設定",
+      "torrentCreator": "打開種子創建器"
     },
     "addTorrents": "新增種子",
     "overflow": {
@@ -1134,9 +1228,43 @@
       "resume": "繼續",
       "rssArticles": "RSS 文章",
       "searchEngine": "搜尋引擎",
-      "settings": "設定"
+      "settings": "設定",
+      "torrentCreator": "種子創建器"
     },
     "searchTorrents": "搜尋種子"
+  },
+  "torrentCreator": {
+    "empty": {
+      "action": "新增新任務",
+      "value": "未有配置的任務"
+    },
+    "table": {
+      "comment": "註釋",
+      "create": "新增新任務",
+      "errorMessage": "錯誤訊息",
+      "format": "種子格式",
+      "optimizeAlignment": "是否優化對齊？",
+      "pieceSize": "區塊大小",
+      "private": "是否私有？",
+      "progress": "進度",
+      "sourcePath": "來源路徑",
+      "status": "任務狀態",
+      "taskID": "任務 ID",
+      "timeAdded": "添加日期",
+      "timeFinished": "完成日期",
+      "timeStarted": "開始日期",
+      "trackers": {
+        "activator": "{n} 個追蹤器 | {n} 個追蹤器",
+        "header": "追踪器",
+        "title": "已註冊的追蹤器"
+      },
+      "urlSeeds": {
+        "activator": "{n} 連結 | {n} 連結",
+        "header": "Web 種子",
+        "title": "已註冊的Web種子"
+      }
+    },
+    "title": "種子創建器"
   },
   "torrentDetail": {
     "content": {
@@ -1325,15 +1453,17 @@
       "dl_forced": "[F] 下載中",
       "dl_queued": "排隊中 (下載)",
       "dl_stalled": "停滞中",
+      "dl_stopped": "已停止",
       "downloading": "下載中",
       "error": "錯誤",
-      "forced_meta_download": "[F]元數據",
+      "forced_meta_download": "[F]元資料",
       "meta_download": "元資料",
       "missing_files": "缺失檔案",
       "moving": "正在移動",
       "ul_forced": "[F] 上傳中",
       "ul_queued": "排隊中 (上傳)",
       "ul_stalled": "做種中",
+      "ul_stopped": "完成",
       "unknown": "未知",
       "uploading": "上傳中"
     }
