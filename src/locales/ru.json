@@ -1,5 +1,6 @@
 {
   "common": {
+    "auto": "Авто",
     "cancel": "Отменить",
     "close": "Закрыть",
     "delete": "Удалить",
@@ -129,6 +130,17 @@
     "torrentContentRemovingMode": {
       "delete": "Удалить файлы",
       "moveToTrash": "Переместить файлы в корзину (если возможно)"
+    },
+    "torrentCreatorTaskStatus": {
+      "failed": "Сбой",
+      "finished": "Закончено",
+      "queued": "В очереди",
+      "running": "Запущено"
+    },
+    "torrentFormat": {
+      "hybrid": "Гибрид",
+      "v1": "v1",
+      "v2": "v2"
     },
     "trackerStatus": {
       "disabled": "Отключён",
@@ -475,6 +487,30 @@
         "rename": "Переименовать тег"
       },
       "warnEdit": "Редактирование имени тега приведет к переносу торрентов в новый тег.\nВозможны ошибки, используйте с осторожностью."
+    },
+    "torrentCreator": {
+      "actions": {
+        "submit": "Запустить задачу создания"
+      },
+      "comment": "Комментарии",
+      "format": "Формат торрента",
+      "optimizeAlignment": "Оптимизация выравнивания",
+      "paddedFileSizeLimit": "Выровнять по границе фрагмента для файлов размером более",
+      "paddedFileSizeLimitHint": "-1 для отключения",
+      "paddedFileSizeLimitRule": "Значение должно быть положительным",
+      "pieceSize": "Размер фрагмента",
+      "private": "Частный торрент (не будет распространяться по DHT)",
+      "rules": {
+        "outputFileExtension": "Путь должен заканчиваться на .torrent",
+        "sourcePathRequired": "Нужно заполнить путь источника"
+      },
+      "sourcePath": "Файлы, добавляемые в торрент",
+      "startSeeding": "Сразу начать сидирование",
+      "title": "Создать новую задачу",
+      "torrentFilePath": "Место сохранения созданного торрент-файла",
+      "trackers": "URL-ы трекеров",
+      "trackersHint": "Уровни / группы трекеров можно разделить пустой строкой",
+      "urlSeeds": "URL-ы веб-сидов"
     }
   },
   "login": {
@@ -1180,7 +1216,8 @@
       "resume": "Возобновить торренты",
       "rssArticles": "Открыть статьи RSS",
       "searchEngine": "Открыть поиск",
-      "settings": "Открыть настройки"
+      "settings": "Открыть настройки",
+      "torrentCreator": "Начать создание торрента"
     },
     "addTorrents": "Добавить торренты",
     "overflow": {
@@ -1190,9 +1227,43 @@
       "resume": "Возобновить",
       "rssArticles": "RSS статьи",
       "searchEngine": "Поиск",
-      "settings": "Настройки"
+      "settings": "Настройки",
+      "torrentCreator": "Создание торрента"
     },
     "searchTorrents": "Поиск торрентов"
+  },
+  "torrentCreator": {
+    "empty": {
+      "action": "Создать новую задачу",
+      "value": "Нет задач"
+    },
+    "table": {
+      "comment": "Комментарий",
+      "create": "Создать новую задачу",
+      "errorMessage": "Сообщение об ошибке",
+      "format": "Формат торрента",
+      "optimizeAlignment": "Оптимизировано ли выравнивание?",
+      "pieceSize": "Размер фрагмента",
+      "private": "Частный?",
+      "progress": "Выполнение",
+      "sourcePath": "Путь источника",
+      "status": "Статус задачи",
+      "taskID": "ID задачи",
+      "timeAdded": "Дата добавления",
+      "timeFinished": "Дата завершения",
+      "timeStarted": "Дата начала",
+      "trackers": {
+        "activator": "{n} трекеров | {n} трекер | {n} трекера | {n} трекеров",
+        "header": "Трекеры",
+        "title": "Зарегистрированные трекеры"
+      },
+      "urlSeeds": {
+        "activator": "{n} URL-ов | {n} URL | {n} URL-а | {n} URL-ов",
+        "header": "Веб-сиды",
+        "title": "Зарегистрированные веб-сиды"
+      }
+    },
+    "title": "Создание торрента"
   },
   "torrentDetail": {
     "content": {

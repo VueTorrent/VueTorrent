@@ -1,6 +1,7 @@
 {
   "_comments": "由Tolgee生成。切勿手动修改否则将被覆盖",
   "common": {
+    "auto": "自动",
     "cancel": "取消",
     "close": "关闭",
     "delete": "删除",
@@ -130,6 +131,17 @@
     "torrentContentRemovingMode": {
       "delete": "永久删除文件",
       "moveToTrash": "将文件移至回收站（如果可能）"
+    },
+    "torrentCreatorTaskStatus": {
+      "failed": "失败",
+      "finished": "已完成",
+      "queued": "排队中",
+      "running": "运行中"
+    },
+    "torrentFormat": {
+      "hybrid": "混合",
+      "v1": "V1",
+      "v2": "V2"
     },
     "trackerStatus": {
       "disabled": "已禁用",
@@ -415,6 +427,7 @@
         "url": "URL"
       },
       "rule": {
+        "addStopped": "添加时暂停",
         "affectedFeedsSubheader": "受影响的订阅源",
         "assignedCategory": "分配的分类",
         "enabled": "启用规则",
@@ -475,6 +488,30 @@
         "rename": "重命名标签"
       },
       "warnEdit": "编辑标签名称将会将种子迁移到新标签。\n可能会出现错误，请谨慎使用。"
+    },
+    "torrentCreator": {
+      "actions": {
+        "submit": "运行创建任务"
+      },
+      "comment": "注释",
+      "format": "种子格式",
+      "optimizeAlignment": "优化对齐",
+      "paddedFileSizeLimit": "对大于此大小的文件对齐到片段边界",
+      "paddedFileSizeLimitHint": "-1 表示禁用",
+      "paddedFileSizeLimitRule": "值必须为正数",
+      "pieceSize": "分片大小",
+      "private": "私有种子（不会在DHT网络上分发）",
+      "rules": {
+        "outputFileExtension": "输出路径必须以 .torrent 结尾",
+        "sourcePathRequired": "必须填写源路径"
+      },
+      "sourcePath": "要包含在 torrent 中的文件",
+      "startSeeding": "立即开始做种",
+      "title": "创建新任务",
+      "torrentFilePath": "已创建的种子文件目标位置",
+      "trackers": "Tracker URL",
+      "trackersHint": "您可以使用空行分隔Tracker层级/组",
+      "urlSeeds": "Web种子URL"
     }
   },
   "login": {
@@ -630,10 +667,12 @@
       }
     },
     "headers": {
+      "engineName": "引擎名称",
       "fileName": "文件名",
       "fileSize": "文件大小",
       "nbLeechers": "下载数",
       "nbSeeders": "做种数",
+      "pubDate": "发布日期",
       "siteUrl": "站点链接"
     },
     "query": "搜索关键词",
@@ -675,7 +714,8 @@
           "invalidLength": "I2P 出入站长度必须介于 0 和 7 之间",
           "invalidQuantity": "I2P 会话数必须介于 1 和 16 之间",
           "outboundLength": "I2P 出站长度",
-          "outboundQuantity": "I2P 出站会话数"
+          "outboundQuantity": "I2P 出站会话数",
+          "restartNeeded": "对这些设置的任何更改将在下次重新建立SAM连接时生效（通过重新启动I2P或更改I2P地址或端口）"
         },
         "maxConcurrentHTTPAnnounces": "最大并行 HTTP 发布数",
         "networking": {
@@ -710,6 +750,8 @@
         "socketSendBufferSize": "套接字发送缓冲区大小",
         "socketSendBufferSizeHint": "0：系统默认",
         "ssl": {
+          "disclaimer": "“SSL torrent”功能尚未标准化，没有与之相关的BEP（BitTorrent增强提案）。\n仅在需要时启用此功能。",
+          "enabled": "启用SSL种子",
           "listenPort": "用于 SSL 连接的端口",
           "listenPortHint": "留空则自动选择",
           "rule": "端口必须介于 0 和 65535 之间"
@@ -731,12 +773,14 @@
       "openDoc": "打开文档",
       "qbittorrent": {
         "allocatedRam": "物理内存 (RAM) 使用限制 (libtorrent >= 2.0)",
+        "appInstanceName": "应用程序实例名称",
         "embeddedTracker": {
           "enable": "启用内置 Tracker",
           "port": "内置 Tracker 端口",
           "portForward": "对内置 Tracker 启用端口转发",
           "title": "内置 Tracker"
         },
+        "enableMarkOfTheWeb": "为下载的文件启用网络标记 (MOTW)",
         "enableMarkOfTheWebHint": "需要 macOS 或 Windows",
         "networking": {
           "ipAddress": {
@@ -764,6 +808,7 @@
         },
         "saveInterval": "保存恢复数据间隔",
         "subheader": "qBittorrent 部分",
+        "torrentContentRemovingMode": "种子内容删除模式",
         "torrentFileSizeLimit": ".torrent 文件大小限制"
       }
     },
@@ -819,6 +864,8 @@
         "subheader": "连接限制"
       },
       "i2p": {
+        "address": "I2P 主机",
+        "disclaimer": "如果启用了“混合模式”，I2P种子将被允许从跟踪器以外的其他来源获取对等体，并连接到常规IP，不提供任何匿名化。如果用户对I2P的匿名化不感兴趣，但仍希望能够连接到I2P对等体，这可能会很有用。",
         "enabled": "启用 I2P",
         "mixedMode": "混合模式",
         "port": "端口",
@@ -930,7 +977,9 @@
         },
         "savePathChangedTMM": "当默认保存路径更改时",
         "subheader": "保存管理",
-        "torrentChangedTMM": "当种子分类更改时"
+        "torrentChangedTMM": "当种子分类更改时",
+        "useCategoryPathInManualMode": "在手动模式中使用类别路径",
+        "useCategoryPathInManualModeHint": "根据适当的类别路径解析相对保存路径，而不是默认路径"
       },
       "whenAddTorrent": {
         "addToTopOfQueue": "添加到队列首位",
@@ -949,6 +998,7 @@
         "enableProcessing": "启用获取 RSS 订阅",
         "feedsRefreshInterval": "订阅源刷新间隔",
         "maximumArticlesPerFeed": "每个订阅源的最大文章数",
+        "sameHostRequestDelay": "相同主机请求延迟",
         "subheader": "RSS 阅读器"
       },
       "smartEpisodeFilter": {
@@ -1167,7 +1217,8 @@
       "resume": "继续种子",
       "rssArticles": "RSS 订阅",
       "searchEngine": "搜索",
-      "settings": "设置"
+      "settings": "设置",
+      "torrentCreator": "打开种子创建器"
     },
     "addTorrents": "添加种子",
     "overflow": {
@@ -1177,9 +1228,43 @@
       "resume": "恢复",
       "rssArticles": "RSS 资讯",
       "searchEngine": "搜索",
-      "settings": "设置"
+      "settings": "设置",
+      "torrentCreator": "种子创建器"
     },
     "searchTorrents": "搜索种子"
+  },
+  "torrentCreator": {
+    "empty": {
+      "action": "创建新任务",
+      "value": "未设置任务"
+    },
+    "table": {
+      "comment": "注释",
+      "create": "创建新任务",
+      "errorMessage": "错误信息",
+      "format": "种子格式",
+      "optimizeAlignment": "是否优化对齐？",
+      "pieceSize": "分片大小",
+      "private": "是否私有？",
+      "progress": "进度",
+      "sourcePath": "源路径",
+      "status": "任务状态",
+      "taskID": "任务 ID",
+      "timeAdded": "添加日期",
+      "timeFinished": "完成日期",
+      "timeStarted": "开始日期",
+      "trackers": {
+        "activator": "{n} Tracker | {n} Trackers",
+        "header": "Trackers",
+        "title": "已注册的Tracker"
+      },
+      "urlSeeds": {
+        "activator": "{n} URL | {n} URLs",
+        "header": "Web种子",
+        "title": "已注册的Web种子"
+      }
+    },
+    "title": "种子创建器"
   },
   "torrentDetail": {
     "content": {
