@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDialog } from '@/composables'
 import { ConnectionStatus } from '@/constants/qbit'
-import { useLogStore, useMaindataStore } from '@/stores'
+import { useLogStore, useMaindataStore, useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
 
 const props = defineProps<{
@@ -11,6 +11,7 @@ const props = defineProps<{
 const { isOpened } = useDialog(props.guid)
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
+const vuetorrentStore = useVueTorrentStore()
 
 const connectionStatusColor = computed(() => {
   switch (maindataStore.serverState?.connection_status) {
@@ -63,14 +64,16 @@ const close = () => {
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.isp_details') }}</div>
             <div class="ml-2">
-              <span v-if="logStore.ispDetails" class="text-info">{{ logStore.ispDetails }}</span>
+              <span v-if="!vuetorrentStore.fetchExternalIpInfo" class="text-grey">{{ $t('dialogs.connectionStatus.fetch_disabled') }}</span>
+              <span v-else-if="logStore.ispDetails" class="text-info">{{ logStore.ispDetails }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_isp_failed') }}</span>
             </div>
           </v-col>
           <v-col cols="12" sm="6" lg="3">
             <div>{{ $t('dialogs.connectionStatus.geo_details') }}</div>
             <div class="ml-2">
-              <span v-if="logStore.geoDetails" class="text-info">{{ logStore.geoDetails }}</span>
+              <span v-if="!vuetorrentStore.fetchExternalIpInfo" class="text-grey">{{ $t('dialogs.connectionStatus.fetch_disabled') }}</span>
+              <span v-else-if="logStore.geoDetails" class="text-info">{{ logStore.geoDetails }}</span>
               <span v-else class="text-warning">{{ $t('dialogs.connectionStatus.fetch_geo_failed') }}</span>
             </div>
           </v-col>

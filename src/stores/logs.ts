@@ -2,13 +2,17 @@ import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { whenever } from '@vueuse/core'
+import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useTask } from 'vue-concurrency'
+import { useVueTorrentStore } from './vuetorrent'
 
 export const useLogStore = defineStore(
   'logs',
   () => {
+    const { fetchExternalIpInfo } = storeToRefs(useVueTorrentStore())
+    
     const logs = ref<Log[]>([])
     const externalIp = ref<string>()
     const lastFetchedIp = ref<string>()
@@ -53,7 +57,9 @@ export const useLogStore = defineStore(
     }
 
     async function fetchGeoAndIspDetails() {
-      if (externalIp.value !== lastFetchedIp.value) {
+      if (!fetchExternalIpInfo.value) return
+
+      if (externalIp.value && externalIp.value !== lastFetchedIp.value) {
         try {
           // 1K requests per day
           const response = await fetch(`https://ipinfo.io/${externalIp.value}/json`)
@@ -70,6 +76,7 @@ export const useLogStore = defineStore(
 
     // Watch for changes in externalIp and fetch Geo/ISP details accordingly
     watch(externalIp, fetchGeoAndIspDetails)
+    whenever(fetchExternalIpInfo, fetchGeoAndIspDetails)
 
     return {
       logs,
@@ -88,6 +95,7 @@ export const useLogStore = defineStore(
         logTask.clear()
         logs.value = []
         externalIp.value = undefined
+        lastFetchedIp.value = undefined
         logTypeFilter.value = [LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL]
         logMessageFilter.value = ''
       }

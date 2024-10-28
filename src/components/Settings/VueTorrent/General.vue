@@ -198,14 +198,18 @@ function openBackendHelp() {
           <v-checkbox v-model="vueTorrentStore.isShutdownButtonVisible" hide-details density="compact" :label="t('settings.vuetorrent.general.isShutdownButtonVisible')" />
         </v-col>
 
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.useEmojiState" hide-details density="compact" :label="t('settings.vuetorrent.general.useEmojiState')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.fetchExternalIpInfo" hide-details density="compact" :label="t('settings.vuetorrent.general.fetchExternalIpInfo')" />
+        </v-col>
+
+        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBinarySize" hide-details density="compact" :label="t('settings.vuetorrent.general.useBinarySize')" />
         </v-col>
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
-        </v-col>
-        <v-col cols="12" sm="6" md="4">
-          <v-checkbox v-model="vueTorrentStore.useEmojiState" hide-details density="compact" :label="t('settings.vuetorrent.general.useEmojiState')" />
         </v-col>
       </v-row>
     </v-list-item>
