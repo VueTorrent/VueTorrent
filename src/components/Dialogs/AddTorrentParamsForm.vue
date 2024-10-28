@@ -95,7 +95,12 @@ const inactiveSeedingTimeLimit = computed({
 })
 
 const onCategoryChanged = () => {
-  form.value.save_path = categoryStore.getCategoryFromName(form.value.category)?.savePath ?? preferenceStore.preferences!.save_path
+  const category = categoryStore.getCategoryFromName(form.value.category)
+  if (category && category.savePath.length > 0) {
+    form.value.save_path = category.savePath
+  } else if (!category) {
+    form.value.save_path = preferenceStore.preferences!.save_path
+  }
 }
 
 function saveFields() {
