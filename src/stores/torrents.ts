@@ -1,14 +1,14 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
-import { useAppStore } from '@/stores/app.ts'
-import { useTorrentDetailStore } from '@/stores/torrentDetail.ts'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
-import { useArrayFilter, useSorted } from '@vueuse/core'
+import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
+import { useAppStore } from './app'
+import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
 
 export const useTorrentStore = defineStore(
@@ -28,21 +28,44 @@ export const useTorrentStore = defineStore(
       )
     )
 
-    const isTextFilterActive = shallowRef(true)
-    const isStatusFilterActive = shallowRef(true)
-    const isCategoryFilterActive = shallowRef(true)
-    const isTagFilterActive = shallowRef(true)
-    const isTrackerFilterActive = shallowRef(true)
-
-    const textFilter = ref('')
-    const statusFilter = ref<TorrentState[]>([])
-    const categoryFilter = ref<string[]>([])
-    const tagFilter = ref<(string | null)[]>([])
-    const trackerFilter = ref<(string | null)[]>([])
-
     const filterType = ref(FilterType.CONJUNCTIVE)
+
+    const isTextFilterActive = shallowRef(true)
+    const textFilter = ref('')
+    whenever(
+      () => textFilter.value.length > 0,
+      () => (isTextFilterActive.value = true)
+    )
+
+    const isStatusFilterActive = shallowRef(true)
+    const statusFilter = ref<TorrentState[]>([])
+    whenever(
+      () => statusFilter.value.length > 0,
+      () => (isStatusFilterActive.value = true)
+    )
+
+    const isCategoryFilterActive = shallowRef(true)
+    const categoryFilter = ref<string[]>([])
+    whenever(
+      () => categoryFilter.value.length > 0,
+      () => (isCategoryFilterActive.value = true)
+    )
+
+    const isTagFilterActive = shallowRef(true)
+    const tagFilter = ref<(string | null)[]>([])
     const tagFilterType = ref(FilterType.DISJUNCTIVE)
+    whenever(
+      () => tagFilter.value.length > 0,
+      () => (isTagFilterActive.value = true)
+    )
+
+    const isTrackerFilterActive = shallowRef(true)
+    const trackerFilter = ref<(string | null)[]>([])
     const trackerFilterType = ref(FilterType.DISJUNCTIVE)
+    whenever(
+      () => trackerFilter.value.length > 0,
+      () => (isTrackerFilterActive.value = true)
+    )
 
     const sortCriterias = ref<{ value: keyof VtTorrent; reverse: boolean }[]>([{ value: 'added_on', reverse: true }])
 
