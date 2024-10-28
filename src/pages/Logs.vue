@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useArrayPagination, useSearchQuery } from '@/composables'
 import { LogType } from '@/constants/qbit'
 import { useLogStore, useVueTorrentStore } from '@/stores'
 import { Log } from '@/types/qbit/models'
 import { TinyColor } from '@ctrl/tinycolor'
 import { useIntervalFn } from '@vueuse/core'
 import dayjs from 'dayjs'
+import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onUnmounted, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
@@ -16,6 +16,7 @@ const { t } = useI18nUtils()
 const { current } = useTheme()
 
 const logStore = useLogStore()
+const { filteredLogs, logTypeFilter, logMessageFilter, paginatedResults, currentPage, pageCount } = storeToRefs(logStore)
 const vueTorrentStore = useVueTorrentStore()
 
 const colors = computed(() => ({
@@ -39,16 +40,9 @@ const logTypeOptions = ref([
   { title: LogType[LogType.WARNING], value: LogType.WARNING },
   { title: LogType[LogType.CRITICAL], value: LogType.CRITICAL }
 ])
-const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
-const query = ref('')
 
-const logs = computed<Log[]>(() => logStore.logs)
-const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
 const someTypesSelected = computed(() => logTypeFilter.value.length > 0)
 const allTypesSelected = computed(() => logTypeFilter.value.length === logTypeOptions.value.length)
-
-const { results: filteredLogs } = useSearchQuery(filteredLogsByType, query, (log: Log) => log.message)
-const { paginatedResults, currentPage, pageCount } = useArrayPagination(filteredLogs, 30)
 
 const goHome = () => {
   router.push({ name: 'dashboard' })
@@ -118,7 +112,7 @@ onUnmounted(() => {
           </v-col>
 
           <v-col cols="6">
-            <v-text-field v-model="query" :label="$t('logs.filters.query')" hide-details clearable />
+            <v-text-field v-model="logMessageFilter" :label="$t('logs.filters.query')" hide-details clearable />
           </v-col>
         </v-row>
       </v-list-item>
