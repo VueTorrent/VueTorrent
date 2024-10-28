@@ -57,6 +57,7 @@ export const useVueTorrentStore = defineStore(
     const hideColoredChip = ref(false)
     const displayGraphLimits = ref(true)
     const useEmojiState = ref(true)
+    const fetchExternalIpInfo = ref(false)
 
     const _busyProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
     const _doneProperties = ref<PropertyData>(JSON.parse(JSON.stringify(propsData)))
@@ -274,6 +275,7 @@ export const useVueTorrentStore = defineStore(
       isInfiniteScrollActive,
       displayGraphLimits,
       useEmojiState,
+      fetchExternalIpInfo,
       setLanguage,
       updateTheme,
       toggleTheme,
@@ -320,6 +322,7 @@ export const useVueTorrentStore = defineStore(
         hideColoredChip.value = false
         displayGraphLimits.value = true
         useEmojiState.value = true
+        fetchExternalIpInfo.value = false
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))
