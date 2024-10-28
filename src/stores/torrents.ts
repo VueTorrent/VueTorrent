@@ -1,14 +1,14 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
 import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
-import { useAppStore } from '@/stores/app.ts'
-import { useTorrentDetailStore } from '@/stores/torrentDetail.ts'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { Torrent as VtTorrent } from '@/types/vuetorrent'
 import { useArrayFilter, useSorted, whenever } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, MaybeRefOrGetter, ref, shallowRef, toValue, triggerRef } from 'vue'
+import { useAppStore } from './app'
+import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
 
 export const useTorrentStore = defineStore(
@@ -33,14 +33,14 @@ export const useTorrentStore = defineStore(
     const isTextFilterActive = shallowRef(true)
     const textFilter = ref('')
     whenever(
-      () => !textFilter.value.length,
+      () => textFilter.value.length > 0,
       () => (isTextFilterActive.value = true)
     )
 
     const isStatusFilterActive = shallowRef(true)
     const statusFilter = ref<TorrentState[]>([])
     whenever(
-      () => !statusFilter.value.length,
+      () => statusFilter.value.length > 0,
       () => (isStatusFilterActive.value = true)
     )
 
