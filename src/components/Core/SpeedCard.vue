@@ -19,7 +19,7 @@ const vueTorrentStore = useVueTorrentStore()
       </v-col>
       <v-col cols="8" class="d-flex flex-column align-center justify-center">
         <div>
-          <span :class="`text-subtitle-1 roboto text-select text-${color}`">
+          <span :class="`text-subtitle-1 font-weight-bold text-select text-${color}`">
             {{ formatSpeedValue(value, vueTorrentStore.useBitSpeed) }}
           </span>
         </div>
@@ -32,12 +32,3 @@ const vueTorrentStore = useVueTorrentStore()
     </v-row>
   </v-sheet>
 </template>
-
-<style scoped lang="scss">
-@import '@fontsource/roboto-mono';
-
-.roboto {
-  font-family: 'Roboto Mono', sans-serif !important;
-  font-weight: 600;
-}
-</style>
