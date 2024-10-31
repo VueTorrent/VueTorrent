@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
-import { useSearchQuery } from '@/composables'
+import { useI18nUtils, useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
 import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
-import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -52,20 +50,15 @@ const categories = [
   .sort((a, b) => comparators.text.asc(a.title, b.title))
   .toSpliced(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
 
-const plugins = computed(() => {
-  const plugins = [
-    { title: t('searchEngine.filters.plugins.all'), value: 'all' },
-    { title: t('searchEngine.filters.plugins.enabled'), value: 'enabled' }
-  ]
-
-  searchEngineStore.searchPlugins
-    .filter((plugin: SearchPlugin) => plugin.enabled)
-    .forEach((plugin: SearchPlugin) => {
-      plugins.push({ title: plugin.name, value: plugin.name })
-    })
-
-  return plugins
-})
+const plugins = computed(() => [
+  { title: t('searchEngine.filters.plugins.all'), value: 'all' },
+  { title: t('searchEngine.filters.plugins.enabled'), value: 'enabled' },
+  ...searchEngineStore.searchPlugins
+    .filter(plugin => plugin.enabled)
+    .map(plugin => plugin.name)
+    .sort(comparators.text.asc)
+    .map(name => ({ title: name, value: name }))
+])
 
 const selectedTab = computed<SearchData>(() => searchData.value[tabIndex.value] ?? {})
 const { results: filteredResults } = useSearchQuery(
