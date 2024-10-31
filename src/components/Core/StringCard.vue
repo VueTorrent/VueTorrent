@@ -7,17 +7,8 @@ defineProps<{ title: string; value: any; color: string }>()
     <v-row class="text-select">
       <v-col cols="7" :class="`text-subtitle-1 text-${color}`">{{ title }}</v-col>
       <v-col cols="5" :class="`text-${color}`">
-        <span class="text-subtitle-1 roboto">{{ value }}</span>
+        <span class="text-subtitle-1 font-weight-bold">{{ value }}</span>
       </v-col>
     </v-row>
   </v-sheet>
 </template>
-
-<style scoped lang="scss">
-@import '@fontsource/roboto-mono';
-
-.roboto {
-  font-family: 'Roboto Mono', sans-serif !important;
-  font-weight: 600;
-}
-</style>

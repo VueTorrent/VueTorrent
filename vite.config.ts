@@ -27,6 +27,13 @@ export default defineConfig(({ mode }) => {
         }
       }
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: "modern-compiler"
+        }
+      }
+    },
     define: {
       'import.meta.env.VITE_PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
       'process.env': {}
