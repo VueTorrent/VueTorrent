@@ -3,7 +3,7 @@ import HistoryField from '@/components/Core/HistoryField.vue'
 import PluginManagerDialog from '@/components/Dialogs/PluginManagerDialog.vue'
 import { useSearchQuery } from '@/composables'
 import { HistoryKey } from '@/constants/vuetorrent'
-import { formatData, formatTimeSec, openLink } from '@/helpers'
+import { comparators, formatData, formatTimeSec, openLink } from '@/helpers'
 import { useAddTorrentStore, useAppStore, useDialogStore, useSearchEngineStore, useVueTorrentStore } from '@/stores'
 import { SearchPlugin } from '@/types/qbit/models'
 import { SearchData, SearchResult } from '@/types/vuetorrent'
@@ -49,8 +49,8 @@ const categories = [
   { title: t('searchEngine.filters.category.pictures'), value: 'pictures' },
   { title: t('searchEngine.filters.category.books'), value: 'books' }
 ]
-  .sort((a, b) => a.title.localeCompare(b.title))
-  .splice(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
+  .sort((a, b) => comparators.text.asc(a.title, b.title))
+  .toSpliced(0, 0, { title: t('searchEngine.filters.category.all'), value: 'all' })
 
 const plugins = computed(() => {
   const plugins = [
