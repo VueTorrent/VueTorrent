@@ -3,16 +3,19 @@ import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
 import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
+import { VVirtualScroll } from 'vuetify/components/VVirtualScroll'
 import ContentNode from './ContentNode.vue'
 
 const props = defineProps<{ torrent: Torrent; isActive: boolean }>()
 
 const { height: deviceHeight } = useDisplay()
 const contentStore = useContentStore()
-const { rightClickProperties, filenameFilter, flatTree, internalSelection, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
+const { rightClickProperties, filenameFilter, flatTree, internalSelection, lastSelected, timerForcedPause, isTimerActive } = storeToRefs(contentStore)
 const dialogStore = useDialogStore()
+
+const scrollView = ref<VVirtualScroll>()
 
 const height = computed(() => {
   // 48px for the tabs and page title
@@ -22,23 +25,6 @@ const height = computed(() => {
   // 8px for its top margin
   return deviceHeight.value - 48 * 2 - 64 - 12 * 2 - 56 - 8
 })
-
-async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
-  if (rightClickProperties.value.isVisible) {
-    rightClickProperties.value.isVisible = false
-    await nextTick()
-  }
-
-  Object.assign(rightClickProperties.value, {
-    isVisible: true,
-    offset: [e.pageX, e.pageY],
-    hash: props.torrent.hash
-  })
-
-  if (internalSelection.value.size <= 1) {
-    internalSelection.value = new Set([node.fullName])
-  }
-}
 
 // mobile long press
 const timer = ref<NodeJS.Timeout>()
@@ -65,9 +51,11 @@ watch(
 
 onMounted(() => {
   props.isActive && contentStore.resumeTimer()
+  document.addEventListener('keydown', handleKeyboardInput)
 })
 onBeforeUnmount(() => {
   contentStore.$reset()
+  document.removeEventListener('keydown', handleKeyboardInput)
 })
 
 function pause() {
@@ -82,6 +70,53 @@ function resume() {
 
 function openFilterDialog() {
   dialogStore.createDialog(ContentFilterDialog)
+}
+
+function handleKeyboardInput(e: KeyboardEvent) {
+  enum KeyNames {
+    ArrowUp = 'ArrowUp',
+    ArrowDown = 'ArrowDown',
+    ArrowLeft = 'ArrowLeft',
+    ArrowRight = 'ArrowRight',
+    Spacebar = ' '
+  }
+
+  const pressedKey = e.key as KeyNames
+  if (!Object.values(KeyNames).includes(pressedKey)) {
+    return false
+  }
+
+  e.preventDefault()
+  const oldCursor = flatTree.value.findIndex(node => node.fullName === lastSelected.value)
+  let newCursor = oldCursor
+
+  switch (pressedKey) {
+    case KeyNames.ArrowUp:
+      if (oldCursor > 0) {
+        newCursor--
+      }
+      break
+    case KeyNames.ArrowDown:
+      if (oldCursor < flatTree.value.length - 1) {
+        newCursor++
+      }
+      break
+    case KeyNames.ArrowLeft:
+    case KeyNames.ArrowRight:
+      contentStore.openNode(e, flatTree.value[oldCursor])
+      break
+    case KeyNames.Spacebar:
+      contentStore.toggleFileSelection(flatTree.value[oldCursor]).then()
+      break
+  }
+
+  if (oldCursor !== newCursor) {
+    lastSelected.value = flatTree.value[newCursor].fullName
+    internalSelection.value = new Set([lastSelected.value])
+    scrollView.value?.scrollToIndex(newCursor - Math.floor(height.value / 68 / 2))
+  }
+
+  return true
 }
 </script>
 
@@ -103,36 +138,10 @@ function openFilterDialog() {
       </v-tooltip>
     </div>
 
-    <v-virtual-scroll id="tree-root" :items="flatTree" :height="height" item-height="68" class="pa-2">
+    <v-virtual-scroll ref="scrollView" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
-        <ContentNode
-          :node="item"
-          @setFilePrio="(fileIdx, prio) => contentStore.setFilePriority(fileIdx, prio)"
-          @touchcancel="endPress"
-          @touchend="endPress"
-          @touchmove="endPress"
-          @touchstart="startPress($event.touches.item(0)!, item)"
-          @onRightClick="(e, node) => onRightClick(e, node)" />
+        <ContentNode :node="item" @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event.touches.item(0)!, item)" />
       </template>
     </v-virtual-scroll>
   </v-card>
 </template>
-
-<style lang="scss">
-#_tree-root {
-  font-size: medium;
-  list-style-type: none;
-
-  div.v-virtual-scroll__item {
-    padding-top: 8px;
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &:last-child {
-      padding-bottom: 8px;
-    }
-  }
-}
-</style>

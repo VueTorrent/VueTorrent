@@ -5,7 +5,7 @@ import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, triggerRef } from 'vue'
+import { computed, nextTick, triggerRef } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { useDisplay } from 'vuetify'
 
@@ -13,16 +13,12 @@ const props = defineProps<{
   node: TreeNode
 }>()
 
-const emit = defineEmits<{
-  setFilePrio: [fileIdx: number[], prio: FilePriority]
-  onRightClick: [e: MouseEvent | Touch, node: TreeNode]
-}>()
-
 const folderColor = '#ffe476'
 
 const { t } = useI18nUtils()
 const { mobile } = useDisplay()
-const { internalSelection, openedItems } = storeToRefs(useContentStore())
+const contentStore = useContentStore()
+const { internalSelection, lastSelected, openedItems } = storeToRefs(contentStore)
 const vuetorrentStore = useVueTorrentStore()
 
 const depth = computed(() => {
@@ -32,27 +28,6 @@ const depth = computed(() => {
   const depthStep = mobile.value ? 12 : 24
   return effectiveDepth * depthStep
 })
-
-function openNode(e: Event, node: TreeNode) {
-  if (node.type === 'file') return
-  e.stopPropagation()
-
-  const index = openedItems.value.indexOf(node.fullName)
-  if (index === -1) {
-    openedItems.value.push(node.fullName)
-  } else {
-    openedItems.value.splice(index, 1)
-  }
-  triggerRef(openedItems)
-}
-
-async function toggleFileSelection(node: TreeNode) {
-  if (!node.wanted) {
-    emit('setFilePrio', node.childrenIds, FilePriority.NORMAL)
-  } else {
-    emit('setFilePrio', node.childrenIds, FilePriority.DO_NOT_DOWNLOAD)
-  }
-}
 
 function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node: TreeNode) {
   if (doesCommand(e)) {
@@ -65,6 +40,7 @@ function toggleInternalSelection(e: { metaKey: boolean; ctrlKey: boolean }, node
   } else {
     internalSelection.value = new Set([node.fullName])
   }
+  lastSelected.value = node.fullName
 }
 
 function getNodeColor(node: TreeNode) {
@@ -107,6 +83,24 @@ function getNodeSubtitle(node: TreeNode) {
 
   return values.join(' | ')
 }
+
+async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
+  if (rightClickProperties.value.isVisible) {
+    rightClickProperties.value.isVisible = false
+    await nextTick()
+  }
+
+  Object.assign(rightClickProperties.value, {
+    isVisible: true,
+    offset: [e.pageX, e.pageY],
+    hash: props.torrent.hash
+  })
+
+  if (internalSelection.value.size <= 1) {
+    internalSelection.value = new Set([node.fullName])
+    lastSelected.value = node.fullName
+  }
+}
 </script>
 
 <template>
@@ -114,17 +108,17 @@ function getNodeSubtitle(node: TreeNode) {
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
     @click.stop="toggleInternalSelection($event, node)"
-    @contextmenu="$emit('onRightClick', $event, node)">
+    @contextmenu="onRightClick($event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
-      <div class="d-flex align-center" @click.stop="toggleFileSelection(node)">
+      <div class="d-flex align-center" @click.stop="contentStore.toggleFileSelection(node)">
         <v-icon v-if="node.priority === FilePriority.MIXED" :color="getNodeColor(node)" icon="mdi-checkbox-intermediate-variant" />
         <v-icon v-else-if="node.wanted" :color="getNodeColor(node)" icon="mdi-checkbox-marked" />
         <v-icon v-else :color="getNodeColor(node)" icon="mdi-checkbox-blank-outline" />
       </div>
 
       <!-- Node icon -->
-      <div class="d-flex align-center spacer" @click="openNode($event, node)">
+      <div class="d-flex align-center spacer" @click="contentStore.openNode($event, node)">
         <v-icon v-if="node.type === 'folder'">{{ openedItems.includes(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
 
         <v-icon v-if="node.fullName === ''" icon="mdi-file-tree" />

@@ -1,4 +1,4 @@
-import { useSearchQuery, useTreeBuilder } from '@/composables'
+import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { useDialogStore } from '@/stores/dialog'
@@ -7,9 +7,8 @@ import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { computed, nextTick, reactive, shallowRef, toRaw } from 'vue'
+import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
 import { useTask } from 'vue-concurrency'
-import { useI18nUtils } from '@/composables'
 import { useRoute } from 'vue-router'
 
 export const useContentStore = defineStore('content', () => {
@@ -31,6 +30,7 @@ export const useContentStore = defineStore('content', () => {
   const { flatTree } = useTreeBuilder(filteredFiles, openedItems)
 
   const internalSelection = shallowRef<Set<string>>(new Set())
+  const lastSelected = shallowRef<string>('')
   const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
   const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
   const selectedIds = computed<number[]>(() =>
@@ -152,9 +152,31 @@ export const useContentStore = defineStore('content', () => {
     return await qbit.getTorrentPieceStates(hash)
   }
 
+  function openNode(e: Event, node: TreeNode) {
+    if (node.type === 'file') return
+    e.stopPropagation()
+
+    const index = openedItems.value.indexOf(node.fullName)
+    if (index === -1) {
+      openedItems.value.push(node.fullName)
+    } else {
+      openedItems.value.splice(index, 1)
+    }
+    triggerRef(openedItems)
+  }
+
+  async function toggleFileSelection(node: TreeNode) {
+    if (!node.wanted) {
+      await setFilePriority(node.childrenIds, FilePriority.NORMAL)
+    } else {
+      await setFilePriority(node.childrenIds, FilePriority.DO_NOT_DOWNLOAD)
+    }
+  }
+
   return {
     rightClickProperties,
     internalSelection,
+    lastSelected,
     menuData,
     filenameFilter,
     cachedFiles,
@@ -171,10 +193,13 @@ export const useContentStore = defineStore('content', () => {
     setFilePriority,
     fetchFiles,
     fetchPieceState,
+    openNode,
+    toggleFileSelection,
     $reset: () => {
       pauseTimer()
       updateFileTreeTask.clear()
       internalSelection.value.clear()
+      lastSelected.value = ''
       filenameFilter.value = ''
       cachedFiles.value = []
       openedItems.value = ['']
