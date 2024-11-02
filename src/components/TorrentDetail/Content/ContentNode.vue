@@ -1,16 +1,20 @@
 <script setup lang="ts">
+import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { getFileIcon } from '@/constants/vuetorrent'
 import { doesCommand, formatData } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, nextTick, triggerRef } from 'vue'
-import { useI18nUtils } from '@/composables'
+import { computed, triggerRef } from 'vue'
 import { useDisplay } from 'vuetify'
 
 const props = defineProps<{
   node: TreeNode
+}>()
+
+defineEmits<{
+  onRightClick: [e: MouseEvent | Touch, node: TreeNode]
 }>()
 
 const folderColor = '#ffe476'
@@ -83,24 +87,6 @@ function getNodeSubtitle(node: TreeNode) {
 
   return values.join(' | ')
 }
-
-async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
-  if (rightClickProperties.value.isVisible) {
-    rightClickProperties.value.isVisible = false
-    await nextTick()
-  }
-
-  Object.assign(rightClickProperties.value, {
-    isVisible: true,
-    offset: [e.pageX, e.pageY],
-    hash: props.torrent.hash
-  })
-
-  if (internalSelection.value.size <= 1) {
-    internalSelection.value = new Set([node.fullName])
-    lastSelected.value = node.fullName
-  }
-}
 </script>
 
 <template>
@@ -108,7 +94,7 @@ async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
     :class="['d-flex flex-column py-2 pr-3', node.isSelected(internalSelection) ? 'selected' : '']"
     :style="`padding-left: ${depth}px`"
     @click.stop="toggleInternalSelection($event, node)"
-    @contextmenu="onRightClick($event, node)">
+    @contextmenu="$emit('onRightClick', $event, node)">
     <div class="d-flex">
       <!-- Selection checkbox -->
       <div class="d-flex align-center" @click.stop="contentStore.toggleFileSelection(node)">

@@ -3,7 +3,7 @@ import ContentFilterDialog from '@/components/Dialogs/ContentFilterDialog.vue'
 import { useContentStore, useDialogStore } from '@/stores'
 import { Torrent, TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useDisplay } from 'vuetify'
 import { VVirtualScroll } from 'vuetify/components/VVirtualScroll'
 import ContentNode from './ContentNode.vue'
@@ -25,6 +25,24 @@ const height = computed(() => {
   // 8px for its top margin
   return deviceHeight.value - 48 * 2 - 64 - 12 * 2 - 56 - 8
 })
+
+async function onRightClick(e: MouseEvent | Touch, node: TreeNode) {
+  if (rightClickProperties.value.isVisible) {
+    rightClickProperties.value.isVisible = false
+    await nextTick()
+  }
+
+  Object.assign(rightClickProperties.value, {
+    isVisible: true,
+    offset: [e.pageX, e.pageY],
+    hash: props.torrent.hash
+  })
+
+  if (internalSelection.value.size <= 1) {
+    internalSelection.value = new Set([node.fullName])
+    lastSelected.value = node.fullName
+  }
+}
 
 // mobile long press
 const timer = ref<NodeJS.Timeout>()
@@ -140,7 +158,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
 
     <v-virtual-scroll ref="scrollView" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
-        <ContentNode :node="item" @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event.touches.item(0)!, item)" />
+        <ContentNode :node="item" @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event.touches.item(0)!, item)" @onRightClick="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>
