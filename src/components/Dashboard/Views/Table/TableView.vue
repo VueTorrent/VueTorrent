@@ -14,7 +14,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  onCheckboxClick: [torrent: TorrentType]
+  onCheckboxClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
@@ -79,7 +79,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
             :model-value="isTorrentSelected(torrent)"
             :color="`torrent-${TorrentState[torrent.state].toLowerCase()}`"
             variant="text"
-            @click.stop="$emit('onCheckboxClick', torrent)" />
+            @click.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
         <td>{{ torrent.name }}</td>
         <TableTorrent :torrent="torrent" />

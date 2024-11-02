@@ -67,10 +67,6 @@ function goToInfo(torrent: TorrentType) {
   }
 }
 
-function onCheckboxClick(torrent: TorrentType) {
-  dashboardStore.toggleSelect(torrent.hash)
-}
-
 function onTorrentClick(e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType) {
   if (e.shiftKey) {
     dashboardStore.spanTorrentSelection(torrent.hash)
@@ -226,9 +222,9 @@ onBeforeUnmount(() => {
     <ListView
       v-else-if="isListView"
       :paginated-torrents="paginatedTorrents"
+      @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
       @onTorrentDblClick="goToInfo"
-      @onCheckboxClick="onCheckboxClick"
       @onTorrentRightClick="onTorrentRightClick"
       @startPress="startPress"
       @endPress="endPress" />
@@ -236,18 +232,18 @@ onBeforeUnmount(() => {
       v-else-if="isGridView"
       class="mb-2"
       :paginated-torrents="paginatedTorrents"
+      @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
       @onTorrentDblClick="goToInfo"
-      @onCheckboxClick="onCheckboxClick"
       @onTorrentRightClick="onTorrentRightClick"
       @startPress="startPress"
       @endPress="endPress" />
     <TableView
       v-else-if="isTableView"
       :paginated-torrents="paginatedTorrents"
+      @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
       @onTorrentDblClick="goToInfo"
-      @onCheckboxClick="onCheckboxClick"
       @onTorrentRightClick="onTorrentRightClick"
       @startPress="startPress"
       @endPress="endPress" />

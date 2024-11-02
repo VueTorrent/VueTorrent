@@ -10,7 +10,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  onCheckboxClick: [torrent: TorrentType]
+  onCheckboxClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentClick: [e: { shiftKey: boolean; metaKey: boolean; ctrlKey: boolean }, torrent: TorrentType]
   onTorrentDblClick: [torrent: TorrentType]
   onTorrentRightClick: [e: MouseEvent, torrent: TorrentType]
@@ -47,7 +47,7 @@ const dashboardStore = useDashboardStore()
             :icon="dashboardStore.isTorrentInSelection(torrent.hash) ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
             class="mr-2"
             variant="text"
-            @click="$emit('onCheckboxClick', torrent)" />
+            @click="$emit('onCheckboxClick', $event, torrent)" />
         </v-expand-x-transition>
         <GridTorrent :torrent="torrent" @onTorrentClick="(e, t) => $emit('onTorrentClick', e, t)" />
       </div>
