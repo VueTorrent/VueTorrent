@@ -40,7 +40,8 @@ const ipAddressesOptions = ref([
 const diskIoTypeOptions = [
   { title: t('constants.diskIoType.default'), value: DiskIOType.DEFAULT },
   { title: t('constants.diskIoType.memoryMappedFiles'), value: DiskIOType.MEMORY_MAPPED_FILES },
-  { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT }
+  { title: t('constants.diskIoType.posixCompliant'), value: DiskIOType.POSIX_COMPLIANT },
+  { title: t('constants.diskIoType.simplePreadPwrite'), value: DiskIOType.SIMPLE_PREAD_PWRITE }
 ]
 const diskIoModeReadOptions = [
   { title: t('constants.diskIoMode.disableOsCache'), value: DiskIOMode.DISABLE_OS_CACHE },
