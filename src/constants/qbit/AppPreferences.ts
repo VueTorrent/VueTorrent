@@ -98,7 +98,8 @@ export enum UtpTcpMixedMode {
 export enum DiskIOType {
   DEFAULT,
   MEMORY_MAPPED_FILES,
-  POSIX_COMPLIANT
+  POSIX_COMPLIANT,
+  SIMPLE_PREAD_PWRITE
 }
 
 export enum DiskIOMode {

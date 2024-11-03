@@ -55,7 +55,8 @@
     "diskIoType": {
       "default": "Default",
       "memoryMappedFiles": "Memory mapped files",
-      "posixCompliant": "POSIX-compliant"
+      "posixCompliant": "POSIX-compliant",
+      "simplePreadPwrite": "Simple pread/pwrite"
     },
     "encryption": {
       "forceOff": "Disable Encryption",
