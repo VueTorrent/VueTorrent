@@ -2,20 +2,25 @@
 
 ## [2.16.0](https://github.com/VueTorrent/VueTorrent/compare/v2.15.0...v2.16.0) (2024-10-31)
 
-
 ### Features
 
-* **settings:** Only fetch external IP data if enabled ([#2001](https://github.com/VueTorrent/VueTorrent/issues/2001)) ([73076d8](https://github.com/VueTorrent/VueTorrent/commit/73076d87394ac35e07d9714a889c4ace6ac25d13))
-
+- **settings:** Only fetch external IP data if enabled ([#2001](https://github.com/VueTorrent/VueTorrent/issues/2001))
+  ([73076d8](https://github.com/VueTorrent/VueTorrent/commit/73076d87394ac35e07d9714a889c4ace6ac25d13))
 
 ### Bug Fixes
 
-* **ActiveFilters:** Force-enable filter after clear ([#1998](https://github.com/VueTorrent/VueTorrent/issues/1998)) ([9faddbd](https://github.com/VueTorrent/VueTorrent/commit/9faddbd95c6a6cc47b0ac25bd6831fba7aa9dda6))
-* **AddTorrents:** Don't override savePath on empty category savePath ([#1999](https://github.com/VueTorrent/VueTorrent/issues/1999)) ([119ab36](https://github.com/VueTorrent/VueTorrent/commit/119ab36e4c4a614c47bf5d7caa5c487192f4ff62))
-* **Logs:** Persist filters in localStorage ([#2000](https://github.com/VueTorrent/VueTorrent/issues/2000)) ([37317f8](https://github.com/VueTorrent/VueTorrent/commit/37317f8949531a3e981dfee199884853d0426ca0))
-* **RightClick:** Handle issue where certain bottom values would not render ([#1985](https://github.com/VueTorrent/VueTorrent/issues/1985)) ([2878286](https://github.com/VueTorrent/VueTorrent/commit/2878286580624442de9713305be7b97c290d0bae))
-* **SearchEngine:** Fix broken category list ([#2006](https://github.com/VueTorrent/VueTorrent/issues/2006)) ([ca23c5a](https://github.com/VueTorrent/VueTorrent/commit/ca23c5ab69b2d2186b9fe0b7aec518cc156480f1))
-* **SearchEngine:** Sort plugins by name ([#2007](https://github.com/VueTorrent/VueTorrent/issues/2007)) ([54f5289](https://github.com/VueTorrent/VueTorrent/commit/54f5289cb6b6dcd0b249af4b5d03a8bcbd02c6f8))
+- **ActiveFilters:** Force-enable filter after clear ([#1998](https://github.com/VueTorrent/VueTorrent/issues/1998))
+  ([9faddbd](https://github.com/VueTorrent/VueTorrent/commit/9faddbd95c6a6cc47b0ac25bd6831fba7aa9dda6))
+- **AddTorrents:** Don't override savePath on empty category savePath ([#1999](https://github.com/VueTorrent/VueTorrent/issues/1999))
+  ([119ab36](https://github.com/VueTorrent/VueTorrent/commit/119ab36e4c4a614c47bf5d7caa5c487192f4ff62))
+- **Logs:** Persist filters in localStorage ([#2000](https://github.com/VueTorrent/VueTorrent/issues/2000))
+  ([37317f8](https://github.com/VueTorrent/VueTorrent/commit/37317f8949531a3e981dfee199884853d0426ca0))
+- **RightClick:** Handle issue where certain bottom values would not render ([#1985](https://github.com/VueTorrent/VueTorrent/issues/1985))
+  ([2878286](https://github.com/VueTorrent/VueTorrent/commit/2878286580624442de9713305be7b97c290d0bae))
+- **SearchEngine:** Fix broken category list ([#2006](https://github.com/VueTorrent/VueTorrent/issues/2006))
+  ([ca23c5a](https://github.com/VueTorrent/VueTorrent/commit/ca23c5ab69b2d2186b9fe0b7aec518cc156480f1))
+- **SearchEngine:** Sort plugins by name ([#2007](https://github.com/VueTorrent/VueTorrent/issues/2007))
+  ([54f5289](https://github.com/VueTorrent/VueTorrent/commit/54f5289cb6b6dcd0b249af4b5d03a8bcbd02c6f8))
 
 ## [2.15.0](https://github.com/VueTorrent/VueTorrent/compare/v2.14.1...v2.15.0) (2024-10-20)
 

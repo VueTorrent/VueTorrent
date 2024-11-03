@@ -158,7 +158,13 @@ function handleKeyboardInput(e: KeyboardEvent) {
 
     <v-virtual-scroll ref="scrollView" :items="flatTree" :height="height" item-height="68" class="pa-2">
       <template #default="{ item }">
-        <ContentNode :node="item" @touchcancel="endPress" @touchend="endPress" @touchmove="endPress" @touchstart="startPress($event.touches.item(0)!, item)" @onRightClick="(e, node) => onRightClick(e, node)" />
+        <ContentNode
+          :node="item"
+          @touchcancel="endPress"
+          @touchend="endPress"
+          @touchmove="endPress"
+          @touchstart="startPress($event.touches.item(0)!, item)"
+          @onRightClick="(e, node) => onRightClick(e, node)" />
       </template>
     </v-virtual-scroll>
   </v-card>

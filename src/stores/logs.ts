@@ -12,7 +12,7 @@ export const useLogStore = defineStore(
   'logs',
   () => {
     const { fetchExternalIpInfo } = storeToRefs(useVueTorrentStore())
-    
+
     const logs = ref<Log[]>([])
     const externalIp = ref<string>()
     const lastFetchedIp = ref<string>()
