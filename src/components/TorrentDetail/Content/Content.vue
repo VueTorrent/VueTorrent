@@ -100,7 +100,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
   }
 
   const pressedKey = e.key as KeyNames
-  if (!Object.values(KeyNames).includes(pressedKey)) {
+  if (dialogStore.hasActiveDialog || !Object.values(KeyNames).includes(pressedKey)) {
     return false
   }
 
@@ -141,7 +141,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
 <template>
   <v-card>
     <div class="mt-2 mx-3 d-flex flex-gap align-center">
-      <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" />
+      <v-text-field v-model="filenameFilter" hide-details clearable :placeholder="$t('torrentDetail.content.filter_placeholder')" @keydown.stop />
 
       <v-tooltip :text="$t('torrentDetail.content.filter.activator')" location="bottom">
         <template #activator="{ props }">
