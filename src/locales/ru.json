@@ -107,7 +107,7 @@
     },
     "stopCondition": {
       "filesChecked": "Файлы проверены",
-      "metadataReceived": "Метадата получена",
+      "metadataReceived": "Метаданные получены",
       "none": "Отсутствует",
       "title": "Условие остановки торрента"
     },
@@ -355,6 +355,7 @@
     "connectionStatus": {
       "dht_nodes": "Узлы DHT",
       "externalIp": "Внешний IP-адрес",
+      "fetch_disabled": "Извлечение данных об IP выключено",
       "fetch_geo_failed": "Не удалось получить",
       "fetch_isp_failed": "Не удалось получить",
       "geo_details": "Информация о геолокации",
@@ -739,9 +740,9 @@
           "subheader": "Безопасность",
           "validateHTTPSTrackerCertificate": "Проверка сертификата трекера HTTPS"
         },
-        "sendBufferLowWatermark": "Нижняя отметка буфера отправки",
-        "sendBufferWatermark": "Отметка буфера отправки",
-        "sendBufferWatermarkFactor": "Send buffer watermark factor",
+        "sendBufferLowWatermark": "Минимальный размер буфера отправки",
+        "sendBufferWatermark": "Размер буфера отправки",
+        "sendBufferWatermarkFactor": "Коэффициент размера буфера отправки",
         "sendUploadPieceSuggestions": "Отправлять предложения частей отдачи",
         "socketBacklogSize": "Размер очереди сокета",
         "socketReceiveBufferSize": "Размер буфера сокета на получение",
@@ -1079,6 +1080,7 @@
         "durationFormat": "Формат длительности",
         "enableHashColors": "Разрешить генерируемые цвета хэша",
         "enableRatioColors": "Разрешить цвета рейтинга",
+        "fetchExternalIpInfo": "Извлечение информации о внешнем IP",
         "fileContentInterval": "Интервал обновления содержимого торрент-файла",
         "filterType": "Фильтры «включительно»",
         "hideChipIfUnset": "Скрыть фишки, если не настроено",
@@ -1311,7 +1313,7 @@
       "selectedFileSize": "Размер выбранных файлов",
       "uploaded": "Отдано",
       "upSpeedAverage": "Средняя скорость раздачи",
-      "waitingForMetadata": "Ожидание метадаты..."
+      "waitingForMetadata": "Ожидание метаданных..."
     },
     "peers": {
       "addPeers": {
@@ -1455,8 +1457,8 @@
       "dl_stopped": "Остановлено",
       "downloading": "Загрузка",
       "error": "Ошибка",
-      "forced_meta_download": "Метадата [П]",
-      "meta_download": "Метадата",
+      "forced_meta_download": "Метаданные [П]",
+      "meta_download": "Метаданные",
       "missing_files": "Нет файлов",
       "moving": "Перемещение",
       "ul_forced": "Раздача [П]",
