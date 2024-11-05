@@ -3,13 +3,32 @@ import qbit from '@/services/qbit'
 import { useTorrentStore } from '@/stores/torrents.ts'
 import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { shallowRef, triggerRef } from 'vue'
+import { computed, shallowRef, triggerRef } from 'vue'
 
 export const useTagStore = defineStore('tags', () => {
   const _tags = shallowRef<Set<string>>(new Set())
   const tags = useSorted(() => Array.from(_tags.value.values()), comparators.text.asc)
 
-  const { torrentsByTag } = storeToRefs(useTorrentStore())
+  const { torrents } = storeToRefs(useTorrentStore())
+
+  const torrentsByTag = computed(() =>
+    torrents.value.reduce(
+      (acc, torrent) => {
+        if (!torrent.tags.length) {
+          acc[''] = (acc[''] ?? 0) + 1
+          return acc
+        }
+        torrent.tags.forEach(tag => {
+          if (!acc[tag]) {
+            acc[tag] = 0
+          }
+          acc[tag] += 1
+        })
+        return acc
+      },
+      {} as Record<string, number>
+    )
+  )
 
   function syncFromMaindata(fullUpdate: boolean, values: string[], removed?: string[]) {
     if (fullUpdate) {
@@ -58,6 +77,7 @@ export const useTagStore = defineStore('tags', () => {
 
   return {
     tags,
+    torrentsByTag,
     syncFromMaindata,
     createTags,
     editTag,

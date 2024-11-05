@@ -35,7 +35,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.tagsSubheader') }}</v-list-subheader>
 
       <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in tagStore.tags">
-        <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
+        <div class="pl-4 py-1 wrap-anywhere">{{ tag }} ({{ tagStore.torrentsByTag[tag] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">
           <v-btn icon="mdi-pencil" variant="plain" @click="openTagFormDialog(tag)" />
@@ -62,7 +62,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
 
       <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in categoryStore.categories">
-        <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
+        <div class="pl-4 py-1 wrap-anywhere">{{ category.name }} ({{ categoryStore.torrentsByCategory[category.name] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">
           <v-btn icon="mdi-pencil" variant="plain" @click="openCategoryFormDialog(category)" />

@@ -4,7 +4,7 @@ import { useTorrentStore } from '@/stores/torrents.ts'
 import { Category } from '@/types/qbit/models'
 import { useSorted } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { shallowRef, triggerRef } from 'vue'
+import { computed, shallowRef, triggerRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
   /** Key: Category name */
@@ -14,7 +14,20 @@ export const useCategoryStore = defineStore('categories', () => {
     (a, b) => comparators.text.asc(a.name, b.name)
   )
 
-  const { torrentsByCategory } = storeToRefs(useTorrentStore())
+  const { torrents } = storeToRefs(useTorrentStore())
+
+  const torrentsByCategory = computed(() =>
+    torrents.value.reduce(
+      (acc, torrent) => {
+        if (!acc[torrent.category]) {
+          acc[torrent.category] = 0
+        }
+        acc[torrent.category] += 1
+        return acc
+      },
+      {} as Record<string, number>
+    )
+  )
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {
@@ -88,6 +101,7 @@ export const useCategoryStore = defineStore('categories', () => {
 
   return {
     categories,
+    torrentsByCategory,
     syncFromMaindata,
     getCategoryFromName,
     createCategory,
