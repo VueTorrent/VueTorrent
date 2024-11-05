@@ -33,16 +33,8 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   last_activity: (a, b, isAsc) => comparators.invertedNumeric.compare(a.last_activity, b.last_activity, isAsc),
   magnet: (a, b, isAsc) => comparators.text.compare(a.magnet, b.magnet, isAsc),
   name: (a, b, isAsc) => comparators.textWithNumbers.compare(a.name, b.name, isAsc),
-  num_leechs: (a, b, isAsc) => {
-    const primaryComparison = comparators.numeric.compare(a.num_leechs, b.num_leechs, isAsc)
-    if (primaryComparison === 0) return comparatorMap['available_peers'](a, b, isAsc)
-    else return primaryComparison
-  },
-  num_seeds: (a, b, isAsc) => {
-    const primaryComparison = comparators.numeric.compare(a.num_seeds, b.num_seeds, isAsc)
-    if (primaryComparison === 0) return comparatorMap['available_seeds'](a, b, isAsc)
-    else return primaryComparison
-  },
+  num_leechs: (a, b, isAsc) => comparators.numeric.compare(a.num_leechs, b.num_leechs, isAsc) || comparators.numeric.compare(a.available_peers, b.available_peers, isAsc),
+  num_seeds: (a, b, isAsc) => comparators.numeric.compare(a.num_seeds, b.num_seeds, isAsc) || comparators.numeric.compare(a.available_seeds, b.available_seeds, isAsc),
   priority: (a, b, isAsc) => {
     if (a.priority > 0 && b.priority > 0) return comparators.numeric.compare(a.priority, b.priority, isAsc)
     else if (a.priority <= 0 && b.priority <= 0) return comparators.numeric.compare(a.added_on, b.added_on, isAsc)
