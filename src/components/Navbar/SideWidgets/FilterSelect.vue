@@ -7,25 +7,53 @@ import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 
 const { t, getTorrentStateString } = useI18nUtils()
-const categoryStore = useCategoryStore()
-const tagStore = useTagStore()
-const { statusFilter, categoryFilter, tagFilter, tagFilterType, trackerFilter, trackerFilterType } = storeToRefs(useTorrentStore())
-const trackerStore = useTrackerStore()
+const { categories: _categories } = storeToRefs(useCategoryStore())
+const { tags: _tags } = storeToRefs(useTagStore())
+const {
+  torrents,
+  torrentsByStatus,
+  statusFilter,
+  torrentsByCategory,
+  categoryFilter,
+  torrentsByTag,
+  tagFilter,
+  tagFilterType,
+  torrentsByTracker,
+  trackerFilter,
+  trackerFilterType
+} = storeToRefs(useTorrentStore())
+const { trackers: _trackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
     .filter(state => typeof state === 'number')
-    .map(state => ({ title: getTorrentStateString(state as TorrentState), value: state }))
+    .map(state => ({ title: `${getTorrentStateString(state as TorrentState)} (${torrentsByStatus.value[state] ?? 0})`, value: state }))
+    .sort((a, b) => comparators.text.asc(a.title, b.title))
 )
+
 const categories = computed(() => [
   {
-    title: t('navbar.side.filters.uncategorized'),
+    title: `${t('navbar.side.filters.uncategorized')} (${torrentsByCategory.value[''] ?? 0})`,
     value: ''
   },
-  ...categoryStore.categories.map(c => c.name)
+  ..._categories.value.map(c => ({ title: `${c.name} (${torrentsByCategory.value[c.name] ?? 0})`, value: c.name }))
 ])
-const tags = computed(() => [{ title: t('navbar.side.filters.untagged'), value: null }, ...tagStore.tags])
-const trackers = computed(() => [{ title: t('navbar.side.filters.untracked'), value: null }, ...trackerStore.trackers])
+
+const tags = computed(() => [
+  {
+    title: `${t('navbar.side.filters.untagged')} (${torrentsByTag.value[''] ?? 0})`,
+    value: null
+  },
+  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag }))
+])
+
+const trackers = computed(() => [
+  {
+    title: `${t('navbar.side.filters.untracked')} (${torrentsByTracker.value[''] ?? 0})`,
+    value: null
+  },
+  ..._trackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))
+])
 
 function toggleFilterType(ref: Ref<FilterType>) {
   switch (ref.value) {
@@ -45,38 +73,45 @@ function selectAllStatuses() {
   statusFilter.value = []
 }
 
+const activeStatuses = [
+  TorrentState.UPLOADING,
+  TorrentState.CHECKING_DISK,
+  TorrentState.UL_FORCED,
+  TorrentState.DOWNLOADING,
+  TorrentState.META_DOWNLOAD,
+  TorrentState.FORCED_META_DOWNLOAD,
+  TorrentState.CHECKING_DISK,
+  TorrentState.DL_FORCED,
+  TorrentState.CHECKING_RESUME_DATA,
+  TorrentState.MOVING
+]
+const erroredStatuses = [TorrentState.ERROR, TorrentState.MISSING_FILES, TorrentState.UNKNOWN]
+const offlineStatuses = [
+  TorrentState.ERROR,
+  TorrentState.MISSING_FILES,
+  TorrentState.UNKNOWN,
+  TorrentState.MOVING,
+  TorrentState.DL_STOPPED,
+  TorrentState.DL_STALLED,
+  TorrentState.UL_STOPPED,
+  TorrentState.CHECKING_DISK,
+  TorrentState.CHECKING_RESUME_DATA
+]
+
 function selectActive() {
-  statusFilter.value = [
-    TorrentState.UPLOADING,
-    TorrentState.CHECKING_DISK,
-    TorrentState.UL_FORCED,
-    TorrentState.DOWNLOADING,
-    TorrentState.META_DOWNLOAD,
-    TorrentState.FORCED_META_DOWNLOAD,
-    TorrentState.CHECKING_DISK,
-    TorrentState.DL_FORCED,
-    TorrentState.CHECKING_RESUME_DATA,
-    TorrentState.MOVING
-  ]
+  statusFilter.value = activeStatuses
 }
+const activeTorrentsCount = computed(() => torrents.value.filter(t => activeStatuses.includes(t.state)).length)
 
 function selectError() {
-  statusFilter.value = [TorrentState.ERROR, TorrentState.MISSING_FILES, TorrentState.UNKNOWN]
+  statusFilter.value = erroredStatuses
 }
+const erroredTorrentsCount = computed(() => torrents.value.filter(t => erroredStatuses.includes(t.state)).length)
 
 function selectOffline() {
-  statusFilter.value = [
-    TorrentState.ERROR,
-    TorrentState.MISSING_FILES,
-    TorrentState.UNKNOWN,
-    TorrentState.MOVING,
-    TorrentState.DL_STOPPED,
-    TorrentState.DL_STALLED,
-    TorrentState.UL_STOPPED,
-    TorrentState.CHECKING_DISK,
-    TorrentState.CHECKING_RESUME_DATA
-  ]
+  statusFilter.value = offlineStatuses
 }
+const offlineTorrentsCount = computed(() => torrents.value.filter(t => offlineStatuses.includes(t.state)).length)
 
 function selectAllCategories() {
   categoryFilter.value = []
@@ -99,7 +134,7 @@ function selectAllTrackers() {
       </v-list-item-title>
       <v-select
         v-model="statusFilter"
-        :items="statuses.sort((a, b) => comparators.text.asc(a.title, b.title))"
+        :items="statuses"
         :placeholder="t('navbar.side.filters.disabled')"
         bg-color="secondary"
         class="text-accent pt-1"
@@ -109,9 +144,9 @@ function selectAllTrackers() {
         variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
-          <v-list-item :title="$t('navbar.side.filters.state.active')" @click="selectActive" />
-          <v-list-item :title="$t('navbar.side.filters.state.error')" @click="selectError" />
-          <v-list-item :title="$t('navbar.side.filters.state.offline')" @click="selectOffline" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.active')} (${activeTorrentsCount})`" @click="selectActive" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.error')} (${erroredTorrentsCount})`" @click="selectError" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.offline')} (${offlineTorrentsCount})`" @click="selectOffline" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
