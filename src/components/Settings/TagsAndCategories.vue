@@ -47,9 +47,14 @@ function openCategoryFormDialog(initialCategory?: Category) {
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click="openTagFormDialog()">
-        {{ $t('settings.tagsAndCategories.createNewTag') }}
-      </v-btn>
+      <div class="d-flex ga-2">
+        <v-btn class="flex-grow-1" color="accent" prepend-icon="mdi-plus" @click="openTagFormDialog()">
+          {{ $t('settings.tagsAndCategories.createNewTag') }}
+        </v-btn>
+        <v-btn class="flex-grow-1" color="error" prepend-icon="mdi-delete" @click="tagStore.deleteUnusedTags()">
+          {{ $t('settings.tagsAndCategories.deleteUnusedTags') }}
+        </v-btn>
+      </div>
     </v-col>
 
     <!-- Categories -->
@@ -69,9 +74,14 @@ function openCategoryFormDialog(initialCategory?: Category) {
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click="openCategoryFormDialog()">
-        {{ $t('settings.tagsAndCategories.createNewCategory') }}
-      </v-btn>
+      <div class="d-flex ga-2">
+        <v-btn class="flex-grow-1" color="accent" prepend-icon="mdi-plus" @click="openCategoryFormDialog()">
+          {{ $t('settings.tagsAndCategories.createNewCategory') }}
+        </v-btn>
+        <v-btn class="flex-grow-1" color="error" prepend-icon="mdi-delete" @click="categoryStore.deleteUnusedCategories()">
+          {{ $t('settings.tagsAndCategories.deleteUnusedCategories') }}
+        </v-btn>
+      </div>
     </v-col>
   </v-row>
 </template>

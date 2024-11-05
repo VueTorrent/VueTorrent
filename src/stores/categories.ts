@@ -1,8 +1,9 @@
 import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
+import { useTorrentStore } from '@/stores/torrents.ts'
 import { Category } from '@/types/qbit/models'
 import { useSorted } from '@vueuse/core'
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { shallowRef, triggerRef } from 'vue'
 
 export const useCategoryStore = defineStore('categories', () => {
@@ -12,6 +13,8 @@ export const useCategoryStore = defineStore('categories', () => {
     () => Array.from(_categoryMap.value.values()),
     (a, b) => comparators.text.asc(a.name, b.name)
   )
+
+  const { torrentsByCategory } = storeToRefs(useTorrentStore())
 
   function syncFromMaindata(fullUpdate: boolean, entries: [string, Partial<Category>][], removed?: string[]) {
     if (fullUpdate) {
@@ -76,6 +79,13 @@ export const useCategoryStore = defineStore('categories', () => {
     await qbit.deleteCategory(categoryNames)
   }
 
+  async function deleteUnusedCategories() {
+    const usedCategories = Object.keys(torrentsByCategory.value)
+    const unusedCategories = categories.value.filter(c => !usedCategories.includes(c.name)).map(c => c.name)
+
+    await deleteCategories(unusedCategories)
+  }
+
   return {
     categories,
     syncFromMaindata,
@@ -83,6 +93,7 @@ export const useCategoryStore = defineStore('categories', () => {
     createCategory,
     editCategory,
     deleteCategories,
+    deleteUnusedCategories,
     $reset: () => {
       _categoryMap.value.clear()
       triggerRef(_categoryMap)
