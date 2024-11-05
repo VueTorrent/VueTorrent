@@ -242,6 +242,11 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
           action: openNewTagFormDialog
         },
         {
+          text: t('settings.tagsAndCategories.deleteUnusedTags'),
+          icon: 'mdi-delete',
+          action: tagStore.deleteUnusedTags
+        },
+        {
           text: t('dashboard.right_click.tags.clear_all'),
           icon: 'mdi-playlist-remove',
           hidden: torrent.value?.tags.length === 0,
@@ -265,14 +270,19 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
       top: [
         {
           text: t('settings.tagsAndCategories.createNewCategory'),
-          action: openNewCategoryFormDialog,
-          icon: 'mdi-plus'
+          icon: 'mdi-plus',
+          action: openNewCategoryFormDialog
+        },
+        {
+          text: t('settings.tagsAndCategories.deleteUnusedCategories'),
+          icon: 'mdi-delete',
+          action: categoryStore.deleteUnusedCategories
         },
         {
           text: t('dashboard.right_click.category.clear'),
+          icon: 'mdi-backspace-reverse',
           hidden: torrent.value?.category.length === 0,
-          action: () => clearCategory().then(maindataStore.forceMaindataSync),
-          icon: 'mdi-backspace-reverse'
+          action: () => clearCategory().then(maindataStore.forceMaindataSync)
         }
       ]
     }

@@ -58,18 +58,6 @@ export const useTorrentStore = defineStore(
 
     const isCategoryFilterActive = shallowRef(true)
     const categoryFilter = ref<string[]>([])
-    const torrentsByCategory = computed(() =>
-      torrents.value.reduce(
-        (acc, torrent) => {
-          if (!acc[torrent.category]) {
-            acc[torrent.category] = 0
-          }
-          acc[torrent.category] += 1
-          return acc
-        },
-        {} as Record<string, number>
-      )
-    )
     whenever(
       () => categoryFilter.value.length > 0,
       () => (isCategoryFilterActive.value = true)
@@ -78,24 +66,6 @@ export const useTorrentStore = defineStore(
     const isTagFilterActive = shallowRef(true)
     const tagFilter = ref<(string | null)[]>([])
     const tagFilterType = ref(FilterType.DISJUNCTIVE)
-    const torrentsByTag = computed(() =>
-      torrents.value.reduce(
-        (acc, torrent) => {
-          if (!torrent.tags.length) {
-            acc[''] = (acc[''] ?? 0) + 1
-            return acc
-          }
-          torrent.tags.forEach(tag => {
-            if (!acc[tag]) {
-              acc[tag] = 0
-            }
-            acc[tag] += 1
-          })
-          return acc
-        },
-        {} as Record<string, number>
-      )
-    )
     whenever(
       () => tagFilter.value.length > 0,
       () => (isTagFilterActive.value = true)
@@ -333,8 +303,6 @@ export const useTorrentStore = defineStore(
       tagFilterType,
       trackerFilterType,
       torrentsByStatus,
-      torrentsByCategory,
-      torrentsByTag,
       torrentsByTracker,
       sortCriterias,
       processedTorrents: filteredAndSortedTorrents,

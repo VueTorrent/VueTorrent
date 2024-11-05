@@ -7,15 +7,13 @@ import { storeToRefs } from 'pinia'
 import { computed, Ref } from 'vue'
 
 const { t, getTorrentStateString } = useI18nUtils()
-const { categories: _categories } = storeToRefs(useCategoryStore())
-const { tags: _tags } = storeToRefs(useTagStore())
+const { categories: _categories, torrentsByCategory } = storeToRefs(useCategoryStore())
+const { tags: _tags, torrentsByTag } = storeToRefs(useTagStore())
 const {
   torrents,
   torrentsByStatus,
   statusFilter,
-  torrentsByCategory,
   categoryFilter,
-  torrentsByTag,
   tagFilter,
   tagFilterType,
   torrentsByTracker,

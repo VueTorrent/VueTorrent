@@ -1061,6 +1061,8 @@
       "categoriesSubheader": "Available Categories:",
       "createNewCategory": "Create new category",
       "createNewTag": "Create new tag",
+      "deleteUnusedCategories": "Delete unused categories",
+      "deleteUnusedTags": "Delete unused tags",
       "noCategories": "No categories yet",
       "noTags": "No tags yet",
       "tagsSubheader": "Available Tags:"

@@ -35,7 +35,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.tagsSubheader') }}</v-list-subheader>
 
       <v-sheet rounded="xl" class="d-flex align-center gap" v-for="tag in tagStore.tags">
-        <div class="pl-4 py-1 wrap-anywhere">{{ tag }}</div>
+        <div class="pl-4 py-1 wrap-anywhere">{{ tag }} ({{ tagStore.torrentsByTag[tag] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">
           <v-btn icon="mdi-pencil" variant="plain" @click="openTagFormDialog(tag)" />
@@ -47,9 +47,14 @@ function openCategoryFormDialog(initialCategory?: Category) {
         <v-card-text>{{ $t('settings.tagsAndCategories.noTags') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click="openTagFormDialog()">
-        {{ $t('settings.tagsAndCategories.createNewTag') }}
-      </v-btn>
+      <div class="d-flex ga-2">
+        <v-btn class="flex-grow-1" color="accent" prepend-icon="mdi-plus" @click="openTagFormDialog()">
+          {{ $t('settings.tagsAndCategories.createNewTag') }}
+        </v-btn>
+        <v-btn class="flex-grow-1" color="error" prepend-icon="mdi-delete" @click="tagStore.deleteUnusedTags()">
+          {{ $t('settings.tagsAndCategories.deleteUnusedTags') }}
+        </v-btn>
+      </div>
     </v-col>
 
     <!-- Categories -->
@@ -57,7 +62,7 @@ function openCategoryFormDialog(initialCategory?: Category) {
       <v-list-subheader class="ml-2">{{ $t('settings.tagsAndCategories.categoriesSubheader') }}</v-list-subheader>
 
       <v-sheet rounded="xl" class="d-flex align-center gap" v-for="category in categoryStore.categories">
-        <div class="pl-4 py-1 wrap-anywhere">{{ category.name }}</div>
+        <div class="pl-4 py-1 wrap-anywhere">{{ category.name }} ({{ categoryStore.torrentsByCategory[category.name] ?? 0 }})</div>
         <v-spacer />
         <div class="d-flex">
           <v-btn icon="mdi-pencil" variant="plain" @click="openCategoryFormDialog(category)" />
@@ -69,9 +74,14 @@ function openCategoryFormDialog(initialCategory?: Category) {
         <v-card-text>{{ $t('settings.tagsAndCategories.noCategories') }}</v-card-text>
       </v-card>
 
-      <v-btn color="accent" block @click="openCategoryFormDialog()">
-        {{ $t('settings.tagsAndCategories.createNewCategory') }}
-      </v-btn>
+      <div class="d-flex ga-2">
+        <v-btn class="flex-grow-1" color="accent" prepend-icon="mdi-plus" @click="openCategoryFormDialog()">
+          {{ $t('settings.tagsAndCategories.createNewCategory') }}
+        </v-btn>
+        <v-btn class="flex-grow-1" color="error" prepend-icon="mdi-delete" @click="categoryStore.deleteUnusedCategories()">
+          {{ $t('settings.tagsAndCategories.deleteUnusedCategories') }}
+        </v-btn>
+      </div>
     </v-col>
   </v-row>
 </template>
