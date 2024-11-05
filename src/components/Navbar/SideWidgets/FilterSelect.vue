@@ -9,7 +9,19 @@ import { computed, Ref } from 'vue'
 const { t, getTorrentStateString } = useI18nUtils()
 const { categories: _categories } = storeToRefs(useCategoryStore())
 const { tags: _tags } = storeToRefs(useTagStore())
-const { torrents, torrentsByStatus, statusFilter, torrentsByCategory, categoryFilter, torrentsByTag, tagFilter, tagFilterType, torrentsByTracker, trackerFilter, trackerFilterType } = storeToRefs(useTorrentStore())
+const {
+  torrents,
+  torrentsByStatus,
+  statusFilter,
+  torrentsByCategory,
+  categoryFilter,
+  torrentsByTag,
+  tagFilter,
+  tagFilterType,
+  torrentsByTracker,
+  trackerFilter,
+  trackerFilterType
+} = storeToRefs(useTorrentStore())
 const { trackers: _trackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
@@ -32,14 +44,16 @@ const tags = computed(() => [
     title: `${t('navbar.side.filters.untagged')} (${torrentsByTag.value[''] ?? 0})`,
     value: null
   },
-  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag }))])
+  ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag }))
+])
 
 const trackers = computed(() => [
   {
     title: `${t('navbar.side.filters.untracked')} (${torrentsByTracker.value[''] ?? 0})`,
     value: null
   },
-  ..._trackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))])
+  ..._trackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))
+])
 
 function toggleFilterType(ref: Ref<FilterType>) {
   switch (ref.value) {
@@ -130,9 +144,9 @@ function selectAllTrackers() {
         variant="solo">
         <template v-slot:prepend-item>
           <v-list-item :title="$t('common.disable')" @click="selectAllStatuses" />
-          <v-list-item :title="$t('navbar.side.filters.state.active', { count: activeTorrentsCount })" @click="selectActive" />
-          <v-list-item :title="$t('navbar.side.filters.state.error', { count: erroredTorrentsCount })" @click="selectError" />
-          <v-list-item :title="$t('navbar.side.filters.state.offline', { count: offlineTorrentsCount })" @click="selectOffline" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.active')} (${activeTorrentsCount})`" @click="selectActive" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.error')} (${erroredTorrentsCount})`" @click="selectError" />
+          <v-list-item :title="`${$t('navbar.side.filters.state.offline')} (${offlineTorrentsCount})`" @click="selectOffline" />
           <v-divider />
         </template>
         <template v-slot:selection="{ item, index }">
