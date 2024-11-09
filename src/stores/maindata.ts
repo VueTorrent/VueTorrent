@@ -3,7 +3,7 @@ import { ServerState } from '@/types/qbit/models'
 import { isFullUpdate } from '@/types/qbit/responses'
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
-import { ref, shallowRef } from 'vue'
+import { ref, shallowRef, watch } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useAppStore } from './app'
 import { useCategoryStore } from './categories'
@@ -24,6 +24,7 @@ export const useMaindataStore = defineStore('maindata', () => {
   const navbarStore = useNavbarStore()
   const tagStore = useTagStore()
   const torrentStore = useTorrentStore()
+  const { processedTorrents } = storeToRefs(torrentStore)
   const trackerStore = useTrackerStore()
   const vueTorrentStore = useVueTorrentStore()
   const { refreshInterval } = storeToRefs(vueTorrentStore)
@@ -81,6 +82,12 @@ export const useMaindataStore = defineStore('maindata', () => {
       }
     }
   }
+
+  // filter out selected torrents outside of filters
+  watch(processedTorrents, torrents => {
+    const filteredHashes = torrents.map(torrent => torrent.hash)
+    dashboardStore.selectedTorrents = dashboardStore.selectedTorrents.filter(hash => filteredHashes.includes(hash))
+  })
 
   async function syncTorrentPeers(hash: string, rid?: number) {
     return await qbit.syncTorrentPeers(hash, rid)
