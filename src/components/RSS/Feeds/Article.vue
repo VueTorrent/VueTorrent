@@ -20,9 +20,12 @@ const rssStore = useRssStore()
   <v-list-item :class="{ 'rss-read': value.isRead }" @click="$emit('click')" @contextmenu="$emit('markAsRead')">
     <div class="d-flex">
       <div>
-        <v-list-item-title class="wrap-anywhere" style="white-space: unset">{{ value.title }}</v-list-item-title>
+        <v-list-item-title class="d-flex align-center ga-3 wrap-anywhere" style="white-space: unset">
+          <v-chip v-if="!value.isRead" color="accent" variant="outlined">{{ $t('rssArticles.feeds.item.new') }}</v-chip>
+          <div>{{ value.title }}</div>
+        </v-list-item-title>
 
-        <v-list-item-subtitle class="d-block">
+        <v-list-item-subtitle class="d-block mt-3">
           <div>{{ value.parsedDate.toLocaleString() }}</div>
           <div>{{ $t('rssArticles.feeds.item.feedName', { name: rssStore.getFeedNames(value.id).join(' | ') }) }}</div>
           <div v-if="value.author">{{ $t('rssArticles.feeds.item.author', { author: value.author }) }}</div>
