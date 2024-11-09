@@ -614,6 +614,7 @@
         "unread": "Show unread articles only"
       },
       "item": {
+        "new": "NEW",
         "author": "Author: {author}",
         "category": "Category: {category}",
         "feedName": "Feed name: {name}"
