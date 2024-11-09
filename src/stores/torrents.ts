@@ -123,7 +123,7 @@ export const useTorrentStore = defineStore(
 
       const matcher = (tracker: string | null) => {
         if (tracker === null) {
-          return torrentTrackers.length === 0
+          return t.tracker === ''
         }
         return torrentTrackers.includes(tracker)
       }
