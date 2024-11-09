@@ -103,6 +103,8 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
+@use "sass:color";
+
 .fab {
   position: fixed;
   right: 24px;
@@ -112,7 +114,7 @@ onUnmounted(() => {
 #rss-articles {
   .rss-read {
     &[class*='v-theme--dark-'] {
-      color: lighten(darkgrey, 5%) !important;
+      color: color.adjust(darkgrey, $lightness: 5%) !important;
     }
 
     &[class*='v-theme--light-'] {
