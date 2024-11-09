@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.17.0](https://github.com/VueTorrent/VueTorrent/compare/v2.16.0...v2.17.0) (2024-11-09)
+
+
+### Features
+
+* Add remove unused tags/categories actions ([#2026](https://github.com/VueTorrent/VueTorrent/issues/2026)) ([f962912](https://github.com/VueTorrent/VueTorrent/commit/f9629125a720c8ca225c1865d8687db4f06bf7f6))
+* **Content:** Handle keyboard inputs ([#2014](https://github.com/VueTorrent/VueTorrent/issues/2014)) ([8253831](https://github.com/VueTorrent/VueTorrent/commit/8253831de3f9a7b2dfe7421f64ffbab8b8ade9ce))
+* **filters:** Add torrent count for each filter values ([#2024](https://github.com/VueTorrent/VueTorrent/issues/2024)) ([a44b15d](https://github.com/VueTorrent/VueTorrent/commit/a44b15ddf1069377dce22545772ce973aca8ad59))
+
+
+### Bug Fixes
+
+* **Dashboard:** Make checkbox click events even with torrent card ([#2011](https://github.com/VueTorrent/VueTorrent/issues/2011)) ([a3aa263](https://github.com/VueTorrent/VueTorrent/commit/a3aa26362d07e7c2635bfc136a5444840a8450ab))
+* **filters:** Remove seeding state from inactive filter ([#2015](https://github.com/VueTorrent/VueTorrent/issues/2015)) ([56d6124](https://github.com/VueTorrent/VueTorrent/commit/56d6124658c39516c143020c22ce2d4037fa0e67))
+* **selection:** Filter out torrents not matching filters ([#2033](https://github.com/VueTorrent/VueTorrent/issues/2033)) ([0b0be6f](https://github.com/VueTorrent/VueTorrent/commit/0b0be6fe05b0fbe668d8adea2dc1c9c006afb1b2))
+* **Settings/Advanced:** Add missing disk IO type ([#2020](https://github.com/VueTorrent/VueTorrent/issues/2020)) ([7c3c9ea](https://github.com/VueTorrent/VueTorrent/commit/7c3c9ea0ec665784d1e75be3b05316892c0c1fb9))
+* **trackers:** Update "untracked" filter matching ([#2032](https://github.com/VueTorrent/VueTorrent/issues/2032)) ([89fe1ff](https://github.com/VueTorrent/VueTorrent/commit/89fe1ff95358b7e0be3de823be2f279dab45e130))
+
+
+### Improvements
+
+* Adding secondary sorts for peers and seeds properties ([#2021](https://github.com/VueTorrent/VueTorrent/issues/2021)) ([4827c28](https://github.com/VueTorrent/VueTorrent/commit/4827c28de0f848be0448f45c0339cb09d0ea47ad))
+* **filters:** Add "stalled" states to offline preset ([#2013](https://github.com/VueTorrent/VueTorrent/issues/2013)) ([d59f92a](https://github.com/VueTorrent/VueTorrent/commit/d59f92a6c77198855d79b4affdce2b4ed2987f71))
+* **RSS:** Add "new" chip for increased contrast ([#2031](https://github.com/VueTorrent/VueTorrent/issues/2031)) ([71a7c1f](https://github.com/VueTorrent/VueTorrent/commit/71a7c1f9e931f25e42ce469e87a2b1721b90bf3d))
+
 ## [2.16.0](https://github.com/VueTorrent/VueTorrent/compare/v2.15.0...v2.16.0) (2024-10-31)
 
 ### Features
