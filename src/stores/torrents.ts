@@ -1,5 +1,5 @@
 import { useSearchQuery, useTorrentBuilder } from '@/composables'
-import { comparatorMap, FilterType, TorrentState } from '@/constants/vuetorrent'
+import { comparatorMap, FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import qbit from '@/services/qbit'
 import { RawQbitTorrent } from '@/types/qbit/models'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
@@ -72,16 +72,21 @@ export const useTorrentStore = defineStore(
     )
 
     const isTrackerFilterActive = shallowRef(true)
-    const trackerFilter = ref<(string | null)[]>([])
+    const trackerFilter = ref<(string | TrackerSpecialFilter)[]>([])
     const trackerFilterType = ref(FilterType.DISJUNCTIVE)
     const torrentsByTracker = computed(() =>
       torrents.value.reduce(
         (acc, torrent) => {
-          const trackers = trackerStore.torrentTrackers.get(torrent.hash)
-          if (!trackers?.length) {
-            acc[''] = (acc[''] ?? 0) + 1
+          const trackers = trackerStore.torrentTrackers.get(torrent.hash) ?? []
+          if (trackers.length === 0) {
+            acc[TrackerSpecialFilter.UNTRACKED] = (acc[TrackerSpecialFilter.UNTRACKED] ?? 0) + 1
             return acc
           }
+          else if (torrent.tracker === '') {
+            acc[TrackerSpecialFilter.NOT_WORKING] = (acc[TrackerSpecialFilter.NOT_WORKING] ?? 0) + 1
+            return acc
+          }
+
           trackers.forEach(tracker => {
             if (!acc[tracker]) {
               acc[tracker] = 0
@@ -90,7 +95,7 @@ export const useTorrentStore = defineStore(
           })
           return acc
         },
-        {} as Record<string, number>
+        {} as Record<string | TrackerSpecialFilter, number>
       )
     )
     whenever(
@@ -121,11 +126,15 @@ export const useTorrentStore = defineStore(
     const matchTracker: matchFn = t => {
       const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
 
-      const matcher = (tracker: string | null) => {
-        if (tracker === null) {
-          return t.tracker === ''
+      const matcher = (tracker: string | TrackerSpecialFilter) => {
+        switch (tracker) {
+          case TrackerSpecialFilter.UNTRACKED:
+            return torrentTrackers.length === 0
+          case TrackerSpecialFilter.NOT_WORKING:
+            return torrentTrackers.length > 0 && t.tracker === ''
+          default:
+            return torrentTrackers.includes(tracker)
         }
-        return torrentTrackers.includes(tracker)
       }
 
       switch (trackerFilterType.value) {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18nUtils } from '@/composables'
+import { TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { extractHostname, getTorrentStateColor } from '@/helpers'
 import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
@@ -170,7 +171,7 @@ function resetTrackerFilter() {
               {{ isCategoryFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>
           </template>
-          {{ t('navbar.top.active_filters.category', { value: categoryFilter[0] === '' ? t('navbar.side.filters.uncategorized') : categoryFilter[0] }) }}
+          {{ t('navbar.top.active_filters.category', { value: categoryFilter[0] === '' ? t('navbar.side.filters.category.empty') : categoryFilter[0] }) }}
         </v-chip>
         <v-chip v-else :color="categoryFilterColor" variant="elevated" closable @click:close="resetCategoryFilter()">
           <template v-slot:prepend>
@@ -187,7 +188,7 @@ function resetTrackerFilter() {
           <template v-slot:prepend>
             <v-icon class="mr-1" @click="toggleTagFilter()">{{ isTagFilterActive ? 'mdi-filter' : 'mdi-filter-off' }} </v-icon>
           </template>
-          {{ t('navbar.top.active_filters.tag', { value: tagFilter[0] === null ? t('navbar.side.filters.untagged') : tagFilter[0] }) }}
+          {{ t('navbar.top.active_filters.tag', { value: tagFilter[0] === null ? t('navbar.side.filters.tag.empty') : tagFilter[0] }) }}
         </v-chip>
         <v-chip v-else :color="tagFilterColor" variant="elevated" closable @click:close="resetTagFilter()">
           <template v-slot:prepend>
@@ -204,7 +205,9 @@ function resetTrackerFilter() {
               {{ isTrackerFilterActive ? 'mdi-filter' : 'mdi-filter-off' }}
             </v-icon>
           </template>
-          {{ t('navbar.top.active_filters.tracker', { value: trackerFilter[0] === '' ? t('navbar.side.filters.untracked') : extractHostname(trackerFilter[0] ?? '') }) }}
+          <span v-if="trackerFilter[0] === TrackerSpecialFilter.UNTRACKED">{{ t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.empty') }) }}</span>
+          <span v-else-if="trackerFilter[0] === TrackerSpecialFilter.NOT_WORKING">{{ t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.not_working') }) }}</span>
+          <span v-else>{{ t('navbar.top.active_filters.tracker', { value: extractHostname(trackerFilter[0]) }) }}</span>
         </v-chip>
         <v-chip v-else :color="trackerFilterColor" variant="elevated" closable @click:close="resetTrackerFilter()">
           <template v-slot:prepend>
