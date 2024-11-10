@@ -103,7 +103,7 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-@use "sass:color";
+@use 'sass:color';
 
 .fab {
   position: fixed;

@@ -614,10 +614,10 @@
         "unread": "Show unread articles only"
       },
       "item": {
-        "new": "NEW",
         "author": "Author: {author}",
         "category": "Category: {category}",
-        "feedName": "Feed name: {name}"
+        "feedName": "Feed name: {name}",
+        "new": "NEW"
       },
       "markAllAsRead": "Mark all as read",
       "markAsRead": "Mark as read",
