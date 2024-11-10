@@ -54,7 +54,8 @@
     "diskIoType": {
       "default": "По умолчанию",
       "memoryMappedFiles": "Файлы, распределённые в памяти",
-      "posixCompliant": "POSIX-совместимый"
+      "posixCompliant": "POSIX-совместимый",
+      "simplePreadPwrite": "Базовое чтение/запись со смещением"
     },
     "encryption": {
       "forceOff": "Отключить шифрование",
@@ -1059,6 +1060,8 @@
       "categoriesSubheader": "Доступные категории:",
       "createNewCategory": "Создать новую категорию",
       "createNewTag": "Создать новый тег",
+      "deleteUnusedCategories": "Удалить неиспользуемые категории",
+      "deleteUnusedTags": "Удалить неиспользуемые теги",
       "noCategories": "Категорий пока нет",
       "noTags": "Тегов пока нет",
       "tagsSubheader": "Доступные теги:"
