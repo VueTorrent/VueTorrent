@@ -33,7 +33,7 @@ export const useTorrentStore = defineStore(
     const isTextFilterActive = shallowRef(true)
     const textFilter = ref('')
     whenever(
-      () => textFilter.value.length > 0,
+      () => textFilter.value.length === 0,
       () => (isTextFilterActive.value = true)
     )
 
@@ -52,14 +52,14 @@ export const useTorrentStore = defineStore(
       )
     )
     whenever(
-      () => statusFilter.value.length > 0,
+      () => statusFilter.value.length === 0,
       () => (isStatusFilterActive.value = true)
     )
 
     const isCategoryFilterActive = shallowRef(true)
     const categoryFilter = ref<string[]>([])
     whenever(
-      () => categoryFilter.value.length > 0,
+      () => categoryFilter.value.length === 0,
       () => (isCategoryFilterActive.value = true)
     )
 
@@ -67,7 +67,7 @@ export const useTorrentStore = defineStore(
     const tagFilter = ref<(string | null)[]>([])
     const tagFilterType = ref(FilterType.DISJUNCTIVE)
     whenever(
-      () => tagFilter.value.length > 0,
+      () => tagFilter.value.length === 0,
       () => (isTagFilterActive.value = true)
     )
 
@@ -94,7 +94,7 @@ export const useTorrentStore = defineStore(
       )
     )
     whenever(
-      () => trackerFilter.value.length > 0,
+      () => trackerFilter.value.length === 0,
       () => (isTrackerFilterActive.value = true)
     )
 
