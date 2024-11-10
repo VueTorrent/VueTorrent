@@ -12,6 +12,7 @@ import { PaginationPosition } from './PaginationPosition'
 import { ThemeMode } from './ThemeMode'
 import { TitleOptions } from './TitleOptions'
 import { TorrentState, emojiStateMap, stateQbitToVt, stateVtToQbit } from './TorrentState'
+import { TrackerSpecialFilter } from './TrackerSpecialFilter'
 
 const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 const defaultDurationFormat = 'Y[Y] M[M] D[d] H[h] m[m] s[s]'
@@ -38,6 +39,7 @@ export {
   emojiStateMap,
   stateQbitToVt,
   stateVtToQbit,
+  TrackerSpecialFilter,
   defaultDateFormat,
   defaultDurationFormat
 }

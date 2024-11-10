@@ -248,9 +248,11 @@ onBeforeRouteUpdate(() => !addTrackersDialog.value && !editTrackerDialog.isVisib
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 [class*='v-theme--dark-'] {
   .tracker-disabled {
-    color: darken(lightgrey, 5%);
+    color: color.adjust(lightgrey, $lightness: -5%);
   }
 
   .tracker-not_yet_contacted {

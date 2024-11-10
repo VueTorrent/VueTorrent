@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18nUtils } from '@/composables'
-import { FilterType, TorrentState } from '@/constants/vuetorrent'
+import { FilterType, TorrentState, TrackerSpecialFilter } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
 import { useCategoryStore, useTagStore, useTorrentStore, useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
@@ -21,7 +21,7 @@ const statuses = computed(() =>
 
 const categories = computed(() => [
   {
-    title: `${t('navbar.side.filters.uncategorized')} (${torrentsByCategory.value[''] ?? 0})`,
+    title: `${t('navbar.side.filters.category.empty')} (${torrentsByCategory.value[''] ?? 0})`,
     value: ''
   },
   ..._categories.value.map(c => ({ title: `${c.name} (${torrentsByCategory.value[c.name] ?? 0})`, value: c.name }))
@@ -29,7 +29,7 @@ const categories = computed(() => [
 
 const tags = computed(() => [
   {
-    title: `${t('navbar.side.filters.untagged')} (${torrentsByTag.value[''] ?? 0})`,
+    title: `${t('navbar.side.filters.tag.empty')} (${torrentsByTag.value[''] ?? 0})`,
     value: null
   },
   ..._tags.value.map(tag => ({ title: `${tag} (${torrentsByTag.value[tag] ?? 0})`, value: tag }))
@@ -37,8 +37,12 @@ const tags = computed(() => [
 
 const trackers = computed(() => [
   {
-    title: `${t('navbar.side.filters.untracked')} (${torrentsByTracker.value[''] ?? 0})`,
-    value: null
+    title: `${t('navbar.side.filters.tracker.empty')} (${torrentsByTracker.value[TrackerSpecialFilter.UNTRACKED] ?? 0})`,
+    value: TrackerSpecialFilter.UNTRACKED
+  },
+  {
+    title: `${t('navbar.side.filters.tracker.not_working')} (${torrentsByTracker.value[TrackerSpecialFilter.NOT_WORKING] ?? 0})`,
+    value: TrackerSpecialFilter.NOT_WORKING
   },
   ..._trackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))
 ])
@@ -146,7 +150,7 @@ function selectAllTrackers() {
 
     <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
-        {{ t('navbar.side.filters.category') }}
+        {{ t('navbar.side.filters.category.title') }}
       </v-list-item-title>
       <v-select
         v-model="categoryFilter"
@@ -175,7 +179,7 @@ function selectAllTrackers() {
 
     <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
-        {{ t('navbar.side.filters.tag') }}
+        {{ t('navbar.side.filters.tag.title') }}
       </v-list-item-title>
       <v-select
         v-model="tagFilter"
@@ -211,7 +215,7 @@ function selectAllTrackers() {
 
     <v-list-item class="px-0 pb-3">
       <v-list-item-title class="px-0 text-uppercase ml-1 font-weight-light text-subtitle-2">
-        {{ t('navbar.side.filters.tracker') }}
+        {{ t('navbar.side.filters.tracker.title') }}
       </v-list-item-title>
       <v-select
         v-model="trackerFilter"

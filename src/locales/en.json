@@ -555,7 +555,10 @@
       },
       "filters": {
         "activeFilter": "{n} filters active",
-        "category": "Category Filter",
+        "category": {
+          "empty": "(Uncategorized)",
+          "title": "Category Filter"
+        },
         "disabled": "(Disabled)",
         "state": {
           "active": "Active",
@@ -563,11 +566,15 @@
           "offline": "Offline",
           "title": "Torrent State Filter"
         },
-        "tag": "Tag Filter",
-        "tracker": "Tracker Filter",
-        "uncategorized": "(Uncategorized)",
-        "untagged": "(Untagged)",
-        "untracked": "(Untracked)"
+        "tag": {
+          "empty": "(Untagged)",
+          "title": "Tag Filter"
+        },
+        "tracker": {
+          "empty": "(Untracked)",
+          "not_working": "(Not working)",
+          "title": "Tracker Filter"
+        }
       },
       "speed_graph": {
         "download_label": "Download",
@@ -592,10 +599,10 @@
       "active_filters": {
         "category": "Category filter: {value}",
         "menu_label": "Active filter: {n} | Active filters: {n}",
-        "multiple_category": "Category filter: {n} categories",
-        "multiple_state": "State filter: {n} states",
-        "multiple_tag": "Tag filter: {n} tags",
-        "multiple_tracker": "Tracker filter: {n} trackers",
+        "multiple_category": "Category filter: {n} active",
+        "multiple_state": "State filter: {n} active",
+        "multiple_tag": "Tag filter: {n} active",
+        "multiple_tracker": "Tracker filter: {n} active",
         "state": "State filter: {value}",
         "tag": "Tag filter: {value}",
         "text": "Text filter: {value}",
