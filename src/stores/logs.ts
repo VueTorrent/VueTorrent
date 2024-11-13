@@ -18,14 +18,18 @@ export const useLogStore = defineStore(
     const lastFetchedIp = ref<string>()
     const geoDetails = ref<string | null>(null)
     const ispDetails = ref<string | null>(null)
-
+    const reverseSort = ref<boolean>(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
     const logMessageFilter = ref('')
 
     const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
     const { results: filteredLogs } = useSearchQuery(filteredLogsByType, logMessageFilter, log => log.message)
-    const { paginatedResults, currentPage, pageCount } = useArrayPagination(filteredLogs, 30)
-
+    const { paginatedResults, currentPage, pageCount } = useArrayPagination(
+      computed(() => {
+        return [...filteredLogs.value.sort((a,b) => reverseSort.value ? (b.id - a.id) : (a.id - b.id))];
+      }),
+      30
+    );
     const logTask = useTask(function* (_: AbortSignal, lastId?: number) {
       yield fetchLogs(lastId)
     }).drop()
@@ -91,6 +95,7 @@ export const useLogStore = defineStore(
       pageCount,
       updateLogs: logTask.perform,
       cleanAndFetchLogs,
+      reverseSort,
       $reset: () => {
         logTask.clear()
         logs.value = []
@@ -104,7 +109,7 @@ export const useLogStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: localStorage, includePaths: ['logTypeFilter', 'logMessageFilter'] }]
+      storageItems: [{ storage: localStorage, includePaths: ['logTypeFilter', 'logMessageFilter', 'reverseSort'] }]
     }
   }
 )
