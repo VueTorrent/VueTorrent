@@ -203,21 +203,21 @@ onUnmounted(async () => {
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.category') }}:</div>
-              <ColoredChip default-color="category" :disabled="!torrent.category.length" :disabled-value="$t('navbar.side.filters.uncategorized')" :value="torrent.category" />
+              <ColoredChip default-color="category" :disabled="!torrent.category.length" :disabled-value="$t('navbar.side.filters.category.empty')" :value="torrent.category" />
             </v-col>
           </v-row>
 
           <v-row>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tracker') }}:</div>
-              <ColoredChip :disabled="!torrent.trackerDomain.length" default-color="tracker" :disabled-value="$t('navbar.side.filters.untracked')" :value="torrent.trackerDomain" />
+              <ColoredChip :disabled="!torrent.trackerDomain.length" default-color="tracker" :disabled-value="$t('navbar.side.filters.tracker.empty')" :value="torrent.trackerDomain" />
             </v-col>
             <v-col cols="6">
               <div>{{ $t('torrent.properties.tags') }}:</div>
               <div v-if="torrent.tags.length" class="d-flex flex-wrap flex-gap-row-small flex-gap-column">
                 <ColoredChip v-for="tag in torrent.tags" default-color="tag" :value="tag" />
               </div>
-              <ColoredChip v-else :disabled="true" default-color="tag" :value="$t('navbar.side.filters.untagged')" />
+              <ColoredChip v-else :disabled="true" default-color="tag" :value="$t('navbar.side.filters.tag.empty')" />
             </v-col>
           </v-row>
 
