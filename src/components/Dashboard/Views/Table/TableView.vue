@@ -81,14 +81,14 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
             variant="text"
             @click.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
-        <td>{{ torrent.name }}</td>
+        <td class="torrent-name text-no-wrap">{{ torrent.name }}</td>
         <TableTorrent :torrent="torrent" />
       </tr>
     </tbody>
   </v-table>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss">
 @use 'vuetify/settings';
 
 #torrentList {
@@ -110,6 +110,12 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
       height: 100%;
       pointer-events: none;
     }
+  }
+
+  .torrent-name {
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 </style>
