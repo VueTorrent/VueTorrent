@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import SpeedCard from '@/components/Core/SpeedCard.vue'
-import SpeedCardClickable from '@/components/Core/SpeedCardClickable.vue'
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { useMaindataStore, useTorrentStore, useVueTorrentStore } from '@/stores'
@@ -27,13 +26,8 @@ function selectUploading() {
   statusFilter.value = uploadingStates
 }
 
-const isDownloadingFilterActive = computed(
-  () => downloadingStates.every(state => statusFilter.value.includes(state)) && downloadingStates.length === statusFilter.value.length
-)
-
-const isUploadingFilterActive = computed(
-  () => statusFilter.value.every(state => uploadingStates.includes(state)) && uploadingStates.length === statusFilter.value.length
-)
+const isDownloadingFilterActive = computed(() => downloadingStates.every(state => statusFilter.value.includes(state)) && downloadingStates.length === statusFilter.value.length)
+const isUploadingFilterActive = computed(() => uploadingStates.every(state => statusFilter.value.includes(state)) && uploadingStates.length === statusFilter.value.length)
 </script>
 
 <template>
@@ -45,20 +39,20 @@ const isUploadingFilterActive = computed(
       <v-sheet class="mx-2 inherit-bg">
         <v-row class="pt-0">
           <v-col cols="6" class="px-1 pt-1">
-            <SpeedCardClickable
+            <SpeedCard
               icon="mdi-arrow-down"
               color="download"
               :value="serverState?.dl_info_speed ?? 0"
               :active="isDownloadingFilterActive"
-              @currentSpeedButtonClicked="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
+              @click="isDownloadingFilterActive ? removeFilter() : selectDownloading()" />
           </v-col>
           <v-col cols="6" class="px-1 pt-1">
-            <SpeedCardClickable
+            <SpeedCard
               icon="mdi-arrow-up"
               color="upload"
               :value="serverState?.up_info_speed ?? 0"
               :active="isUploadingFilterActive"
-              @currentSpeedButtonClicked="isUploadingFilterActive ? removeFilter() : selectUploading()" />
+              @click="isUploadingFilterActive ? removeFilter() : selectUploading()" />
           </v-col>
 
           <template v-if="displayGraphLimits && (serverState?.dl_rate_limit || serverState?.up_rate_limit)">
@@ -77,5 +71,3 @@ const isUploadingFilterActive = computed(
     </v-card-text>
   </v-card>
 </template>
-
-<style scoped></style>

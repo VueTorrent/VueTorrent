@@ -18,6 +18,8 @@ export default createVuetify({
     defaultTheme: DarkRedesigned.id,
     variations: {
       colors: [
+        'primary',
+        'secondary',
         'torrent-allocating',
         'torrent-checking_disk',
         'torrent-checking_resume_data',
