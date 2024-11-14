@@ -26,7 +26,7 @@ export const useLogStore = defineStore(
     const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
     const { results: filteredLogs } = useSearchQuery(filteredLogsByType, logMessageFilter, log => log.message)
     const { paginatedResults, currentPage, pageCount } = useArrayPagination(
-      () => filteredLogs.value.toSorted((a, b) => comparators.numeric.compare(a.id, b.id, reverseSort.value)),
+      () => filteredLogs.value.toSorted((a, b) => comparators.numeric.compare(a.id, b.id, !reverseSort.value)),
       30
     )
     const logTask = useTask(function* (_: AbortSignal, lastId?: number) {
