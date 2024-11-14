@@ -16,7 +16,7 @@ const { t } = useI18nUtils()
 const { current } = useTheme()
 
 const logStore = useLogStore()
-const { filteredLogs, logTypeFilter, logMessageFilter, paginatedResults, currentPage, pageCount } = storeToRefs(logStore)
+const { filteredLogs, logTypeFilter, logMessageFilter, paginatedResults, currentPage, pageCount, reverseSort } = storeToRefs(logStore)
 const vueTorrentStore = useVueTorrentStore()
 
 const colors = computed(() => ({
@@ -90,6 +90,7 @@ onUnmounted(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
+          <v-btn :icon="reverseSort ? 'mdi-sort-descending' : 'mdi-sort-ascending'" variant="plain" @click="reverseSort = !reverseSort" />
           <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>
