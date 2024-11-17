@@ -78,7 +78,7 @@ export default class MockProvider implements IProvider {
     const num_incomplete = faker.number.int({ min: 0, max: 250 })
     const total_size = faker.number.int({ min: 1_000_000, max: 1_000_000_000_000 }) // [1 Mo; 1 To]
     const completed = faker.number.int({ min: 0, max: total_size })
-    const tracker = Math.random() > .5 ? faker.helpers.arrayElement(Object.keys(this.trackers)) : ''
+    const tracker = Math.random() > 0.5 ? faker.helpers.arrayElement(Object.keys(this.trackers)) : ''
 
     return {
       added_on: added_on.getTime() / 1000,

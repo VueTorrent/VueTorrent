@@ -553,7 +553,10 @@
       },
       "filters": {
         "activeFilter": "已激活 {n} 个过滤器",
-        "category": "分类过滤器",
+        "category": {
+          "empty": "(未分类)",
+          "title": "分类过滤器"
+        },
         "disabled": "(已禁用)",
         "state": {
           "active": "活跃",
@@ -561,11 +564,14 @@
           "offline": "离线",
           "title": "种子状态过滤器"
         },
-        "tag": "标签过滤器",
-        "tracker": "Tracker 过滤器",
-        "uncategorized": "(未分类)",
-        "untagged": "(无标签)",
-        "untracked": "(未跟踪)"
+        "tag": {
+          "empty": "(无标签)",
+          "title": "标签过滤器"
+        },
+        "tracker": {
+          "empty": "(未跟踪)",
+          "title": "Tracker 过滤器"
+        }
       },
       "speed_graph": {
         "download_label": "下载",

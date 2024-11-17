@@ -206,7 +206,9 @@ function resetTrackerFilter() {
             </v-icon>
           </template>
           <span v-if="trackerFilter[0] === TrackerSpecialFilter.UNTRACKED">{{ t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.empty') }) }}</span>
-          <span v-else-if="trackerFilter[0] === TrackerSpecialFilter.NOT_WORKING">{{ t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.not_working') }) }}</span>
+          <span v-else-if="trackerFilter[0] === TrackerSpecialFilter.NOT_WORKING">{{
+            t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.not_working') })
+          }}</span>
           <span v-else>{{ t('navbar.top.active_filters.tracker', { value: extractHostname(trackerFilter[0]) }) }}</span>
         </v-chip>
         <v-chip v-else :color="trackerFilterColor" variant="elevated" closable @click:close="resetTrackerFilter()">

@@ -501,18 +501,24 @@
       },
       "filters": {
         "activeFilter": "{n} filtre etkin",
-        "category": "Kategori Filtresi",
+        "category": {
+          "empty": "(Kategorize Edilmemiş)",
+          "title": "Kategori Filtresi"
+        },
         "disabled": "(Devre Dışı)",
         "state": {
           "active": "Aktif",
           "error": "Hata",
           "title": "Torrent Durum Filtresi"
         },
-        "tag": "Etiket Filtresi",
-        "tracker": "İzleyici Filtresi",
-        "uncategorized": "(Kategorize Edilmemiş)",
-        "untagged": "(Etiketsiz)",
-        "untracked": "(İzlenmeyen)"
+        "tag": {
+          "empty": "(Etiketsiz)",
+          "title": "Etiket Filtresi"
+        },
+        "tracker": {
+          "empty": "(İzlenmeyen)",
+          "title": "İzleyici Filtresi"
+        }
       },
       "speed_graph": {
         "download_label": "İndirme",

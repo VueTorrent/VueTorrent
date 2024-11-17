@@ -466,18 +466,24 @@
       },
       "filters": {
         "activeFilter": "{n} filtros activos",
-        "category": "Filtro de Categoría",
+        "category": {
+          "empty": "(Sin categoría)",
+          "title": "Filtro de Categoría"
+        },
         "disabled": "(Desactivado)",
         "state": {
           "active": "Activo",
           "error": "Error",
           "title": "Filtro de estado de torrentes"
         },
-        "tag": "Filtro de etiquetas",
-        "tracker": "Filtro de rastreadores",
-        "uncategorized": "(Sin categoría)",
-        "untagged": "(Sin etiqueta)",
-        "untracked": "(No rastreado)"
+        "tag": {
+          "empty": "(Sin etiqueta)",
+          "title": "Filtro de etiquetas"
+        },
+        "tracker": {
+          "empty": "(No rastreado)",
+          "title": "Filtro de rastreadores"
+        }
       },
       "speed_graph": {
         "download_label": "Descargar",

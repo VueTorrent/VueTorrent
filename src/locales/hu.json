@@ -466,18 +466,24 @@
       },
       "filters": {
         "activeFilter": "{n} aktív szűrő",
-        "category": "Kategória szűrő",
+        "category": {
+          "empty": "(Kategorizálatlan)",
+          "title": "Kategória szűrő"
+        },
         "disabled": "(Letiltva)",
         "state": {
           "active": "Aktív",
           "error": "Hiba",
           "title": "Torrent állapot szűrő"
         },
-        "tag": "Címke szűrő",
-        "tracker": "Követő szűrő",
-        "uncategorized": "(Kategorizálatlan)",
-        "untagged": "(Címkézetlen)",
-        "untracked": "(Követés nélküli)"
+        "tag": {
+          "empty": "(Címkézetlen)",
+          "title": "Címke szűrő"
+        },
+        "tracker": {
+          "empty": "(Követés nélküli)",
+          "title": "Követő szűrő"
+        }
       },
       "speed_graph": {
         "download_label": "Letöltés",

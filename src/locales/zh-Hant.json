@@ -553,7 +553,10 @@
       },
       "filters": {
         "activeFilter": "{n} 個過濾器啟用中",
-        "category": "分類過濾器",
+        "category": {
+          "empty": "(未分類)",
+          "title": "分類過濾器"
+        },
         "disabled": "(已停用)",
         "state": {
           "active": "活躍",
@@ -561,11 +564,14 @@
           "offline": "離線",
           "title": "種子狀態過濾器"
         },
-        "tag": "標籤過濾器",
-        "tracker": "追蹤者過濾器",
-        "uncategorized": "(未分類)",
-        "untagged": "(未標籤)",
-        "untracked": "(未追蹤)"
+        "tag": {
+          "empty": "(未標籤)",
+          "title": "標籤過濾器"
+        },
+        "tracker": {
+          "empty": "(未追蹤)",
+          "title": "追蹤者過濾器"
+        }
       },
       "speed_graph": {
         "download_label": "下載",

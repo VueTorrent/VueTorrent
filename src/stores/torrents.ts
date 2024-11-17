@@ -81,8 +81,7 @@ export const useTorrentStore = defineStore(
           if (trackers.length === 0) {
             acc[TrackerSpecialFilter.UNTRACKED] = (acc[TrackerSpecialFilter.UNTRACKED] ?? 0) + 1
             return acc
-          }
-          else if (torrent.tracker === '') {
+          } else if (torrent.tracker === '') {
             acc[TrackerSpecialFilter.NOT_WORKING] = (acc[TrackerSpecialFilter.NOT_WORKING] ?? 0) + 1
             return acc
           }
