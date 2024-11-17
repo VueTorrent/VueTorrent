@@ -1,8 +1,6 @@
 import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
-import { useDialogStore } from '@/stores/dialog'
-import { useVueTorrentStore } from '@/stores/vuetorrent'
 import { TorrentFile } from '@/types/qbit/models'
 import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
@@ -10,6 +8,8 @@ import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
 import { useTask } from 'vue-concurrency'
 import { useRoute } from 'vue-router'
+import { useDialogStore } from './dialog'
+import { useVueTorrentStore } from './vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()

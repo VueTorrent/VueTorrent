@@ -11,22 +11,22 @@ import { useAppStore } from './app'
 import { useTorrentDetailStore } from './torrentDetail'
 import { useTrackerStore } from './trackers'
 
-const torrentStateNotAnnounced = [
-  TorrentState.UNKNOWN,
-  TorrentState.ERROR,
-  TorrentState.MISSING_FILES,
-  TorrentState.DL_STOPPED,
-  TorrentState.UL_STOPPED,
-  TorrentState.UL_QUEUED,
-  TorrentState.DL_QUEUED,
-  TorrentState.CHECKING_DISK,
-  TorrentState.CHECKING_RESUME_DATA,
-  TorrentState.MOVING
-]
-
 export const useTorrentStore = defineStore(
   'torrents',
   () => {
+    const torrentStateNotAnnounced = [
+      TorrentState.UNKNOWN,
+      TorrentState.ERROR,
+      TorrentState.MISSING_FILES,
+      TorrentState.DL_STOPPED,
+      TorrentState.UL_STOPPED,
+      TorrentState.UL_QUEUED,
+      TorrentState.DL_QUEUED,
+      TorrentState.CHECKING_DISK,
+      TorrentState.CHECKING_RESUME_DATA,
+      TorrentState.MOVING
+    ]
+
     const appStore = useAppStore()
     const { buildFromQbit } = useTorrentBuilder()
     const trackerStore = useTrackerStore()
@@ -143,7 +143,7 @@ export const useTorrentStore = defineStore(
           case TrackerSpecialFilter.UNTRACKED:
             return torrentTrackers.length === 0
           case TrackerSpecialFilter.NOT_WORKING:
-            return torrentTrackers.length > 0 && t.tracker === ''
+            return torrentTrackers.length > 0 && t.tracker === '' && !torrentStateNotAnnounced.includes(t.state)
           default:
             return torrentTrackers.includes(tracker)
         }
