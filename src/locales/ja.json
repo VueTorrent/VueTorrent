@@ -506,18 +506,24 @@
       },
       "filters": {
         "activeFilter": "{n}個のフィルターがアクティブです",
-        "category": "カテゴリーフィルター",
+        "category": {
+          "empty": "(未分類)",
+          "title": "カテゴリーフィルター"
+        },
         "disabled": "(無効)",
         "state": {
           "active": "アクティブ",
           "error": "エラー",
           "title": "Torrent状態フィルター"
         },
-        "tag": "タグフィルター",
-        "tracker": "トラッカーフィルター",
-        "uncategorized": "(未分類)",
-        "untagged": "(タグなし)",
-        "untracked": "(未追跡)"
+        "tag": {
+          "empty": "(タグなし)",
+          "title": "タグフィルター"
+        },
+        "tracker": {
+          "empty": "(未追跡)",
+          "title": "トラッカーフィルター"
+        }
       },
       "speed_graph": {
         "download_label": "DL",

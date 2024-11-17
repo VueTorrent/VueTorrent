@@ -515,7 +515,10 @@
       },
       "filters": {
         "activeFilter": "{n} filtres actifs",
-        "category": "Filtrer par catégorie",
+        "category": {
+          "empty": "(Non catégorisé)",
+          "title": "Filtrer par catégorie"
+        },
         "disabled": "(Désactivé)",
         "state": {
           "active": "Activer",
@@ -523,11 +526,14 @@
           "offline": "Hors ligne",
           "title": "Filtrer par statut du torrent"
         },
-        "tag": "Filtrer par tags",
-        "tracker": "Filtrer par tracker",
-        "uncategorized": "(Non catégorisé)",
-        "untagged": "(Aucune étiquette)",
-        "untracked": "(Non-tracké)"
+        "tag": {
+          "empty": "(Aucune étiquette)",
+          "title": "Filtrer par tags"
+        },
+        "tracker": {
+          "empty": "(Non-tracké)",
+          "title": "Filtrer par tracker"
+        }
       },
       "speed_graph": {
         "download_label": "Téléchargement",

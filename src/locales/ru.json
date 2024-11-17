@@ -554,7 +554,10 @@
       },
       "filters": {
         "activeFilter": "{n} фильтров активны",
-        "category": "Фильтр категорий",
+        "category": {
+          "empty": "(Без категории)",
+          "title": "Фильтр категорий"
+        },
         "disabled": "(Отключён)",
         "state": {
           "active": "Активно",
@@ -562,11 +565,15 @@
           "offline": "Не в сети",
           "title": "Фильтр состояния торрента"
         },
-        "tag": "Фильтр тегов",
-        "tracker": "Фильтр трекеров",
-        "uncategorized": "(Без категории)",
-        "untagged": "(Без тегов)",
-        "untracked": "(без трекера)"
+        "tag": {
+          "empty": "(Без тегов)",
+          "title": "Фильтр тегов"
+        },
+        "tracker": {
+          "empty": "(без трекера)",
+          "not_working": "(не работает)",
+          "title": "Фильтр трекеров"
+        }
       },
       "speed_graph": {
         "download_label": "Загрузка",
@@ -591,10 +598,10 @@
       "active_filters": {
         "category": "Фильтр категорий: {value}",
         "menu_label": "Активный фильтр: {n} | Активные фильтры: {n}",
-        "multiple_category": "Фильтр категорий: {n} шт.",
-        "multiple_state": "Фильтр состояния: {n} шт.",
-        "multiple_tag": "Фильтр тегов: {n} шт.",
-        "multiple_tracker": "Фильтр трекеров: {n} шт.",
+        "multiple_category": "Фильтр категорий: {n} активно",
+        "multiple_state": "Фильтр состояния: {n} активно",
+        "multiple_tag": "Фильтр тегов: {n} активно",
+        "multiple_tracker": "Фильтр трекеров: {n} активно",
         "state": "Фильтр состояния: {value}",
         "tag": "Фильтр тегов: {value}",
         "text": "Текстовый фильтр: {value}",
@@ -615,7 +622,8 @@
       "item": {
         "author": "Автор: {author}",
         "category": "Категория: {category}",
-        "feedName": "Имя ленты: {name}"
+        "feedName": "Имя ленты: {name}",
+        "new": "Новый"
       },
       "markAllAsRead": "Отметить всё как прочитанное",
       "markAsRead": "Отметить прочитанным",

@@ -444,18 +444,24 @@
       },
       "filters": {
         "activeFilter": "{n} 필터가 활성화되었습니다.",
-        "category": "카테고리 필터",
+        "category": {
+          "empty": "(분류되지 않음)",
+          "title": "카테고리 필터"
+        },
         "disabled": "(비활성화)",
         "state": {
           "active": "활성",
           "error": "오류",
           "title": "토렌트 상태 필터"
         },
-        "tag": "태그 필터",
-        "tracker": "트래커 필터",
-        "uncategorized": "(분류되지 않음)",
-        "untagged": "(태그 없음)",
-        "untracked": "(추적되지 않음)"
+        "tag": {
+          "empty": "(태그 없음)",
+          "title": "태그 필터"
+        },
+        "tracker": {
+          "empty": "(추적되지 않음)",
+          "title": "트래커 필터"
+        }
       },
       "speed_graph": {
         "download_label": "다운로드",
