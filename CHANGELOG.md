@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.18.0](https://github.com/VueTorrent/VueTorrent/compare/v2.17.0...v2.18.0) (2024-11-17)
+
+
+### Features
+
+* **Logs:** Add sort support ([#2044](https://github.com/VueTorrent/VueTorrent/issues/2044)) ([781c802](https://github.com/VueTorrent/VueTorrent/commit/781c80267e62e513f638f1c25a20363573877b76))
+* **Navbar:** Make speed cards clickable to select dl & ul filters ([#2043](https://github.com/VueTorrent/VueTorrent/issues/2043)) ([5a0ad41](https://github.com/VueTorrent/VueTorrent/commit/5a0ad417dc8b6d4dc64c15eb2ba50f8b5e4ffafc))
+
+
+### Bug Fixes
+
+* **filters:** Prevent re-enable on app launch ([#2039](https://github.com/VueTorrent/VueTorrent/issues/2039)) ([82b9a91](https://github.com/VueTorrent/VueTorrent/commit/82b9a91b6374104e6316a58d04eb1bec6385d979))
+* **Overview:** Update outdated locale keys ([#2045](https://github.com/VueTorrent/VueTorrent/issues/2045)) ([4c4ff46](https://github.com/VueTorrent/VueTorrent/commit/4c4ff460313404b7550fb81690f6fff7f27e3b3a))
+* **TableView:** Set max width of torrent name to 40% ([#2042](https://github.com/VueTorrent/VueTorrent/issues/2042)) ([401d48d](https://github.com/VueTorrent/VueTorrent/commit/401d48d4bbe633ff7e2a165e0c83259f20e45bb9))
+
+
+### Improvements
+
+* **filters:** Differentiate "Untracked" and "Not working" trackers ([#2038](https://github.com/VueTorrent/VueTorrent/issues/2038)) ([65fcd53](https://github.com/VueTorrent/VueTorrent/commit/65fcd534c06d9a840bf1193e06cf38b2ccb27463))
+
 ## [2.17.0](https://github.com/VueTorrent/VueTorrent/compare/v2.16.0...v2.17.0) (2024-11-09)
 
 ### Features
