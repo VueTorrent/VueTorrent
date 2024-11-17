@@ -6,7 +6,6 @@ interface ImportMetaEnv extends BaseImportMetaEnv {
   readonly VITE_PACKAGE_VERSION: string
 
   readonly VITE_QBITTORRENT_TARGET: string
-  readonly VITE_QBITTORRENT_PORT: number
 
   readonly VITE_USE_MOCK_PROVIDER: string
   readonly VITE_FAKE_TORRENTS_COUNT: number

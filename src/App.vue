@@ -9,7 +9,7 @@ import { backend } from '@/services/backend'
 import { useAddTorrentStore, useAppStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
-import { useI18nUtils } from '@/composables'
+import { useBackendSync, useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
 const { t } = useI18nUtils()
@@ -23,6 +23,10 @@ const { torrents } = storeToRefs(useTorrentStore())
 const preferencesStore = usePreferenceStore()
 const vuetorrentStore = useVueTorrentStore()
 const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
+
+const backendSync = useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
+  blacklist: ['uiTitleCustom']
+})
 
 const checkAuthentication = async () => {
   const promise = appStore.fetchAuthStatus()
@@ -58,12 +62,6 @@ function addLaunchQueueConsumer() {
 }
 
 onBeforeMount(() => {
-  backend.init(vuetorrentStore.backendUrl)
-  backend.ping().then(ok => {
-    if (!backend.isAutoConfig && !ok) {
-      toast.error(t('toast.backend_unreachable'), { delay: 1000, autoClose: 2500 })
-    }
-  })
   vuetorrentStore.updateTheme()
   vuetorrentStore.setLanguage(language.value)
   checkAuthentication()
@@ -84,8 +82,16 @@ watch(
       await preferencesStore.fetchPreferences()
       await logStore.cleanAndFetchLogs()
       addTorrentStore.initForm()
+
+      backend.ping().then(async ok => {
+        if (ok) {
+          await backendSync.loadState()
+          await backendSync.registerWatcher()
+        }
+      })
     } else {
       maindataStore.stopMaindataSync()
+      await backendSync.cancelWatcher()
     }
   },
   {

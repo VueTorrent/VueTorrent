@@ -1078,10 +1078,6 @@
     "title": "Settings",
     "vuetorrent": {
       "general": {
-        "backendUrl": "Backend URL Override",
-        "backendUrlHint": "Leave empty to auto-detect it",
-        "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
-        "canvasRenderThreshold": "Piece count to disable canvas rendering",
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
@@ -1205,7 +1201,6 @@
       "pending": "Sending torrents...",
       "success": "{n} torrent added | {n} torrents added"
     },
-    "backend_unreachable": "Backend is unreachable",
     "copy": {
       "error": "Unable to copy, context isn't secured!",
       "success": "Copied to clipboard!"
