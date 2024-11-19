@@ -597,7 +597,7 @@ export default class MockProvider implements IProvider {
               id: 'SDb4v2op8wm1',
               isRead: false,
               link: 'https://www.example.com/article/SDb4v2op8wm',
-              title: 'Sample title 1',
+              title: 'Lorem ipsum odor amet, consectetuer adipiscing elit. Tristique maximus pellentesque lacinia, interdum suspendisse feugiat senectus consectetur porta.',
               torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
             },
             {

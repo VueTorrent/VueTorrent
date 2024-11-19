@@ -21,7 +21,9 @@ const rssStore = useRssStore()
     <div class="d-flex">
       <div>
         <v-list-item-title class="d-flex align-center ga-3 wrap-anywhere" style="white-space: unset">
-          <v-chip v-if="!value.isRead" color="accent" variant="outlined">{{ $t('rssArticles.feeds.item.new') }}</v-chip>
+          <div v-if="!value.isRead">
+            <v-chip color="accent" variant="outlined">{{ $t('rssArticles.feeds.item.new') }}</v-chip>
+          </div>
           <div>{{ value.title }}</div>
         </v-list-item-title>
 
