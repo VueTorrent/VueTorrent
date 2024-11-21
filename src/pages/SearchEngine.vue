@@ -9,7 +9,9 @@ import { SearchData, SearchResult } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeMount, onBeforeUnmount, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 
+const { mobile } = useDisplay()
 const router = useRouter()
 const { t } = useI18nUtils()
 const addTorrentStore = useAddTorrentStore()
@@ -237,8 +239,59 @@ onBeforeUnmount(() => {
       <v-divider class="my-3" />
 
       <v-list-item class="text-select">
+        <v-data-table v-if="mobile"
+                      :mobile="true"
+                      :headers="headers"
+                      :items="filteredResults"
+                      :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
+                      :items-per-page.sync="selectedTab.itemsPerPage">
+          <template v-slot:top>
+            <v-row>
+              <v-col cols="12">
+                <v-text-field v-model="selectedTab.filters.title" density="compact" hide-details :label="t('searchEngine.filters.title.label')" />
+              </v-col>
+            </v-row>
+          </template>
+          <template #item="{ item, index }">
+            <v-divider v-if="index !== 0" />
+            <v-row class="row-mobile ma-0 pa-3">
+              <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.fileName') }}</v-col>
+              <v-col cols="6" class="item-value-large">{{ item.fileName }}</v-col>
+
+              <template v-if="appStore.usesQbit5">
+                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.engineName') }}</v-col>
+                <v-col cols="6" class="item-value-large">{{ item.engineName }}</v-col>
+
+                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.pubDate') }}</v-col>
+                <v-col cols="6" class="item-value-large">{{ item.pubDate === -1 ? t('common.NA') : formatTimeSec(item.pubDate!, dateFormat) }}</v-col>
+              </template>
+              <template v-else>
+                <v-col cols="6" class="item-header-large">{{ t('searchEngine.headers.siteUrl') }}</v-col>
+                <v-col cols="6" class="item-value-large">{{ item.siteUrl }}</v-col>
+              </template>
+
+              <v-col cols="3" class="item-container">
+                <div class="item-header-small">{{ t('searchEngine.headers.fileSize') }}</div>
+                <div class="item-value-small">{{ formatData(item.fileSize, useBinarySize) }}</div>
+              </v-col>
+              <v-col cols="3" class="item-container">
+                <div class="item-header-small">{{ t('searchEngine.headers.nbSeeders') }}</div>
+                <div class="item-value-small">{{ item.nbSeeders }}</div>
+              </v-col>
+              <v-col cols="3" class="item-container">
+                <div class="item-header-small">{{ t('searchEngine.headers.nbLeechers') }}</div>
+                <div class="item-value-small">{{ item.nbLeechers }}</div>
+              </v-col>
+              <v-col cols="3" class="item-actions">
+                <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
+                <v-btn :icon="item.downloaded ? 'mdi-check' : 'mdi-download'" :color="item.downloaded && 'accent'" variant="text" density="compact" @click="downloadTorrent(item)" />
+              </v-col>
+            </v-row>
+          </template>
+        </v-data-table>
         <v-data-table
-          :mobile="null"
+          v-else
+          :mobile="false"
           :headers="headers"
           :items="filteredResults"
           :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
@@ -265,3 +318,24 @@ onBeforeUnmount(() => {
     </v-list>
   </div>
 </template>
+
+<style scoped lang="scss">
+.v-row.row-mobile {
+  & > .v-col {
+    padding: 8px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item-header-large, .item-value-large, .item-actions {
+    align-content: center;
+    justify-content: start;
+  }
+
+  .item-container {
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+}
+</style>
