@@ -63,6 +63,16 @@ export const useTrackerStore = defineStore('trackers', () => {
     await qbit.removeTorrentTrackers(hash, urls)
   }
 
+  async function bulkUpdateTrackers(hashes: string[], trackersData: { add: string, replace: [string, string][], remove: string[] }) {
+    return Promise.all(hashes.map(hash => {
+      const addPromise = trackersData.add.trim().length === 0 ? Promise.resolve() : addTorrentTrackers(hash, trackersData.add)
+      const removePromise = trackersData.remove.length === 0 ? Promise.resolve() : removeTorrentTrackers(hash, trackersData.remove)
+      const replacePromise = Promise.all(trackersData.replace.map(([oldUrl, newUrl]) => editTorrentTracker(hash, oldUrl, newUrl)))
+
+      return Promise.all([addPromise, removePromise, replacePromise])
+    }))
+  }
+
   return {
     trackers,
     torrentTrackers,
@@ -71,6 +81,7 @@ export const useTrackerStore = defineStore('trackers', () => {
     addTorrentTrackers,
     editTorrentTracker,
     removeTorrentTrackers,
+    bulkUpdateTrackers,
     $reset: () => {
       _trackerMap.value.clear()
       triggerRef(_trackerMap)

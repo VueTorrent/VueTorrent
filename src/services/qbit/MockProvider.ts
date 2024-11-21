@@ -140,6 +140,14 @@ export default class MockProvider implements IProvider {
     }
   }
 
+  /**
+   * Generate a configurable Promise
+   * @param options Promise options
+   * @param options.result Result of the Promise
+   * @param options.shouldResolve Should the Promise resolve or reject
+   * @param options.delay Delay in milliseconds before resolving the Promise
+   * @private
+   */
   private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean; delay?: number }): Promise<T> {
     const result = options?.result
     const shouldResolve = options?.shouldResolve ?? true

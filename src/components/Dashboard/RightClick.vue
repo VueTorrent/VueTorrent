@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import RightClickMenu from '@/components/Core/RightClickMenu'
+import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackersDialog.vue'
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
@@ -134,6 +135,10 @@ function setShareLimit() {
   dialogStore.createDialog(ShareLimitDialog, { hashes: hashes.value })
 }
 
+function bulkUpdatetrackers() {
+  dialogStore.createDialog(BulkUpdateTrackersDialog, { hashes: hashes.value })
+}
+
 async function exportTorrents() {
   const ts = [...torrents.value]
   if (ts.length === 1) {
@@ -162,6 +167,11 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         text: t('dashboard.right_click.advanced.save_path'),
         icon: 'mdi-content-save',
         action: setSavePath
+      },
+      {
+        text: t('dashboard.right_click.advanced.edit_trackers'),
+        icon: 'mdi-link-edit',
+        action: bulkUpdatetrackers
       },
       {
         text: t('dashboard.right_click.advanced.rename'),
