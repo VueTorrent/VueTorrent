@@ -177,6 +177,7 @@
       "advanced": {
         "auto_tmm": "Automatic Torrent Management",
         "download_path": "Set Download Path",
+        "edit_trackers": "Edit Trackers",
         "f_l_prio": "First / Last Piece Priority",
         "reannounce": "Force Reannounce",
         "recheck": "Force Recheck",
@@ -342,6 +343,17 @@
       "target": "Replacement Input",
       "title": "Bulk Rename",
       "unfold": "Expand"
+    },
+    "bulkEditTrackers": {
+      "add": "Trackers to add",
+      "edit": "Trackers to replace",
+      "remove": "Trackers to remove",
+      "rules": {
+        "not_enough_urls": "Missing separator at line {line_no}",
+        "too_many_urls": "A single separator is expected at line {line_no}",
+        "empty_url": "URLs cannot be empty at line {line_no}"
+      },
+      "title": "Bulk Edit Trackers"
     },
     "category": {
       "name": "Category Name",

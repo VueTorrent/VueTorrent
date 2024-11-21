@@ -59,6 +59,7 @@ export default defineConfig(({ mode }) => {
         '/api': {
           secure: false,
           changeOrigin: true,
+          xfwd: true,
           target: qBittorrentTarget
         },
         '/backend': {
