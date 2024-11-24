@@ -239,12 +239,13 @@ onBeforeUnmount(() => {
       <v-divider class="my-3" />
 
       <v-list-item class="text-select">
-        <v-data-table v-if="mobile"
-                      :mobile="true"
-                      :headers="headers"
-                      :items="filteredResults"
-                      :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
-                      :items-per-page.sync="selectedTab.itemsPerPage">
+        <v-data-table
+          v-if="mobile"
+          :mobile="true"
+          :headers="headers"
+          :items="filteredResults"
+          :footer-props="{ itemsPerPageOptions: [10, 25, 50, 100, -1] }"
+          :items-per-page.sync="selectedTab.itemsPerPage">
           <template v-slot:top>
             <v-row>
               <v-col cols="12">
@@ -284,7 +285,12 @@ onBeforeUnmount(() => {
               </v-col>
               <v-col cols="3" class="item-actions">
                 <v-btn icon="mdi-open-in-new" variant="flat" density="compact" @click.stop="openResultLink(item)" />
-                <v-btn :icon="item.downloaded ? 'mdi-check' : 'mdi-download'" :color="item.downloaded && 'accent'" variant="text" density="compact" @click="downloadTorrent(item)" />
+                <v-btn
+                  :icon="item.downloaded ? 'mdi-check' : 'mdi-download'"
+                  :color="item.downloaded && 'accent'"
+                  variant="text"
+                  density="compact"
+                  @click="downloadTorrent(item)" />
               </v-col>
             </v-row>
           </template>
@@ -327,7 +333,9 @@ onBeforeUnmount(() => {
     flex-wrap: wrap;
   }
 
-  .item-header-large, .item-value-large, .item-actions {
+  .item-header-large,
+  .item-value-large,
+  .item-actions {
     align-content: center;
     justify-content: start;
   }

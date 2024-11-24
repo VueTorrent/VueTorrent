@@ -914,8 +914,6 @@
     "title": "Ajustes",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "Recuento de piezas para desactivar la actualización automática del lienzo",
-        "canvasRenderThreshold": "Conteo de piezas para desactivar la renderización del lienzo",
         "check_new": "Buscar nueva versión",
         "currentVersion": "Versión Actual",
         "customTitle": "Título personalizado",

@@ -1072,10 +1072,6 @@
     "title": "设置",
     "vuetorrent": {
       "general": {
-        "backendUrl": "后端 URL 覆写",
-        "backendUrlHint": "留空则自动检测",
-        "canvasRefreshThreshold": "禁用Canvas自动刷新的种子块数阈值",
-        "canvasRenderThreshold": "禁用Canvas渲染的种子块数阈值",
         "check_new": "检查新版本",
         "currentVersion": "当前版本",
         "customTitle": "自定义标题",
@@ -1198,7 +1194,6 @@
       "pending": "正在上传...",
       "success": "{n} 个种子已添加 | {n} 个种子已添加"
     },
-    "backend_unreachable": "后台无法访问",
     "copy": {
       "error": "无法复制，当前环境不安全！",
       "success": "已复制到剪贴板！"

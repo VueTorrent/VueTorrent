@@ -1072,10 +1072,6 @@
     "title": "設定",
     "vuetorrent": {
       "general": {
-        "backendUrl": "後端 URL 覆蓋",
-        "backendUrlHint": "留空以自動檢測",
-        "canvasRefreshThreshold": "種子分塊閾值以禁用 Canvas 自動更新",
-        "canvasRenderThreshold": "種子分塊閾值以禁用 Canvas 渲染",
         "check_new": "檢查新版本",
         "currentVersion": "當前版本",
         "customTitle": "自訂標題",
@@ -1198,7 +1194,6 @@
       "pending": "正在傳送種子...",
       "success": "已添加 {n} 個種子 | 已添加 {n} 個種子"
     },
-    "backend_unreachable": "後端無法訪問",
     "copy": {
       "error": "無法複製，當前環境不安全!",
       "success": "已複製到剪貼簿!"

@@ -327,6 +327,17 @@
       "submit": "Add torrents",
       "title": "Add Torrents"
     },
+    "bulkEditTrackers": {
+      "add": "Trackers to add",
+      "edit": "Trackers to replace",
+      "remove": "Trackers to remove",
+      "rules": {
+        "empty_url": "URLs cannot be empty at line {line_no}",
+        "not_enough_urls": "Missing separator at line {line_no}",
+        "too_many_urls": "A single separator is expected at line {line_no}"
+      },
+      "title": "Bulk Edit Trackers"
+    },
     "bulkRenameFiles": {
       "col_origin_name": "Original",
       "col_result_name": "Result",
@@ -343,17 +354,6 @@
       "target": "Replacement Input",
       "title": "Bulk Rename",
       "unfold": "Expand"
-    },
-    "bulkEditTrackers": {
-      "add": "Trackers to add",
-      "edit": "Trackers to replace",
-      "remove": "Trackers to remove",
-      "rules": {
-        "not_enough_urls": "Missing separator at line {line_no}",
-        "too_many_urls": "A single separator is expected at line {line_no}",
-        "empty_url": "URLs cannot be empty at line {line_no}"
-      },
-      "title": "Bulk Edit Trackers"
     },
     "category": {
       "name": "Category Name",
@@ -1090,10 +1090,6 @@
     "title": "Settings",
     "vuetorrent": {
       "general": {
-        "backendUrl": "Backend URL Override",
-        "backendUrlHint": "Leave empty to auto-detect it",
-        "canvasRefreshThreshold": "Piece count to disable canvas auto-refresh",
-        "canvasRenderThreshold": "Piece count to disable canvas rendering",
         "check_new": "Check for new version",
         "currentVersion": "Current Version",
         "customTitle": "Custom title",
@@ -1217,7 +1213,6 @@
       "pending": "Sending torrents...",
       "success": "{n} torrent added | {n} torrents added"
     },
-    "backend_unreachable": "Backend is unreachable",
     "copy": {
       "error": "Unable to copy, context isn't secured!",
       "success": "Copied to clipboard!"
