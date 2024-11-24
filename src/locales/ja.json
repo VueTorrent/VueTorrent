@@ -980,9 +980,6 @@
     "title": "設定",
     "vuetorrent": {
       "general": {
-        "backendUrl": "バックエンドURL",
-        "canvasRefreshThreshold": "キャンバスの自動更新を無効にするピース数",
-        "canvasRenderThreshold": "キャンバスのレンダリングを無効にするピース数",
         "check_new": "新しいバージョンを確認する",
         "currentVersion": "現在のバージョン",
         "customTitle": "カスタムタイトル",
@@ -1095,7 +1092,6 @@
       "pending": "Torrentを送信中...",
       "success": "{n}個のTorrentが追加されました | {n}個のTorrentが追加されました"
     },
-    "backend_unreachable": "バックエンドにアクセスできません",
     "copy": {
       "error": "コピーできません。コンテキストがセキュリティで保護されていません。",
       "success": "クリップボードにコピーしました!"

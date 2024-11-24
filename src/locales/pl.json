@@ -914,8 +914,6 @@
     "title": "Ustawienia",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "Liczba elementów do wyłączenia automatycznego odświeżania canvas",
-        "canvasRenderThreshold": "Liczba elementów do wyłączenia renderowania canvas",
         "check_new": "Sprawdź nową wersję",
         "currentVersion": "Obecna wersja",
         "customTitle": "Niestandardowy tytuł",

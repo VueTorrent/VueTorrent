@@ -975,9 +975,6 @@
     "title": "Ayarlar",
     "vuetorrent": {
       "general": {
-        "backendUrl": "Backend URL'si",
-        "canvasRefreshThreshold": "Kanvas otomatik yenilemesini devre dışı bırakmak için parça sayısı",
-        "canvasRenderThreshold": "Kanvas oluşturmayı devre dışı bırakmak için parça sayısı",
         "check_new": "Yeni sürümü kontrol et",
         "currentVersion": "Mevcut Sürüm",
         "customTitle": "Özel başlık",
@@ -1090,7 +1087,6 @@
       "pending": "Torrentler gönderiliyor...",
       "success": "{n} torrent eklendi | {n} torrent eklendi"
     },
-    "backend_unreachable": "Backende erişilemiyor",
     "copy": {
       "error": "Kopyalanamıyor, içerik güvenli değil!",
       "success": "Panoya kopyalandı!"

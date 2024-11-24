@@ -1000,9 +1000,6 @@
     "title": "Paramètres",
     "vuetorrent": {
       "general": {
-        "backendUrl": "URL du backend",
-        "canvasRefreshThreshold": "Nombre de pièces pour désactiver le rafraîchissement automatique du canevas",
-        "canvasRenderThreshold": "Nombre de pièces pour désactiver le rendu du canevas",
         "check_new": "Vérifier une nouvelle version",
         "currentVersion": "Version actuelle",
         "customTitle": "Titre personnalisé",
@@ -1115,7 +1112,6 @@
       "pending": "Envoi des torrents...",
       "success": "{n} torrent ajouté | {n} torrents ajoutés"
     },
-    "backend_unreachable": "Le back-end est injoignable",
     "copy": {
       "error": "Impossible de copier, le contexte n'est pas sécurisé !",
       "success": "Copié dans le presse-papiers !"

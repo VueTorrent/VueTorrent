@@ -891,8 +891,6 @@
     "title": "설정",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "설정된 조각 개수 초과 시, 뷰화면 자동 새로고침 비활성화",
-        "canvasRenderThreshold": "설정된 조각 개수 초과 시, 캔버스 렌더링 비활성화",
         "check_new": "새 버전 확인",
         "currentVersion": "현재 버전",
         "customTitle": "사용자 지정 제목",

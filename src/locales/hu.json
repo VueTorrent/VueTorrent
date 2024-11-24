@@ -914,8 +914,6 @@
     "title": "Beállítások",
     "vuetorrent": {
       "general": {
-        "canvasRefreshThreshold": "Darabszám, amelynél a vászon automatikus frissítése letiltódik",
-        "canvasRenderThreshold": "Darabszám, amelynél a vászon renderelése letiltódik",
         "check_new": "Új verzió keresése",
         "currentVersion": "Jelenlegi verzió",
         "customTitle": "Egyéni cím",
