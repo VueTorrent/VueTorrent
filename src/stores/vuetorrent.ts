@@ -10,7 +10,6 @@ import {
   TitleOptions,
   TorrentProperty
 } from '@/constants/vuetorrent'
-import { backendStorage } from '@/services/backend'
 import { DarkLegacy, LightLegacy } from '@/themes'
 import { useMediaQuery } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore } from 'pinia'
@@ -22,8 +21,6 @@ import { useTheme } from 'vuetify'
 export const useVueTorrentStore = defineStore(
   'vuetorrent',
   () => {
-    const backendUrl = ref('')
-
     const language = ref('en')
     const theme = reactive({
       mode: ThemeMode.SYSTEM,
@@ -235,7 +232,6 @@ export const useVueTorrentStore = defineStore(
     }
 
     return {
-      backendUrl,
       theme,
       dateFormat,
       durationFormat,
@@ -291,7 +287,6 @@ export const useVueTorrentStore = defineStore(
       toggleDoneGridProperty,
       toggleTableProperty,
       $reset: () => {
-        backendUrl.value = ''
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
         theme.light = LightLegacy.id
@@ -338,8 +333,7 @@ export const useVueTorrentStore = defineStore(
     persistence: {
       enabled: true,
       storageItems: [
-        { storage: localStorage, key: 'webuiSettings' },
-        { storage: backendStorage, key: 'webuiSettings', excludePaths: ['backendUrl', 'uiTitleCustom'] }
+        { storage: localStorage, key: 'webuiSettings' }
       ]
     }
   }

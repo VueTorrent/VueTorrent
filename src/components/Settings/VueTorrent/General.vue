@@ -144,10 +144,6 @@ function openDateFormatHelp() {
 function openDurationFormatHelp() {
   openLink('https://day.js.org/docs/en/durations/format#list-of-all-available-formats')
 }
-
-function openBackendHelp() {
-  openLink('https://github.com/VueTorrent/vuetorrent-backend/wiki/Installation')
-}
 </script>
 
 <template>
@@ -291,16 +287,6 @@ function openBackendHelp() {
             :placeholder="defaultDurationFormat"
             append-inner-icon="mdi-help-circle"
             @click:appendInner="openDurationFormatHelp" />
-        </v-col>
-
-        <v-col cols="12" md="6">
-          <v-text-field
-            v-model="vueTorrentStore.backendUrl"
-            :label="t('settings.vuetorrent.general.backendUrl')"
-            :hint="t('settings.vuetorrent.general.backendUrlHint')"
-            placeholder="https://YOUR-HOST:PORT/"
-            append-inner-icon="mdi-help-circle"
-            @click:appendInner="openBackendHelp" />
         </v-col>
       </v-row>
     </v-list-item>

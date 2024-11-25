@@ -10,7 +10,6 @@ import vuetify from 'vite-plugin-vuetify'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd())
   const qBittorrentTarget = env.VITE_QBITTORRENT_TARGET ?? 'http://localhost:8080'
-  const backendTarget = env.VITE_BACKEND_TARGET ?? 'http://localhost:3000'
 
   return {
     base: './',
@@ -65,7 +64,7 @@ export default defineConfig(({ mode }) => {
         '/backend': {
           secure: false,
           changeOrigin: true,
-          target: backendTarget
+          target: qBittorrentTarget
         }
       }
     },
