@@ -1,6 +1,7 @@
 import { comparators, extractHostname } from '@/helpers'
 import qbit from '@/services/qbit'
 import { useSorted } from '@vueuse/core'
+import { AxiosError } from 'axios'
 import { acceptHMRUpdate, defineStore } from 'pinia'
 import { computed, shallowRef, triggerRef } from 'vue'
 
@@ -8,14 +9,31 @@ export const useTrackerStore = defineStore('trackers', () => {
   /** Key: tracker domain, values: torrent hashes */
   const _trackerMap = shallowRef<Map<string, string[]>>(new Map())
   const trackers = useSorted(() => Array.from(_trackerMap.value.keys()), comparators.text.asc)
-  /** Key: torrent hash, values: tracker domains */
+  const hostnameTrackers = computed(() => [...new Set(trackers.value.map(extractHostname))])
+  /** Key: torrent hash, values: tracker URLs */
   const torrentTrackers = computed(() =>
     Array.from(_trackerMap.value.entries()).reduce((tot, val) => {
-      const [domain, hashes] = val
+      const [url, hashes] = val
       hashes.forEach(hash => {
         const domains = tot.get(hash)
         if (domains) {
-          domains.push(domain)
+          domains.push(url)
+        } else {
+          tot.set(hash, [url])
+        }
+      })
+      return tot
+    }, new Map<string, string[]>())
+  )
+  /** Key: torrent hash, values: tracker domains */
+  const torrentHostnameTrackers = computed(() =>
+    Array.from(_trackerMap.value.entries()).reduce((tot, val) => {
+      const [url, hashes] = val
+      const domain = extractHostname(url)
+      hashes.forEach(hash => {
+        const domains = tot.get(hash)
+        if (domains) {
+          !domains.includes(domain) && domains.push(domain)
         } else {
           tot.set(hash, [domain])
         }
@@ -28,22 +46,21 @@ export const useTrackerStore = defineStore('trackers', () => {
     if (fullUpdate) {
       _trackerMap.value.clear()
       entries.forEach(([k, v]) => {
-        const hostname = extractHostname(k)
-        const entry = _trackerMap.value.get(hostname)
+        const entry = _trackerMap.value.get(k)
         if (entry) {
           entry.push(...v)
         } else {
-          _trackerMap.value.set(hostname, v)
+          _trackerMap.value.set(k, v)
         }
       })
       return
     }
 
     for (const [trackerUrl, linkedTorrents] of entries) {
-      _trackerMap.value.set(extractHostname(trackerUrl), linkedTorrents)
+      _trackerMap.value.set(trackerUrl, linkedTorrents)
     }
 
-    removed?.forEach(t => _trackerMap.value.delete(extractHostname(t)))
+    removed?.forEach(t => _trackerMap.value.delete(t))
     triggerRef(_trackerMap)
   }
 
@@ -63,21 +80,51 @@ export const useTrackerStore = defineStore('trackers', () => {
     await qbit.removeTorrentTrackers(hash, urls)
   }
 
-  async function bulkUpdateTrackers(hashes: string[], trackersData: { add: string; replace: [string, string][]; remove: string[] }) {
-    return Promise.all(
-      hashes.map(hash => {
-        const addPromise = trackersData.add.trim().length === 0 ? Promise.resolve() : addTorrentTrackers(hash, trackersData.add)
-        const removePromise = trackersData.remove.length === 0 ? Promise.resolve() : removeTorrentTrackers(hash, trackersData.remove)
-        const replacePromise = Promise.all(trackersData.replace.map(([oldUrl, newUrl]) => editTorrentTracker(hash, oldUrl, newUrl)))
-
-        return Promise.all([addPromise, removePromise, replacePromise])
+  async function bulkUpdateTrackers(
+    hashes: string[],
+    trackersData: {
+      add: string
+      replace: [string, string][]
+      remove: string[]
+    }
+  ) {
+    const promises = hashes.flatMap(hash => {
+      const addPromise = trackersData.add.trim().length === 0 ? Promise.resolve() : addTorrentTrackers(hash, trackersData.add)
+      const removePromise = trackersData.remove.length === 0 ? Promise.resolve() : removeTorrentTrackers(hash, trackersData.remove)
+      const replacePromises = trackersData.replace.map(([oldUrl, newUrl]) => {
+        if (!torrentTrackers.value.get(hash)?.includes(oldUrl)) return Promise.resolve()
+        if (newUrl.length === 0 || torrentTrackers.value.get(hash)?.includes(newUrl)) return Promise.resolve()
+        return editTorrentTracker(hash, oldUrl, newUrl)
       })
+
+      return [addPromise, removePromise, ...replacePromises]
+    })
+
+    const allPromises = await Promise.allSettled(promises)
+    const promisesResult = allPromises.reduce(
+      (prev, curr) => {
+        const fulfilled = curr.status === 'fulfilled'
+        if (fulfilled) {
+          prev[0] += 1
+        } else
+          prev[1].push(curr.reason)
+        return prev
+      },
+      [0, []] as [number, AxiosError[]]
     )
+
+    return {
+      fulfilled: promisesResult[0],
+      rejected: promisesResult[1],
+      total: promisesResult[0] + promisesResult[1].length
+    }
   }
 
   return {
     trackers,
+    hostnameTrackers,
     torrentTrackers,
+    torrentHostnameTrackers,
     syncFromMaindata,
     getTorrentTrackers,
     addTorrentTrackers,

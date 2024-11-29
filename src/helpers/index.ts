@@ -6,7 +6,7 @@ import { toPrecision, formatPercent } from './number'
 import { basename } from './path'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
 import { isWindows, isMac, doesCommand, openLink, downloadFile } from './system'
-import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, codeToFlag } from './text'
+import { titleCase, capitalize, extractHostname, getDomainBody, splitByUrl, containsUrl, isValidUrl, codeToFlag } from './text'
 
 export {
   getColorFromName,
@@ -37,7 +37,8 @@ export {
   extractHostname,
   getDomainBody,
   splitByUrl,
-  stringContainsUrl,
+  containsUrl,
+  isValidUrl,
   codeToFlag
 }
 

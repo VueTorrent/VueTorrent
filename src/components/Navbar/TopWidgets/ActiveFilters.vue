@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18nUtils } from '@/composables'
 import { TrackerSpecialFilter } from '@/constants/vuetorrent'
-import { extractHostname, getTorrentStateColor } from '@/helpers'
+import { getTorrentStateColor } from '@/helpers'
 import { useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -209,7 +209,7 @@ function resetTrackerFilter() {
           <span v-else-if="trackerFilter[0] === TrackerSpecialFilter.NOT_WORKING">{{
             t('navbar.top.active_filters.tracker', { value: t('navbar.side.filters.tracker.not_working') })
           }}</span>
-          <span v-else>{{ t('navbar.top.active_filters.tracker', { value: extractHostname(trackerFilter[0]) }) }}</span>
+          <span v-else>{{ t('navbar.top.active_filters.tracker', { value: trackerFilter[0] }) }}</span>
         </v-chip>
         <v-chip v-else :color="trackerFilterColor" variant="elevated" closable @click:close="resetTrackerFilter()">
           <template v-slot:prepend>

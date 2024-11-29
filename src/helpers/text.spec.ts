@@ -1,4 +1,13 @@
-import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase } from './text'
+import {
+  capitalize,
+  codeToFlag,
+  extractHostname,
+  getDomainBody,
+  splitByUrl,
+  containsUrl,
+  titleCase,
+  isValidUrl
+} from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -43,10 +52,19 @@ test('helpers/text/splitByUrl', () => {
   expect(splitByUrl('Description available at http://www.example.com')).toEqual(['Description available at ', 'http://www.example.com'])
 })
 
-test('helpers/text/stringContainsUrl', () => {
-  expect(stringContainsUrl('Description available at http://www.example.com')).toBe(true)
-  expect(stringContainsUrl('Description available at https://www.example.com')).toBe(true)
-  expect(stringContainsUrl('Description available at udp://www.example.com')).toBe(true)
+test('helpers/text/containsUrl', () => {
+  expect(containsUrl('Description available at http://www.example.com')).toBe(true)
+  expect(containsUrl('Description available at https://www.example.com')).toBe(true)
+  expect(containsUrl('Description available at udp://www.example.com')).toBe(true)
+  expect(containsUrl('Description available at example.com')).toBe(true)
+})
+
+test('helpers/text/isValidUrl', () => {
+  expect(isValidUrl('http://www.example.com')).toBe(true)
+  expect(isValidUrl('https://www.example.com')).toBe(true)
+  expect(isValidUrl('udp://www.example.com')).toBe(true)
+  expect(isValidUrl('example.com')).toBe(false)
+  expect(isValidUrl('www.example.com')).toBe(false)
 })
 
 test('helpers/text/codeToFlag', () => {

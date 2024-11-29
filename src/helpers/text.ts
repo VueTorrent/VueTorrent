@@ -66,8 +66,17 @@ export function splitByUrl(data: string) {
   return resultArray
 }
 
-export function stringContainsUrl(data: string) {
+export function containsUrl(data: string) {
   return getUrlRegExp().test(data)
+}
+
+export function isValidUrl(data: string, allowedProtocols: string[] = ['http:', 'https:', 'udp:']) {
+  try {
+    const parsedURL = new URL(data)
+    return allowedProtocols.includes(parsedURL.protocol)
+  } catch (e) {
+    return false
+  }
 }
 
 export function codeToFlag(code: string) {

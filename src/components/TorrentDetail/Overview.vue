@@ -6,7 +6,7 @@ import MoveTorrentFileDialog from '@/components/Dialogs/MoveTorrentFileDialog.vu
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import { TorrentState } from '@/constants/vuetorrent'
-import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl, stringContainsUrl } from '@/helpers'
+import { formatData, formatDataUnit, formatDataValue, formatPercent, formatSpeed, getRatioColor, getTorrentStateColor, splitByUrl, containsUrl } from '@/helpers'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
@@ -114,7 +114,7 @@ onUnmounted(async () => {
     <v-card-subtitle>
       <div>
         <span v-for="commentPart in splitByUrl(comment)">
-          <a v-if="stringContainsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
+          <a v-if="containsUrl(commentPart)" target="_blank" :href="commentPart">{{ commentPart }}</a>
           <span v-else>{{ commentPart }}</span>
         </span>
       </div>

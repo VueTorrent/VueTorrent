@@ -329,13 +329,19 @@
     },
     "bulkEditTrackers": {
       "add": "Trackers to add",
-      "edit": "Trackers to replace",
-      "remove": "Trackers to remove",
-      "rules": {
-        "empty_url": "URLs cannot be empty at line {line_no}",
-        "not_enough_urls": "Missing separator at line {line_no}",
-        "too_many_urls": "A single separator is expected at line {line_no}"
+      "edit": {
+        "title": "Trackers to replace",
+        "row": {
+          "add": "Add row",
+          "rules": {
+            "invalid_url": "Invalid URL"
+          },
+          "old_url": "Old tracker URL",
+          "new_url": "New tracker URL"
+        },
+        "result": "{rejected}/{total} requests failed\n{reason}"
       },
+      "remove": "Trackers to remove",
       "title": "Bulk Edit Trackers"
     },
     "bulkRenameFiles": {

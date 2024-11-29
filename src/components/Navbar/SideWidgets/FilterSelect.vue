@@ -10,7 +10,7 @@ const { t, getTorrentStateString } = useI18nUtils()
 const { categories: _categories, torrentsByCategory } = storeToRefs(useCategoryStore())
 const { tags: _tags, torrentsByTag } = storeToRefs(useTagStore())
 const { torrents, torrentsByStatus, statusFilter, categoryFilter, tagFilter, tagFilterType, torrentsByTracker, trackerFilter, trackerFilterType } = storeToRefs(useTorrentStore())
-const { trackers: _trackers } = storeToRefs(useTrackerStore())
+const { hostnameTrackers } = storeToRefs(useTrackerStore())
 
 const statuses = computed(() =>
   Object.values(TorrentState)
@@ -44,7 +44,7 @@ const trackers = computed(() => [
     title: `${t('navbar.side.filters.tracker.not_working')} (${torrentsByTracker.value[TrackerSpecialFilter.NOT_WORKING] ?? 0})`,
     value: TrackerSpecialFilter.NOT_WORKING
   },
-  ..._trackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))
+  ...hostnameTrackers.value.map(tracker => ({ title: `${tracker} (${torrentsByTracker.value[tracker] ?? 0})`, value: tracker }))
 ])
 
 function toggleFilterType(ref: Ref<FilterType>) {
