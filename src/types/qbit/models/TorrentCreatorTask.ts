@@ -10,23 +10,23 @@ export default interface TorrentCreatorTask {
   /**
    * Torrent format
    * Needs libtorrent2
-   * Default = hybrid
+   * @default HYBRID
    */
   format?: TorrentFormat
   /**
    * Should optimize alignment
    * Needs libtorrent1
-   * default: true
+   * @default true
    */
   optimizeAlignment?: boolean
   /**
    * Torrent piece size
-   * default: 0
+   * @default 0
    */
   pieceSize?: number
   /**
    * Whether created torrent should be private
-   * default = false
+   * @default false
    */
   private?: boolean
   /**
@@ -44,15 +44,18 @@ export default interface TorrentCreatorTask {
    */
   status: TorrentCreatorTaskStatus
   taskID: string
-  // /** Parsed from comment ??? */
-  // source?: string
+  /**
+   * Source metadata field
+   * used for cross-seeding by some private trackers
+   */
+  source?: string
   timeAdded: string
   /**
-   * Example: Wed May 20 03:40:13 1998
+   * @example Wed May 20 03:40:13 1998
    */
   timeFinished: string
   /**
-   * Example: Wed May 20 03:40:13 1998
+   * @example Wed May 20 03:40:13 1998
    */
   timeStarted: string
   /**

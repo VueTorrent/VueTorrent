@@ -519,6 +519,7 @@
         "outputFileExtension": "Output path must end with .torrent",
         "sourcePathRequired": "Source path must be filled"
       },
+      "source": "Source",
       "sourcePath": "Files to include in torrent",
       "startSeeding": "Start seeding immediately",
       "title": "Create new task",
@@ -1267,6 +1268,7 @@
       "pieceSize": "Piece Size",
       "private": "Is Private?",
       "progress": "Progress",
+      "source": "Source",
       "sourcePath": "Source Path",
       "status": "Task Status",
       "taskID": "Task ID",
