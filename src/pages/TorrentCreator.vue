@@ -56,6 +56,7 @@ const headers = computed(() => [
   { title: t('torrentCreator.table.timeFinished'), key: 'timeFinished' },
   { title: t('torrentCreator.table.trackers.header'), key: 'trackers', sortable: false },
   { title: t('torrentCreator.table.urlSeeds.header'), key: 'urlSeeds', sortable: false },
+  { title: t('torrentCreator.table.source'), key: 'source' },
   { title: t('torrentCreator.table.comment'), key: 'comment' },
   { title: t('torrentCreator.table.errorMessage'), key: 'errorMessage' }
 ])

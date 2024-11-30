@@ -30,6 +30,7 @@ const formData = reactive<Required<TorrentCreatorParams>>({
   torrentFilePath: '',
   trackers: '',
   urlSeeds: '',
+  source: '',
   comment: ''
 })
 
@@ -126,6 +127,9 @@ const close = () => {
             </v-col>
             <v-col cols="12">
               <v-textarea v-model="formData.urlSeeds" hide-details :label="t('dialogs.torrentCreator.urlSeeds')" />
+            </v-col>
+            <v-col v-if="appStore.version >= '5.0.3'" cols="12">
+              <v-textarea v-model="formData.source" hide-details :label="t('dialogs.torrentCreator.source')" />
             </v-col>
             <v-col cols="12">
               <v-textarea v-model="formData.comment" hide-details :label="t('dialogs.torrentCreator.comment')" />

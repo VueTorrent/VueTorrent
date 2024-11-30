@@ -28,11 +28,14 @@ export default interface TorrentCreatorParams {
   pieceSize?: number
   /**
    * Whether created torrent should be private
-   * default = false
+   * @default false
    */
   private?: boolean
-  // /** Parsed from comment ??? */
-  // source?: string
+  /**
+   * Source metadata field
+   * used for cross-seeding by some private trackers
+   */
+  source?: string
   /**
    * Source path containing files to include in torrent
    */
