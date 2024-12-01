@@ -2,7 +2,7 @@ import { backend } from '@/services/backend'
 import { Store } from 'pinia'
 import { ref } from 'vue'
 
-export function useBackendSync(store: Store, key: string, config: { blacklist?: string[], whitelist?: string[] } = {}) {
+export function useBackendSync(store: Store, key: string, config: { blacklist?: string[]; whitelist?: string[] } = {}) {
   let cancelWatcherCallback = ref<() => void>()
 
   function keyMatchesFilter(k: string) {

@@ -332,9 +332,7 @@ export const useVueTorrentStore = defineStore(
   {
     persistence: {
       enabled: true,
-      storageItems: [
-        { storage: localStorage, key: 'webuiSettings' }
-      ]
+      storageItems: [{ storage: localStorage, key: 'webuiSettings' }]
     }
   }
 )
