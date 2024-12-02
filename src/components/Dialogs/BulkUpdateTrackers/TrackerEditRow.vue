@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useI18nUtils } from '@/composables'
-import { isValidUrl } from '@/helpers'
+import { isValidUri } from '@/helpers'
 import { useTrackerStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -31,7 +31,7 @@ const newUrlRules = [
   (v: string) => {
     if (!oldTrackerUrl.value || !newTrackerUrl.value || newTrackerUrl.value.length === 0) return true
 
-    return isValidUrl(v) || t('dialogs.bulkEditTrackers.edit.row.rules.invalid_url')
+    return isValidUri(v) || t('dialogs.bulkEditTrackers.edit.row.rules.invalid_url')
   }
 ]
 </script>

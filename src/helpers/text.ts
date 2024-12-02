@@ -33,10 +33,21 @@ export function getDomainBody(string: string): string {
   }
 }
 
-const getUrlRegExp = () =>
-  new RegExp(
-    /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.\S{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.\S{2,}|www\.[a-zA-Z0-9]+\.\S{2,})/gi
-  )
+/**
+ * Protocol (Optional): http, https, udp
+ *
+ * Hostname (Required): should match any valid hostname or IP address
+ *
+ * Example:
+ * www.example.com
+ * 192.168.1.1:8080
+ * [2001:db8::1]
+ *
+ * Port (Optional): should match any port number
+ *
+ * Path (Optional): should match any string appended to the URL
+ */
+const getUrlRegExp = () => new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
 
 export function splitByUrl(data: string) {
   const urls = data.match(getUrlRegExp())
@@ -70,7 +81,7 @@ export function containsUrl(data: string) {
   return getUrlRegExp().test(data)
 }
 
-export function isValidUrl(data: string, allowedProtocols: string[] = ['http:', 'https:', 'udp:']) {
+export function isValidUri(data: string, allowedProtocols: string[] = ['http:', 'https:', 'udp:']) {
   try {
     const parsedURL = new URL(data)
     return allowedProtocols.includes(parsedURL.protocol)
