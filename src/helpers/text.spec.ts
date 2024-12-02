@@ -1,4 +1,13 @@
-import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, stringContainsUrl, titleCase } from './text'
+import {
+  capitalize,
+  codeToFlag,
+  extractHostname,
+  getDomainBody,
+  splitByUrl,
+  containsUrl,
+  titleCase,
+  isValidUri
+} from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -41,12 +50,64 @@ test('helpers/text/getDomainBody', () => {
 
 test('helpers/text/splitByUrl', () => {
   expect(splitByUrl('Description available at http://www.example.com')).toEqual(['Description available at ', 'http://www.example.com'])
+  expect(splitByUrl('Downloaded from example.com')).toEqual(['Downloaded from ', 'example.com'])
 })
 
-test('helpers/text/stringContainsUrl', () => {
-  expect(stringContainsUrl('Description available at http://www.example.com')).toBe(true)
-  expect(stringContainsUrl('Description available at https://www.example.com')).toBe(true)
-  expect(stringContainsUrl('Description available at udp://www.example.com')).toBe(true)
+describe('helpers/text/containsUrl', () => {
+  test('substring matches', () => {
+    expect(containsUrl('Downloaded from example.com')).toBe(true)
+  })
+
+  test('valid with protocol', () => {
+    expect(containsUrl('http://www.example.com')).toBe(true)
+    expect(containsUrl('https://www.example.com')).toBe(true)
+    expect(containsUrl('udp://www.example.com')).toBe(true)
+  })
+
+  test('valid with IP', () => {
+    expect(containsUrl("http://192.168.0.1")).toBe(true)
+    expect(containsUrl("https://192.168.0.1:8080")).toBe(true)
+    expect(containsUrl("udp://192.168.0.1:5555")).toBe(true)
+  })
+
+  test('valid without protocol', () => {
+    expect(containsUrl('www.example.com')).toBe(true)
+    expect(containsUrl("example.com")).toBe(true)
+    expect(containsUrl("example.co.uk")).toBe(true)
+  })
+
+  test('malformed URIs', () => {
+    expect(containsUrl("invalid-url")).toBe(false)
+  })
+})
+
+describe('helpers/text/isValidUri', () => {
+  test('valid with protocol', () => {
+    expect(isValidUri('http://www.example.com')).toBe(true)
+    expect(isValidUri('https://www.example.com')).toBe(true)
+    expect(isValidUri('udp://www.example.com')).toBe(true)
+  })
+
+  test('valid with IP', () => {
+    expect(isValidUri("http://192.168.0.1")).toBe(true)
+    expect(isValidUri("https://192.168.0.1:8080")).toBe(true)
+    expect(isValidUri("udp://192.168.0.1:5555")).toBe(true)
+  })
+
+  test('not allowed protocol', () => {
+    expect(isValidUri("ftp://ftp.example.com/path")).toBe(false)
+    expect(isValidUri("file:///C:/path/to/file")).toBe(false)
+    expect(isValidUri("mailto:user@example.com")).toBe(false)
+  })
+
+  test('invalid without protocol', () => {
+    expect(isValidUri('www.example.com')).toBe(false)
+    expect(isValidUri("example.com")).toBe(false)
+  })
+
+  test('malformed URIs', () => {
+    expect(isValidUri("invalid-url")).toBe(false)
+  })
 })
 
 test('helpers/text/codeToFlag', () => {

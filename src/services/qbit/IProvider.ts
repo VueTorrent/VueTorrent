@@ -480,7 +480,8 @@ export default interface IProvider {
   /**
    * Add trackers to torrents
    * @param hash Torrent hash
-   * @param trackers Trackers to add
+   * @param trackers Trackers to add, new line for next URL, empty line for next tier
+   * @throws 404 if hash doesn't exist
    */
   addTorrentTrackers(hash: string, trackers: string): Promise<void>
 
@@ -489,6 +490,10 @@ export default interface IProvider {
    * @param hash Torrent hash
    * @param origUrl Original tracker URL
    * @param newUrl New tracker URL
+   * @throws 400 "New tracker URL is invalid"
+   * @throws 404 if hash doesn't exist
+   * @throws 409 "New tracker URL already exists"
+   * @throws 409 "Tracker not found"
    */
   editTorrentTracker(hash: string, origUrl: string, newUrl: string): Promise<void>
 
@@ -496,6 +501,7 @@ export default interface IProvider {
    * Remove trackers from torrents
    * @param hash Torrent hash
    * @param trackers Trackers to remove
+   * @throws 404 if hash doesn't exist
    */
   removeTorrentTrackers(hash: string, trackers: string[]): Promise<void>
 

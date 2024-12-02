@@ -90,13 +90,14 @@ export const useTorrentStore = defineStore(
     const torrentsByTracker = computed(() =>
       torrents.value.reduce(
         (acc, torrent) => {
-          const trackers = trackerStore.torrentTrackers.get(torrent.hash) ?? []
+          const trackers = trackerStore.torrentHostnameTrackers.get(torrent.hash) ?? []
           if (trackers.length === 0) {
             acc[TrackerSpecialFilter.UNTRACKED] = (acc[TrackerSpecialFilter.UNTRACKED] ?? 0) + 1
             return acc
-          } else if (torrent.tracker === '' && !torrentStateNotAnnounced.includes(torrent.state)) {
+          }
+
+          if (torrent.tracker === '' && !torrentStateNotAnnounced.includes(torrent.state)) {
             acc[TrackerSpecialFilter.NOT_WORKING] = (acc[TrackerSpecialFilter.NOT_WORKING] ?? 0) + 1
-            return acc
           }
 
           trackers.forEach(tracker => {
@@ -136,7 +137,7 @@ export const useTorrentStore = defineStore(
       }
     }
     const matchTracker: matchFn = t => {
-      const torrentTrackers = trackerStore.torrentTrackers.get(t.hash) ?? []
+      const torrentTrackers = trackerStore.torrentHostnameTrackers.get(t.hash) ?? []
 
       const matcher = (tracker: string | TrackerSpecialFilter) => {
         switch (tracker) {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RightClickMenu from '@/components/Core/RightClickMenu'
-import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackersDialog.vue'
+import BulkUpdateTrackersDialog from '@/components/Dialogs/BulkUpdateTrackers/BulkUpdateTrackersDialog.vue'
 import CategoryFormDialog from '@/components/Dialogs/CategoryFormDialog.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
 import MoveTorrentDialog from '@/components/Dialogs/MoveTorrentDialog.vue'
@@ -365,28 +365,28 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
               <template v-slot:activator="{ props }">
                 <v-btn density="compact" variant="plain" icon="mdi-play" v-bind="props" @click="resumeTorrents" />
               </template>
-              <span>{{ $t('dashboard.right_click.top.resume') }}</span>
+              <span>{{ t('dashboard.right_click.top.resume') }}</span>
             </v-tooltip>
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
                 <v-btn density="compact" variant="plain" icon="mdi-fast-forward" v-bind="props" @click="forceStartTorrents" />
               </template>
-              <span>{{ $t('dashboard.right_click.top.force_resume') }}</span>
+              <span>{{ t('dashboard.right_click.top.force_resume') }}</span>
             </v-tooltip>
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
                 <v-btn density="compact" variant="plain" icon="mdi-pause" v-bind="props" @click="pauseTorrents" />
               </template>
-              <span>{{ $t('dashboard.right_click.top.pause') }}</span>
+              <span>{{ t('dashboard.right_click.top.pause') }}</span>
             </v-tooltip>
 
             <v-tooltip location="top">
               <template v-slot:activator="{ props }">
                 <v-btn color="red" density="compact" variant="plain" icon="mdi-delete-forever" v-bind="props" @click="deleteTorrents" />
               </template>
-              <span>{{ $t('dashboard.right_click.top.delete') }}</span>
+              <span>{{ t('dashboard.right_click.top.delete') }}</span>
             </v-tooltip>
           </div>
         </v-list-item>

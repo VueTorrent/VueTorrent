@@ -40,6 +40,9 @@ import IProvider from './IProvider'
 
 export default class MockProvider implements IProvider {
   private static instance: MockProvider
+  private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
+    .fill('')
+    .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
   private readonly categories: Record<string, Category> = {
     Movie: { name: 'Movie', savePath: faker.system.directoryPath() },
     TV: { name: 'TV', savePath: faker.system.directoryPath() },
@@ -52,14 +55,11 @@ export default class MockProvider implements IProvider {
     .multiple(() => faker.internet.url(), { count: 5 })
     .reduce(
       (obj, url) => {
-        obj[url] = faker.helpers.arrayElements(MockProvider.hashes, { min: 0, max: 2 })
+        obj[url] = faker.helpers.arrayElements(MockProvider.hashes)
         return obj
       },
       {} as Record<string, string[]>
     )
-  private static hashes: string[] = Array(parseInt(import.meta.env.VITE_FAKE_TORRENTS_COUNT || 15))
-    .fill('')
-    .map((_, i) => (i + 1).toString(16).padStart(40, '0'))
 
   private constructor() {}
 
@@ -148,15 +148,13 @@ export default class MockProvider implements IProvider {
    * @param options.delay Delay in milliseconds before resolving the Promise
    * @private
    */
-  private async generateResponse<T>(options?: { result?: T; shouldResolve?: boolean; delay?: number }): Promise<T> {
-    const result = options?.result
-    const shouldResolve = options?.shouldResolve ?? true
-    const delay = options?.delay ?? 0
+  private async generateResponse<T, E>(options?: { result?: T; reason?: E; shouldResolve?: boolean; delay?: number }): Promise<T> {
+    const { result, reason, shouldResolve = true, delay = 0 } = options || {}
 
     if (delay > 0) {
-      return new Promise<T>((resolve, reject) => setTimeout(() => (shouldResolve ? resolve(result!) : reject(result)), delay))
+      return new Promise<T>((resolve, reject) => setTimeout(() => (shouldResolve ? resolve(result!) : reject(reason)), delay))
     }
-    return new Promise<T>((resolve, reject) => (shouldResolve ? resolve(result!) : reject(result)))
+    return new Promise<T>((resolve, reject) => (shouldResolve ? resolve(result!) : reject(reason)))
   }
 
   /// AppController ///
@@ -1137,7 +1135,7 @@ export default class MockProvider implements IProvider {
       write_cache_overload: '0'
     }
 
-    return this.generateResponse<MaindataResponse>({
+    return this.generateResponse<MaindataResponse, void>({
       result: {
         full_update: !rid ? true : undefined,
         rid: rid ?? 1,
