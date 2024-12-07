@@ -163,14 +163,14 @@ watch(
           <v-col cols="12" md="6" class="py-0">
             <v-text-field
               v-model="preferenceStore.preferences!.i2p_address"
-              :disabled="preferenceStore.preferences!.i2p_enabled"
+              :disabled="!preferenceStore.preferences!.i2p_enabled"
               hide-details
               :label="t('settings.connection.i2p.address')" />
           </v-col>
           <v-col cols="12" md="6" class="py-0">
             <v-text-field
               v-model="preferenceStore.preferences!.i2p_port"
-              :disabled="preferenceStore.preferences!.i2p_enabled"
+              :disabled="!preferenceStore.preferences!.i2p_enabled"
               :rules="portRule"
               type="number"
               min="0"
@@ -181,7 +181,7 @@ watch(
           <v-col cols="12" class="py-0">
             <v-checkbox
               v-model="preferenceStore.preferences!.i2p_mixed_mode"
-              :disabled="preferenceStore.preferences!.i2p_enabled"
+              :disabled="!preferenceStore.preferences!.i2p_enabled"
               hide-details
               :label="t('settings.connection.i2p.mixedMode')" />
           </v-col>
