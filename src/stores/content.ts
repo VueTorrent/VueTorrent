@@ -153,16 +153,32 @@ export const useContentStore = defineStore('content', () => {
   }
 
   function openNode(e: Event, node: TreeNode) {
-    if (node.type === 'file') return
     e.stopPropagation()
 
-    const index = openedItems.value.indexOf(node.fullName)
+    const dirName = node.type === 'file' ? node.fullName.slice(0, node.fullName.lastIndexOf('/')) : node.fullName
+
+    const index = openedItems.value.indexOf(dirName)
     if (index === -1) {
-      openedItems.value.push(node.fullName)
-    } else {
-      openedItems.value.splice(index, 1)
+      openedItems.value.push(dirName)
+      triggerRef(openedItems)
     }
-    triggerRef(openedItems)
+  }
+
+  function closeNode(e: Event, node: TreeNode) {
+    e.stopPropagation()
+
+    const dirName = (node.type === 'file' || openedItems.value.indexOf(node.fullName) === -1) ? node.fullName.slice(0, node.fullName.lastIndexOf('/')) :  node.fullName
+
+    const index = openedItems.value.indexOf(dirName)
+    if (index !== -1) {
+      openedItems.value.splice(index, 1)
+      if (internalSelection.value.has(node.fullName)) {
+        internalSelection.value.delete(node.fullName)
+        internalSelection.value.add(dirName)
+        lastSelected.value = dirName
+      }
+      triggerRef(openedItems)
+    }
   }
 
   async function toggleFileSelection(node: TreeNode) {
@@ -194,6 +210,7 @@ export const useContentStore = defineStore('content', () => {
     fetchFiles,
     fetchPieceState,
     openNode,
+    closeNode,
     toggleFileSelection,
     $reset: () => {
       pauseTimer()
