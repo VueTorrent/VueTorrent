@@ -47,7 +47,8 @@ export function getDomainBody(string: string): string {
  *
  * Path (Optional): should match any string appended to the URL
  */
-const getUrlRegExp = () => new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
+const getUrlRegExp = () =>
+  new RegExp(/(?:(?<protocol>https?|udp):\/\/)?(?<host>[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}|\d{1,3}(?:\.\d{1,3}){3}|\[[a-fA-F0-9:]+])(?::(?<port>\d+))?(?<path>\/\S*)?/gi)
 
 export function splitByUrl(data: string) {
   const urls = data.match(getUrlRegExp())

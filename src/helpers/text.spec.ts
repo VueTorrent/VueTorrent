@@ -1,13 +1,4 @@
-import {
-  capitalize,
-  codeToFlag,
-  extractHostname,
-  getDomainBody,
-  splitByUrl,
-  containsUrl,
-  titleCase,
-  isValidUri
-} from './text'
+import { capitalize, codeToFlag, extractHostname, getDomainBody, splitByUrl, containsUrl, titleCase, isValidUri } from './text'
 import { expect, test } from 'vitest'
 
 test('helpers/text/titleCase', () => {
@@ -65,19 +56,19 @@ describe('helpers/text/containsUrl', () => {
   })
 
   test('valid with IP', () => {
-    expect(containsUrl("http://192.168.0.1")).toBe(true)
-    expect(containsUrl("https://192.168.0.1:8080")).toBe(true)
-    expect(containsUrl("udp://192.168.0.1:5555")).toBe(true)
+    expect(containsUrl('http://192.168.0.1')).toBe(true)
+    expect(containsUrl('https://192.168.0.1:8080')).toBe(true)
+    expect(containsUrl('udp://192.168.0.1:5555')).toBe(true)
   })
 
   test('valid without protocol', () => {
     expect(containsUrl('www.example.com')).toBe(true)
-    expect(containsUrl("example.com")).toBe(true)
-    expect(containsUrl("example.co.uk")).toBe(true)
+    expect(containsUrl('example.com')).toBe(true)
+    expect(containsUrl('example.co.uk')).toBe(true)
   })
 
   test('malformed URIs', () => {
-    expect(containsUrl("invalid-url")).toBe(false)
+    expect(containsUrl('invalid-url')).toBe(false)
   })
 })
 
@@ -89,24 +80,24 @@ describe('helpers/text/isValidUri', () => {
   })
 
   test('valid with IP', () => {
-    expect(isValidUri("http://192.168.0.1")).toBe(true)
-    expect(isValidUri("https://192.168.0.1:8080")).toBe(true)
-    expect(isValidUri("udp://192.168.0.1:5555")).toBe(true)
+    expect(isValidUri('http://192.168.0.1')).toBe(true)
+    expect(isValidUri('https://192.168.0.1:8080')).toBe(true)
+    expect(isValidUri('udp://192.168.0.1:5555')).toBe(true)
   })
 
   test('not allowed protocol', () => {
-    expect(isValidUri("ftp://ftp.example.com/path")).toBe(false)
-    expect(isValidUri("file:///C:/path/to/file")).toBe(false)
-    expect(isValidUri("mailto:user@example.com")).toBe(false)
+    expect(isValidUri('ftp://ftp.example.com/path')).toBe(false)
+    expect(isValidUri('file:///C:/path/to/file')).toBe(false)
+    expect(isValidUri('mailto:user@example.com')).toBe(false)
   })
 
   test('invalid without protocol', () => {
     expect(isValidUri('www.example.com')).toBe(false)
-    expect(isValidUri("example.com")).toBe(false)
+    expect(isValidUri('example.com')).toBe(false)
   })
 
   test('malformed URIs', () => {
-    expect(isValidUri("invalid-url")).toBe(false)
+    expect(isValidUri('invalid-url')).toBe(false)
   })
 })
 
