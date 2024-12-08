@@ -106,8 +106,7 @@ export const useTrackerStore = defineStore('trackers', () => {
         const fulfilled = curr.status === 'fulfilled'
         if (fulfilled) {
           prev[0] += 1
-        } else
-          prev[1].push(curr.reason)
+        } else prev[1].push(curr.reason)
         return prev
       },
       [0, []] as [number, AxiosError[]]

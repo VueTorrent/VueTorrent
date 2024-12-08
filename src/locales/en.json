@@ -330,16 +330,16 @@
     "bulkEditTrackers": {
       "add": "Trackers to add",
       "edit": {
-        "title": "Trackers to replace",
+        "result": "{rejected}/{total} requests failed\\n{reason}",
         "row": {
           "add": "Add row",
+          "new_url": "New tracker URL",
+          "old_url": "Old tracker URL",
           "rules": {
             "invalid_url": "Invalid URL"
-          },
-          "old_url": "Old tracker URL",
-          "new_url": "New tracker URL"
+          }
         },
-        "result": "{rejected}/{total} requests failed\n{reason}"
+        "title": "Trackers to replace"
       },
       "remove": "Trackers to remove",
       "title": "Bulk Edit Trackers"
