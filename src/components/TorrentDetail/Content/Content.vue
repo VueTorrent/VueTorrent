@@ -120,6 +120,9 @@ function handleKeyboardInput(e: KeyboardEvent) {
       }
       break
     case KeyNames.ArrowLeft:
+      contentStore.closeNode(e, flatTree.value[oldCursor])
+      newCursor = flatTree.value.findIndex(node => node.fullName === lastSelected.value)
+      break
     case KeyNames.ArrowRight:
       contentStore.openNode(e, flatTree.value[oldCursor])
       break
@@ -131,7 +134,7 @@ function handleKeyboardInput(e: KeyboardEvent) {
   if (oldCursor !== newCursor) {
     lastSelected.value = flatTree.value[newCursor].fullName
     internalSelection.value = new Set([lastSelected.value])
-    scrollView.value?.scrollToIndex(newCursor - Math.floor(height.value / 68 / 2))
+    scrollView.value?.scrollToIndex(Math.max(0, newCursor - Math.floor(height.value / 68 / 2)))
   }
 
   return true
