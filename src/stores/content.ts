@@ -23,14 +23,14 @@ export const useContentStore = defineStore('content', () => {
     isVisible: false,
     offset: [0, 0]
   })
-  const filenameFilter = shallowRef('')
   const cachedFiles = shallowRef<TorrentFile[]>([])
-  const openedItems = shallowRef([''])
+  const filenameFilter = shallowRef('')
   const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
+  const openedItems = shallowRef(new Set(['']))
   const { flatTree } = useTreeBuilder(filteredFiles, openedItems)
-
   const internalSelection = shallowRef<Set<string>>(new Set())
   const lastSelected = shallowRef<string>('')
+
   const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
   const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
   const selectedIds = computed<number[]>(() =>
@@ -83,6 +83,16 @@ export const useContentStore = defineStore('content', () => {
           action: () => setFilePriority(selectedIds.value, FilePriority.DO_NOT_DOWNLOAD)
         }
       ]
+    },
+    {
+      text: 'Collapse All',
+      icon: 'mdi-unfold-less-horizontal',
+      action: collapseAll
+    },
+    {
+      text: 'Expand All',
+      icon: 'mdi-unfold-more-horizontal',
+      action: expandAll
     }
   ])
 
@@ -157,9 +167,8 @@ export const useContentStore = defineStore('content', () => {
 
     const dirName = node.type === 'file' ? node.fullName.slice(0, node.fullName.lastIndexOf('/')) : node.fullName
 
-    const index = openedItems.value.indexOf(dirName)
-    if (index === -1) {
-      openedItems.value.push(dirName)
+    if (!openedItems.value.has(dirName)) {
+      openedItems.value.add(dirName)
       triggerRef(openedItems)
     }
   }
@@ -167,11 +176,10 @@ export const useContentStore = defineStore('content', () => {
   function closeNode(e: Event, node: TreeNode) {
     e.stopPropagation()
 
-    const dirName = (node.type === 'file' || openedItems.value.indexOf(node.fullName) === -1) ? node.fullName.slice(0, node.fullName.lastIndexOf('/')) :  node.fullName
+    const dirName = node.type === 'file' || !openedItems.value.has(node.fullName) ? node.fullName.slice(0, node.fullName.lastIndexOf('/')) : node.fullName
 
-    const index = openedItems.value.indexOf(dirName)
-    if (index !== -1) {
-      openedItems.value.splice(index, 1)
+    if (openedItems.value.has(dirName)) {
+      openedItems.value.delete(dirName)
       if (internalSelection.value.has(node.fullName)) {
         internalSelection.value.delete(node.fullName)
         internalSelection.value.add(dirName)
@@ -179,6 +187,21 @@ export const useContentStore = defineStore('content', () => {
       }
       triggerRef(openedItems)
     }
+  }
+
+  function collapseAll() {
+    openedItems.value = new Set([''])
+  }
+
+  function expandAll() {
+    openedItems.value = cachedFiles.value
+      .flatMap(file =>
+        file.name
+          .replaceAll('\\', '/')
+          .split('/')
+          .reduce((prev, curr, i, arr) => [...prev, ...(i < arr.length - 1 ? [[...prev, curr].join('/')] : [])], [] as string[])
+      )
+      .reduce((prev, curr) => prev.add(curr), new Set(['']))
   }
 
   async function toggleFileSelection(node: TreeNode) {
@@ -211,6 +234,8 @@ export const useContentStore = defineStore('content', () => {
     fetchPieceState,
     openNode,
     closeNode,
+    collapseAll,
+    expandAll,
     toggleFileSelection,
     $reset: () => {
       pauseTimer()
@@ -219,7 +244,7 @@ export const useContentStore = defineStore('content', () => {
       lastSelected.value = ''
       filenameFilter.value = ''
       cachedFiles.value = []
-      openedItems.value = ['']
+      openedItems.value = new Set([''])
     }
   }
 })
