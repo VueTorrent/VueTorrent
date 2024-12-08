@@ -7,14 +7,14 @@ function getEmptyRoot() {
   return new TreeFolder('(root)', '')
 }
 
-export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<string[]>) {
+export function useTreeBuilder(items: MaybeRefOrGetter<TorrentFile[]>, openedItems: MaybeRefOrGetter<Set<string>>) {
   const tree = shallowRef(getEmptyRoot())
 
   const flatTree = computed(() => {
     const flatten = (node: TreeNode, parentPath: string): TreeNode[] => {
       const path = parentPath === '' ? node.name : parentPath + '/' + node.name
 
-      if (node.type === 'folder' && toValue(openedItems).includes(node.fullName)) {
+      if (node.type === 'folder' && toValue(openedItems).has(node.fullName)) {
         const children = node.children
           .toSorted((a: TreeNode, b: TreeNode) => {
             if (a.type === 'folder' && b.type === 'file') return -1
