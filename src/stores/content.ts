@@ -194,7 +194,6 @@ export const useContentStore = defineStore('content', () => {
   }
 
   function expandAll() {
-    console.log('oui')
     openedItems.value = cachedFiles.value
       .flatMap(file =>
         file.name

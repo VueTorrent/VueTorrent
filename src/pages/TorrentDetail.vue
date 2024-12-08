@@ -65,7 +65,7 @@ onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
   updateTabHandle()
   torrentDetailStore.fetchProperties(hash.value)
-  contentStore.updateFileTreeTask.perform()
+  contentStore.updateFileTreeTask.perform().then(() => contentStore.expandAll())
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
@@ -120,5 +120,3 @@ onBeforeUnmount(() => {
     <RightClickMenu v-model="contentStore.rightClickProperties.isVisible" :menu-data="contentStore.menuData" />
   </div>
 </template>
-
-<style scoped></style>
