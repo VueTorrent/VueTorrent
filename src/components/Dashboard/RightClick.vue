@@ -73,6 +73,10 @@ async function forceReannounce() {
   await torrentStore.reannounceTorrents(hashes)
 }
 
+async function toggleSuperSeeding() {
+  await torrentStore.setSuperSeeding(hashes, !torrent.value?.super_seeding)
+}
+
 async function toggleSeqDl() {
   await torrentStore.toggleSeqDl(hashes)
 }
@@ -188,6 +192,11 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         text: t('dashboard.right_click.advanced.reannounce'),
         icon: 'mdi-bullhorn',
         action: forceReannounce
+      },
+      {
+        text: t('dashboard.right_click.advanced.super_seeding'),
+        icon: torrent.value?.super_seeding ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline',
+        action: toggleSuperSeeding
       },
       {
         text: t('dashboard.right_click.advanced.seq_dl'),
