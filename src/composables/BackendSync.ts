@@ -3,7 +3,7 @@ import { Store } from 'pinia'
 import { ref } from 'vue'
 
 export function useBackendSync(store: Store, key: string, config: { blacklist?: string[]; whitelist?: string[] } = {}) {
-  let cancelWatcherCallback = ref<() => void>()
+  let cancelWatcherCallback = ref(() => {})
 
   function keyMatchesFilter(k: string) {
     return config.whitelist?.includes(k) || !config.blacklist?.includes(k)
@@ -41,7 +41,7 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
   }
 
   async function cancelWatcher() {
-    cancelWatcherCallback.value && cancelWatcherCallback.value()
+    cancelWatcherCallback.value()
   }
 
   return {

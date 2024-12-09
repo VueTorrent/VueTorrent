@@ -6,9 +6,10 @@ import Overview from '@/components/TorrentDetail/Overview.vue'
 import Peers from '@/components/TorrentDetail/Peers.vue'
 import TagsAndCategories from '@/components/TorrentDetail/TagsAndCategories.vue'
 import Trackers from '@/components/TorrentDetail/Trackers.vue'
-import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
-import { computed, onBeforeUnmount, onMounted, ref, watch, watchEffect } from 'vue'
 import { useI18nUtils } from '@/composables'
+import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
+import { storeToRefs } from 'pinia'
+import { computed, onBeforeUnmount, onMounted, watch, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -17,6 +18,7 @@ const contentStore = useContentStore()
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const torrentDetailStore = useTorrentDetailStore()
+const { tab } = storeToRefs(torrentDetailStore)
 
 const tabs = [
   { text: t('torrentDetail.tabs.overview'), value: 'overview' },
@@ -26,8 +28,6 @@ const tabs = [
   { text: t('torrentDetail.tabs.content'), value: 'content' },
   { text: t('torrentDetail.tabs.tagsAndCategories'), value: 'tagsAndCategories' }
 ]
-
-const tab = ref('overview')
 
 const hash = computed(() => router.currentRoute.value.params.hash as string)
 const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
