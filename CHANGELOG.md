@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.19.1](https://github.com/VueTorrent/VueTorrent/compare/v2.19.0...v2.19.1) (2024-12-09)
+
+
+### Improvements
+
+* **RightClick:** Add missing option for super seeding mode ([#2085](https://github.com/VueTorrent/VueTorrent/issues/2085)) ([d1f0303](https://github.com/VueTorrent/VueTorrent/commit/d1f0303a572d7ba5faa555f92aea1c32fae7d53f))
+
 ## [2.19.0](https://github.com/VueTorrent/VueTorrent/compare/v2.18.0...v2.19.0) (2024-12-09)
 
 
