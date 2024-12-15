@@ -104,7 +104,10 @@ function getNodeSubtitle(node: TreeNode) {
       </div>
 
       <!-- Node icon -->
-      <div v-if="node.type === 'folder'" class="d-flex align-center spacer cursor-pointer" @click="openedItems.has(node.fullName) ? contentStore.closeNode($event, node) : contentStore.openNode($event, node)">
+      <div
+        v-if="node.type === 'folder'"
+        class="d-flex align-center spacer cursor-pointer"
+        @click="openedItems.has(node.fullName) ? contentStore.closeNode($event, node) : contentStore.openNode($event, node)">
         <v-icon>{{ openedItems.has(node.fullName) ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
 
         <v-icon v-if="node.fullName === ''" icon="mdi-file-tree" />

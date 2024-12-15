@@ -2,28 +2,36 @@
 
 ## [2.19.0](https://github.com/VueTorrent/VueTorrent/compare/v2.18.0...v2.19.0) (2024-12-09)
 
-
 ### Features
 
-* **Content:** Add expand / collapse all actions to right-click menu ([#2081](https://github.com/VueTorrent/VueTorrent/issues/2081)) ([3ab44a5](https://github.com/VueTorrent/VueTorrent/commit/3ab44a5dfeb8eb909a068be018e61ccb4e3ccd0b))
-* **RightClick:** Add bulk update tracker dialog ([#2057](https://github.com/VueTorrent/VueTorrent/issues/2057)) ([7a57d22](https://github.com/VueTorrent/VueTorrent/commit/7a57d226389e143364e348532b798dcbe46ad0f4))
-
+- **Content:** Add expand / collapse all actions to right-click menu ([#2081](https://github.com/VueTorrent/VueTorrent/issues/2081))
+  ([3ab44a5](https://github.com/VueTorrent/VueTorrent/commit/3ab44a5dfeb8eb909a068be018e61ccb4e3ccd0b))
+- **RightClick:** Add bulk update tracker dialog ([#2057](https://github.com/VueTorrent/VueTorrent/issues/2057))
+  ([7a57d22](https://github.com/VueTorrent/VueTorrent/commit/7a57d226389e143364e348532b798dcbe46ad0f4))
 
 ### Bug Fixes
 
-* **filters:** Don't count offline torrent in "Not working" tracker filter ([#2051](https://github.com/VueTorrent/VueTorrent/issues/2051)) ([d59cae7](https://github.com/VueTorrent/VueTorrent/commit/d59cae7ccff87abbc7b62dbb05013d04ee891895))
-* **RSS:** Prevent wrap on "NEW" chip ([#2054](https://github.com/VueTorrent/VueTorrent/issues/2054)) ([eb82416](https://github.com/VueTorrent/VueTorrent/commit/eb82416a31341c36f3dd0c6802db001ed84580e4))
-* **Settings:** Fix unusable i2p settings ([#2076](https://github.com/VueTorrent/VueTorrent/issues/2076)) ([9a2efcf](https://github.com/VueTorrent/VueTorrent/commit/9a2efcf8f0d5ec37c7f6beb271ede4b5549a7e65))
-* **TorrentCreator:** Add source field for qbit 5.0.3+ ([#2069](https://github.com/VueTorrent/VueTorrent/issues/2069)) ([9f73baa](https://github.com/VueTorrent/VueTorrent/commit/9f73baaa30674e7740280545a5409ffa132f125e))
-
+- **filters:** Don't count offline torrent in "Not working" tracker filter ([#2051](https://github.com/VueTorrent/VueTorrent/issues/2051))
+  ([d59cae7](https://github.com/VueTorrent/VueTorrent/commit/d59cae7ccff87abbc7b62dbb05013d04ee891895))
+- **RSS:** Prevent wrap on "NEW" chip ([#2054](https://github.com/VueTorrent/VueTorrent/issues/2054))
+  ([eb82416](https://github.com/VueTorrent/VueTorrent/commit/eb82416a31341c36f3dd0c6802db001ed84580e4))
+- **Settings:** Fix unusable i2p settings ([#2076](https://github.com/VueTorrent/VueTorrent/issues/2076))
+  ([9a2efcf](https://github.com/VueTorrent/VueTorrent/commit/9a2efcf8f0d5ec37c7f6beb271ede4b5549a7e65))
+- **TorrentCreator:** Add source field for qbit 5.0.3+ ([#2069](https://github.com/VueTorrent/VueTorrent/issues/2069))
+  ([9f73baa](https://github.com/VueTorrent/VueTorrent/commit/9f73baaa30674e7740280545a5409ffa132f125e))
 
 ### Improvements
 
-* **backend:** Rework sync behaviour ([#2050](https://github.com/VueTorrent/VueTorrent/issues/2050)) ([542e5c7](https://github.com/VueTorrent/VueTorrent/commit/542e5c7d002f5ad8e58ca53ebd8e8de830213acc))
-* **Content:** Allow keyboard to collapse parent folder with left arrow ([#2080](https://github.com/VueTorrent/VueTorrent/issues/2080)) ([3f18e20](https://github.com/VueTorrent/VueTorrent/commit/3f18e20a89c95ce1c0453e42dc1179acc5e00a8c))
-* **SearchEngine:** Update mobile variant to be more compact ([#2059](https://github.com/VueTorrent/VueTorrent/issues/2059)) ([2816e4f](https://github.com/VueTorrent/VueTorrent/commit/2816e4fb311c71818bb0839d4624f0b7b4999c17))
-* **TorrentDetail:** Remember last opened tab ([#2082](https://github.com/VueTorrent/VueTorrent/issues/2082)) ([5088d26](https://github.com/VueTorrent/VueTorrent/commit/5088d262c2fc996f9a59e459f6b213a6443cc5c8))
-* **trackers:** Improve overall UX ([#2071](https://github.com/VueTorrent/VueTorrent/issues/2071)) ([41afc40](https://github.com/VueTorrent/VueTorrent/commit/41afc40ba216a80be604afc1aae976b41a3850d3))
+- **backend:** Rework sync behaviour ([#2050](https://github.com/VueTorrent/VueTorrent/issues/2050))
+  ([542e5c7](https://github.com/VueTorrent/VueTorrent/commit/542e5c7d002f5ad8e58ca53ebd8e8de830213acc))
+- **Content:** Allow keyboard to collapse parent folder with left arrow ([#2080](https://github.com/VueTorrent/VueTorrent/issues/2080))
+  ([3f18e20](https://github.com/VueTorrent/VueTorrent/commit/3f18e20a89c95ce1c0453e42dc1179acc5e00a8c))
+- **SearchEngine:** Update mobile variant to be more compact ([#2059](https://github.com/VueTorrent/VueTorrent/issues/2059))
+  ([2816e4f](https://github.com/VueTorrent/VueTorrent/commit/2816e4fb311c71818bb0839d4624f0b7b4999c17))
+- **TorrentDetail:** Remember last opened tab ([#2082](https://github.com/VueTorrent/VueTorrent/issues/2082))
+  ([5088d26](https://github.com/VueTorrent/VueTorrent/commit/5088d262c2fc996f9a59e459f6b213a6443cc5c8))
+- **trackers:** Improve overall UX ([#2071](https://github.com/VueTorrent/VueTorrent/issues/2071))
+  ([41afc40](https://github.com/VueTorrent/VueTorrent/commit/41afc40ba216a80be604afc1aae976b41a3850d3))
 
 ## [2.18.0](https://github.com/VueTorrent/VueTorrent/compare/v2.17.0...v2.18.0) (2024-11-17)
 

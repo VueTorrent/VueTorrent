@@ -184,6 +184,7 @@
         "rename": "Rename Torrent",
         "save_path": "Set Save Path",
         "seq_dl": "Sequential Download",
+        "super_seeding": "Super seeding mode",
         "title": "Advanced"
       },
       "category": {
