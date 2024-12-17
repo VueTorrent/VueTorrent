@@ -68,7 +68,6 @@ watch(
 )
 
 onMounted(() => {
-  props.isActive && contentStore.resumeTimer()
   document.addEventListener('keydown', handleKeyboardInput)
 })
 onBeforeUnmount(() => {
