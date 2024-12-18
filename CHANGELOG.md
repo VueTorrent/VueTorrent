@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.19.1](https://github.com/VueTorrent/VueTorrent/compare/v2.19.0...v2.19.1) (2024-12-18)
+
+
+### Bug Fixes
+
+* **Content:** Tree not expanding on load ([#2095](https://github.com/VueTorrent/VueTorrent/issues/2095)) ([8792e3d](https://github.com/VueTorrent/VueTorrent/commit/8792e3d1d85c429eafcf0ce882ea1e8bb28f99b8))
+* **RSS:** Display feeds with empty articles ([#2096](https://github.com/VueTorrent/VueTorrent/issues/2096)) ([a6730ab](https://github.com/VueTorrent/VueTorrent/commit/a6730ab440c1a547d38db1a823ef31291616150d))
+
+
+### Improvements
+
+* **RightClick:** Add missing option for super seeding mode ([#2085](https://github.com/VueTorrent/VueTorrent/issues/2085)) ([d1f0303](https://github.com/VueTorrent/VueTorrent/commit/d1f0303a572d7ba5faa555f92aea1c32fae7d53f))
+
 ## [2.19.0](https://github.com/VueTorrent/VueTorrent/compare/v2.18.0...v2.19.0) (2024-12-09)
 
 ### Features
