@@ -64,6 +64,9 @@ watch(
   isActive => {
     if (isActive && !timerForcedPause.value) contentStore.resumeTimer()
     else contentStore.pauseTimer()
+  },
+  {
+    immediate: true
   }
 )
 

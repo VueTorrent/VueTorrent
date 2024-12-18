@@ -53,9 +53,13 @@ function updateTabHandle() {
   }
 }
 
-watchEffect(() => {
-  updateTabHandle()
-})
+watch(
+  router.currentRoute,
+  updateTabHandle,
+  {
+    immediate: true
+  }
+)
 
 watch(torrent, () => {
   torrentDetailStore.fetchProperties(hash.value)
@@ -63,9 +67,8 @@ watch(torrent, () => {
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  updateTabHandle()
   torrentDetailStore.fetchProperties(hash.value)
-  contentStore.updateFileTreeTask.perform().then(() => contentStore.expandAll())
+  contentStore.updateFileTreeTask.perform()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)
