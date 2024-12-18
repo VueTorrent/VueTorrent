@@ -9,7 +9,7 @@ import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useI18nUtils } from '@/composables'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeUnmount, onMounted, watch, watchEffect } from 'vue'
+import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
