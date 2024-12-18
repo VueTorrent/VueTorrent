@@ -9,7 +9,7 @@ import Trackers from '@/components/TorrentDetail/Trackers.vue'
 import { useI18nUtils } from '@/composables'
 import { useContentStore, useDialogStore, useTorrentDetailStore, useTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
-import { computed, onBeforeUnmount, onMounted, watch, watchEffect } from 'vue'
+import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -53,9 +53,13 @@ function updateTabHandle() {
   }
 }
 
-watchEffect(() => {
-  updateTabHandle()
-})
+watch(
+  router.currentRoute,
+  updateTabHandle,
+  {
+    immediate: true
+  }
+)
 
 watch(torrent, () => {
   torrentDetailStore.fetchProperties(hash.value)
@@ -63,9 +67,8 @@ watch(torrent, () => {
 
 onMounted(() => {
   document.addEventListener('keydown', handleKeyboardShortcut)
-  updateTabHandle()
   torrentDetailStore.fetchProperties(hash.value)
-  contentStore.updateFileTreeTask.perform().then(() => contentStore.expandAll())
+  contentStore.updateFileTreeTask.perform()
 })
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleKeyboardShortcut)

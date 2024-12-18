@@ -23,6 +23,7 @@ export const useContentStore = defineStore('content', () => {
     isVisible: false,
     offset: [0, 0]
   })
+  const isFirstRun = shallowRef(true)
   const cachedFiles = shallowRef<TorrentFile[]>([])
   const filenameFilter = shallowRef('')
   const { results: filteredFiles } = useSearchQuery(cachedFiles, filenameFilter, item => item.name)
@@ -97,7 +98,12 @@ export const useContentStore = defineStore('content', () => {
   ])
 
   const updateFileTreeTask = useTask(function* () {
-    yield updateFileTree()
+    if (isFirstRun.value) {
+      yield updateFileTree().then(() => expandAll())
+      isFirstRun.value = false
+    } else {
+      yield updateFileTree()
+    }
   }).drop()
 
   const timerForcedPause = shallowRef(false)
@@ -214,6 +220,7 @@ export const useContentStore = defineStore('content', () => {
 
   return {
     rightClickProperties,
+    isFirstRun,
     internalSelection,
     lastSelected,
     menuData,
@@ -245,6 +252,7 @@ export const useContentStore = defineStore('content', () => {
       filenameFilter.value = ''
       cachedFiles.value = []
       openedItems.value = new Set([''])
+      isFirstRun.value = true
     }
   }
 })

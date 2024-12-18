@@ -64,11 +64,13 @@ watch(
   isActive => {
     if (isActive && !timerForcedPause.value) contentStore.resumeTimer()
     else contentStore.pauseTimer()
+  },
+  {
+    immediate: true
   }
 )
 
 onMounted(() => {
-  props.isActive && contentStore.resumeTimer()
   document.addEventListener('keydown', handleKeyboardInput)
 })
 onBeforeUnmount(() => {
