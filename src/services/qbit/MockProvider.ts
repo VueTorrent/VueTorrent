@@ -942,6 +942,16 @@ export default class MockProvider implements IProvider {
               torrentURL: 'https://www.example.com/article/SDb4v2op8wm'
             }
           ]
+        },
+        {
+          hasError: false,
+          isLoading: false,
+          lastBuildDate: '02 Aug 2023 16:00:46 +0000',
+          name: 'feed17',
+          title: 'RSS Feed 17',
+          uid: '{7ae5ac9f-4698-4638-9a99-197462c3a456}',
+          url: 'https://www.example.com/feed',
+          articles: []
         }
       ]
     })
