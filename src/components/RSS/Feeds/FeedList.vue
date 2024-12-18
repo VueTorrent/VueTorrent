@@ -102,7 +102,7 @@ function getFeedState(feed: FeedType) {
     <v-divider thickness="3" />
     <template v-for="feed in rssStore.feeds">
       <v-list-item
-        v-if="(!rssStore.filters.unread || getUnreadCount(feed) > 0) && (!filteredFeedIds.length || filteredFeedIds.includes(feed.uid))"
+        v-if="(!rssStore.filters.unread || getUnreadCount(feed) > 0) && (rssStore.filters.title == '' || !filteredFeedIds.length || filteredFeedIds.includes(feed.uid))"
         :active="currentFeed === feed.uid"
         :class="getUnreadCount(feed) > 0 ? 'text-accent' : ''"
         color="accent"
