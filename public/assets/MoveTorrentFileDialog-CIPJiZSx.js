@@ -1,1 +1,0 @@
-import{_ as o}from"./TorrentDetail-CtYU7TF9.js";import"./ColoredChip.vue_vue_type_script_setup_true_lang-CIUriYaD.js";import"./index-D1Sur-sb.js";import"./vue-BJ77BLRv.js";import"./vuetify-DUXwO8Qd.js";export{o as default};
