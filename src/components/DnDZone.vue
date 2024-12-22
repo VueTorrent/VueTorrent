@@ -77,11 +77,19 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
   )
 }
 
+function resetDrag(event: DragEvent) {
+  isOverDndZone.value = false
+  isOverQueueZone.value = false
+  isOverDownloadZone.value = false
+}
+
 onMounted(() => {
   document.addEventListener('dragenter', onDragEnter)
+  document.addEventListener('dragleave', resetDrag)
 })
 onUnmounted(() => {
   document.removeEventListener('dragenter', onDragEnter)
+  document.removeEventListener('dragleave', resetDrag)
 })
 </script>
 
