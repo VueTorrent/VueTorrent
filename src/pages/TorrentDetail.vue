@@ -53,13 +53,9 @@ function updateTabHandle() {
   }
 }
 
-watch(
-  router.currentRoute,
-  updateTabHandle,
-  {
-    immediate: true
-  }
-)
+watch(router.currentRoute, updateTabHandle, {
+  immediate: true
+})
 
 watch(torrent, () => {
   torrentDetailStore.fetchProperties(hash.value)
