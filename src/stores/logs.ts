@@ -22,6 +22,7 @@ export const useLogStore = defineStore(
     const reverseSort = ref<boolean>(false)
     const logTypeFilter = ref<LogType[]>([LogType.NORMAL, LogType.INFO, LogType.WARNING, LogType.CRITICAL])
     const logMessageFilter = ref('')
+    const cleanFetchLock = ref(false)
 
     const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
     const { results: filteredLogs } = useSearchQuery(filteredLogsByType, logMessageFilter, log => log.message)
@@ -47,6 +48,8 @@ export const useLogStore = defineStore(
     }
 
     async function cleanAndFetchLogs() {
+      if (cleanFetchLock.value) return
+      cleanFetchLock.value = true
       logs.value = []
       return fetchLogs(-1)
     }
