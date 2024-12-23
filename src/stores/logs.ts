@@ -51,7 +51,8 @@ export const useLogStore = defineStore(
       if (cleanFetchLock.value) return
       cleanFetchLock.value = true
       logs.value = []
-      return fetchLogs(-1)
+      await fetchLogs(-1)
+      cleanFetchLock.value = false
     }
 
     async function extractExternalIpFromLogs(logsToParse: Log[]) {
