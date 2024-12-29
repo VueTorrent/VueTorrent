@@ -46,23 +46,23 @@ function extractDropData(files: File[] | null, dataTransfer: DataTransfer): [Fil
 }
 
 function extractPasteData(event: ClipboardEvent): [File[], string[]] {
-  const clipboardData = event.clipboardData;
+  const clipboardData = event.clipboardData
   if (!clipboardData) {
-    return [[], []];
+    return [[], []]
   }
 
   const files: File[] = Array.from(clipboardData.items)
     .filter(item => item.kind === 'file')
     .map(item => item.getAsFile())
     .filter((file): file is File => !!file)
-    .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'));
+    .filter(file => file.type === 'application/x-bittorrent' || file.name.endsWith('.torrent'))
 
   const links = clipboardData
     .getData('text/plain')
     .split('\n')
-    .filter(link => link.startsWith('magnet:') || link.startsWith('http'));
+    .filter(link => link.startsWith('magnet:') || link.startsWith('http'))
 
-  return [files, links];
+  return [files, links]
 }
 
 function onQueueDrop(files: File[] | null, event: DragEvent) {
