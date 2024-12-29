@@ -36,14 +36,25 @@ const torrent = computed(() => torrentStore.getTorrentByHash(hash.value))
 const isFirstTorrent = computed(() => torrentIndex.value === 0)
 const isLastTorrent = computed(() => torrentIndex.value === torrentStore.processedTorrents.length - 1)
 
-function goToPreviousTorrent() {
-  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[torrentIndex.value - 1].hash } })
+function goToTorrentIndex(index: number) {
+  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[index].hash } })
     .then(res => !res && globalStore.forceReload())
 }
 
+function goToFirstTorrent() {
+  goToTorrentIndex(0)
+}
+
+function goToPreviousTorrent() {
+  goToTorrentIndex(torrentIndex.value - 1)
+}
+
 function goToNextTorrent() {
-  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[torrentIndex.value + 1].hash } })
-    .then(res => !res && globalStore.forceReload())
+  goToTorrentIndex(torrentIndex.value + 1)
+}
+
+function goToLastTorrent() {
+  goToTorrentIndex(torrentStore.processedTorrents.length - 1)
 }
 
 function goHome() {
@@ -96,8 +107,10 @@ onBeforeUnmount(() => {
       </v-col>
       <v-col>
         <div class="d-flex justify-end">
+          <v-btn icon="mdi-skip-previous" :disabled="isFirstTorrent" variant="plain" @click="goToFirstTorrent" />
           <v-btn icon="mdi-arrow-left" :disabled="isFirstTorrent" variant="plain" @click="goToPreviousTorrent" />
           <v-btn icon="mdi-arrow-right" :disabled="isLastTorrent" variant="plain" @click="goToNextTorrent" />
+          <v-btn icon="mdi-skip-next" :disabled="isLastTorrent" variant="plain" @click="goToLastTorrent" />
           <v-btn icon="mdi-close" variant="plain" @click="goHome" />
         </div>
       </v-col>
