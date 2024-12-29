@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar/Navbar.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { formatPercent, formatSpeed } from '@/helpers'
 import { backend } from '@/services/backend'
-import { useAddTorrentStore, useAppStore, useDialogStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useAddTorrentStore, useAppStore, useDialogStore, useGlobalStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { storeToRefs } from 'pinia'
 import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
 import { useBackendSync, useI18nUtils } from '@/composables'
@@ -21,6 +21,7 @@ const maindataStore = useMaindataStore()
 const { serverState } = storeToRefs(maindataStore)
 const { torrents } = storeToRefs(useTorrentStore())
 const preferencesStore = usePreferenceStore()
+const { routerDomKey } = storeToRefs(useGlobalStore())
 const vuetorrentStore = useVueTorrentStore()
 const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
 
@@ -141,7 +142,7 @@ watchEffect(() => {
     <component v-for="dialog in dialogStore.dialogs.values()" :is="dialog.component" v-bind="{ guid: dialog.guid, ...dialog.props }" />
     <Navbar v-if="appStore.isAuthenticated" />
     <v-main>
-      <router-view />
+      <router-view :key="routerDomKey" />
     </v-main>
     <AddPanel v-if="appStore.isAuthenticated" />
     <DnDZone />
