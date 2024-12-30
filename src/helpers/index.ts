@@ -1,7 +1,7 @@
 import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
 import comparators, { Comparator } from './comparators'
 import { formatDataValue, formatDataUnit, formatData } from './data'
-import { formatEta, formatTimeMs, formatTimeSec, formatDuration } from './datetime'
+import { QBIT_MAX_ETA, INFINITY_SYMBOL, formatEta, formatTimeMs, formatTimeSec, formatDuration } from './datetime'
 import { toPrecision, formatPercent } from './number'
 import { basename } from './path'
 import { formatSpeedValue, formatSpeedUnit, formatSpeed } from './speed'
@@ -17,6 +17,8 @@ export {
   formatDataValue,
   formatDataUnit,
   formatData,
+  QBIT_MAX_ETA,
+  INFINITY_SYMBOL,
   formatEta,
   formatTimeMs,
   formatTimeSec,
