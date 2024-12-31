@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.20.0](https://github.com/VueTorrent/VueTorrent/compare/v2.19.0...v2.20.0) (2024-12-31)
+
+
+### Features
+
+* **TorrentDetail:** Add torrent navigation buttons ([#2108](https://github.com/VueTorrent/VueTorrent/issues/2108)) ([488958d](https://github.com/VueTorrent/VueTorrent/commit/488958db10245ec5eac3edd3f170690667254972))
+
+
+### Bug Fixes
+
+* **Content:** Tree not expanding on load ([#2095](https://github.com/VueTorrent/VueTorrent/issues/2095)) ([8792e3d](https://github.com/VueTorrent/VueTorrent/commit/8792e3d1d85c429eafcf0ce882ea1e8bb28f99b8))
+* **Logs:** Prevent duplication on page refresh ([#2100](https://github.com/VueTorrent/VueTorrent/issues/2100)) ([4368af9](https://github.com/VueTorrent/VueTorrent/commit/4368af9e0122eec4f4e6da51fd60df61b4b8f8f1))
+* **paste:** Prevent blocking paste event on some text boxes ([#2112](https://github.com/VueTorrent/VueTorrent/issues/2112)) ([c761591](https://github.com/VueTorrent/VueTorrent/commit/c76159188bc777e670700f25332b3a8ef3622520))
+* **RSS:** Display feeds with empty articles ([#2096](https://github.com/VueTorrent/VueTorrent/issues/2096)) ([a6730ab](https://github.com/VueTorrent/VueTorrent/commit/a6730ab440c1a547d38db1a823ef31291616150d))
+
+
+### Improvements
+
+* **Dashboard:** Make scroll bars always visible ([#2109](https://github.com/VueTorrent/VueTorrent/issues/2109)) ([a5c0330](https://github.com/VueTorrent/VueTorrent/commit/a5c0330031f7d641186a88e4232a83ed9a3c8b4d))
+* **Dashboard:** Sort forced ETA 0s as infinity ([#2110](https://github.com/VueTorrent/VueTorrent/issues/2110)) ([f262eca](https://github.com/VueTorrent/VueTorrent/commit/f262eca144b568f5abebebd688baf0dae8d8b7d0))
+* Handle paste event globally ([#2099](https://github.com/VueTorrent/VueTorrent/issues/2099)) ([098ee25](https://github.com/VueTorrent/VueTorrent/commit/098ee25593ff1a483999e3b67bab68dc5a97a278))
+* **RightClick:** Add missing option for super seeding mode ([#2085](https://github.com/VueTorrent/VueTorrent/issues/2085)) ([d1f0303](https://github.com/VueTorrent/VueTorrent/commit/d1f0303a572d7ba5faa555f92aea1c32fae7d53f))
+
 ## [2.19.0](https://github.com/VueTorrent/VueTorrent/compare/v2.18.0...v2.19.0) (2024-12-09)
 
 ### Features
