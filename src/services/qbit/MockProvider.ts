@@ -10,6 +10,7 @@ import {
   TorrentState
 } from '@/constants/qbit'
 import { ContentLayout, ProxyType, ResumeDataStorageType, StopCondition, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
+import { QBIT_MAX_ETA } from '@/helpers'
 import type {
   ApplicationVersion,
   AppPreferences,
@@ -95,7 +96,7 @@ export default class MockProvider implements IProvider {
       download_path: faker.system.directoryPath(),
       downloaded: completed,
       downloaded_session: completed,
-      eta: faker.number.int({ min: 0, max: 900000 }),
+      eta: faker.number.int({ min: 0, max: QBIT_MAX_ETA }),
       f_l_piece_prio: faker.datatype.boolean(), // [0; 5 Mo/s]
       force_start: faker.datatype.boolean(),
       has_metadata: true,

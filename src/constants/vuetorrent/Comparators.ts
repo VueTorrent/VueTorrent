@@ -1,5 +1,5 @@
-import comparators from '@/helpers/comparators'
-import Torrent from '@/types/vuetorrent/Torrent'
+import { comparators, QBIT_MAX_ETA } from '@/helpers'
+import { Torrent } from '@/types/vuetorrent'
 
 const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boolean) => number> = {
   added_on: (a, b, isAsc) => comparators.numeric.compare(a.added_on, b.added_on, isAsc),
@@ -21,7 +21,7 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   download_path: (a, b, isAsc) => comparators.textWithNumbers.compare(a.download_path, b.download_path, isAsc),
   downloaded: (a, b, isAsc) => comparators.numeric.compare(a.downloaded, b.downloaded, isAsc),
   downloaded_session: (a, b, isAsc) => comparators.numeric.compare(a.downloaded_session, b.downloaded_session, isAsc),
-  eta: (a, b, isAsc) => comparators.numeric.compare(a.eta, b.eta, isAsc),
+  eta: (a, b, isAsc) => comparators.numeric.compare(a.eta === 0 && a.forced ? QBIT_MAX_ETA : a.eta, b.eta === 0 && b.forced ? QBIT_MAX_ETA : b.eta, isAsc),
   f_l_piece_prio: (a, b, isAsc) => comparators.boolean.compare(a.f_l_piece_prio, b.f_l_piece_prio, isAsc),
   forced: (a, b, isAsc) => comparators.boolean.compare(a.forced, b.forced, isAsc),
   globalSpeed: (a, b, isAsc) => comparators.numeric.compare(a.globalSpeed, b.globalSpeed, isAsc),

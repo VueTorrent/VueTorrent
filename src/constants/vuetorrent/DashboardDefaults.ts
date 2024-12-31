@@ -319,7 +319,7 @@ export const propsMetadata: PropertyMetadata = {
     type: DashboardPropertyType.DATA
   },
   [DashboardProperty.ETA]: {
-    props: { titleKey: 'torrent.properties.eta', value: t => formatEta(t.eta) },
+    props: { titleKey: 'torrent.properties.eta', value: t => formatEta(t.eta, t.forced) },
     sortKey: 'eta',
     type: DashboardPropertyType.TEXT
   },

@@ -1,12 +1,14 @@
 import dayjs from '@/plugins/dayjs'
 import { DurationUnitType } from 'dayjs/plugin/duration'
 
-export function formatEta(value: number): string {
-  const QBIT_MAX_ETA = 8_640_000 // 100 days
+export const QBIT_MAX_ETA = 8_640_000 // 100 days
+export const INFINITY_SYMBOL = '∞'
+
+export function formatEta(value: number, isForced: boolean = false): string {
   const MAX_UNITS = 2 // Will display 2 units max, from highest to lowest
 
-  if (value >= QBIT_MAX_ETA) {
-    return '∞'
+  if (value >= QBIT_MAX_ETA || (isForced && value === 0)) {
+    return INFINITY_SYMBOL
   }
 
   const minute = 60
