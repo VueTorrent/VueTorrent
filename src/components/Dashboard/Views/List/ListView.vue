@@ -6,6 +6,7 @@ import { Torrent as TorrentType } from '@/types/vuetorrent'
 import { useDisplay } from 'vuetify'
 
 defineProps<{
+  height: number
   paginatedTorrents: TorrentType[]
 }>()
 
@@ -23,7 +24,7 @@ const dashboardStore = useDashboardStore()
 </script>
 
 <template>
-  <v-list id="torrentList" class="pa-0">
+  <v-list id="torrentList" class="pa-0" :max-height="height">
     <v-list-item
       v-for="torrent in paginatedTorrents"
       :id="`torrent-${torrent.hash}`"

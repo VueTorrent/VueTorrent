@@ -10,6 +10,7 @@ import Header from './Header.vue'
 import TableTorrent from './TableTorrent.vue'
 
 defineProps<{
+  height: number
   paginatedTorrents: TorrentType[]
 }>()
 
@@ -22,13 +23,20 @@ defineEmits<{
   endPress: []
 }>()
 
-const { getTorrentStateString } = useI18nUtils()
+const { t, getTorrentStateString } = useI18nUtils()
 const dashboardStore = useDashboardStore()
 const { sortCriterias } = storeToRefs(useTorrentStore())
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
 const sortCriteria = computed(() => sortCriterias.value[0])
+
+const headers = computed(() => [
+  { key: 'statusIndicator', sortable: false },
+  ...(dashboardStore.isSelectionMultiple ? [{ key: 'multipleSelectionCheckbox', sortable: false }] : []),
+  { title: t('torrent.properties.name'), key: 'name' },
+  ...torrentProperties.value.map(ppt => ({ title: t(ppt.props.titleKey), key: ppt.sortKey }))
+])
 
 function onHeaderClick(sortKey: keyof Torrent) {
   if (sortCriteria.value.value === sortKey) {
@@ -46,18 +54,29 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
 </script>
 
 <template>
-  <v-table id="torrentList" class="pa-0" density="compact">
-    <thead>
+  <v-data-table
+    id="torrentList"
+    density="compact"
+    :mobile="false"
+    :headers="headers"
+    :items="paginatedTorrents"
+    :height="height"
+    :item-height="36"
+    items-per-page="-1"
+    hide-default-footer
+    fixed-header>
+    <template #headers="{ columns }">
       <tr>
-        <th class="px-1" />
-        <th v-if="dashboardStore.isSelectionMultiple" />
-        <Header :title="$t('torrent.properties.name')" sort-key="name" @onHeaderClick="onHeaderClick('name')" />
-        <Header v-for="ppt in torrentProperties" :title="$t(ppt.props.titleKey)" :sort-key="ppt.sortKey" @onHeaderClick="onHeaderClick(ppt.sortKey)" />
+        <template v-for="header in columns" :key="header.key">
+          <th v-if="header.key === 'statusIndicator'" class="px-1" />
+          <th v-else-if="header.key === 'multipleSelectionCheckbox'" />
+          <Header v-else :title="header.title!" :sortKey="header.key!" @onHeaderClick="onHeaderClick(header.key as keyof Torrent)" />
+        </template>
       </tr>
-    </thead>
-    <tbody>
+    </template>
+
+    <template #item="{ item: torrent }">
       <tr
-        v-for="torrent in paginatedTorrents"
         :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
@@ -81,11 +100,12 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
             variant="text"
             @click.stop="$emit('onCheckboxClick', $event, torrent)" />
         </td>
+
         <td class="torrent-name text-no-wrap">{{ torrent.name }}</td>
         <TableTorrent :torrent="torrent" />
       </tr>
-    </tbody>
-  </v-table>
+    </template>
+  </v-data-table>
 </template>
 
 <style lang="scss">

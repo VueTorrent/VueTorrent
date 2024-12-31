@@ -1119,12 +1119,6 @@
         "isShutdownButtonVisible": "Show shutdown button",
         "language": "Language",
         "lightVariants": "Light theme variant",
-        "paginationPosition": {
-          "both": "Both",
-          "bottom": "Only bottom",
-          "title": "Pagination position",
-          "top": "Only top"
-        },
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
           "label": "Pagination Size",

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ImportSettingsDialog from '@/components/Dialogs/ImportSettingsDialog.vue'
-import { defaultDateFormat, defaultDurationFormat, FilterType, PaginationPosition, TitleOptions } from '@/constants/vuetorrent'
+import { defaultDateFormat, defaultDurationFormat, FilterType, TitleOptions } from '@/constants/vuetorrent'
 import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
@@ -43,12 +43,6 @@ const darkVariants = readonly([
 ])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])
-
-const paginationBarOptions = [
-  { title: t('settings.vuetorrent.general.paginationPosition.top'), value: PaginationPosition.TOP, props: { prependIcon: 'mdi-arrow-up' } },
-  { title: t('settings.vuetorrent.general.paginationPosition.bottom'), value: PaginationPosition.BOTTOM, props: { prependIcon: 'mdi-arrow-down' } },
-  { title: t('settings.vuetorrent.general.paginationPosition.both'), value: PaginationPosition.BOTH, props: { prependIcon: 'mdi-arrow-up-down' } }
-]
 
 const VERSION_PATTERN = /^v?(?<version>[0-9.]+)(-(?<commits>\d+)-g(?<sha>[0-9a-f]+))?$/
 const vueTorrentVersion = computed(() => {
@@ -228,24 +222,6 @@ function openDurationFormatHelp() {
         <v-col cols="12" md="6">
           <v-select v-model="filterType" flat hide-details :items="filterInclusionOptions" :label="t('settings.vuetorrent.general.filterType')" />
         </v-col>
-        <v-col cols="12" md="6">
-          <v-combobox
-            v-model="paginationSize"
-            :messages="paginationSizeMessages"
-            flat
-            hide-details
-            :items="paginationSizes"
-            :return-object="false"
-            :label="t('settings.vuetorrent.general.paginationSize.label')" />
-        </v-col>
-        <v-col cols="12" md="6">
-          <v-select
-            v-model="vueTorrentStore.paginationPosition"
-            flat
-            hide-details
-            :items="paginationBarOptions"
-            :label="t('settings.vuetorrent.general.paginationPosition.title')" />
-        </v-col>
 
         <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.uiTitleType" flat hide-details :items="titleOptionsList" :label="t('settings.vuetorrent.general.vueTorrentTitle')" />
@@ -264,9 +240,17 @@ function openDurationFormatHelp() {
         <v-col cols="12" md="6">
           <v-select v-model="vueTorrentStore.theme.dark" flat hide-details :items="darkVariants" :label="$t('settings.vuetorrent.general.darkVariants')" />
         </v-col>
-      </v-row>
 
-      <v-row>
+        <v-col cols="12" md="6">
+          <v-combobox
+            v-model="paginationSize"
+            :messages="paginationSizeMessages"
+            flat
+            hide-details
+            :items="paginationSizes"
+            :return-object="false"
+            :label="t('settings.vuetorrent.general.paginationSize.label')" />
+        </v-col>
         <v-col cols="12" md="3">
           <v-text-field
             v-model="vueTorrentStore.dateFormat"
@@ -277,7 +261,6 @@ function openDurationFormatHelp() {
             append-inner-icon="mdi-help-circle"
             @click:appendInner="openDateFormatHelp" />
         </v-col>
-
         <v-col cols="12" md="3">
           <v-text-field
             v-model="vueTorrentStore.durationFormat"
@@ -298,7 +281,7 @@ function openDurationFormatHelp() {
             {{ t('settings.vuetorrent.general.currentVersion') }}
             <span v-if="!vueTorrentVersion">undefined</span>
             <a v-else-if="vueTorrentVersion === 'DEV'" target="_blank" href="https://github.com/VueTorrent/VueTorrent">{{ vueTorrentVersion }}</a>
-            <a v-else-if="!isStableVersion" target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
+            <a v-else-if="isStableVersion" target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/latest">{{ vueTorrentVersion }}</a>
             <a v-else target="_blank" href="https://github.com/VueTorrent/VueTorrent/releases/tag/latest_nightly">{{ vueTorrentVersion }}</a>
           </h3>
         </v-col>

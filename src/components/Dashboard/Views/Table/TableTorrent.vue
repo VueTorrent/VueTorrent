@@ -49,5 +49,3 @@ const getComponent = (type: DashboardPropertyType) => {
     <component v-if="ppt.props" :is="getComponent(ppt.type)" :torrent="torrent" v-bind="ppt.props" :class="`torrent-${ppt.name}`" />
   </template>
 </template>
-
-<style scoped></style>

@@ -1,21 +1,20 @@
 <script setup lang="ts">
-import { DashboardDisplayMode, PaginationPosition } from '@/constants/vuetorrent'
+import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
+import { useI18nUtils } from '@/composables'
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { comparators } from '@/helpers'
-import { useDashboardStore, useNavbarStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useDashboardStore, useNavbarStore, useTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, mergeProps } from 'vue'
-import { useI18nUtils } from '@/composables'
-import TorrentSearchbar from '@/components/TorrentSearchbar.vue'
 
 const { t } = useI18nUtils()
 
 const dashboardStore = useDashboardStore()
-const { currentPage, pageCount, torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
+const { torrentCountString, isSelectionMultiple, displayMode } = storeToRefs(dashboardStore)
 const { isDrawerOpen } = storeToRefs(useNavbarStore())
 const torrentStore = useTorrentStore()
 const { sortCriterias } = storeToRefs(torrentStore)
-const { paginationPosition } = storeToRefs(useVueTorrentStore())
 
 type SortOption = { title: string; value: keyof Torrent }
 
@@ -78,8 +77,6 @@ const sortOption = computed({
   }
 })
 
-const isPaginationTop = computed(() => !!(paginationPosition.value & PaginationPosition.TOP))
-
 function toggleSelectMode() {
   if (isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()
@@ -98,7 +95,7 @@ function toggleSelectMode() {
     </v-tooltip>
     <v-menu>
       <template v-slot:activator="{ props: menu }">
-        <v-tooltip :text="$t('dashboard.displayMode.title')" location="top">
+        <v-tooltip :text="t('dashboard.displayMode.title')" location="top">
           <template v-slot:activator="{ props: tooltip }">
             <v-btn icon v-bind="mergeProps(menu, tooltip)" variant="plain">
               <v-icon v-if="displayMode === DashboardDisplayMode.LIST" icon="mdi-view-list" />
@@ -109,9 +106,9 @@ function toggleSelectMode() {
         </v-tooltip>
       </template>
       <v-list>
-        <v-list-item :title="$t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
-        <v-list-item :title="$t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
-        <v-list-item :title="$t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
+        <v-list-item :title="t('dashboard.displayMode.list')" prepend-icon="mdi-view-list" @click="displayMode = DashboardDisplayMode.LIST" />
+        <v-list-item :title="t('dashboard.displayMode.grid')" prepend-icon="mdi-view-grid" @click="displayMode = DashboardDisplayMode.GRID" />
+        <v-list-item :title="t('dashboard.displayMode.table')" prepend-icon="mdi-table" @click="displayMode = DashboardDisplayMode.TABLE" />
       </v-list>
     </v-menu>
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
@@ -130,15 +127,8 @@ function toggleSelectMode() {
         :style="`width: ${$vuetify.display.xs || ($vuetify.display.sm && isDrawerOpen) ? 140 : 260}px`" />
     </div>
 
-    <v-spacer v-if="$vuetify.display.mobile" />
-    <v-pagination
-      v-if="isPaginationTop && !$vuetify.display.mobile && pageCount > 1"
-      class="flex-grow-1 overflow-hidden"
-      v-model="currentPage"
-      :length="pageCount"
-      next-icon="mdi-menu-right"
-      prev-icon="mdi-menu-left" />
-    <v-spacer v-else />
+    <v-spacer />
+
     <div class="d-flex justify-end align-center text-uppercase text-select mr-2" style="font-size: 0.8em">
       {{ torrentCountString }}
     </div>

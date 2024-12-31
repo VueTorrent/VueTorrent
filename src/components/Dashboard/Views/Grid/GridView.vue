@@ -3,9 +3,9 @@ import GridTorrent from '@/components/Dashboard/Views/Grid/GridTorrent.vue'
 import { getTorrentStateColor } from '@/helpers'
 import { useDashboardStore } from '@/stores'
 import { Torrent as TorrentType } from '@/types/vuetorrent'
-import { useDisplay } from 'vuetify'
 
 defineProps<{
+  height: number
   paginatedTorrents: TorrentType[]
 }>()
 
@@ -18,12 +18,11 @@ defineEmits<{
   endPress: []
 }>()
 
-const display = useDisplay()
 const dashboardStore = useDashboardStore()
 </script>
 
 <template>
-  <v-row id="torrentList">
+  <v-row id="torrentList" class="ma-0 overflow-y-auto" :style="`max-height: ${height}px`">
     <v-col
       v-for="torrent in paginatedTorrents"
       cols="12"
@@ -31,8 +30,7 @@ const dashboardStore = useDashboardStore()
       md="4"
       sm="6"
       xl="2"
-      :class="display.mobile ? 'pb-2' : 'pb-4'"
-      class="pt-0"
+      class="pb-0"
       @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
       @touchcancel="$emit('endPress')"
       @touchend="$emit('endPress')"

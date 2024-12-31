@@ -5,15 +5,17 @@ import GridView from '@/components/Dashboard/Views/Grid/GridView.vue'
 import ListView from '@/components/Dashboard/Views/List/ListView.vue'
 import TableView from '@/components/Dashboard/Views/Table/TableView.vue'
 import ConfirmDeleteDialog from '@/components/Dialogs/ConfirmDeleteDialog.vue'
-import { DashboardDisplayMode, PaginationPosition } from '@/constants/vuetorrent'
+import { useI18nUtils } from '@/composables'
+import { DashboardDisplayMode } from '@/constants/vuetorrent'
 import { doesCommand } from '@/helpers'
 import { useDashboardStore, useDialogStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { RightClickProperties, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed, nextTick, onBeforeUnmount, onMounted, reactive, ref, watch } from 'vue'
-import { useI18nUtils } from '@/composables'
 import { useRouter } from 'vue-router'
+import { useDisplay } from 'vuetify'
 
+const { height: deviceHeight, mdAndDown } = useDisplay()
 const { t } = useI18nUtils()
 const router = useRouter()
 const dashboardStore = useDashboardStore()
@@ -21,19 +23,27 @@ const { paginatedTorrents, currentPage, pageCount, isSelectionMultiple, selected
 const dialogStore = useDialogStore()
 const torrentStore = useTorrentStore()
 const { processedTorrents: torrents } = storeToRefs(torrentStore)
-const { isInfiniteScrollActive, paginationPosition } = storeToRefs(useVueTorrentStore())
+const { isInfiniteScrollActive } = storeToRefs(useVueTorrentStore())
 
 const isListView = computed(() => displayMode.value === DashboardDisplayMode.LIST)
 const isGridView = computed(() => displayMode.value === DashboardDisplayMode.GRID)
 const isTableView = computed(() => displayMode.value === DashboardDisplayMode.TABLE)
 
-const isPaginationTop = computed(() => !!(paginationPosition.value & PaginationPosition.TOP))
-const isPaginationBottom = computed(() => !!(paginationPosition.value & PaginationPosition.BOTTOM))
-
 const isAllTorrentsSelected = computed(() => torrents.value.length <= selectedTorrents.value.length)
 const rightClickProperties = reactive<RightClickProperties>({
   isVisible: false,
   offset: [0, 0]
+})
+
+const height = computed(() => {
+  // 64px for the topbar
+  // 8px for the top padding
+  // 56px for the filter text field (only on xs/sm device)
+  // 56px for the toolbar
+  // 48px for the multiple selection row
+  // 8px for the pagination margin
+  // 58px for the bottom pagination
+  return deviceHeight.value - 64 - 8 - (mdAndDown.value ? 56 : 0) - 56 - (dashboardStore.isSelectionMultiple ? 48 : 0) - 8 - (!isInfiniteScrollActive.value ? 58 : 0)
 })
 
 function scrollToTop() {
@@ -211,16 +221,13 @@ onBeforeUnmount(() => {
       </v-expand-transition>
     </v-row>
 
-    <div v-if="isPaginationTop && $vuetify.display.mobile && !isInfiniteScrollActive && pageCount > 1">
-      <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" />
-    </div>
-
     <div v-if="torrents.length === 0" class="mt-5 text-xs-center">
       <p class="text-grey">{{ t('common.emptyList') }}</p>
     </div>
 
     <ListView
       v-else-if="isListView"
+      :height="height"
       :paginated-torrents="paginatedTorrents"
       @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
@@ -230,7 +237,7 @@ onBeforeUnmount(() => {
       @endPress="endPress" />
     <GridView
       v-else-if="isGridView"
-      class="mb-2"
+      :height="height"
       :paginated-torrents="paginatedTorrents"
       @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
@@ -240,6 +247,7 @@ onBeforeUnmount(() => {
       @endPress="endPress" />
     <TableView
       v-else-if="isTableView"
+      :height="height"
       :paginated-torrents="paginatedTorrents"
       @onCheckboxClick="onTorrentClick"
       @onTorrentClick="onTorrentClick"
@@ -248,7 +256,7 @@ onBeforeUnmount(() => {
       @startPress="startPress"
       @endPress="endPress" />
 
-    <div v-if="isPaginationBottom && !isInfiniteScrollActive && pageCount > 1">
+    <div v-if="!isInfiniteScrollActive && pageCount > 1">
       <v-pagination v-model="currentPage" :length="pageCount" next-icon="mdi-menu-right" prev-icon="mdi-menu-left" @input="scrollToTop" />
     </div>
   </div>
