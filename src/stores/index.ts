@@ -4,6 +4,7 @@ import { useCategoryStore } from './categories'
 import { useContentStore } from './content'
 import { useDashboardStore } from './dashboard'
 import { useDialogStore } from './dialog'
+import { useGlobalStore } from './global'
 import { useHistoryStore } from './history'
 import { useLogStore } from './logs'
 import { useMaindataStore } from './maindata'
@@ -25,6 +26,7 @@ export {
   useContentStore,
   useDashboardStore,
   useDialogStore,
+  useGlobalStore,
   useHistoryStore,
   useLogStore,
   useMaindataStore,
