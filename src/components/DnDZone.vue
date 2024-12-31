@@ -98,7 +98,8 @@ function onDownloadDrop(files: File[] | null, event: DragEvent) {
 }
 
 function onPaste(event: ClipboardEvent) {
-  if (document.activeElement?.tagName === 'INPUT') {
+  const targetElement = event.target
+  if (targetElement instanceof HTMLInputElement || targetElement instanceof HTMLTextAreaElement) {
     return false
   }
 
