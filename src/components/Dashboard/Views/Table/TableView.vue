@@ -77,7 +77,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
 
     <template #item="{ item: torrent }">
       <tr
-        :class="['cursor-pointer', 'selected', getTorrentRowColorClass(torrent)]"
+        :class="['cursor-pointer', 'selected', 'ripple-fix', getTorrentRowColorClass(torrent)]"
         v-ripple
         @contextmenu="$emit('onTorrentRightClick', $event, torrent)"
         @touchcancel="$emit('endPress')"
