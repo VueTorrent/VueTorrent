@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.20.1](https://github.com/VueTorrent/VueTorrent/compare/v2.20.0...v2.20.1) (2024-12-31)
+
+
+### Bug Fixes
+
+* **content:** Revert vue-concurrency breaking reactivity ([a5ca21c](https://github.com/VueTorrent/VueTorrent/commit/a5ca21c376b77dbc379e56bafa443d28ec0d5038))
+
 ## [2.20.0](https://github.com/VueTorrent/VueTorrent/compare/v2.19.0...v2.20.0) (2024-12-31)
 
 
