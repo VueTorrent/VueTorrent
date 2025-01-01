@@ -6,7 +6,13 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
   let cancelWatcherCallback = ref(() => {})
 
   function keyMatchesFilter(k: string) {
-    return config.whitelist?.includes(k) || !config.blacklist?.includes(k)
+    if (config.whitelist) {
+      return config.whitelist.includes(k)
+    }
+    if (config.blacklist) {
+      return !config.blacklist.includes(k)
+    }
+    return true
   }
 
   async function loadState() {
