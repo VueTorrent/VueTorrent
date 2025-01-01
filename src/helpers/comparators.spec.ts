@@ -1,75 +1,132 @@
-import comparators from './comparators'
+import { describe } from 'vitest'
+import comparators, { isObjectEqual } from './comparators'
 
 describe('helpers/comparators', () => {
-  test('numeric/asc', () => {
-    const data = [3, 1, 2]
-    data.sort(comparators.numeric.asc)
-    expect(data).toEqual([1, 2, 3])
+  describe('numeric', () => {
+    test('asc', () => {
+      const data = [3, 1, 2]
+      data.sort(comparators.numeric.asc)
+      expect(data).toEqual([1, 2, 3])
+    })
+
+    test('desc', () => {
+      const data = [3, 1, 2]
+      data.sort(comparators.numeric.desc)
+      expect(data).toEqual([3, 2, 1])
+    })
   })
 
-  test('numeric/desc', () => {
-    const data = [3, 1, 2]
-    data.sort(comparators.numeric.desc)
-    expect(data).toEqual([3, 2, 1])
+  describe('invertedNumeric', () => {
+    test('asc', () => {
+      const data = [3, 1, 2]
+      data.sort(comparators.invertedNumeric.asc)
+      expect(data).toEqual([3, 2, 1])
+    })
+
+    test('desc', () => {
+      const data = [3, 1, 2]
+      data.sort(comparators.invertedNumeric.desc)
+      expect(data).toEqual([1, 2, 3])
+    })
   })
 
-  test('invertedNumeric/asc', () => {
-    const data = [3, 1, 2]
-    data.sort(comparators.invertedNumeric.asc)
-    expect(data).toEqual([3, 2, 1])
+  describe('text', () => {
+    test('asc', () => {
+      const data = ['c', 'a', 'b']
+      data.sort(comparators.text.asc)
+      expect(data).toEqual(['a', 'b', 'c'])
+    })
+
+    test('desc', () => {
+      const data = ['c', 'a', 'b']
+      data.sort(comparators.text.desc)
+      expect(data).toEqual(['c', 'b', 'a'])
+    })
   })
 
-  test('invertedNumeric/desc', () => {
-    const data = [3, 1, 2]
-    data.sort(comparators.invertedNumeric.desc)
-    expect(data).toEqual([1, 2, 3])
+  describe('boolean', () => {
+    test('asc', () => {
+      const data = [true, false, true]
+      data.sort(comparators.boolean.asc)
+      expect(data).toEqual([false, true, true])
+    })
+
+    test('desc', () => {
+      const data = [true, false, true]
+      data.sort(comparators.boolean.desc)
+      expect(data).toEqual([true, true, false])
+    })
   })
 
-  test('text/asc', () => {
-    const data = ['c', 'a', 'b']
-    data.sort(comparators.text.asc)
-    expect(data).toEqual(['a', 'b', 'c'])
+  describe('arrayNumeric', () => {
+    test('asc', () => {
+      const data = [[3], [1, 2], [2]]
+      data.sort(comparators.arrayNumeric.asc)
+      expect(data).toEqual([[1, 2], [2], [3]])
+    })
+
+    test('desc', () => {
+      const data = [[3], [1, 2], [2]]
+      data.sort(comparators.arrayNumeric.desc)
+      expect(data).toEqual([[3], [2], [1, 2]])
+    })
   })
 
-  test('text/desc', () => {
-    const data = ['c', 'a', 'b']
-    data.sort(comparators.text.desc)
-    expect(data).toEqual(['c', 'b', 'a'])
+  describe('arrayText', () => {
+    test('asc', () => {
+      const data = [['a'], ['a', 'b'], []]
+      data.sort(comparators.arrayText.asc)
+      expect(data).toEqual([[], ['a'], ['a', 'b']])
+    })
+
+    test('desc', () => {
+      const data = [['a'], ['a', 'b'], []]
+      data.sort(comparators.arrayText.desc)
+      expect(data).toEqual([['a', 'b'], ['a'], []])
+    })
   })
 
-  test('boolean/asc', () => {
-    const data = [true, false, true]
-    data.sort(comparators.boolean.asc)
-    expect(data).toEqual([false, true, true])
-  })
+  describe('objects', () => {
+    test('copy', () => {
+      const a = { a: 1, b: 2 }
+      const b = structuredClone(a)
+      expect(isObjectEqual(a, b)).toBe(true)
+    })
 
-  test('boolean/desc', () => {
-    const data = [true, false, true]
-    data.sort(comparators.boolean.desc)
-    expect(data).toEqual([true, true, false])
-  })
+    test('keys length not equal', () => {
+      const a = { a: 1, b: 2 }
+      const b = { a: 1, b: 2, c: 3 }
+      expect(isObjectEqual(a, b)).toBe(false)
+    })
 
-  test('arrayNumeric/asc', () => {
-    const data = [[3], [1, 2], [2]]
-    data.sort(comparators.arrayNumeric.asc)
-    expect(data).toEqual([[1, 2], [2], [3]])
-  })
+    test('shallow', () => {
+      const a = { a: 1, b: 2 }
+      const b = { a: 1, b: 2 }
+      expect(isObjectEqual(a, b)).toBe(true)
+    })
 
-  test('arrayNumeric/desc', () => {
-    const data = [[3], [1, 2], [2]]
-    data.sort(comparators.arrayNumeric.desc)
-    expect(data).toEqual([[3], [2], [1, 2]])
-  })
+    test('not shallow', () => {
+      const a = { a: 1, b: 2 }
+      const b = { a: 1, b: 3 }
+      expect(isObjectEqual(a, b)).toBe(false)
+    })
 
-  test('arrayText/asc', () => {
-    const data = [['a'], ['a', 'b'], []]
-    data.sort(comparators.arrayText.asc)
-    expect(data).toEqual([[], ['a'], ['a', 'b']])
-  })
+    test('deep', () => {
+      const a = { a: 1, b: { c: 2 } }
+      const b = { a: 1, b: { c: 2 } }
+      expect(isObjectEqual(a, b)).toBe(true)
+    })
 
-  test('arrayText/desc', () => {
-    const data = [['a'], ['a', 'b'], []]
-    data.sort(comparators.arrayText.desc)
-    expect(data).toEqual([['a', 'b'], ['a'], []])
+    test('not deep', () => {
+      const a = { a: 1, b: { c: 2 } }
+      const b = { a: 1, b: { c: 3 } }
+      expect(isObjectEqual(a, b)).toBe(false)
+    })
+
+    test('null', () => {
+      const a = { a: 1, b: 2 }
+      expect(isObjectEqual(a, null!)).toBe(false)
+      expect(isObjectEqual(null!, a)).toBe(false)
+    })
   })
 })
