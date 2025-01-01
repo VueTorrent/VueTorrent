@@ -43,7 +43,7 @@ const height = computed(() => {
   // 48px for the multiple selection row
   // 8px for the pagination margin
   // 58px for the bottom pagination
-  return deviceHeight.value - 64 - 8 - (mdAndDown.value ? 56 : 0) - 56 - (dashboardStore.isSelectionMultiple ? 48 : 0) - 8 - (!isInfiniteScrollActive.value ? 58 : 0)
+  return deviceHeight.value - 64 - 8 - (mdAndDown.value ? 56 : 0) - 56 - (dashboardStore.isSelectionMultiple ? 48 : 0) - 8 - (!isInfiniteScrollActive.value && pageCount.value > 1 ? 58 : 0)
 })
 
 function scrollToTop() {
