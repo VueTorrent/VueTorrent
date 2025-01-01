@@ -34,13 +34,13 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
     await backend.set(key, JSON.stringify(state))
   }
 
-  async function registerWatcher() {
+  function registerWatcher() {
     cancelWatcherCallback.value = store.$subscribe(() => {
       saveState()
     })
   }
 
-  async function cancelWatcher() {
+  function cancelWatcher() {
     cancelWatcherCallback.value()
   }
 

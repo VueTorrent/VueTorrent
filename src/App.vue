@@ -6,7 +6,18 @@ import Navbar from '@/components/Navbar/Navbar.vue'
 import { TitleOptions } from '@/constants/vuetorrent'
 import { formatPercent, formatSpeed } from '@/helpers'
 import { backend } from '@/services/backend'
-import { useAddTorrentStore, useAppStore, useDialogStore, useGlobalStore, useLogStore, useMaindataStore, usePreferenceStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import {
+  useAddTorrentStore,
+  useAppStore,
+  useDashboardStore,
+  useDialogStore,
+  useGlobalStore,
+  useLogStore,
+  useMaindataStore,
+  usePreferenceStore,
+  useTorrentStore,
+  useVueTorrentStore
+} from '@/stores'
 import { storeToRefs } from 'pinia'
 import { onBeforeMount, onMounted, watch, watchEffect } from 'vue'
 import { useBackendSync, useI18nUtils } from '@/composables'
@@ -15,19 +26,29 @@ import { toast } from 'vue3-toastify'
 const { t } = useI18nUtils()
 const addTorrentStore = useAddTorrentStore()
 const appStore = useAppStore()
+const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
 const logStore = useLogStore()
 const maindataStore = useMaindataStore()
 const { serverState } = storeToRefs(maindataStore)
-const { torrents } = storeToRefs(useTorrentStore())
+const torrentStore = useTorrentStore()
+const { torrents } = storeToRefs(torrentStore)
 const preferencesStore = usePreferenceStore()
 const { routerDomKey } = storeToRefs(useGlobalStore())
 const vuetorrentStore = useVueTorrentStore()
 const { language, uiTitleCustom, uiTitleType, useBitSpeed } = storeToRefs(vuetorrentStore)
 
-const backendSync = useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
-  blacklist: ['uiTitleCustom']
-})
+const backendSyncObjects = [
+  useBackendSync(dashboardStore, 'vuetorrent_dashboard', {
+    whitelist: ['displayMode']
+  }),
+  useBackendSync(torrentStore, 'vuetorrent_torrents', {
+    whitelist: ['sortCriterias']
+  }),
+  useBackendSync(vuetorrentStore, 'vuetorrent_webuiSettings', {
+    blacklist: ['uiTitleCustom']
+  })
+]
 
 const checkAuthentication = async () => {
   const promise = appStore.fetchAuthStatus()
@@ -86,13 +107,13 @@ watch(
 
       backend.ping().then(async ok => {
         if (ok) {
-          await backendSync.loadState()
-          await backendSync.registerWatcher()
+          await Promise.allSettled(backendSyncObjects.map(obj => obj.loadState()))
+          backendSyncObjects.forEach(obj => obj.registerWatcher())
         }
       })
     } else {
       maindataStore.stopMaindataSync()
-      await backendSync.cancelWatcher()
+      backendSyncObjects.forEach(obj => obj.cancelWatcher())
     }
   },
   {
