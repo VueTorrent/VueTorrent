@@ -29,7 +29,10 @@ const { sortCriterias } = storeToRefs(useTorrentStore())
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
-const sortCriteria = computed(() => sortCriterias.value[0])
+const sortCriteria = computed({
+  get: () => sortCriterias.value[0],
+  set: v => sortCriterias.value[0] = v
+})
 
 const headers = computed(() => [
   { key: 'statusIndicator', sortable: false },
@@ -39,10 +42,11 @@ const headers = computed(() => [
 ])
 
 function onHeaderClick(sortKey: keyof Torrent) {
-  if (sortCriteria.value.value === sortKey) {
-    sortCriteria.value.reverse = !sortCriteria.value.reverse
+  const crit = sortCriteria.value
+  if (crit.value === sortKey) {
+    sortCriteria.value = { value: crit.value, reverse: !crit.reverse }
   } else {
-    sortCriteria.value.value = sortKey
+    sortCriteria.value = { value: sortKey, reverse: crit.reverse }
   }
 }
 
