@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.20.2](https://github.com/VueTorrent/VueTorrent/compare/v2.20.1...v2.20.2) (2025-01-01)
+
+
+### Bug Fixes
+
+* **Dashboard:** Remove empty space when pagination is hidden ([#2120](https://github.com/VueTorrent/VueTorrent/issues/2120)) ([8dfdd1a](https://github.com/VueTorrent/VueTorrent/commit/8dfdd1a9cebdc4df3cd8f1dd6d40fd9532e1dde8))
+
+
+### Improvements
+
+* **backend:** Sync display mode and sort ([#2116](https://github.com/VueTorrent/VueTorrent/issues/2116)) ([e0fc708](https://github.com/VueTorrent/VueTorrent/commit/e0fc70809d14c1f4ade69c5ab27b0e865e9b1c1c))
+
 ## [2.20.1](https://github.com/VueTorrent/VueTorrent/compare/v2.20.0...v2.20.1) (2024-12-31)
 
 
