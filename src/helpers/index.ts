@@ -1,5 +1,5 @@
 import { getColorFromName, getRatioColor, getTorrentStateColor, getTorrentStateValue } from './colors'
-import comparators, { Comparator } from './comparators'
+import comparators, { Comparator, isObjectEqual } from './comparators'
 import { formatDataValue, formatDataUnit, formatData } from './data'
 import { QBIT_MAX_ETA, INFINITY_SYMBOL, formatEta, formatTimeMs, formatTimeSec, formatDuration } from './datetime'
 import { toPrecision, formatPercent } from './number'
@@ -14,6 +14,7 @@ export {
   getTorrentStateColor,
   getTorrentStateValue,
   comparators,
+  isObjectEqual,
   formatDataValue,
   formatDataUnit,
   formatData,
