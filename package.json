@@ -36,7 +36,7 @@
     "uuid": "^11.0.3",
     "vite-plugin-vuetify": "^2.0.4",
     "vue": "^3.5.13",
-    "vue-concurrency": "^5.0.1",
+    "vue-concurrency": "^5.0.3",
     "vue-i18n": "^11.0.1",
     "vue-router": "^4.5.0",
     "vue3-apexcharts": "^1.8.0",
