@@ -26,8 +26,13 @@ function getThemeColor(color: string) {
   return current.value.colors[color] ?? color
 }
 
-const chipColor = computed(() => (props.disabled || !enableHashColors.value ? props.defaultColor : getColorFromName(props.value)))
-const rawChipColor = computed(() => (props.disabled || !enableHashColors.value ? getThemeColor(props.defaultColor) : getColorFromName(props.value)))
+// Darken colors for OLED theme
+const vueTorrentStore = useVueTorrentStore()
+let darkenColors = false
+if (vueTorrentStore.theme.mode === 'dark' && vueTorrentStore.theme.dark === 'dark-oled') darkenColors = true
+
+const chipColor = computed(() => (props.disabled || !enableHashColors.value ? props.defaultColor : getColorFromName(props.value, darkenColors)))
+const rawChipColor = computed(() => (props.disabled || !enableHashColors.value ? getThemeColor(props.defaultColor) : getColorFromName(props.value, darkenColors)))
 const chipValue = computed(() => (props.disabled ? props.disabledValue || props.value || t('common.none') : props.value))
 const shouldShowColoredChips = computed(() => !hideColoredChip.value)
 </script>

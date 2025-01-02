@@ -1,5 +1,5 @@
 import { TorrentState } from '@/constants/vuetorrent'
-import { random } from '@ctrl/tinycolor'
+import { random, darken } from '@ctrl/tinycolor'
 
 function djb2Hash(str: string): number {
   let hash = 5381
@@ -9,12 +9,13 @@ function djb2Hash(str: string): number {
   return hash >>> 0 // ensure non-negative integer
 }
 
-export function getColorFromName(name: string) {
+export function getColorFromName(name: string, darkenColors: bool) {
   const color = random({
     seed: djb2Hash(name)
   })
 
-  return color.toHexString()
+  if (darkenColors) return color.darken(20).toHexString()
+  else return color.toHexString()
 }
 
 export function getRatioColor(ratio: number) {
