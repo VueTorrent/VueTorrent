@@ -9,7 +9,7 @@ function djb2Hash(str: string): number {
   return hash >>> 0 // ensure non-negative integer
 }
 
-export function getColorFromName(name: string, darkenColors: bool) {
+export function getColorFromName(name: string, darkenColors?: boolean) {
   const color = random({
     seed: djb2Hash(name)
   })
