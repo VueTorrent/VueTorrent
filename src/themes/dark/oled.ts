@@ -1,5 +1,4 @@
 import colors from 'vuetify/util/colors'
-//import { getVariables } from '../global'
 import DarkLegacy from './legacy'
 
 export default {
