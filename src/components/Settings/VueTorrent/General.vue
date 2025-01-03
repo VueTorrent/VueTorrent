@@ -5,7 +5,7 @@ import { openLink } from '@/helpers'
 import { LOCALES } from '@/locales'
 import { Github } from '@/services/Github'
 import { useAppStore, useDialogStore, useHistoryStore, useTorrentStore, useVueTorrentStore } from '@/stores'
-import { DarkLegacy, DarkRedesigned, LightLegacy, LightRedesigned } from '@/themes'
+import { DarkLegacy, DarkRedesigned, DarkOled, LightLegacy, LightRedesigned } from '@/themes'
 import { storeToRefs } from 'pinia'
 import { computed, readonly, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
@@ -39,7 +39,8 @@ const lightVariants = readonly([
 
 const darkVariants = readonly([
   { title: t('constants.themes.dark.legacy'), value: DarkLegacy.id },
-  { title: t('constants.themes.dark.redesigned'), value: DarkRedesigned.id }
+  { title: t('constants.themes.dark.redesigned'), value: DarkRedesigned.id },
+  { title: t('constants.themes.dark.oled'), value: DarkOled.id }
 ])
 
 const paginationSizes = ref([{ title: t('settings.vuetorrent.general.paginationSize.infinite_scroll'), value: -1 }, 5, 15, 30, 50, 100, 250, 500])

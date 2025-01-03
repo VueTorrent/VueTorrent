@@ -9,12 +9,13 @@ function djb2Hash(str: string): number {
   return hash >>> 0 // ensure non-negative integer
 }
 
-export function getColorFromName(name: string) {
+export function getColorFromName(name: string, transform?: (color: TinyColor) => TinyColor) {
   const color = random({
     seed: djb2Hash(name)
   })
 
-  return color.toHexString()
+  if (transform) return transform(color).toHexString()
+  else return color.toHexString()
 }
 
 export function getRatioColor(ratio: number) {
