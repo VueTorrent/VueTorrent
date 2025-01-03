@@ -1,5 +1,5 @@
 import { TorrentState } from '@/constants/vuetorrent'
-import { random, darken } from '@ctrl/tinycolor'
+import { random } from '@ctrl/tinycolor'
 
 function djb2Hash(str: string): number {
   let hash = 5381
