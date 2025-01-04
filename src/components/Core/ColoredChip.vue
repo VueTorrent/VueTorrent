@@ -20,8 +20,8 @@ const props = withDefaults(
 
 const { t } = useI18nUtils()
 const { current } = useTheme()
-const { enableHashColors, hideColoredChip } = storeToRefs(useVueTorrentStore())
 const vueTorrentStore = useVueTorrentStore()
+const { enableHashColors, hideColoredChip } = storeToRefs(vueTorrentStore)
 
 function getThemeColor(color: string) {
   return current.value.colors[color] ?? color
