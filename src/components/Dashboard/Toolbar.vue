@@ -77,6 +77,14 @@ const sortOption = computed({
   }
 })
 
+function inverseSort() {
+  sortOption.value = { value: sortOption.value.value, reverse: !sortOption.value.reverse }
+}
+
+function setSortOption(value: keyof Torrent) {
+  sortOption.value = { value, reverse: sortOption.value.reverse }
+}
+
 function toggleSelectMode() {
   if (isSelectionMultiple.value) {
     dashboardStore.unselectAllTorrents()
@@ -113,12 +121,13 @@ function toggleSelectMode() {
     </v-menu>
     <v-tooltip :text="t('dashboard.toggleSortOrder')" location="top">
       <template v-slot:activator="{ props }">
-        <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="sortOption.reverse = !sortOption.reverse" />
+        <v-btn :icon="sortOption.reverse ? 'mdi-sort-descending' : 'mdi-sort-ascending'" v-bind="props" variant="plain" @click="inverseSort()" />
       </template>
     </v-tooltip>
     <div class="d-flex align-center pl-2">
       <v-select
-        v-model="sortOption.value"
+        :model-value="sortOption.value"
+        @update:model-value="setSortOption"
         :items="torrentSortOptions"
         :label="t('dashboard.sortLabel')"
         density="compact"

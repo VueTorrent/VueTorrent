@@ -1,26 +1,35 @@
+import { isObjectEqual } from '@/helpers'
 import { backend } from '@/services/backend'
 import { Store } from 'pinia'
-import { ref } from 'vue'
+import { shallowRef } from 'vue'
 
 export function useBackendSync(store: Store, key: string, config: { blacklist?: string[]; whitelist?: string[] } = {}) {
-  let cancelWatcherCallback = ref(() => {})
+  const cancelWatcherCallback = shallowRef(() => {})
+  const _lastState: Record<string, any> = shallowRef({})
 
   function keyMatchesFilter(k: string) {
-    return config.whitelist?.includes(k) || !config.blacklist?.includes(k)
+    if (config.whitelist) {
+      return config.whitelist.includes(k)
+    }
+    if (config.blacklist) {
+      return !config.blacklist.includes(k)
+    }
+    return true
   }
 
   async function loadState() {
     const data = await backend.get(key)
-    if (data) {
-      const newState = JSON.parse(data) as Record<string, any>
-      const temp = {} as Record<string, any>
-      Object.entries(newState).forEach(([k, v]) => {
-        if (keyMatchesFilter(k)) {
-          temp[k] = v
-        }
-      })
-      store.$patch(temp)
-    }
+    if (!data) return
+
+    const newState = JSON.parse(data) as Record<string, any>
+    const temp = {} as Record<string, any>
+    Object.entries(newState).forEach(([k, v]) => {
+      if (keyMatchesFilter(k)) {
+        temp[k] = v
+      }
+    })
+    store.$patch(temp)
+    _lastState.value = temp
   }
 
   async function saveState() {
@@ -31,7 +40,12 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
       }
     })
 
-    await backend.set(key, JSON.stringify(state))
+    if (!isObjectEqual(state, _lastState.value)) {
+      const success = await backend.set(key, JSON.stringify(state))
+      if (success) {
+        _lastState.value = state
+      }
+    }
   }
 
   function registerWatcher() {
