@@ -37,8 +37,7 @@ const isFirstTorrent = computed(() => torrentIndex.value === 0)
 const isLastTorrent = computed(() => torrentIndex.value === torrentStore.processedTorrents.length - 1)
 
 function goToTorrentIndex(index: number) {
-  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[index].hash } })
-    .then(res => !res && globalStore.forceReload())
+  router.push({ name: 'torrentDetail', params: { hash: torrentStore.processedTorrents[index].hash } }).then(res => !res && globalStore.forceReload())
 }
 
 function goToFirstTorrent() {
