@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useVueTorrentStore } from '@/stores'
 import { computed } from 'vue'
-import { getColorFromName } from '@/helpers'
-import { useI18nUtils } from '@/composables'
 import { useTheme } from 'vuetify'
+import { useI18nUtils } from '@/composables'
+import { TinyColor } from '@ctrl/tinycolor'
+import { getColorFromName } from '@/helpers'
+import { useVueTorrentStore } from '@/stores'
 
 const props = withDefaults(
   defineProps<{
