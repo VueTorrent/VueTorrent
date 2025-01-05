@@ -1092,12 +1092,6 @@
         "isShutdownButtonVisible": "顯示結束按鈕",
         "language": "語言",
         "lightVariants": "淺色界面式樣",
-        "paginationPosition": {
-          "both": "頂部和底部",
-          "bottom": "僅底部",
-          "title": "分頁位置",
-          "top": "僅頂部"
-        },
         "paginationSize": {
           "infinite_scroll": "無限滾動",
           "label": "每頁展示數量",

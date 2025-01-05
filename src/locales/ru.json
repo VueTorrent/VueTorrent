@@ -1118,12 +1118,6 @@
         "isShutdownButtonVisible": "Показать кнопку выключения",
         "language": "Язык",
         "lightVariants": "Светлая тема",
-        "paginationPosition": {
-          "both": "Оба",
-          "bottom": "Снизу",
-          "title": "Расположение нумерации страниц",
-          "top": "Сверху"
-        },
         "paginationSize": {
           "infinite_scroll": "Бесконечная прокрутка",
           "label": "Количество торрентов на странице",

@@ -31,7 +31,7 @@ const vuetorrentStore = useVueTorrentStore()
 const torrentProperties = computed(() => vuetorrentStore.tableProperties.filter(ppt => ppt.active).sort((a, b) => comparators.numeric.asc(a.order, b.order)))
 const sortCriteria = computed({
   get: () => sortCriterias.value[0],
-  set: v => sortCriterias.value[0] = v
+  set: v => (sortCriterias.value[0] = v)
 })
 
 const headers = computed(() => [
