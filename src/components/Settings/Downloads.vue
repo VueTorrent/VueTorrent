@@ -12,6 +12,12 @@ const { t } = useI18nUtils()
 const appStore = useAppStore()
 const preferenceStore = usePreferenceStore()
 
+const autoDeleteModeOptions = [
+  { title: t('constants.auto_delete_mode.never'), value: AppPreferences.AutoDeleteMode.NEVER },
+  { title: t('constants.auto_delete_mode.if_added'), value: AppPreferences.AutoDeleteMode.IF_ADDED },
+  { title: t('constants.auto_delete_mode.always'), value: AppPreferences.AutoDeleteMode.ALWAYS }
+]
+
 const contentLayoutOptions = [
   { title: t('constants.contentLayout.original'), value: AppPreferences.ContentLayout.ORIGINAL },
   { title: t('constants.contentLayout.subfolder'), value: AppPreferences.ContentLayout.SUBFOLDER },
@@ -173,9 +179,9 @@ async function sendTestEmail() {
 
       <v-checkbox v-model="addStoppedEnabled" hide-details :label="t('settings.downloads.whenAddTorrent.doNotAutoStart')" />
 
-      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" hide-details :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />
+      <v-select v-model="preferenceStore.preferences!.torrent_stop_condition" :items="stopConditionOptions" :label="t('constants.stopCondition.title')" />
 
-      <v-checkbox v-model="preferenceStore.preferences!.auto_delete_mode" hide-details :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
+      <v-select v-model="preferenceStore.preferences!.auto_delete_mode" :items="autoDeleteModeOptions" :label="t('settings.downloads.whenAddTorrent.autoDeleteMode')" />
     </v-list-item>
 
     <v-divider />

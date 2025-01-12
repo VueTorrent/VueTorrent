@@ -1,20 +1,20 @@
-import { FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 import type {
   BitTorrentProtocol,
   ContentLayout,
+  DiskIOMode,
+  DiskIOType,
   DynDnsService,
   Encryption,
-  ShareLimitAction,
   ProxyType,
   ScanDirs,
   SchedulerDays,
+  ShareLimitAction,
   StopCondition,
   UploadChokingAlgorithm,
   UploadSlotsBehavior,
-  UtpTcpMixedMode,
-  DiskIOMode,
-  DiskIOType
+  UtpTcpMixedMode
 } from '@/constants/qbit/AppPreferences'
+import { AutoDeleteMode, FileLogAgeType, ResumeDataStorageType, TorrentContentRemoveOption } from '@/constants/qbit/AppPreferences'
 
 export interface NetworkInterface {
   name: string
@@ -47,7 +47,7 @@ export default interface AppPreferences {
   /** Number of asynchronous I/O threads */
   async_io_threads: number
   /** Delete .torrent files afterwards */
-  auto_delete_mode: number
+  auto_delete_mode: AutoDeleteMode
   /** True if Automatic Torrent Management is enabled by default */
   auto_tmm_enabled: boolean
   /** True if external program should be run after torrent has finished downloading */
