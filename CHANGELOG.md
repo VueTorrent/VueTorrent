@@ -2,21 +2,22 @@
 
 ## [2.21.0](https://github.com/VueTorrent/VueTorrent/compare/v2.20.1...v2.21.0) (2025-01-05)
 
-
 ### Features
 
-* Add OLED theme ([#2125](https://github.com/VueTorrent/VueTorrent/issues/2125)) ([02028c2](https://github.com/VueTorrent/VueTorrent/commit/02028c2954415cc9d050cb129482ff04463975ac))
-
+- Add OLED theme ([#2125](https://github.com/VueTorrent/VueTorrent/issues/2125))
+  ([02028c2](https://github.com/VueTorrent/VueTorrent/commit/02028c2954415cc9d050cb129482ff04463975ac))
 
 ### Bug Fixes
 
-* **Dashboard:** Remove empty space when pagination is hidden ([#2120](https://github.com/VueTorrent/VueTorrent/issues/2120)) ([8dfdd1a](https://github.com/VueTorrent/VueTorrent/commit/8dfdd1a9cebdc4df3cd8f1dd6d40fd9532e1dde8))
-
+- **Dashboard:** Remove empty space when pagination is hidden ([#2120](https://github.com/VueTorrent/VueTorrent/issues/2120))
+  ([8dfdd1a](https://github.com/VueTorrent/VueTorrent/commit/8dfdd1a9cebdc4df3cd8f1dd6d40fd9532e1dde8))
 
 ### Improvements
 
-* **backend:** Reduce network sync requests ([#2122](https://github.com/VueTorrent/VueTorrent/issues/2122)) ([e2492aa](https://github.com/VueTorrent/VueTorrent/commit/e2492aacbbcb2723828fcfb87b17d49afe6214c3))
-* **backend:** Sync display mode and sort ([#2116](https://github.com/VueTorrent/VueTorrent/issues/2116)) ([e0fc708](https://github.com/VueTorrent/VueTorrent/commit/e0fc70809d14c1f4ade69c5ab27b0e865e9b1c1c))
+- **backend:** Reduce network sync requests ([#2122](https://github.com/VueTorrent/VueTorrent/issues/2122))
+  ([e2492aa](https://github.com/VueTorrent/VueTorrent/commit/e2492aacbbcb2723828fcfb87b17d49afe6214c3))
+- **backend:** Sync display mode and sort ([#2116](https://github.com/VueTorrent/VueTorrent/issues/2116))
+  ([e0fc708](https://github.com/VueTorrent/VueTorrent/commit/e0fc70809d14c1f4ade69c5ab27b0e865e9b1c1c))
 
 ## [2.20.1](https://github.com/VueTorrent/VueTorrent/compare/v2.20.0...v2.20.1) (2024-12-31)
 

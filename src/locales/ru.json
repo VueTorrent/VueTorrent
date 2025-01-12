@@ -115,6 +115,7 @@
     "themes": {
       "dark": {
         "legacy": "Классическая",
+        "oled": "OLED",
         "redesigned": "Обновлённая"
       },
       "light": {
