@@ -116,8 +116,8 @@
     "themes": {
       "dark": {
         "legacy": "Legacy",
-        "redesigned": "Redesigned",
-        "oled": "OLED"
+        "oled": "OLED",
+        "redesigned": "Redesigned"
       },
       "light": {
         "legacy": "Legacy",
