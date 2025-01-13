@@ -1,3 +1,9 @@
+export enum AutoDeleteMode {
+  NEVER,
+  IF_ADDED,
+  ALWAYS
+}
+
 export enum BitTorrentProtocol {
   TCP_uTP,
   TCP,
