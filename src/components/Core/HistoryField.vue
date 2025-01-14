@@ -2,6 +2,7 @@
 import { HistoryKey } from '@/constants/vuetorrent'
 import { useHistoryStore } from '@/stores'
 import { computed, ref } from 'vue'
+import { VCombobox } from 'vuetify/components/VCombobox'
 
 const props = defineProps<{
   historyKey: HistoryKey

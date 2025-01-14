@@ -87,23 +87,23 @@ const toggleFolderFolded = (item: ItemRow, folded: boolean) => {
   })
 }
 
-/**
- * @return
- *  * -1: not selected
- *  * 0: indeterminate(folder only)
- *  * 1: selected
- */
-const detectIndeterminate = (node: TreeNode): -1 | 0 | 1 => {
+enum Selection {
+  NOT_SELECTED = -1,
+  INDETERMINATE = 0,
+  SELECTED = 1
+}
+
+const detectIndeterminate = (node: TreeNode): Selection => {
   const correspondence = items.find(item => item.node.id === node.id)!
   if (node.type === 'folder') {
     let selectedLength = 0
     let indeterminateLength = 0
     node.children.forEach(item => {
       switch (detectIndeterminate(item)) {
-        case 1:
+        case Selection.SELECTED:
           selectedLength++
           break
-        case 0:
+        case Selection.INDETERMINATE:
           indeterminateLength++
           break
       }
@@ -111,14 +111,14 @@ const detectIndeterminate = (node: TreeNode): -1 | 0 | 1 => {
     if (selectedLength === 0 && indeterminateLength === 0) {
       correspondence.selected = false
       correspondence.indeterminate = false
-      return -1
+      return Selection.NOT_SELECTED
     } else if (selectedLength === node.children.length) {
       correspondence.selected = true
       correspondence.indeterminate = false
-      return 1
+      return Selection.SELECTED
     } else {
       correspondence.indeterminate = true
-      return 0
+      return Selection.INDETERMINATE
     }
   } else {
     correspondence.indeterminate = false

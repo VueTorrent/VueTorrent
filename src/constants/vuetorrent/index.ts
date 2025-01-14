@@ -1,3 +1,4 @@
+import { ApplyTo } from './BulkRenameFiles'
 import comparatorMap from './Comparators'
 import type { PropertyData, PropertyMetadata, TorrentProperty } from './DashboardDefaults'
 import { propsData, propsMetadata } from './DashboardDefaults'
@@ -17,6 +18,7 @@ const defaultDateFormat = 'YYYY-MM-DD HH:mm:ss'
 const defaultDurationFormat = 'Y[Y] M[M] D[d] H[h] m[m] s[s]'
 
 export {
+  ApplyTo,
   comparatorMap,
   TorrentProperty,
   PropertyData,

@@ -30,6 +30,11 @@
       "never": "Never",
       "title": "Add stopped"
     },
+    "apply_to": {
+      "filename": "Only filename",
+      "extension": "Only extension",
+      "both": "Both"
+    },
     "auto_delete_mode": {
       "never": "Never",
       "if_added": "If added",
@@ -352,21 +357,25 @@
       "title": "Bulk Edit Trackers"
     },
     "bulkRenameFiles": {
-      "col_origin_name": "Original",
-      "col_result_name": "Result",
-      "duplicated": "Duplicate Filename",
-      "flags": "Flags",
-      "fold": "Collapse",
-      "not_changed": "Filename Not Changed",
-      "notForFolder": "Folder Renaming Not Supported",
-      "nothing_to_do": "No tasks to do",
-      "regexp": "Regular Expression",
+      "config": {
+        "apply_to": {
+          "children": "Children",
+          "extension": "Extension",
+          "files": "Files",
+          "folders": "Folders",
+          "subheader": "Apply to"
+        },
+        "case_sensitive": "Case sensitive",
+        "include_children": "Include children",
+        "include_files": "Include files",
+        "include_folders": "Include folders",
+        "match_all": "Match all occurences",
+        "source": "Source pattern",
+        "target": "Target pattern",
+        "use_regex": "Use regular expressions"
+      },
       "run": "Run",
-      "select_regex_flags": "Select Regular Expression Flags",
-      "success": "Rename Successful",
-      "target": "Replacement Input",
-      "title": "Bulk Rename",
-      "unfold": "Expand"
+      "title": "Bulk Rename"
     },
     "category": {
       "name": "Category Name",

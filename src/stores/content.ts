@@ -2,7 +2,13 @@ import { useI18nUtils, useSearchQuery, useTreeBuilder } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
 import qbit from '@/services/qbit'
 import { TorrentFile } from '@/types/qbit/models'
-import { RightClickMenuEntryType, RightClickProperties, TreeFolder, TreeNode } from '@/types/vuetorrent'
+import {
+  BulkRenameConfig,
+  RightClickMenuEntryType,
+  RightClickProperties,
+  TreeFolder,
+  TreeNode
+} from '@/types/vuetorrent'
 import { useIntervalFn } from '@vueuse/core'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, nextTick, reactive, shallowRef, toRaw, triggerRef } from 'vue'
@@ -10,6 +16,7 @@ import { useTask } from 'vue-concurrency'
 import { useRoute } from 'vue-router'
 import { useDialogStore } from './dialog'
 import { useVueTorrentStore } from './vuetorrent'
+import { ApplyTo } from '@/constants/vuetorrent'
 
 export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
@@ -31,6 +38,15 @@ export const useContentStore = defineStore('content', () => {
   const { flatTree } = useTreeBuilder(filteredFiles, openedItems)
   const internalSelection = shallowRef<Set<string>>(new Set())
   const lastSelected = shallowRef<string>('')
+  const bulkRenameConfig = reactive<BulkRenameConfig>({
+    useRegex: false,
+    matchAll: false,
+    caseSensitive: false,
+    applyTo: ApplyTo.FILENAME,
+    includeFiles: true,
+    includeFolders: true,
+    includeChildren: true
+  })
 
   const selectedNodes = computed<TreeNode[]>(() => (internalSelection.value.size === 0 ? [] : flatTree.value.filter(node => internalSelection.value.has(node.fullName))))
   const selectedNode = computed<TreeNode | null>(() => (selectedNodes.value.length > 0 ? selectedNodes.value[0] : null))
@@ -223,6 +239,7 @@ export const useContentStore = defineStore('content', () => {
     isFirstRun,
     internalSelection,
     lastSelected,
+    bulkRenameConfig,
     menuData,
     filenameFilter,
     cachedFiles,
