@@ -4,6 +4,7 @@ import { comparators } from '@/helpers'
 import qbit from '@/services/qbit'
 import { Log } from '@/types/qbit/models'
 import { whenever } from '@vueuse/core'
+import toSorted from 'array.prototype.tosorted'
 import { acceptHMRUpdate, defineStore, storeToRefs } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useTask } from 'vue-concurrency'
@@ -27,7 +28,7 @@ export const useLogStore = defineStore(
     const filteredLogsByType = computed(() => logs.value.filter(log => logTypeFilter.value.includes(log.type)))
     const { results: filteredLogs } = useSearchQuery(filteredLogsByType, logMessageFilter, log => log.message)
     const { paginatedResults, currentPage, pageCount } = useArrayPagination(
-      () => filteredLogs.value.toSorted((a, b) => comparators.numeric.compare(a.id, b.id, !reverseSort.value)),
+      () => toSorted(filteredLogs.value, (a, b) => comparators.numeric.compare(a.id, b.id, !reverseSort.value)),
       30
     )
     const logTask = useTask(function* (_: AbortSignal, lastId?: number) {

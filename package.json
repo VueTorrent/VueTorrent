@@ -27,6 +27,7 @@
     "@vueuse/core": "^12.4.0",
     "@zip.js/zip.js": "^2.7.54",
     "apexcharts": "^4.3.0",
+    "array.prototype.tosorted": "^1.1.4",
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "lodash.debounce": "^4.0.8",
