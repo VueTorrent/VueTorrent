@@ -48,7 +48,8 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 A live demo **with mocked data** is available here: <https://vuetorrent.github.io/demo>
 
-> [!NOTE] This version isn't connected to a qBittorrent instance.
+> [!NOTE]
+> This version isn't connected to a qBittorrent instance.
 >
 > Don't try to download torrents or change preferences, it won't work 😉
 
