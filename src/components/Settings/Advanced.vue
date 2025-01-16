@@ -74,9 +74,22 @@ const sslRules = [(v: number) => (v >= 0 && v <= 65535) || t('settings.advanced.
 
 const torrentFileSizeLimit = computed({
   get: () => pref.value!.torrent_file_size_limit / 1024 / 1024,
-  set: (value: number) => {
-    pref.value!.torrent_file_size_limit = value * 1024 * 1024
-  }
+  set: (value: number) => (pref.value!.torrent_file_size_limit = value * 1024 * 1024)
+})
+
+const diskQueueSize = computed({
+  get: () => pref.value!.disk_queue_size / 1024,
+  set: (value: number) => (pref.value!.disk_queue_size = value * 1024)
+})
+
+const socketSendBufferSize = computed({
+  get: () => pref.value!.socket_send_buffer_size / 1024,
+  set: (value: number) => (pref.value!.socket_send_buffer_size = value * 1024)
+})
+
+const socketReceiveBufferSize = computed({
+  get: () => pref.value!.socket_receive_buffer_size / 1024,
+  set: (value: number) => (pref.value!.socket_receive_buffer_size = value * 1024)
 })
 
 onBeforeMount(async () => {
@@ -268,7 +281,7 @@ onBeforeMount(async () => {
         </v-col>
 
         <v-col cols="12">
-          <v-text-field v-model.number="pref!.disk_queue_size" type="number" hide-details suffix="kiB" :label="t('settings.advanced.libtorrent.disk.diskQueueSize')" />
+          <v-text-field v-model.number="diskQueueSize" type="number" hide-details suffix="kiB" :label="t('settings.advanced.libtorrent.disk.diskQueueSize')" />
         </v-col>
 
         <v-col cols="12" sm="4">
@@ -330,7 +343,7 @@ onBeforeMount(async () => {
 
         <v-col cols="12" sm="4">
           <v-text-field
-            v-model.number="pref!.socket_send_buffer_size"
+            v-model.number="socketSendBufferSize"
             type="number"
             :label="t('settings.advanced.libtorrent.socketSendBufferSize')"
             :hint="t('settings.advanced.libtorrent.socketSendBufferSizeHint')"
@@ -338,7 +351,7 @@ onBeforeMount(async () => {
         </v-col>
         <v-col cols="12" sm="4">
           <v-text-field
-            v-model.number="pref!.socket_receive_buffer_size"
+            v-model.number="socketReceiveBufferSize"
             type="number"
             :label="t('settings.advanced.libtorrent.socketReceiveBufferSize')"
             :hint="t('settings.advanced.libtorrent.socketReceiveBufferSizeHint')"
