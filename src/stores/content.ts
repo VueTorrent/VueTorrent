@@ -210,11 +210,14 @@ export const useContentStore = defineStore('content', () => {
       .reduce((prev, curr) => prev.add(curr), new Set(['']))
   }
 
-  async function toggleFileSelection(node: TreeNode) {
-    if (!node.wanted) {
-      await setFilePriority(node.childrenIds, FilePriority.NORMAL)
+  async function toggleFileSelection(...nodes: TreeNode[]) {
+    const wanted = nodes.some(node => node.wanted)
+    const ids = nodes.flatMap(node => node.childrenIds)
+
+    if (!wanted) {
+      await setFilePriority(ids, FilePriority.NORMAL)
     } else {
-      await setFilePriority(node.childrenIds, FilePriority.DO_NOT_DOWNLOAD)
+      await setFilePriority(ids, FilePriority.DO_NOT_DOWNLOAD)
     }
   }
 
@@ -223,6 +226,7 @@ export const useContentStore = defineStore('content', () => {
     isFirstRun,
     internalSelection,
     lastSelected,
+    selectedNodes,
     menuData,
     filenameFilter,
     cachedFiles,
