@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ItemAmount from '@/components/Dashboard/DashboardItems/ItemAmount.vue'
+import ItemBoolean from '@/components/Dashboard/DashboardItems/ItemBoolean.vue'
 import ItemChip from '@/components/Dashboard/DashboardItems/ItemChip.vue'
 import ItemData from '@/components/Dashboard/DashboardItems/ItemData.vue'
 import ItemDateTime from '@/components/Dashboard/DashboardItems/ItemDateTime.vue'
@@ -9,8 +10,8 @@ import ItemRelativeTime from '@/components/Dashboard/DashboardItems/ItemRelative
 import ItemSpeed from '@/components/Dashboard/DashboardItems/ItemSpeed.vue'
 import ItemText from '@/components/Dashboard/DashboardItems/ItemText.vue'
 import { DashboardPropertyType } from '@/constants/vuetorrent'
-import { getTorrentStateColor } from '@/helpers'
-import { useDashboardStore, useVueTorrentStore } from '@/stores'
+import { comparators, getTorrentStateColor } from '@/helpers'
+import { useAppStore, useDashboardStore, useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 import { useTheme } from 'vuetify'
@@ -23,19 +24,22 @@ defineEmits<{
 
 const { current } = useTheme()
 
+const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const vuetorrentStore = useVueTorrentStore()
 
 const torrentProperties = computed(() => {
   let ppts = props.torrent.progress === 1 ? vuetorrentStore.doneTorrentProperties : vuetorrentStore.busyTorrentProperties
 
-  return ppts.filter(ppt => ppt.active).sort((a, b) => a.order - b.order)
+  return ppts.filter(ppt => ppt.active && appStore.isFeatureAvailable(ppt.qbitVersion)).sort((a, b) => comparators.numeric.asc(a.order, b.order))
 })
 
 const getComponent = (type: DashboardPropertyType) => {
   switch (type) {
     case DashboardPropertyType.AMOUNT:
       return ItemAmount
+    case DashboardPropertyType.BOOLEAN:
+      return ItemBoolean
     case DashboardPropertyType.CHIP:
       return ItemChip
     case DashboardPropertyType.DATA:

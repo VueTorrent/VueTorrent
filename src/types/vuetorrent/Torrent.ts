@@ -13,6 +13,7 @@ export default interface Torrent {
   get basename_download_path(): string
   get basename_save_path(): string
   category: string
+  comment: string
   completed_on: number
   content_path: string
   dl_limit: number
@@ -25,6 +26,7 @@ export default interface Torrent {
   forced: boolean
   get globalSpeed(): number
   get globalVolume(): number
+  hasMetadata: boolean
   hash: string
   inactive_seeding_time_limit: number
   infohash_v1: string
@@ -34,10 +36,18 @@ export default interface Torrent {
   name: string
   num_leechs: number
   num_seeds: number
+  /** @since 5.0.0 */
+  popularity?: number
   priority: number
+  /** @since 5.0.0 */
+  private?: boolean
   progress: number
   ratio: number
   ratio_limit: number
+  /** @since 5.0.0 */
+  reannounce?: number
+  /** @since 5.1.0 */
+  rootPath?: string
   savePath: string
   seeding_time: number
   seeding_time_limit: number

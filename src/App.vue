@@ -128,21 +128,17 @@ watchEffect(() => {
   const mode = uiTitleType.value
   switch (mode) {
     case TitleOptions.GLOBAL_SPEED:
-      document.title =
-        '[' +
-        `D: ${formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value)}, ` +
-        `U: ${formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value)}` +
-        `] ${baseName}`
+      const dl_speed = formatSpeed(serverState.value?.dl_info_speed ?? 0, useBitSpeed.value)
+      const ul_speed = formatSpeed(serverState.value?.up_info_speed ?? 0, useBitSpeed.value)
+      document.title = `[D: ${dl_speed}, U: ${ul_speed}] ${baseName}`
       break
     case TitleOptions.FIRST_TORRENT_STATUS:
       const torrent = torrents.value.at(0)
       if (torrent) {
-        document.title =
-          '[' +
-          `D: ${formatSpeed(torrent.dlspeed, useBitSpeed.value)}, ` +
-          `U: ${formatSpeed(torrent.upspeed, useBitSpeed.value)}, ` +
-          `${formatPercent(torrent.progress)}` +
-          `] ${baseName}`
+        const dl_speed = formatSpeed(torrent.dlspeed, useBitSpeed.value)
+        const ul_speed = formatSpeed(torrent.upspeed, useBitSpeed.value)
+        const progress = formatPercent(torrent.progress)
+        document.title = `[D: ${dl_speed}, U: ${ul_speed}, ${progress}] ${baseName}`
       } else {
         document.title = `[N/A] ${baseName}`
       }

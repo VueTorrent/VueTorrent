@@ -3,7 +3,7 @@ import { formatPercent } from '@/helpers'
 import { Torrent } from '@/types/vuetorrent'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number; color: (T: Torrent) => string }>()
+const props = defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number; color: (T: Torrent) => string }>()
 
 const val = computed(() => props.value(props.torrent))
 </script>

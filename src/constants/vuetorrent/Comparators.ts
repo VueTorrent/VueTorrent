@@ -14,6 +14,7 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   basename_download_path: (a, b, isAsc) => comparators.textWithNumbers.compare(a.basename_download_path, b.basename_download_path, isAsc),
   basename_save_path: (a, b, isAsc) => comparators.textWithNumbers.compare(a.basename_save_path, b.basename_save_path, isAsc),
   category: (a, b, isAsc) => comparators.textWithNumbers.compare(a.category, b.category, isAsc),
+  comment: (a, b, isAsc) => comparators.text.compare(a.comment, b.comment, isAsc),
   completed_on: (a, b, isAsc) => comparators.numeric.compare(a.completed_on, b.completed_on, isAsc),
   content_path: (a, b, isAsc) => comparators.textWithNumbers.compare(a.content_path, b.content_path, isAsc),
   dl_limit: (a, b, isAsc) => comparators.numeric.compare(a.dl_limit, b.dl_limit, isAsc),
@@ -26,6 +27,7 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   forced: (a, b, isAsc) => comparators.boolean.compare(a.forced, b.forced, isAsc),
   globalSpeed: (a, b, isAsc) => comparators.numeric.compare(a.globalSpeed, b.globalSpeed, isAsc),
   globalVolume: (a, b, isAsc) => comparators.numeric.compare(a.globalVolume, b.globalVolume, isAsc),
+  hasMetadata: (a, b, isAsc) => comparators.boolean.compare(a.hasMetadata, b.hasMetadata, isAsc),
   hash: (a, b, isAsc) => comparators.text.compare(a.hash, b.hash, isAsc),
   inactive_seeding_time_limit: (a, b, isAsc) => comparators.numeric.compare(a.inactive_seeding_time_limit, b.inactive_seeding_time_limit, isAsc),
   infohash_v1: (a, b, isAsc) => comparators.text.compare(a.infohash_v1, b.infohash_v1, isAsc),
@@ -35,15 +37,19 @@ const comparatorMap: Record<keyof Torrent, (a: Torrent, b: Torrent, isAsc: boole
   name: (a, b, isAsc) => comparators.textWithNumbers.compare(a.name, b.name, isAsc),
   num_leechs: (a, b, isAsc) => comparators.numeric.compare(a.num_leechs, b.num_leechs, isAsc) || comparators.numeric.compare(a.available_peers, b.available_peers, isAsc),
   num_seeds: (a, b, isAsc) => comparators.numeric.compare(a.num_seeds, b.num_seeds, isAsc) || comparators.numeric.compare(a.available_seeds, b.available_seeds, isAsc),
+  popularity: (a, b, isAsc) => comparators.numeric.compare(a.popularity!, b.popularity!, isAsc),
   priority: (a, b, isAsc) => {
     if (a.priority > 0 && b.priority > 0) return comparators.numeric.compare(a.priority, b.priority, isAsc)
     else if (a.priority <= 0 && b.priority <= 0) return comparators.numeric.compare(a.added_on, b.added_on, isAsc)
     else if (a.priority <= 0) return 1
     else return -1
   },
+  private: (a, b, isAsc) => comparators.boolean.compare(a.private!, b.private!, isAsc),
   progress: (a, b, isAsc) => comparators.numeric.compare(a.progress, b.progress, isAsc),
   ratio: (a, b, isAsc) => comparators.numeric.compare(a.ratio, b.ratio, isAsc),
   ratio_limit: (a, b, isAsc) => comparators.numeric.compare(a.ratio_limit, b.ratio_limit, isAsc),
+  reannounce: (a, b, isAsc) => comparators.numeric.compare(a.reannounce!, b.reannounce!, isAsc),
+  rootPath: (a, b, isAsc) => comparators.text.compare(a.rootPath!, b.rootPath!, isAsc),
   savePath: (a, b, isAsc) => comparators.textWithNumbers.compare(a.savePath, b.savePath, isAsc),
   seeding_time: (a, b, isAsc) => comparators.numeric.compare(a.seeding_time, b.seeding_time, isAsc),
   seeding_time_limit: (a, b, isAsc) => comparators.numeric.compare(a.seeding_time_limit, b.seeding_time_limit, isAsc),

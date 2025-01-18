@@ -1,5 +1,6 @@
 export enum DashboardPropertyType {
   AMOUNT = 'amount',
+  BOOLEAN = 'boolean',
   CHIP = 'chip',
   DATA = 'data',
   DATETIME = 'datetime',

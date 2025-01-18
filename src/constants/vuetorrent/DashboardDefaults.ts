@@ -1,5 +1,5 @@
 import { useI18nUtils } from '@/composables'
-import { formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
+import { formatDuration, formatEta, getRatioColor, getTorrentStateColor } from '@/helpers'
 import { useVueTorrentStore } from '@/stores'
 import { Torrent } from '@/types/vuetorrent'
 import { DurationUnitType } from 'dayjs/plugin/duration'
@@ -9,18 +9,30 @@ import { DashboardPropertyType } from './DashboardPropertyType'
 
 type pptData = { active: boolean; order: number }
 
-// FIXME: Use `keyof Torrent` instead of `DashboardProperty` and remove sortKey, needs storage migration
+// TODO: Use `keyof Torrent` instead of `DashboardProperty` and remove sortKey, needs storage migration
 type pptMetadataBase<T> = { titleKey: string; value: (t: Torrent) => T }
-type pptMetadata = { sortKey: keyof Torrent } & (
-  | { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
-  | { type: DashboardPropertyType.CHIP; props: pptMetadataBase<string[]> & { emptyValueKey: string; color: (t: Torrent) => string; enableHashColor?: boolean } }
-  | { type: DashboardPropertyType.DATA; props: pptMetadataBase<number> }
-  | { type: DashboardPropertyType.DATETIME; props: pptMetadataBase<number> }
-  | { type: DashboardPropertyType.DURATION; props: pptMetadataBase<number> & { unit: DurationUnitType } }
-  | { type: DashboardPropertyType.PERCENT; props: pptMetadataBase<number> & { color: (t: Torrent) => string } }
-  | { type: DashboardPropertyType.RELATIVE; props: pptMetadataBase<number> }
-  | { type: DashboardPropertyType.SPEED; props: pptMetadataBase<number> }
-  | { type: DashboardPropertyType.TEXT; props: pptMetadataBase<string> & { color?: (v: any) => string } }
+type pptMetadataAmount = { type: DashboardPropertyType.AMOUNT; props: pptMetadataBase<number> & { total?: (t: Torrent) => number } }
+type pptMetadataBoolean = { type: DashboardPropertyType.BOOLEAN; props: pptMetadataBase<boolean> }
+type pptMetadataChip = { type: DashboardPropertyType.CHIP; props: pptMetadataBase<string[]> & { emptyValueKey: string; color: (t: Torrent) => string; enableHashColor?: boolean } }
+type pptMetadataData = { type: DashboardPropertyType.DATA; props: pptMetadataBase<number> }
+type pptMetadataDatetime = { type: DashboardPropertyType.DATETIME; props: pptMetadataBase<number> }
+type pptMetadataDuration = { type: DashboardPropertyType.DURATION; props: pptMetadataBase<number> & { unit: DurationUnitType } }
+type pptMetadataPercent = { type: DashboardPropertyType.PERCENT; props: pptMetadataBase<number> & { color: (t: Torrent) => string } }
+type pptMetadataRelative = { type: DashboardPropertyType.RELATIVE; props: pptMetadataBase<number> }
+type pptMetadataSpeed = { type: DashboardPropertyType.SPEED; props: pptMetadataBase<number> }
+type pptMetadataText = { type: DashboardPropertyType.TEXT; props: pptMetadataBase<string> & { color?: (v: Torrent) => string } }
+
+type pptMetadata = { qbitVersion?: string; sortKey: keyof Torrent } & (
+  | pptMetadataAmount
+  | pptMetadataBoolean
+  | pptMetadataChip
+  | pptMetadataData
+  | pptMetadataDatetime
+  | pptMetadataDuration
+  | pptMetadataPercent
+  | pptMetadataRelative
+  | pptMetadataSpeed
+  | pptMetadataText
 )
 
 export type TorrentProperty = { name: DashboardProperty } & pptData & pptMetadata
@@ -41,6 +53,10 @@ export const propsData: PropertyData = {
   [DashboardProperty.AMOUNT_LEFT]: {
     active: false,
     order: 20
+  },
+  [DashboardProperty.AUTO_TMM]: {
+    active: false,
+    order: 53
   },
   [DashboardProperty.AVAILABILITY]: {
     active: true,
@@ -69,6 +85,10 @@ export const propsData: PropertyData = {
   [DashboardProperty.CATEGORY]: {
     active: true,
     order: 14
+  },
+  [DashboardProperty.COMMENT]: {
+    active: false,
+    order: 47
   },
   [DashboardProperty.COMPLETED_ON]: {
     active: false,
@@ -102,6 +122,14 @@ export const propsData: PropertyData = {
     active: true,
     order: 8
   },
+  [DashboardProperty.FIRST_LAST_PIECE_PRIORITY]: {
+    active: false,
+    order: 54
+  },
+  [DashboardProperty.FORCED]: {
+    active: false,
+    order: 55
+  },
   [DashboardProperty.GLOBAL_SPEED]: {
     active: false,
     order: 34
@@ -113,6 +141,10 @@ export const propsData: PropertyData = {
   [DashboardProperty.HASH]: {
     active: false,
     order: 25
+  },
+  [DashboardProperty.HAS_METADATA]: {
+    active: false,
+    order: 48
   },
   [DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT]: {
     active: false,
@@ -130,13 +162,25 @@ export const propsData: PropertyData = {
     active: false,
     order: 18
   },
+  [DashboardProperty.MAGNET]: {
+    active: false,
+    order: 56
+  },
   [DashboardProperty.PEERS]: {
     active: true,
     order: 9
   },
+  [DashboardProperty.POPULARITY]: {
+    active: false,
+    order: 50
+  },
   [DashboardProperty.PRIORITY]: {
     active: false,
     order: 36
+  },
+  [DashboardProperty.PRIVATE]: {
+    active: false,
+    order: 49
   },
   [DashboardProperty.PROGRESS]: {
     active: true,
@@ -149,6 +193,14 @@ export const propsData: PropertyData = {
   [DashboardProperty.RATIO_LIMIT]: {
     active: false,
     order: 37
+  },
+  [DashboardProperty.REANNOUNCE]: {
+    active: false,
+    order: 51
+  },
+  [DashboardProperty.ROOT_PATH]: {
+    active: false,
+    order: 52
   },
   [DashboardProperty.SAVE_PATH]: {
     active: false,
@@ -170,6 +222,10 @@ export const propsData: PropertyData = {
     active: false,
     order: 28
   },
+  [DashboardProperty.SEQUENTIAL_DOWNLOADS]: {
+    active: false,
+    order: 57
+  },
   [DashboardProperty.SIZE]: {
     active: true,
     order: 1
@@ -177,6 +233,10 @@ export const propsData: PropertyData = {
   [DashboardProperty.STATE]: {
     active: true,
     order: 11
+  },
+  [DashboardProperty.SUPER_SEEDING]: {
+    active: false,
+    order: 58
   },
   [DashboardProperty.TAGS]: {
     active: true,
@@ -229,6 +289,11 @@ export const propsMetadata: PropertyMetadata = {
     props: { titleKey: 'torrent.properties.amount_left', value: t => t.amount_left },
     sortKey: 'amount_left',
     type: DashboardPropertyType.DATA
+  },
+  [DashboardProperty.AUTO_TMM]: {
+    props: { titleKey: 'torrent.properties.auto_tmm', value: t => t.auto_tmm },
+    sortKey: 'auto_tmm',
+    type: DashboardPropertyType.BOOLEAN
   },
   [DashboardProperty.AVAILABILITY]: {
     props: { titleKey: 'torrent.properties.availability', value: t => t.availability.toString() },
@@ -283,6 +348,12 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'category',
     type: DashboardPropertyType.CHIP
   },
+  [DashboardProperty.COMMENT]: {
+    qbitVersion: '5.0.0',
+    props: { titleKey: 'torrent.properties.comment', value: t => t.comment },
+    sortKey: 'comment',
+    type: DashboardPropertyType.TEXT
+  },
   [DashboardProperty.COMPLETED_ON]: {
     props: { titleKey: 'torrent.properties.completed_on', value: t => t.completed_on },
     sortKey: 'completed_on',
@@ -323,6 +394,16 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'eta',
     type: DashboardPropertyType.TEXT
   },
+  [DashboardProperty.FIRST_LAST_PIECE_PRIORITY]: {
+    props: { titleKey: 'torrent.properties.f_l_piece_prio', value: t => t.f_l_piece_prio },
+    sortKey: 'f_l_piece_prio',
+    type: DashboardPropertyType.BOOLEAN
+  },
+  [DashboardProperty.FORCED]: {
+    props: { titleKey: 'torrent.properties.forced', value: t => t.forced },
+    sortKey: 'forced',
+    type: DashboardPropertyType.BOOLEAN
+  },
   [DashboardProperty.GLOBAL_SPEED]: {
     props: { titleKey: 'torrent.properties.global_speed', value: t => t.globalSpeed },
     sortKey: 'globalSpeed',
@@ -338,8 +419,18 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'hash',
     type: DashboardPropertyType.TEXT
   },
+  [DashboardProperty.HAS_METADATA]: {
+    qbitVersion: '5.0.0',
+    props: { titleKey: 'torrent.properties.has_metadata', value: t => t.hasMetadata },
+    sortKey: 'hasMetadata',
+    type: DashboardPropertyType.BOOLEAN
+  },
   [DashboardProperty.INACTIVE_SEEDING_TIME_LIMIT]: {
-    props: { titleKey: 'torrent.properties.inactive_seeding_time_limit', unit: 'm', value: t => t.inactive_seeding_time_limit },
+    props: {
+      titleKey: 'torrent.properties.inactive_seeding_time_limit',
+      unit: 'm',
+      value: t => t.inactive_seeding_time_limit
+    },
     sortKey: 'inactive_seeding_time_limit',
     type: DashboardPropertyType.DURATION
   },
@@ -358,18 +449,42 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'last_activity',
     type: DashboardPropertyType.RELATIVE
   },
+  [DashboardProperty.MAGNET]: {
+    props: { titleKey: 'torrent.properties.magnet', value: t => t.magnet },
+    sortKey: 'magnet',
+    type: DashboardPropertyType.TEXT
+  },
   [DashboardProperty.PEERS]: {
     props: { titleKey: 'torrent.properties.peers', value: t => t.num_leechs, total: t => t.available_peers },
     sortKey: 'num_leechs',
     type: DashboardPropertyType.AMOUNT
+  },
+  [DashboardProperty.POPULARITY]: {
+    qbitVersion: '5.0.0',
+    props: {
+      titleKey: 'torrent.properties.popularity',
+      value: t => (t.popularity ? t.popularity.toFixed(2).toString() : '???')
+    },
+    sortKey: 'popularity',
+    type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.PRIORITY]: {
     props: { titleKey: 'torrent.properties.priority', value: t => t.priority.toString() },
     sortKey: 'priority',
     type: DashboardPropertyType.TEXT
   },
+  [DashboardProperty.PRIVATE]: {
+    qbitVersion: '5.0.0',
+    props: { titleKey: 'torrent.properties.private', value: t => t.private ?? false },
+    sortKey: 'private',
+    type: DashboardPropertyType.BOOLEAN
+  },
   [DashboardProperty.PROGRESS]: {
-    props: { titleKey: 'torrent.properties.progress', value: t => t.progress, color: t => getTorrentStateColor(t.state) },
+    props: {
+      titleKey: 'torrent.properties.progress',
+      value: t => t.progress,
+      color: t => getTorrentStateColor(t.state)
+    },
     sortKey: 'progress',
     type: DashboardPropertyType.PERCENT
   },
@@ -377,11 +492,11 @@ export const propsMetadata: PropertyMetadata = {
     props: {
       titleKey: 'torrent.properties.ratio',
       value: t => t.ratio.toString(),
-      color: (v: number) => {
+      color: t => {
         const { enableRatioColors } = storeToRefs(useVueTorrentStore())
 
         if (!enableRatioColors.value) return ''
-        return getRatioColor(v)
+        return getRatioColor(t.ratio)
       }
     },
     sortKey: 'ratio',
@@ -398,6 +513,21 @@ export const propsMetadata: PropertyMetadata = {
       }
     },
     sortKey: 'ratio_limit',
+    type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.REANNOUNCE]: {
+    qbitVersion: '5.0.0',
+    props: {
+      titleKey: 'torrent.properties.reannounce',
+      value: t => (t.reannounce ? formatDuration(t.reannounce, 's', 'mm:ss').toString() : '???')
+    },
+    sortKey: 'reannounce',
+    type: DashboardPropertyType.TEXT
+  },
+  [DashboardProperty.ROOT_PATH]: {
+    qbitVersion: '5.1.0',
+    props: { titleKey: 'torrent.properties.root_path', value: t => t.rootPath ?? '' },
+    sortKey: 'rootPath',
     type: DashboardPropertyType.TEXT
   },
   [DashboardProperty.SAVE_PATH]: {
@@ -425,6 +555,11 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'seen_complete',
     type: DashboardPropertyType.DATETIME
   },
+  [DashboardProperty.SEQUENTIAL_DOWNLOADS]: {
+    props: { titleKey: 'torrent.properties.seq_dl', value: t => t.seq_dl },
+    sortKey: 'seq_dl',
+    type: DashboardPropertyType.BOOLEAN
+  },
   [DashboardProperty.SIZE]: {
     props: { titleKey: 'torrent.properties.size', value: t => t.size },
     sortKey: 'size',
@@ -443,8 +578,19 @@ export const propsMetadata: PropertyMetadata = {
     sortKey: 'state',
     type: DashboardPropertyType.CHIP
   },
+  [DashboardProperty.SUPER_SEEDING]: {
+    props: { titleKey: 'torrent.properties.super_seeding', value: t => t.super_seeding },
+    sortKey: 'super_seeding',
+    type: DashboardPropertyType.BOOLEAN
+  },
   [DashboardProperty.TAGS]: {
-    props: { titleKey: 'torrent.properties.tags', emptyValueKey: 'torrent.properties.empty_tags', value: t => t.tags, color: () => 'tag', enableHashColor: true },
+    props: {
+      titleKey: 'torrent.properties.tags',
+      emptyValueKey: 'torrent.properties.empty_tags',
+      value: t => t.tags,
+      color: () => 'tag',
+      enableHashColor: true
+    },
     sortKey: 'tags',
     type: DashboardPropertyType.CHIP
   },
