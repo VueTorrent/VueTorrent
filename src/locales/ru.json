@@ -29,6 +29,11 @@
       "never": "Никогда",
       "title": "Добавить приостановленным"
     },
+    "auto_delete_mode": {
+      "always": "Всегда",
+      "if_added": "При добавлении",
+      "never": "Никогда"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP и μTP",

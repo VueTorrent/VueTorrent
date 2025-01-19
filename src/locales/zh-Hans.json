@@ -30,6 +30,10 @@
       "never": "从不",
       "title": "添加时暂停"
     },
+    "auto_delete_mode": {
+      "always": "总是",
+      "never": "从不"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP 和 μTP",

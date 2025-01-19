@@ -26,6 +26,10 @@
       "never": "절대 안함",
       "title": "일시 중지 추가"
     },
+    "auto_delete_mode": {
+      "always": "항상",
+      "never": "절대 안함"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP 및 μTP",

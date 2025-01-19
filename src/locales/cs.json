@@ -25,6 +25,10 @@
       "never": "Nikdy",
       "title": "Přidat pozastavené"
     },
+    "auto_delete_mode": {
+      "always": "Vždy",
+      "never": "Nikdy"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP a μTP",

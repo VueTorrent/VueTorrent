@@ -26,6 +26,10 @@
       "never": "Nunca",
       "title": "Añadir pausa"
     },
+    "auto_delete_mode": {
+      "always": "Siempre",
+      "never": "Nunca"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP y μTP",

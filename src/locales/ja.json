@@ -28,6 +28,10 @@
       "never": "一度もない",
       "title": "一時停止を追加"
     },
+    "auto_delete_mode": {
+      "always": "常に",
+      "never": "一度もない"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCPとμTP",

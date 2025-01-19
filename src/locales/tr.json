@@ -28,6 +28,10 @@
       "never": "Asla",
       "title": "Duraklatılmış olarak ekle"
     },
+    "auto_delete_mode": {
+      "always": "Her Zaman",
+      "never": "Asla"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP ve μTP",
