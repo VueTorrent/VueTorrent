@@ -48,6 +48,7 @@ The sleekest looking WebUI for qBittorrent made with Vue.js!
 
 A live demo **with mocked data** is available here: <https://vuetorrent.github.io/demo>
 
+<!-- prettier-ignore -->
 > [!NOTE]
 > This version isn't connected to a qBittorrent instance.
 >
