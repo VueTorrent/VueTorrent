@@ -26,6 +26,10 @@
       "never": "Nigdy",
       "title": "Dodaj wstrzymane"
     },
+    "auto_delete_mode": {
+      "always": "Zawsze",
+      "never": "Nigdy"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP i μTP",

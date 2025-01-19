@@ -26,6 +26,10 @@
       "never": "Soha",
       "title": "Szüneteltetve hozzáad"
     },
+    "auto_delete_mode": {
+      "always": "Mindig",
+      "never": "Soha"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP és μTP",

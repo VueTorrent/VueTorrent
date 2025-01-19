@@ -28,6 +28,10 @@
       "never": "Ніколи",
       "title": "Додати призупинені"
     },
+    "auto_delete_mode": {
+      "always": "Завжди",
+      "never": "Ніколи"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP та μTP",

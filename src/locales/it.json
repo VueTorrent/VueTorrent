@@ -21,6 +21,10 @@
       "never": "Mai",
       "title": "Aggiungi in Pausa"
     },
+    "auto_delete_mode": {
+      "always": "Sempre",
+      "never": "Mai"
+    },
     "bittorrentProtocols": {
       "tcp": "TCP",
       "tcp_utp": "TCP e μTP",

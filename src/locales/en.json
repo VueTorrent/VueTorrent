@@ -31,9 +31,9 @@
       "title": "Add stopped"
     },
     "auto_delete_mode": {
-      "never": "Never",
+      "always": "Always",
       "if_added": "If added",
-      "always": "Always"
+      "never": "Never"
     },
     "bittorrentProtocols": {
       "tcp": "TCP",
