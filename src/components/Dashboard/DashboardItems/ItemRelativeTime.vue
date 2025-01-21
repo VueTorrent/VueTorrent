@@ -2,7 +2,7 @@
 import dayjs from '@/plugins/dayjs'
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number }>()
+defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number }>()
 </script>
 
 <template>

@@ -1,3 +1,4 @@
+import { TorrentState } from '@/constants/qbit'
 import { stateQbitToVt } from '@/constants/vuetorrent'
 import { basename, getDomainBody } from '@/helpers'
 import { QbitTorrent } from '@/types/qbit/models'
@@ -13,6 +14,7 @@ export function useTorrentBuilder() {
       available_peers: data.num_incomplete,
       available_seeds: data.num_complete,
       category: data.category,
+      comment: data.comment ?? '',
       completed_on: data.completion_on,
       content_path: data.content_path,
       dl_limit: data.dl_limit,
@@ -23,6 +25,7 @@ export function useTorrentBuilder() {
       eta: data.eta,
       f_l_piece_prio: data.f_l_piece_prio,
       forced: data.force_start,
+      hasMetadata: data.has_metadata ?? [TorrentState.META_DL, TorrentState.FORCED_META_DL].includes(data.state),
       hash: data.hash,
       inactive_seeding_time_limit: data.inactive_seeding_time_limit,
       infohash_v1: data.infohash_v1,
@@ -32,10 +35,14 @@ export function useTorrentBuilder() {
       name: data.name,
       num_leechs: data.num_leechs,
       num_seeds: data.num_seeds,
+      popularity: data.popularity,
       priority: data.priority,
+      private: data.private,
       progress: data.progress,
       ratio: Math.round(data.ratio * 100) / 100,
       ratio_limit: data.ratio_limit,
+      reannounce: data.reannounce,
+      rootPath: data.root_path,
       savePath: data.save_path,
       seeding_time: data.seeding_time,
       seeding_time_limit: data.seeding_time_limit,
@@ -54,9 +61,6 @@ export function useTorrentBuilder() {
       uploaded_session: data.uploaded_session,
       upspeed: data.upspeed,
 
-      get trackerDomain() {
-        return getDomainBody(this.tracker)
-      },
       get avgDownloadSpeed() {
         const dlDuration = this.time_active - this.seeding_time
         return this.downloaded / (dlDuration === 0 ? -1 : dlDuration)
@@ -64,15 +68,6 @@ export function useTorrentBuilder() {
       get avgUploadSpeed() {
         const ulDuration = this.time_active
         return this.uploaded / (ulDuration === 0 ? -1 : ulDuration)
-      },
-      get globalSpeed() {
-        return this.dlspeed + this.upspeed
-      },
-      get globalVolume() {
-        return this.downloaded + this.uploaded
-      },
-      get truncated_hash() {
-        return this.hash.slice(0, 8)
       },
       get basename_content_path() {
         return basename(this.content_path)
@@ -82,6 +77,18 @@ export function useTorrentBuilder() {
       },
       get basename_save_path() {
         return basename(this.savePath)
+      },
+      get globalSpeed() {
+        return this.dlspeed + this.upspeed
+      },
+      get globalVolume() {
+        return this.downloaded + this.uploaded
+      },
+      get trackerDomain() {
+        return getDomainBody(this.tracker)
+      },
+      get truncated_hash() {
+        return this.hash.slice(0, 8)
       }
     }
   }

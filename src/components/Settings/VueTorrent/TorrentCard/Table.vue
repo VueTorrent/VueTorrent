@@ -7,7 +7,7 @@ import Draggable from 'vuedraggable'
 
 const vueTorrentStore = useVueTorrentStore()
 
-const busyProperties = computed({
+const properties = computed({
   get: () => vueTorrentStore.tableProperties,
   set: newValue => vueTorrentStore.updateTableProperties(newValue)
 })
@@ -17,7 +17,7 @@ function toggleActive(property: TorrentProperty) {
 }
 
 function setActiveToAll(active: boolean) {
-  busyProperties.value = busyProperties.value.map(property => ({ ...property, active }))
+  properties.value = properties.value.map(property => ({ ...property, active }))
 }
 
 const selectNone = () => setActiveToAll(false)
@@ -42,7 +42,7 @@ const selectAll = () => setActiveToAll(true)
         </v-list-item>
 
         <v-table>
-          <draggable v-model="busyProperties" item-key="name" tag="tbody" handle=".dnd-handle">
+          <draggable v-model="properties" item-key="name" tag="tbody" handle=".dnd-handle">
             <template v-slot:item="{ element }">
               <DashboardItem :property="element" @update="toggleActive(element)" />
             </template>
@@ -52,5 +52,3 @@ const selectAll = () => setActiveToAll(true)
     </v-col>
   </v-row>
 </template>
-
-<style scoped lang="scss"></style>

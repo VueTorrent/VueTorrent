@@ -11,7 +11,10 @@ export interface RawTorrent {
   availability: number
   /** Category of the torrent */
   category: string
-  /** TODO: Torrent comment */
+  /**
+   * Torrent comment
+   * @since 5.0.0
+   */
   comment?: string
   /** Amount of transfer data completed (bytes) */
   completed: number
@@ -35,7 +38,10 @@ export interface RawTorrent {
   f_l_piece_prio: boolean
   /** True if force start is enabled for this torrent */
   force_start: boolean
-  /** TODO: Whether metadata has been downloaded or not, only useful for magnet links */
+  /**
+   * Whether metadata has been downloaded or not, only useful for magnet links
+   * @since 5.0.0
+   */
   has_metadata?: boolean
   inactive_seeding_time_limit: number
   /** Torrent SHA1 Hash */
@@ -61,11 +67,17 @@ export interface RawTorrent {
   num_leechs: number
   /** Number of seeds connected to */
   num_seeds: number
-  /** TODO: Ratio / Time Active (in months), indicates how popular the torrent is */
+  /**
+   * Ratio / Time Active (in months), indicates how popular the torrent is
+   * @since 5.0.0
+   */
   popularity?: number
   /** Torrent priority. Returns -1 if queuing is disabled or torrent is in seed mode */
   priority: number
-  /** TODO: Whether torrent is private or not */
+  /**
+   * Whether torrent is private or not
+   * @since 5.0.0
+   */
   private?: boolean
   /** Torrent progress (percentage/100) */
   progress: number
@@ -73,9 +85,15 @@ export interface RawTorrent {
   ratio: number
   /** Upload share ratio limit */
   ratio_limit: number
-  /** TODO: Seconds until next tracker reannounce */
+  /**
+   * Seconds until next tracker reannounce
+   * @since 5.0.0
+   */
   reannounce?: number
-  /** TODO */
+  /**
+   * TODO
+   * @since 5.1.0
+   */
   root_path?: string
   /** Path where this torrent's data is stored */
   save_path: string

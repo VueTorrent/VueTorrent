@@ -9,7 +9,7 @@ import ShareLimitDialog from '@/components/Dialogs/ShareLimitDialog.vue'
 import SpeedLimitDialog from '@/components/Dialogs/SpeedLimitDialog.vue'
 import TagFormDialog from '@/components/Dialogs/TagFormDialog.vue'
 import { downloadFile } from '@/helpers'
-import { useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
+import { useAppStore, useCategoryStore, useDashboardStore, useDialogStore, useMaindataStore, usePreferenceStore, useTagStore, useTorrentStore } from '@/stores'
 import { RightClickMenuEntryType } from '@/types/vuetorrent'
 import { BlobReader, BlobWriter, ZipWriter } from '@zip.js/zip.js'
 import { computed } from 'vue'
@@ -23,6 +23,7 @@ defineProps<{
 
 const { t } = useI18nUtils()
 const router = useRouter()
+const appStore = useAppStore()
 const categoryStore = useCategoryStore()
 const dashboardStore = useDashboardStore()
 const dialogStore = useDialogStore()
@@ -347,6 +348,13 @@ const menuData = computed<RightClickMenuEntryType[]>(() => [
         text: t('dashboard.right_click.copy.magnet'),
         icon: 'mdi-magnet',
         action: async () => torrent.value && (await copyValue(torrent.value.magnet))
+      },
+      {
+        text: t('dashboard.right_click.copy.comment'),
+        icon: 'mdi-comment-text',
+        hidden: !appStore.isFeatureAvailable('5.0.0'),
+        disabled: !torrent.value?.comment,
+        action: async () => torrent.value && (await copyValue(torrent.value.comment))
       }
     ]
   },

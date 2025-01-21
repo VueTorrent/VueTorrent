@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Torrent } from '@/types/vuetorrent'
 
-defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number; total?: (t: Torrent) => number }>()
+defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => boolean }>()
 </script>
 
 <template>
@@ -10,8 +10,8 @@ defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number;
       {{ $t(titleKey) }}
     </div>
     <div>
-      {{ value(torrent) }}
-      <span v-if="total" class="text-caption text-grey"> / {{ total(torrent) }} </span>
+      <v-icon v-if="value(torrent)" color="accent">mdi-check</v-icon>
+      <v-icon v-else color="error">mdi-close</v-icon>
     </div>
   </div>
 </template>

@@ -5,7 +5,7 @@ import { Torrent } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-const props = defineProps<{ torrent: Torrent; titleKey?: string; value: (t: Torrent) => number }>()
+const props = defineProps<{ torrent: Torrent; titleKey: string; value: (t: Torrent) => number }>()
 
 const { useBinarySize } = storeToRefs(useVueTorrentStore())
 const val = computed(() => props.value(props.torrent))

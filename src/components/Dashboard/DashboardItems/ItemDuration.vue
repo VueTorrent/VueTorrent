@@ -8,7 +8,7 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   torrent: Torrent
-  titleKey?: string
+  titleKey: string
   unit: DurationUnitType
   value: (t: Torrent) => number
 }>()

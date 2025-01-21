@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { TorrentProperty } from '@/constants/vuetorrent'
+import { useAppStore } from '@/stores'
 
 defineProps<{ property: TorrentProperty }>()
 defineEmits<{ update: [value: void] }>()
+
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -11,7 +14,12 @@ defineEmits<{ update: [value: void] }>()
       <v-icon icon="mdi-drag-vertical" class="dnd-handle" />
     </td>
     <td>
-      <v-btn density="compact" :icon="property.active ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'" variant="text" @click="$emit('update')" />
+      <v-btn
+        :disabled="!appStore.isFeatureAvailable(property.qbitVersion)"
+        density="compact"
+        :icon="property.active ? 'mdi-checkbox-marked' : 'mdi-checkbox-blank-outline'"
+        variant="text"
+        @click="$emit('update')" />
     </td>
     <td>{{ $t(`torrent.properties.${property.name}`) }}</td>
   </tr>
@@ -19,6 +27,6 @@ defineEmits<{ update: [value: void] }>()
 
 <style scoped>
 td .dnd-handle {
-  cursor: move;
+  cursor: n-resize;
 }
 </style>

@@ -8,7 +8,7 @@ export const useAppStore = defineStore('app', () => {
   const version = ref('0.0.0')
   const buildInfo = ref<BuildInfo>()
 
-  const usesQbit5 = computed(() => version.value >= '5')
+  const usesQbit5 = computed(() => isFeatureAvailable('5'))
   const usesLibtorrent1 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '1' && !usesLibtorrent2)
   const usesLibtorrent2 = computed(() => (buildInfo.value?.libtorrent ?? '') >= '2')
 
@@ -30,6 +30,11 @@ export const useAppStore = defineStore('app', () => {
     isAuthenticated.value = val
     version.value = '0.0.0'
     buildInfo.value = undefined
+  }
+
+  function isFeatureAvailable(required_version?: string) {
+    if (!required_version) return true
+    return version.value >= required_version
   }
 
   async function login(username: string, password: string) {
@@ -64,6 +69,7 @@ export const useAppStore = defineStore('app', () => {
     usesLibtorrent2,
     fetchAuthStatus,
     setAuthStatus,
+    isFeatureAvailable,
     shutdownQbit,
     sendTestEmail,
     login,

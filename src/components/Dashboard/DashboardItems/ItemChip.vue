@@ -8,7 +8,7 @@ import { computed } from 'vue'
 const props = withDefaults(
   defineProps<{
     torrent: Torrent
-    titleKey?: string
+    titleKey: string
     value: (t: Torrent) => string[]
     emptyValueKey: string
     color: (t: Torrent) => string

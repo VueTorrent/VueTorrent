@@ -2,7 +2,7 @@
 import { useI18nUtils } from '@/composables'
 import { TorrentState } from '@/constants/vuetorrent'
 import { comparators, getTorrentStateColor } from '@/helpers'
-import { useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
+import { useAppStore, useDashboardStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { Torrent, Torrent as TorrentType } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
@@ -24,6 +24,7 @@ defineEmits<{
 }>()
 
 const { t, getTorrentStateString } = useI18nUtils()
+const appStore = useAppStore()
 const dashboardStore = useDashboardStore()
 const { sortCriterias } = storeToRefs(useTorrentStore())
 const vuetorrentStore = useVueTorrentStore()
@@ -38,7 +39,7 @@ const headers = computed(() => [
   { key: 'statusIndicator', sortable: false },
   ...(dashboardStore.isSelectionMultiple ? [{ key: 'multipleSelectionCheckbox', sortable: false }] : []),
   { title: t('torrent.properties.name'), key: 'name' },
-  ...torrentProperties.value.map(ppt => ({ title: t(ppt.props.titleKey), key: ppt.sortKey }))
+  ...torrentProperties.value.filter(ppt => appStore.isFeatureAvailable(ppt.qbitVersion)).map(ppt => ({ title: t(ppt.props.titleKey), key: ppt.sortKey }))
 ])
 
 function onHeaderClick(sortKey: keyof Torrent) {
@@ -118,7 +119,7 @@ const getTorrentRowColorClass = (torrent: TorrentType) => [isTorrentSelected(tor
 #torrentList {
   background-color: unset;
 
-  tbody tr:nth-child(odd) {
+  tbody tr:nth-child(even) {
     background-color: settings.$card-background;
   }
 
