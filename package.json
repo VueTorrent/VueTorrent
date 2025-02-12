@@ -31,7 +31,7 @@
     "axios": "^1.7.9",
     "dayjs": "^1.11.13",
     "lodash.debounce": "^4.0.8",
-    "pinia": "^3.0.1",
+    "pinia": "^2.3.1",
     "pinia-persistence-plugin": "^0.0.5",
     "pixi.js": "^8.8.0",
     "uuid": "^11.0.5",
@@ -46,7 +46,7 @@
     "vuetify": "^3.7.12"
   },
   "devDependencies": {
-    "@pinia/testing": "^1.0.0",
+    "@pinia/testing": "^0.1.7",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^22.13.1",
     "@types/uuid": "^10.0.0",
