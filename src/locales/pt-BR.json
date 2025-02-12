@@ -187,11 +187,7 @@
         "resume": "Iniciar"
       }
     },
-    "searchInputLabel": "Buscar",
-    "sortBy": {
-      "availability": "Disponibilidade",
-      "category": "Categoria"
-    }
+    "searchInputLabel": "Buscar"
   },
   "navbar": {
     "side": {
