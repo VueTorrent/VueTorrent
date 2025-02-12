@@ -29,7 +29,7 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
       }
     })
     store.$patch(temp)
-    _lastState.value = temp
+    _lastState.value = JSON.parse(JSON.stringify(temp))
   }
 
   async function saveState() {
@@ -43,7 +43,7 @@ export function useBackendSync(store: Store, key: string, config: { blacklist?: 
     if (!isObjectEqual(state, _lastState.value)) {
       const success = await backend.set(key, JSON.stringify(state))
       if (success) {
-        _lastState.value = state
+        _lastState.value = JSON.parse(JSON.stringify(state))
       }
     }
   }
