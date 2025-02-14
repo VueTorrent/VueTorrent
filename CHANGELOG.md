@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.22.1](https://github.com/VueTorrent/VueTorrent/compare/v2.22.0...v2.22.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* **AddTorrentDialog:** Remove default value for speed limits ([#2172](https://github.com/VueTorrent/VueTorrent/issues/2172)) ([3fc700c](https://github.com/VueTorrent/VueTorrent/commit/3fc700c57527a0f62ecdeef99d568bb66d059c91))
+* **backend:** Torrent properties not synced more than once ([#2163](https://github.com/VueTorrent/VueTorrent/issues/2163)) ([90c2a69](https://github.com/VueTorrent/VueTorrent/commit/90c2a693c66db35c6449aafafe8a23fc2f9cc39b))
+
 ## [2.22.0](https://github.com/VueTorrent/VueTorrent/compare/v2.21.0...v2.22.0) (2025-02-01)
 
 ### Features
