@@ -26,6 +26,7 @@ export const useAddTorrentStore = defineStore(
     const pendingTorrentsCount = computed(() => files.value.length + urls.value.split('\n').filter(url => url.trim() !== '').length)
 
     function pushTorrentToQueue(torrentDescriptor: File | string) {
+      initForm()
       if (torrentDescriptor instanceof File) {
         files.value.push(torrentDescriptor)
       } else {
@@ -55,7 +56,7 @@ export const useAddTorrentStore = defineStore(
       addTorrentParams.add_to_top_of_queue = preferenceStore.preferences!.add_to_top_of_queue
       addTorrentParams.category = undefined
       addTorrentParams.content_layout = preferenceStore.preferences!.torrent_content_layout
-      addTorrentParams.download_limit = preferenceStore.preferences!.dl_limit
+      addTorrentParams.download_limit = undefined
       addTorrentParams.download_path = preferenceStore.preferences!.temp_path_enabled ? preferenceStore.preferences!.temp_path : undefined
       addTorrentParams.inactive_seeding_time_limit = undefined
       addTorrentParams.ratio_limit = undefined
@@ -65,7 +66,7 @@ export const useAddTorrentStore = defineStore(
       addTorrentParams.stop_condition = preferenceStore.preferences!.torrent_stop_condition
       addTorrentParams.stopped = preferenceStore.preferences!.add_stopped_enabled ?? preferenceStore.preferences!.start_paused_enabled
       addTorrentParams.tags = undefined
-      addTorrentParams.upload_limit = preferenceStore.preferences!.up_limit
+      addTorrentParams.upload_limit = undefined
       addTorrentParams.use_auto_tmm = preferenceStore.preferences!.auto_tmm_enabled
       addTorrentParams.use_download_path = preferenceStore.preferences!.temp_path_enabled
     }
@@ -81,15 +82,15 @@ export const useAddTorrentStore = defineStore(
       initForm,
       resetForm,
       $reset: () => {
-        isFirstInit.value = true
-        initForm()
+        isFirstInit.value = false
+        resetForm()
       }
     }
   },
   {
     persistence: {
       enabled: true,
-      storageItems: [{ storage: sessionStorage }]
+      storageItems: [{ storage: sessionStorage, excludePaths: ['files'] }]
     }
   }
 )

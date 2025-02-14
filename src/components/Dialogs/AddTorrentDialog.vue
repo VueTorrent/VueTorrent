@@ -6,7 +6,7 @@ import { HistoryKey } from '@/constants/vuetorrent'
 import { useAddTorrentStore, useTorrentStore, useVueTorrentStore } from '@/stores'
 import { AddTorrentPayload } from '@/types/qbit/payloads'
 import { storeToRefs } from 'pinia'
-import { computed, ref } from 'vue'
+import { computed, onBeforeMount, ref } from 'vue'
 import { useI18nUtils } from '@/composables'
 import { toast } from 'vue3-toastify'
 
@@ -95,6 +95,10 @@ function submit() {
 function close() {
   isOpened.value = false
 }
+
+onBeforeMount(() => {
+  addTorrentStore.initForm()
+})
 </script>
 
 <template>
