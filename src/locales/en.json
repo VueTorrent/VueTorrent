@@ -1076,7 +1076,7 @@
         "paginationSize": {
           "infinite_scroll": "Infinite scroll",
           "label": "Pagination Size",
-          "warning": "Using high values can affect performance"
+          "warning": "This option can significantly affect performance with a lot of torrents"
         },
         "qbittorrentVersion": "qBittorrent Version",
         "refreshInterval": "qBittorrent API refresh interval",

@@ -80,7 +80,7 @@ const paginationSize = computed({
   }
 })
 
-const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize > 1000 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
+const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
 
 const resetSettings = () => {
   localStorage.clear()
@@ -244,10 +244,9 @@ function openDurationFormatHelp() {
 
         <v-col cols="12" md="6">
           <v-combobox
-            v-model="paginationSize"
+            v-model.number="paginationSize"
             :messages="paginationSizeMessages"
             flat
-            hide-details
             :items="paginationSizes"
             :return-object="false"
             :label="t('settings.vuetorrent.general.paginationSize.label')" />
