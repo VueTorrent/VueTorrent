@@ -45,6 +45,7 @@ export const useVueTorrentStore = defineStore(
     const durationFormat = ref(defaultDurationFormat)
     const isShutdownButtonVisible = ref(false)
     const useBitSpeed = ref(false)
+    const expandContent = ref(true)
     const useBinarySize = ref(false)
     const refreshInterval = ref(2000)
     const fileContentInterval = ref(5000)
@@ -283,6 +284,7 @@ export const useVueTorrentStore = defineStore(
       toggleBusyGridProperty,
       toggleDoneGridProperty,
       toggleTableProperty,
+      expandContent,
       $reset: () => {
         language.value = 'en'
         theme.mode = ThemeMode.SYSTEM
@@ -314,6 +316,7 @@ export const useVueTorrentStore = defineStore(
         displayGraphLimits.value = true
         useEmojiState.value = true
         fetchExternalIpInfo.value = false
+        expandContent.value = true
 
         _busyProperties.value = JSON.parse(JSON.stringify(propsData))
         _doneProperties.value = JSON.parse(JSON.stringify(propsData))

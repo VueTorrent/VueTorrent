@@ -15,7 +15,7 @@ export const useContentStore = defineStore('content', () => {
   const { t } = useI18nUtils()
   const route = useRoute()
   const dialogStore = useDialogStore()
-  const { fileContentInterval } = storeToRefs(useVueTorrentStore())
+  const { fileContentInterval, expandContent } = storeToRefs(useVueTorrentStore())
 
   const hash = computed(() => route.params.hash as string)
 
@@ -99,7 +99,7 @@ export const useContentStore = defineStore('content', () => {
 
   const updateFileTreeTask = useTask(function* () {
     if (isFirstRun.value) {
-      yield updateFileTree().then(() => expandAll())
+      yield updateFileTree().then(() => expandContent.value && expandAll())
       isFirstRun.value = false
     } else {
       yield updateFileTree()

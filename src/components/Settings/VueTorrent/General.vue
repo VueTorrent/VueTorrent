@@ -80,7 +80,9 @@ const paginationSize = computed({
   }
 })
 
-const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
+const paginationSizeMessages = computed(() =>
+  vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''
+)
 
 const resetSettings = () => {
   localStorage.clear()
@@ -201,6 +203,9 @@ function openDurationFormatHelp() {
         </v-col>
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
+        </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.expandContent" hide-details density="compact" :label="t('settings.vuetorrent.general.expandContent')" />
         </v-col>
       </v-row>
     </v-list-item>
