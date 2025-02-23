@@ -80,7 +80,9 @@ const paginationSize = computed({
   }
 })
 
-const paginationSizeMessages = computed(() => (vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''))
+const paginationSizeMessages = computed(() =>
+  vueTorrentStore.paginationSize === -1 || vueTorrentStore.paginationSize >= 250 ? t('settings.vuetorrent.general.paginationSize.warning') : ''
+)
 
 const resetSettings = () => {
   localStorage.clear()
