@@ -1062,6 +1062,7 @@
         "durationFormat": "Duration format",
         "enableHashColors": "Enable generated chip colors",
         "enableRatioColors": "Enable ratio colors",
+        "expandContent": "Expand content by default in Content view",
         "fetchExternalIpInfo": "Fetch external IP info",
         "fileContentInterval": "Torrent file content refresh interval",
         "filterType": "Filters inclusion type",

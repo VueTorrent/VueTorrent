@@ -204,6 +204,9 @@ function openDurationFormatHelp() {
         <v-col cols="12" sm="6">
           <v-checkbox v-model="vueTorrentStore.useBitSpeed" hide-details density="compact" :label="t('settings.vuetorrent.general.useBitSpeed')" />
         </v-col>
+        <v-col cols="12" sm="6">
+          <v-checkbox v-model="vueTorrentStore.expandContent" hide-details density="compact" :label="t('settings.vuetorrent.general.expandContent')" />
+        </v-col>
       </v-row>
     </v-list-item>
 
