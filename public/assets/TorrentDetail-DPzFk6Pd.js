@@ -1,9 +1,9 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-BEd5q1u0.js","./ColoredChip.vue_vue_type_script_setup_true_lang-DMPBePVR.js","./index-DkZIIS2w.js","./vue-CWO_KHeN.js","./vuetify-BGqIFm8m.js","./index-B740hbys.css","./BulkRenameFilesDialog-ikJk4V4m.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-Yh7N66dD.js","./webworkerAll-xLM7Hs8o.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-DBOEOlSa.js","./WebGPURenderer-BqdyT5gy.js","./SharedSystems-DJjNg52q.js","./WebGLRenderer-DZQ-AD2J.js"])))=>i.map(i=>d[i]);
-import { b as we, a as Mo, _ as Io } from "./ColoredChip.vue_vue_type_script_setup_true_lang-DMPBePVR.js";
-import { s as Wt, a as K, a6 as Nr, b as Ro, a0 as Ji, d as mt, V as Eo, Q as xt, r as vs, l as Do, A as He, a7 as nr, h as wt, H as Bo, B as q, D as N, G as v, m as y, I as X, J as V, u as E, L as Ye, M as Et, K as tn, O as We, S as W, N as j, U as en, X as gs, w as Te, z as ts, q as ws, n as ke, $ as Or, F as kt, T as Gt, E as sn, a1 as Ar, R as Fo, W as zr, v as Go, a8 as rn, a9 as nn, P as Vo } from "./vue-CWO_KHeN.js";
-import { bq as it, br as $o, a1 as on, $ as Ce, u as ee, F as Cs, o as jt, a2 as No, ae as an, p as Ss, bs as Pe, c as ln, d as Xt, e as As, f as pe, g as hn, V as Qt, i as Xe, j as Me, k as nt, l as je, bt as Lr, J as Oo, K as zo, r as pt, q as rt, t as Ur, bu as Lo, a6 as Ot, a as St, ah as un, bp as Uo, a8 as Ts, R as _s, U as Ho, ax as Yo, W as ks, z as me, B as ge, ac as xe, a5 as Wo, bf as Xo, C as ys, s as qe, an as Hr, bl as fe, y as jo, bv as Es, bi as qo, be as Ko, bd as Zo, bm as Yr, bw as Qo, bx as Jo, by as ta, H as ea, ap as sa, ai as or, b9 as ra, aP as ia, au as na, ag as ar, a0 as cn, bz as oa, bA as Ds, ad as dn, b as aa, m as la, aw as Wr, b3 as ha, bB as ua, a3 as ca, a4 as da, b1 as be, b2 as fa, __tla as __tla_0 } from "./index-DkZIIS2w.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-DbbL68C5.js","./ColoredChip.vue_vue_type_script_setup_true_lang-DpgCHS2R.js","./index-OweoMNp_.js","./vue-CWO_KHeN.js","./vuetify-BGqIFm8m.js","./index-B740hbys.css","./BulkRenameFilesDialog-Eo2H0mpx.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-lDH2uboX.js","./webworkerAll-BnNJq7gE.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-BwNVaAFZ.js","./WebGPURenderer-BWPqCTa5.js","./SharedSystems-Cg02UR-B.js","./WebGLRenderer-CSe87jfQ.js"])))=>i.map(i=>d[i]);
+import { b as we, a as Mo, _ as Io } from "./ColoredChip.vue_vue_type_script_setup_true_lang-DpgCHS2R.js";
+import { s as Wt, a as Z, a6 as Nr, b as Ro, a0 as Ji, d as mt, V as Eo, Q as xt, r as vs, l as Do, A as He, a7 as nr, h as wt, H as Bo, B as K, D as N, G as v, m as y, I as X, J as V, u as R, L as Ye, M as Et, K as tn, O as We, S as Y, N as q, U as en, X as gs, w as Te, z as ts, q as ws, n as ke, $ as Or, F as kt, T as Gt, E as sn, a1 as Ar, R as Fo, W as zr, v as Go, a8 as rn, a9 as nn, P as Vo } from "./vue-CWO_KHeN.js";
+import { bq as nt, br as $o, a1 as on, $ as Ce, u as ee, F as Cs, o as jt, a2 as No, ae as an, p as Ss, bs as Pe, c as ln, d as Xt, e as As, f as pe, g as hn, V as Qt, i as Xe, j as Me, k as ot, l as je, bt as Lr, J as Oo, K as zo, r as pt, q as it, t as Ur, bu as Lo, a6 as Ot, a as St, ah as un, bp as Uo, a8 as Ts, R as _s, U as Ho, ax as Yo, W as ks, z as me, B as ge, ac as xe, a5 as Wo, bf as Xo, C as ys, s as qe, an as Hr, bl as fe, y as jo, bv as Es, bi as qo, be as Ko, bd as Zo, bm as Yr, bw as Qo, bx as Jo, by as ta, H as ea, ap as sa, ai as or, b9 as ra, aP as ia, au as na, ag as ar, a0 as cn, bz as oa, bA as Ds, ad as dn, b as aa, m as la, aw as Wr, b3 as ha, bB as ua, a3 as ca, a4 as da, b1 as be, b2 as fa, __tla as __tla_0 } from "./index-OweoMNp_.js";
 import { a as fn, u as pa } from "./vuetify-BGqIFm8m.js";
-let $l, io, Pt, ye, ne, ht, Jt, Ms, An, zt, Fl, hi, Ke, J, ah, gh, At, _t, _r, zh, ns, pr, vt, bh, ci, Hs, fi, xa, re, Ft, Pn, no, ct, yt, Ah, Xh, du, pu, xu, vu, wu, Ge, Oe, Zi, Is, kh, xs, Ae, bo, Mi, ki, rl, bs, nl, Co, fd, $h, Qe, ps, Vt, Pi, ya, Ir, eo, Nn, qt, to, cu, Zr, fu, _u, bu, yl, ho, Rr, _e, ut, Dt, Kn, il, Su;
+let $l, io, Pt, ye, ne, ht, Jt, Ms, An, zt, Fl, hi, Ke, tt, ah, gh, At, _t, _r, zh, ns, pr, vt, bh, ci, Hs, fi, xa, re, Ft, Pn, no, ct, yt, Ah, Xh, du, pu, xu, vu, wu, Ge, Oe, Zi, Is, kh, xs, Ae, bo, Mi, ki, rl, bs, nl, Co, fd, $h, Qe, ps, Vt, Pi, ya, Ir, eo, Nn, qt, to, cu, Zr, fu, _u, bu, yl, ho, Rr, _e, ut, Dt, Kn, il, Su;
 let __tla = Promise.all([
     (()=>{
         try {
@@ -30,7 +30,7 @@ let __tla = Promise.all([
             ];
         }
         get wanted() {
-            return this.priority !== it.DO_NOT_DOWNLOAD;
+            return this.priority !== nt.DO_NOT_DOWNLOAD;
         }
         deepCount = [
             0,
@@ -50,7 +50,7 @@ let __tla = Promise.all([
         fullName;
         name;
         children;
-        priority = it.DO_NOT_DOWNLOAD;
+        priority = nt.DO_NOT_DOWNLOAD;
         childrenIds = [];
         wanted = null;
         progress = 0;
@@ -65,7 +65,7 @@ let __tla = Promise.all([
         }
         buildCache() {
             if (this.children.length === 0) {
-                this.priority = it.DO_NOT_DOWNLOAD, this.childrenIds = [], this.wanted = null, this.progress = 0, this.deepCount = [
+                this.priority = nt.DO_NOT_DOWNLOAD, this.childrenIds = [], this.wanted = null, this.progress = 0, this.deepCount = [
                     1,
                     0
                 ], this.size = 0, this.selectedSize = 0;
@@ -73,7 +73,7 @@ let __tla = Promise.all([
             }
             this.children.forEach((e)=>{
                 e.buildCache();
-            }), this.priority = this.children.map((e)=>e.priority).reduce((e, s)=>e === it.MIXED || e === s ? e : it.MIXED), this.childrenIds = this.children.map((e)=>e.childrenIds ?? []).flat(), this.wanted = this.children.map((e)=>e.wanted).some(Boolean);
+            }), this.priority = this.children.map((e)=>e.priority).reduce((e, s)=>e === nt.MIXED || e === s ? e : nt.MIXED), this.childrenIds = this.children.map((e)=>e.childrenIds ?? []).flat(), this.wanted = this.children.map((e)=>e.wanted).some(Boolean);
             const t = this.children.filter((e)=>e.wanted);
             if (t.length === 0) this.progress = 0;
             else {
@@ -102,7 +102,7 @@ let __tla = Promise.all([
         return new pn("(root)", "");
     }
     function ga(r, t) {
-        const e = Wt(Xr()), s = K(()=>{
+        const e = Wt(Xr()), s = Z(()=>{
             const n = (o, a)=>{
                 const l = a === "" ? o.name : a + "/" + o.name;
                 if (o.type === "folder" && Nr(t).has(o.fullName)) {
@@ -125,8 +125,8 @@ let __tla = Promise.all([
                     const c = u === "" ? h : u + "/" + h;
                     if (u === a.name.substring(0, a.name.lastIndexOf("/"))) l.children.push(new ma(a, h));
                     else {
-                        const f = l.children.find((d)=>d.name === h);
-                        if (f) l = f;
+                        const m = l.children.find((d)=>d.name === h);
+                        if (m) l = m;
                         else {
                             const d = new pn(h, c);
                             l.children.push(d), l = d;
@@ -208,31 +208,31 @@ let __tla = Promise.all([
         }
     });
     _e = Ji("content", ()=>{
-        const { t: r } = ee(), t = Eo(), e = Cs(), { fileContentInterval: s } = xt(jt()), i = K(()=>t.params.hash), n = vs({
+        const { t: r } = ee(), t = Eo(), e = Cs(), { fileContentInterval: s, expandContent: i } = xt(jt()), n = Z(()=>t.params.hash), o = vs({
             isVisible: !1,
             offset: [
                 0,
                 0
             ]
-        }), o = Wt(!0), a = Wt([]), l = Wt(""), { results: u } = No(a, l, (k)=>k.name), h = Wt(new Set([
+        }), a = Wt(!0), l = Wt([]), u = Wt(""), { results: h } = No(l, u, (k)=>k.name), c = Wt(new Set([
             ""
-        ])), { flatTree: c } = ga(u, h), f = Wt(new Set), d = Wt(""), g = K(()=>f.value.size === 0 ? [] : c.value.filter((k)=>f.value.has(k.fullName))), _ = K(()=>g.value.length > 0 ? g.value[0] : null), m = K(()=>g.value.map((k)=>k.childrenIds).flat().filter((k, P, F)=>F.indexOf(k) === P)), b = K(()=>[
+        ])), { flatTree: m } = ga(h, c), d = Wt(new Set), g = Wt(""), _ = Z(()=>d.value.size === 0 ? [] : m.value.filter((k)=>d.value.has(k.fullName))), p = Z(()=>_.value.length > 0 ? _.value[0] : null), b = Z(()=>_.value.map((k)=>k.childrenIds).flat().filter((k, E, L)=>L.indexOf(k) === E)), C = Z(()=>[
                 {
-                    text: r(`torrentDetail.content.rename.${_.value?.type || "file"}`),
+                    text: r(`torrentDetail.content.rename.${p.value?.type || "file"}`),
                     icon: "mdi-rename",
-                    hidden: f.value.size > 1 || _.value?.fullName === "",
-                    action: ()=>z(_.value)
+                    hidden: d.value.size > 1 || p.value?.fullName === "",
+                    action: ()=>O(p.value)
                 },
                 {
                     text: r("torrentDetail.content.rename.bulk"),
                     icon: "mdi-rename",
-                    hidden: f.value.size !== 1 || (_.value?.type || "file") === "file",
-                    action: ()=>O(Do(_.value))
+                    hidden: d.value.size !== 1 || (p.value?.type || "file") === "file",
+                    action: ()=>I(Do(p.value))
                 },
                 {
                     text: r("torrentDetail.content.invert_priority"),
                     icon: "mdi-checkbox-intermediate-variant",
-                    action: R
+                    action: G
                 },
                 {
                     text: r("torrentDetail.content.priority"),
@@ -241,154 +241,154 @@ let __tla = Promise.all([
                         {
                             text: r("constants.file_priority.max"),
                             icon: "mdi-arrow-up",
-                            action: ()=>H(m.value, it.MAXIMAL)
+                            action: ()=>U(b.value, nt.MAXIMAL)
                         },
                         {
                             text: r("constants.file_priority.high"),
                             icon: "mdi-arrow-top-right",
-                            action: ()=>H(m.value, it.HIGH)
+                            action: ()=>U(b.value, nt.HIGH)
                         },
                         {
                             text: r("constants.file_priority.normal"),
                             icon: "mdi-minus",
-                            action: ()=>H(m.value, it.NORMAL)
+                            action: ()=>U(b.value, nt.NORMAL)
                         },
                         {
                             text: r("constants.file_priority.unwanted"),
                             icon: "mdi-cancel",
-                            action: ()=>H(m.value, it.DO_NOT_DOWNLOAD)
+                            action: ()=>U(b.value, nt.DO_NOT_DOWNLOAD)
                         }
                     ]
                 },
                 {
                     text: "Collapse All",
                     icon: "mdi-unfold-less-horizontal",
-                    action: w
+                    action: T
                 },
                 {
                     text: "Expand All",
                     icon: "mdi-unfold-more-horizontal",
-                    action: T
+                    action: M
                 }
-            ]), C = an(function*() {
-            o.value ? (yield M().then(()=>T()), o.value = !1) : yield M();
-        }).drop(), A = Wt(!1), { isActive: D, pause: $, resume: B } = Ss(C.perform, s, {
+            ]), A = an(function*() {
+            a.value ? (yield z().then(()=>i.value && M()), a.value = !1) : yield z();
+        }).drop(), B = Wt(!1), { isActive: $, pause: D, resume: P } = Ss(A.perform, s, {
             immediate: !1,
             immediateCallback: !0
         });
-        async function M() {
-            a.value = await Y(i.value), await He();
+        async function z() {
+            l.value = await et(n.value), await He();
         }
-        async function z(k) {
-            const { default: P } = await Pe(async ()=>{
-                const { default: U } = await import("./MoveTorrentFileDialog-BEd5q1u0.js");
+        async function O(k) {
+            const { default: E } = await Pe(async ()=>{
+                const { default: H } = await import("./MoveTorrentFileDialog-DbbL68C5.js");
                 return {
-                    default: U
+                    default: H
                 };
-            }, __vite__mapDeps([0,1,2,3,4,5]), import.meta.url), F = {
-                hash: i.value,
+            }, __vite__mapDeps([0,1,2,3,4,5]), import.meta.url), L = {
+                hash: n.value,
                 isFolder: k.type === "folder",
                 oldName: k.fullName
             };
-            e.createDialog(P, F, C.perform);
+            e.createDialog(E, L, A.perform);
         }
-        async function O(k) {
-            const { default: P } = await Pe(async ()=>{
-                const { default: U } = await import("./BulkRenameFilesDialog-ikJk4V4m.js");
+        async function I(k) {
+            const { default: E } = await Pe(async ()=>{
+                const { default: H } = await import("./BulkRenameFilesDialog-Eo2H0mpx.js");
                 return {
-                    default: U
+                    default: H
                 };
-            }, __vite__mapDeps([6,2,3,4,5,1,7]), import.meta.url), F = {
-                hash: i.value,
+            }, __vite__mapDeps([6,2,3,4,5,1,7]), import.meta.url), L = {
+                hash: n.value,
                 node: k
             };
-            e.createDialog(P, F, C.perform);
+            e.createDialog(E, L, A.perform);
         }
-        async function R() {
-            const k = g.value.flatMap((L)=>L.childrenIds), P = a.value.filter((L)=>k.includes(L.index)), F = P.filter((L)=>L.priority !== it.DO_NOT_DOWNLOAD).map((L)=>L.index), U = P.filter((L)=>L.priority === it.DO_NOT_DOWNLOAD).map((L)=>L.index);
+        async function G() {
+            const k = _.value.flatMap((j)=>j.childrenIds), E = l.value.filter((j)=>k.includes(j.index)), L = E.filter((j)=>j.priority !== nt.DO_NOT_DOWNLOAD).map((j)=>j.index), H = E.filter((j)=>j.priority === nt.DO_NOT_DOWNLOAD).map((j)=>j.index);
             await Promise.all([
-                H(U, it.NORMAL),
-                H(F, it.DO_NOT_DOWNLOAD)
+                U(H, nt.NORMAL),
+                U(L, nt.DO_NOT_DOWNLOAD)
             ]);
         }
-        async function G(k, P, F) {
-            await Ce.renameFile(k, P, F);
+        async function S(k, E, L) {
+            await Ce.renameFile(k, E, L);
         }
-        async function S(k, P, F) {
-            await Ce.renameFolder(k, P, F);
+        async function W(k, E, L) {
+            await Ce.renameFolder(k, E, L);
         }
-        async function H(k, P) {
-            await Ce.setTorrentFilePriority(i.value, k, P), C.perform();
+        async function U(k, E) {
+            await Ce.setTorrentFilePriority(n.value, k, E), A.perform();
         }
-        async function Y(k, P) {
-            return await Ce.getTorrentFiles(k, P);
+        async function et(k, E) {
+            return await Ce.getTorrentFiles(k, E);
         }
-        async function et(k) {
+        async function f(k) {
             return await Ce.getTorrentPieceStates(k);
         }
-        function p(k, P) {
+        function x(k, E) {
             k.stopPropagation();
-            const F = P.type === "file" ? P.fullName.slice(0, P.fullName.lastIndexOf("/")) : P.fullName;
-            h.value.has(F) || (h.value.add(F), nr(h));
+            const L = E.type === "file" ? E.fullName.slice(0, E.fullName.lastIndexOf("/")) : E.fullName;
+            c.value.has(L) || (c.value.add(L), nr(c));
         }
-        function x(k, P) {
+        function w(k, E) {
             k.stopPropagation();
-            const F = P.type === "file" || !h.value.has(P.fullName) ? P.fullName.slice(0, P.fullName.lastIndexOf("/")) : P.fullName;
-            h.value.has(F) && (h.value.delete(F), f.value.has(P.fullName) && (f.value.delete(P.fullName), f.value.add(F), d.value = F), nr(h));
+            const L = E.type === "file" || !c.value.has(E.fullName) ? E.fullName.slice(0, E.fullName.lastIndexOf("/")) : E.fullName;
+            c.value.has(L) && (c.value.delete(L), d.value.has(E.fullName) && (d.value.delete(E.fullName), d.value.add(L), g.value = L), nr(c));
         }
-        function w() {
-            h.value = new Set([
+        function T() {
+            c.value = new Set([
                 ""
             ]);
         }
-        function T() {
-            h.value = a.value.flatMap((k)=>k.name.replaceAll("\\", "/").split("/").reduce((P, F, U, L)=>[
-                        ...P,
-                        ...U < L.length - 1 ? [
+        function M() {
+            c.value = l.value.flatMap((k)=>k.name.replaceAll("\\", "/").split("/").reduce((E, L, H, j)=>[
+                        ...E,
+                        ...H < j.length - 1 ? [
                             [
-                                ...P,
-                                F
+                                ...E,
+                                L
                             ].join("/")
                         ] : []
-                    ], [])).reduce((k, P)=>k.add(P), new Set([
+                    ], [])).reduce((k, E)=>k.add(E), new Set([
                 ""
             ]));
         }
-        async function I(...k) {
-            const P = k.some((U)=>U.wanted), F = k.flatMap((U)=>U.childrenIds);
-            P ? await H(F, it.DO_NOT_DOWNLOAD) : await H(F, it.NORMAL);
+        async function F(...k) {
+            const E = k.some((H)=>H.wanted), L = k.flatMap((H)=>H.childrenIds);
+            E ? await U(L, nt.DO_NOT_DOWNLOAD) : await U(L, nt.NORMAL);
         }
         return {
-            rightClickProperties: n,
-            isFirstRun: o,
-            internalSelection: f,
-            lastSelected: d,
-            selectedNodes: g,
-            menuData: b,
-            filenameFilter: l,
-            cachedFiles: a,
-            openedItems: h,
-            filteredFiles: u,
-            flatTree: c,
-            updateFileTreeTask: C,
-            timerForcedPause: A,
-            isTimerActive: D,
-            pauseTimer: $,
-            resumeTimer: B,
-            renameTorrentFile: G,
-            renameTorrentFolder: S,
-            setFilePriority: H,
-            fetchFiles: Y,
-            fetchPieceState: et,
-            openNode: p,
-            closeNode: x,
-            collapseAll: w,
-            expandAll: T,
-            toggleFileSelection: I,
+            rightClickProperties: o,
+            isFirstRun: a,
+            internalSelection: d,
+            lastSelected: g,
+            selectedNodes: _,
+            menuData: C,
+            filenameFilter: u,
+            cachedFiles: l,
+            openedItems: c,
+            filteredFiles: h,
+            flatTree: m,
+            updateFileTreeTask: A,
+            timerForcedPause: B,
+            isTimerActive: $,
+            pauseTimer: D,
+            resumeTimer: P,
+            renameTorrentFile: S,
+            renameTorrentFolder: W,
+            setFilePriority: U,
+            fetchFiles: et,
+            fetchPieceState: f,
+            openNode: x,
+            closeNode: w,
+            collapseAll: T,
+            expandAll: M,
+            toggleFileSelection: F,
             $reset: ()=>{
-                $(), C.clear(), f.value.clear(), d.value = "", l.value = "", a.value = [], h.value = new Set([
+                D(), A.clear(), d.value.clear(), g.value = "", u.value = "", l.value = [], c.value = new Set([
                     ""
-                ]), o.value = !0;
+                ]), a.value = !0;
             }
         };
     });
@@ -406,7 +406,7 @@ let __tla = Promise.all([
             const t = r, { isOpened: e } = ln(t.guid), { t: s } = ee(), i = _e(), n = mt(), o = mt(), a = mt(!1), l = vs({
                 newName: ""
             }), u = [
-                (f)=>!!f || s("dialogs.moveTorrent.required")
+                (m)=>!!m || s("dialogs.moveTorrent.required")
             ];
             async function h() {
                 await n.value?.validate(), a.value && (t.isFolder ? await i.renameTorrentFolder(t.hash, t.oldName, l.newName) : await i.renameTorrentFile(t.hash, t.oldName, l.newName), c());
@@ -417,13 +417,13 @@ let __tla = Promise.all([
             return Bo(()=>{
                 if (l.newName = t.oldName, t.isFolder) He(()=>o.value?.select());
                 else {
-                    const f = l.newName.lastIndexOf("/"), d = l.newName.lastIndexOf(".");
+                    const m = l.newName.lastIndexOf("/"), d = l.newName.lastIndexOf(".");
                     He(()=>{
-                        o.value?.setSelectionRange(f + 1, d == -1 ? l.newName.length : d);
+                        o.value?.setSelectionRange(m + 1, d == -1 ? l.newName.length : d);
                     });
                 }
-            }), (f, d)=>(N(), q(je, {
-                    modelValue: E(e),
+            }), (m, d)=>(N(), K(je, {
+                    modelValue: R(e),
                     "onUpdate:modelValue": d[3] || (d[3] = (g)=>We(e) ? e.value = g : null)
                 }, {
                     default: v(()=>[
@@ -431,13 +431,13 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(As, null, {
                                             default: v(()=>[
-                                                    X(V(E(s)("dialogs.moveTorrentFile.title", 1 + Number(f.isFolder))), 1)
+                                                    X(V(R(s)("dialogs.moveTorrentFile.title", 1 + Number(m.isFolder))), 1)
                                                 ]),
                                             _: 1
                                         }),
                                         y(pe, null, {
                                             default: v(()=>[
-                                                    y(E(hn), {
+                                                    y(R(hn), {
                                                         modelValue: a.value,
                                                         "onUpdate:modelValue": d[1] || (d[1] = (g)=>a.value = g),
                                                         ref_key: "form",
@@ -447,11 +447,11 @@ let __tla = Promise.all([
                                                         ]))
                                                     }, {
                                                         default: v(()=>[
-                                                                f.oldName ? (N(), q(Qt, {
+                                                                m.oldName ? (N(), K(Qt, {
                                                                     key: 0,
-                                                                    "model-value": f.oldName,
+                                                                    "model-value": m.oldName,
                                                                     disabled: "",
-                                                                    label: f.$t("dialogs.moveTorrentFile.oldName")
+                                                                    label: m.$t("dialogs.moveTorrentFile.oldName")
                                                                 }, null, 8, [
                                                                     "model-value",
                                                                     "label"
@@ -463,7 +463,7 @@ let __tla = Promise.all([
                                                                     ref: o,
                                                                     rules: u,
                                                                     autofocus: "",
-                                                                    label: f.$t("dialogs.moveTorrent.newPath"),
+                                                                    label: m.$t("dialogs.moveTorrent.newPath"),
                                                                     onKeydown: tn(h, [
                                                                         "enter"
                                                                     ])
@@ -482,22 +482,22 @@ let __tla = Promise.all([
                                         y(Xe, null, {
                                             default: v(()=>[
                                                     y(Me),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         color: "error",
                                                         onClick: c
                                                     }, {
                                                         default: v(()=>[
-                                                                X(V(f.$t("common.cancel")), 1)
+                                                                X(V(m.$t("common.cancel")), 1)
                                                             ]),
                                                         _: 1
                                                     }),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         color: "accent",
                                                         disabled: !a.value,
                                                         onClick: h
                                                     }, {
                                                         default: v(()=>[
-                                                                X(V(f.$t("common.save")), 1)
+                                                                X(V(m.$t("common.save")), 1)
                                                             ]),
                                                         _: 1
                                                     }, 8, [
@@ -527,54 +527,54 @@ let __tla = Promise.all([
             guid: {}
         },
         setup (r) {
-            const t = r, { t: e } = ee(), { isOpened: s } = ln(t.guid), i = _e(), n = jt(), o = K(()=>i.cachedFiles.map((m)=>m.size).reduce((m, b)=>[
-                        m[0] === -1 || b < m[0] ? b : m[0],
-                        m[1] === -1 || b > m[1] ? b : m[1]
+            const t = r, { t: e } = ee(), { isOpened: s } = ln(t.guid), i = _e(), n = jt(), o = Z(()=>i.cachedFiles.map((p)=>p.size).reduce((p, b)=>[
+                        p[0] === -1 || b < p[0] ? b : p[0],
+                        p[1] === -1 || b > p[1] ? b : p[1]
                     ], [
                     -1,
                     -1
-                ])), a = K(()=>Array.from(new Set(i.cachedFiles.map((m)=>Lr(m.name)[1])).values())), l = K(()=>a.value.map((m)=>m === "" ? {
+                ])), a = Z(()=>Array.from(new Set(i.cachedFiles.map((p)=>Lr(p.name)[1])).values())), l = Z(()=>a.value.map((p)=>p === "" ? {
                         title: e("common.none"),
                         value: ""
                     } : {
-                        title: `.${m}`,
-                        value: m
-                    }).sort((m, b)=>on.text.asc(m.title, b.title))), u = [
+                        title: `.${p}`,
+                        value: p
+                    }).sort((p, b)=>on.text.asc(p.title, b.title))), u = [
                 {
                     title: e("constants.file_priority.unwanted"),
-                    value: it.DO_NOT_DOWNLOAD
+                    value: nt.DO_NOT_DOWNLOAD
                 },
                 {
                     title: e("constants.file_priority.normal"),
-                    value: it.NORMAL
+                    value: nt.NORMAL
                 },
                 {
                     title: e("constants.file_priority.high"),
-                    value: it.HIGH
+                    value: nt.HIGH
                 },
                 {
                     title: e("constants.file_priority.max"),
-                    value: it.MAXIMAL
+                    value: nt.MAXIMAL
                 }
             ], h = vs({
                 extensions: [],
                 priority: [],
                 size: o.value
-            }), c = K(()=>i.cachedFiles.filter((m)=>(!h.extensions.length || h.extensions.includes(Lr(m.name)[1])) && (!h.priority.length || h.priority.includes(m.priority)) && m.size >= h.size[0] && m.size <= h.size[1])), f = K(()=>c.value.reduce((m, b)=>m + b.size, 0));
+            }), c = Z(()=>i.cachedFiles.filter((p)=>(!h.extensions.length || h.extensions.includes(Lr(p.name)[1])) && (!h.priority.length || h.priority.includes(p.priority)) && p.size >= h.size[0] && p.size <= h.size[1])), m = Z(()=>c.value.reduce((p, b)=>p + b.size, 0));
             function d() {
-                i.setFilePriority(c.value.map((m)=>m.index), it.DO_NOT_DOWNLOAD), _();
+                i.setFilePriority(c.value.map((p)=>p.index), nt.DO_NOT_DOWNLOAD), _();
             }
             function g() {
-                const m = c.value.filter((b)=>b.priority === it.DO_NOT_DOWNLOAD).map((b)=>b.index);
-                i.setFilePriority(m, it.NORMAL), _();
+                const p = c.value.filter((b)=>b.priority === nt.DO_NOT_DOWNLOAD).map((b)=>b.index);
+                i.setFilePriority(p, nt.NORMAL), _();
             }
             function _() {
                 s.value = !1;
             }
-            return (m, b)=>(N(), q(je, {
-                    modelValue: E(s),
+            return (p, b)=>(N(), K(je, {
+                    modelValue: R(s),
                     "onUpdate:modelValue": b[5] || (b[5] = (C)=>We(s) ? s.value = C : null),
-                    fullscreen: m.$vuetify.display.mobile
+                    fullscreen: p.$vuetify.display.mobile
                 }, {
                     default: v(()=>[
                             y(Xt, null, {
@@ -589,11 +589,11 @@ let __tla = Promise.all([
                                                         default: v(()=>[
                                                                 y(zo, null, {
                                                                     default: v(()=>[
-                                                                            X(V(m.$t("torrentDetail.content.filter.title")), 1)
+                                                                            X(V(p.$t("torrentDetail.content.filter.title")), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
-                                                                y(nt, {
+                                                                y(ot, {
                                                                     icon: "mdi-close",
                                                                     onClick: _
                                                                 })
@@ -607,16 +607,16 @@ let __tla = Promise.all([
                                             default: v(()=>[
                                                     y(pt, null, {
                                                         default: v(()=>[
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "4",
                                                                     class: "d-flex align-center"
                                                                 }, {
                                                                     default: v(()=>[
-                                                                            X(V(m.$t("torrentDetail.content.filter.extensions")), 1)
+                                                                            X(V(p.$t("torrentDetail.content.filter.extensions")), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "8"
                                                                 }, {
                                                                     default: v(()=>[
@@ -624,7 +624,7 @@ let __tla = Promise.all([
                                                                                 modelValue: h.extensions,
                                                                                 "onUpdate:modelValue": b[0] || (b[0] = (C)=>h.extensions = C),
                                                                                 items: l.value,
-                                                                                placeholder: m.$t("common.disabled"),
+                                                                                placeholder: p.$t("common.disabled"),
                                                                                 "persistent-placeholder": "",
                                                                                 multiple: "",
                                                                                 "hide-details": ""
@@ -641,16 +641,16 @@ let __tla = Promise.all([
                                                     }),
                                                     y(pt, null, {
                                                         default: v(()=>[
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "4",
                                                                     class: "d-flex align-center"
                                                                 }, {
                                                                     default: v(()=>[
-                                                                            X(V(m.$t("torrentDetail.content.filter.priority")), 1)
+                                                                            X(V(p.$t("torrentDetail.content.filter.priority")), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "8"
                                                                 }, {
                                                                     default: v(()=>[
@@ -658,7 +658,7 @@ let __tla = Promise.all([
                                                                                 modelValue: h.priority,
                                                                                 "onUpdate:modelValue": b[1] || (b[1] = (C)=>h.priority = C),
                                                                                 items: u,
-                                                                                placeholder: m.$t("common.disabled"),
+                                                                                placeholder: p.$t("common.disabled"),
                                                                                 "persistent-placeholder": "",
                                                                                 multiple: "",
                                                                                 "hide-details": ""
@@ -674,23 +674,23 @@ let __tla = Promise.all([
                                                     }),
                                                     y(pt, null, {
                                                         default: v(()=>[
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "4",
                                                                     class: "d-flex align-center"
                                                                 }, {
                                                                     default: v(()=>[
-                                                                            X(V(m.$t("torrentDetail.content.filter.size")), 1)
+                                                                            X(V(p.$t("torrentDetail.content.filter.size")), 1)
                                                                         ]),
                                                                     _: 1
                                                                 }),
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "8"
                                                                 }, {
                                                                     default: v(()=>[
                                                                             y(Lo, {
                                                                                 modelValue: h.size,
                                                                                 "onUpdate:modelValue": b[4] || (b[4] = (C)=>h.size = C),
-                                                                                direction: m.$vuetify.display.mobile ? "vertical" : "horizontal",
+                                                                                direction: p.$vuetify.display.mobile ? "vertical" : "horizontal",
                                                                                 color: "primary",
                                                                                 disabled: o.value[0] === o.value[1],
                                                                                 min: o.value[0],
@@ -701,7 +701,7 @@ let __tla = Promise.all([
                                                                                 "hide-details": ""
                                                                             }, {
                                                                                 "thumb-label": v(({ modelValue: C })=>[
-                                                                                        W("div", ba, V(E(Ot)(C, E(n).useBinarySize)), 1)
+                                                                                        Y("div", ba, V(R(Ot)(C, R(n).useBinarySize)), 1)
                                                                                     ]),
                                                                                 prepend: v(()=>[
                                                                                         y(Qt, {
@@ -753,14 +753,14 @@ let __tla = Promise.all([
                                                     }),
                                                     y(pt, null, {
                                                         default: v(()=>[
-                                                                y(rt, {
+                                                                y(it, {
                                                                     cols: "12"
                                                                 }, {
                                                                     default: v(()=>[
-                                                                            X(V(m.$t("torrentDetail.content.filter.preview", {
+                                                                            X(V(p.$t("torrentDetail.content.filter.preview", {
                                                                                 count: c.value.length,
-                                                                                total: E(i).cachedFiles.length,
-                                                                                size: E(Ot)(f.value, E(n).useBinarySize)
+                                                                                total: R(i).cachedFiles.length,
+                                                                                size: R(Ot)(m.value, R(n).useBinarySize)
                                                                             })), 1)
                                                                         ]),
                                                                     _: 1
@@ -773,21 +773,21 @@ let __tla = Promise.all([
                                         }),
                                         y(Xe, null, {
                                             default: v(()=>[
-                                                    y(nt, {
+                                                    y(ot, {
                                                         color: "error",
                                                         onClick: d
                                                     }, {
                                                         default: v(()=>[
-                                                                X(V(m.$t("torrentDetail.content.filter.exclude")), 1)
+                                                                X(V(p.$t("torrentDetail.content.filter.exclude")), 1)
                                                             ]),
                                                         _: 1
                                                     }),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         color: "success",
                                                         onClick: g
                                                     }, {
                                                         default: v(()=>[
-                                                                X(V(m.$t("torrentDetail.content.filter.include")), 1)
+                                                                X(V(p.$t("torrentDetail.content.filter.include")), 1)
                                                             ]),
                                                         _: 1
                                                     })
@@ -831,7 +831,7 @@ let __tla = Promise.all([
             "onRightClick"
         ],
         setup (r) {
-            const t = r, { t: e } = ee(), { mobile: s } = fn(), i = _e(), { internalSelection: n, lastSelected: o, openedItems: a } = xt(i), l = jt(), u = K(()=>{
+            const t = r, { t: e } = ee(), { mobile: s } = fn(), i = _e(), { internalSelection: n, lastSelected: o, openedItems: a } = xt(i), l = jt(), u = Z(()=>{
                 if (t.node.fullName === "") return 0;
                 const g = t.node.fullName.split("/").length, _ = s.value ? 12 : 24;
                 return g * _;
@@ -844,55 +844,55 @@ let __tla = Promise.all([
             function c(g) {
                 return g.wanted ? g.progress === 1 ? "green" : "" : "grey";
             }
-            function f(g) {
-                const [_, m] = g.deepCount, b = [];
-                return _ > 1 && b.push(e("torrentDetail.content.folderInfo", _ - 1)), m > 0 && b.push(e("torrentDetail.content.fileInfo", m)), b.join(", ");
+            function m(g) {
+                const [_, p] = g.deepCount, b = [];
+                return _ > 1 && b.push(e("torrentDetail.content.folderInfo", _ - 1)), p > 0 && b.push(e("torrentDetail.content.fileInfo", p)), b.join(", ");
             }
             function d(g) {
-                const _ = Ot(g.size, l.useBinarySize), m = Ot(g.selectedSize, l.useBinarySize);
+                const _ = Ot(g.size, l.useBinarySize), p = Ot(g.selectedSize, l.useBinarySize);
                 let b;
                 if (g.type === "folder") {
                     let C = _;
-                    g.selectedSize > 0 && (C += ` (${m})`), b = [
+                    g.selectedSize > 0 && (C += ` (${p})`), b = [
                         C,
-                        f(g)
+                        m(g)
                     ];
                 } else b = [
                     _
                 ];
                 return b.join(" | ");
             }
-            return (g, _)=>(N(), j("div", {
+            return (g, _)=>(N(), q("div", {
                     class: gs([
                         "d-flex flex-column py-2 pr-3",
-                        g.node.isSelected(E(n)) ? "selected" : ""
+                        g.node.isSelected(R(n)) ? "selected" : ""
                     ]),
                     style: en(`padding-left: ${u.value}px`),
-                    onClick: _[2] || (_[2] = Ye((m)=>h(m, g.node), [
+                    onClick: _[2] || (_[2] = Ye((p)=>h(p, g.node), [
                         "stop"
                     ])),
-                    onContextmenu: _[3] || (_[3] = (m)=>g.$emit("onRightClick", m, g.node))
+                    onContextmenu: _[3] || (_[3] = (p)=>g.$emit("onRightClick", p, g.node))
                 }, [
-                    W("div", wa, [
-                        W("div", {
+                    Y("div", wa, [
+                        Y("div", {
                             class: "d-flex align-center",
-                            onClick: _[0] || (_[0] = Ye((m)=>E(i).toggleFileSelection(g.node), [
+                            onClick: _[0] || (_[0] = Ye((p)=>R(i).toggleFileSelection(g.node), [
                                 "stop"
                             ]))
                         }, [
-                            g.node.priority === E(it).MIXED ? (N(), q(St, {
+                            g.node.priority === R(nt).MIXED ? (N(), K(St, {
                                 key: 0,
                                 color: c(g.node),
                                 icon: "mdi-checkbox-intermediate-variant"
                             }, null, 8, [
                                 "color"
-                            ])) : g.node.wanted ? (N(), q(St, {
+                            ])) : g.node.wanted ? (N(), K(St, {
                                 key: 1,
                                 color: c(g.node),
                                 icon: "mdi-checkbox-marked"
                             }, null, 8, [
                                 "color"
-                            ])) : (N(), q(St, {
+                            ])) : (N(), K(St, {
                                 key: 2,
                                 color: c(g.node),
                                 icon: "mdi-checkbox-blank-outline"
@@ -900,45 +900,45 @@ let __tla = Promise.all([
                                 "color"
                             ]))
                         ]),
-                        g.node.type === "folder" ? (N(), j("div", {
+                        g.node.type === "folder" ? (N(), q("div", {
                             key: 0,
                             class: "d-flex align-center spacer cursor-pointer",
-                            onClick: _[1] || (_[1] = (m)=>E(a).has(g.node.fullName) ? E(i).closeNode(m, g.node) : E(i).openNode(m, g.node))
+                            onClick: _[1] || (_[1] = (p)=>R(a).has(g.node.fullName) ? R(i).closeNode(p, g.node) : R(i).openNode(p, g.node))
                         }, [
                             y(St, null, {
                                 default: v(()=>[
-                                        X(V(E(a).has(g.node.fullName) ? "mdi-chevron-up" : "mdi-chevron-down"), 1)
+                                        X(V(R(a).has(g.node.fullName) ? "mdi-chevron-up" : "mdi-chevron-down"), 1)
                                     ]),
                                 _: 1
                             }),
-                            g.node.fullName === "" ? (N(), q(St, {
+                            g.node.fullName === "" ? (N(), K(St, {
                                 key: 0,
                                 icon: "mdi-file-tree"
-                            })) : E(a).has(g.node.fullName) ? (N(), q(St, {
+                            })) : R(a).has(g.node.fullName) ? (N(), K(St, {
                                 key: 1,
                                 icon: "mdi-folder-open",
                                 color: jr
-                            })) : (N(), q(St, {
+                            })) : (N(), K(St, {
                                 key: 2,
                                 icon: "mdi-folder",
                                 color: jr
                             }))
-                        ])) : (N(), j("div", Ca, [
+                        ])) : (N(), q("div", Ca, [
                             y(St, {
-                                icon: E(ya)(g.node.name)
+                                icon: R(ya)(g.node.name)
                             }, null, 8, [
                                 "icon"
                             ])
                         ])),
-                        W("div", Sa, [
-                            W("div", {
+                        Y("div", Sa, [
+                            Y("div", {
                                 class: gs(`text-${c(g.node)}`)
                             }, V(g.node.name), 3),
-                            W("div", Aa, V(d(g.node)), 1)
+                            Y("div", Aa, V(d(g.node)), 1)
                         ]),
                         y(Me),
-                        W("div", Ta, [
-                            g.node.priority === E(it).MAXIMAL ? (N(), q(St, {
+                        Y("div", Ta, [
+                            g.node.priority === R(nt).MAXIMAL ? (N(), K(St, {
                                 key: 0,
                                 color: "error"
                             }, {
@@ -946,7 +946,7 @@ let __tla = Promise.all([
                                         X("mdi-arrow-up")
                                     ])),
                                 _: 1
-                            })) : g.node.priority === E(it).HIGH ? (N(), q(St, {
+                            })) : g.node.priority === R(nt).HIGH ? (N(), K(St, {
                                 key: 1,
                                 color: "warning"
                             }, {
@@ -954,21 +954,21 @@ let __tla = Promise.all([
                                         X("mdi-arrow-top-right")
                                     ])),
                                 _: 1
-                            })) : g.node.priority === E(it).NORMAL ? (N(), q(St, {
+                            })) : g.node.priority === R(nt).NORMAL ? (N(), K(St, {
                                 key: 2
                             }, {
                                 default: v(()=>_[6] || (_[6] = [
                                         X("mdi-minus")
                                     ])),
                                 _: 1
-                            })) : g.node.priority === E(it).MIXED ? (N(), q(St, {
+                            })) : g.node.priority === R(nt).MIXED ? (N(), K(St, {
                                 key: 3
                             }, {
                                 default: v(()=>_[7] || (_[7] = [
                                         X("mdi-tilde")
                                     ])),
                                 _: 1
-                            })) : g.node.priority === E(it).DO_NOT_DOWNLOAD ? (N(), q(St, {
+                            })) : g.node.priority === R(nt).DO_NOT_DOWNLOAD ? (N(), K(St, {
                                 key: 4,
                                 color: "grey"
                             }, {
@@ -1009,86 +1009,86 @@ let __tla = Promise.all([
             }
         },
         setup (r) {
-            const t = r, { height: e } = fn(), s = _e(), { rightClickProperties: i, filenameFilter: n, flatTree: o, internalSelection: a, selectedNodes: l, lastSelected: u, timerForcedPause: h, isTimerActive: c } = xt(s), f = Cs(), d = mt(), g = K(()=>e.value - 48 * 2 - 64 - 12 * 2 - 56 - 8);
-            async function _(M, z) {
+            const t = r, { height: e } = fn(), s = _e(), { rightClickProperties: i, filenameFilter: n, flatTree: o, internalSelection: a, selectedNodes: l, lastSelected: u, timerForcedPause: h, isTimerActive: c } = xt(s), m = Cs(), d = mt(), g = Z(()=>e.value - 48 * 2 - 64 - 12 * 2 - 56 - 8);
+            async function _(P, z) {
                 i.value.isVisible && (i.value.isVisible = !1, await He()), Object.assign(i.value, {
                     isVisible: !0,
                     offset: [
-                        M.pageX,
-                        M.pageY
+                        P.pageX,
+                        P.pageY
                     ],
                     hash: t.torrent.hash
                 }), a.value.size <= 1 && (a.value = new Set([
                     z.fullName
                 ]), u.value = z.fullName);
             }
-            const m = mt();
-            function b(M, z) {
-                m.value = setTimeout(()=>{
-                    _(M, z);
+            const p = mt();
+            function b(P, z) {
+                p.value = setTimeout(()=>{
+                    _(P, z);
                 }, 500);
             }
             function C() {
-                clearTimeout(m.value);
+                clearTimeout(p.value);
             }
-            Te(()=>t.isActive, (M)=>{
-                M && !h.value ? s.resumeTimer() : s.pauseTimer();
+            Te(()=>t.isActive, (P)=>{
+                P && !h.value ? s.resumeTimer() : s.pauseTimer();
             }, {
                 immediate: !0
             }), ts(()=>{
-                document.addEventListener("keydown", B);
+                document.addEventListener("keydown", D);
             }), ws(()=>{
-                s.$reset(), document.removeEventListener("keydown", B);
+                s.$reset(), document.removeEventListener("keydown", D);
             });
             function A() {
                 h.value = !0, s.pauseTimer();
             }
-            function D() {
+            function B() {
                 h.value = !1, s.resumeTimer();
             }
             function $() {
-                f.createDialog(va);
+                m.createDialog(va);
             }
-            function B(M) {
+            function D(P) {
                 let z;
                 ((S)=>{
                     S.ArrowUp = "ArrowUp", S.ArrowDown = "ArrowDown", S.ArrowLeft = "ArrowLeft", S.ArrowRight = "ArrowRight", S.Spacebar = " ";
                 })(z || (z = {}));
-                const O = M.key;
-                if (f.hasActiveDialog || !Object.values(z).includes(O)) return !1;
-                M.preventDefault();
-                const R = o.value.findIndex((S)=>S.fullName === u.value);
-                let G = R;
+                const O = P.key;
+                if (m.hasActiveDialog || !Object.values(z).includes(O)) return !1;
+                P.preventDefault();
+                const I = o.value.findIndex((S)=>S.fullName === u.value);
+                let G = I;
                 switch(O){
                     case "ArrowUp":
-                        R > 0 && G--;
+                        I > 0 && G--;
                         break;
                     case "ArrowDown":
-                        R < o.value.length - 1 && G++;
+                        I < o.value.length - 1 && G++;
                         break;
                     case "ArrowLeft":
-                        s.closeNode(M, o.value[R]), G = o.value.findIndex((S)=>S.fullName === u.value);
+                        s.closeNode(P, o.value[I]), G = o.value.findIndex((S)=>S.fullName === u.value);
                         break;
                     case "ArrowRight":
-                        s.openNode(M, o.value[R]);
+                        s.openNode(P, o.value[I]);
                         break;
                     case " ":
                         s.toggleFileSelection(...l.value).then();
                         break;
                 }
-                return R !== G && (u.value = o.value[G].fullName, a.value = new Set([
+                return I !== G && (u.value = o.value[G].fullName, a.value = new Set([
                     u.value
                 ]), d.value?.scrollToIndex(Math.max(0, G - Math.floor(g.value / 68 / 2)))), !0;
             }
-            return (M, z)=>(N(), q(Xt, null, {
+            return (P, z)=>(N(), K(Xt, null, {
                     default: v(()=>[
-                            W("div", Ma, [
+                            Y("div", Ma, [
                                 y(Qt, {
-                                    modelValue: E(n),
+                                    modelValue: R(n),
                                     "onUpdate:modelValue": z[0] || (z[0] = (O)=>We(n) ? n.value = O : null),
                                     "hide-details": "",
                                     clearable: "",
-                                    placeholder: M.$t("torrentDetail.content.filter_placeholder"),
+                                    placeholder: P.$t("torrentDetail.content.filter_placeholder"),
                                     onKeydown: z[1] || (z[1] = Ye(()=>{}, [
                                         "stop"
                                     ]))
@@ -1097,11 +1097,11 @@ let __tla = Promise.all([
                                     "placeholder"
                                 ]),
                                 y(_s, {
-                                    text: M.$t("torrentDetail.content.filter.activator"),
+                                    text: P.$t("torrentDetail.content.filter.activator"),
                                     location: "bottom"
                                 }, {
                                     activator: v(({ props: O })=>[
-                                            y(nt, ke(O, {
+                                            y(ot, ke(O, {
                                                 icon: "mdi-select-multiple",
                                                 color: "primary",
                                                 onClick: $
@@ -1112,14 +1112,14 @@ let __tla = Promise.all([
                                     "text"
                                 ]),
                                 y(_s, {
-                                    text: E(c) ? M.$t("common.pause") : M.$t("common.resume"),
+                                    text: R(c) ? P.$t("common.pause") : P.$t("common.resume"),
                                     location: "bottom"
                                 }, {
                                     activator: v(({ props: O })=>[
-                                            y(nt, ke(O, {
-                                                icon: E(c) ? "mdi-timer-pause" : "mdi-timer-play",
+                                            y(ot, ke(O, {
+                                                icon: R(c) ? "mdi-timer-pause" : "mdi-timer-play",
                                                 color: "primary",
-                                                onClick: z[2] || (z[2] = (R)=>E(c) ? A() : D())
+                                                onClick: z[2] || (z[2] = (I)=>R(c) ? A() : B())
                                             }), null, 16, [
                                                 "icon"
                                             ])
@@ -1129,10 +1129,10 @@ let __tla = Promise.all([
                                     "text"
                                 ])
                             ]),
-                            y(E(Ho), {
+                            y(R(Ho), {
                                 ref_key: "scrollView",
                                 ref: d,
-                                items: E(o),
+                                items: R(o),
                                 height: g.value,
                                 "item-height": "68",
                                 class: "pa-2"
@@ -1143,8 +1143,8 @@ let __tla = Promise.all([
                                             onTouchcancel: C,
                                             onTouchend: C,
                                             onTouchmove: C,
-                                            onTouchstart: (R)=>b(R.touches.item(0), O),
-                                            onOnRightClick: z[3] || (z[3] = (R, G)=>_(R, G))
+                                            onTouchstart: (I)=>b(I.touches.item(0), O),
+                                            onOnRightClick: z[3] || (z[3] = (I, G)=>_(I, G))
                                         }, null, 8, [
                                             "node",
                                             "onTouchstart"
@@ -1168,7 +1168,7 @@ let __tla = Promise.all([
         class: "pr-4"
     };
     function Ba(r, t) {
-        return N(), q(rt, {
+        return N(), K(it, {
             cols: "12",
             sm: "6",
             lg: "3"
@@ -1179,11 +1179,11 @@ let __tla = Promise.all([
                         class: "d-flex align-center py-2 border"
                     }, {
                         default: v(()=>[
-                                W("div", Ea, [
+                                Y("div", Ea, [
                                     Or(r.$slots, "title")
                                 ]),
                                 y(Me),
-                                W("div", Da, [
+                                Y("div", Da, [
                                     Or(r.$slots, "text")
                                 ])
                             ]),
@@ -1204,17 +1204,17 @@ let __tla = Promise.all([
             torrent: {}
         },
         setup (r) {
-            const t = r, e = ks(), { properties: s } = xt(se()), i = K({
+            const t = r, e = ks(), { properties: s } = xt(se()), i = Z({
                 get: ()=>t.torrent.auto_tmm,
                 set: (u)=>e.toggleAutoTmm([
                         t.torrent.hash
                     ], u)
-            }), n = K({
+            }), n = Z({
                 get: ()=>t.torrent.f_l_piece_prio,
                 set: ()=>e.toggleFLPiecePrio([
                         t.torrent.hash
                     ])
-            }), o = K({
+            }), o = Z({
                 get: ()=>t.torrent.forced,
                 set: (u)=>{
                     u ? e.forceStartTorrents([
@@ -1223,18 +1223,18 @@ let __tla = Promise.all([
                         t.torrent.hash
                     ]);
                 }
-            }), a = K({
+            }), a = Z({
                 get: ()=>t.torrent.seq_dl,
                 set: ()=>e.toggleSeqDl([
                         t.torrent.hash
                     ])
-            }), l = K({
+            }), l = Z({
                 get: ()=>t.torrent.super_seeding,
                 set: (u)=>e.setSuperSeeding([
                         t.torrent.hash
                     ], u)
             });
-            return (u, h)=>(N(), q(me, {
+            return (u, h)=>(N(), K(me, {
                     title: u.$t("torrentDetail.info.boolean_values")
                 }, {
                     default: v(()=>[
@@ -1321,7 +1321,7 @@ let __tla = Promise.all([
                                                         title: v(()=>[
                                                                 y(xe, {
                                                                     disabled: "",
-                                                                    "model-value": E(s)?.is_private,
+                                                                    "model-value": R(s)?.is_private,
                                                                     "hide-details": "",
                                                                     density: "compact",
                                                                     label: u.$t("torrent.properties.is_private")
@@ -1388,7 +1388,7 @@ let __tla = Promise.all([
                     getter: ()=>t.torrent.globalVolume
                 }
             ];
-            return (n, o)=>(N(), q(me, {
+            return (n, o)=>(N(), K(me, {
                     title: n.$t("torrentDetail.info.data_values")
                 }, {
                     default: v(()=>[
@@ -1396,12 +1396,12 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(i, (a)=>y(Nt, null, {
+                                                    (N(), q(kt, null, Gt(i, (a)=>y(Nt, null, {
                                                             title: v(()=>[
                                                                     X(V(n.$t(`torrent.properties.${a.title}`)), 1)
                                                                 ]),
                                                             text: v(()=>[
-                                                                    X(V(E(Ot)(a.getter(), E(s))), 1)
+                                                                    X(V(R(Ot)(a.getter(), R(s))), 1)
                                                                 ]),
                                                             _: 2
                                                         }, 1024)), 64))
@@ -1445,7 +1445,7 @@ let __tla = Promise.all([
                     getter: ()=>t.torrent.seen_complete
                 }
             ];
-            return (n, o)=>(N(), q(me, {
+            return (n, o)=>(N(), K(me, {
                     title: n.$t("torrentDetail.info.datetime_values")
                 }, {
                     default: v(()=>[
@@ -1453,7 +1453,7 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(i, (a)=>y(Nt, null, sn({
+                                                    (N(), q(kt, null, Gt(i, (a)=>y(Nt, null, sn({
                                                             title: v(()=>[
                                                                     X(V(n.$t(`torrent.properties.${a.title}`)), 1)
                                                                 ]),
@@ -1462,7 +1462,7 @@ let __tla = Promise.all([
                                                             a.getter() > 0 ? {
                                                                 name: "text",
                                                                 fn: v(()=>[
-                                                                        X(V(E(Wo)(a.getter(), E(s))), 1)
+                                                                        X(V(R(Wo)(a.getter(), R(s))), 1)
                                                                     ]),
                                                                 key: "0"
                                                             } : {
@@ -1518,7 +1518,7 @@ let __tla = Promise.all([
                     getter: ()=>e.value?.reannounce ?? 0
                 }
             ];
-            return (n, o)=>(N(), q(me, {
+            return (n, o)=>(N(), K(me, {
                     title: n.$t("torrentDetail.info.duration_values")
                 }, {
                     default: v(()=>[
@@ -1526,7 +1526,7 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(i, (a)=>y(Nt, null, sn({
+                                                    (N(), q(kt, null, Gt(i, (a)=>y(Nt, null, sn({
                                                             title: v(()=>[
                                                                     X(V(n.$t(`torrent.properties.${a.title}`)), 1)
                                                                 ]),
@@ -1535,7 +1535,7 @@ let __tla = Promise.all([
                                                             a.getter() > 0 ? {
                                                                 name: "text",
                                                                 fn: v(()=>[
-                                                                        X(V(E(Xo)(a.getter(), a.unit, E(s))), 1)
+                                                                        X(V(R(Xo)(a.getter(), a.unit, R(s))), 1)
                                                                     ]),
                                                                 key: "0"
                                                             } : {
@@ -1613,7 +1613,7 @@ let __tla = Promise.all([
                     getter: ()=>e.value?.created_by
                 }
             ];
-            return (i, n)=>(N(), q(me, {
+            return (i, n)=>(N(), K(me, {
                     title: i.$t("torrentDetail.info.long_text_values")
                 }, {
                     default: v(()=>[
@@ -1621,7 +1621,7 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(ys, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(s, (o)=>y(qe, {
+                                                    (N(), q(kt, null, Gt(s, (o)=>y(qe, {
                                                             title: i.$t(`torrent.properties.${o.title}`)
                                                         }, {
                                                             default: v(()=>[
@@ -1640,14 +1640,14 @@ let __tla = Promise.all([
                                                         title: i.$t("torrent.properties.tags")
                                                     }, {
                                                         default: v(()=>[
-                                                                i.torrent.tags?.length ? (N(), j("div", Na, [
-                                                                    (N(!0), j(kt, null, Gt(i.torrent.tags, (o)=>(N(), q(we, {
+                                                                i.torrent.tags?.length ? (N(), q("div", Na, [
+                                                                    (N(!0), q(kt, null, Gt(i.torrent.tags, (o)=>(N(), K(we, {
                                                                             defaultColor: "tag",
                                                                             value: o
                                                                         }, null, 8, [
                                                                             "value"
                                                                         ]))), 256))
-                                                                ])) : (N(), q(Hr, {
+                                                                ])) : (N(), K(Hr, {
                                                                     key: 1
                                                                 }, {
                                                                     default: v(()=>[
@@ -1708,7 +1708,7 @@ let __tla = Promise.all([
                     getter: ()=>t.torrent.globalSpeed
                 }
             ];
-            return (n, o)=>(N(), q(me, {
+            return (n, o)=>(N(), K(me, {
                     title: n.$t("torrentDetail.info.speed_values")
                 }, {
                     default: v(()=>[
@@ -1716,12 +1716,12 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(i, (a)=>y(Nt, null, {
+                                                    (N(), q(kt, null, Gt(i, (a)=>y(Nt, null, {
                                                             title: v(()=>[
                                                                     X(V(n.$t(`torrent.properties.${a.title}`)), 1)
                                                                 ]),
                                                             text: v(()=>[
-                                                                    X(V(E(fe)(a.getter(), E(s))), 1)
+                                                                    X(V(R(fe)(a.getter(), R(s))), 1)
                                                                 ]),
                                                             _: 2
                                                         }, 1024)), 64))
@@ -1801,7 +1801,7 @@ let __tla = Promise.all([
                     getter: ()=>i.value?.nb_connections_limit ?? 0
                 }
             ];
-            return (o, a)=>(N(), q(me, {
+            return (o, a)=>(N(), K(me, {
                     title: o.$t("torrentDetail.info.text_values")
                 }, {
                     default: v(()=>[
@@ -1809,7 +1809,7 @@ let __tla = Promise.all([
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    (N(), j(kt, null, Gt(n, (l)=>y(Nt, null, {
+                                                    (N(), q(kt, null, Gt(n, (l)=>y(Nt, null, {
                                                             title: v(()=>[
                                                                     X(V(o.$t(`torrent.properties.${l.title}`)), 1)
                                                                 ]),
@@ -1839,7 +1839,7 @@ let __tla = Promise.all([
             }
         },
         setup (r) {
-            return (t, e)=>(N(), q(ys, null, {
+            return (t, e)=>(N(), K(ys, null, {
                     default: v(()=>[
                             y(qe, null, {
                                 default: v(()=>[
@@ -2212,7 +2212,7 @@ let __tla = Promise.all([
         },
         test: ()=>!0,
         load: async ()=>{
-            await Pe(()=>import("./browserAll-Yh7N66dD.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./browserAll-lDH2uboX.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     Wa = {
@@ -2223,7 +2223,7 @@ let __tla = Promise.all([
         },
         test: ()=>typeof self < "u" && self.WorkerGlobalScope !== void 0,
         load: async ()=>{
-            await Pe(()=>import("./webworkerAll-xLM7Hs8o.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./webworkerAll-BnNJq7gE.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     class Rt {
@@ -2272,9 +2272,9 @@ let __tla = Promise.all([
             function i(l, u, h) {
                 this.fn = l, this.context = u, this.once = h || !1;
             }
-            function n(l, u, h, c, f) {
+            function n(l, u, h, c, m) {
                 if (typeof h != "function") throw new TypeError("The listener must be a function");
-                var d = new i(h, c || l, f), g = e ? e + u : u;
+                var d = new i(h, c || l, m), g = e ? e + u : u;
                 return l._events[g] ? l._events[g].fn ? l._events[g] = [
                     l._events[g],
                     d
@@ -2297,50 +2297,50 @@ let __tla = Promise.all([
                 if (c.fn) return [
                     c.fn
                 ];
-                for(var f = 0, d = c.length, g = new Array(d); f < d; f++)g[f] = c[f].fn;
+                for(var m = 0, d = c.length, g = new Array(d); m < d; m++)g[m] = c[m].fn;
                 return g;
             }, a.prototype.listenerCount = function(u) {
                 var h = e ? e + u : u, c = this._events[h];
                 return c ? c.fn ? 1 : c.length : 0;
-            }, a.prototype.emit = function(u, h, c, f, d, g) {
+            }, a.prototype.emit = function(u, h, c, m, d, g) {
                 var _ = e ? e + u : u;
                 if (!this._events[_]) return !1;
-                var m = this._events[_], b = arguments.length, C, A;
-                if (m.fn) {
-                    switch(m.once && this.removeListener(u, m.fn, void 0, !0), b){
+                var p = this._events[_], b = arguments.length, C, A;
+                if (p.fn) {
+                    switch(p.once && this.removeListener(u, p.fn, void 0, !0), b){
                         case 1:
-                            return m.fn.call(m.context), !0;
+                            return p.fn.call(p.context), !0;
                         case 2:
-                            return m.fn.call(m.context, h), !0;
+                            return p.fn.call(p.context, h), !0;
                         case 3:
-                            return m.fn.call(m.context, h, c), !0;
+                            return p.fn.call(p.context, h, c), !0;
                         case 4:
-                            return m.fn.call(m.context, h, c, f), !0;
+                            return p.fn.call(p.context, h, c, m), !0;
                         case 5:
-                            return m.fn.call(m.context, h, c, f, d), !0;
+                            return p.fn.call(p.context, h, c, m, d), !0;
                         case 6:
-                            return m.fn.call(m.context, h, c, f, d, g), !0;
+                            return p.fn.call(p.context, h, c, m, d, g), !0;
                     }
                     for(A = 1, C = new Array(b - 1); A < b; A++)C[A - 1] = arguments[A];
-                    m.fn.apply(m.context, C);
+                    p.fn.apply(p.context, C);
                 } else {
-                    var D = m.length, $;
-                    for(A = 0; A < D; A++)switch(m[A].once && this.removeListener(u, m[A].fn, void 0, !0), b){
+                    var B = p.length, $;
+                    for(A = 0; A < B; A++)switch(p[A].once && this.removeListener(u, p[A].fn, void 0, !0), b){
                         case 1:
-                            m[A].fn.call(m[A].context);
+                            p[A].fn.call(p[A].context);
                             break;
                         case 2:
-                            m[A].fn.call(m[A].context, h);
+                            p[A].fn.call(p[A].context, h);
                             break;
                         case 3:
-                            m[A].fn.call(m[A].context, h, c);
+                            p[A].fn.call(p[A].context, h, c);
                             break;
                         case 4:
-                            m[A].fn.call(m[A].context, h, c, f);
+                            p[A].fn.call(p[A].context, h, c, m);
                             break;
                         default:
                             if (!C) for($ = 1, C = new Array(b - 1); $ < b; $++)C[$ - 1] = arguments[$];
-                            m[A].fn.apply(m[A].context, C);
+                            p[A].fn.apply(p[A].context, C);
                     }
                 }
                 return !0;
@@ -2348,15 +2348,15 @@ let __tla = Promise.all([
                 return n(this, u, h, c, !1);
             }, a.prototype.once = function(u, h, c) {
                 return n(this, u, h, c, !0);
-            }, a.prototype.removeListener = function(u, h, c, f) {
+            }, a.prototype.removeListener = function(u, h, c, m) {
                 var d = e ? e + u : u;
                 if (!this._events[d]) return this;
                 if (!h) return o(this, d), this;
                 var g = this._events[d];
-                if (g.fn) g.fn === h && (!f || g.once) && (!c || g.context === c) && o(this, d);
+                if (g.fn) g.fn === h && (!m || g.once) && (!c || g.context === c) && o(this, d);
                 else {
-                    for(var _ = 0, m = [], b = g.length; _ < b; _++)(g[_].fn !== h || f && !g[_].once || c && g[_].context !== c) && m.push(g[_]);
-                    m.length ? this._events[d] = m.length === 1 ? m[0] : m : o(this, d);
+                    for(var _ = 0, p = [], b = g.length; _ < b; _++)(g[_].fn !== h || m && !g[_].once || c && g[_].context !== c) && p.push(g[_]);
+                    p.length ? this._events[d] = p.length === 1 ? p[0] : p : o(this, d);
                 }
                 return this;
             }, a.prototype.removeAllListeners = function(u) {
@@ -2398,7 +2398,7 @@ let __tla = Promise.all([
         }
     };
     const Fs = new At;
-    J = class {
+    tt = class {
         constructor(t = 1, e = 0, s = 0, i = 1, n = 0, o = 0){
             this.array = null, this.a = t, this.b = e, this.c = s, this.d = i, this.tx = n, this.ty = o;
         }
@@ -2438,8 +2438,8 @@ let __tla = Promise.all([
             return this.a = t.a * e + t.b * i, this.b = t.a * s + t.b * n, this.c = t.c * e + t.d * i, this.d = t.c * s + t.d * n, this.tx = t.tx * e + t.ty * i + this.tx, this.ty = t.tx * s + t.ty * n + this.ty, this;
         }
         appendFrom(t, e) {
-            const s = t.a, i = t.b, n = t.c, o = t.d, a = t.tx, l = t.ty, u = e.a, h = e.b, c = e.c, f = e.d;
-            return this.a = s * u + i * c, this.b = s * h + i * f, this.c = n * u + o * c, this.d = n * h + o * f, this.tx = a * u + l * c + e.tx, this.ty = a * h + l * f + e.ty, this;
+            const s = t.a, i = t.b, n = t.c, o = t.d, a = t.tx, l = t.ty, u = e.a, h = e.b, c = e.c, m = e.d;
+            return this.a = s * u + i * c, this.b = s * h + i * m, this.c = n * u + o * c, this.d = n * h + o * m, this.tx = a * u + l * c + e.tx, this.ty = a * h + l * m + e.ty, this;
         }
         setTransform(t, e, s, i, n, o, a, l, u) {
             return this.a = Math.cos(a + u) * n, this.b = Math.sin(a + u) * n, this.c = -Math.sin(a - l) * o, this.d = Math.cos(a - l) * o, this.tx = t - (s * this.a + i * this.c), this.ty = e - (s * this.b + i * this.d), this;
@@ -2467,7 +2467,7 @@ let __tla = Promise.all([
             return this.a = 1, this.b = 0, this.c = 0, this.d = 1, this.tx = 0, this.ty = 0, this;
         }
         clone() {
-            const t = new J;
+            const t = new tt;
             return t.a = this.a, t.b = this.b, t.c = this.c, t.d = this.d, t.tx = this.tx, t.ty = this.ty, t;
         }
         copyTo(t) {
@@ -2489,7 +2489,7 @@ let __tla = Promise.all([
             return Qa.identity();
         }
     };
-    const Qa = new J, Ja = new J, he = [
+    const Qa = new tt, Ja = new tt, he = [
         1,
         1,
         0,
@@ -2571,7 +2571,7 @@ let __tla = Promise.all([
             }
         }
         for(let r = 0; r < 16; r++){
-            const t = new J;
+            const t = new tt;
             t.set(he[r], ue[r], ce[r], de[r], 0, 0), mn.push(t);
         }
     }
@@ -2649,15 +2649,15 @@ let __tla = Promise.all([
         strokeContains(t, e, s, i = .5) {
             const { width: n, height: o } = this;
             if (n <= 0 || o <= 0) return !1;
-            const a = this.x, l = this.y, u = s * (1 - i), h = s - u, c = a - u, f = a + n + u, d = l - u, g = l + o + u, _ = a + h, m = a + n - h, b = l + h, C = l + o - h;
-            return t >= c && t <= f && e >= d && e <= g && !(t > _ && t < m && e > b && e < C);
+            const a = this.x, l = this.y, u = s * (1 - i), h = s - u, c = a - u, m = a + n + u, d = l - u, g = l + o + u, _ = a + h, p = a + n - h, b = l + h, C = l + o - h;
+            return t >= c && t <= m && e >= d && e <= g && !(t > _ && t < p && e > b && e < C);
         }
         intersects(t, e) {
             if (!e) {
                 const z = this.x < t.x ? t.x : this.x;
                 if ((this.right > t.right ? t.right : this.right) <= z) return !1;
-                const R = this.y < t.y ? t.y : this.y;
-                return (this.bottom > t.bottom ? t.bottom : this.bottom) > R;
+                const I = this.y < t.y ? t.y : this.y;
+                return (this.bottom > t.bottom ? t.bottom : this.bottom) > I;
             }
             const s = this.left, i = this.right, n = this.top, o = this.bottom;
             if (i <= s || o <= n) return !1;
@@ -2665,10 +2665,10 @@ let __tla = Promise.all([
             if (u.x <= a.x || l.y <= a.y) return !1;
             const c = Math.sign(e.a * e.d - e.b * e.c);
             if (c === 0 || (e.apply(a, a), e.apply(l, l), e.apply(u, u), e.apply(h, h), Math.max(a.x, l.x, u.x, h.x) <= s || Math.min(a.x, l.x, u.x, h.x) >= i || Math.max(a.y, l.y, u.y, h.y) <= n || Math.min(a.y, l.y, u.y, h.y) >= o)) return !1;
-            const f = c * (l.y - a.y), d = c * (a.x - l.x), g = f * s + d * n, _ = f * i + d * n, m = f * s + d * o, b = f * i + d * o;
-            if (Math.max(g, _, m, b) <= f * a.x + d * a.y || Math.min(g, _, m, b) >= f * h.x + d * h.y) return !1;
-            const C = c * (a.y - u.y), A = c * (u.x - a.x), D = C * s + A * n, $ = C * i + A * n, B = C * s + A * o, M = C * i + A * o;
-            return !(Math.max(D, $, B, M) <= C * a.x + A * a.y || Math.min(D, $, B, M) >= C * h.x + A * h.y);
+            const m = c * (l.y - a.y), d = c * (a.x - l.x), g = m * s + d * n, _ = m * i + d * n, p = m * s + d * o, b = m * i + d * o;
+            if (Math.max(g, _, p, b) <= m * a.x + d * a.y || Math.min(g, _, p, b) >= m * h.x + d * h.y) return !1;
+            const C = c * (a.y - u.y), A = c * (u.x - a.x), B = C * s + A * n, $ = C * i + A * n, D = C * s + A * o, P = C * i + A * o;
+            return !(Math.max(B, $, D, P) <= C * a.x + A * a.y || Math.min(B, $, D, P) >= C * h.x + A * h.y);
         }
         pad(t = 0, e = t) {
             return this.x -= t, this.y -= e, this.width += t * 2, this.height += e * 2, this;
@@ -2926,10 +2926,10 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         }
     }
     kr.extension = ht.TextureSource;
-    const ti = new J;
+    const ti = new tt;
     il = class {
         constructor(t, e){
-            this.mapCoord = new J, this.uClampFrame = new Float32Array(4), this.uClampOffset = new Float32Array(2), this._textureID = -1, this._updateID = 0, this.clampOffset = 0, typeof e > "u" ? this.clampMargin = t.width < 10 ? 0 : .5 : this.clampMargin = e, this.isSimple = !1, this.texture = t;
+            this.mapCoord = new tt, this.uClampFrame = new Float32Array(4), this.uClampOffset = new Float32Array(2), this._textureID = -1, this._updateID = 0, this.clampOffset = 0, typeof e > "u" ? this.clampMargin = t.width < 10 ? 0 : .5 : this.clampMargin = e, this.isSimple = !1, this.texture = t;
         }
         get texture() {
             return this._texture;
@@ -2994,8 +2994,8 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             const { uvs: t, frame: e } = this, { width: s, height: i } = this._source, n = e.x / s, o = e.y / i, a = e.width / s, l = e.height / i;
             let u = this.rotate;
             if (u) {
-                const h = a / 2, c = l / 2, f = n + h, d = o + c;
-                u = dt.add(u, dt.NW), t.x0 = f + h * dt.uX(u), t.y0 = d + c * dt.uY(u), u = dt.add(u, 2), t.x1 = f + h * dt.uX(u), t.y1 = d + c * dt.uY(u), u = dt.add(u, 2), t.x2 = f + h * dt.uX(u), t.y2 = d + c * dt.uY(u), u = dt.add(u, 2), t.x3 = f + h * dt.uX(u), t.y3 = d + c * dt.uY(u);
+                const h = a / 2, c = l / 2, m = n + h, d = o + c;
+                u = dt.add(u, dt.NW), t.x0 = m + h * dt.uX(u), t.y0 = d + c * dt.uY(u), u = dt.add(u, 2), t.x1 = m + h * dt.uX(u), t.y1 = d + c * dt.uY(u), u = dt.add(u, 2), t.x2 = m + h * dt.uX(u), t.y2 = d + c * dt.uY(u), u = dt.add(u, 2), t.x3 = m + h * dt.uX(u), t.y3 = d + c * dt.uY(u);
             } else t.x0 = n, t.y0 = o, t.x1 = n + a, t.y1 = o, t.x2 = n + a, t.y2 = o + l, t.x3 = n, t.y3 = o + l;
         }
         destroy(t = !1) {
@@ -3038,7 +3038,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             r.minX = n.x - t._x * s, r.maxX = r.minX + o, r.minY = n.y - t._y * i, r.maxY = r.minY + a;
         } else r.minX = -t._x * s, r.maxX = r.minX + s, r.minY = -t._y * i, r.maxY = r.minY + i;
     };
-    const ei = new J;
+    const ei = new tt;
     zt = class {
         constructor(t = 1 / 0, e = 1 / 0, s = -1 / 0, i = -1 / 0){
             this.minX = 1 / 0, this.minY = 1 / 0, this.maxX = -1 / 0, this.maxY = -1 / 0, this.matrix = ei, this.minX = t, this.minY = e, this.maxX = s, this.maxY = i;
@@ -3060,8 +3060,8 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         addFrame(t, e, s, i, n) {
             n || (n = this.matrix);
             const o = n.a, a = n.b, l = n.c, u = n.d, h = n.tx, c = n.ty;
-            let f = this.minX, d = this.minY, g = this.maxX, _ = this.maxY, m = o * t + l * e + h, b = a * t + u * e + c;
-            m < f && (f = m), b < d && (d = b), m > g && (g = m), b > _ && (_ = b), m = o * s + l * e + h, b = a * s + u * e + c, m < f && (f = m), b < d && (d = b), m > g && (g = m), b > _ && (_ = b), m = o * t + l * i + h, b = a * t + u * i + c, m < f && (f = m), b < d && (d = b), m > g && (g = m), b > _ && (_ = b), m = o * s + l * i + h, b = a * s + u * i + c, m < f && (f = m), b < d && (d = b), m > g && (g = m), b > _ && (_ = b), this.minX = f, this.minY = d, this.maxX = g, this.maxY = _;
+            let m = this.minX, d = this.minY, g = this.maxX, _ = this.maxY, p = o * t + l * e + h, b = a * t + u * e + c;
+            p < m && (m = p), b < d && (d = b), p > g && (g = p), b > _ && (_ = b), p = o * s + l * e + h, b = a * s + u * e + c, p < m && (m = p), b < d && (d = b), p > g && (g = p), b > _ && (_ = b), p = o * t + l * i + h, b = a * t + u * i + c, p < m && (m = p), b < d && (d = b), p > g && (g = p), b > _ && (_ = b), p = o * s + l * i + h, b = a * s + u * i + c, p < m && (m = p), b < d && (d = b), p > g && (g = p), b > _ && (_ = b), this.minX = m, this.minY = d, this.maxX = g, this.maxY = _;
         }
         addRect(t, e) {
             this.addFrame(t.x, t.y, t.x + t.width, t.y + t.height, e);
@@ -3074,8 +3074,8 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         }
         applyMatrix(t) {
             const e = this.minX, s = this.minY, i = this.maxX, n = this.maxY, { a: o, b: a, c: l, d: u, tx: h, ty: c } = t;
-            let f = o * e + l * s + h, d = a * e + u * s + c;
-            this.minX = f, this.minY = d, this.maxX = f, this.maxY = d, f = o * i + l * s + h, d = a * i + u * s + c, this.minX = f < this.minX ? f : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = f > this.maxX ? f : this.maxX, this.maxY = d > this.maxY ? d : this.maxY, f = o * e + l * n + h, d = a * e + u * n + c, this.minX = f < this.minX ? f : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = f > this.maxX ? f : this.maxX, this.maxY = d > this.maxY ? d : this.maxY, f = o * i + l * n + h, d = a * i + u * n + c, this.minX = f < this.minX ? f : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = f > this.maxX ? f : this.maxX, this.maxY = d > this.maxY ? d : this.maxY;
+            let m = o * e + l * s + h, d = a * e + u * s + c;
+            this.minX = m, this.minY = d, this.maxX = m, this.maxY = d, m = o * i + l * s + h, d = a * i + u * s + c, this.minX = m < this.minX ? m : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = m > this.maxX ? m : this.maxX, this.maxY = d > this.maxY ? d : this.maxY, m = o * e + l * n + h, d = a * e + u * n + c, this.minX = m < this.minX ? m : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = m > this.maxX ? m : this.maxX, this.maxY = d > this.maxY ? d : this.maxY, m = o * i + l * n + h, d = a * i + u * n + c, this.minX = m < this.minX ? m : this.minX, this.minY = d < this.minY ? d : this.minY, this.maxX = m > this.maxX ? m : this.maxX, this.maxY = d > this.maxY ? d : this.maxY;
         }
         fit(t) {
             return this.minX < t.left && (this.minX = t.left), this.maxX > t.right && (this.maxX = t.right), this.minY < t.top && (this.minY = t.top), this.maxY > t.bottom && (this.maxY = t.bottom), this;
@@ -3142,9 +3142,9 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         addVertexData(t, e, s, i) {
             let n = this.minX, o = this.minY, a = this.maxX, l = this.maxY;
             i || (i = this.matrix);
-            const u = i.a, h = i.b, c = i.c, f = i.d, d = i.tx, g = i.ty;
+            const u = i.a, h = i.b, c = i.c, m = i.d, d = i.tx, g = i.ty;
             for(let _ = e; _ < s; _ += 2){
-                const m = t[_], b = t[_ + 1], C = u * m + c * b + d, A = h * m + f * b + g;
+                const p = t[_], b = t[_ + 1], C = u * p + c * b + d, A = h * p + m * b + g;
                 n = C < n ? C : n, o = A < o ? A : o, a = C > a ? C : a, l = A > l ? A : l;
             }
             this.minX = n, this.minY = o, this.maxX = a, this.maxY = l;
@@ -3629,13 +3629,13 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             var a, l, u = s[this.toHex()];
             if (u) return u;
             if (o?.closest) {
-                var h = this.toRgb(), c = 1 / 0, f = "black";
+                var h = this.toRgb(), c = 1 / 0, m = "black";
                 if (!n.length) for(var d in e)n[d] = new r(e[d]).toRgb();
                 for(var g in e){
                     var _ = (a = h, l = n[g], Math.pow(a.r - l.r, 2) + Math.pow(a.g - l.g, 2) + Math.pow(a.b - l.b, 2));
-                    _ < c && (c = _, f = g);
+                    _ < c && (c = _, m = g);
                 }
-                return f;
+                return m;
             }
         }, t.string.push([
             function(o) {
@@ -4095,7 +4095,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             if (t) for(let i = 0; i < s.length; i++)s[i].getChildrenByLabel(r, !0, e);
             return e;
         }
-    }, Tt = new Pr(J), te = new Pr(zt), Sl = new J, Al = {
+    }, Tt = new Pr(tt), te = new Pr(zt), Sl = new tt, Al = {
         getFastGlobalBounds (r, t) {
             t || (t = new zt), t.clear(), this._getGlobalBoundsRecursive(!!r, t, this.parentRenderLayer), t.isValid || t.set(0, 0, 0, 0);
             const e = this.renderGroup || this.parentRenderGroup;
@@ -4125,7 +4125,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
     An = function(r, t, e) {
         e.clear();
         let s, i;
-        return r.parent ? t ? s = r.parent.worldTransform : (i = Tt.get().identity(), s = Mr(r, i)) : s = J.IDENTITY, Tn(r, e, s, t), i && Tt.return(i), e.isValid || e.set(0, 0, 0, 0), e;
+        return r.parent ? t ? s = r.parent.worldTransform : (i = Tt.get().identity(), s = Mr(r, i)) : s = tt.IDENTITY, Tn(r, e, s, t), i && Tt.return(i), e.isValid || e.set(0, 0, 0, 0), e;
     };
     function Tn(r, t, e, s) {
         if (!r.visible || !r.measurable) return;
@@ -4139,7 +4139,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         }
         if (o) {
             for(let a = 0; a < r.effects.length; a++)r.effects[a].addBounds?.(t);
-            n.addBounds(t, J.IDENTITY), te.return(t);
+            n.addBounds(t, tt.IDENTITY), te.return(t);
         }
         s || Tt.return(i);
     }
@@ -4186,7 +4186,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         Os !== di && (Os++, Os === di ? console.warn("PixiJS Warning: too many warnings, no more warnings will be reported to the console by PixiJS.") : console.warn("PixiJS Warning: ", ...r));
     };
     Pn = function(r, t, e) {
-        return t.clear(), e || (e = J.IDENTITY), Mn(r, t, e, r, !0), t.isValid || t.set(0, 0, 0, 0), t;
+        return t.clear(), e || (e = tt.IDENTITY), Mn(r, t, e, r, !0), t.isValid || t.set(0, 0, 0, 0), t;
     };
     function Mn(r, t, e, s, i) {
         let n;
@@ -4206,7 +4206,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         }
         if (a) {
             for(let l = 0; l < r.effects.length; l++)r.effects[l].addLocalBounds?.(t, s);
-            o.addBounds(t, J.IDENTITY), te.return(t);
+            o.addBounds(t, tt.IDENTITY), te.return(t);
         }
         Tt.return(n);
     }
@@ -4218,7 +4218,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         }
         return t.didChange;
     }
-    const kl = new J, Pl = {
+    const kl = new tt, Pl = {
         _localBoundsCacheId: -1,
         _localBoundsCacheData: null,
         _setWidth (r, t) {
@@ -4352,7 +4352,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
     Fl = new Bl;
     class Gl {
         constructor(){
-            this.renderPipeId = "renderGroup", this.root = null, this.canBundle = !1, this.renderGroupParent = null, this.renderGroupChildren = [], this.worldTransform = new J, this.worldColorAlpha = 4294967295, this.worldColor = 16777215, this.worldAlpha = 1, this.childrenToUpdate = Object.create(null), this.updateTick = 0, this.gcTick = 0, this.childrenRenderablesToUpdate = {
+            this.renderPipeId = "renderGroup", this.root = null, this.canBundle = !1, this.renderGroupParent = null, this.renderGroupChildren = [], this.worldTransform = new tt, this.worldColorAlpha = 4294967295, this.worldColor = 16777215, this.worldAlpha = 1, this.childrenToUpdate = Object.create(null), this.updateTick = 0, this.gcTick = 0, this.childrenRenderablesToUpdate = {
                 list: [],
                 index: 0
             }, this.structureDidChange = !0, this.instructionSet = new Rn, this._onRenderContainers = [], this.textureNeedsUpdate = !0, this.isCachedAsTexture = !1, this._matrixDirty = 7;
@@ -4455,16 +4455,16 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             this._matrixDirty = 7;
         }
         get inverseWorldTransform() {
-            return this._matrixDirty & 1 ? (this._matrixDirty &= -2, this._inverseWorldTransform || (this._inverseWorldTransform = new J), this._inverseWorldTransform.copyFrom(this.worldTransform).invert()) : this._inverseWorldTransform;
+            return this._matrixDirty & 1 ? (this._matrixDirty &= -2, this._inverseWorldTransform || (this._inverseWorldTransform = new tt), this._inverseWorldTransform.copyFrom(this.worldTransform).invert()) : this._inverseWorldTransform;
         }
         get textureOffsetInverseTransform() {
-            return this._matrixDirty & 2 ? (this._matrixDirty &= -3, this._textureOffsetInverseTransform || (this._textureOffsetInverseTransform = new J), this._textureOffsetInverseTransform.copyFrom(this.inverseWorldTransform).translate(-this._textureBounds.x, -this._textureBounds.y)) : this._textureOffsetInverseTransform;
+            return this._matrixDirty & 2 ? (this._matrixDirty &= -3, this._textureOffsetInverseTransform || (this._textureOffsetInverseTransform = new tt), this._textureOffsetInverseTransform.copyFrom(this.inverseWorldTransform).translate(-this._textureBounds.x, -this._textureBounds.y)) : this._textureOffsetInverseTransform;
         }
         get inverseParentTextureTransform() {
             if (!(this._matrixDirty & 4)) return this._inverseParentTextureTransform;
             this._matrixDirty &= -5;
             const t = this._parentCacheAsTextureRenderGroup;
-            return t ? (this._inverseParentTextureTransform || (this._inverseParentTextureTransform = new J), this._inverseParentTextureTransform.copyFrom(this.worldTransform).prepend(t.inverseWorldTransform).translate(-t._textureBounds.x, -t._textureBounds.y)) : this.worldTransform;
+            return t ? (this._inverseParentTextureTransform || (this._inverseParentTextureTransform = new tt), this._inverseParentTextureTransform.copyFrom(this.worldTransform).prepend(t.inverseWorldTransform).translate(-t._textureBounds.x, -t._textureBounds.y)) : this.worldTransform;
         }
         get cacheToLocalTransform() {
             return this._parentCacheAsTextureRenderGroup ? this._parentCacheAsTextureRenderGroup.textureOffsetInverseTransform : null;
@@ -4482,7 +4482,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
     Hs = 4;
     ye = class extends re {
         constructor(t = {}){
-            super(), this.uid = _t("renderable"), this._updateFlags = 15, this.renderGroup = null, this.parentRenderGroup = null, this.parentRenderGroupIndex = 0, this.didChange = !1, this.didViewUpdate = !1, this.relativeRenderGroupDepth = 0, this.children = [], this.parent = null, this.includeInBuild = !0, this.measurable = !0, this.isSimple = !0, this.updateTick = -1, this.localTransform = new J, this.relativeGroupTransform = new J, this.groupTransform = this.relativeGroupTransform, this.destroyed = !1, this._position = new Rt(this, 0, 0), this._scale = Us, this._pivot = Ls, this._skew = zs, this._cx = 1, this._sx = 0, this._cy = 0, this._sy = 1, this._rotation = 0, this.localColor = 16777215, this.localAlpha = 1, this.groupAlpha = 1, this.groupColor = 16777215, this.groupColorAlpha = 4294967295, this.localBlendMode = "inherit", this.groupBlendMode = "normal", this.localDisplayStatus = 7, this.globalDisplayStatus = 7, this._didContainerChangeTick = 0, this._didViewChangeTick = 0, this._didLocalTransformChangeId = -1, this.effects = [], Vl(this, t, {
+            super(), this.uid = _t("renderable"), this._updateFlags = 15, this.renderGroup = null, this.parentRenderGroup = null, this.parentRenderGroupIndex = 0, this.didChange = !1, this.didViewUpdate = !1, this.relativeRenderGroupDepth = 0, this.children = [], this.parent = null, this.includeInBuild = !0, this.measurable = !0, this.isSimple = !0, this.updateTick = -1, this.localTransform = new tt, this.relativeGroupTransform = new tt, this.groupTransform = this.relativeGroupTransform, this.destroyed = !1, this._position = new Rt(this, 0, 0), this._scale = Us, this._pivot = Ls, this._skew = zs, this._cx = 1, this._sx = 0, this._cy = 0, this._sy = 1, this._rotation = 0, this.localColor = 16777215, this.localAlpha = 1, this.groupAlpha = 1, this.groupColor = 16777215, this.groupColorAlpha = 4294967295, this.localBlendMode = "inherit", this.groupBlendMode = "normal", this.localDisplayStatus = 7, this.globalDisplayStatus = 7, this._didContainerChangeTick = 0, this._didViewChangeTick = 0, this._didLocalTransformChangeId = -1, this.effects = [], Vl(this, t, {
                 children: !0,
                 parent: !0,
                 effects: !0
@@ -4525,7 +4525,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
         enableRenderGroup() {
             if (this.renderGroup) return;
             const t = this.parentRenderGroup;
-            t?.removeChild(this), this.renderGroup = Jt.get(Gl, this), this.groupTransform = J.IDENTITY, t?.addChild(this), this._updateIsSimple();
+            t?.removeChild(this), this.renderGroup = Jt.get(Gl, this), this.groupTransform = tt.IDENTITY, t?.addChild(this), this._updateIsSimple();
         }
         disableRenderGroup() {
             if (!this.renderGroup) return;
@@ -4536,7 +4536,7 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
             this.isSimple = !this.renderGroup && this.effects.length === 0;
         }
         get worldTransform() {
-            return this._worldTransform || (this._worldTransform = new J), this.renderGroup ? this._worldTransform.copyFrom(this.renderGroup.worldTransform) : this.parentRenderGroup && this._worldTransform.appendFrom(this.relativeGroupTransform, this.parentRenderGroup.worldTransform), this._worldTransform;
+            return this._worldTransform || (this._worldTransform = new tt), this.renderGroup ? this._worldTransform.copyFrom(this.renderGroup.worldTransform) : this.parentRenderGroup && this._worldTransform.appendFrom(this.relativeGroupTransform, this.parentRenderGroup.worldTransform), this._worldTransform;
         }
         get x() {
             return this._position.x;
@@ -5580,14 +5580,14 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
                         d
                     ]), c = this.getAlias(n);
                 Array.isArray(c) ? c.forEach(s) : s(c);
-                const f = [];
+                const m = [];
                 h.forEach((d)=>{
                     d.forEach((g)=>{
                         let _ = {};
                         if (typeof g != "object") {
                             _.src = g;
-                            for(let m = 0; m < this._parsers.length; m++){
-                                const b = this._parsers[m];
+                            for(let p = 0; p < this._parsers.length; p++){
+                                const b = this._parsers[p];
                                 if (b.test(g)) {
                                     _ = b.parse(g);
                                     break;
@@ -5603,10 +5603,10 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
                             data: a,
                             format: l,
                             loadParser: u
-                        }), f.push(_);
+                        }), m.push(_);
                     });
                 }), c.forEach((d)=>{
-                    this._assetMap[d] = f;
+                    this._assetMap[d] = m;
                 });
             });
         }
@@ -5841,9 +5841,9 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
                 const u = r?.meta?.related_multi_packs;
                 if (Array.isArray(u)) {
                     const h = [];
-                    for (const f of u){
-                        if (typeof f != "string") continue;
-                        let d = o + f;
+                    for (const m of u){
+                        if (typeof m != "string") continue;
+                        let d = o + m;
                         t.data?.ignoreMultiPack || (d = gi(d, t.src), h.push(e.load({
                             src: d,
                             data: {
@@ -5853,10 +5853,10 @@ Deprecated since v${r}`), console.warn(s))), Kr[t] = !0;
                         })));
                     }
                     const c = await Promise.all(h);
-                    l.linkedSheets = c, c.forEach((f)=>{
-                        f.linkedSheets = [
+                    l.linkedSheets = c, c.forEach((m)=>{
+                        m.linkedSheets = [
                             l
-                        ].concat(l.linkedSheets.filter((d)=>d !== f));
+                        ].concat(l.linkedSheets.filter((d)=>d !== m));
                     });
                 }
                 return l;
@@ -6182,15 +6182,15 @@ ${r}`;
             structs: []
         };
         const h = r.match(o)?.map((c)=>{
-            const f = c.match(l)[1], d = c.match(a).reduce((g, _)=>{
-                const [m, b] = _.split(":");
-                return g[m.trim()] = b.trim(), g;
+            const m = c.match(l)[1], d = c.match(a).reduce((g, _)=>{
+                const [p, b] = _.split(":");
+                return g[p.trim()] = b.trim(), g;
             }, {});
             return d ? {
-                name: f,
+                name: m,
                 members: d
             } : null;
-        }).filter(({ name: c })=>u.some((f)=>f.type === c)) ?? [];
+        }).filter(({ name: c })=>u.some((m)=>m.type === c)) ?? [];
         return {
             groups: u,
             structs: h
@@ -6446,10 +6446,10 @@ ${r}`;
                 }, a[99] = a[99] || {}, a[99][u] = h, u++);
                 for(const h in n){
                     const c = h;
-                    let f = n[h];
-                    !f.source && !f._resourceType && (f = new to(f));
+                    let m = n[h];
+                    !m.source && !m._resourceType && (m = new to(m));
                     const d = l[c];
-                    d && (i[d.group] || (i[d.group] = new ps, this._ownedBindGroups.push(i[d.group])), i[d.group].setResource(f, d.binding));
+                    d && (i[d.group] || (i[d.group] = new ps, this._ownedBindGroups.push(i[d.group])), i[d.group].setResource(m, d.binding));
                 }
             }
             this.groups = i, this._uniformBindMap = a, this.resources = this._buildResourceAccessor(i, l);
@@ -6517,237 +6517,237 @@ ${r}`;
     function _h() {
         if (bi) return ls.exports;
         bi = 1, ls.exports = r, ls.exports.default = r;
-        function r(p, x, w) {
+        function r(f, x, w) {
             w = w || 2;
-            var T = x && x.length, I = T ? x[0] * w : p.length, k = t(p, 0, I, w, !0), P = [];
-            if (!k || k.next === k.prev) return P;
-            var F, U, L, ot, at, Q, gt;
-            if (T && (k = l(p, x, k, w)), p.length > 80 * w) {
-                F = L = p[0], U = ot = p[1];
-                for(var st = w; st < I; st += w)at = p[st], Q = p[st + 1], at < F && (F = at), Q < U && (U = Q), at > L && (L = at), Q > ot && (ot = Q);
-                gt = Math.max(L - F, ot - U), gt = gt !== 0 ? 32767 / gt : 0;
+            var T = x && x.length, M = T ? x[0] * w : f.length, F = t(f, 0, M, w, !0), k = [];
+            if (!F || F.next === F.prev) return k;
+            var E, L, H, j, at, J, gt;
+            if (T && (F = l(f, x, F, w)), f.length > 80 * w) {
+                E = H = f[0], L = j = f[1];
+                for(var rt = w; rt < M; rt += w)at = f[rt], J = f[rt + 1], at < E && (E = at), J < L && (L = J), at > H && (H = at), J > j && (j = J);
+                gt = Math.max(H - E, j - L), gt = gt !== 0 ? 32767 / gt : 0;
             }
-            return s(k, P, w, F, U, gt, 0), P;
+            return s(F, k, w, E, L, gt, 0), k;
         }
-        function t(p, x, w, T, I) {
-            var k, P;
-            if (I === et(p, x, w, T) > 0) for(k = x; k < w; k += T)P = S(k, p[k], p[k + 1], P);
-            else for(k = w - T; k >= x; k -= T)P = S(k, p[k], p[k + 1], P);
-            return P && D(P, P.next) && (H(P), P = P.next), P;
+        function t(f, x, w, T, M) {
+            var F, k;
+            if (M === et(f, x, w, T) > 0) for(F = x; F < w; F += T)k = S(F, f[F], f[F + 1], k);
+            else for(F = w - T; F >= x; F -= T)k = S(F, f[F], f[F + 1], k);
+            return k && B(k, k.next) && (W(k), k = k.next), k;
         }
-        function e(p, x) {
-            if (!p) return p;
-            x || (x = p);
-            var w = p, T;
-            do if (T = !1, !w.steiner && (D(w, w.next) || A(w.prev, w, w.next) === 0)) {
-                if (H(w), w = x = w.prev, w === w.next) break;
+        function e(f, x) {
+            if (!f) return f;
+            x || (x = f);
+            var w = f, T;
+            do if (T = !1, !w.steiner && (B(w, w.next) || A(w.prev, w, w.next) === 0)) {
+                if (W(w), w = x = w.prev, w === w.next) break;
                 T = !0;
             } else w = w.next;
             while (T || w !== x);
             return x;
         }
-        function s(p, x, w, T, I, k, P) {
-            if (p) {
-                !P && k && d(p, T, I, k);
-                for(var F = p, U, L; p.prev !== p.next;){
-                    if (U = p.prev, L = p.next, k ? n(p, T, I, k) : i(p)) {
-                        x.push(U.i / w | 0), x.push(p.i / w | 0), x.push(L.i / w | 0), H(p), p = L.next, F = L.next;
+        function s(f, x, w, T, M, F, k) {
+            if (f) {
+                !k && F && d(f, T, M, F);
+                for(var E = f, L, H; f.prev !== f.next;){
+                    if (L = f.prev, H = f.next, F ? n(f, T, M, F) : i(f)) {
+                        x.push(L.i / w | 0), x.push(f.i / w | 0), x.push(H.i / w | 0), W(f), f = H.next, E = H.next;
                         continue;
                     }
-                    if (p = L, p === F) {
-                        P ? P === 1 ? (p = o(e(p), x, w), s(p, x, w, T, I, k, 2)) : P === 2 && a(p, x, w, T, I, k) : s(e(p), x, w, T, I, k, 1);
+                    if (f = H, f === E) {
+                        k ? k === 1 ? (f = o(e(f), x, w), s(f, x, w, T, M, F, 2)) : k === 2 && a(f, x, w, T, M, F) : s(e(f), x, w, T, M, F, 1);
                         break;
                     }
                 }
             }
         }
-        function i(p) {
-            var x = p.prev, w = p, T = p.next;
+        function i(f) {
+            var x = f.prev, w = f, T = f.next;
             if (A(x, w, T) >= 0) return !1;
-            for(var I = x.x, k = w.x, P = T.x, F = x.y, U = w.y, L = T.y, ot = I < k ? I < P ? I : P : k < P ? k : P, at = F < U ? F < L ? F : L : U < L ? U : L, Q = I > k ? I > P ? I : P : k > P ? k : P, gt = F > U ? F > L ? F : L : U > L ? U : L, st = T.next; st !== x;){
-                if (st.x >= ot && st.x <= Q && st.y >= at && st.y <= gt && b(I, F, k, U, P, L, st.x, st.y) && A(st.prev, st, st.next) >= 0) return !1;
-                st = st.next;
+            for(var M = x.x, F = w.x, k = T.x, E = x.y, L = w.y, H = T.y, j = M < F ? M < k ? M : k : F < k ? F : k, at = E < L ? E < H ? E : H : L < H ? L : H, J = M > F ? M > k ? M : k : F > k ? F : k, gt = E > L ? E > H ? E : H : L > H ? L : H, rt = T.next; rt !== x;){
+                if (rt.x >= j && rt.x <= J && rt.y >= at && rt.y <= gt && b(M, E, F, L, k, H, rt.x, rt.y) && A(rt.prev, rt, rt.next) >= 0) return !1;
+                rt = rt.next;
             }
             return !0;
         }
-        function n(p, x, w, T) {
-            var I = p.prev, k = p, P = p.next;
-            if (A(I, k, P) >= 0) return !1;
-            for(var F = I.x, U = k.x, L = P.x, ot = I.y, at = k.y, Q = P.y, gt = F < U ? F < L ? F : L : U < L ? U : L, st = ot < at ? ot < Q ? ot : Q : at < Q ? at : Q, Kt = F > U ? F > L ? F : L : U > L ? U : L, Mt = ot > at ? ot > Q ? ot : Q : at > Q ? at : Q, Lt = _(gt, st, x, w, T), Ut = _(Kt, Mt, x, w, T), Z = p.prevZ, tt = p.nextZ; Z && Z.z >= Lt && tt && tt.z <= Ut;){
-                if (Z.x >= gt && Z.x <= Kt && Z.y >= st && Z.y <= Mt && Z !== I && Z !== P && b(F, ot, U, at, L, Q, Z.x, Z.y) && A(Z.prev, Z, Z.next) >= 0 || (Z = Z.prevZ, tt.x >= gt && tt.x <= Kt && tt.y >= st && tt.y <= Mt && tt !== I && tt !== P && b(F, ot, U, at, L, Q, tt.x, tt.y) && A(tt.prev, tt, tt.next) >= 0)) return !1;
-                tt = tt.nextZ;
+        function n(f, x, w, T) {
+            var M = f.prev, F = f, k = f.next;
+            if (A(M, F, k) >= 0) return !1;
+            for(var E = M.x, L = F.x, H = k.x, j = M.y, at = F.y, J = k.y, gt = E < L ? E < H ? E : H : L < H ? L : H, rt = j < at ? j < J ? j : J : at < J ? at : J, Kt = E > L ? E > H ? E : H : L > H ? L : H, Mt = j > at ? j > J ? j : J : at > J ? at : J, Lt = _(gt, rt, x, w, T), Ut = _(Kt, Mt, x, w, T), Q = f.prevZ, st = f.nextZ; Q && Q.z >= Lt && st && st.z <= Ut;){
+                if (Q.x >= gt && Q.x <= Kt && Q.y >= rt && Q.y <= Mt && Q !== M && Q !== k && b(E, j, L, at, H, J, Q.x, Q.y) && A(Q.prev, Q, Q.next) >= 0 || (Q = Q.prevZ, st.x >= gt && st.x <= Kt && st.y >= rt && st.y <= Mt && st !== M && st !== k && b(E, j, L, at, H, J, st.x, st.y) && A(st.prev, st, st.next) >= 0)) return !1;
+                st = st.nextZ;
             }
-            for(; Z && Z.z >= Lt;){
-                if (Z.x >= gt && Z.x <= Kt && Z.y >= st && Z.y <= Mt && Z !== I && Z !== P && b(F, ot, U, at, L, Q, Z.x, Z.y) && A(Z.prev, Z, Z.next) >= 0) return !1;
-                Z = Z.prevZ;
+            for(; Q && Q.z >= Lt;){
+                if (Q.x >= gt && Q.x <= Kt && Q.y >= rt && Q.y <= Mt && Q !== M && Q !== k && b(E, j, L, at, H, J, Q.x, Q.y) && A(Q.prev, Q, Q.next) >= 0) return !1;
+                Q = Q.prevZ;
             }
-            for(; tt && tt.z <= Ut;){
-                if (tt.x >= gt && tt.x <= Kt && tt.y >= st && tt.y <= Mt && tt !== I && tt !== P && b(F, ot, U, at, L, Q, tt.x, tt.y) && A(tt.prev, tt, tt.next) >= 0) return !1;
-                tt = tt.nextZ;
+            for(; st && st.z <= Ut;){
+                if (st.x >= gt && st.x <= Kt && st.y >= rt && st.y <= Mt && st !== M && st !== k && b(E, j, L, at, H, J, st.x, st.y) && A(st.prev, st, st.next) >= 0) return !1;
+                st = st.nextZ;
             }
             return !0;
         }
-        function o(p, x, w) {
-            var T = p;
+        function o(f, x, w) {
+            var T = f;
             do {
-                var I = T.prev, k = T.next.next;
-                !D(I, k) && $(I, T, T.next, k) && O(I, k) && O(k, I) && (x.push(I.i / w | 0), x.push(T.i / w | 0), x.push(k.i / w | 0), H(T), H(T.next), T = p = k), T = T.next;
-            }while (T !== p);
+                var M = T.prev, F = T.next.next;
+                !B(M, F) && $(M, T, T.next, F) && O(M, F) && O(F, M) && (x.push(M.i / w | 0), x.push(T.i / w | 0), x.push(F.i / w | 0), W(T), W(T.next), T = f = F), T = T.next;
+            }while (T !== f);
             return e(T);
         }
-        function a(p, x, w, T, I, k) {
-            var P = p;
+        function a(f, x, w, T, M, F) {
+            var k = f;
             do {
-                for(var F = P.next.next; F !== P.prev;){
-                    if (P.i !== F.i && C(P, F)) {
-                        var U = G(P, F);
-                        P = e(P, P.next), U = e(U, U.next), s(P, x, w, T, I, k, 0), s(U, x, w, T, I, k, 0);
+                for(var E = k.next.next; E !== k.prev;){
+                    if (k.i !== E.i && C(k, E)) {
+                        var L = G(k, E);
+                        k = e(k, k.next), L = e(L, L.next), s(k, x, w, T, M, F, 0), s(L, x, w, T, M, F, 0);
                         return;
                     }
-                    F = F.next;
+                    E = E.next;
                 }
-                P = P.next;
-            }while (P !== p);
+                k = k.next;
+            }while (k !== f);
         }
-        function l(p, x, w, T) {
-            var I = [], k, P, F, U, L;
-            for(k = 0, P = x.length; k < P; k++)F = x[k] * T, U = k < P - 1 ? x[k + 1] * T : p.length, L = t(p, F, U, T, !1), L === L.next && (L.steiner = !0), I.push(m(L));
-            for(I.sort(u), k = 0; k < I.length; k++)w = h(I[k], w);
+        function l(f, x, w, T) {
+            var M = [], F, k, E, L, H;
+            for(F = 0, k = x.length; F < k; F++)E = x[F] * T, L = F < k - 1 ? x[F + 1] * T : f.length, H = t(f, E, L, T, !1), H === H.next && (H.steiner = !0), M.push(p(H));
+            for(M.sort(u), F = 0; F < M.length; F++)w = h(M[F], w);
             return w;
         }
-        function u(p, x) {
-            return p.x - x.x;
+        function u(f, x) {
+            return f.x - x.x;
         }
-        function h(p, x) {
-            var w = c(p, x);
+        function h(f, x) {
+            var w = c(f, x);
             if (!w) return x;
-            var T = G(w, p);
+            var T = G(w, f);
             return e(T, T.next), e(w, w.next);
         }
-        function c(p, x) {
-            var w = x, T = p.x, I = p.y, k = -1 / 0, P;
+        function c(f, x) {
+            var w = x, T = f.x, M = f.y, F = -1 / 0, k;
             do {
-                if (I <= w.y && I >= w.next.y && w.next.y !== w.y) {
-                    var F = w.x + (I - w.y) * (w.next.x - w.x) / (w.next.y - w.y);
-                    if (F <= T && F > k && (k = F, P = w.x < w.next.x ? w : w.next, F === T)) return P;
+                if (M <= w.y && M >= w.next.y && w.next.y !== w.y) {
+                    var E = w.x + (M - w.y) * (w.next.x - w.x) / (w.next.y - w.y);
+                    if (E <= T && E > F && (F = E, k = w.x < w.next.x ? w : w.next, E === T)) return k;
                 }
                 w = w.next;
             }while (w !== x);
-            if (!P) return null;
-            var U = P, L = P.x, ot = P.y, at = 1 / 0, Q;
-            w = P;
-            do T >= w.x && w.x >= L && T !== w.x && b(I < ot ? T : k, I, L, ot, I < ot ? k : T, I, w.x, w.y) && (Q = Math.abs(I - w.y) / (T - w.x), O(w, p) && (Q < at || Q === at && (w.x > P.x || w.x === P.x && f(P, w))) && (P = w, at = Q)), w = w.next;
-            while (w !== U);
-            return P;
+            if (!k) return null;
+            var L = k, H = k.x, j = k.y, at = 1 / 0, J;
+            w = k;
+            do T >= w.x && w.x >= H && T !== w.x && b(M < j ? T : F, M, H, j, M < j ? F : T, M, w.x, w.y) && (J = Math.abs(M - w.y) / (T - w.x), O(w, f) && (J < at || J === at && (w.x > k.x || w.x === k.x && m(k, w))) && (k = w, at = J)), w = w.next;
+            while (w !== L);
+            return k;
         }
-        function f(p, x) {
-            return A(p.prev, p, x.prev) < 0 && A(x.next, p, p.next) < 0;
+        function m(f, x) {
+            return A(f.prev, f, x.prev) < 0 && A(x.next, f, f.next) < 0;
         }
-        function d(p, x, w, T) {
-            var I = p;
-            do I.z === 0 && (I.z = _(I.x, I.y, x, w, T)), I.prevZ = I.prev, I.nextZ = I.next, I = I.next;
-            while (I !== p);
-            I.prevZ.nextZ = null, I.prevZ = null, g(I);
+        function d(f, x, w, T) {
+            var M = f;
+            do M.z === 0 && (M.z = _(M.x, M.y, x, w, T)), M.prevZ = M.prev, M.nextZ = M.next, M = M.next;
+            while (M !== f);
+            M.prevZ.nextZ = null, M.prevZ = null, g(M);
         }
-        function g(p) {
-            var x, w, T, I, k, P, F, U, L = 1;
+        function g(f) {
+            var x, w, T, M, F, k, E, L, H = 1;
             do {
-                for(w = p, p = null, k = null, P = 0; w;){
-                    for(P++, T = w, F = 0, x = 0; x < L && (F++, T = T.nextZ, !!T); x++);
-                    for(U = L; F > 0 || U > 0 && T;)F !== 0 && (U === 0 || !T || w.z <= T.z) ? (I = w, w = w.nextZ, F--) : (I = T, T = T.nextZ, U--), k ? k.nextZ = I : p = I, I.prevZ = k, k = I;
+                for(w = f, f = null, F = null, k = 0; w;){
+                    for(k++, T = w, E = 0, x = 0; x < H && (E++, T = T.nextZ, !!T); x++);
+                    for(L = H; E > 0 || L > 0 && T;)E !== 0 && (L === 0 || !T || w.z <= T.z) ? (M = w, w = w.nextZ, E--) : (M = T, T = T.nextZ, L--), F ? F.nextZ = M : f = M, M.prevZ = F, F = M;
                     w = T;
                 }
-                k.nextZ = null, L *= 2;
-            }while (P > 1);
-            return p;
+                F.nextZ = null, H *= 2;
+            }while (k > 1);
+            return f;
         }
-        function _(p, x, w, T, I) {
-            return p = (p - w) * I | 0, x = (x - T) * I | 0, p = (p | p << 8) & 16711935, p = (p | p << 4) & 252645135, p = (p | p << 2) & 858993459, p = (p | p << 1) & 1431655765, x = (x | x << 8) & 16711935, x = (x | x << 4) & 252645135, x = (x | x << 2) & 858993459, x = (x | x << 1) & 1431655765, p | x << 1;
+        function _(f, x, w, T, M) {
+            return f = (f - w) * M | 0, x = (x - T) * M | 0, f = (f | f << 8) & 16711935, f = (f | f << 4) & 252645135, f = (f | f << 2) & 858993459, f = (f | f << 1) & 1431655765, x = (x | x << 8) & 16711935, x = (x | x << 4) & 252645135, x = (x | x << 2) & 858993459, x = (x | x << 1) & 1431655765, f | x << 1;
         }
-        function m(p) {
-            var x = p, w = p;
+        function p(f) {
+            var x = f, w = f;
             do (x.x < w.x || x.x === w.x && x.y < w.y) && (w = x), x = x.next;
-            while (x !== p);
+            while (x !== f);
             return w;
         }
-        function b(p, x, w, T, I, k, P, F) {
-            return (I - P) * (x - F) >= (p - P) * (k - F) && (p - P) * (T - F) >= (w - P) * (x - F) && (w - P) * (k - F) >= (I - P) * (T - F);
+        function b(f, x, w, T, M, F, k, E) {
+            return (M - k) * (x - E) >= (f - k) * (F - E) && (f - k) * (T - E) >= (w - k) * (x - E) && (w - k) * (F - E) >= (M - k) * (T - E);
         }
-        function C(p, x) {
-            return p.next.i !== x.i && p.prev.i !== x.i && !z(p, x) && (O(p, x) && O(x, p) && R(p, x) && (A(p.prev, p, x.prev) || A(p, x.prev, x)) || D(p, x) && A(p.prev, p, p.next) > 0 && A(x.prev, x, x.next) > 0);
+        function C(f, x) {
+            return f.next.i !== x.i && f.prev.i !== x.i && !z(f, x) && (O(f, x) && O(x, f) && I(f, x) && (A(f.prev, f, x.prev) || A(f, x.prev, x)) || B(f, x) && A(f.prev, f, f.next) > 0 && A(x.prev, x, x.next) > 0);
         }
-        function A(p, x, w) {
-            return (x.y - p.y) * (w.x - x.x) - (x.x - p.x) * (w.y - x.y);
+        function A(f, x, w) {
+            return (x.y - f.y) * (w.x - x.x) - (x.x - f.x) * (w.y - x.y);
         }
-        function D(p, x) {
-            return p.x === x.x && p.y === x.y;
+        function B(f, x) {
+            return f.x === x.x && f.y === x.y;
         }
-        function $(p, x, w, T) {
-            var I = M(A(p, x, w)), k = M(A(p, x, T)), P = M(A(w, T, p)), F = M(A(w, T, x));
-            return !!(I !== k && P !== F || I === 0 && B(p, w, x) || k === 0 && B(p, T, x) || P === 0 && B(w, p, T) || F === 0 && B(w, x, T));
+        function $(f, x, w, T) {
+            var M = P(A(f, x, w)), F = P(A(f, x, T)), k = P(A(w, T, f)), E = P(A(w, T, x));
+            return !!(M !== F && k !== E || M === 0 && D(f, w, x) || F === 0 && D(f, T, x) || k === 0 && D(w, f, T) || E === 0 && D(w, x, T));
         }
-        function B(p, x, w) {
-            return x.x <= Math.max(p.x, w.x) && x.x >= Math.min(p.x, w.x) && x.y <= Math.max(p.y, w.y) && x.y >= Math.min(p.y, w.y);
+        function D(f, x, w) {
+            return x.x <= Math.max(f.x, w.x) && x.x >= Math.min(f.x, w.x) && x.y <= Math.max(f.y, w.y) && x.y >= Math.min(f.y, w.y);
         }
-        function M(p) {
-            return p > 0 ? 1 : p < 0 ? -1 : 0;
+        function P(f) {
+            return f > 0 ? 1 : f < 0 ? -1 : 0;
         }
-        function z(p, x) {
-            var w = p;
+        function z(f, x) {
+            var w = f;
             do {
-                if (w.i !== p.i && w.next.i !== p.i && w.i !== x.i && w.next.i !== x.i && $(w, w.next, p, x)) return !0;
+                if (w.i !== f.i && w.next.i !== f.i && w.i !== x.i && w.next.i !== x.i && $(w, w.next, f, x)) return !0;
                 w = w.next;
-            }while (w !== p);
+            }while (w !== f);
             return !1;
         }
-        function O(p, x) {
-            return A(p.prev, p, p.next) < 0 ? A(p, x, p.next) >= 0 && A(p, p.prev, x) >= 0 : A(p, x, p.prev) < 0 || A(p, p.next, x) < 0;
+        function O(f, x) {
+            return A(f.prev, f, f.next) < 0 ? A(f, x, f.next) >= 0 && A(f, f.prev, x) >= 0 : A(f, x, f.prev) < 0 || A(f, f.next, x) < 0;
         }
-        function R(p, x) {
-            var w = p, T = !1, I = (p.x + x.x) / 2, k = (p.y + x.y) / 2;
-            do w.y > k != w.next.y > k && w.next.y !== w.y && I < (w.next.x - w.x) * (k - w.y) / (w.next.y - w.y) + w.x && (T = !T), w = w.next;
-            while (w !== p);
+        function I(f, x) {
+            var w = f, T = !1, M = (f.x + x.x) / 2, F = (f.y + x.y) / 2;
+            do w.y > F != w.next.y > F && w.next.y !== w.y && M < (w.next.x - w.x) * (F - w.y) / (w.next.y - w.y) + w.x && (T = !T), w = w.next;
+            while (w !== f);
             return T;
         }
-        function G(p, x) {
-            var w = new Y(p.i, p.x, p.y), T = new Y(x.i, x.x, x.y), I = p.next, k = x.prev;
-            return p.next = x, x.prev = p, w.next = I, I.prev = w, T.next = w, w.prev = T, k.next = T, T.prev = k, T;
+        function G(f, x) {
+            var w = new U(f.i, f.x, f.y), T = new U(x.i, x.x, x.y), M = f.next, F = x.prev;
+            return f.next = x, x.prev = f, w.next = M, M.prev = w, T.next = w, w.prev = T, F.next = T, T.prev = F, T;
         }
-        function S(p, x, w, T) {
-            var I = new Y(p, x, w);
-            return T ? (I.next = T.next, I.prev = T, T.next.prev = I, T.next = I) : (I.prev = I, I.next = I), I;
+        function S(f, x, w, T) {
+            var M = new U(f, x, w);
+            return T ? (M.next = T.next, M.prev = T, T.next.prev = M, T.next = M) : (M.prev = M, M.next = M), M;
         }
-        function H(p) {
-            p.next.prev = p.prev, p.prev.next = p.next, p.prevZ && (p.prevZ.nextZ = p.nextZ), p.nextZ && (p.nextZ.prevZ = p.prevZ);
+        function W(f) {
+            f.next.prev = f.prev, f.prev.next = f.next, f.prevZ && (f.prevZ.nextZ = f.nextZ), f.nextZ && (f.nextZ.prevZ = f.prevZ);
         }
-        function Y(p, x, w) {
-            this.i = p, this.x = x, this.y = w, this.prev = null, this.next = null, this.z = 0, this.prevZ = null, this.nextZ = null, this.steiner = !1;
+        function U(f, x, w) {
+            this.i = f, this.x = x, this.y = w, this.prev = null, this.next = null, this.z = 0, this.prevZ = null, this.nextZ = null, this.steiner = !1;
         }
-        r.deviation = function(p, x, w, T) {
-            var I = x && x.length, k = I ? x[0] * w : p.length, P = Math.abs(et(p, 0, k, w));
-            if (I) for(var F = 0, U = x.length; F < U; F++){
-                var L = x[F] * w, ot = F < U - 1 ? x[F + 1] * w : p.length;
-                P -= Math.abs(et(p, L, ot, w));
+        r.deviation = function(f, x, w, T) {
+            var M = x && x.length, F = M ? x[0] * w : f.length, k = Math.abs(et(f, 0, F, w));
+            if (M) for(var E = 0, L = x.length; E < L; E++){
+                var H = x[E] * w, j = E < L - 1 ? x[E + 1] * w : f.length;
+                k -= Math.abs(et(f, H, j, w));
             }
             var at = 0;
-            for(F = 0; F < T.length; F += 3){
-                var Q = T[F] * w, gt = T[F + 1] * w, st = T[F + 2] * w;
-                at += Math.abs((p[Q] - p[st]) * (p[gt + 1] - p[Q + 1]) - (p[Q] - p[gt]) * (p[st + 1] - p[Q + 1]));
+            for(E = 0; E < T.length; E += 3){
+                var J = T[E] * w, gt = T[E + 1] * w, rt = T[E + 2] * w;
+                at += Math.abs((f[J] - f[rt]) * (f[gt + 1] - f[J + 1]) - (f[J] - f[gt]) * (f[rt + 1] - f[J + 1]));
             }
-            return P === 0 && at === 0 ? 0 : Math.abs((at - P) / P);
+            return k === 0 && at === 0 ? 0 : Math.abs((at - k) / k);
         };
-        function et(p, x, w, T) {
-            for(var I = 0, k = x, P = w - T; k < w; k += T)I += (p[P] - p[k]) * (p[k + 1] + p[P + 1]), P = k;
-            return I;
+        function et(f, x, w, T) {
+            for(var M = 0, F = x, k = w - T; F < w; F += T)M += (f[k] - f[F]) * (f[F + 1] + f[k + 1]), k = F;
+            return M;
         }
-        return r.flatten = function(p) {
-            for(var x = p[0][0].length, w = {
+        return r.flatten = function(f) {
+            for(var x = f[0][0].length, w = {
                 vertices: [],
                 holes: [],
                 dimensions: x
-            }, T = 0, I = 0; I < p.length; I++){
-                for(var k = 0; k < p[I].length; k++)for(var P = 0; P < x; P++)w.vertices.push(p[I][k][P]);
-                I > 0 && (T += p[I - 1].length, w.holes.push(T));
+            }, T = 0, M = 0; M < f.length; M++){
+                for(var F = 0; F < f[M].length; F++)for(var k = 0; k < x; k++)w.vertices.push(f[M][F][k]);
+                M > 0 && (T += f[M - 1].length, w.holes.push(T));
             }
             return w;
         }, ls.exports;
@@ -6761,7 +6761,7 @@ ${r}`;
         }
         emit(t, e, s, i, n, o, a, l) {
             const { name: u, items: h } = this;
-            for(let c = 0, f = h.length; c < f; c++)h[c][u](t, e, s, i, n, o, a, l);
+            for(let c = 0, m = h.length; c < m; c++)h[c][u](t, e, s, i, n, o, a, l);
             return this;
         }
         add(t) {
@@ -6964,7 +6964,7 @@ ${r}`;
             const o = t[n];
             if (o === "webgpu" && await Ch()) {
                 const { WebGPURenderer: a } = await Pe(async ()=>{
-                    const { WebGPURenderer: l } = await import("./WebGPURenderer-BqdyT5gy.js");
+                    const { WebGPURenderer: l } = await import("./WebGPURenderer-BWPqCTa5.js");
                     return {
                         WebGPURenderer: l
                     };
@@ -6976,7 +6976,7 @@ ${r}`;
                 break;
             } else if (o === "webgl" && wh(r.failIfMajorPerformanceCaveat ?? io.defaultOptions.failIfMajorPerformanceCaveat)) {
                 const { WebGLRenderer: a } = await Pe(async ()=>{
-                    const { WebGLRenderer: l } = await import("./WebGLRenderer-DZQ-AD2J.js");
+                    const { WebGLRenderer: l } = await import("./WebGLRenderer-CSe87jfQ.js");
                     return {
                         WebGLRenderer: l
                     };
@@ -7091,7 +7091,7 @@ ${r}`;
                     resource: s
                 })
             });
-            const { x: o, y: a } = this.start, { x: l, y: u } = this.end, h = new J, c = l - o, f = u - a, d = Math.sqrt(c * c + f * f), g = Math.atan2(f, c);
+            const { x: o, y: a } = this.start, { x: l, y: u } = this.end, h = new tt, c = l - o, m = u - a, d = Math.sqrt(c * c + m * m), g = Math.atan2(m, c);
             h.scale(d / e, 1), h.rotate(g), h.translate(o, a), this.textureSpace === "local" && h.scale(e, e), this.transform = h;
         }
         buildGradient() {
@@ -7099,16 +7099,16 @@ ${r}`;
         }
         buildRadialGradient() {
             if (this.texture) return;
-            const t = this.colorStops.length ? this.colorStops : wi, e = this._textureSize, { canvas: s, context: i } = Si(e, e), { x: n, y: o } = this.center, { x: a, y: l } = this.outerCenter, u = this.innerRadius, h = this.outerRadius, c = a - h, f = l - h, d = e / (h * 2), g = (n - c) * d, _ = (o - f) * d, m = i.createRadialGradient(g, _, u * d, (a - c) * d, (l - f) * d, h * d);
-            Ci(m, t), i.fillStyle = t[t.length - 1].color, i.fillRect(0, 0, e, e), i.fillStyle = m, i.translate(g, _), i.rotate(this.rotation), i.scale(1, this.scale), i.translate(-g, -_), i.fillRect(0, 0, e, e), this.texture = new ut({
+            const t = this.colorStops.length ? this.colorStops : wi, e = this._textureSize, { canvas: s, context: i } = Si(e, e), { x: n, y: o } = this.center, { x: a, y: l } = this.outerCenter, u = this.innerRadius, h = this.outerRadius, c = a - h, m = l - h, d = e / (h * 2), g = (n - c) * d, _ = (o - m) * d, p = i.createRadialGradient(g, _, u * d, (a - c) * d, (l - m) * d, h * d);
+            Ci(p, t), i.fillStyle = t[t.length - 1].color, i.fillRect(0, 0, e, e), i.fillStyle = p, i.translate(g, _), i.rotate(this.rotation), i.scale(1, this.scale), i.translate(-g, -_), i.fillRect(0, 0, e, e), this.texture = new ut({
                 source: new xs({
                     resource: s,
                     addressModeU: "clamp-to-edge",
                     addressModeV: "clamp-to-edge"
                 })
             });
-            const b = new J;
-            b.scale(1 / d, 1 / d), b.translate(c, f), this.textureSpace === "local" && b.scale(e, e), this.transform = b;
+            const b = new tt;
+            b.scale(1 / d, 1 / d), b.translate(c, m), this.textureSpace === "local" && b.scale(e, e), this.transform = b;
         }
         get styleKey() {
             return this.uid;
@@ -7194,7 +7194,7 @@ ${r}`;
     };
     kh = class {
         constructor(t, e){
-            this.uid = _t("fillPattern"), this.transform = new J, this._styleKey = null, this.texture = t, this.transform.scale(1 / t.frame.width, 1 / t.frame.height), e && (t.source.style.addressModeU = Ai[e].addressModeU, t.source.style.addressModeV = Ai[e].addressModeV);
+            this.uid = _t("fillPattern"), this.transform = new tt, this._styleKey = null, this.texture = t, this.transform.scale(1 / t.frame.width, 1 / t.frame.height), e && (t.source.style.addressModeU = Ai[e].addressModeU, t.source.style.addressModeV = Ai[e].addressModeV);
         }
         setTransform(t) {
             const e = this.texture;
@@ -7364,8 +7364,8 @@ ${r}`;
         strokeContains(t, e, s, i = .5) {
             const { halfWidth: n, halfHeight: o } = this;
             if (n <= 0 || o <= 0) return !1;
-            const a = s * (1 - i), l = s - a, u = n - l, h = o - l, c = n + a, f = o + a, d = t - this.x, g = e - this.y, _ = d * d / (u * u) + g * g / (h * h), m = d * d / (c * c) + g * g / (f * f);
-            return _ > 1 && m <= 1;
+            const a = s * (1 - i), l = s - a, u = n - l, h = o - l, c = n + a, m = o + a, d = t - this.x, g = e - this.y, _ = d * d / (u * u) + g * g / (h * h), p = d * d / (c * c) + g * g / (m * m);
+            return _ > 1 && p <= 1;
         }
         getBounds(t) {
             return t || (t = new vt), t.x = this.x - this.halfWidth, t.y = this.y - this.halfHeight, t.width = this.halfWidth * 2, t.height = this.halfHeight * 2, t;
@@ -7382,12 +7382,12 @@ ${r}`;
     }
     function Eh(r, t, e, s, i, n) {
         const o = r - e, a = t - s, l = i - e, u = n - s, h = o * l + a * u, c = l * l + u * u;
-        let f = -1;
-        c !== 0 && (f = h / c);
+        let m = -1;
+        c !== 0 && (m = h / c);
         let d, g;
-        f < 0 ? (d = e, g = s) : f > 1 ? (d = i, g = n) : (d = e + f * l, g = s + f * u);
-        const _ = r - d, m = t - g;
-        return _ * _ + m * m;
+        m < 0 ? (d = e, g = s) : m > 1 ? (d = i, g = n) : (d = e + m * l, g = s + m * u);
+        const _ = r - d, p = t - g;
+        return _ * _ + p * p;
     }
     let Dh, Bh;
     class Le {
@@ -7436,8 +7436,8 @@ ${r}`;
         strokeContains(t, e, s, i = .5) {
             const n = s * s, o = n * (1 - i), a = n - o, { points: l } = this, u = l.length - (this.closePath ? 0 : 2);
             for(let h = 0; h < u; h += 2){
-                const c = l[h], f = l[h + 1], d = l[(h + 2) % l.length], g = l[(h + 3) % l.length], _ = Eh(t, e, c, f, d, g), m = Math.sign((d - c) * (e - f) - (g - f) * (t - c));
-                if (_ <= (m < 0 ? a : o)) return !0;
+                const c = l[h], m = l[h + 1], d = l[(h + 2) % l.length], g = l[(h + 3) % l.length], _ = Eh(t, e, c, m, d, g), p = Math.sign((d - c) * (e - m) - (g - m) * (t - c));
+                if (_ <= (p < 0 ? a : o)) return !0;
             }
             return !1;
         }
@@ -7505,8 +7505,8 @@ ${r}`;
             return !1;
         }
         strokeContains(t, e, s, i = .5) {
-            const { x: n, y: o, width: a, height: l, radius: u } = this, h = s * (1 - i), c = s - h, f = n + u, d = o + u, g = a - u * 2, _ = l - u * 2, m = n + a, b = o + l;
-            return (t >= n - h && t <= n + c || t >= m - c && t <= m + h) && e >= d && e <= d + _ || (e >= o - h && e <= o + c || e >= b - c && e <= b + h) && t >= f && t <= f + g ? !0 : t < f && e < d && cs(t, e, f, d, u, c, h) || t > m - u && e < d && cs(t, e, m - u, d, u, c, h) || t > m - u && e > b - u && cs(t, e, m - u, b - u, u, c, h) || t < f && e > b - u && cs(t, e, f, b - u, u, c, h);
+            const { x: n, y: o, width: a, height: l, radius: u } = this, h = s * (1 - i), c = s - h, m = n + u, d = o + u, g = a - u * 2, _ = l - u * 2, p = n + a, b = o + l;
+            return (t >= n - h && t <= n + c || t >= p - c && t <= p + h) && e >= d && e <= d + _ || (e >= o - h && e <= o + c || e >= b - c && e <= b + h) && t >= m && t <= m + g ? !0 : t < m && e < d && cs(t, e, m, d, u, c, h) || t > p - u && e < d && cs(t, e, p - u, d, u, c, h) || t > p - u && e > b - u && cs(t, e, p - u, b - u, u, c, h) || t < m && e > b - u && cs(t, e, m, b - u, u, c, h);
         }
         toString() {
             return `[pixi.js/math:RoundedRectangle x=${this.x} y=${this.y}width=${this.width} height=${this.height} radius=${this.radius}]`;
@@ -7692,19 +7692,19 @@ else `), e < r - 1 && (t += `if(test == ${e}.0){}`);
             let o = Mi(n.blendMode, n.texture._source), a = n.topology;
             this.attributeSize * 4 > this.attributeBuffer.size && this._resizeAttributeBuffer(this.attributeSize * 4), this.indexSize > this.indexBuffer.length && this._resizeIndexBuffer(this.indexSize);
             const l = this.attributeBuffer.float32View, u = this.attributeBuffer.uint32View, h = this.indexBuffer;
-            let c = this._batchIndexSize, f = this._batchIndexStart, d = "startBatch";
+            let c = this._batchIndexSize, m = this._batchIndexStart, d = "startBatch";
             const g = this.maxTextures;
             for(let _ = this.elementStart; _ < this.elementSize; ++_){
-                const m = e[_];
+                const p = e[_];
                 e[_] = null;
-                const C = m.texture._source, A = Mi(m.blendMode, C), D = o !== A || a !== m.topology;
-                if (C._batchTick === Be && !D) {
-                    m._textureId = C._textureBindLocation, c += m.indexSize, m.packAsQuad ? (this.packQuadAttributes(m, l, u, m._attributeStart, m._textureId), this.packQuadIndex(h, m._indexStart, m._attributeStart / this.vertexSize)) : (this.packAttributes(m, l, u, m._attributeStart, m._textureId), this.packIndex(m, h, m._indexStart, m._attributeStart / this.vertexSize)), m._batch = s;
+                const C = p.texture._source, A = Mi(p.blendMode, C), B = o !== A || a !== p.topology;
+                if (C._batchTick === Be && !B) {
+                    p._textureId = C._textureBindLocation, c += p.indexSize, p.packAsQuad ? (this.packQuadAttributes(p, l, u, p._attributeStart, p._textureId), this.packQuadIndex(h, p._indexStart, p._attributeStart / this.vertexSize)) : (this.packAttributes(p, l, u, p._attributeStart, p._textureId), this.packIndex(p, h, p._indexStart, p._attributeStart / this.vertexSize)), p._batch = s;
                     continue;
                 }
-                C._batchTick = Be, (i.count >= g || D) && (this._finishBatch(s, f, c - f, i, o, a, t, d), d = "renderBatch", f = c, o = A, a = m.topology, s = Ii(), i = s.textures, i.clear(), ++Be), m._textureId = C._textureBindLocation = i.count, i.ids[C.uid] = i.count, i.textures[i.count++] = C, m._batch = s, c += m.indexSize, m.packAsQuad ? (this.packQuadAttributes(m, l, u, m._attributeStart, m._textureId), this.packQuadIndex(h, m._indexStart, m._attributeStart / this.vertexSize)) : (this.packAttributes(m, l, u, m._attributeStart, m._textureId), this.packIndex(m, h, m._indexStart, m._attributeStart / this.vertexSize));
+                C._batchTick = Be, (i.count >= g || B) && (this._finishBatch(s, m, c - m, i, o, a, t, d), d = "renderBatch", m = c, o = A, a = p.topology, s = Ii(), i = s.textures, i.clear(), ++Be), p._textureId = C._textureBindLocation = i.count, i.ids[C.uid] = i.count, i.textures[i.count++] = C, p._batch = s, c += p.indexSize, p.packAsQuad ? (this.packQuadAttributes(p, l, u, p._attributeStart, p._textureId), this.packQuadIndex(h, p._indexStart, p._attributeStart / this.vertexSize)) : (this.packAttributes(p, l, u, p._attributeStart, p._textureId), this.packIndex(p, h, p._indexStart, p._attributeStart / this.vertexSize));
             }
-            i.count > 0 && (this._finishBatch(s, f, c - f, i, o, a, t, d), f = c, ++Be), this.elementStart = this.elementSize, this._batchIndexStart = f, this._batchIndexSize = c;
+            i.count > 0 && (this._finishBatch(s, m, c - m, i, o, a, t, d), m = c, ++Be), this.elementStart = this.elementSize, this._batchIndexStart = m, this._batchIndexSize = c;
         }
         _finishBatch(t, e, s, i, n, o, a, l) {
             t.gpuBindGroup = null, t.bindGroup = null, t.action = l, t.batcher = this, t.textures = i, t.blendMode = n, t.topology = o, t.start = e, t.size = s, ++Be, this.batches[this.batchIndex++] = t, a.add(t);
@@ -7816,8 +7816,8 @@ else `), e < r - 1 && (t += `if(test == ${e}.0){}`);
         const i = s.buffer.data;
         let n = 1 / 0, o = 1 / 0, a = -1 / 0, l = -1 / 0;
         const u = i.BYTES_PER_ELEMENT, h = (s.offset || 0) / u, c = (s.stride || 2 * 4) / u;
-        for(let f = h; f < i.length; f += c){
-            const d = i[f], g = i[f + 1];
+        for(let m = h; m < i.length; m += c){
+            const d = i[m], g = i[m + 1];
             d > a && (a = d), g > l && (l = g), d < n && (n = d), g < o && (o = g);
         }
         return e.minX = n, e.minY = o, e.maxX = a, e.maxY = l, e;
@@ -8402,15 +8402,15 @@ ${i.join(`
             super(...arguments), this.geometry = new Kh, this.shader = Ni || (Ni = new Cu(this.maxTextures)), this.name = yo.extension.name, this.vertexSize = 6;
         }
         packAttributes(t, e, s, i, n) {
-            const o = n << 16 | t.roundPixels & 65535, a = t.transform, l = a.a, u = a.b, h = a.c, c = a.d, f = a.tx, d = a.ty, { positions: g, uvs: _ } = t, m = t.color, b = t.attributeOffset, C = b + t.attributeSize;
+            const o = n << 16 | t.roundPixels & 65535, a = t.transform, l = a.a, u = a.b, h = a.c, c = a.d, m = a.tx, d = a.ty, { positions: g, uvs: _ } = t, p = t.color, b = t.attributeOffset, C = b + t.attributeSize;
             for(let A = b; A < C; A++){
-                const D = A * 2, $ = g[D], B = g[D + 1];
-                e[i++] = l * $ + h * B + f, e[i++] = c * B + u * $ + d, e[i++] = _[D], e[i++] = _[D + 1], s[i++] = m, s[i++] = o;
+                const B = A * 2, $ = g[B], D = g[B + 1];
+                e[i++] = l * $ + h * D + m, e[i++] = c * D + u * $ + d, e[i++] = _[B], e[i++] = _[B + 1], s[i++] = p, s[i++] = o;
             }
         }
         packQuadAttributes(t, e, s, i, n) {
-            const o = t.texture, a = t.transform, l = a.a, u = a.b, h = a.c, c = a.d, f = a.tx, d = a.ty, g = t.bounds, _ = g.maxX, m = g.minX, b = g.maxY, C = g.minY, A = o.uvs, D = t.color, $ = n << 16 | t.roundPixels & 65535;
-            e[i + 0] = l * m + h * C + f, e[i + 1] = c * C + u * m + d, e[i + 2] = A.x0, e[i + 3] = A.y0, s[i + 4] = D, s[i + 5] = $, e[i + 6] = l * _ + h * C + f, e[i + 7] = c * C + u * _ + d, e[i + 8] = A.x1, e[i + 9] = A.y1, s[i + 10] = D, s[i + 11] = $, e[i + 12] = l * _ + h * b + f, e[i + 13] = c * b + u * _ + d, e[i + 14] = A.x2, e[i + 15] = A.y2, s[i + 16] = D, s[i + 17] = $, e[i + 18] = l * m + h * b + f, e[i + 19] = c * b + u * m + d, e[i + 20] = A.x3, e[i + 21] = A.y3, s[i + 22] = D, s[i + 23] = $;
+            const o = t.texture, a = t.transform, l = a.a, u = a.b, h = a.c, c = a.d, m = a.tx, d = a.ty, g = t.bounds, _ = g.maxX, p = g.minX, b = g.maxY, C = g.minY, A = o.uvs, B = t.color, $ = n << 16 | t.roundPixels & 65535;
+            e[i + 0] = l * p + h * C + m, e[i + 1] = c * C + u * p + d, e[i + 2] = A.x0, e[i + 3] = A.y0, s[i + 4] = B, s[i + 5] = $, e[i + 6] = l * _ + h * C + m, e[i + 7] = c * C + u * _ + d, e[i + 8] = A.x1, e[i + 9] = A.y1, s[i + 10] = B, s[i + 11] = $, e[i + 12] = l * _ + h * b + m, e[i + 13] = c * b + u * _ + d, e[i + 14] = A.x2, e[i + 15] = A.y2, s[i + 16] = B, s[i + 17] = $, e[i + 18] = l * p + h * b + m, e[i + 19] = c * b + u * p + d, e[i + 20] = A.x3, e[i + 21] = A.y3, s[i + 22] = B, s[i + 23] = $;
         }
     };
     _o.extension = {
@@ -8423,10 +8423,10 @@ ${i.join(`
     function Au(r, t, e, s, i, n, o, a = null) {
         let l = 0;
         e *= t, i *= n;
-        const u = a.a, h = a.b, c = a.c, f = a.d, d = a.tx, g = a.ty;
+        const u = a.a, h = a.b, c = a.c, m = a.d, d = a.tx, g = a.ty;
         for(; l < o;){
-            const _ = r[e], m = r[e + 1];
-            s[i] = u * _ + c * m + d, s[i + 1] = h * _ + f * m + g, i += n, e += t, l++;
+            const _ = r[e], p = r[e + 1];
+            s[i] = u * _ + c * p + d, s[i + 1] = h * _ + m * p + g, i += n, e += t, l++;
         }
     }
     function Tu(r, t, e, s) {
@@ -8437,12 +8437,12 @@ ${i.join(`
         const n = t.a, o = t.b, a = t.c, l = t.d, u = t.tx, h = t.ty;
         e || (e = 0), s || (s = 2), i || (i = r.length / s - e);
         let c = e * s;
-        for(let f = 0; f < i; f++){
+        for(let m = 0; m < i; m++){
             const d = r[c], g = r[c + 1];
             r[c] = n * d + a * g + u, r[c + 1] = o * d + l * g + h, c += s;
         }
     }
-    const ku = new J;
+    const ku = new tt;
     bo = class {
         constructor(){
             this.packAsQuad = !1, this.batcherName = "default", this.topology = "triangle-list", this.applyTransform = !0, this.roundPixels = 0, this._batcher = null, this._batch = null;
@@ -8481,31 +8481,31 @@ ${i.join(`
         build (r, t) {
             let e, s, i, n, o, a;
             if (r.type === "circle") {
-                const D = r;
-                e = D.x, s = D.y, o = a = D.radius, i = n = 0;
+                const B = r;
+                e = B.x, s = B.y, o = a = B.radius, i = n = 0;
             } else if (r.type === "ellipse") {
-                const D = r;
-                e = D.x, s = D.y, o = D.halfWidth, a = D.halfHeight, i = n = 0;
+                const B = r;
+                e = B.x, s = B.y, o = B.halfWidth, a = B.halfHeight, i = n = 0;
             } else {
-                const D = r, $ = D.width / 2, B = D.height / 2;
-                e = D.x + $, s = D.y + B, o = a = Math.max(0, Math.min(D.radius, Math.min($, B))), i = $ - o, n = B - a;
+                const B = r, $ = B.width / 2, D = B.height / 2;
+                e = B.x + $, s = B.y + D, o = a = Math.max(0, Math.min(B.radius, Math.min($, D))), i = $ - o, n = D - a;
             }
             if (!(o >= 0 && a >= 0 && i >= 0 && n >= 0)) return t;
             const l = Math.ceil(2.3 * Math.sqrt(o + a)), u = l * 8 + (i ? 4 : 0) + (n ? 4 : 0);
             if (u === 0) return t;
             if (l === 0) return t[0] = t[6] = e + i, t[1] = t[3] = s + n, t[2] = t[4] = e - i, t[5] = t[7] = s - n, t;
-            let h = 0, c = l * 4 + (i ? 2 : 0) + 2, f = c, d = u, g = i + o, _ = n, m = e + g, b = e - g, C = s + _;
-            if (t[h++] = m, t[h++] = C, t[--c] = C, t[--c] = b, n) {
-                const D = s - _;
-                t[f++] = b, t[f++] = D, t[--d] = D, t[--d] = m;
+            let h = 0, c = l * 4 + (i ? 2 : 0) + 2, m = c, d = u, g = i + o, _ = n, p = e + g, b = e - g, C = s + _;
+            if (t[h++] = p, t[h++] = C, t[--c] = C, t[--c] = b, n) {
+                const B = s - _;
+                t[m++] = b, t[m++] = B, t[--d] = B, t[--d] = p;
             }
-            for(let D = 1; D < l; D++){
-                const $ = Math.PI / 2 * (D / l), B = i + Math.cos($) * o, M = n + Math.sin($) * a, z = e + B, O = e - B, R = s + M, G = s - M;
-                t[h++] = z, t[h++] = R, t[--c] = R, t[--c] = O, t[f++] = O, t[f++] = G, t[--d] = G, t[--d] = z;
+            for(let B = 1; B < l; B++){
+                const $ = Math.PI / 2 * (B / l), D = i + Math.cos($) * o, P = n + Math.sin($) * a, z = e + D, O = e - D, I = s + P, G = s - P;
+                t[h++] = z, t[h++] = I, t[--c] = I, t[--c] = O, t[m++] = O, t[m++] = G, t[--d] = G, t[--d] = z;
             }
-            g = i, _ = n + a, m = e + g, b = e - g, C = s + _;
+            g = i, _ = n + a, p = e + g, b = e - g, C = s + _;
             const A = s - _;
-            return t[h++] = m, t[h++] = C, t[--d] = A, t[--d] = m, i && (t[h++] = b, t[h++] = C, t[--d] = A, t[--d] = b), t;
+            return t[h++] = p, t[h++] = C, t[--d] = A, t[--d] = p, i && (t[h++] = b, t[h++] = C, t[--d] = A, t[--d] = b), t;
         },
         triangulate (r, t, e, s, i, n) {
             if (r.length === 0) return;
@@ -8543,27 +8543,27 @@ ${i.join(`
     }
     function zi(r, t, e, s, i, n, o, a) {
         const l = r - e * i, u = t - s * i, h = r + e * n, c = t + s * n;
-        let f, d;
-        o ? (f = s, d = -e) : (f = -s, d = e);
-        const g = l + f, _ = u + d, m = h + f, b = c + d;
-        return a.push(g, _), a.push(m, b), 2;
+        let m, d;
+        o ? (m = s, d = -e) : (m = -s, d = e);
+        const g = l + m, _ = u + d, p = h + m, b = c + d;
+        return a.push(g, _), a.push(p, b), 2;
     }
     function ae(r, t, e, s, i, n, o, a) {
         const l = e - r, u = s - t;
         let h = Math.atan2(l, u), c = Math.atan2(i - r, n - t);
         a && h < c ? h += Math.PI * 2 : !a && h > c && (c += Math.PI * 2);
-        let f = h;
-        const d = c - h, g = Math.abs(d), _ = Math.sqrt(l * l + u * u), m = (15 * g * Math.sqrt(_) / Math.PI >> 0) + 1, b = d / m;
-        if (f += b, a) {
+        let m = h;
+        const d = c - h, g = Math.abs(d), _ = Math.sqrt(l * l + u * u), p = (15 * g * Math.sqrt(_) / Math.PI >> 0) + 1, b = d / p;
+        if (m += b, a) {
             o.push(r, t), o.push(e, s);
-            for(let C = 1, A = f; C < m; C++, A += b)o.push(r, t), o.push(r + Math.sin(A) * _, t + Math.cos(A) * _);
+            for(let C = 1, A = m; C < p; C++, A += b)o.push(r, t), o.push(r + Math.sin(A) * _, t + Math.cos(A) * _);
             o.push(r, t), o.push(i, n);
         } else {
             o.push(e, s), o.push(r, t);
-            for(let C = 1, A = f; C < m; C++, A += b)o.push(r + Math.sin(A) * _, t + Math.cos(A) * _), o.push(r, t);
+            for(let C = 1, A = m; C < p; C++, A += b)o.push(r + Math.sin(A) * _, t + Math.cos(A) * _), o.push(r, t);
             o.push(i, n), o.push(r, t);
         }
-        return m * 2;
+        return p * 2;
     }
     function Ru(r, t, e, s, i, n) {
         const o = vo;
@@ -8574,40 +8574,40 @@ ${i.join(`
             let T = Iu(r);
             l = (l - .5) * T + .5;
         }
-        const u = new At(r[0], r[1]), h = new At(r[r.length - 2], r[r.length - 1]), c = s, f = Math.abs(u.x - h.x) < o && Math.abs(u.y - h.y) < o;
+        const u = new At(r[0], r[1]), h = new At(r[r.length - 2], r[r.length - 1]), c = s, m = Math.abs(u.x - h.x) < o && Math.abs(u.y - h.y) < o;
         if (c) {
-            r = r.slice(), f && (r.pop(), r.pop(), h.set(r[r.length - 2], r[r.length - 1]));
-            const T = (u.x + h.x) * .5, I = (h.y + u.y) * .5;
-            r.unshift(T, I), r.push(T, I);
+            r = r.slice(), m && (r.pop(), r.pop(), h.set(r[r.length - 2], r[r.length - 1]));
+            const T = (u.x + h.x) * .5, M = (h.y + u.y) * .5;
+            r.unshift(T, M), r.push(T, M);
         }
         const d = i, g = r.length / 2;
         let _ = r.length;
-        const m = d.length / 2, b = a.width / 2, C = b * b, A = a.miterLimit * a.miterLimit;
-        let D = r[0], $ = r[1], B = r[2], M = r[3], z = 0, O = 0, R = -($ - M), G = D - B, S = 0, H = 0, Y = Math.sqrt(R * R + G * G);
-        R /= Y, G /= Y, R *= b, G *= b;
-        const et = l, p = (1 - et) * 2, x = et * 2;
-        c || (a.cap === "round" ? _ += ae(D - R * (p - x) * .5, $ - G * (p - x) * .5, D - R * p, $ - G * p, D + R * x, $ + G * x, d, !0) + 2 : a.cap === "square" && (_ += zi(D, $, R, G, p, x, !0, d))), d.push(D - R * p, $ - G * p), d.push(D + R * x, $ + G * x);
+        const p = d.length / 2, b = a.width / 2, C = b * b, A = a.miterLimit * a.miterLimit;
+        let B = r[0], $ = r[1], D = r[2], P = r[3], z = 0, O = 0, I = -($ - P), G = B - D, S = 0, W = 0, U = Math.sqrt(I * I + G * G);
+        I /= U, G /= U, I *= b, G *= b;
+        const et = l, f = (1 - et) * 2, x = et * 2;
+        c || (a.cap === "round" ? _ += ae(B - I * (f - x) * .5, $ - G * (f - x) * .5, B - I * f, $ - G * f, B + I * x, $ + G * x, d, !0) + 2 : a.cap === "square" && (_ += zi(B, $, I, G, f, x, !0, d))), d.push(B - I * f, $ - G * f), d.push(B + I * x, $ + G * x);
         for(let T = 1; T < g - 1; ++T){
-            D = r[(T - 1) * 2], $ = r[(T - 1) * 2 + 1], B = r[T * 2], M = r[T * 2 + 1], z = r[(T + 1) * 2], O = r[(T + 1) * 2 + 1], R = -($ - M), G = D - B, Y = Math.sqrt(R * R + G * G), R /= Y, G /= Y, R *= b, G *= b, S = -(M - O), H = B - z, Y = Math.sqrt(S * S + H * H), S /= Y, H /= Y, S *= b, H *= b;
-            const I = B - D, k = $ - M, P = B - z, F = O - M, U = I * P + k * F, L = k * P - F * I, ot = L < 0;
-            if (Math.abs(L) < .001 * Math.abs(U)) {
-                d.push(B - R * p, M - G * p), d.push(B + R * x, M + G * x), U >= 0 && (a.join === "round" ? _ += ae(B, M, B - R * p, M - G * p, B - S * p, M - H * p, d, !1) + 4 : _ += 2, d.push(B - S * x, M - H * x), d.push(B + S * p, M + H * p));
+            B = r[(T - 1) * 2], $ = r[(T - 1) * 2 + 1], D = r[T * 2], P = r[T * 2 + 1], z = r[(T + 1) * 2], O = r[(T + 1) * 2 + 1], I = -($ - P), G = B - D, U = Math.sqrt(I * I + G * G), I /= U, G /= U, I *= b, G *= b, S = -(P - O), W = D - z, U = Math.sqrt(S * S + W * W), S /= U, W /= U, S *= b, W *= b;
+            const M = D - B, F = $ - P, k = D - z, E = O - P, L = M * k + F * E, H = F * k - E * M, j = H < 0;
+            if (Math.abs(H) < .001 * Math.abs(L)) {
+                d.push(D - I * f, P - G * f), d.push(D + I * x, P + G * x), L >= 0 && (a.join === "round" ? _ += ae(D, P, D - I * f, P - G * f, D - S * f, P - W * f, d, !1) + 4 : _ += 2, d.push(D - S * x, P - W * x), d.push(D + S * f, P + W * f));
                 continue;
             }
-            const at = (-R + D) * (-G + M) - (-R + B) * (-G + $), Q = (-S + z) * (-H + M) - (-S + B) * (-H + O), gt = (I * Q - P * at) / L, st = (F * at - k * Q) / L, Kt = (gt - B) * (gt - B) + (st - M) * (st - M), Mt = B + (gt - B) * p, Lt = M + (st - M) * p, Ut = B - (gt - B) * x, Z = M - (st - M) * x, tt = Math.min(I * I + k * k, P * P + F * F), $r = ot ? p : x, Po = tt + $r * $r * C;
-            Kt <= Po ? a.join === "bevel" || Kt / C > A ? (ot ? (d.push(Mt, Lt), d.push(B + R * x, M + G * x), d.push(Mt, Lt), d.push(B + S * x, M + H * x)) : (d.push(B - R * p, M - G * p), d.push(Ut, Z), d.push(B - S * p, M - H * p), d.push(Ut, Z)), _ += 2) : a.join === "round" ? ot ? (d.push(Mt, Lt), d.push(B + R * x, M + G * x), _ += ae(B, M, B + R * x, M + G * x, B + S * x, M + H * x, d, !0) + 4, d.push(Mt, Lt), d.push(B + S * x, M + H * x)) : (d.push(B - R * p, M - G * p), d.push(Ut, Z), _ += ae(B, M, B - R * p, M - G * p, B - S * p, M - H * p, d, !1) + 4, d.push(B - S * p, M - H * p), d.push(Ut, Z)) : (d.push(Mt, Lt), d.push(Ut, Z)) : (d.push(B - R * p, M - G * p), d.push(B + R * x, M + G * x), a.join === "round" ? ot ? _ += ae(B, M, B + R * x, M + G * x, B + S * x, M + H * x, d, !0) + 2 : _ += ae(B, M, B - R * p, M - G * p, B - S * p, M - H * p, d, !1) + 2 : a.join === "miter" && Kt / C <= A && (ot ? (d.push(Ut, Z), d.push(Ut, Z)) : (d.push(Mt, Lt), d.push(Mt, Lt)), _ += 2), d.push(B - S * p, M - H * p), d.push(B + S * x, M + H * x), _ += 2);
+            const at = (-I + B) * (-G + P) - (-I + D) * (-G + $), J = (-S + z) * (-W + P) - (-S + D) * (-W + O), gt = (M * J - k * at) / H, rt = (E * at - F * J) / H, Kt = (gt - D) * (gt - D) + (rt - P) * (rt - P), Mt = D + (gt - D) * f, Lt = P + (rt - P) * f, Ut = D - (gt - D) * x, Q = P - (rt - P) * x, st = Math.min(M * M + F * F, k * k + E * E), $r = j ? f : x, Po = st + $r * $r * C;
+            Kt <= Po ? a.join === "bevel" || Kt / C > A ? (j ? (d.push(Mt, Lt), d.push(D + I * x, P + G * x), d.push(Mt, Lt), d.push(D + S * x, P + W * x)) : (d.push(D - I * f, P - G * f), d.push(Ut, Q), d.push(D - S * f, P - W * f), d.push(Ut, Q)), _ += 2) : a.join === "round" ? j ? (d.push(Mt, Lt), d.push(D + I * x, P + G * x), _ += ae(D, P, D + I * x, P + G * x, D + S * x, P + W * x, d, !0) + 4, d.push(Mt, Lt), d.push(D + S * x, P + W * x)) : (d.push(D - I * f, P - G * f), d.push(Ut, Q), _ += ae(D, P, D - I * f, P - G * f, D - S * f, P - W * f, d, !1) + 4, d.push(D - S * f, P - W * f), d.push(Ut, Q)) : (d.push(Mt, Lt), d.push(Ut, Q)) : (d.push(D - I * f, P - G * f), d.push(D + I * x, P + G * x), a.join === "round" ? j ? _ += ae(D, P, D + I * x, P + G * x, D + S * x, P + W * x, d, !0) + 2 : _ += ae(D, P, D - I * f, P - G * f, D - S * f, P - W * f, d, !1) + 2 : a.join === "miter" && Kt / C <= A && (j ? (d.push(Ut, Q), d.push(Ut, Q)) : (d.push(Mt, Lt), d.push(Mt, Lt)), _ += 2), d.push(D - S * f, P - W * f), d.push(D + S * x, P + W * x), _ += 2);
         }
-        D = r[(g - 2) * 2], $ = r[(g - 2) * 2 + 1], B = r[(g - 1) * 2], M = r[(g - 1) * 2 + 1], R = -($ - M), G = D - B, Y = Math.sqrt(R * R + G * G), R /= Y, G /= Y, R *= b, G *= b, d.push(B - R * p, M - G * p), d.push(B + R * x, M + G * x), c || (a.cap === "round" ? _ += ae(B - R * (p - x) * .5, M - G * (p - x) * .5, B - R * p, M - G * p, B + R * x, M + G * x, d, !1) + 2 : a.cap === "square" && (_ += zi(B, M, R, G, p, x, !1, d)));
+        B = r[(g - 2) * 2], $ = r[(g - 2) * 2 + 1], D = r[(g - 1) * 2], P = r[(g - 1) * 2 + 1], I = -($ - P), G = B - D, U = Math.sqrt(I * I + G * G), I /= U, G /= U, I *= b, G *= b, d.push(D - I * f, P - G * f), d.push(D + I * x, P + G * x), c || (a.cap === "round" ? _ += ae(D - I * (f - x) * .5, P - G * (f - x) * .5, D - I * f, P - G * f, D + I * x, P + G * x, d, !1) + 2 : a.cap === "square" && (_ += zi(D, P, I, G, f, x, !1, d)));
         const w = Oi * Oi;
-        for(let T = m; T < _ + m - 2; ++T)D = d[T * 2], $ = d[T * 2 + 1], B = d[(T + 1) * 2], M = d[(T + 1) * 2 + 1], z = d[(T + 2) * 2], O = d[(T + 2) * 2 + 1], !(Math.abs(D * (M - O) + B * (O - $) + z * ($ - M)) < w) && n.push(T, T + 1, T + 2);
+        for(let T = p; T < _ + p - 2; ++T)B = d[T * 2], $ = d[T * 2 + 1], D = d[(T + 1) * 2], P = d[(T + 1) * 2 + 1], z = d[(T + 2) * 2], O = d[(T + 2) * 2 + 1], !(Math.abs(B * (P - O) + D * (O - $) + z * ($ - P)) < w) && n.push(T, T + 1, T + 2);
     }
     function Eu(r, t, e, s) {
         const i = vo;
         if (r.length === 0) return;
-        const n = r[0], o = r[1], a = r[r.length - 2], l = r[r.length - 1], u = t || Math.abs(n - a) < i && Math.abs(o - l) < i, h = e, c = r.length / 2, f = h.length / 2;
+        const n = r[0], o = r[1], a = r[r.length - 2], l = r[r.length - 1], u = t || Math.abs(n - a) < i && Math.abs(o - l) < i, h = e, c = r.length / 2, m = h.length / 2;
         for(let d = 0; d < c; d++)h.push(r[d * 2]), h.push(r[d * 2 + 1]);
-        for(let d = 0; d < c - 1; d++)s.push(f + d, f + d + 1);
-        u && s.push(f + c - 1, f);
+        for(let d = 0; d < c - 1; d++)s.push(m + d, m + d + 1);
+        u && s.push(m + c - 1, m);
     }
     function wo(r, t, e, s, i, n, o) {
         const a = xh(r, t, 2);
@@ -8657,7 +8657,7 @@ ${i.join(`
             const a = s / e;
             i[n++] = a, i[n++] = a + 1, i[n++] = a + 2;
         }
-    }, Vu = new J, $u = new vt;
+    }, Vu = new tt, $u = new vt;
     function Nu(r, t, e, s) {
         const i = t.matrix ? r.copyFrom(t.matrix).invert() : r.identity();
         if (t.textureSpace === "local") {
@@ -8673,7 +8673,7 @@ ${i.join(`
     const Rs = {};
     Vt.handleByMap(ht.ShapeBuilder, Rs);
     Vt.add(Fu, Bu, Gu, Je, Pu, Mu);
-    const Ou = new vt, zu = new J;
+    const Ou = new vt, zu = new tt;
     function Lu(r, t) {
         const { geometryData: e, batches: s } = t;
         s.length = 0, e.indices.length = 0, e.vertices.length = 0, e.uvs.length = 0;
@@ -8689,8 +8689,8 @@ ${i.join(`
     function Uu(r, t, e) {
         const { vertices: s, uvs: i, indices: n } = e, o = n.length, a = s.length / 2, l = [], u = Rs.rectangle, h = Ou, c = r.image;
         h.x = r.dx, h.y = r.dy, h.width = r.dw, h.height = r.dh;
-        const f = r.transform;
-        u.build(h, l), f && xo(l, f), u.triangulate(l, s, 2, a, n, o);
+        const m = r.transform;
+        u.build(h, l), m && xo(l, m), u.triangulate(l, s, 2, a, n, o);
         const d = c.uvs;
         i.push(d.x0, d.y0, d.x1, d.y1, d.x3, d.y3, d.x2, d.y2);
         const g = Jt.get(bo);
@@ -8699,24 +8699,24 @@ ${i.join(`
     function Li(r, t, e, s, i) {
         const { vertices: n, uvs: o, indices: a } = i;
         r.shapePrimitives.forEach(({ shape: l, transform: u, holes: h })=>{
-            const c = a.length, f = n.length / 2, d = [], g = Rs[l.type];
+            const c = a.length, m = n.length / 2, d = [], g = Rs[l.type];
             let _ = "triangle-list";
             if (g.build(l, d), u && xo(d, u), e) {
-                const A = l.closePath ?? !0, D = t;
-                D.pixelLine ? (Eu(d, A, n, a), _ = "line-list") : Ru(d, D, !1, A, n, a);
+                const A = l.closePath ?? !0, B = t;
+                B.pixelLine ? (Eu(d, A, n, a), _ = "line-list") : Ru(d, B, !1, A, n, a);
             } else if (h) {
-                const A = [], D = d.slice();
-                Hu(h).forEach((B)=>{
-                    A.push(D.length / 2), D.push(...B);
-                }), wo(D, A, n, 2, f, a, c);
-            } else g.triangulate(d, n, 2, f, a, c);
-            const m = o.length / 2, b = t.texture;
+                const A = [], B = d.slice();
+                Hu(h).forEach((D)=>{
+                    A.push(B.length / 2), B.push(...D);
+                }), wo(B, A, n, 2, m, a, c);
+            } else g.triangulate(d, n, 2, m, a, c);
+            const p = o.length / 2, b = t.texture;
             if (b !== ut.WHITE) {
                 const A = Nu(zu, t, l, u);
-                Au(n, 2, f, o, m, 2, n.length / 2 - f, A);
-            } else Tu(o, m, 2, n.length / 2 - f);
+                Au(n, 2, m, o, p, 2, n.length / 2 - m, A);
+            } else Tu(o, p, 2, n.length / 2 - m);
             const C = Jt.get(bo);
-            C.indexOffset = c, C.indexSize = a.length - c, C.attributeOffset = f, C.attributeSize = n.length / 2 - f, C.baseColor = t.color, C.alpha = t.alpha, C.texture = b, C.geometryData = i, C.topology = _, s.push(C);
+            C.indexOffset = c, C.indexSize = a.length - c, C.attributeOffset = m, C.attributeSize = n.length / 2 - m, C.baseColor = t.color, C.alpha = t.alpha, C.texture = b, C.geometryData = i, C.topology = _, s.push(C);
         });
     }
     function Hu(r) {
@@ -8820,39 +8820,39 @@ ${i.join(`
     const Xu = 8, ds = 11920929e-14, ju = 1;
     function So(r, t, e, s, i, n, o, a, l, u) {
         const c = Math.min(.99, Math.max(0, u ?? Co.defaultOptions.bezierSmoothness));
-        let f = (ju - c) / 1;
-        return f *= f, qu(t, e, s, i, n, o, a, l, r, f), r;
+        let m = (ju - c) / 1;
+        return m *= m, qu(t, e, s, i, n, o, a, l, r, m), r;
     }
     function qu(r, t, e, s, i, n, o, a, l, u) {
         Cr(r, t, e, s, i, n, o, a, l, u, 0), l.push(o, a);
     }
     function Cr(r, t, e, s, i, n, o, a, l, u, h) {
         if (h > Xu) return;
-        const c = (r + e) / 2, f = (t + s) / 2, d = (e + i) / 2, g = (s + n) / 2, _ = (i + o) / 2, m = (n + a) / 2, b = (c + d) / 2, C = (f + g) / 2, A = (d + _) / 2, D = (g + m) / 2, $ = (b + A) / 2, B = (C + D) / 2;
+        const c = (r + e) / 2, m = (t + s) / 2, d = (e + i) / 2, g = (s + n) / 2, _ = (i + o) / 2, p = (n + a) / 2, b = (c + d) / 2, C = (m + g) / 2, A = (d + _) / 2, B = (g + p) / 2, $ = (b + A) / 2, D = (C + B) / 2;
         if (h > 0) {
-            let M = o - r, z = a - t;
-            const O = Math.abs((e - o) * z - (s - a) * M), R = Math.abs((i - o) * z - (n - a) * M);
-            if (O > ds && R > ds) {
-                if ((O + R) * (O + R) <= u * (M * M + z * z)) {
-                    l.push($, B);
+            let P = o - r, z = a - t;
+            const O = Math.abs((e - o) * z - (s - a) * P), I = Math.abs((i - o) * z - (n - a) * P);
+            if (O > ds && I > ds) {
+                if ((O + I) * (O + I) <= u * (P * P + z * z)) {
+                    l.push($, D);
                     return;
                 }
             } else if (O > ds) {
-                if (O * O <= u * (M * M + z * z)) {
-                    l.push($, B);
+                if (O * O <= u * (P * P + z * z)) {
+                    l.push($, D);
                     return;
                 }
-            } else if (R > ds) {
-                if (R * R <= u * (M * M + z * z)) {
-                    l.push($, B);
+            } else if (I > ds) {
+                if (I * I <= u * (P * P + z * z)) {
+                    l.push($, D);
                     return;
                 }
-            } else if (M = $ - (r + o) / 2, z = B - (t + a) / 2, M * M + z * z <= u) {
-                l.push($, B);
+            } else if (P = $ - (r + o) / 2, z = D - (t + a) / 2, P * P + z * z <= u) {
+                l.push($, D);
                 return;
             }
         }
-        Cr(r, t, c, f, b, C, $, B, l, u, h + 1), Cr($, B, A, D, _, m, o, a, l, u, h + 1);
+        Cr(r, t, c, m, b, C, $, D, l, u, h + 1), Cr($, D, A, B, _, p, o, a, l, u, h + 1);
     }
     const Ku = 8, Zu = 11920929e-14, Qu = 1;
     function Ju(r, t, e, s, i, n, o, a) {
@@ -8865,19 +8865,19 @@ ${i.join(`
     }
     function Sr(r, t, e, s, i, n, o, a, l) {
         if (l > Ku) return;
-        const u = (t + s) / 2, h = (e + i) / 2, c = (s + n) / 2, f = (i + o) / 2, d = (u + c) / 2, g = (h + f) / 2;
-        let _ = n - t, m = o - e;
-        const b = Math.abs((s - n) * m - (i - o) * _);
+        const u = (t + s) / 2, h = (e + i) / 2, c = (s + n) / 2, m = (i + o) / 2, d = (u + c) / 2, g = (h + m) / 2;
+        let _ = n - t, p = o - e;
+        const b = Math.abs((s - n) * p - (i - o) * _);
         if (b > Zu) {
-            if (b * b <= a * (_ * _ + m * m)) {
+            if (b * b <= a * (_ * _ + p * p)) {
                 r.push(d, g);
                 return;
             }
-        } else if (_ = d - (t + n) / 2, m = g - (e + o) / 2, _ * _ + m * m <= a) {
+        } else if (_ = d - (t + n) / 2, p = g - (e + o) / 2, _ * _ + p * p <= a) {
             r.push(d, g);
             return;
         }
-        Sr(r, t, e, u, h, d, g, a, l + 1), Sr(r, d, g, c, f, n, o, a, l + 1);
+        Sr(r, t, e, u, h, d, g, a, l + 1), Sr(r, d, g, c, m, n, o, a, l + 1);
     }
     function Ao(r, t, e, s, i, n, o, a) {
         let l = Math.abs(i - n);
@@ -8885,18 +8885,18 @@ ${i.join(`
         let u = l / a, h = i;
         u *= o ? -1 : 1;
         for(let c = 0; c < a + 1; c++){
-            const f = Math.cos(h), d = Math.sin(h), g = t + f * s, _ = e + d * s;
+            const m = Math.cos(h), d = Math.sin(h), g = t + m * s, _ = e + d * s;
             r.push(g, _), h += u;
         }
     }
     function ec(r, t, e, s, i, n) {
-        const o = r[r.length - 2], l = r[r.length - 1] - e, u = o - t, h = i - e, c = s - t, f = Math.abs(l * c - u * h);
-        if (f < 1e-8 || n === 0) {
+        const o = r[r.length - 2], l = r[r.length - 1] - e, u = o - t, h = i - e, c = s - t, m = Math.abs(l * c - u * h);
+        if (m < 1e-8 || n === 0) {
             (r[r.length - 2] !== t || r[r.length - 1] !== e) && r.push(t, e);
             return;
         }
-        const d = l * l + u * u, g = h * h + c * c, _ = l * h + u * c, m = n * Math.sqrt(d) / f, b = n * Math.sqrt(g) / f, C = m * _ / d, A = b * _ / g, D = m * c + b * u, $ = m * h + b * l, B = u * (b + C), M = l * (b + C), z = c * (m + A), O = h * (m + A), R = Math.atan2(M - $, B - D), G = Math.atan2(O - $, z - D);
-        Ao(r, D + t, $ + e, n, R, G, u * h > c * l);
+        const d = l * l + u * u, g = h * h + c * c, _ = l * h + u * c, p = n * Math.sqrt(d) / m, b = n * Math.sqrt(g) / m, C = p * _ / d, A = b * _ / g, B = p * c + b * u, $ = p * h + b * l, D = u * (b + C), P = l * (b + C), z = c * (p + A), O = h * (p + A), I = Math.atan2(P - $, D - B), G = Math.atan2(O - $, z - B);
+        Ao(r, B + t, $ + e, n, I, G, u * h > c * l);
     }
     const Ue = Math.PI * 2, rr = {
         centerX: 0,
@@ -8929,44 +8929,44 @@ ${i.join(`
         const i = r * s - t * e < 0 ? -1 : 1;
         let n = r * e + t * s;
         return n > 1 && (n = 1), n < -1 && (n = -1), i * Math.acos(n);
-    }, rc = (r, t, e, s, i, n, o, a, l, u, h, c, f)=>{
-        const d = Math.pow(i, 2), g = Math.pow(n, 2), _ = Math.pow(h, 2), m = Math.pow(c, 2);
-        let b = d * g - d * m - g * _;
-        b < 0 && (b = 0), b /= d * m + g * _, b = Math.sqrt(b) * (o === a ? -1 : 1);
-        const C = b * i / n * c, A = b * -n / i * h, D = u * C - l * A + (r + e) / 2, $ = l * C + u * A + (t + s) / 2, B = (h - C) / i, M = (c - A) / n, z = (-h - C) / i, O = (-c - A) / n, R = Ui(1, 0, B, M);
-        let G = Ui(B, M, z, O);
-        a === 0 && G > 0 && (G -= Ue), a === 1 && G < 0 && (G += Ue), f.centerX = D, f.centerY = $, f.ang1 = R, f.ang2 = G;
+    }, rc = (r, t, e, s, i, n, o, a, l, u, h, c, m)=>{
+        const d = Math.pow(i, 2), g = Math.pow(n, 2), _ = Math.pow(h, 2), p = Math.pow(c, 2);
+        let b = d * g - d * p - g * _;
+        b < 0 && (b = 0), b /= d * p + g * _, b = Math.sqrt(b) * (o === a ? -1 : 1);
+        const C = b * i / n * c, A = b * -n / i * h, B = u * C - l * A + (r + e) / 2, $ = l * C + u * A + (t + s) / 2, D = (h - C) / i, P = (c - A) / n, z = (-h - C) / i, O = (-c - A) / n, I = Ui(1, 0, D, P);
+        let G = Ui(D, P, z, O);
+        a === 0 && G > 0 && (G -= Ue), a === 1 && G < 0 && (G += Ue), m.centerX = B, m.centerY = $, m.ang1 = I, m.ang2 = G;
     };
     function ic(r, t, e, s, i, n, o, a = 0, l = 0, u = 0) {
         if (n === 0 || o === 0) return;
-        const h = Math.sin(a * Ue / 360), c = Math.cos(a * Ue / 360), f = c * (t - s) / 2 + h * (e - i) / 2, d = -h * (t - s) / 2 + c * (e - i) / 2;
-        if (f === 0 && d === 0) return;
+        const h = Math.sin(a * Ue / 360), c = Math.cos(a * Ue / 360), m = c * (t - s) / 2 + h * (e - i) / 2, d = -h * (t - s) / 2 + c * (e - i) / 2;
+        if (m === 0 && d === 0) return;
         n = Math.abs(n), o = Math.abs(o);
-        const g = Math.pow(f, 2) / Math.pow(n, 2) + Math.pow(d, 2) / Math.pow(o, 2);
-        g > 1 && (n *= Math.sqrt(g), o *= Math.sqrt(g)), rc(t, e, s, i, n, o, l, u, h, c, f, d, rr);
-        let { ang1: _, ang2: m } = rr;
+        const g = Math.pow(m, 2) / Math.pow(n, 2) + Math.pow(d, 2) / Math.pow(o, 2);
+        g > 1 && (n *= Math.sqrt(g), o *= Math.sqrt(g)), rc(t, e, s, i, n, o, l, u, h, c, m, d, rr);
+        let { ang1: _, ang2: p } = rr;
         const { centerX: b, centerY: C } = rr;
-        let A = Math.abs(m) / (Ue / 4);
+        let A = Math.abs(p) / (Ue / 4);
         Math.abs(1 - A) < 1e-7 && (A = 1);
-        const D = Math.max(Math.ceil(A), 1);
-        m /= D;
-        let $ = r[r.length - 2], B = r[r.length - 1];
-        const M = {
+        const B = Math.max(Math.ceil(A), 1);
+        p /= B;
+        let $ = r[r.length - 2], D = r[r.length - 1];
+        const P = {
             x: 0,
             y: 0
         };
-        for(let z = 0; z < D; z++){
-            const O = sc(_, m), { x: R, y: G } = ir(O[0], n, o, c, h, b, C, M), { x: S, y: H } = ir(O[1], n, o, c, h, b, C, M), { x: Y, y: et } = ir(O[2], n, o, c, h, b, C, M);
-            So(r, $, B, R, G, S, H, Y, et), $ = Y, B = et, _ += m;
+        for(let z = 0; z < B; z++){
+            const O = sc(_, p), { x: I, y: G } = ir(O[0], n, o, c, h, b, C, P), { x: S, y: W } = ir(O[1], n, o, c, h, b, C, P), { x: U, y: et } = ir(O[2], n, o, c, h, b, C, P);
+            So(r, $, D, I, G, S, W, U, et), $ = U, D = et, _ += p;
         }
     }
     function nc(r, t, e) {
         const s = (o, a)=>{
-            const l = a.x - o.x, u = a.y - o.y, h = Math.sqrt(l * l + u * u), c = l / h, f = u / h;
+            const l = a.x - o.x, u = a.y - o.y, h = Math.sqrt(l * l + u * u), c = l / h, m = u / h;
             return {
                 len: h,
                 nx: c,
-                ny: f
+                ny: m
             };
         }, i = (o, a)=>{
             o === 0 ? r.moveTo(a.x, a.y) : r.lineTo(a.x, a.y);
@@ -8983,13 +8983,13 @@ ${i.join(`
                 i(o, a), n = a;
                 continue;
             }
-            let f = Math.asin(h.nx * c.ny - h.ny * c.nx), d = 1, g = !1;
-            h.nx * c.nx - h.ny * -c.ny < 0 ? f < 0 ? f = Math.PI + f : (f = Math.PI - f, d = -1, g = !0) : f > 0 && (d = -1, g = !0);
-            const _ = f / 2;
-            let m, b = Math.abs(Math.cos(_) * l / Math.sin(_));
-            b > Math.min(h.len / 2, c.len / 2) ? (b = Math.min(h.len / 2, c.len / 2), m = Math.abs(b * Math.sin(_) / Math.cos(_))) : m = l;
-            const C = a.x + c.nx * b + -c.ny * m * d, A = a.y + c.ny * b + c.nx * m * d, D = Math.atan2(h.ny, h.nx) + Math.PI / 2 * d, $ = Math.atan2(c.ny, c.nx) - Math.PI / 2 * d;
-            o === 0 && r.moveTo(C + Math.cos(D) * m, A + Math.sin(D) * m), r.arc(C, A, m, D, $, g), n = a;
+            let m = Math.asin(h.nx * c.ny - h.ny * c.nx), d = 1, g = !1;
+            h.nx * c.nx - h.ny * -c.ny < 0 ? m < 0 ? m = Math.PI + m : (m = Math.PI - m, d = -1, g = !0) : m > 0 && (d = -1, g = !0);
+            const _ = m / 2;
+            let p, b = Math.abs(Math.cos(_) * l / Math.sin(_));
+            b > Math.min(h.len / 2, c.len / 2) ? (b = Math.min(h.len / 2, c.len / 2), p = Math.abs(b * Math.sin(_) / Math.cos(_))) : p = l;
+            const C = a.x + c.nx * b + -c.ny * p * d, A = a.y + c.ny * b + c.nx * p * d, B = Math.atan2(h.ny, h.nx) + Math.PI / 2 * d, $ = Math.atan2(c.ny, c.nx) - Math.PI / 2 * d;
+            o === 0 && r.moveTo(C + Math.cos(B) * p, A + Math.sin(B) * p), r.arc(C, A, p, B, $, g), n = a;
         }
     }
     function oc(r, t, e, s) {
@@ -9003,19 +9003,19 @@ ${i.join(`
                 a === 0 ? r.moveTo(l.x, l.y) : r.lineTo(l.x, l.y);
                 continue;
             }
-            const h = t[a], c = t[(a + 2) % o], f = i(h, l);
+            const h = t[a], c = t[(a + 2) % o], m = i(h, l);
             let d;
-            if (f < 1e-4) d = l;
+            if (m < 1e-4) d = l;
             else {
-                const m = Math.min(f / 2, u);
-                d = n(l, h, m / f);
+                const p = Math.min(m / 2, u);
+                d = n(l, h, p / m);
             }
             const g = i(c, l);
             let _;
             if (g < 1e-4) _ = l;
             else {
-                const m = Math.min(g / 2, u);
-                _ = n(l, c, m / g);
+                const p = Math.min(g / 2, u);
+                _ = n(l, c, p / g);
             }
             a === 0 ? r.moveTo(d.x, d.y) : r.lineTo(d.x, d.y), r.quadraticCurveTo(l.x, l.y, _.x, _.y, s);
         }
@@ -9106,9 +9106,9 @@ ${i.join(`
             const l = s * Math.sin(Math.PI / i) - .001;
             n = Math.min(n, l);
             const u = -1 * Math.PI / 2 + o, h = Math.PI * 2 / i, c = (i - 2) * Math.PI / i / 2;
-            for(let f = 0; f < i; f++){
-                const d = f * h + u, g = t + s * Math.cos(d), _ = e + s * Math.sin(d), m = d + Math.PI + c, b = d - Math.PI - c, C = g + n * Math.cos(m), A = _ + n * Math.sin(m), D = g + n * Math.cos(b), $ = _ + n * Math.sin(b);
-                f === 0 ? this.moveTo(C, A) : this.lineTo(C, A), this.quadraticCurveTo(g, _, D, $, a);
+            for(let m = 0; m < i; m++){
+                const d = m * h + u, g = t + s * Math.cos(d), _ = e + s * Math.sin(d), p = d + Math.PI + c, b = d - Math.PI - c, C = g + n * Math.cos(p), A = _ + n * Math.sin(p), B = g + n * Math.cos(b), $ = _ + n * Math.sin(b);
+                m === 0 ? this.moveTo(C, A) : this.lineTo(C, A), this.quadraticCurveTo(g, _, B, $, a);
             }
             return this.closePath();
         }
@@ -9378,8 +9378,8 @@ ${i.join(`
         star(t, e, s, i, n, o, a) {
             n || (n = i / 2);
             const l = -1 * Math.PI / 2 + o, u = s * 2, h = Math.PI * 2 / u, c = [];
-            for(let f = 0; f < u; f++){
-                const d = f % 2 ? n : i, g = f * h + l;
+            for(let m = 0; m < u; m++){
+                const d = m % 2 ? n : i, g = m * h + l;
                 c.push(t + d * Math.cos(g), e + d * Math.sin(g));
             }
             return this.poly(c, !0, a), this;
@@ -9402,16 +9402,16 @@ ${i.join(`
         transform(t) {
             if (t.isIdentity()) return this;
             const e = t.a, s = t.b, i = t.c, n = t.d, o = t.tx, a = t.ty;
-            let l = 0, u = 0, h = 0, c = 0, f = 0, d = 0, g = 0, _ = 0;
-            for(let m = 0; m < this.instructions.length; m++){
-                const b = this.instructions[m], C = b.data;
+            let l = 0, u = 0, h = 0, c = 0, m = 0, d = 0, g = 0, _ = 0;
+            for(let p = 0; p < this.instructions.length; p++){
+                const b = this.instructions[p], C = b.data;
                 switch(b.action){
                     case "moveTo":
                     case "lineTo":
                         l = C[0], u = C[1], C[0] = e * l + i * u + o, C[1] = s * l + n * u + a;
                         break;
                     case "bezierCurveTo":
-                        h = C[0], c = C[1], f = C[2], d = C[3], l = C[4], u = C[5], C[0] = e * h + i * c + o, C[1] = s * h + n * c + a, C[2] = e * f + i * d + o, C[3] = s * f + n * d + a, C[4] = e * l + i * u + o, C[5] = s * l + n * u + a;
+                        h = C[0], c = C[1], m = C[2], d = C[3], l = C[4], u = C[5], C[0] = e * h + i * c + o, C[1] = s * h + n * c + a, C[2] = e * m + i * d + o, C[3] = s * m + n * d + a, C[4] = e * l + i * u + o, C[5] = s * l + n * u + a;
                         break;
                     case "quadraticCurveTo":
                         h = C[0], c = C[1], l = C[2], u = C[3], C[0] = e * h + i * c + o, C[1] = s * h + n * c + a, C[2] = e * l + i * u + o, C[3] = s * l + n * u + a;
@@ -9651,28 +9651,28 @@ ${i.join(`
         a && (e = {
             color: 0
         });
-        let l, u, h, c, f, d, g, _, m, b, C, A, D, $, B, M, z;
+        let l, u, h, c, m, d, g, _, p, b, C, A, B, $, D, P, z;
         switch(r.nodeName.toLowerCase()){
             case "path":
-                $ = r.getAttribute("d"), r.getAttribute("fill-rule") === "evenodd" && Dt("SVG Evenodd fill rule not supported, your svg may render incorrectly"), B = new Re($, !0), t.context.path(B), e && t.context.fill(e), s && t.context.stroke(s);
+                $ = r.getAttribute("d"), r.getAttribute("fill-rule") === "evenodd" && Dt("SVG Evenodd fill rule not supported, your svg may render incorrectly"), D = new Re($, !0), t.context.path(D), e && t.context.fill(e), s && t.context.stroke(s);
                 break;
             case "circle":
-                g = ft(r, "cx", 0), _ = ft(r, "cy", 0), m = ft(r, "r", 0), t.context.ellipse(g, _, m, m), e && t.context.fill(e), s && t.context.stroke(s);
+                g = ft(r, "cx", 0), _ = ft(r, "cy", 0), p = ft(r, "r", 0), t.context.ellipse(g, _, p, p), e && t.context.fill(e), s && t.context.stroke(s);
                 break;
             case "rect":
-                l = ft(r, "x", 0), u = ft(r, "y", 0), M = ft(r, "width", 0), z = ft(r, "height", 0), b = ft(r, "rx", 0), C = ft(r, "ry", 0), b || C ? t.context.roundRect(l, u, M, z, b || C) : t.context.rect(l, u, M, z), e && t.context.fill(e), s && t.context.stroke(s);
+                l = ft(r, "x", 0), u = ft(r, "y", 0), P = ft(r, "width", 0), z = ft(r, "height", 0), b = ft(r, "rx", 0), C = ft(r, "ry", 0), b || C ? t.context.roundRect(l, u, P, z, b || C) : t.context.rect(l, u, P, z), e && t.context.fill(e), s && t.context.stroke(s);
                 break;
             case "ellipse":
                 g = ft(r, "cx", 0), _ = ft(r, "cy", 0), b = ft(r, "rx", 0), C = ft(r, "ry", 0), t.context.beginPath(), t.context.ellipse(g, _, b, C), e && t.context.fill(e), s && t.context.stroke(s);
                 break;
             case "line":
-                h = ft(r, "x1", 0), c = ft(r, "y1", 0), f = ft(r, "x2", 0), d = ft(r, "y2", 0), t.context.beginPath(), t.context.moveTo(h, c), t.context.lineTo(f, d), s && t.context.stroke(s);
+                h = ft(r, "x1", 0), c = ft(r, "y1", 0), m = ft(r, "x2", 0), d = ft(r, "y2", 0), t.context.beginPath(), t.context.moveTo(h, c), t.context.lineTo(m, d), s && t.context.stroke(s);
                 break;
             case "polygon":
-                D = r.getAttribute("points"), A = D.match(/\d+/g).map((O)=>parseInt(O, 10)), t.context.poly(A, !0), e && t.context.fill(e), s && t.context.stroke(s);
+                B = r.getAttribute("points"), A = B.match(/\d+/g).map((O)=>parseInt(O, 10)), t.context.poly(A, !0), e && t.context.fill(e), s && t.context.stroke(s);
                 break;
             case "polyline":
-                D = r.getAttribute("points"), A = D.match(/\d+/g).map((O)=>parseInt(O, 10)), t.context.poly(A, !1), s && t.context.stroke(s);
+                B = r.getAttribute("points"), A = B.match(/\d+/g).map((O)=>parseInt(O, 10)), t.context.poly(A, !1), s && t.context.stroke(s);
                 break;
             case "g":
             case "svg":
@@ -9747,9 +9747,9 @@ ${i.join(`
             ...u
         } : null;
     };
-    const yc = new At, Qi = new J, Vr = class Yt extends re {
+    const yc = new At, Qi = new tt, Vr = class Yt extends re {
         constructor(){
-            super(...arguments), this.uid = _t("graphicsContext"), this.dirty = !0, this.batchMode = "auto", this.instructions = [], this._activePath = new Re, this._transform = new J, this._fillStyle = {
+            super(...arguments), this.uid = _t("graphicsContext"), this.dirty = !0, this.batchMode = "auto", this.instructions = [], this._activePath = new Re, this._transform = new tt, this._fillStyle = {
                 ...Yt.defaultFillStyle
             }, this._strokeStyle = {
                 ...Yt.defaultStrokeStyle
@@ -9944,10 +9944,10 @@ ${i.join(`
             return this._transform.scale(t, e), this;
         }
         setTransform(t, e, s, i, n, o) {
-            return t instanceof J ? (this._transform.set(t.a, t.b, t.c, t.d, t.tx, t.ty), this) : (this._transform.set(t, e, s, i, n, o), this);
+            return t instanceof tt ? (this._transform.set(t.a, t.b, t.c, t.d, t.tx, t.ty), this) : (this._transform.set(t, e, s, i, n, o), this);
         }
         transform(t, e, s, i, n, o) {
-            return t instanceof J ? (this._transform.append(t), this) : (Qi.set(t, e, s, i, n, o), this._transform.append(Qi), this);
+            return t instanceof tt ? (this._transform.append(t), this) : (Qi.set(t, e, s, i, n, o), this._transform.append(Qi), this);
         }
         translate(t, e = t) {
             return this._transform.translate(t, e), this;
@@ -9989,7 +9989,7 @@ ${i.join(`
                 for(let h = 0; h < u.length; h++){
                     const c = u[h].shape;
                     if (!l || !c) continue;
-                    const f = u[h].transform, d = f ? f.applyInverse(t, yc) : t;
+                    const m = u[h].transform, d = m ? m.applyInverse(t, yc) : t;
                     if (n.action === "fill") s = c.contains(d.x, d.y);
                     else {
                         const _ = l;
@@ -9998,7 +9998,7 @@ ${i.join(`
                     const g = o.hole;
                     if (g) {
                         const _ = g.shapePath?.shapePrimitives;
-                        if (_) for(let m = 0; m < _.length; m++)_[m].shape.contains(d.x, d.y) && (s = !1);
+                        if (_) for(let p = 0; p < _.length; p++)_[p].shape.contains(d.x, d.y) && (s = !1);
                     }
                     if (s) return !0;
                 }
@@ -10245,32 +10245,32 @@ ${i.join(`
                 if (a.value || !o.value || !l.value) return;
                 a.value = !0;
                 const g = await s.fetchPieceState(t.torrent.hash), _ = new Tr;
-                i.value.filter((A)=>A.priority !== it.DO_NOT_DOWNLOAD).forEach((A)=>_.insert(A.piece_range, A.name));
-                const m = new bs;
+                i.value.filter((A)=>A.priority !== nt.DO_NOT_DOWNLOAD).forEach((A)=>_.insert(A.piece_range, A.name));
+                const p = new bs;
                 let b = "", C = 1;
                 for(let A = 0; A < g.length; ++A){
-                    const D = g[A];
+                    const B = g[A];
                     let $ = "";
-                    if (D === Es.DOWNLOADING ? $ = e.current.value.colors["torrent-downloading"] : D === Es.DOWNLOADED ? $ = e.current.value.colors["torrent-ul_stopped"] : D === Es.MISSING && _.intersect_any([
+                    if (B === Es.DOWNLOADING ? $ = e.current.value.colors["torrent-downloading"] : B === Es.DOWNLOADED ? $ = e.current.value.colors["torrent-ul_stopped"] : B === Es.MISSING && _.intersect_any([
                         A,
                         A
                     ]) && ($ = e.current.value.colors["torrent-dl_stopped"]), $ === b) {
                         ++C;
                         continue;
                     }
-                    b !== "" && (m.rect((A - C) / g.length * o.value.width, 0, C / g.length * o.value.width, o.value.height), m.fill(b)), C = 1, b = $;
+                    b !== "" && (p.rect((A - C) / g.length * o.value.width, 0, C / g.length * o.value.width, o.value.height), p.fill(b)), C = 1, b = $;
                 }
-                b !== "" && (m.rect((g.length - C) / g.length * o.value.width, 0, C / g.length * o.value.width, o.value.height), m.fill(b)), l.value.stage.addChild(m), u.value && u.value.destroy(), u.value = m, a.value = !1;
+                b !== "" && (p.rect((g.length - C) / g.length * o.value.width, 0, C / g.length * o.value.width, o.value.height), p.fill(b)), l.value.stage.addChild(p), u.value && u.value.destroy(), u.value = p, a.value = !1;
             }
             function c() {
                 h().catch(()=>{});
             }
-            const { pause: f, resume: d } = Ss(c, n, {
+            const { pause: m, resume: d } = Ss(c, n, {
                 immediate: !1,
                 immediateCallback: !0
             });
             return Te(()=>t.isActive, (g)=>{
-                g ? d() : f();
+                g ? d() : m();
             }), ts(()=>{
                 if (!o.value) return;
                 const g = new lo;
@@ -10286,7 +10286,7 @@ ${i.join(`
                 }, {
                     children: !0
                 });
-            }), (g, _)=>(N(), j("canvas", {
+            }), (g, _)=>(N(), q("canvas", {
                     ref_key: "canvas",
                     ref: o,
                     width: "4096",
@@ -10343,10 +10343,10 @@ ${i.join(`
             }
         },
         setup (r) {
-            const t = r, { t: e, getTorrentStateString: s } = ee(), i = _e(), { cachedFiles: n } = xt(i), o = Cs(), { properties: a } = xt(se()), l = jt(), u = K(()=>window.isSecureContext), h = K(()=>n.value.filter((S)=>S.priority !== it.DO_NOT_DOWNLOAD)), c = K(()=>h.value.reduce((S, H)=>S + H.size, 0)), f = K(()=>n.value.length), d = K(()=>h.value.length === 1 ? h.value[0].name : ""), g = K(()=>a.value?.comment ?? ""), _ = K(()=>a.value?.dl_speed_avg ?? 0), m = K(()=>a.value?.piece_size ?? 0), b = K(()=>a.value?.pieces_have ?? 0), C = K(()=>a.value?.pieces_num ?? 0), A = K(()=>a.value?.up_speed_avg ?? 0), D = K(()=>qo(t.torrent.state)), $ = K(()=>`${parseInt(Zo(m.value, !0))} ${Ko(m.value, !0)}`), B = K(()=>[
+            const t = r, { t: e, getTorrentStateString: s } = ee(), i = _e(), { cachedFiles: n } = xt(i), o = Cs(), { properties: a } = xt(se()), l = jt(), u = Z(()=>window.isSecureContext), h = Z(()=>n.value.filter((S)=>S.priority !== nt.DO_NOT_DOWNLOAD)), c = Z(()=>h.value.reduce((S, W)=>S + W.size, 0)), m = Z(()=>n.value.length), d = Z(()=>h.value.length === 1 ? h.value[0].name : ""), g = Z(()=>a.value?.comment ?? ""), _ = Z(()=>a.value?.dl_speed_avg ?? 0), p = Z(()=>a.value?.piece_size ?? 0), b = Z(()=>a.value?.pieces_have ?? 0), C = Z(()=>a.value?.pieces_num ?? 0), A = Z(()=>a.value?.up_speed_avg ?? 0), B = Z(()=>qo(t.torrent.state)), $ = Z(()=>`${parseInt(Zo(p.value, !0))} ${Ko(p.value, !0)}`), D = Z(()=>[
                     Yr.META_DOWNLOAD,
                     Yr.FORCED_META_DOWNLOAD
-                ].includes(t.torrent.state)), M = K(()=>l.enableRatioColors ? Qo(t.torrent.ratio) : "");
+                ].includes(t.torrent.state)), P = Z(()=>l.enableRatioColors ? Qo(t.torrent.ratio) : "");
             async function z() {
                 try {
                     await navigator.clipboard.writeText(t.torrent.hash);
@@ -10364,7 +10364,7 @@ ${i.join(`
                     mode: S
                 });
             }
-            function R() {
+            function I() {
                 o.createDialog(xa, {
                     hash: t.torrent.hash,
                     isFolder: !1,
@@ -10375,7 +10375,7 @@ ${i.join(`
                 if (o.hasActiveDialog || !t.isActive) return !1;
                 if (S.key === "d") return S.preventDefault(), O("dl"), !0;
                 if (S.key === "s") return S.preventDefault(), O("save"), !0;
-                if (S.key === "f" && h.value.length === 1) return S.preventDefault(), R(), !0;
+                if (S.key === "f" && h.value.length === 1) return S.preventDefault(), I(), !0;
                 if (S.key === "Delete") return S.preventDefault(), o.createDialog(ra, {
                     hashes: [
                         t.torrent.hash
@@ -10386,7 +10386,7 @@ ${i.join(`
                 document.addEventListener("keydown", G);
             }), Fo(async ()=>{
                 document.removeEventListener("keydown", G);
-            }), (S, H)=>S.torrent ? (N(), q(Xt, {
+            }), (S, W)=>S.torrent ? (N(), K(Xt, {
                     key: 0
                 }, {
                     default: v(()=>[
@@ -10400,18 +10400,18 @@ ${i.join(`
                             }),
                             y(ea, null, {
                                 default: v(()=>[
-                                        W("div", null, [
-                                            (N(!0), j(kt, null, Gt(E(ta)(g.value), (Y)=>(N(), j("span", null, [
-                                                    E(Jo)(Y) ? (N(), j("a", {
+                                        Y("div", null, [
+                                            (N(!0), q(kt, null, Gt(R(ta)(g.value), (U)=>(N(), q("span", null, [
+                                                    R(Jo)(U) ? (N(), q("a", {
                                                         key: 0,
                                                         target: "_blank",
-                                                        href: Y
-                                                    }, V(Y), 9, vc)) : (N(), j("span", wc, V(Y), 1))
+                                                        href: U
+                                                    }, V(U), 9, vc)) : (N(), q("span", wc, V(U), 1))
                                                 ]))), 256))
                                         ]),
-                                        W("div", Cc, [
-                                            W("span", Sc, V(S.torrent.hash), 1),
-                                            u.value ? (N(), q(nt, {
+                                        Y("div", Cc, [
+                                            Y("span", Sc, V(S.torrent.hash), 1),
+                                            u.value ? (N(), K(ot, {
                                                 key: 0,
                                                 variant: "outlined",
                                                 rounded: "",
@@ -10430,30 +10430,30 @@ ${i.join(`
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    y(rt, {
+                                                    y(it, {
                                                         cols: "12",
                                                         md: "6"
                                                     }, {
                                                         default: v(()=>[
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "4"
                                                                             }, {
                                                                                 default: v(()=>[
                                                                                         y(sa, {
-                                                                                            color: D.value,
-                                                                                            indeterminate: B.value,
+                                                                                            color: B.value,
+                                                                                            indeterminate: D.value,
                                                                                             size: 100,
                                                                                             "model-value": S.torrent?.progress * 100 || 0,
                                                                                             width: 15
                                                                                         }, {
                                                                                             default: v(()=>[
-                                                                                                    B.value ? (N(), j("span", Ac, V(S.$t("torrentDetail.overview.fetchingMetadata")), 1)) : S.torrent.progress === 1 ? (N(), q(St, {
+                                                                                                    D.value ? (N(), q("span", Ac, V(S.$t("torrentDetail.overview.fetchingMetadata")), 1)) : S.torrent.progress === 1 ? (N(), K(St, {
                                                                                                         key: 1,
                                                                                                         icon: "mdi-check",
                                                                                                         size: "x-large"
-                                                                                                    })) : (N(), j("span", Tc, V(E(or)(S.torrent.progress)), 1))
+                                                                                                    })) : (N(), q("span", Tc, V(R(or)(S.torrent.progress)), 1))
                                                                                                 ]),
                                                                                             _: 1
                                                                                         }, 8, [
@@ -10464,14 +10464,14 @@ ${i.join(`
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "8",
                                                                                 class: "d-flex flex-column align-center justify-center"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        B.value ? (N(), j("div", kc, [
-                                                                                            W("span", null, V(S.$t("torrentDetail.overview.waitingForMetadata")), 1)
-                                                                                        ])) : (N(), j("div", Pc, [
+                                                                                        D.value ? (N(), q("div", kc, [
+                                                                                            Y("span", null, V(S.$t("torrentDetail.overview.waitingForMetadata")), 1)
+                                                                                        ])) : (N(), q("div", Pc, [
                                                                                             y(bc, {
                                                                                                 torrent: S.torrent,
                                                                                                 isActive: S.isActive
@@ -10480,22 +10480,22 @@ ${i.join(`
                                                                                                 "isActive"
                                                                                             ])
                                                                                         ])),
-                                                                                        C.value > 0 ? (N(), j("div", Mc, [
-                                                                                            W("span", null, V(E(e)("torrentDetail.overview.pieceCount", {
+                                                                                        C.value > 0 ? (N(), q("div", Mc, [
+                                                                                            Y("span", null, V(R(e)("torrentDetail.overview.pieceCount", {
                                                                                                 owned: b.value,
                                                                                                 total: C.value,
                                                                                                 pieceSize: $.value
                                                                                             })), 1)
                                                                                         ])) : Et("", !0),
-                                                                                        W("div", null, [
+                                                                                        Y("div", null, [
                                                                                             y(St, {
                                                                                                 icon: "mdi-arrow-down"
                                                                                             }),
-                                                                                            X(" " + V(E(fe)(S.torrent.dlspeed, E(l).useBitSpeed)) + " ", 1),
+                                                                                            X(" " + V(R(fe)(S.torrent.dlspeed, R(l).useBitSpeed)) + " ", 1),
                                                                                             y(St, {
                                                                                                 icon: "mdi-arrow-up"
                                                                                             }),
-                                                                                            X(" " + V(E(fe)(S.torrent.upspeed, E(l).useBitSpeed)), 1)
+                                                                                            X(" " + V(R(fe)(S.torrent.upspeed, R(l).useBitSpeed)), 1)
                                                                                         ])
                                                                                     ]),
                                                                                 _: 1
@@ -10505,34 +10505,34 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.download_path")) + ":", 1),
-                                                                                        W("div", null, V(S.torrent.download_path), 1),
-                                                                                        y(nt, {
+                                                                                        Y("div", null, V(S.$t("torrent.properties.download_path")) + ":", 1),
+                                                                                        Y("div", null, V(S.torrent.download_path), 1),
+                                                                                        y(ot, {
                                                                                             icon: "mdi-pencil",
                                                                                             color: "accent",
                                                                                             size: "x-small",
-                                                                                            onClick: H[0] || (H[0] = (Y)=>O("dl"))
+                                                                                            onClick: W[0] || (W[0] = (U)=>O("dl"))
                                                                                         })
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.fileCount")) + ":", 1),
-                                                                                        W("div", null, V(h.value.length) + " / " + V(f.value), 1),
-                                                                                        h.value.length === 1 ? (N(), j("div", Ic, V(d.value), 1)) : Et("", !0),
-                                                                                        h.value.length === 1 ? (N(), q(nt, {
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.fileCount")) + ":", 1),
+                                                                                        Y("div", null, V(h.value.length) + " / " + V(m.value), 1),
+                                                                                        h.value.length === 1 ? (N(), q("div", Ic, V(d.value), 1)) : Et("", !0),
+                                                                                        h.value.length === 1 ? (N(), K(ot, {
                                                                                             key: 1,
                                                                                             icon: "mdi-pencil",
                                                                                             color: "accent",
                                                                                             size: "x-small",
-                                                                                            onClick: R
+                                                                                            onClick: I
                                                                                         })) : Et("", !0)
                                                                                     ]),
                                                                                 _: 1
@@ -10542,27 +10542,27 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.save_path")) + ":", 1),
-                                                                                        W("div", null, V(S.torrent.savePath), 1),
-                                                                                        y(nt, {
+                                                                                        Y("div", null, V(S.$t("torrent.properties.save_path")) + ":", 1),
+                                                                                        Y("div", null, V(S.torrent.savePath), 1),
+                                                                                        y(ot, {
                                                                                             icon: "mdi-pencil",
                                                                                             color: "accent",
                                                                                             size: "x-small",
-                                                                                            onClick: H[1] || (H[1] = (Y)=>O("save"))
+                                                                                            onClick: W[1] || (W[1] = (U)=>O("save"))
                                                                                         })
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.content_path")) + ":", 1),
-                                                                                        W("div", null, V(S.torrent.content_path), 1)
+                                                                                        Y("div", null, V(S.$t("torrent.properties.content_path")) + ":", 1),
+                                                                                        Y("div", null, V(S.torrent.content_path), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             })
@@ -10572,22 +10572,22 @@ ${i.join(`
                                                             ]),
                                                         _: 1
                                                     }),
-                                                    y(rt, {
+                                                    y(it, {
                                                         cols: "12",
                                                         md: "6"
                                                     }, {
                                                         default: v(()=>[
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.state")) + ":", 1),
+                                                                                        Y("div", null, V(S.$t("torrent.properties.state")) + ":", 1),
                                                                                         y(we, {
                                                                                             disabled: !0,
-                                                                                            "default-color": D.value,
-                                                                                            value: E(s)(S.torrent.state)
+                                                                                            "default-color": B.value,
+                                                                                            value: R(s)(S.torrent.state)
                                                                                         }, null, 8, [
                                                                                             "default-color",
                                                                                             "value"
@@ -10595,11 +10595,11 @@ ${i.join(`
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.category")) + ":", 1),
+                                                                                        Y("div", null, V(S.$t("torrent.properties.category")) + ":", 1),
                                                                                         y(we, {
                                                                                             "default-color": "category",
                                                                                             disabled: !S.torrent.category.length,
@@ -10618,11 +10618,11 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.tracker")) + ":", 1),
+                                                                                        Y("div", null, V(S.$t("torrent.properties.tracker")) + ":", 1),
                                                                                         y(we, {
                                                                                             disabled: !S.torrent.trackerDomain.length,
                                                                                             "default-color": "tracker",
@@ -10636,19 +10636,19 @@ ${i.join(`
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrent.properties.tags")) + ":", 1),
-                                                                                        S.torrent.tags.length ? (N(), j("div", Rc, [
-                                                                                            (N(!0), j(kt, null, Gt(S.torrent.tags, (Y)=>(N(), q(we, {
+                                                                                        Y("div", null, V(S.$t("torrent.properties.tags")) + ":", 1),
+                                                                                        S.torrent.tags.length ? (N(), q("div", Rc, [
+                                                                                            (N(!0), q(kt, null, Gt(S.torrent.tags, (U)=>(N(), K(we, {
                                                                                                     "default-color": "tag",
-                                                                                                    value: Y
+                                                                                                    value: U
                                                                                                 }, null, 8, [
                                                                                                     "value"
                                                                                                 ]))), 256))
-                                                                                        ])) : (N(), q(we, {
+                                                                                        ])) : (N(), K(we, {
                                                                                             key: 1,
                                                                                             disabled: !0,
                                                                                             "default-color": "tag",
@@ -10664,22 +10664,22 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.selectedFileSize")) + ":", 1),
-                                                                                        W("div", null, V(E(Ot)(c.value, E(l).useBinarySize)) + " / " + V(E(Ot)(S.torrent.total_size, E(l).useBinarySize)), 1)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.selectedFileSize")) + ":", 1),
+                                                                                        Y("div", null, V(R(Ot)(c.value, R(l).useBinarySize)) + " / " + V(R(Ot)(S.torrent.total_size, R(l).useBinarySize)), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.ratio")) + ":", 1),
-                                                                                        W("div", {
-                                                                                            class: gs(M.value)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.ratio")) + ":", 1),
+                                                                                        Y("div", {
+                                                                                            class: gs(P.value)
                                                                                         }, V(S.torrent.ratio), 3)
                                                                                     ]),
                                                                                 _: 1
@@ -10689,21 +10689,21 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.downloaded")) + ":", 1),
-                                                                                        W("div", null, V(E(Ot)(S.torrent.downloaded, E(l).useBinarySize)), 1)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.downloaded")) + ":", 1),
+                                                                                        Y("div", null, V(R(Ot)(S.torrent.downloaded, R(l).useBinarySize)), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.uploaded")) + ":", 1),
-                                                                                        W("div", null, V(E(Ot)(S.torrent.uploaded, E(l).useBinarySize)), 1)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.uploaded")) + ":", 1),
+                                                                                        Y("div", null, V(R(Ot)(S.torrent.uploaded, R(l).useBinarySize)), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             })
@@ -10712,21 +10712,21 @@ ${i.join(`
                                                                 }),
                                                                 y(pt, null, {
                                                                     default: v(()=>[
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.dlSpeedAverage")) + ":", 1),
-                                                                                        W("div", null, V(E(fe)(_.value, E(l).useBitSpeed)), 1)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.dlSpeedAverage")) + ":", 1),
+                                                                                        Y("div", null, V(R(fe)(_.value, R(l).useBitSpeed)), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            y(rt, {
+                                                                            y(it, {
                                                                                 cols: "6"
                                                                             }, {
                                                                                 default: v(()=>[
-                                                                                        W("div", null, V(S.$t("torrentDetail.overview.upSpeedAverage")) + ":", 1),
-                                                                                        W("div", null, V(E(fe)(A.value, E(l).useBitSpeed)), 1)
+                                                                                        Y("div", null, V(S.$t("torrentDetail.overview.upSpeedAverage")) + ":", 1),
+                                                                                        Y("div", null, V(R(fe)(A.value, R(l).useBitSpeed)), 1)
                                                                                     ]),
                                                                                 _: 1
                                                                             })
@@ -10805,13 +10805,13 @@ ${i.join(`
         },
         setup (r) {
             const t = r, { t: e } = ee(), s = ia(), i = na(), n = jt();
-            function o(R, G) {
-                const S = R.ip.split(".").map(Number), H = G.ip.split(".").map(Number);
-                for(let Y = 0; Y < 4; Y++)if (S[Y] !== H[Y]) return S[Y] - H[Y];
-                return R.port - G.port;
+            function o(I, G) {
+                const S = I.ip.split(".").map(Number), W = G.ip.split(".").map(Number);
+                for(let U = 0; U < 4; U++)if (S[U] !== W[U]) return S[U] - W[U];
+                return I.port - G.port;
             }
-            function a(R, G) {
-                return R.country && !G.country ? -1 : !R.country && G.country ? 1 : R.country === G.country ? o(R, G) : R.country.localeCompare(G.country);
+            function a(I, G) {
+                return I.country && !G.country ? -1 : !I.country && G.country ? 1 : I.country === G.country ? o(I, G) : I.country.localeCompare(G.country);
             }
             const l = Go([
                 {
@@ -10875,52 +10875,52 @@ ${i.join(`
                     key: "up_speed",
                     order: "desc"
                 }
-            ]), h = mt(), c = mt(new Map), f = mt(!1), d = mt(""), g = mt(!1), _ = mt(""), m = K(()=>Array.from(c.value.entries()).map(([R, G])=>({
+            ]), h = mt(), c = mt(new Map), m = mt(!1), d = mt(""), g = mt(!1), _ = mt(""), p = Z(()=>Array.from(c.value.entries()).map(([I, G])=>({
                         ...G,
-                        host: R
+                        host: I
                     })));
-            function b(R) {
-                Object.entries(R).forEach(([G, S])=>{
-                    const H = c.value.get(G);
+            function b(I) {
+                Object.entries(I).forEach(([G, S])=>{
+                    const W = c.value.get(G);
                     c.value.set(G, {
-                        ...H,
+                        ...W,
                         ...S
                     });
                 });
             }
-            function C(R) {
-                R.forEach((G)=>c.value.delete(G));
+            function C(I) {
+                I.forEach((G)=>c.value.delete(G));
             }
             async function A() {
-                const R = await s.syncTorrentPeers(t.torrent.hash, h.value);
-                h.value = R.rid, f.value = R.show_flags ?? f.value, R.full_update ? c.value = new Map(Object.entries(R.peers)) : (R.peers_removed && C(R.peers_removed), R.peers && b(R.peers));
+                const I = await s.syncTorrentPeers(t.torrent.hash, h.value);
+                h.value = I.rid, m.value = I.show_flags ?? m.value, I.full_update ? c.value = new Map(Object.entries(I.peers)) : (I.peers_removed && C(I.peers_removed), I.peers && b(I.peers));
             }
-            async function D() {
+            async function B() {
                 _.value.length && (await s.addTorrentPeers(t.torrent.hash, _.value.split(`
 `)), O(), $());
             }
             function $() {
                 g.value = !1, _.value = "";
             }
-            async function B(R) {
+            async function D(I) {
                 await s.banPeers([
-                    R.host
+                    I.host
                 ]), await i.fetchPreferences(), O();
             }
-            const { isActive: M, pause: z, resume: O } = Ss(A, 2e3, {
+            const { isActive: P, pause: z, resume: O } = Ss(A, 2e3, {
                 immediate: !0,
                 immediateCallback: !0
             });
-            return Te(()=>t.isActive, (R)=>{
-                R ? O() : z();
-            }), nn(()=>!g.value), (R, G)=>(N(), q(Xt, null, {
+            return Te(()=>t.isActive, (I)=>{
+                I ? O() : z();
+            }), nn(()=>!g.value), (I, G)=>(N(), K(Xt, null, {
                     default: v(()=>[
-                            c.value.size ? (N(), q(cn, {
+                            c.value.size ? (N(), K(cn, {
                                 key: 1,
-                                headers: E(l),
-                                items: m.value,
+                                headers: R(l),
+                                items: p.value,
                                 "multi-sort": "",
-                                "sort-by": E(u),
+                                "sort-by": R(u),
                                 search: d.value,
                                 "filter-keys": [
                                     "host",
@@ -10930,12 +10930,12 @@ ${i.join(`
                                 mobile: null
                             }, {
                                 top: v(()=>[
-                                        W("div", Dc, [
+                                        Y("div", Dc, [
                                             y(Qt, {
                                                 modelValue: d.value,
                                                 "onUpdate:modelValue": G[0] || (G[0] = (S)=>d.value = S),
                                                 density: "compact",
-                                                label: R.$t("common.search"),
+                                                label: I.$t("common.search"),
                                                 "prepend-inner-icon": "mdi-magnify",
                                                 flat: "",
                                                 "hide-details": "",
@@ -10946,14 +10946,14 @@ ${i.join(`
                                                 "label"
                                             ]),
                                             y(_s, {
-                                                text: E(M) ? R.$t("common.pause") : R.$t("common.resume"),
+                                                text: R(P) ? I.$t("common.pause") : I.$t("common.resume"),
                                                 location: "bottom"
                                             }, {
                                                 activator: v(({ props: S })=>[
-                                                        y(nt, ke(S, {
-                                                            icon: E(M) ? "mdi-timer-pause" : "mdi-timer-play",
+                                                        y(ot, ke(S, {
+                                                            icon: R(P) ? "mdi-timer-pause" : "mdi-timer-play",
                                                             color: "primary",
-                                                            onClick: G[1] || (G[1] = (H)=>E(M) ? E(z)() : E(O)())
+                                                            onClick: G[1] || (G[1] = (W)=>R(P) ? R(z)() : R(O)())
                                                         }), null, 16, [
                                                             "icon"
                                                         ])
@@ -10966,57 +10966,57 @@ ${i.join(`
                                     ]),
                                 "item.host": v(({ item: S })=>[
                                         X(V(S.ip), 1),
-                                        W("span", Bc, ":" + V(S.port), 1)
+                                        Y("span", Bc, ":" + V(S.port), 1)
                                     ]),
                                 "item.client": v(({ item: S })=>[
-                                        S.connection ? (N(), j("span", Fc, "[" + V(S.connection) + "] ", 1)) : Et("", !0),
-                                        S.client ? (N(), j("span", Gc, [
+                                        S.connection ? (N(), q("span", Fc, "[" + V(S.connection) + "] ", 1)) : Et("", !0),
+                                        S.client ? (N(), q("span", Gc, [
                                             X(V(S.client) + " ", 1),
-                                            S.peer_id_client ? (N(), j("span", Vc, "(" + V(S.peer_id_client) + ")", 1)) : Et("", !0)
-                                        ])) : (N(), j("span", $c, "?????"))
+                                            S.peer_id_client ? (N(), q("span", Vc, "(" + V(S.peer_id_client) + ")", 1)) : Et("", !0)
+                                        ])) : (N(), q("span", $c, "?????"))
                                     ]),
                                 "item.actions": v(({ item: S })=>[
-                                        y(nt, {
+                                        y(ot, {
                                             color: "red",
                                             icon: "mdi-cancel",
                                             variant: "text",
-                                            onClick: (H)=>B(S)
+                                            onClick: (W)=>D(S)
                                         }, null, 8, [
                                             "onClick"
                                         ])
                                     ]),
                                 "item.country": v(({ item: S })=>[
-                                        f.value ? (N(), j("div", {
+                                        m.value ? (N(), q("div", {
                                             key: 0,
                                             class: "cursor-help",
                                             title: S.country
                                         }, [
-                                            S.country_code ? E(oa) ? (N(), j("img", {
+                                            S.country_code ? R(oa) ? (N(), q("img", {
                                                 key: 1,
-                                                alt: E(Ds)(S.country_code).char,
-                                                src: E(Ds)(S.country_code).url,
+                                                alt: R(Ds)(S.country_code).char,
+                                                src: R(Ds)(S.country_code).url,
                                                 title: S.country,
                                                 style: {
                                                     "max-width": "32px"
                                                 }
-                                            }, null, 8, zc)) : (N(), j("span", {
+                                            }, null, 8, zc)) : (N(), q("span", {
                                                 key: 2,
                                                 title: S.country
-                                            }, V(E(Ds)(S.country_code).char), 9, Lc)) : (N(), j("span", Oc))
+                                            }, V(R(Ds)(S.country_code).char), 9, Lc)) : (N(), q("span", Oc))
                                         ], 8, Nc)) : Et("", !0)
                                     ]),
                                 "item.flags": v(({ item: S })=>[
-                                        S.flags ? (N(), j("div", {
+                                        S.flags ? (N(), q("div", {
                                             key: 0,
                                             class: "cursor-help",
                                             title: S.flags_desc
-                                        }, V(S.flags), 9, Uc)) : (N(), j("div", Hc, V(R.$t("common.none")), 1))
+                                        }, V(S.flags), 9, Uc)) : (N(), q("div", Hc, V(I.$t("common.none")), 1))
                                     ]),
                                 "item.dl_speed": v(({ item: S })=>[
-                                        W("span", Yc, V(E(fe)(S.dl_speed, E(n).useBitSpeed)) + " (" + V(E(Ot)(S.downloaded, E(n).useBinarySize)) + ") ", 1)
+                                        Y("span", Yc, V(R(fe)(S.dl_speed, R(n).useBitSpeed)) + " (" + V(R(Ot)(S.downloaded, R(n).useBinarySize)) + ") ", 1)
                                     ]),
                                 "item.up_speed": v(({ item: S })=>[
-                                        W("span", Wc, V(E(fe)(S.up_speed, E(n).useBitSpeed)) + " (" + V(E(Ot)(S.uploaded, E(n).useBinarySize)) + ") ", 1)
+                                        Y("span", Wc, V(R(fe)(S.up_speed, R(n).useBitSpeed)) + " (" + V(R(Ot)(S.uploaded, R(n).useBinarySize)) + ") ", 1)
                                     ]),
                                 "item.progress": v(({ item: S })=>[
                                         y(un, {
@@ -11030,7 +11030,7 @@ ${i.join(`
                                             color: S.progress === 1 ? "torrent-ul_stalled" : "torrent-downloading"
                                         }, {
                                             default: v(()=>[
-                                                    X(V(E(or)(S.progress)), 1)
+                                                    X(V(R(or)(S.progress)), 1)
                                                 ]),
                                             _: 2
                                         }, 1032, [
@@ -11039,7 +11039,7 @@ ${i.join(`
                                         ])
                                     ]),
                                 "item.relevance": v(({ item: S })=>[
-                                        X(V(E(or)(S.relevance)), 1)
+                                        X(V(R(or)(S.relevance)), 1)
                                     ]),
                                 _: 2
                             }, 1032, [
@@ -11047,24 +11047,24 @@ ${i.join(`
                                 "items",
                                 "sort-by",
                                 "search"
-                            ])) : (N(), q(ar, {
+                            ])) : (N(), K(ar, {
                                 key: 0,
-                                title: R.$t("torrentDetail.peers.empty"),
+                                title: I.$t("torrentDetail.peers.empty"),
                                 icon: "mdi-account-sync",
                                 color: "accent"
                             }, null, 8, [
                                 "title"
                             ])),
-                            W("div", Xc, [
+                            Y("div", Xc, [
                                 y(je, {
                                     modelValue: g.value,
                                     "onUpdate:modelValue": G[3] || (G[3] = (S)=>g.value = S),
                                     "max-width": "750px"
                                 }, {
                                     activator: v(({ props: S })=>[
-                                            y(nt, ke(S, {
+                                            y(ot, ke(S, {
                                                 variant: "flat",
-                                                text: E(e)("torrentDetail.peers.addPeers.title"),
+                                                text: R(e)("torrentDetail.peers.addPeers.title"),
                                                 color: "accent"
                                             }), null, 16, [
                                                 "text"
@@ -11072,7 +11072,7 @@ ${i.join(`
                                         ]),
                                     default: v(()=>[
                                             y(Xt, {
-                                                title: R.$t("torrentDetail.peers.addPeers.title")
+                                                title: I.$t("torrentDetail.peers.addPeers.title")
                                             }, {
                                                 default: v(()=>[
                                                         y(pe, null, {
@@ -11080,9 +11080,9 @@ ${i.join(`
                                                                     y(dn, {
                                                                         modelValue: _.value,
                                                                         "onUpdate:modelValue": G[2] || (G[2] = (S)=>_.value = S),
-                                                                        label: E(e)("torrentDetail.peers.addPeers.newPeers"),
-                                                                        placeholder: E(e)("torrentDetail.peers.addPeers.newPeersPlaceholder"),
-                                                                        hint: E(e)("torrentDetail.peers.addPeers.newPeersHint")
+                                                                        label: R(e)("torrentDetail.peers.addPeers.newPeers"),
+                                                                        placeholder: R(e)("torrentDetail.peers.addPeers.newPeersPlaceholder"),
+                                                                        hint: R(e)("torrentDetail.peers.addPeers.newPeersHint")
                                                                     }, null, 8, [
                                                                         "modelValue",
                                                                         "label",
@@ -11095,21 +11095,21 @@ ${i.join(`
                                                         y(Xe, null, {
                                                             default: v(()=>[
                                                                     y(Me),
-                                                                    y(nt, {
+                                                                    y(ot, {
                                                                         color: "error",
                                                                         onClick: $
                                                                     }, {
                                                                         default: v(()=>[
-                                                                                X(V(E(e)("common.cancel")), 1)
+                                                                                X(V(R(e)("common.cancel")), 1)
                                                                             ]),
                                                                         _: 1
                                                                     }),
-                                                                    y(nt, {
+                                                                    y(ot, {
                                                                         color: "accent",
-                                                                        onClick: D
+                                                                        onClick: B
                                                                     }, {
                                                                         default: v(()=>[
-                                                                                X(V(E(e)("common.ok")), 1)
+                                                                                X(V(R(e)("common.ok")), 1)
                                                                             ]),
                                                                         _: 1
                                                                     })
@@ -11160,13 +11160,13 @@ ${i.join(`
                     a
                 ]);
             }
-            return (a, l)=>(N(), q(Xt, null, {
+            return (a, l)=>(N(), K(Xt, null, {
                     default: v(()=>[
                             y(pe, null, {
                                 default: v(()=>[
                                         y(pt, null, {
                                             default: v(()=>[
-                                                    y(rt, {
+                                                    y(it, {
                                                         cols: "12",
                                                         md: "6"
                                                     }, {
@@ -11179,7 +11179,7 @@ ${i.join(`
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            (N(!0), j(kt, null, Gt(E(s).tags, (u)=>(N(), q(qe, {
+                                                                            (N(!0), q(kt, null, Gt(R(s).tags, (u)=>(N(), K(qe, {
                                                                                     variant: "text",
                                                                                     color: "accent",
                                                                                     title: u,
@@ -11196,7 +11196,7 @@ ${i.join(`
                                                             ]),
                                                         _: 1
                                                     }),
-                                                    y(rt, {
+                                                    y(it, {
                                                         cols: "12",
                                                         md: "6"
                                                     }, {
@@ -11209,7 +11209,7 @@ ${i.join(`
                                                                                     ]),
                                                                                 _: 1
                                                                             }),
-                                                                            (N(!0), j(kt, null, Gt(E(e).categories, (u)=>(N(), q(qe, {
+                                                                            (N(!0), q(kt, null, Gt(R(e).categories, (u)=>(N(), K(qe, {
                                                                                     variant: "text",
                                                                                     color: "accent",
                                                                                     title: u.name,
@@ -11320,8 +11320,8 @@ ${i.join(`
                     order: "asc"
                 }
             ]), a = mt("");
-            function l(Y) {
-                switch(Y){
+            function l(U) {
+                switch(U){
                     case le.DISABLED:
                         return e("constants.trackerStatus.disabled");
                     case le.NOT_YET_CONTACTED:
@@ -11336,16 +11336,16 @@ ${i.join(`
                         return "";
                 }
             }
-            const u = mt(!1), h = mt(!1), c = mt([]), f = mt(""), d = mt(!1), g = [
-                (Y)=>!!Y || e("torrentDetail.trackers.editTracker.newUrlRequired")
+            const u = mt(!1), h = mt(!1), c = mt([]), m = mt(""), d = mt(!1), g = [
+                (U)=>!!U || e("torrentDetail.trackers.editTracker.newUrlRequired")
             ], _ = vs({
                 isVisible: !1,
                 isFormValid: !1,
                 oldUrl: "",
                 newUrl: ""
             });
-            function m(Y) {
-                _.isVisible = !0, _.oldUrl = Y.url, _.newUrl = Y.url, He(()=>{
+            function p(U) {
+                _.isVisible = !0, _.oldUrl = U.url, _.newUrl = U.url, He(()=>{
                     document.getElementById("input")?.select();
                 });
             }
@@ -11363,63 +11363,63 @@ ${i.join(`
                 yield b();
             }).drop();
             async function A() {
-                f.value.length && (await i.addTorrentTrackers(t.torrent.hash, f.value), H(), D());
+                m.value.length && (await i.addTorrentTrackers(t.torrent.hash, m.value), W(), B());
             }
-            function D() {
-                d.value = !1, f.value = "";
+            function B() {
+                d.value = !1, m.value = "";
             }
             async function $() {
-                _.isFormValid && (await i.editTorrentTracker(t.torrent.hash, _.oldUrl, _.newUrl), _.isVisible = !1, H());
+                _.isFormValid && (await i.editTorrentTracker(t.torrent.hash, _.oldUrl, _.newUrl), _.isVisible = !1, W());
             }
-            async function B(Y) {
+            async function D(U) {
                 await i.removeTorrentTrackers(t.torrent.hash, [
-                    Y.url
-                ]), H();
+                    U.url
+                ]), W();
             }
-            async function M() {
+            async function P() {
                 await s.reannounceTorrents([
                     t.torrent.hash
                 ]);
             }
-            const z = mt(!1), { isActive: O, resume: R, pause: G } = Ss(C.perform, 5e3, {
+            const z = mt(!1), { isActive: O, resume: I, pause: G } = Ss(C.perform, 5e3, {
                 immediate: !0,
                 immediateCallback: !0
             });
             function S() {
                 z.value = !0, G();
             }
-            function H() {
-                z.value = !1, R();
+            function W() {
+                z.value = !1, I();
             }
-            return Te(()=>t.isActive, (Y)=>{
-                Y && !z.value ? H() : S();
+            return Te(()=>t.isActive, (U)=>{
+                U && !z.value ? W() : S();
             }), ts(()=>{
-                t.isActive && H();
+                t.isActive && W();
             }), ws(()=>{
                 S();
-            }), nn(()=>!d.value && !_.isVisible), (Y, et)=>(N(), j(kt, null, [
+            }), nn(()=>!d.value && !_.isVisible), (U, et)=>(N(), q(kt, null, [
                     y(Xt, null, {
                         default: v(()=>[
-                                !c.value.length && u.value ? (N(), q(ar, {
+                                !c.value.length && u.value ? (N(), K(ar, {
                                     key: 0,
-                                    title: Y.$t("torrentDetail.trackers.loading"),
+                                    title: U.$t("torrentDetail.trackers.loading"),
                                     icon: "mdi-web-sync",
                                     color: "accent"
                                 }, null, 8, [
                                     "title"
-                                ])) : !c.value.length && h.value ? (N(), q(ar, {
+                                ])) : !c.value.length && h.value ? (N(), K(ar, {
                                     key: 1,
-                                    title: Y.$t("torrentDetail.trackers.error"),
+                                    title: U.$t("torrentDetail.trackers.error"),
                                     icon: "mdi-web-remove",
                                     color: "error"
                                 }, null, 8, [
                                     "title"
-                                ])) : (N(), q(cn, {
+                                ])) : (N(), K(cn, {
                                     key: 2,
                                     headers: n,
                                     items: c.value,
                                     "multi-sort": "",
-                                    "sort-by": E(o),
+                                    "sort-by": R(o),
                                     search: a.value,
                                     "filter-keys": [
                                         "url",
@@ -11428,12 +11428,12 @@ ${i.join(`
                                     mobile: null
                                 }, {
                                     top: v(()=>[
-                                            W("div", Kc, [
+                                            Y("div", Kc, [
                                                 y(Qt, {
                                                     modelValue: a.value,
-                                                    "onUpdate:modelValue": et[0] || (et[0] = (p)=>a.value = p),
+                                                    "onUpdate:modelValue": et[0] || (et[0] = (f)=>a.value = f),
                                                     density: "compact",
-                                                    label: Y.$t("common.search"),
+                                                    label: U.$t("common.search"),
                                                     "prepend-inner-icon": "mdi-magnify",
                                                     flat: "",
                                                     "hide-details": "",
@@ -11444,14 +11444,14 @@ ${i.join(`
                                                     "label"
                                                 ]),
                                                 y(_s, {
-                                                    text: E(O) ? Y.$t("common.pause") : Y.$t("common.resume"),
+                                                    text: R(O) ? U.$t("common.pause") : U.$t("common.resume"),
                                                     location: "bottom"
                                                 }, {
-                                                    activator: v(({ props: p })=>[
-                                                            y(nt, ke(p, {
-                                                                icon: E(O) ? "mdi-timer-pause" : "mdi-timer-play",
+                                                    activator: v(({ props: f })=>[
+                                                            y(ot, ke(f, {
+                                                                icon: R(O) ? "mdi-timer-pause" : "mdi-timer-play",
                                                                 color: "primary",
-                                                                onClick: et[1] || (et[1] = (x)=>E(O) ? S() : H())
+                                                                onClick: et[1] || (et[1] = (x)=>R(O) ? S() : W())
                                                             }), null, 16, [
                                                                 "icon"
                                                             ])
@@ -11462,33 +11462,33 @@ ${i.join(`
                                                 ])
                                             ])
                                         ]),
-                                    "item.tier": v(({ value: p })=>[
-                                            p >= 0 ? (N(), j("span", Zc, V(p), 1)) : Et("", !0)
+                                    "item.tier": v(({ value: f })=>[
+                                            f >= 0 ? (N(), q("span", Zc, V(f), 1)) : Et("", !0)
                                         ]),
-                                    "item.status": v(({ value: p })=>[
-                                            W("span", {
-                                                class: gs(`tracker-${E(le)[p].toLowerCase()}`)
-                                            }, V(l(p)), 3)
+                                    "item.status": v(({ value: f })=>[
+                                            Y("span", {
+                                                class: gs(`tracker-${R(le)[f].toLowerCase()}`)
+                                            }, V(l(f)), 3)
                                         ]),
-                                    "item.msg": v(({ value: p })=>[
-                                            p ? (N(), j("span", Jc, V(p), 1)) : (N(), j("span", Qc, V(Y.$t("common.NA")), 1))
+                                    "item.msg": v(({ value: f })=>[
+                                            f ? (N(), q("span", Jc, V(f), 1)) : (N(), q("span", Qc, V(U.$t("common.NA")), 1))
                                         ]),
-                                    "item.actions": v(({ item: p })=>[
-                                            p.tier !== -1 ? (N(), j(kt, {
+                                    "item.actions": v(({ item: f })=>[
+                                            f.tier !== -1 ? (N(), q(kt, {
                                                 key: 0
                                             }, [
-                                                y(nt, {
+                                                y(ot, {
                                                     icon: "mdi-pencil",
                                                     variant: "text",
-                                                    onClick: (x)=>m(p)
+                                                    onClick: (x)=>p(f)
                                                 }, null, 8, [
                                                     "onClick"
                                                 ]),
-                                                y(nt, {
+                                                y(ot, {
                                                     color: "red",
                                                     icon: "mdi-delete",
                                                     variant: "text",
-                                                    onClick: (x)=>B(p)
+                                                    onClick: (x)=>D(f)
                                                 }, null, 8, [
                                                     "onClick"
                                                 ])
@@ -11500,16 +11500,16 @@ ${i.join(`
                                     "sort-by",
                                     "search"
                                 ])),
-                                W("div", td, [
+                                Y("div", td, [
                                     y(je, {
                                         modelValue: d.value,
-                                        "onUpdate:modelValue": et[3] || (et[3] = (p)=>d.value = p),
+                                        "onUpdate:modelValue": et[3] || (et[3] = (f)=>d.value = f),
                                         "max-width": "750px"
                                     }, {
-                                        activator: v(({ props: p })=>[
-                                                y(nt, ke(p, {
+                                        activator: v(({ props: f })=>[
+                                                y(ot, ke(f, {
                                                     variant: "flat",
-                                                    text: E(e)("torrentDetail.trackers.addTrackers.title"),
+                                                    text: R(e)("torrentDetail.trackers.addTrackers.title"),
                                                     color: "accent"
                                                 }), null, 16, [
                                                     "text"
@@ -11517,16 +11517,16 @@ ${i.join(`
                                             ]),
                                         default: v(()=>[
                                                 y(Xt, {
-                                                    title: Y.$t("torrentDetail.trackers.addTrackers.title")
+                                                    title: U.$t("torrentDetail.trackers.addTrackers.title")
                                                 }, {
                                                     default: v(()=>[
                                                             y(pe, null, {
                                                                 default: v(()=>[
                                                                         y(dn, {
-                                                                            modelValue: f.value,
-                                                                            "onUpdate:modelValue": et[2] || (et[2] = (p)=>f.value = p),
-                                                                            label: E(e)("torrentDetail.trackers.addTrackers.newTrackers"),
-                                                                            hint: E(e)("torrentDetail.trackers.addTrackers.newTrackersHint")
+                                                                            modelValue: m.value,
+                                                                            "onUpdate:modelValue": et[2] || (et[2] = (f)=>m.value = f),
+                                                                            label: R(e)("torrentDetail.trackers.addTrackers.newTrackers"),
+                                                                            hint: R(e)("torrentDetail.trackers.addTrackers.newTrackersHint")
                                                                         }, null, 8, [
                                                                             "modelValue",
                                                                             "label",
@@ -11538,21 +11538,21 @@ ${i.join(`
                                                             y(Xe, null, {
                                                                 default: v(()=>[
                                                                         y(Me),
-                                                                        y(nt, {
+                                                                        y(ot, {
                                                                             color: "error",
-                                                                            onClick: D
+                                                                            onClick: B
                                                                         }, {
                                                                             default: v(()=>[
-                                                                                    X(V(E(e)("common.cancel")), 1)
+                                                                                    X(V(R(e)("common.cancel")), 1)
                                                                                 ]),
                                                                             _: 1
                                                                         }),
-                                                                        y(nt, {
+                                                                        y(ot, {
                                                                             color: "accent",
                                                                             onClick: A
                                                                         }, {
                                                                             default: v(()=>[
-                                                                                    X(V(E(e)("common.ok")), 1)
+                                                                                    X(V(R(e)("common.ok")), 1)
                                                                                 ]),
                                                                             _: 1
                                                                         })
@@ -11569,12 +11569,12 @@ ${i.join(`
                                     }, 8, [
                                         "modelValue"
                                     ]),
-                                    y(nt, {
+                                    y(ot, {
                                         variant: "flat",
                                         disabled: c.value.length === 3,
-                                        text: E(e)("torrentDetail.trackers.reannounce"),
+                                        text: R(e)("torrentDetail.trackers.reannounce"),
                                         color: "primary",
-                                        onClick: M
+                                        onClick: P
                                     }, null, 8, [
                                         "disabled",
                                         "text"
@@ -11585,7 +11585,7 @@ ${i.join(`
                     }),
                     y(je, {
                         modelValue: _.isVisible,
-                        "onUpdate:modelValue": et[8] || (et[8] = (p)=>_.isVisible = p),
+                        "onUpdate:modelValue": et[8] || (et[8] = (f)=>_.isVisible = f),
                         "max-width": "750px"
                     }, {
                         default: v(()=>[
@@ -11593,7 +11593,7 @@ ${i.join(`
                                     default: v(()=>[
                                             y(As, null, {
                                                 default: v(()=>[
-                                                        W("span", ed, V(E(e)("torrentDetail.trackers.editTracker.title")), 1)
+                                                        Y("span", ed, V(R(e)("torrentDetail.trackers.editTracker.title")), 1)
                                                     ]),
                                                 _: 1
                                             }),
@@ -11601,7 +11601,7 @@ ${i.join(`
                                                 default: v(()=>[
                                                         y(hn, {
                                                             modelValue: _.isFormValid,
-                                                            "onUpdate:modelValue": et[5] || (et[5] = (p)=>_.isFormValid = p),
+                                                            "onUpdate:modelValue": et[5] || (et[5] = (f)=>_.isFormValid = f),
                                                             onSubmit: et[6] || (et[6] = Ye(()=>{}, [
                                                                 "prevent"
                                                             ]))
@@ -11610,17 +11610,17 @@ ${i.join(`
                                                                     y(Qt, {
                                                                         "model-value": _.oldUrl,
                                                                         disabled: "",
-                                                                        label: Y.$t("torrentDetail.trackers.editTracker.oldUrl")
+                                                                        label: U.$t("torrentDetail.trackers.editTracker.oldUrl")
                                                                     }, null, 8, [
                                                                         "model-value",
                                                                         "label"
                                                                     ]),
                                                                     y(Qt, {
                                                                         modelValue: _.newUrl,
-                                                                        "onUpdate:modelValue": et[4] || (et[4] = (p)=>_.newUrl = p),
+                                                                        "onUpdate:modelValue": et[4] || (et[4] = (f)=>_.newUrl = f),
                                                                         id: "input",
                                                                         rules: g,
-                                                                        label: Y.$t("torrentDetail.trackers.editTracker.newUrl"),
+                                                                        label: U.$t("torrentDetail.trackers.editTracker.newUrl"),
                                                                         autofocus: "",
                                                                         onKeydown: tn($, [
                                                                             "enter"
@@ -11640,24 +11640,24 @@ ${i.join(`
                                             y(Xe, null, {
                                                 default: v(()=>[
                                                         y(Me),
-                                                        y(nt, {
+                                                        y(ot, {
                                                             color: "error",
                                                             disabled: !_.isFormValid,
-                                                            onClick: et[7] || (et[7] = (p)=>_.isVisible = !1)
+                                                            onClick: et[7] || (et[7] = (f)=>_.isVisible = !1)
                                                         }, {
                                                             default: v(()=>[
-                                                                    X(V(E(e)("common.cancel")), 1)
+                                                                    X(V(R(e)("common.cancel")), 1)
                                                                 ]),
                                                             _: 1
                                                         }, 8, [
                                                             "disabled"
                                                         ]),
-                                                        y(nt, {
+                                                        y(ot, {
                                                             color: "accent",
                                                             onClick: $
                                                         }, {
                                                             default: v(()=>[
-                                                                    X(V(E(e)("common.ok")), 1)
+                                                                    X(V(R(e)("common.ok")), 1)
                                                                 ]),
                                                             _: 1
                                                         })
@@ -11721,16 +11721,16 @@ ${i.join(`
                     text: e("torrentDetail.tabs.tagsAndCategories"),
                     value: "tagsAndCategories"
                 }
-            ], h = K(()=>t.currentRoute.value.params.hash), c = K(()=>o.getTorrentIndexByHash(h.value)), f = K(()=>o.getTorrentByHash(h.value)), d = K(()=>c.value === 0), g = K(()=>c.value === o.processedTorrents.length - 1);
-            function _(M) {
+            ], h = Z(()=>t.currentRoute.value.params.hash), c = Z(()=>o.getTorrentIndexByHash(h.value)), m = Z(()=>o.getTorrentByHash(h.value)), d = Z(()=>c.value === 0), g = Z(()=>c.value === o.processedTorrents.length - 1);
+            function _(P) {
                 t.push({
                     name: "torrentDetail",
                     params: {
-                        hash: o.processedTorrents[M].hash
+                        hash: o.processedTorrents[P].hash
                     }
                 }).then((z)=>!z && n.forceReload());
             }
-            function m() {
+            function p() {
                 _(0);
             }
             function b() {
@@ -11742,53 +11742,53 @@ ${i.join(`
             function A() {
                 _(o.processedTorrents.length - 1);
             }
-            function D() {
+            function B() {
                 t.push({
                     name: "dashboard"
                 });
             }
-            function $(M) {
+            function $(P) {
                 if (i.hasActiveDialog) return !1;
-                M.key === "Escape" && D();
+                P.key === "Escape" && B();
             }
-            function B() {
-                const M = t.currentRoute.value.params.tab;
-                M && (l.value = M);
+            function D() {
+                const P = t.currentRoute.value.params.tab;
+                P && (l.value = P);
             }
-            return Te(t.currentRoute, B, {
+            return Te(t.currentRoute, D, {
                 immediate: !0
-            }), Te(f, ()=>{
+            }), Te(m, ()=>{
                 a.fetchProperties(h.value);
             }), ts(()=>{
                 document.addEventListener("keydown", $), a.fetchProperties(h.value), s.updateFileTreeTask.perform();
             }), ws(()=>{
                 document.removeEventListener("keydown", $), a.$reset();
-            }), (M, z)=>(N(), j(kt, null, [
-                    W("div", id, [
+            }), (P, z)=>(N(), q(kt, null, [
+                    Y("div", id, [
                         y(pt, {
                             "no-gutters": "",
                             align: "center",
                             justify: "center"
                         }, {
                             default: v(()=>[
-                                    y(rt, null, {
+                                    y(it, null, {
                                         default: v(()=>[
-                                                W("h1", nd, V(E(e)("torrentDetail.title")), 1)
+                                                Y("h1", nd, V(R(e)("torrentDetail.title")), 1)
                                             ]),
                                         _: 1
                                     }),
-                                    y(rt, null, {
+                                    y(it, null, {
                                         default: v(()=>[
-                                                W("div", od, [
-                                                    y(nt, {
+                                                Y("div", od, [
+                                                    y(ot, {
                                                         icon: "mdi-skip-previous",
                                                         disabled: d.value,
                                                         variant: "plain",
-                                                        onClick: m
+                                                        onClick: p
                                                     }, null, 8, [
                                                         "disabled"
                                                     ]),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         icon: "mdi-arrow-left",
                                                         disabled: d.value,
                                                         variant: "plain",
@@ -11796,7 +11796,7 @@ ${i.join(`
                                                     }, null, 8, [
                                                         "disabled"
                                                     ]),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         icon: "mdi-arrow-right",
                                                         disabled: g.value,
                                                         variant: "plain",
@@ -11804,7 +11804,7 @@ ${i.join(`
                                                     }, null, 8, [
                                                         "disabled"
                                                     ]),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         icon: "mdi-skip-next",
                                                         disabled: g.value,
                                                         variant: "plain",
@@ -11812,10 +11812,10 @@ ${i.join(`
                                                     }, null, 8, [
                                                         "disabled"
                                                     ]),
-                                                    y(nt, {
+                                                    y(ot, {
                                                         icon: "mdi-close",
                                                         variant: "plain",
-                                                        onClick: D
+                                                        onClick: B
                                                     })
                                                 ])
                                             ]),
@@ -11829,22 +11829,22 @@ ${i.join(`
                         }, {
                             default: v(()=>[
                                     y(ca, {
-                                        modelValue: E(l),
+                                        modelValue: R(l),
                                         "onUpdate:modelValue": z[0] || (z[0] = (O)=>We(l) ? l.value = O : null),
                                         "bg-color": "primary",
                                         grow: "",
                                         "show-arrows": ""
                                     }, {
                                         default: v(()=>[
-                                                (N(), j(kt, null, Gt(u, ({ text: O, value: R })=>y(da, {
-                                                        value: R,
+                                                (N(), q(kt, null, Gt(u, ({ text: O, value: I })=>y(da, {
+                                                        value: I,
                                                         text: O,
                                                         replace: "",
                                                         to: {
                                                             name: "torrentDetail",
                                                             params: {
                                                                 hash: h.value,
-                                                                tab: R
+                                                                tab: I
                                                             }
                                                         }
                                                     }, null, 8, [
@@ -11860,9 +11860,9 @@ ${i.join(`
                                 ]),
                             _: 1
                         }),
-                        f.value ? (N(), q(fa, {
+                        m.value ? (N(), K(fa, {
                             key: 0,
-                            modelValue: E(l),
+                            modelValue: R(l),
                             "onUpdate:modelValue": z[1] || (z[1] = (O)=>We(l) ? l.value = O : null),
                             touch: !1
                         }, {
@@ -11872,8 +11872,8 @@ ${i.join(`
                                     }, {
                                         default: v(()=>[
                                                 y(Ec, {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "overview"
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "overview"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11886,8 +11886,8 @@ ${i.join(`
                                     }, {
                                         default: v(()=>[
                                                 y(Ua, {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "info"
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "info"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11900,8 +11900,8 @@ ${i.join(`
                                     }, {
                                         default: v(()=>[
                                                 y(rd, {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "trackers"
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "trackers"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11914,8 +11914,8 @@ ${i.join(`
                                     }, {
                                         default: v(()=>[
                                                 y(jc, {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "peers"
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "peers"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11927,9 +11927,9 @@ ${i.join(`
                                         value: "content"
                                     }, {
                                         default: v(()=>[
-                                                y(E(Ia), {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "content"
+                                                y(R(Ia), {
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "content"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11942,8 +11942,8 @@ ${i.join(`
                                     }, {
                                         default: v(()=>[
                                                 y(qc, {
-                                                    torrent: f.value,
-                                                    "is-active": E(l) === "tagsAndCategories"
+                                                    torrent: m.value,
+                                                    "is-active": R(l) === "tagsAndCategories"
                                                 }, null, 8, [
                                                     "torrent",
                                                     "is-active"
@@ -11957,13 +11957,13 @@ ${i.join(`
                             "modelValue"
                         ])) : Et("", !0)
                     ]),
-                    W("div", {
-                        style: en(`position: absolute; left: ${E(s).rightClickProperties.offset[0]}px; top: ${E(s).rightClickProperties.offset[1]}px;`)
+                    Y("div", {
+                        style: en(`position: absolute; left: ${R(s).rightClickProperties.offset[0]}px; top: ${R(s).rightClickProperties.offset[1]}px;`)
                     }, [
-                        y(E(Io), {
-                            modelValue: E(s).rightClickProperties.isVisible,
-                            "onUpdate:modelValue": z[2] || (z[2] = (O)=>E(s).rightClickProperties.isVisible = O),
-                            "menu-data": E(s).menuData
+                        y(R(Io), {
+                            modelValue: R(s).rightClickProperties.isVisible,
+                            "onUpdate:modelValue": z[2] || (z[2] = (O)=>R(s).rightClickProperties.isVisible = O),
+                            "menu-data": R(s).menuData
                         }, null, 8, [
                             "modelValue",
                             "menu-data"
@@ -11979,4 +11979,4 @@ ${i.join(`
         value: "Module"
     }));
 });
-export { $l as $, io as A, Pt as B, ye as C, ne as D, ht as E, Jt as F, Ms as G, An as H, zt as I, Fl as J, hi as K, Ke as L, J as M, ah as N, gh as O, At as P, _t as Q, _r as R, zh as S, ns as T, pr as U, vt as V, bh as W, ci as X, Hs as Y, fi as Z, xa as _, re as a, Ft as a0, Pn as a1, no as a2, ct as a3, yt as a4, Ah as a5, Xh as a6, du as a7, pu as a8, xu as a9, vu as aa, wu as ab, Ge as ac, Oe as ad, Zi as ae, Is as af, kh as ag, xs as ah, Ae as ai, bo as aj, Mi as ak, ki as al, rl as am, bs as an, nl as ao, Co as ap, fd as aq, $h as b, Qe as c, ps as d, Vt as e, Pi as f, ya as g, Ir as h, eo as i, Nn as j, qt as k, to as l, cu as m, Zr as n, fu as o, _u as p, bu as q, yl as r, ho as s, Rr as t, _e as u, ut as v, Dt as w, Kn as x, il as y, Su as z, __tla };
+export { $l as $, io as A, Pt as B, ye as C, ne as D, ht as E, Jt as F, Ms as G, An as H, zt as I, Fl as J, hi as K, Ke as L, tt as M, ah as N, gh as O, At as P, _t as Q, _r as R, zh as S, ns as T, pr as U, vt as V, bh as W, ci as X, Hs as Y, fi as Z, xa as _, re as a, Ft as a0, Pn as a1, no as a2, ct as a3, yt as a4, Ah as a5, Xh as a6, du as a7, pu as a8, xu as a9, vu as aa, wu as ab, Ge as ac, Oe as ad, Zi as ae, Is as af, kh as ag, xs as ah, Ae as ai, bo as aj, Mi as ak, ki as al, rl as am, bs as an, nl as ao, Co as ap, fd as aq, $h as b, Qe as c, ps as d, Vt as e, Pi as f, ya as g, Ir as h, eo as i, Nn as j, qt as k, to as l, cu as m, Zr as n, fu as o, _u as p, bu as q, yl as r, ho as s, Rr as t, _e as u, ut as v, Dt as w, Kn as x, il as y, Su as z, __tla };
