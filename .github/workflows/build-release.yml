@@ -102,31 +102,6 @@ jobs:
           path: ${{ matrix.artifact-path }}
           retention-days: 1
 
-  release-nightly:
-    name: Create nightly pre-release to GitHub
-    needs: [ setup-release, build-release ]
-    # if: ${{ !needs.setup-release.outputs.release_created }}
-    if: false
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: vuetorrent-build
-          path: ./vuetorrent
-
-      - name: Zip VueTorrent
-        run: zip -qq -r ./vuetorrent.zip ./vuetorrent
-
-      - name: Create nightly release
-        uses: marvinpinto/action-automatic-releases@v1.2.1
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          prerelease: true
-          automatic_release_tag: latest_nightly
-          title: "${{ needs.setup-release.outputs.nightly_version }}: Latest nightly"
-          files: |
-            vuetorrent.zip
-
   push-nightly:
     name: Push to nightly branch
     runs-on: ubuntu-latest
