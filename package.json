@@ -38,7 +38,7 @@
     "vite-plugin-vuetify": "^2.1.0",
     "vue": "^3.5.13",
     "vue-concurrency": "^5.0.3",
-    "vue-i18n": "^11.1.1",
+    "vue-i18n": "^11.1.2",
     "vue-router": "^4.5.0",
     "vue3-apexcharts": "^1.8.0",
     "vue3-toastify": "^0.2.8",
