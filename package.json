@@ -28,7 +28,7 @@
     "@zip.js/zip.js": "^2.7.57",
     "apexcharts": "^4.5.0",
     "array.prototype.tosorted": "^1.1.4",
-    "axios": "^1.8.1",
+    "axios": "^1.8.2",
     "dayjs": "^1.11.13",
     "lodash.debounce": "^4.0.8",
     "pinia": "^2.3.1",
