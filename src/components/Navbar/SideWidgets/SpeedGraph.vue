@@ -25,7 +25,7 @@ const chartOptions: ApexOptions = {
       enabled: false
     }
   },
-  colors: [theme.current.value.colors.upload, theme.current.value.colors.download, theme.current.value.colors.upload, theme.current.value.colors.download],
+  colors: [theme.current.value.colors.upload, theme.current.value.colors.download],
   stroke: {
     show: true,
     curve: 'smooth',
@@ -45,6 +45,10 @@ const chartOptions: ApexOptions = {
     }
   },
   tooltip: {
+    fixed: {
+      enabled: true,
+      position: 'topLeft'
+    },
     theme: 'dark',
     x: {
       formatter: (value: number) => {
