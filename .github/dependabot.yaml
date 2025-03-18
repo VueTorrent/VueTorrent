@@ -12,6 +12,18 @@ updates:
     schedule:
       interval: 'weekly'
     groups:
-      all:
+      env:
         patterns:
-          - '*'
+        - '*node*'
+        - '*vite*'
+      lint:
+        patterns:
+        - '*eslint*'
+        - '*prettier*'
+      framework:
+        patterns:
+        - '@vue/*'
+        - 'vue*'
+      other:
+        patterns:
+        - '*'
