@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.23.1](https://github.com/VueTorrent/VueTorrent/compare/v2.23.0...v2.23.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **SpeedGraph:** Set fixed tooltip ([#2198](https://github.com/VueTorrent/VueTorrent/issues/2198)) ([6d4d0c0](https://github.com/VueTorrent/VueTorrent/commit/6d4d0c0bfb3267b7d4145918fe9bafc840666ff6))
+
+
+### Improvements
+
+* **ActiveFilters:** Improve mouse events handling ([#2196](https://github.com/VueTorrent/VueTorrent/issues/2196)) ([85af361](https://github.com/VueTorrent/VueTorrent/commit/85af36106cf0c6018a88f291661bbcafc020af31))
+
 ## [2.23.0](https://github.com/VueTorrent/VueTorrent/compare/v2.22.0...v2.23.0) (2025-03-05)
 
 ### Features
