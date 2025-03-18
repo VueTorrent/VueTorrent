@@ -1,8 +1,8 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-Co-9OTl8.js","./ColoredChip.vue_vue_type_script_setup_true_lang-DM7FtOpK.js","./index-C3cYamse.js","./vue-CWO_KHeN.js","./vuetify-FqG-3N7y.js","./index-4LVWYijk.css","./BulkRenameFilesDialog-j6xJjnqD.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-Bpb0hlAw.js","./webworkerAll-C6JZjhAP.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-BN6C__rg.js","./WebGPURenderer-DkkFv7Q-.js","./SharedSystems-Crl84IKF.js","./WebGLRenderer-BPp7AlND.js"])))=>i.map(i=>d[i]);
-import { b as we, a as Mo, _ as Io } from "./ColoredChip.vue_vue_type_script_setup_true_lang-DM7FtOpK.js";
-import { s as Wt, a as Z, a6 as Nr, b as Ro, a0 as Ji, d as mt, V as Eo, Q as xt, r as vs, l as Do, A as He, a7 as nr, h as wt, H as Bo, B as K, D as N, G as v, m as y, I as X, J as V, u as R, L as Ye, M as Et, K as tn, O as We, S as Y, N as q, U as en, X as gs, w as Te, z as ts, q as ws, n as ke, $ as Or, F as kt, T as Gt, E as sn, a1 as Ar, R as Fo, W as zr, v as Go, a8 as rn, a9 as nn, P as Vo } from "./vue-CWO_KHeN.js";
-import { bq as nt, br as $o, a1 as on, $ as Ce, u as ee, F as Cs, o as jt, a2 as No, ae as an, p as Ss, bs as Pe, c as ln, d as Xt, e as As, f as pe, g as hn, V as Qt, i as Xe, j as Me, k as ot, l as je, bt as Lr, J as Oo, K as zo, r as pt, q as it, t as Ur, bu as Lo, a6 as Ot, a as St, ah as un, bp as Uo, a8 as Ts, R as _s, U as Ho, ax as Yo, W as ks, z as me, B as ge, ac as xe, a5 as Wo, bf as Xo, C as ys, s as qe, an as Hr, bl as fe, y as jo, bv as Es, bi as qo, be as Ko, bd as Zo, bm as Yr, bw as Qo, bx as Jo, by as ta, H as ea, ap as sa, ai as or, b9 as ra, aP as ia, au as na, ag as ar, a0 as cn, bz as oa, bA as Ds, ad as dn, b as aa, m as la, aw as Wr, b3 as ha, bB as ua, a3 as ca, a4 as da, b1 as be, b2 as fa, __tla as __tla_0 } from "./index-C3cYamse.js";
-import { a as fn, u as pa } from "./vuetify-FqG-3N7y.js";
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./MoveTorrentFileDialog-C52JYLkf.js","./ColoredChip.vue_vue_type_script_setup_true_lang-Uqe5zhED.js","./index-BJvbetcU.js","./vue-DYKWomr6.js","./vuetify-CPVtP65z.js","./index-4LVWYijk.css","./BulkRenameFilesDialog-aOV8vSLL.js","./BulkRenameFilesDialog-CKEu44go.css","./browserAll-Y5VKUYOG.js","./webworkerAll-wcFirztq.js","./colorToUniform-C2GHuDhf.js","./CanvasPool-Dk1oTQLJ.js","./WebGPURenderer-DymNx3qA.js","./SharedSystems-BBtZbnaG.js","./WebGLRenderer-2dEITGrm.js"])))=>i.map(i=>d[i]);
+import { b as we, a as Mo, _ as Io } from "./ColoredChip.vue_vue_type_script_setup_true_lang-Uqe5zhED.js";
+import { s as Wt, a as Z, a6 as Nr, b as Ro, a0 as Ji, d as mt, V as Eo, Q as xt, r as vs, l as Do, A as He, a7 as nr, h as wt, H as Bo, B as K, D as N, G as v, m as y, I as X, J as V, u as R, L as Ye, M as Et, K as tn, O as We, S as Y, N as q, U as en, X as gs, w as Te, z as ts, q as ws, n as ke, $ as Or, F as kt, T as Gt, E as sn, a1 as Ar, R as Fo, W as zr, v as Go, a8 as rn, a9 as nn, P as Vo } from "./vue-DYKWomr6.js";
+import { bq as nt, br as $o, a1 as on, $ as Ce, u as ee, F as Cs, o as jt, a2 as No, ae as an, p as Ss, bs as Pe, c as ln, d as Xt, e as As, f as pe, g as hn, V as Qt, i as Xe, j as Me, k as ot, l as je, bt as Lr, J as Oo, K as zo, r as pt, q as it, t as Ur, bu as Lo, a6 as Ot, a as St, ah as un, bp as Uo, a8 as Ts, R as _s, U as Ho, ax as Yo, W as ks, z as me, B as ge, ac as xe, a5 as Wo, bf as Xo, C as ys, s as qe, an as Hr, bl as fe, y as jo, bv as Es, bi as qo, be as Ko, bd as Zo, bm as Yr, bw as Qo, bx as Jo, by as ta, H as ea, ap as sa, ai as or, b9 as ra, aP as ia, au as na, ag as ar, a0 as cn, bz as oa, bA as Ds, ad as dn, b as aa, m as la, aw as Wr, b3 as ha, bB as ua, a3 as ca, a4 as da, b1 as be, b2 as fa, __tla as __tla_0 } from "./index-BJvbetcU.js";
+import { a as fn, u as pa } from "./vuetify-CPVtP65z.js";
 let $l, io, Pt, ye, ne, ht, Jt, Ms, An, zt, Fl, hi, Ke, tt, ah, gh, At, _t, _r, zh, ns, pr, vt, bh, ci, Hs, fi, xa, re, Ft, Pn, no, ct, yt, Ah, Xh, du, pu, xu, vu, wu, Ge, Oe, Zi, Is, kh, xs, Ae, bo, Mi, ki, rl, bs, nl, Co, fd, $h, Qe, ps, Vt, Pi, ya, Ir, eo, Nn, qt, to, cu, Zr, fu, _u, bu, yl, ho, Rr, _e, ut, Dt, Kn, il, Su;
 let __tla = Promise.all([
     (()=>{
@@ -281,7 +281,7 @@ let __tla = Promise.all([
         }
         async function O(k) {
             const { default: E } = await Pe(async ()=>{
-                const { default: H } = await import("./MoveTorrentFileDialog-Co-9OTl8.js");
+                const { default: H } = await import("./MoveTorrentFileDialog-C52JYLkf.js");
                 return {
                     default: H
                 };
@@ -294,7 +294,7 @@ let __tla = Promise.all([
         }
         async function I(k) {
             const { default: E } = await Pe(async ()=>{
-                const { default: H } = await import("./BulkRenameFilesDialog-j6xJjnqD.js");
+                const { default: H } = await import("./BulkRenameFilesDialog-aOV8vSLL.js");
                 return {
                     default: H
                 };
@@ -2212,7 +2212,7 @@ let __tla = Promise.all([
         },
         test: ()=>!0,
         load: async ()=>{
-            await Pe(()=>import("./browserAll-Bpb0hlAw.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./browserAll-Y5VKUYOG.js"), __vite__mapDeps([8,9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     Wa = {
@@ -2223,7 +2223,7 @@ let __tla = Promise.all([
         },
         test: ()=>typeof self < "u" && self.WorkerGlobalScope !== void 0,
         load: async ()=>{
-            await Pe(()=>import("./webworkerAll-C6JZjhAP.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
+            await Pe(()=>import("./webworkerAll-wcFirztq.js"), __vite__mapDeps([9,10,11,1,2,3,4,5]), import.meta.url);
         }
     };
     class Rt {
@@ -6964,7 +6964,7 @@ ${r}`;
             const o = t[n];
             if (o === "webgpu" && await Ch()) {
                 const { WebGPURenderer: a } = await Pe(async ()=>{
-                    const { WebGPURenderer: l } = await import("./WebGPURenderer-DkkFv7Q-.js");
+                    const { WebGPURenderer: l } = await import("./WebGPURenderer-DymNx3qA.js");
                     return {
                         WebGPURenderer: l
                     };
@@ -6976,7 +6976,7 @@ ${r}`;
                 break;
             } else if (o === "webgl" && wh(r.failIfMajorPerformanceCaveat ?? io.defaultOptions.failIfMajorPerformanceCaveat)) {
                 const { WebGLRenderer: a } = await Pe(async ()=>{
-                    const { WebGLRenderer: l } = await import("./WebGLRenderer-BPp7AlND.js");
+                    const { WebGLRenderer: l } = await import("./WebGLRenderer-2dEITGrm.js");
                     return {
                         WebGLRenderer: l
                     };
