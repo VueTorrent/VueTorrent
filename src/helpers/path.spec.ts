@@ -1,4 +1,5 @@
-import { basename, splitExt } from './path'
+import { FileType } from '@/constants/vuetorrent'
+import { basename, splitExt, getExtType, getFileIcon } from './path'
 
 describe('helpers/path/basename', () => {
   test('*NIX :: should return basename on files', () => {
@@ -71,5 +72,49 @@ describe('helpers/path/splitExt', () => {
 
   it('should treat files with only extension as hidden', () => {
     expect(splitExt('.txt')).toEqual(['.txt', ''])
+  })
+})
+
+describe('helpers/path/getExtType', () => {
+  it('should return the correct type for a known extension', () => {
+    expect(getExtType('txt')).toEqual(FileType.DOCUMENT)
+  })
+
+  it('should return unknown for an unknown extension', () => {
+    expect(getExtType('unknown')).toBe(FileType.UNKNOWN)
+  })
+
+  it('should return unknown for files without extension', () => {
+    expect(getExtType('file')).toBe(FileType.UNKNOWN)
+  })
+
+  it('should handle files starting with a dot', () => {
+    expect(getExtType('.hiddenfile')).toBe(FileType.UNKNOWN)
+  })
+})
+
+describe('helpers/path/getFileIcon', () => {
+  it('should return the correct icon for a known file type', () => {
+    expect(getFileIcon('file.txt')).toEqual('mdi-file-document')
+  })
+
+  it('should return the default icon for an unknown file type', () => {
+    expect(getFileIcon('file.unknown')).toEqual('mdi-file')
+  })
+
+  it('should handle filenames with multiple dots correctly', () => {
+    expect(getFileIcon('my.file.name.txt')).toEqual('mdi-file-document')
+  })
+
+  it('should return the default icon for files without extension', () => {
+    expect(getFileIcon('file')).toEqual('mdi-file')
+  })
+
+  it('should handle files starting with a dot', () => {
+    expect(getFileIcon('.hiddenfile')).toEqual('mdi-file')
+  })
+
+  it('should treat files with only extension as hidden', () => {
+    expect(getFileIcon('.txt')).toEqual('mdi-file')
   })
 })

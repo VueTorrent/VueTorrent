@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import HistoryField from '@/components/Core/HistoryField.vue'
 import { useDialog } from '@/composables'
-import { getFileIcon, HistoryKey } from '@/constants/vuetorrent'
+import { HistoryKey } from '@/constants/vuetorrent'
+import { getFileIcon } from '@/helpers'
 import { useContentStore } from '@/stores'
 import { TreeFolder, TreeNode } from '@/types/vuetorrent'
 import { computed, onMounted, reactive, readonly, ref, watch } from 'vue'

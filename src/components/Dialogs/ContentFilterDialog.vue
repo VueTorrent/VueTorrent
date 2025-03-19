@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { useDialog } from '@/composables'
+import { useDialog, useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { comparators, formatData } from '@/helpers'
-import { splitExt } from '@/helpers/path.ts'
+import { FileType } from '@/constants/vuetorrent'
+import { comparators, formatData, getExtType, splitExt } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { computed, reactive } from 'vue'
-import { useI18nUtils } from '@/composables'
 
 const props = defineProps<{
   guid: string
@@ -21,15 +20,35 @@ const sizeBoundaries = computed<[number, number]>(() =>
     .map(file => file.size)
     .reduce((prev, curr) => [prev[0] === -1 || curr < prev[0] ? curr : prev[0], prev[1] === -1 || curr > prev[1] ? curr : prev[1]], [-1, -1])
 )
-const fileExtensions = computed(() => Array.from(new Set<string>(contentStore.cachedFiles.map(file => splitExt(file.name)[1])).values()))
-const extensionItems = computed(() =>
-  fileExtensions.value
-    .map(ext => {
-      if (ext === '') return { title: t('common.none'), value: '' }
-      else return { title: `.${ext}`, value: ext }
-    })
-    .sort((a, b) => comparators.text.asc(a.title, b.title))
+
+const fileExtensionsByType = computed(() =>
+  new Set<string>([{ name: '1.mp4' }, { name: '1.iso' }, { name: '1.avi' }, { name: '1.mp3' }].map(file => splitExt(file.name)[1])).values().reduce(
+    (prev, ext) => {
+      const type = getExtType(ext)
+      if (Object.keys(prev).includes(type)) {
+        prev[type].push(ext)
+      } else {
+        prev[type] = [ext]
+      }
+      return prev
+    },
+    {} as Record<FileType, string[]>
+  )
 )
+const extensionItems = computed(() =>
+  Object.entries(fileExtensionsByType.value)
+    .sort(([typeA, _1], [typeB, _2]) => {
+      if (typeA === FileType.UNKNOWN) return 1
+      if (typeB === FileType.UNKNOWN) return -1
+      return comparators.text.asc(typeA, typeB)
+    })
+    .flatMap(([type, extensions]) => [
+      { props: { header: t(`constants.file_type.${type}`) } },
+      ...extensions.map(ext => ({ title: `.${ext}`, value: ext })),
+      { props: { divider: true } }
+    ])
+)
+
 const priorityOptions = [
   {
     title: t('constants.file_priority.unwanted'),
@@ -91,30 +110,38 @@ function close() {
     <v-card>
       <v-card-title class="ios-margin">
         <v-toolbar color="transparent">
-          <v-toolbar-title>{{ $t('torrentDetail.content.filter.title') }}</v-toolbar-title>
+          <v-toolbar-title>{{ t('torrentDetail.content.filter.title') }}</v-toolbar-title>
           <v-btn icon="mdi-close" @click="close" />
         </v-toolbar>
       </v-card-title>
       <v-card-text>
         <v-row>
           <v-col cols="4" class="d-flex align-center">
-            {{ $t('torrentDetail.content.filter.extensions') }}
+            {{ t('torrentDetail.content.filter.extensions') }}
           </v-col>
           <v-col cols="8">
-            <v-select v-model="filters.extensions" :items="extensionItems" :placeholder="$t('common.disabled')" persistent-placeholder multiple hide-details />
+            <v-select v-model="filters.extensions" :items="extensionItems" :placeholder="t('common.disabled')" persistent-placeholder multiple hide-details>
+              <template #item="data">
+                <v-list-subheader v-if="data.props.header">
+                  {{ data.props.header }}
+                </v-list-subheader>
+                <v-divider v-else-if="data.props.divider" />
+                <v-list-item v-else v-bind="data.props" />
+              </template>
+            </v-select>
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="4" class="d-flex align-center">
-            {{ $t('torrentDetail.content.filter.priority') }}
+            {{ t('torrentDetail.content.filter.priority') }}
           </v-col>
           <v-col cols="8">
-            <v-select v-model="filters.priority" :items="priorityOptions" :placeholder="$t('common.disabled')" persistent-placeholder multiple hide-details />
+            <v-select v-model="filters.priority" :items="priorityOptions" :placeholder="t('common.disabled')" persistent-placeholder multiple hide-details />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="4" class="d-flex align-center">
-            {{ $t('torrentDetail.content.filter.size') }}
+            {{ t('torrentDetail.content.filter.size') }}
           </v-col>
           <v-col cols="8">
             <v-range-slider
@@ -145,7 +172,7 @@ function close() {
         <v-row>
           <v-col cols="12">
             {{
-              $t('torrentDetail.content.filter.preview', {
+              t('torrentDetail.content.filter.preview', {
                 count: filterPreview.length,
                 total: contentStore.cachedFiles.length,
                 size: formatData(filterPreviewSize, vuetorrentStore.useBinarySize)
@@ -155,8 +182,8 @@ function close() {
         </v-row>
       </v-card-text>
       <v-card-actions>
-        <v-btn color="error" @click="exclude">{{ $t('torrentDetail.content.filter.exclude') }}</v-btn>
-        <v-btn color="success" @click="include">{{ $t('torrentDetail.content.filter.include') }}</v-btn>
+        <v-btn color="error" @click="exclude">{{ t('torrentDetail.content.filter.exclude') }}</v-btn>
+        <v-btn color="success" @click="include">{{ t('torrentDetail.content.filter.include') }}</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
