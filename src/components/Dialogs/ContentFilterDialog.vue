@@ -22,7 +22,7 @@ const sizeBoundaries = computed<[number, number]>(() =>
 )
 
 const fileExtensionsByType = computed(() =>
-  new Set<string>([{ name: '1.mp4' }, { name: '1.iso' }, { name: '1.avi' }, { name: '1.mp3' }].map(file => splitExt(file.name)[1])).values().reduce(
+  new Set<string>(contentStore.cachedFiles.map(file => splitExt(file.name)[1])).values().reduce(
     (prev, ext) => {
       const type = getExtType(ext)
       if (Object.keys(prev).includes(type)) {
