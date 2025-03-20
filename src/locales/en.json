@@ -80,6 +80,19 @@
       "normal": "Normal",
       "unwanted": "Unwanted"
     },
+    "file_type": {
+      "archive": "Archives",
+      "audio": "Audio",
+      "book": "Books",
+      "document": "Documents",
+      "executable": "Executables",
+      "image": "Images",
+      "information": "Information",
+      "script": "Scripts",
+      "subtitle": "Subtitles",
+      "unknown": "Unknown",
+      "video": "Video"
+    },
     "filter_type": {
       "conjunctive": "Conjunctive filtering (AND)",
       "disjunctive": "Disjunctive filtering (OR)"

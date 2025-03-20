@@ -1,3 +1,5 @@
+import { extMap, FileType, typesMap } from '@/constants/vuetorrent'
+
 export function basename(path: string | null | undefined) {
   if (!path) return ''
 
@@ -16,4 +18,12 @@ export function splitExt(path: string | null | undefined): [string, string] {
   const groups = uniPath.split('.')
   const ext = groups.pop()!
   return [groups.join('.'), ext]
+}
+
+export function getExtType(ext: string) {
+  return extMap[ext] || FileType.UNKNOWN
+}
+
+export function getFileIcon(filename: string) {
+  return typesMap[getExtType(splitExt(filename)[1])]
 }

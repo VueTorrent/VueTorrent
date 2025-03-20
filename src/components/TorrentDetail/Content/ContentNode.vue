@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useI18nUtils } from '@/composables'
 import { FilePriority } from '@/constants/qbit'
-import { getFileIcon } from '@/constants/vuetorrent'
-import { doesCommand, formatData } from '@/helpers'
+import { doesCommand, formatData, getFileIcon } from '@/helpers'
 import { useContentStore, useVueTorrentStore } from '@/stores'
 import { TreeNode } from '@/types/vuetorrent'
 import { storeToRefs } from 'pinia'
