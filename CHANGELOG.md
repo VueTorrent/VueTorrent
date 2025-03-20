@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.24.0](https://github.com/VueTorrent/VueTorrent/compare/v2.23.1...v2.24.0) (2025-03-20)
+
+
+### Features
+
+* **Content/Filter:** Group extensions of same type ([#2204](https://github.com/VueTorrent/VueTorrent/issues/2204)) ([ddbafbe](https://github.com/VueTorrent/VueTorrent/commit/ddbafbef68a9a1fc770411e31f84e15486f142a0))
+
 ## [2.23.1](https://github.com/VueTorrent/VueTorrent/compare/v2.23.0...v2.23.1) (2025-03-18)
 
 
